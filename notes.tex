@@ -1,0 +1,782 @@
+\documentclass[numbers=enddot,12pt,final,onecolumn,notitlepage]{scrartcl}%
+\usepackage[headsepline,footsepline,manualmark]{scrlayer-scrpage}
+\usepackage[all,cmtip]{xy}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{framed}
+\usepackage{comment}
+\usepackage{color}
+\usepackage{hyperref}
+\usepackage[sc]{mathpazo}
+\usepackage[T1]{fontenc}
+\usepackage{tikz}
+\usepackage{needspace}
+\usepackage{tabls}
+%TCIDATA{OutputFilter=latex2.dll}
+%TCIDATA{Version=5.50.0.2960}
+%TCIDATA{LastRevised=Wednesday, January 23, 2019 09:55:00}
+%TCIDATA{SuppressPackageManagement}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{BibliographyScheme=Manual}
+%TCIDATA{Language=American English}
+%BeginMSIPreambleData
+\providecommand{\U}[1]{\protect\rule{.1in}{.1in}}
+%EndMSIPreambleData
+\usetikzlibrary{arrows}
+\newcounter{exer}
+\newcounter{exera}
+\numberwithin{exer}{section}
+\theoremstyle{definition}
+\newtheorem{theo}{Theorem}[section]
+\newenvironment{theorem}[1][]
+{\begin{theo}[#1]\begin{leftbar}}
+{\end{leftbar}\end{theo}}
+\newtheorem{lem}[theo]{Lemma}
+\newenvironment{lemma}[1][]
+{\begin{lem}[#1]\begin{leftbar}}
+{\end{leftbar}\end{lem}}
+\newtheorem{prop}[theo]{Proposition}
+\newenvironment{proposition}[1][]
+{\begin{prop}[#1]\begin{leftbar}}
+{\end{leftbar}\end{prop}}
+\newtheorem{defi}[theo]{Definition}
+\newenvironment{definition}[1][]
+{\begin{defi}[#1]\begin{leftbar}}
+{\end{leftbar}\end{defi}}
+\newtheorem{remk}[theo]{Remark}
+\newenvironment{remark}[1][]
+{\begin{remk}[#1]\begin{leftbar}}
+{\end{leftbar}\end{remk}}
+\newtheorem{coro}[theo]{Corollary}
+\newenvironment{corollary}[1][]
+{\begin{coro}[#1]\begin{leftbar}}
+{\end{leftbar}\end{coro}}
+\newtheorem{conv}[theo]{Convention}
+\newenvironment{convention}[1][]
+{\begin{conv}[#1]\begin{leftbar}}
+{\end{leftbar}\end{conv}}
+\newtheorem{quest}[theo]{Question}
+\newenvironment{question}[1][]
+{\begin{quest}[#1]\begin{leftbar}}
+{\end{leftbar}\end{quest}}
+\newtheorem{warn}[theo]{Warning}
+\newenvironment{conclusion}[1][]
+{\begin{warn}[#1]\begin{leftbar}}
+{\end{leftbar}\end{warn}}
+\newtheorem{conj}[theo]{Conjecture}
+\newenvironment{conjecture}[1][]
+{\begin{conj}[#1]\begin{leftbar}}
+{\end{leftbar}\end{conj}}
+\newtheorem{exam}[theo]{Example}
+\newenvironment{example}[1][]
+{\begin{exam}[#1]\begin{leftbar}}
+{\end{leftbar}\end{exam}}
+\newtheorem{exmp}[exer]{Exercise}
+\newenvironment{exercise}[1][]
+{\begin{exmp}[#1]\begin{leftbar}}
+{\end{leftbar}\end{exmp}}
+\newenvironment{statement}{\begin{quote}}{\end{quote}}
+\iffalse
+\newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\newenvironment{question}[1][Question]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\fi
+\let\sumnonlimits\sum
+\let\prodnonlimits\prod
+\let\cupnonlimits\bigcup
+\let\capnonlimits\bigcap
+\renewcommand{\sum}{\sumnonlimits\limits}
+\renewcommand{\prod}{\prodnonlimits\limits}
+\renewcommand{\bigcup}{\cupnonlimits\limits}
+\renewcommand{\bigcap}{\capnonlimits\limits}
+\setlength\tablinesep{3pt}
+\setlength\arraylinesep{3pt}
+\setlength\extrarulesep{3pt}
+\voffset=0cm
+\hoffset=-0.7cm
+\setlength\textheight{22.5cm}
+\setlength\textwidth{15.5cm}
+\newcommand\arxiv[1]{\href{http://www.arxiv.org/abs/#1}{\texttt{arXiv:#1}}}
+\newenvironment{verlong}{}{}
+\newenvironment{vershort}{}{}
+\newenvironment{noncompile}{}{}
+\excludecomment{verlong}
+\includecomment{vershort}
+\excludecomment{noncompile}
+\newcommand{\CC}{\mathbb{C}} % complex numbers
+\newcommand{\RR}{\mathbb{R}} % real numbers
+\newcommand{\QQ}{\mathbb{Q}} % rational numbers
+\newcommand{\NN}{\mathbb{N}} % nonnegative integers
+\newcommand{\ZZ}{\mathbb{Z}} % integers
+\newcommand{\id}{\operatorname{id}} % identity map
+\newcommand{\lcm}{\operatorname{lcm}}
+% Lowest common multiple. For historical reasons, LaTeX has a \gcd
+% command built in, but not an \lcm command. The preceding line
+% rectifies that.
+\newcommand{\rev}{\operatorname{rev}} % reversal of a walk
+\newcommand{\powset}[2][]{\ifthenelse{\equal{#2}{}}{\mathcal{P}\left(#1\right)}{\mathcal{P}_{#1}\left(#2\right)}}
+% $\powset[k]{S}$ stands for the set of all $k$-element subsets of
+% $S$. The argument $k$ is optional, and if not provided, the result
+% is the whole powerset of $S$.
+\newcommand{\set}[1]{\left\{ #1 \right\}}
+% $\set{...}$ compiles to {...} (set-brackets).
+\newcommand{\abs}[1]{\left| #1 \right|}
+% $\abs{...}$ compiles to |...| (absolute value, or size of a set).
+\newcommand{\tup}[1]{\left( #1 \right)}
+% $\tup{...}$ compiles to (...) (parentheses, or tuple-brackets).
+\newcommand{\ive}[1]{\left[ #1 \right]}
+% $\ive{...}$ compiles to [...] (Iverson bracket, aka truth value).
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\lf}[2]{#1^{\underline{#2}}}
+% $\lf{...1}{...2}$ compiles to $...1^{\underline{...2}}$.
+% This is a notation for the falling factorial.
+\newcommand{\underbrack}[2]{\underbrace{#1}_{\substack{#2}}}
+% $\underbrack{...1}{...2}$ yields
+% $\underbrace{...1}_{\substack{...2}}$. This is useful for doing
+% local rewriting transformations on mathematical expressions with
+% justifications. For example, try this out:
+% $ \underbrack{(a+b)^2}{= a^2 + 2ab + b^2 \\ \text{(by the binomial formula)}} $
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command with 1 argument of height
+\newcommand{\nnn}{\nonumber\\} % Don't number this line in an "align" environment, and move on to the next line.
+% \sslash gives a double slash, which I use for integer quotients.
+\newcommand{\sslash}{\mathbin{/\mkern-6mu/}} % Quotient of division with remainder.
+% Functions specific to domino tiling exercise 4:
+\ihead{Math 4281 notes}
+\ohead{page \thepage}
+\cfoot{}
+\begin{document}
+
+\title{UMN Spring 2019 Math 4281 notes}
+\author{Darij Grinberg}
+\date{
+%TCIMACRO{\TeXButton{today}{\today} }%
+%BeginExpansion
+\today
+%EndExpansion
+}
+\maketitle
+\tableofcontents
+
+\section{Introduction}
+
+This file will contain the notes from the Math 4281 class (``Introduction
+to Modern Algebra'') I am teaching at UMN in Spring 2019.
+I will type the first draft directly in the classroom, and subsequently
+expand it into proper writing. Occasionally, I will also add extra sections
+not covered in class.
+
+The website of the class is
+\url{http://www-users.math.umn.edu/~dgrinber/19s/index.html} ; you
+will find homework sets there.
+
+\subsection{Organisation (this will be moved into the syllabus)}
+
+\textbf{Office hours:} See
+\href{http://www-users.math.umn.edu/~dgrinber/19s/syll.pdf}{the syllabus}.
+
+\textbf{Homework:}
+
+Not sure when HW1 will be due. Depends on when I get a grader.
+
+Expect HW0 soon, but this is not an actual homework, but rather a ``demo''
+file that you should read or glance over. It should give you an idea of
+how certain kinds of proofs can be written and about the $\sum$ notation.
+You can also use it as a template if you want to write your homework in
+\LaTeX\ (which I highly encourage).
+
+\subsection{Literature}
+
+Many books have been written about abstract algebra.
+I have only a passing familiarity with most of them.
+Some of the ``bibles'' of the subject (bulky texts covering lots of material)
+are Dummit/Foote \cite{Dummit-Foote}, Knapp \cite{Knapp1} and
+\cite{Knapp2} (both freely available), van der Waerden
+\cite{Waerden1} and \cite{Waerden2} (one of the oldest texts on
+modern algebra, thus rather dated, but still as readable as ever).
+% Two other textbooks are Bosch \cite{Bosch} and Artin \cite{Artin}.
+
+Of course, any book longer than 200 pages likely goes further than
+our course will (unless it is full of details or solved exercises or
+printed in really large letters).
+Thus, let me recommend some more introductory sources.
+Siksek's lecture notes \cite{Siksek} are a readable introduction
+that is a lot more amusing than I had ever expected an algebra
+text to be.
+Goodman's free book \cite{Goodman} combines introductory material
+with geometric motivation and applications, such as the classification
+of regular polyhedra and 2-dimensional crystals.
+In a sense, it is a great complement to our ungeometric course.
+Pinter's \cite{Pinter} often gets used in classes like ours.
+Armstrong's notes \cite{Armstrong} cover a significant part of
+what we do (and he will likely have notes for a second course
+written up by the end of this semester).
+
+Keith Conrad's blurbs \cite{Conrad*} are not a book, as they only
+cover selected topics. But at pretty much every topic they cover,
+they are one of the best sources (clear, full of examples, and
+often going fairly deep).
+We shall follow one of them particularly closely: the one on
+Gaussian integers \cite{Conrad-Gauss}.
+
+We will use some basic linear algebra, all of which can be found
+in Hefferon's book \cite{Hefferon} (but we won't need all of this
+book).
+As far as determinants are concerned, we will briefly build up
+their theory; we refer to \cite[Section 12 \& Appendix B]{Strickland}
+for proofs (and to \cite[Chapter 6]{detnotes} for a really
+detailed and formal treatment).
+
+This course will begin (after some motivating questions) with a
+survey of elementary number theory.
+This is in itself a deep subject (despite the name) with a long
+history
+(\href{https://en.wikipedia.org/wiki/Plimpton_322}{perhaps as old as mathematics}),
+and of course we will just scratch the surface.
+Books like \cite{NiZuMo91}, \cite{Burton} and \cite{Uspensky-Heaslet}
+cover a lot more than we can do.
+The Gallier/Quaintance survey \cite{Gallier-RSA} covers a good
+amount of basics and more.
+
+We assume that the reader is familiar with the commonplaces of
+mathematical argumentation, such as induction (including strong
+induction), ``WLOG'' arguments, proof by contradiction,
+summation signs ($\sum$) and polynomials (a vague notion of
+polynomials will suffice; we will give a precise definition when
+it becomes necessary).
+If not, several texts can be helpful in achieving such
+familiarity: e.g., \cite[particularly Chapters 1--5]{LeLeMe},
+\cite{Hammack}, \cite{Day}.
+
+\subsection{The plan}
+
+The material I am going to cover is mostly standard.
+However, the order in which I will go through it is somewhat unusual:
+I will spend a lot of time studying the basic examples before defining
+abstract notions such as ``group'', ``monoid'', ``ring'' and ``field''.
+This way, once I come to these notions, you'll already have many
+examples to work with.
+(Don't be fooled by the word ``example'': We will prove a lot about them,
+much of which is neither straightforward nor easy.)
+
+First, I will show some motivating questions that are easy to state yet
+require abstract algebra to prove. We will hopefully see their answers
+by the end of this class. (Some of them can also be answered elementarily,
+without using abstract algebra, but such answers usually take more work
+and are harder to find.)
+
+\subsection{\label{subsect.intro.sum-of-2sq}Motivation: $n=x^{2}+y^{2}$}
+
+A \textit{perfect square} means the square of an integer. Thus, the
+perfect squares are
+\[
+ 0^2 = 0, \qquad 1^2 = 1, \qquad 2^2 = 4, \qquad 3^2 = 9, \qquad 4^2 = 16,
+ \qquad \ldots .
+\]
+
+Here is an old problem (first solved by Pierre de Fermat in 1640, but
+apparently already studied by Diophantus in the 3rd Century):
+
+\begin{question} \label{quest.intro.sum-of-2sq.1}
+What integers can be written as sums of two perfect squares?
+\end{question}
+
+For example, $5$ can be written in this way, since $5=2^{2}+1^{2}$.
+
+So can $4$, since $4=2^{2}+0^{2}$. (Keep in mind that $0$ is a perfect square.)
+
+However, $7$ cannot be written in this way. In fact, if we had $7 = a^2 + b^2$
+for two integers $a$ and $b$, then $a^2$ and $b^2$ would have to be $\leq 7$
+(since $a^2$ and $b^2$ are always $\geq 0$, no matter what sign $a$ and $b$ have);
+but the only perfect squares that are $\leq 7$ are $0,1,4$, and there is no
+way to write $7$ as a sum of two of these perfect squares (just check all the
+possibilities).
+
+For a similar but simpler reason, no negative number can be written as
+a sum of two perfect squares.
+
+We can of course approach Question~\ref{quest.intro.sum-of-2sq.1}
+using a computer: It is very easy to check, for a given integer $n$, whether
+$n$ is a sum of two perfect squares. (Just check all possibilities for $a$ and
+$b$ for the validity of the equation $n = a^2 + b^2$. You only need to try
+$a$ and $b$ belonging to $\set{0, 1, \ldots, \floor{\sqrt{n}}}$, where $\floor{y}$
+(for a real number $y$) denotes the smallest integer that is less or equal than $y$
+(also known as ``$y$ rounded down'').)
+If you do this, you will see that among the first $101$ nonnegative integers,
+the ones that can be written as sums of two perfect squares are precisely
+\begin{align*}
+ & 0, 1, 2, 4, 5, 8, 9, 10, 13, 16, 17, 18, 20, 25, 26, 29, \\
+ & 32, 34, 36, 37, 40, 41, 45, 49, 50, 52, 53, 58, 61, 64, \\
+ & 65, 68, 72, 73, 74, 80, 81, 82, 85, 89, 90, 97, 98, 100 .
+\end{align*}
+Having this data, you can look up the sequence in
+\href{https://oeis.org/}{the Online Encyclopedia of Integer Sequences (short OEIS)},
+and see that the sequence of these integers is known as
+\href{https://oeis.org/A001481}{OEIS Sequence A001481}.
+In the ``Comments'' field, you can read a lot of what is known about it
+(albeit in telegraphic style).
+
+For example, one of the comments says ``Closed under multiplication''.
+This is short for ``if you multiply two entries of the sequence, then
+the product will again be an entry of the sequence''.
+In other words, if you multiply two integers that are sums of two perfect
+squares, then you get another sum of two perfect squares.
+Why is this so?
+
+It turns out that there is a ``simple'' reason for this: the identity
+\[
+ \left(  a^{2}+b^{2}\right)  \left(  c^{2}+d^{2}\right)  =\left(
+ ad+bc\right)  ^{2}+\left(  ac-bd\right)  ^{2} ,
+\]
+which holds for arbitrary reals $a,b,c,d$ (and thus, in particular,
+for integers).
+This is known as
+\href{https://en.wikipedia.org/wiki/Brahmagupta-Fibonacci_identity}{the Brahmagupta-Fibonacci identity},
+and of course can easily be proven by expanding both sides.
+But how would you come up with such an identity?
+
+If you stare at the above sequence long enough, you may also discover
+another pattern: An integer of the form $4k+3$ with integer $k$
+(that is, an integer that is larger by $3$ than a multiple of $4$)
+can never be written as a sum of two perfect squares.
+(Thus, $3, 7, 11, 15, 19, 23, \ldots$ cannot be written in this way.)
+This does not account for all integers that cannot be written in this
+way, but it does provide some clues to the answer that we will later
+see.
+In order to prove this observation, we shall need basic modular
+arithmetic (or at least division with remainder); we will see this
+proof very soon.
+
+Further questions can be asked.
+One of them is: Given an integer $n$, how many ways are there to
+represent $n$ as a sum of two perfect squares?
+This is actually several questions masquerading as one, since it is not
+so clear what a ``way'' is.
+Do $5 = 1^2 + 2^2$ and $5 = 2^2 + 1^2$ count as two different ways?
+What about $5 = 1^2 + 2^2$ versus $5 = \tup{-1}^2 + 2^2$ (here, the
+perfect squares are the same, but do we really want to count the
+squares or rather the numbers we are squaring?).
+
+Let me formalize the question as follows:
+
+\begin{question} \label{quest.intro.sum-of-2sq.2}
+ Let $n$ be an integer.
+ 
+ \textbf{(a)} How many pairs $\tup{a, b} \in \NN^2$ are there
+ that satisfy $n = a^2 + b^2$ ?
+ Here, and in the following, $\NN$ denotes the set $\set{0, 1, 2, \ldots}$
+ of all nonnegative integers.
+ 
+ \textbf{(b)} How many pairs $\tup{a, b} \in \ZZ^2$ are there
+ that satisfy $n = a^2 + b^2$ ?
+ Here, and in the following, $\ZZ$ denotes the set $\set{\ldots, -2, -1, 0, 1, 2, \ldots}$
+ of all integers.
+ 
+ \textbf{(c)} How do these counts change if we count \textbf{unordered}
+ pairs instead (i.e., count $\tup{a, b}$ and $\tup{b, a}$ as one only)?
+\end{question}
+
+Note that when I say ``pair'', I always mean ``ordered pair'' by default,
+unless I explicitly say ``unordered pair''.
+
+Again, a little bit of programming easily yields answers to all
+three parts of this question for small values of $n$,
+and the resulting data can be plugged into the OEIS and yields
+lots of information.
+
+\begin{proof}[First steps toward answering Question~\ref{quest.intro.sum-of-2sq.2}.]
+
+\textbf{(a)} I claim that the number of such pairs is even
+unless $n$ is twice a perfect square (i.e., unless $n = 2m^2$ for
+some integer $m$); in the latter case, this number is odd
+instead.
+
+Why?
+Let me define a \textit{solution} to be a pair $\tup{a, b}$
+such that $n = a^2 + b^2$.
+So I want to know whether the number of solutions is even or odd.
+But we have $a^2 + b^2 = b^2 + a^2$ for all $a$ and $b$.
+Thus, if $\tup{a, b}$ is a solution, then so is $\tup{b, a}$.
+Hence, the solutions themselves ``come in pairs'',
+with each solution $\tup{a, b}$ being matched to the solution $\tup{b, a}$,
+unless there is a solution $\tup{a, b}$ with $a = b$ (because
+such a solution would be matched to itself, and thus not form
+an actual pair).
+But solutions $\tup{a, b}$ with $a = b$ are easy to classify:
+If $n$ is twice a perfect square, then there is exactly one
+such solution (namely, $\tup{\sqrt{n/2}, \sqrt{n/2}}$);
+otherwise there is none (because $n = a^2 + b^2$ with $a = b$
+leads to $n = b^2 + b^2 = 2b^2$).
+Since we know that all the other solutions ``come in pairs'',
+we thus conclude that the number of solutions is odd if $n$
+is twice a perfect square and even otherwise.
+This proves our claim.
+
+Of course, we have not made much headway into
+Question~\ref{quest.intro.sum-of-2sq.2}; knowing whether a number
+is even or odd is far from knowing the number itself.
+But I think the argument above was worth showing; similar reasoning
+is used a lot in algebra.
+
+\textbf{(b)} By reasoning analogous to the one we used in
+part \textbf{(a)}, we can see that the number of such pairs
+will be divisible by $8$ whenever $n$ is neither a perfect
+square nor twice a perfect square.
+Indeed, this relies on the fact that
+\begin{align*}
+ a^2 + b^2 &= b^2 + a^2 = \tup{-a}^2 + b^2 = b^2 + \tup{-a}^2
+ = a^2 + \tup{-b}^2 = \tup{-b}^2 + a^2 \\
+ &= \tup{-a}^2 + \tup{-b}^2 = \tup{-b}^2 + \tup{-a}^2
+\end{align*}
+for all $a$ and $b$.
+Thus the pairs $\tup{a, b} \in \ZZ^2$ that satisfy $n = a^2 + b^2$
+don't just come in pairs; they come in sets of $8$
+(namely, each $\tup{a, b}$ comes in a set with
+$\tup{b, a}$, $\tup{-a, b}$, $\tup{b, -a}$, $\tup{a, -b}$,
+$\tup{-b, a}$, $\tup{-a, -b}$ and $\tup{-b, -a}$).
+These sets of $8$ can ``degenerate'' to smaller sets when
+some of their elements coincide, but this can only happen
+when $n$ is a perfect square (in which case we can have
+$\tup{a, b} = \tup{-a, b}$ for example) or twice a perfect
+square (in which case we can have
+$\tup{a, b} = \tup{b, a}$ or $\tup{a, b} = \tup{-b, -a}$ or
+other such coincidences). (Check this!)
+
+\textbf{(c)} We can reduce this to parts \textbf{(a)} and
+\textbf{(b)}. Indeed:
+\begin{itemize}
+\item When $n$ is not twice a perfect square, the
+number of unordered pairs will be half the number of ordered
+pairs, since each unordered pair $\tup{a, b}_{\text{unordered}}$
+corresponds to precisely two ordered pairs $\tup{a, b}$
+and $\tup{b, a}$.
+\item When $n$ is twice a perfect square, the
+number of unordered pairs will be half the number of ordered
+pairs minus $1$ or minus $2$. (The ``half'' refers to the
+difference, not to the number; thus, the ``minus $1$ or minus $2$''
+stands in the numerator of the fraction.)
+Indeed,
+each unordered pair $\tup{a, b}_{\text{unordered}}$
+corresponds to precisely two ordered pairs $\tup{a, b}$
+and $\tup{b, a}$ unless $a = b$, in which case it corresponds
+to only one ordered pair.
+So we need to subtract the number of ordered pairs $\tup{a, b}$
+that satisfy $a = b$ from the numerator of our fraction.
+How many such pairs exist depends on whether we are counting
+pairs in $\NN^2$ or in $\ZZ^2$, and on whether $n$ is $0$.
+\qedhere
+\end{itemize}
+\end{proof}
+
+Note that sums of squares have a geometric meaning (going back
+to Pythagoras):
+Two real numbers $a$ and $b$ satisfy $a^2 + b^2 = n$ (for a given
+integer $n \geq 0$) if and only if the point with Cartesian
+coordinates $\tup{a, b}$ lies on the circle with center $0$ and
+radius $\sqrt{n}$.
+This will actually prove a valuable insight that will lead us
+to the answers to the above questions.
+
+Just as a teaser: There are formulas for all three parts of
+Question~\ref{quest.intro.sum-of-2sq.2}, in terms of divisors
+of $n$ of the forms $4k+1$ and $4k+3$.
+We will see these formulas after we have properly understood
+the concept of Gaussian integers.
+
+\subsection{\label{subsect.intro.algnum}Motivation: Algebraic numbers}
+
+\begin{noncompile}
+Recall how the number system was constructed. In a way, each extension
+was done in order to allow a certain operation to proceed:
+The natural numbers were extended to the integers in order to allow subtraction
+(in all cases, not just when we are subtracting a smaller number from a larger).
+Then, the integers were extended to the rational numbers in order to allow
+division (in all reasonable cases\footnote{``Reasonable'' in this case means
+that division by $0$ is still forbidden. If we allowed division by $0$
+as well, then our ``rational numbers'' would all be equal to each other and
+therefore a huge step back from the integers.}, not just when the division
+works out remainder-less). Then, the rational numbers were extended to the
+real numbers in order to allow limits (in all reasonable cases). Finally,
+the real numbers were (or will be -- we will see this in more detail)
+extended to the complex numbers in order to allow square roots.
+
+From an algebraic point of view, the step from the rational numbers to the
+real numbers is somewhat of an overkill.
+Algebraists often want to work with roots, particularly roots of polynomials;
+ideally, every polynomial of degree $n$ should have ``all'' $n$ roots (counted
+with multiplicity), so it can be factored into linear factors.
+This does indeed happen once you get to complex numbers (the so-called
+``Fundamental Theorem of Algebra''), but the road there
+is bumpy and non-algebraic (at the very least, you need continuity to prove
+the ``Fundamental Theorem of Algebra'').
+So algebraists have wondered whether there is a cheaper way to buy roots for
+their polynomials -- without having to pay the price of analysis.
+(The question became even more relevant when they started working over
+arbitrary fields and even commutative rings -- in a sense, ``alternative
+number systems'' in which analysis won't help you.)
+
+The answer is ``yes'', and we will eventually see how.
+But for now, let me focus on a simple problem that is already interesting
+if one works inside the real numbers.
+\end{noncompile}
+
+A real number $z$ is said to be \textit{algebraic} if there exists a
+nonzero polynomial $P$ with rational coefficients such that
+$P\tup{z} = 0$.
+In other words, a real number $z$ is algebraic if and only if it is a
+root of a nonzero polynomial with rational coefficients.
+
+(If you know the complex numbers, you can replace ``real'' by ``complex''
+in this definition; but we shall only see real numbers in this little
+motivational subsection.)
+
+Examples:
+
+\begin{itemize}
+
+ \item Each rational number $a$ is algebraic (being a root of the
+       nonzero polynomial $x-a$ with rational coefficients).
+
+ \item The number $\sqrt{2}$ is algebraic (being a root of the
+       nonzero polynomial $x^{2}-2$).
+
+ \item The number $\sqrt[3]{5}$ is algebraic (being a root of $x^{3}-5$).
+ 
+ \item All the roots of the polynomial
+       $f\tup{x} := \dfrac{3}{2}x^{4}+17x^{3}-12x+\dfrac{9}{4}$ (whatever
+       they are) are algebraic. \\
+       Speaking of these roots, what are they?
+       Using a computer, one can show that this polynomial $f\tup{x}$ has
+       $4$ real roots ($-11.269\ldots, -0.960\ldots, 0.198\ldots, 0.697\ldots$),
+       which can be written as complicated expressions with radicals
+       (i.e., $\sqrt[k]{}$ signs), though complex numbers appear in these
+       expressions (despite the roots being real!).
+       All this does not matter to the fact that they are algebraic :)
+
+ \item All the roots of the polynomial
+       $g\tup{x} := x^7 - x^5 + 1$ are algebraic. \\
+       This polynomial has only one real root.
+       This root cannot be written as an expression with radicals
+       (as can be proven using
+       \href{https://en.wikipedia.org/wiki/Galois_theory}{Galois theory}
+       -- indeed, the discovery of
+       this theory greatly motivated the development of abstract algebra).
+       % (Nor can the remaining $6$ complex roots be.)
+       Nevertheless, it is algebraic, by definition.
+       (The same holds for the remaining $6$ complex roots of $g$ --
+       we are working with real numbers here only for the sake of
+       familiarity.)
+
+ \item The most famous number that is not algebraic is $\pi$.
+       This is a famous result of Lindemann, but it belongs to analysis,
+       not to algebra, because $\pi$ is not defined algebraically in
+       the first place (it is defined as the length of a curve or as
+       an area of a curved region -- but either of these definitions
+       boils down to a limit of a sequence).
+
+ \item The second most famous number that is not algebraic is
+       \href{https://en.wikipedia.org/wiki/E_(mathematical_constant)}{Euler's number $e$}
+       (the basis of the natural logarithm).
+       Again, analysis is needed to define $e$, and thus also to prove
+       its non-algebraicity.
+
+\end{itemize}
+
+Numbers that are not algebraic are called
+\href{https://en.wikipedia.org/wiki/Transcendental_number}{\textit{transcendental}}.
+We shall not study them much, since most of them do not come from algebra.
+Instead, we shall try our hands at the following question:
+
+\begin{question} \label{quest.intro.algnum.1}
+\textbf{(a)}
+Is the sum of two (or, more generally, finitely many) algebraic
+numbers always algebraic?
+
+\textbf{(b)} What if we replace ``sum'' by ``difference'' or ``product''?
+\end{question}
+
+Let me motivate why this is a natural question to ask.
+The sum of two integers is still an integer; the sum of two rational
+numbers is still a rational number.
+These facts are fundamental; without them we could hardly work with integers
+and rational numbers.
+If a similar fact would not hold for algebraic numbers, it would mean that
+the algebraic numbers are not a good ``number system'' to work in; on a
+practical level, it would mean that (e.g.) if we defined a function on the
+set of all algebraic numbers, then we could not plug a sum of algebraic
+numbers into it.
+
+\begin{proof}[Attempts at answering Question~\ref{quest.intro.algnum.1} \textbf{(a)}.]
+Let us try a particularly simple example of a sum of two algebraic numbers:
+Let $w$ be $\sqrt{2} + \sqrt{3}$.
+Is $w$ algebraic?
+
+To answer this question affirmatively, we need to find a nonzero polynomial
+$f\tup{x}$ with rational coefficients that has $w$ as a root.
+
+Just looking at the equality $w = \sqrt{2} + \sqrt{3}$, we cannot directly
+eyeball such an $f$. The problem, in a sense, is that there are too many
+(namely, two) square roots in this equality.
+
+However, if we square this equality, then we obtain
+\[
+w^{2}=\left(  \sqrt{2}+\sqrt{3}\right)  ^{2}=2+2\sqrt{2}\cdot \sqrt{3}+3
+=5+2\sqrt{6},
+\]
+which is an equality with only one square root (a sign of progress).
+Subtracting $5$ from this equality (in order to ``isolate'' this remaining
+square root), we obtain $w^{2}-5=2\sqrt{6}$.
+If we now square this equality, then we obtain
+$\left(  w^{2}-5\right)  ^{2}=\left( 2\sqrt{6}\right)  ^{2}=24$.
+At this point all square roots are gone, and we are left with an equality
+that contains rational numbers and $w$ only!
+We can further rewrite it as
+$\tup{w^2 - 5}^2 - 24 = 0$.
+Thus, $w$ is a root of the polynomial
+$f\tup{x} := \left(  x^{2}-5\right)^{2}-24 = x^{4}-10x^{2}+1$.
+This means that $w$ is algebraic (since $f$ is nonzero).
+
+Let us try a more complicated example:
+Let $z$ be the number $\sqrt{2}+\sqrt[3]{2}$.
+Is $z$ algebraic?
+The squaring trick no longer works, since squaring $\sqrt{2} + \sqrt[3]{2}$
+does not reduce the number of radicals (= root signs).
+Let's instead try rewriting $z = \sqrt{2} + \sqrt[3]{2}$ as
+$z-\sqrt{2}=\sqrt[3]{2}$. Cubing this equality, we obtain
+$\left(  z-\sqrt{2}\right)  ^{3}  =2$.
+In view of
+\begin{align*}
+\left(  z-\sqrt{2}\right)  ^{3}
+=
+z^{3}-3z^{2}\sqrt{2}+3z\left(  \sqrt{2}\right)  ^{2}-\left(  \sqrt{2}\right)
+^{3}
+\end{align*}
+(this is a particular case of the identity
+$\left(  a-b\right)  ^{3}=a^{3}-3a^{2}b+3ab^{2}-b^{3}$, which is one form
+of the Binomial Theorem for exponent $3$), this becomes
+\[
+ z^{3}-3z^{2}\sqrt{2}+3z\left(  \sqrt{2}\right)  ^{2}-\left(  \sqrt{2}\right)
+^{3}
+ = 2.
+\]
+This simplifies to%
+\begin{align*}
+z^{3}-3\sqrt{2}z^{2}+6z-2\sqrt{2}  & =2.
+\end{align*}
+Let us transform this inequality in such a way that all terms with a
+$\sqrt{2}$ in them end up on the right hand side while all the remaining
+terms end up on the left.
+We thus obtain
+\[
+ z^{3}+6z-2 \left(  3z^{2}+2\right)  \sqrt{2} .
+\]
+Now, squaring this equality yields
+\[
+\left(  z^{3}+6z-2\right)  ^{2}=\left(  3z^{2}+2\right)  ^{2}2.
+\]
+Hence, $z$ is a root of the polynomial
+\[
+ g\tup{x} := \left(  x^{3}+6x-2\right)  ^{2}-2\left(  3x^{2}+2\right)  ^{2}=x^{6}%
+-6x^{4}-4x^{3}+12x^{2}-24x-4.
+\]
+This is a nonzero polynomial with rational coefficients; hence, $z$
+is algebraic.
+
+We thus have verified that the sum of two algebraic numbers is algebraic
+in two cases.
+What about more complicated cases, such as
+\[
+\sqrt{2}+\sqrt{3}+\sqrt[7]{11} \text{ ?}
+\]
+This is a sum of two algebraic numbers (since we already know that
+$\sqrt{2}+\sqrt{3} = w$ is algebraic). Is it algebraic?
+Neither of our above two methods properly works here; do we have to
+come up with new ad-hoc tricks?
+\end{proof}
+
+\begin{thebibliography}{99999999}                                                                                         %
+\bibitem[Armstr18]{Armstrong}Drew Armstrong, \textit{Abstract Algebra I},
+2018.\newline\url{http://www.math.miami.edu/~armstrong/561fa18.php}
+
+\bibitem[Artin10]{Artin}Michael Artin, \textit{Algebra},
+2nd edition, Pearson 2010.
+
+\bibitem[Bosch18]{Bosch}Siegfried Bosch, \textit{Algebra --
+From the Viewpoint of Galois Theory},
+Springer 2018.
+\newline \url{https://www.springer.com/la/book/9783319951768}
+
+\bibitem[Burton10]{Burton}David M. Burton,
+\textit{Elementary Number Theory}, 7th edition, McGraw-Hill 2010.
+
+\bibitem[Conrad*]{Conrad*}Keith Conrad, \textit{Expository notes
+(\textquotedblleft blurbs\textquotedblright)}.\newline\url{https://kconrad.math.uconn.edu/blurbs/}
+
+\bibitem[ConradG]{Conrad-Gauss}Keith Conrad, \textit{The Gaussian
+integers}.\newline\url{http://www.math.uconn.edu/~kconrad/blurbs/ugradnumthy/Zinotes.pdf}
+
+\bibitem[Day16]{Day}Martin V. Day, \textit{An Introduction to Proofs and the
+Mathematical Vernacular}, 7 December 2016.\newline%
+\url{https://www.math.vt.edu/people/day/ProofsBook/IPaMV.pdf} .
+
+\bibitem[DumFoo04]{Dummit-Foote}David S. Dummit, Richard M. Foote,
+\textit{Abstract Algebra}, 3rd edition, Wiley 2004. \newline
+See \url{http://www.cems.uvm.edu/~rfoote/errata_3rd_edition.pdf} for errata.
+
+\bibitem[GalQua17]{Gallier-RSA}Jean Gallier, Jocelyn Quaintance, \textit{Notes
+on Primality Testing And Public Key Cryptography, Part 1}, 8 November
+2017.\newline\url{https://www.cis.upenn.edu/~jean/RSA-primality-testing.pdf}
+
+\bibitem[Goodma16]{Goodman}Frederick M. Goodman, \textit{Algebra: Abstract and
+Concrete}, edition 2.6, 12 October 2016.\newline\url{http://homepage.divms.uiowa.edu/~goodman/algebrabook.dir/algebrabook.html}
+
+\bibitem[Grinbe15]{detnotes}Darij Grinberg, \textit{Notes on the combinatorial
+fundamentals of algebra}, 10 January 2019.\newline%
+\url{http://www.cip.ifi.lmu.de/~grinberg/primes2015/sols.pdf} \newline The
+numbering of theorems and formulas in this link might shift when the project
+gets updated; for a \textquotedblleft frozen\textquotedblright\ version whose
+numbering is guaranteed to match that in the citations above, see
+\url{https://github.com/darijgr/detnotes/releases/tag/2019-01-10} .
+
+\bibitem[Hammac18]{Hammack}Richard Hammack, \textit{Book of Proof}, 3rd
+edition 2018.\newline\url{http://www.people.vcu.edu/~rhammack/BookOfProof/}
+
+\bibitem[Heffer17]{Hefferon}Jim Hefferon, \textit{Linear Algebra}, 3rd edition
+2017.\newline\url{http://joshua.smcvt.edu/linearalgebra/}
+
+\bibitem[Knapp16a]{Knapp1}Anthony W. Knapp, \textit{Basic Algebra},
+digital 2nd edition 2016.
+\newline\url{http://www.math.stonybrook.edu/~aknapp/download.html}
+
+\bibitem[Knapp16b]{Knapp2}Anthony W. Knapp, \textit{Advanced Algebra},
+digital 2nd edition 2016.
+\newline\url{http://www.math.stonybrook.edu/~aknapp/download.html}
+
+\bibitem[LeLeMe18]{LeLeMe}Eric Lehman, F. Thomson Leighton, Albert R. Meyer,
+\textit{Mathematics for Computer Science},  revised Tuesday 6th June
+2018.\newline\url{https://courses.csail.mit.edu/6.042/spring18/mcs.pdf} .
+
+\bibitem[NiZuMo91]{NiZuMo}Ivan Niven, Herbert S. Zuckerman,
+Hugh L. Montgomery, \textit{An Introduction to the Theory of Numbers},
+5th edition 1991.
+
+\bibitem[Pinter10]{Pinter}Charles C. Pinter, \textit{A book of abstract
+algebra}, 2nd edition, Dover 2010.\newline\url{https://www.amazon.com/Book-Abstract-Algebra-Second-Mathematics/dp/0486474178}
+
+\bibitem[Siksek15]{Siksek}Samir Siksek, \textit{Introduction to Abstract
+Algebra}, 2015.\newline\url{http://homepages.warwick.ac.uk/staff/S.Siksek/teaching/aa/aanotes.pdf}
+
+\bibitem[Strick13]{Strickland}Neil Strickland, \textit{Linear mathematics for
+applications}, 2013.\newline\url{https://neil-strickland.staff.shef.ac.uk/courses/MAS201/MAS201.pdf}
+
+\bibitem[UspHea39]{Uspensky-Heaslet}J. V. Uspensky, M. A. Heaslet,
+\textit{Elementary Number Theory}, McGraw-Hill 1939.
+
+\bibitem[Waerde91a]{Waerden1}B.L. van der Waerden, \textit{Algebra, Volume I},
+translated 7th edition, Springer 1991.
+
+\bibitem[Waerde91b]{Waerden2}B.L. van der Waerden, \textit{Algebra, Volume II},
+translated 5th edition, Springer 1991.
+\end{thebibliography}
+
+\end{document}
