@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Saturday, January 26, 2019 00:21:20}
+%TCIDATA{LastRevised=Saturday, January 26, 2019 10:23:33}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -953,14 +953,14 @@ Well, let us calculate:%
 \begin{align*}
 &  \left(  \mathbf{a}_{1}\operatorname*{XOR}\mathbf{a}_{2}\right)
 \operatorname*{XOR}\left(  \mathbf{a}_{3}\operatorname*{XOR}\mathbf{a}%
-_{4}\right)  \\
+_{4}\right) \\
 &  =\mathbf{a}_{1}\operatorname*{XOR}\underbrace{\left(  \mathbf{a}%
 _{2}\operatorname*{XOR}\left(  \mathbf{a}_{3}\operatorname*{XOR}\mathbf{a}%
 _{4}\right)  \right)  }_{=\left(  \mathbf{a}_{2}\operatorname*{XOR}%
 \mathbf{a}_{3}\right)  \operatorname*{XOR}\mathbf{a}_{4}}\\
 &  =\mathbf{a}_{1}\operatorname*{XOR}\left(  \left(  \mathbf{a}_{2}%
 \operatorname*{XOR}\mathbf{a}_{3}\right)  \operatorname*{XOR}\mathbf{a}%
-_{4}\right)  \\
+_{4}\right) \\
 &  =\underbrace{\left(  \mathbf{a}_{1}\operatorname*{XOR}\left(
 \mathbf{a}_{2}\operatorname*{XOR}\mathbf{a}_{3}\right)  \right)  }_{=\left(
 \mathbf{a}_{1}\operatorname*{XOR}\mathbf{a}_{2}\right)  \operatorname*{XOR}%
@@ -1063,7 +1063,7 @@ thus, as in the $k=n$ case, we have%
 \begin{equation}
 \mathbf{x}_{n}\operatorname*{XOR}\mathbf{x}_{n-1}\operatorname*{XOR}%
 \mathbf{x}_{n-2}\operatorname*{XOR}\cdots\operatorname*{XOR}\mathbf{x}%
-_{1}=\mathbf{a}.\label{eq.intro.shamir.k=2.2}%
+_{1}=\mathbf{a}. \label{eq.intro.shamir.k=2.2}%
 \end{equation}
 
 
@@ -1216,27 +1216,42 @@ Let $\mathbb{Q}$ be the set of rational numbers.
 Let $\mathbb{R}$ be the set of real numbers.
 \end{definition}
 
+Be careful with the notation $\mathbb{N}$: While I use it for $\left\{
+0,1,2,\ldots\right\}  $, various other authors use it for $\left\{
+1,2,3,\ldots\right\}  $ instead. There is no consensus in sight on what
+$\mathbb{N}$ should mean.
+
+Same holds for the word \textquotedblleft natural number\textquotedblright%
+\ (which I will avoid): It means \textquotedblleft element of $\mathbb{N}%
+$\textquotedblright, so again its meaning depends on the author.
+
 \subsection{Divisibility and congruence}
 
+We now go through the basics of divisibility of integers.
+
 \begin{definition}
-Let $a$ and $b$ be two integers. We say that $a\mid b$ (or \textquotedblleft%
-$a$ \textit{divides} $b$\textquotedblright\ or \textquotedblleft$b$ is
-\textit{divisible by }$a$\textquotedblright\ or \textquotedblleft$b$ is a
-\textit{multiple} of $a$\textquotedblright) if there exists an integer $c$
-such that $b=ac$.
+\label{def.ent.div.div}Let $a$ and $b$ be two integers. We say that $a\mid b$
+(or \textquotedblleft$a$ \textit{divides} $b$\textquotedblright\ or
+\textquotedblleft$b$ is \textit{divisible by }$a$\textquotedblright\ or
+\textquotedblleft$b$ is a \textit{multiple} of $a$\textquotedblright) if there
+exists an integer $c$ such that $b=ac$.
 \end{definition}
 
+Some authors define the \textquotedblleft divisibility\textquotedblright%
+\ relation a bit differently, in that they forbid $a=0$. From the viewpoint of
+abstract algebra, this feels like an unnecessary exception, so we don't follow them.
+
 \begin{example}
-\textbf{(a)} We have $4\mid12$, since $12=4\cdot3$.
+\label{exa.ent.div.triv}\textbf{(a)} We have $4\mid12$, since $12=4\cdot3$.
 
 \textbf{(b)} We have $a\mid0$ for any $a\in\mathbb{Z}$, since $0=a\cdot0$.
 
-\textbf{(c)} We have $0\mid b$ only when $b=0$, since $0\mid b$ implies
-$b=0c=0$.
+\textbf{(c)} An integer $b$ satisfies $0\mid b$ only when $b=0$, since $0\mid
+b$ implies $b=0c=0$ (for some $c\in\mathbb{Z}$).
 
-\textbf{(d)} We have $a\mid a$ for any $a\in\mathbb{Z}$.
+\textbf{(d)} We have $a\mid a$ for any $a\in\mathbb{Z}$, since $a=a\cdot1$.
 
-\textbf{(e)} We have $1\mid b$ for each $b\in\mathbb{Z}$, since $b=1b$.
+\textbf{(e)} We have $1\mid b$ for each $b\in\mathbb{Z}$, since $b=1\cdot b$.
 \end{example}
 
 \begin{proposition}
@@ -1248,71 +1263,194 @@ $b=0c=0$.
 \textbf{(b)} If $a\mid b$ and $b\neq0$, then $\left\vert a\right\vert
 \leq\left\vert b\right\vert $.
 
-\textbf{(c)} Assume that $b\neq0$. Then, $a\mid b$ if and only if $\dfrac
+\textbf{(c)} Assume that $a\neq0$. Then, $a\mid b$ if and only if $\dfrac
 {b}{a}\in\mathbb{Z}$.
 \end{proposition}
 
 \begin{proof}
-Exercise.
+\textbf{(a)} $\Longrightarrow:$ Assume that $a\mid b$. Thus, there exists an
+integer $d$ such that $b=ad$ (by Definition \ref{def.ent.div.div}). Consider
+this $d$. We have $b=ad$ and thus $\left\vert b\right\vert =\left\vert
+ad\right\vert =\left\vert a\right\vert \cdot\left\vert d\right\vert $
+(according to the well-known fact that $\left\vert xy\right\vert =\left\vert
+x\right\vert \cdot\left\vert y\right\vert $ for any two integers\footnote{or
+real numbers} $x$ and $y$). Thus, there exists an integer $c$ such that
+$\left\vert b\right\vert =\left\vert a\right\vert \cdot c$ (namely,
+$c=\left\vert d\right\vert $). In other words, $\left\vert a\right\vert
+\mid\left\vert b\right\vert $. This proves the $\Longrightarrow$ direction of
+Proposition \ref{prop.ent.div.1} \textbf{(a)}.
+
+$\Longleftarrow:$ Assume that $\left\vert a\right\vert \mid\left\vert
+b\right\vert $. Thus, there exists an integer $f$ such that $\left\vert
+b\right\vert =\left\vert a\right\vert \cdot f$ (by Definition
+\ref{def.ent.div.div}). Consider this $f$.
+
+The definition of $\left\vert b\right\vert $ shows that $\left\vert
+b\right\vert $ equals either $b$ or $-b$. Hence, $b$ equals either $\left\vert
+b\right\vert $ or $-\left\vert b\right\vert $. In other words, $b$ equals
+either $1\left\vert b\right\vert $ or $\left(  -1\right)  \left\vert
+b\right\vert $. In other words, $b=q\left\vert b\right\vert $ for some
+$q\in\left\{  1,-1\right\}  $. Similarly, $a=r\left\vert a\right\vert $ for
+some $r\in\left\{  1,-1\right\}  $. Consider these $q$ and $r$.
+
+From $r\in\left\{  1,-1\right\}  $, we obtain $r^{2}=1$, thus $\dfrac{1}{r}%
+=r$. Now, solving the equation $a=r\left\vert a\right\vert $ for $r$, we
+obtain $\left\vert a\right\vert =\underbrace{\dfrac{1}{r}}_{=r}a=ra$.
+
+Now, $b=a\cdot qfr$ (since $a\cdot qfr=qf\underbrace{ra}_{=\left\vert
+a\right\vert }=q\underbrace{f\left\vert a\right\vert }_{=\left\vert
+a\right\vert \cdot f=\left\vert b\right\vert }=q\left\vert b\right\vert =b$).
+Hence, there exists an integer $c$ such that $b=ac$ (namely, $c=qfr$). In
+other words, $a\mid b$. This proves the $\Longleftarrow$ direction of
+Proposition \ref{prop.ent.div.1} \textbf{(a)}.
+
+Thus, the proof of Proposition \ref{prop.ent.div.1} \textbf{(a)} is complete.
+
+\textbf{(b)} Assume that $a\mid b$ and $b\neq0$.
+
+From $a\mid b$, we conclude that there exists an integer $c$ such that $b=ac$.
+Consider this $c$. We have $ac=b\neq0$, thus $c\neq0$. Hence, $\left\vert
+c\right\vert >0$, and thus $\left\vert c\right\vert \geq1$ (since $\left\vert
+c\right\vert $ is an integer). We can multiply this inequality by $\left\vert
+a\right\vert $ (since $\left\vert a\right\vert \geq0$), and obtain $\left\vert
+a\right\vert \cdot\left\vert c\right\vert \geq\left\vert a\right\vert
+\cdot1=\left\vert a\right\vert $.
+
+From $b=ac$, we obtain $\left\vert b\right\vert =\left\vert ac\right\vert
+=\left\vert a\right\vert \cdot\left\vert c\right\vert $ (according to the
+well-known fact that $\left\vert xy\right\vert =\left\vert x\right\vert
+\cdot\left\vert y\right\vert $ for any two integers $x$ and $y$). Hence,
+$\left\vert b\right\vert =\left\vert a\right\vert \cdot\left\vert c\right\vert
+\geq\left\vert a\right\vert $. This proves Proposition \ref{prop.ent.div.1}
+\textbf{(b)}.
+
+\textbf{(c)} $\Longrightarrow:$ Assume that $a\mid b$. Thus, there exists an
+integer $d$ such that $b=ad$. Consider this $d$. We can divide the equality
+$b=ad$ by $a$ (since $a\neq0$), and thus obtain $\dfrac{b}{a}=d\in\mathbb{Z}$.
+This proves the $\Longrightarrow$ direction of Proposition
+\ref{prop.ent.div.1} \textbf{(c)}.
+
+$\Longleftarrow:$ Assume that $\dfrac{b}{a}\in\mathbb{Z}$. Thus, there exists
+an integer $c$ such that $b=ac$ (namely, $c=\dfrac{b}{a}$). In other words,
+$a\mid b$. This proves the $\Longleftarrow$ direction of Proposition
+\ref{prop.ent.div.1} \textbf{(c)}. Hence, the proof of Proposition
+\ref{prop.ent.div.1} \textbf{(c)} is complete.
 \end{proof}
 
+Proposition \ref{prop.ent.div.1} \textbf{(a)} shows that both $a$ and $b$ in
+\textquotedblleft the statement $a\mid b$\textquotedblright\ can be replaced
+by their absolute values. Thus, when we talk about divisibility of integers,
+the sign of the integers does not really matter -- it usually suffices to work
+with nonnegative integers. We will often use this (tacitly, after a couple
+times) in proofs.
+
+The next proposition shows some basic properties of the divisibility relation:
+
 \begin{proposition}
-\textbf{(a)} We have $a\mid a$ for every $a\in\mathbb{Z}$.
+\label{prop.ent.div.2}\textbf{(a)} We have $a\mid a$ for every $a\in
+\mathbb{Z}$. (This is called the \textit{reflexivity of divisibility}.)
 
 \textbf{(b)} If $a,b,c\in\mathbb{Z}$ satisfy $a\mid b$ and $b\mid c$, then
-$a\mid c$.
+$a\mid c$. (This is called the \textit{transitivity of divisibility}.)
 
 \textbf{(c)} If $a_{1},a_{2},b_{1},b_{2}$ satisfy $a_{1}\mid b_{1}$ and
 $a_{2}\mid b_{2}$, then $a_{1}a_{2}\mid b_{1}b_{2}$.
 \end{proposition}
 
 \begin{proof}
-Exercise.
+\textbf{(a)} Let $a\in\mathbb{Z}$. Then, there exists an integer $c$ such that
+$a=ac$ (namely, $c=1$). In other words, $a\mid a$. This proves Proposition
+\ref{prop.ent.div.2} \textbf{(a)}.
+
+\textbf{(b)} Let $a,b,c\in\mathbb{Z}$ satisfy $a\mid b$ and $b\mid c$.
+
+From $a\mid b$, we conclude that there exists an integer $d$ such that $b=ad$.
+Consider this $d$.
+
+From $b\mid c$, we conclude that there exists an integer $e$ such that $c=be$.
+Consider this $e$.
+
+We have $c=\underbrace{b}_{=ad}e=ade$. Hence, there exists an integer $f$ such
+that $c=af$ (namely, $f=de$). In other words, $a\mid c$ (by Definition
+\ref{def.ent.div.div}). This proves Proposition \ref{prop.ent.div.2}
+\textbf{(b)}.
+
+\textbf{(c)} Let $a_{1},a_{2},b_{1},b_{2}$ satisfy $a_{1}\mid b_{1}$ and
+$a_{2}\mid b_{2}$.
+
+From $a_{1}\mid b_{1}$, we conclude that there exists an integer $d$ such that
+$b_{1}=a_{1}d$. Consider this $d$.
+
+From $a_{2}\mid b_{2}$, we conclude that there exists an integer $e$ such that
+$b_{2}=a_{2}e$. Consider this $e$.
+
+We have $\underbrace{b_{1}}_{=a_{1}d}\underbrace{b_{2}}_{=a_{2}e}=a_{1}%
+da_{2}e=a_{1}a_{2}de$. Hence, there exists an integer $f$ such that
+$b_{1}b_{2}=a_{1}a_{2}f$ (namely, $f=de$). In other words, $a_{1}a_{2}\mid
+b_{1}b_{2}$ (by Definition \ref{def.ent.div.div}). This proves Proposition
+\ref{prop.ent.div.2} \textbf{(c)}.
 \end{proof}
 
+The next definition is simple but crucial:
+
 \begin{definition}
-Let $n,a,b\in\mathbb{Z}$. We say that $a$ \textit{is congruent to }$b$
-\textit{modulo }$n$ (or, short, \textquotedblleft$a\equiv b\operatorname{mod}%
-n$\textquotedblright) if and only if $n\mid a-b$.
+\label{def.ent.cong}Let $n,a,b\in\mathbb{Z}$. We say that $a$ \textit{is
+congruent to }$b$ \textit{modulo }$n$ (or, short, \textquotedblleft$a\equiv
+b\operatorname{mod}n$\textquotedblright) if and only if $n\mid a-b$.
 \end{definition}
 
 \begin{example}
-\textbf{(a)} Is $3\equiv7\operatorname{mod}2$ ? Yes, since $2\mid3-7=-4$.
+\label{exa.ent.cong.triv}\textbf{(a)} Is $3\equiv7\operatorname{mod}2$ ? Yes,
+since $2\mid3-7=-4$.
 
 \textbf{(b)} Is $3\equiv6\operatorname{mod}2$ ? No, since $2\nmid3-6=-3$.
 
-\textbf{(c)} We have $a\equiv b\operatorname{mod}0$ if and only if $a=b$.
+Now, let $a$ and $b$ be two integers.
 
-\textbf{(d)} We have $a\equiv b\operatorname{mod}1$ always, since $1$ divides everything.
+\textbf{(c)} We have $a\equiv b\operatorname{mod}0$ if and only if $a=b$.
+(Indeed, $a\equiv b\operatorname{mod}0$ is defined to mean $0\mid a-b$, but
+the latter divisibility happens only when $a-b=0$, which is tantamount to
+saying $a=b$.)
+
+\textbf{(d)} We have $a\equiv b\operatorname{mod}1$ always, since $1\mid a-b$
+always holds (remember: $1$ divides everything).
 \end{example}
 
 Note that being congruent modulo $2$ means having the same parity: i.e., two
-even numbers will be congruent modulo $2$, and two odd numbers will be, but
-not an even and an odd.
+even numbers will be congruent modulo $2$, and two odd numbers will be, but an
+even number will never be congruent to an odd number modulo $2$.
 
 \begin{proposition}
 \label{prop.ent.mod.basics}Let $n\in\mathbb{Z}$.
 
 \textbf{(a)} We have $a\equiv a\operatorname{mod}n$ for every $a\in\mathbb{Z}$.
 
-\textbf{(b)} If $a,b,c\in\mathbb{Z}$ satisfy  $a\equiv b\operatorname{mod}n$
+\textbf{(b)} If $a,b,c\in\mathbb{Z}$ satisfy $a\equiv b\operatorname{mod}n$
 and $b\equiv c\operatorname{mod}n$, then $a\equiv c\operatorname{mod}n$.
 
-\textbf{(c)} If $a,b\in\mathbb{Z}$ satisfy  $a\equiv b\operatorname{mod}n$,
+\textbf{(c)} If $a,b\in\mathbb{Z}$ satisfy $a\equiv b\operatorname{mod}n$,
 then $b\equiv a\operatorname{mod}n$.
 
-\textbf{(d)} If $a_{1},a_{2},b_{1},b_{2}$ satisfy  $a_{1}\equiv b_{1}%
+\textbf{(d)} If $a_{1},a_{2},b_{1},b_{2}$ satisfy $a_{1}\equiv b_{1}%
 \operatorname{mod}n$ and $a_{2}\equiv b_{2}\operatorname{mod}n$, then%
 \begin{align*}
-a_{1}+a_{2} &  \equiv b_{1}+b_{2}\operatorname{mod}n;\\
-a_{1}-a_{2} &  \equiv b_{1}-b_{2}\operatorname{mod}n;\\
-a_{1}a_{2} &  \equiv b_{1}b_{2}\operatorname{mod}n.
+a_{1}+a_{2}  &  \equiv b_{1}+b_{2}\operatorname{mod}n;\\
+a_{1}-a_{2}  &  \equiv b_{1}-b_{2}\operatorname{mod}n;\\
+a_{1}a_{2}  &  \equiv b_{1}b_{2}\operatorname{mod}n.
 \end{align*}
 
 \end{proposition}
 
 \begin{proof}
-See notes later.
+\textbf{(a)} Let $a\in\mathbb{Z}$. Recall that $a\equiv a\operatorname{mod}n$
+is defined to mean $n\mid a-a$. Since $n\mid a-a$ holds (because
+$a-a=0=n\cdot0$), we thus see that $a\equiv a\operatorname{mod}n$ holds. This
+proves Proposition \ref{prop.ent.mod.basics} \textbf{(a)}.
+
+\textbf{(b)} Let $a,b,c\in\mathbb{Z}$ satisfy $a\equiv b\operatorname{mod}n$
+and $b\equiv c\operatorname{mod}n$.
+
+[...] to be continued from here.
 \end{proof}
 
 \begin{exercise}
