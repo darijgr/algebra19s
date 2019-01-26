@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Friday, January 25, 2019 12:44:52}
+%TCIDATA{LastRevised=Saturday, January 26, 2019 00:21:20}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -701,15 +701,28 @@ we set $\mathbf{a}_{i}=\mathbf{a}$ for all $i$). Then, Requirement 1 is
 satisfied (since any $1$ of the $n$ people already knows $\mathbf{a}$), while
 Requirement 2 is satisfied as well ($0$ people know nothing).
 
-\subsubsection{The $k=n$ case}
+\subsubsection{The $k=n$ case: what doesn't work}
 
 Let us now consider the case when $k=n$. This case will not help us solve the
 general problem, but it will show some ideas that we will encounter again and
 again in abstract algebra.
 
-We need a way to ensure that all $n$ people needed to reconstruct the secret
-$\mathbf{a}$, while any proper subset of them will be completely clueless. One
-way to achieve this is using the $\operatorname*{XOR}$ operation.
+We want to ensure that all $n$ people needed to reconstruct the secret
+$\mathbf{a}$, while any $n-1$ of them will be completely clueless.
+
+It sounds reasonable to split $\mathbf{a}$ into $n$ parts, and give each
+person one of these parts\footnote{assuming that $\mathbf{a}$ is long enough
+for that} (i.e., we let $\mathbf{a}_{i}$ be the $i$-th part of $\mathbf{a}$
+for each $i\in\left\{  1,2,\ldots,n\right\}  $). This method satisfies
+Requirement 1 (indeed, all $n$ people together can reconstruct $\mathbf{a}$
+simply by fusing the $n$ parts back together), but fails Requirement 2
+(indeed, any $n-1$ people know $n-1$ parts of the secret $\mathbf{a}$, which
+is a far from being clueless about $\mathbf{a}$). So this method doesn't work.
+It is not that easy.
+
+\subsubsection{The $\operatorname*{XOR}$ operations}
+
+One way to solve the $k=n$ case is using the $\operatorname*{XOR}$ operation.
 
 Let us first define some basic language. A \textit{binary operation} on a set
 $S$ is (informally speaking) a function that takes two elements of $S$ and
@@ -740,8 +753,6 @@ can do this because $1+a^{2}+b^{2}$ is always nonzero when $a,b\in\mathbb{Q}$
 0}+\underbrace{b^{2}}_{\geq0}\geq1>0$). I am not saying that you should...
 \end{example}
 
-
-
 Now, we define some specific binary operations on the set $\left\{
 0,1\right\}  $ of all bits, and on the set $\left\{  0,1\right\}  ^{n}$ of all
 length-$n$ bitstrings (for a given $n$).
@@ -750,10 +761,10 @@ length-$n$ bitstrings (for a given $n$).
 We define a binary operation $\operatorname*{XOR}$ on the set $\left\{
 0,1\right\}  $ by setting%
 \begin{align*}
-0\operatorname*{XOR}0 &  =0,\\
-0\operatorname*{XOR}1 &  =1,\\
-1\operatorname*{XOR}0 &  =1,\\
-1\operatorname*{XOR}1 &  =0.
+0\operatorname*{XOR}0  &  =0,\\
+0\operatorname*{XOR}1  &  =1,\\
+1\operatorname*{XOR}0  &  =1,\\
+1\operatorname*{XOR}1  &  =0.
 \end{align*}
 This is a valid definition, because there are only four pairs $\left(
 a,b\right)  \in\left\{  0,1\right\}  \times\left\{  0,1\right\}  $, and we
@@ -801,15 +812,24 @@ $\mathbf{b}$, and packing these $m$ XORs into a new length-$m$ bitstring.
 
 For example,%
 \begin{align*}
-\left(  1001\right)  \operatorname*{XOR}\left(  1100\right)    & =0101;\\
-\left(  11011\right)  \operatorname*{XOR}\left(  10101\right)    & =01110;\\
-\left(  1\right)  \operatorname*{XOR}\left(  0\right)    & =1;\\
-\left(  {}\right)  \operatorname*{XOR}\left(  {}\right)    & =\left(
+\left(  1001\right)  \operatorname*{XOR}\left(  1100\right)   &  =0101;\\
+\left(  11011\right)  \operatorname*{XOR}\left(  10101\right)   &  =01110;\\
+\left(  11010\right)  \operatorname*{XOR}\left(  01011\right)   &  =10001;\\
+\left(  1\right)  \operatorname*{XOR}\left(  0\right)   &  =1;\\
+\left(  {}\right)  \operatorname*{XOR}\left(  {}\right)   &  =\left(
 {}\right)  .
 \end{align*}
 
 
-We observe the following simple properties of this operations
+Note that if $\mathbf{a}$ and $\mathbf{b}$ are two length-$m$ bitstrings, then
+the $0$'s in the bitstring $\mathbf{a}\operatorname*{XOR}\mathbf{b}$ are at
+the positions where $\mathbf{a}$ and $\mathbf{b}$ have equal entries, and the
+$1$'s in $\mathbf{a}\operatorname*{XOR}\mathbf{b}$ are at the positions where
+$\mathbf{a}$ and $\mathbf{b}$ have different entries. Thus, the operation
+$\operatorname*{XOR}$ on bitstring essentially pinpoints the differences
+between $\mathbf{a}$ and $\mathbf{b}$.
+
+We observe the following simple properties of these operations
 $\operatorname*{XOR}$ on bits and on bitstrings\footnote{As a mnemonic, we
 shall try to use boldfaced letters like $\mathbf{a}$ and $\mathbf{b}$ for
 bitstrings and regular italic letters like $a$ and $b$ for single bits.}:
@@ -882,23 +902,98 @@ a\operatorname*{XOR}b\right)  \operatorname*{XOR}c$ and $\mathbf{a}%
 =\left(  \mathbf{a}\operatorname*{XOR}\mathbf{b}\right)  \operatorname*{XOR}%
 \mathbf{c}$ as \textit{laws of associativity}. These are, of course, similar
 to well-known facts like $\alpha+\beta=\beta+\alpha$ and $\alpha+\left(
-\beta+\gamma\right)  =\left(  \alpha+\beta\right)  +\gamma$ for integers
+\beta+\gamma\right)  =\left(  \alpha+\beta\right)  +\gamma$ for numbers
 $\alpha,\beta,\gamma$ (which is why we are giving them the same name). This
-similarity is not coincidental -- but at the moment, we have no use for it.
+similarity is not coincidental. Just as for addition or multiplication of
+numbers, these laws lead to a notion of \textquotedblleft
+XOR-products\textquotedblright:
 
-So recall the problem. We have $n$ persons $1,2,\ldots,n$ and a secret
-$\mathbf{a}$ (encoded as a bitstring). We want to give each person $i$ some
-bitstring $\mathbf{a}_{i}$ such that only all $n$ of them can recover
-$\mathbf{a}$ but any $n-1$ get no info about $\mathbf{a}$.
+\begin{proposition}
+\label{prop.intro.xor.prodm}Let $m$ be a positive integer. Let $\mathbf{a}%
+_{1},\mathbf{a}_{2},\ldots,\mathbf{a}_{m}$ be $m$ bitstrings. Then, the
+\textquotedblleft$\operatorname*{XOR}$-product\textquotedblright\ expression%
+\[
+\mathbf{a}_{1}\operatorname*{XOR}\mathbf{a}_{2}\operatorname*{XOR}%
+\mathbf{a}_{3}\operatorname*{XOR}\cdots\operatorname*{XOR}\mathbf{a}_{m}%
+\]
+is well-defined, in the sense that it does not depend on the parenthesization.
+\end{proposition}
 
-Pick $n-1$ \textbf{uniformly} random bitstrings $\mathbf{a}_{1},\mathbf{a}%
-_{2},\ldots,\mathbf{a}_{n-1}$ of the same length as $\mathbf{a}$. Set%
+What do we mean by \textquotedblleft parenthesization\textquotedblright? To
+clarify things, let us set $m=4$. In this case, we want to make sense of the
+expression $\mathbf{a}_{1}\operatorname*{XOR}\mathbf{a}_{2}\operatorname*{XOR}%
+\mathbf{a}_{3}\operatorname*{XOR}\mathbf{a}_{4}$. This expression does not
+make sense a priori, since it is a $\operatorname*{XOR}$ of \textbf{four}
+bitstrings, whereas we have defined only the $\operatorname*{XOR}$ of
+\textbf{two} bitstrings. But there are five ways to put parentheses around
+some of its sub-expressions such that the expression becomes meaningful:
+\begin{align*}
+&  \left(  \mathbf{a}_{1}\operatorname*{XOR}\mathbf{a}_{2}\right)
+\operatorname*{XOR}\left(  \mathbf{a}_{3}\operatorname*{XOR}\mathbf{a}%
+_{4}\right)  ,\\
+&  \left(  \left(  \mathbf{a}_{1}\operatorname*{XOR}\mathbf{a}_{2}\right)
+\operatorname*{XOR}\mathbf{a}_{3}\right)  \operatorname*{XOR}\mathbf{a}_{4},\\
+&  \mathbf{a}_{1}\operatorname*{XOR}\left(  \left(  \mathbf{a}_{2}%
+\operatorname*{XOR}\mathbf{a}_{3}\right)  \operatorname*{XOR}\mathbf{a}%
+_{4}\right)  ,\\
+&  \mathbf{a}_{1}\operatorname*{XOR}\left(  \mathbf{a}_{2}\operatorname*{XOR}%
+\left(  \mathbf{a}_{3}\operatorname*{XOR}\mathbf{a}_{4}\right)  \right)  ,\\
+&  \left(  \mathbf{a}_{1}\operatorname*{XOR}\left(  \mathbf{a}_{2}%
+\operatorname*{XOR}\mathbf{a}_{3}\right)  \right)  \operatorname*{XOR}%
+\mathbf{a}_{4}.
+\end{align*}
+Each of these five parenthesizations (= placements of parentheses) turns our
+expression $\mathbf{a}_{1}\operatorname*{XOR}\mathbf{a}_{2}\operatorname*{XOR}%
+\mathbf{a}_{3}\operatorname*{XOR}\mathbf{a}_{4}$ into a combination of
+$\operatorname*{XOR}$'s of \textbf{two} bitstrings each, and thus gives it
+meaning. The question is: Do these five parenthesizations give it the
+\textbf{same} meaning?
+
+Well, let us calculate:%
+\begin{align*}
+&  \left(  \mathbf{a}_{1}\operatorname*{XOR}\mathbf{a}_{2}\right)
+\operatorname*{XOR}\left(  \mathbf{a}_{3}\operatorname*{XOR}\mathbf{a}%
+_{4}\right)  \\
+&  =\mathbf{a}_{1}\operatorname*{XOR}\underbrace{\left(  \mathbf{a}%
+_{2}\operatorname*{XOR}\left(  \mathbf{a}_{3}\operatorname*{XOR}\mathbf{a}%
+_{4}\right)  \right)  }_{=\left(  \mathbf{a}_{2}\operatorname*{XOR}%
+\mathbf{a}_{3}\right)  \operatorname*{XOR}\mathbf{a}_{4}}\\
+&  =\mathbf{a}_{1}\operatorname*{XOR}\left(  \left(  \mathbf{a}_{2}%
+\operatorname*{XOR}\mathbf{a}_{3}\right)  \operatorname*{XOR}\mathbf{a}%
+_{4}\right)  \\
+&  =\underbrace{\left(  \mathbf{a}_{1}\operatorname*{XOR}\left(
+\mathbf{a}_{2}\operatorname*{XOR}\mathbf{a}_{3}\right)  \right)  }_{=\left(
+\mathbf{a}_{1}\operatorname*{XOR}\mathbf{a}_{2}\right)  \operatorname*{XOR}%
+\mathbf{a}_{3}}\operatorname*{XOR}\mathbf{a}_{4}\\
+&  =\left(  \left(  \mathbf{a}_{1}\operatorname*{XOR}\mathbf{a}_{2}\right)
+\operatorname*{XOR}\mathbf{a}_{3}\right)  \operatorname*{XOR}\mathbf{a}_{4},
+\end{align*}
+where we used the law of associativity in each step. This shows that our five
+parenthesizations yield the same result. Thus, they all give our
+\textquotedblleft$\operatorname*{XOR}$-product\textquotedblright\ expression
+$\mathbf{a}_{1}\operatorname*{XOR}\mathbf{a}_{2}\operatorname*{XOR}%
+\mathbf{a}_{3}\operatorname*{XOR}\mathbf{a}_{4}$ the same meaning; so we can
+say that this expression is well-defined. This confirms Proposition
+\ref{prop.intro.xor.prodm} for $m=4$.
+
+Of course, proving Proposition \ref{prop.intro.xor.prodm} is less simple. Such
+a proof will appear in Exercise 4 on homework set \#0.
+
+\subsubsection{The $k=n$ case: an answer}
+
+Let us now return to our problem. We have $n$ persons $1,2,\ldots,n$ and a
+secret $\mathbf{a}$ (encoded as a bitstring). We want to give each person $i$
+some bitstring $\mathbf{a}_{i}$ such that only all $n$ of them can recover
+$\mathbf{a}$ but any $n-1$ of them cannot gain any insight about $\mathbf{a}$.
+
+We let $\mathbf{a}_{1},\mathbf{a}_{2},\ldots,\mathbf{a}_{n-1}$ be $n-1$
+\textbf{uniformly} random bitstrings of the same length as $\mathbf{a}$.
+(Think of them as random gibberish.) Set%
 \[
 \mathbf{a}_{n}=\mathbf{a}\operatorname*{XOR}\mathbf{a}_{1}\operatorname*{XOR}%
 \mathbf{a}_{2}\operatorname*{XOR}\cdots\operatorname*{XOR}\mathbf{a}_{n-1}.
 \]
-(I am using the slightly nontrivial fact that I can write XOR-expressions
-without parentheses. See Exercise 4(?) on HW\#0.)
+(This expression makes sense because of Proposition \ref{prop.intro.xor.prodm}.)
 
 Then,%
 \begin{align*}
@@ -926,72 +1021,188 @@ _{n-1}\right)  \operatorname*{XOR}\mathbf{a}_{n-1}\operatorname*{XOR}%
 &  =\mathbf{a}%
 \end{align*}
 (here, we have been unravelling the big $\operatorname*{XOR}$-product from the
-middle on, by cancelling equal bitstrings using the rule $\mathbf{a}%
-\operatorname*{XOR}\mathbf{a}=\mathbf{0}$). Hence, the $n$ people together can
-decrypt the secret.
+middle on, by cancelling equal bitstrings using the self-cancellation law and
+then removing the resulting $\mathbf{0}$ using the $\mathbf{a}%
+\operatorname*{XOR}\mathbf{0}=\mathbf{a}$ law). Hence, the $n$ people together
+can decrypt the secret $\mathbf{a}$.
 
 Can $n-1$ people gain any insight about it? The $n-1$ people $1,2,\ldots,n-1$
-certainly cannot, since they have just gotten random strings. What about (say)
-$2,3,\ldots,n$? They can only get $\mathbf{a}\operatorname*{XOR}\mathbf{a}%
-_{1}$, but don't know anything about $\mathbf{a}$ or $\mathbf{a}_{1}$ apart
-from that, and since $\mathbf{a}_{1}$ was uniformly random, they gain no
-insight on $\mathbf{a}$. Similar argument for any other choice of $n-1$ persons.
+certainly cannot, since all they know are the random bitstrings $\mathbf{a}%
+_{1},\mathbf{a}_{2},\ldots,\mathbf{a}_{n-1}$. But the $n-1$ people
+$2,3,\ldots,n$ cannot gain any insight about $\mathbf{a}$ either: In fact, all
+they know are the random bitstrings $\mathbf{a}_{2},\mathbf{a}_{3}%
+,\ldots,\mathbf{a}_{n-1}$ and the bitstring%
+\[
+\mathbf{a}_{n}=\mathbf{a}\operatorname*{XOR}\mathbf{a}_{1}\operatorname*{XOR}%
+\mathbf{a}_{2}\operatorname*{XOR}\cdots\operatorname*{XOR}\mathbf{a}_{n-1};
+\]
+therefore, all the information they have about $\mathbf{a}$ and $\mathbf{a}%
+_{1}$ comes to them through $\mathbf{a}\operatorname*{XOR}\mathbf{a}_{1}$,
+which says nothing about $\mathbf{a}$ as long as they know nothing about
+$\mathbf{a}_{1}$. (We used a bit of handwaving in this argument, but then
+again we never formally defined what it means to \textquotedblleft gain no
+insight\textquotedblright; this is done in courses on cryptography and
+information theory.) Similar arguments show that any other choice of $n-1$
+persons remains equally clueless about $\mathbf{a}$. So we have solved the
+problem in the case $k=n$.
 
 \subsubsection{The $k=2$ case}
 
-Next simple case: $n=3$ and $k=2$.
+The next simple case is when $k=2$. So we want to ensure that any $2$ of our
+$n$ people can together recover the secret, but no $1$ person can learn
+anything about it alone.
 
-So $3$ people need to get a secret in such a way that any $2$ can recover it,
-but no $1$ can recover it.
+A really nice approach was suggested by Nathan in class: We pick $n$ random
+bitstrings $\mathbf{x}_{1},\mathbf{x}_{2},\ldots,\mathbf{x}_{n-1}$ of the same
+length as $\mathbf{a}$. Set
+\[
+\mathbf{x}_{n}=\mathbf{a}\operatorname*{XOR}\mathbf{x}_{1}\operatorname*{XOR}%
+\mathbf{x}_{2}\operatorname*{XOR}\cdots\operatorname*{XOR}\mathbf{x}_{n-1};
+\]
+thus, as in the $k=n$ case, we have%
+\begin{equation}
+\mathbf{x}_{n}\operatorname*{XOR}\mathbf{x}_{n-1}\operatorname*{XOR}%
+\mathbf{x}_{n-2}\operatorname*{XOR}\cdots\operatorname*{XOR}\mathbf{x}%
+_{1}=\mathbf{a}.\label{eq.intro.shamir.k=2.2}%
+\end{equation}
 
-\subsubsection{The general case}
 
-Recall that a polynomial $p\left(  x\right)  =bx+c$ of degree $\leq1$ (say,
-with rational coefficients $b$ and $c$) is uniquely determined if you know two
-of its values. Say, if you know $p\left(  1\right)  $ and $p\left(  2\right)
-$.
+Each person $i$ now receives the bitstring%
+\[
+\mathbf{a}_{i}=\mathbf{x}_{1}\mathbf{x}_{2}\cdots\mathbf{x}_{i-1}%
+\mathbf{x}_{i+1}\mathbf{x}_{i+2}\cdots\mathbf{x}_{n},
+\]
+where the product stands for \textit{concatenation} (i.e., the bitstring
+$\mathbf{a}_{i}$ is formed by writing down all of the bitstring $\mathbf{x}%
+_{1},\mathbf{x}_{2},\ldots,\mathbf{x}_{n}$ one after the other but skipping
+$\mathbf{x}_{i}$). Thus, each person $i$ can recover all the $n-1$ bitstrings
+$\mathbf{x}_{1},\mathbf{x}_{2},\ldots,\mathbf{x}_{i-1},\mathbf{x}%
+_{i+1},\mathbf{x}_{i+2},\ldots,\mathbf{x}_{n}$ (because their lengths are the
+length of $\mathbf{a}$, which is known), but knows nothing about
+$\mathbf{x}_{i}$ (his \textquotedblleft blind spot\textquotedblright). Hence,
+$2$ people together can recover all the $n$ bitstrings $\mathbf{x}%
+_{1},\mathbf{x}_{2},\ldots,\mathbf{x}_{n}$ and therefore recover the secret
+$\mathbf{a}$ (by (\ref{eq.intro.shamir.k=2.2})). On the other hand, each
+single person has no insight about $\mathbf{a}$ (this is proven similarly to
+the $k=n$ case). So again, the problem is solved in this case.
 
-First attempt: Encode the secret as a bitstring of even length; break it into
-$2$ pieces; encode the first as $b$ and the second as $c$. Define $p\left(
-x\right)  =bx+c$. Give person $1$ the value $p\left(  1\right)  $ and person
-$2$ the value $p\left(  2\right)  $ and person $3$ the value $p\left(
-3\right)  $. Any $2$ of the $3$ people can recover the secret. Any $1$ person
-cannot recover the secret, but gains some insight. So this doesn't really fit
-the bill.
+\subsubsection{The $k=3$ case}
 
-Next attempt: Choose $b$ \textbf{uniformly} randomly, and let $c$ be the whole
-secret. Give person $1$ the value $p\left(  1\right)  $ and person $2$ the
-value $p\left(  2\right)  $ and person $3$ the value $p\left(  3\right)  $.
-Any $2$ of the $3$ people can recover the secret. Any $1$ person $z$ only
-knows $p\left(  z\right)  =bz+c$, which does not let them recover $c$ since
-$b$ was random.
+Now, let us come to the case when $k=3$. Now I think the usefulness of the
+$\operatorname*{XOR}$ approach has come to its end: at least I don't know how
+to make it work here. Instead, out of the blue, I will invoke something
+completely different: polynomials (let's say with rational coefficients).
 
-Does this solve the problem?
+Recall a fact you might have heard in high school: A polynomial $p\left(
+x\right)  =cx^{2}+bx+a$ of degree $\leq2$ is uniquely determined by any three
+of its values. More precisely: If $u,v,w$ are three fixed distinct numbers,
+then a polynomial $p\left(  x\right)  =cx^{2}+bx+a$ of degree $\leq2$ is
+uniquely determined by the values $p\left(  u\right)  ,p\left(  v\right)
+,p\left(  w\right)  $. We will put this to use now, and sort-of solve the problem.
 
-There is no \textquotedblleft uniformly random\textquotedblright\ rational number.
+Also recall that any bitstring of given length $N$ can be encoded as an
+integer in $\left\{  0,1,\ldots,2^{N}-1\right\}  $; just read it as a number
+in binary. More precisely, any bitstring $a_{N-1}a_{N-2}\cdots a_{0}$ of
+length $N$ becomes the integer $a_{N-1}\cdot2^{N-1}+a_{N-2}\cdot2^{N-2}%
++\cdots+a_{0}\cdot2^{0}\in\left\{  0,1,\ldots,2^{N}-1\right\}  $. For example,
+the bitstring $010110$ of length $6$ becomes the integer%
+\[
+0\cdot2^{5}+1\cdot2^{4}+0\cdot2^{3}+1\cdot2^{2}+1\cdot2^{1}+0\cdot2^{0}%
+=22\in\left\{  0,1,\ldots,2^{6}-1\right\}  .
+\]
+
+
+Choose two \textbf{uniformly random} bitstrings $\mathbf{c}$ and $\mathbf{b}$
+(of the same length as $\mathbf{a}$) and encode them as numbers $c$ and $b$
+(as just explained). Encode the secret $\mathbf{a}$ as a number $a$ as well
+(in the same way). Define the polynomial $p\left(  x\right)  =cx^{2}+bx+a$.
+Reveal to each person $i\in\left\{  1,2,\ldots,n\right\}  $ the value
+$p\left(  i\right)  $ -- or, rather, a bitstring that encodes it in binary --
+as $\mathbf{a}_{i}$.
+
+As we know, any three of the values $p\left(  i\right)  $ uniquely determine
+the polynomial $p$. Thus, any three people can use their bitstrings
+$\mathbf{a}_{i}$ to recover three values $p\left(  i\right)  $ and therefore
+$p$ and therefore $a$ (as the constant term of $p$) and therefore $\mathbf{a}$
+(by decoding $a$). So our method satisfies Requirement 1.
+
+Now, let us see whether it satisfies Requirement 2. Any $2$ people can recover
+two values $p\left(  i\right)  $, which generally do not determine $p$
+uniquely. It is not hard to show that they do not even determine $a$ uniquely;
+thus, they do not determine $\mathbf{a}$ uniquely. What's better: If you know
+just two values of $p$, there are infinitely many possible choices for $p$,
+and all of them have distinct constant terms (unless one of the two values you
+know is $p\left(  0\right)  $, which of course pins down the constant term).
+So we get infinitely many possible values for $a$, and thus infinitely many
+possible values for $\mathbf{a}$. This means that our $2$ people don't gain
+any insight about $\mathbf{a}$, right?
+
+Not so fast! We cannot really have \textquotedblleft infinitely many possible
+values for $\mathbf{a}$\textquotedblright, since $\mathbf{a}$ is bound to be a
+bitstring of a given length -- there are only finitely many of those! You can
+only get infinitely many possible values for $p$ if you forget how $p$ was
+constructed (from $c$, $b$ and $a$) and pretend that $p$ is just a
+\textquotedblleft uniformly random\textquotedblright\ polynomial (whatever
+this means). But no one can force the $2$ people to do this; it is certainly
+not in their interest! Here are some things they might do with this knowledge:
 
 \begin{itemize}
-\item If $b$ is chosen to be an integer, then $2$ knows $p\left(  2\right)
-=b\cdot2+c=2b+c$, and thus knows whether $c$ is even or odd (i.e., the last
-bit of $c$).
+\item Let $N$ be the length of $\mathbf{a}$ (which, as we said, is known).
+Thus, $\mathbf{c}$ and $\mathbf{b}$ are bitstrings of length $N$, so that $c$
+and $b$ are integers in $\left\{  0,1,\ldots,2^{N}-1\right\}  $. Assume that
+one of the $2$ people is person $2$. Now, person $2$ knows $p\left(  2\right)
+=c2^{2}+b2+a=4c+2b+a$, and thus knows whether $a$ is even or odd (because $a$
+is even resp. odd if and only if $4c+2b+a$ is even resp. odd). This means she
+knows the last bit of the secret $\mathbf{a}$. This is not \textquotedblleft
+clueless\textquotedblright.
 
-\item If $b$ is chosen from $\left[  0,1\right]  $, then $3$ knows $p\left(
-3\right)  =b\cdot3+c=3b+c$. If $p\left(  3\right)  \geq3.6$, then it means
-that $c$ is at least $0.6$.
+\item You might try to fix this by picking $c$ and $b$ to be uniformly random
+rational numbers instead (rather than using uniformly random bitstrings
+$\mathbf{c}$ and $\mathbf{b}$).
+
+Unfortunately, there is no such thing as a \textquotedblleft uniformly random
+rational number\textquotedblright\ (in the sense that, e.g., larger numbers
+aren't less likely to be picked than smaller numbers). Any probability
+distribution will make some numbers more likely than others, and this will
+usually cause information about $\mathbf{a}$ to \textquotedblleft
+leak\textquotedblright. For example, if $c$ and $b$ are chosen from the
+interval $\left[  0,2^{N}-1\right]  $, then person $1$'s knowledge of
+$p\left(  1\right)  =c1^{2}+b1+a=c+b+a$ will sometimes reveal to person $1$
+that $a\geq0.5\cdot\left(  2^{N}-1\right)  $ (namely, this will happen when
+$p\left(  1\right)  \geq2.5\cdot\left(  2^{N}-1\right)  $, which occasionally
+happens). This, again, is nontrivial information about the secret $\mathbf{a}%
+$, which a single person (or even two people) should not be having.
 \end{itemize}
 
-The problem is of course that we have too many (infinitely many) numbers. So
-we want a finite \textquotedblleft number system\textquotedblright\ in which
-we can add, subtract, multiply and divide. This will be called a
-\textit{finite field}. They exist. So if we can build sufficiently large
-finite fields, then Shamir's Scheme will actually work.
+So we cannot make Requirement 2 hold, and the culprit is that there are too
+many numbers (namely, infinitely many). What would help is a finite
+\textquotedblleft number system\textquotedblright\ in which we can add,
+subtract, multiply and divide (so that we can define polynomials over it, and
+a polynomial of degree $\leq2$ is still uniquely determined by any $3$
+values). Assuming that this \textquotedblleft number system\textquotedblright%
+\ is large enough that we can encode bitstrings using \textquotedblleft
+numbers\textquotedblright\ of this system (instead of integers), we can then
+play the above game using this \textquotedblleft number
+system\textquotedblright\ and obtain actually uniformly random numbers.
 
-Similarly for arbitrary $n$ and $k$, using polynomials of degree $\leq k-1$.
+It turns out that such \textquotedblleft number systems\textquotedblright%
+\ exist. They are called \textit{finite fields}, and we will construct them
+later in this course.
+
+Assuming that they can be constructed, we thus obtain a method of solving the
+problem for $k=3$. A similar method works for arbitrary $k$, using polynomials
+of degree $\leq k-1$. This is called \textit{Shamir's secret sharing scheme}.
 
 \section{Elementary number theory}
 
+Let us now begin a systematic introduction to algebra. We start with studying
+integers and their divisibility properties -- the beginnings of number theory.
+Part of these will be used directly in what will follow; part of these will
+inspire more general results and proofs.
+
 \subsection{Notations}
 
+\begin{definition}
 Let $\mathbb{N}=\left\{  0,1,2,\ldots\right\}  $ be the set of
 \textbf{nonnegative} integers.
 
@@ -1003,6 +1214,7 @@ Let $\mathbb{Z}=\left\{  \ldots,-1,0,1,\ldots\right\}  $ be the set of integers.
 Let $\mathbb{Q}$ be the set of rational numbers.
 
 Let $\mathbb{R}$ be the set of real numbers.
+\end{definition}
 
 \subsection{Divisibility and congruence}
 
@@ -1036,8 +1248,8 @@ $b=0c=0$.
 \textbf{(b)} If $a\mid b$ and $b\neq0$, then $\left\vert a\right\vert
 \leq\left\vert b\right\vert $.
 
-\textbf{(c)} If $b\neq0$, then $a\mid b$ if and only if $\dfrac{b}{a}%
-\in\mathbb{Z}$.
+\textbf{(c)} Assume that $b\neq0$. Then, $a\mid b$ if and only if $\dfrac
+{b}{a}\in\mathbb{Z}$.
 \end{proposition}
 
 \begin{proof}
@@ -1045,14 +1257,13 @@ Exercise.
 \end{proof}
 
 \begin{proposition}
-Let everything be an integer.
+\textbf{(a)} We have $a\mid a$ for every $a\in\mathbb{Z}$.
 
-\textbf{(a)} We have $a\mid a$.
+\textbf{(b)} If $a,b,c\in\mathbb{Z}$ satisfy $a\mid b$ and $b\mid c$, then
+$a\mid c$.
 
-\textbf{(b)} If $a\mid b$ and $b\mid c$, then $a\mid c$.
-
-\textbf{(c)} If $a_{1}\mid b_{1}$ and $a_{2}\mid b_{2}$, then $a_{1}a_{2}\mid
-b_{1}b_{2}$.
+\textbf{(c)} If $a_{1},a_{2},b_{1},b_{2}$ satisfy $a_{1}\mid b_{1}$ and
+$a_{2}\mid b_{2}$, then $a_{1}a_{2}\mid b_{1}b_{2}$.
 \end{proposition}
 
 \begin{proof}
@@ -1080,22 +1291,22 @@ even numbers will be congruent modulo $2$, and two odd numbers will be, but
 not an even and an odd.
 
 \begin{proposition}
-Let $n\in\mathbb{Z}$. Everything should be an integer.
+\label{prop.ent.mod.basics}Let $n\in\mathbb{Z}$.
 
-\textbf{(a)} We have $a\equiv a\operatorname{mod}n$.
+\textbf{(a)} We have $a\equiv a\operatorname{mod}n$ for every $a\in\mathbb{Z}$.
 
-\textbf{(b)} If $a\equiv b\operatorname{mod}n$ and $b\equiv
-c\operatorname{mod}n$, then $a\equiv c\operatorname{mod}n$.
+\textbf{(b)} If $a,b,c\in\mathbb{Z}$ satisfy  $a\equiv b\operatorname{mod}n$
+and $b\equiv c\operatorname{mod}n$, then $a\equiv c\operatorname{mod}n$.
 
-\textbf{(c)} If $a\equiv b\operatorname{mod}n$, then $b\equiv
-a\operatorname{mod}n$.
+\textbf{(c)} If $a,b\in\mathbb{Z}$ satisfy  $a\equiv b\operatorname{mod}n$,
+then $b\equiv a\operatorname{mod}n$.
 
-\textbf{(d)} If $a_{1}\equiv b_{1}\operatorname{mod}n$ and $a_{2}\equiv
-b_{2}\operatorname{mod}n$, then%
+\textbf{(d)} If $a_{1},a_{2},b_{1},b_{2}$ satisfy  $a_{1}\equiv b_{1}%
+\operatorname{mod}n$ and $a_{2}\equiv b_{2}\operatorname{mod}n$, then%
 \begin{align*}
-a_{1}+a_{2}  &  \equiv b_{1}+b_{2}\operatorname{mod}n;\\
-a_{1}-a_{2}  &  \equiv b_{1}-b_{2}\operatorname{mod}n;\\
-a_{1}a_{2}  &  \equiv b_{1}b_{2}\operatorname{mod}n.
+a_{1}+a_{2} &  \equiv b_{1}+b_{2}\operatorname{mod}n;\\
+a_{1}-a_{2} &  \equiv b_{1}-b_{2}\operatorname{mod}n;\\
+a_{1}a_{2} &  \equiv b_{1}b_{2}\operatorname{mod}n.
 \end{align*}
 
 \end{proposition}
@@ -1105,8 +1316,9 @@ See notes later.
 \end{proof}
 
 \begin{exercise}
-Is it true that $a_{1}/a_{2}\equiv b_{1}/b_{2}\operatorname{mod}n$ ? Or that
-$a_{1}^{a_{2}}\equiv b_{1}^{b_{2}}\operatorname{mod}n$ ?
+In Proposition \ref{prop.ent.mod.basics} \textbf{(d)}, is it true that
+$a_{1}/a_{2}\equiv b_{1}/b_{2}\operatorname{mod}n$ ? Or that $a_{1}^{a_{2}%
+}\equiv b_{1}^{b_{2}}\operatorname{mod}n$ ?
 \end{exercise}
 
 \begin{thebibliography}{999999999}                                                                                        %
