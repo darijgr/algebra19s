@@ -187,46 +187,51 @@ Homework \psetnumber\\% The assignment title
 \subsection{Problem}
 
 Let $a \in \QQ$ and $b \in \QQ$.
-% "\QQ" is an abbreviation for "\mathbb{Q}", and stands for the rational numbers.
+        % "\QQ" is an abbreviation for "\mathbb{Q}", and stands for the rational numbers.
 Prove that the equalities
 \begin{align}
-& \tup{a-b} \tup{ a^{n-1} + a^{n-2} b + a^{n-3} b^2 + \cdots + a b^{n-2} + b^{n-1} } \nonumber \\
-% An "\\" means "new line". So this is how you actually get a
-% linebreak if you want one. You can do this in text, too, not just
-% in align environments.
+& \tup{a-b} \tup{ a^{n-1} + a^{n-2} b + a^{n-3} b^2 + \cdots + a b^{n-2} + b^{n-1} }
+        % The "\tup{...}" command puts the "..." in parentheses.
+        % The "\cdots" is the "right" way to get a vertically centered
+        % ellipsis (I don't mind if you just write "...", but "\cdots" is
+        % considered more professional).
+\nonumber \\
+        % An "\\" means "new line". So this is how you actually get a
+        % linebreak if you want one. You can do this in text, too, not just
+        % in align environments. See below for what "\nonumber" means.
 & = a^n - b^n
 \label{eq.exe.geo-series.1}
 \end{align}
-% Several things are happening here.
-% 1. The "\begin{align}" and "\end{align}" commands delimit an "align"
-%    environment, which is a way to write several formulas one under
-%    the other while aligning them at some chosen places (e.g., at
-%    the equality signs if you wish).
-% 2. The "\tup{a-b}" yields "(a-b)" when compiled. You could achieve
-%    the same effect by just writing "(a-b)". The difference is mostly
-%    aesthetical: If you want something bigger than "a-b" inside the
-%    parentheses -- say, a fraction or a summation sign --, then
-%    writing "\tup{...}" will automatically stretch the parentheses to
-%    the size of whatever you put inside them, while "(...)" will
-%    just generate two normal-size parentheses. You don't have toß
-%    follow my stylistic choice.
-% 3. The expression "b^2" means "b to the 2nd power".
-%    The expression "a^{n-2}" means "a to the (n-2)-nd power".
-%    Why did we put {...} braces around the "n-2" but not around the
-%    "2"? It's to tell LaTeX that the "n-2" all belongs in the
-%    exponent, and not just the "n". If you wrote "a^n-2" instead,
-%    only the "n" would end up in the exponent, so you would get
-%    "a to the n-th power, minus 2".
-%    Of course, when the exponent is only 1 letter long, no {...}
-%    braces are needed.
-% 4. The "&" symbol means "align the equations here".
-%    The "\label" command lets you give an equation a label by which
-%    you can later refer to it. So this equation is now labelled
-%    "eq.exe.geo-series.1", and you can refer to it using
-%    "\eqref{eq.exe.geo-series.1}". Note that the labels do *not* get
-%    printed in the compiled PDF; they just become "(1)", "(2)" etc.
-% 5. "\nonumer" means that the first line of the "align" environment
-%    gets no label.
+        % Several things are happening here.
+        % 1. The "\begin{align}" and "\end{align}" commands delimit an "align"
+        %    environment, which is a way to write several formulas one under
+        %    the other while aligning them at some chosen places (e.g., at
+        %    the equality signs if you wish).
+        % 2. The "\tup{a-b}" yields "(a-b)" when compiled. You could achieve
+        %    the same effect by just writing "(a-b)". The difference is mostly
+        %    aesthetical: If you want something bigger than "a-b" inside the
+        %    parentheses -- say, a fraction or a summation sign --, then
+        %    writing "\tup{...}" will automatically stretch the parentheses to
+        %    the size of whatever you put inside them, while "(...)" will
+        %    just generate two normal-size parentheses. You don't have toß
+        %    follow my stylistic choice.
+        % 3. The expression "b^2" means "b to the 2nd power".
+        %    The expression "a^{n-2}" means "a to the (n-2)-nd power".
+        %    Why did we put {...} braces around the "n-2" but not around the
+        %    "2"? It's to tell LaTeX that the "n-2" all belongs in the
+        %    exponent, and not just the "n". If you wrote "a^n-2" instead,
+        %    only the "n" would end up in the exponent, so you would get
+        %    "a to the n-th power, minus 2".
+        %    Of course, when the exponent is only 1 letter long, no {...}
+        %    braces are needed.
+        % 4. The "&" symbol means "align the equations here".
+        %    The "\label" command lets you give an equation a label by which
+        %    you can later refer to it. So this equation is now labelled
+        %    "eq.exe.geo-series.1", and you can refer to it using
+        %    "\eqref{eq.exe.geo-series.1}". Note that the labels do *not* get
+        %    printed in the compiled PDF; they just become "(1)", "(2)" etc.
+        % 5. "\nonumer" means that the first line of the "align" environment
+        %    gets no label.
 and
 \begin{align}
 & \tup{a-b}^2 \tup{ 1 a^{n-1} + 2 a^{n-2} b + 3 a^{n-3} b^2 + \cdots + \tup{n-1} a b^{n-2} + n b^{n-1} } \nonumber \\
@@ -234,14 +239,14 @@ and
 \label{eq.exe.geo-series.2}
 \end{align}
 hold for each $n \in \NN$.
-% "\NN" is an abbreviation for "\mathbb{N}", and stands for the nonnegative integers.
+        % "\NN" is an abbreviation for "\mathbb{N}", and stands for the nonnegative integers.
 
 (Here and in the following, $\NN$ stands for the set
 $\set{0, 1, 2, \ldots}$.
-% The "\set{...}" command puts the "..." in set-braces.
-% The "\ldots" command gives an ellipsis that looks a bit better than what you
-% would get by just writing "...". It's mostly a matter of taste,
-% and I don't mind if you just write "...".
+        % The "\set{...}" command puts the "..." in set-braces.
+        % The "\ldots" command gives an ellipsis that looks a bit better than what you
+        % would get by just writing "...". It's mostly a matter of taste,
+        % and I don't mind if you just write "...".
 We also recall that empty sums -- i.e., sums that have no
 addends at all -- evaluate to $0$ by definition. This applies,
 in particular, to the sums
@@ -249,10 +254,10 @@ $a^{n-1} + a^{n-2} b + a^{n-3} b^2 + \cdots + a b^{n-2} + b^{n-1}$
 and
 $1 a^{n-1} + 2 a^{n-2} b + 3 a^{n-3} b^2 + \cdots + \tup{n-1} a b^{n-2} + n b^{n-1}$
 in the case when $n = 0$.)
-% LaTeX ignores single linebreaks in the sourcecode (or, rather,
-% treats them just as whitespaces). This is why the linebreak
-% between "have no" and "&=" doesn't cause a linebreak in the
-% PDF.
+        % LaTeX ignores single linebreaks in the sourcecode (or, rather,
+        % treats them just as whitespaces). This is why the linebreak
+        % between "have no" and "&=" doesn't cause a linebreak in the
+        % PDF.
 
 \subsection{Remark}
 
@@ -260,27 +265,25 @@ A consequence of the formulas
 \eqref{eq.exe.geo-series.1} and \eqref{eq.exe.geo-series.2}
 is that every rational number $x \neq 1$ satisfies
 \begin{align*}
-% The "\begin{align*}" and "\end{align*}" commands do the same
-% as "\begin{align}" and "\end{align}", except that they don't
-% number the equations.
-% Also, I'm using them here for just a single line (so I'm not
-% aligning anything). This is perfectly fine.
-\sum_{k=0}^{n-1} x^k = \dfrac{1 - x^n}{1 - x}
-% "\dfrac{a}{b}" gives the "a over b" fraction.
-% Actually, "\frac{a}{b}" does the same thing; you will only
-% see the difference if you use them in text (in which case
-% the "\frac{a}{b}" fraction will be a lot smaller than the
-% "\dfrac{a}{b}" one). Again, it is a matter of taste.
+        % The "\begin{align*}" and "\end{align*}" commands do the same
+        % as "\begin{align}" and "\end{align}", except that they don't
+        % number the equations.
+1 + x + x^2 + \cdots + x^{n-1} &= \dfrac{1 - x^n}{1 - x}
+        % "\dfrac{a}{b}" gives the "a over b" fraction.
+        % Actually, "\frac{a}{b}" does the same thing; you will only
+        % see the difference if you use them in text (in which case
+        % the "\frac{a}{b}" fraction will be a lot smaller than the
+        % "\dfrac{a}{b}" one). Again, it is a matter of taste.
 \qquad
-% "\qquad" produces an amount of white space, similar to a
-% "tab" in text editors. I usually put it between different
-% equations on a single line.
-\text{and} \qquad
-% "\text{...}" allows you to write regular (non-italicized) text
-% inside a maths environment. For example, "\text{and}" will
-% make the "and" look like regular text.
-\sum_{k=1}^n k x^{k-1}
-= \dfrac{1 - \tup{n+1} x^n + n x^{n+1}}{\tup{1 - x}^2} .
+        % "\qquad" produces an amount of white space, similar to a
+        % "tab" in text editors. I usually put it between different
+        % equations on a single line.
+\text{and} \\
+        % "\text{...}" allows you to write regular (non-italicized) text
+        % inside a maths environment. For example, "\text{and}" will
+        % make the "and" look like regular text.
+1 + 2 x + 3 x^2 + \cdots + n x^{n-1}
+&= \dfrac{1 - \tup{n+1} x^n + n x^{n+1}}{\tup{1 - x}^2} .
 \end{align*}
 Indeed, these equalities follow by setting $a = 1$ and $b = x$
 in the equalities
@@ -297,98 +300,392 @@ matrices instead of rational numbers).
 
 \subsection{Solution}
 
-\textit{Proof of \eqref{eq.exe.geo-series.1}.}
+We will use the summation sign when we solve this exercise.
+This will make our formulas both shorter and clearer.
+For example, instead of
+``$1 a^{n-1} + 2 a^{n-2} b + 3 a^{n-3} b^2 + \cdots + \tup{n-1} a b^{n-2} + n b^{n-1}$'',
+it will let us just write
+``$\sum_{k=1}^n k b^{k-1}$''.
 
-We shall prove \eqref{eq.exe.geo-series.1} by induction on $n$:
+Let us give a crash course on the use of the summation sign.
+We refer to \cite[Section 1.4]{detnotes}
+        % "\cite[...]{...}" is a way to cite other sources
+        % (books, papers, anything). The syntax is
+        % "\cite[place]{source you are citing}".
+        % (The "place" can be a theorem or section or chapter,
+        % or you can omit it and just write "\cite{source}".)
+        % See the bibliography at the end of this homework for
+        % what the "source" part should be.
+for details and further information\footnote{and to
+\cite[Section 2.14]{detnotes} for proofs of well-definedness
+and basic properties}.
+        % "\footnote" does what you would expect it to do.
+        % Caveat: You can't put a \footnote inside a mathematical
+        % expression or formula. (But you shouldn't anyway -- it would
+        % look like an exponent.)
+
+\begin{itemize}
+        % "\begin{itemize}" gives a bullet list.
+        % Use "\item" to place a bullet,
+        % and "\end{itemize}" to end the list.
+
+\item Assume that $S$ is a finite set, and that $a_s$ is a
+      number (e.g., a real number) for each $s \in S$.
+      Thus you have $\abs{S}$ many numbers $a_s$ in total.
+      Then, $\sum_{s \in S} a_s$ shall denote the sum of all
+      of these $\abs{S}$ many numbers.
+      For example,
+      \begin{align*}
+      \sum_{s \in \set{2, 5, 6}} s^3 = 2^3 + 5^3 + 6^3
+      \end{align*}
+              % It is perfectly fine to use \begin{align*} and \end{align*}
+              % for just a single line (so you are not actually aligning anything).
+      (here, $S = \set{2, 5, 6}$ and $a_s = s^3$ for each
+      $s \in S$)
+      and
+      \begin{align*}
+      \sum_{s \in \set{5, 7, 9, 11}} \dfrac{1}{s}
+       = \dfrac{1}{5} + \dfrac{1}{7} + \dfrac{1}{9} + \dfrac{1}{11}
+      \end{align*}
+      (here, $S = \set{5, 7, 9, 11}$ and $a_s = \dfrac{1}{s}$
+      for each $s \in S$).
+      
+      The letter $s$ here plays the same role as the
+      letter $s$ in ``$\set{s^2 \mid s \in \set{2, 3, 4}}$''
+      or in ``the function that sends each integer $s$ to
+      $s^2 - 1$''; it designates the ``moving part'' in a
+      definition (it is what is called a ``bound variable''
+      or a ``running index'').
+      You don't have to use the specific letter $s$ for it;
+      you can use any other letter instead (as long as it
+      does not already have a different meaning) and get the
+      same result.
+      For example, the sum $\sum_{s \in \set{2, 5, 6}} s^3$
+      can be rewritten as
+      $\sum_{i \in \set{2, 5, 6}} i^3$ or as
+      $\sum_{\mathfrak{G} \in \set{2, 5, 6}} \mathfrak{G}^3$.
+        % "\mathfrak{...}" is the Fraktur font, used mostly
+        % when running out of other letters and to scare off
+        % readers. Most mathematicians go through a phase of
+        % writing text with it.
+      When the set $S$ is empty (so you have no numbers $a_s$
+      at all), the sum $\sum_{s \in S} a_s$ is defined
+      to be $0$; this is called an \textit{empty sum}.
+
+\item Assume that $u$ and $v$ are two integers, and that $a_s$
+      is a number (e.g., a real number) for each
+      $s \in \set{u, u+1, \ldots, v}$.
+      (When $u > v$, we understand the set
+      $\set{u, u+1, \ldots, v}$ to be empty -- it does not
+      contain any ``anti-integers'' either.)
+      Then, $\sum_{s = u}^v a_s$ is just a shorthand for
+      the sum $\sum_{s \in \set{u, u+1, \ldots, v}} a_s$.
+      This sum can also be written as
+      $a_u + a_{u+1} + \cdots + a_v$, but this notation
+      presumes the reader to guess what the ``general term''
+      $a_s$ looks like.
+      For example,
+      \begin{align*}
+      \sum_{s = 5}^{10} s^s
+      = 5^5 + 6^6 + 7^7 + 8^8 + 9^9 + 10^{10}
+      = 5^5 + 6^6 + \cdots + 10^{10}
+      \end{align*}
+      (arguably, guessing the general term is easy here,
+      but look at the sum in \eqref{eq.exe.geo-series.2}).
+      For another example,
+      \begin{align*}
+      \sum_{s = -2}^{2} s^2
+      = \tup{-2}^2 + \tup{-1}^2 + 0^2 + 1^2 + 2^2 .
+      \end{align*}
+
+\item Expressions of the form $\sum_{s \in S} a_s$ and
+      $\sum_{s \in \set{u, u+1, \ldots, v}} a_s$ are called
+      ``finite sums'', and the $\sum$ symbol is called the
+      ``summation sign''.
+
+\item Finite sums satisfy the rules that you would expect.
+      For example, assume that a finite set $S$ is written
+      as a union of two disjoint subsets $A$ and $B$ (so
+      each element of $S$ belongs to one of $A$ and $B$,
+      but not to both).
+      Assume that $a_s$ is a number for each $s \in S$.
+      Then,
+      \begin{align*}
+      \sum_{s \in S} a_s = \sum_{s \in A} a_s + \sum_{s \in B} a_s .
+      \end{align*}
+      For example, if $S = \set{1, 2, \ldots, 2n}$ for some
+      $n \in \NN$, and if
+      \begin{align*}
+      A &= \set{\text{the even elements of } S} = \set{2, 4, 6, \ldots, 2n}
+      \qquad \text{and} \\
+      B &= \set{\text{the odd elements of } S} = \set{1, 3, 5, \ldots, 2n-1} ,
+      \end{align*}
+      then this formula becomes
+      \begin{align*}
+      a_1 + a_2 + \cdots + a_{2n}
+      = \tup{a_2 + a_4 + a_6 + \cdots + a_{2n}}
+        + \tup{a_1 + a_3 + a_5 + \cdots + a_{2n-1}} .
+      \end{align*}
+      This is exactly what you would expect: To sum the
+      $2n$ numbers $a_1, a_2, \ldots, a_{2n}$, you can first
+      split them into the ``even'' and the ``odd'' ones
+      (to be pedantic: rather, the ones with the even subscripts
+      and the ones with the odd subscripts), and separately
+      sum the former and the latter, and subsequently add the
+      two small sums together.
+      See \cite[Section 1.4.2]{detnotes} for this and several
+      other rules (and for their rigorous proofs, if you are
+      that skeptical).
+      You can use all these rules without saying, except
+      for the ``telescoping sums'' rule (which you should
+      cite by name when you apply it).
+      For lots of practice with sums, see \cite[Chapter 2 and
+      further]{GKP}.
+
+\item The ``product sign'' $\prod$ is analogous to the summation
+      sign $\sum$, but stands for products instead of sums.
+      For example,
+      \begin{align*}
+      \prod_{s = 5}^{10} s^s
+      = 5^5 \cdot 6^6 \cdot 7^7 \cdot 8^8 \cdot 9^9 \cdot 10^{10}
+      = 5^5 \cdot 6^6 \cdot \cdots \cdot 10^{10} .
+      \end{align*}
+      An empty product (i.e., a product of the form
+      $\prod_{s \in S} a_s$ when $S$ is empty) is defined to
+      be $1$.
+      See \cite[Section 1.4.4]{detnotes} for the properties
+      of products.
+
+\end{itemize}
+
+The summation sign lets us rewrite the sum
+$a^{n-1} + a^{n-2} b + a^{n-3} b^2 + \cdots + a b^{n-2} + b^{n-1}$
+in \eqref{eq.exe.geo-series.1} as
+$\sum_{k = 1}^n a^{n-k} b^{k-1}$,
+and lets us rewrite the sum
+$1 a^{n-1} + 2 a^{n-2} b + 3 a^{n-3} b^2 + \cdots + \tup{n-1} a b^{n-2} + n b^{n-1}$
+in \eqref{eq.exe.geo-series.2} as
+$\sum_{k = 1}^n k a^{n-k} b^{k-1}$.
+So the two equalities \eqref{eq.exe.geo-series.1}
+and \eqref{eq.exe.geo-series.2} rewrite as
+\begin{align}
+\tup{a-b} \sum_{k = 1}^n a^{n-k} b^{k-1} = a^n - b^n
+\label{eq.exe.geo-series.1'}
+\end{align}
+and
+\begin{align}
+\tup{a-b}^2 \sum_{k = 1}^n k a^{n-k} b^{k-1}
+= a^{n+1} - \tup{n+1} a b^n + n b^{n+1} ,
+\label{eq.exe.geo-series.2'}
+\end{align}
+respectively.
+It is in these forms that we will prove these equalities.
+
+\begin{itemize}
+
+\item \textit{Proof of \eqref{eq.exe.geo-series.1'}:}
+
+We shall prove \eqref{eq.exe.geo-series.1'} by induction on $n$:
 
 \textit{Induction base:}
 Comparing the equalities $a^0 - b^0 = 1 - 1 = 0$ and
 \begin{align*}
 \tup{a-b}
-\underbrace{\tup{ a^{0-1} + a^{0-2} b + a^{0-3} b^2 + \cdots + a b^{0-2} + b^{0-1} }}_{=\tup{\text{empty sum}} = 0}
+\underbrace{\sum_{k = 1}^0 a^{0-k} b^{k-1}}_{=\tup{\text{empty sum}} = 0}
 = \tup{a-b} 0 = 0,
 \end{align*}
 we obtain
 \begin{align*}
-a^0 - b^0
-= \tup{a-b} \tup{ a^{0-1} + a^{0-2} b + a^{0-3} b^2 + \cdots + a b^{0-2} + b^{0-1} } .
+\tup{a-b} \sum_{k = 1}^0 a^{0-k} b^{k-1}
+= a^0 - b^0 .
 \end{align*}
-In other words, \eqref{eq.exe.geo-series.1} holds for $n = 0$.
+In other words, \eqref{eq.exe.geo-series.1'} holds for $n = 0$.
+Thus the induction base is complete.
 
 \textit{Induction step:}
+Let $m \in \NN$.
+Assume that \eqref{eq.exe.geo-series.1'} holds for $n = m$.
+We must prove that \eqref{eq.exe.geo-series.1'} holds for $n = m+1$.
 
-
+We have assumed that \eqref{eq.exe.geo-series.1'}
+holds for $n = m$. In other words, we have
 \begin{align}
-& a^n - b^n \nonumber \\
-% An "\\" means "new line". So this is how you actually get a
-% linebreak if you want one. You can do this in text, too, not just
-% in align environments.
-& = \tup{a-b} \tup{ a^{n-1} + a^{n-2} b + a^{n-3} b^2 + \cdots + a b^{n-2} + b^{n-1} }
-%\label{eq.exe.geo-series.1}
+\tup{a-b} \sum_{k = 1}^m a^{m-k} b^{k-1} = a^m - b^m .
+\label{sol.geo-series.1'.pf.IH}
 \end{align}
+Now, splitting off the last addend of the sum
+$\sum_{k = 1}^{m+1} a^{\tup{m+1}-k} b^{k-1}$, we obtain
+\begin{align*}
+  \sum_{k = 1}^{m+1} a^{\tup{m+1}-k} b^{k-1}
+& = \sum_{k = 1}^m \underbrack{a^{\tup{m+1}-k}}{= a^{m-k+1} \\ = a a^{m-k}} b^{k-1}
+      + \underbrack{a^{\tup{m+1}-\tup{m+1}}}{= a^0 = 1}
+        \underbrack{b^{\tup{m+1}-1}}{= b^m} \\
+        % Check the PDF to see what "\underbrack" does here.
+        % I use it mainly to clarify computational steps in
+        % which several things get rewritten at the same
+        % time. It can also be used for additional
+        % explanations.
+& = \sum_{k = 1}^m a a^{m-k} b^{k-1} + b^m
+  = a \sum_{k = 1}^m a^{m-k} b^{k-1} + b^m ,
+\end{align*}
+so that
+\begin{align*}
+& \tup{a-b} \sum_{k = 1}^{m+1} a^{{m+1}-k} b^{k-1} \\
+& = \tup{a-b} \tup{a \sum_{k = 1}^m a^{m-k} b^{k-1} + b^m} \\
+& = a \underbrack{\tup{a-b} \sum_{k = 1}^m a^{m-k} b^{k-1}}{= a^m - b^m \\ \text{(by \eqref{sol.geo-series.1'.pf.IH})}}
+        % You don't need to be this detailed; I'm just showing off.
+    + \tup{a-b} b^m
+  = a \tup{a^m - b^m} + \tup{a-b} b^m \\
+& = a a^m - a b^m + a b^m - b b^m
+  = \underbrack{a a^m}{= a^{m+1}} - \underbrack{b b^m}{= b^{m+1}}
+  = a^{m+1} - b^{m+1} .
+\end{align*}
+In other words, \eqref{eq.exe.geo-series.1'} holds for $n = m+1$.
+This completes the induction step.
+Thus, \eqref{eq.exe.geo-series.1'} is proven.
 
+\item \textit{Proof of \eqref{eq.exe.geo-series.2'}:}
+        % The advantage of typing solutions: You can basically
+        % copy-paste the above proof of
+        % \eqref{eq.exe.geo-series.1'} and make just the few
+        % necessary changes.
 
-XXX
+We shall prove \eqref{eq.exe.geo-series.2'} by induction on $n$:
+
+\textit{Induction base:}
+Comparing the equalities $a^{0+1} - \tup{0+1} a b^0 + 0 b^{0+1}
+= a^1 - a = a - a = 0$ and
+\begin{align*}
+\tup{a-b}^2
+\underbrace{\sum_{k = 1}^0 k a^{0-k} b^{k-1}}_{=\tup{\text{empty sum}} = 0}
+= \tup{a-b}^2 0 = 0,
+\end{align*}
+we obtain
+\begin{align*}
+\tup{a-b}^2 \sum_{k = 1}^0 k a^{0-k} b^{k-1}
+= a^{0+1} - \tup{0+1} a b^0 + 0 b^{0+1} .
+\end{align*}
+In other words, \eqref{eq.exe.geo-series.2'} holds for $n = 0$.
+Thus the induction base is complete.
+
+\textit{Induction step:}
+Let $m \in \NN$.
+Assume that \eqref{eq.exe.geo-series.2'} holds for $n = m$.
+We must prove that \eqref{eq.exe.geo-series.2'} holds for $n = m+1$.
+
+We have assumed that \eqref{eq.exe.geo-series.2'}
+holds for $n = m$. In other words, we have
+\begin{align}
+\tup{a-b}^2 \sum_{k = 1}^m k a^{m-k} b^{k-1}
+= a^{m+1} - \tup{m+1} a b^m + m b^{m+1} .
+\label{sol.geo-series.2'.pf.IH}
+\end{align}
+Now, splitting off the last addend of the sum
+$\sum_{k = 1}^{m+1} k a^{\tup{m+1}-k} b^{k-1}$, we obtain
+\begin{align*}
+  \sum_{k = 1}^{m+1} k a^{\tup{m+1}-k} b^{k-1}
+& = \sum_{k = 1}^m k \underbrack{a^{\tup{m+1}-k}}{= a^{m-k+1} \\ = a a^{m-k}} b^{k-1}
+      + \tup{m+1}
+        \underbrack{a^{\tup{m+1}-\tup{m+1}}}{= a^0 = 1}
+        \underbrack{b^{\tup{m+1}-1}}{= b^m} \\
+& = \sum_{k = 1}^m k a a^{m-k} b^{k-1} + \tup{m+1} b^m
+  = a \sum_{k = 1}^m k a^{m-k} b^{k-1} + \tup{m+1} b^m ,
+\end{align*}
+so that
+\begin{align*}
+& \tup{a-b}^2 \sum_{k = 1}^{m+1} k a^{{m+1}-k} b^{k-1} \\
+& = \tup{a-b}^2 \tup{a \sum_{k = 1}^m k a^{m-k} b^{k-1} + \tup{m+1} b^m} \\
+& = a \underbrack{\tup{a-b}^2 \sum_{k = 1}^m k a^{m-k} b^{k-1}}{= a^{m+1} - \tup{m+1} a b^m + m b^{m+1} \\ \text{(by \eqref{sol.geo-series.2'.pf.IH})}}
+    + \tup{a-b}^2 \tup{m+1} b^m \\
+& = a \tup{a^{m+1} - \tup{m+1} a b^m + m b^{m+1}} + \tup{a-b}^2 \tup{m+1} b^m \\
+& = \underbrack{a a^{m+1}}{= a^{m+2}}
+    - \tup{m+1} \underbrack{a a}{= a^2} b^m + m a b^{m+1}
+    + \underbrack{\tup{a-b}^2}{= a^2 - 2ab + b^2} \tup{m+1} b^m \\
+& = a^{m+2} - \tup{m+1} a^2 b^m + m a b^{m+1}
+    + \tup{a^2 - 2ab + b^2} \tup{m+1} b^m \\
+& = a^{m+2} - \tup{m+1} a^2 b^m + m a b^{m+1}
+    + \tup{m+1} a^2 b^m - 2 \tup{m+1} a \underbrack{b b^m}{= b^{m+1}} + \tup{m+1} \underbrack{b^2 b^m}{= b^{m+2}} \\
+& = a^{m+2} + m a b^{m+1}
+    - 2 \tup{m+1} a \underbrack{b b^m}{= b^{m+1}} + \tup{m+1} \underbrack{b^2 b^m}{= b^{m+2}} \\
+& = a^{m+2} + \underbrack{m a b^{m+1} - 2 \tup{m+1} a b^{m+1}}{= \tup{m - 2 \tup{m+1}} a b^{m+1} \\ = - \tup{m+2} a b^{m+1} } + \tup{m+1} b^{m+2} \\
+& = a^{m+2} - \tup{m+2} a b^{m+1} + \tup{m+1} b^{m+2} \\
+& = a^{\tup{m+1}+1} - \tup{\tup{m+1}+1} a b^{m+1} + \tup{m+1} b^{\tup{m+1}+1} .
+\end{align*}
+In other words, \eqref{eq.exe.geo-series.2'} holds for $n = m+1$.
+This completes the induction step.
+Thus, \eqref{eq.exe.geo-series.2'} is proven.
+
+\end{itemize}
+
+So the exercise is solved.
+
+\subsection{Remark}
+
+The equality \eqref{eq.exe.geo-series.1'} can also be solved using
+the telescope principle; see \cite[(18)]{detnotes} for this
+argument.
 
 %----------------------------------------------------------------------------------------
 %	EXERCISE 2
 %----------------------------------------------------------------------------------------
 \horrule{0.3pt} \\[0.4cm]
 
-\section{Exercise 2}
+\section{Exercise 2: Factorials 101}
 
 \subsection{Problem}
 
-\begin{enumerate} % This creates a list.
+Recall that the \textit{factorial} of a nonnegative integer $n$
+is defined by
+\begin{align*}
+n! = \prod_{i=1}^n i = 1 \cdot 2 \cdot 3 \cdot \cdots \cdot n .
+\end{align*}
+Thus, in particular, $0! = 1$ (since we defined empty products
+to be $1$); it is easy to see that
+\begin{align*}
+1! = 1, \qquad
+2! = 2, \qquad
+3! = 6, \qquad
+4! = 24, \qquad
+5! = 120, \qquad
+6! = 720, \qquad
+7! = 5040.
+\end{align*}
+This sequence grows very fast (see
+\href{https://en.wikipedia.org/wiki/Stirling%27s_approximation}{Stirling's approximation}).
+
+Prove the following properties of factorials:
+
+\begin{enumerate}
+        % This creates a list.
 
 \item[\textbf{(a)}]
-% "\item[\textbf{(a)}]" starts the first item of the list, and names
-% (or numbers) it by a boldfaced "(a)".
-XXX
+        % "\item[\textbf{(a)}]" starts the first item of the list, and names
+        % (or numbers) it by a boldfaced "(a)".
+We have $n! = n \cdot \tup{n-1}!$ for each positive integer $n$.
 
 \item[\textbf{(b)}]
-A \textit{composition} of $n$ shall mean a list
-\footnote{``List'' means the same as ``tuple'';
-          lists are always ordered and finite.}
-% "\footnote" does what you would expect it to do.
-% Caveat: You can't put a \footnote inside a mathematical
-% expression or formula. (But you shouldn't anyway -- it would
-% look like an exponent.)
-$\tup{i_1, i_2, \ldots, i_k}$
-of positive integers such that $i_1 + i_2 + \cdots + i_k = n$.
-% The "\tup{...}" command puts the "..." in parentheses.
-% The "\cdots" is the "right" way to get a vertically centered ellipsis.
-(For example, the compositions of $3$ are
-$\tup{3}$, $\tup{1, 2}$, $\tup{2, 1}$ and $\tup{1, 1, 1}$.)
+For each $n \in \NN$, we have
+\begin{align*}
+1 \cdot 1! + 2 \cdot 2! + \cdots + n \cdot n!
+= \tup{n+1}! - 1 .
+\end{align*}
 
-Show that the number of all compositions of $n$ is
-\[  % These "\[" and "\]" brackets are one way to delimit a formula.
-\begin{cases}
-2^{n-1}, & \text{ if } n > 0 ; \\
-1,       & \text{ if } n = 0 .
-\end{cases}
-\]
-% Note that we had to write "2^{n-1}", not "2^n-1", in order to get
-% the whole of "n-1" into the exponents, rather than just the "n".
-% For example, 2^{3-1} = 2^2 = 4 whereas 2^3-1 = 8-1 = 7.
-% 
-% "\text{...}" is a way to write text inside a mathematical expression.
-% 
-% The "&" character vertically aligns symbols on different rows.
-% (Here, we have used it in the "cases" environment; it works
-% similarly in "align" environments. In tables/matrices, it
-% separates columns from each other.
+\item[\textbf{(c)}]
+For each $n \in \NN$, we have
+\begin{align*}
+1 \cdot 3 \cdot 5 \cdot \cdots \cdot \tup{2n-1}
+= \dfrac{\tup{2n}!}{2^n n!} .
+\end{align*}
+(Here, the left hand side is understood to be the
+product of the first $n$ odd positive integers, i.e.,
+the product $\prod_{i=1}^n \tup{2i-1}$.)
 
-\end{enumerate} % This ends the list.
-XXX
-
-\subsection{Remark}
-
-XXX
+\end{enumerate}
+        % This ends the list.
 
 \subsection{Solution}
 
-XXX
+\textbf{(a)} 
 
 XXX
 % This is a "proof" environment. In general
@@ -407,11 +704,89 @@ XXX
 %----------------------------------------------------------------------------------------
 \horrule{0.3pt} \\[0.4cm]
 
-\section{Exercise 3}
+\section{Exercise 3: Binomial coefficients 101}
 
 \subsection{Problem}
 
-XXX
+For any $n \in \QQ$ and $k \in \NN$, we define the
+\textit{binomial coefficient} $\dbinom{n}{k}$ by
+\[
+\dbinom{n}{k}
+= \dfrac{ n \tup{n-1} \tup{n-2} \cdots \tup{n-k+1} }{k!}
+= \dfrac{ \prod_{i=0}^{k-1} \tup{n-i} }{k!} .
+\]
+        % I said that you can use "\begin{align*}" and
+        % "\end{align*}" for a single (unlabelled) equation.
+        % The "\[" and "\]" commands can be used for the same
+        % purpose and are a bit easier to type.
+        % (Their main disadvantage is that if you find
+        % yourself wanting to add a second line, you'll have
+        % to replace them by "\begin{align*}" and
+        % "\end{align*}".)
+We furthermore set $\dbinom{n}{k} = 0$ for all rational
+$k \notin \NN$.
+
+For example,
+\begin{align*}
+\dbinom{5}{3} &= \dfrac{5 \cdot 4 \cdot 3}{3!} = \dfrac{60}{6} = 10; \\
+\dbinom{1}{3} &= \dfrac{1 \cdot 0 \cdot \tup{-1}}{3!} = \dfrac{0}{6} = 0; \\
+\dbinom{-2}{3} &= \dfrac{\tup{-2} \cdot \tup{-3} \cdot \tup{-4}}{3!} = \dfrac{-24}{6} = -4; \\
+\dbinom{1/2}{3} &= \dfrac{\tup{1/2} \cdot \tup{-1/2} \cdot \tup{-3/2}}{3!} = \dfrac{3/8}{6} = \dfrac{1}{16}.
+\end{align*}
+
+Prove the following properties of binomial coefficients:
+
+\begin{enumerate}
+
+\item[\textbf{(a)}]
+If $n \in \NN$ and $k \in \NN$ are such that $n \geq k$,
+then
+\[
+\dbinom{n}{k}
+= \dfrac{n!}{k! \tup{n-k}!} .
+\]
+(This is often used as a definition of the binomial coefficients,
+but only covers the case when $n, k \in \NN$ and $n \geq k$,
+which makes it a lousy definition.)
+
+\item[\textbf{(b)}]
+If $n \in \NN$ and $k \in \NN$ are such that $k > n$, then
+\[
+\dbinom{n}{k} = 0.
+\]
+
+\item[\textbf{(c)}]
+If $n \in \NN$ and $k \in \QQ$, then
+\[
+\dbinom{n}{k} = \dbinom{n}{n-k} .
+\]
+(This is known as the \textit{symmetry of binomial coefficients}.
+Note that it fails if $n \notin \NN$.)
+
+\item[\textbf{(d)}]
+Any $n \in \QQ$ and $k \in \QQ$ satisfy
+\[
+\dbinom{-n}{k} = \tup{-1}^k \dbinom{k + n - 1}{k} .
+\]
+(This is one of the versions of the \textit{upper negation formula}.)
+
+\item[\textbf{(e)}]
+Any $n \in \QQ$ and $k \in \QQ$ satisfy
+\[
+\dbinom{n}{k} = \dbinom{n-1}{k} + \dbinom{n-1}{k-1} .
+\]
+(This is the \textit{recurrence of the binomial coefficients},
+and is the reason why each entry of
+\href{https://en.wikipedia.org/wiki/Pascal%27s_triangle}{Pascal's triangle}
+is the sum of the two entries above it.)
+
+\item[\textbf{(f)}]
+Any $n \in \QQ$ and $k \in \QQ$ satisfy
+\[
+k \dbinom{n}{k} = n \dbinom{n-1}{k-1} .
+\]
+
+\end{enumerate}
 
 \subsection{Solution}
 
@@ -424,11 +799,15 @@ XXX
 % where "name" is the name that will appear in the compiled
 % bibliography, and "tag" is the tag by which you will refer to
 % the source in the TeX file. For example, the following source
-% has name "Grinbe16" (so you will see it referenced as
-% "[Grinbe16]" in the compiled PDF) and tag "detnotes" (so you
-% can cite it by writing "\cite{detnotes}").
+% has name "GrKnPa94" (so you will see it referenced as
+% "[GrKnPa94]" in the compiled PDF) and tag "GKP" (so you
+% can cite it by writing "\cite{GKP}").
 
-\bibitem[Grinbe16]{detnotes}Darij Grinberg,
+\bibitem[GrKnPa94]{GKP}Ronald L. Graham, Donald E. Knuth, Oren Patashnik,
+\textit{Concrete Mathematics, Second Edition}, Addison-Wesley 1994.\\
+See \url{https://www-cs-faculty.stanford.edu/~knuth/gkp.html} for errata.
+
+\bibitem[Grinbe19]{detnotes}Darij Grinberg,
 \textit{Notes on the combinatorial fundamentals of algebra},
 10 January 2019. \\
 \url{http://www.cip.ifi.lmu.de/~grinberg/primes2015/sols.pdf}
