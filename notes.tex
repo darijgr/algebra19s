@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Friday, February 01, 2019 11:02:11}
+%TCIDATA{LastRevised=Friday, February 01, 2019 22:59:07}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -1753,7 +1753,7 @@ number\textquotedblright):
 each $s\in S$, let $a_{s}$ and $b_{s}$ be two integers. Assume that%
 \begin{equation}
 a_{s}\equiv b_{s}\operatorname{mod}n\ \ \ \ \ \ \ \ \ \ \text{for each }s\in
-S.\label{eq.exe.ent.mod.k-sum.ass}%
+S. \label{eq.exe.ent.mod.k-sum.ass}%
 \end{equation}
 
 
@@ -1777,8 +1777,10 @@ holds by the definition of empty sums and of empty products.)
 \end{exercise}
 
 \begin{fineprint}
+
+
 \begin{proof}
-[Solution to Exercise \ref{exe.ent.mod.k-sum}.] \textbf{(a)} We shall solve
+[Solution to Exercise \ref{exe.ent.mod.k-sum}.]\textbf{(a)} We shall solve
 Exercise \ref{exe.ent.mod.k-sum} \textbf{(a)} by induction on $\left\vert
 S\right\vert $:
 
@@ -1896,8 +1898,10 @@ b_{1}b_{2}\operatorname{mod}n_{1}n_{2}$ ?
 \end{exercise}
 
 \begin{fineprint}
+
+
 \begin{proof}
-[Solution to Exercise \ref{exe.ent.mod.prod-wrong}.] No, it is not true. For
+[Solution to Exercise \ref{exe.ent.mod.prod-wrong}.]No, it is not true. For
 example, $a_{1}=1$, $a_{2}=1$, $b_{1}=1$, $b_{2}=0$, $n_{1}=0$ and $n_{2}=1$
 yield a counterexample.
 \end{proof}
@@ -2535,9 +2539,11 @@ following exercise collects various properties of even and odd integers:
 [Solution to Exercise \ref{exe.ent.even-odd.1}.]TODO.
 \end{proof}
 
-\subsection{The floor function}
+\begin{center}
+\textbf{2019-02-04 lecture}
+\end{center}
 
-TODO!
+\subsection{The floor function}
 
 \begin{definition}
 \label{def.ent.floor}Let $x$ be a real number. Then, $\left\lfloor
@@ -2562,11 +2568,13 @@ the floor of $x$).
 
 \textbf{(c)} The map $\mathbb{R}\rightarrow\mathbb{Z},\ x\mapsto\left\lfloor
 x\right\rfloor $ is called the \textit{floor function} or the \textit{greatest
-integer function}. There is also a \textit{ceiling function}, which sends each
-$x\in\mathbb{R}$ to the unique integer $n$ satisfying $n-1<x\leq n$; this
-latter integer is called $\left\lceil x\right\rceil $. The two functions are
-connected by the rule $\left\lceil x\right\rceil =-\left\lfloor
--x\right\rfloor $ (for all $x\in\mathbb{R}$).
+integer function}.
+
+There is also a \textit{ceiling function}, which sends each $x\in\mathbb{R}$
+to the unique integer $n$ satisfying $n-1<x\leq n$; this latter integer is
+called $\left\lceil x\right\rceil $. The two functions are connected by the
+rule $\left\lceil x\right\rceil =-\left\lfloor -x\right\rfloor $ (for all
+$x\in\mathbb{R}$).
 
 The floor and the ceiling functions are some of the simplest examples of
 discontinuous functions.
@@ -2606,22 +2614,132 @@ $a//b$.
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.ent.floor.quorem}.]TODO (exercise?).
+[Proof of Proposition \ref{prop.ent.floor.quorem}.]TODO (exercise).
 \end{proof}
 
 \subsection{Common divisors, the Euclidean algorithm and the Bezout theorem}
 
+\begin{definition}
+Let $b\in\mathbb{Z}$. The \textit{divisors} of $b$ are defined as the integers
+that divide $b$.
+\end{definition}
+
+Be aware that some books have a mildly different definition of
+\textquotedblleft divisors\textquotedblright; namely, they additionally
+require them to be positive. We don't make such a requirement.
+
+For example, the divisors of $6$ are $-6,-3,-2,-1,1,2,3,6$. Of course, the
+negative divisors of an integer $b$ are merely the reflections of the positive
+divisors through the origin\footnote{\textquotedblleft Reflection through the
+origin\textquotedblright\ is just a poetic way to say \textquotedblleft
+negative\textquotedblright; i.e., the reflection of a number $a$ through the
+origin is $-a$.} (this follows easily from Proposition \ref{prop.ent.div.1}
+\textbf{(a)}); thus, the positive divisors are usually the only thing one is 
+
+Here are some basic properties of divisors:
+
+\begin{proposition}
+\label{prop.ent.divisors.find}\textbf{(a)} If $b\in\mathbb{Z}$, then $1$ and
+$b$ are divisors of $b$.
+
+\textbf{(b)} The divisors of $0$ are all the integers.
+
+\textbf{(c)} Let $b\in\mathbb{Z}$ be nonzero. Then, all divisors of $b$ belong
+to the set $\left\{  -\left\vert b\right\vert ,-\left\vert b\right\vert
++1,\ldots,\left\vert b\right\vert \right\}  \setminus\left\{  0\right\}  $.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.ent.divisors.find}.] \textbf{(a)} Clearly,
+$1\mid b$ (since $b=1b$), so that $1$ is a divisor of $b$. Also, $b\mid b$
+(since $b=b\cdot1$), so that $b$ is a divisor of $b$.
+
+\textbf{(b)} Each integer $a$ divides $0$ (since $0=a\cdot0$) and thus is a
+divisor of $0$. This proves Proposition \ref{prop.ent.divisors.find}
+\textbf{(b)}.
+
+\textbf{(c)} Let $a$ be a divisor of $b$. Then, $a$ divides $b$. In other
+words, $a\mid b$. Hence, Proposition \ref{prop.ent.div.1} \textbf{(b)} yields
+$\left\vert a\right\vert \leq\left\vert b\right\vert $ (since $b\neq0$). But
+$\left\vert a\right\vert \geq a$ (since $\left\vert x\right\vert \geq x$ for
+each $x\in\mathbb{R}$), so that $a\leq\left\vert a\right\vert \leq\left\vert
+b\right\vert $. Also, $\left\vert a\right\vert \geq-a$ (since $\left\vert
+x\right\vert \geq-x$ for each $x\in\mathbb{R}$) and thus $-a\leq\left\vert
+a\right\vert \leq\left\vert b\right\vert $, so that $a\geq-\left\vert
+b\right\vert $. Combining this with $a\leq\left\vert b\right\vert $, we obtain
+$-\left\vert b\right\vert \leq a\leq\left\vert b\right\vert $ and thus
+$a\in\left\{  -\left\vert b\right\vert ,-\left\vert b\right\vert
++1,\ldots,\left\vert b\right\vert \right\}  $ (since $a$ is an integer).
+
+From Example \ref{exa.ent.div.triv} \textbf{(c)}, we know that $0\mid b$ only
+when $b=0$. Thus, we don't have $0\mid b$ (since $b\neq0$).
+
+If we had $a=0$, then we would have $0=a\mid b$, which would contradict the
+fact that we don't have $0\mid b$. Thus, we cannot have $a=0$. Hence, $a\neq
+0$. Combining $a\in\left\{  -\left\vert b\right\vert ,-\left\vert b\right\vert
++1,\ldots,\left\vert b\right\vert \right\}  $ with $a\neq0$, we obtain
+$a\in\left\{  -\left\vert b\right\vert ,-\left\vert b\right\vert
++1,\ldots,\left\vert b\right\vert \right\}  \setminus\left\{  0\right\}  $.
+
+We have proven this for each divisor $a$ of $b$. Thus, we conclude that all
+divisors of $b$ belong to the set $\left\{  -\left\vert b\right\vert
+,-\left\vert b\right\vert +1,\ldots,\left\vert b\right\vert \right\}
+\setminus\left\{  0\right\}  $. This proves Proposition
+\ref{prop.ent.divisors.find} \textbf{(c)}.
+\end{proof}
+
+Thanks to Proposition \ref{prop.ent.divisors.find}, we have a method to find
+all divisors of an integer $b$: If $b=0$, then Proposition
+\ref{prop.ent.divisors.find} \textbf{(b)} directly yields the result;
+otherwise, Proposition \ref{prop.ent.divisors.find} \textbf{(c)} shows that
+there is only a finite set of numbers we have to check. When $b$ is large,
+this is slow, but to some extent that is because the problem is
+computationally hard (or at least suspected to be hard).
+
+It is somewhat more interesting to consider the common divisors of two or more integers:
+
+\begin{definition}
+\label{def.ent.Div}Let $b_{1},b_{2},\ldots,b_{k}$ be finitely many integers.
+Then, the \textit{common divisors} of $b_{1},b_{2},\ldots,b_{k}$ are defined
+to be the integers $a$ that satisfy%
+\begin{equation}
+\left(  a\mid b_{i}\text{ for all }i\in\left\{  1,2,\ldots,k\right\}  \right)
+\label{eq.def.ent.Div.cond}%
+\end{equation}
+(in other words, that divide all of the integers $b_{1},b_{2},\ldots,b_{k}$).
+We let $\operatorname*{Div}\left(  b_{1},b_{2},\ldots,b_{k}\right)  $ denote
+the set of these common divisors.
+\end{definition}
+
+Note that the concept of common divisors encompasses the concept of divisors:
+The common divisors of a single integers $b$ are merely the divisors of $b$.
+Thus, $\operatorname*{Div}\left(  b\right)  $ is the set of all divisors of
+$b$ whenever $b\in\mathbb{Z}$.
+
+(Also, the common divisors of an empty list of integers are all integers,
+because the requirement (\ref{eq.def.ent.Div.cond}) is vacuously true for
+$k=0$. Thus, $\operatorname*{Div}\left(  {}\right)  =\mathbb{Z}$.)
+
+\begin{example}
+The common divisors of $6$ and $8$ are $-2,-1,1,2$. In order to see this, just
+observe that the divisors of $6$ are $-6,-3,-2,-1,1,2,3,6$, whereas the
+divisors of $8$ are $-8,-4,-2,-1,1,2,4,8$; now you can find the common
+divisors of $6$ and $8$ by taking the numbers common to these two lists.
+\end{example}
+
+\begin{proposition}
+\label{prop.ent.Div.fin}Let $b_{1},b_{2},\ldots,b_{k}$ be finitely many
+integers that are not all $0$. Then, the set $\operatorname*{Div}\left(
+b_{1},b_{2},\ldots,b_{k}\right)  $ has a largest element, and this largest
+element is a positive integer.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.ent.Div.fin}.] TODO.
+\end{proof}
+
 \begin{itemize}
-\item Define divisors of $a$.
-
-\item How to find all positive divisors of $a$ (they are all $\leq\left\vert
-a\right\vert $).
-
-\item Common divisors.
-
 \item Greatest common divisor. (Also set $\gcd\left(  0,0\right)  =0$.)
-
-\item $\operatorname*{CD}\left(  a,b\right)  $.
 
 \item $\gcd\left(  a,ua+b\right)  =\gcd\left(  a,b\right)  $, or equivalently
 $\gcd\left(  a,b\right)  =\gcd\left(  a,c\right)  $ if $b\equiv
@@ -2651,9 +2769,13 @@ a,b\right)  $.
 \item $s\gcd\left(  a,b\right)  =\gcd\left(  sa,sb\right)  $.
 
 \item $a\mid bc,\ b\perp c\ \Longrightarrow\ a=uv$ with $u\mid b$ and $v\mid
-c$,
+c$.
 
 \item lcm.
+
+\item gcd*lcm.
+
+\item $\gcd$ of multiple numbers.
 \end{itemize}
 
 \subsection{\label{sect.ent.subst-mod}Substitutivity for congruences}
