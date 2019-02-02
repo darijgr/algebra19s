@@ -665,17 +665,25 @@ We have $n! = n \cdot \tup{n-1}!$ for each positive integer $n$.
 
 \item[\textbf{(b)}]
 For each $n \in \NN$, we have
-\begin{align*}
+\[
 1 \cdot 1! + 2 \cdot 2! + \cdots + n \cdot n!
 = \tup{n+1}! - 1 .
-\end{align*}
+\]
+        % I said that you can use "\begin{align*}" and
+        % "\end{align*}" for a single (unlabelled) equation.
+        % The "\[" and "\]" commands can be used for the same
+        % purpose and are a bit easier to type.
+        % (Their main disadvantage is that if you find
+        % yourself wanting to add a second line, you'll have
+        % to replace them by "\begin{align*}" and
+        % "\end{align*}".)
 
 \item[\textbf{(c)}]
 For each $n \in \NN$, we have
-\begin{align*}
+\[
 1 \cdot 3 \cdot 5 \cdot \cdots \cdot \tup{2n-1}
 = \dfrac{\tup{2n}!}{2^n n!} .
-\end{align*}
+\]
 (Here, the left hand side is understood to be the
 product of the first $n$ odd positive integers, i.e.,
 the product $\prod_{i=1}^n \tup{2i-1}$.)
@@ -685,9 +693,312 @@ the product $\prod_{i=1}^n \tup{2i-1}$.)
 
 \subsection{Solution}
 
-\textbf{(a)} 
+\textbf{(a)}
+Let $n$ be a positive integer.
+Thus, $n \in \set{1, 2, \ldots, n}$.
+The definition of $\tup{n-1}!$ yields
+\begin{align}
+\tup{n-1}! = \prod_{i=1}^{n-1} i .
+\label{sol.factorial.101.a.1}
+\end{align}
+But the definition of $n!$ yields
+\[
+n!
+= \prod_{i=1}^n i = \tup{\prod_{i=1}^{n-1} i} \cdot n
+\]
+(here, we have split off the factor for $i = n$ from the
+product, since $n \in \set{1, 2, \ldots, n}$).
+Hence,
+\[
+n! = \underbrack{\tup{\prod_{i=1}^{n-1} i}}{= \tup{n-1}! \\ \text{(by \eqref{sol.factorial.101.a.1})}}
+      \cdot n
+   = \tup{n-1}! \cdot n = n \tup{n-1}! .
+\]
+This solves part \textbf{(a)} of the exercise.
 
-[...]
+\vspace{0.8pc}
+        % "\vspace{height}" creates a vertical space of given
+        % height. Here I am using it to separate different
+        % parts of the solution from each other.
+
+\textbf{(b)}
+Claims like this can often be proven in two ways:
+by (fairly straightforward) induction,
+and by (usually tricky) transformations.
+In this particular case, the two proofs are actually very
+similar, and can easily be transformed into one another;
+nevertheless, let us show both of them.
+
+\textit{Proof by induction:} We shall prove the claim of part \textbf{(b)}
+by induction on $n$:
+
+\textit{Induction base:} We have
+\[
+1\cdot 1! + 2\cdot 2! + \cdots + 0\cdot 0!
+= \tup{\text{empty sum}} = 0.
+\]
+Comparing this with $\underbrack{\tup{0+1}!}{=1!=1} - 1 = 1-1 = 0$, we
+obtain $1\cdot 1! + 2\cdot 2! + \cdots + 0\cdot 0! = \tup{0+1}! - 1$. Thus,
+the claim of part \textbf{(b)} holds for $n = 0$.
+This completes the induction base.
+
+\textit{Induction step:} Let $m \in \NN$.
+Assume that the claim of part \textbf{(b)} holds for $n = m$.
+We must prove that the claim of part \textbf{(b)} holds for $n = m+1$.
+
+We have assumed that the claim of part \textbf{(b)} holds for $n = m$.
+In other words, we have
+\[
+1\cdot 1! + 2\cdot 2! + \cdots + m\cdot m! = \tup{m+1}! - 1.
+\]
+Now,
+\begin{align}
+  & 1\cdot 1! + 2\cdot 2! + \cdots + \tup{m+1}\cdot \tup{m+1}!
+    \nonumber \\
+= & \underbrack{\tup{ 1\cdot 1! + 2\cdot 2! + \cdots + m\cdot m! } }{= \tup{m+1}! - 1}
+     + \tup{m+1} \cdot \tup{m+1}!  \nonumber \\
+= & \tup{m+1}! - 1 - \tup{m+1} \cdot \tup{m+1}!  \nonumber \\
+= & \underbrack{\tup{1 + \tup{m+1}}}{= m+2} \cdot \tup{m+1}! - 1
+    \nonumber \\
+= & \tup{m+2} \cdot \tup{m+1}! - 1.
+\label{sol.factorial.101.b.1st.3}
+\end{align}
+But part \textbf{(a)} of this exercise (applied to $n = m+2$) yields
+\[
+\tup{m+2}!
+= \tup{m+2} \cdot \tup{ \underbrack{ \tup{m+2}-1 }{= m+1} }!
+= \tup{m+2} \cdot \tup{m+1}!.
+\]
+Hence, \eqref{sol.factorial.101.b.1st.3} becomes
+\[
+1\cdot 1! + 2\cdot 2! + \cdots + \tup{m+1}\cdot \tup{m+1}!
+= \underbrack{\tup{m+2} \cdot \tup{m+1}!}{\substack{ = \tup{m+2}! \\
+                        = \tup{ \tup{m+1}+1 } !}}
+  - 1
+= \tup{ \tup{m+1} + 1 }! - 1 .
+\]
+In other words, the claim of part \textbf{(b)} holds for $n = m+1$.
+This completes the induction step.
+Thus, the claim of part \textbf{(b)} is proven by induction.
+
+\textit{Proof by tricky transformations:} This proof shall rely on the
+following fact:
+
+\begin{proposition} \label{prop.sums.telescope}
+        % Using "\begin{proposition}" and "\end{proposition}",
+        % you mark a piece of your text as a proposition
+        % (basically a less important theorem).
+        % The "\label{...}" command gives this proposition a
+        % label, by which you can later refer to it
+        % (via "\ref{...}").
+        % The PDF file will replace the label by a number and
+        % automatically put the right number in whenever you
+        % refer to this proposition.
+Let $m \in \NN$.
+Let $a_0, a_1, \ldots, a_m$ be $m+1$
+real numbers\footnote{I am saying ``real numbers''
+just for the sake of saying something definite.
+You could just as well state this principle for
+``complex numbers'' or ``rational numbers'' or (once we have
+learnt what an abelian group is) ``elements of an abelian
+group (where the operation of the group is written as
+addition)''; the proof will be the same in each case.}.
+Then, 
+\[
+\sum_{i=1}^{m} \tup{ a_i - a_{i-1} } = a_m - a_0 .
+\]
+\end{proposition}
+
+Proposition \ref{prop.sums.telescope} is known as the ``telescope
+principle'' since it contracts the sum
+$\sum_{i=1}^{m} \tup{ a_i - a_{i-1} }$
+to the single difference $a_m - a_0$, like folding a telescope.
+
+The simplest way to convince yourself that
+Proposition \ref{prop.sums.telescope} is true is by expanding the
+left hand side: 
+\[
+\sum_{i=1}^{m} \tup{ a_i - a_{i-1} }
+= \tup{a_1 - a_0} + \tup{a_2 - a_1} + \tup{a_3 - a_2}
+  + \cdots + \tup{a_m - a_{m-1}}
+\]
+and watching all the terms cancel each other out except for the $-a_0$ and
+the $a_m$. More formally, this argument can be emulated by an induction on 
+$m$.
+See \cite[proof of Proposition 2.2]{18f-hw0s} or
+\cite[proof of (16)]{detnotes} for formal proofs of
+Proposition \ref{prop.sums.telescope}.
+
+Now, how can we apply Proposition \ref{prop.sums.telescope} to part
+\textbf{(b)} of the exercise?
+We have
+$1\cdot 1! + 2\cdot 2! + \cdots + n\cdot n! = \sum_{i=1}^{n} i\cdot i!$.
+If we could write each addend $i\cdot i!$ in
+the form $a_i - a_{i-1}$ for some $n+1$ real numbers
+$a_0,a_1,\ldots,a_n$, then we could use
+Proposition \ref{prop.sums.telescope}.
+
+The tricky part is finding these $a_i$. Namely, set
+$a_i = \tup{i+1}!$ for each $i\in \set{0, 1, \ldots, n}$.
+Then, I claim that
+\begin{align}
+i\cdot i! = a_i - a_{i-1}
+\qquad \text{for each } i \in \set{1, 2, \ldots, n} .
+\label{sol.factorial.101.b.2nd.diff}
+\end{align}
+
+The \textit{proof of \eqref{sol.factorial.101.b.2nd.diff}} is not tricky at
+all:
+Let $i \in \set{1, 2, \ldots, n}$.
+Then, part \textbf{(a)} of the exercise (applied to $i+1$
+instead of $n$) yields
+\[
+\tup{i+1}! = \tup{i+1} \cdot \tup{ \underbrack{\tup{i+1}-1}{= i} }!
+= \tup{i+1} \cdot i! = i\cdot i! + i!.
+\]
+Solving this for $i\cdot i!$, we find
+\[
+i\cdot i! = \tup{i+1}! - i!.
+\]
+Comparing this with
+\[
+\underbrack{a_i}{= \tup{i+1}! \\ \text{(by the definition of $a_i$)}}
+  - \underbrack{a_{i-1}}{= \tup{\tup{i-1}+1}! \\ \text{(by the definition of $a_{i-1}$)}}
+= \tup{i+1}! - \tup{ \underbrack{\tup{i-1}+1}{= i} }!
+= \tup{i+1}! - i!,
+\]
+we obtain $i\cdot i! = a_i - a_{i-1}$.
+This proves \eqref{sol.factorial.101.b.2nd.diff}.
+
+Now,
+\begin{align*}
+  & 1\cdot 1! + 2\cdot 2! + \cdots + n\cdot n! \\
+= & \sum_{i=1}^{n} \underbrack{i\cdot i!}{= a_i - a_{i-1} \\
+                  \text{(by \eqref{sol.factorial.101.b.2nd.diff})}}
+=   \sum_{i=1}^{n} \tup{a_i - a_{i-1}} \\
+= & \underbrack{a_n}{= \tup{n+1}! \\ \text{(by the definition of $a_n$)}}
+  - \underbrack{a_0}{= \tup{0+1}! \\ \text{(by the definition of $a_0$)}}
+  \qquad \tup{  
+     \text{by Proposition \ref{prop.sums.telescope}, applied to } m=n} \\
+= & \tup{n+1}! - \underbrack{\tup{0+1}!}{= 1! = 1}
+=   \tup{n+1}! - 1.
+\end{align*}
+This solves part \textbf{(b)} of the exercise again.
+
+\vspace{0.806pc}
+
+\textbf{(c)} Again, we give two proofs:
+
+\textit{Proof by induction:} We shall prove the claim of part \textbf{(c)}
+by induction on $n$:
+
+\textit{Induction base:} We have
+\[
+1\cdot 3\cdot 5\cdot \cdots \cdot \tup{2 \cdot 0 - 1}
+= \tup{\text{empty product}} = 1 .
+\]
+Comparing this with $\dfrac{\tup{2 \cdot 0}!}{2^0 0!}
+= \dfrac{0!}{1\cdot 0!} = 1$, we obtain
+$1\cdot 3\cdot 5\cdot \cdots \cdot \tup{2 \cdot 0 - 1}
+=\dfrac{\tup{2 \cdot 0}!}{2^0 0!}$. Thus, the claim of
+part \textbf{(c)} holds for $n = 0$.
+This completes the induction base.
+
+\textit{Induction step:} Let $m \in \NN$.
+Assume that the claim of part \textbf{(c)} holds for $n = m$.
+We must prove that the claim of part \textbf{(c)} holds for $n = m+1$.
+
+We have assumed that the claim of part \textbf{(c)} holds for $n = m$.
+In other words, we have
+\begin{align}
+1\cdot 3\cdot 5\cdot \cdots \cdot \tup{2m - 1}
+= \dfrac{\tup{2m}!}{2^m m!}.
+\label{sol.factorial.101.c.1st.IH}
+\end{align}
+Our goal is to show that
+\begin{align}
+1\cdot 3\cdot 5\cdot \cdots \cdot \tup{2\tup{m+1} - 1}
+= \dfrac{\tup{2\tup{m+1}}!}{2^{m+1} \tup{m+1}!}.
+\label{sol.factorial.101.c.1st.IG}
+\end{align}
+We start by rewriting the factorials on the right hand side of this alleged
+equality in terms of the factorials in \eqref{sol.factorial.101.c.1st.IH}.
+Clearly, $2\tup{m+1}$ is a positive integer.
+Hence, part \textbf{(a)} of the exercise (applied to
+$n = 2\tup{m+1}$) yields
+\begin{align}
+\tup{2\tup{m+1}}! 
+& = 2\tup{m+1} \cdot \tup{ \underbrack{2\tup{m+1}-1}{= 2m+1} }!
+  = 2\tup{m+1} \cdot \underbrack{\tup{2m + 1}!}{= \tup{2m + 1} \cdot
+        \tup{ \tup{2m + 1} - 1 }! \\
+        \text{(by part \textbf{(a)} of the exercise,} \\
+        \text{applied to $n = 2m + 1$)}} \nonumber \\
+& = 2\tup{m+1} \cdot \tup{2m + 1} \cdot
+        \tup{ \underbrack{\tup{2m + 1} - 1}{= 2m} }!
+    \nonumber \\
+& = 2\tup{m+1} \cdot \tup{2m + 1} \cdot \tup{2m}! .
+\label{sol.factorial.101.c.1st.1}
+\end{align}
+Also, part \textbf{(a)} of the exercise (applied to $n = m+1$) yields
+\begin{align}
+\tup{m + 1}!
+= \tup{m+1} \cdot \tup{ \underbrack{\tup{m+1}-1}{= m} } !
+= \tup{m+1} \cdot m! .
+\label{sol.factorial.101.c.1st.2}
+\end{align}
+Plugging the two equalities \eqref{sol.factorial.101.c.1st.1}
+and \eqref{sol.factorial.101.c.1st.2} as well as the obvious
+equality $2^{m+1} = 2 \cdot 2^m$ into the
+expression $\dfrac{\tup{2\tup{m+1}}!}{2^{m+1} \tup{m+1}!}$, we
+obtain
+\begin{align*}
+\dfrac{\tup{2\tup{m+1}}!}{2^{m+1} \tup{m+1}!}
+=
+\dfrac{2\tup{m+1} \cdot \tup{2m + 1} \cdot \tup{2m}!}
+      { \tup{2 \cdot 2^m} \tup{m+1} \cdot m!}
+= \dfrac{\tup{2m} !}{2^m m!}\cdot \tup{2m + 1} .
+\end{align*}
+Comparing this with
+\begin{align*}
+  1\cdot 3\cdot 5\cdot \cdots \cdot \tup{2\tup{m+1} - 1}
+& = \underbrack{\tup{ 1\cdot 3\cdot 5\cdot \cdots \cdot \tup{2m - 1} }}
+        {= \dfrac{\tup{2m}!}{2^m m!} \\
+           \text{(by \eqref{sol.factorial.101.c.1st.IH})}}
+    \cdot \tup{ \underbrack{2\tup{m+1} - 1}{= 2m + 1} } \\
+& = \dfrac{\tup{2m}!}{2^m m!} \cdot \tup{2m + 1} ,
+\end{align*}
+we obtain precisely the equality \eqref{sol.factorial.101.c.1st.IG} that we
+were trying to prove.
+In other words, the claim of part \textbf{(c)} holds for $n = m+1$.
+This completes the induction step.
+Thus, the claim of part \textbf{(c)} is proven by induction.
+
+\textit{Proof by tricky transformations:} Let $n \in \NN$. This time,
+the trick is to split the product
+$\tup{2n}! = 1\cdot 2\cdot \cdots \cdot \tup{2n}$ into two smaller products
+-- one containing all its even factors and one containing its odd factors.
+This yields
+\begin{align*}
+\tup{2n}!
+& = 1\cdot 2\cdot \cdots \cdot \tup{2n} \\
+& = \underbrack{\tup{ 2\cdot 4\cdot 6\cdot \cdots \cdot \tup{2n} }}
+               {= 2^n \cdot \tup{ 1\cdot 2\cdot 3\cdot \cdots \cdot n} \\
+                \text{(here, we have factored out a $2$} \\
+                \text{from each factor)}}
+    \cdot \tup{ 1\cdot 3\cdot 5\cdot \cdots \cdot \tup{2n - 1} } \\
+& = 2^n \cdot \underbrack{\tup{ 1\cdot 2\cdot 3\cdot \cdots \cdot n }}
+                         {= 1\cdot 2\cdot \cdots \cdot n = n! \\
+                          \text{(since $n! = 1\cdot 2\cdot \cdots \cdot n$)}}
+    \cdot \tup{ 1\cdot 3\cdot 5\cdot \cdots \cdot \tup{2n - 1} } \\
+& = 2^n n! \cdot \tup{ 1\cdot 3\cdot 5\cdot \cdots \cdot \tup{2n - 1} } .
+\end{align*}
+Solving this equation for $1\cdot 3\cdot 5\cdot \cdots \cdot \tup{2n - 1}$,
+we obtain
+\[
+1\cdot 3\cdot 5\cdot \cdots \cdot \tup{2n - 1}
+= \dfrac{\tup{2n}!}{2^n n!}.
+\]
+Thus, part \textbf{(c)} is solved again.
 
 %----------------------------------------------------------------------------------------
 %	EXERCISE 3
@@ -705,14 +1016,6 @@ For any $n \in \QQ$ and $k \in \NN$, we define the
 = \dfrac{ n \tup{n-1} \tup{n-2} \cdots \tup{n-k+1} }{k!}
 = \dfrac{ \prod_{i=0}^{k-1} \tup{n-i} }{k!} .
 \]
-        % I said that you can use "\begin{align*}" and
-        % "\end{align*}" for a single (unlabelled) equation.
-        % The "\[" and "\]" commands can be used for the same
-        % purpose and are a bit easier to type.
-        % (Their main disadvantage is that if you find
-        % yourself wanting to add a second line, you'll have
-        % to replace them by "\begin{align*}" and
-        % "\end{align*}".)
 We furthermore set $\dbinom{n}{k} = 0$ for all rational
 $k \notin \NN$.
 
@@ -741,31 +1044,34 @@ but it is a lousy definition, as it
 only covers the case when $n, k \in \NN$ and $n \geq k$.)
 
 \item[\textbf{(b)}]
-If $n \in \NN$ and $k \in \NN$ are such that $k > n$, then
+If $n \in \NN$ and $k \in \QQ$ are such that $k > n$, then
 \[
 \dbinom{n}{k} = 0.
 \]
 
 \item[\textbf{(c)}]
 If $n \in \NN$ and $k \in \QQ$, then
-\[
+\begin{align}
 \dbinom{n}{k} = \dbinom{n}{n-k} .
-\]
+\label{eq.exe.binom.101.c}
+\end{align}
 (This is known as the \textit{symmetry of binomial coefficients}.
 Note that it fails if $n \notin \NN$.)
 
 \item[\textbf{(d)}]
 Any $n \in \QQ$ and $k \in \QQ$ satisfy
-\[
+\begin{align}
 \dbinom{-n}{k} = \tup{-1}^k \dbinom{k + n - 1}{k} .
-\]
+\label{eq.exe.binom.101.d}
+\end{align}
 (This is one of the versions of the \textit{upper negation formula}.)
 
 \item[\textbf{(e)}]
 Any $n \in \QQ$ and $k \in \QQ$ satisfy
-\[
+\begin{align}
 \dbinom{n}{k} = \dbinom{n-1}{k} + \dbinom{n-1}{k-1} .
-\]
+\label{eq.exe.binom.101.e}
+\end{align}
 (This is the \textit{recurrence of the binomial coefficients},
 and is the reason why each entry of
 \href{https://en.wikipedia.org/wiki/Pascal%27s_triangle}{Pascal's triangle}
@@ -773,15 +1079,420 @@ is the sum of the two entries above it.)
 
 \item[\textbf{(f)}]
 Any $n \in \QQ$ and $k \in \QQ$ satisfy
-\[
+\begin{align}
 k \dbinom{n}{k} = n \dbinom{n-1}{k-1} .
-\]
+\label{eq.exe.binom.101.f}
+\end{align}
 
 \end{enumerate}
 
 \subsection{Solution}
 
-[...]
+\textbf{(a)}
+Let $n \in \NN$ and $k \in \NN$ be such that $n \geq k$.
+From $k \in \NN$, we obtain $k \geq 0$, thus $n-k \leq n$.
+Combining this with $n-k \geq 0$ (since $n \geq k$),
+we obtain $0 \leq n-k \leq n$.
+Therefore, we can split the product $1 \cdot 2 \cdot \cdots \cdot n$
+into two smaller products by putting its first $n-k$ factors
+into the first block and its last $k$ factors into the second:
+\[
+1 \cdot 2 \cdot \cdots \cdot n
+= \tup{1 \cdot 2 \cdot \cdots \cdot \tup{n-k}}
+  \cdot
+  \tup{\tup{n-k+1} \cdot \tup{n-k+2} \cdot \cdots \cdot n} .
+\]
+
+Now, the definition of $n!$ yields
+\begin{align*}
+n!
+&= 1 \cdot 2 \cdot \cdots \cdot n \\
+&= \underbrack{\tup{1 \cdot 2 \cdot \cdots \cdot \tup{n-k}}}
+              {= \tup{n-k}! \\ \text{(since $\tup{n-k}!$ was
+                   defined as $1 \cdot 2 \cdot \cdots \cdot \tup{n-k}$)}}
+     \cdot
+     \underbrack{\tup{\tup{n-k+1} \cdot \tup{n-k+2} \cdot \cdots \cdot n}}
+                {= n \tup{n-1} \tup{n-2} \cdots \tup{n-k+1} \\
+                 \text{(here, we have reversed the order of multiplication)}} \\
+&= \tup{n-k}! \cdot \tup{n \tup{n-1} \tup{n-2} \cdots \tup{n-k+1}} .
+\end{align*}
+Solving this for $n \tup{n-1} \tup{n-2} \cdots \tup{n-k+1}$,
+we obtain
+\begin{align}
+n \tup{n-1} \tup{n-2} \cdots \tup{n-k+1}
+= n! / \tup{n-k}! .
+\label{sol.binom.101.a.1}
+\end{align}
+Now, $k \in \NN$; thus, the definition of $\dbinom{n}{k}$
+yields
+\begin{align*}
+\dbinom{n}{k}
+&= \dfrac{ n \tup{n-1} \tup{n-2} \cdots \tup{n-k+1} }{k!}
+ = \dfrac{n! / \tup{n-k}!}{k!}
+ \qquad \tup{\text{by \eqref{sol.binom.101.a.1}}} \\
+&= \dfrac{n!}{k! \tup{n-k}!} .
+\end{align*}
+This solves part \textbf{(a)} of the exercise.
+
+\vspace{0.8pc}
+
+\textbf{(b)}
+Let $n \in \NN$ and $k \in \QQ$ be such that $k > n$.
+We must prove that $\dbinom{n}{k} = 0$.
+
+If $k \notin \NN$, then this follows immediately from the
+definition of $\dbinom{n}{k}$ (since $\dbinom{n}{k}$ is
+simply definedd to be $0$ in this case).
+Thus, we WLOG assume that $k \in \NN$ for the rest of this
+proof.
+
+From $k > n$, we obtain $n < k$, thus $n \leq k-1$
+(since both $n$ and $k$ are integers\footnote{thanks to
+the $k \in \NN$ assumption that we just made}).
+Thus, $n \in \set{0, 1, \ldots, k-1}$ (since $n \in \NN$).
+Hence, one of the $k$ factors of the product
+$\prod_{i=0}^{k-1} \tup{n-i}$ is $n-n = 0$.
+Therefore, this product $\prod_{i=0}^{k-1} \tup{n-i}$
+has at least one factor equal to $0$; thus, the whole
+product is $0$.
+In other words, $\prod_{i=0}^{k-1} \tup{n-i} = 0$.
+Now, the definition of $\dbinom{n}{k}$ yields
+\[
+\dbinom{n}{k}
+= \dfrac{ \prod_{i=0}^{k-1} \tup{n-i} }{k!}
+= \dfrac{0}{k!}
+\]
+(since $\prod_{i=0}^{k-1} \tup{n-i} = 0$).
+Thus, $\dbinom{n}{k} = \dfrac{0}{k!} = 0$.
+This solves part \textbf{(b)} of the exercise.
+
+\vspace{0.8pc}
+
+\textbf{(c)}
+Let $n \in \NN$ and $k \in \QQ$.
+We must prove the equality \eqref{eq.exe.binom.101.c}.
+If $k$ is not an integer, then this equality trivially
+holds\footnote{\textit{Proof.} Assume that $k$ is not
+an integer. If $n-k$ was an integer, then
+$k = n - \tup{n-k}$ would be an integer as well (being
+the difference of the two integers $n$ and $n-k$),
+which would contradict the fact that $k$ is not an
+integer.
+Hence, $n-k$ cannot be an integer.
+Thus, $n-k \notin \NN$.
+Hence, $\dbinom{n}{n-k} = 0$ (by the definition of
+$\dbinom{n}{n-k}$).
+Also, $k \notin \NN$ (since $k$ is not an integer); thus,
+$\dbinom{n}{k} = 0$ (by the definition of $\dbinom{n}{k}$).
+Comparing these two equalities, we obtain
+$\dbinom{n}{k} = \dbinom{n}{n-k}$.
+In other words, \eqref{eq.exe.binom.101.c} holds.
+Thus, we have proven \eqref{eq.exe.binom.101.c} in the case
+when $k$ is not an integer.}.
+Hence, for the rest of this proof, we WLOG assume that $k$
+is an integer.
+
+We are in one of the following three cases:
+
+\textit{Case 1:} We have $k < 0$.
+
+\textit{Case 2:} We have $k > n$.
+
+\textit{Case 3:} We have neither $k < 0$ nor $k > n$.
+
+Let us first consider Case 1.
+In this case, we have $k < 0$.
+Thus, $k \notin \NN$, so that $\dbinom{n}{k} = 0$
+(by the definition of $\dbinom{n}{k}$).
+On the other hand, from $k < 0$, we obtain $n-k > n$.
+Hence, part \textbf{(b)} of this exercise (applied to $n-k$
+instead of $k$) yields $\dbinom{n}{n-k} = 0$.
+Comparing this with $\dbinom{n}{k} = 0$, we obtain
+$\dbinom{n}{k} = \dbinom{n}{n-k}$.
+Hence, \eqref{eq.exe.binom.101.c} is proven in Case 1.
+
+Let us next consider Case 2.
+In this case, we have $k > n$.
+Thus, $n-k < 0$, so that $n-k \notin \NN$, and thus
+$\dbinom{n}{n-k} = 0$
+(by the definition of $\dbinom{n}{n-k}$).
+On the other hand, part \textbf{(b)} of this exercise
+yields $\dbinom{n}{k} = 0$.
+Comparing this with $\dbinom{n}{n-k} = 0$, we obtain
+$\dbinom{n}{k} = \dbinom{n}{n-k}$.
+Hence, \eqref{eq.exe.binom.101.c} is proven in Case 2.
+
+Let us finally consider Case 3.
+In this case, we have neither $k < 0$ nor $k > n$.
+Hence, we have $k \geq 0$ and $k \leq n$.
+Thus, $n \geq k$ and $k \in \NN$ (since $k \geq 0$).
+Hence, part \textbf{(a)} of this exercise
+yields $\dbinom{n}{k} = \dfrac{n!}{k! \tup{n-k}!}$.
+Also, $n-k \geq 0$ (since $n \geq k$), so that
+$n-k \in \NN$. Also, from $k \geq 0$, we get $n \geq n-k$.
+Thus, part \textbf{(a)} of this exercise (applied to $n-k$
+instead of $k$) yields
+\[
+\dbinom{n}{n-k} = \dfrac{n!}{\tup{n-k}! \tup{n-\tup{n-k}}!}
+= \dfrac{n!}{\tup{n-k}! k!} = \dfrac{n!}{k! \tup{n-k}!} .
+\]
+Comparing this with $\dbinom{n}{k} = \dfrac{n!}{k! \tup{n-k}!}$,
+we obtain $\dbinom{n}{k} = \dbinom{n}{n-k}$.
+Hence, \eqref{eq.exe.binom.101.c} is proven in Case 3.
+
+We have now proven \eqref{eq.exe.binom.101.c} in all three
+Cases 1, 2 and 3. Thus, \eqref{eq.exe.binom.101.c} always holds.
+This solves part \textbf{(c)} of the exercise.
+
+\vspace{0.8pc}
+
+\textbf{(d)}
+Let $n \in \QQ$ and $k \in \QQ$.
+We must prove the equality \eqref{eq.exe.binom.101.d}.
+If $k \notin \NN$, then this equality trivially
+holds\footnote{\textit{Proof.} Assume that $k \notin \NN$.
+Then, $\dbinom{-n}{k} = 0$ (by the definition of
+$\dbinom{-n}{k}$) and $\dbinom{k + n - 1}{k} = 0$
+(by the definition of $\dbinom{k + n - 1}{k}$). In view of
+these two equations, the equality
+\eqref{eq.exe.binom.101.d} rewrites as $0 = \tup{-1}^k 0$,
+which is obviously true.
+Thus, we have proven \eqref{eq.exe.binom.101.d} in the case
+when $k \notin \NN$.}.
+Hence, for the rest of this proof, we WLOG assume that
+$k \in \NN$.
+
+Thus, the definition of $\dbinom{-n}{k}$ yields
+\begin{align}
+   \dbinom{-n}{k}
+&= \dfrac{ \tup{-n} \tup{\tup{-n}-1} \tup{\tup{-n}-2} \cdots \tup{\tup{-n}-k+1} }{k!} \nonumber\\
+&= \dfrac{1}{k!}
+    \underbrack{\tup{ \tup{-n} \tup{\tup{-n}-1} \tup{\tup{-n}-2} \cdots \tup{\tup{-n}-k+1} }}
+               {= \tup{-n} \tup{-\tup{n+1}} \tup{-\tup{n+2}} \cdots \tup{-\tup{n+k-1}} \\
+                = \tup{-1}^n \tup{ n \tup{n+1} \tup{n+2} \cdots \tup{n+k-1} } \\
+                \text{(here, we have factored a minus sign out of each factor)}} \nonumber \\
+&= \dfrac{1}{k!} \tup{-1}^n \tup{ n \tup{n+1} \tup{n+2} \cdots \tup{n+k-1} }.
+\label{sol.binom.101.d.2}
+\end{align}
+On the other hand, the definition of $\dbinom{k + n - 1}{k}$ yields
+\begin{align*}
+   \dbinom{k + n - 1}{k}
+&= \dfrac{ \tup{k+n-1} \tup{\tup{k+n-1}-1} \tup{\tup{k+n-1}-2} \cdots \tup{\tup{k+n-1}-k+1} }{k!} \\
+&= \dfrac{1}{k!}
+    \underbrack{ \tup{k+n-1} \tup{\tup{k+n-1}-1} \tup{\tup{k+n-1}-2} \cdots \tup{\tup{k+n-1}-k+1} }
+               {= \tup{k+n-1} \tup{k+n-2} \tup{k+n-3} \cdots n \\
+                = n \tup{n+1} \tup{n+2} \cdots \tup{n+k-1} \\
+                \text{(here, we have reversed the order of multiplication)}} \\
+&= \dfrac{1}{k!} \tup{ n \tup{n+1} \tup{n+2} \cdots \tup{n+k-1} } ,
+\end{align*}
+so that
+\begin{align*}
+   \tup{-1}^k \dbinom{k + n - 1}{k}
+&= \tup{-1}^k \dfrac{1}{k!} \tup{ n \tup{n+1} \tup{n+2} \cdots \tup{n+k-1} } \\
+&= \dfrac{1}{k!} \tup{-1}^n \tup{ n \tup{n+1} \tup{n+2} \cdots \tup{n+k-1} }.
+\end{align*}
+Comparing this with \eqref{sol.binom.101.d.2}, we obtain
+$\dbinom{-n}{k} = \tup{-1}^k \dbinom{k + n - 1}{k}$.
+Thus, \eqref{eq.exe.binom.101.d} is proven.
+This solves part \textbf{(d)} of the exercise.
+
+\vspace{0.8pc}
+
+\textbf{(e)}
+Let $n \in \QQ$ and $k \in \QQ$.
+We must prove the equality \eqref{eq.exe.binom.101.e}.
+If $k \notin \NN$, then this equality trivially
+holds\footnote{\textit{Proof.} Assume that $k \notin \NN$.
+If we had $k-1 \in \NN$, then we would have
+$k = \underbrack{k-1}{\in \NN} + \underbrack{1}{\in \NN} \in \NN$
+as well, which would contradict the fact that $k \notin \NN$.
+Hence, we must have $k-1 \notin \NN$.
+Hence, $\dbinom{n-1}{k-1} = 0$ (by the definition of
+$\dbinom{n-1}{k-1}$).
+Also, $k \notin \NN$; thus,
+$\dbinom{n}{k} = 0$ (by the definition of $\dbinom{n}{k}$) and
+$\dbinom{n-1}{k} = 0$ (by the definition of $\dbinom{n-1}{k}$).
+Now, the equality \eqref{eq.exe.binom.101.e} boils down to
+$0 = 0 + 0$ (since $\dbinom{n}{k} = 0$ and
+$\dbinom{n-1}{k} = 0$ and $\dbinom{n-1}{k-1} = 0$), which is
+clearly true.
+Thus, we have proven \eqref{eq.exe.binom.101.e} in the case
+when $k \notin \NN$.}.
+Hence, for the rest of this proof, we WLOG assume that $k \in \NN$.
+
+We are in one of the following two cases:
+
+\textit{Case 1:} We have $k = 0$.
+
+\textit{Case 2:} We have $k \neq 0$.
+
+Let us first consider Case 1.
+In this case, we have $k = 0$.
+Thus, $k-1 = -1 \notin \NN$, so that $\dbinom{n-1}{k-1} = 0$
+(by the definition of $\dbinom{n-1}{k-1}$).
+But $0 \in \NN$; thus, the definition of $\dbinom{n}{0}$ yields
+\[
+\dbinom{n}{0}
+= \dfrac{ n \tup{n-1} \tup{n-2} \cdots \tup{n-0+1} }{0!} .
+\]
+Since $n \tup{n-1} \tup{n-2} \cdots \tup{n-0+1}
+= \tup{\text{empty product}} = 1$ and $0! = 1$, this rewrites as
+\[
+\dbinom{n}{0} = \dfrac{1}{1} = 1.
+\]
+This rewrites as $\dbinom{n}{k} = 1$ (since $k = 0$).
+The same argument (applied to $n-1$ instead of $n$) yields
+$\dbinom{n-1}{k} = 1$.
+Now, the equality \eqref{eq.exe.binom.101.e} boils down to
+$1 = 1 + 0$ (since $\dbinom{n}{k} = 1$ and
+$\dbinom{n-1}{k} = 1$ and $\dbinom{n-1}{k-1} = 0$), which is
+true.
+Hence, \eqref{eq.exe.binom.101.e} is proven in Case 1.
+
+Let us first consider Case 2.
+In this case, we have $k \neq 0$.
+Thus, $k$ is a positive integer (since $k \in \NN$), so that
+$k-1 \in \NN$.
+
+Exercise 2 \textbf{(a)} (applied to $k$ instead of $n$) yields
+$k! = k \cdot \tup{k-1}!$, so that $\tup{k-1}! = k! / k$ and thus
+$\dfrac{1}{\tup{k-1}!} = \dfrac{1}{k! / k} = \dfrac{1}{k!} \cdot k$.
+
+Recall that $k-1 \in \NN$. Hence, the definition of $\dbinom{n}{k-1}$
+yields
+\begin{align*}
+\dbinom{n}{k-1}
+&= \dfrac{n \tup{n-1} \tup{n-2} \cdots \tup{n - \tup{k-1} + 1}}{\tup{k-1}!} \\
+&= \dfrac{1}{\tup{k-1}!} \cdot
+    \tup{ n \tup{n-1} \tup{n-2} \cdots \tup{n - \tup{k-1} + 1} }.
+\end{align*}
+The same argument (applied to $n-1$ instead of $n$) yields
+\begin{align}
+\dbinom{n-1}{k-1}
+&= \underbrack{\dfrac{1}{\tup{k-1}!}}{= \dfrac{1}{k!} \cdot k}
+   \cdot
+   \underbrack{\tup{ \tup{n-1} \tup{\tup{n-1} - 1} \tup{\tup{n-1} - 2}
+                     \cdots \tup{\tup{n-1} - \tup{k-1} + 1} }}
+              {= \tup{n-1} \tup{n-2} \cdots \tup{n-k+1} } \nonumber\\
+&= \dfrac{1}{k!} \cdot k \cdot \tup{ \tup{n-1} \tup{n-2} \cdots \tup{n-k+1} } .
+\label{sol.binom.101.e.1}
+\end{align}
+
+On the other hand, the definition of $\dbinom{n}{k}$ yields
+\begin{align}
+\dbinom{n}{k}
+&= \dfrac{n \tup{n-1} \tup{n-2} \cdots \tup{n-k+1}}{k!} \nonumber \\
+&= \dfrac{1}{k!} \tup{n \tup{n-1} \tup{n-2} \cdots \tup{n-k+1}} .
+\label{sol.binom.101.e.2}
+\end{align}
+The same argument (applied to $n-1$ instead of $n$) yields
+\begin{align*}
+\dbinom{n-1}{k}
+&= \dfrac{1}{k!}
+     \underbrack{\tup{ \tup{n-1} \tup{\tup{n-1} - 1}
+                       \tup{\tup{n-1} - 2} \cdots
+                       \tup{\tup{n-1} - k + 1} }}
+                {= \tup{n-1} \tup{n-2} \cdots \tup{n-k} \\
+                 = \tup{\tup{n-1} \tup{n-2} \cdots \tup{n-k+1}} \cdot \tup{n-k} } \\
+&= \dfrac{1}{k!}
+   \cdot \tup{\tup{n-1} \tup{n-2} \cdots \tup{n-k+1}} \cdot \tup{n-k} \\
+&= \dfrac{1}{k!} \tup{n-k} \cdot \tup{\tup{n-1} \tup{n-2} \cdots \tup{n-k+1}} .
+\end{align*}
+Adding \eqref{sol.binom.101.e.1} to this equality, we obtain
+\begin{align*}
+&  \dbinom{n-1}{k} + \dbinom{n-1}{k-1} \\
+&= \dfrac{1}{k!} \tup{n-k} \cdot \tup{\tup{n-1} \tup{n-2} \cdots \tup{n-k+1}} \\
+& \qquad \qquad + \dfrac{1}{k!} \cdot k \cdot \tup{ \tup{n-1} \tup{n-2} \cdots \tup{n-k+1} } \\
+&= \dfrac{1}{k!} \cdot \underbrack{\tup{\tup{n-k}+k}}{= n}
+     \cdot \tup{ \tup{n-1} \tup{n-2} \cdots \tup{n-k+1} } \\
+&= \dfrac{1}{k!} \cdot
+     \underbrack{n \cdot \tup{ \tup{n-1} \tup{n-2} \cdots \tup{n-k+1} }}
+                {= n \tup{n-1} \tup{n-2} \cdots \tup{n-k+1}} \\
+&= \dfrac{1}{k!} \tup{ n \tup{n-1} \tup{n-2} \cdots \tup{n-k+1} }
+=\dbinom{n}{k}
+\end{align*}
+(by \eqref{sol.binom.101.e.2}).
+Hence, \eqref{eq.exe.binom.101.e} is proven in Case 2.
+
+We have now proven \eqref{eq.exe.binom.101.e} in both
+Cases 1 and 2. Thus, \eqref{eq.exe.binom.101.e} always holds.
+This solves part \textbf{(e)} of the exercise.
+
+\vspace{0.8pc}
+
+\textbf{(f)}
+Let $n \in \QQ$ and $k \in \QQ$.
+We must prove the equality \eqref{eq.exe.binom.101.f}.
+If $k \notin \NN$, then this equality trivially
+holds\footnote{\textit{Proof.} Assume that $k \notin \NN$.
+If we had $k-1 \in \NN$, then we would have
+$k = \underbrack{k-1}{\in \NN} + \underbrack{1}{\in \NN} \in \NN$
+as well, which would contradict the fact that $k \notin \NN$.
+Hence, we must have $k-1 \notin \NN$.
+Hence, $\dbinom{n-1}{k-1} = 0$ (by the definition of
+$\dbinom{n-1}{k-1}$).
+Also, $k \notin \NN$; thus,
+$\dbinom{n}{k} = 0$ (by the definition of $\dbinom{n}{k}$).
+Now, the equality \eqref{eq.exe.binom.101.f} boils down to
+$k \cdot 0 = n \cdot 0$ (since $\dbinom{n}{k} = 0$ and
+$\dbinom{n-1}{k-1} = 0$), which is
+clearly true (since both sides equal $0$).
+Thus, we have proven \eqref{eq.exe.binom.101.f} in the case
+when $k \notin \NN$.}.
+Hence, for the rest of this proof, we WLOG assume that $k \in \NN$.
+
+We are in one of the following two cases:
+
+\textit{Case 1:} We have $k = 0$.
+
+\textit{Case 2:} We have $k \neq 0$.
+
+Let us first consider Case 1.
+In this case, we have $k = 0$.
+Thus, $k-1 = -1 \notin \NN$, so that $\dbinom{n-1}{k-1} = 0$
+(by the definition of $\dbinom{n-1}{k-1}$).
+Hence, $n \dbinom{n-1}{k-1} = n \cdot 0 = 0$.
+Comparing this with $\underbrack{k}{= 0} \dbinom{n}{k} = 0$,
+we obtain $k \dbinom{n}{k} = n \dbinom{n-1}{k-1}$.
+Hence, \eqref{eq.exe.binom.101.f} is proven in Case 1.
+
+Let us first consider Case 2.
+In this case, we have $k \neq 0$.
+Thus, $k$ is a positive integer (since $k \in \NN$), so that
+$k-1 \in \NN$.
+
+As in the solution to part \textbf{(e)} above, we can prove
+the equality \eqref{sol.binom.101.e.1}.
+Multiplying both sides of this equality by $n$, we obtain
+\begin{align}
+n \dbinom{n-1}{k-1}
+&= n \cdot \dfrac{1}{k!} \cdot k \cdot \tup{ \tup{n-1} \tup{n-2} \cdots \tup{n-k+1} } \nonumber\\
+&= k \cdot \dfrac{1}{k!} \cdot
+     \underbrack{n \cdot \tup{ \tup{n-1} \tup{n-2} \cdots \tup{n-k+1} }}
+                {= n \tup{n-1} \tup{n-2} \cdots \tup{n-k+1}} \nonumber\\
+&= k \cdot \dfrac{1}{k!} \cdot
+     \tup{n \tup{n-1} \tup{n-2} \cdots \tup{n-k+1}} .
+\label{sol.binom.101.f.1}
+\end{align}
+
+On the other hand, the definition of $\dbinom{n}{k}$ yields
+\begin{align}
+\dbinom{n}{k}
+&= \dfrac{n \tup{n-1} \tup{n-2} \cdots \tup{n-k+1}}{k!} \nonumber \\
+&= \dfrac{1}{k!} \tup{n \tup{n-1} \tup{n-2} \cdots \tup{n-k+1}} .
+\end{align}
+Multiplying both sides of this equality by $k$, we find
+\[
+k \dbinom{n}{k}
+= k \cdot \dfrac{1}{k!} \tup{n \tup{n-1} \tup{n-2} \cdots \tup{n-k+1}} .
+\]
+Comparing this with \eqref{sol.binom.101.f.1},
+we obtain $k \dbinom{n}{k} = n \dbinom{n-1}{k-1}$.
+Hence, \eqref{eq.exe.binom.101.f} is proven in Case 2.
+
+We have now proven \eqref{eq.exe.binom.101.f} in both
+Cases 1 and 2. Thus, \eqref{eq.exe.binom.101.f} always holds.
+This solves part \textbf{(f)} of the exercise.
 
 %----------------------------------------------------------------------------------------
 %	EXERCISE 4
@@ -791,6 +1502,8 @@ k \dbinom{n}{k} = n \dbinom{n-1}{k-1} .
 \section{Exercise 4: General associativity for binary operations}
 
 \subsection{Problem}
+
+[...]
 
 \subsection{Solution}
 
@@ -806,6 +1519,12 @@ k \dbinom{n}{k} = n \dbinom{n-1}{k-1} .
 % has name "GrKnPa94" (so you will see it referenced as
 % "[GrKnPa94]" in the compiled PDF) and tag "GKP" (so you
 % can cite it by writing "\cite{GKP}").
+
+\bibitem[18f-hw0s]{18f-hw0s}
+Darij Grinberg,
+\textit{Math 5705: Enumerative Combinatorics,
+Fall 2018: Homework 0},
+\url{http://www.cip.ifi.lmu.de/~grinberg/t/18f/hw-template.pdf} .
 
 \bibitem[GrKnPa94]{GKP}Ronald L. Graham, Donald E. Knuth, Oren Patashnik,
 \textit{Concrete Mathematics, Second Edition}, Addison-Wesley 1994.\\
