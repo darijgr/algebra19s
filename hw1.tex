@@ -1,0 +1,396 @@
+% Like most advanced LaTeX files, this one begins with a lot of
+% boilerplate. You don't need to understand (or even read) most of it.
+% All you need to do is fill in your name, UMN ID, email address,
+% and the number of the pset. (Search for "METADATA" to find the place
+% for this.) Then, you can go straight to the "EXERCISE 1"
+% section and start writing your solutions.
+% The "VARIOUS USEFUL COMMANDS" section is probably worth taking a
+% look at at some point.
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+\documentclass[paper=a4, fontsize=12pt]{scrartcl} % A4 paper and 12pt font size
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm,amssymb} % Math packages
+\usepackage{mathrsfs}    % More math packages
+\usepackage{sectsty}  % Allows customizing section commands
+\allsectionsfont{\centering \normalfont\scshape} % Make all section titles centered, the default font and small caps %remove this to left align section tites
+\usepackage{hyperref} % Turns cross-references into hyperlinks,
+                      % and defines \url and \href commands.
+\usepackage{graphicx} % For embedding graphics files.
+\usepackage{framed}   % For the "leftbar" environment used below.
+\usepackage{ifthen}   % Used for the \powset command below.
+\usepackage{lastpage} % for counting the number of pages
+\usepackage[headsepline,footsepline,manualmark]{scrlayer-scrpage}
+\usepackage[height=10in,a4paper,hmargin={1in,0.8in}]{geometry}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{tikz}     % This is a powerful tool to draw vector
+                      % graphics inside LaTeX. In particular, you can
+                      % use it to draw graphs.
+\usepackage{verbatim} % For the "verbatim" environment, in which
+                      % special symbols can be used freely without
+                      % confusing the compiler. (And it's typeset in
+                      % a constant-width font.)
+                      % Useful, e.g., for quoting code (or ASCII art).
+
+%\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+
+\setlength\parindent{20pt} % Makes indentation for paragraphs longer.
+                           % This makes paragraphs stand out more.
+
+%----------------------------------------------------------------------------------------
+%	VARIOUS USEFUL COMMANDS
+%----------------------------------------------------------------------------------------
+% The commands below might be convenient. For example, you probably
+% prefer to write $\powset[2]{V}$ for the set of $2$-element subsets
+% of $V$, rather than writing $\mathcal{P}_2(V)$.
+% Notice that you can easily define your own commands like this.
+% Caveat: Some of these commands need to be properly "guarded" when
+% they occur in subscripts or superscripts. So you should not write
+% $K_\CC$, but rather $K_{\CC}$.
+\newcommand{\CC}{\mathbb{C}} % complex numbers
+\newcommand{\RR}{\mathbb{R}} % real numbers
+\newcommand{\QQ}{\mathbb{Q}} % rational numbers
+\newcommand{\NN}{\mathbb{N}} % nonnegative integers
+\newcommand{\PP}{\mathbb{P}} % positive integers
+\newcommand{\Z}[1]{\mathbb{Z}/#1\mathbb{Z}} % integers modulo k
+                                            % (syntax: "\Z{k}")
+\newcommand{\ZZ}{\mathbb{Z}} % integers
+\newcommand{\id}{\operatorname{id}} % identity map
+\newcommand{\lcm}{\operatorname{lcm}}
+% Lowest common multiple. For historical reasons, LaTeX has a \gcd
+% command built in, but not an \lcm command. The preceding line
+% rectifies that.
+\newcommand{\set}[1]{\left\{ #1 \right\}}
+% $\set{...}$ compiles to {...} (set-brackets).
+\newcommand{\abs}[1]{\left| #1 \right|}
+% $\abs{...}$ compiles to |...| (absolute value, or size of a set).
+\newcommand{\tup}[1]{\left( #1 \right)}
+% $\tup{...}$ compiles to (...) (parentheses, or tuple-brackets).
+\newcommand{\ive}[1]{\left[ #1 \right]}
+% $\ive{...}$ compiles to [...] (Iverson bracket, aka truth value; also, set of first n integers).
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+% $\floor{...}$ compiles to |_..._| (floor function).
+\newcommand{\underbrack}[2]{\underbrace{#1}_{\substack{#2}}}
+% $\underbrack{...1}{...2}$ yields
+% $\underbrace{...1}_{\substack{...2}}$. This is useful for doing
+% local rewriting transformations on mathematical expressions with
+% justifications. For example, try this out:
+% $ \underbrack{(a+b)^2}{= a^2 + 2ab + b^2 \\ \text{(by the binomial formula)}} $
+\newcommand{\powset}[2][]{\ifthenelse{\equal{#2}{}}{\mathcal{P}\left(#1\right)}{\mathcal{P}_{#1}\left(#2\right)}}
+% $\powset[k]{S}$ stands for the set of all $k$-element subsets of
+% $S$. The argument $k$ is optional, and if not provided, the result
+% is the whole powerset of $S$.
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command with 1 argument of height
+\newcommand{\nnn}{\nonumber\\} % Don't number this line in an "align" environment, and move on to the next line.
+
+%----------------------------------------------------------------------------------------
+%	MAKING SUMMATION SIGNS ALWAYS PUT THEIR BOUNDS ABOVE AND BELOW
+%	THE SIGN
+%----------------------------------------------------------------------------------------
+% The following are hacks to ensure that sums (such as
+% $\sum_{k=1}^n k$) always put their bounds (i.e., the $k=1$ and the
+% $n$) underneath and above the sign, as opposed to on its right.
+% Same for products (\prod), set unions (\bigcup) and set
+% intersections (\bigcap). Remove the 8 lines below if you do not want
+% this behavior.
+\let\sumnonlimits\sum
+\let\prodnonlimits\prod
+\let\cupnonlimits\bigcup
+\let\capnonlimits\bigcap
+\renewcommand{\sum}{\sumnonlimits\limits}
+\renewcommand{\prod}{\prodnonlimits\limits}
+\renewcommand{\bigcup}{\cupnonlimits\limits}
+\renewcommand{\bigcap}{\capnonlimits\limits}
+
+%----------------------------------------------------------------------------------------
+%	ENVIRONMENTS
+%----------------------------------------------------------------------------------------
+% The incantations below define how theorem environments
+% (\begin{theorem} ... \end{theorem}) and their likes will look like.
+\newtheoremstyle{plainsl}% <name>
+  {8pt plus 2pt minus 4pt}% <Space above>
+  {8pt plus 2pt minus 4pt}% <Space below>
+  {\slshape}% <Body font>
+  {0pt}% <Indent amount>
+  {\bfseries}% <Theorem head font>
+  {.}% <Punctuation after theorem head>
+  {5pt plus 1pt minus 1pt}% <Space after theorem headi>
+  {}% <Theorem head spec (can be left empty, meaning `normal')>
+
+% Environments which make the text inside them slanted:
+\theoremstyle{plainsl}
+  \newtheorem{theorem}{Theorem}[section]
+  \newtheorem{proposition}[theorem]{Proposition}
+  \newtheorem{lemma}[theorem]{Lemma}
+  \newtheorem{corollary}[theorem]{Corollary}
+  \newtheorem{conjecture}[theorem]{Conjecture}
+% Environments that don't:
+\theoremstyle{definition}
+  \newtheorem{definition}[theorem]{Definition}
+  \newtheorem{example}[theorem]{Example}
+  \newtheorem{exercise}[theorem]{Exercise}
+  \newtheorem{examples}[theorem]{Examples}
+  \newtheorem{algorithm}[theorem]{Algorithm}
+  \newtheorem{question}[theorem]{Question}
+ \theoremstyle{remark}
+  \newtheorem{remark}[theorem]{Remark}
+\newenvironment{statement}{\begin{quote}}{\end{quote}}
+\newenvironment{fineprint}{\begin{small}}{\end{small}}
+
+%----------------------------------------------------------------------------------------
+%	METADATA
+%----------------------------------------------------------------------------------------
+\newcommand{\myname}{Darij Grinberg} % ENTER YOUR NAME HERE
+\newcommand{\myid}{00000000} % ENTER YOUR UMN ID HERE
+\newcommand{\mymail}{dgrinber@umn.edu} % ENTER YOUR EMAIL HERE
+\newcommand{\psetnumber}{1} % ENTER THE NUMBER OF THIS PSET HERE
+
+%----------------------------------------------------------------------------------------
+%	HEADER AND FOOTER
+%----------------------------------------------------------------------------------------
+\ihead{Solutions to homework set \#\psetnumber} % Page header left
+\ohead{page \thepage\ of \pageref{LastPage}} % Page header right
+\ifoot{\myname, \myid} % left footer
+\ofoot{\mymail} % right footer
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+\title{	
+\normalfont \normalsize 
+\textsc{University of Minnesota, School of Mathematics} \\ [25pt] % Your university, school and/or department name(s)
+\horrule{0.5pt} \\[0.4cm] % Thin top horizontal rule
+\huge Math 4281: Introduction to Modern Algebra, \\
+Spring 2019:
+Homework \psetnumber\\% The assignment title
+\horrule{2pt} \\[0.5cm] % Thick bottom horizontal rule
+}
+\author{\myname}
+
+\begin{document}
+
+\maketitle % Print the title
+
+\begin{center} % Delete this if you want to save space!
+{\large due date: \textbf{Friday, 8 February 2019} at the beginning of class, \\
+or before that by email or canvas.
+
+Please solve \textbf{at most 4 of the 6 exercises}!}
+\end{center}
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 1
+%----------------------------------------------------------------------------------------
+\horrule{0.3pt} \\[0.4cm]
+
+\section{Exercise 1: Mutual divisibility is rare}
+
+\subsection{Problem}
+
+Let $a$ and $b$ be two integers such that $a \mid b$ and
+$b \mid a$.
+Prove that $\abs{a} = \abs{b}$.
+
+\subsection{Solution}
+
+[...]
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 2
+%----------------------------------------------------------------------------------------
+\horrule{0.3pt} \\[0.4cm]
+
+\section{Exercise 2: Congruence means equal remainders}
+
+\subsection{Problem}
+
+Let $n$ be a positive integer.
+Let $u$ and $v$ be two integers.
+Prove that $u \equiv v \mod n$
+        % While it's called "congruent", the LaTeX command for
+        % the symbol is "\equiv".
+if and only if $u \% n = v \% n$.
+        % To get the "%" sign, you need to type "\%".
+        % Just typing "%" starts a comment.
+
+\subsection{Solution}
+
+[...]
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 2
+%----------------------------------------------------------------------------------------
+\horrule{0.3pt} \\[0.4cm]
+
+\section{Exercise 3: Even and odd}
+
+\subsection{Problem}
+
+Let $u$ be an integer.
+
+\begin{enumerate}
+
+\item[\textbf{(a)}]
+Prove that $u$ is even if and only if $u \% 2 = 0$.
+
+\item[\textbf{(b)}]
+Prove that $u$ is odd if and only if $u \% 2 = 1$.
+
+\item[\textbf{(c)}]
+Prove that $u$ is even if and only if $u \equiv 0 \mod 2$.
+
+\item[\textbf{(d)}]
+Prove that $u$ is odd if and only if $u \equiv 1 \mod 2$.
+
+\item[\textbf{(e)}]
+Prove that $u$ is odd if and only if $u + 1$ is even.
+
+\item[\textbf{(f)}]
+Prove that exactly one of the two numbers $u$ and $u + 1$ is even.
+
+\item[\textbf{(g)}]
+Prove that $u \tup{u+1} \equiv 0 \mod 2$.
+
+\item[\textbf{(h)}]
+Prove that $u^2 \equiv -u \equiv u \mod 2$.
+
+\end{enumerate}
+
+\subsection{Solution}
+
+[...]
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 4
+%----------------------------------------------------------------------------------------
+\horrule{0.3pt} \\[0.4cm]
+
+\section{Exercise 4: Factorials 102}
+
+\subsection{Problem}
+
+\begin{enumerate}
+
+\item[\textbf{(a)}]
+Prove that
+\[
+\dfrac{1! \cdot 2! \cdot \cdots \cdot \tup{2n}!}{n!}
+= 2^n \cdot \prod_{i=1}^n \tup{\tup{2i-1}!}^2
+\qquad \text{for each } n \in \NN .
+\]
+
+\item[\textbf{(b)}]
+Prove that
+\[
+\sum_{k=0}^n \dfrac{1}{k! \cdot \tup{k+2}}
+= 1 - \dfrac{1}{\tup{n+2}!}
+\qquad \text{for each } n \in \NN .
+\]
+
+\end{enumerate}
+
+\subsection{Solution}
+
+[...]
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 5
+%----------------------------------------------------------------------------------------
+\horrule{0.3pt} \\[0.4cm]
+
+\section{Exercise 5: Binomial coefficients 102}
+
+\subsection{Problem}
+
+Prove that
+\[
+\dfrac{\tup{ab}!}{a! \tup{b!}^a}
+= \prod_{k=1}^a \dbinom{kb-1}{b-1}
+\]
+for all $a \in \NN$ and all positive integers $b$.
+
+\subsection{Solution}
+
+[...]
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 6
+%----------------------------------------------------------------------------------------
+\horrule{0.3pt} \\[0.4cm]
+
+\section{Exercise 6: Binomial coefficients and coprimality}
+
+\subsection{Problem}
+
+It is well-known (see, e.g., \cite[Proposition 3.20]{detnotes})
+that $\dbinom{n}{k} \in \ZZ$ for all $n \in \ZZ$ and $k \in \NN$.
+(This is not at all clear from the definition of $\dbinom{n}{k}$;
+it is saying that the product of any $k$ consecutive integers
+is divisible by $k!$.
+The case of $k = 2$ is the statement of Exercise 3 \textbf{(g)}.)
+Thus, we can study the divisibility of binomial coefficients
+by various integers.
+There are hundreds of theorems about this; this exercise is
+about one of them.
+
+Let $a$ and $b$ be two coprime positive integers.
+
+\begin{enumerate}
+
+\item[\textbf{(a)}]
+Prove that $\dfrac{a}{a+b} \dbinom{a+b}{a} = \dbinom{a+b-1}{a-1}$
+and $\dfrac{b}{a+b} \dbinom{a+b}{a} = \dbinom{a+b-1}{b-1}$.
+
+\item[\textbf{(b)}]
+Prove that if $h \in \QQ$ satisfies $ah \in \ZZ$ and $bh \in \ZZ$,
+then $h \in \ZZ$.
+(This is where the coprimality of $a$ and $b$ comes into play.)
+
+\item[\textbf{(c)}]
+Prove that $a+b \mid \dbinom{a+b}{a}$.
+
+\item[\textbf{(d)}]
+Find a counterexample to the claim of part \textbf{(c)} if
+$a$ and $b$ are allowed to not be coprime.
+
+\end{enumerate}
+
+\subsection{Solution}
+
+[...]
+
+\begin{thebibliography}{99999999}                                                                                         %
+
+% Feel free to add your sources -- or copy some from the source code
+% of the class notes ( http://www-users.math.umn.edu/~dgrinber/19s/notes.tex ).
+
+% This is the bibliography: The list of papers/books/articles/blogs/...
+% cited. The syntax is: "\bibitem[name]{tag}Reference",
+% where "name" is the name that will appear in the compiled
+% bibliography, and "tag" is the tag by which you will refer to
+% the source in the TeX file. For example, the following source
+% has name "GrKnPa94" (so you will see it referenced as
+% "[GrKnPa94]" in the compiled PDF) and tag "GKP" (so you
+% can cite it by writing "\cite{GKP}").
+
+\bibitem[GrKnPa94]{GKP}Ronald L. Graham, Donald E. Knuth, Oren Patashnik,
+\textit{Concrete Mathematics, Second Edition}, Addison-Wesley 1994.\\
+See \url{https://www-cs-faculty.stanford.edu/~knuth/gkp.html} for errata.
+
+\bibitem[Grinbe19]{detnotes}Darij Grinberg,
+\textit{Notes on the combinatorial fundamentals of algebra},
+10 January 2019. \\
+\url{http://www.cip.ifi.lmu.de/~grinberg/primes2015/sols.pdf}
+\\
+The numbering of theorems and formulas in this link might shift
+when the project gets updated; for a ``frozen'' version whose
+numbering is guaranteed to match that in the citations above, see
+\url{https://github.com/darijgr/detnotes/releases/tag/2019-01-10} .
+
+\end{thebibliography}
+
+\end{document}
+
