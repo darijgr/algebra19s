@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, February 04, 2019 10:15:00}
+%TCIDATA{LastRevised=Monday, February 04, 2019 12:14:28}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -2795,7 +2795,9 @@ $b$ whenever $b\in\mathbb{Z}$.
 
 (Also, the common divisors of an empty list of integers are all integers,
 because the requirement (\ref{eq.def.ent.Div.cond}) is vacuously true for
-$k=0$. Thus, $\operatorname*{Div}\left(  {}\right)  =\mathbb{Z}$.)
+$k=0$. In other words, $\operatorname*{Div}\left(  {}\right)  =\mathbb{Z}$.)
+
+Here are some more interesting examples of common divisors:
 
 \begin{example}
 \textbf{(a)} The common divisors of $6$ and $8$ are $-2,-1,1,2$. (In order to
@@ -2925,8 +2927,16 @@ largest element of the set $\operatorname*{Div}\left(  b_{1},b_{2}%
 \ref{prop.ent.Div.fin}), and is a positive integer (by Proposition
 \ref{prop.ent.Div.fin} again).
 
-\item If $b_{1},b_{2},\ldots,b_{k}$ are not all $0$, then it is defined to be
-$0$.
+\item If $b_{1},b_{2},\ldots,b_{k}$ are all $0$, then it is defined to be $0$.
+(This is a slight abuse of the word \textquotedblleft greatest common
+divisor\textquotedblright, because $0$ is not actually the greatest among the
+common divisors of $b_{1},b_{2},\ldots,b_{k}$ in this case. In fact, when
+$b_{1},b_{2},\ldots,b_{k}$ are all $0$, \textbf{every} integer is a common
+divisor of $b_{1},b_{2},\ldots,b_{k}$, so that there is no greatest among
+these common divisors, because there is no \textquotedblleft greatest
+integer\textquotedblright. Nevertheless, defining the greatest common divisor
+of $b_{1},b_{2},\ldots,b_{k}$ to be $0$ in this case will prove to be a good
+decision, as it will greatly reduce the number of exceptions in our results.)
 \end{itemize}
 
 Thus, in either case, this greatest common divisor is a nonnegative integer.
@@ -3010,27 +3020,28 @@ $\gcd\left(  a,b\right)  $ for two nonnegative integers $a$ and $b$, by
 repeatedly applying division with remainder. For example, let us compute
 $\gcd\left(  210,45\right)  $ as follows:%
 \begin{align*}
-\gcd\left(  210,45\right)    & =\gcd\left(  45,210\right)
+\gcd\left(  210,45\right)   &  =\gcd\left(  45,210\right)
 \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition \ref{prop.ent.gcd.props1}
-\textbf{(b)}}\right)  \\
-& =\gcd\left(  45,\underbrace{210\%45}_{=30}\right)
+\textbf{(b)}}\right) \\
+&  =\gcd\left(  45,\underbrace{210\%45}_{=30}\right)
 \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition \ref{prop.ent.gcd.props1}
-\textbf{(e)}}\right)  \\
-& =\gcd\left(  45,30\right)  \\
-& =\gcd\left(  30,45\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition
-\ref{prop.ent.gcd.props1} \textbf{(b)}}\right)  \\
-& =\gcd\left(  30,\underbrace{45\%30}_{=15}\right)
+\textbf{(e)}}\right) \\
+&  =\gcd\left(  45,30\right) \\
+&  =\gcd\left(  30,45\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition
+\ref{prop.ent.gcd.props1} \textbf{(b)}}\right) \\
+&  =\gcd\left(  30,\underbrace{45\%30}_{=15}\right)
 \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition \ref{prop.ent.gcd.props1}
-\textbf{(e)}}\right)  \\
-& =\gcd\left(  30,15\right)  \\
-& =\gcd\left(  15,30\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition
-\ref{prop.ent.gcd.props1} \textbf{(b)}}\right)  \\
-& =\gcd\left(  15,\underbrace{30\%15}_{=0}\right)  \ \ \ \ \ \ \ \ \ \ \left(
-\text{by Proposition \ref{prop.ent.gcd.props1} \textbf{(e)}}\right)  \\
-& =\gcd\left(  15,0\right)  =\left\vert 15\right\vert
+\textbf{(e)}}\right) \\
+&  =\gcd\left(  30,15\right) \\
+&  =\gcd\left(  15,30\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition
+\ref{prop.ent.gcd.props1} \textbf{(b)}}\right) \\
+&  =\gcd\left(  15,\underbrace{30\%15}_{=0}\right)
 \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition \ref{prop.ent.gcd.props1}
-\textbf{(a)}}\right)  \\
-& =15.
+\textbf{(e)}}\right) \\
+&  =\gcd\left(  15,0\right)  =\left\vert 15\right\vert
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition \ref{prop.ent.gcd.props1}
+\textbf{(a)}}\right) \\
+&  =15.
 \end{align*}
 This method of computing $\gcd\left(  a,b\right)  $ is called the
 \textit{Euclidean algorithm}, and is usually much faster than the divisors of
@@ -3219,9 +3230,6 @@ Now, we can prove the whole Theorem \ref{thm.ent.gcd.bezout}:
 [Proof of Theorem \ref{thm.ent.gcd.bezout}.]TODO
 \end{proof}
 
-TODO: Define \textquotedblleft$\mathbb{Z}$-linear
-combination\textquotedblright.
-
 An important corollary of Theorem \ref{thm.ent.gcd.bezout} is the following fact:
 
 \begin{theorem}
@@ -3306,7 +3314,7 @@ TODO: last equality.
 \begin{corollary}
 \label{cor.ent.gcd.sa,sb}Let $s,a,b\in\mathbb{Z}$. Then,
 \[
-\gcd\left(  sa,sb\right)  =s\gcd\left(  a,b\right)  .
+\gcd\left(  sa,sb\right)  =\left\vert s\right\vert \gcd\left(  a,b\right)  .
 \]
 
 \end{corollary}
@@ -3334,30 +3342,31 @@ The concept of a gcd leads to one of the most important notions of number theory
 
 \begin{definition}
 \label{def.ent.coprime.coprime}Let $a$ and $b$ be two integers. We say that
-$a$ and $b$ are \textit{coprime} if and only if $\gcd\left(  a,b\right)  =1$.
+$a$ is \textit{coprime} to $b$ if and only if $\gcd\left(  a,b\right)  =1$.
 \end{definition}
 
 Instead of \textquotedblleft coprime\textquotedblright, some authors say
-\textquotedblleft relatively prime\textquotedblright.
+\textquotedblleft relatively prime\textquotedblright. Instead of saying
+\textquotedblleft$a$ and $b$ 
 
 \begin{example}
-\textbf{(a)} The numbers $2$ and $3$ are coprime, since $\gcd\left(
-2,3\right)  =1$.
+\textbf{(a)} The number $2$ is coprime to $3$, since $\gcd\left(  2,3\right)
+=1$.
 
-\textbf{(b)} More generally, for any integer $a$, the numbers $a$ and $a+1$
-are coprime. To prove this, we note that%
+\textbf{(b)} More generally, for any integer $a$, the number $a$ is coprime to
+$a+1$. To prove this, we note that%
 \begin{align*}
 \gcd\left(  a,\underbrace{a}_{=1a}+1\right)   &  =\gcd\left(  a,1a+1\right)
-=\gcd\left(  a,1\right) \\
+=\gcd\left(  a,1\right)  \\
 &  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition \ref{prop.ent.gcd.props1}
-\textbf{(c)}, applied to }u=1\text{ and }b=1\right) \\
+\textbf{(c)}, applied to }u=1\text{ and }b=1\right)  \\
 &  \mid1\ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition
 \ref{prop.ent.gcd.props1} \textbf{(e)}, applied to }b=1\right)  ,
 \end{align*}
 and thus $\gcd\left(  a,a+1\right)  =1$ (since $\gcd\left(  a,a+1\right)  $ is
-a positive integer), which means that $a$ and $a+b$ are coprime.
+a positive integer), which means that $a$ is coprime to $a+b$.
 
-\textbf{(c)} The numbers $6$ and $15$ are not coprime, since $\gcd\left(
+\textbf{(c)} The number $6$ is not coprime to $15$, since $\gcd\left(
 6,15\right)  =3\neq1$.
 \end{example}
 
@@ -3365,21 +3374,78 @@ Following Donald Knuth, we introduce a slightly quaint notation:
 
 \begin{definition}
 \label{def.ent.coprime.perp}Let $a$ and $b$ be two integers. We write
-\textquotedblleft$a\perp b$\textquotedblright\ to signify that $a$ and $b$ are coprime.
+\textquotedblleft$a\perp b$\textquotedblright\ to signify that $a$ is coprime
+to $b$.
+\end{definition}
+
+Note that the \textquotedblleft$\perp$\textquotedblright\ relation is symmetric:
+
+\begin{proposition}
+\label{prop.ent.coprime.perp-symm}Let $a$ and $b$ be two integers. Then,
+$a\perp b$ if and only if $b\perp a$.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.ent.coprime.perp-symm}.] We have the following
+chain of equivalences:%
+\begin{align*}
+\left(  a\perp b\right)  \   & \Longleftrightarrow\ \left(  a\text{ is coprime
+to }b\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of
+\textquotedblleft}\perp\text{\textquotedblright}\right)  \\
+& \Longleftrightarrow\ \left(  \gcd\left(  a,b\right)  =1\right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of \textquotedblleft
+coprime\textquotedblright}\right)  \\
+& \Longleftrightarrow\ \left(  \gcd\left(  b,a\right)  =1\right)
+\ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{since Proposition \ref{prop.ent.gcd.props1} \textbf{(b)}}\\
+\text{yields }\gcd\left(  a,b\right)  =\gcd\left(  b,a\right)
+\end{array}
+\right)  \\
+& \Longleftrightarrow\ \left(  b\text{ is coprime to }a\right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of \textquotedblleft
+coprime\textquotedblright}\right)  \\
+& \Longleftrightarrow\ \left(  b\perp a\right)  \ \ \ \ \ \ \ \ \ \ \left(
+\text{by the definition of \textquotedblleft}\perp\text{\textquotedblright%
+}\right)  .
+\end{align*}
+This proves Proposition \ref{prop.ent.coprime.perp-symm}.
+\end{proof}
+
+\begin{definition}
+Let $a$ and $b$ be two integers. Proposition \ref{prop.ent.coprime.perp-symm}
+shows that $a$ is coprime to $b$ if and only if $b$ is coprime to $a$. Hence,
+we shall sometimes use a more symmetric terminology for this situation: We
+shall say that \textquotedblleft$a$ and $b$ \textit{are coprime}%
+\textquotedblright\ to mean that $a$ is coprime to $b$ (or, equivalently, that
+$b$ is coprime to $a$).
 \end{definition}
 
 We can now state multiple theorems about coprime numbers. The first one states
 that we can \textquotedblleft cancel\textquotedblright\ a factor $b$ from a
-divisibility $ab\mid c$ as long as this factor is coprime to $c$:
+divisibility $a\mid bc$ as long as this factor is coprime to $a$:
 
 \begin{theorem}
 \label{thm.ent.coprime.cancel}Let $a,b,c\in\mathbb{Z}$ satisfy $a\mid bc$ and
-$b\perp c$. Then, $a\mid c$.
+$a\perp b$. Then, $a\mid c$.
 \end{theorem}
 
 \begin{proof}
-[Proof of Theorem \ref{thm.ent.coprime.cancel}.]We have $b\perp c$; in other
-words, $b$ is coprime to $c$ (by Definition \ref{def.ent.coprime.perp}).
+[Proof of Theorem \ref{thm.ent.coprime.cancel}.]We have $a\perp b$; in other
+words, $a$ is coprime to $b$ (by Definition \ref{def.ent.coprime.perp}). In
+other words, $\gcd\left(  a,b\right)  =1$ (by the definition of
+\textquotedblleft coprime\textquotedblright). But Theorem
+\ref{thm.ent.gcd.bezout} yields that there exist integers $x\in\mathbb{Z}$ and
+$y\in\mathbb{Z}$ such that $\gcd\left(  a,b\right)  =xa+yb$. Consider these
+$x$ and $y$.
+
+Hence, $xa+yb=\gcd\left(  a,b\right)  =1$. Thus, $c\left(  xa+yb\right)
+=c\cdot1=c$, so that%
+\[
+c=c\left(  xa+yb\right)  =cxa+cyb.
+\]
+
 
 TODO.
 \end{proof}

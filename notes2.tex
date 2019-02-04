@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, February 04, 2019 09:58:37}
+%TCIDATA{LastRevised=Monday, February 04, 2019 12:02:36}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -2697,75 +2697,79 @@ $a//b$.
 \subsection{Common divisors, the Euclidean algorithm and the Bezout theorem}
 
 \begin{definition}
-Let $b\in\mathbb{Z}$. The \textbf{divisors} of $b$ are defined as the integers
-that divide $b$.
+Let $b\in\mathbb{Z}$. The \textbf{divisors} of $b$ are the integers that
+divide $b$.
 \end{definition}
+
+For example, the divisors of $6$ are $-6,-3,-2,-1,1,2,3,6$.
 
 \begin{proposition}
 \textbf{(a)} If $b\in\mathbb{Z}$, then $1$ and $b$ are divisors of $b$.
 
-\textbf{(b)} All the integers are divisors of $0$.
+\textbf{(b)} All integers are divisors of $0$.
 
 \textbf{(c)} Let $b\in\mathbb{Z}$ be nonzero. Then, all divisors of $b$ lie
 between $-\left\vert b\right\vert $ and $\left\vert b\right\vert $ (inclusive).
 \end{proposition}
 
 \begin{definition}
-Let $b_{1},b_{2},\ldots,b_{k}$ be finitely many integers.
+Let $b_{1},b_{2},\ldots,b_{k}$ be finitely many integers. Then, the
+\textbf{common divisors} of $b_{1},b_{2},\ldots,b_{k}$ are the integers that
+divide all of $b_{1},b_{2},\ldots,b_{k}$.
 
-The \textbf{common divisors }of $b_{1},b_{2},\ldots,b_{k}$ are the integers
-that divide all of $b_{1},b_{2},\ldots,b_{k}$. We let $\operatorname*{Div}%
-\left(  b_{1},b_{2},\ldots,b_{k}\right)  $ be the set of these common divisors.
+We let $\operatorname*{Div}\left(  b_{1},b_{2},\ldots,b_{k}\right)  $ denote
+the set of common divisors of $b_{1},b_{2},\ldots,b_{k}$.
 \end{definition}
 
 \begin{example}%
-\begin{align*}
-\operatorname*{Div}\left(  6,14\right)    & =\underbrace{\operatorname*{Div}%
-\left(  6\right)  }_{=\left\{  1,2,3,6,-1,-2,-3,-6\right\}  }\cap
-\underbrace{\operatorname*{Div}\left(  14\right)  }_{=\left\{
-1,2,7,14,-1,-2,-7,-4\right\}  }\\
-& =\left\{  1,2,-1,-2\right\}  .
-\end{align*}
-%
-
 \[
-\operatorname*{Div}\left(  6,15,10\right)  =\left\{  1,-1\right\}  .
+\operatorname*{Div}\left(  6,10\right)  =\left\{  1,2,-1,-2\right\}  .
 \]
-Note that $6$ and $15$ have common divisor $3$;
-
-$6$ and $10$ have common divisor $2$;
-
-$15$ and $10$ have common divisor $5$.
+One way to find this set is to list the divisors of $6$ and the divisors of
+$10$ and check which numbers occur in \textbf{both} lists.
 \end{example}
 
-Note that if $b\in\mathbb{Z}$, then $\operatorname*{Div}\left(  b\right)
-=\left\{  \text{divisors of }b\right\}  $.
-
 \begin{proposition}
-Let $b_{1},b_{2},\ldots,b_{k}$ be $k$ integers that are not all $0$. Then, the
-set $\operatorname*{Div}\left(  b_{1},b_{2},\ldots,b_{k}\right)  $ is a
-nonempty finite set and has a largest element; this largest element is positive.
+Let $b_{1},b_{2},\ldots,b_{k}$ be finitely many integers that are not all $0$.
+Then, the set $\operatorname*{Div}\left(  b_{1},b_{2},\ldots,b_{k}\right)  $
+has a largest element, and this largest element is a positive integer.
 \end{proposition}
 
-\begin{definition}
-Let $b_{1},b_{2},\ldots,b_{k}$ be $k$ integers that are not all $0$. Then, the
-\textbf{greatest common divisor} of $b_{1},b_{2},\ldots,b_{k}$ is the largest
-element of $\operatorname*{Div}\left(  b_{1},b_{2},\ldots,b_{k}\right)  $. We
-call it $\gcd\left(  b_{1},b_{2},\ldots,b_{k}\right)  $, and also use
-\textquotedblleft\textbf{gcd}\textquotedblright\ as shorthand for
-\textquotedblleft greatest common divisor\textquotedblright.
+\begin{proof}
+This set is a nonempty and finite set of integers, thus has a largest element.
+This largest element is positive, since $1$ is in the set.
+\end{proof}
 
-If $b_{1},b_{2},\ldots,b_{k}$ are all $0$, then we set $\gcd\left(
-b_{1},b_{2},\ldots,b_{k}\right)  =0$.
+\begin{definition}
+Let $b_{1},b_{2},\ldots,b_{k}$ be finitely many integers. The \textbf{greatest
+common divisor} of $b_{1},b_{2},\ldots,b_{k}$ is:
+
+\begin{itemize}
+\item the largest element of $\operatorname*{Div}\left(  b_{1},b_{2}%
+,\ldots,b_{k}\right)  $ if $b_{1},b_{2},\ldots,b_{k}$ are not all $0$;
+
+\item $0$ if $b_{1},b_{2},\ldots,b_{k}$ are all $0$.
+\end{itemize}
+
+We denote this greatest common divisor as $\gcd\left(  b_{1},b_{2}%
+,\ldots,b_{k}\right)  $, and we also use the word \textquotedblleft%
+\textbf{gcd}\textquotedblright\ as shorthand for \textquotedblleft greatest
+common divisor\textquotedblright.
 \end{definition}
 
-\begin{remark}
-We will later see that, e.g., any five integers $a,b,c,d,e$ satisfy%
+Usually, we only care about gcds of two numbers, because gcds of more numbers
+can be computed using gcds of two numbers: e.g.,%
 \[
 \gcd\left(  a,b,c,d,e\right)  =\gcd\left(  a,\gcd\left(  b,\gcd\left(
-c,\gcd\left(  d,e\right)  \right)  \right)  \right)  .
+c,\gcd\left(  d,e\right)  \right)  \right)  \right)
 \]
-So gcd's of two numbers are the most important case.
+for all $a,b,c,d,e\in\mathbb{Z}$. (To be proven later.)
+
+\begin{remark}
+For a single integer $a$, the set $\operatorname*{Div}\left(  a\right)  $ is
+just $\left\{  \text{divisors of }a\right\}  $.
+
+Also, for $k=0$, we have $\operatorname*{Div}\left(  {}\right)  =\mathbb{Z}$.
 \end{remark}
 
 \begin{proposition}
@@ -2778,132 +2782,231 @@ all $a,b\in\mathbb{Z}$.
 \textbf{(c)} We have $\gcd\left(  a,ua+b\right)  =\gcd\left(  a,b\right)  $
 for all $a,b,u\in\mathbb{Z}$.
 
-(But it is not true that $\gcd\left(  vb+a,ua+b\right)  =\gcd\left(
-a,b\right)  $ for all $a,b,u\in\mathbb{Z}$. Exercise?)
-
 \textbf{(d)} If $a,b,c\in\mathbb{Z}$ satisfy $b\equiv c\operatorname{mod}a$,
 then $\gcd\left(  a,b\right)  =\gcd\left(  a,c\right)  $.
 
-\textbf{(e)} We have $\gcd\left(  a,b\right)  \mid a$ and $\gcd\left(
+\textbf{(e)} If $a,b\in\mathbb{Z}$ and $a>0$, then $\gcd\left(  a,b\right)
+=\gcd\left(  a,b\%a\right)  $.
+
+\textbf{(f)} We have $\gcd\left(  a,b\right)  \mid a$ and $\gcd\left(
 a,b\right)  \mid b$ for all $a,b\in\mathbb{Z}$.
+
+\textbf{(g)} We have $\gcd\left(  -a,b\right)  =\gcd\left(  a,b\right)  $ for
+all $a,b\in\mathbb{Z}$.
 \end{proposition}
 
 \begin{proof}
-\textbf{(c)} Let $a,b,u\in\mathbb{Z}$. WLOG assume that $a,b$ are not both $0$.
+\textbf{(a)}, \textbf{(b)}, \textbf{(f)} and \textbf{(g)} are easy.
 
-Claim: $\operatorname*{Div}\left(  a,ua+b\right)  =\operatorname*{Div}\left(
-a,b\right)  $.
+\textbf{(d)} Let $a,b,c\in\mathbb{Z}$ be such that $b\equiv
+c\operatorname{mod}a$.
 
-Indeed, let $d\in\operatorname*{Div}\left(  a,ua+b\right)  $. We shall prove
-that $d\in\operatorname*{Div}\left(  a,b\right)  $.
+We shall prove $\operatorname*{Div}\left(  a,b\right)  =\operatorname*{Div}%
+\left(  a,c\right)  $.
 
-We have $d\in\operatorname*{Div}\left(  a,ua+b\right)  $, so that $d\mid a$
-and $d\mid ua+b$. We must prove that $d\mid b$, since this will yield
-$d\in\operatorname*{Div}\left(  a,b\right)  $.
+Let $d\in\operatorname*{Div}\left(  a,b\right)  $. We want to prove that
+$d\in\operatorname*{Div}\left(  a,c\right)  $.
 
-We have%
-\[
-b=\underbrace{\left(  ua+b\right)  }_{\equiv0\operatorname{mod}d}%
--u\underbrace{a}_{\equiv0\operatorname{mod}d}\equiv0-u0=0\operatorname{mod}d.
-\]
-(To be rigorous: Multiplying $u\equiv u\operatorname{mod}d$ with
-$a\equiv0\operatorname{mod}d$, we get $ua\equiv u0=0\operatorname{mod}d$.
-Subtracting this congruence from $ua+b\equiv0\operatorname{mod}d$, and get
-$\left(  ua+b\right)  -ua\equiv0-0=0\operatorname{mod}d$.)
+We have $d\in\operatorname*{Div}\left(  a,b\right)  $, so that $d\mid a$ and
+$d\mid b$. But $b\equiv c\operatorname{mod}a$, therefore $b\equiv
+c\operatorname{mod}d$ (by Proposition \ref{prop.ent.mod.basics} \textbf{(e)},
+since $d\mid a$). But $b\equiv0\operatorname{mod}d$ since $d\mid b$. Thus,
+$c\equiv b\equiv0\operatorname{mod}d$, so that $d\mid c$. Hence,
+$d\in\operatorname*{Div}\left(  a,c\right)  $.
 
-So $d\mid b$, so $d\in\operatorname*{Div}\left(  a,b\right)  $.
+So we have proven that $\operatorname*{Div}\left(  a,b\right)  \subseteq
+\operatorname*{Div}\left(  a,c\right)  $.
 
-Thus, we have proven $\operatorname*{Div}\left(  a,ua+b\right)  \subseteq
+Similarly, $\operatorname*{Div}\left(  a,c\right)  \subseteq
 \operatorname*{Div}\left(  a,b\right)  $.
 
-Similarly, $\operatorname*{Div}\left(  a,b\right)  \subseteq
-\operatorname*{Div}\left(  a,ua+b\right)  $.
+Combining, we get $\operatorname*{Div}\left(  a,b\right)  =\operatorname*{Div}%
+\left(  a,c\right)  $.
 
-Combining these, we get $\operatorname*{Div}\left(  a,ua+b\right)
-=\operatorname*{Div}\left(  a,b\right)  $.
+Thus, $\gcd\left(  a,b\right)  =\gcd\left(  a,c\right)  $ (except that we need
+an extra argument if $a=0$).
 
-Hence, $\gcd\left(  a,ua+b\right)  =\gcd\left(  a,b\right)  $. So part
-\textbf{(c)} is proven.
+\textbf{(c)} Let $a,b,u\in\mathbb{Z}$. We have $ua+b\equiv b\operatorname{mod}%
+a$. Thus, part \textbf{(d)} yields $\gcd\left(  a,ua+b\right)  =\gcd\left(
+a,b\right)  $.
 
-\textbf{(d)} Let $a,b,c\in\mathbb{Z}$ satisfy $b\equiv c\operatorname{mod}a$.
-Then, $a\mid b-c$, so that $b-c=av$ for some $v\in\mathbb{Z}$. Thus,
-$c=b-av=\left(  -v\right)  a+b$. So
-\[
-\gcd\left(  a,c\right)  =\gcd\left(  a,\left(  -v\right)  a+b\right)
-=\gcd\left(  a,b\right)
-\]
-(by part \textbf{(c)}). So \textbf{(d)} is proven.
+\textbf{(e)} Apply part \textbf{(d)} to $c=b\%a$, since $b\%a\equiv
+b\operatorname{mod}a$.
 \end{proof}
 
-The above proposition was easy, but highly useful for computing $\gcd\left(
-a,b\right)  $. Example:%
+This proposition lets us compute $\gcd\left(  a,b\right)  $ for $a,b\in
+\mathbb{N}$ rather quickly. For example:%
 \begin{align*}
 & \gcd\left(  210,45\right)  \overset{\mathbf{(b)}}{=}\gcd\left(
-45,210\right)  \overset{\mathbf{(d)}}{=}\gcd\left(  45,30\right)  \\
-& \ \ \ \ \ \ \ \ \ \ \left(  \text{since }210\equiv30\operatorname{mod}%
-45\right)  \\
-& \overset{\mathbf{(b)}}{=}\gcd\left(  30,45\right)  \overset{\mathbf{(d)}%
-}{=}\gcd\left(  30,15\right)  \overset{\mathbf{(b)}}{=}\gcd\left(
-15,30\right)  \\
-& \overset{\mathbf{(d)}}{=}\gcd\left(  15,0\right)  \overset{\mathbf{(a)}%
-}{=}\left\vert 15\right\vert =15.
+45,210\right)  \\
+& \overset{\mathbf{(e)}}{=}\gcd\left(  45,\underbrace{210\%45}_{=30}\right)
+=\gcd\left(  45,30\right)  \\
+& \overset{\mathbf{(b)}}{=}\gcd\left(  30,45\right)  \overset{\mathbf{(e)}%
+}{=}\gcd\left(  30,45\%30\right)  =\gcd\left(  30,15\right)  \\
+& \overset{\mathbf{(b)}}{=}\gcd\left(  15,30\right)  \overset{\mathbf{(e)}%
+}{=}\gcd\left(  15,30\%15\right)  =\gcd\left(  15,0\right)  \\
+& \overset{\mathbf{(a)}}{=}\left\vert 15\right\vert =15.
 \end{align*}
-This is called the \textit{Euclidean algorithm}.
+
+
+This is called the \textbf{Euclidean algorithm}.
 
 \begin{theorem}
-Let $a$ and $b$ be two integers. Then, there exist integers $x$ and $y$ such
-that $\gcd\left(  a,b\right)  =xa+yb$.
+(Bezout's theorem) Let $a,b\in\mathbb{Z}$. Then, there exist two integers $x$
+and $y$ such that%
+\[
+\gcd\left(  a,b\right)  =xa+yb.
+\]
+
 \end{theorem}
 
-In other words, $\gcd\left(  a,b\right)  $ is a $\mathbb{Z}$-linear
-combination of $a$ and $b$.
+To prove this, it suffices to prove it for nonnegative integers, i.e., to
+prove the following:
 
-Rough idea of the proof (see the notes for details):
-
-\begin{itemize}
-\item It suffices to prove the theorem for $a,b\geq0$.
-
-\item Strong induction on $a+b$. This means we fix $n\in\mathbb{N}$, assume
-the theorem to hold for $a+b<n$, and prove that it holds for $a+b=n$.
-
-In proving this, we can WLOG assume that $a\leq b$. Then,%
+\begin{lemma}
+Let $a,b\in\mathbb{N}$. Then, there exist two integers $x$ and $y$ such that%
 \[
-\gcd\left(  a,b\right)  =\gcd\left(  a,b-a\right)
-\]
-(by part \textbf{(d)} of the proposition, since $b-a\equiv b\operatorname{mod}%
-a$). But $a+\left(  b-a\right)  =b<a+b=n$, so the induction hypothesis tells
-us that the theorem is already proven for $b-a$ instead of $a$. Then see the consequences.
-
-\item
-\[
-\prod_{k=1}^{2n}k!
+\gcd\left(  a,b\right)  =xa+yb.
 \]
 
-\end{itemize}
+\end{lemma}
 
+\begin{proof}
+Strong induction on $a+b$.
 
+So we fix $n\in\mathbb{N}$, and assume the lemma holds whenever $a+b<n$. In
+other words, the following holds:
 
+\begin{statement}
+\textit{Statement 1 (Induction Hypothesis):} Let $a,b\in\mathbb{N}$ be such
+that $a+b<n$. Then, there exist two integers $x$ and $y$ such that
+$\gcd\left(  a,b\right)  =xa+yb$.
+\end{statement}
 
+We must prove that the lemma holds for $a+b=n$. We first show it in the case
+when $b\geq a$:
 
-\begin{proposition}
-\textbf{(a)} We have $\gcd\left(  a,0\right)  =\gcd\left(  a\right)
-=\left\vert a\right\vert $ for all $a\in\mathbb{Z}$.
+\begin{statement}
+\textit{Statement 2:} Let $a,b\in\mathbb{N}$ be such that $a+b=n$ and $b\geq
+a$. Then, there exist two integers $x$ and $y$ such that $\gcd\left(
+a,b\right)  =xa+yb$.
+\end{statement}
 
-\textbf{(b)} We have $\gcd\left(  a,b\right)  =\gcd\left(  b,a\right)  $ for
-all $a,b\in\mathbb{Z}$.
+\textit{Proof of Statement 2:} First of all, if $a=0$, then this is easy,
+because in this case,%
+\begin{align*}
+\gcd\left(  a,b\right)    & =\gcd\left(  0,b\right)  \overset{\mathbf{(b)}%
+}{=}\gcd\left(  b,0\right)  \overset{\mathbf{(a)}}{=}\left\vert b\right\vert
+\\
+& =ub\ \ \ \ \ \ \ \ \ \ \text{for }u\in\left\{  1,-1\right\}  \\
+& =xa+yb\ \ \ \ \ \ \ \ \ \ \text{for }x=0\text{ and }y=u.
+\end{align*}
+So let us WLOG assume that $a\neq0$. Hence, $a>0$.
 
-\textbf{(c)} We have $\gcd\left(  a,ua+b\right)  =\gcd\left(  a,b\right)  $
-for all $a,b,u\in\mathbb{Z}$.
+Now, the integers $a$ and $b-a$ belong to $\mathbb{N}$ (since $b\geq a$) and
+their sum is%
+\begin{align*}
+a+\left(  b-a\right)    & =b<a+b\ \ \ \ \ \ \ \ \ \ \left(  \text{since
+}a>0\right)  \\
+& =n.
+\end{align*}
+Hence, we can apply Statement 1 \textbf{to }$b-a$\textbf{ instead of }$b$. We
+conclude that there exist two integers $x$ and $y$ such that $\gcd\left(
+a,b-a\right)  =xa+y\left(  b-a\right)  $. Let me fix two such integers and
+call them $x_{0}$ and $y_{0}$. Thus, $\gcd\left(  a,b-a\right)  =x_{0}%
+a+y_{0}\left(  b-a\right)  $.
 
-(But it is not true that $\gcd\left(  vb+a,ua+b\right)  =\gcd\left(
-a,b\right)  $ for all $a,b,u\in\mathbb{Z}$. Exercise?)
+But $b-a\equiv b\operatorname{mod}a$. Hence, part \textbf{(d)} of the
+proposition yields
+\begin{align*}
+\gcd\left(  a,b\right)    & =\gcd\left(  a,b-a\right)  =x_{0}a+y_{0}\left(
+b-a\right)  \\
+& =\left(  x_{0}-y_{0}\right)  a+y_{0}b.
+\end{align*}
+So there exist two integers $x$ and $y$ such that $\gcd\left(  a,b\right)
+=xa+yb$ (namely, $x=x_{0}-y_{0}$ and $y=y_{0}$). This proves Statement 2.
 
-\textbf{(d)} If $a,b,c\in\mathbb{Z}$ satisfy $b\equiv c\operatorname{mod}a$,
-then $\gcd\left(  a,b\right)  =\gcd\left(  a,c\right)  $.
+Now, let us prove the whole induction goal:
 
-\textbf{(e)} We have $\gcd\left(  a,b\right)  \mid a$ and $\gcd\left(
-a,b\right)  \mid b$ for all $a,b\in\mathbb{Z}$.
-\end{proposition}
+\begin{statement}
+\textit{Statement 3:} Let $a,b\in\mathbb{N}$ be such that $a+b=n$. Then, there
+exist two integers $x$ and $y$ such that $\gcd\left(  a,b\right)  =xa+yb$.
+\end{statement}
+
+\textit{Proof of Statement 3:} If $b\geq a$, then this follows from Statement
+2. If not, we can use Proposition \textbf{(b)} to swap $a$ with $b$, and then
+apply Statement 2.
+
+Statement 3 says that the lemma is true whenever $a+b=n$. Thus, we are done
+with our induction proof.
+\end{proof}
+
+As we said, the theorem follows from the lemma.
+
+One consequence of Bezout's theorem is the following fact:
+
+\begin{lemma}
+Let $m,a,b\in\mathbb{Z}$ be such that $m\mid a$ and $m\mid b$. Then,
+$m\mid\gcd\left(  a,b\right)  $.
+\end{lemma}
+
+\begin{proof}
+Bezout's theorem states that there exist integers $x$ and $y$ such that
+$\gcd\left(  a,b\right)  =xa+yb$. Consider these $x$ and $y$.
+
+Now,%
+\begin{align*}
+\gcd\left(  a,b\right)    & =x\underbrace{a}_{\equiv0\operatorname{mod}%
+m}+y\underbrace{b}_{\equiv0\operatorname{mod}m}\\
+& \equiv x\cdot0+y\cdot0=0\operatorname{mod}m.
+\end{align*}
+(To be rigorous: Multiplying the congruences $x\equiv x\operatorname{mod}m$
+and $a\equiv0\operatorname{mod}m$, we get $xa\equiv x\cdot0\operatorname{mod}%
+m$. Similarly, $yb\equiv y\cdot0\operatorname{mod}m$. Adding the latter two
+congruences yields $xa+yb\equiv x\cdot0+y\cdot0\operatorname{mod}m$.)
+
+So $m\mid\gcd\left(  a,b\right)  $, and the lemma is proven.
+\end{proof}
+
+\begin{theorem}
+Let $m,a,b\in\mathbb{Z}$. Then, we have the following logical equivalence:%
+\[
+\left(  m\mid a\text{ and }m\mid b\right)  \ \Longleftrightarrow\ \left(
+m\mid\gcd\left(  a,b\right)  \right)  .
+\]
+In other words, the common divisors of $a$ and $b$ are precisely the divisors
+of $\gcd\left(  a,b\right)  $. In other words,%
+\[
+\operatorname*{Div}\left(  a,b\right)  =\operatorname*{Div}\left(  \gcd\left(
+a,b\right)  \right)  .
+\]
+
+\end{theorem}
+
+\begin{proof}
+All three claims are saying the same thing. So we just need to prove the
+equivalence. The \textquotedblleft$\Longrightarrow$\textquotedblright%
+\ direction is the lemma we just proved. The \textquotedblleft$\Longleftarrow
+$\textquotedblright\ direction is easy: If $m\mid\gcd\left(  a,b\right)  $,
+then $m\mid\gcd\left(  a,b\right)  \mid a$ and similarly $m\mid b$.
+\end{proof}
+
+\begin{corollary}
+Let $s,a,b\in\mathbb{Z}$. Then,%
+\[
+\gcd\left(  sa,sb\right)  =\left\vert s\right\vert \gcd\left(  a,b\right)  .
+\]
+
+\end{corollary}
+
+\begin{exercise}
+If $a_{1},a_{2},b_{1},b_{2}$ satisfy $a_{1}\mid b_{1}$ and $a_{2}\mid b_{2}$,
+then prove that%
+\[
+\gcd\left(  a_{1},a_{2}\right)  \mid\gcd\left(  b_{1},b_{2}\right)  .
+\]
+
+\end{exercise}
 
 
 \end{document}
