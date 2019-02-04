@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Saturday, February 02, 2019 15:30:32}
+%TCIDATA{LastRevised=Monday, February 04, 2019 10:15:00}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -1560,7 +1560,7 @@ such that $b-c=nq$ (by Definition \ref{def.ent.div.div}). Consider this $q$.
 Now,
 \[
 a-c=\underbrace{\left(  a-b\right)  }_{=np}+\underbrace{\left(  b-c\right)
-}_{=nq}=n\left(  p+q\right)  .
+}_{=nq}=np+nq=n\left(  p+q\right)  .
 \]
 Hence, there exists an integer $r$ such that $a-c=nr$ (namely, $r=p+q$). In
 other words, $n\mid a-c$ (by Definition \ref{def.ent.div.div}). In other
@@ -1618,7 +1618,7 @@ words, $a_{1}a_{2}\equiv a_{1}b_{2}\operatorname{mod}n$ (by Definition
 \ref{def.ent.cong}).
 
 Next, let us show that $a_{1}b_{2}\equiv b_{1}b_{2}\operatorname{mod}n$.
-Indeed, $a_{1}b_{2}-b_{1}b_{2}=b_{2}\underbrace{\left(  a_{1}-a_{2}\right)
+Indeed, $a_{1}b_{2}-b_{1}b_{2}=b_{2}\underbrace{\left(  a_{1}-b_{1}\right)
 }_{=np}=b_{2}np=n\left(  b_{2}p\right)  $. Hence, there exists an integer $c$
 such that $a_{1}b_{2}-b_{1}b_{2}=nc$ (namely, $c=b_{2}p$). In other words,
 $n\mid a_{1}b_{2}-b_{1}b_{2}$ (by Definition \ref{def.ent.div.div}). In other
@@ -1643,7 +1643,7 @@ Proposition \ref{prop.ent.mod.basics} \textbf{(e)}.
 
 In the above proof, we took care to explicitly cite Definition
 \ref{def.ent.div.div} and Definition \ref{def.ent.cong} whenever we used them;
-in the following, we will not be this detailed.
+in the following, we will omit references like this.
 
 Proposition \ref{prop.ent.mod.basics} \textbf{(d)} is saying that congruences
 modulo $n$ (for a fixed integer $n$) can be added, subtracted and multiplied
@@ -2701,7 +2701,7 @@ Let $b\in\mathbb{Z}$. The \textit{divisors} of $b$ are defined as the integers
 that divide $b$.
 \end{definition}
 
-Be aware that some books have a mildly different definition of
+Be aware that some authors use a mildly different definition of
 \textquotedblleft divisors\textquotedblright; namely, they additionally
 require them to be positive. We don't make such a requirement.
 
@@ -2711,8 +2711,7 @@ divisors through the origin\footnote{\textquotedblleft Reflection through the
 origin\textquotedblright\ is just a poetic way to say \textquotedblleft
 negative\textquotedblright; i.e., the reflection of a number $a$ through the
 origin is $-a$.} (this follows easily from Proposition \ref{prop.ent.div.1}
-\textbf{(a)}); thus, the positive divisors are usually the only thing one is
-interested in.
+\textbf{(a)}); thus, the positive divisors are usually the only ones of interest.
 
 Here are some basic properties of divisors:
 
@@ -2799,15 +2798,46 @@ because the requirement (\ref{eq.def.ent.Div.cond}) is vacuously true for
 $k=0$. Thus, $\operatorname*{Div}\left(  {}\right)  =\mathbb{Z}$.)
 
 \begin{example}
-The common divisors of $6$ and $8$ are $-2,-1,1,2$. (In order to see this,
-just observe that the divisors of $6$ are $-6,-3,-2,-1,1,2,3,6$, whereas the
-divisors of $8$ are $-8,-4,-2,-1,1,2,4,8$; now you can find the common
-divisors of $6$ and $8$ by taking the numbers common to these two lists.)
-Thus,%
+\textbf{(a)} The common divisors of $6$ and $8$ are $-2,-1,1,2$. (In order to
+see this, just observe that the divisors of $6$ are $-6,-3,-2,-1,1,2,3,6$,
+whereas the divisors of $8$ are $-8,-4,-2,-1,1,2,4,8$; now you can find the
+common divisors of $6$ and $8$ by taking the numbers common to these two
+lists.) Thus,%
 \[
 \operatorname*{Div}\left(  6,8\right)  =\left\{  -2,-1,1,2\right\}  .
 \]
 
+
+\textbf{(b)} The common divisors of $6$ and $14$ are $-2,-1,1,2$ again. (In
+order to see this, just observe that the divisors of $6$ are
+$-6,-3,-2,-1,1,2,3,6$, whereas the divisors of $14$ are
+$-14,-7,-2,-1,1,2,7,14$.)
+
+\textbf{(c)} The common divisors of $6$, $10$ and $15$ are $-1$ and $1$. (In
+order to see this, note that:
+
+\begin{itemize}
+\item The divisors of $6$ are $-6,-3,-2,-1,1,2,3,6$.
+
+\item The divisors of $10$ are $-10,-5,-2,-1,1,2,5,10$.
+
+\item The divisors of $15$ are $-15,-5,-3,-1,1,3,5,15$.
+\end{itemize}
+
+The only numbers common to these three lists are $-1$ and $1$.) However:
+
+\begin{itemize}
+\item The common divisors of $6$ and $10$ are $-2,-1,1,2$.
+
+\item The common divisors of $6$ and $15$ are $-3,-1,1,3$.
+
+\item The common divisors of $10$ and $15$ are $-5,-1,1,5$.
+\end{itemize}
+
+This illustrates the fact that three numbers can have pairwise nontrivial
+common divisors (where \textquotedblleft nontrivial\textquotedblright\ means
+\textquotedblleft distinct from $1$ and $-1$\textquotedblright), but the
+common divisor of all three of them may still be just $1$ and $-1$.
 \end{example}
 
 \begin{proposition}
@@ -2827,42 +2857,537 @@ $ (by the definition of $\operatorname*{Div}\left(  b_{1},b_{2},\ldots
 ,b_{k}\right)  $). Hence, the set $\operatorname*{Div}\left(  b_{1}%
 ,b_{2},\ldots,b_{k}\right)  $ is nonempty.
 
-We have assumed that $b_{1},b_{2},\ldots,b_{k}$ are not all $0$. In other
-words, there exists an $i\in\left\{  1,2,\ldots,k\right\}  $ such that
-$b_{i}\neq0$. Consider such an $i$.
+Moreover, it is easy to see that the set $\operatorname*{Div}\left(
+b_{1},b_{2},\ldots,b_{k}\right)  $ is finite.
+
+\begin{fineprint}
+[\textit{Proof:} We have assumed that $b_{1},b_{2},\ldots,b_{k}$ are not all
+$0$. In other words, there exists a $j\in\left\{  1,2,\ldots,k\right\}  $ such
+that $b_{j}$ is nonzero. Consider such a $j$.
+
+Let $d\in\operatorname*{Div}\left(  b_{1},b_{2},\ldots,b_{k}\right)  $. Thus,
+$d$ is a common divisor of $b_{1},b_{2},\ldots,b_{k}$ (by the definition of
+$\operatorname*{Div}\left(  b_{1},b_{2},\ldots,b_{k}\right)  $). In other
+words, $d\mid b_{i}$ for all $i\in\left\{  1,2,\ldots,k\right\}  $ (by the
+definition of \textquotedblleft common divisor\textquotedblright). Applying
+this to $i=j$, we obtain $d\mid b_{j}$. Hence, $d$ is a divisor of $b_{j}$.
+But Proposition \ref{prop.ent.divisors.find} \textbf{(c)} (applied to
+$b=b_{j}$) shows that all divisors of $b_{j}$ belong to the set $\left\{
+-\left\vert b_{j}\right\vert ,-\left\vert b_{j}\right\vert +1,\ldots
+,\left\vert b_{j}\right\vert \right\}  \setminus\left\{  0\right\}  $. Hence,
+$d$ must belong to this set (since $d$ is a divisor of $b_{j}$). In other
+words, $d\in\left\{  -\left\vert b_{j}\right\vert ,-\left\vert b_{j}%
+\right\vert +1,\ldots,\left\vert b_{j}\right\vert \right\}  \setminus\left\{
+0\right\}  $.
+
+Now, forget that we fixed $d$. We thus have shown that $d\in\left\{
+-\left\vert b_{j}\right\vert ,-\left\vert b_{j}\right\vert +1,\ldots
+,\left\vert b_{j}\right\vert \right\}  \setminus\left\{  0\right\}  $ for each
+$d\in\operatorname*{Div}\left(  b_{1},b_{2},\ldots,b_{k}\right)  $. In other
+words, $\operatorname*{Div}\left(  b_{1},b_{2},\ldots,b_{k}\right)
+\subseteq\left\{  -\left\vert b_{j}\right\vert ,-\left\vert b_{j}\right\vert
++1,\ldots,\left\vert b_{j}\right\vert \right\}  \setminus\left\{  0\right\}
+$. Thus, the set $\operatorname*{Div}\left(  b_{1},b_{2},\ldots,b_{k}\right)
+$ is finite (since the set $\left\{  -\left\vert b_{j}\right\vert ,-\left\vert
+b_{j}\right\vert +1,\ldots,\left\vert b_{j}\right\vert \right\}
+\setminus\left\{  0\right\}  $ is finite).]
+\end{fineprint}
+
+Now we know that the set $\operatorname*{Div}\left(  b_{1},b_{2},\ldots
+,b_{k}\right)  $ is a nonempty finite set of integers. Thus, this set
+$\operatorname*{Div}\left(  b_{1},b_{2},\ldots,b_{k}\right)  $ has a largest
+element (since every nonempty finite set of integers has a largest element).
+It remains to prove that this largest element is a positive integer.
+
+Let $g$ be this largest element. Thus, we must prove that $g$ is a positive
+integer. Clearly, $g$ is an integer (since all elements of
+$\operatorname*{Div}\left(  b_{1},b_{2},\ldots,b_{k}\right)  $ are integers);
+it thus remains to show that $g$ is positive.
+
+The element $g$ is the largest element of the set $\operatorname*{Div}\left(
+b_{1},b_{2},\ldots,b_{k}\right)  $, and thus is $\geq$ to every element of
+this set. In other words, $g\geq x$ for each $x\in\operatorname*{Div}\left(
+b_{1},b_{2},\ldots,b_{k}\right)  $. Applying this to $x=1$, we obtain $g\geq1$
+(since $1\in\operatorname*{Div}\left(  b_{1},b_{2},\ldots,b_{k}\right)  $).
+Hence, $g$ is positive. This completes the proof of Proposition
+\ref{prop.ent.Div.fin}.
+\end{proof}
+
+\begin{definition}
+\label{def.ent.gcd.gcd}Let $b_{1},b_{2},\ldots,b_{k}$ be finitely many
+integers. The \textit{greatest common divisor} of $b_{1},b_{2},\ldots,b_{k}$
+is defined as follows:
+
+\begin{itemize}
+\item If $b_{1},b_{2},\ldots,b_{k}$ are not all $0$, then it is defined as the
+largest element of the set $\operatorname*{Div}\left(  b_{1},b_{2}%
+,\ldots,b_{k}\right)  $. This largest element is well-defined (by Proposition
+\ref{prop.ent.Div.fin}), and is a positive integer (by Proposition
+\ref{prop.ent.Div.fin} again).
+
+\item If $b_{1},b_{2},\ldots,b_{k}$ are not all $0$, then it is defined to be
+$0$.
+\end{itemize}
+
+Thus, in either case, this greatest common divisor is a nonnegative integer.
+We denote it by $\gcd\left(  b_{1},b_{2},\ldots,b_{k}\right)  $.
+
+We shall also use the word \textquotedblleft\textit{gcd}\textquotedblright\ as
+shorthand for \textquotedblleft greatest common divisor\textquotedblright.
+\end{definition}
+
+The greatest common divisors you will most commonly see are those of two
+integers. Indeed, any other gcd can be rewritten in terms of these: for
+example,%
+\[
+\gcd\left(  a,b,c,d,e\right)  =\gcd\left(  a,\gcd\left(  b,\gcd\left(
+c,\gcd\left(  d,e\right)  \right)  \right)  \right)
+\]
+for all $a,b,c,d,e\in\mathbb{Z}$. We may prove this later in the homework.
+
+TODO: Do this?
+
+We observe several properties of greatest common divisors:
+
+\begin{proposition}
+\label{prop.ent.gcd.props1}\textbf{(a)} We have $\gcd\left(  a,0\right)
+=\gcd\left(  a\right)  =\left\vert a\right\vert $ for all $a\in\mathbb{Z}$.
+
+\textbf{(b)} We have $\gcd\left(  a,b\right)  =\gcd\left(  b,a\right)  $ for
+all $a,b\in\mathbb{Z}$.
+
+\textbf{(c)} We have $\gcd\left(  a,ua+b\right)  =\gcd\left(  a,b\right)  $
+for all $a,b,u\in\mathbb{Z}$.
+
+\textbf{(d)} If $a,b,c\in\mathbb{Z}$ satisfy $b\equiv c\operatorname{mod}a$,
+then $\gcd\left(  a,b\right)  =\gcd\left(  a,c\right)  $.
+
+\textbf{(e)} If $a,b\in\mathbb{Z}$ are such that $a$ is positive, then
+$\gcd\left(  a,b\right)  =\gcd\left(  a,b\%a\right)  $.
+
+\textbf{(f)} We have $\gcd\left(  a,b\right)  \mid a$ and $\gcd\left(
+a,b\right)  \mid b$ for all $a,b\in\mathbb{Z}$.
+
+\textbf{(g)} We have $\gcd\left(  -a,b\right)  =\gcd\left(  a,b\right)  $ for
+all $a,b\in\mathbb{Z}$.
+
+\textbf{(h)} We have $\gcd\left(  a,-b\right)  =\gcd\left(  a,b\right)  $ for
+all $a,b\in\mathbb{Z}$.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.ent.gcd.props1}.]TODO
+
+Indeed, for any $b\in\mathbb{Z}$ and any positive integer $a$, we have%
+\[
+b\%a\equiv b\operatorname{mod}a
+\]
+(by Corollary \ref{cor.ent.quo-rem.remmod} \textbf{(a)}), thus $b\equiv
+b\%a\operatorname{mod}a$ and therefore%
+\begin{equation}
+\gcd\left(  a,b\right)  =\gcd\left(  a,b\%a\right)
+\label{eq.prop.ent.gcd.props1.cor1}%
+\end{equation}
+(by Proposition \ref{prop.ent.gcd.props1} \textbf{(d)}, applied to $c=b\%a$).
+
+TODO
+\end{proof}
+
+\begin{remark}
+Proposition \ref{prop.ent.gcd.props1} says that if we add a multiple of $a$ to
+$b$, then $\gcd\left(  a,b\right)  $ does not change. Similarly, if we add a
+multiple of $b$ to $a$, then $\gcd\left(  a,b\right)  $ does not change (i.e.,
+we have $\gcd\left(  vb+a,b\right)  =\gcd\left(  a,b\right)  $ for all
+$a,b,v\in\mathbb{Z}$). However, if we \textbf{simultaneously} add a multiple
+of $a$ to $b$ and a multiple of $b$ to $a$, then $\gcd\left(  a,b\right)  $
+may well change: i.e., we may have $\gcd\left(  vb+a,ua+b\right)  \neq
+\gcd\left(  a,b\right)  $ for all $a,b,u,v\in\mathbb{Z}$. Examples are easy to
+find (just take $v=1$ and $u=1$).
+\end{remark}
+
+Proposition \ref{prop.ent.gcd.props1} gives a quick way to compute
+$\gcd\left(  a,b\right)  $ for two nonnegative integers $a$ and $b$, by
+repeatedly applying division with remainder. For example, let us compute
+$\gcd\left(  210,45\right)  $ as follows:%
+\begin{align*}
+\gcd\left(  210,45\right)    & =\gcd\left(  45,210\right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition \ref{prop.ent.gcd.props1}
+\textbf{(b)}}\right)  \\
+& =\gcd\left(  45,\underbrace{210\%45}_{=30}\right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition \ref{prop.ent.gcd.props1}
+\textbf{(e)}}\right)  \\
+& =\gcd\left(  45,30\right)  \\
+& =\gcd\left(  30,45\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition
+\ref{prop.ent.gcd.props1} \textbf{(b)}}\right)  \\
+& =\gcd\left(  30,\underbrace{45\%30}_{=15}\right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition \ref{prop.ent.gcd.props1}
+\textbf{(e)}}\right)  \\
+& =\gcd\left(  30,15\right)  \\
+& =\gcd\left(  15,30\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition
+\ref{prop.ent.gcd.props1} \textbf{(b)}}\right)  \\
+& =\gcd\left(  15,\underbrace{30\%15}_{=0}\right)  \ \ \ \ \ \ \ \ \ \ \left(
+\text{by Proposition \ref{prop.ent.gcd.props1} \textbf{(e)}}\right)  \\
+& =\gcd\left(  15,0\right)  =\left\vert 15\right\vert
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition \ref{prop.ent.gcd.props1}
+\textbf{(a)}}\right)  \\
+& =15.
+\end{align*}
+This method of computing $\gcd\left(  a,b\right)  $ is called the
+\textit{Euclidean algorithm}, and is usually much faster than the divisors of
+$a$ or the divisors of $b$ can be found!
+
+The following fact about gcds is one of the most important facts in number theory:
+
+\begin{theorem}
+\label{thm.ent.gcd.bezout}Let $a$ and $b$ be two integers. Then, there exist
+integers $x\in\mathbb{Z}$ and $y\in\mathbb{Z}$ such that%
+\[
+\gcd\left(  a,b\right)  =xa+yb.
+\]
+
+\end{theorem}
+
+Theorem \ref{thm.ent.gcd.bezout} is often stated as follows: \textquotedblleft
+If $a$ and $b$ are two integers, then $\gcd\left(  a,b\right)  $ is a
+$\mathbb{Z}$-linear combination of $a$ and $b$\textquotedblright. The notion
+\textquotedblleft$\mathbb{Z}$-linear combination of $a$ and $b$%
+\textquotedblright\ simply means \textquotedblleft a number of the form
+$xa+yb$ with $x\in\mathbb{Z}$ and $y\in\mathbb{Z}$\textquotedblright\ (this is
+exactly the notion of a \textquotedblleft linear combination\textquotedblright%
+\ in linear algebra, except that now the scalars must come from $\mathbb{Z}$),
+so this is just a restatement of Theorem \ref{thm.ent.gcd.bezout}.
+
+Theorem \ref{thm.ent.gcd.bezout} is known as \textit{Bezout's theorem} (or
+\textit{Bezout's identity})\footnote{or \textit{Bezout's theorem for integers}
+if you want to be more precise (as there are similar theorems for other
+objects)}. We shall prove it in several steps. The first step is to show it
+when $a$ and $b$ are nonnegative:
+
+\begin{lemma}
+\label{lem.ent.gcd.bezout.++}Let $a\in\mathbb{N}$ and $b\in\mathbb{N}$. Then,
+there exist integers $x\in\mathbb{Z}$ and $y\in\mathbb{Z}$ such that%
+\[
+\gcd\left(  a,b\right)  =xa+yb.
+\]
+
+\end{lemma}
+
+\begin{proof}
+[Proof of Lemma \ref{lem.ent.gcd.bezout.++}.]The following proof uses a
+strategy similar to the Euclidean algorithm (making one of $a$ and $b$ smaller
+repeatedly until one of $a$ and $b$ becomes $0$), and can in fact be viewed as
+a \textquotedblleft protocol\textquotedblright\ of the algorithm.
+
+We use strong induction on $a+b$. Thus, we fix an $n\in\mathbb{N}$, and assume
+(as induction hypothesis) that Lemma \ref{lem.ent.gcd.bezout.++} holds
+whenever $a+b<n$. We must now prove that Lemma \ref{lem.ent.gcd.bezout.++}
+holds whenever $a+b=n$.
+
+We have assumed that Lemma \ref{lem.ent.gcd.bezout.++} holds whenever $a+b<n$.
+In other words, the following statement holds:
+
+\begin{statement}
+\textit{Statement 1:} Let $a\in\mathbb{N}$ and $b\in\mathbb{N}$ be such that
+$a+b<n$. Then, there exist integers $x\in\mathbb{Z}$ and $y\in\mathbb{Z}$ such
+that $\gcd\left(  a,b\right)  =xa+yb$.
+\end{statement}
+
+Now, we must prove that Lemma \ref{lem.ent.gcd.bezout.++} holds whenever
+$a+b=n$. Let us first prove this in the case when $b\geq a$:
+
+\begin{statement}
+\textit{Statement 2:} Let $a\in\mathbb{N}$ and $b\in\mathbb{N}$ be such that
+$a+b=n$ and $b\geq a$. Then, there exist integers $x\in\mathbb{Z}$ and
+$y\in\mathbb{Z}$ such that $\gcd\left(  a,b\right)  =xa+yb$.
+\end{statement}
+
+[\textit{Proof of Statement 2:} We are in one of the following two cases:
+
+\textit{Case 1:} We have $a=0$.
+
+\textit{Case 2:} We have $a\neq0$.
+
+Let us first consider Case 1. In this case, we have $a=0$. Now, Proposition
+\ref{prop.ent.gcd.props1} \textbf{(a)} (applied to $b$ instead of $a$) yields
+$\gcd\left(  b,0\right)  =\gcd\left(  b\right)  =\left\vert b\right\vert
+\in\left\{  b,-b\right\}  $. In other words, $\gcd\left(  b,0\right)  =ub$ for
+some $u\in\left\{  1,-1\right\}  $. Consider this $u$. Now, Proposition
+\ref{prop.ent.gcd.props1} \textbf{(b)} yields%
+\[
+\gcd\left(  a,b\right)  =\gcd\left(  b,\underbrace{a}_{=0}\right)
+=\gcd\left(  b,0\right)  =ub=0a+ub.
+\]
+Hence, there exist integers $x\in\mathbb{Z}$ and $y\in\mathbb{Z}$ such that
+$\gcd\left(  a,b\right)  =xa+yb$ (namely, $x=0$ and $y=u$). Thus, Statement 2
+is proven in Case 1.
+
+Let us next consider Case 2. In this case, we have $a\neq0$. Hence, $a>0$
+(since $a\in\mathbb{N}$), so that $a+b>b$. Hence, $b<a+b=n$.
+
+From $b\geq a$, we obtain $b-a\in\mathbb{N}$. Moreover, $a\in\mathbb{N}$ and
+$b-a\in\mathbb{N}$ satisfy $a+\left(  b-a\right)  =b<n$. Therefore, we can
+apply Statement 1 \textbf{to }$b-a$ \textbf{instead of }$b$. Thus we obtain
+that there exist integers $x\in\mathbb{Z}$ and $y\in\mathbb{Z}$ such that
+$\gcd\left(  a,b-a\right)  =xa+y\left(  b-a\right)  $. Fix two such integers
+$x$ and $y$, and denote them by $x_{0}$ and $y_{0}$. Thus, $x_{0}$ and $y_{0}$
+are two integers such that $\gcd\left(  a,b-a\right)  =x_{0}a+y_{0}\left(
+b-a\right)  $.
+
+Also, Proposition \ref{prop.ent.gcd.props1} \textbf{(c)} (applied to $u=-1$)
+yields $\gcd\left(  a,\left(  -1\right)  a+b\right)  =\gcd\left(  a,b\right)
+$. Hence,%
+\begin{align*}
+\gcd\left(  a,b\right)   &  =\gcd\left(  a,\underbrace{\left(  -1\right)
+a+b}_{=b-a}\right)  =\gcd\left(  a,b-a\right)  =x_{0}a+y_{0}\left(  b-a\right)
+\\
+&  =x_{0}a+y_{0}b-y_{0}a=\left(  x_{0}-y_{0}\right)  a+y_{0}b.
+\end{align*}
+Hence, there exist integers $x\in\mathbb{Z}$ and $y\in\mathbb{Z}$ such that
+$\gcd\left(  a,b\right)  =xa+yb$ (namely, $x=x_{0}-y_{0}$ and $y=y_{0}$).
+Thus, Statement 2 is proven in Case 2.
+
+We have now proven Statement 2 in both Cases 1 and 2. Hence, Statement 2 is
+always proven.]
+
+Now, we can prove that Lemma \ref{lem.ent.gcd.bezout.++} holds whenever
+$a+b=n$:
+
+\begin{statement}
+\textit{Statement 3:} Let $a\in\mathbb{N}$ and $b\in\mathbb{N}$ be such that
+$a+b=n$. Then, there exist integers $x\in\mathbb{Z}$ and $y\in\mathbb{Z}$ such
+that $\gcd\left(  a,b\right)  =xa+yb$.
+\end{statement}
+
+[\textit{Proof of Statement 3:} We are in one of the following two cases:
+
+\textit{Case 1:} We have $b\geq a$.
+
+\textit{Case 2:} We have $b<a$.
+
+Let us first consider Case 1. In this case, we have $b\geq a$. Hence,
+Statement 2 shows that there exist integers $x\in\mathbb{Z}$ and
+$y\in\mathbb{Z}$ such that $\gcd\left(  a,b\right)  =xa+yb$. Thus, Statement 3
+is proven in Case 1.
+
+Let us next consider Case 2. In this case, we have $b<a$. Hence, $a>b$, so
+that $a\geq b$. This shows that we can apply Statement 2 \textbf{to }%
+$b$\textbf{ and }$a$ \textbf{instead of }$a$ \textbf{and }$b$. Thus we obtain
+that there exist integers $x\in\mathbb{Z}$ and $y\in\mathbb{Z}$ such that
+$\gcd\left(  b,a\right)  =xb+ya$. Fix two such integers $x$ and $y$, and
+denote them by $x_{0}$ and $y_{0}$. Thus, $x_{0}$ and $y_{0}$ are two integers
+such that $\gcd\left(  b,a\right)  =x_{0}b+y_{0}a$. Now, Proposition
+\ref{prop.ent.gcd.props1} \textbf{(b)} yields $\gcd\left(  a,b\right)
+=\gcd\left(  b,a\right)  =x_{0}b+y_{0}a=y_{0}a+x_{0}b$. Hence, there exist
+integers $x\in\mathbb{Z}$ and $y\in\mathbb{Z}$ such that $\gcd\left(
+a,b\right)  =xa+yb$ (namely, $x=y_{0}$ and $y=x_{0}$). Thus, Statement 3 is
+proven in Case 2.
+
+We have now proven Statement 3 in both Cases 1 and 2. Hence, Statement 3 is
+always proven.]
+
+By proving Statement 3, we have shown that Lemma \ref{lem.ent.gcd.bezout.++}
+holds whenever $a+b=n$. This completes the induction step. Thus, Lemma
+\ref{lem.ent.gcd.bezout.++} is proven by strong induction.
+\end{proof}
+
+Next, we shall prove Theorem \ref{thm.ent.gcd.bezout} when $a\in\mathbb{N}$:
+
+\begin{lemma}
+\label{lem.ent.gcd.bezout.+}Let $a\in\mathbb{N}$ and $b\in\mathbb{Z}$. Then,
+there exist integers $x\in\mathbb{Z}$ and $y\in\mathbb{Z}$ such that%
+\[
+\gcd\left(  a,b\right)  =xa+yb.
+\]
+
+\end{lemma}
+
+\begin{proof}
+[Proof of Lemma \ref{lem.ent.gcd.bezout.+}.]We are in one of the following two cases:
+
+\textit{Case 1:} We have $b\geq0$.
+
+\textit{Case 2:} We have $b<0$.
+
+Let us first consider Case 1. In this case, we have $b\geq0$.
+
+TODO
+\end{proof}
+
+Now, we can prove the whole Theorem \ref{thm.ent.gcd.bezout}:
+
+\begin{proof}
+[Proof of Theorem \ref{thm.ent.gcd.bezout}.]TODO
+\end{proof}
+
+TODO: Define \textquotedblleft$\mathbb{Z}$-linear
+combination\textquotedblright.
+
+An important corollary of Theorem \ref{thm.ent.gcd.bezout} is the following fact:
+
+\begin{theorem}
+\label{thm.ent.gcd.uniprop}Let $m,a,b\in\mathbb{Z}$. Then, we have the
+following logical equivalence:%
+\begin{equation}
+\left(  m\mid a\ \text{and }m\mid b\right)  \ \Longleftrightarrow\ \left(
+m\mid\gcd\left(  a,b\right)  \right)  . \label{eq.thm.ent.gcd.uniprop.equiv}%
+\end{equation}
+In other words, the common divisors of $a$ and $b$ are precisely the divisors
+of $\gcd\left(  a,b\right)  $. In other words,
+\begin{equation}
+\operatorname*{Div}\left(  a,b\right)  =\operatorname*{Div}\left(  \gcd\left(
+a,b\right)  \right)  . \label{eq.thm.ent.gcd.uniprop.Div=Div}%
+\end{equation}
+
+\end{theorem}
+
+To prove this, we first show the following:
+
+\begin{lemma}
+\label{lem.ent.gcd.uniprop}Let $m,a,b\in\mathbb{Z}$ be such that $m\mid a$ and
+$m\mid b$. Then, $m\mid\gcd\left(  a,b\right)  $.
+\end{lemma}
+
+\begin{proof}
+[Proof of Lemma \ref{lem.ent.gcd.uniprop}.]Theorem \ref{thm.ent.gcd.bezout}
+shows that there exist integers $x\in\mathbb{Z}$ and $y\in\mathbb{Z}$ such
+that%
+\begin{equation}
+\gcd\left(  a,b\right)  =xa+yb. \label{pf.lem.ent.gcd.uniprop.1}%
+\end{equation}
+Consider these $x$ and $y$. Now, $m\mid a\mid xa$, so that $xa\equiv
+0\operatorname{mod}m$. Also, $m\mid b\mid yb$, thus $yb\equiv
+0\operatorname{mod}m$. Adding the congruences $xa\equiv0\operatorname{mod}m$
+and $yb\equiv0\operatorname{mod}m$ together, we find $xa+yb\equiv
+0+0=0\operatorname{mod}m$; in other words, $m\mid xa+yb$. In view of
+(\ref{pf.lem.ent.gcd.uniprop.1}), this rewrites as $m\mid\gcd\left(
+a,b\right)  $. This proves Lemma \ref{lem.ent.gcd.uniprop}.
+\end{proof}
+
+\begin{proof}
+[Proof of Theorem \ref{thm.ent.gcd.uniprop}.]Let us first prove
+(\ref{eq.thm.ent.gcd.uniprop.equiv}). In order to prove
+(\ref{eq.thm.ent.gcd.uniprop.equiv}), we need to prove the \textquotedblleft%
+$\Longrightarrow$\textquotedblright\ and \textquotedblleft$\Longleftarrow
+$\textquotedblright\ directions of the equivalence
+(\ref{eq.thm.ent.gcd.uniprop.equiv}). But this is easy: The \textquotedblleft%
+$\Longrightarrow$\textquotedblright\ direction is just the statement of Lemma
+\ref{lem.ent.gcd.uniprop}, whereas the \textquotedblleft$\Longleftarrow
+$\textquotedblright\ direction is trivial (to wit: if $m\mid\gcd\left(
+a,b\right)  $, then
+\[
+m\mid\gcd\left(  a,b\right)  \mid a\ \ \ \ \ \ \ \ \ \ \left(  \text{by
+Proposition \ref{prop.ent.gcd.props1} \textbf{(e)}}\right)
+\]
+and%
+\[
+m\mid\gcd\left(  a,b\right)  \mid b\ \ \ \ \ \ \ \ \ \ \left(  \text{by
+Proposition \ref{prop.ent.gcd.props1} \textbf{(e)}}\right)  ,
+\]
+and thus $\left(  m\mid a\ \text{and }m\mid b\right)  $). Hence, the
+equivalence (\ref{eq.thm.ent.gcd.uniprop.equiv}) is proven.{}
+
+The common divisors of $a$ and $b$ are precisely the integers $m$ that satisfy
+$\left(  m\mid a\text{ and }m\mid b\right)  $ (by the definition of
+\textquotedblleft common divisor\textquotedblright). In view of the
+equivalence (\ref{eq.thm.ent.gcd.uniprop.equiv}), this rewrites as follows:
+The common divisors of $a$ and $b$ are precisely the integers $m$ that satisfy
+$m\mid\gcd\left(  a,b\right)  $. In other words, the common divisors of $a$
+and $b$ are precisely the divisors of $\gcd\left(  a,b\right)  $. In other
+words,%
+\[
+\left\{  \text{the common divisors of }a\text{ and }b\right\}  =\left\{
+\text{the divisors of }\gcd\left(  a,b\right)  \right\}  .
+\]
+
+
+TODO: last equality.
+\end{proof}
+
+\begin{corollary}
+\label{cor.ent.gcd.sa,sb}Let $s,a,b\in\mathbb{Z}$. Then,
+\[
+\gcd\left(  sa,sb\right)  =s\gcd\left(  a,b\right)  .
+\]
+
+\end{corollary}
+
+\begin{proof}
+[Proof of Corollary \ref{cor.ent.gcd.sa,sb}.]TODO.
+\end{proof}
+
+\begin{exercise}
+\label{exe.ent.gcd.div}Let $a_{1},a_{2},b_{1},b_{2}\in\mathbb{Z}$ satisfy
+$a_{1}\mid b_{1}$ and $a_{2}\mid b_{2}$. Prove that%
+\[
+\gcd\left(  a_{1},a_{2}\right)  \mid\gcd\left(  b_{1},b_{2}\right)  .
+\]
+
+\end{exercise}
+
+\begin{proof}
+[Solution to Exercise \ref{exe.ent.gcd.div}.]TODO.
+\end{proof}
+
+\subsection{Coprime integers}
+
+The concept of a gcd leads to one of the most important notions of number theory:
+
+\begin{definition}
+\label{def.ent.coprime.coprime}Let $a$ and $b$ be two integers. We say that
+$a$ and $b$ are \textit{coprime} if and only if $\gcd\left(  a,b\right)  =1$.
+\end{definition}
+
+Instead of \textquotedblleft coprime\textquotedblright, some authors say
+\textquotedblleft relatively prime\textquotedblright.
+
+\begin{example}
+\textbf{(a)} The numbers $2$ and $3$ are coprime, since $\gcd\left(
+2,3\right)  =1$.
+
+\textbf{(b)} More generally, for any integer $a$, the numbers $a$ and $a+1$
+are coprime. To prove this, we note that%
+\begin{align*}
+\gcd\left(  a,\underbrace{a}_{=1a}+1\right)   &  =\gcd\left(  a,1a+1\right)
+=\gcd\left(  a,1\right) \\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition \ref{prop.ent.gcd.props1}
+\textbf{(c)}, applied to }u=1\text{ and }b=1\right) \\
+&  \mid1\ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition
+\ref{prop.ent.gcd.props1} \textbf{(e)}, applied to }b=1\right)  ,
+\end{align*}
+and thus $\gcd\left(  a,a+1\right)  =1$ (since $\gcd\left(  a,a+1\right)  $ is
+a positive integer), which means that $a$ and $a+b$ are coprime.
+
+\textbf{(c)} The numbers $6$ and $15$ are not coprime, since $\gcd\left(
+6,15\right)  =3\neq1$.
+\end{example}
+
+Following Donald Knuth, we introduce a slightly quaint notation:
+
+\begin{definition}
+\label{def.ent.coprime.perp}Let $a$ and $b$ be two integers. We write
+\textquotedblleft$a\perp b$\textquotedblright\ to signify that $a$ and $b$ are coprime.
+\end{definition}
+
+We can now state multiple theorems about coprime numbers. The first one states
+that we can \textquotedblleft cancel\textquotedblright\ a factor $b$ from a
+divisibility $ab\mid c$ as long as this factor is coprime to $c$:
+
+\begin{theorem}
+\label{thm.ent.coprime.cancel}Let $a,b,c\in\mathbb{Z}$ satisfy $a\mid bc$ and
+$b\perp c$. Then, $a\mid c$.
+\end{theorem}
+
+\begin{proof}
+[Proof of Theorem \ref{thm.ent.coprime.cancel}.]We have $b\perp c$; in other
+words, $b$ is coprime to $c$ (by Definition \ref{def.ent.coprime.perp}).
 
 TODO.
 \end{proof}
 
+TODO:
+
 \begin{itemize}
-\item Greatest common divisor. (Also set $\gcd\left(  0,0\right)  =0$.)
-
-\item $\gcd\left(  a,ua+b\right)  =\gcd\left(  a,b\right)  $, or equivalently
-$\gcd\left(  a,b\right)  =\gcd\left(  a,c\right)  $ if $b\equiv
-c\operatorname{mod}a$.
-
-\item $\gcd\left(  a,b\right)  =\gcd\left(  b,a\right)  $.
-
-\item Euclidean algorithm.
-
-\item Bezout for $a,b\geq0$, proven by strong ind/$a+b$.
-
-\item Bezout for arbitrary $a,b$.
-
-\item \textquotedblleft$\mathbb{Z}$-linear combination\textquotedblright.
-
-\item corollary $m\mid a,\ m\mid b\ \Longrightarrow\ m\mid\gcd\left(
-a,b\right)  $.
-
-\item coprimality.
-
-\item notation $a\perp b$.
-
-\item corollary $ab\mid c,\ a\perp c\ \Longrightarrow\ b\mid c$.
-
 \item corollary: existence of modular inverses.
-
-\item $s\gcd\left(  a,b\right)  =\gcd\left(  sa,sb\right)  $.
 
 \item $a\mid bc,\ b\perp c\ \Longrightarrow\ a=uv$ with $u\mid b$ and $v\mid
 c$.
@@ -2872,6 +3397,11 @@ c$.
 \item gcd*lcm.
 
 \item $\gcd$ of multiple numbers.
+
+\item application: if $k$ is odd then $1+2+\cdots+n\mid1^{k}+2^{k}%
++\cdots+n^{k}$. (illustrates several things.)
+
+\item Division/$9$ criterion. This leads to...
 \end{itemize}
 
 \subsection{\label{sect.ent.subst-mod}Substitutivity for congruences}
