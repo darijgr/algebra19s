@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, February 04, 2019 12:14:28}
+%TCIDATA{LastRevised=Monday, February 04, 2019 20:39:00}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -351,21 +351,22 @@ into the OEIS and yields lots of information.
 twice a perfect square (i.e., unless $n = 2m^{2}$ for some integer $m$); in
 the latter case, this number is odd instead.
 
-Why? Let me define a \textit{solution} to be a pair $\left(  a, b \right)  $
-such that $n = a^{2} + b^{2}$. So I want to know whether the number of
-solutions is even or odd. But we have $a^{2} + b^{2} = b^{2} + a^{2}$ for all
-$a$ and $b$. Thus, if $\left(  a, b \right)  $ is a solution, then so is
-$\left(  b, a \right)  $. Hence, the solutions themselves ``come in pairs'',
-with each solution $\left(  a, b \right)  $ being matched to the solution
-$\left(  b, a \right)  $, unless there is a solution $\left(  a, b \right)  $
-with $a = b$ (because such a solution would be matched to itself, and thus not
-form an actual pair). But solutions $\left(  a, b \right)  $ with $a = b$ are
-easy to classify: If $n$ is twice a perfect square, then there is exactly one
-such solution (namely, $\left(  \sqrt{n/2}, \sqrt{n/2} \right)  $); otherwise
-there is none (because $n = a^{2} + b^{2}$ with $a = b$ leads to $n = b^{2} +
-b^{2} = 2b^{2}$). Since we know that all the other solutions ``come in
-pairs'', we thus conclude that the number of solutions is odd if $n$ is twice
-a perfect square and even otherwise. This proves our claim.
+Why? Let me define a \textit{solution} to be a pair $\left(  a,b\right)  $
+such that $n=a^{2}+b^{2}$. So I want to know whether the number of solutions
+is even or odd. But we have $a^{2}+b^{2}=b^{2}+a^{2}$ for all $a$ and $b$.
+Thus, if $\left(  a,b\right)  $ is a solution, then so is $\left(  b,a\right)
+$. Hence, the solutions themselves \textquotedblleft come in
+pairs\textquotedblright, with each solution $\left(  a,b\right)  $ being
+matched to the solution $\left(  b,a\right)  $, unless there is a solution
+$\left(  a,b\right)  $ with $a=b$ (because such a solution would be matched to
+itself, and thus not form an actual pair). But solutions $\left(  a,b\right)
+$ with $a=b$ are easy to classify: If $n$ is twice a perfect square, then
+there is exactly one such solution (namely, $\left(  \sqrt{n/2},\sqrt
+{n/2}\right)  $); otherwise there is none (because $n=a^{2}+b^{2}$ with $a=b$
+leads to $n=b^{2}+b^{2}=2b^{2}$, which can only happen when $n$ is twice a
+perfect square). Since we know that all the other solutions \textquotedblleft
+come in pairs\textquotedblright, we thus conclude that the number of solutions
+is odd if $n$ is twice a perfect square and even otherwise. This proves our claim.
 
 Of course, we have not made much headway into
 Question~\ref{quest.intro.sum-of-2sq.2}; knowing whether a number is even or
@@ -433,10 +434,10 @@ $\mathbb{Z}^{2}$ (and the only two such pairs are $\left(  \sqrt{n/2}%
 \end{proof}
 
 Note that sums of squares have a geometric meaning (going back to Pythagoras):
-Two real numbers $a$ and $b$ satisfy $a^{2} + b^{2} = n$ (for a given integer
-$n \geq0$) if and only if the point with Cartesian coordinates $\left(  a, b
-\right)  $ lies on the circle with center $0$ and radius $\sqrt{n}$. This will
-actually prove a valuable insight that will lead us to the answers to the
+Two real numbers $a$ and $b$ satisfy $a^{2}+b^{2}=n$ (for a given integer
+$n\geq0$) if and only if the point with Cartesian coordinates $\left(
+a,b\right)  $ lies on the circle with center $0$ and radius $\sqrt{n}$. This
+will actually prove a valuable insight that will lead us to the answers to the
 above questions.
 
 Just as a teaser: There are formulas for all three parts of
@@ -581,39 +582,39 @@ x^{4}-10x^{2}+1$. This means that $w$ is algebraic (since $f$ is nonzero).
 
 Let us try a more complicated example: Let $z$ be the number $\sqrt
 {2}+\sqrt[3]{2}$. Is $z$ algebraic? The squaring trick no longer works, since
-squaring $\sqrt{2} + \sqrt[3]{2}$ does not reduce the number of radicals (=
-root signs). Let's instead try rewriting $z = \sqrt{2} + \sqrt[3]{2}$ as
-$z-\sqrt{2}=\sqrt[3]{2}$. Cubing this equality, we obtain $\left(  z-\sqrt
-{2}\right)  ^{3} =2$. In view of
-\begin{align*}
-\left(  z-\sqrt{2}\right)  ^{3} = z^{3}-3z^{2}\sqrt{2}+3z\left(  \sqrt
+squaring $\sqrt{2}+\sqrt[3]{2}$ does not reduce the number of radicals (= root
+signs). Let's instead try rewriting $z=\sqrt{2}+\sqrt[3]{2}$ as $z-\sqrt
+{2}=\sqrt[3]{2}$. Cubing this equality, we obtain $\left(  z-\sqrt{2}\right)
+^{3}=2$. In view of
+\[
+\left(  z-\sqrt{2}\right)  ^{3}=z^{3}-3z^{2}\sqrt{2}+3z\left(  \sqrt
 {2}\right)  ^{2}-\left(  \sqrt{2}\right)  ^{3}%
-\end{align*}
+\]
 (this is a particular case of the identity $\left(  a-b\right)  ^{3}%
 =a^{3}-3a^{2}b+3ab^{2}-b^{3}$, which is one form of the Binomial Theorem for
-exponent $3$), this becomes
+exponent $3$), this rewrites a
 \[
 z^{3}-3z^{2}\sqrt{2}+3z\left(  \sqrt{2}\right)  ^{2}-\left(  \sqrt{2}\right)
-^{3} = 2.
+^{3}=2.
 \]
 This simplifies to%
-\begin{align*}
-z^{3}-3\sqrt{2}z^{2}+6z-2\sqrt{2}  &  =2.
-\end{align*}
+\[
+z^{3}-3\sqrt{2}z^{2}+6z-2\sqrt{2}=2.
+\]
 Let us transform this inequality in such a way that all terms with a $\sqrt
 {2}$ in them end up on the right hand side while all the remaining terms end
 up on the left. We thus obtain
 \[
-z^{3}+6z-2 \left(  3z^{2}+2\right)  \sqrt{2} .
+z^{3}+6z-2=\sqrt{2}\left(  3z^{2}+2\right)  .
 \]
 Now, squaring this equality yields
 \[
-\left(  z^{3}+6z-2\right)  ^{2}=\left(  3z^{2}+2\right)  ^{2}2.
+\left(  z^{3}+6z-2\right)  ^{2}=2\left(  3z^{2}+2\right)  ^{2}.
 \]
 Hence, $z$ is a root of the polynomial
 \[
-g\left(  x \right)  := \left(  x^{3}+6x-2\right)  ^{2}-2\left(  3x^{2}%
-+2\right)  ^{2}=x^{6}-6x^{4}-4x^{3}+12x^{2}-24x-4.
+g\left(  x\right)  :=\left(  x^{3}+6x-2\right)  ^{2}-2\left(  3x^{2}+2\right)
+^{2}=x^{6}-6x^{4}-4x^{3}+12x^{2}-24x-4.
 \]
 This is a nonzero polynomial with rational coefficients; hence, $z$ is algebraic.
 
@@ -1512,6 +1513,28 @@ immediately from $\left(  a+b\right)  -\left(  a-b\right)  =2b$. Thus Exercise
 \end{proof}
 \end{fineprint}
 
+We begin with a proposition so fundamental that we will always use it without saying:
+
+\begin{proposition}
+\label{prop.ent.mod.0}Let $n\in\mathbb{Z}$ and $a\in\mathbb{Z}$. Then,
+$a\equiv0\operatorname{mod}n$ if and only if $n\mid a$.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.ent.mod.0}.] We have the following chain of
+equivalences:%
+\begin{align*}
+\left(  a\equiv0\operatorname{mod}n\right)  \   & \Longleftrightarrow\ \left(
+n\mid a-0\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Definition
+\ref{def.ent.cong}}\right)  \\
+& \Longleftrightarrow\ \left(  n\mid a\right)  \ \ \ \ \ \ \ \ \ \ \left(
+\text{since }a-0=a\right)  .
+\end{align*}
+This proves Proposition \ref{prop.ent.mod.0}.
+\end{proof}
+
+Next come some staple properties of congruences:
+
 \begin{proposition}
 \label{prop.ent.mod.basics}Let $n\in\mathbb{Z}$.
 
@@ -1526,12 +1549,12 @@ then $b\equiv a\operatorname{mod}n$.
 \textbf{(d)} If $a_{1},a_{2},b_{1},b_{2}\in\mathbb{Z}$ satisfy $a_{1}\equiv
 b_{1}\operatorname{mod}n$ and $a_{2}\equiv b_{2}\operatorname{mod}n$, then%
 \begin{align}
-a_{1}+a_{2}  &  \equiv b_{1}+b_{2}\operatorname{mod}%
+a_{1}+a_{2} &  \equiv b_{1}+b_{2}\operatorname{mod}%
 n;\label{eq.prop.ent.mod.basics.d.1}\\
-a_{1}-a_{2}  &  \equiv b_{1}-b_{2}\operatorname{mod}%
+a_{1}-a_{2} &  \equiv b_{1}-b_{2}\operatorname{mod}%
 n;\label{eq.prop.ent.mod.basics.d.2}\\
-a_{1}a_{2}  &  \equiv b_{1}b_{2}\operatorname{mod}n.
-\label{eq.prop.ent.mod.basics.d.3}%
+a_{1}a_{2} &  \equiv b_{1}b_{2}\operatorname{mod}%
+n.\label{eq.prop.ent.mod.basics.d.3}%
 \end{align}
 
 
@@ -2691,7 +2714,9 @@ $a//b$.
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.ent.floor.quorem}.]TODO (exercise).
+[Proof of Proposition \ref{prop.ent.floor.quorem}.]This is a rather easy and
+neat exercise. A full proof can be found in \cite[proof of Proposition
+1.1.3]{floor}.
 \end{proof}
 
 \subsection{Common divisors, the Euclidean algorithm and the Bezout theorem}
@@ -2789,11 +2814,14 @@ the set of these common divisors.
 \end{definition}
 
 Note that the concept of common divisors encompasses the concept of divisors:
-The common divisors of a single integers $b$ are merely the divisors of $b$.
+The common divisors of a single integer $b$ are merely the divisors of $b$.
 Thus, $\operatorname*{Div}\left(  b\right)  $ is the set of all divisors of
-$b$ whenever $b\in\mathbb{Z}$.
+$b$ whenever $b\in\mathbb{Z}$. (Of course, speaking of \textquotedblleft
+common divisors\textquotedblright\ of just one integer is like speaking of a
+conspiracy of just one person. But the definition fits, and we algebraists
+don't exclude cases just because they are ridiculous.)
 
-(Also, the common divisors of an empty list of integers are all integers,
+(Also, the common divisors of an empty list of integers are all the integers,
 because the requirement (\ref{eq.def.ent.Div.cond}) is vacuously true for
 $k=0$. In other words, $\operatorname*{Div}\left(  {}\right)  =\mathbb{Z}$.)
 
@@ -2886,11 +2914,14 @@ Now, forget that we fixed $d$. We thus have shown that $d\in\left\{
 -\left\vert b_{j}\right\vert ,-\left\vert b_{j}\right\vert +1,\ldots
 ,\left\vert b_{j}\right\vert \right\}  \setminus\left\{  0\right\}  $ for each
 $d\in\operatorname*{Div}\left(  b_{1},b_{2},\ldots,b_{k}\right)  $. In other
-words, $\operatorname*{Div}\left(  b_{1},b_{2},\ldots,b_{k}\right)
-\subseteq\left\{  -\left\vert b_{j}\right\vert ,-\left\vert b_{j}\right\vert
-+1,\ldots,\left\vert b_{j}\right\vert \right\}  \setminus\left\{  0\right\}
-$. Thus, the set $\operatorname*{Div}\left(  b_{1},b_{2},\ldots,b_{k}\right)
-$ is finite (since the set $\left\{  -\left\vert b_{j}\right\vert ,-\left\vert
+words,
+\[
+\operatorname*{Div}\left(  b_{1},b_{2},\ldots,b_{k}\right)  \subseteq\left\{
+-\left\vert b_{j}\right\vert ,-\left\vert b_{j}\right\vert +1,\ldots
+,\left\vert b_{j}\right\vert \right\}  \setminus\left\{  0\right\}  .
+\]
+Thus, the set $\operatorname*{Div}\left(  b_{1},b_{2},\ldots,b_{k}\right)  $
+is finite (since the set $\left\{  -\left\vert b_{j}\right\vert ,-\left\vert
 b_{j}\right\vert +1,\ldots,\left\vert b_{j}\right\vert \right\}
 \setminus\left\{  0\right\}  $ is finite).]
 \end{fineprint}
@@ -2914,6 +2945,8 @@ b_{1},b_{2},\ldots,b_{k}\right)  $. Applying this to $x=1$, we obtain $g\geq1$
 Hence, $g$ is positive. This completes the proof of Proposition
 \ref{prop.ent.Div.fin}.
 \end{proof}
+
+Proposition \ref{prop.ent.Div.fin} allows us to make a crucial definition:
 
 \begin{definition}
 \label{def.ent.gcd.gcd}Let $b_{1},b_{2},\ldots,b_{k}$ be finitely many
@@ -2986,7 +3019,171 @@ all $a,b\in\mathbb{Z}$.
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.ent.gcd.props1}.]TODO
+[Proof of Proposition \ref{prop.ent.gcd.props1}.]\textbf{(a)} Here is a sketch
+of the proof: The number $0$ is a \textquotedblleft joker\textquotedblright%
+\ when it comes to common divisors: For example, if $a\in\mathbb{Z}$, then the
+common divisors of $a$ and $0$ are the same as the divisors of $a$, because
+every integer divides $0$. Thus, if $a\in\mathbb{Z}$ is nonzero, then the
+greatest common divisor of $a$ and $0$ is the greatest divisor of $a$, which
+is $\left\vert a\right\vert $ (an easy consequence of Proposition
+\ref{prop.ent.divisors.find} \textbf{(b)}).
+
+For the sake of completeness, let us give a detailed proof of Proposition
+\ref{prop.ent.gcd.props1} \textbf{(a)}:
+
+\begin{fineprint}
+Let $a\in\mathbb{Z}$. Definition \ref{def.ent.gcd.gcd} (specifically, its case
+when $b_{1},b_{2},\ldots,b_{k}$ are all $0$) shows that $\gcd\left(
+0,0\right)  =0$ and $\gcd\left(  0\right)  =0$. Combining this with
+$\left\vert 0\right\vert =0$, we obtain $\gcd\left(  0,0\right)  =\gcd\left(
+0\right)  =\left\vert 0\right\vert $. In other words, Proposition
+\ref{prop.ent.gcd.props1} \textbf{(a)} holds if $a=0$. Thus, for the rest of
+this proof, we WLOG assume that $a\neq0$. Hence, not all of the two numbers
+$a,0$ are zero. Thus, $\gcd\left(  a,0\right)  $ is defined to be the largest
+element of the set $\operatorname*{Div}\left(  a,0\right)  $ (by Definition
+\ref{def.ent.gcd.gcd}). Likewise, $\gcd\left(  a\right)  $ is the largest
+element of the set $\operatorname*{Div}\left(  a\right)  $.
+
+We shall now prove that $\operatorname*{Div}\left(  a,0\right)
+=\operatorname*{Div}\left(  a\right)  $. Indeed, for any integer $x$, we have
+the following chain of equivalences:%
+\begin{align*}
+&  \ \left(  x\in\operatorname*{Div}\left(  a,0\right)  \right)  \\
+&  \Longleftrightarrow\ \left(  x\text{ is a common divisor of }a\text{ and
+}0\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of
+}\operatorname*{Div}\left(  a,0\right)  \right)  \\
+&  \Longleftrightarrow\ \left(  x\mid a\text{ and }x\mid0\right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of a \textquotedblleft
+common divisor\textquotedblright}\right)  \\
+&  \Longleftrightarrow\ \left(  x\mid a\right)  \ \ \ \ \ \ \ \ \ \ \left(
+\text{since }x\mid0\text{ always holds (since }0=x\cdot0\text{)}\right)  \\
+&  \Longleftrightarrow\ \left(  x\text{ is a common divisor of }a\right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of a \textquotedblleft
+common divisor\textquotedblright}\right)  \\
+&  \Longleftrightarrow\ \left(  x\in\operatorname*{Div}\left(  a\right)
+\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of }%
+\operatorname*{Div}\left(  a\right)  \right)  .
+\end{align*}
+In other words, an integer belongs to $\operatorname*{Div}\left(  a,0\right)
+$ if and only if it belongs to $\operatorname*{Div}\left(  a\right)  $. Thus,
+$\operatorname*{Div}\left(  a,0\right)  =\operatorname*{Div}\left(  a\right)
+$ (since both $\operatorname*{Div}\left(  a,0\right)  $ and
+$\operatorname*{Div}\left(  a\right)  $ are sets of integers). Now, recall
+that $\gcd\left(  a,0\right)  $ is the largest element of the set
+$\operatorname*{Div}\left(  a,0\right)  $. Thus,
+\begin{align*}
+\gcd\left(  a,0\right)   &  =\left(  \text{the largest element of the set
+}\underbrace{\operatorname*{Div}\left(  a,0\right)  }_{=\operatorname*{Div}%
+\left(  a\right)  }\right)  \\
+&  =\left(  \text{the largest element of the set }\operatorname*{Div}\left(
+a\right)  \right)  =\gcd\left(  a\right)
+\end{align*}
+(since $\gcd\left(  a\right)  $ is the largest element of the set
+$\operatorname*{Div}\left(  a\right)  $).
+
+For any integer $x$, we have the following chain of equivalences:%
+\begin{align*}
+& \ \left(  x\in\operatorname*{Div}\left(  a\right)  \right)  \\
+& \Longleftrightarrow\ \left(  x\text{ is a common divisor of }a\right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of }\operatorname*{Div}%
+\left(  a\right)  \right)  \\
+& \Longleftrightarrow\ \left(  x\mid a\right)  \ \ \ \ \ \ \ \ \ \ \left(
+\text{by the definition of a \textquotedblleft common
+divisor\textquotedblright}\right)  \\
+& \Longleftrightarrow\ \left(  x\text{ is a divisor of }a\right)  .
+\end{align*}
+Thus, $\operatorname*{Div}\left(  a\right)  $ is the set of all divisors of
+$a$.
+
+Proposition \ref{prop.ent.div.1} \textbf{(a)} (applied to $\left\vert
+a\right\vert $ and $a$ instead of $a$ and $b$) shows that we have $\left\vert
+a\right\vert \mid a$ if and only if $\left\vert \left\vert a\right\vert
+\right\vert \mid\left\vert a\right\vert $. Since $\left\vert \left\vert
+a\right\vert \right\vert \mid\left\vert a\right\vert $ is true (because
+$\left\vert \left\vert a\right\vert \right\vert =\left\vert a\right\vert $),
+we thus have $\left\vert a\right\vert \mid a$. In other words, $\left\vert
+a\right\vert $ is a divisor of $a$.
+
+Moreover, $a$ is nonzero (since $a\neq0$). Hence, Proposition
+\ref{prop.ent.divisors.find} \textbf{(b)} (applied to $b=a$) shows that all
+divisors of $a$ belong to the set $\left\{  -\left\vert a\right\vert
+,-\left\vert a\right\vert +1,\ldots,\left\vert a\right\vert \right\}
+\setminus\left\{  0\right\}  $. Hence, they belong to the set $\left\{
+-\left\vert a\right\vert ,-\left\vert a\right\vert +1,\ldots,\left\vert
+a\right\vert \right\}  $, and thus are $\leq\left\vert a\right\vert $.
+
+Recall that $\left\vert a\right\vert $ is a divisor of $a$. Since we also know
+that all divisors of $a$ are $\leq\left\vert a\right\vert $, we can thus
+conclude that $\left\vert a\right\vert $ is the \textbf{largest} divisor of
+$a$. In other words, $\left\vert a\right\vert $ is the largest element of the
+set $\operatorname*{Div}\left(  a\right)  $ (since $\operatorname*{Div}\left(
+a\right)  $ is the set of all divisors of $a$). In other words, $\left\vert
+a\right\vert $ is $\gcd\left(  a\right)  $ (since $\gcd\left(  a\right)  $ is
+the largest element of the set $\operatorname*{Div}\left(  a\right)  $). Thus,
+$\gcd\left(  a\right)  =\left\vert a\right\vert $. Combining this with
+$\gcd\left(  a,0\right)  =\gcd\left(  a\right)  $, this yields $\gcd\left(
+a,0\right)  =\gcd\left(  a\right)  =\left\vert a\right\vert $. Thus,
+Proposition \ref{prop.ent.gcd.props1} \textbf{(a)} is finally proven.
+\end{fineprint}
+
+\textbf{(b)} If $a$ and $b$ are both $0$, then Proposition
+\ref{prop.ent.gcd.props1} \textbf{(b)} holds for trivial
+reasons\footnote{Indeed, if $a$ and $b$ are both $0$, then $\gcd\left(
+a,b\right)  =\gcd\left(  b,a\right)  $ (since both $\gcd\left(  a,b\right)  $
+and $\gcd\left(  b,a\right)  $ equal $\gcd\left(  0,0\right)  $), and thus
+Proposition \ref{prop.ent.gcd.props1} \textbf{(b)} holds.}. Hence, for the
+rest of this proof, we WLOG assume that $a$ and $b$ are not both $0$. Hence,
+$b$ and $a$ are not both $0$. Thus, $\gcd\left(  b,a\right)  $ is defined to
+be the largest element of the set $\operatorname*{Div}\left(  b,a\right)  $
+(by Definition \ref{def.ent.gcd.gcd}). Likewise, $\gcd\left(  a,b\right)  $ is
+the largest element of the set $\operatorname*{Div}\left(  a,b\right)  $.
+
+For any integer $x$, we have the following chain of equivalences:%
+\begin{align*}
+&  \ \left(  x\in\operatorname*{Div}\left(  a,b\right)  \right)  \\
+&  \Longleftrightarrow\ \left(  x\text{ is a common divisor of }a\text{ and
+}b\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of
+}\operatorname*{Div}\left(  a,b\right)  \right)  \\
+&  \Longleftrightarrow\ \left(  x\mid a\text{ and }x\mid b\right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of a \textquotedblleft
+common divisor\textquotedblright}\right)  \\
+&  \Longleftrightarrow\ \left(  x\mid b\text{ and }x\mid a\right)  \\
+&  \Longleftrightarrow\ \left(  x\text{ is a common divisor of }b\text{ and
+}a\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of a
+\textquotedblleft common divisor\textquotedblright}\right)  \\
+&  \Longleftrightarrow\ \left(  x\in\operatorname*{Div}\left(  b,a\right)
+\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of }%
+\operatorname*{Div}\left(  b,a\right)  \right)  .
+\end{align*}
+In other words, an integer belongs to $\operatorname*{Div}\left(  a,b\right)
+$ if and only if it belongs to $\operatorname*{Div}\left(  b,a\right)  $.
+Thus, $\operatorname*{Div}\left(  a,b\right)  =\operatorname*{Div}\left(
+b,a\right)  $ (since both $\operatorname*{Div}\left(  a,b\right)  $ and
+$\operatorname*{Div}\left(  b,a\right)  $ are sets of integers). Now, recall
+that $\gcd\left(  a,b\right)  $ is the largest element of the set
+$\operatorname*{Div}\left(  a,b\right)  $. Thus,
+\begin{align*}
+\gcd\left(  a,b\right)   &  =\left(  \text{the largest element of the set
+}\underbrace{\operatorname*{Div}\left(  a,b\right)  }_{=\operatorname*{Div}%
+\left(  b,a\right)  }\right)  \\
+&  =\left(  \text{the largest element of the set }\operatorname*{Div}\left(
+b,a\right)  \right)  =\gcd\left(  b,a\right)
+\end{align*}
+(since $\gcd\left(  a,b\right)  $ is the largest element of the set
+$\operatorname*{Div}\left(  b,a\right)  $). This proves Proposition
+\ref{prop.ent.gcd.props1} \textbf{(b)}.
+
+\textbf{(d)} Let $a,b,c\in\mathbb{Z}$ satisfy $b\equiv c\operatorname{mod}a$.
+We must prove that $\gcd\left(  a,b\right)  =\gcd\left(  a,c\right)  $.
+
+From $b\equiv c\operatorname{mod}a$, we obtain $c\equiv b\operatorname{mod}a$
+(by Proposition \ref{prop.ent.mod.basics} \textbf{(c)}). Hence, our situation
+is symmetric with respect to $b$ and $c$.
+
+We shall now show that $\operatorname*{Div}\left(  a,b\right)  \subseteq
+\operatorname*{Div}\left(  a,c\right)  $
+
+TODO
 
 Indeed, for any $b\in\mathbb{Z}$ and any positive integer $a$, we have%
 \[
@@ -3336,6 +3533,81 @@ $a_{1}\mid b_{1}$ and $a_{2}\mid b_{2}$. Prove that%
 [Solution to Exercise \ref{exe.ent.gcd.div}.]TODO.
 \end{proof}
 
+The following corollary of Theorem \ref{thm.ent.gcd.bezout} let us
+\textquotedblleft combine\textquotedblright\ two divisibilities $a\mid c$ and
+$b\mid c$. In fact, Proposition \ref{prop.ent.div.2} \textbf{(c)} would
+already allow us to \textquotedblleft combine\textquotedblright\ them to form
+$ab\mid cc=c^{2}$; but we can also \textquotedblleft combine\textquotedblright%
+\ them to $ab\mid\gcd\left(  a,b\right)  \cdot c$ using the following fact:
+
+\begin{theorem}
+\label{thm.ent.gcd.combine}Let $a,b,c\in\mathbb{Z}$ satisfy $a\mid c$ and
+$b\mid c$. Then, $ab\mid\gcd\left(  a,b\right)  \cdot c$.
+\end{theorem}
+
+\begin{example}
+Let $a=6$ and $b=10$ and $c=30$. Then, $a=6\mid30=c$ and $b=10\mid30=c$. Thus,
+Theorem \ref{thm.ent.gcd.combine} yields $ab\mid\gcd\left(  a,b\right)  \cdot
+c$. And indeed, this is true, since $ab=6\cdot10\mid2\cdot30=\gcd\left(
+a,b\right)  \cdot c$ (because $\gcd\left(  a,b\right)  =\gcd\left(
+6,10\right)  =2$). Note that this latter divisibility is actually an equality:
+we have $6\cdot10=2\cdot30$. Note also that we do \textbf{not} obtain $ab\mid
+c$ (and indeed, this does not hold).
+\end{example}
+
+\begin{proof}
+[Proof of Theorem \ref{thm.ent.gcd.combine}.] Theorem \ref{thm.ent.gcd.bezout}
+yields that there exist integers $x\in\mathbb{Z}$ and $y\in\mathbb{Z}$ such
+that $\gcd\left(  a,b\right)  =xa+yb$. Consider these $x$ and $y$.
+
+We have $a\mid c$. In other words, there exists an integer $u$ such that
+$c=au$. Consider this $u$.
+
+We have $b\mid c$. In other words, there exists an integer $v$ such that
+$c=bv$. Consider this $v$.
+
+Now,%
+\[
+\underbrace{\gcd\left(  a,b\right)  }_{=xa+yb}\cdot c=\left(  xa+yb\right)
+c=xa\underbrace{c}_{=bv}+yb\underbrace{c}_{=au}=xabv+ybau=ab\left(
+xv+yu\right)  .
+\]
+Thus, there exists an integer $d$ such that $\gcd\left(  a,b\right)  \cdot
+c=abd$ (namely, $d=xv+yu$). In other words, $ab\mid\gcd\left(  a,b\right)
+\cdot c$. This proves Theorem \ref{thm.ent.gcd.combine}.
+\end{proof}
+
+Here is another corollary of Theorem \ref{thm.ent.gcd.bezout} whose usefulness
+will become clearer later on:
+
+\begin{theorem}
+\label{thm.ent.gcd.cancel}Let $a,b,c\in\mathbb{Z}$ satisfy $a\mid bc$. Then,
+$a\mid\gcd\left(  a,b\right)  \cdot c$.
+\end{theorem}
+
+At this point, you should see that Theorem \ref{thm.ent.gcd.cancel} allows
+\textquotedblleft strengthening\textquotedblright\ divisibilities: You give it
+a \textquotedblleft weak\textquotedblright\ divisibility $a\mid bc$, and
+obtain a \textquotedblleft stronger\textquotedblright\ divisibility $a\mid
+\gcd\left(  a,b\right)  \cdot c$ from it (stronger because $\gcd\left(
+a,b\right)  $ is usually smaller than $b$).
+
+\begin{proof}
+[Proof of Theorem \ref{thm.ent.coprime.cancel}.]Theorem
+\ref{thm.ent.gcd.bezout} yields that there exist integers $x\in\mathbb{Z}$ and
+$y\in\mathbb{Z}$ such that $\gcd\left(  a,b\right)  =xa+yb$. Consider these
+$x$ and $y$.
+
+We have $a\mid bc\mid ybc$; in other words, $ybc\equiv0\operatorname{mod}a$.
+Also, $a\mid axc$, so that $axc\equiv0\operatorname{mod}a$. Adding the two
+congruences $axc\equiv0\operatorname{mod}a$ and $ybc\equiv0\operatorname{mod}%
+a$ together, we obtain $axc+ybc\equiv0+0=0\operatorname{mod}a$. In view of
+$axc+ybc=\underbrace{\left(  xa+yb\right)  }_{=\gcd\left(  a,b\right)  }%
+c=\gcd\left(  a,b\right)  \cdot c$, this rewrites as $\gcd\left(  a,b\right)
+\cdot c\equiv0\operatorname{mod}a$. In other words, $a\mid\gcd\left(
+a,b\right)  \cdot c$. This proves Theorem \ref{thm.ent.gcd.cancel}.
+\end{proof}
+
 \subsection{Coprime integers}
 
 The concept of a gcd leads to one of the most important notions of number theory:
@@ -3347,7 +3619,7 @@ $a$ is \textit{coprime} to $b$ if and only if $\gcd\left(  a,b\right)  =1$.
 
 Instead of \textquotedblleft coprime\textquotedblright, some authors say
 \textquotedblleft relatively prime\textquotedblright. Instead of saying
-\textquotedblleft$a$ and $b$ 
+\textquotedblleft$a$ and $b$
 
 \begin{example}
 \textbf{(a)} The number $2$ is coprime to $3$, since $\gcd\left(  2,3\right)
@@ -3357,9 +3629,9 @@ Instead of \textquotedblleft coprime\textquotedblright, some authors say
 $a+1$. To prove this, we note that%
 \begin{align*}
 \gcd\left(  a,\underbrace{a}_{=1a}+1\right)   &  =\gcd\left(  a,1a+1\right)
-=\gcd\left(  a,1\right)  \\
+=\gcd\left(  a,1\right) \\
 &  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition \ref{prop.ent.gcd.props1}
-\textbf{(c)}, applied to }u=1\text{ and }b=1\right)  \\
+\textbf{(c)}, applied to }u=1\text{ and }b=1\right) \\
 &  \mid1\ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition
 \ref{prop.ent.gcd.props1} \textbf{(e)}, applied to }b=1\right)  ,
 \end{align*}
@@ -3386,27 +3658,27 @@ $a\perp b$ if and only if $b\perp a$.
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.ent.coprime.perp-symm}.] We have the following
+[Proof of Proposition \ref{prop.ent.coprime.perp-symm}.]We have the following
 chain of equivalences:%
 \begin{align*}
-\left(  a\perp b\right)  \   & \Longleftrightarrow\ \left(  a\text{ is coprime
+\left(  a\perp b\right)  \  &  \Longleftrightarrow\ \left(  a\text{ is coprime
 to }b\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of
-\textquotedblleft}\perp\text{\textquotedblright}\right)  \\
-& \Longleftrightarrow\ \left(  \gcd\left(  a,b\right)  =1\right)
+\textquotedblleft}\perp\text{\textquotedblright}\right) \\
+&  \Longleftrightarrow\ \left(  \gcd\left(  a,b\right)  =1\right)
 \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of \textquotedblleft
-coprime\textquotedblright}\right)  \\
-& \Longleftrightarrow\ \left(  \gcd\left(  b,a\right)  =1\right)
+coprime\textquotedblright}\right) \\
+&  \Longleftrightarrow\ \left(  \gcd\left(  b,a\right)  =1\right)
 \ \ \ \ \ \ \ \ \ \ \left(
 \begin{array}
 [c]{c}%
 \text{since Proposition \ref{prop.ent.gcd.props1} \textbf{(b)}}\\
 \text{yields }\gcd\left(  a,b\right)  =\gcd\left(  b,a\right)
 \end{array}
-\right)  \\
-& \Longleftrightarrow\ \left(  b\text{ is coprime to }a\right)
+\right) \\
+&  \Longleftrightarrow\ \left(  b\text{ is coprime to }a\right)
 \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of \textquotedblleft
-coprime\textquotedblright}\right)  \\
-& \Longleftrightarrow\ \left(  b\perp a\right)  \ \ \ \ \ \ \ \ \ \ \left(
+coprime\textquotedblright}\right) \\
+&  \Longleftrightarrow\ \left(  b\perp a\right)  \ \ \ \ \ \ \ \ \ \ \left(
 \text{by the definition of \textquotedblleft}\perp\text{\textquotedblright%
 }\right)  .
 \end{align*}
@@ -3435,22 +3707,32 @@ $a\perp b$. Then, $a\mid c$.
 [Proof of Theorem \ref{thm.ent.coprime.cancel}.]We have $a\perp b$; in other
 words, $a$ is coprime to $b$ (by Definition \ref{def.ent.coprime.perp}). In
 other words, $\gcd\left(  a,b\right)  =1$ (by the definition of
-\textquotedblleft coprime\textquotedblright). But Theorem
-\ref{thm.ent.gcd.bezout} yields that there exist integers $x\in\mathbb{Z}$ and
-$y\in\mathbb{Z}$ such that $\gcd\left(  a,b\right)  =xa+yb$. Consider these
-$x$ and $y$.
-
-Hence, $xa+yb=\gcd\left(  a,b\right)  =1$. Thus, $c\left(  xa+yb\right)
-=c\cdot1=c$, so that%
-\[
-c=c\left(  xa+yb\right)  =cxa+cyb.
-\]
-
-
-TODO.
+\textquotedblleft coprime\textquotedblright). Now, Theorem
+\ref{thm.ent.gcd.cancel} yields $a\mid\underbrace{\gcd\left(  a,b\right)
+}_{=1}\cdot c=c$. This proves Theorem \ref{thm.ent.coprime.cancel}.
 \end{proof}
 
-TODO:
+The next one lets us \textquotedblleft combine\textquotedblright\ two
+divisibilities $a\mid c$ and $b\mid c$ to $ab\mid c$ as long as $a$ and $b$
+are coprime:
+
+\begin{theorem}
+\label{thm.ent.coprime.combine}Let $a,b,c\in\mathbb{Z}$ satisfy $a\mid c$ and
+$b\mid c$ and $a\perp b$. Then, $ab\mid c$.
+\end{theorem}
+
+\begin{proof}
+[Proof of Theorem \ref{thm.ent.coprime.combine}.] We have $a\perp b$; in other
+words, $a$ is coprime to $b$ (by Definition \ref{def.ent.coprime.perp}). In
+other words, $\gcd\left(  a,b\right)  =1$ (by the definition of
+\textquotedblleft coprime\textquotedblright). Now, Theorem
+\ref{thm.ent.gcd.combine} yields $ab\mid\underbrace{\gcd\left(  a,b\right)
+}_{=1}\cdot c=c$. This proves Theorem \ref{thm.ent.coprime.combine}.
+\end{proof}
+
+\begin{center}
+\textbf{2019-02-06 lecture}
+\end{center}TODO:
 
 \begin{itemize}
 \item corollary: existence of modular inverses.
@@ -3776,6 +4058,9 @@ numbering of theorems and formulas in this link might shift when the project
 gets updated; for a \textquotedblleft frozen\textquotedblright\ version whose
 numbering is guaranteed to match that in the citations above, see
 \url{https://github.com/darijgr/detnotes/releases/tag/2019-01-10} .
+
+\bibitem[floor]{Grinbe16}Darij Grinberg, \textit{18.781 (Spring 2016): Floor
+and arithmetic functions}, 19 June 2016.\newline\url{http://www.cip.ifi.lmu.de/~grinberg/floor.pdf}
 
 \bibitem[Hammac18]{Hammack}Richard Hammack, \textit{Book of Proof}, 3rd
 edition 2018.\newline\url{http://www.people.vcu.edu/~rhammack/BookOfProof/}
