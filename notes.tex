@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, February 04, 2019 20:39:00}
+%TCIDATA{LastRevised=Monday, February 04, 2019 22:01:24}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -1521,13 +1521,13 @@ $a\equiv0\operatorname{mod}n$ if and only if $n\mid a$.
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.ent.mod.0}.] We have the following chain of
+[Proof of Proposition \ref{prop.ent.mod.0}.]We have the following chain of
 equivalences:%
 \begin{align*}
-\left(  a\equiv0\operatorname{mod}n\right)  \   & \Longleftrightarrow\ \left(
+\left(  a\equiv0\operatorname{mod}n\right)  \  &  \Longleftrightarrow\ \left(
 n\mid a-0\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Definition
-\ref{def.ent.cong}}\right)  \\
-& \Longleftrightarrow\ \left(  n\mid a\right)  \ \ \ \ \ \ \ \ \ \ \left(
+\ref{def.ent.cong}}\right) \\
+&  \Longleftrightarrow\ \left(  n\mid a\right)  \ \ \ \ \ \ \ \ \ \ \left(
 \text{since }a-0=a\right)  .
 \end{align*}
 This proves Proposition \ref{prop.ent.mod.0}.
@@ -1549,12 +1549,12 @@ then $b\equiv a\operatorname{mod}n$.
 \textbf{(d)} If $a_{1},a_{2},b_{1},b_{2}\in\mathbb{Z}$ satisfy $a_{1}\equiv
 b_{1}\operatorname{mod}n$ and $a_{2}\equiv b_{2}\operatorname{mod}n$, then%
 \begin{align}
-a_{1}+a_{2} &  \equiv b_{1}+b_{2}\operatorname{mod}%
+a_{1}+a_{2}  &  \equiv b_{1}+b_{2}\operatorname{mod}%
 n;\label{eq.prop.ent.mod.basics.d.1}\\
-a_{1}-a_{2} &  \equiv b_{1}-b_{2}\operatorname{mod}%
+a_{1}-a_{2}  &  \equiv b_{1}-b_{2}\operatorname{mod}%
 n;\label{eq.prop.ent.mod.basics.d.2}\\
-a_{1}a_{2} &  \equiv b_{1}b_{2}\operatorname{mod}%
-n.\label{eq.prop.ent.mod.basics.d.3}%
+a_{1}a_{2}  &  \equiv b_{1}b_{2}\operatorname{mod}n.
+\label{eq.prop.ent.mod.basics.d.3}%
 \end{align}
 
 
@@ -2721,6 +2721,8 @@ neat exercise. A full proof can be found in \cite[proof of Proposition
 
 \subsection{Common divisors, the Euclidean algorithm and the Bezout theorem}
 
+\subsubsection{Divisors}
+
 \begin{definition}
 Let $b\in\mathbb{Z}$. The \textit{divisors} of $b$ are defined as the integers
 that divide $b$.
@@ -2797,6 +2799,8 @@ otherwise, Proposition \ref{prop.ent.divisors.find} \textbf{(c)} shows that
 there is only a finite set of numbers we have to check. When $b$ is large,
 this is slow, but to some extent that is because the problem is
 computationally hard (or at least suspected to be hard).
+
+\subsubsection{Common divisors}
 
 It is somewhat more interesting to consider the common divisors of two or more integers:
 
@@ -2946,6 +2950,8 @@ Hence, $g$ is positive. This completes the proof of Proposition
 \ref{prop.ent.Div.fin}.
 \end{proof}
 
+\subsubsection{Greatest common divisors}
+
 Proposition \ref{prop.ent.Div.fin} allows us to make a crucial definition:
 
 \begin{definition}
@@ -3018,6 +3024,192 @@ all $a,b\in\mathbb{Z}$.
 all $a,b\in\mathbb{Z}$.
 \end{proposition}
 
+Proposition \ref{prop.ent.divisors.find} is not difficult and we could start
+proving it right away. However, such a proof would require some annoying case
+distinctions due to the special treatment that the \textquotedblleft%
+$b_{1},b_{2},\ldots,b_{k}$ are all $0$\textquotedblright\ case required in
+Definition \ref{def.ent.gcd.gcd}. Fortunately, we can circumnavigate these
+annoyances by stating a simple rule how the gcd of $k$ integers $b_{1}%
+,b_{2},\ldots,b_{k}$ can be computed from their set of common divisors
+(including the case when $b_{1},b_{2},\ldots,b_{k}$ are all $0$):
+
+\begin{lemma}
+\label{lem.ent.gcd.through-Div}Let $b_{1},b_{2},\ldots,b_{k}$ be finitely many
+integers. Then,%
+\[
+\gcd\left(  b_{1},b_{2},\ldots,b_{k}\right)  =%
+\begin{cases}
+\max\left(  \operatorname*{Div}\left(  b_{1},b_{2},\ldots,b_{k}\right)
+\right)  , & \text{if }0\notin\operatorname*{Div}\left(  b_{1},b_{2}%
+,\ldots,b_{k}\right)  ;\\
+0, & \text{if }0\in\operatorname*{Div}\left(  b_{1},b_{2},\ldots,b_{k}\right)
+.
+\end{cases}
+\]
+(Here, $\max S$ denotes the largest element of a set $S$ of integers, whenever
+this largest element exists.)
+\end{lemma}
+
+\begin{proof}
+[Proof of Lemma \ref{lem.ent.gcd.through-Div}.]We are in one of the following
+two cases:
+
+\textit{Case 1:} The integers $b_{1},b_{2},\ldots,b_{k}$ are not all $0$.
+
+\textit{Case 2:} The integers $b_{1},b_{2},\ldots,b_{k}$ are all $0$.
+
+Let us consider Case 1 first. In this case, the integers $b_{1},b_{2}%
+,\ldots,b_{k}$ are not all $0$. Hence, $\gcd\left(  b_{1},b_{2},\ldots
+,b_{k}\right)  $ is defined as the largest element of the set
+$\operatorname*{Div}\left(  b_{1},b_{2},\ldots,b_{k}\right)  $ (by Definition
+\ref{def.ent.gcd.gcd}). In other words,
+\begin{equation}
+\gcd\left(  b_{1},b_{2},\ldots,b_{k}\right)  =\max\left(  \operatorname*{Div}%
+\left(  b_{1},b_{2},\ldots,b_{k}\right)  \right)  .
+\label{pf.lem.ent.gcd.through-Div.c1.1}%
+\end{equation}
+
+
+On the other hand, $0\notin\operatorname*{Div}\left(  b_{1},b_{2},\ldots
+,b_{k}\right)  $\ \ \ \ \footnote{\textit{Proof.} Assume the contrary. Thus,
+$0\in\operatorname*{Div}\left(  b_{1},b_{2},\ldots,b_{k}\right)  $. In other
+words, $0$ is a common divisor of $b_{1},b_{2},\ldots,b_{k}$ (by the
+definition of $\operatorname*{Div}\left(  b_{1},b_{2},\ldots,b_{k}\right)  $).
+In other words, $0\mid b_{i}$ for all $i\in\left\{  1,2,\ldots,k\right\}  $
+(by the definition of \textquotedblleft common divisor\textquotedblright).
+Thus, for all $i\in\left\{  1,2,\ldots,k\right\}  $, we have $b_{i}=0$ (since
+$0\mid b_{i}$, so that $b_{i}=0c$ for some integer $c$; but this yields
+$b_{i}=0c=0$). In other words, $b_{1},b_{2},\ldots,b_{k}$ are all $0$. But
+this contradicts the fact that $b_{1},b_{2},\ldots,b_{k}$ are not all $0$.
+This contradiction shows that our assumption was false, qed.}. Hence,%
+\[%
+\begin{cases}
+\max\left(  \operatorname*{Div}\left(  b_{1},b_{2},\ldots,b_{k}\right)
+\right)  , & \text{if }0\notin\operatorname*{Div}\left(  b_{1},b_{2}%
+,\ldots,b_{k}\right)  ;\\
+0, & \text{if }0\in\operatorname*{Div}\left(  b_{1},b_{2},\ldots,b_{k}\right)
+\end{cases}
+=\max\left(  \operatorname*{Div}\left(  b_{1},b_{2},\ldots,b_{k}\right)
+\right)  .
+\]
+Comparing this with (\ref{pf.lem.ent.gcd.through-Div.c1.1}), we obtain%
+\[
+\gcd\left(  b_{1},b_{2},\ldots,b_{k}\right)  =%
+\begin{cases}
+\max\left(  \operatorname*{Div}\left(  b_{1},b_{2},\ldots,b_{k}\right)
+\right)  , & \text{if }0\notin\operatorname*{Div}\left(  b_{1},b_{2}%
+,\ldots,b_{k}\right)  ;\\
+0, & \text{if }0\in\operatorname*{Div}\left(  b_{1},b_{2},\ldots,b_{k}\right)
+.
+\end{cases}
+\]
+Hence, Lemma \ref{lem.ent.gcd.through-Div} is proven in Case 1.
+
+Let us now consider Case 2. In this case, the integers $b_{1},b_{2}%
+,\ldots,b_{k}$ are all $0$. Hence, $\gcd\left(  b_{1},b_{2},\ldots
+,b_{k}\right)  $ is defined as $0$ (by Definition \ref{def.ent.gcd.gcd}). In
+other words,
+\begin{equation}
+\gcd\left(  b_{1},b_{2},\ldots,b_{k}\right)  =0.
+\label{pf.lem.ent.gcd.through-Div.c2.1}%
+\end{equation}
+
+
+On the other hand, $0\in\operatorname*{Div}\left(  b_{1},b_{2},\ldots
+,b_{k}\right)  $\ \ \ \ \footnote{\textit{Proof.} The integers $b_{1}%
+,b_{2},\ldots,b_{k}$ are all $0$. In other words, $b_{i}=0$ for all
+$i\in\left\{  1,2,\ldots,k\right\}  $. Hence, $0\mid b_{i}$ for all
+$i\in\left\{  1,2,\ldots,k\right\}  $ (since each $i\in\left\{  1,2,\ldots
+,k\right\}  $ satisfies $b_{i}=0=0\cdot0$). In other words, $0$ is a common
+divisor of $b_{1},b_{2},\ldots,b_{k}$ (by the definition of \textquotedblleft
+common divisor\textquotedblright). In other words, $0\in\operatorname*{Div}%
+\left(  b_{1},b_{2},\ldots,b_{k}\right)  $ (by the definition of
+$\operatorname*{Div}\left(  b_{1},b_{2},\ldots,b_{k}\right)  $).}. Hence,%
+\[%
+\begin{cases}
+\max\left(  \operatorname*{Div}\left(  b_{1},b_{2},\ldots,b_{k}\right)
+\right)  , & \text{if }0\notin\operatorname*{Div}\left(  b_{1},b_{2}%
+,\ldots,b_{k}\right)  ;\\
+0, & \text{if }0\in\operatorname*{Div}\left(  b_{1},b_{2},\ldots,b_{k}\right)
+\end{cases}
+=0.
+\]
+Comparing this with (\ref{pf.lem.ent.gcd.through-Div.c2.1}), we obtain%
+\[
+\gcd\left(  b_{1},b_{2},\ldots,b_{k}\right)  =%
+\begin{cases}
+\max\left(  \operatorname*{Div}\left(  b_{1},b_{2},\ldots,b_{k}\right)
+\right)  , & \text{if }0\notin\operatorname*{Div}\left(  b_{1},b_{2}%
+,\ldots,b_{k}\right)  ;\\
+0, & \text{if }0\in\operatorname*{Div}\left(  b_{1},b_{2},\ldots,b_{k}\right)
+.
+\end{cases}
+\]
+Hence, Lemma \ref{lem.ent.gcd.through-Div} is proven in Case 2.
+
+We have now proven Lemma \ref{lem.ent.gcd.through-Div} in both Cases 1 and 2.
+Thus, Lemma \ref{lem.ent.gcd.through-Div} always holds.
+\end{proof}
+
+A corollary of Lemma \ref{lem.ent.gcd.through-Div} is the following:
+
+\begin{lemma}
+\label{lem.ent.gcd.through-Divc}Let $b_{1},b_{2},\ldots,b_{k}$ be finitely
+many integers. Let $c_{1},c_{2},\ldots,c_{\ell}$ be finitely many integers. If%
+\[
+\operatorname*{Div}\left(  b_{1},b_{2},\ldots,b_{k}\right)
+=\operatorname*{Div}\left(  c_{1},c_{2},\ldots,c_{\ell}\right)  ,
+\]
+then%
+\[
+\gcd\left(  b_{1},b_{2},\ldots,b_{k}\right)  =\gcd\left(  c_{1},c_{2}%
+,\ldots,c_{\ell}\right)  .
+\]
+
+\end{lemma}
+
+\begin{proof}
+[Proof of Lemma \ref{lem.ent.gcd.through-Div}.]Assume that
+$\operatorname*{Div}\left(  b_{1},b_{2},\ldots,b_{k}\right)
+=\operatorname*{Div}\left(  c_{1},c_{2},\ldots,c_{\ell}\right)  $. Lemma
+\ref{lem.ent.gcd.through-Div} yields%
+\begin{align*}
+\gcd\left(  b_{1},b_{2},\ldots,b_{k}\right)   &  =%
+\begin{cases}
+\max\left(  \operatorname*{Div}\left(  b_{1},b_{2},\ldots,b_{k}\right)
+\right)  , & \text{if }0\notin\operatorname*{Div}\left(  b_{1},b_{2}%
+,\ldots,b_{k}\right)  ;\\
+0, & \text{if }0\in\operatorname*{Div}\left(  b_{1},b_{2},\ldots,b_{k}\right)
+\end{cases}
+\\
+&  =%
+\begin{cases}
+\max\left(  \operatorname*{Div}\left(  c_{1},c_{2},\ldots,c_{\ell}\right)
+\right)  , & \text{if }0\notin\operatorname*{Div}\left(  c_{1},c_{2}%
+,\ldots,c_{\ell}\right)  ;\\
+0, & \text{if }0\in\operatorname*{Div}\left(  c_{1},c_{2},\ldots,c_{\ell
+}\right)
+\end{cases}
+\end{align*}
+(since $\operatorname*{Div}\left(  b_{1},b_{2},\ldots,b_{k}\right)
+=\operatorname*{Div}\left(  c_{1},c_{2},\ldots,c_{\ell}\right)  $). But Lemma
+\ref{lem.ent.gcd.through-Div} (applied to $c_{1},c_{2},\ldots,c_{\ell}$
+instead of $b_{1},b_{2},\ldots,b_{k}$) yields%
+\[
+\gcd\left(  c_{1},c_{2},\ldots,c_{\ell}\right)  =%
+\begin{cases}
+\max\left(  \operatorname*{Div}\left(  c_{1},c_{2},\ldots,c_{\ell}\right)
+\right)  , & \text{if }0\notin\operatorname*{Div}\left(  c_{1},c_{2}%
+,\ldots,c_{\ell}\right)  ;\\
+0, & \text{if }0\in\operatorname*{Div}\left(  c_{1},c_{2},\ldots,c_{\ell
+}\right)  .
+\end{cases}
+\]
+Comparing these two equalities, we obtain $\gcd\left(  b_{1},b_{2}%
+,\ldots,b_{k}\right)  =\gcd\left(  c_{1},c_{2},\ldots,c_{\ell}\right)  $. This
+proves Lemma \ref{lem.ent.gcd.through-Div}.
+\end{proof}
+
 \begin{proof}
 [Proof of Proposition \ref{prop.ent.gcd.props1}.]\textbf{(a)} Here is a sketch
 of the proof: The number $0$ is a \textquotedblleft joker\textquotedblright%
@@ -3038,8 +3230,8 @@ when $b_{1},b_{2},\ldots,b_{k}$ are all $0$) shows that $\gcd\left(
 $\left\vert 0\right\vert =0$, we obtain $\gcd\left(  0,0\right)  =\gcd\left(
 0\right)  =\left\vert 0\right\vert $. In other words, Proposition
 \ref{prop.ent.gcd.props1} \textbf{(a)} holds if $a=0$. Thus, for the rest of
-this proof, we WLOG assume that $a\neq0$. Hence, not all of the two numbers
-$a,0$ are zero. Thus, $\gcd\left(  a,0\right)  $ is defined to be the largest
+this proof, we WLOG assume that $a\neq0$. Hence, the two integers $a,0$ are
+not all zero. Thus, $\gcd\left(  a,0\right)  $ is defined to be the largest
 element of the set $\operatorname*{Div}\left(  a,0\right)  $ (by Definition
 \ref{def.ent.gcd.gcd}). Likewise, $\gcd\left(  a\right)  $ is the largest
 element of the set $\operatorname*{Div}\left(  a\right)  $.
@@ -3048,18 +3240,18 @@ We shall now prove that $\operatorname*{Div}\left(  a,0\right)
 =\operatorname*{Div}\left(  a\right)  $. Indeed, for any integer $x$, we have
 the following chain of equivalences:%
 \begin{align*}
-&  \ \left(  x\in\operatorname*{Div}\left(  a,0\right)  \right)  \\
+&  \ \left(  x\in\operatorname*{Div}\left(  a,0\right)  \right) \\
 &  \Longleftrightarrow\ \left(  x\text{ is a common divisor of }a\text{ and
 }0\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of
-}\operatorname*{Div}\left(  a,0\right)  \right)  \\
+}\operatorname*{Div}\left(  a,0\right)  \right) \\
 &  \Longleftrightarrow\ \left(  x\mid a\text{ and }x\mid0\right)
 \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of a \textquotedblleft
-common divisor\textquotedblright}\right)  \\
+common divisor\textquotedblright}\right) \\
 &  \Longleftrightarrow\ \left(  x\mid a\right)  \ \ \ \ \ \ \ \ \ \ \left(
-\text{since }x\mid0\text{ always holds (since }0=x\cdot0\text{)}\right)  \\
+\text{since }x\mid0\text{ always holds (since }0=x\cdot0\text{)}\right) \\
 &  \Longleftrightarrow\ \left(  x\text{ is a common divisor of }a\right)
 \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of a \textquotedblleft
-common divisor\textquotedblright}\right)  \\
+common divisor\textquotedblright}\right) \\
 &  \Longleftrightarrow\ \left(  x\in\operatorname*{Div}\left(  a\right)
 \right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of }%
 \operatorname*{Div}\left(  a\right)  \right)  .
@@ -3068,29 +3260,22 @@ In other words, an integer belongs to $\operatorname*{Div}\left(  a,0\right)
 $ if and only if it belongs to $\operatorname*{Div}\left(  a\right)  $. Thus,
 $\operatorname*{Div}\left(  a,0\right)  =\operatorname*{Div}\left(  a\right)
 $ (since both $\operatorname*{Div}\left(  a,0\right)  $ and
-$\operatorname*{Div}\left(  a\right)  $ are sets of integers). Now, recall
-that $\gcd\left(  a,0\right)  $ is the largest element of the set
-$\operatorname*{Div}\left(  a,0\right)  $. Thus,
-\begin{align*}
-\gcd\left(  a,0\right)   &  =\left(  \text{the largest element of the set
-}\underbrace{\operatorname*{Div}\left(  a,0\right)  }_{=\operatorname*{Div}%
-\left(  a\right)  }\right)  \\
-&  =\left(  \text{the largest element of the set }\operatorname*{Div}\left(
-a\right)  \right)  =\gcd\left(  a\right)
-\end{align*}
-(since $\gcd\left(  a\right)  $ is the largest element of the set
-$\operatorname*{Div}\left(  a\right)  $).
+$\operatorname*{Div}\left(  a\right)  $ are sets of integers). Thus, Lemma
+\ref{lem.ent.gcd.through-Div} (applied to $\left(  a,0\right)  $ and $\left(
+a\right)  $ instead of $\left(  b_{1},b_{2},\ldots,b_{k}\right)  $ and
+$\left(  c_{1},c_{2},\ldots,c_{\ell}\right)  $) yields $\gcd\left(
+a,0\right)  =\gcd\left(  a\right)  $.
 
-For any integer $x$, we have the following chain of equivalences:%
+For any integer $x$, we have the following chain of equivalences:
 \begin{align*}
-& \ \left(  x\in\operatorname*{Div}\left(  a\right)  \right)  \\
-& \Longleftrightarrow\ \left(  x\text{ is a common divisor of }a\right)
+&  \ \left(  x\in\operatorname*{Div}\left(  a\right)  \right) \\
+&  \Longleftrightarrow\ \left(  x\text{ is a common divisor of }a\right)
 \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of }\operatorname*{Div}%
-\left(  a\right)  \right)  \\
-& \Longleftrightarrow\ \left(  x\mid a\right)  \ \ \ \ \ \ \ \ \ \ \left(
+\left(  a\right)  \right) \\
+&  \Longleftrightarrow\ \left(  x\mid a\right)  \ \ \ \ \ \ \ \ \ \ \left(
 \text{by the definition of a \textquotedblleft common
-divisor\textquotedblright}\right)  \\
-& \Longleftrightarrow\ \left(  x\text{ is a divisor of }a\right)  .
+divisor\textquotedblright}\right) \\
+&  \Longleftrightarrow\ \left(  x\text{ is a divisor of }a\right)  .
 \end{align*}
 Thus, $\operatorname*{Div}\left(  a\right)  $ is the set of all divisors of
 $a$.
@@ -3126,31 +3311,19 @@ a,0\right)  =\gcd\left(  a\right)  =\left\vert a\right\vert $. Thus,
 Proposition \ref{prop.ent.gcd.props1} \textbf{(a)} is finally proven.
 \end{fineprint}
 
-\textbf{(b)} If $a$ and $b$ are both $0$, then Proposition
-\ref{prop.ent.gcd.props1} \textbf{(b)} holds for trivial
-reasons\footnote{Indeed, if $a$ and $b$ are both $0$, then $\gcd\left(
-a,b\right)  =\gcd\left(  b,a\right)  $ (since both $\gcd\left(  a,b\right)  $
-and $\gcd\left(  b,a\right)  $ equal $\gcd\left(  0,0\right)  $), and thus
-Proposition \ref{prop.ent.gcd.props1} \textbf{(b)} holds.}. Hence, for the
-rest of this proof, we WLOG assume that $a$ and $b$ are not both $0$. Hence,
-$b$ and $a$ are not both $0$. Thus, $\gcd\left(  b,a\right)  $ is defined to
-be the largest element of the set $\operatorname*{Div}\left(  b,a\right)  $
-(by Definition \ref{def.ent.gcd.gcd}). Likewise, $\gcd\left(  a,b\right)  $ is
-the largest element of the set $\operatorname*{Div}\left(  a,b\right)  $.
-
-For any integer $x$, we have the following chain of equivalences:%
+\textbf{(b)} For any integer $x$, we have the following chain of equivalences:%
 \begin{align*}
-&  \ \left(  x\in\operatorname*{Div}\left(  a,b\right)  \right)  \\
+&  \ \left(  x\in\operatorname*{Div}\left(  a,b\right)  \right) \\
 &  \Longleftrightarrow\ \left(  x\text{ is a common divisor of }a\text{ and
 }b\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of
-}\operatorname*{Div}\left(  a,b\right)  \right)  \\
+}\operatorname*{Div}\left(  a,b\right)  \right) \\
 &  \Longleftrightarrow\ \left(  x\mid a\text{ and }x\mid b\right)
 \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of a \textquotedblleft
-common divisor\textquotedblright}\right)  \\
-&  \Longleftrightarrow\ \left(  x\mid b\text{ and }x\mid a\right)  \\
+common divisor\textquotedblright}\right) \\
+&  \Longleftrightarrow\ \left(  x\mid b\text{ and }x\mid a\right) \\
 &  \Longleftrightarrow\ \left(  x\text{ is a common divisor of }b\text{ and
 }a\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of a
-\textquotedblleft common divisor\textquotedblright}\right)  \\
+\textquotedblleft common divisor\textquotedblright}\right) \\
 &  \Longleftrightarrow\ \left(  x\in\operatorname*{Div}\left(  b,a\right)
 \right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of }%
 \operatorname*{Div}\left(  b,a\right)  \right)  .
@@ -3159,45 +3332,139 @@ In other words, an integer belongs to $\operatorname*{Div}\left(  a,b\right)
 $ if and only if it belongs to $\operatorname*{Div}\left(  b,a\right)  $.
 Thus, $\operatorname*{Div}\left(  a,b\right)  =\operatorname*{Div}\left(
 b,a\right)  $ (since both $\operatorname*{Div}\left(  a,b\right)  $ and
-$\operatorname*{Div}\left(  b,a\right)  $ are sets of integers). Now, recall
-that $\gcd\left(  a,b\right)  $ is the largest element of the set
-$\operatorname*{Div}\left(  a,b\right)  $. Thus,
-\begin{align*}
-\gcd\left(  a,b\right)   &  =\left(  \text{the largest element of the set
-}\underbrace{\operatorname*{Div}\left(  a,b\right)  }_{=\operatorname*{Div}%
-\left(  b,a\right)  }\right)  \\
-&  =\left(  \text{the largest element of the set }\operatorname*{Div}\left(
-b,a\right)  \right)  =\gcd\left(  b,a\right)
-\end{align*}
-(since $\gcd\left(  a,b\right)  $ is the largest element of the set
-$\operatorname*{Div}\left(  b,a\right)  $). This proves Proposition
+$\operatorname*{Div}\left(  b,a\right)  $ are sets of integers). Thus, Lemma
+\ref{lem.ent.gcd.through-Div} (applied to $\left(  a,b\right)  $ and $\left(
+b,a\right)  $ instead of $\left(  b_{1},b_{2},\ldots,b_{k}\right)  $ and
+$\left(  c_{1},c_{2},\ldots,c_{\ell}\right)  $) yields $\gcd\left(
+a,b\right)  =\gcd\left(  b,a\right)  $. This proves Proposition
 \ref{prop.ent.gcd.props1} \textbf{(b)}.
 
+Let us prove part \textbf{(d)} now, and then derive part \textbf{(c)} from it.
+
 \textbf{(d)} Let $a,b,c\in\mathbb{Z}$ satisfy $b\equiv c\operatorname{mod}a$.
-We must prove that $\gcd\left(  a,b\right)  =\gcd\left(  a,c\right)  $.
+We must prove that $\gcd\left(  a,b\right)  =\gcd\left(  a,c\right)  $. To do
+so, we shall first prove that $\operatorname*{Div}\left(  a,b\right)
+=\operatorname*{Div}\left(  a,c\right)  $.
 
 From $b\equiv c\operatorname{mod}a$, we obtain $c\equiv b\operatorname{mod}a$
 (by Proposition \ref{prop.ent.mod.basics} \textbf{(c)}). Hence, our situation
 is symmetric with respect to $b$ and $c$.
 
 We shall now show that $\operatorname*{Div}\left(  a,b\right)  \subseteq
-\operatorname*{Div}\left(  a,c\right)  $
+\operatorname*{Div}\left(  a,c\right)  $. Indeed, let $x\in\operatorname*{Div}%
+\left(  a,b\right)  $. Then, $x$ is a common divisor of $a$ and $b$ (by the
+definition of $\operatorname*{Div}\left(  a,b\right)  $). In other words,
+$x\mid a$ and $x\mid b$ (by the definition of a \textquotedblleft common
+divisor\textquotedblright). From $x\mid b$, we obtain $b\equiv
+0\operatorname{mod}x$. Thus, $c\equiv b\equiv0\operatorname{mod}x$, so that
+$x\mid c$. Combining $x\mid a$ and $x\mid c$, we see that $x$ is a common
+divisor of $a$ and $c$ (by the definition of a \textquotedblleft common
+divisor\textquotedblright). In other words, $x\in\operatorname*{Div}\left(
+a,c\right)  $ (by the definition of $\operatorname*{Div}\left(  a,c\right)  $).
 
-TODO
+Now, forget that we fixed $x$. We thus have proven that $x\in
+\operatorname*{Div}\left(  a,c\right)  $ for each $x\in\operatorname*{Div}%
+\left(  a,b\right)  $. In other words, $\operatorname*{Div}\left(  a,b\right)
+\subseteq\operatorname*{Div}\left(  a,c\right)  $.
 
-Indeed, for any $b\in\mathbb{Z}$ and any positive integer $a$, we have%
-\[
-b\%a\equiv b\operatorname{mod}a
-\]
-(by Corollary \ref{cor.ent.quo-rem.remmod} \textbf{(a)}), thus $b\equiv
-b\%a\operatorname{mod}a$ and therefore%
-\begin{equation}
-\gcd\left(  a,b\right)  =\gcd\left(  a,b\%a\right)
-\label{eq.prop.ent.gcd.props1.cor1}%
-\end{equation}
-(by Proposition \ref{prop.ent.gcd.props1} \textbf{(d)}, applied to $c=b\%a$).
+The same argument (but with the roles of $b$ and $c$ swapped) shows that
+$\operatorname*{Div}\left(  a,c\right)  \subseteq\operatorname*{Div}\left(
+a,b\right)  $ (since our situation is symmetric with respect to $b$ and $c$).
+Combining this with $\operatorname*{Div}\left(  a,b\right)  \subseteq
+\operatorname*{Div}\left(  a,c\right)  $, we obtain $\operatorname*{Div}%
+\left(  a,b\right)  =\operatorname*{Div}\left(  a,c\right)  $. Thus, Lemma
+\ref{lem.ent.gcd.through-Div} (applied to $\left(  a,b\right)  $ and $\left(
+a,c\right)  $ instead of $\left(  b_{1},b_{2},\ldots,b_{k}\right)  $ and
+$\left(  c_{1},c_{2},\ldots,c_{\ell}\right)  $) yields $\gcd\left(
+a,b\right)  =\gcd\left(  a,c\right)  $. This proves Proposition
+\ref{prop.ent.gcd.props1} \textbf{(d)}.
 
-TODO
+\textbf{(c)} Let $a,b,u\in\mathbb{Z}$. Then, $ua+b\equiv b\operatorname{mod}a$
+(since $\left(  ua+b\right)  -b=ua$ is clearly divisible by $a$). Thus,
+Proposition \ref{prop.ent.gcd.props1} \textbf{(d)} (applied to $ua+b$ and $b$
+instead of $b$ and $c$) yields $\gcd\left(  a,ua+b\right)  =\gcd\left(
+a,b\right)  $. This proves Proposition \ref{prop.ent.gcd.props1} \textbf{(c)}.
+
+\textbf{(e)} Let $a,b\in\mathbb{Z}$ be such that $a$ is positive. Then,
+$b\%a\equiv b\operatorname{mod}a$ (by Corollary \ref{cor.ent.quo-rem.remmod}
+\textbf{(a)}), thus $b\equiv b\%a\operatorname{mod}a$. Hence, $\gcd\left(
+a,b\right)  =\gcd\left(  a,b\%a\right)  $ (by Proposition
+\ref{prop.ent.gcd.props1} \textbf{(d)}, applied to $c=b\%a$). This proves
+Proposition \ref{prop.ent.gcd.props1} \textbf{(e)}.
+
+\textbf{(f)} Let $a,b\in\mathbb{Z}$. We must prove that $\gcd\left(
+a,b\right)  \mid a$ and $\gcd\left(  a,b\right)  \mid b$.
+
+If the two integers $a,b$ are all $0$, then this is
+obvious\footnote{\textit{Proof.} Assume that $a,b$ are all $0$. Then,
+$a=0=\gcd\left(  a,b\right)  \cdot0$, so that $\gcd\left(  a,b\right)  \mid
+a$; similarly, $\gcd\left(  a,b\right)  \mid b$. Hence, we have proven that
+$\gcd\left(  a,b\right)  \mid a$ and $\gcd\left(  a,b\right)  \mid b$ if the
+integers $a,b$ are all $0$.}. Hence, for the rest of this proof, we WLOG
+assume that $a,b$ are not all $0$. Thus, $\gcd\left(  a,b\right)  $ is defined
+to be the largest element of the set $\operatorname*{Div}\left(  a,b\right)  $
+(by Definition \ref{def.ent.gcd.gcd}). Hence, $\gcd\left(  a,b\right)  $ is an
+element of this set $\operatorname*{Div}\left(  a,b\right)  $. In other words,
+$\gcd\left(  a,b\right)  $ is a common divisor of $a$ and $b$ (by the
+definition of $\operatorname*{Div}\left(  a,b\right)  $). In other words,
+$\gcd\left(  a,b\right)  \mid a$ and $\gcd\left(  a,b\right)  \mid b$. This
+proves Proposition \ref{prop.ent.gcd.props1} \textbf{(f)}.
+
+\textbf{(g)} Let $a,b\in\mathbb{Z}$. We must prove that $\gcd\left(
+-a,b\right)  =\gcd\left(  a,b\right)  $. Again, we shall achieve this via
+showing that $\operatorname*{Div}\left(  -a,b\right)  =\operatorname*{Div}%
+\left(  a,b\right)  $.
+
+First, we will show that $\operatorname*{Div}\left(  a,b\right)
+\subseteq\operatorname*{Div}\left(  -a,b\right)  $. Indeed, let $x\in
+\operatorname*{Div}\left(  a,b\right)  $. Then, $x$ is a common divisor of $a$
+and $b$ (by the definition of $\operatorname*{Div}\left(  a,b\right)  $). In
+other words, $x\mid a$ and $x\mid b$ (by the definition of a \textquotedblleft
+common divisor\textquotedblright). We have $a\mid-a$ (since $-a=a\cdot\left(
+-1\right)  $). Thus, $x\mid a\mid-a$. Combining $x\mid-a$ and $x\mid b$, we
+see that $x$ is a common divisor of $-a$ and $b$ (by the definition of a
+\textquotedblleft common divisor\textquotedblright). In other words,
+$x\in\operatorname*{Div}\left(  -a,b\right)  $ (by the definition of
+$\operatorname*{Div}\left(  -a,b\right)  $).
+
+Now, forget that we fixed $x$. We thus have proven that $x\in
+\operatorname*{Div}\left(  -a,b\right)  $ for each $x\in\operatorname*{Div}%
+\left(  a,b\right)  $. In other wrods, $\operatorname*{Div}\left(  a,b\right)
+\subseteq\operatorname*{Div}\left(  -a,b\right)  $.
+
+The same argument (but applied to $-a$ instead of $a$) shows that
+$\operatorname*{Div}\left(  -a,b\right)  \subseteq\operatorname*{Div}\left(
+-\left(  -a\right)  ,b\right)  $. Since $-\left(  -a\right)  =a$, this
+rewrites as $\operatorname*{Div}\left(  -a,b\right)  \subseteq
+\operatorname*{Div}\left(  a,b\right)  $. Combining this with
+$\operatorname*{Div}\left(  a,b\right)  \subseteq\operatorname*{Div}\left(
+-a,b\right)  $, we obtain $\operatorname*{Div}\left(  -a,b\right)
+=\operatorname*{Div}\left(  a,b\right)  $. Thus, Lemma
+\ref{lem.ent.gcd.through-Div} (applied to $\left(  -a,b\right)  $ and $\left(
+a,b\right)  $ instead of $\left(  b_{1},b_{2},\ldots,b_{k}\right)  $ and
+$\left(  c_{1},c_{2},\ldots,c_{\ell}\right)  $) yields $\gcd\left(
+-a,b\right)  =\gcd\left(  a,b\right)  $. This proves Proposition
+\ref{prop.ent.gcd.props1} \textbf{(g)}.
+
+\textbf{(h)} We can prove this similarly to how we just proved Proposition
+\ref{prop.ent.gcd.props1} \textbf{(g)}, but it is easier to derive it from
+what was already shown.
+
+Let $a,b\in\mathbb{Z}$. Proposition \ref{prop.ent.gcd.props1} \textbf{(b)}
+(applied to $-b$ instead of $b$) yields%
+\begin{align*}
+\gcd\left(  a,-b\right)   &  =\gcd\left(  -b,a\right)  =\gcd\left(
+b,a\right)  \ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{by Proposition \ref{prop.ent.gcd.props1} \textbf{(g),}}\\
+\text{applied to }b\text{ and }a\text{ instead of }a\text{ and }b
+\end{array}
+\right) \\
+&  =\gcd\left(  a,b\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition
+\ref{prop.ent.gcd.props1} \textbf{(b)}}\right)  .
+\end{align*}
+This proves Proposition \ref{prop.ent.gcd.props1} \textbf{(h)}.
 \end{proof}
 
 \begin{remark}
@@ -3205,11 +3472,13 @@ Proposition \ref{prop.ent.gcd.props1} says that if we add a multiple of $a$ to
 $b$, then $\gcd\left(  a,b\right)  $ does not change. Similarly, if we add a
 multiple of $b$ to $a$, then $\gcd\left(  a,b\right)  $ does not change (i.e.,
 we have $\gcd\left(  vb+a,b\right)  =\gcd\left(  a,b\right)  $ for all
-$a,b,v\in\mathbb{Z}$). However, if we \textbf{simultaneously} add a multiple
-of $a$ to $b$ and a multiple of $b$ to $a$, then $\gcd\left(  a,b\right)  $
-may well change: i.e., we may have $\gcd\left(  vb+a,ua+b\right)  \neq
-\gcd\left(  a,b\right)  $ for all $a,b,u,v\in\mathbb{Z}$. Examples are easy to
-find (just take $v=1$ and $u=1$).
+$a,b,v\in\mathbb{Z}$).
+
+However, if we \textbf{simultaneously} add a multiple of $a$ to $b$ and a
+multiple of $b$ to $a$, then $\gcd\left(  a,b\right)  $ may well change: i.e.,
+we may have $\gcd\left(  vb+a,ua+b\right)  \neq\gcd\left(  a,b\right)  $ for
+all $a,b,u,v\in\mathbb{Z}$. Examples are easy to find (just take $v=1$ and
+$u=1$).
 \end{remark}
 
 Proposition \ref{prop.ent.gcd.props1} gives a quick way to compute
@@ -3243,6 +3512,8 @@ $\gcd\left(  210,45\right)  $ as follows:%
 This method of computing $\gcd\left(  a,b\right)  $ is called the
 \textit{Euclidean algorithm}, and is usually much faster than the divisors of
 $a$ or the divisors of $b$ can be found!
+
+\subsubsection{Bezout's theorem}
 
 The following fact about gcds is one of the most important facts in number theory:
 
@@ -3398,7 +3669,8 @@ holds whenever $a+b=n$. This completes the induction step. Thus, Lemma
 \ref{lem.ent.gcd.bezout.++} is proven by strong induction.
 \end{proof}
 
-Next, we shall prove Theorem \ref{thm.ent.gcd.bezout} when $a\in\mathbb{N}$:
+Next, we shall prove Theorem \ref{thm.ent.gcd.bezout} when $a\in\mathbb{N}$
+but $b$ may be negative:
 
 \begin{lemma}
 \label{lem.ent.gcd.bezout.+}Let $a\in\mathbb{N}$ and $b\in\mathbb{Z}$. Then,
@@ -3416,36 +3688,105 @@ there exist integers $x\in\mathbb{Z}$ and $y\in\mathbb{Z}$ such that%
 
 \textit{Case 2:} We have $b<0$.
 
-Let us first consider Case 1. In this case, we have $b\geq0$.
+Let us first consider Case 1. In this case, we have $b\geq0$. Thus,
+$b\in\mathbb{N}$ (since $b\in\mathbb{Z}$). Therefore, Lemma
+\ref{lem.ent.gcd.bezout.++} shows that there exist integers $x\in\mathbb{Z}$
+and $y\in\mathbb{Z}$ such that $\gcd\left(  a,b\right)  =xa+yb$. Thus, Lemma
+\ref{lem.ent.gcd.bezout.+} is proven in Case 1.
 
-TODO
+Let us now consider Case 2. In this case, we have $b<0$. Hence, $-b>0$, so
+that $-b\in\mathbb{N}$ (since $-b\in\mathbb{Z}$). Therefore, Lemma
+\ref{lem.ent.gcd.bezout.++} (applied to $-b$ instead of $b$) shows that there
+exist integers $x\in\mathbb{Z}$ and $y\in\mathbb{Z}$ such that $\gcd\left(
+a,-b\right)  =xa+y\left(  -b\right)  $. Fix such integers, and denote them by
+$x_{0}$ and $y_{0}$. Thus, $x_{0}\in\mathbb{Z}$ and $y_{0}\in\mathbb{Z}$ are
+integers such that $\gcd\left(  a,-b\right)  =x_{0}a+y_{0}\left(  -b\right)  $.
+
+Now, Proposition \ref{prop.ent.gcd.props1} \textbf{(h)} yields $\gcd\left(
+a,-b\right)  =\gcd\left(  a,b\right)  $. Hence,%
+\[
+\gcd\left(  a,b\right)  =\gcd\left(  a,-b\right)  =x_{0}a+y_{0}\left(
+-b\right)  =x_{0}a+\left(  -y_{0}\right)  b.
+\]
+Hence, there exist integers $x\in\mathbb{Z}$ and $y\in\mathbb{Z}$ such that
+$\gcd\left(  a,b\right)  =xa+yb$ (namely, $x=x_{0}$ and $y=-y_{0}$). Thus,
+Lemma \ref{lem.ent.gcd.bezout.+} is proven in Case 2.
+
+We have now proven Lemma \ref{lem.ent.gcd.bezout.+} in both Cases 1 and 2.
+Hence, Lemma \ref{lem.ent.gcd.bezout.+} is proven.
 \end{proof}
 
 Now, we can prove the whole Theorem \ref{thm.ent.gcd.bezout}:
 
 \begin{proof}
-[Proof of Theorem \ref{thm.ent.gcd.bezout}.]TODO
+[Proof of Theorem \ref{thm.ent.gcd.bezout}.]Theorem \ref{thm.ent.gcd.bezout}
+can be derived from Lemma \ref{lem.ent.gcd.bezout.+} in the same way as Lemma
+\ref{lem.ent.gcd.bezout.+} was derived from Lemma \ref{lem.ent.gcd.bezout.++}
+(except that this time, we have to distinguish between the cases $a\geq0$ and
+$a<0$, and we have to use Proposition \ref{prop.ent.gcd.props1} \textbf{(g)}
+and Proposition \ref{prop.ent.gcd.props1} \textbf{(h)}). Again, let us give
+the detailed argument for the sake of completeness:
+
+\begin{fineprint}
+We are in one of the following two cases:
+
+\textit{Case 1:} We have $a\geq0$.
+
+\textit{Case 2:} We have $a<0$.
+
+Let us first consider Case 1. In this case, we have $a\geq0$. Thus,
+$a\in\mathbb{N}$ (since $a\in\mathbb{Z}$). Therefore, Lemma
+\ref{lem.ent.gcd.bezout.+} shows that there exist integers $x\in\mathbb{Z}$
+and $y\in\mathbb{Z}$ such that $\gcd\left(  a,b\right)  =xa+yb$. Thus, Theorem
+\ref{thm.ent.gcd.bezout} is proven in Case 1.
+
+Let us now consider Case 2. In this case, we have $a<0$. Hence, $-a>0$, so
+that $-a\in\mathbb{N}$ (since $-a\in\mathbb{Z}$). Therefore, Lemma
+\ref{lem.ent.gcd.bezout.+} (applied to $-a$ instead of $a$) shows that there
+exist integers $x\in\mathbb{Z}$ and $y\in\mathbb{Z}$ such that $\gcd\left(
+-a,b\right)  =x\left(  -a\right)  +yb$. Fix such integers, and denote them by
+$x_{0}$ and $y_{0}$. Thus, $x_{0}\in\mathbb{Z}$ and $y_{0}\in\mathbb{Z}$ are
+integers such that $\gcd\left(  -a,b\right)  =x_{0}\left(  -a\right)  +y_{0}b$.
+
+Now, Proposition \ref{prop.ent.gcd.props1} \textbf{(g)} yields $\gcd\left(
+-a,b\right)  =\gcd\left(  a,b\right)  $. Hence,%
+\[
+\gcd\left(  a,b\right)  =\gcd\left(  -a,b\right)  =x_{0}\left(  -a\right)
++y_{0}b=\left(  -x_{0}\right)  a+y_{0}b.
+\]
+Hence, there exist integers $x\in\mathbb{Z}$ and $y\in\mathbb{Z}$ such that
+$\gcd\left(  a,b\right)  =xa+yb$ (namely, $x=-x_{0}$ and $y=y_{0}$). Thus,
+Theorem \ref{thm.ent.gcd.bezout} is proven in Case 2.
+
+We have now proven Theorem \ref{thm.ent.gcd.bezout} in both Cases 1 and 2.
+Hence, Theorem \ref{thm.ent.gcd.bezout} is proven.
+\end{fineprint}
 \end{proof}
+
+\subsubsection{First applications of Bezout's theorem}
 
 An important corollary of Theorem \ref{thm.ent.gcd.bezout} is the following fact:
 
 \begin{theorem}
-\label{thm.ent.gcd.uniprop}Let $m,a,b\in\mathbb{Z}$. Then, we have the
-following logical equivalence:%
+\label{thm.ent.gcd.uniprop}Let $m,a,b\in\mathbb{Z}$. Then:
+
+\textbf{(a)} We have the following logical equivalence:%
 \begin{equation}
 \left(  m\mid a\ \text{and }m\mid b\right)  \ \Longleftrightarrow\ \left(
 m\mid\gcd\left(  a,b\right)  \right)  . \label{eq.thm.ent.gcd.uniprop.equiv}%
 \end{equation}
-In other words, the common divisors of $a$ and $b$ are precisely the divisors
-of $\gcd\left(  a,b\right)  $. In other words,
-\begin{equation}
-\operatorname*{Div}\left(  a,b\right)  =\operatorname*{Div}\left(  \gcd\left(
-a,b\right)  \right)  . \label{eq.thm.ent.gcd.uniprop.Div=Div}%
-\end{equation}
 
+
+\textbf{(b)} The common divisors of $a$ and $b$ are precisely the divisors of
+$\gcd\left(  a,b\right)  $.
+
+\textbf{(c)} We have $\operatorname*{Div}\left(  a,b\right)
+=\operatorname*{Div}\left(  \gcd\left(  a,b\right)  \right)  $.
 \end{theorem}
 
-To prove this, we first show the following:
+The three parts of this theorem are saying the same thing from slightly
+different perspectives; the importance of the theorem nevertheless justifies
+this repetition. To prove the theorem, we first show the following:
 
 \begin{lemma}
 \label{lem.ent.gcd.uniprop}Let $m,a,b\in\mathbb{Z}$ be such that $m\mid a$ and
@@ -3469,8 +3810,7 @@ a,b\right)  $. This proves Lemma \ref{lem.ent.gcd.uniprop}.
 \end{proof}
 
 \begin{proof}
-[Proof of Theorem \ref{thm.ent.gcd.uniprop}.]Let us first prove
-(\ref{eq.thm.ent.gcd.uniprop.equiv}). In order to prove
+[Proof of Theorem \ref{thm.ent.gcd.uniprop}.]\textbf{(a)} In order to prove
 (\ref{eq.thm.ent.gcd.uniprop.equiv}), we need to prove the \textquotedblleft%
 $\Longrightarrow$\textquotedblright\ and \textquotedblleft$\Longleftarrow
 $\textquotedblright\ directions of the equivalence
@@ -3489,48 +3829,48 @@ m\mid\gcd\left(  a,b\right)  \mid b\ \ \ \ \ \ \ \ \ \ \left(  \text{by
 Proposition \ref{prop.ent.gcd.props1} \textbf{(e)}}\right)  ,
 \]
 and thus $\left(  m\mid a\ \text{and }m\mid b\right)  $). Hence, the
-equivalence (\ref{eq.thm.ent.gcd.uniprop.equiv}) is proven.{}
+equivalence (\ref{eq.thm.ent.gcd.uniprop.equiv}) is proven.{}This proves
+Theorem \ref{thm.ent.gcd.uniprop} \textbf{(a)}.
 
-The common divisors of $a$ and $b$ are precisely the integers $m$ that satisfy
-$\left(  m\mid a\text{ and }m\mid b\right)  $ (by the definition of
-\textquotedblleft common divisor\textquotedblright). In view of the
+\textbf{(b)} The common divisors of $a$ and $b$ are precisely the integers $m$
+that satisfy $\left(  m\mid a\text{ and }m\mid b\right)  $ (by the definition
+of \textquotedblleft common divisor\textquotedblright). In view of the
 equivalence (\ref{eq.thm.ent.gcd.uniprop.equiv}), this rewrites as follows:
 The common divisors of $a$ and $b$ are precisely the integers $m$ that satisfy
 $m\mid\gcd\left(  a,b\right)  $. In other words, the common divisors of $a$
-and $b$ are precisely the divisors of $\gcd\left(  a,b\right)  $. In other
-words,%
-\[
-\left\{  \text{the common divisors of }a\text{ and }b\right\}  =\left\{
+and $b$ are precisely the divisors of $\gcd\left(  a,b\right)  $. This proves
+Theorem \ref{thm.ent.gcd.uniprop} \textbf{(b)}.
+
+\textbf{(c)} Recall that each $c\in\mathbb{Z}$ satisfies%
+\begin{align*}
+\operatorname*{Div}\left(  c\right)   &  =\left\{  \text{the common divisors
+of }c\right\}  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of
+}\operatorname*{Div}\left(  c\right)  \right) \\
+&  =\left\{  \text{the integers }x\text{ such that }x\mid c\right\} \\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of \textquotedblleft
+common divisors\textquotedblright}\right) \\
+&  =\left\{  \text{the divisors of }c\right\}  .
+\end{align*}
+Applying this to $c=\gcd\left(  a,b\right)  $, we obtain%
+\begin{equation}
+\operatorname*{Div}\left(  \gcd\left(  a,b\right)  \right)  =\left\{
 \text{the divisors of }\gcd\left(  a,b\right)  \right\}  .
-\]
+\label{pf.thm.ent.gcd.uniprop.c.1a}%
+\end{equation}
 
 
-TODO: last equality.
-\end{proof}
-
-\begin{corollary}
-\label{cor.ent.gcd.sa,sb}Let $s,a,b\in\mathbb{Z}$. Then,
-\[
-\gcd\left(  sa,sb\right)  =\left\vert s\right\vert \gcd\left(  a,b\right)  .
-\]
-
-\end{corollary}
-
-\begin{proof}
-[Proof of Corollary \ref{cor.ent.gcd.sa,sb}.]TODO.
-\end{proof}
-
-\begin{exercise}
-\label{exe.ent.gcd.div}Let $a_{1},a_{2},b_{1},b_{2}\in\mathbb{Z}$ satisfy
-$a_{1}\mid b_{1}$ and $a_{2}\mid b_{2}$. Prove that%
-\[
-\gcd\left(  a_{1},a_{2}\right)  \mid\gcd\left(  b_{1},b_{2}\right)  .
-\]
-
-\end{exercise}
-
-\begin{proof}
-[Solution to Exercise \ref{exe.ent.gcd.div}.]TODO.
+The definition of $\operatorname*{Div}\left(  a,b\right)  $ yields%
+\begin{align*}
+\operatorname*{Div}\left(  a,b\right)   &  =\left\{  \text{the common divisors
+of }a\text{ and }b\right\} \\
+&  =\left\{  \text{the divisors of }\gcd\left(  a,b\right)  \right\}
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by Theorem \ref{thm.ent.gcd.uniprop}
+\textbf{(b)}}\right) \\
+&  =\operatorname*{Div}\left(  \gcd\left(  a,b\right)  \right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.thm.ent.gcd.uniprop.c.1a}%
+)}\right)  .
+\end{align*}
+This proves Theorem \ref{thm.ent.gcd.uniprop} \textbf{(c)}.
 \end{proof}
 
 The following corollary of Theorem \ref{thm.ent.gcd.bezout} let us
@@ -3556,7 +3896,7 @@ c$ (and indeed, this does not hold).
 \end{example}
 
 \begin{proof}
-[Proof of Theorem \ref{thm.ent.gcd.combine}.] Theorem \ref{thm.ent.gcd.bezout}
+[Proof of Theorem \ref{thm.ent.gcd.combine}.]Theorem \ref{thm.ent.gcd.bezout}
 yields that there exist integers $x\in\mathbb{Z}$ and $y\in\mathbb{Z}$ such
 that $\gcd\left(  a,b\right)  =xa+yb$. Consider these $x$ and $y$.
 
@@ -3607,6 +3947,104 @@ c=\gcd\left(  a,b\right)  \cdot c$, this rewrites as $\gcd\left(  a,b\right)
 \cdot c\equiv0\operatorname{mod}a$. In other words, $a\mid\gcd\left(
 a,b\right)  \cdot c$. This proves Theorem \ref{thm.ent.gcd.cancel}.
 \end{proof}
+
+\begin{corollary}
+\label{cor.ent.gcd.sa,sb}Let $s,a,b\in\mathbb{Z}$. Then,
+\[
+\gcd\left(  sa,sb\right)  =\left\vert s\right\vert \gcd\left(  a,b\right)  .
+\]
+
+\end{corollary}
+
+\begin{proof}
+[Proof of Corollary \ref{cor.ent.gcd.sa,sb}.]We shall prove that the two
+integers $\gcd\left(  sa,sb\right)  $ and $s\gcd\left(  a,b\right)  $ mutually
+divide each other (i.e., they satisfy $\gcd\left(  sa,sb\right)  \mid
+s\gcd\left(  a,b\right)  $ and $s\gcd\left(  a,b\right)  \mid\gcd\left(
+sa,sb\right)  $). Then, Exercise \ref{exe.ent.div.abba} will let us conclude
+that $\left\vert \gcd\left(  sa,sb\right)  \right\vert =\left\vert
+s\gcd\left(  a,b\right)  \right\vert $. This will then rewrite as $\gcd\left(
+sa,sb\right)  =\left\vert s\right\vert \gcd\left(  a,b\right)  $, and we will
+be done. (This trick is actually a common strategy for proving equalities
+between gcds.)
+
+For the sake of brevity, let us set $g=\gcd\left(  sa,sb\right)  $ and
+$h=s\gcd\left(  a,b\right)  $. So our first goal is to prove that $g\mid h$
+and $h\mid g$.
+
+\textit{Proof of }$g\mid h$\textit{:} Theorem \ref{thm.ent.gcd.bezout} yields
+that there exist integers $x\in\mathbb{Z}$ and $y\in\mathbb{Z}$ such that
+$\gcd\left(  a,b\right)  =xa+yb$. Consider these $x$ and $y$.
+
+Proposition \ref{prop.ent.gcd.props1} \textbf{(f)} (applied to $sa$ and $sb$
+instead of $a$ and $b$) yields that $\gcd\left(  sa,sb\right)  \mid sa$ and
+$\gcd\left(  sa,sb\right)  \mid sb$. From $g=\gcd\left(  sa,sb\right)  \mid
+sa$, we obtain $g\mid sa\mid xsa$, thus $xsa\equiv0\operatorname{mod}g$.
+Similarly, $ysb\equiv0\operatorname{mod}g$. Adding these two congruences
+together, we find $xsa+ysb\equiv0\operatorname{mod}g$. Now,%
+\[
+h=s\underbrace{\gcd\left(  a,b\right)  }_{=xa+yb}=s\left(  xa+yb\right)
+=xsa+ysb\equiv0\operatorname{mod}g.
+\]
+In other words, $g\mid h$. Thus, we have proven $g\mid h$.
+
+\textit{Proof of }$h\mid g$\textit{:} Proposition \ref{prop.ent.gcd.props1}
+\textbf{(f)} yields $\gcd\left(  a,b\right)  \mid a$ and $\gcd\left(
+a,b\right)  \mid b$. Also, $s\mid s$. Hence, Proposition \ref{prop.ent.div.2}
+\textbf{(c)} (applied to $s,\gcd\left(  a,b\right)  ,s,a$ instead of
+$a_{1},a_{2},b_{1},b_{2}$) yields $s\gcd\left(  a,b\right)  \mid sa$.
+Similarly, $s\gcd\left(  a,b\right)  \mid sb$. Hence, Lemma
+\ref{lem.ent.gcd.uniprop} (applied to $s\gcd\left(  a,b\right)  $, $sa$ and
+$sb$ instead of $m$, $a$ and $b$) yields $s\gcd\left(  a,b\right)  \mid
+\gcd\left(  sa,sb\right)  $. In view of $g=\gcd\left(  sa,sb\right)  $ and
+$h=s\gcd\left(  a,b\right)  $, this rewrites as $h\mid g$. So we have proven
+$h\mid g$.
+
+Now, Exercise \ref{exe.ent.div.abba} (applied to $g$ and $h$ instead of $a$
+and $b$) yields $\left\vert g\right\vert =\left\vert h\right\vert $.
+
+But recall that a gcd of any finitely many integers is nonnegative (by
+Definition \ref{def.ent.gcd.gcd}). Hence, in particular, $\gcd\left(
+a,b\right)  $ and $\gcd\left(  sa,sb\right)  $ are nonnegative. From
+$g=\gcd\left(  sa,sb\right)  $, we obtain%
+\[
+\left\vert g\right\vert =\left\vert \gcd\left(  sa,sb\right)  \right\vert
+=\gcd\left(  sa,sb\right)
+\]
+(since $\gcd\left(  sa,sb\right)  $ is nonnegative). Also, from $h=s\gcd
+\left(  a,b\right)  $, we obtain%
+\begin{align*}
+\left\vert h\right\vert  &  =\left\vert s\gcd\left(  a,b\right)  \right\vert
+=\left\vert s\right\vert \cdot\underbrace{\left\vert \gcd\left(  a,b\right)
+\right\vert }_{\substack{=\gcd\left(  a,b\right)  \\\text{(since }\gcd\left(
+a,b\right)  \\\text{is nonnegative)}}}\ \ \ \ \ \ \ \ \ \ \left(  \text{by
+(\ref{eq.ent.div.abs(xy)})}\right) \\
+&  =\left\vert s\right\vert \gcd\left(  a,b\right)  .
+\end{align*}
+Hence,
+\[
+\gcd\left(  sa,sb\right)  =\left\vert g\right\vert =\left\vert h\right\vert
+=\left\vert s\right\vert \gcd\left(  a,b\right)  .
+\]
+This proves Corollary \ref{cor.ent.gcd.sa,sb}.
+\end{proof}
+
+\begin{exercise}
+\label{exe.ent.gcd.div}Let $a_{1},a_{2},b_{1},b_{2}\in\mathbb{Z}$ satisfy
+$a_{1}\mid b_{1}$ and $a_{2}\mid b_{2}$. Prove that%
+\[
+\gcd\left(  a_{1},a_{2}\right)  \mid\gcd\left(  b_{1},b_{2}\right)  .
+\]
+
+\end{exercise}
+
+\begin{proof}
+[Solution to Exercise \ref{exe.ent.gcd.div}.]TODO. (HW?)
+\end{proof}
+
+\begin{center}
+\textbf{2019-02-06 lecture}
+\end{center}
 
 \subsection{Coprime integers}
 
@@ -3722,7 +4160,7 @@ $b\mid c$ and $a\perp b$. Then, $ab\mid c$.
 \end{theorem}
 
 \begin{proof}
-[Proof of Theorem \ref{thm.ent.coprime.combine}.] We have $a\perp b$; in other
+[Proof of Theorem \ref{thm.ent.coprime.combine}.]We have $a\perp b$; in other
 words, $a$ is coprime to $b$ (by Definition \ref{def.ent.coprime.perp}). In
 other words, $\gcd\left(  a,b\right)  =1$ (by the definition of
 \textquotedblleft coprime\textquotedblright). Now, Theorem
@@ -3730,9 +4168,7 @@ other words, $\gcd\left(  a,b\right)  =1$ (by the definition of
 }_{=1}\cdot c=c$. This proves Theorem \ref{thm.ent.coprime.combine}.
 \end{proof}
 
-\begin{center}
-\textbf{2019-02-06 lecture}
-\end{center}TODO:
+TODO:
 
 \begin{itemize}
 \item corollary: existence of modular inverses.
@@ -3744,7 +4180,7 @@ c$.
 
 \item gcd*lcm.
 
-\item $\gcd$ of multiple numbers.
+\item $\gcd$ of multiple numbers by repeated $\gcd$ing.
 
 \item application: if $k$ is odd then $1+2+\cdots+n\mid1^{k}+2^{k}%
 +\cdots+n^{k}$. (illustrates several things.)
@@ -4059,7 +4495,7 @@ gets updated; for a \textquotedblleft frozen\textquotedblright\ version whose
 numbering is guaranteed to match that in the citations above, see
 \url{https://github.com/darijgr/detnotes/releases/tag/2019-01-10} .
 
-\bibitem[floor]{Grinbe16}Darij Grinberg, \textit{18.781 (Spring 2016): Floor
+\bibitem[Grinbe16]{floor}Darij Grinberg, \textit{18.781 (Spring 2016): Floor
 and arithmetic functions}, 19 June 2016.\newline\url{http://www.cip.ifi.lmu.de/~grinberg/floor.pdf}
 
 \bibitem[Hammac18]{Hammack}Richard Hammack, \textit{Book of Proof}, 3rd
