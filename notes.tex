@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Wednesday, February 06, 2019 08:37:57}
+%TCIDATA{LastRevised=Wednesday, February 06, 2019 14:59:18}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -3784,7 +3784,7 @@ An important corollary of Theorem \ref{thm.ent.gcd.bezout} is the following fact
 equivalence:%
 \begin{equation}
 \left(  m\mid a\ \text{and }m\mid b\right)  \ \Longleftrightarrow\ \left(
-m\mid\gcd\left(  a,b\right)  \right)  .\label{eq.thm.ent.gcd.uniprop.equiv}%
+m\mid\gcd\left(  a,b\right)  \right)  . \label{eq.thm.ent.gcd.uniprop.equiv}%
 \end{equation}
 
 
@@ -4060,7 +4060,7 @@ a,b\right)  =\gcd\left(  \left\vert a\right\vert ,\left\vert b\right\vert
 \end{exercise}
 
 \begin{proof}
-[Solution to Exercise \ref{exe.ent.gcd.abs}.] TODO.
+[Solution to Exercise \ref{exe.ent.gcd.abs}.]TODO.
 \end{proof}
 
 \subsubsection{gcds of multiple numbers}
@@ -4094,27 +4094,31 @@ b_{1},b_{2},\ldots,b_{k-1}\right)  ,b_{k}\right)  .
 \]
 
 
-\textbf{(e)} There exist integers $x_{1},x_{2},\ldots,x_{k}$ such that
-$x_{1}b_{1}+x_{2}b_{2}+\cdots+x_{k}b_{k}=1$.
+\textbf{(e)} There exist integers $x_{1},x_{2},\ldots,x_{k}$ such that%
+\[
+\gcd\left(  b_{1},b_{2},\ldots,b_{k}\right)  =x_{1}b_{1}+x_{2}b_{2}%
++\cdots+x_{k}b_{k}.
+\]
+
 \end{theorem}
 
 \begin{proof}
-[Proof of Theorem \ref{thm.ent.gcd.uniprop-mul}.] TODO!
+[Proof of Theorem \ref{thm.ent.gcd.uniprop-mul}.]TODO!
 \end{proof}
 
 \begin{theorem}
 \label{thm.ent.gcd.split}Let $b_{1},b_{2},\ldots,b_{k}$ be some integers, and
 let $c_{1},c_{2},\ldots,c_{\ell}$ be some integers. Then,%
 \begin{align*}
-& \gcd\left(  b_{1},b_{2},\ldots,b_{k},c_{1},c_{2},\ldots,c_{\ell}\right)  \\
-& =\gcd\left(  \gcd\left(  b_{1},b_{2},\ldots,b_{k}\right)  ,\gcd\left(
+&  \gcd\left(  b_{1},b_{2},\ldots,b_{k},c_{1},c_{2},\ldots,c_{\ell}\right) \\
+&  =\gcd\left(  \gcd\left(  b_{1},b_{2},\ldots,b_{k}\right)  ,\gcd\left(
 c_{1},c_{2},\ldots,c_{\ell}\right)  \right)  .
 \end{align*}
 
 \end{theorem}
 
 \begin{proof}
-[Proof of Theorem \ref{thm.ent.gcd.split}.] TODO! Prove left$\leq$right and
+[Proof of Theorem \ref{thm.ent.gcd.split}.]TODO! Prove left$\leq$right and
 right$\leq$left, I think.
 \end{proof}
 
@@ -4130,7 +4134,7 @@ a,b,c\right)  $.
 \end{exercise}
 
 \begin{proof}
-[Solution to Exercise \ref{exe.ent.gcd.sa,sb,sc}.] TODO!
+[Solution to Exercise \ref{exe.ent.gcd.sa,sb,sc}.]TODO!
 \end{proof}
 
 \begin{center}
@@ -4149,28 +4153,33 @@ $a$ is \textit{coprime} to $b$ if and only if $\gcd\left(  a,b\right)  =1$.
 \end{definition}
 
 Instead of \textquotedblleft coprime\textquotedblright, some authors say
-\textquotedblleft relatively prime\textquotedblright. Instead of saying
-\textquotedblleft$a$ and $b$
+\textquotedblleft relatively prime\textquotedblright\ or even
+\textquotedblleft prime\textquotedblright\ (but the latter language risks
+confusion with a more standard notion of \textquotedblleft
+prime\textquotedblright\ that we will see later on.)
 
 \begin{example}
 \textbf{(a)} The number $2$ is coprime to $3$, since $\gcd\left(  2,3\right)
 =1$.
 
-\textbf{(b)} More generally, for any integer $a$, the number $a$ is coprime to
-$a+1$. To prove this, we note that%
+\textbf{(b)} The number $6$ is not coprime to $15$, since $\gcd\left(
+6,15\right)  =3\neq1$.
+
+\textbf{(c)} Let $a$ be an integer. We claim (as a generalization of part
+\textbf{(a)}) that the number $a$ is coprime to $a+1$. To prove this, we note
+that%
 \begin{align*}
 \gcd\left(  a,\underbrace{a}_{=1a}+1\right)   &  =\gcd\left(  a,1a+1\right)
-=\gcd\left(  a,1\right) \\
+=\gcd\left(  a,1\right)  \\
 &  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition \ref{prop.ent.gcd.props1}
-\textbf{(c)}, applied to }u=1\text{ and }b=1\right) \\
+\textbf{(c)}, applied to }u=1\text{ and }b=1\right)  \\
 &  \mid1\ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition
 \ref{prop.ent.gcd.props1} \textbf{(e)}, applied to }b=1\right)  ,
 \end{align*}
 and thus $\gcd\left(  a,a+1\right)  =1$ (since $\gcd\left(  a,a+1\right)  $ is
-a positive integer), which means that $a$ is coprime to $a+b$.
+a positive integer), which means that $a$ is coprime to $a+1$.
 
-\textbf{(c)} The number $6$ is not coprime to $15$, since $\gcd\left(
-6,15\right)  =3\neq1$.
+\textbf{(d)} Let $a$ be an integer. When is $a$ coprime to $2$? TODO.
 \end{example}
 
 Following Donald Knuth, we introduce a slightly quaint notation:
@@ -4245,7 +4254,13 @@ other words, $\gcd\left(  a,b\right)  =1$ (by the definition of
 }_{=1}\cdot c=c$. This proves Theorem \ref{thm.ent.coprime.cancel}.
 \end{proof}
 
-The next one lets us \textquotedblleft combine\textquotedblright\ two
+I like to think of Theorem \ref{thm.ent.coprime.combine} as a way of removing
+\textquotedblleft unsolicited guests\textquotedblright\ from divisibilities.
+Indeed, it says that we can remove the factor $b$ from $a\mid bc$ if we know
+that $b$ is \textquotedblleft unrelated\textquotedblright\ (i.e., coprime) to
+$a$.
+
+The next theorem lets us \textquotedblleft combine\textquotedblright\ two
 divisibilities $a\mid c$ and $b\mid c$ to $ab\mid c$ as long as $a$ and $b$
 are coprime:
 
@@ -4263,6 +4278,24 @@ other words, $\gcd\left(  a,b\right)  =1$ (by the definition of
 }_{=1}\cdot c=c$. This proves Theorem \ref{thm.ent.coprime.combine}.
 \end{proof}
 
+Theorem \ref{thm.ent.coprime.combine} can be restated as follows: If $a$ and
+$b$ are two coprime divisors of an integer $c$, then $ab$ is also a divisor of
+$c$. This is often helpful when proving divisibilities where the left hand
+side (i.e., the number in front of the \textquotedblleft$\mid$%
+\textquotedblright\ sign) can be split into a product of two mutually coprime
+factors. Similar reasoning works with several coprime factors:
+
+\begin{exercise}
+\label{exe.ent.coprime.combinek}Let $c\in\mathbb{Z}$, and let $b_{1}%
+,b_{2},\ldots,b_{k}$ be finitely many integers. Assume that $b_{i}\mid c$ for
+each $i\in\left\{  1,2,\ldots,k\right\}  $. Then, $b_{1}b_{2}\cdots b_{k}\mid
+c$.
+\end{exercise}
+
+\begin{proof}
+[Solution to Exercise \ref{exe.ent.coprime.combinek}.] TODO.
+\end{proof}
+
 \begin{theorem}
 \label{thm.ent.coprime.modinv}Let $a,n\in\mathbb{Z}$.
 
@@ -4274,7 +4307,7 @@ $ab\equiv1\operatorname{mod}n$.
 \end{theorem}
 
 \begin{proof}
-[Proof of Theorem \ref{thm.ent.coprime.modinv}.] \textbf{(a)} Theorem
+[Proof of Theorem \ref{thm.ent.coprime.modinv}.]\textbf{(a)} Theorem
 \ref{thm.ent.gcd.bezout} (applied to $b=n$) yields that there exist integers
 $x\in\mathbb{Z}$ and $y\in\mathbb{Z}$ such that $\gcd\left(  a,n\right)
 =xa+yn$. Consider these $x$ and $y$. We have $ax=xa\equiv
@@ -4311,7 +4344,7 @@ and $b\perp c$. Then, $ab\perp c$.
 \end{theorem}
 
 \begin{proof}
-[Proof of Theorem \ref{thm.ent.coprime.ab-to-c}.] TODO!
+[Proof of Theorem \ref{thm.ent.coprime.ab-to-c}.]TODO!
 \end{proof}
 
 \subsubsection{An application}
@@ -4326,7 +4359,7 @@ positive integer. Prove that%
 \end{exercise}
 
 \begin{proof}
-[Solution to Exercise \ref{exe.ent.coprime.1+2+...+n}.] Recall Little Gauss
+[Solution to Exercise \ref{exe.ent.coprime.1+2+...+n}.]Recall Little Gauss
 $1+2+\cdots+n=\dfrac{n\left(  n+1\right)  }{2}$. Multiply by $2$ and treat $n$
 and $n+1$ separately. TODO
 \end{proof}
@@ -4368,10 +4401,6 @@ $x_{1}\equiv x_{2}\operatorname{mod}mn$.
 
 Theorem \ref{thm.ent.crt1} is known as the \textit{Chinese remainder theorem}.
 (Sunzi, 3rd Century AD.)
-
-\begin{proof}
-[Proof of Theorem \ref{thm.ent.crt1}.]
-\end{proof}
 
 TODO:
 
