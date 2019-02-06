@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Wednesday, February 06, 2019 14:59:18}
+%TCIDATA{LastRevised=Wednesday, February 06, 2019 19:42:29}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -1233,6 +1233,8 @@ We now go through the basics of divisibility of integers.
 \textquotedblleft$b$ is \textit{divisible by }$a$\textquotedblright\ or
 \textquotedblleft$b$ is a \textit{multiple} of $a$\textquotedblright) if there
 exists an integer $c$ such that $b=ac$.
+
+We furthermore say that $a\nmid b$ if $a$ does not divide $b$.
 \end{definition}
 
 Some authors define the \textquotedblleft divisibility\textquotedblright%
@@ -1460,15 +1462,21 @@ The next definition is simple but crucial:
 
 \begin{definition}
 \label{def.ent.cong}Let $n,a,b\in\mathbb{Z}$. We say that $a$ \textit{is
-congruent to }$b$ \textit{modulo }$n$ (or, short, \textquotedblleft$a\equiv
-b\operatorname{mod}n$\textquotedblright) if and only if $n\mid a-b$.
+congruent to }$b$ \textit{modulo }$n$ if and only if $n\mid a-b$. We shall use
+the notation \textquotedblleft$a\equiv b\operatorname{mod}n$\textquotedblright%
+\ for \textquotedblleft$a$ is congruent to $b$ modulo $n$\textquotedblright.
+
+We furthermore shall use the notation \textquotedblleft$a\not \equiv
+b\operatorname{mod}n$\textquotedblright\ for \textquotedblleft$a$ is not
+congruent to $b$ modulo $n$\textquotedblright.
 \end{definition}
 
 \begin{example}
 \label{exa.ent.cong.triv}\textbf{(a)} Is $3\equiv7\operatorname{mod}2$ ? Yes,
 since $2\mid3-7=-4$.
 
-\textbf{(b)} Is $3\equiv6\operatorname{mod}2$ ? No, since $2\nmid3-6=-3$.
+\textbf{(b)} Is $3\equiv6\operatorname{mod}2$ ? No, since $2\nmid3-6=-3$. So
+we have $3\not \equiv 6\operatorname{mod}2$.
 
 Now, let $a$ and $b$ be two integers.
 
@@ -2318,8 +2326,8 @@ $u=qn+r$.
 \end{lemma}
 
 This lemma can be proven by induction on $u$ as in \cite[proof of Proposition
-2.150]{detnotes}. Let us instead prove this by \textbf{strong} induction on
-$u$. See \cite[\S 2.8]{detnotes} for an introduction to strong induction; in
+2.150]{detnotes}. Let us instead prove it by \textbf{strong} induction on $u$.
+See \cite[\S 2.8]{detnotes} for an introduction to strong induction; in
 particular, recall that a strong induction needs no induction base (but often
 contains a case distinction in its \textquotedblleft induction
 step\textquotedblright\ that, in some way, does give the first few values a
@@ -2870,8 +2878,8 @@ The only numbers common to these three lists are $-1$ and $1$.) However:
 
 This illustrates the fact that three numbers can have pairwise nontrivial
 common divisors (where \textquotedblleft nontrivial\textquotedblright\ means
-\textquotedblleft distinct from $1$ and $-1$\textquotedblright), but the
-common divisor of all three of them may still be just $1$ and $-1$.
+\textquotedblleft distinct from $1$ and $-1$\textquotedblright), but the only
+common divisors of all three of them may still be just $1$ and $-1$.
 \end{example}
 
 \begin{proposition}
@@ -2992,11 +3000,11 @@ example,%
 \gcd\left(  a,b,c,d,e\right)  =\gcd\left(  a,\gcd\left(  b,\gcd\left(
 c,\gcd\left(  d,e\right)  \right)  \right)  \right)
 \]
-for all $a,b,c,d,e\in\mathbb{Z}$. We may prove this later in the homework.
+for all $a,b,c,d,e\in\mathbb{Z}$. This is, in fact, a consequence of
+Proposition \ref{thm.ent.gcd.uniprop-mul} \textbf{(d)} (which we will prove
+later), applied several times.
 
-TODO: Do this?
-
-We observe several properties of greatest common divisors:
+First, let us observe several properties of greatest common divisors:
 
 \begin{proposition}
 \label{prop.ent.gcd.props1}\textbf{(a)} We have $\gcd\left(  a,0\right)
@@ -3025,6 +3033,9 @@ all $a,b\in\mathbb{Z}$.
 
 \textbf{(i)} If $a,b\in\mathbb{Z}$ satisfy $a\mid b$, then $\gcd\left(
 a,b\right)  =\left\vert a\right\vert $.
+
+\textbf{(j)} The greatest common divisor of the empty list of integers is
+$\gcd\left(  {}\right)  =0$.
 \end{proposition}
 
 Proposition \ref{prop.ent.divisors.find} is not difficult and we could start
@@ -3475,6 +3486,14 @@ obtain $b\equiv0\operatorname{mod}a$. Hence, Proposition
 a,b\right)  =\gcd\left(  a,0\right)  =\left\vert a\right\vert $ (by
 Proposition \ref{prop.ent.gcd.props1} \textbf{(a)}). This proves Proposition
 \ref{prop.ent.gcd.props1} \textbf{(i)}.
+
+\textbf{(j)} The empty list of integers $\left(  {}\right)  $ has the property
+that all its entries are $0$ (indeed, this is vacuously true because it has no
+entries at all). Thus, its greatest common divisor is defined to be $0$ (by
+the \textquotedblleft If $b_{1},b_{2},\ldots,b_{k}$ are not all $0$%
+\textquotedblright\ case of Definition \ref{def.ent.gcd.gcd}). In other words,
+$\gcd\left(  {}\right)  =0$. This proves Proposition \ref{prop.ent.gcd.props1}
+\textbf{(j)}.
 \end{proof}
 
 \begin{remark}
@@ -4087,14 +4106,50 @@ the divisors of $\gcd\left(  b_{1},b_{2},\ldots,b_{k}\right)  $.
 ,b_{k}\right)  =\operatorname*{Div}\left(  \gcd\left(  b_{1},b_{2}%
 ,\ldots,b_{k}\right)  \right)  $.
 
-\textbf{(d)} We have%
+\textbf{(d)} If $k>0$, then%
 \[
 \gcd\left(  b_{1},b_{2},\ldots,b_{k}\right)  =\gcd\left(  \gcd\left(
 b_{1},b_{2},\ldots,b_{k-1}\right)  ,b_{k}\right)  .
 \]
 
+\end{theorem}
 
-\textbf{(e)} There exist integers $x_{1},x_{2},\ldots,x_{k}$ such that%
+\begin{proof}
+[Proof of Theorem \ref{thm.ent.gcd.uniprop-mul}.]Rather than prove the four
+parts of Theorem \ref{thm.ent.gcd.uniprop-mul} separately, let us prove them
+as a package.
+
+We shall proceed by induction on $k$:
+
+\textit{Induction base:} Theorem \ref{thm.ent.gcd.uniprop-mul} holds for $k=0$.
+
+\begin{fineprint}
+[\textit{Proof:} This is a straightforward exercise in dealing with empty
+sets, $0$-tuples and vacuous truths. For the sake of completeness, here is the
+full argument:
+
+Assume that $k=0$. We must prove that Theorem \ref{thm.ent.gcd.uniprop-mul} holds.
+
+Let $b_{1},b_{2},\ldots,b_{k}$ be some integers. Of course, these are $0$
+integers, since $k=0$.
+
+We don't have $k>0$. Hence, Theorem \ref{thm.ent.gcd.uniprop-mul} \textbf{(d)}
+is vacuously true.
+
+All of $b_{1},b_{2},\ldots,b_{k}$ are $0$ (indeed, this is vacuously true).
+
+For each $m\in\mathbb{Z}$
+\end{fineprint}
+
+TODO!
+\end{proof}
+
+Bezout's theorem (Theorem \ref{thm.ent.gcd.bezout}) also holds for any
+finitely many integers:
+
+\begin{theorem}
+\label{thm.ent.gcd.bezout-mul}Let $b_{1},b_{2},\ldots,b_{k}$ be some integers.
+Then, there exist integers $x_{1},x_{2},\ldots,x_{k}$ such that%
 \[
 \gcd\left(  b_{1},b_{2},\ldots,b_{k}\right)  =x_{1}b_{1}+x_{2}b_{2}%
 +\cdots+x_{k}b_{k}.
@@ -4103,7 +4158,9 @@ b_{1},b_{2},\ldots,b_{k-1}\right)  ,b_{k}\right)  .
 \end{theorem}
 
 \begin{proof}
-[Proof of Theorem \ref{thm.ent.gcd.uniprop-mul}.]TODO!
+[Proof of Theorem \ref{thm.ent.gcd.bezout-mul}.]We proceed by induction on $k$:
+
+TODO.
 \end{proof}
 
 \begin{theorem}
@@ -4170,16 +4227,45 @@ prime\textquotedblright\ that we will see later on.)
 that%
 \begin{align*}
 \gcd\left(  a,\underbrace{a}_{=1a}+1\right)   &  =\gcd\left(  a,1a+1\right)
-=\gcd\left(  a,1\right)  \\
+=\gcd\left(  a,1\right) \\
 &  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition \ref{prop.ent.gcd.props1}
-\textbf{(c)}, applied to }u=1\text{ and }b=1\right)  \\
+\textbf{(c)}, applied to }u=1\text{ and }b=1\right) \\
 &  \mid1\ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition
 \ref{prop.ent.gcd.props1} \textbf{(e)}, applied to }b=1\right)  ,
 \end{align*}
 and thus $\gcd\left(  a,a+1\right)  =1$ (since $\gcd\left(  a,a+1\right)  $ is
-a positive integer), which means that $a$ is coprime to $a+1$.
+a nonnegative integer), which means that $a$ is coprime to $a+1$.
 
-\textbf{(d)} Let $a$ be an integer. When is $a$ coprime to $2$? TODO.
+\textbf{(d)} Let $a$ be an integer. When is $a$ coprime to $2$? If we try to
+compute $\gcd\left(  a,a+2\right)  $, we find%
+\begin{align*}
+\gcd\left(  a,\underbrace{a}_{=1a}+2\right)   &  =\gcd\left(  a,1a+2\right)
+=\gcd\left(  a,2\right) \\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition \ref{prop.ent.gcd.props1}
+\textbf{(c)}, applied to }u=1\text{ and }b=2\right)  .
+\end{align*}
+It remains to find $\gcd\left(  a,2\right)  $. Proposition
+\ref{prop.ent.gcd.props1} \textbf{(e)} (applied to $b=2$) yields $\gcd\left(
+a,2\right)  \mid a$ and $\gcd\left(  a,2\right)  \mid2$. Since $\gcd\left(
+a,2\right)  $ is a nonnegative integer and is a divisor of $2$ (because
+$\gcd\left(  a,2\right)  \mid2$), we see that $\gcd\left(  a,2\right)  $ must
+be either $1$ or $2$ (since the only nonnegative divisors of $2$ are $1$ and
+$2$). If $a$ is even, then $2$ is a common divisor of $a$ and $2$, and thus
+must be the greatest common divisor of $a$ and $2$ (because a common divisor
+of $a$ and $2$ cannot be greater than $2$); in other words, we have
+$\gcd\left(  a,2\right)  =2$ in this case. On the other hand, if $a$ is odd,
+then $2$ is not a common divisor of $a$ and $2$ (since $2$ does not divide
+$a$), and thus cannot be the greatest common divisor of $a$ and $2$; hence, in
+this case, we have $\gcd\left(  a,2\right)  \neq2$ and thus $\gcd\left(
+a,2\right)  =1$. Summarizing, we conclude that%
+\[
+\gcd\left(  a,2\right)  =%
+\begin{cases}
+2, & \text{if }a\text{ is even};\\
+1, & \text{if }a\text{ is odd.}%
+\end{cases}
+\]
+
 \end{example}
 
 Following Donald Knuth, we introduce a slightly quaint notation:
@@ -4293,7 +4379,7 @@ c$.
 \end{exercise}
 
 \begin{proof}
-[Solution to Exercise \ref{exe.ent.coprime.combinek}.] TODO.
+[Solution to Exercise \ref{exe.ent.coprime.combinek}.]TODO.
 \end{proof}
 
 \begin{theorem}
@@ -4347,13 +4433,188 @@ and $b\perp c$. Then, $ab\perp c$.
 [Proof of Theorem \ref{thm.ent.coprime.ab-to-c}.]TODO!
 \end{proof}
 
-\subsubsection{An application}
+\subsubsection{An application to sums of powers}
+
+Let us show an application of Theorem \ref{thm.ent.coprime.combine}. First, we
+shall prove a simple lemma:
+
+\begin{lemma}
+\label{lem.ent.xd-yd}Let $d\in\mathbb{N}$. Let $x$ and $y$ be integers.
+
+\textbf{(a)} We have $x-y\mid x^{d}-y^{d}$.
+
+\textbf{(b)} We have $x+y\mid x^{d}+y^{d}$ if $d$ is odd.
+\end{lemma}
+
+\begin{proof}
+[Proof of Lemma \ref{lem.ent.xd-yd}.]\textbf{(a)} Here are two ways of proving this:
+
+\textit{First proof of Lemma \ref{lem.ent.xd-yd} \textbf{(a)}:} We have
+$x\equiv y\operatorname{mod}x-y$ (since $x-y\mid x-y$). Thus, Exercise
+\ref{exe.ent.mod.basics.k-power} (applied to $n=x-y$, $a=x$, $b=y$ and $k=d$)
+yields $x^{d}\equiv y^{d}\operatorname{mod}x-y$. In other words, $x-y\mid
+x^{d}-y^{d}$. This proves Lemma \ref{lem.ent.xd-yd} \textbf{(a)}.
+
+\textit{Second proof of Lemma \ref{lem.ent.xd-yd} \textbf{(a)}:} Recall that%
+\[
+\left(  a-b\right)  \left(  a^{k-1}+a^{k-2}b+a^{k-3}b^{2}+\cdots
++ab^{k-2}+b^{k-1}\right)  =a^{k}-b^{k}%
+\]
+for every $k\in\mathbb{N}$. (This is a well-known identity, and it appears
+(with $k$ renamed as $n$) as the first half of Exercise 1 on
+\href{http://www-users.math.umn.edu/~dgrinber/19s/hw0s.pdf}{homework set
+\#0}.) Applying this identity to $a=x$, $b=y$ and $k=d$, we obtain%
+\[
+\left(  x-y\right)  \left(  x^{d-1}+x^{d-2}y+x^{d-3}y^{2}+\cdots
++xy^{d-2}+y^{d-1}\right)  =x^{d}-y^{d}.
+\]
+Thus, $x-y\mid x^{d}-y^{d}$ (since $x^{d-1}+x^{d-2}y+x^{d-3}y^{2}%
++\cdots+xy^{d-2}+y^{d-1}$ is an integer). This proves Lemma
+\ref{lem.ent.xd-yd} \textbf{(a)}.
+
+\textbf{(b)} Assume that $d$ is odd. Thus, $\left(  -1\right)  ^{d}=-1$. Now,
+Lemma \ref{lem.ent.xd-yd} \textbf{(a)} (applied to $-y$ instead of $y$) yields
+$x-\left(  -y\right)  \mid x^{d}-\left(  -y\right)  ^{d}$. Since $x-\left(
+-y\right)  =x+y$ and $x^{d}-\underbrace{\left(  -y\right)  ^{d}}_{=\left(
+-1\right)  ^{d}y^{d}}=x^{d}-\underbrace{\left(  -1\right)  ^{d}}_{=-1}%
+y^{d}=x^{d}-\left(  -1\right)  y^{d}=x^{d}+y^{d}$, this rewrites as $x+y\mid
+x^{d}+y^{d}$. This proves Lemma \ref{lem.ent.xd-yd} \textbf{(b)}.
+\end{proof}
+
+Next, let us recall a basic fact from combinatorics:
+
+\begin{proposition}
+\label{prop.ent.1+2+...+n}Let $n\in\mathbb{N}$. Then,
+\[
+1+2+\cdots+n=\dfrac{n\left(  n+1\right)  }{2}.
+\]
+
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.ent.1+2+...+n}.]Here is one of several equally
+valid arguments:%
+\begin{align*}
+2\cdot\left(  1+2+\cdots+n\right)   &  =\left(  1+2+\cdots+n\right)
++\underbrace{\left(  1+2+\cdots+n\right)  }_{\substack{=n+\left(  n-1\right)
++\cdots+1\\\text{(here, we have reversed}\\\text{the order of the addends)}%
+}}\\
+&  =\underbrace{\left(  1+2+\cdots+n\right)  }_{=\sum_{k=1}^{n}k}%
++\underbrace{\left(  n+\left(  n-1\right)  +\cdots+1\right)  }_{=\sum
+_{k=1}^{n}\left(  n+1-k\right)  }\\
+&  =\sum_{k=1}^{n}k+\sum_{k=1}^{n}\left(  n+1-k\right)  =\sum_{k=1}%
+^{n}\underbrace{\left(  k+\left(  n+1-k\right)  \right)  }_{=n+1}\\
+&  =\sum_{k=1}^{n}\left(  n+1\right)  =n\left(  n+1\right)  .
+\end{align*}
+Thus, $1+2+\cdots+n=\dfrac{n\left(  n+1\right)  }{2}$, so that Proposition
+\ref{prop.ent.1+2+...+n} is proven.
+\end{proof}
+
+Proposition \ref{prop.ent.1+2+...+n} tells us what the sum $1+2+\cdots+n$ of
+the first $n$ positive integers is. One might also ask what the sum
+$1^{2}+2^{2}+\cdots+n^{2}$ of their squares is, and similarly for higher
+powers. While this is tangential to our course, let us collect some formulas
+for this:
+
+\begin{proposition}
+\label{prop.ent.1d+2d+...+nd-for-5}Let $n\in\mathbb{N}$. Then:
+
+\textbf{(a)} We have $1+2+\cdots+n=\dfrac{1}{2}n\left(  n+1\right)  $.
+
+\textbf{(b)} We have $1^{2}+2^{2}+\cdots+n^{2}=\dfrac{1}{6}n\left(
+n+1\right)  \left(  2n+1\right)  $.
+
+\textbf{(c)} We have $1^{3}+2^{3}+\cdots+n^{3}=\dfrac{1}{4}n^{2}\left(
+n+1\right)  ^{2}$.
+
+\textbf{(d)} We have $1^{4}+2^{4}+\cdots+n^{4}=\dfrac{1}{30}n\left(
+2n+1\right)  \left(  n+1\right)  \left(  3n+3n^{2}-1\right)  $.
+
+\textbf{(e)} We have $1^{5}+2^{5}+\cdots+n^{5}=\dfrac{1}{12}n^{2}\left(
+n+1\right)  ^{2}\left(  2n+2n^{2}-1\right)  $.
+\end{proposition}
+
+Each part of Proposition \ref{prop.ent.1d+2d+...+nd-for-5} can be
+straightforwardly proven by induction on $n$; we don't need ingenious
+arguments like the one we gave above for Proposition \ref{prop.ent.1+2+...+n}
+(and in fact, such arguments cannot always be found).
+
+\begin{fineprint}
+You probably see a pattern in Proposition \ref{prop.ent.1d+2d+...+nd-for-5}:
+It appears that for each positive integer $d$, there exists some polynomial
+$p_{d}\left(  x\right)  $ of degree $d+1$ with rational coefficients such that
+each $n\in\mathbb{N}$ satisfies $1^{d}+2^{d}+\cdots+n^{d}=p_{d}\left(
+n\right)  $. This is indeed the case. Indeed, this is proven (e.g.) in
+\cite[Proposition 23.2]{Galvin} and in \cite[Theorem 3.7]{lucas}. The
+polynomial $p_{d}\left(  x\right)  $ is uniquely determined for each $d$, and
+can be explicitly computed via the formula%
+\[
+p_{d}\left(  x\right)  =\sum_{k=1}^{d}k!%
+%TCIMACRO{\QDATOPD{\{}{\}}{d}{k}}%
+%BeginExpansion
+\genfrac{\{}{\}}{0pt}{0}{d}{k}%
+%EndExpansion
+\dbinom{x+1}{k+1},
+\]
+where $\dbinom{x+1}{k+1}=\dfrac{\left(  x+1\right)  x\left(  x-1\right)
+\cdots\left(  x-k+1\right)  }{\left(  k+1\right)  !}$ and where $%
+%TCIMACRO{\QDATOPD{\{}{\}}{d}{k}}%
+%BeginExpansion
+\genfrac{\{}{\}}{0pt}{0}{d}{k}%
+%EndExpansion
+$ is a \textit{Stirling number of the 2nd kind}. Without going into the
+details of what Stirling numbers of the 2nd kind are, let me say that $k!%
+%TCIMACRO{\QDATOPD{\{}{\}}{d}{k}}%
+%BeginExpansion
+\genfrac{\{}{\}}{0pt}{0}{d}{k}%
+%EndExpansion
+$ is the number of surjective maps from $\left\{  1,2,\ldots,d\right\}  $ to
+$\left\{  1,2,\ldots,k\right\}  $. For example,%
+\begin{align*}
+p_{2}\left(  x\right)    & =\sum_{k=1}^{2}k!%
+%TCIMACRO{\QDATOPD{\{}{\}}{2}{k}}%
+%BeginExpansion
+\genfrac{\{}{\}}{0pt}{0}{2}{k}%
+%EndExpansion
+\dbinom{x+1}{k+1}=\underbrace{1!%
+%TCIMACRO{\QDATOPD{\{}{\}}{2}{1}}%
+%BeginExpansion
+\genfrac{\{}{\}}{0pt}{0}{2}{1}%
+%EndExpansion
+}_{=1}\dbinom{x+1}{2}+\underbrace{2!%
+%TCIMACRO{\QDATOPD{\{}{\}}{2}{2}}%
+%BeginExpansion
+\genfrac{\{}{\}}{0pt}{0}{2}{2}%
+%EndExpansion
+}_{=2}\dbinom{x+1}{3}\\
+& =\dbinom{x+1}{2}+2\dbinom{x+1}{3}=\dfrac{\left(  x+1\right)  x}{2}%
++2\cdot\dfrac{\left(  x+1\right)  x\left(  x-1\right)  }{6}\\
+& =\dfrac{1}{6}x\left(  x+1\right)  \left(  2x+1\right)  ,
+\end{align*}
+and thus%
+\[
+1^{2}+2^{2}+\cdots+n^{2}=p_{2}\left(  n\right)  =\dfrac{1}{6}n\left(
+n+1\right)  \left(  2n+1\right)  \ \ \ \ \ \ \ \ \ \ \text{for each }%
+n\in\mathbb{N}.
+\]
+This recovers the claim of Proposition \ref{prop.ent.1d+2d+...+nd-for-5}
+\textbf{(b)}. The combinatorial proof presented in \cite[Proposition
+23.2]{Galvin} is highly recommended reading for anyone interested in this kind
+of formulas.
+
+Let us note that the polynomials $p_{d}\left(  x\right)  $ do \textbf{not}
+have integer coefficients, but nevertheless all their values $p_{d}\left(
+n\right)  $ for $n\in\mathbb{N}$ are integers.
+\end{fineprint}
+
+Let us now show the power of Theorem \ref{thm.ent.coprime.combine} on the
+following exercise:
 
 \begin{exercise}
-\label{exe.ent.coprime.1+2+...+n}Let $n\in\mathbb{N}$. Let $k$ be an odd
+\label{exe.ent.coprime.1+2+...+n}Let $n\in\mathbb{N}$. Let $d$ be an odd
 positive integer. Prove that%
 \[
-1+2+\cdots+n\mid1^{k}+2^{k}+\cdots+n^{k}.
+1+2+\cdots+n\mid1^{d}+2^{d}+\cdots+n^{d}.
 \]
 
 \end{exercise}
@@ -4714,6 +4975,15 @@ Mathematical Vernacular}, 7 December 2016.\newline%
 \textit{Abstract Algebra}, 3rd edition, Wiley 2004. \newline See
 \url{http://www.cems.uvm.edu/~rfoote/errata_3rd_edition.pdf} for errata.
 
+\bibitem[Galvin17]{Galvin}David Galvin, \textit{Basic discrete mathematics},
+13 December 2017.\newline%
+\url{http://www-users.math.umn.edu/~dgrinber/comb/60610lectures2017-Galvin.pdf}
+\newline(The URL might change, and the text may get updated. In order to
+reliably obtain the version of 13 December 2017, you can use the archive.org
+Wayback Machine:
+\url{https://web.archive.org/web/20180205122609/http://www-users.math.umn.edu/~dgrinber/comb/60610lectures2017-Galvin.pdf}
+.)
+
 \bibitem[GalQua17]{Gallier-RSA}Jean Gallier, Jocelyn Quaintance, \textit{Notes
 on Primality Testing And Public Key Cryptography, Part 1}, 8 November
 2017.\newline\url{https://www.cis.upenn.edu/~jean/RSA-primality-testing.pdf}
@@ -4731,6 +5001,9 @@ numbering is guaranteed to match that in the citations above, see
 
 \bibitem[Grinbe16]{floor}Darij Grinberg, \textit{18.781 (Spring 2016): Floor
 and arithmetic functions}, 19 June 2016.\newline\url{http://www.cip.ifi.lmu.de/~grinberg/floor.pdf}
+
+\bibitem[Grinbe17]{lucas}Darij Grinberg, \textit{The Lucas and Babbage
+congruences}, 10 January 2019.\newline\url{http://www.cip.ifi.lmu.de/~grinberg/lucascong.pdf}
 
 \bibitem[Hammac18]{Hammack}Richard Hammack, \textit{Book of Proof}, 3rd
 edition 2018.\newline\url{http://www.people.vcu.edu/~rhammack/BookOfProof/}
