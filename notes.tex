@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, February 04, 2019 22:01:24}
+%TCIDATA{LastRevised=Tuesday, February 05, 2019 18:44:11}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -3022,6 +3022,9 @@ all $a,b\in\mathbb{Z}$.
 
 \textbf{(h)} We have $\gcd\left(  a,-b\right)  =\gcd\left(  a,b\right)  $ for
 all $a,b\in\mathbb{Z}$.
+
+\textbf{(i)} If $a,b\in\mathbb{Z}$ satisfy $a\mid b$, then $\gcd\left(
+a,b\right)  =\left\vert a\right\vert $.
 \end{proposition}
 
 Proposition \ref{prop.ent.divisors.find} is not difficult and we could start
@@ -3429,7 +3432,7 @@ $\operatorname*{Div}\left(  -a,b\right)  $).
 
 Now, forget that we fixed $x$. We thus have proven that $x\in
 \operatorname*{Div}\left(  -a,b\right)  $ for each $x\in\operatorname*{Div}%
-\left(  a,b\right)  $. In other wrods, $\operatorname*{Div}\left(  a,b\right)
+\left(  a,b\right)  $. In other words, $\operatorname*{Div}\left(  a,b\right)
 \subseteq\operatorname*{Div}\left(  -a,b\right)  $.
 
 The same argument (but applied to $-a$ instead of $a$) shows that
@@ -3465,14 +3468,21 @@ b,a\right)  \ \ \ \ \ \ \ \ \ \ \left(
 \ref{prop.ent.gcd.props1} \textbf{(b)}}\right)  .
 \end{align*}
 This proves Proposition \ref{prop.ent.gcd.props1} \textbf{(h)}.
+
+\textbf{(i)} Let $a,b\in\mathbb{Z}$ satisfy $a\mid b$. From $a\mid b$, we
+obtain $b\equiv0\operatorname{mod}a$. Hence, Proposition
+\ref{prop.ent.gcd.props1} \textbf{(d)} (applied to $c=0$) yields $\gcd\left(
+a,b\right)  =\gcd\left(  a,0\right)  =\left\vert a\right\vert $ (by
+Proposition \ref{prop.ent.gcd.props1} \textbf{(a)}). This proves Proposition
+\ref{prop.ent.gcd.props1} \textbf{(i)}.
 \end{proof}
 
 \begin{remark}
-Proposition \ref{prop.ent.gcd.props1} says that if we add a multiple of $a$ to
-$b$, then $\gcd\left(  a,b\right)  $ does not change. Similarly, if we add a
-multiple of $b$ to $a$, then $\gcd\left(  a,b\right)  $ does not change (i.e.,
-we have $\gcd\left(  vb+a,b\right)  =\gcd\left(  a,b\right)  $ for all
-$a,b,v\in\mathbb{Z}$).
+Proposition \ref{prop.ent.gcd.props1} \textbf{(c)} says that if we add a
+multiple of $a$ to $b$, then $\gcd\left(  a,b\right)  $ does not change.
+Similarly, if we add a multiple of $b$ to $a$, then $\gcd\left(  a,b\right)  $
+does not change (i.e., we have $\gcd\left(  vb+a,b\right)  =\gcd\left(
+a,b\right)  $ for all $a,b,v\in\mathbb{Z}$).
 
 However, if we \textbf{simultaneously} add a multiple of $a$ to $b$ and a
 multiple of $b$ to $a$, then $\gcd\left(  a,b\right)  $ may well change: i.e.,
@@ -3724,8 +3734,8 @@ can be derived from Lemma \ref{lem.ent.gcd.bezout.+} in the same way as Lemma
 \ref{lem.ent.gcd.bezout.+} was derived from Lemma \ref{lem.ent.gcd.bezout.++}
 (except that this time, we have to distinguish between the cases $a\geq0$ and
 $a<0$, and we have to use Proposition \ref{prop.ent.gcd.props1} \textbf{(g)}
-and Proposition \ref{prop.ent.gcd.props1} \textbf{(h)}). Again, let us give
-the detailed argument for the sake of completeness:
+instead of Proposition \ref{prop.ent.gcd.props1} \textbf{(h)}). Again, let us
+give the detailed argument for the sake of completeness:
 
 \begin{fineprint}
 We are in one of the following two cases:
@@ -3829,7 +3839,7 @@ m\mid\gcd\left(  a,b\right)  \mid b\ \ \ \ \ \ \ \ \ \ \left(  \text{by
 Proposition \ref{prop.ent.gcd.props1} \textbf{(e)}}\right)  ,
 \]
 and thus $\left(  m\mid a\ \text{and }m\mid b\right)  $). Hence, the
-equivalence (\ref{eq.thm.ent.gcd.uniprop.equiv}) is proven.{}This proves
+equivalence (\ref{eq.thm.ent.gcd.uniprop.equiv}) is proven. This proves
 Theorem \ref{thm.ent.gcd.uniprop} \textbf{(a)}.
 
 \textbf{(b)} The common divisors of $a$ and $b$ are precisely the integers $m$
@@ -4175,6 +4185,9 @@ TODO:
 
 \item $a\mid bc,\ b\perp c\ \Longrightarrow\ a=uv$ with $u\mid b$ and $v\mid
 c$.
+
+Better: if $b\perp c$, then $\gcd\left(  a,bc\right)  =\gcd\left(  a,b\right)
+\cdot\gcd\left(  a,c\right)  $.
 
 \item lcm.
 
