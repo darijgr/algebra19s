@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Tuesday, February 05, 2019 18:44:11}
+%TCIDATA{LastRevised=Wednesday, February 06, 2019 08:37:57}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -3778,12 +3778,13 @@ Hence, Theorem \ref{thm.ent.gcd.bezout} is proven.
 An important corollary of Theorem \ref{thm.ent.gcd.bezout} is the following fact:
 
 \begin{theorem}
-\label{thm.ent.gcd.uniprop}Let $m,a,b\in\mathbb{Z}$. Then:
+\label{thm.ent.gcd.uniprop}Let $a,b\in\mathbb{Z}$. Then:
 
-\textbf{(a)} We have the following logical equivalence:%
+\textbf{(a)} For each $m\in\mathbb{Z}$, we have the following logical
+equivalence:%
 \begin{equation}
 \left(  m\mid a\ \text{and }m\mid b\right)  \ \Longleftrightarrow\ \left(
-m\mid\gcd\left(  a,b\right)  \right)  . \label{eq.thm.ent.gcd.uniprop.equiv}%
+m\mid\gcd\left(  a,b\right)  \right)  .\label{eq.thm.ent.gcd.uniprop.equiv}%
 \end{equation}
 
 
@@ -3820,15 +3821,15 @@ a,b\right)  $. This proves Lemma \ref{lem.ent.gcd.uniprop}.
 \end{proof}
 
 \begin{proof}
-[Proof of Theorem \ref{thm.ent.gcd.uniprop}.]\textbf{(a)} In order to prove
-(\ref{eq.thm.ent.gcd.uniprop.equiv}), we need to prove the \textquotedblleft%
-$\Longrightarrow$\textquotedblright\ and \textquotedblleft$\Longleftarrow
-$\textquotedblright\ directions of the equivalence
-(\ref{eq.thm.ent.gcd.uniprop.equiv}). But this is easy: The \textquotedblleft%
-$\Longrightarrow$\textquotedblright\ direction is just the statement of Lemma
-\ref{lem.ent.gcd.uniprop}, whereas the \textquotedblleft$\Longleftarrow
-$\textquotedblright\ direction is trivial (to wit: if $m\mid\gcd\left(
-a,b\right)  $, then
+[Proof of Theorem \ref{thm.ent.gcd.uniprop}.]\textbf{(a)} Let $m\in\mathbb{Z}%
+$. In order to prove (\ref{eq.thm.ent.gcd.uniprop.equiv}), we need to prove
+the \textquotedblleft$\Longrightarrow$\textquotedblright\ and
+\textquotedblleft$\Longleftarrow$\textquotedblright\ directions of the
+equivalence (\ref{eq.thm.ent.gcd.uniprop.equiv}). But this is easy: The
+\textquotedblleft$\Longrightarrow$\textquotedblright\ direction is just the
+statement of Lemma \ref{lem.ent.gcd.uniprop}, whereas the \textquotedblleft%
+$\Longleftarrow$\textquotedblright\ direction is trivial (to wit: if
+$m\mid\gcd\left(  a,b\right)  $, then
 \[
 m\mid\gcd\left(  a,b\right)  \mid a\ \ \ \ \ \ \ \ \ \ \left(  \text{by
 Proposition \ref{prop.ent.gcd.props1} \textbf{(e)}}\right)
@@ -4052,11 +4053,93 @@ $a_{1}\mid b_{1}$ and $a_{2}\mid b_{2}$. Prove that%
 [Solution to Exercise \ref{exe.ent.gcd.div}.]TODO. (HW?)
 \end{proof}
 
+\begin{exercise}
+\label{exe.ent.gcd.abs}Let $a,b\in\mathbb{Z}$. Prove that $\gcd\left(
+a,b\right)  =\gcd\left(  \left\vert a\right\vert ,\left\vert b\right\vert
+\right)  $.
+\end{exercise}
+
+\begin{proof}
+[Solution to Exercise \ref{exe.ent.gcd.abs}.] TODO.
+\end{proof}
+
+\subsubsection{gcds of multiple numbers}
+
+The following theorem generalizes some of the previous facts to gcds of
+multiple integers:
+
+\begin{theorem}
+\label{thm.ent.gcd.uniprop-mul}Let $b_{1},b_{2},\ldots,b_{k}$ be some integers.
+
+\textbf{(a)} For each $m\in\mathbb{Z}$, we have the following logical
+equivalence:%
+\[
+\left(  m\mid b_{i}\text{ for all }i\in\left\{  1,2,\ldots,k\right\}  \right)
+\ \Longleftrightarrow\ \left(  m\mid\gcd\left(  b_{1},b_{2},\ldots
+,b_{k}\right)  \right)  .
+\]
+
+
+\textbf{(b)} The common divisors of $b_{1},b_{2},\ldots,b_{k}$ are precisely
+the divisors of $\gcd\left(  b_{1},b_{2},\ldots,b_{k}\right)  $.
+
+\textbf{(c)} We have $\operatorname*{Div}\left(  b_{1},b_{2},\ldots
+,b_{k}\right)  =\operatorname*{Div}\left(  \gcd\left(  b_{1},b_{2}%
+,\ldots,b_{k}\right)  \right)  $.
+
+\textbf{(d)} We have%
+\[
+\gcd\left(  b_{1},b_{2},\ldots,b_{k}\right)  =\gcd\left(  \gcd\left(
+b_{1},b_{2},\ldots,b_{k-1}\right)  ,b_{k}\right)  .
+\]
+
+
+\textbf{(e)} There exist integers $x_{1},x_{2},\ldots,x_{k}$ such that
+$x_{1}b_{1}+x_{2}b_{2}+\cdots+x_{k}b_{k}=1$.
+\end{theorem}
+
+\begin{proof}
+[Proof of Theorem \ref{thm.ent.gcd.uniprop-mul}.] TODO!
+\end{proof}
+
+\begin{theorem}
+\label{thm.ent.gcd.split}Let $b_{1},b_{2},\ldots,b_{k}$ be some integers, and
+let $c_{1},c_{2},\ldots,c_{\ell}$ be some integers. Then,%
+\begin{align*}
+& \gcd\left(  b_{1},b_{2},\ldots,b_{k},c_{1},c_{2},\ldots,c_{\ell}\right)  \\
+& =\gcd\left(  \gcd\left(  b_{1},b_{2},\ldots,b_{k}\right)  ,\gcd\left(
+c_{1},c_{2},\ldots,c_{\ell}\right)  \right)  .
+\end{align*}
+
+\end{theorem}
+
+\begin{proof}
+[Proof of Theorem \ref{thm.ent.gcd.split}.] TODO! Prove left$\leq$right and
+right$\leq$left, I think.
+\end{proof}
+
+Theorem \ref{thm.ent.gcd.split} is the reason why most properties of gcds of
+multiple numbers can be derived from corresponding properties of gcds of two
+numbers. For example, we can easily prove the following analogue of Corollary
+\ref{cor.ent.gcd.sa,sb} for gcds of three numbers:
+
+\begin{exercise}
+\label{exe.ent.gcd.sa,sb,sc}Let $s,a,b,c\in\mathbb{Z}$. Prove that
+$\gcd\left(  sa,sb,sc\right)  =\left\vert s\right\vert \gcd\left(
+a,b,c\right)  $.
+\end{exercise}
+
+\begin{proof}
+[Solution to Exercise \ref{exe.ent.gcd.sa,sb,sc}.] TODO!
+\end{proof}
+
 \begin{center}
 \textbf{2019-02-06 lecture}
 \end{center}
 
 \subsection{Coprime integers}
+
+\subsubsection{Definition}
 
 The concept of a gcd leads to one of the most important notions of number theory:
 
@@ -4142,6 +4225,8 @@ shall say that \textquotedblleft$a$ and $b$ \textit{are coprime}%
 $b$ is coprime to $a$).
 \end{definition}
 
+\subsubsection{Properties of coprime integers}
+
 We can now state multiple theorems about coprime numbers. The first one states
 that we can \textquotedblleft cancel\textquotedblright\ a factor $b$ from a
 divisibility $a\mid bc$ as long as this factor is coprime to $a$:
@@ -4178,25 +4263,132 @@ other words, $\gcd\left(  a,b\right)  =1$ (by the definition of
 }_{=1}\cdot c=c$. This proves Theorem \ref{thm.ent.coprime.combine}.
 \end{proof}
 
+\begin{theorem}
+\label{thm.ent.coprime.modinv}Let $a,n\in\mathbb{Z}$.
+
+\textbf{(a)} There exists a $b\in\mathbb{Z}$ such that $ab\equiv\gcd\left(
+a,n\right)  \operatorname{mod}n$.
+
+\textbf{(b)} If $a\perp n$, then there exists a $b\in\mathbb{Z}$ such that
+$ab\equiv1\operatorname{mod}n$.
+\end{theorem}
+
+\begin{proof}
+[Proof of Theorem \ref{thm.ent.coprime.modinv}.] \textbf{(a)} Theorem
+\ref{thm.ent.gcd.bezout} (applied to $b=n$) yields that there exist integers
+$x\in\mathbb{Z}$ and $y\in\mathbb{Z}$ such that $\gcd\left(  a,n\right)
+=xa+yn$. Consider these $x$ and $y$. We have $ax=xa\equiv
+xa+yn\operatorname{mod}n$ (since $xa-\left(  xa+yn\right)  =-yn=n\left(
+-y\right)  $ is clearly divisible by $n$). Thus, $ax\equiv xa+yn=\gcd\left(
+a,n\right)  \operatorname{mod}n$. Thus, there exists a $b\in\mathbb{Z}$ such
+that $ab\equiv\left(  a,n\right)  \operatorname{mod}n$ (namely, $b=x$). This
+proves Theorem \ref{thm.ent.coprime.modinv} \textbf{(a)}.
+
+\textbf{(b)} Assume that $a\perp n$. In other words, $a$ is coprime to $n$ (by
+Definition \ref{def.ent.coprime.perp}). In other words, $\gcd\left(
+a,n\right)  =1$ (by the definition of \textquotedblleft
+coprime\textquotedblright). Now, Theorem \ref{thm.ent.coprime.modinv}
+\textbf{(a)} yields that there exists a $b\in\mathbb{Z}$ such that
+$ab\equiv\gcd\left(  a,n\right)  \operatorname{mod}n$. In view of $\gcd\left(
+a,n\right)  =1$, this rewrites as follows: There exists a $b\in\mathbb{Z}$
+such that $ab\equiv1\operatorname{mod}n$. This proves Theorem
+\ref{thm.ent.coprime.modinv} \textbf{(b)}.
+\end{proof}
+
+If $a,n\in\mathbb{Z}$, then an integer $b\in\mathbb{Z}$ satisfying
+$ab\equiv1\operatorname{mod}n$ is called a \textit{modular inverse} of $a$
+modulo $n$. Theorem \ref{thm.ent.coprime.modinv} \textbf{(b)} shows that such
+a modular inverse always exists when $a\perp n$; it is easy to show that the
+converse also holds (i.e., if a modular inverse of $a$ modulo $n$ exists, then
+$a\perp n$). The word \textquotedblleft modular inverse\textquotedblright\ is
+chosen in analogy to the usual concept of an \textquotedblleft
+inverse\textquotedblright\ (which stands for an integer $b\in\mathbb{Z}$
+satisfying $ab=1$; this exists if and only if $a$ equals $1$ or $-1$).
+
+\begin{theorem}
+\label{thm.ent.coprime.ab-to-c}Let $a,b,c\in\mathbb{Z}$ such that $a\perp c$
+and $b\perp c$. Then, $ab\perp c$.
+\end{theorem}
+
+\begin{proof}
+[Proof of Theorem \ref{thm.ent.coprime.ab-to-c}.] TODO!
+\end{proof}
+
+\subsubsection{An application}
+
+\begin{exercise}
+\label{exe.ent.coprime.1+2+...+n}Let $n\in\mathbb{N}$. Let $k$ be an odd
+positive integer. Prove that%
+\[
+1+2+\cdots+n\mid1^{k}+2^{k}+\cdots+n^{k}.
+\]
+
+\end{exercise}
+
+\begin{proof}
+[Solution to Exercise \ref{exe.ent.coprime.1+2+...+n}.] Recall Little Gauss
+$1+2+\cdots+n=\dfrac{n\left(  n+1\right)  }{2}$. Multiply by $2$ and treat $n$
+and $n+1$ separately. TODO
+\end{proof}
+
 TODO:
 
 \begin{itemize}
-\item corollary: existence of modular inverses.
-
 \item $a\mid bc,\ b\perp c\ \Longrightarrow\ a=uv$ with $u\mid b$ and $v\mid
 c$.
 
 Better: if $b\perp c$, then $\gcd\left(  a,bc\right)  =\gcd\left(  a,b\right)
-\cdot\gcd\left(  a,c\right)  $.
+\cdot\gcd\left(  a,c\right)  $. Rather, hw.
+\end{itemize}
 
+\subsection{Lowest common multiples}
+
+\begin{itemize}
 \item lcm.
 
 \item gcd*lcm.
+\end{itemize}
 
-\item $\gcd$ of multiple numbers by repeated $\gcd$ing.
+\subsection{The Chinese remainder theorem (elementary form)}
 
-\item application: if $k$ is odd then $1+2+\cdots+n\mid1^{k}+2^{k}%
-+\cdots+n^{k}$. (illustrates several things.)
+\begin{theorem}
+\label{thm.ent.crt1}Let $m$ and $n$ be two coprime integers. Let
+$a,b\in\mathbb{Z}$.
+
+\textbf{(a)} There exists an integer $x\in\mathbb{Z}$ such that%
+\[
+\left(  x\equiv a\operatorname{mod}m\text{ and }x\equiv b\operatorname{mod}%
+n\right)  .
+\]
+
+
+\textbf{(b)} If $x_{1}$ and $x_{2}$ are two such integers $x$, then
+$x_{1}\equiv x_{2}\operatorname{mod}mn$.
+\end{theorem}
+
+Theorem \ref{thm.ent.crt1} is known as the \textit{Chinese remainder theorem}.
+(Sunzi, 3rd Century AD.)
+
+\begin{proof}
+[Proof of Theorem \ref{thm.ent.crt1}.]
+\end{proof}
+
+TODO:
+
+\begin{itemize}
+\item primes
+
+\item Erathosthenes
+
+\item $p>1$ prime $\Longleftrightarrow$ $p$ coprime to $1,2,\ldots,p-1$
+
+\item each $n>0$ is prod of primes (allow empty)
+
+\item $p\mid ab$ $\Longrightarrow$ $p\mid a$ or $p\mid b$
+
+\item unique prod of primes
+
+\item factorization with exponents
 
 \item Division/$9$ criterion. This leads to...
 \end{itemize}
