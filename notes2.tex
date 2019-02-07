@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Wednesday, February 06, 2019 09:57:48}
+%TCIDATA{LastRevised=Wednesday, February 06, 2019 12:05:16}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -4066,23 +4066,25 @@ a,b\right)  =\gcd\left(  \left\vert a\right\vert ,\left\vert b\right\vert
 \subsubsection{gcds of multiple numbers}
 
 \begin{theorem}
-Let $b_{1},b_{2},\ldots,b_{k}$ be integers.
+Let $b_{1},b_{2},\ldots,b_{k}$ be some integers.
 
-\textbf{(a)} For each $m\in\mathbb{Z}$, we have the logical equivalence%
+\textbf{(a)} For each $m\in\mathbb{Z}$, we have the following logical
+equivalence:%
 \[
-\left(  m\mid b_{i}\text{ for all }i\right)  \Longleftrightarrow\left(
-m\mid\gcd\left(  b_{1},b_{2},\ldots,b_{k}\right)  \right)  .
+\left(  m\mid b_{i}\text{ for all }i\in\left\{  1,2,\ldots,k\right\}  \right)
+\Longleftrightarrow\left(  m\mid\gcd\left(  b_{1},b_{2},\ldots,b_{k}\right)
+\right)  .
 \]
 
 
-\textbf{(b)} The common divisors of $b_{1},b_{2},\ldots,b_{k}$ are exactly the
-divisors of $\gcd\left(  b_{1},b_{2},\ldots,b_{k}\right)  $.
+\textbf{(b)} The common divisors of $b_{1},b_{2},\ldots,b_{k}$ are precisely
+the divisors of $\gcd\left(  b_{1},b_{2},\ldots,b_{k}\right)  $.
 
 \textbf{(c)} We have $\operatorname*{Div}\left(  b_{1},b_{2},\ldots
 ,b_{k}\right)  =\operatorname*{Div}\left(  \gcd\left(  b_{1},b_{2}%
 ,\ldots,b_{k}\right)  \right)  $.
 
-\textbf{(d)} We have
+\textbf{(d)} We have%
 \[
 \gcd\left(  b_{1},b_{2},\ldots,b_{k}\right)  =\gcd\left(  \gcd\left(
 b_{1},b_{2},\ldots,b_{k-1}\right)  ,b_{k}\right)  .
@@ -4098,58 +4100,61 @@ b_{1},b_{2},\ldots,b_{k-1}\right)  ,b_{k}\right)  .
 \end{theorem}
 
 \begin{proof}
-Induction on $k$.
+We will prove the theorem by induction on $k$.
 
-Base case ($k=0$) trivial. (Also, $k=1$ easy.)
+Base case ($k=0$) is trivial.
 
-Induction step. We induct from $k-1$ to $k$. In other words, we assume (as
-induction hypothesis) that the theorem is already proven \textquotedblleft for
-$k-1$ instead of $k$\textquotedblright.
+Step: We want to prove the theorem for some $k$, assuming (as induction
+hypothesis) that it is already proven for $k-1$.
 
-Now, let's prove it for $k$.
+\textbf{(d)} Set $g=\gcd\left(  b_{1},b_{2},\ldots,b_{k}\right)  $
 
-\textbf{(d)} Let $g=\gcd\left(  b_{1},b_{2},\ldots,b_{k}\right)  $ and
-$h=\gcd\left(  \gcd\left(  b_{1},b_{2},\ldots,b_{k-1}\right)  ,b_{k}\right)
-$. It suffices to prove $g\leq h$ and $h\leq g$.
+and $h=\gcd\left(  \gcd\left(  b_{1},b_{2},\ldots,b_{k-1}\right)
+,b_{k}\right)  $.
 
-\textit{Proof of }$g\leq h$\textit{:} It suffices to prove $g\mid h$, since
-$g$ and $h$ are nonnegative (the case of $0$ is ruled out by easy arguments).
+We want to prove $g=h$. Enough to prove $g\leq h$ and $h\leq g$.
 
-It suffices to prove that $g\mid\gcd\left(  b_{1},b_{2},\ldots,b_{k-1}\right)
-$ and $g\mid b_{k}$ (because Theorem 2.41 \textbf{(a)} will then yield
-$g\mid\gcd\left(  \gcd\left(  b_{1},b_{2},\ldots,b_{k-1}\right)
-,b_{k}\right)  =h$).
+WLOG assume not all of $b_{1},b_{2},\ldots,b_{k-1}$ are $0$.
 
-Well, $g$ is a common divisor of $b_{1},b_{2},\ldots,b_{k}$, thus divides
-$b_{k}$. So $g\mid b_{k}$ is proven.
+\textit{Proof of }$g\leq h$\textit{:} We have $g=\gcd\left(  b_{1}%
+,b_{2},\ldots,b_{k}\right)  \mid b_{i}$ for all $i$.
 
-Also, $g\mid b_{i}$ for all $i\in\left\{  1,2,\ldots,k-1\right\}  $. Thus, by
-part \textbf{(a)} applied to $k-1$ instead of $k$ (our induction hypothesis),
-we get $g\mid\gcd\left(  b_{1},b_{2},\ldots,b_{k-1}\right)  $.
+Thus, in particular, $g\mid b_{i}$ for all $i\in\left\{  1,2,\ldots
+,k-1\right\}  $. Thus, part \textbf{(a)} (applied to $k-1$ instead of $k$)
+yields that $g\mid\gcd\left(  b_{1},b_{2},\ldots,b_{k-1}\right)  $ (by
+induction hypothesis). Also, $g\mid b_{k}$. Hence, $g\mid\gcd\left(
+\gcd\left(  b_{1},b_{2},\ldots,b_{k-1}\right)  ,b_{k}\right)  $ (by Theorem
+2.41 \textbf{(a)}). In other words, $g\mid h$. Thus, $g\leq h$ (since $h>0$).
 
-So we are done proving $g\leq h$.
-
-\textit{Proof of }$h\leq g$\textit{:} We have%
+\textit{Proof of }$h\leq g$\textit{:} We have $h=\gcd\left(  \gcd\left(
+b_{1},b_{2},\ldots,b_{k-1}\right)  ,b_{k}\right)  $. We must prove that $h\leq
+g=\gcd\left(  b_{1},b_{2},\ldots,b_{k}\right)  $. For that it suffices to show
+that $h$ is a common divisor of $b_{1},b_{2},\ldots,b_{k}$. This follows from
+the fact that%
 \begin{align*}
 h  & =\gcd\left(  \gcd\left(  b_{1},b_{2},\ldots,b_{k-1}\right)
 ,b_{k}\right)  \\
 & \mid\gcd\left(  b_{1},b_{2},\ldots,b_{k-1}\right)  \mid b_{i}\text{ for all
 }i\in\left\{  1,2,\ldots,k-1\right\}
 \end{align*}
-and $h\mid b_{k}$. So $h$ is a common divisor of $b_{1},b_{2},\ldots,b_{k}$.
-Thus, $h$ is $\leq$ than the gcd. In other words, $h\leq g$.
+and
+\[
+h=\gcd\left(  \gcd\left(  b_{1},b_{2},\ldots,b_{k-1}\right)  ,b_{k}\right)
+\mid b_{k}.
+\]
+So $h\leq g$ is proven.
 
-Combining $h\leq g$ with $g\leq h$, we see that we are done with part
-\textbf{(d)}.
+Combining $g\leq h$ with $h\leq g$, we get $g=h$. Part \textbf{(d)} is thus proven.
 
-\textbf{(a)} Let $m\in\mathbb{Z}$. Then, we have the equivalence%
+\textbf{(a)} Let $m\in\mathbb{Z}$. Then, we have the following equivalence:%
 \begin{align*}
-& \ \left(  m\mid b_{i}\text{ for all }i\right)  \\
+& \ \left(  m\mid b_{i}\text{ for all }i\in\left\{  1,2,\ldots,k\right\}
+\right)  \\
 & \Longleftrightarrow\ \left(  \underbrace{\left(  m\mid b_{i}\text{ for all
 }i\in\left\{  1,2,\ldots,k-1\right\}  \right)  }%
 _{\substack{\Longleftrightarrow\ \left(  m\mid\gcd\left(  b_{1},b_{2}%
-,\ldots,b_{k-1}\right)  \right)  \\\text{(by the induction hypothesis)}%
-}}\text{ and }m\mid b_{k}\right)  \\
+,\ldots,b_{k-1}\right)  \right)  \\\text{(by induction hypothesis)}}}\text{
+and }m\mid b_{k}\right)  \\
 & \Longleftrightarrow\ \left(  m\mid\gcd\left(  b_{1},b_{2},\ldots
 ,b_{k-1}\right)  \text{ and }m\mid b_{k}\right)  \\
 & \Longleftrightarrow\ \left(  m\mid\gcd\left(  \gcd\left(  b_{1},b_{2}%
@@ -4157,51 +4162,52 @@ _{\substack{\Longleftrightarrow\ \left(  m\mid\gcd\left(  b_{1},b_{2}%
 \text{by Theorem 2.41 \textbf{(a)}}\right)  \\
 & \Longleftrightarrow\ \left(  m\mid\gcd\left(  b_{1},b_{2},\ldots
 ,b_{k}\right)  \right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by part
-\textbf{(d)}, which we just proved}\right)  .
+\textbf{(d)}, which we proved above}\right)  .
 \end{align*}
-
+Thus part \textbf{(a)} is proven.
 
 \textbf{(b)} is a restatement of \textbf{(a)}.
 
 \textbf{(c)} is a restatement of \textbf{(b)}.
 
-\textbf{(e)} By the induction hypothesis, we can apply \textbf{(e)} to $k-1$
-instead of $k$. We see that there exist $k-1$ integers $y_{1},y_{2}%
+\textbf{(e)} By induction hypothesis, there exist integers $y_{1},y_{2}%
 ,\ldots,y_{k-1}$ such that%
 \[
 \gcd\left(  b_{1},b_{2},\ldots,b_{k-1}\right)  =y_{1}b_{1}+y_{2}b_{2}%
 +\cdots+y_{k-1}b_{k-1}.
 \]
-Furthermore, Bezout's theorem yields that there exist two integers $u$ and $v$
-such that%
+Also, by Bezout's theorem, there are integers $u$ and $v$ such that
 \[
 \gcd\left(  \gcd\left(  b_{1},b_{2},\ldots,b_{k-1}\right)  ,b_{k}\right)
 =u\gcd\left(  b_{1},b_{2},\ldots,b_{k-1}\right)  +vb_{k}.
 \]
-
-
-Now, part \textbf{(d)} yields%
+Part \textbf{(d)} yields%
 \begin{align*}
 \gcd\left(  b_{1},b_{2},\ldots,b_{k}\right)    & =\gcd\left(  \gcd\left(
 b_{1},b_{2},\ldots,b_{k-1}\right)  ,b_{k}\right)  \\
 & =u\underbrace{\gcd\left(  b_{1},b_{2},\ldots,b_{k-1}\right)  }_{=y_{1}%
 b_{1}+y_{2}b_{2}+\cdots+y_{k-1}b_{k-1}}+vb_{k}\\
 & =u\left(  y_{1}b_{1}+y_{2}b_{2}+\cdots+y_{k-1}b_{k-1}\right)  +vb_{k}\\
-& =uy_{1}b_{1}+uy_{2}b_{2}+\cdots+uy_{k-1}b_{k-1}+vb_{k}.
+& =uy_{1}b_{1}+uy_{2}b_{2}+\cdots+uy_{k-1}b_{k-1}+vb_{k}\\
+& =x_{1}b_{1}+x_{2}b_{2}+\cdots+x_{k}b_{k},
 \end{align*}
-This is a linear combination of the $b_{1},b_{2},\ldots,b_{k}$. So part
-\textbf{(e)} is proven.
-
-We are thus done with the induction step.
+where $x_{i}=%
+\begin{cases}
+uy_{i}, & \text{if }i<k;\\
+v, & \text{if }i=k.
+\end{cases}
+$ This proves part \textbf{(e)}.
 \end{proof}
 
 \subsection{Coprime integers}
 
 \begin{definition}
-Let $a,b\in\mathbb{Z}$. We say that $a$ and $b$ are \textbf{coprime} (or
-\textbf{relatively prime}) if $\gcd\left(  a,b\right)  =1$. Note that this is
-a symmetric relation, since $\gcd\left(  a,b\right)  =\gcd\left(  b,a\right)
-$.
+Let $a$ and $b$ be two integers. We say that $a$ is \textbf{coprime} (or
+\textbf{relatively prime}) to $b$ if and only if $\gcd\left(  a,b\right)  =1$.
+
+This relation is symmetric (since $\gcd\left(  a,b\right)  =\gcd\left(
+b,a\right)  $), so it is also called \textquotedblleft$a$ and $b$ are
+\textbf{coprime}\textquotedblright.
 
 We write \textquotedblleft$a\perp b$\textquotedblright\ for \textquotedblleft%
 $a$ is coprime to $b$\textquotedblright. (LaTeX:
@@ -4209,55 +4215,46 @@ $a$ is coprime to $b$\textquotedblright. (LaTeX:
 %BeginExpansion
 $\backslash$%
 %EndExpansion
-perp $\rightarrow$ $\perp$).
+perp gives the $\perp$ sign.)
 \end{definition}
 
 \begin{example}
-\textbf{(a)} The integers $3$ and $5$ are coprime, since%
-\begin{align*}
-\gcd\left(  3,5\right)    & =\gcd\left(  3,2\right)  =\gcd\left(  2,3\right)
-\\
-& =\gcd\left(  2,1\right)  =\gcd\left(  1,2\right)  =\gcd\left(  1,0\right)
-=\left\vert 1\right\vert =1.
-\end{align*}
+\textbf{(a)} The numbers $2$ and $3$ are coprime, since $\gcd\left(
+2,3\right)  =1$.
 
+\textbf{(b)} The numbers $6$ and $15$ are not coprime, since $\gcd\left(
+6,15\right)  =3$.
 
-\textbf{(b)} Each integer $a$ is coprime to $a+1$ (that is, $a$ and $a+1$ are
-coprime). This is because%
+\textbf{(c)} Let $a\in\mathbb{Z}$. Then, $a$ is coprime to $a+1$, since%
 \begin{align*}
 \gcd\left(  a,a+1\right)    & =\gcd\left(  a,1\right)
 \ \ \ \ \ \ \ \ \ \ \left(  \text{since }a+1\equiv1\operatorname{mod}a\right)
 \\
-& =\gcd\left(  1,a\right)  =\gcd\left(  1,0\right)
-\ \ \ \ \ \ \ \ \ \ \left(  \text{since }0\equiv a\operatorname{mod}1\right)
-\\
-& =\left\vert 1\right\vert =1.
+& \mid1
 \end{align*}
+and thus $\gcd\left(  a,a+1\right)  =1$.
 
-
-\textbf{(c)} When is an integer $a$ coprime to $a+2$ ? Exactly when $a$ is
-odd. Proof:%
+\textbf{(d)} When is $a$ coprime to $a+2$ ? We have%
 \begin{align*}
 \gcd\left(  a,a+2\right)    & =\gcd\left(  a,2\right)
 \ \ \ \ \ \ \ \ \ \ \left(  \text{since }a+2\equiv2\operatorname{mod}a\right)
 \\
 & =%
 \begin{cases}
-2, & \text{if }a\text{ is even;}\\
+2, & \text{if }a\text{ is even};\\
 1, & \text{if }a\text{ is odd.}%
 \end{cases}
 \end{align*}
-
+Thus, $a$ is coprime to $a+2$ if and only if $a$ is odd.
 \end{example}
 
 \begin{theorem}
-Let $a,b,c\in\mathbb{Z}$ be such that $a\mid bc$ and $a\perp b$. Then, $a\mid
-c$.
+Let $a,b,c\in\mathbb{Z}$ satisfy $a\mid bc$ and $a\perp b$. Then, $a\mid c$.
 \end{theorem}
 
 \begin{theorem}
-Let $a,b,c\in\mathbb{Z}$ be such that $a\mid c$ and $b\mid c$ and $a\perp b$.
-Then, $ab\mid c$.
+Let $a,b,c\in\mathbb{Z}$ satisfy $a\mid c$ and $b\mid c$ and $a\perp b$. Then,
+$ab\mid c$.
 \end{theorem}
 
 \begin{theorem}
@@ -4267,17 +4264,18 @@ Let $a,n\in\mathbb{Z}$.
 a,n\right)  \operatorname{mod}n$.
 
 \textbf{(b)} If $a\perp n$, then there exists a $b\in\mathbb{Z}$ such that
-$ab\equiv1\operatorname{mod}n$. (Such a $b$ is called a \textbf{modular
-inverse} of $a$ modulo $n$.)
+$ab\equiv1\operatorname{mod}n$. Such an integer $b$ is called a
+\textbf{modular inverse} of $a$ modulo $n$.
 \end{theorem}
 
 \begin{proof}
-\textbf{(a)} Bezout's theorem yields $\gcd\left(  a,n\right)  =xa+yn$ for some
-$x,y\in\mathbb{Z}$. Now, $ax\equiv\gcd\left(  a,n\right)  \operatorname{mod}%
-n$, since $\underbrace{\gcd\left(  a,n\right)  }_{=xa+yn}-ax=yn$ is divisible
-by $n$. So take $b=x$.
+\textbf{(a)} Bezout yields that $\gcd\left(  a,n\right)  =xa+yn$ for some
+integers $x,y$. Thus, $ax=xa\equiv xa+yn\operatorname{mod}n$ (since
+$xa-\left(  xa+yn\right)  =-yn=n\left(  -y\right)  $ is clearly divisible by
+$n$). Hence, take $b=x$ and get $ab=ax\equiv xa+yn=\gcd\left(  a,n\right)
+\operatorname{mod}n$.
 
-\textbf{(b)} Follows from \textbf{(a)}, since $\gcd\left(  a,n\right)  =1$.
+\textbf{(b)} follows from \textbf{(a)}, since $\gcd\left(  a,n\right)  =1$.
 \end{proof}
 
 \subsubsection{An application}
@@ -4293,36 +4291,34 @@ We have%
 & =\left(  1+2+\cdots+n\right)  +\left(  1+2+\cdots+n\right)  \\
 & =\left(  1+2+\cdots+n\right)  +\left(  n+\left(  n-1\right)  +\cdots
 +1\right)  \\
-& =\underbrace{\left(  1+n\right)  +\left(  2+\left(  n-1\right)  \right)
-+\left(  3+\left(  n-2\right)  \right)  +\cdots+\left(  n+1\right)
-}_{\substack{\text{a sum of }n\text{ addends,}\\\text{each of which equals
-}n+1}}\\
-& =n\left(  n+1\right)  .
+& =\sum_{k=1}^{n}k+\sum_{k=1}^{n}\left(  n+1-k\right)  =\sum_{k=1}%
+^{n}\underbrace{\left(  k+\left(  n+1-k\right)  \right)  }_{=n+1}\\
+& =\sum_{k=1}^{n}\left(  n+1\right)  =n\left(  n+1\right)  .
 \end{align*}
 
 \end{proof}
 
-Similar formulas exist for summing higher powers, but less easy to prove.
+Similar formulas exist for higher powers, by the way:
 
-$\sum_{k=1}^{n}k=\allowbreak\dfrac{1}{2}n\left(  n+1\right)  $.
+$\sum_{k=1}^{n}k=\allowbreak\dfrac{1}{2}n\left(  n+1\right)  $
 
 $\sum_{k=1}^{n}k^{2}=\allowbreak\dfrac{1}{6}n\left(  2n+1\right)  \left(
-n+1\right)  $.
+n+1\right)  $
 
-$\sum_{k=1}^{n}k^{3}=\allowbreak\dfrac{1}{4}n^{2}\left(  n+1\right)  ^{2}$.
+$\sum_{k=1}^{n}k^{3}=\allowbreak\dfrac{1}{4}n^{2}\left(  n+1\right)  ^{2}$
 
 $\sum_{k=1}^{n}k^{4}=\allowbreak\dfrac{1}{30}n\left(  2n+1\right)  \left(
-n+1\right)  \left(  3n+3n^{2}-1\right)  $.
+n+1\right)  \left(  3n+3n^{2}-1\right)  $
 
 $\sum_{k=1}^{n}k^{5}=\allowbreak\dfrac{1}{12}n^{2}\left(  n+1\right)
-^{2}\left(  2n+2n^{2}-1\right)  $.
+^{2}\left(  2n+2n^{2}-1\right)  $
 
-In general: Fixing a $d\in\mathbb{N}$, the sum $\sum_{k=1}^{n}k^{d}$ is a
-polynomial in $n$ of degree $d+1$ with rational coefficients.
+Observe: For any $d\in\mathbb{N}$, we can write $\sum_{k=1}^{n}k^{d}$ as a
+polynomial of degree $d+1$ in $n$ with rational coefficients. The values of
+this polynomial at integer $n$'s are always integers, but its coefficients are not.
 
 \begin{exercise}
-Let $n\in\mathbb{N}$ and let $d$ be an \textbf{odd} positive integer. Prove
-that%
+Let $n\in\mathbb{N}$. Let $d$ be an \textbf{odd} positive integer. Then,%
 \[
 1+2+\cdots+n\mid1^{d}+2^{d}+\cdots+n^{d}.
 \]
@@ -4330,68 +4326,66 @@ that%
 \end{exercise}
 
 \begin{proof}
-Recall that $1+2+\cdots+n=\dfrac{n\left(  n+1\right)  }{2}$, so we need to
-prove%
+Recalling that $1+2+\cdots+n=\dfrac{n\left(  n+1\right)  }{2}$, we can rewrite
+this as%
 \[
 \dfrac{n\left(  n+1\right)  }{2}\mid1^{d}+2^{d}+\cdots+n^{d}.
 \]
 This is equivalent to%
 \[
-n\left(  n+1\right)  \mid2\left(  1^{d}+2^{d}+\cdots+n^{d}\right)  .
+n\left(  n+1\right)  \mid2\cdot\left(  1^{d}+2^{d}+\cdots+n^{d}\right)  .
 \]
-In order to prove this, it suffices to show that%
+Since $n$ and $n+1$ are coprime, we only need to check that%
 \begin{align*}
-n  & \mid2\left(  1^{d}+2^{d}+\cdots+n^{d}\right)
+n  & \mid2\cdot\left(  1^{d}+2^{d}+\cdots+n^{d}\right)
 \ \ \ \ \ \ \ \ \ \ \text{and}\\
-n+1  & \mid2\left(  1^{d}+2^{d}+\cdots+n^{d}\right)
+n+1  & \mid2\cdot\left(  1^{d}+2^{d}+\cdots+n^{d}\right)  .
 \end{align*}
-(because $n\perp n+1$, and we had a theorem saying that if $a,b,c\in
-\mathbb{Z}$ are such that $a\mid c$ and $b\mid c$ and $a\perp b$, then $ab\mid
-c$).
+This is not too hard. Let us prove the second divisibility:
 
-\textit{Proof of }$n+1\mid2\left(  1^{d}+2^{d}+\cdots+n^{d}\right)
-$\textit{:}
+I need a lemma:
 
-We have%
+\begin{lemma}
+Let $x$ and $y$ be two integers, and $d\in\mathbb{N}$.
+
+\textbf{(a)} We have $x-y\mid x^{d}-y^{d}$.
+
+\textbf{(b)} We have $x+y\mid x^{d}+y^{d}$ if $d$ is odd.
+\end{lemma}
+
+[\textit{Proof of lemma:} \textbf{(a)} follows from HW\#0 exercise 1.
+
+\textbf{(b)} Assume $d$ is odd. Then, we can apply part \textbf{(a)} to $-y$
+instead of $y$ and get $x-\left(  -y\right)  \mid x^{d}-\left(  -y\right)
+^{d}$. Since $d$ is odd, this rewrites as $x+y\mid x^{d}+y^{d}$.]
+
+\textit{Proof of }$n+1\mid2\cdot\left(  1^{d}+2^{d}+\cdots+n^{d}\right)
+$\textit{:} We have%
 \begin{align*}
-& 2\left(  1^{d}+2^{d}+\cdots+n^{d}\right)  \\
+& 2\cdot\left(  1^{d}+2^{d}+\cdots+n^{d}\right)  \\
 & =\left(  1^{d}+2^{d}+\cdots+n^{d}\right)  +\left(  1^{d}+2^{d}+\cdots
 +n^{d}\right)  \\
 & =\left(  1^{d}+2^{d}+\cdots+n^{d}\right)  +\left(  n^{d}+\left(  n-1\right)
 ^{d}+\cdots+1^{d}\right)  \\
-& =\sum_{k=1}^{n}k^{d}+\sum_{k=1}^{n}\left(  n+1-k\right)  ^{d}\\
-& =\sum_{k=1}^{n}\underbrace{\left(  k^{d}+\left(  n+1-k\right)  ^{d}\right)
-}_{\substack{\text{This is divisible by }k+\left(  n+1-k\right)
-\text{,}\\\text{because }x^{d}+y^{d}\text{ is always divisible by
-}x+y\\\text{when }d\text{ is odd(*)}}}
+& =\sum_{k=1}^{n}k^{d}+\sum_{k=1}^{n}\left(  n+1-k\right)  ^{d}=\sum_{k=1}%
+^{n}\underbrace{\left(  k^{d}+\left(  n+1-k\right)  ^{d}\right)
+}_{\substack{\text{This is divisible by }k+\left(  n+1-k\right)  \\\text{(by
+part \textbf{(b)} of the Lemma),}\\\text{which means it is divisible by }%
+n+1}}\\
+& =\sum_{k=1}^{n}\left(  \text{things divisible by }n+1\right)  ,
 \end{align*}
+and this is clearly divisible by $n+1$.
 
-
-(*) This is because we know that $x^{d}-y^{d}$ is always divisible by $x-y$
-(since $x^{d}-y^{d}=\left(  x-y\right)  \left(  x^{d-1}+x^{d-2}y+x^{d-3}%
-y^{2}+\cdots+y^{d-1}\right)  $). If $d$ is odd, we can plug $-y$ for $y$ here.
-
-So we have a sum of addends that are each divisible by $n+1$. So it is
-divisible by $n+1$.
-
-\textit{Proof of }$n\mid2\left(  1^{d}+2^{d}+\cdots+n^{d}\right)  $\textit{:}
-
-We have shown that $n+1\mid2\left(  1^{d}+2^{d}+\cdots+n^{d}\right)  $.
-
-Apply this to $n-1$ instead of $n$. We get%
-\begin{align*}
-n  & \mid2\left(  1^{d}+2^{d}+\cdots+\left(  n-1\right)  ^{d}\right)
-,\ \ \ \ \ \ \ \ \ \ \text{so}\\
-2\left(  1^{d}+2^{d}+\cdots+\left(  n-1\right)  ^{d}\right)    &
-\equiv0\operatorname{mod}n.
-\end{align*}
-We want%
-\begin{align*}
-\mathit{\ }n  & \mid2\left(  1^{d}+2^{d}+\cdots+n^{d}\right)
-,\ \ \ \ \ \ \ \ \ \ \text{that is,}\\
-2\left(  1^{d}+2^{d}+\cdots+n^{d}\right)    & \equiv0\operatorname{mod}n.
-\end{align*}
-How do we get it?
+\textit{Proof of }$n\mid2\cdot\left(  1^{d}+2^{d}+\cdots+n^{d}\right)
+$\textit{:} Apply
+\[
+n+1\mid2\cdot\left(  1^{d}+2^{d}+\cdots+n^{d}\right)
+\]
+to $n-1$ instead of $n$. This yields%
+\[
+n\mid2\cdot\left(  1^{d}+2^{d}+\cdots+\left(  n-1\right)  ^{d}\right)  .
+\]
+How does this yield $n\mid2\cdot\left(  1^{d}+2^{d}+\cdots+n^{d}\right)  $ ?
 \end{proof}
 
 
