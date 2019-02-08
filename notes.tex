@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Friday, February 08, 2019 08:08:50}
+%TCIDATA{LastRevised=Friday, February 08, 2019 10:51:30}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -2866,7 +2866,7 @@ order to see this, note that:
 \item The divisors of $15$ are $-15,-5,-3,-1,1,3,5,15$.
 \end{itemize}
 
-The only numbers common to these three lists are $-1$ and $1$.) However:
+\noindent The only numbers common to these three lists are $-1$ and $1$.) However:
 
 \begin{itemize}
 \item The common divisors of $6$ and $10$ are $-2,-1,1,2$.
@@ -2876,10 +2876,11 @@ The only numbers common to these three lists are $-1$ and $1$.) However:
 \item The common divisors of $10$ and $15$ are $-5,-1,1,5$.
 \end{itemize}
 
-This illustrates the fact that three numbers can have pairwise nontrivial
-common divisors (where \textquotedblleft nontrivial\textquotedblright\ means
-\textquotedblleft distinct from $1$ and $-1$\textquotedblright), but the only
-common divisors of all three of them may still be just $1$ and $-1$.
+\noindent This illustrates the fact that three numbers can have pairwise
+nontrivial common divisors (where \textquotedblleft
+nontrivial\textquotedblright\ means \textquotedblleft distinct from $1$ and
+$-1$\textquotedblright), but the only common divisors of all three of them may
+still be just $1$ and $-1$.
 \end{example}
 
 \begin{proposition}
@@ -3038,7 +3039,7 @@ a,b\right)  =\left\vert a\right\vert $.
 $\gcd\left(  {}\right)  =0$.
 \end{proposition}
 
-Proposition \ref{prop.ent.divisors.find} is not difficult and we could start
+Proposition \ref{prop.ent.gcd.props1} is not difficult and we could start
 proving it right away. However, such a proof would require some annoying case
 distinctions due to the special treatment that the \textquotedblleft%
 $b_{1},b_{2},\ldots,b_{k}$ are all $0$\textquotedblright\ case required in
@@ -3327,17 +3328,18 @@ Proposition \ref{prop.ent.gcd.props1} \textbf{(a)} is finally proven.
 
 \textbf{(b)} For any integer $x$, we have the following chain of equivalences:%
 \begin{align*}
-&  \ \left(  x\in\operatorname*{Div}\left(  a,b\right)  \right) \\
+&  \ \left(  x\in\operatorname*{Div}\left(  a,b\right)  \right)  \\
 &  \Longleftrightarrow\ \left(  x\text{ is a common divisor of }a\text{ and
 }b\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of
-}\operatorname*{Div}\left(  a,b\right)  \right) \\
+}\operatorname*{Div}\left(  a,b\right)  \right)  \\
 &  \Longleftrightarrow\ \left(  x\mid a\text{ and }x\mid b\right)
 \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of a \textquotedblleft
-common divisor\textquotedblright}\right) \\
-&  \Longleftrightarrow\ \left(  x\mid b\text{ and }x\mid a\right) \\
+common divisor\textquotedblright}\right)  \\
+&  \Longleftrightarrow\ \left(  x\mid b\text{ and }x\mid a\right)  \\
 &  \Longleftrightarrow\ \left(  x\text{ is a common divisor of }b\text{ and
-}a\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of a
-\textquotedblleft common divisor\textquotedblright}\right) \\
+}a\right)  \\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of a \textquotedblleft
+common divisor\textquotedblright}\right)  \\
 &  \Longleftrightarrow\ \left(  x\in\operatorname*{Div}\left(  b,a\right)
 \right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of }%
 \operatorname*{Div}\left(  b,a\right)  \right)  .
@@ -3401,10 +3403,11 @@ a,b\right)  $. This proves Proposition \ref{prop.ent.gcd.props1} \textbf{(c)}.
 
 \textbf{(e)} Let $a,b\in\mathbb{Z}$ be such that $a$ is positive. Then,
 $b\%a\equiv b\operatorname{mod}a$ (by Corollary \ref{cor.ent.quo-rem.remmod}
-\textbf{(a)}), thus $b\equiv b\%a\operatorname{mod}a$. Hence, $\gcd\left(
-a,b\right)  =\gcd\left(  a,b\%a\right)  $ (by Proposition
-\ref{prop.ent.gcd.props1} \textbf{(d)}, applied to $c=b\%a$). This proves
-Proposition \ref{prop.ent.gcd.props1} \textbf{(e)}.
+\textbf{(a)}, applied to $a$ and $b$ instead of $n$ and $u$), thus $b\equiv
+b\%a\operatorname{mod}a$. Hence, $\gcd\left(  a,b\right)  =\gcd\left(
+a,b\%a\right)  $ (by Proposition \ref{prop.ent.gcd.props1} \textbf{(d)},
+applied to $c=b\%a$). This proves Proposition \ref{prop.ent.gcd.props1}
+\textbf{(e)}.
 
 \textbf{(f)} Let $a,b\in\mathbb{Z}$. We must prove that $\gcd\left(
 a,b\right)  \mid a$ and $\gcd\left(  a,b\right)  \mid b$.
@@ -4609,7 +4612,7 @@ Now, forget that we fixed $m$. We thus have shown that each $m\in\mathbb{Z}$
 satisfies the equivalence%
 \begin{align*}
 &  \ \left(  m\mid\gcd\left(  b_{1},b_{2},\ldots,b_{k},c_{1},c_{2}%
-,\ldots,c_{\ell}\right)  \right)  \\
+,\ldots,c_{\ell}\right)  \right) \\
 &  \Longleftrightarrow\ \left(  m\mid\gcd\left(  \gcd\left(  b_{1}%
 ,b_{2},\ldots,b_{k}\right)  ,\gcd\left(  c_{1},c_{2},\ldots,c_{\ell}\right)
 \right)  \right)  .
@@ -4619,11 +4622,11 @@ Hence, Lemma \ref{lem.ent.gcd.yoneda} (applied to $a=\gcd\left(  b_{1}%
 $b=\gcd\left(  \gcd\left(  b_{1},b_{2},\ldots,b_{k}\right)  ,\gcd\left(
 c_{1},c_{2},\ldots,c_{\ell}\right)  \right)  $) yields%
 \begin{align}
-& \left\vert \gcd\left(  b_{1},b_{2},\ldots,b_{k},c_{1},c_{2},\ldots,c_{\ell
+&  \left\vert \gcd\left(  b_{1},b_{2},\ldots,b_{k},c_{1},c_{2},\ldots,c_{\ell
 }\right)  \right\vert \nonumber\\
-& =\left\vert \gcd\left(  \gcd\left(  b_{1},b_{2},\ldots,b_{k}\right)
-,\gcd\left(  c_{1},c_{2},\ldots,c_{\ell}\right)  \right)  \right\vert
-.\label{pf.thm.ent.gcd.split.abs-equal}%
+&  =\left\vert \gcd\left(  \gcd\left(  b_{1},b_{2},\ldots,b_{k}\right)
+,\gcd\left(  c_{1},c_{2},\ldots,c_{\ell}\right)  \right)  \right\vert .
+\label{pf.thm.ent.gcd.split.abs-equal}%
 \end{align}
 
 
@@ -4832,15 +4835,33 @@ side (i.e., the number in front of the \textquotedblleft$\mid$%
 factors. Similar reasoning works with several coprime factors (see Exercise
 \ref{exe.ent.coprime.combinek} below).
 
+The next theorem (still part of the fallout of Bezout's theorem) is important,
+but we will not truly appreciate it until later:
+
 \begin{theorem}
 \label{thm.ent.coprime.modinv}Let $a,n\in\mathbb{Z}$.
 
 \textbf{(a)} There exists a $b\in\mathbb{Z}$ such that $ab\equiv\gcd\left(
 a,n\right)  \operatorname{mod}n$.
 
-\textbf{(b)} If $a\perp n$, then there exists a $b\in\mathbb{Z}$ such that
-$ab\equiv1\operatorname{mod}n$.
+\textbf{(b)} If $a\perp n$, then there exists an $a^{\prime}\in\mathbb{Z}$
+such that $aa^{\prime}\equiv1\operatorname{mod}n$.
+
+\textbf{(c)} If there exists an $a^{\prime}\in\mathbb{Z}$ such that
+$aa^{\prime}\equiv1\operatorname{mod}n$, then $a\perp n$.
 \end{theorem}
+
+If $a,n\in\mathbb{Z}$, then an integer $a^{\prime}\in\mathbb{Z}$ satisfying
+$aa^{\prime}\equiv1\operatorname{mod}n$ is called a \textit{modular inverse}
+of $a$ modulo $n$. The word \textquotedblleft modular
+inverse\textquotedblright\ is chosen in analogy to the usual concept of an
+\textquotedblleft inverse\textquotedblright\ (which stands for an integer
+$a^{\prime}\in\mathbb{Z}$ satisfying $aa^{\prime}=1$; this exists if and only
+if $a$ equals $1$ or $-1$). Theorem \ref{thm.ent.coprime.modinv} \textbf{(b)}
+shows that such a modular inverse always exists when $a\perp n$; Theorem
+\ref{thm.ent.coprime.modinv} \textbf{(c)} is the converse of this statement
+(i.e., it says that if a modular inverse of $a$ modulo $n$ exists, then
+$a\perp n$).
 
 \begin{proof}
 [Proof of Theorem \ref{thm.ent.coprime.modinv}.]\textbf{(a)} Theorem
@@ -4849,30 +4870,39 @@ $x\in\mathbb{Z}$ and $y\in\mathbb{Z}$ such that $\gcd\left(  a,n\right)
 =xa+yn$. Consider these $x$ and $y$. We have $ax=xa\equiv
 xa+yn\operatorname{mod}n$ (since $xa-\left(  xa+yn\right)  =-yn=n\left(
 -y\right)  $ is clearly divisible by $n$). Thus, $ax\equiv xa+yn=\gcd\left(
-a,n\right)  \operatorname{mod}n$. Thus, there exists a $b\in\mathbb{Z}$ such
-that $ab\equiv\left(  a,n\right)  \operatorname{mod}n$ (namely, $b=x$). This
-proves Theorem \ref{thm.ent.coprime.modinv} \textbf{(a)}.
+a,n\right)  \operatorname{mod}n$. Thus, there exists a $a^{\prime}%
+\in\mathbb{Z}$ such that $aa^{\prime}\equiv\left(  a,n\right)
+\operatorname{mod}n$ (namely, $a^{\prime}=x$). This proves Theorem
+\ref{thm.ent.coprime.modinv} \textbf{(a)}.
 
 \textbf{(b)} Assume that $a\perp n$. In other words, $a$ is coprime to $n$ (by
 Definition \ref{def.ent.coprime.perp}). In other words, $\gcd\left(
 a,n\right)  =1$ (by the definition of \textquotedblleft
 coprime\textquotedblright). Now, Theorem \ref{thm.ent.coprime.modinv}
-\textbf{(a)} yields that there exists a $b\in\mathbb{Z}$ such that
-$ab\equiv\gcd\left(  a,n\right)  \operatorname{mod}n$. In view of $\gcd\left(
-a,n\right)  =1$, this rewrites as follows: There exists a $b\in\mathbb{Z}$
-such that $ab\equiv1\operatorname{mod}n$. This proves Theorem
-\ref{thm.ent.coprime.modinv} \textbf{(b)}.
-\end{proof}
+\textbf{(a)} yields that there exists a $a^{\prime}\in\mathbb{Z}$ such that
+$aa^{\prime}\equiv\gcd\left(  a,n\right)  \operatorname{mod}n$. In view of
+$\gcd\left(  a,n\right)  =1$, this rewrites as follows: There exists an
+$a^{\prime}\in\mathbb{Z}$ such that $aa^{\prime}\equiv1\operatorname{mod}n$.
+This proves Theorem \ref{thm.ent.coprime.modinv} \textbf{(b)}.
 
-If $a,n\in\mathbb{Z}$, then an integer $b\in\mathbb{Z}$ satisfying
-$ab\equiv1\operatorname{mod}n$ is called a \textit{modular inverse} of $a$
-modulo $n$. Theorem \ref{thm.ent.coprime.modinv} \textbf{(b)} shows that such
-a modular inverse always exists when $a\perp n$; it is easy to show that the
-converse also holds (i.e., if a modular inverse of $a$ modulo $n$ exists, then
-$a\perp n$). The word \textquotedblleft modular inverse\textquotedblright\ is
-chosen in analogy to the usual concept of an \textquotedblleft
-inverse\textquotedblright\ (which stands for an integer $b\in\mathbb{Z}$
-satisfying $ab=1$; this exists if and only if $a$ equals $1$ or $-1$).
+\textbf{(c)} Assume that there exists an $a^{\prime}\in\mathbb{Z}$ such that
+$aa^{\prime}\equiv1\operatorname{mod}n$. Consider this $a^{\prime}$.
+
+Proposition \ref{prop.ent.gcd.props1} \textbf{(f)} yields $\gcd\left(
+a,n\right)  \mid a$ and $\gcd\left(  a,n\right)  \mid n$. Set $g=\gcd\left(
+a,n\right)  $. Then, $g$ is a nonnegative integer.
+
+Now, $g=\gcd\left(  a,n\right)  \mid a\mid aa^{\prime}$, so that $aa^{\prime
+}\equiv0\operatorname{mod}g$. But also $g=\gcd\left(  a,n\right)  \mid n$.
+Hence, from $aa^{\prime}\equiv1\operatorname{mod}n$, we obtain $aa^{\prime
+}\equiv1\operatorname{mod}g$ (by Proposition \ref{prop.ent.mod.basics}
+\textbf{(e)}, applied to $g$, $aa^{\prime}$ and $1$ instead of $m$, $a$ and
+$b$). Hence, $1\equiv aa^{\prime}\equiv0\operatorname{mod}g$. Equivalently,
+$g\mid1-0=1$. Thus, $g$ is a divisor of $1$, and hence must be $1$ itself
+(since $g$ is a nonnegative integer). Thus, $\gcd\left(  a,n\right)  =g=1$. In
+other words, $a$ is coprime to $n$. In other words, $a\perp n$. This proves
+Theorem \ref{thm.ent.coprime.modinv} \textbf{(c)}.
+\end{proof}
 
 \begin{theorem}
 \label{thm.ent.coprime.ab-to-c}Let $a,b,c\in\mathbb{Z}$ such that $a\perp c$
@@ -4880,8 +4910,32 @@ and $b\perp c$. Then, $ab\perp c$.
 \end{theorem}
 
 \begin{proof}
-[Proof of Theorem \ref{thm.ent.coprime.ab-to-c}.]TODO!
+[Proof of Theorem \ref{thm.ent.coprime.ab-to-c}.]Theorem
+\ref{thm.ent.coprime.modinv} \textbf{(b)} (applied to $n=c$) yields that there
+exists an $a^{\prime}\in\mathbb{Z}$ such that $aa^{\prime}\equiv
+1\operatorname{mod}c$. Consider this $a^{\prime}$.
+
+Theorem \ref{thm.ent.coprime.modinv} \textbf{(b)} (applied to $b$ and $c$
+instead of $a$ and $n$) yields that there exists a $b^{\prime}\in\mathbb{Z}$
+such that $bb^{\prime}\equiv1\operatorname{mod}c$. Consider this $b^{\prime}$.
+
+Multiplying the two congruences $aa^{\prime}\equiv1\operatorname{mod}c$ and
+$bb^{\prime}\equiv1\operatorname{mod}c$, we obtain $\left(  aa^{\prime
+}\right)  \left(  bb^{\prime}\right)  \equiv1\cdot1=1\operatorname{mod}c$.
+
+Now, define the integers $r=ab$ and $s=a^{\prime}b^{\prime}$. Then,
+$\underbrace{r}_{=ab}\underbrace{s}_{=a^{\prime}b^{\prime}}=\left(  ab\right)
+\left(  a^{\prime}b^{\prime}\right)  =\left(  aa^{\prime}\right)  \left(
+bb^{\prime}\right)  \equiv1\operatorname{mod}c$. Hence, there exists an
+$r^{\prime}\in\mathbb{Z}$ such that $rr^{\prime}\equiv1\operatorname{mod}c$
+(namely, $r^{\prime}=s$). Thus, Theorem \ref{thm.ent.coprime.modinv}
+\textbf{(c)} (applied to $r$ and $c$ instead of $a$ and $n$) yields that
+$r\perp c$. In view of $r=ab$, this rewrites as $ab\perp c$. This proves
+Theorem \ref{thm.ent.coprime.ab-to-c}.
 \end{proof}
+
+Let us generalize Theorem \ref{thm.ent.coprime.ab-to-c} to products of several
+numbers instead of just the two numbers $a$ and $b$:
 
 \begin{exercise}
 \label{exe.ent.coprime.ab-to-ck}Let $c\in\mathbb{Z}$. Let $a_{1},a_{2}%
@@ -4890,22 +4944,139 @@ $ satisfies $a_{i}\perp c$. Then, $a_{1}a_{2}\cdots a_{k}\perp c$.
 \end{exercise}
 
 \begin{proof}
-[Solution to Exercise \ref{exe.ent.coprime.combinek}.]TODO. (Induction on $k$,
-using Theorem \ref{thm.ent.coprime.ab-to-c}.)
+[Solution to Exercise \ref{exe.ent.coprime.combinek}.]Let us prove that%
+\begin{equation}
+a_{1}a_{2}\cdots a_{i}\perp c\ \ \ \ \ \ \ \ \ \ \text{for each }i\in\left\{
+0,1,\ldots,k\right\}  .\label{sol.ent.coprime.ab-to-ck.goal}%
+\end{equation}
+
+
+\textit{Proof of (\ref{sol.ent.coprime.ab-to-ck.goal}):} We shall prove
+(\ref{sol.ent.coprime.ab-to-ck.goal}) by induction on $i$:
+
+\textit{Induction base:} Proposition \ref{prop.ent.gcd.props1} \textbf{(f)}
+yields $\gcd\left(  1,c\right)  \mid1$ and thus $\gcd\left(  1,c\right)  =1$
+(since $\gcd\left(  1,c\right)  $ is a nonnegative integer). In other words,
+$1$ is coprime to $c$. In other words, $1\perp c$. Now, $a_{1}a_{2}\cdots
+a_{0}=\left(  \text{empty product}\right)  =1\perp c$. Hence,
+(\ref{sol.ent.coprime.ab-to-ck.goal}) holds for $i=0$. This completes the
+induction base.
+
+\textit{Induction step:} Let $j\in\left\{  1,2,\ldots,k\right\}  $. Assume
+that (\ref{sol.ent.coprime.ab-to-ck.goal}) holds for $i=j-1$. We must now
+prove that (\ref{sol.ent.coprime.ab-to-ck.goal}) holds for $i=j$.
+
+We have assumed that (\ref{sol.ent.coprime.ab-to-ck.goal}) holds for $i=j-1$.
+In other words, $a_{1}a_{2}\cdots a_{j-1}\perp c$.
+
+We have assumed that each $i\in\left\{  1,2,\ldots,k\right\}  $ satisfies
+$a_{i}\perp c$. Applying this to $i=j$, we find $a_{j}\perp c$.
+
+Now we know that $a_{1}a_{2}\cdots a_{j-1}\perp c$ and $a_{j}\perp c$. Hence,
+Theorem \ref{thm.ent.coprime.ab-to-c} (applied to $a=a_{1}a_{2}\cdots a_{j-1}$
+and $b=a_{j}$) yields $\left(  a_{1}a_{2}\cdots a_{j-1}\right)  a_{j}\perp c$.
+In other words, $a_{1}a_{2}\cdots a_{j}\perp c$ (since $a_{1}a_{2}\cdots
+a_{j}=\left(  a_{1}a_{2}\cdots a_{j-1}\right)  a_{j}$). In other words,
+(\ref{sol.ent.coprime.ab-to-ck.goal}) holds for $i=j$. This completes the
+induction step. Thus, (\ref{sol.ent.coprime.ab-to-ck.goal}) is proven by induction.
+
+Now, we can apply (\ref{sol.ent.coprime.ab-to-ck.goal}) to $i=k$. We thus
+obtain $a_{1}a_{2}\cdots a_{k}\perp c$. This proves Exercise
+\ref{exe.ent.coprime.combinek}.
 \end{proof}
+
+We can similarly generalize Theorem \ref{thm.ent.coprime.combine} to show that
+the product of several mutually coprime divisors of an integer $c$ must again
+be a divisor of $c$:
 
 \begin{exercise}
 \label{exe.ent.coprime.combinek}Let $c\in\mathbb{Z}$, and let $b_{1}%
-,b_{2},\ldots,b_{k}$ be integers that are mutually coprime (i.e., we have
+,b_{2},\ldots,b_{k}$ be integers that are mutually coprime (i.e., they satisfy
 $b_{i}\perp b_{j}$ for all $i\neq j$). Assume that $b_{i}\mid c$ for each
 $i\in\left\{  1,2,\ldots,k\right\}  $. Prove that $b_{1}b_{2}\cdots b_{k}\mid
 c$.
 \end{exercise}
 
 \begin{proof}
-[Solution to Exercise \ref{exe.ent.coprime.combinek}.]TODO. (Induction on $k$,
-using Theorem \ref{thm.ent.coprime.combine} and Theorem
-\ref{thm.ent.coprime.ab-to-c}.)
+[Solution to Exercise \ref{exe.ent.coprime.combinek}.]We assumed that the
+integers $b_{1},b_{2},\ldots,b_{k}$ are mutually coprime. In other words, we
+have%
+\begin{equation}
+b_{i}\perp b_{j}\text{ for all }i,j\in\left\{  1,2,\ldots,k\right\}  \text{
+satisfying }i\neq j.\label{sol.ent.coprime.combinek.copr}%
+\end{equation}
+
+
+Let us prove that%
+\begin{equation}
+b_{1}b_{2}\cdots b_{i}\mid c\ \ \ \ \ \ \ \ \ \ \text{for each }i\in\left\{
+0,1,\ldots,k\right\}  .\label{sol.ent.coprime.combinek.goal}%
+\end{equation}
+
+
+\textit{Proof of (\ref{sol.ent.coprime.combinek.goal}):} We shall prove
+(\ref{sol.ent.coprime.combinek.goal}) by induction on $i$:
+
+\textit{Induction base:} We have $b_{1}b_{2}\cdots b_{0}=\left(  \text{empty
+product}\right)  =1\mid c$. Hence, (\ref{sol.ent.coprime.combinek.goal}) holds
+for $i=0$. This completes the induction base.
+
+\textit{Induction step:} Let $j\in\left\{  1,2,\ldots,k\right\}  $. Assume
+that (\ref{sol.ent.coprime.combinek.goal}) holds for $i=j-1$. We must now
+prove that (\ref{sol.ent.coprime.combinek.goal}) holds for $i=j$.
+
+We have assumed that (\ref{sol.ent.coprime.ab-to-ck.goal}) holds for $i=j-1$.
+In other words, $b_{1}b_{2}\cdots b_{j-1}\mid c$.
+
+We have assumed that each $i\in\left\{  1,2,\ldots,k\right\}  $ satisfies
+$b_{i}\mid c$. Applying this to $i=j$, we find $b_{j}\mid c$.
+
+For each $i\in\left\{  1,2,\ldots,j-1\right\}  $, we have $i\leq j-1<j$ and
+thus $i\neq j$ and therefore $b_{i}\perp b_{j}$ (by
+(\ref{sol.ent.coprime.combinek.copr})). Hence, Exercise
+\ref{exe.ent.coprime.combinek} (applied to $j-1$, $b_{j}$ and $\left(
+b_{1},b_{2},\ldots,b_{j-1}\right)  $ instead of $k$, $c$ and $\left(
+a_{1},a_{2},\ldots,a_{k}\right)  $) yields $b_{1}b_{2}\cdots b_{j-1}\perp
+b_{j}$.
+
+Now we know that $b_{1}b_{2}\cdots b_{j-1}\mid c$ and $b_{j}\mid c$ and
+$b_{1}b_{2}\cdots b_{j-1}\perp b_{j}$. Hence, Theorem
+\ref{thm.ent.coprime.combine} (applied to $a=b_{1}b_{2}\cdots b_{j-1}$ and
+$b=b_{j}$) yields $\left(  b_{1}b_{2}\cdots b_{j-1}\right)  b_{j}\mid c$. In
+other words, $b_{1}b_{2}\cdots b_{j}\mid c$ (since $b_{1}b_{2}\cdots
+b_{j}=\left(  b_{1}b_{2}\cdots b_{j-1}\right)  b_{j}$). In other words,
+(\ref{sol.ent.coprime.combinek.goal}) holds for $i=j$. This completes the
+induction step. Thus, (\ref{sol.ent.coprime.combinek.goal}) is proven by induction.
+
+Now, we can apply (\ref{sol.ent.coprime.combinek.goal}) to $i=k$. We thus
+obtain $b_{1}b_{2}\cdots b_{k}\mid c$. This proves Exercise
+\ref{exe.ent.coprime.combinek}.
+\end{proof}
+
+\begin{exercise}
+\label{exe.ent.coprime.powers}Let $a,b\in\mathbb{Z}$ be such that $a\perp b$.
+Let $n,m\in\mathbb{N}$. Prove that $a^{n}\perp b^{m}$.
+\end{exercise}
+
+\begin{proof}
+[Solution to Exercise \ref{exe.ent.coprime.powers}.] We have $a\perp b$. Thus,
+Exercise \ref{exe.ent.coprime.combinek} (applied to $n$, $b$ and $\left(
+\underbrace{a,a,\ldots,a}_{n\text{ times}}\right)  $ instead of $k$, $c$ and
+$\left(  a_{1},a_{2},\ldots,a_{k}\right)  $) yields that $\underbrace{aa\cdots
+a}_{n\text{ times}}\perp b$. In other words, $a^{n}\perp b$.
+
+According to Proposition \ref{prop.ent.coprime.perp-symm} (applied to $a^{n}$
+instead of $a$), we have $a^{n}\perp b$ if and only if $b\perp a^{n}$. Thus,
+$b\perp a^{n}$ (since $a^{n}\perp b$). Hence, Exercise
+\ref{exe.ent.coprime.combinek} (applied to $m$, $a^{n}$ and $\left(
+\underbrace{b,b,\ldots,b}_{m\text{ times}}\right)  $ instead of $k$, $c$ and
+$\left(  a_{1},a_{2},\ldots,a_{k}\right)  $) yields that $\underbrace{bb\cdots
+b}_{m\text{ times}}\perp a^{n}$. In other words, $b^{m}\perp a^{n}$.
+
+According to Proposition \ref{prop.ent.coprime.perp-symm} (applied to $a^{n}$
+and $b^{m}$ instead of $a$ and $b$), we have $a^{n}\perp b^{m}$ if and only if
+$b^{m}\perp a^{n}$. Hence, $a^{n}\perp b^{m}$ (since $b^{m}\perp a^{n}$). This
+solves Exercise \ref{exe.ent.coprime.powers}.
 \end{proof}
 
 \subsubsection{An application to sums of powers}
@@ -5254,7 +5425,7 @@ count as prime even though its only positive divisor is $1$ itself.
 TODO:
 
 \begin{itemize}
-\item Eratosthenes 
+\item Eratosthenes
 
 \item $p>1$ prime $\Longrightarrow$ $p$ coprime to $1,2,\ldots,p-1$
 
