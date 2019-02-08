@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Friday, February 08, 2019 10:53:52}
+%TCIDATA{LastRevised=Friday, February 08, 2019 09:55:25}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -2866,7 +2866,7 @@ order to see this, note that:
 \item The divisors of $15$ are $-15,-5,-3,-1,1,3,5,15$.
 \end{itemize}
 
-\noindent The only numbers common to these three lists are $-1$ and $1$.) However:
+The only numbers common to these three lists are $-1$ and $1$.) However:
 
 \begin{itemize}
 \item The common divisors of $6$ and $10$ are $-2,-1,1,2$.
@@ -2876,11 +2876,10 @@ order to see this, note that:
 \item The common divisors of $10$ and $15$ are $-5,-1,1,5$.
 \end{itemize}
 
-\noindent This illustrates the fact that three numbers can have pairwise
-nontrivial common divisors (where \textquotedblleft
-nontrivial\textquotedblright\ means \textquotedblleft distinct from $1$ and
-$-1$\textquotedblright), but the only common divisors of all three of them may
-still be just $1$ and $-1$.
+This illustrates the fact that three numbers can have pairwise nontrivial
+common divisors (where \textquotedblleft nontrivial\textquotedblright\ means
+\textquotedblleft distinct from $1$ and $-1$\textquotedblright), but the only
+common divisors of all three of them may still be just $1$ and $-1$.
 \end{example}
 
 \begin{proposition}
@@ -3039,7 +3038,7 @@ a,b\right)  =\left\vert a\right\vert $.
 $\gcd\left(  {}\right)  =0$.
 \end{proposition}
 
-Proposition \ref{prop.ent.gcd.props1} is not difficult and we could start
+Proposition \ref{prop.ent.divisors.find} is not difficult and we could start
 proving it right away. However, such a proof would require some annoying case
 distinctions due to the special treatment that the \textquotedblleft%
 $b_{1},b_{2},\ldots,b_{k}$ are all $0$\textquotedblright\ case required in
@@ -3328,18 +3327,17 @@ Proposition \ref{prop.ent.gcd.props1} \textbf{(a)} is finally proven.
 
 \textbf{(b)} For any integer $x$, we have the following chain of equivalences:%
 \begin{align*}
-&  \ \left(  x\in\operatorname*{Div}\left(  a,b\right)  \right)  \\
+&  \ \left(  x\in\operatorname*{Div}\left(  a,b\right)  \right) \\
 &  \Longleftrightarrow\ \left(  x\text{ is a common divisor of }a\text{ and
 }b\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of
-}\operatorname*{Div}\left(  a,b\right)  \right)  \\
+}\operatorname*{Div}\left(  a,b\right)  \right) \\
 &  \Longleftrightarrow\ \left(  x\mid a\text{ and }x\mid b\right)
 \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of a \textquotedblleft
-common divisor\textquotedblright}\right)  \\
-&  \Longleftrightarrow\ \left(  x\mid b\text{ and }x\mid a\right)  \\
+common divisor\textquotedblright}\right) \\
+&  \Longleftrightarrow\ \left(  x\mid b\text{ and }x\mid a\right) \\
 &  \Longleftrightarrow\ \left(  x\text{ is a common divisor of }b\text{ and
-}a\right)  \\
-&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of a \textquotedblleft
-common divisor\textquotedblright}\right)  \\
+}a\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of a
+\textquotedblleft common divisor\textquotedblright}\right) \\
 &  \Longleftrightarrow\ \left(  x\in\operatorname*{Div}\left(  b,a\right)
 \right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of }%
 \operatorname*{Div}\left(  b,a\right)  \right)  .
@@ -3403,11 +3401,10 @@ a,b\right)  $. This proves Proposition \ref{prop.ent.gcd.props1} \textbf{(c)}.
 
 \textbf{(e)} Let $a,b\in\mathbb{Z}$ be such that $a$ is positive. Then,
 $b\%a\equiv b\operatorname{mod}a$ (by Corollary \ref{cor.ent.quo-rem.remmod}
-\textbf{(a)}, applied to $a$ and $b$ instead of $n$ and $u$), thus $b\equiv
-b\%a\operatorname{mod}a$. Hence, $\gcd\left(  a,b\right)  =\gcd\left(
-a,b\%a\right)  $ (by Proposition \ref{prop.ent.gcd.props1} \textbf{(d)},
-applied to $c=b\%a$). This proves Proposition \ref{prop.ent.gcd.props1}
-\textbf{(e)}.
+\textbf{(a)}), thus $b\equiv b\%a\operatorname{mod}a$. Hence, $\gcd\left(
+a,b\right)  =\gcd\left(  a,b\%a\right)  $ (by Proposition
+\ref{prop.ent.gcd.props1} \textbf{(d)}, applied to $c=b\%a$). This proves
+Proposition \ref{prop.ent.gcd.props1} \textbf{(e)}.
 
 \textbf{(f)} Let $a,b\in\mathbb{Z}$. We must prove that $\gcd\left(
 a,b\right)  \mid a$ and $\gcd\left(  a,b\right)  \mid b$.
@@ -4835,33 +4832,15 @@ side (i.e., the number in front of the \textquotedblleft$\mid$%
 factors. Similar reasoning works with several coprime factors (see Exercise
 \ref{exe.ent.coprime.combinek} below).
 
-The next theorem (still part of the fallout of Bezout's theorem) is important,
-but we will not truly appreciate it until later:
-
 \begin{theorem}
 \label{thm.ent.coprime.modinv}Let $a,n\in\mathbb{Z}$.
 
 \textbf{(a)} There exists a $b\in\mathbb{Z}$ such that $ab\equiv\gcd\left(
 a,n\right)  \operatorname{mod}n$.
 
-\textbf{(b)} If $a\perp n$, then there exists an $a^{\prime}\in\mathbb{Z}$
-such that $aa^{\prime}\equiv1\operatorname{mod}n$.
-
-\textbf{(c)} If there exists an $a^{\prime}\in\mathbb{Z}$ such that
-$aa^{\prime}\equiv1\operatorname{mod}n$, then $a\perp n$.
+\textbf{(b)} If $a\perp n$, then there exists a $b\in\mathbb{Z}$ such that
+$ab\equiv1\operatorname{mod}n$.
 \end{theorem}
-
-If $a,n\in\mathbb{Z}$, then an integer $a^{\prime}\in\mathbb{Z}$ satisfying
-$aa^{\prime}\equiv1\operatorname{mod}n$ is called a \textit{modular inverse}
-of $a$ modulo $n$. The word \textquotedblleft modular
-inverse\textquotedblright\ is chosen in analogy to the usual concept of an
-\textquotedblleft inverse\textquotedblright\ (which stands for an integer
-$a^{\prime}\in\mathbb{Z}$ satisfying $aa^{\prime}=1$; this exists if and only
-if $a$ equals $1$ or $-1$). Theorem \ref{thm.ent.coprime.modinv} \textbf{(b)}
-shows that such a modular inverse always exists when $a\perp n$; Theorem
-\ref{thm.ent.coprime.modinv} \textbf{(c)} is the converse of this statement
-(i.e., it says that if a modular inverse of $a$ modulo $n$ exists, then
-$a\perp n$).
 
 \begin{proof}
 [Proof of Theorem \ref{thm.ent.coprime.modinv}.]\textbf{(a)} Theorem
@@ -4870,513 +4849,123 @@ $x\in\mathbb{Z}$ and $y\in\mathbb{Z}$ such that $\gcd\left(  a,n\right)
 =xa+yn$. Consider these $x$ and $y$. We have $ax=xa\equiv
 xa+yn\operatorname{mod}n$ (since $xa-\left(  xa+yn\right)  =-yn=n\left(
 -y\right)  $ is clearly divisible by $n$). Thus, $ax\equiv xa+yn=\gcd\left(
-a,n\right)  \operatorname{mod}n$. Thus, there exists a $a^{\prime}%
-\in\mathbb{Z}$ such that $aa^{\prime}\equiv\left(  a,n\right)
-\operatorname{mod}n$ (namely, $a^{\prime}=x$). This proves Theorem
-\ref{thm.ent.coprime.modinv} \textbf{(a)}.
+a,n\right)  \operatorname{mod}n$. Thus, there exists a $b\in\mathbb{Z}$ such
+that $ab\equiv\left(  a,n\right)  \operatorname{mod}n$ (namely, $b=x$). This
+proves Theorem \ref{thm.ent.coprime.modinv} \textbf{(a)}.
 
 \textbf{(b)} Assume that $a\perp n$. In other words, $a$ is coprime to $n$ (by
 Definition \ref{def.ent.coprime.perp}). In other words, $\gcd\left(
 a,n\right)  =1$ (by the definition of \textquotedblleft
 coprime\textquotedblright). Now, Theorem \ref{thm.ent.coprime.modinv}
-\textbf{(a)} yields that there exists a $a^{\prime}\in\mathbb{Z}$ such that
-$aa^{\prime}\equiv\gcd\left(  a,n\right)  \operatorname{mod}n$. In view of
-$\gcd\left(  a,n\right)  =1$, this rewrites as follows: There exists an
-$a^{\prime}\in\mathbb{Z}$ such that $aa^{\prime}\equiv1\operatorname{mod}n$.
-This proves Theorem \ref{thm.ent.coprime.modinv} \textbf{(b)}.
-
-\textbf{(c)} Assume that there exists an $a^{\prime}\in\mathbb{Z}$ such that
-$aa^{\prime}\equiv1\operatorname{mod}n$. Consider this $a^{\prime}$.
-
-Proposition \ref{prop.ent.gcd.props1} \textbf{(f)} yields $\gcd\left(
-a,n\right)  \mid a$ and $\gcd\left(  a,n\right)  \mid n$. Set $g=\gcd\left(
-a,n\right)  $. Then, $g$ is a nonnegative integer.
-
-Now, $g=\gcd\left(  a,n\right)  \mid a\mid aa^{\prime}$, so that $aa^{\prime
-}\equiv0\operatorname{mod}g$. But also $g=\gcd\left(  a,n\right)  \mid n$.
-Hence, from $aa^{\prime}\equiv1\operatorname{mod}n$, we obtain $aa^{\prime
-}\equiv1\operatorname{mod}g$ (by Proposition \ref{prop.ent.mod.basics}
-\textbf{(e)}, applied to $g$, $aa^{\prime}$ and $1$ instead of $m$, $a$ and
-$b$). Hence, $1\equiv aa^{\prime}\equiv0\operatorname{mod}g$. Equivalently,
-$g\mid1-0=1$. Thus, $g$ is a divisor of $1$, and hence must be $1$ itself
-(since $g$ is a nonnegative integer). Thus, $\gcd\left(  a,n\right)  =g=1$. In
-other words, $a$ is coprime to $n$. In other words, $a\perp n$. This proves
-Theorem \ref{thm.ent.coprime.modinv} \textbf{(c)}.
+\textbf{(a)} yields that there exists a $b\in\mathbb{Z}$ such that
+$ab\equiv\gcd\left(  a,n\right)  \operatorname{mod}n$. In view of $\gcd\left(
+a,n\right)  =1$, this rewrites as follows: There exists a $b\in\mathbb{Z}$
+such that $ab\equiv1\operatorname{mod}n$. This proves Theorem
+\ref{thm.ent.coprime.modinv} \textbf{(b)}.
 \end{proof}
 
+If $a,n\in\mathbb{Z}$, then an integer $b\in\mathbb{Z}$ satisfying
+$ab\equiv1\operatorname{mod}n$ is called a \textit{modular inverse} of $a$
+modulo $n$. Theorem \ref{thm.ent.coprime.modinv} \textbf{(b)} shows that such
+a modular inverse always exists when $a\perp n$; it is easy to show that the
+converse also holds (i.e., if a modular inverse of $a$ modulo $n$ exists, then
+$a\perp n$). The word \textquotedblleft modular inverse\textquotedblright\ is
+chosen in analogy to the usual concept of an \textquotedblleft
+inverse\textquotedblright\ (which stands for an integer $b\in\mathbb{Z}$
+satisfying $ab=1$; this exists if and only if $a$ equals $1$ or $-1$).
+
+\begin{proof}
+[Solution to Exercise \ref{exe.ent.coprime.combinek}.]TODO. (Induction on $k$,
+using Theorem \ref{thm.ent.coprime.combine} and Theorem
+\ref{thm.ent.coprime.ab-to-c}.)
+\end{proof}
+
+\subsubsection{\bigskip A bit more on coprime integers}
+
 \begin{theorem}
-\label{thm.ent.coprime.ab-to-c}Let $a,b,c\in\mathbb{Z}$ such that $a\perp c$
-and $b\perp c$. Then, $ab\perp c$.
+Let $a,b,c\in\mathbb{Z}$ such that $a\perp c$ and $b\perp c$. Then, $ab\perp
+c$.
 \end{theorem}
 
 \begin{proof}
-[Proof of Theorem \ref{thm.ent.coprime.ab-to-c}.]Theorem
-\ref{thm.ent.coprime.modinv} \textbf{(b)} (applied to $n=c$) yields that there
-exists an $a^{\prime}\in\mathbb{Z}$ such that $aa^{\prime}\equiv
-1\operatorname{mod}c$. Consider this $a^{\prime}$.
+We have $\gcd\left(  a,c\right)  =1$. Thus, Bezout says there are $u,v$ such
+that $1=ua+vc$.
 
-Theorem \ref{thm.ent.coprime.modinv} \textbf{(b)} (applied to $b$ and $c$
-instead of $a$ and $n$) yields that there exists a $b^{\prime}\in\mathbb{Z}$
-such that $bb^{\prime}\equiv1\operatorname{mod}c$. Consider this $b^{\prime}$.
+We have $\gcd\left(  b,c\right)  =1$. Thus, Bezout says there are $x,y$ such
+that $1=xb+yc$.
 
-Multiplying the two congruences $aa^{\prime}\equiv1\operatorname{mod}c$ and
-$bb^{\prime}\equiv1\operatorname{mod}c$, we obtain $\left(  aa^{\prime
-}\right)  \left(  bb^{\prime}\right)  \equiv1\cdot1=1\operatorname{mod}c$.
-
-Now, define the integers $r=ab$ and $s=a^{\prime}b^{\prime}$. Then,
-$\underbrace{r}_{=ab}\underbrace{s}_{=a^{\prime}b^{\prime}}=\left(  ab\right)
-\left(  a^{\prime}b^{\prime}\right)  =\left(  aa^{\prime}\right)  \left(
-bb^{\prime}\right)  \equiv1\operatorname{mod}c$. Hence, there exists an
-$r^{\prime}\in\mathbb{Z}$ such that $rr^{\prime}\equiv1\operatorname{mod}c$
-(namely, $r^{\prime}=s$). Thus, Theorem \ref{thm.ent.coprime.modinv}
-\textbf{(c)} (applied to $r$ and $c$ instead of $a$ and $n$) yields that
-$r\perp c$. In view of $r=ab$, this rewrites as $ab\perp c$. This proves
-Theorem \ref{thm.ent.coprime.ab-to-c}.
+Now, multiplying $1=ua+vc$ with $1=xb+yc$, we get%
+\begin{align*}
+1  & =\left(  ua+vc\right)  \left(  xb+yc\right)  \\
+& =uxab+uyac+vxcb+vycc\\
+& =\left(  ux\right)  \left(  ab\right)  +\left(  uya+vxc+vyc\right)  c\\
+& =\alpha\left(  ab\right)  +\beta c\ \ \ \ \ \ \ \ \ \ \text{for some }%
+\alpha,\beta\in\mathbb{Z}.
+\end{align*}
+Thus, $\gcd\left(  ab,c\right)  \mid\alpha\left(  ab\right)  +\beta c=1$, so
+that $\gcd\left(  ab,c\right)  =1$, so that $ab\perp c$.
 \end{proof}
 
-Let us generalize Theorem \ref{thm.ent.coprime.ab-to-c} to products of several
-numbers instead of just the two numbers $a$ and $b$:
-
 \begin{exercise}
-\label{exe.ent.coprime.ab-to-ck}Let $c\in\mathbb{Z}$. Let $a_{1},a_{2}%
-,\ldots,a_{k}$ be integers such that each $i\in\left\{  1,2,\ldots,k\right\}
-$ satisfies $a_{i}\perp c$. Then, $a_{1}a_{2}\cdots a_{k}\perp c$.
+Let $c\in\mathbb{Z}$. Let $a_{1},a_{2},\ldots,a_{k}$ be all coprime to $c$.
+Prove that $a_{1}a_{2}\cdots a_{k}\perp c$.
 \end{exercise}
 
 \begin{proof}
-[Solution to Exercise \ref{exe.ent.coprime.combinek}.]Let us prove that%
-\begin{equation}
-a_{1}a_{2}\cdots a_{i}\perp c\ \ \ \ \ \ \ \ \ \ \text{for each }i\in\left\{
-0,1,\ldots,k\right\}  .\label{sol.ent.coprime.ab-to-ck.goal}%
-\end{equation}
+Induction on $k$.
 
+\textit{Base case:} $k=0$. Then, $a_{1}a_{2}\cdots a_{k}=\left(  \text{empty
+product}\right)  =1\perp c$ since $\gcd\left(  1,c\right)  \mid1$.
 
-\textit{Proof of (\ref{sol.ent.coprime.ab-to-ck.goal}):} We shall prove
-(\ref{sol.ent.coprime.ab-to-ck.goal}) by induction on $i$:
+\textit{Step:} Assume the exercise is solved for $k-1$. We want to solve it
+for $k$.
 
-\textit{Induction base:} Proposition \ref{prop.ent.gcd.props1} \textbf{(f)}
-yields $\gcd\left(  1,c\right)  \mid1$ and thus $\gcd\left(  1,c\right)  =1$
-(since $\gcd\left(  1,c\right)  $ is a nonnegative integer). In other words,
-$1$ is coprime to $c$. In other words, $1\perp c$. Now, $a_{1}a_{2}\cdots
-a_{0}=\left(  \text{empty product}\right)  =1\perp c$. Hence,
-(\ref{sol.ent.coprime.ab-to-ck.goal}) holds for $i=0$. This completes the
-induction base.
-
-\textit{Induction step:} Let $j\in\left\{  1,2,\ldots,k\right\}  $. Assume
-that (\ref{sol.ent.coprime.ab-to-ck.goal}) holds for $i=j-1$. We must now
-prove that (\ref{sol.ent.coprime.ab-to-ck.goal}) holds for $i=j$.
-
-We have assumed that (\ref{sol.ent.coprime.ab-to-ck.goal}) holds for $i=j-1$.
-In other words, $a_{1}a_{2}\cdots a_{j-1}\perp c$.
-
-We have assumed that each $i\in\left\{  1,2,\ldots,k\right\}  $ satisfies
-$a_{i}\perp c$. Applying this to $i=j$, we find $a_{j}\perp c$.
-
-Now we know that $a_{1}a_{2}\cdots a_{j-1}\perp c$ and $a_{j}\perp c$. Hence,
-Theorem \ref{thm.ent.coprime.ab-to-c} (applied to $a=a_{1}a_{2}\cdots a_{j-1}$
-and $b=a_{j}$) yields $\left(  a_{1}a_{2}\cdots a_{j-1}\right)  a_{j}\perp c$.
-In other words, $a_{1}a_{2}\cdots a_{j}\perp c$ (since $a_{1}a_{2}\cdots
-a_{j}=\left(  a_{1}a_{2}\cdots a_{j-1}\right)  a_{j}$). In other words,
-(\ref{sol.ent.coprime.ab-to-ck.goal}) holds for $i=j$. This completes the
-induction step. Thus, (\ref{sol.ent.coprime.ab-to-ck.goal}) is proven by induction.
-
-Now, we can apply (\ref{sol.ent.coprime.ab-to-ck.goal}) to $i=k$. We thus
-obtain $a_{1}a_{2}\cdots a_{k}\perp c$. This proves Exercise
-\ref{exe.ent.coprime.combinek}.
+By the induction hypothesis, we know that $a_{1}a_{2}\cdots a_{k-1}\perp c$.
+And we know that $a_{k}\perp c$. Thus, $\left(  a_{1}a_{2}\cdots
+a_{k-1}\right)  a_{k}\perp c$ (by the Theorem). In other words, $a_{1}%
+a_{2}\cdots a_{k}\perp c$.
 \end{proof}
 
-We can similarly generalize Theorem \ref{thm.ent.coprime.combine} to show that
-the product of several mutually coprime divisors of an integer $c$ must again
-be a divisor of $c$:
-
 \begin{exercise}
-\label{exe.ent.coprime.combinek}Let $c\in\mathbb{Z}$, and let $b_{1}%
-,b_{2},\ldots,b_{k}$ be integers that are mutually coprime (i.e., they satisfy
-$b_{i}\perp b_{j}$ for all $i\neq j$). Assume that $b_{i}\mid c$ for each
-$i\in\left\{  1,2,\ldots,k\right\}  $. Prove that $b_{1}b_{2}\cdots b_{k}\mid
+Let $c\in\mathbb{Z}$, and let $b_{1},b_{2},\ldots,b_{k}$ be mutually coprime
+divisors of $c$. (\textquotedblleft Mutually coprime\textquotedblright\ means
+$b_{i}\perp b_{j}$ for all $i\neq j$.) Prove that $b_{1}b_{2}\cdots b_{k}\mid
 c$.
 \end{exercise}
 
 \begin{proof}
-[Solution to Exercise \ref{exe.ent.coprime.combinek}.]We assumed that the
-integers $b_{1},b_{2},\ldots,b_{k}$ are mutually coprime. In other words, we
-have%
-\begin{equation}
-b_{i}\perp b_{j}\text{ for all }i,j\in\left\{  1,2,\ldots,k\right\}  \text{
-satisfying }i\neq j.\label{sol.ent.coprime.combinek.copr}%
-\end{equation}
+Induction on $k$.
 
+\textit{Base case:} $k=0$, easy.
 
-Let us prove that%
-\begin{equation}
-b_{1}b_{2}\cdots b_{i}\mid c\ \ \ \ \ \ \ \ \ \ \text{for each }i\in\left\{
-0,1,\ldots,k\right\}  .\label{sol.ent.coprime.combinek.goal}%
-\end{equation}
+\textit{Step:} Assume the exercise is solved for $k-1$. We want to solve it
+for $k$.
 
+By the induction hypothesis, we have $b_{1}b_{2}\cdots b_{k-1}\mid c$. And we
+know that $b_{k}\mid c$. We want to get $\left(  b_{1}b_{2}\cdots
+b_{k-1}\right)  b_{k}\mid c$. This will follow from Theorem 2.59 once we have
+shown that $b_{1}b_{2}\cdots b_{k-1}\perp b_{k}$. But this follows from the
+previous exercise, if we let $b_{1},b_{2},\ldots,b_{k-1}$ play the role of the
+$a_{1},a_{2},\ldots,a_{k}$, and $b_{k}$ play the role of $c$.
 
-\textit{Proof of (\ref{sol.ent.coprime.combinek.goal}):} We shall prove
-(\ref{sol.ent.coprime.combinek.goal}) by induction on $i$:
-
-\textit{Induction base:} We have $b_{1}b_{2}\cdots b_{0}=\left(  \text{empty
-product}\right)  =1\mid c$. Hence, (\ref{sol.ent.coprime.combinek.goal}) holds
-for $i=0$. This completes the induction base.
-
-\textit{Induction step:} Let $j\in\left\{  1,2,\ldots,k\right\}  $. Assume
-that (\ref{sol.ent.coprime.combinek.goal}) holds for $i=j-1$. We must now
-prove that (\ref{sol.ent.coprime.combinek.goal}) holds for $i=j$.
-
-We have assumed that (\ref{sol.ent.coprime.ab-to-ck.goal}) holds for $i=j-1$.
-In other words, $b_{1}b_{2}\cdots b_{j-1}\mid c$.
-
-We have assumed that each $i\in\left\{  1,2,\ldots,k\right\}  $ satisfies
-$b_{i}\mid c$. Applying this to $i=j$, we find $b_{j}\mid c$.
-
-For each $i\in\left\{  1,2,\ldots,j-1\right\}  $, we have $i\leq j-1<j$ and
-thus $i\neq j$ and therefore $b_{i}\perp b_{j}$ (by
-(\ref{sol.ent.coprime.combinek.copr})). Hence, Exercise
-\ref{exe.ent.coprime.combinek} (applied to $j-1$, $b_{j}$ and $\left(
-b_{1},b_{2},\ldots,b_{j-1}\right)  $ instead of $k$, $c$ and $\left(
-a_{1},a_{2},\ldots,a_{k}\right)  $) yields $b_{1}b_{2}\cdots b_{j-1}\perp
-b_{j}$.
-
-Now we know that $b_{1}b_{2}\cdots b_{j-1}\mid c$ and $b_{j}\mid c$ and
-$b_{1}b_{2}\cdots b_{j-1}\perp b_{j}$. Hence, Theorem
-\ref{thm.ent.coprime.combine} (applied to $a=b_{1}b_{2}\cdots b_{j-1}$ and
-$b=b_{j}$) yields $\left(  b_{1}b_{2}\cdots b_{j-1}\right)  b_{j}\mid c$. In
-other words, $b_{1}b_{2}\cdots b_{j}\mid c$ (since $b_{1}b_{2}\cdots
-b_{j}=\left(  b_{1}b_{2}\cdots b_{j-1}\right)  b_{j}$). In other words,
-(\ref{sol.ent.coprime.combinek.goal}) holds for $i=j$. This completes the
-induction step. Thus, (\ref{sol.ent.coprime.combinek.goal}) is proven by induction.
-
-Now, we can apply (\ref{sol.ent.coprime.combinek.goal}) to $i=k$. We thus
-obtain $b_{1}b_{2}\cdots b_{k}\mid c$. This proves Exercise
-\ref{exe.ent.coprime.combinek}.
+So we have $\left(  b_{1}b_{2}\cdots b_{k-1}\right)  b_{k}\mid c$. In other
+words, $b_{1}b_{2}\cdots b_{k}\mid c$.
 \end{proof}
 
 \begin{exercise}
-\label{exe.ent.coprime.powers}Let $a,b\in\mathbb{Z}$ be such that $a\perp b$.
-Let $n,m\in\mathbb{N}$. Prove that $a^{n}\perp b^{m}$.
+Let $a,b$ be two coprime integers. Let $n,m\in\mathbb{N}$. Then, $a^{n}\perp
+b^{m}$.
 \end{exercise}
 
 \begin{proof}
-[Solution to Exercise \ref{exe.ent.coprime.powers}.] We have $a\perp b$. Thus,
-Exercise \ref{exe.ent.coprime.combinek} (applied to $n$, $b$ and $\left(
-\underbrace{a,a,\ldots,a}_{n\text{ times}}\right)  $ instead of $k$, $c$ and
-$\left(  a_{1},a_{2},\ldots,a_{k}\right)  $) yields that $\underbrace{aa\cdots
-a}_{n\text{ times}}\perp b$. In other words, $a^{n}\perp b$.
-
-According to Proposition \ref{prop.ent.coprime.perp-symm} (applied to $a^{n}$
-instead of $a$), we have $a^{n}\perp b$ if and only if $b\perp a^{n}$. Thus,
-$b\perp a^{n}$ (since $a^{n}\perp b$). Hence, Exercise
-\ref{exe.ent.coprime.combinek} (applied to $m$, $a^{n}$ and $\left(
-\underbrace{b,b,\ldots,b}_{m\text{ times}}\right)  $ instead of $k$, $c$ and
-$\left(  a_{1},a_{2},\ldots,a_{k}\right)  $) yields that $\underbrace{bb\cdots
-b}_{m\text{ times}}\perp a^{n}$. In other words, $b^{m}\perp a^{n}$.
-
-According to Proposition \ref{prop.ent.coprime.perp-symm} (applied to $a^{n}$
-and $b^{m}$ instead of $a$ and $b$), we have $a^{n}\perp b^{m}$ if and only if
-$b^{m}\perp a^{n}$. Hence, $a^{n}\perp b^{m}$ (since $b^{m}\perp a^{n}$). This
-solves Exercise \ref{exe.ent.coprime.powers}.
+We have $a\perp b$. Thus, the second-to-last exercise yields
+$\underbrace{aa\cdots a}_{n\text{ factors}}\perp b$. In other words,
+$a^{n}\perp b$. In other words, $b\perp a^{n}$. Thus, the second-to-last
+exercise yields $\underbrace{bb\cdots b}_{m\text{ factors}}\perp a^{n}$. In
+other words, $b^{m}\perp a^{n}$. In other words, $a^{n}\perp b^{m}$.
 \end{proof}
-
-\subsubsection{An application to sums of powers}
-
-Let us show an application of Theorem \ref{thm.ent.coprime.combine}. First, we
-shall prove a simple lemma:
-
-\begin{lemma}
-\label{lem.ent.xd-yd}Let $d\in\mathbb{N}$. Let $x$ and $y$ be integers.
-
-\textbf{(a)} We have $x-y\mid x^{d}-y^{d}$.
-
-\textbf{(b)} We have $x+y\mid x^{d}+y^{d}$ if $d$ is odd.
-\end{lemma}
-
-\begin{proof}
-[Proof of Lemma \ref{lem.ent.xd-yd}.]\textbf{(a)} Here are two ways of proving this:
-
-\textit{First proof of Lemma \ref{lem.ent.xd-yd} \textbf{(a)}:} We have
-$x\equiv y\operatorname{mod}x-y$ (since $x-y\mid x-y$). Thus, Exercise
-\ref{exe.ent.mod.basics.k-power} (applied to $n=x-y$, $a=x$, $b=y$ and $k=d$)
-yields $x^{d}\equiv y^{d}\operatorname{mod}x-y$. In other words, $x-y\mid
-x^{d}-y^{d}$. This proves Lemma \ref{lem.ent.xd-yd} \textbf{(a)}.
-
-\textit{Second proof of Lemma \ref{lem.ent.xd-yd} \textbf{(a)}:} Recall that%
-\[
-\left(  a-b\right)  \left(  a^{k-1}+a^{k-2}b+a^{k-3}b^{2}+\cdots
-+ab^{k-2}+b^{k-1}\right)  =a^{k}-b^{k}%
-\]
-for every $k\in\mathbb{N}$. (This is a well-known identity, and it appears
-(with $k$ renamed as $n$) as the first half of Exercise 1 on
-\href{http://www-users.math.umn.edu/~dgrinber/19s/hw0s.pdf}{homework set
-\#0}.) Applying this identity to $a=x$, $b=y$ and $k=d$, we obtain%
-\[
-\left(  x-y\right)  \left(  x^{d-1}+x^{d-2}y+x^{d-3}y^{2}+\cdots
-+xy^{d-2}+y^{d-1}\right)  =x^{d}-y^{d}.
-\]
-Thus, $x-y\mid x^{d}-y^{d}$ (since $x^{d-1}+x^{d-2}y+x^{d-3}y^{2}%
-+\cdots+xy^{d-2}+y^{d-1}$ is an integer). This proves Lemma
-\ref{lem.ent.xd-yd} \textbf{(a)}.
-
-\textbf{(b)} Assume that $d$ is odd. Thus, $\left(  -1\right)  ^{d}=-1$. Now,
-Lemma \ref{lem.ent.xd-yd} \textbf{(a)} (applied to $-y$ instead of $y$) yields
-$x-\left(  -y\right)  \mid x^{d}-\left(  -y\right)  ^{d}$. Since $x-\left(
--y\right)  =x+y$ and $x^{d}-\underbrace{\left(  -y\right)  ^{d}}_{=\left(
--1\right)  ^{d}y^{d}}=x^{d}-\underbrace{\left(  -1\right)  ^{d}}_{=-1}%
-y^{d}=x^{d}-\left(  -1\right)  y^{d}=x^{d}+y^{d}$, this rewrites as $x+y\mid
-x^{d}+y^{d}$. This proves Lemma \ref{lem.ent.xd-yd} \textbf{(b)}.
-\end{proof}
-
-Next, let us recall a basic fact from combinatorics (the \textquotedblleft
-Little Gauss\textquotedblright\ sum):
-
-\begin{proposition}
-\label{prop.ent.1+2+...+n}Let $n\in\mathbb{N}$. Then,
-\[
-1+2+\cdots+n=\dfrac{n\left(  n+1\right)  }{2}.
-\]
-
-\end{proposition}
-
-\begin{proof}
-[Proof of Proposition \ref{prop.ent.1+2+...+n}.]Here is one of several equally
-valid arguments:%
-\begin{align*}
-2\cdot\left(  1+2+\cdots+n\right)   &  =\left(  1+2+\cdots+n\right)
-+\underbrace{\left(  1+2+\cdots+n\right)  }_{\substack{=n+\left(  n-1\right)
-+\cdots+1\\\text{(here, we have reversed}\\\text{the order of the addends)}%
-}}\\
-&  =\underbrace{\left(  1+2+\cdots+n\right)  }_{=\sum_{k=1}^{n}k}%
-+\underbrace{\left(  n+\left(  n-1\right)  +\cdots+1\right)  }_{=\sum
-_{k=1}^{n}\left(  n+1-k\right)  }\\
-&  =\sum_{k=1}^{n}k+\sum_{k=1}^{n}\left(  n+1-k\right)  =\sum_{k=1}%
-^{n}\underbrace{\left(  k+\left(  n+1-k\right)  \right)  }_{=n+1}\\
-&  =\sum_{k=1}^{n}\left(  n+1\right)  =n\left(  n+1\right)  .
-\end{align*}
-Thus, $1+2+\cdots+n=\dfrac{n\left(  n+1\right)  }{2}$, so that Proposition
-\ref{prop.ent.1+2+...+n} is proven.
-\end{proof}
-
-Proposition \ref{prop.ent.1+2+...+n} tells us what the sum $1+2+\cdots+n$ of
-the first $n$ positive integers is. One might also ask what the sum
-$1^{2}+2^{2}+\cdots+n^{2}$ of their squares is, and similarly for higher
-powers. While this is tangential to our course, let us collect some formulas
-for this:
-
-\begin{proposition}
-\label{prop.ent.1d+2d+...+nd-for-5}Let $n\in\mathbb{N}$. Then:
-
-\textbf{(a)} We have $1+2+\cdots+n=\dfrac{1}{2}n\left(  n+1\right)  $.
-
-\textbf{(b)} We have $1^{2}+2^{2}+\cdots+n^{2}=\dfrac{1}{6}n\left(
-n+1\right)  \left(  2n+1\right)  $.
-
-\textbf{(c)} We have $1^{3}+2^{3}+\cdots+n^{3}=\dfrac{1}{4}n^{2}\left(
-n+1\right)  ^{2}$.
-
-\textbf{(d)} We have $1^{4}+2^{4}+\cdots+n^{4}=\dfrac{1}{30}n\left(
-2n+1\right)  \left(  n+1\right)  \left(  3n+3n^{2}-1\right)  $.
-
-\textbf{(e)} We have $1^{5}+2^{5}+\cdots+n^{5}=\dfrac{1}{12}n^{2}\left(
-n+1\right)  ^{2}\left(  2n+2n^{2}-1\right)  $.
-\end{proposition}
-
-Each part of Proposition \ref{prop.ent.1d+2d+...+nd-for-5} can be
-straightforwardly proven by induction on $n$; we don't need ingenious
-arguments like the one we gave above for Proposition \ref{prop.ent.1+2+...+n}
-(and in fact, such arguments cannot always be found).
-
-\begin{fineprint}
-You probably see a pattern in Proposition \ref{prop.ent.1d+2d+...+nd-for-5}:
-It appears that for each positive integer $d$, there exists some polynomial
-$p_{d}\left(  x\right)  $ of degree $d+1$ with rational coefficients such that
-each $n\in\mathbb{N}$ satisfies $1^{d}+2^{d}+\cdots+n^{d}=p_{d}\left(
-n\right)  $. This is indeed the case. Indeed, this is proven (e.g.) in
-\cite[Proposition 23.2]{Galvin} and in \cite[Theorem 3.7]{lucas}. The
-polynomial $p_{d}\left(  x\right)  $ is uniquely determined for each $d$, and
-can be explicitly computed via the formula%
-\[
-p_{d}\left(  x\right)  =\sum_{k=1}^{d}k!%
-%TCIMACRO{\QDATOPD{\{}{\}}{d}{k}}%
-%BeginExpansion
-\genfrac{\{}{\}}{0pt}{0}{d}{k}%
-%EndExpansion
-\dbinom{x+1}{k+1},
-\]
-where $\dbinom{x+1}{k+1}=\dfrac{\left(  x+1\right)  x\left(  x-1\right)
-\cdots\left(  x-k+1\right)  }{\left(  k+1\right)  !}$ and where $%
-%TCIMACRO{\QDATOPD{\{}{\}}{d}{k}}%
-%BeginExpansion
-\genfrac{\{}{\}}{0pt}{0}{d}{k}%
-%EndExpansion
-$ is a \textit{Stirling number of the 2nd kind}. Without going into the
-details of what Stirling numbers of the 2nd kind are, let me say that $k!%
-%TCIMACRO{\QDATOPD{\{}{\}}{d}{k}}%
-%BeginExpansion
-\genfrac{\{}{\}}{0pt}{0}{d}{k}%
-%EndExpansion
-$ is the number of surjective maps from $\left\{  1,2,\ldots,d\right\}  $ to
-$\left\{  1,2,\ldots,k\right\}  $. For example,%
-\begin{align*}
-p_{2}\left(  x\right)   &  =\sum_{k=1}^{2}k!%
-%TCIMACRO{\QDATOPD{\{}{\}}{2}{k}}%
-%BeginExpansion
-\genfrac{\{}{\}}{0pt}{0}{2}{k}%
-%EndExpansion
-\dbinom{x+1}{k+1}=\underbrace{1!%
-%TCIMACRO{\QDATOPD{\{}{\}}{2}{1}}%
-%BeginExpansion
-\genfrac{\{}{\}}{0pt}{0}{2}{1}%
-%EndExpansion
-}_{=1}\dbinom{x+1}{2}+\underbrace{2!%
-%TCIMACRO{\QDATOPD{\{}{\}}{2}{2}}%
-%BeginExpansion
-\genfrac{\{}{\}}{0pt}{0}{2}{2}%
-%EndExpansion
-}_{=2}\dbinom{x+1}{3}\\
-&  =\dbinom{x+1}{2}+2\dbinom{x+1}{3}=\dfrac{\left(  x+1\right)  x}{2}%
-+2\cdot\dfrac{\left(  x+1\right)  x\left(  x-1\right)  }{6}\\
-&  =\dfrac{1}{6}x\left(  x+1\right)  \left(  2x+1\right)  ,
-\end{align*}
-and thus%
-\[
-1^{2}+2^{2}+\cdots+n^{2}=p_{2}\left(  n\right)  =\dfrac{1}{6}n\left(
-n+1\right)  \left(  2n+1\right)  \ \ \ \ \ \ \ \ \ \ \text{for each }%
-n\in\mathbb{N}.
-\]
-This recovers the claim of Proposition \ref{prop.ent.1d+2d+...+nd-for-5}
-\textbf{(b)}. The combinatorial proof presented in \cite[Proposition
-23.2]{Galvin} is highly recommended reading for anyone interested in this kind
-of formulas.
-
-Let us note that the polynomials $p_{d}\left(  x\right)  $ do \textbf{not}
-have integer coefficients, but nevertheless all their values $p_{d}\left(
-n\right)  $ for $n\in\mathbb{N}$ are integers.
-\end{fineprint}
-
-Let us now show the power of Theorem \ref{thm.ent.coprime.combine} on the
-following exercise:
-
-\begin{exercise}
-\label{exe.ent.coprime.1+2+...+n}Let $n\in\mathbb{N}$. Let $d$ be an odd
-positive integer. Prove that%
-\[
-1+2+\cdots+n\mid1^{d}+2^{d}+\cdots+n^{d}.
-\]
-
-\end{exercise}
-
-\begin{proof}
-[Solution to Exercise \ref{exe.ent.coprime.1+2+...+n}.]Proposition
-\ref{prop.ent.1+2+...+n} yields $1+2+\cdots+n=\dfrac{n\left(  n+1\right)  }%
-{2}$. Thus, we need to prove that%
-\[
-\dfrac{n\left(  n+1\right)  }{2}\mid1^{d}+2^{d}+\cdots+n^{d}.
-\]
-This is equivalent to%
-\begin{equation}
-n\left(  n+1\right)  \mid2\left(  1^{d}+2^{d}+\cdots+n^{d}\right)
-\label{sol.ent.coprime.1+2+...+n.g}%
-\end{equation}
-(by Exercise \ref{exe.ent.div.acbc}, applied to $a=\dfrac{n\left(  n+1\right)
-}{2}$, $b=1^{d}+2^{d}+\cdots+n^{d}$ and $c=2$). Hence, it suffices to prove
-(\ref{sol.ent.coprime.1+2+...+n.g}).
-
-In order to prove (\ref{sol.ent.coprime.1+2+...+n.g}), it suffices to show
-that%
-\begin{align}
-n  &  \mid2\left(  1^{d}+2^{d}+\cdots+n^{d}\right)
-\ \ \ \ \ \ \ \ \ \ \text{and}\label{sol.ent.coprime.1+2+...+n.g1}\\
-n+1  &  \mid2\left(  1^{d}+2^{d}+\cdots+n^{d}\right)  .
-\label{sol.ent.coprime.1+2+...+n.g2}%
-\end{align}
-Indeed, the integers $n$ and $n+1$ are coprime (by Example
-\ref{exa.ent.coprime.1} \textbf{(c)}, applied to $a=n$); in other words,
-$n\perp n+1$. Hence, if we can prove (\ref{sol.ent.coprime.1+2+...+n.g1}) and
-(\ref{sol.ent.coprime.1+2+...+n.g2}), then Theorem
-\ref{thm.ent.coprime.combine} (applied to $a=n$, $b=n+1$ and $c=2\left(
-1^{d}+2^{d}+\cdots+n^{d}\right)  $) will yield $n\left(  n+1\right)
-\mid2\left(  1^{d}+2^{d}+\cdots+n^{d}\right)  $; this will prove
-(\ref{sol.ent.coprime.1+2+...+n.g}) and therefore complete our solution.
-
-We shall prove (\ref{sol.ent.coprime.1+2+...+n.g2}) first:
-
-\textit{Proof of (\ref{sol.ent.coprime.1+2+...+n.g2}):} We have%
-\begin{align}
-2\left(  1^{d}+2^{d}+\cdots+n^{d}\right)   &  =\left(  1^{d}+2^{d}%
-+\cdots+n^{d}\right)  +\left(  1^{d}+2^{d}+\cdots+n^{d}\right) \nonumber\\
-&  =\left(  1^{d}+2^{d}+\cdots+n^{d}\right)  +\left(  n^{d}+\left(
-n-1\right)  ^{d}+\cdots+1^{d}\right) \nonumber\\
-&  =\sum_{k=1}^{n}k^{d}+\sum_{k=1}^{n}\left(  n+1-k\right)  ^{d}\nonumber\\
-&  =\sum_{k=1}^{n}\left(  k^{d}+\left(  n+1-k\right)  ^{d}\right)  .
-\label{sol.ent.coprime.1+2+...+n.5}%
-\end{align}
-
-
-But if $k\in\mathbb{Z}$, then Lemma \ref{lem.ent.xd-yd} \textbf{(b)} (applied
-to $x=k$ and $y=n+1-k$) shows that $k^{d}+\left(  n+1-k\right)  ^{d}$ is
-divisible by $k+\left(  n+1-k\right)  =n+1$. Hence, each addend in the sum on
-the right hand side of (\ref{sol.ent.coprime.1+2+...+n.5}) is divisible by
-$n+1$. Therefore, the whole sum is divisible by $n+1$ as well. Thus, the left
-hand side is divisible by $n+1$, too. In other words, $n+1\mid2\left(
-1^{d}+2^{d}+\cdots+n^{d}\right)  $. Thus, (\ref{sol.ent.coprime.1+2+...+n.g2})
-is proven.
-
-\textit{Proof of} \textit{(\ref{sol.ent.coprime.1+2+...+n.g1}):} If $n=0$,
-then (\ref{sol.ent.coprime.1+2+...+n.g1}) boils down to $0\mid2\cdot0$ (since
-empty sums are $0$); this is obvious. Thus, for the rest of this proof, we
-WLOG assume that $n\neq0$. Hence, $n$ is a positive integer, and thus
-$n-1\in\mathbb{N}$. Therefore, we can apply
-(\ref{sol.ent.coprime.1+2+...+n.g2}) to $n-1$ instead of $n$ (since we have
-already proven (\ref{sol.ent.coprime.1+2+...+n.g2}) for each $n\in\mathbb{N}%
-$). We thus obtain%
-\[
-n\mid2\left(  1^{d}+2^{d}+\cdots+\left(  n-1\right)  ^{d}\right)  .
-\]
-In other words, $2\left(  1^{d}+2^{d}+\cdots+\left(  n-1\right)  ^{d}\right)
-\equiv0\operatorname{mod}n$. Now,%
-\begin{align*}
-&  2\left(  1^{d}+2^{d}+\cdots+n^{d}\right)  -2\left(  1^{d}+2^{d}%
-+\cdots+\left(  n-1\right)  ^{d}\right) \\
-&  =2\cdot\underbrace{\left(  \left(  1^{d}+2^{d}+\cdots+n^{d}\right)
--\left(  1^{d}+2^{d}+\cdots+\left(  n-1\right)  ^{d}\right)  \right)
-}_{=n^{d}}\\
-&  =2n^{d}=n\cdot2n^{d-1}\ \ \ \ \ \ \ \ \ \ \left(  \text{since }d\geq1\text{
-(because }d\text{ is odd)}\right)
-\end{align*}
-is clearly divisible by $n$. In other words,%
-\[
-2\left(  1^{d}+2^{d}+\cdots+n^{d}\right)  \equiv2\left(  1^{d}+2^{d}%
-+\cdots+\left(  n-1\right)  ^{d}\right)  \operatorname{mod}n.
-\]
-Hence,
-\[
-2\left(  1^{d}+2^{d}+\cdots+n^{d}\right)  \equiv2\left(  1^{d}+2^{d}%
-+\cdots+\left(  n-1\right)  ^{d}\right)  \equiv0\operatorname{mod}n.
-\]
-That is, $n\mid2\left(  1^{d}+2^{d}+\cdots+n^{d}\right)  $. This proves
-(\ref{sol.ent.coprime.1+2+...+n.g1}).
-
-We have now proven both (\ref{sol.ent.coprime.1+2+...+n.g1}) and
-(\ref{sol.ent.coprime.1+2+...+n.g2}). As we have explained, this yields
-(\ref{sol.ent.coprime.1+2+...+n.g}), which in turn solves the problem.
-\end{proof}
-
-TODO:
-
-\begin{itemize}
-\item $a\mid bc,\ b\perp c\ \Longrightarrow\ a=uv$ with $u\mid b$ and $v\mid
-c$.
-
-Better: if $b\perp c$, then $\gcd\left(  a,bc\right)  =\gcd\left(  a,b\right)
-\cdot\gcd\left(  a,c\right)  $. Rather, hw.
-\end{itemize}
 
 \subsection{Lowest common multiples}
-
-TODO: Make the following readable.
-
-
 
 \begin{definition}
 Let $b_{1},b_{2},\ldots,b_{k}$ be integers.
@@ -5425,6 +5014,8 @@ In other words, we need to prove $\dfrac{ab}{\gcd\left(  a,b\right)  }\mid
 \ell$.
 
 Equivalently, we need to prove $ab\mid\gcd\left(  a,b\right)  \cdot\ell$.
+
+
 
 This follows from Theorem \ref{thm.ent.gcd.combine}, applied to $c=\ell$
 (because $\ell$ is a common multiple of $a$ and $b$).
@@ -5477,27 +5068,22 @@ For $k>0$ integers $b_{1},b_{2},\ldots,b_{k}$, we have%
 
 \end{proposition}
 
-\subsection{The Chinese remainder theorem (elementary form)}
+\subsection{The Chinese Remainder Theorem (baby form)}
 
 \begin{theorem}
-\label{thm.ent.crt1}Let $m$ and $n$ be two coprime integers. Let
-$a,b\in\mathbb{Z}$.
+Let $m$ and $n$ be two coprime integers. Let $a,b\in\mathbb{Z}$.
 
-\textbf{(a)} There exists an integer $x\in\mathbb{Z}$ such that%
+\textbf{(a)} There exists an integer $x$ such that
 \[
 \left(  x\equiv a\operatorname{mod}m\text{ and }x\equiv b\operatorname{mod}%
 n\right)  .
 \]
 
 
-\textbf{(b)} If $x_{1}$ and $x_{2}$ are two such integers $x$, then
-$x_{1}\equiv x_{2}\operatorname{mod}mn$.
+\textbf{(b)} This integer $x$ is \textquotedblleft unique modulo
+$mn$\textquotedblright: That is, if $x_{1}$ and $x_{2}$ are two such integers
+$x$, then $x_{1}\equiv x_{2}\operatorname{mod}mn$.
 \end{theorem}
-
-Theorem \ref{thm.ent.crt1} is known as the \textit{Chinese remainder theorem}.
-(Sunzi, 3rd Century AD.)
-
-TODO: Make the following readable.
 
 \begin{example}
 Assume we want to find an $x\in\mathbb{Z}$ such that%
@@ -5537,7 +5123,7 @@ $x_{1}\equiv x_{2}\operatorname{mod}mn$.
 The theorem we just proved is (the simplest form of) the \textit{Chinese
 Remainder Theorem} (Sunzi, 3rd century AD).
 
-There is also a version of Theorem \ref{thm.ent.crt1} for multiple integers:
+There is also a version for multiple integers:
 
 \begin{theorem}
 Let $m_{1},m_{2},\ldots,m_{k}$ be $k$ mutually coprime integers. Let
@@ -5562,22 +5148,19 @@ Exercise on induction.
 \subsection{Primes}
 
 \begin{definition}
-Let $p$ be an integer greater than $1$. We say that $p$ is \textit{prime} if
+Let $p$ be an integer greater than $1$. We say that $p$ is \textbf{prime} if
 the only positive divisors of $p$ are $1$ and $p$. A prime integer is often
-just called \textit{a prime}.
+just called \textbf{a prime}.
 \end{definition}
 
-Note that we required $p$ to be greater than $1$ here. Thus, $1$ does not
-count as prime even though its only positive divisor is $1$ itself.
-
-TODO: Make the following readable.
+Note that $p>1$ is required here, so $1$ does not count as prime.
 
 How do we quickly find all primes $\leq30$ ?%
 
 \begin{align*}
-&  \text{\textit{1}},2,3,\text{4},5,\text{6},7,\text{8},\text{9},\text{10},\\
-&  11,\text{12},13,\text{14},\text{15},\text{16},17,\text{18},19,\text{20},\\
-&  \text{21},\text{22},23,\text{24},\text{25},\text{26},\text{27}%
+& \text{\textit{1}},2,3,\text{4},5,\text{6},7,\text{8},\text{9},\text{10},\\
+& 11,\text{12},13,\text{14},\text{15},\text{16},17,\text{18},19,\text{20},\\
+& \text{21},\text{22},23,\text{24},\text{25},\text{26},\text{27}%
 ,\text{28},29,\text{30}%
 \end{align*}
 The red numbers remaining are the primes $\leq30$. This is the \textbf{sieve
@@ -5611,384 +5194,6 @@ a$ or $p\mid b$.
 \begin{proof}
 Exercise. (This will be in the notes.)
 \end{proof}
-
-TODO:
-
-\begin{itemize}
-\item Note: converse holds too (for $p>1$).
-
-\item each $n>0$ is prod of primes (allow empty)
-
-\item unique prod of primes
-
-\item factorization with exponents
-
-\item \textquotedblleft prime factors\textquotedblright\ and canonical factorization
-
-\item $\gcd$ and $\operatorname{lcm}$ via canonical factorization
-
-\item coprimality means not having any primes in common
-\end{itemize}
-
-\subsection{\label{sect.ent.subst-mod}Substitutivity for congruences}
-
-In\ Section \ref{sect.ent.subst-chain}, we have learnt that congruences modulo
-an integer $n$ can be chained together like equalities. A further important
-feature of congruences is the principle of \textit{substitutivity for
-congruences}. This is yet another way in which congruences behave like
-equalities. We are not going to state it fully formally (as it is a
-meta-mathematical principle), but merely explain its meaning. Later on, once
-we understand what the rings $\mathbb{Z}/n$ (for integer $n$) are, we will no
-longer need this principle, since it will just boil down to \textquotedblleft
-equal things can be substituted for one another\textquotedblright\ (the whole
-point of $\mathbb{Z}/n$ is to \textquotedblleft make congruent numbers
-equal\textquotedblright); but for now, we cannot treat \textquotedblleft
-congruent modulo $n$\textquotedblright\ as \textquotedblleft
-equal\textquotedblright, so we have to state it.
-
-You are probably used to making computations like these:%
-\begin{align*}
-\underbrace{\left(  a+b\right)  ^{2}}_{=a^{2}+2ab+b^{2}}+\underbrace{\left(
-a-b\right)  ^{2}}_{=a^{2}-2ab+b^{2}}  &  =\left(  a^{2}+2ab+b^{2}\right)
-+\left(  a^{2}-2ab+b^{2}\right) \\
-&  =\underbrace{a^{2}+a^{2}}_{=2a^{2}}+\underbrace{b^{2}+b^{2}}_{=2b^{2}%
-}=2a^{2}+2b^{2}%
-\end{align*}
-(for any two numbers $a$ and $b$). What is going on in these underbraces (like
-\textquotedblleft$\underbrace{\left(  a+b\right)  ^{2}}_{=a^{2}+2ab+b^{2}}%
-$\textquotedblright)? Something pretty simple is going on: You are replacing a
-number (in this case, $\left(  a+b\right)  ^{2}$) by an equal number (in this
-case, $a^{2}+2ab+b^{2}$). This relies on a fundamental principle of
-mathematics (called the \textit{principle of substitutivity for equalities}),
-which says that an object in an expression can indeed be replaced by any
-object equal to it (without changing the value of the expression). (This is
-also known as \textit{Leibniz's equality law}.) To be precise, we are using
-this principle twice in some of our equality signs above, since we are making
-several replacements at the same time; but this is fine (we can just do the
-replacement one by one instead).
-
-We would like to have a similar principle for congruences modulo $n$: We would
-like to be able to replace any integer by an integer congruent to it modulo
-$n$. For example, we would like to be able to say that if seven integers
-$a,a^{\prime},b,b^{\prime},c,c^{\prime},n$ satisfy $a\equiv a^{\prime
-}\operatorname{mod}n$ and $b\equiv b^{\prime}\operatorname{mod}n$ and $c\equiv
-c^{\prime}\operatorname{mod}n$, then%
-\[
-\underbrace{b}_{\equiv b^{\prime}\operatorname{mod}n}\ \ \underbrace{c}%
-_{\equiv c^{\prime}\operatorname{mod}n}+\underbrace{c}_{\equiv c^{\prime
-}\operatorname{mod}n}\ \ \underbrace{a}_{\equiv a^{\prime}\operatorname{mod}%
-n}+\underbrace{a}_{\equiv a^{\prime}\operatorname{mod}n}\ \ \underbrace{b}%
-_{\equiv b^{\prime}\operatorname{mod}n}\equiv b^{\prime}c^{\prime}+c^{\prime
-}a^{\prime}+a^{\prime}b^{\prime}\operatorname{mod}n.
-\]
-
-
-We have to be careful with this: For example, we run into troubles if division
-is involved in our expressions. For example, we have $6\equiv
-9\operatorname{mod}3$, but we do not have $\underbrace{6}_{\equiv
-9\operatorname{mod}3}/3\equiv9/3\operatorname{mod}3$. Similarly,
-exponentiation can be problematic. So we need to state the principle we are
-using here in clearer terms, so that we know what we can do.
-
-For this whole Section \ref{sect.ent.subst-mod}, we fix an integer $n$.
-
-The \textit{principle of substitutivity for equalities} says the following:
-
-\begin{statement}
-\textit{Principle of substitutivity for equalities (PSE):} If two objects $x$
-and $x^{\prime}$ are equal, and if we have any expression $A$ that involves
-the object $x$, then we can replace this $x$ (or, more precisely, any
-arbitrary appearance of $x$ in $A$) in $A$ by $x^{\prime}$; the resulting
-expression $A^{\prime}$ will be equal to $A$.
-\end{statement}
-
-Here are two examples of how this principle can be used:
-
-\begin{itemize}
-\item If $a,b,c,d,e,c^{\prime}$ are numbers such that $c=c^{\prime}$, then the
-PSE says that we can replace $c$ by $c^{\prime}$ in the expression $a\left(
-b-\left(  c+d\right)  e\right)  $, and the resulting expression $a\left(
-b-\left(  c^{\prime}+d\right)  e\right)  $ will be equal to $a\left(
-b-\left(  c+d\right)  e\right)  $; that is, we have%
-\begin{equation}
-a\left(  b-\left(  c+d\right)  e\right)  =a\left(  b-\left(  c^{\prime
-}+d\right)  e\right)  . \label{eq.mod.substitutivity-nums.1}%
-\end{equation}
-
-
-\item If $a,b,c,a^{\prime}$ are numbers such that $a=a^{\prime}$, then
-\begin{equation}
-\left(  a-b\right)  \left(  a+b\right)  =\left(  a^{\prime}-b\right)  \left(
-a+b\right)  , \label{eq.mod.substitutivity-nums.2}%
-\end{equation}
-because the PSE allows us to replace the first $a$ appearing in the expression
-$\left(  a-b\right)  \left(  a+b\right)  $ by an $a^{\prime}$. (We can also
-replace the second $a$ by $a^{\prime}$, of course.)
-\end{itemize}
-
-More generally, we can make several such replacements at the same time.
-
-The PSE is one of the headstones of mathematical logic; it is the essence of
-what it means for two objects to be equal.
-
-The \textit{principle of substitutivity for congruences} is similar, but far
-less fundamental; it says the following:
-
-\begin{statement}
-\textit{Principle of substitutivity for congruences (PSC):} If two numbers $x$
-and $x^{\prime}$ are congruent to each other modulo $n$ (that is, $x\equiv
-x^{\prime}\operatorname{mod}n$), and if we have any expression $A$ that
-involves only integers, addition, subtraction and multiplication, and involves
-the object $x$, then we can replace this $x$ (or, more precisely, any
-arbitrary appearance of $x$ in $A$) in $A$ by $x^{\prime}$; the resulting
-expression $A^{\prime}$ will be congruent to $A$ modulo $n$.
-\end{statement}
-
-This principle is less general than the PSE, since it only applies to
-expressions that are built from integers and certain operations (note that
-division is not one of these operations). But it still lets us prove analogues
-of our above examples (\ref{eq.mod.substitutivity-nums.1}) and
-(\ref{eq.mod.substitutivity-nums.2}):
-
-\begin{itemize}
-\item If $a,b,c,d,e,c^{\prime}$ are integers such that $c\equiv c^{\prime
-}\operatorname{mod}n$, then the PSC says that we can replace $c$ by
-$c^{\prime}$ in the expression $a\left(  b-\left(  c+d\right)  e\right)  $,
-and the resulting expression $a\left(  b-\left(  c^{\prime}+d\right)
-e\right)  $ will be congruent to $a\left(  b-\left(  c+d\right)  e\right)  $
-modulo $n$; that is, we have%
-\begin{equation}
-a\left(  b-\left(  c+d\right)  e\right)  \equiv a\left(  b-\left(  c^{\prime
-}+d\right)  e\right)  \operatorname{mod}n.
-\label{eq.mod.substitutivity-congs.1}%
-\end{equation}
-
-
-\item If $a,b,c,a^{\prime}$ are integers such that $a\equiv a^{\prime
-}\operatorname{mod}n$, then
-\begin{equation}
-\left(  a-b\right)  \left(  a+b\right)  \equiv\left(  a^{\prime}-b\right)
-\left(  a+b\right)  \operatorname{mod}n, \label{eq.mod.substitutivity-congs.2}%
-\end{equation}
-because the PSC allows us to replace the first $a$ appearing in the expression
-$\left(  a-b\right)  \left(  a+b\right)  $ by an $a^{\prime}$. (We can also
-replace the second $a$ by $a^{\prime}$, of course.)
-\end{itemize}
-
-We shall not prove the PSC, since we have not formalized it (after all, we
-have not defined what an \textquotedblleft expression\textquotedblright\ is).
-But we shall prove the specific congruences
-(\ref{eq.mod.substitutivity-congs.1}) and (\ref{eq.mod.substitutivity-congs.2}%
-) using Proposition \ref{prop.ent.mod.basics}; the way in which we prove these
-congruences is symptomatic: Every congruence obtained from the PSC can be
-proven in a manner like these. Thus, the proofs of
-(\ref{eq.mod.substitutivity-congs.1}) and (\ref{eq.mod.substitutivity-congs.2}%
-) given below can serve as templates which can easily be adapted to any other
-situation in which an application of the PSC needs to be justified.
-
-\begin{proof}
-[Proof of (\ref{eq.mod.substitutivity-congs.1}).]Let $n$ be any integer, and
-let $a,b,c,d,e,c^{\prime}$ be integers such that $c\equiv c^{\prime
-}\operatorname{mod}n$.
-
-Adding the congruence\footnote{Proposition \ref{prop.ent.mod.basics}
-\textbf{(d)} shows that we can add, subtract and multiply congruences modulo
-$n$ at will. We are using this freedom here and will use it many times below.}
-$c\equiv c^{\prime}\operatorname{mod}n$ with the congruence $d\equiv
-d\operatorname{mod}n$ (which follows from Proposition
-\ref{prop.ent.mod.basics} \textbf{(a)}), we obtain $c+d\equiv c^{\prime
-}+d\operatorname{mod}n$. Multiplying this congruence with the congruence
-$e\equiv e\operatorname{mod}n$ (which follows from Proposition
-\ref{prop.ent.mod.basics} \textbf{(a)}), we obtain $\left(  c+d\right)
-e\equiv\left(  c^{\prime}+d\right)  e\operatorname{mod}n$. Subtracting this
-congruence from the congruence $b\equiv b\operatorname{mod}n$ (which, again,
-follows from Proposition \ref{prop.ent.mod.basics} \textbf{(a)}), we obtain
-$b-\left(  c+d\right)  e\equiv b-\left(  c^{\prime}+d\right)
-e\operatorname{mod}n$. Multiplying the congruence $a\equiv a\operatorname{mod}%
-n$ (which follows from Proposition \ref{prop.ent.mod.basics} \textbf{(a)})
-with this congruence, we obtain $a\left(  b-\left(  c+d\right)  e\right)
-\equiv a\left(  b-\left(  c^{\prime}+d\right)  e\right)  \operatorname{mod}n$.
-This proves (\ref{eq.mod.substitutivity-congs.1}).
-\end{proof}
-
-\begin{proof}
-[Proof of (\ref{eq.mod.substitutivity-congs.2}).]Let $n$ be any integer, and
-let $a,b,c,a^{\prime}$ be integers such that $a\equiv a^{\prime}%
-\operatorname{mod}n$.
-
-Subtracting the congruence $b\equiv b\operatorname{mod}n$ (which follows from
-Proposition \ref{prop.ent.mod.basics} \textbf{(a)}) from the congruence
-$a\equiv a^{\prime}\operatorname{mod}n$, we obtain $a-b\equiv a^{\prime
-}-b\operatorname{mod}n$. Multiplying this congruence with the congruence
-$a+b\equiv a+b\operatorname{mod}n$ (which follows from Proposition
-\ref{prop.ent.mod.basics} \textbf{(a)}), we obtain $\left(  a-b\right)
-\left(  a+b\right)  \equiv\left(  a^{\prime}-b\right)  \left(  a+b\right)
-\operatorname{mod}n$. This proves (\ref{eq.mod.substitutivity-congs.2}).
-\end{proof}
-
-As we said, these two proofs are exemplary: Any congruence obtained from the
-PSC can be proven in such a way (starting with the congruence $x\equiv
-x^{\prime}\operatorname{mod}n$, and then \textquotedblleft
-wrapping\textquotedblright\ it up in the expression $A$ by repeatedly adding,
-multiplying and subtracting congruences that follow from Proposition
-\ref{prop.ent.mod.basics} \textbf{(a)}).
-
-When we apply the PSC, we shall use underbraces to point out which integers we
-are replacing. For example, when deriving (\ref{eq.mod.substitutivity-congs.1}%
-) from this principle, we shall write%
-\[
-a\left(  b-\left(  \underbrace{c}_{\equiv c^{\prime}\operatorname{mod}%
-n}+d\right)  e\right)  \equiv a\left(  b-\left(  c^{\prime}+d\right)
-e\right)  \operatorname{mod}n,
-\]
-in order to stress that we are replacing $c$ by $c^{\prime}$. Likewise, when
-deriving (\ref{eq.mod.substitutivity-congs.2}) from the PSC, we shall write%
-\[
-\left(  \underbrace{a}_{\equiv a^{\prime}\operatorname{mod}n}-b\right)
-\left(  a+b\right)  \equiv\left(  a^{\prime}-b\right)  \left(  a+b\right)
-\operatorname{mod}n,
-\]
-in order to stress that we are replacing the first $a$ (but not the second
-$a$) by $a^{\prime}$.
-
-The PSC allows us to replace a \textbf{single} integer $x$ appearing in an
-expression by another integer $x^{\prime}$ that is congruent to $x$ modulo
-$n$. Applying this principle many times, we thus conclude that we can also
-replace \textbf{several} integers at the same time (because we can get to the
-same result by performing these replacements one at a time, and Proposition
-\ref{prop.mod.chain} shows that the final result will be congruent to the
-original result). For example, if seven integers $a,a^{\prime},b,b^{\prime
-},c,c^{\prime},n$ satisfy $a\equiv a^{\prime}\operatorname{mod}n$ and $b\equiv
-b^{\prime}\operatorname{mod}n$ and $c\equiv c^{\prime}\operatorname{mod}n$,
-then%
-\begin{equation}
-bc+ca+ab\equiv b^{\prime}c^{\prime}+c^{\prime}a^{\prime}+a^{\prime}b^{\prime
-}\operatorname{mod}n, \label{eq.mod.substitutivity-congs.3}%
-\end{equation}
-because we can replace all the six integers $b,c,c,a,a,b$ in the expression
-$bc+ca+ab$ (listed in the order of their appearance in this expression) by
-$b^{\prime},c^{\prime},c^{\prime},a^{\prime},a^{\prime},b^{\prime}$,
-respectively. If we want to derive this from the principle of substitutivity
-for congruences, we must perform the replacements one at a time, e.g., as
-follows:%
-\begin{align*}
-\underbrace{b}_{\equiv b^{\prime}\operatorname{mod}n}c+ca+ab  &  \equiv
-b^{\prime}\underbrace{c}_{\equiv c^{\prime}\operatorname{mod}n}+ca+ab\equiv
-b^{\prime}c^{\prime}+\underbrace{c}_{\equiv c^{\prime}\operatorname{mod}%
-n}a+ab\\
-&  \equiv b^{\prime}c^{\prime}+c^{\prime}\underbrace{a}_{\equiv a^{\prime
-}\operatorname{mod}n}+ab\equiv b^{\prime}c^{\prime}+c^{\prime}a^{\prime
-}+\underbrace{a}_{\equiv a^{\prime}\operatorname{mod}n}b\\
-&  \equiv b^{\prime}c^{\prime}+c^{\prime}a^{\prime}+a^{\prime}\underbrace{b}%
-_{\equiv b^{\prime}\operatorname{mod}n}\equiv b^{\prime}c^{\prime}+c^{\prime
-}a^{\prime}+a^{\prime}b^{\prime}\operatorname{mod}n.
-\end{align*}
-Of course, we shall always just show the replacements as a single step:%
-\[
-\underbrace{b}_{\equiv b^{\prime}\operatorname{mod}n}\ \ \underbrace{c}%
-_{\equiv c^{\prime}\operatorname{mod}n}+\underbrace{c}_{\equiv c^{\prime
-}\operatorname{mod}n}\ \ \underbrace{a}_{\equiv a^{\prime}\operatorname{mod}%
-n}+\underbrace{a}_{\equiv a^{\prime}\operatorname{mod}n}\ \ \underbrace{b}%
-_{\equiv b^{\prime}\operatorname{mod}n}\equiv b^{\prime}c^{\prime}+c^{\prime
-}a^{\prime}+a^{\prime}b^{\prime}\operatorname{mod}n.
-\]
-
-
-\begin{thebibliography}{999999999}                                                                                        %
-
-
-\bibitem[Armstr18]{Armstrong}Drew Armstrong, \textit{Abstract Algebra I},
-2018.\newline\url{http://www.math.miami.edu/~armstrong/561fa18.php}
-
-\bibitem[Artin10]{Artin}Michael Artin, \textit{Algebra}, 2nd edition, Pearson 2010.
-
-\bibitem[Bosch18]{Bosch}Siegfried Bosch, \textit{Algebra -- From the Viewpoint
-of Galois Theory}, Springer 2018. \newline\url{https://www.springer.com/la/book/9783319951768}
-
-\bibitem[Burton10]{Burton}David M. Burton, \textit{Elementary Number Theory},
-7th edition, McGraw-Hill 2010.
-
-\bibitem[Conrad*]{Conrad*}Keith Conrad, \textit{Expository notes
-(\textquotedblleft blurbs\textquotedblright)}.\newline\url{https://kconrad.math.uconn.edu/blurbs/}
-
-\bibitem[ConradG]{Conrad-Gauss}Keith Conrad, \textit{The Gaussian
-integers}.\newline\url{http://www.math.uconn.edu/~kconrad/blurbs/ugradnumthy/Zinotes.pdf}
-
-\bibitem[Day16]{Day}Martin V. Day, \textit{An Introduction to Proofs and the
-Mathematical Vernacular}, 7 December 2016.\newline%
-\url{https://www.math.vt.edu/people/day/ProofsBook/IPaMV.pdf} .
-
-\bibitem[DumFoo04]{Dummit-Foote}David S. Dummit, Richard M. Foote,
-\textit{Abstract Algebra}, 3rd edition, Wiley 2004. \newline See
-\url{http://www.cems.uvm.edu/~rfoote/errata_3rd_edition.pdf} for errata.
-
-\bibitem[Galvin17]{Galvin}David Galvin, \textit{Basic discrete mathematics},
-13 December 2017.\newline%
-\url{http://www-users.math.umn.edu/~dgrinber/comb/60610lectures2017-Galvin.pdf}
-\newline(The URL might change, and the text may get updated. In order to
-reliably obtain the version of 13 December 2017, you can use the archive.org
-Wayback Machine:
-\url{https://web.archive.org/web/20180205122609/http://www-users.math.umn.edu/~dgrinber/comb/60610lectures2017-Galvin.pdf}
-.)
-
-\bibitem[GalQua17]{Gallier-RSA}Jean Gallier, Jocelyn Quaintance, \textit{Notes
-on Primality Testing And Public Key Cryptography, Part 1}, 8 November
-2017.\newline\url{https://www.cis.upenn.edu/~jean/RSA-primality-testing.pdf}
-
-\bibitem[Goodma16]{Goodman}Frederick M. Goodman, \textit{Algebra: Abstract and
-Concrete}, edition 2.6, 12 October 2016.\newline\url{http://homepage.divms.uiowa.edu/~goodman/algebrabook.dir/algebrabook.html}
-
-\bibitem[Grinbe15]{detnotes}Darij Grinberg, \textit{Notes on the combinatorial
-fundamentals of algebra}, 10 January 2019.\newline%
-\url{http://www.cip.ifi.lmu.de/~grinberg/primes2015/sols.pdf} \newline The
-numbering of theorems and formulas in this link might shift when the project
-gets updated; for a \textquotedblleft frozen\textquotedblright\ version whose
-numbering is guaranteed to match that in the citations above, see
-\url{https://github.com/darijgr/detnotes/releases/tag/2019-01-10} .
-
-\bibitem[Grinbe16]{floor}Darij Grinberg, \textit{18.781 (Spring 2016): Floor
-and arithmetic functions}, 19 June 2016.\newline\url{http://www.cip.ifi.lmu.de/~grinberg/floor.pdf}
-
-\bibitem[Grinbe17]{lucas}Darij Grinberg, \textit{The Lucas and Babbage
-congruences}, 10 January 2019.\newline\url{http://www.cip.ifi.lmu.de/~grinberg/lucascong.pdf}
-
-\bibitem[Hammac18]{Hammack}Richard Hammack, \textit{Book of Proof}, 3rd
-edition 2018.\newline\url{http://www.people.vcu.edu/~rhammack/BookOfProof/}
-
-\bibitem[Heffer17]{Hefferon}Jim Hefferon, \textit{Linear Algebra}, 3rd edition
-2017.\newline\url{http://joshua.smcvt.edu/linearalgebra/}
-
-\bibitem[Knapp16a]{Knapp1}Anthony W. Knapp, \textit{Basic Algebra}, digital
-2nd edition 2016. \newline\url{http://www.math.stonybrook.edu/~aknapp/download.html}
-
-\bibitem[Knapp16b]{Knapp2}Anthony W. Knapp, \textit{Advanced Algebra}, digital
-2nd edition 2016. \newline\url{http://www.math.stonybrook.edu/~aknapp/download.html}
-
-\bibitem[LeLeMe18]{LeLeMe}Eric Lehman, F. Thomson Leighton, Albert R. Meyer,
-\textit{Mathematics for Computer Science}, revised Tuesday 6th June
-2018.\newline\url{https://courses.csail.mit.edu/6.042/spring18/mcs.pdf} .
-
-\bibitem[NiZuMo91]{NiZuMo91}Ivan Niven, Herbert S. Zuckerman, Hugh L.
-Montgomery, \textit{An Introduction to the Theory of Numbers}, 5th edition 1991.
-
-\bibitem[Pinter10]{Pinter}Charles C. Pinter, \textit{A book of abstract
-algebra}, 2nd edition, Dover 2010.\newline\url{https://www.amazon.com/Book-Abstract-Algebra-Second-Mathematics/dp/0486474178}
-
-\bibitem[Siksek15]{Siksek}Samir Siksek, \textit{Introduction to Abstract
-Algebra}, 2015.\newline\url{http://homepages.warwick.ac.uk/staff/S.Siksek/teaching/aa/aanotes.pdf}
-
-\bibitem[Strick13]{Strickland}Neil Strickland, \textit{Linear mathematics for
-applications}, 2013.\newline\url{https://neil-strickland.staff.shef.ac.uk/courses/MAS201/MAS201.pdf}
-
-\bibitem[UspHea39]{Uspensky-Heaslet}J. V. Uspensky, M. A. Heaslet,
-\textit{Elementary Number Theory}, McGraw-Hill 1939.
-
-\bibitem[Waerde91a]{Waerden1}B.L. van der Waerden, \textit{Algebra, Volume I},
-translated 7th edition, Springer 1991.
-
-\bibitem[Waerde91b]{Waerden2}B.L. van der Waerden, \textit{Algebra, Volume
-II}, translated 5th edition, Springer 1991.
-\end{thebibliography}
 
 
 \end{document}
