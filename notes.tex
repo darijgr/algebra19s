@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Friday, February 08, 2019 01:20:13}
+%TCIDATA{LastRevised=Friday, February 08, 2019 08:08:50}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -4117,7 +4117,7 @@ b_{1},b_{2},\ldots,b_{k-1}\right)  ,b_{k}\right)  .
 \begin{proof}
 [Proof of Theorem \ref{thm.ent.gcd.uniprop-mul}.]Forget that we fixed
 $b_{1},b_{2},\ldots,b_{k}$. Rather than prove the four parts of Theorem
-\ref{thm.ent.gcd.uniprop-mul} separately, let us prove them as a package.
+\ref{thm.ent.gcd.uniprop-mul} separately, we shall prove them together as a package.
 
 We shall proceed by induction on $k$:
 
@@ -4370,9 +4370,13 @@ b_{1},b_{2},\ldots,b_{\ell-1}\right)  ,b_{\ell}\right)  }_{\substack{=\gcd
 \end{align*}
 Thus, Statement 2 \textbf{(a)} follows.
 
-Statement 2 \textbf{(b)} is a restatement of Statement 2 \textbf{(a)}.
+Statement 2 \textbf{(b)} is a restatement of Statement 2 \textbf{(a)} (in the
+same way that Theorem \ref{thm.ent.gcd.uniprop} \textbf{(b)} is a restatement
+of Theorem \ref{thm.ent.gcd.uniprop} \textbf{(a)}).
 
-Statement 2 \textbf{(c)} is a restatement of Statement 2 \textbf{(b)}.
+Statement 2 \textbf{(c)} is a restatement of Statement 2 \textbf{(b)} (in the
+same way that Theorem \ref{thm.ent.gcd.uniprop} \textbf{(c)} is a restatement
+of Theorem \ref{thm.ent.gcd.uniprop} \textbf{(b)}).
 
 We are thus done proving Statement 2.
 
@@ -4394,27 +4398,44 @@ Then, there exist integers $x_{1},x_{2},\ldots,x_{k}$ such that%
 
 \end{theorem}
 
-In other words, Theorem \ref{thm.ent.gcd.bezout-mul} states that if
-$b_{1},b_{2},\ldots,b_{k}$ are integers, then $\gcd\left(  b_{1},b_{2}%
-,\ldots,b_{k}\right)  $ is a $\mathbb{Z}$-linear combination of $b_{1}%
-,b_{2},\ldots,b_{k}$ (that is, a linear combination of $b_{1},b_{2}%
-,\ldots,b_{k}$ with integer coefficients).
+Once again, we can restate Theorem \ref{thm.ent.gcd.bezout-mul} by using the
+concept of a $\mathbb{Z}$-linear combination. Let us define this concept finally:
+
+\begin{definition}
+Let $b_{1},b_{2},\ldots,b_{k}$ be numbers. A $\mathbb{Z}$\textit{-linear
+combination} of $b_{1},b_{2},\ldots,b_{k}$ shall mean a number of the form
+$x_{1}b_{1}+x_{2}b_{2}+\cdots+x_{k}b_{k}$, where $x_{1},x_{2},\ldots,x_{k}$
+are integers.
+\end{definition}
+
+Thus, Theorem \ref{thm.ent.gcd.bezout-mul} can be restated as follows:
+
+\begin{theorem}
+\label{thm.ent.gcd.bezout-mul'}Let $b_{1},b_{2},\ldots,b_{k}$ be integers.
+Then, $\gcd\left(  b_{1},b_{2},\ldots,b_{k}\right)  $ is a $\mathbb{Z}$-linear
+combination of $b_{1},b_{2},\ldots,b_{k}$.
+\end{theorem}
 
 \begin{proof}
-[Proof of Theorem \ref{thm.ent.gcd.bezout-mul}.]We proceed by induction on $k$:
+[Proof of Theorem \ref{thm.ent.gcd.bezout-mul'}.]We shall prove this by
+induction on $k$:
 
-TODO: make this readable.
-
-\textit{Induction base:} Theorem \ref{thm.ent.gcd.bezout-mul} holds for $k=0$.
-(This is fairly trivial: $\gcd\left(  {}\right)  =0$ is a linear combination
-of an empty list of numbers.)
+\textit{Induction base:} Recall that the empty list $\left(  {}\right)  $
+satisfies $\gcd\left(  {}\right)  =0$ (by Definition \ref{def.ent.gcd.gcd},
+since all entries of the empty list are $0$). But $0$ is a $\mathbb{Z}$-linear
+combination of an empty list of numbers, because $0=\left(  \text{empty
+sum}\right)  $. Combining these facts, we conclude that $\gcd\left(
+{}\right)  $ is a $\mathbb{Z}$-linear combination of an empty list of numbers.
+But this is precisely the claim of Theorem \ref{thm.ent.gcd.bezout-mul'} for
+$k=0$. Thus, Theorem \ref{thm.ent.gcd.bezout-mul'} holds for $k=0$. This
+completes the induction base.
 
 \textit{Induction step:} Let $\ell$ be a positive integer. Assume that Theorem
-\ref{thm.ent.gcd.bezout-mul} holds for $k=\ell-1$. We must prove that Theorem
+\ref{thm.ent.gcd.bezout-mul'} holds for $k=\ell-1$. We must prove that Theorem
 \ref{thm.ent.gcd.bezout-mul} holds for $k=\ell$.
 
-We have assumed that Theorem \ref{thm.ent.gcd.bezout-mul} holds for $k=\ell
--1$. In other words, the following statement holds:
+We have assumed that Theorem \ref{thm.ent.gcd.bezout-mul'} holds for
+$k=\ell-1$. In other words, the following statement holds:
 
 \begin{statement}
 \textit{Statement 1:} Let $b_{1},b_{2},\ldots,b_{\ell-1}$ be integers. Then,
@@ -4422,7 +4443,7 @@ $\gcd\left(  b_{1},b_{2},\ldots,b_{\ell-1}\right)  $ is a $\mathbb{Z}$-linear
 combination of $b_{1},b_{2},\ldots,b_{\ell-1}$.
 \end{statement}
 
-Our goal is to prove that Theorem \ref{thm.ent.gcd.bezout-mul} holds for
+Our goal is to prove that Theorem \ref{thm.ent.gcd.bezout-mul'} holds for
 $k=\ell$. In other words, we must prove the following statement:
 
 \begin{statement}
@@ -4441,32 +4462,41 @@ b_{2}+\cdots+y_{\ell-1}b_{\ell-1}.
 \]
 Consider these $y_{1},y_{2},\ldots,y_{\ell-1}$.
 
-Furthermore, Bezout's theorem yields that there exist two integers $u$ and $v$
-such that%
+Furthermore, Theorem \ref{thm.ent.gcd.bezout} (applied to $a=\gcd\left(
+b_{1},b_{2},\ldots,b_{\ell-1}\right)  $ and $b=b_{\ell}$) yields that there
+exist two integers $x$ and $y$ such that%
 \[
 \gcd\left(  \gcd\left(  b_{1},b_{2},\ldots,b_{\ell-1}\right)  ,b_{\ell
-}\right)  =u\gcd\left(  b_{1},b_{2},\ldots,b_{\ell-1}\right)  +vb_{\ell}.
+}\right)  =x\gcd\left(  b_{1},b_{2},\ldots,b_{\ell-1}\right)  +yb_{\ell}.
 \]
-Consider these $u$ and $v$.
+Consider these $x$ and $y$.
 
-Now, Theorem \ref{thm.ent.gcd.uniprop-mul} \textbf{(d)} yields%
+Now, $\ell>0$; thus, Theorem \ref{thm.ent.gcd.uniprop-mul} \textbf{(d)}
+(applied to $k=\ell$) yields%
 \begin{align*}
 \gcd\left(  b_{1},b_{2},\ldots,b_{\ell}\right)   &  =\gcd\left(  \gcd\left(
 b_{1},b_{2},\ldots,b_{\ell-1}\right)  ,b_{\ell}\right) \\
-&  =u\underbrace{\gcd\left(  b_{1},b_{2},\ldots,b_{\ell-1}\right)  }%
-_{=y_{1}b_{1}+y_{2}b_{2}+\cdots+y_{\ell-1}b_{\ell-1}}+vb_{\ell}\\
-&  =u\left(  y_{1}b_{1}+y_{2}b_{2}+\cdots+y_{\ell-1}b_{\ell-1}\right)
-+vb_{\ell}\\
-&  =uy_{1}b_{1}+uy_{2}b_{2}+\cdots+uy_{\ell-1}b_{\ell-1}+vb_{\ell}.
+&  =x\underbrace{\gcd\left(  b_{1},b_{2},\ldots,b_{\ell-1}\right)  }%
+_{=y_{1}b_{1}+y_{2}b_{2}+\cdots+y_{\ell-1}b_{\ell-1}}+yb_{\ell}\\
+&  =x\left(  y_{1}b_{1}+y_{2}b_{2}+\cdots+y_{\ell-1}b_{\ell-1}\right)
++yb_{\ell}\\
+&  =xy_{1}b_{1}+xy_{2}b_{2}+\cdots+xy_{\ell-1}b_{\ell-1}+yb_{\ell}.
 \end{align*}
-This is a linear combination of the $b_{1},b_{2},\ldots,b_{\ell}$. So
+This is clearly a $\mathbb{Z}$-linear combination of the $b_{1},b_{2}%
+,\ldots,b_{\ell}$. Thus, $\gcd\left(  b_{1},b_{2},\ldots,b_{\ell}\right)  $ is
+a $\mathbb{Z}$-linear combination of $b_{1},b_{2},\ldots,b_{\ell}$. So
 Statement 2 is proven.
 
-In other words, we have proven that Theorem \ref{thm.ent.gcd.bezout-mul} holds
-for $k=\ell$. This completes the induction step. Thus, Theorem
-\ref{thm.ent.gcd.bezout-mul} is proven by induction.
+In other words, we have proven that Theorem \ref{thm.ent.gcd.bezout-mul'}
+holds for $k=\ell$. This completes the induction step. Thus, Theorem
+\ref{thm.ent.gcd.bezout-mul'} is proven by induction.
+\end{proof}
 
-TODO.
+\begin{proof}
+[Proof of Theorem \ref{thm.ent.gcd.bezout-mul}.]We have just proven Theorem
+\ref{thm.ent.gcd.bezout-mul'}, which is a restatement of Theorem
+\ref{thm.ent.gcd.bezout-mul}. Thus, Theorem \ref{thm.ent.gcd.bezout-mul} is
+also proven.
 \end{proof}
 
 \begin{theorem}
@@ -4480,9 +4510,133 @@ c_{1},c_{2},\ldots,c_{\ell}\right)  \right)  .
 
 \end{theorem}
 
+Our proof of this theorem will rely on a simple trick, which we state as a lemma:
+
+\begin{lemma}
+\label{lem.ent.gcd.yoneda}Let $a$ and $b$ be two integers.
+
+\textbf{(a)} If each $m\in\mathbb{Z}$ satisfies the implication $\left(  m\mid
+a\right)  \Longrightarrow\left(  m\mid b\right)  $, then $a\mid b$.
+
+\textbf{(b)} If each $m\in\mathbb{Z}$ satisfies the equivalence $\left(  m\mid
+a\right)  \Longleftrightarrow\left(  m\mid b\right)  $, then $\left\vert
+a\right\vert =\left\vert b\right\vert $.
+\end{lemma}
+
+Lemma \ref{lem.ent.gcd.yoneda} \textbf{(b)} says that the divisors of an
+integer $a$ uniquely determine $\left\vert a\right\vert $ (that is, they
+uniquely determine $a$ up to sign). Thus, when you want to prove that two
+integers have the same absolute values, it suffices to prove that they have
+the same divisors. If you know that your two integers are nonnegative, then
+you can prove this way that they are equal (since their absolute values are
+just themselves). This is exactly how we will prove that the left and right
+hand sides in Theorem \ref{thm.ent.gcd.split} are equal.
+
 \begin{proof}
-[Proof of Theorem \ref{thm.ent.gcd.split}.]TODO! Prove left$\mid$right and
-right$\mid$left. Better, proev that the same $m$'s divide both left and right.
+[Proof of Lemma \ref{lem.ent.gcd.yoneda}.]\textbf{(a)} Assume that each
+$m\in\mathbb{Z}$ satisfies the implication $\left(  m\mid a\right)
+\Longrightarrow\left(  m\mid b\right)  $. Then, applying this to $m=a$, we
+obtain the implication $\left(  a\mid a\right)  \Longrightarrow\left(  a\mid
+b\right)  $. Since $a\mid a$ holds, we thus obtain $a\mid b$. This proves
+Lemma \ref{lem.ent.gcd.yoneda} \textbf{(a)}.
+
+\textbf{(b)} Assume that each $m\in\mathbb{Z}$ satisfies the equivalence
+$\left(  m\mid a\right)  \Longleftrightarrow\left(  m\mid b\right)  $. Thus,
+each $m\in\mathbb{Z}$ satisfies the implication $\left(  m\mid a\right)
+\Longrightarrow\left(  m\mid b\right)  $ (since this implication is part of
+the equivalence we just assumed). Thus, Lemma \ref{lem.ent.gcd.yoneda}
+\textbf{(a)} yields $a\mid b$.
+
+Recall again that each $m\in\mathbb{Z}$ satisfies the equivalence $\left(
+m\mid a\right)  \Longleftrightarrow\left(  m\mid b\right)  $. Thus, each
+$m\in\mathbb{Z}$ satisfies the implication $\left(  m\mid b\right)
+\Longrightarrow\left(  m\mid a\right)  $ (since this implication is also part
+of the equivalence). Hence, Lemma \ref{lem.ent.gcd.yoneda} \textbf{(b)} yields
+$b\mid a$.
+
+Hence, Exercise \ref{exe.ent.div.abba} yields $\left\vert a\right\vert
+=\left\vert b\right\vert $. This proves Lemma \ref{lem.ent.gcd.yoneda}.
+\end{proof}
+
+Lemma \ref{lem.ent.gcd.yoneda} is a simple case of what is known in category
+theory as the \textit{Yoneda lemma}.
+
+\begin{proof}
+[Proof of Theorem \ref{thm.ent.gcd.split}.]Let $m\in\mathbb{Z}$. Theorem
+\ref{thm.ent.gcd.uniprop-mul} \textbf{(a)} (applied to $\left(  b_{1}%
+,b_{2},\ldots,b_{k},c_{1},c_{2},\ldots,c_{\ell}\right)  $ instead of $\left(
+b_{1},b_{2},\ldots,b_{k}\right)  $) shows that we have the following
+equivalence:%
+\begin{align*}
+&  \ \left(  \left(  m\mid b_{i}\text{ for all }i\in\left\{  1,2,\ldots
+,k\right\}  \right)  \text{ and }\left(  m\mid c_{i}\text{ for all }%
+i\in\left\{  1,2,\ldots,\ell\right\}  \right)  \right) \\
+&  \Longleftrightarrow\ \left(  m\mid\gcd\left(  b_{1},b_{2},\ldots
+,b_{k},c_{1},c_{2},\ldots,c_{\ell}\right)  \right)  .
+\end{align*}
+Hence, we have the following chain of equivalences:%
+\begin{align*}
+&  \ \left(  m\mid\gcd\left(  b_{1},b_{2},\ldots,b_{k},c_{1},c_{2}%
+,\ldots,c_{\ell}\right)  \right) \\
+&  \Longleftrightarrow\ \left(  \underbrace{\left(  m\mid b_{i}\text{ for all
+}i\in\left\{  1,2,\ldots,k\right\}  \right)  }_{\substack{\Longleftrightarrow
+\ \left(  m\mid\gcd\left(  b_{1},b_{2},\ldots,b_{k}\right)  \right)
+\\\text{(by Theorem \ref{thm.ent.gcd.uniprop-mul} \textbf{(a)})}}}\text{ and
+}\underbrace{\left(  m\mid c_{i}\text{ for all }i\in\left\{  1,2,\ldots
+,\ell\right\}  \right)  }_{\substack{\Longleftrightarrow\ \left(  m\mid
+\gcd\left(  c_{1},c_{2},\ldots,c_{\ell}\right)  \right)  \\\text{(by Theorem
+\ref{thm.ent.gcd.uniprop-mul} \textbf{(a)},}\\\text{applied to }\left(
+c_{1},c_{2},\ldots,c_{\ell}\right)  \text{ instead of }\left(  b_{1}%
+,b_{2},\ldots,b_{k}\right)  \text{)}}}\right) \\
+&  \Longleftrightarrow\ \left(  m\mid\gcd\left(  b_{1},b_{2},\ldots
+,b_{k}\right)  \text{ and }m\mid\gcd\left(  c_{1},c_{2},\ldots,c_{\ell
+}\right)  \right) \\
+&  \Longleftrightarrow\ \left(  m\mid\gcd\left(  \gcd\left(  b_{1}%
+,b_{2},\ldots,b_{k}\right)  ,\gcd\left(  c_{1},c_{2},\ldots,c_{\ell}\right)
+\right)  \right) \\
+&  \ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{by Theorem \ref{thm.ent.gcd.uniprop} \textbf{(a)},}\\
+\text{applied to }a=\gcd\left(  b_{1},b_{2},\ldots,b_{k}\right)  \text{ and
+}b=\gcd\left(  c_{1},c_{2},\ldots,c_{\ell}\right)
+\end{array}
+\right)  .
+\end{align*}
+
+
+Now, forget that we fixed $m$. We thus have shown that each $m\in\mathbb{Z}$
+satisfies the equivalence%
+\begin{align*}
+&  \ \left(  m\mid\gcd\left(  b_{1},b_{2},\ldots,b_{k},c_{1},c_{2}%
+,\ldots,c_{\ell}\right)  \right)  \\
+&  \Longleftrightarrow\ \left(  m\mid\gcd\left(  \gcd\left(  b_{1}%
+,b_{2},\ldots,b_{k}\right)  ,\gcd\left(  c_{1},c_{2},\ldots,c_{\ell}\right)
+\right)  \right)  .
+\end{align*}
+Hence, Lemma \ref{lem.ent.gcd.yoneda} (applied to $a=\gcd\left(  b_{1}%
+,b_{2},\ldots,b_{k},c_{1},c_{2},\ldots,c_{\ell}\right)  $ and \newline%
+$b=\gcd\left(  \gcd\left(  b_{1},b_{2},\ldots,b_{k}\right)  ,\gcd\left(
+c_{1},c_{2},\ldots,c_{\ell}\right)  \right)  $) yields%
+\begin{align}
+& \left\vert \gcd\left(  b_{1},b_{2},\ldots,b_{k},c_{1},c_{2},\ldots,c_{\ell
+}\right)  \right\vert \nonumber\\
+& =\left\vert \gcd\left(  \gcd\left(  b_{1},b_{2},\ldots,b_{k}\right)
+,\gcd\left(  c_{1},c_{2},\ldots,c_{\ell}\right)  \right)  \right\vert
+.\label{pf.thm.ent.gcd.split.abs-equal}%
+\end{align}
+
+
+But a gcd of integers is always nonnegative (by Definition
+\ref{def.ent.gcd.gcd}); thus, the absolute value of a gcd is always this gcd
+itself. Therefore, we can remove the absolute value signs on both sides of
+(\ref{pf.thm.ent.gcd.split.abs-equal}). We thus obtain%
+\[
+\gcd\left(  b_{1},b_{2},\ldots,b_{k},c_{1},c_{2},\ldots,c_{\ell}\right)
+=\gcd\left(  \gcd\left(  b_{1},b_{2},\ldots,b_{k}\right)  ,\gcd\left(
+c_{1},c_{2},\ldots,c_{\ell}\right)  \right)  .
+\]
+This proves Theorem \ref{thm.ent.gcd.split}.
 \end{proof}
 
 Theorem \ref{thm.ent.gcd.split} is the reason why most properties of gcds of
@@ -5050,9 +5204,12 @@ Better: if $b\perp c$, then $\gcd\left(  a,bc\right)  =\gcd\left(  a,b\right)
 \subsection{Lowest common multiples}
 
 \begin{itemize}
-\item lcm.
+\item Common multiples.
 
-\item gcd*lcm.
+\item lcm: Define it as the least nonnegative common multiple.
+
+\item $\gcd\left(  a,b\right)  \cdot\operatorname{lcm}\left(  a,b\right)
+=\left\vert ab\right\vert $.
 \end{itemize}
 
 \subsection{The Chinese remainder theorem (elementary form)}
@@ -5078,21 +5235,46 @@ Theorem \ref{thm.ent.crt1} is known as the \textit{Chinese remainder theorem}.
 TODO:
 
 \begin{itemize}
-\item primes
+\item proof.
 
-\item Erathosthenes
+\item multi-integer version.
+\end{itemize}
 
-\item $p>1$ prime $\Longleftrightarrow$ $p$ coprime to $1,2,\ldots,p-1$
+\subsection{Primes}
+
+\begin{definition}
+Let $p$ be an integer greater than $1$. We say that $p$ is \textit{prime} if
+the only positive divisors of $p$ are $1$ and $p$. A prime integer is often
+just called \textit{a prime}.
+\end{definition}
+
+Note that we required $p$ to be greater than $1$ here. Thus, $1$ does not
+count as prime even though its only positive divisor is $1$ itself.
+
+TODO:
+
+\begin{itemize}
+\item Eratosthenes 
+
+\item $p>1$ prime $\Longrightarrow$ $p$ coprime to $1,2,\ldots,p-1$
+
+\item Note: converse holds too.
+
+\item $p\mid ab$ $\Longrightarrow$ $p\mid a$ or $p\mid b$.
+
+\item Note: converse holds too (for $p>1$).
 
 \item each $n>0$ is prod of primes (allow empty)
-
-\item $p\mid ab$ $\Longrightarrow$ $p\mid a$ or $p\mid b$
 
 \item unique prod of primes
 
 \item factorization with exponents
 
-\item Division/$9$ criterion. This leads to...
+\item \textquotedblleft prime factors\textquotedblright\ and canonical factorization
+
+\item $\gcd$ and $\operatorname{lcm}$ via canonical factorization
+
+\item coprimality means not having any primes in common
 \end{itemize}
 
 \subsection{\label{sect.ent.subst-mod}Substitutivity for congruences}
