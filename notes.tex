@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Friday, February 08, 2019 18:19:50}
+%TCIDATA{LastRevised=Friday, February 08, 2019 18:33:59}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -2813,9 +2813,9 @@ computationally hard (or at least suspected to be hard).
 It is somewhat more interesting to consider the common divisors of two or more integers:
 
 \begin{definition}
-\label{def.ent.Div}Let $b_{1},b_{2},\ldots,b_{k}$ be finitely many integers.
-Then, the \textit{common divisors} of $b_{1},b_{2},\ldots,b_{k}$ are defined
-to be the integers $a$ that satisfy%
+\label{def.ent.Div}Let $b_{1},b_{2},\ldots,b_{k}$ be integers. Then, the
+\textit{common divisors} of $b_{1},b_{2},\ldots,b_{k}$ are defined to be the
+integers $a$ that satisfy%
 \begin{equation}
 \left(  a\mid b_{i}\text{ for all }i\in\left\{  1,2,\ldots,k\right\}  \right)
 \label{eq.def.ent.Div.cond}%
@@ -4388,6 +4388,21 @@ holds for $k=\ell$. This completes the induction step. Thus, Theorem
 \ref{thm.ent.gcd.uniprop-mul} is proven by induction.
 \end{proof}
 
+Theorem \ref{thm.ent.gcd.uniprop-mul} \textbf{(d)} is the reason why most
+properties of gcds of multiple numbers can be derived from corresponding
+properties of gcds of two numbers. For example, we can easily prove the
+following analogue of Corollary \ref{cor.ent.gcd.sa,sb} for gcds of three numbers:
+
+\begin{exercise}
+\label{exe.ent.gcd.sa,sb,sc}Let $s,a,b,c\in\mathbb{Z}$. Prove that
+$\gcd\left(  sa,sb,sc\right)  =\left\vert s\right\vert \gcd\left(
+a,b,c\right)  $.
+\end{exercise}
+
+\begin{proof}
+[Solution to Exercise \ref{exe.ent.gcd.sa,sb,sc}.]TODO! (HW1)
+\end{proof}
+
 Bezout's theorem (Theorem \ref{thm.ent.gcd.bezout}) also holds for any finite
 number of integers:
 
@@ -4642,21 +4657,6 @@ c_{1},c_{2},\ldots,c_{\ell}\right)  \right)  .
 This proves Theorem \ref{thm.ent.gcd.split}.
 \end{proof}
 
-Theorem \ref{thm.ent.gcd.split} is the reason why most properties of gcds of
-multiple numbers can be derived from corresponding properties of gcds of two
-numbers. For example, we can easily prove the following analogue of Corollary
-\ref{cor.ent.gcd.sa,sb} for gcds of three numbers:
-
-\begin{exercise}
-\label{exe.ent.gcd.sa,sb,sc}Let $s,a,b,c\in\mathbb{Z}$. Prove that
-$\gcd\left(  sa,sb,sc\right)  =\left\vert s\right\vert \gcd\left(
-a,b,c\right)  $.
-\end{exercise}
-
-\begin{proof}
-[Solution to Exercise \ref{exe.ent.gcd.sa,sb,sc}.]TODO!
-\end{proof}
-
 \begin{center}
 \textbf{2019-02-06 lecture}
 \end{center}
@@ -4699,11 +4699,11 @@ that%
 and thus $\gcd\left(  a,a+1\right)  =1$ (since $\gcd\left(  a,a+1\right)  $ is
 a nonnegative integer), which means that $a$ is coprime to $a+1$.
 
-\textbf{(d)} Let $a$ be an integer. When is $a$ coprime to $2$? If we try to
+\textbf{(d)} Let $a$ be an integer. When is $a$ coprime to $a+2$? If we try to
 compute $\gcd\left(  a,a+2\right)  $, we find%
 \begin{align*}
 \gcd\left(  a,\underbrace{a}_{=1a}+2\right)   &  =\gcd\left(  a,1a+2\right)
-=\gcd\left(  a,2\right) \\
+=\gcd\left(  a,2\right)  \\
 &  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition \ref{prop.ent.gcd.props1}
 \textbf{(c)}, applied to }u=1\text{ and }b=2\right)  .
 \end{align*}
@@ -4728,10 +4728,15 @@ a,2\right)  =1$. Summarizing, we conclude that%
 1, & \text{if }a\text{ is odd.}%
 \end{cases}
 \]
-
+Now, recall that $\gcd\left(  a,a+2\right)  =\gcd\left(  a,2\right)  =%
+\begin{cases}
+2, & \text{if }a\text{ is even};\\
+1, & \text{if }a\text{ is odd.}%
+\end{cases}
+$ Hence, $a$ is coprime to $a+2$ if and only if $a$ is odd.
 \end{example}
 
-Following Donald Knuth, we introduce a slightly quaint notation:
+Following the book \cite{GKP}, we introduce a slightly quaint notation:
 
 \begin{definition}
 \label{def.ent.coprime.perp}Let $a$ and $b$ be two integers. We write
@@ -4940,7 +4945,7 @@ numbers instead of just the two numbers $a$ and $b$:
 \begin{exercise}
 \label{exe.ent.coprime.ab-to-ck}Let $c\in\mathbb{Z}$. Let $a_{1},a_{2}%
 ,\ldots,a_{k}$ be integers such that each $i\in\left\{  1,2,\ldots,k\right\}
-$ satisfies $a_{i}\perp c$. Then, $a_{1}a_{2}\cdots a_{k}\perp c$.
+$ satisfies $a_{i}\perp c$. Prove that $a_{1}a_{2}\cdots a_{k}\perp c$.
 \end{exercise}
 
 \begin{proof}
@@ -5363,29 +5368,53 @@ We have now proven both (\ref{sol.ent.coprime.1+2+...+n.g1}) and
 (\ref{sol.ent.coprime.1+2+...+n.g}), which in turn solves the problem.
 \end{proof}
 
-TODO:
+\begin{exercise}
+\label{exe.ent.coprime.gcd*gcd1}Let $u,v,x,y\in\mathbb{Z}$. Prove that
+$\gcd\left(  u,v\right)  \cdot\gcd\left(  x,y\right)  =\gcd\left(
+ux,uy,vx,vy\right)  $.
+\end{exercise}
 
-\begin{itemize}
-\item $a\mid bc,\ b\perp c\ \Longrightarrow\ a=uv$ with $u\mid b$ and $v\mid
-c$.
+\begin{exercise}
+\label{exe.ent.coprime.gcd*gcd2}Let $a,b,c\in\mathbb{Z}$.
 
-Better: if $b\perp c$, then $\gcd\left(  a,bc\right)  =\gcd\left(  a,b\right)
-\cdot\gcd\left(  a,c\right)  $. Rather, hw.
-\end{itemize}
+\textbf{(a)} Prove that $\gcd\left(  a,b\right)  \cdot\gcd\left(  a,c\right)
+=\gcd\left(  ag,bc\right)  $, where $g=\gcd\left(  a,b,c\right)  $.
+
+\textbf{(b)} Prove that $\gcd\left(  a,b\right)  \cdot\gcd\left(  a,c\right)
+=\gcd\left(  a,bc\right)  $ if $b\perp c$.
+\end{exercise}
+
+\begin{exercise}
+\label{exe.ent.coprime.combine2}Let $a,b,c\in\mathbb{Z}$ satisfy $a\mid c$ and
+$b\mid c$. Prove that $ab\mid\gcd\left(  a,b,c\right)  \cdot c$.
+\end{exercise}
 
 \subsection{Lowest common multiples}
 
 TODO: Make the following readable.
 
+Common multiples are, in a sense, a \textquotedblleft mirror
+version\textquotedblright\ of common divisors. In this picture, lowest common
+multiples corresponding to greatest common divisors.
+
+\begin{definition}
+Let $b_{1},b_{2},\ldots,b_{k}$ be integers. Then, the \textit{common
+multiples} of $b_{1},b_{2},\ldots,b_{k}$ are defined to be the integers $a$
+that satisfy%
+\[
+\left(  b_{i}\mid a\text{ for all }i\in\left\{  1,2,\ldots,k\right\}  \right)
+.
+\]
+(In other words, a \textit{common multiple} of $b_{1},b_{2},\ldots,b_{k}$ is
+an integer that is a multiple of each of $b_{1},b_{2},\ldots,b_{k}$.) We let
+$\operatorname*{Mul}\left(  b_{1},b_{2},\ldots,b_{k}\right)  $ denote the set
+of these common multiples.
+\end{definition}
+
 \begin{definition}
 Let $b_{1},b_{2},\ldots,b_{k}$ be integers.
 
-\textbf{(a)} A \textbf{common multiple} of $b_{1},b_{2},\ldots,b_{k}$ is an
-integer $c$ such that $\left(  b_{i}\mid c\text{ for all }i\right)  $. In
-other words, it is an integer that is a multiple of each of $b_{1}%
-,b_{2},\ldots,b_{k}$.
-
-\textbf{(b)} The \textbf{lowest common multiple} (or \textbf{least common
+The \textit{lowest common multiple} (also known as the \textit{least common
 multiple}) of $b_{1},b_{2},\ldots,b_{k}$ is
 
 \begin{itemize}
@@ -5406,7 +5435,7 @@ Let $a,b\in\mathbb{Z}$. Then, $\gcd\left(  a,b\right)  \cdot\operatorname{lcm}%
 \end{theorem}
 
 \begin{proof}
-WLOG\ assume that none of $a,b$ is $0$. Let $c=\dfrac{ab}{\gcd\left(
+WLOG assume that none of $a,b$ is $0$. Let $c=\dfrac{ab}{\gcd\left(
 a,b\right)  }$. Then, $c=a\cdot\underbrace{\dfrac{b}{\gcd\left(  a,b\right)
 }}_{\in\mathbb{Z}}$, so that $c$ is an integer and a multiple of $a$.
 Similarly, $c$ is a multiple of $b$ as well. Thus, $c$ is a common multiple of
@@ -5531,7 +5560,7 @@ We will soon find such an integer, after we have proved Theorem
 \end{example}
 
 \begin{proof}
-[Proof of Theorem \ref{thm.ent.crt1}.] \textbf{(a)} Theorem
+[Proof of Theorem \ref{thm.ent.crt1}.]\textbf{(a)} Theorem
 \ref{thm.ent.coprime.modinv} \textbf{(b)} (applied to $m$ instead of $a$)
 shows that there exists a $m^{\prime}\in\mathbb{Z}$ such that $mm^{\prime
 }\equiv1\operatorname{mod}n$.
@@ -5559,8 +5588,6 @@ $x_{1}\equiv x_{2}\operatorname{mod}mn$.
 
 Theorem \ref{thm.ent.crt1} is (the simplest form of) the \textit{Chinese
 Remainder Theorem} (Sunzi, 3rd century AD).
-
-
 
 \begin{example}
 Assume that we want to find an $x\in\mathbb{Z}$ such that%
@@ -5985,6 +6012,10 @@ on Primality Testing And Public Key Cryptography, Part 1}, 8 November
 
 \bibitem[Goodma16]{Goodman}Frederick M. Goodman, \textit{Algebra: Abstract and
 Concrete}, edition 2.6, 12 October 2016.\newline\url{http://homepage.divms.uiowa.edu/~goodman/algebrabook.dir/algebrabook.html}
+
+\bibitem[GrKnPa94]{GKP}Ronald L. Graham, Donald E. Knuth, Oren Patashnik,
+\textit{Concrete Mathematics, Second Edition}, Addison-Wesley 1994.\newline
+See \url{https://www-cs-faculty.stanford.edu/~knuth/gkp.html} for errata.
 
 \bibitem[Grinbe15]{detnotes}Darij Grinberg, \textit{Notes on the combinatorial
 fundamentals of algebra}, 10 January 2019.\newline%
