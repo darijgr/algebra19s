@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Friday, February 08, 2019 18:33:59}
+%TCIDATA{LastRevised=Saturday, February 09, 2019 15:14:45}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -1254,11 +1254,29 @@ b$ implies $b=0c=0$ (for some $c\in\mathbb{Z}$).
 \textbf{(e)} We have $1\mid b$ for each $b\in\mathbb{Z}$, since $b=1\cdot b$.
 \end{example}
 
+I apologize in advance for the next proposition, in which vertical bars stand
+both for the \textquotedblleft divides\textquotedblright\ relation and for the
+absolute value of a number. Unfortunately, both of these uses are standard
+notation. Confusion is possible, but hopefully will not happen
+much\footnote{Unfortunately, the use of vertical bars for absolute values
+alone suffices to generate confusion! Just think of the meaning of
+\textquotedblleft$\left\vert a\right\vert b\left\vert c\right\vert
+$\textquotedblright\ when $a$, $b$ and $c$ are three numbers. Does it stand
+for \textquotedblleft$\left(  \left\vert a\right\vert \right)  \cdot
+b\cdot\left(  \left\vert c\right\vert \right)  $\textquotedblright\ (where I
+am using parentheses to make the ambiguity disappear) or for \textquotedblleft%
+$\left\vert \left(  a\cdot\left\vert b\right\vert \cdot c\right)  \right\vert
+$\textquotedblright? If you see any expressions in my notes that allow for
+more than one meaningful interpretation, please let me know!}.
+
 \begin{proposition}
 \label{prop.ent.div.1}Let $a$ and $b$ be two integers.
 
 \textbf{(a)} We have $a\mid b$ if and only $\left\vert a\right\vert
-\mid\left\vert b\right\vert $.
+\mid\left\vert b\right\vert $. (Here, \textquotedblleft$\left\vert
+a\right\vert \mid\left\vert b\right\vert $\textquotedblright\ means
+\textquotedblleft$\left\vert a\right\vert $ divides $\left\vert b\right\vert
+$\textquotedblright.)
 
 \textbf{(b)} If $a\mid b$ and $b\neq0$, then $\left\vert a\right\vert
 \leq\left\vert b\right\vert $.
@@ -1418,6 +1436,35 @@ da_{2}e=a_{1}a_{2}de$. Hence, there exists an integer $f$ such that
 $b_{1}b_{2}=a_{1}a_{2}f$ (namely, $f=de$). In other words, $a_{1}a_{2}\mid
 b_{1}b_{2}$ (by Definition \ref{def.ent.div.div}). This proves Proposition
 \ref{prop.ent.div.2} \textbf{(c)}.
+\end{proof}
+
+\begin{exercise}
+\label{exe.ent.div.aabs}Let $a\in\mathbb{Z}$.
+
+\textbf{(a)} Prove that $a\mid\left\vert a\right\vert $. (This means
+\textquotedblleft$a$ divides $\left\vert a\right\vert $\textquotedblright.)
+
+\textbf{(b)} Prove that $\left\vert a\right\vert \mid a$. (This means
+\textquotedblleft$\left\vert a\right\vert $ divides $a$\textquotedblright.)
+\end{exercise}
+
+\begin{proof}
+[Solution to Exercise \ref{exe.ent.div.aabs}.] The definition of $\left\vert
+a\right\vert $ shows that $\left\vert a\right\vert $ equals either $a$ or
+$-a$. In other words, $\left\vert a\right\vert $ equals either $1a$ or
+$\left(  -1\right)  a$. In other words, $\left\vert a\right\vert =qa$ for some
+$q\in\left\{  1,-1\right\}  $. Consider this $q$. Clearly, $q$ is an integer.
+Now, from $\left\vert a\right\vert =qa=aq$, we conclude that $a\mid\left\vert
+a\right\vert $ (since $q$ is an integer). This solves Exercise
+\ref{exe.ent.div.aabs} \textbf{(a)}.
+
+\textbf{(b)} From $q\in\left\{  1,-1\right\}  $, we obtain $q^{2}\in\left\{
+1^{2},\left(  -1\right)  ^{2}\right\}  =\left\{  1,1\right\}  =\left\{
+1\right\}  $, so that $q^{2}=1$. Now, multiplying the equality $\left\vert
+a\right\vert =qa$ by $q$, we obtain $q\left\vert a\right\vert =\underbrace{qq}%
+_{=q^{2}=1}a=a$. Hence, $a=q\left\vert a\right\vert =\left\vert a\right\vert
+\cdot q$. Thus, $\left\vert a\right\vert \mid a$ (since $q$ is an integer).
+This solves Exercise \ref{exe.ent.div.aabs} \textbf{(b)}.
 \end{proof}
 
 \begin{exercise}
@@ -3372,9 +3419,12 @@ We shall now show that $\operatorname*{Div}\left(  a,b\right)  \subseteq
 definition of $\operatorname*{Div}\left(  a,b\right)  $). In other words,
 $x\mid a$ and $x\mid b$ (by the definition of a \textquotedblleft common
 divisor\textquotedblright). From $x\mid b$, we obtain $b\equiv
-0\operatorname{mod}x$. Thus, $c\equiv b\equiv0\operatorname{mod}x$, so that
-$x\mid c$. Combining $x\mid a$ and $x\mid c$, we see that $x$ is a common
-divisor of $a$ and $c$ (by the definition of a \textquotedblleft common
+0\operatorname{mod}x$. But from $x\mid a$ and $c\equiv b\operatorname{mod}a$,
+we obtain $c\equiv b\operatorname{mod}x$ (by Proposition
+\ref{prop.ent.mod.basics} \textbf{(e)}, applied to $a$, $x$, $c$ and $b$
+instead of $n$, $m$, $c$ and $b$). Thus, $c\equiv b\equiv0\operatorname{mod}%
+x$, so that $x\mid c$. Combining $x\mid a$ and $x\mid c$, we see that $x$ is a
+common divisor of $a$ and $c$ (by the definition of a \textquotedblleft common
 divisor\textquotedblright). In other words, $x\in\operatorname*{Div}\left(
 a,c\right)  $ (by the definition of $\operatorname*{Div}\left(  a,c\right)  $).
 
@@ -4703,7 +4753,7 @@ a nonnegative integer), which means that $a$ is coprime to $a+1$.
 compute $\gcd\left(  a,a+2\right)  $, we find%
 \begin{align*}
 \gcd\left(  a,\underbrace{a}_{=1a}+2\right)   &  =\gcd\left(  a,1a+2\right)
-=\gcd\left(  a,2\right)  \\
+=\gcd\left(  a,2\right) \\
 &  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition \ref{prop.ent.gcd.props1}
 \textbf{(c)}, applied to }u=1\text{ and }b=2\right)  .
 \end{align*}
@@ -5391,16 +5441,13 @@ $b\mid c$. Prove that $ab\mid\gcd\left(  a,b,c\right)  \cdot c$.
 
 \subsection{Lowest common multiples}
 
-TODO: Make the following readable.
-
 Common multiples are, in a sense, a \textquotedblleft mirror
-version\textquotedblright\ of common divisors. In this picture, lowest common
-multiples corresponding to greatest common divisors.
+version\textquotedblright\ of common divisors. Here is their definition:
 
 \begin{definition}
-Let $b_{1},b_{2},\ldots,b_{k}$ be integers. Then, the \textit{common
-multiples} of $b_{1},b_{2},\ldots,b_{k}$ are defined to be the integers $a$
-that satisfy%
+\label{def.ent.Mul}Let $b_{1},b_{2},\ldots,b_{k}$ be integers. Then, the
+\textit{common multiples} of $b_{1},b_{2},\ldots,b_{k}$ are defined to be the
+integers $a$ that satisfy%
 \[
 \left(  b_{i}\mid a\text{ for all }i\in\left\{  1,2,\ldots,k\right\}  \right)
 .
@@ -5411,65 +5458,233 @@ $\operatorname*{Mul}\left(  b_{1},b_{2},\ldots,b_{k}\right)  $ denote the set
 of these common multiples.
 \end{definition}
 
-\begin{definition}
-Let $b_{1},b_{2},\ldots,b_{k}$ be integers.
+\begin{example}
+The common multiples of $4,6$ are $\ldots,-36,-24,-12,0,12,24,36,\ldots$, that
+is, all multiples of $12$.
 
-The \textit{lowest common multiple} (also known as the \textit{least common
-multiple}) of $b_{1},b_{2},\ldots,b_{k}$ is
+The common multiples of $1,2,3$ are all multiples of $6$.
+\end{example}
+
+Note that the definition of common multiples of $b_{1},b_{2},\ldots,b_{k}$
+(Definition \ref{def.ent.Mul}) is the same as the definition of common
+divisors of $b_{1},b_{2},\ldots,b_{k}$ except that the divisibility has been
+flipped (i.e., it says \textquotedblleft$b_{i}\mid a$\textquotedblright%
+\ instead of \textquotedblleft$a\mid b_{i}$\textquotedblright). This is why
+common multiples are a \textquotedblleft mirror version\textquotedblright\ of
+common divisors. This analogy is not perfect -- in particular, (for example)
+two nonzero integers have infinitely many common multiples but only finitely
+many common divisors. We shall now introduce lowest common multiples, which
+correspond to greatest common divisors in this analogy. However, we have to
+prove a simple proposition first:
+
+\begin{proposition}
+\label{prop.ent.Mul.exi}Let $b_{1},b_{2},\ldots,b_{k}$ be finitely many
+nonzero integers. Then, the set $\operatorname*{Mul}\left(  b_{1},b_{2}%
+,\ldots,b_{k}\right)  $ has a smallest positive element.
+\end{proposition}
+
+Proposition \ref{prop.ent.Mul.exi} is similar to Proposition
+\ref{prop.ent.Div.fin} (and will play a similar role), but note the
+differences: It requires \textbf{all} of $b_{1},b_{2},\ldots,b_{k}$ to be
+nonzero (unlike Proposition \ref{prop.ent.Div.fin}, which needed only one of
+them to be nonzero), and it does not claim finiteness of any set.
+
+\begin{proof}
+[Proof of Proposition \ref{prop.ent.Mul.exi}.] We claim that%
+\begin{equation}
+\left\vert b_{1}b_{2}\cdots b_{k}\right\vert \in\operatorname*{Mul}\left(
+b_{1},b_{2},\ldots,b_{k}\right)  .\label{pf.prop.ent.Mul.exi.1}%
+\end{equation}
+
+
+\textit{Proof of (\ref{pf.prop.ent.Mul.exi.1}):} Let $i\in\left\{
+1,2,\ldots,k\right\}  $. Then, the product $b_{1}b_{2}\cdots b_{k}$ can be
+written as%
+\[
+b_{1}b_{2}\cdots b_{k}=b_{i}\cdot\left(  b_{1}b_{2}\cdots b_{i-1}%
+b_{i+1}b_{i+2}\cdots b_{k}\right)  ,
+\]
+and thus is divisible by $b_{i}$. In other words, $b_{i}\mid b_{1}b_{2}\cdots
+b_{k}$. But Exercise \ref{exe.ent.div.aabs} \textbf{(a)} (applied to
+$a=b_{1}b_{2}\cdots b_{k}$) yields $b_{1}b_{2}\cdots b_{k}\mid\left\vert
+b_{1}b_{2}\cdots b_{k}\right\vert $. Altogether, $b_{i}\mid b_{1}b_{2}\cdots
+b_{k}\mid\left\vert b_{1}b_{2}\cdots b_{k}\right\vert $.
+
+Now forget that we fixed $i$. We thus have proven that $b_{i}\mid\left\vert
+b_{1}b_{2}\cdots b_{k}\right\vert $ for all $i\in\left\{  1,2,\ldots
+,k\right\}  $. In other words, $\left\vert b_{1}b_{2}\cdots b_{k}\right\vert $
+is a common multiple of $b_{1},b_{2},\ldots,b_{k}$ (by the definition of a
+\textquotedblleft common multiple\textquotedblright). In other words,
+$\left\vert b_{1}b_{2}\cdots b_{k}\right\vert \in\operatorname*{Mul}\left(
+b_{1},b_{2},\ldots,b_{k}\right)  $. This proves (\ref{pf.prop.ent.Mul.exi.1}).]
+
+We know that $b_{1},b_{2},\ldots,b_{k}$ are nonzero integers. Hence, their
+product $b_{1}b_{2}\cdots b_{k}$ is a nonzero integer as well. Thus, its
+absolute value $\left\vert b_{1}b_{2}\cdots b_{k}\right\vert $ is a positive
+integer. Hence, $\left\vert b_{1}b_{2}\cdots b_{k}\right\vert $ is a positive
+element of $\operatorname*{Mul}\left(  b_{1},b_{2},\ldots,b_{k}\right)  $
+(since (\ref{pf.prop.ent.Mul.exi.1}) shows that it is an element of
+$\operatorname*{Mul}\left(  b_{1},b_{2},\ldots,b_{k}\right)  $). Thus, the set
+$\operatorname*{Mul}\left(  b_{1},b_{2},\ldots,b_{k}\right)  $ has a positive
+element. Therefore, this set $\operatorname*{Mul}\left(  b_{1},b_{2}%
+,\ldots,b_{k}\right)  $ has a \textbf{smallest} positive element as
+well\footnote{Here we are using the following basic fact: If a set of integers
+$S$ has a positive element, then it has a \textbf{smallest} positive element
+as well. (To prove this fact, you can fix a positive element $s\in S$, which
+exists by assumption; then, the set $\left\{  1,2,\ldots,s\right\}  $ is
+finite and nonempty, and thus clearly has a smallest element; now you can
+easily check that its smallest element must also be the smallest positive
+element of $S$.)}. This proves Proposition \ref{prop.ent.Mul.exi}.
+\end{proof}
+
+\begin{definition}
+\label{def.ent.lcm.lcm}Let $b_{1},b_{2},\ldots,b_{k}$ be finitely many
+integers. The \textit{lowest common multiple} of $b_{1},b_{2},\ldots,b_{k}$ is
+defined as follows:
 
 \begin{itemize}
-\item the smallest positive common multiple of $b_{1},b_{2},\ldots,b_{k}$, if
-none of $b_{1},b_{2},\ldots,b_{k}$ are $0$;
+\item If $b_{1},b_{2},\ldots,b_{k}$ are all nonzero, then it is defined as the
+smallest positive element of the set $\operatorname*{Mul}\left(  b_{1}%
+,b_{2},\ldots,b_{k}\right)  $. This smallest positive element is well-defined
+(by Proposition \ref{prop.ent.Mul.exi}), and is a positive integer (obviously).
 
-\item $0$, if some of $b_{1},b_{2},\ldots,b_{k}$ are $0$.
+\item If $b_{1},b_{2},\ldots,b_{k}$ are not all nonzero (i.e., at least one of
+$b_{1},b_{2},\ldots,b_{k}$ is zero), then it is defined to be $0$.
 \end{itemize}
 
-This is well-defined, because if none of $b_{1},b_{2},\ldots,b_{k}$ are $0$,
-then $\left\vert b_{1}b_{2}\cdots b_{k}\right\vert $ is a positive common
-multiple of $b_{1},b_{2},\ldots,b_{k}$.
+Thus, in either case, this lowest common multiple is a nonnegative integer. We
+denote it by $\operatorname{lcm}\left(  b_{1},b_{2},\ldots,b_{k}\right)  $.
+
+We shall also use the word \textquotedblleft\textit{lcm}\textquotedblright\ as
+shorthand for \textquotedblleft lowest common multiple\textquotedblright.
 \end{definition}
 
+Some authors say \textquotedblleft\textit{least common multiple}%
+\textquotedblright\ instead of \textquotedblleft lowest common
+multiple\textquotedblright.
+
+We are slightly abusing the word \textquotedblleft lowest common
+multiple\textquotedblright, of course; it would be more precise to say
+\textquotedblleft lowest \textbf{positive} common multiple\textquotedblright,
+and even this would only hold for the case when $b_{1},b_{2},\ldots,b_{k}$ are
+all nonzero. Taken literally, a \textquotedblleft lowest common
+multiple\textquotedblright\ of $2$ and $3$ would not exist, since $2$ and $3$
+have infinitely many negative common multiples.
+
+The following theorem yields a good way of computing lcms of two numbers
+(since we already know how to compute gcds via the Euclidean algorithm):
+
 \begin{theorem}
-Let $a,b\in\mathbb{Z}$. Then, $\gcd\left(  a,b\right)  \cdot\operatorname{lcm}%
-\left(  a,b\right)  =\left\vert ab\right\vert $.
+\label{thm.ent.lcm.gcd*lcm}Let $a,b\in\mathbb{Z}$. Then, $\gcd\left(
+a,b\right)  \cdot\operatorname{lcm}\left(  a,b\right)  =\left\vert
+ab\right\vert $.
 \end{theorem}
 
 \begin{proof}
-WLOG assume that none of $a,b$ is $0$. Let $c=\dfrac{ab}{\gcd\left(
-a,b\right)  }$. Then, $c=a\cdot\underbrace{\dfrac{b}{\gcd\left(  a,b\right)
-}}_{\in\mathbb{Z}}$, so that $c$ is an integer and a multiple of $a$.
-Similarly, $c$ is a multiple of $b$ as well. Thus, $c$ is a common multiple of
-$a$ and $b$. Hence, $\left\vert c\right\vert $ is a positive common multiple
-of $a$ and $b$. Therefore, $\left\vert c\right\vert $ is $\geq$ to the
-smallest positive common multiple of $a$ and $b$. In other words, $\left\vert
-c\right\vert \geq\operatorname{lcm}\left(  a,b\right)  $.
+[Proof of Theorem \ref{thm.ent.lcm.gcd*lcm}.] If at least one of the two
+numbers $a$ and $b$ is $0$, then Theorem \ref{thm.ent.lcm.gcd*lcm}
+holds\footnote{\textit{Proof.} Assume that at least one of the two numbers $a$
+and $b$ is $0$. Thus, the product $ab$ is $0$. Hence, $ab=0$, so that
+$\left\vert ab\right\vert =0$.
+\par
+On the other hand, the two numbers $a,b$ are not all nonzero (since at least
+one of the two numbers $a$ and $b$ is $0$). Hence, Definition
+\ref{def.ent.lcm.lcm} shows that $\operatorname{lcm}\left(  a,b\right)  =0$.
+Comparing $\gcd\left(  a,b\right)  \cdot\underbrace{\operatorname{lcm}\left(
+a,b\right)  }_{=0}=0$ with $\left\vert ab\right\vert =0$, we obtain
+$\gcd\left(  a,b\right)  \cdot\operatorname{lcm}\left(  a,b\right)
+=\left\vert ab\right\vert $. In other words, Theorem \ref{thm.ent.lcm.gcd*lcm}
+holds.}. Hence, for the rest of this proof, we WLOG assume that none of the
+two numbers $a$ and $b$ is $0$. In other words, $a$ and $b$ are nonzero. Thus,
+Definition \ref{def.ent.lcm.lcm} yields that $\operatorname{lcm}\left(
+a,b\right)  $ is the smallest positive element of the set $\operatorname*{Mul}%
+\left(  a,b\right)  $. Also, $\gcd\left(  a,b\right)  $ is a positive integer
+(since $a$ and $b$ are nonzero) and thus nonzero. Hence, we can define
+$c\in\mathbb{Q}$ by $c=\dfrac{ab}{\gcd\left(  a,b\right)  }$. Consider this
+$c$. From $c=\dfrac{ab}{\gcd\left(  a,b\right)  }$, we obtain $ab=\gcd\left(
+a,b\right)  \cdot c$.
 
-Next, let me prove that $c\mid\operatorname{lcm}\left(  a,b\right)  $.
+Let $d=\left\vert c\right\vert $. The number $c=\dfrac{ab}{\gcd\left(
+a,b\right)  }$ is nonzero (since $a$ and $b$ are nonzero). Hence, its absolute
+value $\left\vert c\right\vert $ is positive. In other words, $d$ is positive
+(since $d=\left\vert c\right\vert $). From $ab=\gcd\left(  a,b\right)  \cdot
+c$, we obtain%
+\begin{align}
+\left\vert ab\right\vert  & =\left\vert \gcd\left(  a,b\right)  \cdot
+c\right\vert =\underbrace{\left\vert \gcd\left(  a,b\right)  \right\vert
+}_{\substack{=\gcd\left(  a,b\right)  \\\text{(since }\gcd\left(  a,b\right)
+\text{ is positive)}}}\cdot\underbrace{\left\vert c\right\vert }%
+_{=d}\nonumber\\
+& \ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{eq.ent.div.abs(xy)}), applied to
+}\gcd\left(  a,b\right)  \text{ and }c\text{ instead of }x\text{ and
+}y\right)  \nonumber\\
+& =\gcd\left(  a,b\right)  \cdot d.\label{pf.thm.ent.lcm.gcd*lcm.1}%
+\end{align}
+Solving this for $d$, we find $d=\dfrac{\left\vert ab\right\vert }{\gcd\left(
+a,b\right)  }$ (since $\gcd\left(  a,b\right)  $ is nonzero).
 
-Let $\ell=\operatorname{lcm}\left(  a,b\right)  $. Thus, we need to prove
-$c\mid\ell$.
+We have $\gcd\left(  a,b\right)  \mid b$ (by Proposition
+\ref{prop.ent.gcd.props1} \textbf{(f)}). Thus, $\dfrac{b}{\gcd\left(
+a,b\right)  }$ is an integer. Now, $c=\dfrac{ab}{\gcd\left(  a,b\right)
+}=a\cdot\dfrac{b}{\gcd\left(  a,b\right)  }$ is the product of two integers
+(since $a$ and $\dfrac{b}{\gcd\left(  a,b\right)  }$ are integers). Therefore,
+$c$ itself is an integer. Thus, $d$ is an integer as well (since $d=\left\vert
+c\right\vert $). Moreover, $c=a\cdot\dfrac{b}{\gcd\left(  a,b\right)  }$ shows
+that $a\mid c$ (since $\dfrac{b}{\gcd\left(  a,b\right)  }$ is an integer).
+But Exercise \ref{exe.ent.div.aabs} \textbf{(a)} (applied to $c$ instead of
+$a$) yields $c\mid\left\vert c\right\vert $ (this means \textquotedblleft$c$
+divides $\left\vert c\right\vert $\textquotedblright). In other words, $c\mid
+d$ (since $d=\left\vert c\right\vert $). Hence, $a\mid c\mid d$.
 
-In other words, we need to prove $\dfrac{ab}{\gcd\left(  a,b\right)  }\mid
-\ell$.
+So we have proven that $a\mid d$. Similarly, $b\mid d$. Thus, we know that
+$\left(  a\mid d\text{ and }b\mid d\right)  $. In other words, $d$ is a common
+multiple of $a$ and $b$ (by the definition of a \textquotedblleft common
+multiple\textquotedblright). In other words, $d\in\operatorname*{Mul}\left(
+a,b\right)  $ (by the definition of $\operatorname*{Mul}\left(  a,b\right)
+$). Thus, $d$ is a positive element of the set $\operatorname*{Mul}\left(
+a,b\right)  $ (since $d\in\operatorname*{Mul}\left(  a,b\right)  $).
 
-Equivalently, we need to prove $ab\mid\gcd\left(  a,b\right)  \cdot\ell$.
+We shall now show that $d$ is the smallest positive element of this set.
+Indeed, let $x$ be any positive element of $\operatorname*{Mul}\left(
+a,b\right)  $. We are going to prove that $x\geq d$.
 
-This follows from Theorem \ref{thm.ent.gcd.combine}, applied to $c=\ell$
-(because $\ell$ is a common multiple of $a$ and $b$).
-
-So we have $c\mid\operatorname{lcm}\left(  a,b\right)  $. Thus, $\left\vert
-c\right\vert \leq\operatorname{lcm}\left(  a,b\right)  $ (since the lcm is
-positive). Combined with $\left\vert c\right\vert \geq\operatorname{lcm}%
-\left(  a,b\right)  $, this yields $\left\vert c\right\vert
-=\operatorname{lcm}\left(  a,b\right)  $. Thus,%
+In fact, $x\in\operatorname*{Mul}\left(  a,b\right)  $. In other words, $x$ is
+a common multiple of $a$ and $b$. In other words, we have $\left(  a\mid
+x\text{ and }b\mid x\right)  $. Hence, Theorem \ref{thm.ent.gcd.combine}
+(applied to $x$ instead of $c$) yields $ab\mid\gcd\left(  a,b\right)  \cdot
+x$. Both numbers $\gcd\left(  a,b\right)  $ and $x$ are positive; hence, their
+product $\gcd\left(  a,b\right)  \cdot x$ is positive as well, and thus we
+have $\gcd\left(  a,b\right)  \cdot x\neq0$. Hence, Proposition
+\ref{prop.ent.div.1} \textbf{(b)} (applied to $ab$ and $\gcd\left(
+a,b\right)  \cdot x$ instead of $a$ and $b$) yields $\left\vert ab\right\vert
+\leq\left\vert \gcd\left(  a,b\right)  \cdot x\right\vert =\gcd\left(
+a,b\right)  \cdot x$ (since $\gcd\left(  a,b\right)  \cdot x$ is positive).
+Thus,%
 \[
-\operatorname{lcm}\left(  a,b\right)  =\left\vert c\right\vert =\left\vert
-\dfrac{ab}{\gcd\left(  a,b\right)  }\right\vert =\dfrac{\left\vert
-ab\right\vert }{\gcd\left(  a,b\right)  },
+\gcd\left(  a,b\right)  \cdot x\geq\left\vert ab\right\vert =\gcd\left(
+a,b\right)  \cdot d\ \ \ \ \ \ \ \ \ \ \left(  \text{by
+(\ref{pf.thm.ent.lcm.gcd*lcm.1})}\right)  .
 \]
-so that $\gcd\left(  a,b\right)  \cdot\operatorname{lcm}\left(  a,b\right)
-=\left\vert ab\right\vert $.
+We can divide this inequality by $\gcd\left(  a,b\right)  $ (since
+$\gcd\left(  a,b\right)  $ is positive), and thus obtain $x\geq d$.
+
+Now, forget that we fixed $x$. We thus have proven that each positive element
+$x$ of the set $\operatorname*{Mul}\left(  a,b\right)  $ satisfies $x\geq d$.
+Hence, $d$ is the \textbf{smallest} positive element of the set
+$\operatorname*{Mul}\left(  a,b\right)  $ (since we already know that $d$ is a
+positive element of the set $\operatorname*{Mul}\left(  a,b\right)  $). In
+other words, $d$ is $\operatorname{lcm}\left(  a,b\right)  $ (since
+$\operatorname{lcm}\left(  a,b\right)  $ is the smallest positive element of
+the set $\operatorname*{Mul}\left(  a,b\right)  $). In other words,
+$d=\operatorname{lcm}\left(  a,b\right)  $. Hence,
+(\ref{pf.thm.ent.lcm.gcd*lcm.1}) becomes $\left\vert ab\right\vert
+=\gcd\left(  a,b\right)  \cdot\underbrace{d}_{=\operatorname{lcm}\left(
+a,b\right)  }=\gcd\left(  a,b\right)  \cdot\operatorname{lcm}\left(
+a,b\right)  $. This proves Theorem \ref{thm.ent.lcm.gcd*lcm}.
 \end{proof}
+
+Next, we state an anlogue of Theorem \ref{thm.ent.gcd.uniprop} (with all
+divisibilities \textquotedblleft turned around\textquotedblright):
 
 \begin{theorem}
 \label{thm.ent.lcm.uniprop}Let $a,b\in\mathbb{Z}$. Then:
@@ -5486,24 +5701,48 @@ equivalence:%
 of $\operatorname{lcm}\left(  a,b\right)  $.
 
 \textbf{(c)} We have $\operatorname*{Mul}\left(  a,b\right)
-=\operatorname*{Mul}\left(  \gcd\left(  a,b\right)  \right)  $, where
-$\operatorname*{Mul}$ means \textquotedblleft common multiples
-of\textquotedblright.
+=\operatorname*{Mul}\left(  \gcd\left(  a,b\right)  \right)  $.
 \end{theorem}
 
+TODO: Make the following readable.
+
 \begin{proof}
-Exercise.
+[Proof of Theorem \ref{thm.ent.lcm.uniprop}.] Exercise.
 \end{proof}
 
-\begin{proposition}
-For $k>0$ integers $b_{1},b_{2},\ldots,b_{k}$, we have%
+Our next claim is an analogue of Theorem \ref{thm.ent.gcd.uniprop-mul}:
+
+\begin{theorem}
+\label{thm.ent.lcm.uniprop-mul}Let $b_{1},b_{2},\ldots,b_{k}$ be integers.
+
+\textbf{(a)} For each $m\in\mathbb{Z}$, we have the following logical
+equivalence:%
+\[
+\left(  b_{i}\mid m\text{ for all }i\in\left\{  1,2,\ldots,k\right\}  \right)
+\ \Longleftrightarrow\ \left(  \operatorname{lcm}\left(  b_{1},b_{2}%
+,\ldots,b_{k}\right)  \mid m\right)  .
+\]
+
+
+\textbf{(b)} The common multiples of $b_{1},b_{2},\ldots,b_{k}$ are precisely
+the multiples of $\operatorname{lcm}\left(  b_{1},b_{2},\ldots,b_{k}\right)  $.
+
+\textbf{(c)} We have $\operatorname*{Mul}\left(  b_{1},b_{2},\ldots
+,b_{k}\right)  =\operatorname*{Mul}\left(  \operatorname{lcm}\left(
+b_{1},b_{2},\ldots,b_{k}\right)  \right)  $.
+
+\textbf{(d)} If $k>0$, then%
 \[
 \operatorname{lcm}\left(  b_{1},b_{2},\ldots,b_{k}\right)  =\operatorname{lcm}%
 \left(  \operatorname{lcm}\left(  b_{1},b_{2},\ldots,b_{k-1}\right)
 ,b_{k}\right)  .
 \]
 
-\end{proposition}
+\end{theorem}
+
+\begin{proof}
+Exercise.
+\end{proof}
 
 \subsection{The Chinese remainder theorem (elementary form)}
 
