@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Friday, February 08, 2019 09:55:25}
+%TCIDATA{LastRevised=Friday, February 08, 2019 12:05:31}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -2866,7 +2866,7 @@ order to see this, note that:
 \item The divisors of $15$ are $-15,-5,-3,-1,1,3,5,15$.
 \end{itemize}
 
-The only numbers common to these three lists are $-1$ and $1$.) However:
+\noindent The only numbers common to these three lists are $-1$ and $1$.) However:
 
 \begin{itemize}
 \item The common divisors of $6$ and $10$ are $-2,-1,1,2$.
@@ -2876,10 +2876,11 @@ The only numbers common to these three lists are $-1$ and $1$.) However:
 \item The common divisors of $10$ and $15$ are $-5,-1,1,5$.
 \end{itemize}
 
-This illustrates the fact that three numbers can have pairwise nontrivial
-common divisors (where \textquotedblleft nontrivial\textquotedblright\ means
-\textquotedblleft distinct from $1$ and $-1$\textquotedblright), but the only
-common divisors of all three of them may still be just $1$ and $-1$.
+\noindent This illustrates the fact that three numbers can have pairwise
+nontrivial common divisors (where \textquotedblleft
+nontrivial\textquotedblright\ means \textquotedblleft distinct from $1$ and
+$-1$\textquotedblright), but the only common divisors of all three of them may
+still be just $1$ and $-1$.
 \end{example}
 
 \begin{proposition}
@@ -3038,7 +3039,7 @@ a,b\right)  =\left\vert a\right\vert $.
 $\gcd\left(  {}\right)  =0$.
 \end{proposition}
 
-Proposition \ref{prop.ent.divisors.find} is not difficult and we could start
+Proposition \ref{prop.ent.gcd.props1} is not difficult and we could start
 proving it right away. However, such a proof would require some annoying case
 distinctions due to the special treatment that the \textquotedblleft%
 $b_{1},b_{2},\ldots,b_{k}$ are all $0$\textquotedblright\ case required in
@@ -3336,8 +3337,9 @@ Proposition \ref{prop.ent.gcd.props1} \textbf{(a)} is finally proven.
 common divisor\textquotedblright}\right) \\
 &  \Longleftrightarrow\ \left(  x\mid b\text{ and }x\mid a\right) \\
 &  \Longleftrightarrow\ \left(  x\text{ is a common divisor of }b\text{ and
-}a\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of a
-\textquotedblleft common divisor\textquotedblright}\right) \\
+}a\right) \\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of a \textquotedblleft
+common divisor\textquotedblright}\right) \\
 &  \Longleftrightarrow\ \left(  x\in\operatorname*{Div}\left(  b,a\right)
 \right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of }%
 \operatorname*{Div}\left(  b,a\right)  \right)  .
@@ -3401,10 +3403,11 @@ a,b\right)  $. This proves Proposition \ref{prop.ent.gcd.props1} \textbf{(c)}.
 
 \textbf{(e)} Let $a,b\in\mathbb{Z}$ be such that $a$ is positive. Then,
 $b\%a\equiv b\operatorname{mod}a$ (by Corollary \ref{cor.ent.quo-rem.remmod}
-\textbf{(a)}), thus $b\equiv b\%a\operatorname{mod}a$. Hence, $\gcd\left(
-a,b\right)  =\gcd\left(  a,b\%a\right)  $ (by Proposition
-\ref{prop.ent.gcd.props1} \textbf{(d)}, applied to $c=b\%a$). This proves
-Proposition \ref{prop.ent.gcd.props1} \textbf{(e)}.
+\textbf{(a)}, applied to $a$ and $b$ instead of $n$ and $u$), thus $b\equiv
+b\%a\operatorname{mod}a$. Hence, $\gcd\left(  a,b\right)  =\gcd\left(
+a,b\%a\right)  $ (by Proposition \ref{prop.ent.gcd.props1} \textbf{(d)},
+applied to $c=b\%a$). This proves Proposition \ref{prop.ent.gcd.props1}
+\textbf{(e)}.
 
 \textbf{(f)} Let $a,b\in\mathbb{Z}$. We must prove that $\gcd\left(
 a,b\right)  \mid a$ and $\gcd\left(  a,b\right)  \mid b$.
@@ -4832,15 +4835,33 @@ side (i.e., the number in front of the \textquotedblleft$\mid$%
 factors. Similar reasoning works with several coprime factors (see Exercise
 \ref{exe.ent.coprime.combinek} below).
 
+The next theorem (still part of the fallout of Bezout's theorem) is important,
+but we will not truly appreciate it until later:
+
 \begin{theorem}
 \label{thm.ent.coprime.modinv}Let $a,n\in\mathbb{Z}$.
 
 \textbf{(a)} There exists a $b\in\mathbb{Z}$ such that $ab\equiv\gcd\left(
 a,n\right)  \operatorname{mod}n$.
 
-\textbf{(b)} If $a\perp n$, then there exists a $b\in\mathbb{Z}$ such that
-$ab\equiv1\operatorname{mod}n$.
+\textbf{(b)} If $a\perp n$, then there exists an $a^{\prime}\in\mathbb{Z}$
+such that $aa^{\prime}\equiv1\operatorname{mod}n$.
+
+\textbf{(c)} If there exists an $a^{\prime}\in\mathbb{Z}$ such that
+$aa^{\prime}\equiv1\operatorname{mod}n$, then $a\perp n$.
 \end{theorem}
+
+If $a,n\in\mathbb{Z}$, then an integer $a^{\prime}\in\mathbb{Z}$ satisfying
+$aa^{\prime}\equiv1\operatorname{mod}n$ is called a \textit{modular inverse}
+of $a$ modulo $n$. The word \textquotedblleft modular
+inverse\textquotedblright\ is chosen in analogy to the usual concept of an
+\textquotedblleft inverse\textquotedblright\ (which stands for an integer
+$a^{\prime}\in\mathbb{Z}$ satisfying $aa^{\prime}=1$; this exists if and only
+if $a$ equals $1$ or $-1$). Theorem \ref{thm.ent.coprime.modinv} \textbf{(b)}
+shows that such a modular inverse always exists when $a\perp n$; Theorem
+\ref{thm.ent.coprime.modinv} \textbf{(c)} is the converse of this statement
+(i.e., it says that if a modular inverse of $a$ modulo $n$ exists, then
+$a\perp n$).
 
 \begin{proof}
 [Proof of Theorem \ref{thm.ent.coprime.modinv}.]\textbf{(a)} Theorem
@@ -4849,38 +4870,41 @@ $x\in\mathbb{Z}$ and $y\in\mathbb{Z}$ such that $\gcd\left(  a,n\right)
 =xa+yn$. Consider these $x$ and $y$. We have $ax=xa\equiv
 xa+yn\operatorname{mod}n$ (since $xa-\left(  xa+yn\right)  =-yn=n\left(
 -y\right)  $ is clearly divisible by $n$). Thus, $ax\equiv xa+yn=\gcd\left(
-a,n\right)  \operatorname{mod}n$. Thus, there exists a $b\in\mathbb{Z}$ such
-that $ab\equiv\left(  a,n\right)  \operatorname{mod}n$ (namely, $b=x$). This
-proves Theorem \ref{thm.ent.coprime.modinv} \textbf{(a)}.
+a,n\right)  \operatorname{mod}n$. Thus, there exists a $a^{\prime}%
+\in\mathbb{Z}$ such that $aa^{\prime}\equiv\left(  a,n\right)
+\operatorname{mod}n$ (namely, $a^{\prime}=x$). This proves Theorem
+\ref{thm.ent.coprime.modinv} \textbf{(a)}.
 
 \textbf{(b)} Assume that $a\perp n$. In other words, $a$ is coprime to $n$ (by
 Definition \ref{def.ent.coprime.perp}). In other words, $\gcd\left(
 a,n\right)  =1$ (by the definition of \textquotedblleft
 coprime\textquotedblright). Now, Theorem \ref{thm.ent.coprime.modinv}
-\textbf{(a)} yields that there exists a $b\in\mathbb{Z}$ such that
-$ab\equiv\gcd\left(  a,n\right)  \operatorname{mod}n$. In view of $\gcd\left(
-a,n\right)  =1$, this rewrites as follows: There exists a $b\in\mathbb{Z}$
-such that $ab\equiv1\operatorname{mod}n$. This proves Theorem
-\ref{thm.ent.coprime.modinv} \textbf{(b)}.
+\textbf{(a)} yields that there exists a $a^{\prime}\in\mathbb{Z}$ such that
+$aa^{\prime}\equiv\gcd\left(  a,n\right)  \operatorname{mod}n$. In view of
+$\gcd\left(  a,n\right)  =1$, this rewrites as follows: There exists an
+$a^{\prime}\in\mathbb{Z}$ such that $aa^{\prime}\equiv1\operatorname{mod}n$.
+This proves Theorem \ref{thm.ent.coprime.modinv} \textbf{(b)}.
+
+\textbf{(c)} Assume that there exists an $a^{\prime}\in\mathbb{Z}$ such that
+$aa^{\prime}\equiv1\operatorname{mod}n$. Consider this $a^{\prime}$.
+
+Proposition \ref{prop.ent.gcd.props1} \textbf{(f)} yields $\gcd\left(
+a,n\right)  \mid a$ and $\gcd\left(  a,n\right)  \mid n$. Set $g=\gcd\left(
+a,n\right)  $. Then, $g$ is a nonnegative integer.
+
+Now, $g=\gcd\left(  a,n\right)  \mid a\mid aa^{\prime}$, so that $aa^{\prime
+}\equiv0\operatorname{mod}g$. But also $g=\gcd\left(  a,n\right)  \mid n$.
+Hence, from $aa^{\prime}\equiv1\operatorname{mod}n$, we obtain $aa^{\prime
+}\equiv1\operatorname{mod}g$ (by Proposition \ref{prop.ent.mod.basics}
+\textbf{(e)}, applied to $g$, $aa^{\prime}$ and $1$ instead of $m$, $a$ and
+$b$). Hence, $1\equiv aa^{\prime}\equiv0\operatorname{mod}g$. Equivalently,
+$g\mid1-0=1$. Thus, $g$ is a divisor of $1$, and hence must be $1$ itself
+(since $g$ is a nonnegative integer). Thus, $\gcd\left(  a,n\right)  =g=1$. In
+other words, $a$ is coprime to $n$. In other words, $a\perp n$. This proves
+Theorem \ref{thm.ent.coprime.modinv} \textbf{(c)}.
 \end{proof}
 
-If $a,n\in\mathbb{Z}$, then an integer $b\in\mathbb{Z}$ satisfying
-$ab\equiv1\operatorname{mod}n$ is called a \textit{modular inverse} of $a$
-modulo $n$. Theorem \ref{thm.ent.coprime.modinv} \textbf{(b)} shows that such
-a modular inverse always exists when $a\perp n$; it is easy to show that the
-converse also holds (i.e., if a modular inverse of $a$ modulo $n$ exists, then
-$a\perp n$). The word \textquotedblleft modular inverse\textquotedblright\ is
-chosen in analogy to the usual concept of an \textquotedblleft
-inverse\textquotedblright\ (which stands for an integer $b\in\mathbb{Z}$
-satisfying $ab=1$; this exists if and only if $a$ equals $1$ or $-1$).
-
-\begin{proof}
-[Solution to Exercise \ref{exe.ent.coprime.combinek}.]TODO. (Induction on $k$,
-using Theorem \ref{thm.ent.coprime.combine} and Theorem
-\ref{thm.ent.coprime.ab-to-c}.)
-\end{proof}
-
-\subsubsection{\bigskip A bit more on coprime integers}
+\subsection{More properties of coprimality}
 
 \begin{theorem}
 Let $a,b,c\in\mathbb{Z}$ such that $a\perp c$ and $b\perp c$. Then, $ab\perp
@@ -4888,81 +4912,80 @@ c$.
 \end{theorem}
 
 \begin{proof}
-We have $\gcd\left(  a,c\right)  =1$. Thus, Bezout says there are $u,v$ such
-that $1=ua+vc$.
+We have $\gcd\left(  a,c\right)  =1$ (since $a\perp c$). Bezout says that
+there are $u,v\in\mathbb{Z}$ such that $ua+vc=\gcd\left(  a,c\right)  =1$.
 
-We have $\gcd\left(  b,c\right)  =1$. Thus, Bezout says there are $x,y$ such
-that $1=xb+yc$.
+Similarly, Bezout says that there are $x,y\in\mathbb{Z}$ such that
+$xb+yc=\gcd\left(  b,c\right)  =1$.
 
-Now, multiplying $1=ua+vc$ with $1=xb+yc$, we get%
+Multiplying these two equalities, we obtain $\left(  ua+vc\right)  \left(
+xb+yc\right)  =1\cdot1=1$. Thus,%
 \begin{align*}
 1  & =\left(  ua+vc\right)  \left(  xb+yc\right)  \\
-& =uxab+uyac+vxcb+vycc\\
-& =\left(  ux\right)  \left(  ab\right)  +\left(  uya+vxc+vyc\right)  c\\
-& =\alpha\left(  ab\right)  +\beta c\ \ \ \ \ \ \ \ \ \ \text{for some }%
-\alpha,\beta\in\mathbb{Z}.
+& =uxab+uyac+vxbc+vycc\\
+& =\left(  ux\right)  \left(  ab\right)  +\left(  uya+vxb+vyc\right)  c.
 \end{align*}
-Thus, $\gcd\left(  ab,c\right)  \mid\alpha\left(  ab\right)  +\beta c=1$, so
-that $\gcd\left(  ab,c\right)  =1$, so that $ab\perp c$.
+So $1$ is a $\mathbb{Z}$-linear combination of $ab$ and $c$. Now, $\gcd\left(
+ab,c\right)  $ divides any such combination. Thus, $\gcd\left(  ab,c\right)
+\mid1$. Since gcds are positive, this yields $\gcd\left(  ab,c\right)  =1$, so
+that $ab\perp c$.
 \end{proof}
 
 \begin{exercise}
-Let $c\in\mathbb{Z}$. Let $a_{1},a_{2},\ldots,a_{k}$ be all coprime to $c$.
-Prove that $a_{1}a_{2}\cdots a_{k}\perp c$.
+Let $c\in\mathbb{Z}$. Let $a_{1},a_{2},\ldots,a_{k}$ be integers such that
+each $i$ satisfies $a_{i}\perp c$. Prove that $a_{1}a_{2}\cdots a_{k}\perp c$.
 \end{exercise}
 
 \begin{proof}
 Induction on $k$.
 
-\textit{Base case:} $k=0$. Then, $a_{1}a_{2}\cdots a_{k}=\left(  \text{empty
-product}\right)  =1\perp c$ since $\gcd\left(  1,c\right)  \mid1$.
+\textit{Base:} $k=0$, then $\left(  \text{empty product}\right)  =1\perp c$
+since $\gcd\left(  1,c\right)  =1$.
 
-\textit{Step:} Assume the exercise is solved for $k-1$. We want to solve it
-for $k$.
+\textit{Step:} Assume the exercise is true for $k-1$. We must prove it for $k$.
 
-By the induction hypothesis, we know that $a_{1}a_{2}\cdots a_{k-1}\perp c$.
-And we know that $a_{k}\perp c$. Thus, $\left(  a_{1}a_{2}\cdots
-a_{k-1}\right)  a_{k}\perp c$ (by the Theorem). In other words, $a_{1}%
-a_{2}\cdots a_{k}\perp c$.
+By induction hypothesis, we have $a_{1}a_{2}\cdots a_{k-1}\perp c$. But by
+assumption, $a_{k}\perp c$. Thus, the previous theorem yields $\left(
+a_{1}a_{2}\cdots a_{k-1}\right)  a_{k}\perp c$. In other words, $a_{1}%
+a_{2}\cdots a_{k}\perp c$. So the step is complete, and the exercise is solved.
 \end{proof}
 
+We can generalize Theorem 2.59 to several divisors:
+
 \begin{exercise}
-Let $c\in\mathbb{Z}$, and let $b_{1},b_{2},\ldots,b_{k}$ be mutually coprime
-divisors of $c$. (\textquotedblleft Mutually coprime\textquotedblright\ means
-$b_{i}\perp b_{j}$ for all $i\neq j$.) Prove that $b_{1}b_{2}\cdots b_{k}\mid
-c$.
+Let $c\in\mathbb{Z}$. Let $b_{1},b_{2},\ldots,b_{k}$ be divisors of $c$ that
+are mutually coprime (i.e., satisfy $b_{i}\perp b_{j}$ for all $i\neq j$).
+Then, $b_{1}b_{2}\cdots b_{k}\mid c$.
 \end{exercise}
 
 \begin{proof}
 Induction on $k$.
 
-\textit{Base case:} $k=0$, easy.
+\textit{Base:} $k=0$, then $\left(  \text{empty product}\right)  =1\mid c$.
 
-\textit{Step:} Assume the exercise is solved for $k-1$. We want to solve it
-for $k$.
+\textit{Step:} Assume the exercise is true for $k-1$. We must prove it for $k$.
 
-By the induction hypothesis, we have $b_{1}b_{2}\cdots b_{k-1}\mid c$. And we
-know that $b_{k}\mid c$. We want to get $\left(  b_{1}b_{2}\cdots
-b_{k-1}\right)  b_{k}\mid c$. This will follow from Theorem 2.59 once we have
-shown that $b_{1}b_{2}\cdots b_{k-1}\perp b_{k}$. But this follows from the
-previous exercise, if we let $b_{1},b_{2},\ldots,b_{k-1}$ play the role of the
-$a_{1},a_{2},\ldots,a_{k}$, and $b_{k}$ play the role of $c$.
-
-So we have $\left(  b_{1}b_{2}\cdots b_{k-1}\right)  b_{k}\mid c$. In other
-words, $b_{1}b_{2}\cdots b_{k}\mid c$.
+By induction hypothesis, we have $b_{1}b_{2}\cdots b_{k-1}\mid c$. But by
+assumption, $b_{k}\mid c$. Thus, Theorem 2.59 (applied to $a=$ $b_{1}%
+b_{2}\cdots b_{k-1}$ and $b=b_{k}$) would yield $\left(  b_{1}b_{2}\cdots
+b_{k-1}\right)  b_{k}\mid c$, if we can show that $b_{1}b_{2}\cdots
+b_{k-1}\perp b_{k}$. But the previous exercise does yield $b_{1}b_{2}\cdots
+b_{k-1}\perp b_{k}$, so we can make this conclusion and get $\left(
+b_{1}b_{2}\cdots b_{k-1}\right)  b_{k}\mid c$. In other words, $b_{1}%
+b_{2}\cdots b_{k}\mid c$. So the step is complete, and the exercise is solved.
 \end{proof}
 
 \begin{exercise}
-Let $a,b$ be two coprime integers. Let $n,m\in\mathbb{N}$. Then, $a^{n}\perp
-b^{m}$.
+Let $a,b\in\mathbb{Z}$ be such that $a\perp b$. Let $n,m\in\mathbb{N}$. Then,
+$a^{n}\perp b^{m}$.
 \end{exercise}
 
 \begin{proof}
-We have $a\perp b$. Thus, the second-to-last exercise yields
-$\underbrace{aa\cdots a}_{n\text{ factors}}\perp b$. In other words,
-$a^{n}\perp b$. In other words, $b\perp a^{n}$. Thus, the second-to-last
-exercise yields $\underbrace{bb\cdots b}_{m\text{ factors}}\perp a^{n}$. In
-other words, $b^{m}\perp a^{n}$. In other words, $a^{n}\perp b^{m}$.
+We have $a\perp b$, thus $\underbrace{aa\cdots a}_{n\text{ times}}\perp b$ (by
+the second-to-last exercise). In other words, $a^{n}\perp b$. In other words,
+$b\perp a^{n}$. Thus, $\underbrace{bb\cdots b}_{m\text{ times}}\perp a^{n}$
+(by the second-to-last exercise). In other words, $b^{m}\perp a^{n}$, so that
+$a^{n}\perp b^{m}$.
 \end{proof}
 
 \subsection{Lowest common multiples}
@@ -4971,11 +4994,11 @@ other words, $b^{m}\perp a^{n}$. In other words, $a^{n}\perp b^{m}$.
 Let $b_{1},b_{2},\ldots,b_{k}$ be integers.
 
 \textbf{(a)} A \textbf{common multiple} of $b_{1},b_{2},\ldots,b_{k}$ is an
-integer $c$ such that $\left(  b_{i}\mid c\text{ for all }i\right)  $. In
+integer $a$ such that $\left(  b_{i}\mid a\text{ for each }i\right)  $. In
 other words, it is an integer that is a multiple of each of $b_{1}%
 ,b_{2},\ldots,b_{k}$.
 
-\textbf{(b)} The \textbf{lowest common multiple} (or \textbf{least common
+\textbf{(b)} The \textbf{lowest common multiple} (aka \textbf{least common
 multiple}) of $b_{1},b_{2},\ldots,b_{k}$ is
 
 \begin{itemize}
@@ -4996,46 +5019,42 @@ Let $a,b\in\mathbb{Z}$. Then, $\gcd\left(  a,b\right)  \cdot\operatorname{lcm}%
 \end{theorem}
 
 \begin{proof}
-WLOG\ assume that none of $a,b$ is $0$. Let $c=\dfrac{ab}{\gcd\left(
-a,b\right)  }$. Then, $c=a\cdot\underbrace{\dfrac{b}{\gcd\left(  a,b\right)
-}}_{\in\mathbb{Z}}$, so that $c$ is an integer and a multiple of $a$.
-Similarly, $c$ is a multiple of $b$ as well. Thus, $c$ is a common multiple of
-$a$ and $b$. Hence, $\left\vert c\right\vert $ is a positive common multiple
-of $a$ and $b$. Therefore, $\left\vert c\right\vert $ is $\geq$ to the
-smallest positive common multiple of $a$ and $b$. In other words, $\left\vert
-c\right\vert \geq\operatorname{lcm}\left(  a,b\right)  $.
+WLOG assume that none of $a,b$ is $0$. Let $c=\dfrac{ab}{\gcd\left(
+a,b\right)  }$. Then,%
+\[
+c=a\cdot\underbrace{\dfrac{b}{\gcd\left(  a,b\right)  }}_{\in\mathbb{Z}}.
+\]
+Thus, $c$ is an integer and a multiple of $a$. Similarly, $c$ is a multiple of
+$b$. Thus, $c$ is a common multiple of $a$ and $b$. Hence, $\left\vert
+c\right\vert $ is a positive common multiple of $a$ and $b$. Therefore,
+$\left\vert c\right\vert \geq\operatorname{lcm}\left(  a,b\right)  $ (since
+$\operatorname{lcm}\left(  a,b\right)  $ is the smallest such multiple).
 
-Next, let me prove that $c\mid\operatorname{lcm}\left(  a,b\right)  $.
+Next, let me prove that $\left\vert c\right\vert \leq\operatorname{lcm}\left(
+a,b\right)  $.
 
-Let $\ell=\operatorname{lcm}\left(  a,b\right)  $. Thus, we need to prove
-$c\mid\ell$.
+Indeed, let $\ell=\operatorname{lcm}\left(  a,b\right)  $, and let me prove
+that $c\mid\ell$.
 
-In other words, we need to prove $\dfrac{ab}{\gcd\left(  a,b\right)  }\mid
-\ell$.
-
-Equivalently, we need to prove $ab\mid\gcd\left(  a,b\right)  \cdot\ell$.
-
-
-
-This follows from Theorem \ref{thm.ent.gcd.combine}, applied to $c=\ell$
-(because $\ell$ is a common multiple of $a$ and $b$).
-
-So we have $c\mid\operatorname{lcm}\left(  a,b\right)  $. Thus, $\left\vert
-c\right\vert \leq\operatorname{lcm}\left(  a,b\right)  $ (since the lcm is
-positive). Combined with $\left\vert c\right\vert \geq\operatorname{lcm}%
-\left(  a,b\right)  $, this yields $\left\vert c\right\vert
-=\operatorname{lcm}\left(  a,b\right)  $. Thus,%
+Theorem 2.43 (applied to $\ell$ instead of $c$) yields $ab\mid\gcd\left(
+a,b\right)  \cdot\ell$ (since $a\mid\ell$ and $b\mid\ell$). Hence, $\dfrac
+{ab}{\gcd\left(  a,b\right)  }\mid\ell$. In other words, $c\mid\ell$. Thus,
+$\left\vert c\right\vert \leq\ell$ (since $\ell>0$). In other words,
+$\left\vert c\right\vert \leq\operatorname{lcm}\left(  a,b\right)  $. Combined
+with $\left\vert c\right\vert \geq\operatorname{lcm}\left(  a,b\right)  $,
+this becomes $\left\vert c\right\vert =\operatorname{lcm}\left(  a,b\right)
+$. Hence,%
 \[
 \operatorname{lcm}\left(  a,b\right)  =\left\vert c\right\vert =\left\vert
 \dfrac{ab}{\gcd\left(  a,b\right)  }\right\vert =\dfrac{\left\vert
-ab\right\vert }{\gcd\left(  a,b\right)  },
+ab\right\vert }{\gcd\left(  a,b\right)  }.
 \]
-so that $\gcd\left(  a,b\right)  \cdot\operatorname{lcm}\left(  a,b\right)
-=\left\vert ab\right\vert $.
+In other words, $\gcd\left(  a,b\right)  \cdot\operatorname{lcm}\left(
+a,b\right)  =\left\vert ab\right\vert $.
 \end{proof}
 
 \begin{theorem}
-\label{thm.ent.lcm.uniprop}Let $a,b\in\mathbb{Z}$. Then:
+Let $a,b\in\mathbb{Z}$. Then:
 
 \textbf{(a)} For each $m\in\mathbb{Z}$, we have the following logical
 equivalence:%
@@ -5046,11 +5065,11 @@ equivalence:%
 
 
 \textbf{(b)} The common multiples of $a$ and $b$ are precisely the multiples
-of $\operatorname{lcm}\left(  a,b\right)  $.
+of $\gcd\left(  a,b\right)  $.
 
 \textbf{(c)} We have $\operatorname*{Mul}\left(  a,b\right)
 =\operatorname*{Mul}\left(  \gcd\left(  a,b\right)  \right)  $, where
-$\operatorname*{Mul}$ means \textquotedblleft common multiples
+$\operatorname*{Mul}$ means \textquotedblleft set of multiples
 of\textquotedblright.
 \end{theorem}
 
@@ -5081,55 +5100,76 @@ n\right)  .
 
 
 \textbf{(b)} This integer $x$ is \textquotedblleft unique modulo
-$mn$\textquotedblright: That is, if $x_{1}$ and $x_{2}$ are two such integers
+$mn$\textquotedblright. That is, if $x_{1}$ and $x_{2}$ are two such integers
 $x$, then $x_{1}\equiv x_{2}\operatorname{mod}mn$.
 \end{theorem}
 
+This is known as the \textit{Chinese Remainder Theorem} (Sunzi, 3rd Century AD).
+
 \begin{example}
-Assume we want to find an $x\in\mathbb{Z}$ such that%
+Assume that we want to find an $x\in\mathbb{Z}$ such that%
 \[
 \left(  x\equiv3\operatorname{mod}5\text{ and }x\equiv2\operatorname{mod}%
 6\right)  .
 \]
-
+The theorem says that we can, since $5$ and $6$ are coprime.
 \end{example}
 
 \begin{proof}
-\textbf{(a)} Theorem \ref{thm.ent.coprime.modinv} \textbf{(b)} (applied to $m$
-instead of $a$) shows that there exists a $m^{\prime}\in\mathbb{Z}$ such that
-$mm^{\prime}\equiv1\operatorname{mod}n$.
+\textbf{(a)} Theorem 2.60 \textbf{(b)} yields that there exists an $m^{\prime
+}\in\mathbb{Z}$ such that $mm^{\prime}\equiv1\operatorname{mod}n$ (because
+$m\perp n$).
 
 Similarly, there exists an $n^{\prime}\in\mathbb{Z}$ such that $nn^{\prime
-}\equiv1\operatorname{mod}m$ (since $m$ and $n$ play symmetric roles in the theorem).
+}\equiv1\operatorname{mod}m$.
 
 Now, set $x=nn^{\prime}a+mm^{\prime}b$. Then,%
 \[
 x=nn^{\prime}a+\underbrace{mm^{\prime}b}_{\equiv0\operatorname{mod}m}%
 \equiv\underbrace{nn^{\prime}}_{\equiv1\operatorname{mod}m}a\equiv
-a\operatorname{mod}m
+a\operatorname{mod}m.
 \]
-and similarly $x\equiv b\operatorname{mod}n$. So we have found our $x$.
+Similarly, $x\equiv b\operatorname{mod}n$. Thus we have found our $x$.
 
-\textbf{(b)} Let $x_{1}$ and $x_{2}$ be two such integers $x$. We want to
-prove that $x_{1}\equiv x_{2}\operatorname{mod}mn$.
+\textbf{(b)} Let $x_{1}$ and $x_{2}$ be two such integers $x$. We must prove
+that $x_{1}\equiv x_{2}\operatorname{mod}mn$.
 
 We have $x_{1}\equiv a\operatorname{mod}m$ and $x_{2}\equiv
-a\operatorname{mod}m$. Thus, $x_{1}\equiv a\equiv x_{2}\operatorname{mod}m$,
-so that $m\mid x_{1}-x_{2}$. Similarly, $n\mid x_{1}-x_{2}$. Since $m\perp n$,
-these combine to $mn\mid x_{1}-x_{2}$ (by Theorem 2.59). In other words,
-$x_{1}\equiv x_{2}\operatorname{mod}mn$.
+a\operatorname{mod}m$, so that $x_{1}\equiv a\equiv x_{2}\operatorname{mod}m$.
+In other words, $m\mid x_{1}-x_{2}$. Similarly, $n\mid x_{1}-x_{2}$. Since $m$
+and $n$ are coprime, these yields $mn\mid x_{1}-x_{2}$ (by Theorem 2.59). In
+other words, $x_{1}\equiv x_{2}\operatorname{mod}mn$.
 \end{proof}
 
-The theorem we just proved is (the simplest form of) the \textit{Chinese
-Remainder Theorem} (Sunzi, 3rd century AD).
+\begin{example}
+Assume that we want to find an $x\in\mathbb{Z}$ such that%
+\[
+\left(  x\equiv3\operatorname{mod}5\text{ and }x\equiv2\operatorname{mod}%
+6\right)  .
+\]
+To compute such an $x$, follow the proof of Theorem \textbf{(a)} above.
 
-There is also a version for multiple integers:
+We need a modular inverse $5^{\prime}$ of $5$ modulo $6$. Such an inverse is
+$5$, since $5\cdot5\equiv1\operatorname{mod}6$. (You can find modular inverses
+using Bezout's theorem.)
+
+We need a modular inverse $6^{\prime}$ of $6$ modulo $5$. Such an inverse is
+$1$, since $6\cdot1\equiv1\operatorname{mod}5$.
+
+Now, the proof of the Theorem says $x=6\cdot6^{\prime}\cdot3+5\cdot5^{\prime
+}\cdot2=6\cdot1\cdot3+5\cdot5\cdot2=\allowbreak68$.
+
+Checking this: $68\equiv3\operatorname{mod}5$ since $68-3=\allowbreak5\cdot
+13$; and $68\equiv2\operatorname{mod}6$ since $68-2=6\cdot11$.
+\end{example}
+
+There is also a version of the Chinese Remainder Theorem for multiple integers:
 
 \begin{theorem}
 Let $m_{1},m_{2},\ldots,m_{k}$ be $k$ mutually coprime integers. Let
 $a_{1},a_{2},\ldots,a_{k}\in\mathbb{Z}$.
 
-\textbf{(a)} There exists an integer $x$ such that
+\textbf{(a)} There exists an integer $x$ such that%
 \[
 \left(  x\equiv a_{i}\operatorname{mod}m_{i}\text{ for all }i\right)  .
 \]
@@ -5142,29 +5182,28 @@ m_{k}$.
 \end{theorem}
 
 \begin{proof}
-Exercise on induction.
+Exercise.
 \end{proof}
 
 \subsection{Primes}
 
 \begin{definition}
 Let $p$ be an integer greater than $1$. We say that $p$ is \textbf{prime} if
-the only positive divisors of $p$ are $1$ and $p$. A prime integer is often
-just called \textbf{a prime}.
+the only divisors of $p$ are $1$ and $p$. A prime integer is often just called
+\textbf{a prime}.
 \end{definition}
 
-Note that $p>1$ is required here, so $1$ does not count as prime.
+Thus, primes have to be $>1$. So $1$ does not count.
 
-How do we quickly find all primes $\leq30$ ?%
-
+How do we quickly find all primes $\leq30$?%
 \begin{align*}
 & \text{\textit{1}},2,3,\text{4},5,\text{6},7,\text{8},\text{9},\text{10},\\
 & 11,\text{12},13,\text{14},\text{15},\text{16},17,\text{18},19,\text{20},\\
 & \text{21},\text{22},23,\text{24},\text{25},\text{26},\text{27}%
 ,\text{28},29,\text{30}%
 \end{align*}
-The red numbers remaining are the primes $\leq30$. This is the \textbf{sieve
-of Eratosthenes}.
+The red numbers are the primes. This is called the \textbf{sieve of
+Eratosthenes}.
 
 \begin{proposition}
 Let $p$ be a prime. Then, each $i\in\left\{  1,2,\ldots,p-1\right\}  $ is
@@ -5172,28 +5211,18 @@ coprime to $p$.
 \end{proposition}
 
 \begin{proof}
-Let $i\in\left\{  1,2,\ldots,p-1\right\}  $. We must prove that $\gcd\left(
-i,p\right)  =1$.
-
-We have $\gcd\left(  i,p\right)  \mid p$, so $\gcd\left(  i,p\right)  $ is a
-positive divisor of $p$, so it is either $1$ or $p$ (since $p$ is prime).
-Also, $\gcd\left(  i,p\right)  $ is a positive divisor of $i$, so that
-$\gcd\left(  i,p\right)  \leq i<p$. Hence, $\gcd\left(  i,p\right)  $ cannot
-be $p$. Hence, $\gcd\left(  i,p\right)  =1$, and we are done.
+Let $i\in\left\{  1,2,\ldots,p-1\right\}  $. Then, $\gcd\left(  i,p\right)  $
+is a positive divisor of $p$, thus must be $1$ or $p$ (since $p$ is prime).
+But it cannot be $p$, since it has to be $\leq i<p$. So it must be $1$. But
+this means $i\perp p$.
 \end{proof}
-
-Note that this proposition characterizes primes: If $p>1$ is an integer such
-that each $i\in\left\{  1,2,\ldots,p-1\right\}  $ is coprime to $p$, then $p$
-is prime. (Easy exercise.)
 
 \begin{theorem}
 Let $p$ be a prime. Let $a,b\in\mathbb{Z}$ such that $p\mid ab$. Then, $p\mid
 a$ or $p\mid b$.
 \end{theorem}
 
-\begin{proof}
-Exercise. (This will be in the notes.)
-\end{proof}
+
 
 
 \end{document}
