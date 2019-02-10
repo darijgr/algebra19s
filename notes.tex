@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Sunday, February 10, 2019 11:00:15}
+%TCIDATA{LastRevised=Monday, February 11, 2019 10:37:35}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -28,9 +28,9 @@
 \usetikzlibrary{arrows}
 \newcounter{exer}
 \newcounter{exera}
-\numberwithin{exer}{section}
+\numberwithin{exer}{subsection}
 \theoremstyle{definition}
-\newtheorem{theo}{Theorem}[section]
+\newtheorem{theo}{Theorem}[subsection]
 \newenvironment{theorem}[1][]
 {\begin{theo}[#1]\begin{leftbar}}
 {\end{leftbar}\end{theo}}
@@ -2448,7 +2448,7 @@ b^{\prime}\operatorname{mod}n$ and $c\equiv c^{\prime}\operatorname{mod}n$,
 then%
 \begin{equation}
 bc+ca+ab\equiv b^{\prime}c^{\prime}+c^{\prime}a^{\prime}+a^{\prime}b^{\prime
-}\operatorname{mod}n,\label{eq.mod.substitutivity-congs.3}%
+}\operatorname{mod}n, \label{eq.mod.substitutivity-congs.3}%
 \end{equation}
 because we can replace all the six integers $b,c,c,a,a,b$ in the expression
 $bc+ca+ab$ (listed in the order of their appearance in this expression) by
@@ -2457,7 +2457,7 @@ respectively. If we want to derive this from the principle of substitutivity
 for congruences, we must perform the replacements one at a time, e.g., as
 follows:%
 \begin{align*}
-\underbrace{b}_{\equiv b^{\prime}\operatorname{mod}n}c+ca+ab &  \equiv
+\underbrace{b}_{\equiv b^{\prime}\operatorname{mod}n}c+ca+ab  &  \equiv
 b^{\prime}\underbrace{c}_{\equiv c^{\prime}\operatorname{mod}n}+ca+ab\equiv
 b^{\prime}c^{\prime}+\underbrace{c}_{\equiv c^{\prime}\operatorname{mod}%
 n}a+ab\\
@@ -3263,20 +3263,81 @@ $x^{2}+y^{2}\equiv2\operatorname{mod}4$, then $x$ and $y$ are both odd.
 \begin{fineprint}
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.even-odd-sumsq}.]\textbf{(a)} Let $u$ be an
-odd integer. Thus, $u$ is odd. Equivalently, $u\equiv1\operatorname{mod}2$ (by
-Exercise \ref{exe.ent.even-odd.1} \textbf{(d)}). In other words, $2\mid u-1$.
-In other words, there exists some integer $c$ such that $u-1=2c$. Consider
-this $c$.
+even integer. Thus, $u$ is even. In other words, $u$ is divisible by $2$. In
+other words, there exists some integer $c$ such that $u=2c$. Consider this $c$.
+
+From $u=2c$, we obtain $u^{2}=\left(  2c\right)  ^{2}=4c^{2}$, which is
+clearly divisible by $4$. So we have $4\mid u^{2}=u^{2}-0$. In other words,
+$u^{2}\equiv0\operatorname{mod}4$. This solves Exercise
+\ref{exe.ent.even-odd-sumsq} \textbf{(a)}.
+
+\textbf{(b)} Let $u$ be an odd integer. Thus, $u$ is odd. Equivalently,
+$u\equiv1\operatorname{mod}2$ (by Exercise \ref{exe.ent.even-odd.1}
+\textbf{(d)}). In other words, $2\mid u-1$. In other words, there exists some
+integer $c$ such that $u-1=2c$. Consider this $c$.
 
 From $u-1=2c$, we obtain $u=2c+1$ and thus $u^{2}=\left(  2c+1\right)
 ^{2}=4c^{2}+4c+1$. Hence, $u^{2}-1=4c^{2}+4c=4\left(  c^{2}+c\right)  $, which
 is clearly divisible by $4$. So we have $4\mid u^{2}-1$. In other words,
 $u^{2}\equiv1\operatorname{mod}4$. This solves Exercise
-\ref{exe.ent.even-odd-sumsq} \textbf{(a)}.
+\ref{exe.ent.even-odd-sumsq} \textbf{(b)}.
 
-\textbf{(b)} TODO.
+\textbf{(c)} Let $x$ and $y$ be two integers such that $x^{2}+y^{2}%
+\equiv3\operatorname{mod}4$. We shall derive a contradiction.
 
-\textbf{(c)} TODO.
+Recall that an integer is always either even or odd. Thus, $x$ is either even
+or odd. Similarly, $y$ is either even or odd. Thus, we are in one of the
+following four cases:
+
+\textit{Case 1:} The integer $x$ is even, and the integer $y$ is even.
+
+\textit{Case 2:} The integer $x$ is even, and the integer $y$ is odd.
+
+\textit{Case 3:} The integer $x$ is odd, and the integer $y$ is even.
+
+\textit{Case 4:} The integer $x$ is odd, and the integer $y$ is odd.
+
+Let us first consider Case 1. In this case, the integer $x$ is even, and the
+integer $y$ is even. Hence, Exercise \ref{exe.ent.even-odd-sumsq} \textbf{(a)}
+(applied to $u=x$) yields $x^{2}\equiv0\operatorname{mod}4$ (since $x$ is
+even). Also, Exercise \ref{exe.ent.even-odd-sumsq} \textbf{(a)} (applied to
+$u=y$) yields $y^{2}\equiv0\operatorname{mod}4$ (since $y$ is even). Thus,
+$\underbrace{x^{2}}_{\equiv0\operatorname{mod}4}+\underbrace{y^{2}}%
+_{\equiv0\operatorname{mod}4}\equiv0+0=0\operatorname{mod}4$. Hence, $0\equiv
+x^{2}+y^{2}\equiv3\operatorname{mod}4$. But Exercise
+\ref{exe.ent.quo-rem.mod=rem} (applied to $n=4$, $u=0$ and $v=3$) shows that
+$0\equiv3\operatorname{mod}4$ if and only if $0\%4=3\%4$. Hence, $0\%4=3\%4$
+(since $0\equiv3\operatorname{mod}4$). This contradicts the fact that
+$0\%4=0\neq3=3\%4$. Hence, we have obtained a contradiction in Case 1.
+
+Let us next consider Case 2. In this case, the integer $x$ is even, and the
+integer $y$ is odd. Hence, Exercise \ref{exe.ent.even-odd-sumsq} \textbf{(a)}
+(applied to $u=x$) yields $x^{2}\equiv0\operatorname{mod}4$ (since $x$ is
+even). Also, Exercise \ref{exe.ent.even-odd-sumsq} \textbf{(b)} (applied to
+$u=y$) yields $y^{2}\equiv1\operatorname{mod}4$ (since $y$ is odd). Thus,
+$\underbrace{x^{2}}_{\equiv0\operatorname{mod}4}+\underbrace{y^{2}}%
+_{\equiv1\operatorname{mod}4}\equiv0+1=1\operatorname{mod}4$. Hence, $1\equiv
+x^{2}+y^{2}\equiv3\operatorname{mod}4$. But Exercise
+\ref{exe.ent.quo-rem.mod=rem} (applied to $n=4$, $u=1$ and $v=3$) shows that
+$1\equiv3\operatorname{mod}4$ if and only if $1\%4=3\%4$. Hence, $1\%4=3\%4$
+(since $1\equiv3\operatorname{mod}4$). This contradicts the fact that
+$1\%4=1\neq3=3\%4$. Hence, we have obtained a contradiction in Case 2.
+
+The arguments in Cases 3 and 4 are completely analogous (in Case 3, we obtain
+$x^{2}+y^{2}\equiv1\operatorname{mod}4$ again, whereas in Case 4 we obtain
+$x^{2}+y^{2}\equiv2\operatorname{mod}4$). Thus, we have obtained a
+contradiction in each of the four Cases 1, 2, 3 and 4. Hence, we always have a contradiction.
+
+Now, forget that we fixed $x$ and $y$. We thus have obtained a contradiction
+whenever $x$ and $y$ are two integers such that $x^{2}+y^{2}\equiv
+3\operatorname{mod}4$. Thus, there are no such two integers. This solves
+Exercise \ref{exe.ent.even-odd-sumsq} \textbf{(c)}.
+
+\textbf{(d)} The solution of Exercise \ref{exe.ent.even-odd-sumsq}
+\textbf{(d)} is very similar to the above solution of Exercise
+\ref{exe.ent.even-odd-sumsq} \textbf{(c)} (indeed, we have to consider the
+same four cases, but this time we don't get a contradiction in Case 4) and is
+left to the reader.
 \end{proof}
 \end{fineprint}
 
@@ -3933,14 +3994,8 @@ divisor\textquotedblright}\right) \\
 Thus, $\operatorname*{Div}\left(  a\right)  $ is the set of all divisors of
 $a$.
 
-Proposition \ref{prop.ent.div.1} \textbf{(a)} (applied to $\left\vert
-a\right\vert $ and $a$ instead of $a$ and $b$) shows that we have $\left\vert
-a\right\vert \mid a$ if and only if $\left\vert \left\vert a\right\vert
-\right\vert \mid\left\vert a\right\vert $. Since $\left\vert \left\vert
-a\right\vert \right\vert \mid\left\vert a\right\vert $ is true (because
-$\left\vert \left\vert a\right\vert \right\vert =\left\vert a\right\vert $),
-we thus have $\left\vert a\right\vert \mid a$. In other words, $\left\vert
-a\right\vert $ is a divisor of $a$.
+Exercise \ref{exe.ent.div.aabs} \textbf{(b)} yields $\left\vert a\right\vert
+\mid a$. In other words, $\left\vert a\right\vert $ is a divisor of $a$.
 
 Moreover, $a$ is nonzero (since $a\neq0$). Hence, Proposition
 \ref{prop.ent.divisors.find} \textbf{(b)} (applied to $b=a$) shows that all
@@ -4607,10 +4662,9 @@ obtain a \textquotedblleft stronger\textquotedblright\ divisibility $a\mid
 a,b\right)  $ is usually smaller than $b$).
 
 \begin{proof}
-[Proof of Theorem \ref{thm.ent.coprime.cancel}.]Theorem
-\ref{thm.ent.gcd.bezout} yields that there exist integers $x\in\mathbb{Z}$ and
-$y\in\mathbb{Z}$ such that $\gcd\left(  a,b\right)  =xa+yb$. Consider these
-$x$ and $y$.
+[Proof of Theorem \ref{thm.ent.gcd.cancel}.]Theorem \ref{thm.ent.gcd.bezout}
+yields that there exist integers $x\in\mathbb{Z}$ and $y\in\mathbb{Z}$ such
+that $\gcd\left(  a,b\right)  =xa+yb$. Consider these $x$ and $y$.
 
 We have $a\mid bc\mid ybc$; in other words, $ybc\equiv0\operatorname{mod}a$.
 Also, $a\mid axc$, so that $axc\equiv0\operatorname{mod}a$. Adding the two
@@ -5041,7 +5095,7 @@ a,b,c\right)  $.
 \end{exercise}
 
 \begin{proof}
-[Solution to Exercise \ref{exe.ent.gcd.sa,sb,sc}.]TODO! (HW1)
+[Solution to Exercise \ref{exe.ent.gcd.sa,sb,sc}.]TODO! (HW2)
 \end{proof}
 
 Bezout's theorem (Theorem \ref{thm.ent.gcd.bezout}) also holds for any finite
@@ -6593,10 +6647,12 @@ x_{0}=nn^{\prime}a+\underbrace{mm^{\prime}b}_{\equiv0\operatorname{mod}%
 m}\equiv\underbrace{nn^{\prime}}_{\equiv1\operatorname{mod}m}a\equiv
 a\operatorname{mod}m
 \]
-and similarly $x_{0}\equiv b\operatorname{mod}n$. Thus, there exists an
-integer $x\in\mathbb{Z}$ such that \newline$\left(  x\equiv
-a\operatorname{mod}m\text{ and }x\equiv b\operatorname{mod}n\right)  $
-(namely, $x=x_{0}$). This proves Theorem \ref{thm.ent.crt1} \textbf{(a)}.
+(here, we have used the Principle of substitutivity for congruences, which we
+described in Section \ref{sect.ent.subst-mod}) and similarly $x_{0}\equiv
+b\operatorname{mod}n$. Thus, there exists an integer $x\in\mathbb{Z}$ such
+that \newline$\left(  x\equiv a\operatorname{mod}m\text{ and }x\equiv
+b\operatorname{mod}n\right)  $ (namely, $x=x_{0}$). This proves Theorem
+\ref{thm.ent.crt1} \textbf{(a)}.
 
 \textbf{(b)} Let $x_{1}$ and $x_{2}$ be two such integers $x$. We want to
 prove that $x_{1}\equiv x_{2}\operatorname{mod}mn$.
@@ -6614,8 +6670,10 @@ words, $x_{1}\equiv x_{2}\operatorname{mod}mn$. This proves Theorem
 \ref{thm.ent.crt1}.
 \end{proof}
 
+\begin{noncompile}
 Theorem \ref{thm.ent.crt1} is (the simplest form of) the \textit{Chinese
 Remainder Theorem} (Sunzi, 3rd century AD).
+\end{noncompile}
 
 \begin{example}
 Assume that we want to find an $x\in\mathbb{Z}$ such that%
@@ -6679,6 +6737,8 @@ $\textquotedblright.
 
 \subsection{Primes}
 
+\subsubsection{Definition and the Sieve of Eratosthenes}
+
 \begin{definition}
 Let $p$ be an integer greater than $1$. We say that $p$ is \textit{prime} if
 the only positive divisors of $p$ are $1$ and $p$. A prime integer is often
@@ -6688,33 +6748,200 @@ just called \textit{a prime}.
 Note that we required $p$ to be greater than $1$ here. Thus, $1$ does not
 count as prime even though its only positive divisor is $1$ itself.
 
-TODO: Make the following readable.
+\begin{example}
+\label{exa.ent.primes.1}\textbf{(a)} The only positive divisors of $7$ are $1$
+and $7$. Thus, $7$ is a prime.
 
-How do we quickly find all primes $\leq30$ ?%
+\textbf{(b)} The positive divisors of $14$ are $1$, $2$, $7$ and $14$. These
+are more than just $1$ and $14$. Thus, $14$ is not a prime.
 
-\begin{align*}
-&  \text{\textit{1}},2,3,\text{4},5,\text{6},7,\text{8},\text{9},\text{10},\\
-&  11,\text{12},13,\text{14},\text{15},\text{16},17,\text{18},19,\text{20},\\
-&  \text{21},\text{22},23,\text{24},\text{25},\text{26},\text{27}%
-,\text{28},29,\text{30}%
-\end{align*}
-The red numbers remaining are the primes $\leq30$. This is the \textbf{sieve
-of Eratosthenes}.
+\textbf{(c)} None of the numbers $4,6,8,10,12,14,16,\ldots$ (that is, the
+multiples of $2$ that are larger than $2$) is a prime. Indeed, if $p$ is any
+of the numbers, then $p$ has a positive divisor other than $1$ and $p$
+(namely, $2$), and therefore does not meet the definition of \textquotedblleft
+prime\textquotedblright.
+
+\textbf{(d)} None of the numbers $6,9,12,15,18,\ldots$ (that is, the multiples
+of $3$ that are larger than $3$) is a prime. Indeed, if $p$ is any of the
+numbers, then $p$ has a positive divisor other than $1$ and $p$ (namely, $3$),
+and therefore does not meet the definition of \textquotedblleft
+prime\textquotedblright.
+\end{example}
+
+Parts \textbf{(c)} and \textbf{(d)} of Example \ref{exa.ent.primes.1} suggest
+a method for finding all primes up to a given integer:
+
+\begin{example}
+Let us say we want to find all primes that are $\leq30$.
+
+\textit{Step 1:} All such primes must lie in $\left\{  2,3,\ldots,30\right\}
+$ (since a prime is always an integer greater than $1$); thus, let us first
+write down all elements of $\left\{  2,3,\ldots,30\right\}  $:%
+\[%
+\begin{array}
+[c]{cccccccccc}
+& 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10\\
+11 & 12 & 13 & 14 & 15 & 16 & 17 & 18 & 19 & 20\\
+21 & 22 & 23 & 24 & 25 & 26 & 27 & 28 & 29 & 30
+\end{array}
+.
+\]
+(We are using a table just in order to fit these elements on a page.)
+
+We now plan to remove non-prime numbers from this table until only primes are left.
+
+\textit{Step 2:} First, let us remove all multiples of $2$ that are larger
+than $2$ from our table, because none of them is a prime (see Example
+\ref{exa.ent.primes.1} \textbf{(c)}). We thus are left with%
+\[%
+\begin{array}
+[c]{cccccccccc}
+& 2 & 3 &  & 5 &  & 7 &  & 9 & \\
+11 &  & 13 &  & 15 &  & 17 &  & 19 & \\
+21 &  & 23 &  & 25 &  & 27 &  & 29 &
+\end{array}
+.
+\]
+
+
+\textit{Step 3:} Next, let us remove all multiples of $3$ that are larger than
+$3$ from our table, because none of them is a prime (see Example
+\ref{exa.ent.primes.1} \textbf{(d)}). We thus are left with%
+\[%
+\begin{array}
+[c]{cccccccccc}
+& 2 & 3 &  & 5 &  & 7 &  &  & \\
+11 &  & 13 &  &  &  & 17 &  & 19 & \\
+&  & 23 &  & 25 &  &  &  & 29 &
+\end{array}
+.
+\]
+(Note that some of these multiples have already been removed in Step 2.)
+
+\textit{Step 4:} Next, let us remove all multiples of $4$ that are larger than
+$4$ from our table, because none of them is a prime (for similar reasons). It
+turns out that this does not change the table at all, because all such
+multiples have already been removed in Step 2. This is not a coincidence:
+Since $4$ itself has been removed, we know that $4$ was a multiple of some
+number $d<4$ (in this case, $d=2$) whose multiples have been removed;
+therefore, all multiples of $4$ are also multiples of $d$ and thus have been
+removed along with $4$.
+
+\textit{Step 5:} Next, let us remove all multiples of $5$ that are larger than
+$5$ from our table, because none of them is a prime (for similar reasons). We
+thus are left with%
+\[%
+\begin{array}
+[c]{cccccccccc}
+& 2 & 3 &  & 5 &  & 7 &  &  & \\
+11 &  & 13 &  &  &  & 17 &  & 19 & \\
+&  & 23 &  &  &  &  &  & 29 &
+\end{array}
+.
+\]
+
+
+\textit{Step 6:} Next, let us remove all multiples of $6$ that are larger than
+$6$ from our table, because none of them is a prime. Just as Step 4, this does
+not change the table, since all such multiples have already been removed in
+Step 2.
+
+\textit{Step 7:} Next, let us remove all multiples of $7$ that are larger than
+$7$ from our table, because none of them is a prime. Again, this does not
+change the table, since all such multiples have already been removed.
+
+Proceed likewise until Step 30, at which point the table has become%
+\[%
+\begin{array}
+[c]{cccccccccc}
+& 2 & 3 &  & 5 &  & 7 &  &  & \\
+11 &  & 13 &  &  &  & 17 &  & 19 & \\
+&  & 23 &  &  &  &  &  & 29 &
+\end{array}
+.
+\]
+(You are reading it right: None of the steps from Step 6 to Step 30 causes any
+changes to the table, since all multiples that these steps attempt to remove
+have already been removed beforehand.)
+
+The resulting table has the following property: If $p$ is an element of this
+table, then $p$ cannot be a multiple of any $d\in\left\{  2,3,\ldots
+,p-1\right\}  $ (because if it was such a multiple, then it would have been
+removed from the table in Step $d$ or earlier). In other words, if $p$ is an
+element of this table, then $p$ cannot have any divisor $d\in\left\{
+2,3,\ldots,p-1\right\}  $. In other words, if $p$ is an element of this table,
+then the only positive divisors of $p$ are $1$ and $p$. In other words, if $p$
+is an element of this table, then $p$ is prime. Conversely, any prime $\leq30$
+is in our table, since the only numbers we have removed from the table were
+guaranteed to be non-prime. Thus, the table now contains all the primes
+$\leq30$ and only them. So we conclude that the primes $\leq30$ are
+$2,3,5,7,11,13,17,19,23,29$.
+
+This method of finding primes is known as the \textbf{sieve of Eratosthenes}.
+We could have made it more efficient using the following two tricks:
+
+\begin{itemize}
+\item If a number $d\in\left\{  2,3,\ldots,30\right\}  $ has been removed from
+the table before Step $d$, then we know immediately that Step $d$ will not
+change the table (because all multiples of $d$ have already been removed
+before this step). Thus, we do not need to make this step.
+
+\item If $d\in\left\{  2,3,\ldots,30\right\}  $ satisfies $d^{2}>30$, then
+Step $d$ will not change the table (because if $m\in\left\{  2,3,\ldots
+,30\right\}  $ is a multiple of $d$ that is larger than $d$, then $m$ is also
+a multiple of the integer $m/d$ (since $d\mid m$ and thus $m/d\in\mathbb{Z}$
+and of course $m/d\mid m$), and therefore $m$ has already been removed in Step
+$m/d$ (which has already happened before Step $d$ (because $d^{2}>30\geq m$
+and therefore $d>m/d$)). Thus, we only need to take the Steps $d$ with
+$d^{2}\leq30$.
+\end{itemize}
+
+Together, these tricks tell us that the only steps we need to take are the
+Steps 2, 3 and 5.
+\end{example}
+
+\subsubsection{Basic properties of primes}
 
 \begin{proposition}
-Let $p$ be a prime. Then, each $i\in\left\{  1,2,\ldots,p-1\right\}  $ is
-coprime to $p$.
+\label{prop.ent.primes.each-i-coprime}Let $p$ be a prime. Then, each
+$i\in\left\{  1,2,\ldots,p-1\right\}  $ is coprime to $p$.
 \end{proposition}
 
 \begin{proof}
-Let $i\in\left\{  1,2,\ldots,p-1\right\}  $. We must prove that $\gcd\left(
-i,p\right)  =1$.
+[Proof of Proposition \ref{prop.ent.primes.each-i-coprime}.]Let $i\in\left\{
+1,2,\ldots,p-1\right\}  $. We must prove that $i$ is coprime to $p$.
 
-We have $\gcd\left(  i,p\right)  \mid p$, so $\gcd\left(  i,p\right)  $ is a
-positive divisor of $p$, so it is either $1$ or $p$ (since $p$ is prime).
-Also, $\gcd\left(  i,p\right)  $ is a positive divisor of $i$, so that
-$\gcd\left(  i,p\right)  \leq i<p$. Hence, $\gcd\left(  i,p\right)  $ cannot
-be $p$. Hence, $\gcd\left(  i,p\right)  =1$, and we are done.
+From $i\in\left\{  1,2,\ldots,p-1\right\}  $, we obtain $1\leq i\leq p-1$ and
+thus $i\geq1>0$, so that $i\neq0$. Hence, $i$ and $p$ are not all zero. Also,
+$\left\vert i\right\vert =i$ (since $i>0$).
+
+Also, $\gcd\left(  i,p\right)  $ is a positive integer (since $i$ and $p$ are
+not all zero). Thus, $\left\vert \gcd\left(  i,p\right)  \right\vert
+=\gcd\left(  i,p\right)  $.
+
+Proposition \ref{prop.ent.gcd.props1} \textbf{(f)} (applied to $a=i$ and
+$b=p$) shows that $\gcd\left(  i,p\right)  \mid i$ and $\gcd\left(
+i,p\right)  \mid p$. From $\gcd\left(  i,p\right)  \mid i$ and $i\neq0$, we
+obtain $\left\vert \gcd\left(  i,p\right)  \right\vert \leq\left\vert
+i\right\vert $ (by Exercise \ref{prop.ent.div.1} \textbf{(a)}, applied to
+$a=\gcd\left(  i,p\right)  $ and $b=i$). In view of $\left\vert \gcd\left(
+i,p\right)  \right\vert =\gcd\left(  i,p\right)  $ and $\left\vert
+i\right\vert =i$, this rewrites as $\gcd\left(  i,p\right)  \leq i$. Hence,
+$\gcd\left(  i,p\right)  \leq i\leq p-1<p$ and therefore $\gcd\left(
+i,p\right)  \neq p$.
+
+We know that $p$ is prime. In other words, the only positive divisors of $p$
+are $1$ and $p$ (by the definition of \textquotedblleft
+prime\textquotedblright).
+
+The integer $\gcd\left(  i,p\right)  $ is a positive divisor of $p$ (since
+$\gcd\left(  i,p\right)  $ is positive and satisfies $\gcd\left(  i,p\right)
+\mid p$), and thus must be either $1$ or $p$ (since the only positive divisors
+of $p$ are $1$ and $p$). Since we know that $\gcd\left(  i,p\right)  \neq p$,
+we thus conclude that $\gcd\left(  i,p\right)  =1$. In other words, $i$ is
+coprime to $p$ (by the definition of \textquotedblleft
+coprime\textquotedblright). This proves Proposition
+\ref{prop.ent.primes.each-i-coprime}.
 \end{proof}
 
 Note that this proposition characterizes primes: If $p>1$ is an integer such
@@ -6722,38 +6949,507 @@ that each $i\in\left\{  1,2,\ldots,p-1\right\}  $ is coprime to $p$, then $p$
 is prime. (Easy exercise.)
 
 \begin{proposition}
-Let $p$ be a prime. Let $a\in\mathbb{Z}$. Then, either $p\mid a$ or $p\perp a$.
+\label{prop.ent.primes.div-or-coprime}Let $p$ be a prime. Let $a\in\mathbb{Z}%
+$. Then, either $p\mid a$ or $p\perp a$.
 \end{proposition}
 
 \begin{proof}
-Exercise. (This will be in the notes.)
+[Proof of Proposition \ref{prop.ent.primes.div-or-coprime}.]Assume the
+contrary. Thus, neither $p\mid a$ nor $p\perp a$.
+
+Corollary \ref{cor.ent.quo-rem.remmod} \textbf{(b)} (applied to $n=p$ and
+$u=a$) yields that we have $p\mid a$ if and only if $a\%p=0$. Thus, we don't
+have $a\%p=0$ (since we don't have $p\mid a$). In other words, $a\%p\neq0$.
+
+Corollary \ref{cor.ent.quo-rem.remmod} \textbf{(a)} (applied to $n=p$ and
+$u=a$) yields that $a\%p\in\left\{  0,1,\ldots,p-1\right\}  $ and $a\%p\equiv
+a\operatorname{mod}p$. Combining $a\%p\in\left\{  0,1,\ldots,p-1\right\}  $
+with $a\%p\neq0$, we obtain $a\%p\in\left\{  0,1,\ldots,p-1\right\}
+\setminus\left\{  0\right\}  =\left\{  1,2,\ldots,p-1\right\}  $. Hence,
+Proposition \ref{prop.ent.primes.each-i-coprime} (applied to $i=a\%p$) yields
+that $a\%p$ is coprime to $p$. In other words, $\gcd\left(  a\%p,p\right)  =1$.
+
+But $p$ is prime, and thus is a positive integer (by the definition of a
+\textquotedblleft prime\textquotedblright). Proposition
+\ref{prop.ent.gcd.props1} \textbf{(e)} (applied to $p$ and $a$ instead of $a$
+and $b$) yields%
+\begin{align*}
+\gcd\left(  p,a\right)   &  =\gcd\left(  p,a\%p\right)  =\gcd\left(
+a\%p,p\right) \\
+&  \ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{by Proposition \ref{prop.ent.gcd.props1} \textbf{(b)},}\\
+\text{applied to }p\text{ and }a\%p\text{ instead of }a\text{ and }b
+\end{array}
+\right) \\
+&  =1.
+\end{align*}
+In other words, $p$ is coprime to $a$. In other words, $p\perp a$. This
+contradicts the fact that we don't have $p\perp a$.
+
+This contradiction shows that our assumption was false. Hence, Proposition
+\ref{prop.ent.primes.div-or-coprime} is proven.
 \end{proof}
 
+We note that a converse of Proposition \ref{prop.ent.primes.div-or-coprime}
+holds as well: If $p>1$ is an integer such that each $a\in\mathbb{Z}$
+satisfies either $p\mid a$ or $p\perp a$, then $p$ is a prime. This is easy to
+prove and left to the reader.
+
 \begin{theorem}
-Let $p$ be a prime. Let $a,b\in\mathbb{Z}$ such that $p\mid ab$. Then, $p\mid
-a$ or $p\mid b$.
+\label{thm.ent.primes.pab}Let $p$ be a prime. Let $a,b\in\mathbb{Z}$ such that
+$p\mid ab$. Then, $p\mid a$ or $p\mid b$.
 \end{theorem}
 
 \begin{proof}
-Exercise. (This will be in the notes.)
+[Proof of Theorem \ref{thm.ent.primes.pab}.]Assume the contrary. Thus, neither
+$p\mid a$ nor $p\mid b$.
+
+Proposition \ref{prop.ent.primes.div-or-coprime} yields that either $p\mid a$
+or $p\perp a$. Hence, $p\perp a$ (since $p\mid a$ does not hold). But $p\mid
+ab$. Hence, Theorem \ref{thm.ent.coprime.cancel} (applied to $p$, $a$ and $b$
+instead of $a$, $b$ and $c$) yields $p\mid b$. This contradicts the fact that
+we don't have $p\mid b$.
+
+This contradiction shows that our assumption was false. Hence, Theorem
+\ref{thm.ent.primes.pab} is proven.
 \end{proof}
 
-TODO:
+Again, Theorem \ref{thm.ent.primes.pab} has a converse:
+
+\begin{exercise}
+\label{exe.ent.primes.pab-conv}Let $p>1$ be an integer. Assume that for every
+$a,b\in\mathbb{Z}$ satisfying $p\mid ab$, we must have $p\mid a$ or $p\mid b$.
+Then, $p$ is prime.
+\end{exercise}
+
+\begin{proof}
+[Solution to Exercise \ref{exe.ent.primes.pab-conv}.]TODO.
+\end{proof}
+
+There is also a version of Theorem \ref{thm.ent.primes.pab} for products of
+multiple integers:
+
+\begin{proposition}
+\label{prop.ent.primes.pabk}Let $p$ be a prime. Let $a_{1},a_{2},\ldots,a_{k}$
+be integers such that $p\mid a_{1}a_{2}\cdots a_{k}$. Then, $p\mid a_{i}$ for
+some $i\in\left\{  1,2,\ldots,k\right\}  $.
+\end{proposition}
+
+We could prove Proposition \ref{prop.ent.primes.pabk} by induction on $k$. But
+here is a more direct argument:
+
+\begin{fineprint}
+\begin{proof}
+[Proof of Proposition \ref{prop.ent.primes.pabk}.]Assume the contrary. Thus,
+there exists no $i\in\left\{  1,2,\ldots,k\right\}  $ such that $p\mid a_{i}$.
+In other words, for each $i\in\left\{  1,2,\ldots,k\right\}  $, we have%
+\begin{equation}
+\left(  \text{not }p\mid a_{i}\right)  . \label{pf.prop.ent.primes.pabk.1}%
+\end{equation}
+
+
+Now, let $i\in\left\{  1,2,\ldots,k\right\}  $. Then, we don't have $p\mid
+a_{i}$ (by (\ref{pf.prop.ent.primes.pabk.1}). But Proposition
+\ref{prop.ent.primes.div-or-coprime} (applied to $a=a_{i}$) shows that either
+$p\mid a_{i}$ or $p\perp a_{i}$. Hence, we have $p\perp a_{i}$ (since we don't
+have $p\mid a_{i}$). In other words, $a_{i}\perp p$ (by Proposition
+\ref{prop.ent.coprime.perp-symm}).
+
+Now, forget that we fixed $i$. We thus have proven that each $i\in\left\{
+1,2,\ldots,k\right\}  $ satisfies $a_{i}\perp p$. Hence, Exercise
+\ref{exe.ent.coprime.ab-to-ck} (applied to $c=p$) yields $a_{1}a_{2}\cdots
+a_{k}\perp p$. In other words, $a_{1}a_{2}\cdots a_{k}$ is coprime to $p$. In
+other words, $\gcd\left(  a_{1}a_{2}\cdots a_{k},p\right)  =1$. Hence,
+Proposition \ref{prop.ent.gcd.props1} \textbf{(b)} yields $\gcd\left(
+p,a_{1}a_{2}\cdots a_{k}\right)  =\gcd\left(  a_{1}a_{2}\cdots a_{k},p\right)
+=1$.
+
+But $p$ is prime; thus, $p>1$. Hence, $p$ is positive. Recall that $p\mid
+a_{1}a_{2}\cdots a_{k}$; thus, Proposition \ref{prop.ent.gcd.props1}
+\textbf{(i)} (applied to $a=p$ and $b=a_{1}a_{2}\cdots a_{k}$) yields
+$\gcd\left(  p,a_{1}a_{2}\cdots a_{k}\right)  =\left\vert p\right\vert =p$
+(since $p$ is positive). Comparing this with $\gcd\left(  p,a_{1}a_{2}\cdots
+a_{k}\right)  =1$, we obtain $p=1$. This contradicts $p>1$. This contradiction
+shows that our assumption was wrong. This proves Proposition
+\ref{prop.ent.primes.pabk}.
+\end{proof}
+\end{fineprint}
+
+\subsubsection{Prime factorization I}
+
+The next simple proposition says that every integer $n>1$ is divisible by at
+least one prime:
+
+\begin{proposition}
+\label{prop.ent.primes.ex-pri-div}Let $n>1$ be an integer. Then, there exists
+at least one prime $p$ such that $p\mid n$.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.ent.primes.ex-pri-div}.]Clearly, $n$ is a
+divisor of $n$ such that $n>1$. Thus, there exists a divisor $q$ of $n$ such
+that $q>1$ (namely, $q=n$). Let $d$ be the \textbf{smallest} such
+divisor\footnote{This exists, because the set of possible candidates is
+nonempty (by the previous sentence) and finite.}. Thus, $d$ is a divisor of
+$n$ and satisfies $d>1$. The integer $d$ is positive (since $d>1>0$).
+
+We claim that $d$ is a prime.
+
+\begin{fineprint}
+[\textit{Proof:} Let $e$ be any positive divisor of $d$. Assume (for the sake
+of contradiction) that $e\notin\left\{  1,d\right\}  $. Thus, $e\neq1$ and
+$e\neq d$. Now, $e$ is a divisor of $d$; thus, $e\mid d\mid n$ (since $d$ is a
+divisor of $n$). In other words, $e$ is a divisor of $n$. Also, $e>1$ (because
+$e$ is positive and $e\neq1$). Hence, $e$ is a divisor $q$ of $n$ such that
+$q>1$.
+
+But $d$ was defined as the \textbf{smallest} divisor $q$ of $n$ such that
+$q>1$. Hence, any such divisor is $\geq d$. In other words, any divisor $q$ of
+$n$ such that $q>1$ must satisfy $q\geq d$. Applying this to $q=e$, we
+conclude that $e\geq d$ (since $e$ is a divisor $q$ of $n$ such that $q>1$).
+Combined with $e\neq d$, this yields $e>d$.
+
+But $e\mid d$ and $d\neq0$ (since $d>1>0$). Hence, $\left\vert e\right\vert
+\leq\left\vert d\right\vert $ (by Exercise \ref{prop.ent.div.1} \textbf{(a)},
+applied to $a=e$ and $b=d$). Since $e$ is positive, we have $e=\left\vert
+e\right\vert \leq\left\vert d\right\vert =d$ (since $d$ is positive). This
+contradicts $e>d$. This contradiction shows that our assumption (that
+$e\notin\left\{  1,d\right\}  $) was false. Thus, we have proven that
+$e\in\left\{  1,d\right\}  $. In other worde, $e$ is either $1$ or $d$.
+
+Now, forget that we fixed $e$. We thus have proven that if $e$ is any positive
+divisor of $d$, then $e\in\left\{  1,d\right\}  $. In other words, any
+positive divisor of $d$ is either $1$ or $d$. Thus, the only positive divisors
+of $d$ are $1$ and $d$ (since $1$ and $d$ clearly \textbf{are} positive
+divisors of $d$). In other words, $d$ is prime (by the definition of
+\textquotedblleft prime\textquotedblright).]
+\end{fineprint}
+
+So we know that $d\mid n$ (since $d$ is a divisor of $n$), and that $d$ is
+prime. Hence, there exists at least one prime $p$ such that $p\mid n$ (namely,
+$p=d$). This proves Proposition \ref{prop.ent.primes.ex-pri-div}.
+\end{proof}
+
+\begin{definition}
+Let $n$ be an integer. A \textit{prime factor} of $n$ means a prime $p$ such
+that $p\mid n$. Some say \textquotedblleft prime divisor\textquotedblright%
+\ instead of \textquotedblleft prime factor\textquotedblright.
+\end{definition}
+
+Thus, Proposition \ref{prop.ent.primes.ex-pri-div} says that each integer
+$n>1$ has at least one prime divisor.
+
+\begin{proposition}
+\label{prop.ent.primes.fac-ex}Let $n$ be a positive integer. Then, $n$ can be
+written as a product of finitely many primes.
+\end{proposition}
+
+\begin{example}
+\label{exa.ent.primes.fac-ex}\textbf{(a)} The integer $60$ can be written as a
+product of four primes: namely, $60=2\cdot2\cdot3\cdot5$.
+
+\textbf{(b)} The integer $1$ is the product of $0$ many primes (because a
+product of $0$ many primes is the empty product, which is defined to be $1$).
+\end{example}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.ent.primes.fac-ex}.]We shall prove Proposition
+\ref{prop.ent.primes.fac-ex} by strong induction on $n$. Thus, we fix a
+positive integer $N$, and we assume (as the induction hypothesis) that
+Proposition \ref{prop.ent.primes.fac-ex} holds whenever $n<N$. We must now
+prove that Proposition \ref{prop.ent.primes.fac-ex} holds for $n=N$. In other
+words, we must prove that $N$ can be written as a product of finitely many primes.
+
+If $N=1$, then this is obvious (because $1$ is a product of $0$ many
+primes\footnote{See Example \ref{exa.ent.primes.fac-ex} \textbf{(b)}.}). Thus,
+for the rest of this proof, we WLOG assume that $N\neq1$. Hence, $N>1$ (since
+$N$ is a positive integer). Therefore, Proposition
+\ref{prop.ent.primes.ex-pri-div} (applied to $n=N$) shows that there exists at
+least one prime $p$ such that $p\mid N$. Consider this $p$.
+
+We have $p\mid N$. In other words, there exists an integer $c$ such that
+$N=pc$. Consider this $c$. We have $p>1$ (since $p$ is prime); thus, $p$ is
+positive. Hence, $p\neq0$. Thus, solving the equality $N=pc$ for $c$, we find
+$c=N/\underbrace{p}_{>1}<N/1$ (since $N$ is positive), so that $c<N/1=N$. But
+our induction hypothesis says that Proposition \ref{prop.ent.primes.fac-ex}
+holds whenever $n<N$. Hence, we can apply Proposition
+\ref{prop.ent.primes.fac-ex} to $n=c$ (since $c<N$). We thus conclude that $c$
+can be written as a product of finitely many primes. In other words, there
+exist primes $q_{1},q_{2},\ldots,q_{k}$ such that $c=q_{1}q_{2}\cdots q_{k}$.
+Consider these $q_{1},q_{2},\ldots,q_{k}$.
+
+But%
+\[
+N=p\underbrace{c}_{=q_{1}q_{2}\cdots q_{k}}=pq_{1}q_{2}\cdots q_{k}.
+\]
+Hence, $N$ can be written as a product of finitely many primes (namely, of the
+primes $p,q_{1},q_{2},\ldots,q_{k}$). In other words, Proposition
+\ref{prop.ent.primes.fac-ex} holds for $n=N$. This completes the induction
+step. Hence, Proposition \ref{prop.ent.primes.fac-ex} is proven by strong induction.
+\end{proof}
+
+Proposition \ref{prop.ent.primes.fac-ex} shows that every positive integer $n$
+can be represented as a product of finitely many primes. Such a representation
+-- or, more precisely, the list of the primes it contains -- will be called
+the \textit{prime factorization} of $n$. Rigorously speaking, this means that
+we make the following definition:
+
+\begin{definition}
+Let $n$ be a positive integer. A \textit{prime factorization} of $n$ means a
+tuple $\left(  p_{1},p_{2},\ldots,p_{k}\right)  $ of primes such that
+$n=p_{1}p_{2}\cdots p_{k}$.
+\end{definition}
+
+\begin{example}
+\textbf{(a)} The prime factorizations of $12$ are%
+\[
+\left(  2,2,3\right)  ,\ \ \ \ \ \ \ \ \ \ \left(  2,3,2\right)
+,\ \ \ \ \ \ \ \ \ \ \left(  3,2,2\right)  .
+\]
+Indeed, these three $3$-tuples are prime factorizations of $12$ because
+$12=2\cdot2\cdot3=2\cdot3\cdot2=3\cdot2\cdot2$. It is not hard to check that
+they are the only prime factorizations of $12$.
+
+\textbf{(b)} If $p$ is a prime, then the only prime factorization of $p$ is
+the $1$-tuple $\left(  p\right)  $.
+
+\textbf{(c)} If $p$ is a prime and $i\in\mathbb{N}$, then the only prime
+factorization of $p^{i}$ is the $i$-tuple $\left(  \underbrace{p,p,\ldots
+,p}_{i\text{ times}}\right)  $. This is not quite obvious at this point
+(though it is not hard to derive from Proposition \ref{prop.ent.primes.pabk}).
+
+\textbf{(d)} The only prime factorization of $1$ is the $0$-tuple $\left(
+{}\right)  $.
+\end{example}
+
+This example suggests that all prime factorizations of a given positive
+integer $n$ are equal to each other up to the order of their entries (i.e.,
+are permutations of each other). This is indeed true, and we are going to
+prove this soon.
+
+\subsubsection{$p$-valuations}
+
+TODO: write from here:
+
+\begin{lemma}
+\label{lem.ent.prime.vp-wd}Let $p$ be a prime. Let $n$ be a nonzero integer.
+Then, there exists a largest $m\in\mathbb{N}$ such that $p^{m}\mid n$.
+\end{lemma}
+
+\begin{proof}
+[Proof of Lemma \ref{lem.ent.prime.vp-wd}.] TODO: $p^{m}\mid n$ implies
+$\left\vert n\right\vert \geq p^{m}$.
+\end{proof}
+
+\begin{definition}
+Let $p$ be a prime.
+
+\textbf{(a)} Let $n$ be a nonzero integer. Let $v_{p}\left(  n\right)  $
+(called the $p$\textit{-valuation} or the $p$\textit{-adic valuation} of $n$)
+denote the largest $m\in\mathbb{N}$ such that $p^{m}\mid n$. This is
+well-defined, by Lemma \ref{lem.ent.prime.vp-wd}.
+
+\textbf{(b)} Set $v_{p}\left(  0\right)  =\infty$, where $\infty$ is a symbol
+which we take to satisfy%
+\begin{align*}
+\infty+k &  =\infty;\ \ \ \ \ \ \ \ \ \ \min\left(  S\cup\left\{
+\infty\right\}  \right)  =\min S\text{ if }S\neq\varnothing;\\
+\max\left(  S\cup\left\{  \infty\right\}  \right)   &  =\infty
+;\ \ \ \ \ \ \ \ \ \ k\leq\infty\text{ for each }k\in\mathbb{N}.
+\end{align*}
+(Careful: $\infty-\infty$ is not defined.)
+\end{definition}
+
+
+
+\begin{example}
+$v_{5}\left(  50\right)  =2$.
+
+$v_{5}\left(  51\right)  =0$.
+
+$v_{5}\left(  55\right)  =1$.
+
+$v_{5}\left(  0\right)  =\infty$.
+\end{example}
+
+\begin{lemma}
+Let $p$ be a prime. Let $i\in\mathbb{N}$. Let $n\in\mathbb{Z}$. Then,
+$p^{i}\mid n$ if and only if $v_{p}\left(  n\right)  \geq i$.
+\end{lemma}
+
+\begin{proof}
+First, we WLOG assume that $n\neq0$ (since otherwise, $p^{i}\mid n$ and
+$v_{p}\left(  n\right)  \geq i$ are both true). Now:
+
+$\Longrightarrow:$ Assume $p^{i}\mid n$. Thus, $i$ is an $m\in\mathbb{N}$ such
+that $p^{m}\mid n$. But $v_{p}\left(  n\right)  $ is the \textbf{largest} such
+$m$. Hence, $v_{p}\left(  n\right)  \geq i$.
+
+$\Longleftarrow:$ Assume $v_{p}\left(  n\right)  \geq i$. Hence, $p^{i}\mid
+p^{v_{p}\left(  n\right)  }$.
+
+But $p^{v_{p}\left(  n\right)  }\mid n$ (since $v_{p}\left(  n\right)  $ is
+the largest $m\in\mathbb{N}$ such that $p^{m}\mid n$).
+
+So $p^{i}\mid p^{v_{p}\left(  n\right)  }\mid n$.
+\end{proof}
+
+\begin{theorem}
+Let $p$ be a prime, and $a$ and $b$ two integers.
+
+\textbf{(a)} We have $v_{p}\left(  ab\right)  =v_{p}\left(  a\right)
++v_{p}\left(  b\right)  $.
+
+\textbf{(b)} We have $v_{p}\left(  a+b\right)  \geq\min\left\{  v_{p}\left(
+a\right)  ,v_{p}\left(  b\right)  \right\}  $.
+\end{theorem}
+
+\begin{proof}
+\textbf{(a)} WLOG assume that $a,b$ are nonzero.
+
+The definition of $v_{p}\left(  a\right)  $ yields that $p^{v_{p}\left(
+a\right)  }\mid a$ but $p^{v_{p}\left(  a\right)  +1}\nmid a$.
+
+Hence, $x:=a/p^{v_{p}\left(  a\right)  }$ is an integer but is not divisible
+by $p$. Thus, $x\perp p$ (by our previous proposition).
+
+Similarly, $y:=b/p^{v_{p}\left(  b\right)  }$ is an integer and $y\perp p$.
+
+From $x\perp p$ and $y\perp p$, we obtain $xy\perp p$.
+
+Now,
+\[
+ab/p^{v_{p}\left(  a\right)  +v_{p}\left(  b\right)  }=\underbrace{\left(
+a/p^{v_{p}\left(  a\right)  }\right)  }_{=x}\cdot\underbrace{\left(
+b/p^{v_{p}\left(  b\right)  }\right)  }_{=y}=xy
+\]
+is an integer coprime to $p$, hence not divisible by $p$. This means that
+$p^{v_{p}\left(  a\right)  +v_{p}\left(  b\right)  }\mid ab$ but no larger
+power of $p$ divides $ab$. This means $v_{p}\left(  ab\right)  =v_{p}\left(
+a\right)  +v_{p}\left(  b\right)  $.
+
+\textbf{(b)} Exercise.
+\end{proof}
+
+\begin{corollary}
+Let $p$ be a prime. Let $a_{1},a_{2},\ldots,a_{k}$ be $k$ integers. Then,
+$v_{p}\left(  a_{1}a_{2}\cdots a_{k}\right)  =v_{p}\left(  a_{1}\right)
++v_{p}\left(  a_{2}\right)  +\cdots+v_{p}\left(  a_{k}\right)  $.
+\end{corollary}
+
+\begin{proof}
+Induction, using the preceding theorem.
+\end{proof}
+
+\begin{proposition}
+Let $n$ be a positive integer. Let $\left(  a_{1},a_{2},\ldots,a_{k}\right)  $
+be a prime factorization of $n$. Let $p$ be a prime. Then, $p$ appears exactly
+$v_{p}\left(  n\right)  $ many times in $\left(  a_{1},a_{2},\ldots
+,a_{k}\right)  $.
+\end{proposition}
+
+\begin{proof}
+We have $n=a_{1}a_{2}\cdots a_{k}$ (since $\left(  a_{1},a_{2},\ldots
+,a_{k}\right)  $ is a prime factorization of $n$). Thus,
+\begin{align*}
+v_{p}\left(  n\right)   &  =v_{p}\left(  a_{1}a_{2}\cdots a_{k}\right) \\
+&  =v_{p}\left(  a_{1}\right)  +v_{p}\left(  a_{2}\right)  +\cdots
++v_{p}\left(  a_{k}\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Corollary
+above}\right) \\
+&  =\sum_{i=1}^{k}\underbrace{v_{p}\left(  a_{i}\right)  }_{\substack{=%
+\begin{cases}
+1, & \text{if }a_{i}=p;\\
+0, & \text{if }a_{i}\neq p
+\end{cases}
+\\\text{(since }a_{i}\text{ is prime)}}}=\sum_{i=1}^{k}%
+\begin{cases}
+1, & \text{if }a_{i}=p;\\
+0, & \text{if }a_{i}\neq p
+\end{cases}
+\\
+&  =\left(  \text{the number of }i\text{'s such that }a_{i}=p\right) \\
+&  =\left(  \text{the number of times }p\text{ appears in }\left(  a_{1}%
+,a_{2},\ldots,a_{k}\right)  \right)  .
+\end{align*}
+
+\end{proof}
+
+\begin{theorem}
+(Fundamental Theorem of Arithmetic) Let $n$ be a positive integer.
+
+\textbf{(a)} There exists a prime factorization of $n$.
+
+\textbf{(b)} Any two such factorizations differ only in the order of their
+entries (i.e., are permutations of each other).
+\end{theorem}
+
+\begin{proof}
+\textbf{(a)} Proven above.
+
+\textbf{(b)} Let $\left(  a_{1},a_{2},\ldots,a_{k}\right)  $ and $\left(
+b_{1},b_{2},\ldots,b_{\ell}\right)  $ be two prime factorizations of $n$.
+Then, any prime $p$ appears equally often in $\left(  a_{1},a_{2},\ldots
+,a_{k}\right)  $ and in $\left(  b_{1},b_{2},\ldots,b_{\ell}\right)  $
+(because it appears $v_{p}\left(  n\right)  $ many times in each of these
+factorizations, according to the Proposition we just proved). Thus, the
+factorizations $\left(  a_{1},a_{2},\ldots,a_{k}\right)  $ and $\left(
+b_{1},b_{2},\ldots,b_{\ell}\right)  $ have the same entries appear equally
+often. Thus, they only differ in the order of their entries.
+\end{proof}
+
+\begin{corollary}
+Let $n$ be a positive integer. Then,%
+\[
+n=\prod_{p\text{ prime}}p^{v_{p}\left(  n\right)  }.
+\]
+
+
+Here, the product is infinite (since there are infinitely many primes -- see
+below), but all but finitely many of its factors equal $1$ and thus can be
+thrown away.
+\end{corollary}
+
+This expression $n=\prod_{p\text{ prime}}p^{v_{p}\left(  n\right)  }$ is
+called the \textbf{canonical factorization} of $n$.
+
+\begin{definition}
+Let $n$ be a positive integer. The \textbf{prime divisors} (aka \textbf{prime
+factors}) of $n$ are just the primes $p$ that divide $n$.
+\end{definition}
+
+\begin{proposition}
+Let $n$ and $m$ be integers. Then, $n\mid m$ if and only if each prime $p$
+satisfies $v_{p}\left(  n\right)  \leq v_{p}\left(  m\right)  $.
+\end{proposition}
+
+\begin{proof}
+We WLOG assume that $n$ and $m$ are nonzero.
+
+We WLOG assume that $n$ and $m$ are positive.
+
+Then, $n=\prod_{p\text{ prime}}p^{v_{p}\left(  n\right)  }$ and $m=\prod
+_{p\text{ prime}}p^{v_{p}\left(  m\right)  }$. This yields the $\Longleftarrow
+$ implication.
+
+$\Longrightarrow:$ If $n\mid m$, then you can divide $m$ at least as many
+times by $p$ as you can divide $n$. So $v_{p}\left(  n\right)  \leq
+v_{p}\left(  m\right)  $.
+\end{proof}
 
 \begin{itemize}
-\item Note: converse holds too (for $p>1$).
-
-\item each $n>0$ is prod of primes (allow empty)
-
-\item unique prod of primes
-
-\item factorization with exponents
-
-\item \textquotedblleft prime factors\textquotedblright\ and canonical factorization
-
 \item $\gcd$ and $\operatorname{lcm}$ via canonical factorization
 
 \item coprimality means not having any primes in common
+
+\item there are $\infty$ many primes
+
+\item define $\phi\left(  n\right)  $
+
+\item examples
+
+\item prove $\sum_{d\mid n}\phi\left(  d\right)  =n$
 \end{itemize}
 
 \begin{thebibliography}{999999999}                                                                                        %
