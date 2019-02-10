@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Saturday, February 09, 2019 19:54:43}
+%TCIDATA{LastRevised=Sunday, February 10, 2019 11:00:15}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -2214,6 +2214,270 @@ the reflexivity of divisibility (Proposition \ref{prop.ent.div.2}
 \ref{prop.ent.div.2} \textbf{(b)}).
 
 Again, chains of divisibilities can include equality signs.
+
+\subsection{\label{sect.ent.subst-mod}Substitutivity for congruences}
+
+In\ Section \ref{sect.ent.subst-chain}, we have learnt that congruences modulo
+an integer $n$ can be chained together like equalities. A further important
+feature of congruences is the principle of \textit{substitutivity for
+congruences}. This is yet another way in which congruences behave like
+equalities. We are not going to state it fully formally (as it is a
+meta-mathematical principle), but merely explain its meaning. Later on, once
+we understand what the rings $\mathbb{Z}/n$ (for integer $n$) are, we will no
+longer need this principle, since it will just boil down to \textquotedblleft
+equal things can be substituted for one another\textquotedblright\ (the whole
+point of $\mathbb{Z}/n$ is to \textquotedblleft make congruent numbers
+equal\textquotedblright); but for now, we cannot treat \textquotedblleft
+congruent modulo $n$\textquotedblright\ as \textquotedblleft
+equal\textquotedblright, so we have to state it.
+
+You are probably used to making computations like these:%
+\begin{align*}
+\underbrace{\left(  a+b\right)  ^{2}}_{=a^{2}+2ab+b^{2}}+\underbrace{\left(
+a-b\right)  ^{2}}_{=a^{2}-2ab+b^{2}}  &  =\left(  a^{2}+2ab+b^{2}\right)
++\left(  a^{2}-2ab+b^{2}\right) \\
+&  =\underbrace{a^{2}+a^{2}}_{=2a^{2}}+\underbrace{b^{2}+b^{2}}_{=2b^{2}%
+}=2a^{2}+2b^{2}%
+\end{align*}
+(for any two numbers $a$ and $b$). What is going on in these underbraces (like
+\textquotedblleft$\underbrace{\left(  a+b\right)  ^{2}}_{=a^{2}+2ab+b^{2}}%
+$\textquotedblright)? Something pretty simple is going on: You are replacing a
+number (in this case, $\left(  a+b\right)  ^{2}$) by an equal number (in this
+case, $a^{2}+2ab+b^{2}$). This relies on a fundamental principle of
+mathematics (called the \textit{principle of substitutivity for equalities}),
+which says that an object in an expression can indeed be replaced by any
+object equal to it (without changing the value of the expression). (This is
+also known as \textit{Leibniz's equality law}.) To be precise, we are using
+this principle twice in some of our equality signs above, since we are making
+several replacements at the same time; but this is fine (we can just do the
+replacement one by one instead).
+
+We would like to have a similar principle for congruences modulo $n$: We would
+like to be able to replace any integer by an integer congruent to it modulo
+$n$. For example, we would like to be able to say that if seven integers
+$a,a^{\prime},b,b^{\prime},c,c^{\prime},n$ satisfy $a\equiv a^{\prime
+}\operatorname{mod}n$ and $b\equiv b^{\prime}\operatorname{mod}n$ and $c\equiv
+c^{\prime}\operatorname{mod}n$, then%
+\[
+\underbrace{b}_{\equiv b^{\prime}\operatorname{mod}n}\ \ \underbrace{c}%
+_{\equiv c^{\prime}\operatorname{mod}n}+\underbrace{c}_{\equiv c^{\prime
+}\operatorname{mod}n}\ \ \underbrace{a}_{\equiv a^{\prime}\operatorname{mod}%
+n}+\underbrace{a}_{\equiv a^{\prime}\operatorname{mod}n}\ \ \underbrace{b}%
+_{\equiv b^{\prime}\operatorname{mod}n}\equiv b^{\prime}c^{\prime}+c^{\prime
+}a^{\prime}+a^{\prime}b^{\prime}\operatorname{mod}n.
+\]
+
+
+We have to be careful with this: For example, we run into troubles if division
+is involved in our expressions. For example, we have $6\equiv
+9\operatorname{mod}3$, but we do not have $\underbrace{6}_{\equiv
+9\operatorname{mod}3}/3\equiv9/3\operatorname{mod}3$. Similarly,
+exponentiation can be problematic. So we need to state the principle we are
+using here in clearer terms, so that we know what we can do.
+
+For this whole Section \ref{sect.ent.subst-mod}, we fix an integer $n$.
+
+The \textit{principle of substitutivity for equalities} says the following:
+
+\begin{statement}
+\textit{Principle of substitutivity for equalities (PSE):} If two objects $x$
+and $x^{\prime}$ are equal, and if we have any expression $A$ that involves
+the object $x$, then we can replace this $x$ (or, more precisely, any
+arbitrary appearance of $x$ in $A$) in $A$ by $x^{\prime}$; the resulting
+expression $A^{\prime}$ will be equal to $A$.
+\end{statement}
+
+Here are two examples of how this principle can be used:
+
+\begin{itemize}
+\item If $a,b,c,d,e,c^{\prime}$ are numbers such that $c=c^{\prime}$, then the
+PSE says that we can replace $c$ by $c^{\prime}$ in the expression $a\left(
+b-\left(  c+d\right)  e\right)  $, and the resulting expression $a\left(
+b-\left(  c^{\prime}+d\right)  e\right)  $ will be equal to $a\left(
+b-\left(  c+d\right)  e\right)  $; that is, we have%
+\begin{equation}
+a\left(  b-\left(  c+d\right)  e\right)  =a\left(  b-\left(  c^{\prime
+}+d\right)  e\right)  . \label{eq.mod.substitutivity-nums.1}%
+\end{equation}
+
+
+\item If $a,b,c,a^{\prime}$ are numbers such that $a=a^{\prime}$, then
+\begin{equation}
+\left(  a-b\right)  \left(  a+b\right)  =\left(  a^{\prime}-b\right)  \left(
+a+b\right)  , \label{eq.mod.substitutivity-nums.2}%
+\end{equation}
+because the PSE allows us to replace the first $a$ appearing in the expression
+$\left(  a-b\right)  \left(  a+b\right)  $ by an $a^{\prime}$. (We can also
+replace the second $a$ by $a^{\prime}$, of course.)
+\end{itemize}
+
+More generally, we can make several such replacements at the same time.
+
+The PSE is one of the headstones of mathematical logic; it is the essence of
+what it means for two objects to be equal.
+
+The \textit{principle of substitutivity for congruences} is similar, but far
+less fundamental; it says the following:
+
+\begin{statement}
+\textit{Principle of substitutivity for congruences (PSC):} If two numbers $x$
+and $x^{\prime}$ are congruent to each other modulo $n$ (that is, $x\equiv
+x^{\prime}\operatorname{mod}n$), and if we have any expression $A$ that
+involves only integers, addition, subtraction and multiplication, and involves
+the object $x$, then we can replace this $x$ (or, more precisely, any
+arbitrary appearance of $x$ in $A$) in $A$ by $x^{\prime}$; the resulting
+expression $A^{\prime}$ will be congruent to $A$ modulo $n$.
+\end{statement}
+
+This principle is less general than the PSE, since it only applies to
+expressions that are built from integers and certain operations (note that
+division is not one of these operations). But it still lets us prove analogues
+of our above examples (\ref{eq.mod.substitutivity-nums.1}) and
+(\ref{eq.mod.substitutivity-nums.2}):
+
+\begin{itemize}
+\item If $a,b,c,d,e,c^{\prime}$ are integers such that $c\equiv c^{\prime
+}\operatorname{mod}n$, then the PSC says that we can replace $c$ by
+$c^{\prime}$ in the expression $a\left(  b-\left(  c+d\right)  e\right)  $,
+and the resulting expression $a\left(  b-\left(  c^{\prime}+d\right)
+e\right)  $ will be congruent to $a\left(  b-\left(  c+d\right)  e\right)  $
+modulo $n$; that is, we have%
+\begin{equation}
+a\left(  b-\left(  c+d\right)  e\right)  \equiv a\left(  b-\left(  c^{\prime
+}+d\right)  e\right)  \operatorname{mod}n.
+\label{eq.mod.substitutivity-congs.1}%
+\end{equation}
+
+
+\item If $a,b,c,a^{\prime}$ are integers such that $a\equiv a^{\prime
+}\operatorname{mod}n$, then
+\begin{equation}
+\left(  a-b\right)  \left(  a+b\right)  \equiv\left(  a^{\prime}-b\right)
+\left(  a+b\right)  \operatorname{mod}n, \label{eq.mod.substitutivity-congs.2}%
+\end{equation}
+because the PSC allows us to replace the first $a$ appearing in the expression
+$\left(  a-b\right)  \left(  a+b\right)  $ by an $a^{\prime}$. (We can also
+replace the second $a$ by $a^{\prime}$, of course.)
+\end{itemize}
+
+We shall not prove the PSC, since we have not formalized it (after all, we
+have not defined what an \textquotedblleft expression\textquotedblright\ is).
+But we shall prove the specific congruences
+(\ref{eq.mod.substitutivity-congs.1}) and (\ref{eq.mod.substitutivity-congs.2}%
+) using Proposition \ref{prop.ent.mod.basics}; the way in which we prove these
+congruences is symptomatic: Every congruence obtained from the PSC can be
+proven in a manner like these. Thus, the proofs of
+(\ref{eq.mod.substitutivity-congs.1}) and (\ref{eq.mod.substitutivity-congs.2}%
+) given below can serve as templates which can easily be adapted to any other
+situation in which an application of the PSC needs to be justified.
+
+\begin{proof}
+[Proof of (\ref{eq.mod.substitutivity-congs.1}).]Let $n$ be any integer, and
+let $a,b,c,d,e,c^{\prime}$ be integers such that $c\equiv c^{\prime
+}\operatorname{mod}n$.
+
+Adding the congruence\footnote{Proposition \ref{prop.ent.mod.basics}
+\textbf{(d)} shows that we can add, subtract and multiply congruences modulo
+$n$ at will. We are using this freedom here and will use it many times below.}
+$c\equiv c^{\prime}\operatorname{mod}n$ with the congruence $d\equiv
+d\operatorname{mod}n$ (which follows from Proposition
+\ref{prop.ent.mod.basics} \textbf{(a)}), we obtain $c+d\equiv c^{\prime
+}+d\operatorname{mod}n$. Multiplying this congruence with the congruence
+$e\equiv e\operatorname{mod}n$ (which follows from Proposition
+\ref{prop.ent.mod.basics} \textbf{(a)}), we obtain $\left(  c+d\right)
+e\equiv\left(  c^{\prime}+d\right)  e\operatorname{mod}n$. Subtracting this
+congruence from the congruence $b\equiv b\operatorname{mod}n$ (which, again,
+follows from Proposition \ref{prop.ent.mod.basics} \textbf{(a)}), we obtain
+$b-\left(  c+d\right)  e\equiv b-\left(  c^{\prime}+d\right)
+e\operatorname{mod}n$. Multiplying the congruence $a\equiv a\operatorname{mod}%
+n$ (which follows from Proposition \ref{prop.ent.mod.basics} \textbf{(a)})
+with this congruence, we obtain $a\left(  b-\left(  c+d\right)  e\right)
+\equiv a\left(  b-\left(  c^{\prime}+d\right)  e\right)  \operatorname{mod}n$.
+This proves (\ref{eq.mod.substitutivity-congs.1}).
+\end{proof}
+
+\begin{proof}
+[Proof of (\ref{eq.mod.substitutivity-congs.2}).]Let $n$ be any integer, and
+let $a,b,c,a^{\prime}$ be integers such that $a\equiv a^{\prime}%
+\operatorname{mod}n$.
+
+Subtracting the congruence $b\equiv b\operatorname{mod}n$ (which follows from
+Proposition \ref{prop.ent.mod.basics} \textbf{(a)}) from the congruence
+$a\equiv a^{\prime}\operatorname{mod}n$, we obtain $a-b\equiv a^{\prime
+}-b\operatorname{mod}n$. Multiplying this congruence with the congruence
+$a+b\equiv a+b\operatorname{mod}n$ (which follows from Proposition
+\ref{prop.ent.mod.basics} \textbf{(a)}), we obtain $\left(  a-b\right)
+\left(  a+b\right)  \equiv\left(  a^{\prime}-b\right)  \left(  a+b\right)
+\operatorname{mod}n$. This proves (\ref{eq.mod.substitutivity-congs.2}).
+\end{proof}
+
+As we said, these two proofs are exemplary: Any congruence obtained from the
+PSC can be proven in such a way (starting with the congruence $x\equiv
+x^{\prime}\operatorname{mod}n$, and then \textquotedblleft
+wrapping\textquotedblright\ it up in the expression $A$ by repeatedly adding,
+multiplying and subtracting congruences that follow from Proposition
+\ref{prop.ent.mod.basics} \textbf{(a)}).
+
+When we apply the PSC, we shall use underbraces to point out which integers we
+are replacing. For example, when deriving (\ref{eq.mod.substitutivity-congs.1}%
+) from this principle, we shall write%
+\[
+a\left(  b-\left(  \underbrace{c}_{\equiv c^{\prime}\operatorname{mod}%
+n}+d\right)  e\right)  \equiv a\left(  b-\left(  c^{\prime}+d\right)
+e\right)  \operatorname{mod}n,
+\]
+in order to stress that we are replacing $c$ by $c^{\prime}$. Likewise, when
+deriving (\ref{eq.mod.substitutivity-congs.2}) from the PSC, we shall write%
+\[
+\left(  \underbrace{a}_{\equiv a^{\prime}\operatorname{mod}n}-b\right)
+\left(  a+b\right)  \equiv\left(  a^{\prime}-b\right)  \left(  a+b\right)
+\operatorname{mod}n,
+\]
+in order to stress that we are replacing the first $a$ (but not the second
+$a$) by $a^{\prime}$.
+
+The PSC allows us to replace a \textbf{single} integer $x$ appearing in an
+expression by another integer $x^{\prime}$ that is congruent to $x$ modulo
+$n$. Applying this principle many times, we thus conclude that we can also
+replace \textbf{several} integers at the same time (because we can get to the
+same result by performing these replacements one at a time, and Proposition
+\ref{prop.mod.chain} shows that the final result will be congruent to the
+original result). For example, if seven integers $a,a^{\prime},b,b^{\prime
+},c,c^{\prime},n$ satisfy $a\equiv a^{\prime}\operatorname{mod}n$ and $b\equiv
+b^{\prime}\operatorname{mod}n$ and $c\equiv c^{\prime}\operatorname{mod}n$,
+then%
+\begin{equation}
+bc+ca+ab\equiv b^{\prime}c^{\prime}+c^{\prime}a^{\prime}+a^{\prime}b^{\prime
+}\operatorname{mod}n,\label{eq.mod.substitutivity-congs.3}%
+\end{equation}
+because we can replace all the six integers $b,c,c,a,a,b$ in the expression
+$bc+ca+ab$ (listed in the order of their appearance in this expression) by
+$b^{\prime},c^{\prime},c^{\prime},a^{\prime},a^{\prime},b^{\prime}$,
+respectively. If we want to derive this from the principle of substitutivity
+for congruences, we must perform the replacements one at a time, e.g., as
+follows:%
+\begin{align*}
+\underbrace{b}_{\equiv b^{\prime}\operatorname{mod}n}c+ca+ab &  \equiv
+b^{\prime}\underbrace{c}_{\equiv c^{\prime}\operatorname{mod}n}+ca+ab\equiv
+b^{\prime}c^{\prime}+\underbrace{c}_{\equiv c^{\prime}\operatorname{mod}%
+n}a+ab\\
+&  \equiv b^{\prime}c^{\prime}+c^{\prime}\underbrace{a}_{\equiv a^{\prime
+}\operatorname{mod}n}+ab\equiv b^{\prime}c^{\prime}+c^{\prime}a^{\prime
+}+\underbrace{a}_{\equiv a^{\prime}\operatorname{mod}n}b\\
+&  \equiv b^{\prime}c^{\prime}+c^{\prime}a^{\prime}+a^{\prime}\underbrace{b}%
+_{\equiv b^{\prime}\operatorname{mod}n}\equiv b^{\prime}c^{\prime}+c^{\prime
+}a^{\prime}+a^{\prime}b^{\prime}\operatorname{mod}n.
+\end{align*}
+Of course, we shall always just show the replacements as a single step:%
+\[
+\underbrace{b}_{\equiv b^{\prime}\operatorname{mod}n}\ \ \underbrace{c}%
+_{\equiv c^{\prime}\operatorname{mod}n}+\underbrace{c}_{\equiv c^{\prime
+}\operatorname{mod}n}\ \ \underbrace{a}_{\equiv a^{\prime}\operatorname{mod}%
+n}+\underbrace{a}_{\equiv a^{\prime}\operatorname{mod}n}\ \ \underbrace{b}%
+_{\equiv b^{\prime}\operatorname{mod}n}\equiv b^{\prime}c^{\prime}+c^{\prime
+}a^{\prime}+a^{\prime}b^{\prime}\operatorname{mod}n.
+\]
+
 
 \begin{center}
 \textbf{2019-02-01 lecture}
@@ -6396,7 +6660,8 @@ integers. Let $a_{1},a_{2},\ldots,a_{k}\in\mathbb{Z}$.
 
 \textbf{(a)} There exists an integer $x$ such that
 \[
-\left(  x\equiv a_{i}\operatorname{mod}m_{i}\text{ for all }i\right)  .
+\left(  x\equiv a_{i}\operatorname{mod}m_{i}\text{ for all }i\in\left\{
+1,2,\ldots,k\right\}  \right)  .
 \]
 
 
@@ -6490,270 +6755,6 @@ TODO:
 
 \item coprimality means not having any primes in common
 \end{itemize}
-
-\subsection{\label{sect.ent.subst-mod}Substitutivity for congruences}
-
-In\ Section \ref{sect.ent.subst-chain}, we have learnt that congruences modulo
-an integer $n$ can be chained together like equalities. A further important
-feature of congruences is the principle of \textit{substitutivity for
-congruences}. This is yet another way in which congruences behave like
-equalities. We are not going to state it fully formally (as it is a
-meta-mathematical principle), but merely explain its meaning. Later on, once
-we understand what the rings $\mathbb{Z}/n$ (for integer $n$) are, we will no
-longer need this principle, since it will just boil down to \textquotedblleft
-equal things can be substituted for one another\textquotedblright\ (the whole
-point of $\mathbb{Z}/n$ is to \textquotedblleft make congruent numbers
-equal\textquotedblright); but for now, we cannot treat \textquotedblleft
-congruent modulo $n$\textquotedblright\ as \textquotedblleft
-equal\textquotedblright, so we have to state it.
-
-You are probably used to making computations like these:%
-\begin{align*}
-\underbrace{\left(  a+b\right)  ^{2}}_{=a^{2}+2ab+b^{2}}+\underbrace{\left(
-a-b\right)  ^{2}}_{=a^{2}-2ab+b^{2}}  &  =\left(  a^{2}+2ab+b^{2}\right)
-+\left(  a^{2}-2ab+b^{2}\right) \\
-&  =\underbrace{a^{2}+a^{2}}_{=2a^{2}}+\underbrace{b^{2}+b^{2}}_{=2b^{2}%
-}=2a^{2}+2b^{2}%
-\end{align*}
-(for any two numbers $a$ and $b$). What is going on in these underbraces (like
-\textquotedblleft$\underbrace{\left(  a+b\right)  ^{2}}_{=a^{2}+2ab+b^{2}}%
-$\textquotedblright)? Something pretty simple is going on: You are replacing a
-number (in this case, $\left(  a+b\right)  ^{2}$) by an equal number (in this
-case, $a^{2}+2ab+b^{2}$). This relies on a fundamental principle of
-mathematics (called the \textit{principle of substitutivity for equalities}),
-which says that an object in an expression can indeed be replaced by any
-object equal to it (without changing the value of the expression). (This is
-also known as \textit{Leibniz's equality law}.) To be precise, we are using
-this principle twice in some of our equality signs above, since we are making
-several replacements at the same time; but this is fine (we can just do the
-replacement one by one instead).
-
-We would like to have a similar principle for congruences modulo $n$: We would
-like to be able to replace any integer by an integer congruent to it modulo
-$n$. For example, we would like to be able to say that if seven integers
-$a,a^{\prime},b,b^{\prime},c,c^{\prime},n$ satisfy $a\equiv a^{\prime
-}\operatorname{mod}n$ and $b\equiv b^{\prime}\operatorname{mod}n$ and $c\equiv
-c^{\prime}\operatorname{mod}n$, then%
-\[
-\underbrace{b}_{\equiv b^{\prime}\operatorname{mod}n}\ \ \underbrace{c}%
-_{\equiv c^{\prime}\operatorname{mod}n}+\underbrace{c}_{\equiv c^{\prime
-}\operatorname{mod}n}\ \ \underbrace{a}_{\equiv a^{\prime}\operatorname{mod}%
-n}+\underbrace{a}_{\equiv a^{\prime}\operatorname{mod}n}\ \ \underbrace{b}%
-_{\equiv b^{\prime}\operatorname{mod}n}\equiv b^{\prime}c^{\prime}+c^{\prime
-}a^{\prime}+a^{\prime}b^{\prime}\operatorname{mod}n.
-\]
-
-
-We have to be careful with this: For example, we run into troubles if division
-is involved in our expressions. For example, we have $6\equiv
-9\operatorname{mod}3$, but we do not have $\underbrace{6}_{\equiv
-9\operatorname{mod}3}/3\equiv9/3\operatorname{mod}3$. Similarly,
-exponentiation can be problematic. So we need to state the principle we are
-using here in clearer terms, so that we know what we can do.
-
-For this whole Section \ref{sect.ent.subst-mod}, we fix an integer $n$.
-
-The \textit{principle of substitutivity for equalities} says the following:
-
-\begin{statement}
-\textit{Principle of substitutivity for equalities (PSE):} If two objects $x$
-and $x^{\prime}$ are equal, and if we have any expression $A$ that involves
-the object $x$, then we can replace this $x$ (or, more precisely, any
-arbitrary appearance of $x$ in $A$) in $A$ by $x^{\prime}$; the resulting
-expression $A^{\prime}$ will be equal to $A$.
-\end{statement}
-
-Here are two examples of how this principle can be used:
-
-\begin{itemize}
-\item If $a,b,c,d,e,c^{\prime}$ are numbers such that $c=c^{\prime}$, then the
-PSE says that we can replace $c$ by $c^{\prime}$ in the expression $a\left(
-b-\left(  c+d\right)  e\right)  $, and the resulting expression $a\left(
-b-\left(  c^{\prime}+d\right)  e\right)  $ will be equal to $a\left(
-b-\left(  c+d\right)  e\right)  $; that is, we have%
-\begin{equation}
-a\left(  b-\left(  c+d\right)  e\right)  =a\left(  b-\left(  c^{\prime
-}+d\right)  e\right)  . \label{eq.mod.substitutivity-nums.1}%
-\end{equation}
-
-
-\item If $a,b,c,a^{\prime}$ are numbers such that $a=a^{\prime}$, then
-\begin{equation}
-\left(  a-b\right)  \left(  a+b\right)  =\left(  a^{\prime}-b\right)  \left(
-a+b\right)  , \label{eq.mod.substitutivity-nums.2}%
-\end{equation}
-because the PSE allows us to replace the first $a$ appearing in the expression
-$\left(  a-b\right)  \left(  a+b\right)  $ by an $a^{\prime}$. (We can also
-replace the second $a$ by $a^{\prime}$, of course.)
-\end{itemize}
-
-More generally, we can make several such replacements at the same time.
-
-The PSE is one of the headstones of mathematical logic; it is the essence of
-what it means for two objects to be equal.
-
-The \textit{principle of substitutivity for congruences} is similar, but far
-less fundamental; it says the following:
-
-\begin{statement}
-\textit{Principle of substitutivity for congruences (PSC):} If two numbers $x$
-and $x^{\prime}$ are congruent to each other modulo $n$ (that is, $x\equiv
-x^{\prime}\operatorname{mod}n$), and if we have any expression $A$ that
-involves only integers, addition, subtraction and multiplication, and involves
-the object $x$, then we can replace this $x$ (or, more precisely, any
-arbitrary appearance of $x$ in $A$) in $A$ by $x^{\prime}$; the resulting
-expression $A^{\prime}$ will be congruent to $A$ modulo $n$.
-\end{statement}
-
-This principle is less general than the PSE, since it only applies to
-expressions that are built from integers and certain operations (note that
-division is not one of these operations). But it still lets us prove analogues
-of our above examples (\ref{eq.mod.substitutivity-nums.1}) and
-(\ref{eq.mod.substitutivity-nums.2}):
-
-\begin{itemize}
-\item If $a,b,c,d,e,c^{\prime}$ are integers such that $c\equiv c^{\prime
-}\operatorname{mod}n$, then the PSC says that we can replace $c$ by
-$c^{\prime}$ in the expression $a\left(  b-\left(  c+d\right)  e\right)  $,
-and the resulting expression $a\left(  b-\left(  c^{\prime}+d\right)
-e\right)  $ will be congruent to $a\left(  b-\left(  c+d\right)  e\right)  $
-modulo $n$; that is, we have%
-\begin{equation}
-a\left(  b-\left(  c+d\right)  e\right)  \equiv a\left(  b-\left(  c^{\prime
-}+d\right)  e\right)  \operatorname{mod}n.
-\label{eq.mod.substitutivity-congs.1}%
-\end{equation}
-
-
-\item If $a,b,c,a^{\prime}$ are integers such that $a\equiv a^{\prime
-}\operatorname{mod}n$, then
-\begin{equation}
-\left(  a-b\right)  \left(  a+b\right)  \equiv\left(  a^{\prime}-b\right)
-\left(  a+b\right)  \operatorname{mod}n, \label{eq.mod.substitutivity-congs.2}%
-\end{equation}
-because the PSC allows us to replace the first $a$ appearing in the expression
-$\left(  a-b\right)  \left(  a+b\right)  $ by an $a^{\prime}$. (We can also
-replace the second $a$ by $a^{\prime}$, of course.)
-\end{itemize}
-
-We shall not prove the PSC, since we have not formalized it (after all, we
-have not defined what an \textquotedblleft expression\textquotedblright\ is).
-But we shall prove the specific congruences
-(\ref{eq.mod.substitutivity-congs.1}) and (\ref{eq.mod.substitutivity-congs.2}%
-) using Proposition \ref{prop.ent.mod.basics}; the way in which we prove these
-congruences is symptomatic: Every congruence obtained from the PSC can be
-proven in a manner like these. Thus, the proofs of
-(\ref{eq.mod.substitutivity-congs.1}) and (\ref{eq.mod.substitutivity-congs.2}%
-) given below can serve as templates which can easily be adapted to any other
-situation in which an application of the PSC needs to be justified.
-
-\begin{proof}
-[Proof of (\ref{eq.mod.substitutivity-congs.1}).]Let $n$ be any integer, and
-let $a,b,c,d,e,c^{\prime}$ be integers such that $c\equiv c^{\prime
-}\operatorname{mod}n$.
-
-Adding the congruence\footnote{Proposition \ref{prop.ent.mod.basics}
-\textbf{(d)} shows that we can add, subtract and multiply congruences modulo
-$n$ at will. We are using this freedom here and will use it many times below.}
-$c\equiv c^{\prime}\operatorname{mod}n$ with the congruence $d\equiv
-d\operatorname{mod}n$ (which follows from Proposition
-\ref{prop.ent.mod.basics} \textbf{(a)}), we obtain $c+d\equiv c^{\prime
-}+d\operatorname{mod}n$. Multiplying this congruence with the congruence
-$e\equiv e\operatorname{mod}n$ (which follows from Proposition
-\ref{prop.ent.mod.basics} \textbf{(a)}), we obtain $\left(  c+d\right)
-e\equiv\left(  c^{\prime}+d\right)  e\operatorname{mod}n$. Subtracting this
-congruence from the congruence $b\equiv b\operatorname{mod}n$ (which, again,
-follows from Proposition \ref{prop.ent.mod.basics} \textbf{(a)}), we obtain
-$b-\left(  c+d\right)  e\equiv b-\left(  c^{\prime}+d\right)
-e\operatorname{mod}n$. Multiplying the congruence $a\equiv a\operatorname{mod}%
-n$ (which follows from Proposition \ref{prop.ent.mod.basics} \textbf{(a)})
-with this congruence, we obtain $a\left(  b-\left(  c+d\right)  e\right)
-\equiv a\left(  b-\left(  c^{\prime}+d\right)  e\right)  \operatorname{mod}n$.
-This proves (\ref{eq.mod.substitutivity-congs.1}).
-\end{proof}
-
-\begin{proof}
-[Proof of (\ref{eq.mod.substitutivity-congs.2}).]Let $n$ be any integer, and
-let $a,b,c,a^{\prime}$ be integers such that $a\equiv a^{\prime}%
-\operatorname{mod}n$.
-
-Subtracting the congruence $b\equiv b\operatorname{mod}n$ (which follows from
-Proposition \ref{prop.ent.mod.basics} \textbf{(a)}) from the congruence
-$a\equiv a^{\prime}\operatorname{mod}n$, we obtain $a-b\equiv a^{\prime
-}-b\operatorname{mod}n$. Multiplying this congruence with the congruence
-$a+b\equiv a+b\operatorname{mod}n$ (which follows from Proposition
-\ref{prop.ent.mod.basics} \textbf{(a)}), we obtain $\left(  a-b\right)
-\left(  a+b\right)  \equiv\left(  a^{\prime}-b\right)  \left(  a+b\right)
-\operatorname{mod}n$. This proves (\ref{eq.mod.substitutivity-congs.2}).
-\end{proof}
-
-As we said, these two proofs are exemplary: Any congruence obtained from the
-PSC can be proven in such a way (starting with the congruence $x\equiv
-x^{\prime}\operatorname{mod}n$, and then \textquotedblleft
-wrapping\textquotedblright\ it up in the expression $A$ by repeatedly adding,
-multiplying and subtracting congruences that follow from Proposition
-\ref{prop.ent.mod.basics} \textbf{(a)}).
-
-When we apply the PSC, we shall use underbraces to point out which integers we
-are replacing. For example, when deriving (\ref{eq.mod.substitutivity-congs.1}%
-) from this principle, we shall write%
-\[
-a\left(  b-\left(  \underbrace{c}_{\equiv c^{\prime}\operatorname{mod}%
-n}+d\right)  e\right)  \equiv a\left(  b-\left(  c^{\prime}+d\right)
-e\right)  \operatorname{mod}n,
-\]
-in order to stress that we are replacing $c$ by $c^{\prime}$. Likewise, when
-deriving (\ref{eq.mod.substitutivity-congs.2}) from the PSC, we shall write%
-\[
-\left(  \underbrace{a}_{\equiv a^{\prime}\operatorname{mod}n}-b\right)
-\left(  a+b\right)  \equiv\left(  a^{\prime}-b\right)  \left(  a+b\right)
-\operatorname{mod}n,
-\]
-in order to stress that we are replacing the first $a$ (but not the second
-$a$) by $a^{\prime}$.
-
-The PSC allows us to replace a \textbf{single} integer $x$ appearing in an
-expression by another integer $x^{\prime}$ that is congruent to $x$ modulo
-$n$. Applying this principle many times, we thus conclude that we can also
-replace \textbf{several} integers at the same time (because we can get to the
-same result by performing these replacements one at a time, and Proposition
-\ref{prop.mod.chain} shows that the final result will be congruent to the
-original result). For example, if seven integers $a,a^{\prime},b,b^{\prime
-},c,c^{\prime},n$ satisfy $a\equiv a^{\prime}\operatorname{mod}n$ and $b\equiv
-b^{\prime}\operatorname{mod}n$ and $c\equiv c^{\prime}\operatorname{mod}n$,
-then%
-\begin{equation}
-bc+ca+ab\equiv b^{\prime}c^{\prime}+c^{\prime}a^{\prime}+a^{\prime}b^{\prime
-}\operatorname{mod}n, \label{eq.mod.substitutivity-congs.3}%
-\end{equation}
-because we can replace all the six integers $b,c,c,a,a,b$ in the expression
-$bc+ca+ab$ (listed in the order of their appearance in this expression) by
-$b^{\prime},c^{\prime},c^{\prime},a^{\prime},a^{\prime},b^{\prime}$,
-respectively. If we want to derive this from the principle of substitutivity
-for congruences, we must perform the replacements one at a time, e.g., as
-follows:%
-\begin{align*}
-\underbrace{b}_{\equiv b^{\prime}\operatorname{mod}n}c+ca+ab  &  \equiv
-b^{\prime}\underbrace{c}_{\equiv c^{\prime}\operatorname{mod}n}+ca+ab\equiv
-b^{\prime}c^{\prime}+\underbrace{c}_{\equiv c^{\prime}\operatorname{mod}%
-n}a+ab\\
-&  \equiv b^{\prime}c^{\prime}+c^{\prime}\underbrace{a}_{\equiv a^{\prime
-}\operatorname{mod}n}+ab\equiv b^{\prime}c^{\prime}+c^{\prime}a^{\prime
-}+\underbrace{a}_{\equiv a^{\prime}\operatorname{mod}n}b\\
-&  \equiv b^{\prime}c^{\prime}+c^{\prime}a^{\prime}+a^{\prime}\underbrace{b}%
-_{\equiv b^{\prime}\operatorname{mod}n}\equiv b^{\prime}c^{\prime}+c^{\prime
-}a^{\prime}+a^{\prime}b^{\prime}\operatorname{mod}n.
-\end{align*}
-Of course, we shall always just show the replacements as a single step:%
-\[
-\underbrace{b}_{\equiv b^{\prime}\operatorname{mod}n}\ \ \underbrace{c}%
-_{\equiv c^{\prime}\operatorname{mod}n}+\underbrace{c}_{\equiv c^{\prime
-}\operatorname{mod}n}\ \ \underbrace{a}_{\equiv a^{\prime}\operatorname{mod}%
-n}+\underbrace{a}_{\equiv a^{\prime}\operatorname{mod}n}\ \ \underbrace{b}%
-_{\equiv b^{\prime}\operatorname{mod}n}\equiv b^{\prime}c^{\prime}+c^{\prime
-}a^{\prime}+a^{\prime}b^{\prime}\operatorname{mod}n.
-\]
-
 
 \begin{thebibliography}{999999999}                                                                                        %
 
