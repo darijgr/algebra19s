@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Saturday, February 09, 2019 15:14:45}
+%TCIDATA{LastRevised=Saturday, February 09, 2019 19:54:43}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -1448,8 +1448,9 @@ b_{1}b_{2}$ (by Definition \ref{def.ent.div.div}). This proves Proposition
 \textquotedblleft$\left\vert a\right\vert $ divides $a$\textquotedblright.)
 \end{exercise}
 
+\begin{fineprint}
 \begin{proof}
-[Solution to Exercise \ref{exe.ent.div.aabs}.] The definition of $\left\vert
+[Solution to Exercise \ref{exe.ent.div.aabs}.]The definition of $\left\vert
 a\right\vert $ shows that $\left\vert a\right\vert $ equals either $a$ or
 $-a$. In other words, $\left\vert a\right\vert $ equals either $1a$ or
 $\left(  -1\right)  a$. In other words, $\left\vert a\right\vert =qa$ for some
@@ -1466,11 +1467,46 @@ _{=q^{2}=1}a=a$. Hence, $a=q\left\vert a\right\vert =\left\vert a\right\vert
 \cdot q$. Thus, $\left\vert a\right\vert \mid a$ (since $q$ is an integer).
 This solves Exercise \ref{exe.ent.div.aabs} \textbf{(b)}.
 \end{proof}
+\end{fineprint}
 
 \begin{exercise}
 \label{exe.ent.div.abba}Let $a$ and $b$ be two integers such that $a\mid b$
 and $b\mid a$. Prove that $\left\vert a\right\vert =\left\vert b\right\vert $.
 \end{exercise}
+
+\begin{fineprint}
+\begin{proof}
+[Solution to Exercise \ref{exe.ent.div.abba}.]We are in one of the following
+two cases:
+
+\textit{Case 1:} We have $b\neq0$.
+
+\textit{Case 2:} We have $b=0$.
+
+Let us first consider Case 1. In this case, we have $b\neq0$. Thus,
+Proposition \ref{prop.ent.div.1} \textbf{(b)} yields $\left\vert a\right\vert
+\leq\left\vert b\right\vert $ (since $a\mid b$).
+
+We have $a\mid b$. In other words, there exists an integer $c$ such that
+$b=ac$. Consider this $c$. If we had $a=0$, then we would have
+$b=\underbrace{a}_{=0}c=0$, which would contradict $b\neq0$. Thus, we cannot
+have $a=0$. Hence, $a\neq0$. Thus, Proposition \ref{prop.ent.div.1}
+\textbf{(b)} (applied to $b$ and $a$ instead of $a$ and $b$) yields
+$\left\vert b\right\vert \leq\left\vert a\right\vert $ (since $b\mid a$).
+Combining this with $\left\vert a\right\vert \leq\left\vert b\right\vert $, we
+obtain $\left\vert a\right\vert =\left\vert b\right\vert $. Thus, Exercise
+\ref{exe.ent.div.abba} is solved in Case 1.
+
+Let us now consider Case 2. In this case, we have $b=0$. But we have $b\mid
+a$. In other words, there exists an integer $c$ such that $a=bc$. Consider
+this $c$. Hence, $a=\underbrace{b}_{=0}c=0c=0=b$ (since $b=0$). Thus,
+$\left\vert a\right\vert =\left\vert b\right\vert $. Hence, Exercise
+\ref{exe.ent.div.abba} is solved in Case 2.
+
+Now, we have solved Exercise \ref{exe.ent.div.abba} in both Cases 1 and 2.
+Hence, Exercise \ref{exe.ent.div.abba} always holds.
+\end{proof}
+\end{fineprint}
 
 \begin{exercise}
 \label{exe.ent.div.acbc}Let $a,b,c$ be three integers such that $c\neq0$.
@@ -2624,6 +2660,39 @@ be integers. Prove that $u\equiv v\operatorname{mod}n$ if and only if
 $u\%n=v\%n$.
 \end{exercise}
 
+\begin{fineprint}
+\begin{proof}
+[Solution to Exercise \ref{exe.ent.quo-rem.mod=rem}.]$\Longrightarrow:$ Assume
+that $u\equiv v\operatorname{mod}n$. We must prove that $u\%n=v\%n$.
+
+Corollary \ref{cor.ent.quo-rem.remmod} \textbf{(a)} yields that $u\%n\in
+\left\{  0,1,\ldots,n-1\right\}  $ and $u\%n\equiv u\operatorname{mod}n$.
+Hence, $u\%n\equiv u\equiv v\operatorname{mod}n$.
+
+But Corollary \ref{cor.ent.quo-rem.remmod} \textbf{(c)} (applied to $v$
+instead of $u$) yields that if $c\in\left\{  0,1,\ldots,n-1\right\}  $ is such
+that $c\equiv v\operatorname{mod}n$, then $c=v\%n$. Applying this to $c=u\%n$,
+we obtain $u\%n=v\%n$ (since $u\%n\in\left\{  0,1,\ldots,n-1\right\}  $ and
+$u\%n\equiv v\operatorname{mod}n$). This proves the \textquotedblleft%
+$\Longrightarrow$\textquotedblright\ direction of Exercise
+\ref{exe.ent.quo-rem.mod=rem}.
+
+$\Longleftarrow:$ Assume that $u\%n=v\%n$. We must prove that $u\equiv
+v\operatorname{mod}n$.
+
+Corollary \ref{cor.ent.quo-rem.remmod} \textbf{(a)} yields that $u\%n\in
+\left\{  0,1,\ldots,n-1\right\}  $ and $u\%n\equiv u\operatorname{mod}n$.
+Corollary \ref{cor.ent.quo-rem.remmod} \textbf{(a)} (applied to $v$ instead of
+$u$) yields that $v\%n\in\left\{  0,1,\ldots,n-1\right\}  $ and $v\%n\equiv
+v\operatorname{mod}n$.
+
+From $u\%n\equiv u\operatorname{mod}n$, we obtain $u\equiv u\%n=v\%n\equiv
+v\operatorname{mod}n$. Thus, we have proven $u\equiv v\operatorname{mod}n$.
+This proves the \textquotedblleft$\Longleftarrow$\textquotedblright\ direction
+of Exercise \ref{exe.ent.quo-rem.mod=rem}.
+\end{proof}
+\end{fineprint}
+
 \subsection{Even and odd numbers}
 
 Recall the following:
@@ -2665,9 +2734,253 @@ v\operatorname{mod}2$ holds if and only if $u$ and $v$ are either both odd or
 both even.
 \end{exercise}
 
+\begin{fineprint}
 \begin{proof}
-[Solution to Exercise \ref{exe.ent.even-odd.1}.]TODO.
+[Solution to Exercise \ref{exe.ent.even-odd.1}.]Corollary
+\ref{cor.ent.quo-rem.remmod} \textbf{(b)} (applied to $n=2$) shows that we
+have $2\mid u$ if and only if $u\%2=0$. In other words, we have the logical
+equivalence
+\begin{equation}
+\left(  2\mid u\right)  \ \Longleftrightarrow\ \left(  u\%2=0\right)  .
+\label{sol.ent.even-odd.1.1}%
+\end{equation}
+
+
+Corollary \ref{cor.ent.quo-rem.remmod} \textbf{(a)} (applied to $n=2$) yields
+that $u\%2\in\left\{  0,1,\ldots,2-1\right\}  $ and $u\%2\equiv
+u\operatorname{mod}2$. Thus, in particular, $u\%2\in\left\{  0,1,\ldots
+,2-1\right\}  =\left\{  0,1\right\}  $. Hence, $u\%2$ is either $0$ or $1$.
+Thus, the number $u\%2$ is $1$ if and only if it is not $0$. In other words,
+we have the equivalence%
+\begin{equation}
+\left(  u\%2=1\right)  \ \Longleftrightarrow\ \left(  u\%2\neq0\right)  .
+\label{sol.ent.even-odd.1.2}%
+\end{equation}
+
+
+Proposition \ref{prop.ent.mod.0} (applied to $a=u$ and $n=2$) shows that
+$u\equiv0\operatorname{mod}2$ if and only if $2\mid u$. In other words, we
+have the equivalence%
+\begin{equation}
+\left(  u\equiv0\operatorname{mod}2\right)  \ \Longleftrightarrow\ \left(
+2\mid u\right)  . \label{sol.ent.even-odd.1.3}%
+\end{equation}
+
+
+\textbf{(a)} We have the following chain of equivalences:%
+\begin{align*}
+\left(  u\text{ is even}\right)  \  &  \Longleftrightarrow\ \left(  u\text{ is
+divisible by }2\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of
+\textquotedblleft even\textquotedblright}\right) \\
+&  \Longleftrightarrow\ \left(  2\mid u\right)  \ \Longleftrightarrow\ \left(
+u\%2=0\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by
+(\ref{sol.ent.even-odd.1.1})}\right)  .
+\end{align*}
+In other words, $u$ is even if and only if $u\%2=0$. This solves Exercise
+\ref{exe.ent.even-odd.1} \textbf{(a)}.
+
+\textbf{(b)} We have the following chain of equivalences:%
+\begin{align}
+\left(  u\text{ is odd}\right)  \  &  \Longleftrightarrow\ \left(  u\text{ is
+not divisible by }2\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the
+definition of \textquotedblleft odd\textquotedblright}\right) \nonumber\\
+&  \Longleftrightarrow\ \left(  \text{we don't have }2\mid u\right)
+\ \Longleftrightarrow\ \left(  \text{we don't have }u\%2=0\right) \nonumber\\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{because of the equivalence }\left(  2\mid
+u\right)  \ \Longleftrightarrow\ \left(  u\%2=0\right)  \right) \nonumber\\
+&  \Longleftrightarrow\ \left(  u\%2\neq0\right)
+\label{sol.ent.even-odd.1.b.1}\\
+&  \Longleftrightarrow\ \left(  u\%2=1\right)  \ \ \ \ \ \ \ \ \ \ \left(
+\text{by (\ref{sol.ent.even-odd.1.2})}\right)  .\nonumber
+\end{align}
+In other words, $u$ is odd if and only if $u\%2=1$. This solves Exercise
+\ref{exe.ent.even-odd.1} \textbf{(b)}.
+
+\textbf{(c)} We have the following chain of equivalences:%
+\begin{align*}
+\left(  u\text{ is even}\right)  \  &  \Longleftrightarrow\ \left(  u\text{ is
+divisible by }2\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of
+\textquotedblleft even\textquotedblright}\right) \\
+&  \Longleftrightarrow\ \left(  2\mid u\right)  \ \Longleftrightarrow\ \left(
+u\equiv0\operatorname{mod}2\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by
+(\ref{sol.ent.even-odd.1.3})}\right)  .
+\end{align*}
+In other words, $u$ is even if and only if $u\equiv0\operatorname{mod}2$. This
+solves Exercise \ref{exe.ent.even-odd.1} \textbf{(c)}.
+
+\textbf{(d)} $\Longrightarrow:$ Assume that $u$ is odd. We must prove that
+$u\equiv1\operatorname{mod}2$.
+
+We know that $u$ is odd. In other words, $u\%2=1$ (by Exercise
+\ref{exe.ent.even-odd.1} \textbf{(b)}). But recall that $u\%2\equiv
+u\operatorname{mod}2$. Thus, $u\equiv u\%2=1\operatorname{mod}2$. This proves
+the \textquotedblleft$\Longrightarrow$\textquotedblright\ direction of
+Exercise \ref{exe.ent.even-odd.1} \textbf{(d)}.
+
+$\Longleftarrow:$ Assume that $u\equiv1\operatorname{mod}2$. We must prove
+that $u$ is odd.
+
+We have $1\equiv u\operatorname{mod}2$ (since $u\equiv1\operatorname{mod}2$)
+and $1\in\left\{  0,1,\ldots,2-1\right\}  $. But Corollary
+\ref{cor.ent.quo-rem.remmod} \textbf{(c)} (applied to $u=2$) says that if
+$c\in\left\{  0,1,\ldots,2-1\right\}  $ satisfies $c\equiv u\operatorname{mod}%
+2$, then $c=u\%2$. Applying this to $c=1$, we find $1=u\%2$ (since
+$1\in\left\{  0,1,\ldots,2-1\right\}  $ and $1\equiv u\operatorname{mod}2$).
+In other words, $u\%2=1$. According to Exercise \ref{exe.ent.even-odd.1}
+\textbf{(b)}, this means that $u$ is odd. This proves the \textquotedblleft%
+$\Longleftarrow$\textquotedblright\ direction of Exercise
+\ref{exe.ent.even-odd.1} \textbf{(d)}.
+
+\textbf{(e)} $\Longrightarrow:$ Assume that $u$ is odd. We must prove that
+$u+1$ is even.
+
+We have assumed that $u$ is odd. According to Exercise
+\ref{exe.ent.even-odd.1} \textbf{(d)}, this means that $u\equiv
+1\operatorname{mod}2$. On the other hand, $1\equiv-1\operatorname{mod}2$
+(since $2\mid1-\left(  -1\right)  $). Adding these two congruences together,
+we find $u+1\equiv1+\left(  -1\right)  =0\operatorname{mod}2$.
+
+But Exercise \ref{exe.ent.even-odd.1} \textbf{(c)} (applied to $u+1$ instead
+of $u$) shows that $u+1$ is even if and only if $u+1\equiv0\operatorname{mod}%
+2$. Hence, $u+1$ is even (since $u+1\equiv0\operatorname{mod}2$). This proves
+the \textquotedblleft$\Longrightarrow$\textquotedblright\ direction of
+Exercise \ref{exe.ent.even-odd.1} \textbf{(e)}.
+
+$\Longleftarrow:$ Assume that $u+1$ is even. We must prove that $u$ is odd.
+
+We know that $u+1$ is even. But Exercise \ref{exe.ent.even-odd.1} \textbf{(c)}
+(applied to $u+1$ instead of $u$) shows that $u+1$ is even if and only if
+$u+1\equiv0\operatorname{mod}2$. Hence, $u+1\equiv0\operatorname{mod}2$ (since
+$u+1$ is even). On the other hand, $-1\equiv1\operatorname{mod}2$ (since
+$2\mid\left(  -1\right)  -1$). Adding these two congruences together, we
+obtain $\left(  u+1\right)  +\left(  -1\right)  \equiv0+1=1\operatorname{mod}%
+2$. In view of $\left(  u+1\right)  +\left(  -1\right)  =u$, this rewrites as
+$u\equiv1\operatorname{mod}2$. According to Exercise \ref{exe.ent.even-odd.1}
+\textbf{(d)}, this means that $u$ is odd. This proves the \textquotedblleft%
+$\Longleftarrow$\textquotedblright\ direction of Exercise
+\ref{exe.ent.even-odd.1} \textbf{(e)}.
+
+\textbf{(f)} We have the equivalence $\left(  u\text{ is divisible by
+}2\right)  \ \Longleftrightarrow\ \left(  u\text{ is even}\right)  $ (by the
+definition of \textquotedblleft even\textquotedblright).
+
+Exercise \ref{exe.ent.even-odd.1} \textbf{(e)} shows that $u$ is odd if and
+only if $u+1$ is even. Thus, we have the following chain of equivalences:%
+\begin{align*}
+&  \ \left(  u+1\text{ is even}\right) \\
+&  \Longleftrightarrow\ \left(  u\text{ is odd}\right)  \ \Longleftrightarrow
+\ \left(  u\text{ is not divisible by }2\right)  \ \ \ \ \ \ \ \ \ \ \left(
+\text{by the definition of \textquotedblleft odd\textquotedblright}\right) \\
+&  \Longleftrightarrow\ \left(  u\text{ is not even}\right)
+\end{align*}
+(because of the equivalence $\left(  u\text{ is divisible by }2\right)
+\ \Longleftrightarrow\ \left(  u\text{ is even}\right)  $). In other words,
+$u+1$ is even if and only if $u$ is not. In other words, exactly one of the
+two numbers $u$ and $u+1$ is even. This solves Exercise
+\ref{exe.ent.even-odd.1} \textbf{(f)}.
+
+\textbf{(g)} Exercise \ref{exe.ent.even-odd.1} \textbf{(f)} shows that exactly
+one of the two numbers $u$ and $u+1$ is even. Thus, in particular, \textbf{at
+least} one of these two numbers is even. Hence, the product $u\left(
+u+1\right)  $ has \textbf{at least} one even factor. But a product of any
+integer with an even integer is even\footnote{\textit{Proof.} We must prove
+that if $a$ is an even integer, and if $b$ is an integer, then the product
+$ab$ is even.
+\par
+So let $a$ be an even integer, and let $b$ be an integer. Then, $a$ is even;
+in other words, $2\mid a$ (by the definition of \textquotedblleft
+even\textquotedblright). But $a\mid ab$. Hence, $2\mid a\mid ab$; in other
+words, $ab$ is even. Qed.}. Hence, a product that has at least one even factor
+is always even. Thus, $u\left(  u+1\right)  $ is even (since $u\left(
+u+1\right)  $ is a product that has at least one even factor). In other words,
+$2\mid u\left(  u+1\right)  $. In other words, $u\left(  u+1\right)
+\equiv0\operatorname{mod}2$. This solves Exercise \ref{exe.ent.even-odd.1}
+\textbf{(g)}.
+
+\textbf{(h)} We have $u^{2}-\left(  -u\right)  =u^{2}+u=u\left(  u+1\right)
+\equiv0\operatorname{mod}2$ (by Exercise \ref{exe.ent.even-odd.1}
+\textbf{(g)}). In other words, $2\mid u^{2}-\left(  -u\right)  $. In other
+words, $u^{2}\equiv-u\operatorname{mod}2$.
+
+Also, $2\mid\left(  -u\right)  -u$ (since $\left(  -u\right)  -u=2\left(
+-u\right)  $ is clearly divisible by $2$); in other words, $-u\equiv
+u\operatorname{mod}2$. Hence, $u^{2}\equiv-u\equiv u\operatorname{mod}2$. This
+solves Exercise \ref{exe.ent.even-odd.1} \textbf{(g)}.
+
+\textbf{(i)} Exercise \ref{exe.ent.quo-rem.mod=rem} (applied to $n=2$) shows
+that $u\equiv v\operatorname{mod}2$ if and only if $u\%2=v\%2$.
+
+We are in one of the following four cases:
+
+\textit{Case 1:} We have $u\%2=0$ and $v\%2=0$.
+
+\textit{Case 2:} We have $u\%2=0$ and $v\%2\neq0$.
+
+\textit{Case 3:} We have $u\%2\neq0$ and $v\%2=0$.
+
+\textit{Case 4:} We have $u\%2\neq0$ and $v\%2\neq0$.
+
+Let us first consider Case 1. In this case, we have $u\%2=0$ and $v\%2=0$.
+Thus, $u\%2=0=v\%2$ and therefore $u\equiv v\operatorname{mod}2$ (since we
+know that $u\equiv v\operatorname{mod}2$ if and only if $u\%2=v\%2$). But
+recall that $u\%2=0$. Equivalently, $u$ is even (because of Exercise
+\ref{exe.ent.even-odd.1} \textbf{(a)}). Similarly, from $v\%2=0$, we conclude
+that $v$ is even. Thus, $u$ and $v$ are either both odd or both even (namely,
+they are both even).
+
+Thus, $u\equiv v\operatorname{mod}2$ holds if and only if $u$ and $v$ are
+either both odd or both even (because both statements \textquotedblleft%
+$u\equiv v\operatorname{mod}2$\textquotedblright\ and \textquotedblleft$u$ and
+$v$ are either both odd or both even\textquotedblright\ hold). Hence, Exercise
+\ref{exe.ent.even-odd.1} \textbf{(i)} is solved in Case 1.
+
+Let us now consider Case 2. In this case, we have $u\%2=0$ and $v\%2\neq0$.
+Thus, $u\%2=0\neq v\%2$. In other words, \textquotedblleft$u\%2=v\%2$%
+\textquotedblright\ is false. Thus, \textquotedblleft$u\equiv
+v\operatorname{mod}2$\textquotedblright\ is false as well (since we know that
+$u\equiv v\operatorname{mod}2$ if and only if $u\%2=v\%2$). But recall that
+$u\%2=0$. Equivalently, $u$ is even (because of Exercise
+\ref{exe.ent.even-odd.1} \textbf{(a)}). Hence, $u$ is not odd\footnote{because
+an integer is either even or odd (but not both at the same time)}. Thus, $u$
+and $v$ are not both even. Also, Exercise \ref{exe.ent.even-odd.1}
+\textbf{(a)} (applied to $v$ instead of $u$) shows that $v$ is even if and
+only if $v\%2=0$. Since we don't have $v\%2=0$ (because $v\%2\neq0$), we thus
+conclude that $v$ is not even. Thus, $u$ and $v$ are not both odd.
+
+So $u$ and $v$ are neither both odd nor both even. In other words, the
+statement \textquotedblleft$u$ and $v$ are either both odd or both
+even\textquotedblright\ is false.
+
+Thus, $u\equiv v\operatorname{mod}2$ holds if and only if $u$ and $v$ are
+either both odd or both even (because both statements \textquotedblleft%
+$u\equiv v\operatorname{mod}2$\textquotedblright\ and \textquotedblleft$u$ and
+$v$ are either both odd or both even\textquotedblright\ are false). Hence,
+Exercise \ref{exe.ent.even-odd.1} \textbf{(i)} is solved in Case 2.
+
+Case 3 is analogous to Case 2 (it differs from Case 2 only in that $u$ and $v$
+trade places).
+
+Let us finally consider Case 4. In this case, we have $u\%2\neq0$ and
+$v\%2\neq0$. By (\ref{sol.ent.even-odd.1.b.1}), we have the logical
+equivalence $\left(  u\text{ is odd}\right)  \ \Longleftrightarrow\ \left(
+u\%2\neq0\right)  $. Hence, $u$ is odd (since $u\%2\neq0$). Similarly, $v$ is
+odd. Thus, $u$ and $v$ are both odd. Thus, $u$ and $v$ are either both odd or
+both even (namely, they are both odd). Moreover, we know that $u$ is odd;
+equivalently, $u\%2=1$ (by Exercise \ref{exe.ent.even-odd.1} \textbf{(b)}).
+Similarly, $v\%2=1$. Hence, $u\%2=1=v\%2$. Therefore, $u\equiv
+v\operatorname{mod}2$ (since we know that $u\equiv v\operatorname{mod}2$ if
+and only if $u\%2=v\%2$).
+
+Thus, $u\equiv v\operatorname{mod}2$ holds if and only if $u$ and $v$ are
+either both odd or both even (because both statements \textquotedblleft%
+$u\equiv v\operatorname{mod}2$\textquotedblright\ and \textquotedblleft$u$ and
+$v$ are either both odd or both even\textquotedblright\ hold). Hence, Exercise
+\ref{exe.ent.even-odd.1} \textbf{(i)} is solved in Case 4.
+
+We have now solved Exercise \ref{exe.ent.even-odd.1} \textbf{(i)} in all four
+Cases 1, 2, 3 and 4. Hence, Exercise \ref{exe.ent.even-odd.1} \textbf{(i)} is solved.
 \end{proof}
+\end{fineprint}
 
 \begin{exercise}
 \label{exe.ent.even-odd-sumsq}\textbf{(a)} Prove that each even integer $u$
@@ -2685,7 +2998,21 @@ $x^{2}+y^{2}\equiv2\operatorname{mod}4$, then $x$ and $y$ are both odd.
 
 \begin{fineprint}
 \begin{proof}
-[Solution to Exercise \ref{exe.ent.even-odd-sumsq}.]TODO.
+[Solution to Exercise \ref{exe.ent.even-odd-sumsq}.]\textbf{(a)} Let $u$ be an
+odd integer. Thus, $u$ is odd. Equivalently, $u\equiv1\operatorname{mod}2$ (by
+Exercise \ref{exe.ent.even-odd.1} \textbf{(d)}). In other words, $2\mid u-1$.
+In other words, there exists some integer $c$ such that $u-1=2c$. Consider
+this $c$.
+
+From $u-1=2c$, we obtain $u=2c+1$ and thus $u^{2}=\left(  2c+1\right)
+^{2}=4c^{2}+4c+1$. Hence, $u^{2}-1=4c^{2}+4c=4\left(  c^{2}+c\right)  $, which
+is clearly divisible by $4$. So we have $4\mid u^{2}-1$. In other words,
+$u^{2}\equiv1\operatorname{mod}4$. This solves Exercise
+\ref{exe.ent.even-odd-sumsq} \textbf{(a)}.
+
+\textbf{(b)} TODO.
+
+\textbf{(c)} TODO.
 \end{proof}
 \end{fineprint}
 
@@ -4206,12 +4533,12 @@ For each $m\in\mathbb{Z}$, we have the logical equivalence%
 ,b_{k}\right)  \right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{since }0=\gcd\left(
 b_{1},b_{2},\ldots,b_{k}\right)  \right)  .
 \end{align*}
-This proves Theorem \ref{thm.ent.gcd.uniprop-mul} \textbf{(a)}. Parts
-\textbf{(b)} and \textbf{(c)} of Theorem \ref{thm.ent.gcd.uniprop-mul} are
-restatements of Theorem \ref{thm.ent.gcd.uniprop-mul} \textbf{(a)} and can be
-derived from it in the same way as we derived parts \textbf{(b)} and
-\textbf{(c)} of Theorem \ref{thm.ent.gcd.uniprop} from Theorem
-\ref{thm.ent.gcd.uniprop} \textbf{(a)}.
+This proves Theorem \ref{thm.ent.gcd.uniprop-mul} \textbf{(a)} (in the case
+$k=0$, that is). Parts \textbf{(b)} and \textbf{(c)} of Theorem
+\ref{thm.ent.gcd.uniprop-mul} are restatements of Theorem
+\ref{thm.ent.gcd.uniprop-mul} \textbf{(a)} and can be derived from it in the
+same way as we derived parts \textbf{(b)} and \textbf{(c)} of Theorem
+\ref{thm.ent.gcd.uniprop} from Theorem \ref{thm.ent.gcd.uniprop} \textbf{(a)}.
 
 Thus, all four parts of Theorem \ref{thm.ent.gcd.uniprop-mul} are proven for
 $k=0$. This completes the induction base.]
@@ -4998,6 +5325,7 @@ numbers instead of just the two numbers $a$ and $b$:
 $ satisfies $a_{i}\perp c$. Prove that $a_{1}a_{2}\cdots a_{k}\perp c$.
 \end{exercise}
 
+\begin{fineprint}
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.coprime.combinek}.]Let us prove that%
 \begin{equation}
@@ -5039,6 +5367,7 @@ Now, we can apply (\ref{sol.ent.coprime.ab-to-ck.goal}) to $i=k$. We thus
 obtain $a_{1}a_{2}\cdots a_{k}\perp c$. This proves Exercise
 \ref{exe.ent.coprime.combinek}.
 \end{proof}
+\end{fineprint}
 
 We can similarly generalize Theorem \ref{thm.ent.coprime.combine} to show that
 the product of several mutually coprime divisors of an integer $c$ must again
@@ -5052,6 +5381,7 @@ $i\in\left\{  1,2,\ldots,k\right\}  $. Prove that $b_{1}b_{2}\cdots b_{k}\mid
 c$.
 \end{exercise}
 
+\begin{fineprint}
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.coprime.combinek}.]We assumed that the
 integers $b_{1},b_{2},\ldots,b_{k}$ are mutually coprime. In other words, we
@@ -5107,12 +5437,14 @@ Now, we can apply (\ref{sol.ent.coprime.combinek.goal}) to $i=k$. We thus
 obtain $b_{1}b_{2}\cdots b_{k}\mid c$. This proves Exercise
 \ref{exe.ent.coprime.combinek}.
 \end{proof}
+\end{fineprint}
 
 \begin{exercise}
 \label{exe.ent.coprime.powers}Let $a,b\in\mathbb{Z}$ be such that $a\perp b$.
 Let $n,m\in\mathbb{N}$. Prove that $a^{n}\perp b^{m}$.
 \end{exercise}
 
+\begin{fineprint}
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.coprime.powers}.]We have $a\perp b$. Thus,
 Exercise \ref{exe.ent.coprime.combinek} (applied to $n$, $b$ and $\left(
@@ -5133,6 +5465,7 @@ and $b^{m}$ instead of $a$ and $b$), we have $a^{n}\perp b^{m}$ if and only if
 $b^{m}\perp a^{n}$. Hence, $a^{n}\perp b^{m}$ (since $b^{m}\perp a^{n}$). This
 solves Exercise \ref{exe.ent.coprime.powers}.
 \end{proof}
+\end{fineprint}
 
 \subsubsection{An application to sums of powers}
 
@@ -5322,6 +5655,7 @@ positive integer. Prove that%
 
 \end{exercise}
 
+\begin{fineprint}
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.coprime.1+2+...+n}.]Proposition
 \ref{prop.ent.1+2+...+n} yields $1+2+\cdots+n=\dfrac{n\left(  n+1\right)  }%
@@ -5417,6 +5751,7 @@ We have now proven both (\ref{sol.ent.coprime.1+2+...+n.g1}) and
 (\ref{sol.ent.coprime.1+2+...+n.g2}). As we have explained, this yields
 (\ref{sol.ent.coprime.1+2+...+n.g}), which in turn solves the problem.
 \end{proof}
+\end{fineprint}
 
 \begin{exercise}
 \label{exe.ent.coprime.gcd*gcd1}Let $u,v,x,y\in\mathbb{Z}$. Prove that
@@ -5465,6 +5800,11 @@ is, all multiples of $12$.
 The common multiples of $1,2,3$ are all multiples of $6$.
 \end{example}
 
+Note that the common multiples of a single integer $b$ are simply the
+multiples of $b$. (Also, the common multiples of an empty list of integers are
+all the integers; in other words, $\operatorname*{Mul}\left(  {}\right)
+=\mathbb{Z}$.)
+
 Note that the definition of common multiples of $b_{1},b_{2},\ldots,b_{k}$
 (Definition \ref{def.ent.Mul}) is the same as the definition of common
 divisors of $b_{1},b_{2},\ldots,b_{k}$ except that the divisibility has been
@@ -5490,10 +5830,10 @@ nonzero (unlike Proposition \ref{prop.ent.Div.fin}, which needed only one of
 them to be nonzero), and it does not claim finiteness of any set.
 
 \begin{proof}
-[Proof of Proposition \ref{prop.ent.Mul.exi}.] We claim that%
+[Proof of Proposition \ref{prop.ent.Mul.exi}.]We claim that%
 \begin{equation}
 \left\vert b_{1}b_{2}\cdots b_{k}\right\vert \in\operatorname*{Mul}\left(
-b_{1},b_{2},\ldots,b_{k}\right)  .\label{pf.prop.ent.Mul.exi.1}%
+b_{1},b_{2},\ldots,b_{k}\right)  . \label{pf.prop.ent.Mul.exi.1}%
 \end{equation}
 
 
@@ -5571,6 +5911,61 @@ all nonzero. Taken literally, a \textquotedblleft lowest common
 multiple\textquotedblright\ of $2$ and $3$ would not exist, since $2$ and $3$
 have infinitely many negative common multiples.
 
+Note that the lcm of a single number is the absolute value of this number:
+i.e., we have $\operatorname{lcm}\left(  a\right)  =\left\vert a\right\vert $
+for each $a\in\mathbb{Z}$. (This is easy to prove.) Also, the lcm of an empty
+list of numbers is $1$: that is, $\operatorname{lcm}\left(  {}\right)  =1$.
+
+We observe a trivial property of lcms, which (for the sake of brevity) we only
+state for two integers $a$ and $b$ despite it holding for any number of
+integers (with the same proof):
+
+\begin{proposition}
+\label{prop.ent.lcm.divides}Let $a,b\in\mathbb{Z}$.
+
+\textbf{(a)} We have $0\in\operatorname*{Mul}\left(  a,b\right)  $.
+
+\textbf{(b)} We have $\operatorname{lcm}\left(  a,b\right)  \in
+\operatorname*{Mul}\left(  a,b\right)  $.
+
+\textbf{(c)} We have $a\mid\operatorname{lcm}\left(  a,b\right)  $ and
+$b\mid\operatorname{lcm}\left(  a,b\right)  $.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.ent.lcm.divides}.]\textbf{(a)} The integer $0$
+clearly satisfies $\left(  a\mid0\text{ and }b\mid0\right)  $. In other words,
+$0$ is a common multiple of $a$ and $b$ (by the definition of a
+\textquotedblleft common multiple\textquotedblright). In other words,
+$0\in\operatorname*{Mul}\left(  a,b\right)  $ (by the definition of
+$\operatorname*{Mul}\left(  a,b\right)  $). This proves Proposition
+\ref{prop.ent.lcm.divides} \textbf{(a)}.
+
+\textbf{(b)} If the two integers $a$ and $b$ are not all nonzero, then
+Proposition \ref{prop.ent.lcm.divides} \textbf{(b)}
+holds\footnote{\textit{Proof.} Assume that the two integers $a$ and $b$ are
+not all nonzero. Hence, Definition \ref{def.ent.lcm.lcm} shows that
+$\operatorname{lcm}\left(  a,b\right)  =0\in\operatorname*{Mul}\left(
+a,b\right)  $ (by Proposition \ref{prop.ent.lcm.divides} \textbf{(a)}). Thus,
+Proposition \ref{prop.ent.lcm.divides} \textbf{(b)} holds.}. Hence, for the
+rest of this proof, we WLOG assume that the two integers $a$ and $b$ are all
+nonzero. Thus, Definition \ref{def.ent.lcm.lcm} yields that
+$\operatorname{lcm}\left(  a,b\right)  $ is the smallest positive element of
+the set $\operatorname*{Mul}\left(  a,b\right)  $. Hence, $\operatorname{lcm}%
+\left(  a,b\right)  \in\operatorname*{Mul}\left(  a,b\right)  $. This proves
+Proposition \ref{prop.ent.lcm.divides} \textbf{(b)}.
+
+\textbf{(c)} Proposition \ref{prop.ent.lcm.divides} \textbf{(b)} yields
+$\operatorname{lcm}\left(  a,b\right)  \in\operatorname*{Mul}\left(
+a,b\right)  $. In other words, $\operatorname{lcm}\left(  a,b\right)  $ is a
+common multiple of $a$ and $b$ (by the definition of $\operatorname*{Mul}%
+\left(  a,b\right)  $). In other words, we have $\left(  a\mid
+\operatorname{lcm}\left(  a,b\right)  \text{ and }b\mid\operatorname{lcm}%
+\left(  a,b\right)  \right)  $ (by the definition of \textquotedblleft common
+multiple\textquotedblright). This proves Proposition
+\ref{prop.ent.lcm.divides} \textbf{(c)}.
+\end{proof}
+
 The following theorem yields a good way of computing lcms of two numbers
 (since we already know how to compute gcds via the Euclidean algorithm):
 
@@ -5581,7 +5976,7 @@ ab\right\vert $.
 \end{theorem}
 
 \begin{proof}
-[Proof of Theorem \ref{thm.ent.lcm.gcd*lcm}.] If at least one of the two
+[Proof of Theorem \ref{thm.ent.lcm.gcd*lcm}.]If at least one of the two
 numbers $a$ and $b$ is $0$, then Theorem \ref{thm.ent.lcm.gcd*lcm}
 holds\footnote{\textit{Proof.} Assume that at least one of the two numbers $a$
 and $b$ is $0$. Thus, the product $ab$ is $0$. Hence, $ab=0$, so that
@@ -5610,15 +6005,15 @@ value $\left\vert c\right\vert $ is positive. In other words, $d$ is positive
 (since $d=\left\vert c\right\vert $). From $ab=\gcd\left(  a,b\right)  \cdot
 c$, we obtain%
 \begin{align}
-\left\vert ab\right\vert  & =\left\vert \gcd\left(  a,b\right)  \cdot
+\left\vert ab\right\vert  &  =\left\vert \gcd\left(  a,b\right)  \cdot
 c\right\vert =\underbrace{\left\vert \gcd\left(  a,b\right)  \right\vert
 }_{\substack{=\gcd\left(  a,b\right)  \\\text{(since }\gcd\left(  a,b\right)
 \text{ is positive)}}}\cdot\underbrace{\left\vert c\right\vert }%
 _{=d}\nonumber\\
-& \ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{eq.ent.div.abs(xy)}), applied to
-}\gcd\left(  a,b\right)  \text{ and }c\text{ instead of }x\text{ and
-}y\right)  \nonumber\\
-& =\gcd\left(  a,b\right)  \cdot d.\label{pf.thm.ent.lcm.gcd*lcm.1}%
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{eq.ent.div.abs(xy)}), applied to
+}\gcd\left(  a,b\right)  \text{ and }c\text{ instead of }x\text{ and }y\right)
+\nonumber\\
+&  =\gcd\left(  a,b\right)  \cdot d. \label{pf.thm.ent.lcm.gcd*lcm.1}%
 \end{align}
 Solving this for $d$, we find $d=\dfrac{\left\vert ab\right\vert }{\gcd\left(
 a,b\right)  }$ (since $\gcd\left(  a,b\right)  $ is nonzero).
@@ -5683,18 +6078,19 @@ a,b\right)  }=\gcd\left(  a,b\right)  \cdot\operatorname{lcm}\left(
 a,b\right)  $. This proves Theorem \ref{thm.ent.lcm.gcd*lcm}.
 \end{proof}
 
-Next, we state an anlogue of Theorem \ref{thm.ent.gcd.uniprop} (with all
-divisibilities \textquotedblleft turned around\textquotedblright):
+Next, we state an analogue of Theorem \ref{thm.ent.gcd.uniprop} (with all
+divisibilities flipped):
 
 \begin{theorem}
 \label{thm.ent.lcm.uniprop}Let $a,b\in\mathbb{Z}$. Then:
 
 \textbf{(a)} For each $m\in\mathbb{Z}$, we have the following logical
 equivalence:%
-\[
+\begin{equation}
 \left(  a\mid m\ \text{and }b\mid m\right)  \ \Longleftrightarrow\ \left(
 \operatorname{lcm}\left(  a,b\right)  \mid m\right)  .
-\]
+\label{eq.thm.ent.lcm.uniprop.equiv}%
+\end{equation}
 
 
 \textbf{(b)} The common multiples of $a$ and $b$ are precisely the multiples
@@ -5704,10 +6100,114 @@ of $\operatorname{lcm}\left(  a,b\right)  $.
 =\operatorname*{Mul}\left(  \gcd\left(  a,b\right)  \right)  $.
 \end{theorem}
 
-TODO: Make the following readable.
+Again, the three parts of this theorem are saying the same thing from slightly
+different perspectives. Our proof of Theorem \ref{thm.ent.lcm.uniprop} will
+rely on the following lemma:
+
+\begin{lemma}
+\label{lem.ent.lcm.uniprop}Let $m,a,b\in\mathbb{Z}$ be such that $a\mid m$ and
+$b\mid m$. Then, $\operatorname{lcm}\left(  a,b\right)  \mid m$.
+\end{lemma}
+
+Lemma \ref{lem.ent.lcm.uniprop} is similar to Lemma \ref{lem.ent.gcd.uniprop},
+but its proof is not:
 
 \begin{proof}
-[Proof of Theorem \ref{thm.ent.lcm.uniprop}.] Exercise.
+[Proof of Lemma \ref{lem.ent.lcm.uniprop}.]If at least one of the two numbers
+$a$ and $b$ is $0$, then Lemma \ref{lem.ent.lcm.uniprop}
+holds\footnote{\textit{Proof.} Assume that at least one of the two numbers $a$
+and $b$ is $0$. In other words, $a=0$ or $b=0$. Let us WLOG assume that $a=0$
+(since the proof in the case $b=0$ is analogous). We have $a\mid m$, thus
+$0=a\mid m$.
+\par
+On the other hand, the two numbers $a,b$ are not all nonzero (since at least
+one of the two numbers $a$ and $b$ is $0$). Hence, Definition
+\ref{def.ent.lcm.lcm} shows that $\operatorname{lcm}\left(  a,b\right)
+=0=a\mid m$. In other words, Lemma \ref{lem.ent.lcm.uniprop} holds.}. Hence,
+for the rest of this proof, we WLOG assume that none of the two numbers $a$
+and $b$ is $0$. In other words, $a$ and $b$ are nonzero. Thus, Definition
+\ref{def.ent.lcm.lcm} yields that $\operatorname{lcm}\left(  a,b\right)  $ is
+the smallest positive element of the set $\operatorname*{Mul}\left(
+a,b\right)  $. Set $n=\operatorname{lcm}\left(  a,b\right)  $. Thus, $n$ is
+the smallest positive element of the set $\operatorname*{Mul}\left(
+a,b\right)  $ (since $\operatorname{lcm}\left(  a,b\right)  $ is the smallest
+positive element of the set $\operatorname*{Mul}\left(  a,b\right)  $).
+Therefore, $n$ is a positive integer and belongs to $\operatorname*{Mul}%
+\left(  a,b\right)  $.
+
+Now, $n$ is a common multiple of $a$ and $b$ (since $n$ belongs to
+$\operatorname*{Mul}\left(  a,b\right)  $). In other words, we have $\left(
+a\mid n\text{ and }b\mid n\right)  $.
+
+Our goal is to prove that $\operatorname{lcm}\left(  a,b\right)  \mid m$. In
+other words, our goal is to prove that $n\mid m$ (since $n=\operatorname{lcm}%
+\left(  a,b\right)  $). Assume the contrary. Thus, we don't have $n\mid m$.
+Hence, we don't have $m\%n=0$ (because Corollary \ref{cor.ent.quo-rem.remmod}
+\textbf{(b)} (applied to $u=m$) shows that we have $n\mid m$ if and only if
+$m\%n=0$). In other words, we have $m\%n\neq0$.
+
+Corollary \ref{cor.ent.quo-rem.remmod} \textbf{(a)} (applied to $u=m$) yields
+that $m\%n\in\left\{  0,1,\ldots,n-1\right\}  $ and $m\%n\equiv
+m\operatorname{mod}n$. Combining $m\%n\in\left\{  0,1,\ldots,n-1\right\}  $
+with $m\%n\neq0$, we obtain $m\%n\in\left\{  0,1,\ldots,n-1\right\}
+\setminus\left\{  0\right\}  =\left\{  1,2,\ldots,n-1\right\}  $. Hence,
+$m\%n$ is a positive integer and satisfies $m\%n\leq n-1<n$.
+
+From $m\%n\equiv m\operatorname{mod}n$ and $a\mid n$, we obtain $m\%n\equiv
+m\operatorname{mod}a$ (by Proposition \ref{prop.ent.mod.basics} \textbf{(e)},
+applied to $a$, $m\%n$ and $m$ instead of $m$, $a$ and $b$). But
+$m\equiv0\operatorname{mod}a$ (since $a\mid m$). Thus, $m\%n\equiv
+m\equiv0\operatorname{mod}a$. In other words, $a\mid m\%n$. Similarly, $b\mid
+m\%n$.
+
+So we have proven that $\left(  a\mid m\%n\text{ and }b\mid m\%n\right)  $. In
+other words, $m\%n$ is a common multiple of $a$ and $b$. In other words,
+$m\%n\in\operatorname*{Mul}\left(  a,b\right)  $. Therefore, $m\%n$ is a
+positive element of $\operatorname*{Mul}\left(  a,b\right)  $ (since $m\%n$ is
+positive). Thus, $m\%n\geq n$ (since $n$ is the \textbf{smallest} positive
+element of $\operatorname*{Mul}\left(  a,b\right)  $). This contradicts the
+fact that $m\%n<n$. This contradiction shows that our assumption was false.
+Hence, Lemma \ref{lem.ent.lcm.uniprop} is proven.
+\end{proof}
+
+\begin{proof}
+[Proof of Theorem \ref{thm.ent.lcm.uniprop}.]\textbf{(a)} Let $m\in\mathbb{Z}%
+$. In order to prove (\ref{eq.thm.ent.lcm.uniprop.equiv}), we need to prove
+the \textquotedblleft$\Longrightarrow$\textquotedblright\ and
+\textquotedblleft$\Longleftarrow$\textquotedblright\ directions of the
+equivalence (\ref{eq.thm.ent.lcm.uniprop.equiv}). But this is easy: The
+\textquotedblleft$\Longrightarrow$\textquotedblright\ direction is just the
+statement of Lemma \ref{lem.ent.lcm.uniprop}, whereas the \textquotedblleft%
+$\Longleftarrow$\textquotedblright\ direction is trivial (to wit: if
+$\operatorname{lcm}\left(  a,b\right)  \mid m$, then%
+\begin{align*}
+a  &  \mid\operatorname{lcm}\left(  a,b\right)  \ \ \ \ \ \ \ \ \ \ \left(
+\text{by Proposition \ref{prop.ent.lcm.divides} \textbf{(c)}}\right) \\
+&  \mid m
+\end{align*}
+and%
+\begin{align*}
+b  &  \mid\operatorname{lcm}\left(  a,b\right)  \ \ \ \ \ \ \ \ \ \ \left(
+\text{by Proposition \ref{prop.ent.lcm.divides} \textbf{(c)}}\right) \\
+&  \mid m
+\end{align*}
+and thus $\left(  a\mid m\ \text{and }b\mid m\right)  $). Hence, the
+equivalence (\ref{eq.thm.ent.lcm.uniprop.equiv}) is proven. This proves
+Theorem \ref{thm.ent.lcm.uniprop} \textbf{(a)}.
+
+\textbf{(b)} Theorem \ref{thm.ent.lcm.uniprop} \textbf{(b)} can be derived
+from Theorem \ref{thm.ent.lcm.uniprop} \textbf{(a)} in the same way as Theorem
+\ref{thm.ent.gcd.uniprop} \textbf{(b)} was derived from Theorem
+\ref{thm.ent.gcd.uniprop} \textbf{(a)} (after the necessary changes are made
+-- such as flipping all divisibility relations and replacing \textquotedblleft
+divisor\textquotedblright\ by \textquotedblleft multiple\textquotedblright).
+
+\textbf{(c)} Theorem \ref{thm.ent.lcm.uniprop} \textbf{(c)} can be derived
+from Theorem \ref{thm.ent.lcm.uniprop} \textbf{(b)} in the same way as Theorem
+\ref{thm.ent.gcd.uniprop} \textbf{(c)} was derived from Theorem
+\ref{thm.ent.gcd.uniprop} \textbf{(b)} (after the necessary changes are made
+-- such as flipping all divisibility relations and replacing \textquotedblleft
+divisor\textquotedblright\ by \textquotedblleft multiple\textquotedblright).
 \end{proof}
 
 Our next claim is an analogue of Theorem \ref{thm.ent.gcd.uniprop-mul}:
@@ -5741,7 +6241,21 @@ b_{1},b_{2},\ldots,b_{k}\right)  \right)  $.
 \end{theorem}
 
 \begin{proof}
-Exercise.
+[Proof of Theorem \ref{thm.ent.lcm.uniprop-mul}.]It is not hard to transform
+our above proof of Theorem \ref{thm.ent.gcd.uniprop-mul} into a proof of
+Theorem \ref{thm.ent.lcm.uniprop-mul}. To do so, we need (of course) to flip
+the divisibility relations and replace \textquotedblleft
+divisor\textquotedblright\ by \textquotedblleft multiple\textquotedblright%
+\ and \textquotedblleft$\gcd$\textquotedblright\ by \textquotedblleft%
+$\operatorname{lcm}$\textquotedblright. (Some more changes need to be made as
+well -- for example, the induction base needs to be handled differently, and
+the WLOG assumption that \textquotedblleft the integers $b_{1},b_{2}%
+,\ldots,b_{\ell}$ are not all $0$\textquotedblright\ needs to be replaced by a
+WLOG assumption that \textquotedblleft the integers $b_{1},b_{2}%
+,\ldots,b_{\ell}$ are all nonzero\textquotedblright. Also, \textquotedblleft
+largest element\textquotedblright\ needs to be replaced by \textquotedblleft
+smallest positive element\textquotedblright. But these are fairly
+straightforward changes; the main thrust of the argument remains unchanged.)
 \end{proof}
 
 \subsection{The Chinese remainder theorem (elementary form)}
@@ -5785,8 +6299,6 @@ $x$, then $x_{1}=x_{2}$), but merely claiming a weaker form (namely, that if
 $x_{1}$ and $x_{2}$ are two such integers $x$, then $x_{1}\equiv
 x_{2}\operatorname{mod}mn$).
 
-TODO: Make the following readable.
-
 \begin{example}
 Theorem \ref{thm.ent.crt1} \textbf{(a)} (applied to $m=5$, $n=6$ and $a=3$ and
 $b=2$) shows that there exists an integer $x\in\mathbb{Z}$ such that%
@@ -5799,30 +6311,43 @@ We will soon find such an integer, after we have proved Theorem
 \end{example}
 
 \begin{proof}
-[Proof of Theorem \ref{thm.ent.crt1}.]\textbf{(a)} Theorem
-\ref{thm.ent.coprime.modinv} \textbf{(b)} (applied to $m$ instead of $a$)
-shows that there exists a $m^{\prime}\in\mathbb{Z}$ such that $mm^{\prime
-}\equiv1\operatorname{mod}n$.
+[Proof of Theorem \ref{thm.ent.crt1}.]The integers $m$ and $n$ are coprime. In
+other words, $m\perp n$, so that $n\perp m$ (by Proposition
+\ref{prop.ent.coprime.perp-symm}).
+
+\textbf{(a)} Theorem \ref{thm.ent.coprime.modinv} \textbf{(b)} (applied to $m$
+instead of $a$) shows that there exists a $m^{\prime}\in\mathbb{Z}$ such that
+$mm^{\prime}\equiv1\operatorname{mod}n$.
 
 Similarly, there exists an $n^{\prime}\in\mathbb{Z}$ such that $nn^{\prime
-}\equiv1\operatorname{mod}m$ (since $m$ and $n$ play symmetric roles in the theorem).
+}\equiv1\operatorname{mod}m$ (since $m$ and $n$ play symmetric roles in
+Theorem \ref{thm.ent.crt1}).
 
-Now, set $x=nn^{\prime}a+mm^{\prime}b$. Then,%
+Now, set $x_{0}=nn^{\prime}a+mm^{\prime}b$. Then,%
 \[
-x=nn^{\prime}a+\underbrace{mm^{\prime}b}_{\equiv0\operatorname{mod}m}%
-\equiv\underbrace{nn^{\prime}}_{\equiv1\operatorname{mod}m}a\equiv
+x_{0}=nn^{\prime}a+\underbrace{mm^{\prime}b}_{\equiv0\operatorname{mod}%
+m}\equiv\underbrace{nn^{\prime}}_{\equiv1\operatorname{mod}m}a\equiv
 a\operatorname{mod}m
 \]
-and similarly $x\equiv b\operatorname{mod}n$. So we have found our $x$.
+and similarly $x_{0}\equiv b\operatorname{mod}n$. Thus, there exists an
+integer $x\in\mathbb{Z}$ such that \newline$\left(  x\equiv
+a\operatorname{mod}m\text{ and }x\equiv b\operatorname{mod}n\right)  $
+(namely, $x=x_{0}$). This proves Theorem \ref{thm.ent.crt1} \textbf{(a)}.
 
 \textbf{(b)} Let $x_{1}$ and $x_{2}$ be two such integers $x$. We want to
 prove that $x_{1}\equiv x_{2}\operatorname{mod}mn$.
 
-We have $x_{1}\equiv a\operatorname{mod}m$ and $x_{2}\equiv
+We know that $x_{1}$ is an integer $x$ such that $\left(  x\equiv
+a\operatorname{mod}m\text{ and }x\equiv b\operatorname{mod}n\right)  $. Thus,
+$x_{1}\equiv a\operatorname{mod}m$ and $x_{1}\equiv b\operatorname{mod}n$.
+
+In particular, $x_{1}\equiv a\operatorname{mod}m$, and similarly $x_{2}\equiv
 a\operatorname{mod}m$. Thus, $x_{1}\equiv a\equiv x_{2}\operatorname{mod}m$,
 so that $m\mid x_{1}-x_{2}$. Similarly, $n\mid x_{1}-x_{2}$. Since $m\perp n$,
-these combine to $mn\mid x_{1}-x_{2}$ (by Theorem 2.59). In other words,
-$x_{1}\equiv x_{2}\operatorname{mod}mn$.
+we thus obtain $mn\mid x_{1}-x_{2}$ (by Theorem \ref{thm.ent.coprime.combine},
+applied to $m$, $n$ and $x_{1}-x_{2}$ instead of $a$, $b$ and $c$). In other
+words, $x_{1}\equiv x_{2}\operatorname{mod}mn$. This proves Theorem
+\ref{thm.ent.crt1}.
 \end{proof}
 
 Theorem \ref{thm.ent.crt1} is (the simplest form of) the \textit{Chinese
@@ -5834,21 +6359,33 @@ Assume that we want to find an $x\in\mathbb{Z}$ such that%
 \left(  x\equiv3\operatorname{mod}5\text{ and }x\equiv2\operatorname{mod}%
 6\right)  .
 \]
-To compute such an $x$, follow the proof of Theorem \ref{thm.ent.crt1}
+To compute such an $x$, let us follow the proof of Theorem \ref{thm.ent.crt1}
 \textbf{(a)} above.
 
 We need a modular inverse $5^{\prime}$ of $5$ modulo $6$. Such an inverse is
-$5$, since $5\cdot5\equiv1\operatorname{mod}6$. (You can find modular inverses
-using Bezout's theorem.)
+$5$, since $5\cdot5\equiv1\operatorname{mod}6$. (In this particular case,
+finding this modular inverse was easy, because all we had to do is to test the
+$6$ numbers $0,1,2,3,4,5$; it is clear that a modular inverse of $a$ modulo
+$m$, if it exists, can be found within the set $\left\{  0,1,\ldots
+,m-1\right\}  $. In general, there is
+\href{https://en.wikipedia.org/wiki/Modular_multiplicative_inverse#Computation}{a
+quick way to find a modular inverse of an integer $a$ modulo an integer $m$
+using the \textquotedblleft Extended Euclidean algorithm\textquotedblright}.)
 
 We need a modular inverse $6^{\prime}$ of $6$ modulo $5$. Such an inverse is
 $1$, since $6\cdot1\equiv1\operatorname{mod}5$.
 
-Now, the proof of the Theorem says $x=6\cdot6^{\prime}\cdot3+5\cdot5^{\prime
-}\cdot2=6\cdot1\cdot3+5\cdot5\cdot2=\allowbreak68$.
-
-Checking this: $68\equiv3\operatorname{mod}5$ since $68-3=\allowbreak5\cdot
-13$; and $68\equiv2\operatorname{mod}6$ since $68-2=6\cdot11$.
+Now, the proof of Theorem \ref{thm.ent.crt1} \textbf{(a)} tells us that
+$x_{0}=6\cdot6^{\prime}\cdot3+5\cdot5^{\prime}\cdot2$ is an integer
+$x\in\mathbb{Z}$ such that $\left(  x\equiv3\operatorname{mod}5\text{ and
+}x\equiv2\operatorname{mod}6\right)  $. This $x_{0}$ is%
+\[
+6\cdot6^{\prime}\cdot3+5\cdot5^{\prime}\cdot2=6\cdot1\cdot3+5\cdot5\cdot2=68.
+\]
+So we have found an $x\in\mathbb{Z}$ such that $\left(  x\equiv
+3\operatorname{mod}5\text{ and }x\equiv2\operatorname{mod}6\right)  $, namely
+$x=68$. (We can easily check this: $68\equiv3\operatorname{mod}5$ since
+$68-3=5\cdot13$; and $68\equiv2\operatorname{mod}6$ since $68-2=6\cdot11$.)
 \end{example}
 
 There is also a version of Theorem \ref{thm.ent.crt1} for multiple integers:
@@ -5863,14 +6400,16 @@ integers. Let $a_{1},a_{2},\ldots,a_{k}\in\mathbb{Z}$.
 \]
 
 
-\textbf{(b)} This integer $x$ is \textquotedblleft unique modulo $m_{1}%
-m_{2}\cdots m_{k}$\textquotedblright: That is, if $x_{1}$ and $x_{2}$ are two
-such integers $x$, then $x_{1}\equiv x_{2}\operatorname{mod}m_{1}m_{2}\cdots
-m_{k}$.
+\textbf{(b)} If $x_{1}$ and $x_{2}$ are two such integers $x$, then
+$x_{1}\equiv x_{2}\operatorname{mod}m_{1}m_{2}\cdots m_{k}$.
 \end{theorem}
 
+Again, Theorem \ref{thm.ent.crt1k} \textbf{(b)} is often stated in the form
+\textquotedblleft This integer $x$ is unique modulo $m_{1}m_{2}\cdots m_{k}%
+$\textquotedblright.
+
 \begin{proof}
-Exercise on induction.
+[Proof of Theorem \ref{thm.ent.crt1k}.]TODO: Exercise on induction.
 \end{proof}
 
 \subsection{Primes}
@@ -5916,6 +6455,14 @@ be $p$. Hence, $\gcd\left(  i,p\right)  =1$, and we are done.
 Note that this proposition characterizes primes: If $p>1$ is an integer such
 that each $i\in\left\{  1,2,\ldots,p-1\right\}  $ is coprime to $p$, then $p$
 is prime. (Easy exercise.)
+
+\begin{proposition}
+Let $p$ be a prime. Let $a\in\mathbb{Z}$. Then, either $p\mid a$ or $p\perp a$.
+\end{proposition}
+
+\begin{proof}
+Exercise. (This will be in the notes.)
+\end{proof}
 
 \begin{theorem}
 Let $p$ be a prime. Let $a,b\in\mathbb{Z}$ such that $p\mid ab$. Then, $p\mid
