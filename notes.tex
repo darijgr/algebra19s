@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, February 11, 2019 10:37:35}
+%TCIDATA{LastRevised=Monday, February 11, 2019 12:17:24}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -7239,7 +7239,7 @@ Then, there exists a largest $m\in\mathbb{N}$ such that $p^{m}\mid n$.
 \end{lemma}
 
 \begin{proof}
-[Proof of Lemma \ref{lem.ent.prime.vp-wd}.] TODO: $p^{m}\mid n$ implies
+[Proof of Lemma \ref{lem.ent.prime.vp-wd}.]TODO: $p^{m}\mid n$ implies
 $\left\vert n\right\vert \geq p^{m}$.
 \end{proof}
 
@@ -7254,15 +7254,18 @@ well-defined, by Lemma \ref{lem.ent.prime.vp-wd}.
 \textbf{(b)} Set $v_{p}\left(  0\right)  =\infty$, where $\infty$ is a symbol
 which we take to satisfy%
 \begin{align*}
-\infty+k &  =\infty;\ \ \ \ \ \ \ \ \ \ \min\left(  S\cup\left\{
-\infty\right\}  \right)  =\min S\text{ if }S\neq\varnothing;\\
+\infty+k &  =\infty\ \ \ \ \ \ \ \ \ \ \text{for all integers }k;\\
+\infty+\infty &  =\infty;\\
+k &  <\infty\ \ \ \ \ \ \ \ \ \ \text{for all integers }k;\\
+\min\left(  S\cup\left\{  \infty\right\}  \right)   &  =\min
+S\ \ \ \ \ \ \ \ \ \ \text{for any }S\subseteq\mathbb{Z}\text{ if }%
+S\neq\varnothing;\\
 \max\left(  S\cup\left\{  \infty\right\}  \right)   &  =\infty
-;\ \ \ \ \ \ \ \ \ \ k\leq\infty\text{ for each }k\in\mathbb{N}.
+\ \ \ \ \ \ \ \ \ \ \text{for any }S\subseteq\mathbb{Z}.
 \end{align*}
-(Careful: $\infty-\infty$ is not defined.)
+(Note, however, that $\infty-\infty$ is not defined. Hence, $\infty$ is not
+really a way to \textquotedblleft extend\textquotedblright\ our number system.)
 \end{definition}
-
-
 
 \begin{example}
 $v_{5}\left(  50\right)  =2$.
@@ -7287,11 +7290,11 @@ $\Longrightarrow:$ Assume $p^{i}\mid n$. Thus, $i$ is an $m\in\mathbb{N}$ such
 that $p^{m}\mid n$. But $v_{p}\left(  n\right)  $ is the \textbf{largest} such
 $m$. Hence, $v_{p}\left(  n\right)  \geq i$.
 
-$\Longleftarrow:$ Assume $v_{p}\left(  n\right)  \geq i$. Hence, $p^{i}\mid
-p^{v_{p}\left(  n\right)  }$.
+$\Longleftarrow:$ Assume $v_{p}\left(  n\right)  \geq i$. Hence, $i\leq
+v_{p}\left(  n\right)  $, so that $p^{i}\mid p^{v_{p}\left(  n\right)  }$.
 
-But $p^{v_{p}\left(  n\right)  }\mid n$ (since $v_{p}\left(  n\right)  $ is
-the largest $m\in\mathbb{N}$ such that $p^{m}\mid n$).
+Recall that $v_{p}\left(  n\right)  $ is the largest $m\in\mathbb{N}$ such
+that $p^{m}\mid n$. In particular, $p^{v_{p}\left(  n\right)  }\mid n$.
 
 So $p^{i}\mid p^{v_{p}\left(  n\right)  }\mid n$.
 \end{proof}
@@ -7307,17 +7310,19 @@ a\right)  ,v_{p}\left(  b\right)  \right\}  $.
 \end{theorem}
 
 \begin{proof}
-\textbf{(a)} WLOG assume that $a,b$ are nonzero.
+\textbf{(a)} WLOG assume that $a,b$ are nonzero (since otherwise, we are just
+saying $\infty=\infty+\left(  \text{something}\right)  $).
 
 The definition of $v_{p}\left(  a\right)  $ yields that $p^{v_{p}\left(
 a\right)  }\mid a$ but $p^{v_{p}\left(  a\right)  +1}\nmid a$.
 
 Hence, $x:=a/p^{v_{p}\left(  a\right)  }$ is an integer but is not divisible
-by $p$. Thus, $x\perp p$ (by our previous proposition).
+by $p$. Thus, $x\perp p$ (by Proposition \ref{prop.ent.primes.div-or-coprime}).
 
 Similarly, $y:=b/p^{v_{p}\left(  b\right)  }$ is an integer and $y\perp p$.
 
-From $x\perp p$ and $y\perp p$, we obtain $xy\perp p$.
+From $x\perp p$ and $y\perp p$, we obtain $xy\perp p$ (by Theorem
+\ref{thm.ent.coprime.ab-to-c}).
 
 Now,
 \[
@@ -7345,19 +7350,25 @@ Induction, using the preceding theorem.
 
 \begin{proposition}
 Let $n$ be a positive integer. Let $\left(  a_{1},a_{2},\ldots,a_{k}\right)  $
-be a prime factorization of $n$. Let $p$ be a prime. Then, $p$ appears exactly
-$v_{p}\left(  n\right)  $ many times in $\left(  a_{1},a_{2},\ldots
-,a_{k}\right)  $.
+be a prime factorization of $n$. Let $p$ be a prime. Then,%
+\begin{align*}
+&  \left(  \text{the number of times }p\text{ appears in }\left(  a_{1}%
+,a_{2},\ldots,a_{k}\right)  \right)  \\
+&  =\left(  \text{the number of }i\in\left\{  1,2,\ldots,k\right\}  \text{
+such that }a_{i}=p\right)  \\
+&  =v_{p}\left(  n\right)  .
+\end{align*}
+
 \end{proposition}
 
 \begin{proof}
 We have $n=a_{1}a_{2}\cdots a_{k}$ (since $\left(  a_{1},a_{2},\ldots
 ,a_{k}\right)  $ is a prime factorization of $n$). Thus,
 \begin{align*}
-v_{p}\left(  n\right)   &  =v_{p}\left(  a_{1}a_{2}\cdots a_{k}\right) \\
+v_{p}\left(  n\right)   &  =v_{p}\left(  a_{1}a_{2}\cdots a_{k}\right)  \\
 &  =v_{p}\left(  a_{1}\right)  +v_{p}\left(  a_{2}\right)  +\cdots
 +v_{p}\left(  a_{k}\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Corollary
-above}\right) \\
+above}\right)  \\
 &  =\sum_{i=1}^{k}\underbrace{v_{p}\left(  a_{i}\right)  }_{\substack{=%
 \begin{cases}
 1, & \text{if }a_{i}=p;\\
@@ -7369,7 +7380,8 @@ above}\right) \\
 0, & \text{if }a_{i}\neq p
 \end{cases}
 \\
-&  =\left(  \text{the number of }i\text{'s such that }a_{i}=p\right) \\
+&  =\left(  \text{the number of }i\in\left\{  1,2,\ldots,k\right\}  \text{
+such that }a_{i}=p\right)  \\
 &  =\left(  \text{the number of times }p\text{ appears in }\left(  a_{1}%
 ,a_{2},\ldots,a_{k}\right)  \right)  .
 \end{align*}
@@ -7425,18 +7437,40 @@ satisfies $v_{p}\left(  n\right)  \leq v_{p}\left(  m\right)  $.
 \end{proposition}
 
 \begin{proof}
-We WLOG assume that $n$ and $m$ are nonzero.
+WLOG assume that $m$ is nonzero (else, both statements are true).
 
-We WLOG assume that $n$ and $m$ are positive.
+WLOG assume that $n$ is nonzero (else, both statements are false).
 
-Then, $n=\prod_{p\text{ prime}}p^{v_{p}\left(  n\right)  }$ and $m=\prod
-_{p\text{ prime}}p^{v_{p}\left(  m\right)  }$. This yields the $\Longleftarrow
-$ implication.
+WLOG assume that $m$ and $n$ are positive (since we can replace $n$ and $m$ by
+$\left\vert n\right\vert $ and $\left\vert m\right\vert $, and use
+$v_{p}\left(  a\right)  =v_{p}\left(  -a\right)  $).
 
-$\Longrightarrow:$ If $n\mid m$, then you can divide $m$ at least as many
-times by $p$ as you can divide $n$. So $v_{p}\left(  n\right)  \leq
-v_{p}\left(  m\right)  $.
+$\Longleftarrow:$ Assume that each prime $p$ satisfies $v_{p}\left(  n\right)
+\leq v_{p}\left(  m\right)  $.
+
+But Corollary above yields%
+\[
+n=\prod_{p\text{ prime}}p^{v_{p}\left(  n\right)  }%
+\ \ \ \ \ \ \ \ \ \ \text{and}\ \ \ \ \ \ \ \ \ \ m=\prod_{p\text{ prime}%
+}p^{v_{p}\left(  m\right)  }.
+\]
+Thus $n\mid m$, since
+\[
+m=n\cdot\prod_{p\text{ prime}}\underbrace{p^{v_{p}\left(  m\right)
+-v_{p}\left(  n\right)  }}_{\substack{\text{an integer,}\\\text{since }%
+v_{p}\left(  n\right)  \leq v_{p}\left(  m\right)  }}.
+\]
+
+
+$\Longleftarrow:$ Assume $n\mid m$. We must prove that each prime $p$
+satisfies $v_{p}\left(  n\right)  \leq v_{p}\left(  m\right)  $.
+
+So let $p$ be a prime. From $n\mid m$, we obtain $m=nb$ for some integer $b$.
+Thus, $v_{p}\left(  m\right)  =v_{p}\left(  nb\right)  =v_{p}\left(  n\right)
++\underbrace{v_{p}\left(  b\right)  }_{\geq0}\geq v_{p}\left(  n\right)  $.
 \end{proof}
+
+TODO:
 
 \begin{itemize}
 \item $\gcd$ and $\operatorname{lcm}$ via canonical factorization

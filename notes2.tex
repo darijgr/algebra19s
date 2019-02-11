@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, February 11, 2019 09:55:16}
+%TCIDATA{LastRevised=Monday, February 11, 2019 12:04:46}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -6911,30 +6911,32 @@ $i\in\left\{  1,2,\ldots,p-1\right\}  $ is coprime to $p$.
 [Proof of Proposition \ref{prop.ent.primes.each-i-coprime}.]Let $i\in\left\{
 1,2,\ldots,p-1\right\}  $. We must prove that $\gcd\left(  i,p\right)  =1$.
 
-Well, $\gcd\left(  i,p\right)  $ is a positive divisor of $p$, thus must be
-either $1$ or $p$ (since $p$ is prime). If it is $1$, then we are done. So
-assume it is $p$ instead.
+But $\gcd\left(  i,p\right)  \mid i$, thus $\gcd\left(  i,p\right)  \leq i\leq
+p-1<p$, so $\gcd\left(  i,p\right)  \neq p$.
 
-But $\gcd\left(  i,p\right)  \mid i$ and thus $\gcd\left(  i,p\right)  \leq
-i\leq p-1<p$, so it cannot be $p$.
+But $\gcd\left(  i,p\right)  \mid p$, thus $\gcd\left(  i,p\right)  =1$ or
+$\gcd\left(  i,p\right)  =p$ (since the only divisors of $p$ are $1$ and $p$).
+In view of $\gcd\left(  i,p\right)  \neq p$, we thus get $\gcd\left(
+i,p\right)  =1$.
 \end{proof}
 
 \begin{proposition}
-\label{prop.ent.primes.div-or-coprime}Let $p$ be a prime. Let $a\in\mathbb{Z}%
-$. Then, either $p\mid a$ or $p\perp a$.
+Let $p$ be a prime. Let $a\in\mathbb{Z}$. Then, either $p\mid a$ or $p\perp a$.
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.ent.primes.div-or-coprime}.]Assume the
-contrary. Thus, neither $p\mid a$ nor $p\perp a$.
+Assume the contrary. Thus, neither $p\mid a$ nor $p\perp a$.
 
-Now, $a\%p\in\left\{  0,1,\ldots,p-1\right\}  $ and $a\%p\equiv
-a\operatorname{mod}p$. Also, $a\%p\neq0$ because $p\nmid a$. Thus,
-$a\%p\in\left\{  0,1,\ldots,p-1\right\}  \setminus\left\{  0\right\}
-=\left\{  1,2,\ldots,p-1\right\}  $. So the previous proposition (applied to
-$i=a\%p$) yields that $a\%p$ is coprime to $p$. In other words, $\gcd\left(
-p,a\%p\right)  =1$. But Proposition 2.9.7 \textbf{(e)} yields $\gcd\left(
-p,a\right)  =\gcd\left(  p,a\%p\right)  =1$, so that $p\perp a$. Contradiction.
+Recall: $p\mid a$ if and only if $a\%p=0$. Thus, $a\%p\neq0$.
+
+But $a\%p\in\left\{  0,1,\ldots,p-1\right\}  $. Hence, $a\%p\in\left\{
+0,1,\ldots,p-1\right\}  \setminus\left\{  0\right\}  =\left\{  1,2,\ldots
+,p-1\right\}  $. So we can apply the previous proposition to $i=a\%p$. We thus
+conclude that $a\%p$ is coprime to $p$. In other words, $\gcd\left(
+p,a\%p\right)  =1$.
+
+Proposition 2.9.7 \textbf{(e)} yields $\gcd\left(  p,a\right)  =\gcd\left(
+p,a\%p\right)  =1$, so $p\perp a$. Contradiction to assumption!
 \end{proof}
 
 \begin{theorem}
@@ -6943,13 +6945,13 @@ a$ or $p\mid b$.
 \end{theorem}
 
 \begin{proof}
-Assume the contrary. Thus, $p\nmid a$ and $p\nmid b$.
+Assume the contrary. Thus, neither $p\mid a$ nor $p\mid b$.
 
-The previous proposition yields either $p\mid a$ or $p\perp a$. Thus, $p\perp
-a$ (since $p\nmid a$).
+The previous proposition yields either $p\mid a$ or $p\perp a$. Hence, $p\perp
+a$. 
 
-But $p\mid ab$. Thus, Theorem 2.10.6 (applied to $p$, $a$ and $b$ instead of
-$a$, $b$ and $c$) yields $p\mid b$. This contradicts $p\nmid b$.
+But $p\mid ab$. Hence, Theorem 2.10.6 (applied to $p$, $a$ and $b$ instead of
+$a$, $b$ and $c$) yields $p\mid b$. Contradiction!
 \end{proof}
 
 \begin{proposition}
@@ -6959,8 +6961,10 @@ $p\mid a_{1}a_{2}\cdots a_{k}$. Then, $p\mid a_{i}$ for some $i\in\left\{
 \end{proposition}
 
 \begin{proof}
-Induction using the previous theorem. See the notes for details.
+Induction on $k$.
 \end{proof}
+
+\subsubsection{Prime factorization I}
 
 \begin{proposition}
 Let $n>1$ be an integer. Then, there exists at least one prime $p$ such that
@@ -6968,114 +6972,123 @@ $p\mid n$.
 \end{proposition}
 
 \begin{proof}
-Let $d$ be the smallest divisor of $n$ that is $>1$. (Note that $d$ exists,
-since $n$ itself is $>1$.)
+Let $d$ be the \textbf{smallest} divisor of $n$ that is $>1$.
 
-Claim: $d$ is prime. Indeed, if $d$ had a divisor other than $1$ and $d$, then
-this divisor would contradict the minimality of $d$.
+We claim that $d$ is a prime. Indeed, any divisor of $d$ other than $1$ and
+$d$ would be an even smaller divisor of $n$ that is $>1$; but that is
+impossible. So the only divisors of $d$ are $1$ and $d$. In other words, $d$
+is prime. So take $p=d$.
 \end{proof}
+
+\begin{definition}
+Let $n$ be an integer. A \textbf{prime factor} (or \textbf{prime divisor}) of
+$n$ means a prime $p$ such that $p\mid n$.
+\end{definition}
 
 \begin{proposition}
 Let $n$ be a positive integer. Then, $n$ can be written as a product of
 finitely many primes.
 \end{proposition}
 
-\begin{example}
-\textbf{(a)} The integer $60=\allowbreak2\cdot2\cdot3\cdot5$.
+\begin{exam}
+\textbf{(a)} $60=2\cdot30=2\cdot2\cdot15=2\cdot2\cdot3\cdot5$. The right hand
+side is a product of $4$ primes.
 
-\textbf{(b)} $1=\left(  \text{empty product}\right)  $.
-\end{example}
+\textbf{(b)} $7=7$. This is a product of $1$ prime.
+
+\textbf{(c)} $1=\left(  \text{empty product}\right)  $. This is a product of
+$0$ primes.
+\end{exam}
 
 \begin{proof}
-Strong induction on $n$.
-
-We fix a positive integer $N$, and assume the proposition holds whenever
-$n<N$. We must prove it for $n=N$. In other words, we must show that $N$ can
-be written as a product of finitely many primes.
-
-The proposition before says that there exists at least one prime $p$ such that
-$p\mid N$. Thus, $N/p$ is a positive integer smaller than $N$. Thus, the
-proposition holds for $n=N/p$ (by ind. hyp.). In other words, $N/p$ can be
-written as a product of finitely many primes. Thus, the same holds for $N$
-(just insert $p$ into the product). Induction complete.
+The proposition follows from the previous one by strong induction.
 \end{proof}
 
 \begin{definition}
-Let $n$ be a positive integer. Then, $n$ can be written as a product of
-finitely many primes (as we just saw). Such a representation is called a
-\textbf{prime factorization} of $n$.
+Let $n$ be a positive integer.
 
-More formally: A \textbf{prime factorization} of $n$ means a tuple $\left(
-p_{1},p_{2},\ldots,p_{k}\right)  $ of primes such that $n=p_{1}p_{2}\cdots
-p_{k}$.
+A \textbf{prime factorization} of $n$ means a way to write $n$ as a product of
+finitely many primes.
+
+Rigorously:
+
+A \textbf{prime factorization} of $n$ means a tuple $\left(  p_{1}%
+,p_{2},\ldots,p_{k}\right)  $ of primes such that $n=p_{1}p_{2}\cdots p_{k}$.
 \end{definition}
 
-\begin{example}
-The prime factorizations of $12$ are%
+\begin{exam}
+\textbf{(a)} The prime factorizations of $12$ are%
 \[
-\left(  2,2,3\right)  ,\qquad\left(  2,3,2\right)  ,\qquad\left(
-3,2,2\right)  .
+\left(  2,2,3\right)  ,\ \ \ \ \ \ \ \ \ \ \left(  2,3,2\right)
+,\ \ \ \ \ \ \ \ \ \ \left(  3,2,2\right)  .
 \]
 
-\end{example}
 
-We may suspect that all prime factorizations of a given number $n$ are equal
-up to order (i.e., are permutations of each other). This is indeed true, and
-we are going to prove this soon.
+\textbf{(b)} If $p$ is a prime, then the only prime factorization of $p$ is
+the $1$-tuple $\left(  p\right)  $.
+
+\textbf{(c)} If $p$ is a prime and $i\in\mathbb{N}$, then the only prime
+factorization of $p^{i}$ is the $i$-tuple $\left(  \underbrace{p,p,\ldots
+,p}_{i\text{ times}}\right)  $. This is not quite trivial.
+
+\textbf{(d)} The only prime factorization of $1$ is the $0$-tuple $\left(
+{}\right)  $.
+\end{exam}
+
+These examples suggest that the prime factorization of an $n$ is unique up to
+reordering the entries. This is true, and we will see it soon.
 
 \begin{definition}
 Let $p$ be a prime.
 
 \textbf{(a)} Let $n$ be a nonzero integer. Let $v_{p}\left(  n\right)  $
 (called the $p$\textbf{-valuation} or the $p$\textbf{-adic valuation} of $n$)
-denotes the largest $m\in\mathbb{N}$ such that $p^{m}\mid n$. This is
-well-defined, since $p^{m}\mid n$ implies $\left\vert n\right\vert \geq p^{m}$.
+denote the largest $m\in\mathbb{N}$ such that $p^{m}\mid n$. This is
+well-defined, since $p^{m}\mid n$ implies $p^{m}\leq\left\vert n\right\vert $.
 
 \textbf{(b)} Set $v_{p}\left(  0\right)  =\infty$, where $\infty$ is a symbol
 which we take to satisfy%
 \begin{align*}
-\infty+k  & =\infty;\ \ \ \ \ \ \ \ \ \ \min\left(  S\cup\left\{
-\infty\right\}  \right)  =\min S\text{ if }S\neq\varnothing;\\
-\max\left(  S\cup\left\{  \infty\right\}  \right)    & =\infty
-;\ \ \ \ \ \ \ \ \ \ k\leq\infty\text{ for each }k\in\mathbb{N}.
+\infty+k  & =\infty;\\
+k  & <\infty\ \ \ \ \ \ \ \ \ \ \text{for all integers }k;\\
+\min\left(  S\cup\left\{  \infty\right\}  \right)    & =\min
+S\ \ \ \ \ \ \ \ \ \ \text{if }S\neq\varnothing;\\
+\max\left(  S\cup\left\{  \infty\right\}  \right)    & =\infty.
 \end{align*}
-(Careful: $\infty-\infty$ is not defined.)
+Note that $\infty-\infty$ is not defined.
 \end{definition}
 
 \begin{example}
+$v_{5}\left(  55\right)  =1$.
+
 $v_{5}\left(  50\right)  =2$.
 
 $v_{5}\left(  51\right)  =0$.
-
-$v_{5}\left(  55\right)  =1$.
 
 $v_{5}\left(  0\right)  =\infty$.
 \end{example}
 
 \begin{lemma}
-Let $p$ be a prime. Let $i\in\mathbb{N}$. Let $n\in\mathbb{Z}$. Then,
+Let $p$ be a prime. Let $i\in\mathbb{N}$ and $n\in\mathbb{Z}$. Then,
 $p^{i}\mid n$ if and only if $v_{p}\left(  n\right)  \geq i$.
 \end{lemma}
 
 \begin{proof}
-First, we WLOG assume that $n\neq0$ (since otherwise, $p^{i}\mid n$ and
-$v_{p}\left(  n\right)  \geq i$ are both true). Now:
+WLOG assume $n\neq0$. Now,
 
 $\Longrightarrow:$ Assume $p^{i}\mid n$. Thus, $i$ is an $m\in\mathbb{N}$ such
 that $p^{m}\mid n$. But $v_{p}\left(  n\right)  $ is the \textbf{largest} such
-$m$. Hence, $v_{p}\left(  n\right)  \geq i$.
+$m$ (by definition). So $v_{p}\left(  n\right)  \geq i$.
 
-$\Longleftarrow:$ Assume $v_{p}\left(  n\right)  \geq i$. Hence, $p^{i}\mid
-p^{v_{p}\left(  n\right)  }$.
-
-But $p^{v_{p}\left(  n\right)  }\mid n$ (since $v_{p}\left(  n\right)  $ is
-the largest $m\in\mathbb{N}$ such that $p^{m}\mid n$).
-
-So $p^{i}\mid p^{v_{p}\left(  n\right)  }\mid n$.
+$\Longleftarrow:$ Assume $v_{p}\left(  n\right)  \geq i$. Recall that
+$v_{p}\left(  n\right)  $ is the largest $m\in\mathbb{N}$ such that $p^{m}\mid
+n$. In particular, $p^{v_{p}\left(  n\right)  }\mid n$. But $v_{p}\left(
+n\right)  \geq i$, so that $i\leq v_{p}\left(  n\right)  $ and thus $p^{i}\mid
+p^{v_{p}\left(  n\right)  }\mid n$.
 \end{proof}
 
 \begin{theorem}
-Let $p$ be a prime, and $a$ and $b$ two integers.
+Let $p$ be a prime. Let $a,b\in\mathbb{Z}$.
 
 \textbf{(a)} We have $v_{p}\left(  ab\right)  =v_{p}\left(  a\right)
 +v_{p}\left(  b\right)  $.
@@ -7085,57 +7098,67 @@ a\right)  ,v_{p}\left(  b\right)  \right\}  $.
 \end{theorem}
 
 \begin{proof}
-\textbf{(a)} WLOG assume that $a,b$ are nonzero.
+\textbf{(a)} WLOG assume that $a,b\neq0$.
 
 The definition of $v_{p}\left(  a\right)  $ yields that $p^{v_{p}\left(
 a\right)  }\mid a$ but $p^{v_{p}\left(  a\right)  +1}\nmid a$.
 
-Hence, $x:=a/p^{v_{p}\left(  a\right)  }$ is an integer but is not divisible
-by $p$. Thus, $x\perp p$ (by our previous proposition).
+(The symbol $\nmid$ means \textquotedblleft does not divide\textquotedblright.
 
-Similarly, $y:=b/p^{v_{p}\left(  b\right)  }$ is an integer and $y\perp p$.
+The symbol $\not \equiv $ means \textquotedblleft is not congruent
+to\textquotedblright.)
 
-From $x\perp p$ and $y\perp p$, we obtain $xy\perp p$.
+Thus, $x:=a/p^{v_{p}\left(  a\right)  }$ is an integer but is not divisible by
+$p$ (since $p^{v_{p}\left(  a\right)  +1}\nmid a$). Hence, $x\perp p$ (by one
+of our previous propositions).
 
-Now,
+Similarly, $y:=b/p^{v_{p}\left(  b\right)  }$ is also an integer and satisfies
+$y\perp p$.
+
+Now,%
 \[
 ab/p^{v_{p}\left(  a\right)  +v_{p}\left(  b\right)  }=\underbrace{\left(
 a/p^{v_{p}\left(  a\right)  }\right)  }_{=x}\cdot\underbrace{\left(
 b/p^{v_{p}\left(  b\right)  }\right)  }_{=y}=xy
 \]
-is an integer coprime to $p$, hence not divisible by $p$. This means that
-$p^{v_{p}\left(  a\right)  +v_{p}\left(  b\right)  }\mid ab$ but no larger
-power of $p$ divides $ab$. This means $v_{p}\left(  ab\right)  =v_{p}\left(
-a\right)  +v_{p}\left(  b\right)  $.
+is an integer and is coprime to $p$ (since $x\perp p$ and $y\perp p$). Hence,
+it is not divisible by $p$. In other words, $p^{v_{p}\left(  a\right)
++v_{p}\left(  b\right)  +1}\nmid ab$. But $p^{v_{p}\left(  a\right)
++v_{p}\left(  b\right)  }\mid ab$ (since $ab/p^{v_{p}\left(  a\right)
++v_{p}\left(  b\right)  }$ is an integer). Hence, $v_{p}\left(  ab\right)
+=v_{p}\left(  a\right)  +v_{p}\left(  b\right)  $.
 
 \textbf{(b)} Exercise.
 \end{proof}
 
 \begin{corollary}
-Let $p$ be a prime. Let $a_{1},a_{2},\ldots,a_{k}$ be $k$ integers. Then,
-$v_{p}\left(  a_{1}a_{2}\cdots a_{k}\right)  =v_{p}\left(  a_{1}\right)
-+v_{p}\left(  a_{2}\right)  +\cdots+v_{p}\left(  a_{k}\right)  $.
-\end{corollary}
+Let $p$ be a prime. Let $a_{1},a_{2},\ldots,a_{k}$ be integers. Then,
+\[
+v_{p}\left(  a_{1}a_{2}\cdots a_{k}\right)  =v_{p}\left(  a_{1}\right)
++v_{p}\left(  a_{2}\right)  +\cdots+v_{p}\left(  a_{k}\right)  .
+\]
 
-\begin{proof}
-Induction, using the preceding theorem.
-\end{proof}
+\end{corollary}
 
 \begin{proposition}
 Let $n$ be a positive integer. Let $\left(  a_{1},a_{2},\ldots,a_{k}\right)  $
-be a prime factorization of $n$. Let $p$ be a prime. Then, $p$ appears exactly
-$v_{p}\left(  n\right)  $ many times in $\left(  a_{1},a_{2},\ldots
-,a_{k}\right)  $.
+be a prime factorization of $n$. Let $p$ be a prime. Then,
+\begin{align*}
+& \left(  \text{the number of times }p\text{ appears in }\left(  a_{1}%
+,a_{2},\ldots,a_{k}\right)  \right)  \\
+& =\left(  \text{the number of }i\in\left\{  1,2,\ldots,k\right\}  \text{ such
+that }a_{i}=p\right)  \\
+& =v_{p}\left(  n\right)  .
+\end{align*}
+
 \end{proposition}
 
 \begin{proof}
-We have $n=a_{1}a_{2}\cdots a_{k}$ (since $\left(  a_{1},a_{2},\ldots
-,a_{k}\right)  $ is a prime factorization of $n$). Thus,
+We have $n=a_{1}a_{2}\cdots a_{k}$, thus%
 \begin{align*}
 v_{p}\left(  n\right)    & =v_{p}\left(  a_{1}a_{2}\cdots a_{k}\right)  \\
 & =v_{p}\left(  a_{1}\right)  +v_{p}\left(  a_{2}\right)  +\cdots+v_{p}\left(
-a_{k}\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Corollary above}\right)
-\\
+a_{k}\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the Corollary}\right)  \\
 & =\sum_{i=1}^{k}\underbrace{v_{p}\left(  a_{i}\right)  }_{\substack{=%
 \begin{cases}
 1, & \text{if }a_{i}=p;\\
@@ -7147,7 +7170,8 @@ a_{k}\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Corollary above}\right)
 0, & \text{if }a_{i}\neq p
 \end{cases}
 \\
-& =\left(  \text{the number of }i\text{'s such that }a_{i}=p\right)  \\
+& =\left(  \text{the number of }i\in\left\{  1,2,\ldots,k\right\}  \text{ such
+that }a_{i}=p\right)  \\
 & =\left(  \text{the number of times }p\text{ appears in }\left(  a_{1}%
 ,a_{2},\ldots,a_{k}\right)  \right)  .
 \end{align*}
@@ -7170,11 +7194,11 @@ entries (i.e., are permutations of each other).
 b_{1},b_{2},\ldots,b_{\ell}\right)  $ be two prime factorizations of $n$.
 Then, any prime $p$ appears equally often in $\left(  a_{1},a_{2},\ldots
 ,a_{k}\right)  $ and in $\left(  b_{1},b_{2},\ldots,b_{\ell}\right)  $
-(because it appears $v_{p}\left(  n\right)  $ many times in each of these
-factorizations, according to the Proposition we just proved). Thus, the
-factorizations $\left(  a_{1},a_{2},\ldots,a_{k}\right)  $ and $\left(
-b_{1},b_{2},\ldots,b_{\ell}\right)  $ have the same entries appear equally
-often. Thus, they only differ in the order of their entries.
+(because it appears $v_{p}\left(  n\right)  $ many times in each of these two
+factorizations, by the Proposition above). Hence, the factorizations $\left(
+a_{1},a_{2},\ldots,a_{k}\right)  $ and $\left(  b_{1},b_{2},\ldots,b_{\ell
+}\right)  $ have the same entries appear equally often, and so are
+permutations of each other.
 \end{proof}
 
 \begin{corollary}
@@ -7182,20 +7206,12 @@ Let $n$ be a positive integer. Then,%
 \[
 n=\prod_{p\text{ prime}}p^{v_{p}\left(  n\right)  }.
 \]
-
-
-Here, the product is infinite (since there are infinitely many primes -- see
-below), but all but finitely many of its factors equal $1$ and thus can be
-thrown away.
+The product here is infinite (since, as we will see soon, there are infinitely
+many primes), but only finitely many of its factors are $\neq1$.
 \end{corollary}
 
-This expression $n=\prod_{p\text{ prime}}p^{v_{p}\left(  n\right)  }$ is
-called the \textbf{canonical factorization} of $n$.
-
-\begin{definition}
-Let $n$ be a positive integer. The \textbf{prime divisors} (aka \textbf{prime
-factors}) of $n$ are just the primes $p$ that divide $n$.
-\end{definition}
+The expression $n=\prod_{p\text{ prime}}p^{v_{p}\left(  n\right)  }$ is called
+the \textbf{canonical factorization} of $n$.
 
 \begin{proposition}
 Let $n$ and $m$ be integers. Then, $n\mid m$ if and only if each prime $p$
@@ -7203,17 +7219,37 @@ satisfies $v_{p}\left(  n\right)  \leq v_{p}\left(  m\right)  $.
 \end{proposition}
 
 \begin{proof}
-We WLOG assume that $n$ and $m$ are nonzero.
+WLOG assume that $m$ is nonzero (else, both statements are true).
 
-We WLOG assume that $n$ and $m$ are positive.
+WLOG assume that $n$ is nonzero (else, both statements are false).
 
-Then, $n=\prod_{p\text{ prime}}p^{v_{p}\left(  n\right)  }$ and $m=\prod
-_{p\text{ prime}}p^{v_{p}\left(  m\right)  }$. This yields the $\Longleftarrow
-$ implication.
+WLOG assume that $m$ and $n$ are positive (since we can replace $n$ and $m$ by
+$\left\vert n\right\vert $ and $\left\vert m\right\vert $, and use
+$v_{p}\left(  a\right)  =v_{p}\left(  -a\right)  $).
 
-$\Longrightarrow:$ If $n\mid m$, then you can divide $m$ at least as many
-times by $p$ as you can divide $n$. So $v_{p}\left(  n\right)  \leq
-v_{p}\left(  m\right)  $.
+$\Longleftarrow:$ Assume that each prime $p$ satisfies $v_{p}\left(  n\right)
+\leq v_{p}\left(  m\right)  $.
+
+But Corollary above yields%
+\[
+n=\prod_{p\text{ prime}}p^{v_{p}\left(  n\right)  }%
+\ \ \ \ \ \ \ \ \ \ \text{and}\ \ \ \ \ \ \ \ \ \ m=\prod_{p\text{ prime}%
+}p^{v_{p}\left(  m\right)  }.
+\]
+Thus $n\mid m$, since
+\[
+m=n\cdot\prod_{p\text{ prime}}\underbrace{p^{v_{p}\left(  m\right)
+-v_{p}\left(  n\right)  }}_{\substack{\text{an integer,}\\\text{since }%
+v_{p}\left(  n\right)  \leq v_{p}\left(  m\right)  }}.
+\]
+
+
+$\Longleftarrow:$ Assume $n\mid m$. We must prove that each prime $p$
+satisfies $v_{p}\left(  n\right)  \leq v_{p}\left(  m\right)  $.
+
+So let $p$ be a prime. From $n\mid m$, we obtain $m=nb$ for some integer $b$.
+Thus, $v_{p}\left(  m\right)  =v_{p}\left(  nb\right)  =v_{p}\left(  n\right)
++\underbrace{v_{p}\left(  b\right)  }_{\geq0}\geq v_{p}\left(  n\right)  $.
 \end{proof}
 
 
