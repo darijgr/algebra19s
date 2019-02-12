@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, February 11, 2019 12:17:24}
+%TCIDATA{LastRevised=Wednesday, February 13, 2019 10:34:41}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -1536,6 +1536,22 @@ an integer $e$ such that $b=ae$ (namely, $e=d$). In other words, $a\mid b$ (by
 Definition \ref{def.ent.div.div}). This proves the \textquotedblleft%
 $\Longleftarrow$\textquotedblright\ direction of Exercise
 \ref{exe.ent.div.acbc}.
+\end{proof}
+\end{fineprint}
+
+\begin{exercise}
+\label{exe.ent.div.powers}Let $n\in\mathbb{Z}$. Let $a,b\in\mathbb{N}$ be such
+that $a\leq b$. Prove that $n^{a}\mid n^{b}$.
+\end{exercise}
+
+\begin{fineprint}
+\begin{proof}
+[Solution to Exercise \ref{exe.ent.div.powers}.]We have $b-a\geq0$ (since
+$a\leq b$), thus $b-a\in\mathbb{N}$. Hence, $n^{b-a}$ is a well-defined
+integer. Now, $n^{b}=n^{a}n^{b-a}$ (since $n^{a}n^{b-a}=n^{a+\left(
+b-a\right)  }=n^{b}$). Hence, there exists an integer $c$ such that
+$n^{b}=n^{a}c$ (namely, $c=n^{b-a}$). In other words, $n^{a}\mid n^{b}$ (by
+the definition of divisibility). This solves Exercise \ref{exe.ent.div.powers}.
 \end{proof}
 \end{fineprint}
 
@@ -5808,10 +5824,10 @@ yields $x^{d}\equiv y^{d}\operatorname{mod}x-y$. In other words, $x-y\mid
 x^{d}-y^{d}$. This proves Lemma \ref{lem.ent.xd-yd} \textbf{(a)}.
 
 \textit{Second proof of Lemma \ref{lem.ent.xd-yd} \textbf{(a)}:} Recall that%
-\[
+\begin{equation}
 \left(  a-b\right)  \left(  a^{k-1}+a^{k-2}b+a^{k-3}b^{2}+\cdots
-+ab^{k-2}+b^{k-1}\right)  =a^{k}-b^{k}%
-\]
++ab^{k-2}+b^{k-1}\right)  =a^{k}-b^{k} \label{pf.lem.ent.xd-yd.1}%
+\end{equation}
 for every $a,b\in\mathbb{Q}$ and $k\in\mathbb{N}$. (This is a well-known
 identity, and it appears (with $k$ renamed as $n$) as the first half of
 Exercise 1 on
@@ -6091,6 +6107,10 @@ ux,uy,vx,vy\right)  $.
 \label{exe.ent.coprime.combine2}Let $a,b,c\in\mathbb{Z}$ satisfy $a\mid c$ and
 $b\mid c$. Prove that $ab\mid\gcd\left(  a,b,c\right)  \cdot c$.
 \end{exercise}
+
+\begin{center}
+\textbf{2019-02-08 lecture}
+\end{center}
 
 \subsection{Lowest common multiples}
 
@@ -6889,16 +6909,20 @@ before this step). Thus, we do not need to make this step.
 \item If $d\in\left\{  2,3,\ldots,30\right\}  $ satisfies $d^{2}>30$, then
 Step $d$ will not change the table (because if $m\in\left\{  2,3,\ldots
 ,30\right\}  $ is a multiple of $d$ that is larger than $d$, then $m$ is also
-a multiple of the integer $m/d$ (since $d\mid m$ and thus $m/d\in\mathbb{Z}$
-and of course $m/d\mid m$), and therefore $m$ has already been removed in Step
-$m/d$ (which has already happened before Step $d$ (because $d^{2}>30\geq m$
-and therefore $d>m/d$)). Thus, we only need to take the Steps $d$ with
-$d^{2}\leq30$.
+a multiple of the integer $m/d$ as well (since $d\mid m$ and thus
+$m/d\in\mathbb{Z}$ and of course $m/d\mid m$), and therefore $m$ has already
+been removed in Step $m/d$ (which has already happened before Step $d$
+(because $d^{2}>30\geq m$ and therefore $d>m/d$)). Thus, we only need to take
+the Steps $d$ with $d^{2}\leq30$.
 \end{itemize}
 
 Together, these tricks tell us that the only steps we need to take are the
 Steps 2, 3 and 5.
 \end{example}
+
+\begin{center}
+\textbf{2019-02-11 lecture}
+\end{center}
 
 \subsubsection{Basic properties of primes}
 
@@ -6946,7 +6970,7 @@ coprime\textquotedblright). This proves Proposition
 
 Note that this proposition characterizes primes: If $p>1$ is an integer such
 that each $i\in\left\{  1,2,\ldots,p-1\right\}  $ is coprime to $p$, then $p$
-is prime. (Easy exercise.)
+is prime. (The proof of this is left as an easy exercise.)
 
 \begin{proposition}
 \label{prop.ent.primes.div-or-coprime}Let $p$ be a prime. Let $a\in\mathbb{Z}%
@@ -7024,9 +7048,64 @@ $a,b\in\mathbb{Z}$ satisfying $p\mid ab$, we must have $p\mid a$ or $p\mid b$.
 Then, $p$ is prime.
 \end{exercise}
 
+\begin{fineprint}
 \begin{proof}
-[Solution to Exercise \ref{exe.ent.primes.pab-conv}.]TODO.
+[Solution to Exercise \ref{exe.ent.primes.pab-conv}.]The integer $p$ is
+positive (since $p>1>0$). Thus, $\left\vert p\right\vert =p$.
+
+Let $d$ be a positive divisor of $p$ other than $1$ and $p$. We shall derive a contradiction.
+
+We know that $d$ is a divisor of $p$ \textbf{other than} $1$ and $p$. Hence,
+$d\neq1$ and $d\neq p$.
+
+Indeed, $d$ is a divisor of $p$. In other words, there exists an integer $c$
+such that $p=dc$. Consider this $c$.
+
+The integer $d$ is positive, therefore nonzero. Hence, we can solve the
+equality $p=dc$ for $c$; thus we find $c=p/d>0$ (since both $p$ and $d$ are
+positive). Thus, the integer $c$ is positive; hence, $c\geq1$. Also, $d\geq1$
+(since $d$ is a positive integer). Combining this with $d\neq1$, we obtain
+$d>1$.
+
+Since $c>0$, we can multiply the inequality $d>1$ by $c$. We thus find
+$cd>c\cdot1=c$. Hence, $c<cd=dc=p$. Since $c$is positive, we have $\left\vert
+c\right\vert =c<p$. But $p$ is positive; thus, $\left\vert p\right\vert
+=p>\left\vert c\right\vert $ (since $\left\vert c\right\vert <p$).
+
+Since $d>0$, we can multiply the inequality $c\geq1$ by $d$. We thus find
+$dc\geq d\cdot1=d$. Hence, $d\leq dc=p$. Combining this with $d\neq p$, we
+obtain $d<p$. Since $d$ is positive, we have $\left\vert d\right\vert =d<p$.
+But $p$ is positive; thus, $\left\vert p\right\vert =p>\left\vert d\right\vert
+$ (since $\left\vert d\right\vert <p$).
+
+We have $p\mid p=dc$. But let us recall that for every $a,b\in\mathbb{Z}$
+satisfying $p\mid ab$, we must have $p\mid a$ or $p\mid b$. Applying this to
+$a=d$ and $b=c$, we conclude that $p\mid d$ or $p\mid c$.
+
+We have $d\neq0$ (since $d>0$). Hence, if we had $p\mid d$, then we would have
+$\left\vert p\right\vert \leq\left\vert d\right\vert $ (by Proposition
+\ref{prop.ent.div.1} \textbf{(b)}, applied to $a=p$ and $b=d$); but this would
+contradict $\left\vert p\right\vert >\left\vert d\right\vert $. Hence, we
+cannot have $p\mid d$.
+
+We have $c\neq0$ (since $c>0$). Hence, if we had $p\mid c$, then we would have
+$\left\vert p\right\vert \leq\left\vert c\right\vert $ (by Proposition
+\ref{prop.ent.div.1} \textbf{(b)}, applied to $a=p$ and $b=c$); but this would
+contradict $\left\vert p\right\vert >\left\vert c\right\vert $. Hence, we
+cannot have $p\mid c$.
+
+Thus, we have neither $p\mid d$ nor $p\mid c$. This contradicts the fact that
+$p\mid d$ or $p\mid c$.
+
+Now, forget that we have fixed $d$. We thus have found a contradiction for
+each positive divisor $d$ of $p$ other than $1$ and $p$. Thus, there exists no
+positive divisor $d$ of $p$ other than $1$ and $p$. In other words, each
+positive divisor of $p$ is either $1$ or $p$. Thus, the only positive divisors
+of $p$ are $1$ and $p$ (since $1$ and $p$ are indeed positive divisors of
+$p$). In other words, $p$ is prime (by the definition of \textquotedblleft
+prime\textquotedblright). This solves Exercise \ref{exe.ent.primes.pab-conv}.
 \end{proof}
+\end{fineprint}
 
 There is also a version of Theorem \ref{thm.ent.primes.pab} for products of
 multiple integers:
@@ -7051,7 +7130,7 @@ In other words, for each $i\in\left\{  1,2,\ldots,k\right\}  $, we have%
 
 
 Now, let $i\in\left\{  1,2,\ldots,k\right\}  $. Then, we don't have $p\mid
-a_{i}$ (by (\ref{pf.prop.ent.primes.pabk.1}). But Proposition
+a_{i}$ (by (\ref{pf.prop.ent.primes.pabk.1})). But Proposition
 \ref{prop.ent.primes.div-or-coprime} (applied to $a=a_{i}$) shows that either
 $p\mid a_{i}$ or $p\perp a_{i}$. Hence, we have $p\perp a_{i}$ (since we don't
 have $p\mid a_{i}$). In other words, $a_{i}\perp p$ (by Proposition
@@ -7227,11 +7306,9 @@ factorization of $p^{i}$ is the $i$-tuple $\left(  \underbrace{p,p,\ldots
 This example suggests that all prime factorizations of a given positive
 integer $n$ are equal to each other up to the order of their entries (i.e.,
 are permutations of each other). This is indeed true, and we are going to
-prove this soon.
+prove this soon (in Theorem \ref{thm.ent.primes.fac-uni} below).
 
 \subsubsection{$p$-valuations}
-
-TODO: write from here:
 
 \begin{lemma}
 \label{lem.ent.prime.vp-wd}Let $p$ be a prime. Let $n$ be a nonzero integer.
@@ -7239,157 +7316,715 @@ Then, there exists a largest $m\in\mathbb{N}$ such that $p^{m}\mid n$.
 \end{lemma}
 
 \begin{proof}
-[Proof of Lemma \ref{lem.ent.prime.vp-wd}.]TODO: $p^{m}\mid n$ implies
-$\left\vert n\right\vert \geq p^{m}$.
+[Proof of Lemma \ref{lem.ent.prime.vp-wd}.]We know that $p$ is a prime. Thus,
+$p$ is an integer and $p>1$ (by the definition of a \textquotedblleft
+prime\textquotedblright). This is all we shall need from our assumption that
+$p$ is prime.
+
+Let $W$ be the set of all $m\in\mathbb{N}$ satisfying $p^{m}\mid n$. Then, $W$
+is a set of integers. Moreover, $0$ is an $m\in\mathbb{N}$ satisfying
+$p^{m}\mid n$ (since $p^{0}=1\mid n$); in other words, $0\in W$ (by the
+definition of $W$). Hence, the set $W$ is nonempty.
+
+Let $u=\left\vert n\right\vert $. Thus, $u\in\mathbb{N}$.
+
+It is easy to see that $p^{k}>k$ for each $k\in\mathbb{N}$%
+\ \ \ \ \footnote{\textit{Proof.} This can easily be proven by induction on
+$k$; but here is a more artful proof:
+\par
+Let $k\in\mathbb{N}$. We have $p\geq2$ (since $p$ is an integer and satisfies
+$p>1$). Thus, $p-1\geq1$.
+\par
+Recall the identity (\ref{pf.lem.ent.xd-yd.1}), which holds for every
+$a,b\in\mathbb{Q}$. Let us apply this identity to $a=p$ and $b=1$. We thus
+obtain%
+\[
+\left(  p-1\right)  \left(  p^{k-1}+p^{k-2}\cdot1+p^{k-3}\cdot1^{2}%
++\cdots+p\cdot1^{k-2}+1^{k-1}\right)  =p^{k}-\underbrace{1^{k}}_{=1}=p^{k}-1.
+\]
+Thus,%
+\begin{align*}
+p^{k}-1  &  =\left(  p-1\right)  \underbrace{\left(  p^{k-1}+p^{k-2}%
+\cdot1+p^{k-3}\cdot1^{2}+\cdots+p\cdot1^{k-2}+1^{k-1}\right)  }_{=\sum
+_{i=0}^{k-1}p^{i}1^{k-i}}\\
+&  =\underbrace{\left(  p-1\right)  }_{\geq1}\sum_{i=0}^{k-1}p^{i}1^{k-i}%
+\geq1\sum_{i=0}^{k-1}p^{i}1^{k-i}\ \ \ \ \ \ \ \ \ \ \left(  \text{since }%
+\sum_{i=0}^{k-1}p^{i}1^{k-i}\text{ is clearly }\geq0\right) \\
+&  =\sum_{i=0}^{k-1}\underbrace{p^{i}1^{k-i}}_{\substack{=p^{i}\geq
+1^{i}\\\text{(since }p\geq1\text{)}}}=\sum_{i=0}^{k-1}\underbrace{1^{i}}%
+_{=1}=\sum_{i=0}^{k-1}1=k.
+\end{align*}
+Hence, $p^{k}\geq k+1>k$, qed.}. Thus, each $g\in W$ satisfies $g\in\left\{
+0,1,\ldots,u-1\right\}  $\ \ \ \ \footnote{\textit{Proof.} Let $g\in W$. Thus,
+$g$ is an $m\in\mathbb{N}$ satisfying $p^{m}\mid n$ (by the definition of
+$W$). In other words, $g\in\mathbb{N}$ and $p^{g}\mid n$. Also, $n\neq0$
+(since $n$ is nonzero). Hence, Proposition \ref{prop.ent.div.1} \textbf{(b)}
+(applied to $a=p^{g}$ and $b=n$) yields $\left\vert p^{g}\right\vert
+\leq\left\vert n\right\vert =u$. But $p$ is positive (since $p>1>0$); thus,
+$p^{g}$ is positive. Hence, $\left\vert p^{g}\right\vert =p^{g}$. Thus,
+$p^{g}=\left\vert p^{g}\right\vert \leq u$. But recall that $p^{k}>k$ for each
+$k\in\mathbb{N}$. Applying this to $k=g$, we find $p^{g}>g$. Hence,
+$g<p^{g}\leq u$, so that $g\in\left\{  0,1,\ldots,u-1\right\}  $ (since
+$g\in\mathbb{N}$). Qed.}. In other words, $W\subseteq\left\{  0,1,\ldots
+,u-1\right\}  $. Hence, the set $W$ is finite (since the set $\left\{
+0,1,\ldots,u-1\right\}  $ is finite). Thus, $W$ is a finite nonempty set of
+integers. Therefore, the set $W$ has a largest element. In view of how $W$ was
+defined, this can be restated as follows: There exists a largest
+$m\in\mathbb{N}$ such that $p^{m}\mid n$. This proves Lemma
+\ref{lem.ent.prime.vp-wd}.
 \end{proof}
 
 \begin{definition}
-Let $p$ be a prime.
+\label{def.ent.prime.vp}Let $p$ be a prime.
 
-\textbf{(a)} Let $n$ be a nonzero integer. Let $v_{p}\left(  n\right)  $
-(called the $p$\textit{-valuation} or the $p$\textit{-adic valuation} of $n$)
-denote the largest $m\in\mathbb{N}$ such that $p^{m}\mid n$. This is
-well-defined, by Lemma \ref{lem.ent.prime.vp-wd}.
+\textbf{(a)} Let $n$ be a nonzero integer. Then, $v_{p}\left(  n\right)  $
+shall denote the largest $m\in\mathbb{N}$ such that $p^{m}\mid n$. This is
+well-defined (by Lemma \ref{lem.ent.prime.vp-wd}). This nonnegative integer
+$v_{p}\left(  n\right)  $ will be called the $p$\textit{-valuation} (or the
+$p$\textit{-adic valuation}) of $n$.
 
-\textbf{(b)} Set $v_{p}\left(  0\right)  =\infty$, where $\infty$ is a symbol
-which we take to satisfy%
-\begin{align*}
-\infty+k &  =\infty\ \ \ \ \ \ \ \ \ \ \text{for all integers }k;\\
-\infty+\infty &  =\infty;\\
-k &  <\infty\ \ \ \ \ \ \ \ \ \ \text{for all integers }k;\\
-\min\left(  S\cup\left\{  \infty\right\}  \right)   &  =\min
-S\ \ \ \ \ \ \ \ \ \ \text{for any }S\subseteq\mathbb{Z}\text{ if }%
-S\neq\varnothing;\\
-\max\left(  S\cup\left\{  \infty\right\}  \right)   &  =\infty
-\ \ \ \ \ \ \ \ \ \ \text{for any }S\subseteq\mathbb{Z}.
-\end{align*}
-(Note, however, that $\infty-\infty$ is not defined. Hence, $\infty$ is not
-really a way to \textquotedblleft extend\textquotedblright\ our number system.)
+\textbf{(b)} We extend this definition of $v_{p}\left(  n\right)  $ to the
+case of $n=0$ as follows: Set $v_{p}\left(  0\right)  =\infty$, where $\infty$
+is a new symbol. This symbol $\infty$ is supposed to model \textquotedblleft
+positive infinity\textquotedblright; in particular, we take it to satisfy the
+following rules:
+
+\begin{itemize}
+\item We have $k+\infty=\infty+k=\infty$ for all integers $k$.
+
+\item We have $\infty+\infty=\infty$.
+
+\item Each integer $k$ satisfies $k<\infty$ and $\infty>k$ (and thus
+$k\leq\infty$ and $\infty\geq k$).
+
+\item No integer $k$ satisfies $k\geq\infty$ or $\infty\leq k$ (or $k>\infty$
+or $\infty<k$).
+
+\item If $S$ is a nonempty set of integers, then $\min\left(  S\cup\left\{
+\infty\right\}  \right)  =\min S$.
+
+\item If $S$ is any set of integers, then $\max\left(  S\cup\left\{
+\infty\right\}  \right)  =\infty$.
+\end{itemize}
+
+(Note, however, that $\infty$ is not supposed to be a \textquotedblleft first
+class citizen\textquotedblright\ of the number system. In particular,
+$\infty-\infty$ is not defined. More generally, $k-\infty$ is never defined,
+whatever $k$ is. Indeed, any definition of $k-\infty$ would break some of the
+familiar rules of arithmetic. The only operations that we shall subject
+$\infty$ to are addition, minimum and maximum.)
 \end{definition}
 
+Note that the rules for the symbol $\infty$ yield that%
+\[
+k+\infty=\infty+k=\max\left\{  k,\infty\right\}  =\infty
+\]
+and%
+\[
+\min\left\{  k,\infty\right\}  =k
+\]
+for each $k\in\mathbb{Z}\cup\left\{  \infty\right\}  $. It is not hard to see
+that basic properties of inequalities (such as \textquotedblleft if $a\leq b$
+and $b\leq c$, then $a\leq c$\textquotedblright) and of addition (such as
+\textquotedblleft$\left(  a+b\right)  +c=a+\left(  b+c\right)  $%
+\textquotedblright) and of the interplay between inequalities and addition
+(such as \textquotedblleft if $a\leq b$, then $a+c\leq b+c$\textquotedblright)
+are still valid in $\mathbb{Z}\cup\left\{  \infty\right\}  $ (that is, they
+still hold if we plug $\infty$ for one or more of the variables). However, of
+course, we cannot \textquotedblleft cancel\textquotedblright\ $\infty$ from
+equalities (i.e., we cannot cancel $\infty$ from $a+\infty=b+\infty$ to obtain
+$a=b$) or inequalities.
+
 \begin{example}
-$v_{5}\left(  50\right)  =2$.
+\label{exa.ent.prime.vp}\textbf{(a)} We have $v_{5}\left(  50\right)  =2$.
+Indeed, $2$ is the largest $m\in\mathbb{N}$ such that $5^{m}\mid50$ (because
+$5^{2}=25\mid50$ but $5^{3}=125\nmid50$).
 
-$v_{5}\left(  51\right)  =0$.
+\textbf{(b)} We have $v_{5}\left(  51\right)  =0$. Indeed, $0$ is the largest
+$m\in\mathbb{N}$ such that $5^{m}\mid51$ (because $5^{0}=1\mid51$ but
+$5^{1}=5\nmid51$).
 
-$v_{5}\left(  55\right)  =1$.
+\textbf{(c)} We have $v_{5}\left(  55\right)  =1$. Indeed, $1$ is the largest
+$m\in\mathbb{N}$ such that $5^{m}\mid55$ (because $5^{1}=5\mid55$ but
+$5^{2}=25\nmid55$).
 
-$v_{5}\left(  0\right)  =\infty$.
+\textbf{(d)} We have $v_{5}\left(  0\right)  =\infty$ (by Definition
+\ref{def.ent.prime.vp} \textbf{(b)}).
 \end{example}
 
+Definition \ref{def.ent.prime.vp} \textbf{(a)} can be restated in the
+following more intuitive way: Given a prime $p$ and a nonzero integer $n$, we
+let $v_{p}\left(  n\right)  $ be the number of times we can divide $n$ by $p$
+without leaving $\mathbb{Z}$. Definition \ref{def.ent.prime.vp} \textbf{(b)}
+is consistent with this picture, because we can clearly divide $0$ by $p$
+infinitely often without leaving $\mathbb{Z}$. From this point of view, the
+following lemma should be obvious:
+
 \begin{lemma}
-Let $p$ be a prime. Let $i\in\mathbb{N}$. Let $n\in\mathbb{Z}$. Then,
-$p^{i}\mid n$ if and only if $v_{p}\left(  n\right)  \geq i$.
+\label{lem.ent.prime.vp-def}Let $p$ be a prime. Let $i\in\mathbb{N}$. Let
+$n\in\mathbb{Z}$. Then, $p^{i}\mid n$ if and only if $v_{p}\left(  n\right)
+\geq i$.
 \end{lemma}
 
 \begin{proof}
-First, we WLOG assume that $n\neq0$ (since otherwise, $p^{i}\mid n$ and
-$v_{p}\left(  n\right)  \geq i$ are both true). Now:
+[Proof of Lemma \ref{lem.ent.prime.vp-def}.]First, let us notice that
+$p^{i}\mid0$. Also, Definition \ref{def.ent.prime.vp} \textbf{(b)} yields
+$v_{p}\left(  0\right)  =\infty\geq i$ (according to our rules for the symbol
+$\infty$). Hence, both statements $\left(  p^{i}\mid0\right)  $ and $\left(
+v_{p}\left(  0\right)  \geq i\right)  $ hold. Thus, $p^{i}\mid0$ if and only
+if $v_{p}\left(  0\right)  \geq i$. In other words, Lemma
+\ref{lem.ent.prime.vp-def} holds if $n=0$. Thus, for the rest of this proof,
+we WLOG assume that $n\neq0$. Hence, $n$ is nonzero. Thus, $v_{p}\left(
+n\right)  $ is the largest $m\in\mathbb{N}$ such that $p^{m}\mid n$ (by
+Definition \ref{def.ent.prime.vp} \textbf{(a)}). Hence, $v_{p}\left(
+n\right)  $ itself is an $m\in\mathbb{N}$ such that $p^{m}\mid n$. In other
+words, $v_{p}\left(  n\right)  \in\mathbb{N}$ and $p^{v_{p}\left(  n\right)
+}\mid n$.
 
-$\Longrightarrow:$ Assume $p^{i}\mid n$. Thus, $i$ is an $m\in\mathbb{N}$ such
-that $p^{m}\mid n$. But $v_{p}\left(  n\right)  $ is the \textbf{largest} such
-$m$. Hence, $v_{p}\left(  n\right)  \geq i$.
+We must prove that $p^{i}\mid n$ if and only if $v_{p}\left(  n\right)  \geq
+i$. Let us prove the \textquotedblleft$\Longrightarrow$\textquotedblright\ and
+\textquotedblleft$\Longleftarrow$\textquotedblright\ directions of this
+\textquotedblleft if and only if\textquotedblright\ statement separately:
 
-$\Longleftarrow:$ Assume $v_{p}\left(  n\right)  \geq i$. Hence, $i\leq
-v_{p}\left(  n\right)  $, so that $p^{i}\mid p^{v_{p}\left(  n\right)  }$.
+$\Longrightarrow:$ Assume that $p^{i}\mid n$. We must prove that $v_{p}\left(
+n\right)  \geq i$.
 
-Recall that $v_{p}\left(  n\right)  $ is the largest $m\in\mathbb{N}$ such
-that $p^{m}\mid n$. In particular, $p^{v_{p}\left(  n\right)  }\mid n$.
+The integer $i$ is an $m\in\mathbb{N}$ such that $p^{m}\mid n$ (since
+$p^{i}\mid n$). But $v_{p}\left(  n\right)  $ is the \textbf{largest} such $m$
+(by Definition \ref{def.ent.prime.vp} \textbf{(a)}). Hence, $v_{p}\left(
+n\right)  \geq i$. This proves the \textquotedblleft$\Longrightarrow
+$\textquotedblright\ direction of Lemma \ref{lem.ent.prime.vp-def}.
 
-So $p^{i}\mid p^{v_{p}\left(  n\right)  }\mid n$.
+$\Longleftarrow:$ Assume that $v_{p}\left(  n\right)  \geq i$. We must prove
+that $p^{i}\mid n$.
+
+We have $v_{p}\left(  n\right)  \geq i$, thus $i\leq v_{p}\left(  n\right)  $.
+Hence, Exercise \ref{exe.ent.div.powers} (applied to $p$, $i$ and
+$v_{p}\left(  n\right)  $ instead of $n$, $a$ and $b$) yields $p^{i}\mid
+p^{v_{p}\left(  n\right)  }$. Thus, $p^{i}\mid p^{v_{p}\left(  n\right)  }\mid
+n$.
+
+Hence, we have proven $p^{i}\mid n$. This proves the \textquotedblleft%
+$\Longleftarrow$\textquotedblright\ direction of Lemma
+\ref{lem.ent.prime.vp-def}.
 \end{proof}
 
-\begin{theorem}
-Let $p$ be a prime, and $a$ and $b$ two integers.
+Here is another property of $p$-valuations that is useful in their study:
 
-\textbf{(a)} We have $v_{p}\left(  ab\right)  =v_{p}\left(  a\right)
-+v_{p}\left(  b\right)  $.
+\begin{lemma}
+\label{lem.ent.prime.vp-copr}Let $p$ be a prime. Let $n\in\mathbb{Z}$ be
+nonzero. Then:
 
-\textbf{(b)} We have $v_{p}\left(  a+b\right)  \geq\min\left\{  v_{p}\left(
-a\right)  ,v_{p}\left(  b\right)  \right\}  $.
-\end{theorem}
+\textbf{(a)} There exists a nonzero integer $u$ such that $u\perp p$ and
+$n=up^{v_{p}\left(  n\right)  }$.
+
+\textbf{(b)} If $i\in\mathbb{N}$ and $w\in\mathbb{Z}$ are such that $w\perp p$
+and $n=wp^{i}$, then $v_{p}\left(  n\right)  =i$.
+\end{lemma}
+
+Before we prove this formally, let us show the idea behind this lemma. Recall
+that, given a prime $p$ and a nonzero integer $n$, the number $v_{p}\left(
+n\right)  $ counts how often we can divide $n$ by $p$ without leaving
+$\mathbb{Z}$. What happens after we have divided $n$ by $p$ this many times?
+We get a number $u$ that is still an integer, but is no longer divisible by
+$p$, and thus must be coprime to $p$ (by Proposition
+\ref{prop.ent.primes.div-or-coprime}). This is what Lemma
+\ref{lem.ent.prime.vp-copr} \textbf{(a)} says. Lemma
+\ref{lem.ent.prime.vp-copr} \textbf{(b)} is a converse statement: It says that
+if we divide $n$ by $p$ some number of times (say, $i$ times) and obtain an
+integer coprime to $p$, then $i$ must be $v_{p}\left(  n\right)  $.
 
 \begin{proof}
-\textbf{(a)} WLOG assume that $a,b$ are nonzero (since otherwise, we are just
-saying $\infty=\infty+\left(  \text{something}\right)  $).
+[Proof of Lemma \ref{lem.ent.prime.vp-copr}.]Definition \ref{def.ent.prime.vp}
+\textbf{(a)} shows that $v_{p}\left(  n\right)  $ is the largest
+$m\in\mathbb{N}$ such that $p^{m}\mid n$. Hence, $v_{p}\left(  n\right)  $
+itself is an $m\in\mathbb{N}$ such that $p^{m}\mid n$. In other words,
+$v_{p}\left(  n\right)  \in\mathbb{N}$ and $p^{v_{p}\left(  n\right)  }\mid n$.
 
-The definition of $v_{p}\left(  a\right)  $ yields that $p^{v_{p}\left(
-a\right)  }\mid a$ but $p^{v_{p}\left(  a\right)  +1}\nmid a$.
+Thus, in particular, $p^{v_{p}\left(  n\right)  }\mid n$. In other words,
+there exists an integer $c$ such that $n=p^{v_{p}\left(  n\right)  }c$.
+Consider this $c$. We have $n=p^{v_{p}\left(  n\right)  }c=cp^{v_{p}\left(
+n\right)  }$.
 
-Hence, $x:=a/p^{v_{p}\left(  a\right)  }$ is an integer but is not divisible
-by $p$. Thus, $x\perp p$ (by Proposition \ref{prop.ent.primes.div-or-coprime}).
-
-Similarly, $y:=b/p^{v_{p}\left(  b\right)  }$ is an integer and $y\perp p$.
-
-From $x\perp p$ and $y\perp p$, we obtain $xy\perp p$ (by Theorem
-\ref{thm.ent.coprime.ab-to-c}).
-
-Now,
+Assume (for the sake of contradiction) that $p\mid c$. Thus, there exists an
+integer $d$ such that $c=pd$. Consider this $d$. Now,%
 \[
-ab/p^{v_{p}\left(  a\right)  +v_{p}\left(  b\right)  }=\underbrace{\left(
-a/p^{v_{p}\left(  a\right)  }\right)  }_{=x}\cdot\underbrace{\left(
-b/p^{v_{p}\left(  b\right)  }\right)  }_{=y}=xy
+n=p^{v_{p}\left(  n\right)  }\underbrace{c}_{=pd}=\underbrace{p^{v_{p}\left(
+n\right)  }p}_{=p^{v_{p}\left(  n\right)  +1}}d=p^{v_{p}\left(  n\right)
++1}d.
 \]
-is an integer coprime to $p$, hence not divisible by $p$. This means that
-$p^{v_{p}\left(  a\right)  +v_{p}\left(  b\right)  }\mid ab$ but no larger
-power of $p$ divides $ab$. This means $v_{p}\left(  ab\right)  =v_{p}\left(
+Hence, $p^{v_{p}\left(  n\right)  +1}\mid n$ (since $d$ is an integer). In
+other words, $v_{p}\left(  n\right)  +1$ is an $m\in\mathbb{N}$ such that
+$p^{m}\mid n$. But we know that $v_{p}\left(  n\right)  $ is the
+\textbf{largest} such $m$ (by Definition \ref{def.ent.prime.vp} \textbf{(a)}).
+Hence, we conclude that $v_{p}\left(  n\right)  \geq v_{p}\left(  n\right)
++1$. But this is clearly absurd. This contradiction shows that our assumption
+(that $p\mid c$) was wrong. Hence, we do not have $p\mid c$.
+
+But Proposition \ref{prop.ent.primes.div-or-coprime} (applied to $a=c$) shows
+that either $p\mid c$ or $p\perp c$. Hence, $p\perp c$ (since we do not have
+$p\mid c$). In other words, $c\perp p$ (because of Proposition
+\ref{prop.ent.coprime.perp-symm}).
+
+If we had $c=0$, then we would have $n=p^{v_{p}\left(  n\right)
+}\underbrace{c}_{=0}=0$, which would contradict the fact that $n$ is nonzero.
+Hence, we cannot have $c=0$. Thus, $c$ is nonzero.
+
+Now, we know that $c$ is a nonzero integer satisfying $c\perp p$ and
+$n=cp^{v_{p}\left(  n\right)  }$. Hence, there exists a nonzero integer $u$
+such that $u\perp p$ and $n=up^{v_{p}\left(  n\right)  }$ (namely, $u=c$).
+This proves Lemma \ref{lem.ent.prime.vp-copr} \textbf{(a)}.
+
+\textbf{(b)} Let $i\in\mathbb{N}$ and $w\in\mathbb{Z}$ be such that $w\perp p$
+and $n=wp^{i}$. We must prove that $v_{p}\left(  n\right)  =i$.
+
+From $w\perp p$, we obtain $p\perp w$ (by Proposition
+\ref{prop.ent.coprime.perp-symm}). In other words, $\gcd\left(  p,w\right)
+=1$.
+
+We have $n=wp^{i}=p^{i}w$ and thus $p^{i}\mid n$ (since $w$ is an integer).
+But Lemma \ref{lem.ent.prime.vp-def} yields that $p^{i}\mid n$ if and only if
+$v_{p}\left(  n\right)  \geq i$. Hence, we have $v_{p}\left(  n\right)  \geq
+i$ (since we have $p^{i}\mid n$).
+
+Now, we shall prove that $v_{p}\left(  n\right)  \leq i$. Indeed, assume the
+contrary. Thus, $v_{p}\left(  n\right)  >i$, so that $v_{p}\left(  n\right)
+\geq i+1$ (since $v_{p}\left(  n\right)  $ and $i$ are integers). But Lemma
+\ref{lem.ent.prime.vp-def} (applied to $i+1$ instead of $i$) shows that
+$p^{i+1}\mid n$ if and only if $v_{p}\left(  n\right)  \geq i+1$. Thus, we
+have $p^{i+1}\mid n$ (since we have $v_{p}\left(  n\right)  \geq i+1$). In
+other words, $pp^{i}\mid wp^{i}$ (since $p^{i+1}=pp^{i}$ and $n=wp^{i}$). But
+$p$ is a prime; thus, $p>1>0$ and therefore $p\neq0$. Hence, $p^{i}\neq0$.
+Thus, Exercise \ref{exe.ent.div.acbc} (applied to $p$, $w$ and $p^{i}$ instead
+of $a$, $b$ and $c$) shows that $p\mid w$ holds if and only if $pp^{i}\mid
+wp^{i}$. Hence, $p\mid w$ holds (since $pp^{i}\mid wp^{i}$ holds). Thus,
+Proposition \ref{prop.ent.gcd.props1} \textbf{(i)} (applied to $p$ and $w$
+instead of $a$ and $b$) yields $\gcd\left(  p,w\right)  =\left\vert
+p\right\vert =p$ (since $p>0$). Comparing this with $\gcd\left(  p,w\right)
+=1$, we find $p=1$. This contradicts $p>1$.
+
+This contradiction shows that our assumption was false. Hence, $v_{p}\left(
+n\right)  \leq i$ is proven. Combining this with $v_{p}\left(  n\right)  \geq
+i$, we obtain $v_{p}\left(  n\right)  =i$. This proves Lemma
+\ref{lem.ent.prime.vp-copr} \textbf{(b)}.
+\end{proof}
+
+The next property of $p$-adic valuations is crucial, as it reveals how they
+can be computed and bounded:
+
+\begin{theorem}
+\label{thm.ent.prime.vp-ring}Let $p$ be a prime.
+
+\textbf{(a)} We have $v_{p}\left(  ab\right)  =v_{p}\left(  a\right)
++v_{p}\left(  b\right)  $ for any two integers $a$ and $b$.
+
+\textbf{(b)} We have $v_{p}\left(  a+b\right)  \geq\min\left\{  v_{p}\left(
+a\right)  ,v_{p}\left(  b\right)  \right\}  $ for any two integers $a$ and $b$.
+
+\textbf{(c)} We have $v_{p}\left(  1\right)  =0$.
+
+\textbf{(d)} We have $v_{p}\left(  q\right)  =%
+\begin{cases}
+1, & \text{if }q=p;\\
+0, & \text{if }q\neq p
+\end{cases}
+$ for any prime $q$.
+\end{theorem}
+
+Note that Theorem \ref{thm.ent.prime.vp-ring} \textbf{(a)} gives a formula for
+$v_{p}\left(  ab\right)  $ in terms of $v_{p}\left(  a\right)  $ and
+$v_{p}\left(  b\right)  $, but there is no such formula for $v_{p}\left(
+a+b\right)  $ (since $v_{p}\left(  a\right)  $ and $v_{p}\left(  b\right)  $
+do not uniquely determine $v_{p}\left(  a+b\right)  $). Thus, Theorem
+\ref{thm.ent.prime.vp-ring} \textbf{(b)} only gives a bound.
+
+\begin{proof}
+[Proof of Theorem \ref{thm.ent.prime.vp-ring}.]\textbf{(a)} Let $a$ and $b$ be
+two integers. We must prove that $v_{p}\left(  ab\right)  =v_{p}\left(
 a\right)  +v_{p}\left(  b\right)  $.
 
-\textbf{(b)} Exercise.
+If $a=0$, then this is true\footnote{\textit{Proof.} Assume that $a=0$. Then,
+$\underbrace{a}_{=0}b=0$ and thus $v_{p}\left(  ab\right)  =v_{p}\left(
+0\right)  =\infty$ (by Definition \ref{def.ent.prime.vp} \textbf{(b)}). Also,
+from $a=0$, we obtain $v_{p}\left(  a\right)  =v_{p}\left(  0\right)  =\infty
+$. Hence, $\underbrace{v_{p}\left(  a\right)  }_{=\infty}+v_{p}\left(
+b\right)  =\infty+v_{p}\left(  b\right)  =\infty$ (since $\infty+k=\infty$ for
+each $k\in\mathbb{Z}\cup\left\{  \infty\right\}  $). Comparing this with
+$v_{p}\left(  ab\right)  =\infty$, we obtain $v_{p}\left(  ab\right)
+=v_{p}\left(  a\right)  +v_{p}\left(  b\right)  $. This is exactly what we
+wanted to prove.}. Thus, for the rest of the proof of Theorem
+\ref{thm.ent.prime.vp-ring} \textbf{(a)}, we WLOG assume that $a\neq0$. For
+similar reasons, we WLOG assume that $b\neq0$.
+
+The integer $a$ is nonzero (since $a\neq0$). Thus, Lemma
+\ref{lem.ent.prime.vp-copr} \textbf{(b)} (applied to $n=a$) shows that there
+exists a nonzero integer $u$ such that $u\perp p$ and $a=up^{v_{p}\left(
+a\right)  }$. Consider this $u$, and denote it by $x$. Thus, $x$ is a nonzero
+integer such that $x\perp p$ and $a=xp^{v_{p}\left(  a\right)  }$.
+
+The integer $b$ is nonzero (since $b\neq0$). Thus, Lemma
+\ref{lem.ent.prime.vp-copr} \textbf{(a)} (applied to $n=b$) shows that there
+exists a nonzero integer $u$ such that $u\perp p$ and $b=up^{v_{p}\left(
+b\right)  }$. Consider this $u$, and denote it by $y$. Thus, $y$ is a nonzero
+integer such that $y\perp p$ and $b=yp^{v_{p}\left(  b\right)  }$.
+
+We have $x\perp p$ and $y\perp p$. Thus, Theorem \ref{thm.ent.coprime.ab-to-c}
+(applied to $x$, $y$ and $p$ instead of $a$, $b$ and $c$) shows that $xy\perp
+p$.
+
+The integer $ab$ is nonzero (since $a\neq0$ and $b\neq0$).
+
+Furthermore, multiplying the equalities $a=xp^{v_{p}\left(  a\right)  }$ and
+$b=yp^{v_{p}\left(  b\right)  }$, we obtain%
+\[
+ab=\left(  xp^{v_{p}\left(  a\right)  }\right)  \left(  yp^{v_{p}\left(
+b\right)  }\right)  =\left(  xy\right)  \underbrace{\left(  p^{v_{p}\left(
+a\right)  }p^{v_{p}\left(  b\right)  }\right)  }_{=p^{v_{p}\left(  a\right)
++v_{p}\left(  b\right)  }}=\left(  xy\right)  p^{v_{p}\left(  a\right)
++v_{p}\left(  b\right)  }.
+\]
+Thus, Lemma \ref{lem.ent.prime.vp-copr} \textbf{(b)} (applied to $n=ab$,
+$i=v_{p}\left(  a\right)  +v_{p}\left(  b\right)  $ and $w=xy$) shows that
+$v_{p}\left(  ab\right)  =v_{p}\left(  a\right)  +v_{p}\left(  b\right)  $
+(since $v_{p}\left(  a\right)  +v_{p}\left(  b\right)  \in\mathbb{N}$ and
+$xy\in\mathbb{Z}$ and $xy\perp p$). This proves Theorem
+\ref{thm.ent.prime.vp-ring} \textbf{(a)}.
+
+\textbf{(b)} Let $a$ and $b$ be two integers. We must prove that $v_{p}\left(
+a+b\right)  \geq\min\left\{  v_{p}\left(  a\right)  ,v_{p}\left(  b\right)
+\right\}  $.
+
+If $a=0$, then this is true\footnote{\textit{Proof.} Assume that $a=0$. Then,
+$v_{p}\left(  \underbrace{a}_{=0}+b\right)  =v_{p}\left(  b\right)  \geq
+\min\left\{  v_{p}\left(  a\right)  ,v_{p}\left(  b\right)  \right\}  $ (since
+any element of a set is $\geq$ to the minimum of this set). This is exactly
+what we wanted to prove.}. Thus, for the rest of the proof of Theorem
+\ref{thm.ent.prime.vp-ring} \textbf{(b)}, we WLOG assume that $a\neq0$. For
+similar reasons, we WLOG assume that $b\neq0$.
+
+The integer $a$ is nonzero (since $a\neq0$). Thus, $v_{p}\left(  a\right)
+\in\mathbb{N}$ (by Definition \ref{def.ent.prime.vp} \textbf{(a)}). Similarly,
+$v_{p}\left(  b\right)  \in\mathbb{N}$.
+
+Let $m=\min\left\{  v_{p}\left(  a\right)  ,v_{p}\left(  b\right)  \right\}
+$. Thus, $m\in\mathbb{N}$ (since $v_{p}\left(  a\right)  \in\mathbb{N}$ and
+$v_{p}\left(  b\right)  \in\mathbb{N}$).
+
+We have $m=\min\left\{  v_{p}\left(  a\right)  ,v_{p}\left(  b\right)
+\right\}  \leq v_{p}\left(  a\right)  $; in other words, $v_{p}\left(
+a\right)  \geq m$. But Lemma \ref{lem.ent.prime.vp-def} (applied to $n=a$ and
+$i=m$) shows that $p^{m}\mid a$ if and only if $v_{p}\left(  a\right)  \geq
+m$. Hence, we have $p^{m}\mid a$ (since $v_{p}\left(  a\right)  \geq m$). In
+other words, $a\equiv0\operatorname{mod}p^{m}$. Similarly, $b\equiv
+0\operatorname{mod}p^{m}$. Adding these two congruences together, we obtain
+$a+b\equiv0+0=0\operatorname{mod}p^{m}$. In other words, $p^{m}\mid a+b$.
+
+But Lemma \ref{lem.ent.prime.vp-def} (applied to $n=a+b$ and $i=m$) shows that
+$p^{m}\mid a+b$ if and only if $v_{p}\left(  a+b\right)  \geq m$. Hence, we
+have $v_{p}\left(  a+b\right)  \geq m$ (since $p^{m}\mid a+b$). Thus,
+$v_{p}\left(  a+b\right)  \geq m=\min\left\{  v_{p}\left(  a\right)
+,v_{p}\left(  b\right)  \right\}  $. This proves Theorem
+\ref{thm.ent.prime.vp-ring} \textbf{(b)}.
+
+\textbf{(c)} We have $1\mid p$. Thus, Proposition \ref{prop.ent.gcd.props1}
+\textbf{(i)} (applied to $1$ and $p$ instead of $a$ and $b$) yields
+$\gcd\left(  1,p\right)  =\left\vert 1\right\vert =1$. In other words, $1\perp
+p$. Also, $1=1\cdot p^{0}$. Thus, Lemma \ref{lem.ent.prime.vp-copr}
+\textbf{(b)} (applied to $n=1$, $i=0$ and $w=1$) yields $v_{p}\left(
+1\right)  =0$. This proves Theorem \ref{thm.ent.prime.vp-ring} \textbf{(c)}.
+
+\textbf{(d)} Let $q$ be a prime. We must prove that $v_{p}\left(  q\right)  =%
+\begin{cases}
+1, & \text{if }q=p;\\
+0, & \text{if }q\neq p
+\end{cases}
+$.
+
+We are in one of the following two cases:
+
+\textit{Case 1:} We have $q=p$.
+
+\textit{Case 2:} We have $q\neq p$.
+
+Let us first consider Case 1. In this case, we have $q=p$. But $1\perp p$ (as
+we just saw when proving Theorem \ref{thm.ent.prime.vp-ring} \textbf{(c)}).
+Also, $p=1\cdot p^{1}$. Thus, Lemma \ref{lem.ent.prime.vp-copr} \textbf{(b)}
+(applied to $n=p$, $i=1$ and $w=1$) yields $v_{p}\left(  p\right)  =1$. From
+$q=p$, we obtain $v_{p}\left(  q\right)  =v_{p}\left(  p\right)  =1$.
+Comparing this with
+\[%
+\begin{cases}
+1, & \text{if }q=p;\\
+0, & \text{if }q\neq p
+\end{cases}
+=1\ \ \ \ \ \ \ \ \ \ \left(  \text{since }q=p\right)  ,
+\]
+we obtain $v_{p}\left(  q\right)  =%
+\begin{cases}
+1, & \text{if }q=p;\\
+0, & \text{if }q\neq p
+\end{cases}
+$. Hence, Theorem \ref{thm.ent.prime.vp-ring} \textbf{(d)} is proven in Case 1.
+
+Let us now consider Case 2. In this case, we have $q\neq p$. Hence, $q\nmid
+p$\ \ \ \ \footnote{\textit{Proof.} Assume the contrary. Thus, $q\mid p$. In
+other words, $q$ is a divisor of $p$.
+\par
+But $p$ is a prime. According to the definition of a prime, this means that
+$p>1$ and that the only positive divisors of $p$ are $1$ and $p$.
+\par
+Also, $q$ is a prime; thus, $q>1$ (by the definition of a prime); hence,
+$q>1>0$. Thus, $q$ is a positive divisor of $p$. Hence, $q$ must be either $1$
+or $p$ (since the only positive divisors of $p$ are $1$ and $p$). Since $q$
+cannot be $1$ (because $q>1$), we thus conclude that $q$ must be $p$. In other
+words, $q=p$. This contradicts $q\neq p$. This contradiction shows that our
+assumption was false, qed.}.
+
+But Proposition \ref{prop.ent.primes.div-or-coprime} (applied to $q$ and $p$
+instead of $p$ and $a$) shows that either $q\mid p$ or $q\perp p$. Since
+$q\mid p$ cannot hold (because we have $q\nmid p$), we thus conclude that
+$q\perp p$. Also, $q=q\cdot p^{0}$ (since $p^{0}=1$). Thus, Lemma
+\ref{lem.ent.prime.vp-copr} \textbf{(b)} (applied to $n=q$, $i=0$ and $w=q$)
+yields $v_{p}\left(  q\right)  =0$. Comparing this with
+\[%
+\begin{cases}
+1, & \text{if }q=p;\\
+0, & \text{if }q\neq p
+\end{cases}
+=0\ \ \ \ \ \ \ \ \ \ \left(  \text{since }q\neq p\right)  ,
+\]
+we obtain $v_{p}\left(  q\right)  =%
+\begin{cases}
+1, & \text{if }q=p;\\
+0, & \text{if }q\neq p
+\end{cases}
+$. Hence, Theorem \ref{thm.ent.prime.vp-ring} \textbf{(d)} is proven in Case 2.
+
+We have now proven Theorem \ref{thm.ent.prime.vp-ring} \textbf{(d)} in each of
+the two Cases 1 and 2. Thus, Theorem \ref{thm.ent.prime.vp-ring} \textbf{(d)}
+is always proven.
 \end{proof}
 
 \begin{corollary}
-Let $p$ be a prime. Let $a_{1},a_{2},\ldots,a_{k}$ be $k$ integers. Then,
-$v_{p}\left(  a_{1}a_{2}\cdots a_{k}\right)  =v_{p}\left(  a_{1}\right)
-+v_{p}\left(  a_{2}\right)  +\cdots+v_{p}\left(  a_{k}\right)  $.
+\label{cor.ent.prime.vp-ringk}Let $p$ be a prime. Let $a_{1},a_{2}%
+,\ldots,a_{k}$ be $k$ integers. Then, $v_{p}\left(  a_{1}a_{2}\cdots
+a_{k}\right)  =v_{p}\left(  a_{1}\right)  +v_{p}\left(  a_{2}\right)
++\cdots+v_{p}\left(  a_{k}\right)  $.
 \end{corollary}
 
 \begin{proof}
-Induction, using the preceding theorem.
+[Proof of Corollary \ref{cor.ent.prime.vp-ringk}.]This follows
+straightforwardly by induction on $k$, using Theorem
+\ref{thm.ent.prime.vp-ring} \textbf{(a)} (as well as Theorem
+\ref{thm.ent.prime.vp-ring} \textbf{(c)} for the induction base). We leave the
+details to the reader, who has seen this sort of proof several times already.
 \end{proof}
 
+\begin{exercise}
+\label{exe.ent.prime.vp-abs}Let $p$ be a prime. Let $n\in\mathbb{Z}$. Then,
+$v_{p}\left(  \left\vert n\right\vert \right)  =v_{p}\left(  n\right)  $.
+\end{exercise}
+
+\begin{fineprint}
+\begin{proof}
+[Solution to Exercise \ref{exe.ent.prime.vp-abs}.]If $n\geq0$, then we have
+$\left\vert n\right\vert =n$ and thus $v_{p}\left(  \left\vert n\right\vert
+\right)  =v_{p}\left(  n\right)  $. Hence, if $n\geq0$, then Exercise
+\ref{exe.ent.prime.vp-abs} holds. Thus, for the rest of this solution, we WLOG
+assume that $n<0$. Hence, $\left\vert n\right\vert =-n$.
+
+We have $-1\mid p$ (since $p=\left(  -1\right)  \cdot\left(  -p\right)  $).
+Thus, Proposition \ref{prop.ent.gcd.props1} \textbf{(i)} (applied to $-1$ and
+$p$ instead of $a$ and $b$) yields $\gcd\left(  -1,p\right)  =\left\vert
+-1\right\vert =1$. In other words, $-1\perp p$. Also, $-1=\left(  -1\right)
+\cdot p^{0}$. Thus, Lemma \ref{lem.ent.prime.vp-copr} \textbf{(b)} (applied to
+$-1$, $0$ and $1$ instead of $n$, $i$ and $w$) yields $v_{p}\left(  -1\right)
+=0$. Now, Theorem \ref{thm.ent.prime.vp-ring} \textbf{(a)} (applied to $a=-1$
+and $b=n$) yields $v_{p}\left(  \left(  -1\right)  n\right)
+=\underbrace{v_{p}\left(  -1\right)  }_{=0}+v_{p}\left(  n\right)  $. In view
+of $\left(  -1\right)  n=-n=\left\vert n\right\vert $, this rewrites as
+$v_{p}\left(  \left\vert n\right\vert \right)  =v_{p}\left(  n\right)  $. This
+solves Exercise \ref{exe.ent.prime.vp-abs}.
+\end{proof}
+\end{fineprint}
+
+\subsubsection{Prime factorization II}
+
 \begin{proposition}
-Let $n$ be a positive integer. Let $\left(  a_{1},a_{2},\ldots,a_{k}\right)  $
-be a prime factorization of $n$. Let $p$ be a prime. Then,%
+\label{prop.ent.prime.mult-in-pf}Let $n$ be a positive integer. Let $\left(
+a_{1},a_{2},\ldots,a_{k}\right)  $ be a prime factorization of $n$. Let $p$ be
+a prime. Then,%
 \begin{align*}
-&  \left(  \text{the number of times }p\text{ appears in }\left(  a_{1}%
-,a_{2},\ldots,a_{k}\right)  \right)  \\
+&  \left(  \text{the number of times }p\text{ appears in the tuple }\left(
+a_{1},a_{2},\ldots,a_{k}\right)  \right) \\
 &  =\left(  \text{the number of }i\in\left\{  1,2,\ldots,k\right\}  \text{
-such that }a_{i}=p\right)  \\
+such that }a_{i}=p\right) \\
 &  =v_{p}\left(  n\right)  .
 \end{align*}
 
 \end{proposition}
 
 \begin{proof}
-We have $n=a_{1}a_{2}\cdots a_{k}$ (since $\left(  a_{1},a_{2},\ldots
-,a_{k}\right)  $ is a prime factorization of $n$). Thus,
-\begin{align*}
-v_{p}\left(  n\right)   &  =v_{p}\left(  a_{1}a_{2}\cdots a_{k}\right)  \\
-&  =v_{p}\left(  a_{1}\right)  +v_{p}\left(  a_{2}\right)  +\cdots
-+v_{p}\left(  a_{k}\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Corollary
-above}\right)  \\
-&  =\sum_{i=1}^{k}\underbrace{v_{p}\left(  a_{i}\right)  }_{\substack{=%
+[Proof of Proposition \ref{prop.ent.prime.mult-in-pf}.]We have assumed that
+$\left(  a_{1},a_{2},\ldots,a_{k}\right)  $ is a prime factorization of $n$.
+Thus, $a_{1},a_{2},\ldots,a_{k}$ are primes satisfying $n=a_{1}a_{2}\cdots
+a_{k}$. Hence, for each $i\in\left\{  1,2,\ldots,k\right\}  $, the integer
+$a_{i}$ is prime and thus satisfies%
+\begin{equation}
+v_{p}\left(  a_{i}\right)  =%
 \begin{cases}
 1, & \text{if }a_{i}=p;\\
 0, & \text{if }a_{i}\neq p
 \end{cases}
-\\\text{(since }a_{i}\text{ is prime)}}}=\sum_{i=1}^{k}%
+\label{pf.prop.ent.prime.mult-in-pf.1}%
+\end{equation}
+(by Theorem \ref{thm.ent.prime.vp-ring} \textbf{(d)}, applied to $q=a_{i}$).
+
+From $n=a_{1}a_{2}\cdots a_{k}$, we obtain%
+\begin{align*}
+v_{p}\left(  n\right)   &  =v_{p}\left(  a_{1}a_{2}\cdots a_{k}\right) \\
+&  =v_{p}\left(  a_{1}\right)  +v_{p}\left(  a_{2}\right)  +\cdots
++v_{p}\left(  a_{k}\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Corollary
+\ref{cor.ent.prime.vp-ringk}}\right) \\
+&  =\underbrace{\sum_{i=1}^{k}}_{=\sum_{i\in\left\{  1,2,\ldots,k\right\}  }%
+}\underbrace{v_{p}\left(  a_{i}\right)  }_{\substack{=%
+\begin{cases}
+1, & \text{if }a_{i}=p;\\
+0, & \text{if }a_{i}\neq p
+\end{cases}
+\\\text{(by (\ref{pf.prop.ent.prime.mult-in-pf.1}))}}}=\sum_{i\in\left\{
+1,2,\ldots,k\right\}  }%
 \begin{cases}
 1, & \text{if }a_{i}=p;\\
 0, & \text{if }a_{i}\neq p
 \end{cases}
 \\
+&  =\sum_{\substack{i\in\left\{  1,2,\ldots,k\right\}  ;\\a_{i}=p}%
+}\underbrace{%
+\begin{cases}
+1, & \text{if }a_{i}=p;\\
+0, & \text{if }a_{i}\neq p
+\end{cases}
+}_{\substack{=1\\\text{(since }a_{i}=p\text{)}}}+\sum_{\substack{i\in\left\{
+1,2,\ldots,k\right\}  ;\\a_{i}\neq p}}\underbrace{%
+\begin{cases}
+1, & \text{if }a_{i}=p;\\
+0, & \text{if }a_{i}\neq p
+\end{cases}
+}_{\substack{=0\\\text{(since }a_{i}\neq p\text{)}}}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{since each }i\in\left\{  1,2,\ldots,k\right\}  \text{ satisfies either
+}a_{i}=p\text{ or }a_{i}\neq p\\
+\text{(but not both)}%
+\end{array}
+\right) \\
+&  =\sum_{\substack{i\in\left\{  1,2,\ldots,k\right\}  ;\\a_{i}=p}%
+}1+\underbrace{\sum_{\substack{i\in\left\{  1,2,\ldots,k\right\}  ;\\a_{i}\neq
+p}}0}_{=0}=\sum_{\substack{i\in\left\{  1,2,\ldots,k\right\}  ;\\a_{i}=p}}1\\
 &  =\left(  \text{the number of }i\in\left\{  1,2,\ldots,k\right\}  \text{
-such that }a_{i}=p\right)  \\
+such that }a_{i}=p\right)  \cdot1\\
+&  =\left(  \text{the number of }i\in\left\{  1,2,\ldots,k\right\}  \text{
+such that }a_{i}=p\right) \\
 &  =\left(  \text{the number of times }p\text{ appears in }\left(  a_{1}%
 ,a_{2},\ldots,a_{k}\right)  \right)  .
 \end{align*}
-
+This proves Proposition \ref{prop.ent.prime.mult-in-pf}.
 \end{proof}
 
+The next lemma that we shall use is a basic fact from elementary combinatorics:
+
+\begin{lemma}
+\label{lem.comb.tuples.mult=perm}Let $P$ be a set. Let $\left(  a_{1}%
+,a_{2},\ldots,a_{k}\right)  $ and $\left(  b_{1},b_{2},\ldots,b_{\ell}\right)
+$ be two tuples of elements of $P$. Assume that for each $p\in P$, we have%
+\begin{align}
+&  \left(  \text{the number of times }p\text{ appears in }\left(  a_{1}%
+,a_{2},\ldots,a_{k}\right)  \right) \nonumber\\
+&  =\left(  \text{the number of times }p\text{ appears in }\left(  b_{1}%
+,b_{2},\ldots,b_{\ell}\right)  \right)  .
+\label{eq.lem.comb.tuples.mult=perm.ass}%
+\end{align}
+Then, the two tuples $\left(  a_{1},a_{2},\ldots,a_{k}\right)  $ and $\left(
+b_{1},b_{2},\ldots,b_{\ell}\right)  $ differ only in the order of their
+entries (i.e., are permutations of each other). (In other words, we have
+$k=\ell$, and there exists a permutation $\sigma$ of $\left\{  1,2,\ldots
+,\ell\right\}  $ such that $\left(  a_{1},a_{2},\ldots,a_{k}\right)  =\left(
+b_{\sigma\left(  1\right)  },b_{\sigma\left(  2\right)  },\ldots
+,b_{\sigma\left(  \ell\right)  }\right)  $.)
+\end{lemma}
+
+Lemma \ref{lem.comb.tuples.mult=perm} is an intuitively obvious fact: It says
+that if two tuples (of any objects -- e.g., numbers) have the property that
+any object occurs as often in the first tuple as it does in the second tuple,
+then the two tuples differ only in the order of their entries. From the formal
+point of view, though, it is a statement that needs proof. Let us merely
+sketch how such a proof can be obtained, without going into the details:
+
+\begin{fineprint}
+\begin{proof}
+[Proof of Lemma \ref{lem.comb.tuples.mult=perm} (sketched).]We can WLOG assume
+that the set $P$ is finite (since otherwise, we can replace $P$ by the finite
+subset $\left\{  a_{1},a_{2},\ldots,a_{k},b_{1},b_{2},\ldots,b_{\ell}\right\}
+$, without breaking the assumption that $\left(  a_{1},a_{2},\ldots
+,a_{k}\right)  $ and $\left(  b_{1},b_{2},\ldots,b_{\ell}\right)  $ are two
+tuples of elements of $P$). Assume this (at least if you don't want to use the
+Axiom of Choice\footnote{I don't.}).
+
+For each $p\in P$, define two sets%
+\begin{align*}
+A_{p}  &  =\left\{  i\in\left\{  1,2,\ldots,k\right\}  \ \mid\ a_{i}%
+=p\right\}  ;\\
+B_{p}  &  =\left\{  j\in\left\{  1,2,\ldots,\ell\right\}  \ \mid
+\ b_{j}=p\right\}  .
+\end{align*}
+The equation (\ref{eq.lem.comb.tuples.mult=perm.ass}) then says that
+$\left\vert A_{p}\right\vert =\left\vert B_{p}\right\vert $ for each $p\in P$.
+Hence, for each $p\in P$, there exists a bijection $\phi_{p}:A_{p}\rightarrow
+B_{p}$ (because if two sets have the same size, then there exists a bijection
+between them). Pick such a bijection $\phi_{p}$ for each $p\in P$. (This does
+not require the Axiom of Choice, since $P$ is finite.)
+
+Now, define a map $\sigma:\left\{  1,2,\ldots,k\right\}  \rightarrow\left\{
+1,2,\ldots,\ell\right\}  $ as follows: For each $i\in\left\{  1,2,\ldots
+,k\right\}  $, set $\sigma\left(  i\right)  =\phi_{p}\left(  i\right)  $,
+where $p=a_{i}$. It is not hard to see that this map $\sigma$ is a bijection.
+(Its inverse map sends each $j\in\left\{  1,2,\ldots,\ell\right\}  $ to
+$\phi_{p}^{-1}\left(  j\right)  $, where $p=b_{j}$.) Thus, we have found a
+bijection from $\left\{  1,2,\ldots,k\right\}  $ to $\left\{  1,2,\ldots
+,\ell\right\}  $. This shows that the sets $\left\{  1,2,\ldots,k\right\}  $
+and $\left\{  1,2,\ldots,\ell\right\}  $ have the same size; in other words,
+$k=\ell$. Thus, the bijection $\sigma$ is actually a bijection from $\left\{
+1,2,\ldots,\ell\right\}  $ to $\left\{  1,2,\ldots,\ell\right\}  $. In other
+words, $\sigma$ is a permutation of $\left\{  1,2,\ldots,\ell\right\}  $.
+Finally, it is easy to see that $\left(  a_{1},a_{2},\ldots,a_{k}\right)
+=\left(  b_{\sigma\left(  1\right)  },b_{\sigma\left(  2\right)  }%
+,\ldots,b_{\sigma\left(  \ell\right)  }\right)  $. (Indeed, let $i\in\left\{
+1,2,\ldots,k\right\}  $, and set $p=a_{i}$; then, the definition of $\sigma$
+yields $\sigma\left(  i\right)  =\phi_{p}\left(  i\right)  \in B_{p}$ and
+therefore $b_{\sigma\left(  i\right)  }=a_{i}$. Since this holds for each $i$,
+we thus conclude that $\left(  b_{\sigma\left(  1\right)  },b_{\sigma\left(
+2\right)  },\ldots,b_{\sigma\left(  k\right)  }\right)  =\left(  a_{1}%
+,a_{2},\ldots,a_{k}\right)  $. Thus, $\left(  a_{1},a_{2},\ldots,a_{k}\right)
+=\left(  b_{\sigma\left(  1\right)  },b_{\sigma\left(  2\right)  }%
+,\ldots,b_{\sigma\left(  k\right)  }\right)  =\left(  b_{\sigma\left(
+1\right)  },b_{\sigma\left(  2\right)  },\ldots,b_{\sigma\left(  \ell\right)
+}\right)  $ (since $k=\ell$).) Thus, we have found a permutation $\sigma$ of
+$\left\{  1,2,\ldots,\ell\right\}  $ such that $\left(  a_{1},a_{2}%
+,\ldots,a_{k}\right)  =\left(  b_{\sigma\left(  1\right)  },b_{\sigma\left(
+2\right)  },\ldots,b_{\sigma\left(  \ell\right)  }\right)  $. In other words,
+the two tuples $\left(  a_{1},a_{2},\ldots,a_{k}\right)  $ and $\left(
+b_{1},b_{2},\ldots,b_{\ell}\right)  $ are permutations of each other. This
+proves Lemma \ref{lem.comb.tuples.mult=perm}.
+\end{proof}
+\end{fineprint}
+
+We are finally ready to prove the so-called \textit{Fundamental Theorem of
+Arithmetic}:
+
 \begin{theorem}
-(Fundamental Theorem of Arithmetic) Let $n$ be a positive integer.
+\label{thm.ent.primes.fac-uni}Let $n$ be a positive integer.
 
 \textbf{(a)} There exists a prime factorization of $n$.
 
@@ -7398,76 +8033,442 @@ entries (i.e., are permutations of each other).
 \end{theorem}
 
 \begin{proof}
-\textbf{(a)} Proven above.
+[Proof of Theorem \ref{thm.ent.primes.fac-uni}.]\textbf{(a)} Proposition
+\ref{prop.ent.primes.fac-ex} shows that $n$ can be written as a product of
+finitely many primes. In other words, there exist finitely many primes
+$p_{1},p_{2},\ldots,p_{k}$ such that $n=p_{1}p_{2}\cdots p_{k}$. Consider
+these primes. Thus, $\left(  p_{1},p_{2},\ldots,p_{k}\right)  $ is a prime
+factorization of $n$ (by the definition of \textquotedblleft prime
+factorization\textquotedblright). Hence, there exists a prime factorization of
+$n$. This proves Theorem \ref{thm.ent.primes.fac-uni} \textbf{(a)}.
 
 \textbf{(b)} Let $\left(  a_{1},a_{2},\ldots,a_{k}\right)  $ and $\left(
-b_{1},b_{2},\ldots,b_{\ell}\right)  $ be two prime factorizations of $n$.
-Then, any prime $p$ appears equally often in $\left(  a_{1},a_{2},\ldots
-,a_{k}\right)  $ and in $\left(  b_{1},b_{2},\ldots,b_{\ell}\right)  $
-(because it appears $v_{p}\left(  n\right)  $ many times in each of these
-factorizations, according to the Proposition we just proved). Thus, the
-factorizations $\left(  a_{1},a_{2},\ldots,a_{k}\right)  $ and $\left(
-b_{1},b_{2},\ldots,b_{\ell}\right)  $ have the same entries appear equally
-often. Thus, they only differ in the order of their entries.
+b_{1},b_{2},\ldots,b_{\ell}\right)  $ be two prime factorizations of $n$. We
+must prove that $\left(  a_{1},a_{2},\ldots,a_{k}\right)  $ and $\left(
+b_{1},b_{2},\ldots,b_{\ell}\right)  $ differ only in the order of their
+entries (i.e., are permutations of each other).
+
+Let $P$ be the set of all primes. Note that $\left(  a_{1},a_{2},\ldots
+,a_{k}\right)  $ and $\left(  b_{1},b_{2},\ldots,b_{\ell}\right)  $ are prime
+factorizations of $n$. Hence, $\left(  a_{1},a_{2},\ldots,a_{k}\right)  $ and
+$\left(  b_{1},b_{2},\ldots,b_{\ell}\right)  $ are tuples of primes, i.e.,
+tuples of elements of $P$.
+
+Let $p\in P$. Thus, $p$ is a prime (by the definition of $P$). Hence,
+Proposition \ref{prop.ent.prime.mult-in-pf} shows that%
+\begin{align*}
+&  \left(  \text{the number of times }p\text{ appears in the tuple }\left(
+a_{1},a_{2},\ldots,a_{k}\right)  \right)  \\
+&  =\left(  \text{the number of }i\in\left\{  1,2,\ldots,k\right\}  \text{
+such that }a_{i}=p\right)  \\
+&  =v_{p}\left(  n\right)  .
+\end{align*}
+Similarly,%
+\begin{align*}
+&  \left(  \text{the number of times }p\text{ appears in the tuple }\left(
+b_{1},b_{2},\ldots,b_{\ell}\right)  \right)  \\
+&  =\left(  \text{the number of }i\in\left\{  1,2,\ldots,\ell\right\}  \text{
+such that }b_{i}=p\right)  \\
+&  =v_{p}\left(  n\right)  .
+\end{align*}
+Comparing these two equalities, we conclude that
+\begin{align}
+&  \left(  \text{the number of times }p\text{ appears in }\left(  a_{1}%
+,a_{2},\ldots,a_{k}\right)  \right)  \nonumber\\
+&  =\left(  \text{the number of times }p\text{ appears in }\left(  b_{1}%
+,b_{2},\ldots,b_{\ell}\right)  \right)  .\label{pf.thm.ent.primes.fac-uni.b.1}%
+\end{align}
+
+
+Now, forget that we fixed $p$. We thus have proven
+(\ref{pf.thm.ent.primes.fac-uni.b.1}) for each $p\in P$. Hence, Lemma
+\ref{lem.comb.tuples.mult=perm} shows that the tuples $\left(  a_{1}%
+,a_{2},\ldots,a_{k}\right)  $ and $\left(  b_{1},b_{2},\ldots,b_{\ell}\right)
+$ differ only in the order of their entries (i.e., are permutations of each
+other). This completes our proof of Theorem \ref{thm.ent.primes.fac-uni}
+\textbf{(b)}.
+\end{proof}
+
+\subsubsection{The canonical factorization}
+
+You have seen finite products such as
+\begin{align*}
+\prod_{i\in\left\{  1,2,3,4,5\right\}  }i  &  =1\cdot2\cdot3\cdot
+4\cdot5=5!=120\ \ \ \ \ \ \ \ \ \ \text{and}\\
+\prod_{i\in\left\{  3,5,7\right\}  }\left(  i^{2}+1\right)   &  =\left(
+3^{2}+1\right)  \cdot\left(  5^{2}+1\right)  \cdot\left(  7^{2}+1\right)
+=13000.
+\end{align*}
+Sometimes, infinite products (i.e., products ranging over infinite sets) also
+make sense. Many examples of well-defined infinite products arise from
+analysis and have to do with convergence. Here, we are doing algebra and thus
+shall only consider a very elementary, non-analytic meaning of convergence.
+Namely, we will consider infinite products that have only finitely many
+factors different from $1$. For example, the product $2\cdot7\cdot
+4\cdot\underbrace{1\cdot1\cdot1\cdot1\cdot\cdots}_{\text{infinitely many
+}1\text{'s}}$ is of such form. It is easy to give a meaning to such products:
+Just throw away all the $1$'s (since multiplying by $1$ does not change a
+number) and take the product of the remaining (finitely many) numbers. So, for
+example, our product $2\cdot7\cdot4\cdot\underbrace{1\cdot1\cdot1\cdot
+1\cdot\cdots}_{\text{infinitely many }1\text{'s}}$ should evaluate to
+$2\cdot7\cdot4=56$.
+
+This is indeed a meaningful and useful definition. For example, the set of all
+prime numbers is infinite (by Theorem \ref{thm.ent.primes.infin} below), but
+nevertheless, for each nonzero integer $n$, the product $\prod_{p\text{
+prime}}p^{v_{p}\left(  n\right)  }$ (where the \textquotedblleft%
+$\prod_{p\text{ prime}}$\textquotedblright\ symbol means a product ranging
+over all primes $p$) is well-defined due to having only finitely many factors
+different from $1$:
+
+\begin{lemma}
+\label{lem.ent.primes.vpn=0}Let $n$ be a nonzero integer.
+
+\textbf{(a)} We have $v_{p}\left(  n\right)  =0$ for every prime $p>\left\vert
+n\right\vert $. (Note that \textquotedblleft for every prime $p>\left\vert
+n\right\vert $\textquotedblright\ is shorthand for \textquotedblleft for every
+prime $p$ satisfying $p>\left\vert n\right\vert $\textquotedblright.)
+
+\textbf{(b)} The product $\prod_{p\text{ prime}}p^{v_{p}\left(  n\right)  }$
+has only finitely many factors different from $1$. (Here and in the following,
+the \textquotedblleft$\prod_{p\text{ prime}}$\textquotedblright\ symbol means
+a product ranging over all primes $p$.)
+\end{lemma}
+
+\begin{proof}
+[Proof of Lemma \ref{lem.ent.primes.vpn=0}.]\textbf{(a)} Let $p$ be a prime
+such that $p>\left\vert n\right\vert $. We must prove that $v_{p}\left(
+n\right)  =0$.
+
+We have $p>1$ (since $p$ is prime); thus, $p>1>0$ and therefore $\left\vert
+p\right\vert =p>\left\vert n\right\vert $.
+
+We have $n\neq0$ (since $n$ is nonzero). Thus, if we had $p\mid n$, then we
+would have $\left\vert p\right\vert \leq\left\vert n\right\vert $ (by
+Proposition \ref{prop.ent.div.1} \textbf{(b)}, applied to $a=p$ and $b=n$),
+which would contradict $\left\vert p\right\vert >\left\vert n\right\vert $.
+Thus, we cannot have $p\mid n$. But Proposition
+\ref{prop.ent.primes.div-or-coprime} (applied to $a=n$) shows that either
+$p\mid n$ or $p\perp n$. Hence, $p\perp n$ (since we cannot have $p\mid n$).
+In other words, $n\perp p$ (by Proposition \ref{prop.ent.coprime.perp-symm}).
+Also, $n=n\cdot p^{0}$ (since $p^{0}=1$). Thus, Lemma
+\ref{lem.ent.prime.vp-copr} \textbf{(b)} (applied to $i=0$ and $w=n$) yields
+$v_{p}\left(  n\right)  =0$. This proves Lemma \ref{lem.ent.primes.vpn=0}
+\textbf{(a)}.
+
+\textbf{(b)} For every prime $p>\left\vert n\right\vert $, we have
+$v_{p}\left(  n\right)  =0$ (by Lemma \ref{lem.ent.primes.vpn=0} \textbf{(a)})
+and thus $p^{v_{p}\left(  n\right)  }=p^{0}=1$. Thus, all but finitely many
+primes $p$ satisfy $p^{v_{p}\left(  n\right)  }=1$ (since all but finitely
+many primes $p$ satisfy $p>\left\vert n\right\vert $). Therefore, all but
+finitely many factors of the product $\prod_{p\text{ prime}}p^{v_{p}\left(
+n\right)  }$ are $1$. In other words, the product $\prod_{p\text{ prime}%
+}p^{v_{p}\left(  n\right)  }$ has only finitely many factors different from
+$1$. This proves Lemma \ref{lem.ent.primes.vpn=0} \textbf{(b)}.
 \end{proof}
 
 \begin{corollary}
-Let $n$ be a positive integer. Then,%
+\label{cor.ent.primes.can-fac}Let $n$ be a positive integer. Then,%
 \[
 n=\prod_{p\text{ prime}}p^{v_{p}\left(  n\right)  }.
 \]
 
 
-Here, the product is infinite (since there are infinitely many primes -- see
-below), but all but finitely many of its factors equal $1$ and thus can be
-thrown away.
+Here, the infinite product $\prod_{p\text{ prime}}p^{v_{p}\left(  n\right)  }$
+is well-defined (according to Lemma \ref{lem.ent.primes.vpn=0} \textbf{(b)}).
 \end{corollary}
 
 This expression $n=\prod_{p\text{ prime}}p^{v_{p}\left(  n\right)  }$ is
-called the \textbf{canonical factorization} of $n$.
+called the \textit{canonical factorization} of $n$.
 
-\begin{definition}
-Let $n$ be a positive integer. The \textbf{prime divisors} (aka \textbf{prime
-factors}) of $n$ are just the primes $p$ that divide $n$.
-\end{definition}
+\begin{proof}
+[Proof of Corollary \ref{cor.ent.primes.can-fac}.]Theorem
+\ref{thm.ent.primes.fac-uni} \textbf{(a)} shows that there exists a prime
+factorization of $n$. Consider such a factorization, and denote it by $\left(
+a_{1},a_{2},\ldots,a_{k}\right)  $. Thus, $\left(  a_{1},a_{2},\ldots
+,a_{k}\right)  $ is a prime factorization of $n$; in other words, $a_{1}%
+,a_{2},\ldots,a_{k}$ are primes satisfying $n=a_{1}a_{2}\cdots a_{k}$. For
+each prime $p$, we have%
+\begin{equation}
+\left(  \text{the number of }i\in\left\{  1,2,\ldots,k\right\}  \text{ such
+that }a_{i}=p\right)  =v_{p}\left(  n\right)
+\label{pf.cor.ent.primes.can-fac.1}%
+\end{equation}
+(by Proposition \ref{prop.ent.prime.mult-in-pf}). Now,%
+\begin{align*}
+n  &  =a_{1}a_{2}\cdots a_{k}=\prod_{i\in\left\{  1,2,\ldots,k\right\}  }%
+a_{i}\\
+&  =\prod_{p\text{ prime}}\prod_{\substack{i\in\left\{  1,2,\ldots,k\right\}
+;\\a_{i}=p}}\underbrace{a_{i}}_{=p}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{here, we have split our product into smaller}\\
+\text{products, according to the value of }a_{i}\text{;}\\
+\text{this is allowed, since each }a_{i}\text{ is a prime}%
+\end{array}
+\right) \\
+&  =\prod_{p\text{ prime}}\underbrace{\prod_{\substack{i\in\left\{
+1,2,\ldots,k\right\}  ;\\a_{i}=p}}p}_{=p^{\left(  \text{the number of }%
+i\in\left\{  1,2,\ldots,k\right\}  \text{ such that }a_{i}=p\right)  }}\\
+&  =\prod_{p\text{ prime}}\underbrace{p^{\left(  \text{the number of }%
+i\in\left\{  1,2,\ldots,k\right\}  \text{ such that }a_{i}=p\right)  }%
+}_{\substack{=p^{v_{p}\left(  n\right)  }\\\text{(by
+(\ref{pf.cor.ent.primes.can-fac.1}))}}}\\
+&  =\prod_{p\text{ prime}}p^{v_{p}\left(  n\right)  }.
+\end{align*}
+This proves Corollary \ref{cor.ent.primes.can-fac}.
+\end{proof}
+
+We can furthermore use $p$-adic valuations to check divisibility of integers:
 
 \begin{proposition}
-Let $n$ and $m$ be integers. Then, $n\mid m$ if and only if each prime $p$
-satisfies $v_{p}\left(  n\right)  \leq v_{p}\left(  m\right)  $.
+\label{prop.ent.primes.n|m}Let $n$ and $m$ be integers. Then, $n\mid m$ if and
+only if each prime $p$ satisfies $v_{p}\left(  n\right)  \leq v_{p}\left(
+m\right)  $.
 \end{proposition}
 
 \begin{proof}
-WLOG assume that $m$ is nonzero (else, both statements are true).
+[Proof of Proposition \ref{prop.ent.primes.n|m}.]If $m=0$, then Proposition
+\ref{prop.ent.primes.n|m} is true\footnote{\textit{Proof.} Assume that $m=0$.
+Thus, each prime $p$ satisfies $v_{p}\left(  \underbrace{m}_{=0}\right)
+=v_{p}\left(  0\right)  =\infty$ (by Definition \ref{def.ent.prime.vp}
+\textbf{(b)}) and thus $v_{p}\left(  m\right)  =\infty\geq v_{p}\left(
+n\right)  $, so that $v_{p}\left(  n\right)  \leq v_{p}\left(  m\right)  $.
+Also, $n\mid0=m$. Thus, the statements \textquotedblleft$n\mid m$%
+\textquotedblright\ and \textquotedblleft each prime $p$ satisfies
+$v_{p}\left(  n\right)  \leq v_{p}\left(  m\right)  $\textquotedblright\ are
+both true. Hence, $n\mid m$ if and only if each prime $p$ satisfies
+$v_{p}\left(  n\right)  \leq v_{p}\left(  m\right)  $. In other words,
+Proposition \ref{prop.ent.primes.n|m} is true. Qed.}. Hence, for the rest of
+this proof, we WLOG assume that $m\neq0$. Therefore, $m$ is nonzero. Hence,
+$v_{p}\left(  m\right)  \in\mathbb{N}$ (by Definition \ref{def.ent.prime.vp}
+\textbf{(a)}), so that $v_{p}\left(  m\right)  <\infty$.
 
-WLOG assume that $n$ is nonzero (else, both statements are false).
+If $n=0$, then Proposition \ref{prop.ent.primes.n|m} is
+true\footnote{\textit{Proof.} Assume that $n=0$. Thus, each prime $p$
+satisfies $v_{p}\left(  \underbrace{n}_{=0}\right)  =v_{p}\left(  0\right)
+=\infty$ (by Definition \ref{def.ent.prime.vp} \textbf{(b)}) and thus
+$v_{p}\left(  m\right)  <\infty=v_{p}\left(  n\right)  $. Applying this to
+$p=2$, we obtain $v_{2}\left(  m\right)  <v_{2}\left(  n\right)  $ (since $2$
+is a prime). Hence, we don't have $v_{2}\left(  n\right)  \leq v_{2}\left(
+m\right)  $. Thus, the statement \textquotedblleft each prime $p$ satisfies
+$v_{p}\left(  n\right)  \leq v_{p}\left(  m\right)  $\textquotedblright\ is
+false (since $p=2$ is a counterexample).
+\par
+If we had $n\mid m$, then there would be an integer $c$ such that $m=nc$. This
+would then lead to $m=\underbrace{n}_{=0}c=0$, which would contradict $m\neq
+0$. Hence, we cannot have $n\mid m$. Thus, the statements \textquotedblleft%
+$n\mid m$\textquotedblright\ and \textquotedblleft each prime $p$ satisfies
+$v_{p}\left(  n\right)  \leq v_{p}\left(  m\right)  $\textquotedblright\ are
+both false. Hence, $n\mid m$ if and only if each prime $p$ satisfies
+$v_{p}\left(  n\right)  \leq v_{p}\left(  m\right)  $. In other words,
+Proposition \ref{prop.ent.primes.n|m} is true. Qed.}. Hence, for the rest of
+this proof, we WLOG assume that $n\neq0$. Therefore, $n$ is nonzero.
 
-WLOG assume that $m$ and $n$ are positive (since we can replace $n$ and $m$ by
-$\left\vert n\right\vert $ and $\left\vert m\right\vert $, and use
-$v_{p}\left(  a\right)  =v_{p}\left(  -a\right)  $).
+The statement of Proposition \ref{prop.ent.primes.n|m} does not change if we
+replace $n$ and $m$ by $\left\vert n\right\vert $ and $\left\vert m\right\vert
+$, respectively\footnote{Indeed, the statement \textquotedblleft$n\mid
+m$\textquotedblright\ does not change (since Proposition \ref{prop.ent.div.1}
+\textbf{(a)} yields that we have $n\mid m$ if and only if $\left\vert
+n\right\vert \mid\left\vert m\right\vert $), and the statement
+\textquotedblleft each prime $p$ satisfies $v_{p}\left(  n\right)  \leq
+v_{p}\left(  m\right)  $\textquotedblright\ does not change either (because
+Exercise \ref{exe.ent.prime.vp-abs} shows that $v_{p}\left(  \left\vert
+n\right\vert \right)  =v_{p}\left(  n\right)  $ and $v_{p}\left(  \left\vert
+m\right\vert \right)  =v_{p}\left(  m\right)  $).}. Hence, we can WLOG assume
+that $n$ and $m$ are nonnegative. Assume this. Then, $n\geq0$, so that $n>0$
+(since $n$ is nonzero). Hence, $n$ is a positive integer. Thus, Corollary
+\ref{cor.ent.primes.can-fac} yields%
+\begin{equation}
+n=\prod_{p\text{ prime}}p^{v_{p}\left(  n\right)  }%
+.\label{pf.prop.ent.primes.n|m.n=}%
+\end{equation}
+Similarly,%
+\begin{equation}
+m=\prod_{p\text{ prime}}p^{v_{p}\left(  m\right)  }%
+.\label{pf.prop.ent.primes.n|m.m=}%
+\end{equation}
+
+
+Our goal is to prove that $n\mid m$ if and only if each prime $p$ satisfies
+$v_{p}\left(  n\right)  \leq v_{p}\left(  m\right)  $. We shall now prove the
+\textquotedblleft$\Longleftarrow$\textquotedblright\ and \textquotedblleft%
+$\Longrightarrow$\textquotedblright\ directions of this \textquotedblleft if
+and only if\textquotedblright\ statement separately.
 
 $\Longleftarrow:$ Assume that each prime $p$ satisfies $v_{p}\left(  n\right)
-\leq v_{p}\left(  m\right)  $.
+\leq v_{p}\left(  m\right)  $. We must prove that $n\mid m$.
 
-But Corollary above yields%
-\[
-n=\prod_{p\text{ prime}}p^{v_{p}\left(  n\right)  }%
-\ \ \ \ \ \ \ \ \ \ \text{and}\ \ \ \ \ \ \ \ \ \ m=\prod_{p\text{ prime}%
-}p^{v_{p}\left(  m\right)  }.
-\]
-Thus $n\mid m$, since
-\[
-m=n\cdot\prod_{p\text{ prime}}\underbrace{p^{v_{p}\left(  m\right)
--v_{p}\left(  n\right)  }}_{\substack{\text{an integer,}\\\text{since }%
-v_{p}\left(  n\right)  \leq v_{p}\left(  m\right)  }}.
-\]
+The product $\prod_{p\text{ prime}}p^{v_{p}\left(  m\right)  -v_{p}\left(
+n\right)  }$ is well-defined\footnote{\textit{Proof. }Let $p$ be a prime such
+that $p>\left\vert m\right\vert $. Then, $v_{p}\left(  m\right)  =0$ (by Lemma
+\ref{lem.ent.primes.vpn=0} \textbf{(a)}, applied to $m$ instead of $n$), so
+that $v_{p}\left(  m\right)  -\underbrace{v_{p}\left(  n\right)  }_{\geq0}\leq
+v_{p}\left(  m\right)  =0$. On the other hand, $v_{p}\left(  n\right)  \leq
+v_{p}\left(  m\right)  $ (since we assumed that each prime $p$ satisfies
+$v_{p}\left(  n\right)  \leq v_{p}\left(  m\right)  $); thus, $v_{p}\left(
+m\right)  -v_{p}\left(  n\right)  \geq0$. Combining this with $v_{p}\left(
+m\right)  -v_{p}\left(  n\right)  \leq0$, we obtain $v_{p}\left(  m\right)
+-v_{p}\left(  n\right)  =0$. Hence, $p^{v_{p}\left(  m\right)  -v_{p}\left(
+n\right)  }=p^{0}=1$.
+\par
+Now, forget that we fixed $p$. We thus have proven that every prime
+$p>\left\vert m\right\vert $ satisfies $p^{v_{p}\left(  m\right)
+-v_{p}\left(  n\right)  }=1$. Hence, all but finitely many primes $p$ satisfy
+$p^{v_{p}\left(  m\right)  -v_{p}\left(  n\right)  }=1$ (since all but
+finitely many primes $p$ satisfy $p>\left\vert m\right\vert $). In other
+words, the product $\prod_{p\text{ prime}}p^{v_{p}\left(  m\right)
+-v_{p}\left(  n\right)  }$ has only finitely many factors different from $1$.
+Hence, this product is well-defined.}.
 
+We have assumed that each prime $p$ satisfies $v_{p}\left(  n\right)  \leq
+v_{p}\left(  m\right)  $. In other words, each prime $p$ satisfies
+$v_{p}\left(  m\right)  -v_{p}\left(  n\right)  \geq0$ and therefore
+$p^{v_{p}\left(  m\right)  -v_{p}\left(  n\right)  }\in\mathbb{Z}$. Hence, the
+product $\prod_{p\text{ prime}}p^{v_{p}\left(  m\right)  -v_{p}\left(
+n\right)  }$ is a product of integers, and thus itself an integer. Let us
+denote this product by $c$. Thus,%
+\begin{equation}
+c=\prod_{p\text{ prime}}p^{v_{p}\left(  m\right)  -v_{p}\left(  n\right)
+}.\label{pf.prop.ent.primes.n|m.c=}%
+\end{equation}
+Thus, $c$ is an integer (since we have just shown that $\prod_{p\text{ prime}%
+}p^{v_{p}\left(  m\right)  -v_{p}\left(  n\right)  }$ is an integer).
+Multiplying the equalities (\ref{pf.prop.ent.primes.n|m.n=}) and
+(\ref{pf.prop.ent.primes.n|m.c=}), we obtain%
+\begin{align*}
+nc  & =\left(  \prod_{p\text{ prime}}p^{v_{p}\left(  n\right)  }\right)
+\left(  \prod_{p\text{ prime}}p^{v_{p}\left(  m\right)  -v_{p}\left(
+n\right)  }\right)  =\prod_{p\text{ prime}}\underbrace{\left(  p^{v_{p}\left(
+n\right)  }p^{v_{p}\left(  m\right)  -v_{p}\left(  n\right)  }\right)
+}_{\substack{=p^{v_{p}\left(  n\right)  +\left(  v_{p}\left(  m\right)
+-v_{p}\left(  n\right)  \right)  }=p^{v_{p}\left(  m\right)  }\\\text{(since
+}v_{p}\left(  n\right)  +\left(  v_{p}\left(  m\right)  -v_{p}\left(
+n\right)  \right)  =v_{p}\left(  m\right)  \text{)}}}\\
+& =\prod_{p\text{ prime}}p^{v_{p}\left(  m\right)  }%
+=m\ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.prop.ent.primes.n|m.m=}%
+)}\right)  .
+\end{align*}
+In other words, $m=nc$. Hence, $n\mid m$. This completes the proof of the
+\textquotedblleft$\Longleftarrow$\textquotedblright\ direction of Proposition
+\ref{prop.ent.primes.n|m}.
 
-$\Longleftarrow:$ Assume $n\mid m$. We must prove that each prime $p$
+$\Longrightarrow:$ Assume that $n\mid m$. We must prove that each prime $p$
 satisfies $v_{p}\left(  n\right)  \leq v_{p}\left(  m\right)  $.
 
-So let $p$ be a prime. From $n\mid m$, we obtain $m=nb$ for some integer $b$.
-Thus, $v_{p}\left(  m\right)  =v_{p}\left(  nb\right)  =v_{p}\left(  n\right)
-+\underbrace{v_{p}\left(  b\right)  }_{\geq0}\geq v_{p}\left(  n\right)  $.
+So let $p$ be a prime. Recall that $n\mid m$. In other words, there exists
+some integer $b$ such that $m=nb$. Consider this $b$. Now,%
+\begin{align*}
+v_{p}\left(  \underbrace{m}_{=nb}\right)    & =v_{p}\left(  nb\right)
+=v_{p}\left(  n\right)  +\underbrace{v_{p}\left(  b\right)  }_{\geq
+0}\ \ \ \ \ \ \ \ \ \ \left(  \text{by Theorem \ref{thm.ent.prime.vp-ring}
+\textbf{(a)}, applied to }a=n\right)  \\
+& \geq v_{p}\left(  n\right)  ,
+\end{align*}
+so that $v_{p}\left(  n\right)  \leq v_{p}\left(  m\right)  $. Now, forget
+that we fixed $p$. We thus have proven that each prime $p$ satisfies
+$v_{p}\left(  n\right)  \leq v_{p}\left(  m\right)  $. This completes the
+proof of the \textquotedblleft$\Longrightarrow$\textquotedblright\ direction
+of Proposition \ref{prop.ent.primes.n|m}.
+\end{proof}
+
+\begin{center}
+\textbf{2019-02-13 lecture}
+\end{center}
+
+Canonical factorizations can also be used to describe gcds and lcms:
+
+\begin{proposition}
+\label{prop.ent.primes.gcd}Let $n$ and $m$ be two nonzero integers. Then,%
+\begin{equation}
+\gcd\left(  n,m\right)  =\prod_{p\text{ prime}}p^{\min\left\{  v_{p}\left(
+n\right)  ,v_{p}\left(  m\right)  \right\}  }%
+\label{eq.prop.ent.primes.gcd.gcd}%
+\end{equation}
+an%
+\begin{equation}
+\operatorname{lcm}\left(  n,m\right)  =\prod_{p\text{ prime}}p^{\max\left\{
+v_{p}\left(  n\right)  ,v_{p}\left(  m\right)  \right\}  }%
+.\label{eq.prop.ent.primes.gcd.lcm}%
+\end{equation}
+
+\end{proposition}
+
+TODO: write from here.
+
+\begin{proof}
+[Proof of Proposition \ref{prop.ent.primes.gcd}.] It is easy to see that the
+infinite products $\prod\limits_{p\text{ prime}}p^{\min\left\{  v_{p}\left(
+n\right)  ,v_{p}\left(  m\right)  \right\}  }$ and $\prod_{p\text{ prime}%
+}p^{\max\left\{  v_{p}\left(  n\right)  ,v_{p}\left(  m\right)  \right\}  }$
+are well-defined.
+
+The integer $g:=\prod\limits_{p\text{ prime}}p^{\min\left\{  v_{p}\left(
+n\right)  ,v_{p}\left(  m\right)  \right\}  }$ is a common divisor of $n$ and
+$m$.
+
+(Indeed, let us show that $g\mid n$. For that, recall $n=\prod\limits_{p\text{
+prime}}p^{v_{p}\left(  n\right)  }$. So we need to show that $\prod
+\limits_{p\text{ prime}}p^{\min\left\{  v_{p}\left(  n\right)  ,v_{p}\left(
+m\right)  \right\}  }\mid\prod\limits_{p\text{ prime}}p^{v_{p}\left(
+n\right)  }$. But this follows because each prime $p$ satisfies $\min\left\{
+v_{p}\left(  n\right)  ,v_{p}\left(  m\right)  \right\}  \leq v_{p}\left(
+n\right)  $ and thus $p^{\min\left\{  v_{p}\left(  n\right)  ,v_{p}\left(
+m\right)  \right\}  }\mid p^{v_{p}\left(  n\right)  }$. So $g\mid n$.
+Similarly, $g\mid m$. Thus, $g$ is a common divisor of $n$ and $m$.)
+
+Hence, $g\mid\gcd\left(  n,m\right)  $.
+
+On the other hand, let $h=\gcd\left(  n,m\right)  $. Fix any prime $p$. Then,
+$h\mid n$, and thus $v_{p}\left(  h\right)  \leq v_{p}\left(  n\right)  $ (by
+the Proposition above). Similarly, $v_{p}\left(  h\right)  \leq v_{p}\left(
+m\right)  $. Combining these two inequalities, we obtain%
+\[
+v_{p}\left(  h\right)  \leq\min\left\{  v_{p}\left(  n\right)  ,v_{p}\left(
+m\right)  \right\}  .
+\]
+Hence, $p^{v_{p}\left(  h\right)  }\mid p^{\min\left\{  v_{p}\left(  n\right)
+,v_{p}\left(  m\right)  \right\}  }$. Since we have proven this for any prime
+$p$, we thus conclude that $\prod\limits_{p\text{ prime}}p^{v_{p}\left(
+h\right)  }\mid\prod\limits_{p\text{ prime}}p^{\min\left\{  v_{p}\left(
+n\right)  ,v_{p}\left(  m\right)  \right\}  }$. Thus,%
+\begin{align*}
+h  &  =\prod\limits_{p\text{ prime}}p^{v_{p}\left(  h\right)  }%
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by canonical factorization}\right) \\
+&  \mid\prod\limits_{p\text{ prime}}p^{\min\left\{  v_{p}\left(  n\right)
+,v_{p}\left(  m\right)  \right\}  }=g.
+\end{align*}
+Combined with $g\mid\gcd\left(  n,m\right)  =h$, this yields $\left\vert
+g\right\vert =\left\vert h\right\vert $. Thus, $g=h$ (since $g$ and $h$ are
+positive). In other words, $\prod\limits_{p\text{ prime}}p^{\min\left\{
+v_{p}\left(  n\right)  ,v_{p}\left(  m\right)  \right\}  }=\gcd\left(
+n,m\right)  $. This proves the first equation.
+
+The proof of the second equation is entirely symmetric.
+\end{proof}
+
+For example:%
+\begin{align*}
+&  \gcd\left(  3^{2}\cdot5\cdot7^{8},2\cdot3^{3}\cdot7^{2}\right) \\
+&  =2^{\min\left\{  0,1\right\}  }\cdot3^{\min\left\{  2,3\right\}  }%
+\cdot5^{\min\left\{  1,0\right\}  }\cdot7^{\min\left\{  8,2\right\}  }\\
+&  =2^{0}\cdot3^{2}\cdot5^{0}\cdot7^{2}=3^{2}\cdot7^{2}%
+\end{align*}
+and%
+\begin{align*}
+&  \operatorname{lcm}\left(  3^{2}\cdot5\cdot7^{8},2\cdot3^{3}\cdot
+7^{2}\right) \\
+&  =2^{\max\left\{  0,1\right\}  }\cdot3^{\max\left\{  2,3\right\}  }%
+\cdot5^{\max\left\{  1,0\right\}  }\cdot7^{\max\left\{  8,2\right\}  }\\
+&  =2^{1}\cdot3^{3}\cdot5^{1}\cdot7^{8}.
+\end{align*}
+
+
+Similar results hold for $k$ numbers.
+
+\begin{proof}
+[Proof of Proposition \ref{prop.ent.primes.gcd}.]TODO
 \end{proof}
 
 TODO:
@@ -7475,15 +8476,205 @@ TODO:
 \begin{itemize}
 \item $\gcd$ and $\operatorname{lcm}$ via canonical factorization
 
+\item example of previous properties rederived
+
 \item coprimality means not having any primes in common
 
-\item there are $\infty$ many primes
+\item explain why $\perp$ notation
+\end{itemize}
 
-\item define $\phi\left(  n\right)  $
+\subsubsection{There are infinitely many primes}
 
-\item examples
+\begin{theorem}
+\label{thm.ent.primes.infin}There are infinitely many primes.
+\end{theorem}
 
-\item prove $\sum_{d\mid n}\phi\left(  d\right)  =n$
+\begin{proof}
+[Proof of Theorem \ref{thm.ent.primes.infin}.]The following proof is a
+classic, appearing in Euclid's \textit{Elements}:
+
+Let $\left(  p_{1},p_{2},\ldots,p_{k}\right)  $ be any finite list of primes.
+We shall find a new prime distinct from each of $p_{1},p_{2},\ldots,p_{k}$.
+
+Indeed, $p_{1},p_{2},\ldots,p_{k}$ are primes, and thus are integers $>1$ (by
+the definition of a \textquotedblleft prime\textquotedblright). Hence, they
+are positive integers; thus, their product $p_{1}p_{2}\cdots p_{k}$ is a
+positive integer as well. Thus, $p_{1}p_{2}\cdots p_{k}>0$.
+
+Now, let $n=p_{1}p_{2}\cdots p_{k}+1$. Then, $n=\underbrace{p_{1}p_{2}\cdots
+p_{k}}_{>0}+1>1$. Hence, Proposition \ref{prop.ent.primes.ex-pri-div} shows
+that there exists at least one prime $p$ such that $p\mid n$. Consider this
+$p$.
+
+We claim that $p$ is distinct from each of $p_{1},p_{2},\ldots,p_{k}$.
+
+[\textit{Proof:} Assume the contrary. Thus, $p=p_{i}$ for some $i\in\left\{
+1,2,\ldots,k\right\}  $. Consider this $i$.
+
+We have $p_{1}p_{2}\cdots p_{k}=p_{i}\cdot\left(  p_{1}p_{2}\cdots
+p_{i-1}p_{i+1}p_{i+2}\cdots p_{k}\right)  $. Thus, $p_{i}\mid p_{1}p_{2}\cdots
+p_{k}$ (since $p_{1}p_{2}\cdots p_{i-1}p_{i+1}p_{i+2}\cdots p_{k}$ is an
+integer). Hence, $p=p_{i}\mid p_{1}p_{2}\cdots p_{k}$. In other words,
+$p_{1}p_{2}\cdots p_{k}\equiv0\operatorname{mod}p$. Now,%
+\[
+n=\underbrace{p_{1}p_{2}\cdots p_{k}}_{\equiv0\operatorname{mod}p_{i}}%
++1\equiv0+1=1\operatorname{mod}p_{i}.
+\]
+Hence, $1\equiv n\operatorname{mod}p$. But $p\mid n$ and thus $n\equiv
+0\operatorname{mod}p$. Hence, $1\equiv n\equiv0\operatorname{mod}p$; in other
+words, $p\mid1-0=1$. Thus, Proposition \ref{prop.ent.div.1} \textbf{(b)}
+(applied to $a=p$ and $b=1$) yields $\left\vert p\right\vert \leq\left\vert
+1\right\vert =1$. But $p$ is a prime; thus, $p>1>0$, so that $\left\vert
+p\right\vert =p>1$. This contradicts $\left\vert p\right\vert \leq1$. This
+contradiction shows that our assumption was wrong, qed.]
+
+Thus, we have proven that $p$ is distinct from each of $p_{1},p_{2}%
+,\ldots,p_{k}$. Hence, there exists a prime distinct from each of $p_{1}%
+,p_{2},\ldots,p_{k}$ (namely, $p$).
+
+Now, forget that we fixed $p_{1},p_{2},\ldots,p_{k}$. We thus have proven that
+if $\left(  p_{1},p_{2},\ldots,p_{k}\right)  $ is any finite list of primes,
+then there exists a prime distinct from each of $p_{1},p_{2},\ldots,p_{k}$. In
+other words, given any finite list of primes, there exists at least one prime
+that is not in this list. In other words, no finite list of primes can cover
+all the primes. In other words, there are infinitely many primes. This proves
+Theorem \ref{thm.ent.primes.infin}.
+\end{proof}
+
+Note that our proof of Theorem \ref{thm.ent.primes.infin} is constructive: It
+gives an algorithm to construct arbitrarily many distinct primes. This
+algorithm is not very efficient, since $p_{1}p_{2}\cdots p_{k}+1$ can be very
+large even if $p_{1},p_{2},\ldots,p_{k}$ are fairly small. In practice, the
+sieve of Eratosthenes is much better for generating primes.
+\href{https://en.wikipedia.org/wiki/Generating_primes}{Much faster algorithms
+are known}.
+
+\subsubsection{Euler's totient function ($\phi$-function)}
+
+Recall that $\mathbb{P}$ stands for the set of all positive integers.
+
+\begin{definition}
+\label{def.ent.phi.phi}We define a function $\phi:\mathbb{P}\rightarrow
+\mathbb{N}$ as follows: For each $n\in\mathbb{P}$, we let $\phi\left(
+n\right)  $ be the number of all $i\in\left\{  1,2,\ldots,n\right\}  $ that
+are coprime to $n$. In other words,%
+\begin{equation}
+\phi\left(  n\right)  =\left\vert \left\{  i\in\left\{  1,2,\ldots,n\right\}
+\ \mid\ i\perp n\right\}  \right\vert . \label{eq.def.ent.phi.phi.1}%
+\end{equation}
+
+
+This function $\phi$ is called \textit{Euler's totient function} or just
+$\phi$\textit{-function}.
+\end{definition}
+
+\begin{example}
+\textbf{(a)} We have $\phi\left(  12\right)  =4$, since the number of all
+$i\in\left\{  1,2,\ldots,12\right\}  $ that are coprime to $12$ is $4$
+(indeed, these $i$ are $1$, $5$, $7$ and $11$).
+
+\textbf{(b)} We have $\phi\left(  13\right)  =12$, since the number of all
+$i\in\left\{  1,2,\ldots,13\right\}  $ that are coprime to $13$ is $12$
+(indeed, these $i$ are $1,2,\ldots,12$).
+
+\textbf{(c)} We have $\phi\left(  14\right)  =6$, since the number of all
+$i\in\left\{  1,2,\ldots,14\right\}  $ that are coprime to $14$ is $6$
+(indeed, these $i$ are $1,3,5,9,11,13$).
+
+\textbf{(d)} We have $\phi\left(  1\right)  =1$, since the number of all
+$i\in\left\{  1,2,\ldots,1\right\}  $ that are coprime to $1$ is $1$ (indeed,
+the only such $i$ is $1$).
+\end{example}
+
+The $\phi$-function $\phi$ is denoted by $\varphi$ by some authors.
+
+\begin{proposition}
+\label{prop.ent.phi.p}Let $p$ be a prime. Then, $\phi\left(  p\right)  =p-1$.
+\end{proposition}
+
+\begin{proof}
+TODO.
+\end{proof}
+
+Proposition \ref{prop.ent.phi.p} can be generalized as follows:
+
+\begin{exercise}
+\label{exe.ent.phi.pk}Let $p$ be a prime. Let $k$ be a positive integer. Prove
+that $\phi\left(  p^{k}\right)  =\left(  p-1\right)  p^{k-1}$.
+\end{exercise}
+
+\begin{proof}
+[Solution to Exercise \ref{exe.ent.phi.pk}.]TODO (HW3).
+\end{proof}
+
+\begin{theorem}
+\label{thm.ent.phi.sum-div}Let $n$ be a positive integer. Then,%
+\[
+\sum_{d\mid n}\phi\left(  d\right)  =n.
+\]
+Here and in the following, the symbol \textquotedblleft$\sum_{d\mid n}%
+$\textquotedblright\ stands for \textquotedblleft sum over all
+\textbf{positive} divisors $d$ of $n$\textquotedblright.
+\end{theorem}
+
+For example, for $n=12$, Theorem \ref{thm.ent.phi.sum-div} states that
+\[
+\phi\left(  1\right)  +\phi\left(  2\right)  +\phi\left(  3\right)
++\phi\left(  4\right)  +\phi\left(  6\right)  +\phi\left(  12\right)  =12.
+\]
+
+
+\begin{proof}
+[Proof of Theorem \ref{thm.ent.phi.sum-div}.]TODO.
+\end{proof}
+
+\begin{theorem}
+\label{thm.ent.phi.mult}Let $m$ and $n$ be two coprime integers. Then,
+$\phi\left(  mn\right)  =\phi\left(  m\right)  \cdot\phi\left(  n\right)  $.
+\end{theorem}
+
+\begin{proof}
+TODO.
+\end{proof}
+
+\begin{theorem}
+\label{thm.ent.phi.explicit}Let $n$ be a positive integer. Then,%
+\begin{align*}
+\phi\left(  n\right)   &  =\prod_{p\text{ prime}}\left(  \left(  p-1\right)
+p^{v_{p}\left(  n\right)  -1}\right)  \\
+&  =n\cdot\prod_{\substack{p\text{ prime;}\\p\mid n}}\left(  1-\dfrac{1}%
+{p}\right)  .
+\end{align*}
+
+\end{theorem}
+
+We shall leave Theorem \ref{thm.ent.phi.explicit} unproven at this point: its
+simplest proof relies on some abstract algebraic concepts (rings and their
+direct products) that will be introduced later.
+
+TODO.
+
+\subsection{Binomial coefficients}
+
+TODO:
+
+\begin{itemize}
+\item repeat HW0 results.
+
+\item binomial theorem.
+
+\item combinatorial meaning.
+
+\item $p\mid\dbinom{p}{k}$. two proofs: (1) using absorption identity, (2) by
+counting bitstrings.
+
+\item state necklace question. (teaser!)
+
+\item $\dbinom{2a}{2b}$ etc. and the Sierpinski triangle.
+
+\item Lucas's theorem. (teaser!)
+
+\item integer-valued polynomials. (teaser!)
 \end{itemize}
 
 \begin{thebibliography}{999999999}                                                                                        %

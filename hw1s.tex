@@ -22,7 +22,7 @@
 \setcounter{MaxMatrixCols}{30}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Sunday, February 10, 2019 11:52:20}
+%TCIDATA{LastRevised=Tuesday, February 12, 2019 21:04:52}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
 %TCIDATA{BibliographyScheme=Manual}
@@ -83,6 +83,10 @@
 \newtheorem{remark}[theorem]{Remark}
 \newenvironment{statement}{\begin{quote}}{\end{quote}}
 \newenvironment{fineprint}{\begin{small}}{\end{small}}
+\iffalse
+\newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\newenvironment{question}[1][Question]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\fi
 \newcommand{\myname}{Darij Grinberg}
 \newcommand{\myid}{00000000}
 \newcommand{\mymail}{dgrinber@umn.edu}
@@ -222,18 +226,22 @@ by manipulation:
 
 Let $n\in\mathbb{N}$. Then, we can group the factors of the product
 $1!\cdot2!\cdot\cdots\cdot\left(  2n\right)  !$ into pairs of successive
-factors. We thus obtain%
+factors. We thus obtain\footnote{Strictly speaking, we are tacitly using the
+fact that each integer between $1$ and $2n$ (inclusive) can be written either
+in the form $2i$ or in the form $2i-1$ for some $i\in\left\{  1,2,\ldots
+,n\right\}  $, and that this $i$ is unique. The proof of this fact relies on
+division with remainder.}%
 \begin{align*}
 &  1!\cdot2!\cdot\cdots\cdot\left(  2n\right)  !\\
 &  =\left(  1!\cdot2!\right)  \cdot\left(  3!\cdot4!\right)  \cdot\cdots
 \cdot\left(  \left(  2n-1\right)  !\cdot\left(  2n\right)  !\right)
 =\prod_{i=1}^{n}\left(  \left(  2i-1\right)  !\cdot\underbrace{\left(
 2i\right)  !}_{\substack{=\left(  2i\right)  \cdot\left(  2i-1\right)
-!\\\text{(by \eqref{sol.factorials.102.fac-rec})}}}\right) \\
+!\\\text{(by \eqref{sol.factorials.102.fac-rec})}}}\right)  \\
 &  =\prod_{i=1}^{n}\underbrace{\left(  \left(  2i-1\right)  !\cdot\left(
 2i\right)  \cdot\left(  2i-1\right)  !\right)  }_{=\left(  2i\right)
 \cdot\left(  \left(  2i-1\right)  !\right)  ^{2}}=\prod_{i=1}^{n}\left(
-\left(  2i\right)  \cdot\left(  \left(  2i-1\right)  !\right)  ^{2}\right) \\
+\left(  2i\right)  \cdot\left(  \left(  2i-1\right)  !\right)  ^{2}\right)  \\
 &  =\underbrace{\left(  \prod_{i=1}^{n}\left(  2i\right)  \right)  }%
 _{=2^{n}\prod_{i=1}^{n}i}\cdot\prod_{i=1}^{n}\left(  \left(  2i-1\right)
 !\right)  ^{2}=2^{n}\underbrace{\left(  \prod_{i=1}^{n}i\right)  }%
@@ -374,12 +382,11 @@ First, let us state an analogue of the telescope principle (Proposition
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.sums.telescope-prod}.] Take your favorite
-proof of Proposition \ref{prop.sums.telescope}, and replace addition by
+[Proof of Proposition \ref{prop.sums.telescope-prod}.]Take your favorite proof
+of Proposition \ref{prop.sums.telescope}, and replace addition by
 multiplication, subtraction by division and sums by products. This will yield
 a proof of Proposition \ref{prop.sums.telescope-prod}.
 \end{proof}
-
 
 Furthermore, recall the following facts:
 
@@ -471,10 +478,12 @@ _{i=1}^{a}\dfrac{\left(  ib\right)  !}{\left(  \left(  i-1\right)  b\right)
 Proposition \ref{prop.sums.telescope-prod},}\\\text{applied to }m=a\text{ and
 }a_{i}=\left(  ib\right)  !\text{)}}}=\dfrac{1}{a!}\cdot\dfrac{1}{\left(
 b!\right)  ^{a}}\cdot\underbrace{\dfrac{\left(  ab\right)  !}{\left(
-0b\right)  !}}_{\substack{=\dfrac{\left(  mb\right)  !}{1}\\\text{(since
-}\left(  0b\right)  !=0!=1\text{)}}}=\dfrac{1}{a!}\cdot\dfrac{1}{\left(
-b!\right)  ^{a}}\cdot\left(  ab\right)  !\\
-&  =\dfrac{\left(  ab\right)  !}{a!\left(  b!\right)  ^{a}}.
+0b\right)  !}}_{\substack{=\dfrac{\left(  ab\right)  !}{1}\\\text{(since
+}\left(  0b\right)  !=0!=1\text{)}}}\\
+&  =\dfrac{1}{a!}\cdot\dfrac{1}{\left(  b!\right)  ^{a}}\cdot\dfrac{\left(
+ab\right)  !}{1}=\dfrac{1}{a!}\cdot\dfrac{1}{\left(  b!\right)  ^{a}}%
+\cdot\left(  ab\right)  !=\dfrac{\left(  ab\right)  !}{a!\left(  b!\right)
+^{a}}.
 \end{align*}
 This solves the exercise.
 
