@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Wednesday, February 13, 2019 15:13:12}
+%TCIDATA{LastRevised=Wednesday, February 13, 2019 09:53:56}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -7509,41 +7509,6 @@ $\Longleftarrow$\textquotedblright\ direction of Lemma
 \ref{lem.ent.prime.vp-def}.
 \end{proof}
 
-\begin{corollary}
-\label{cor.ent.prime.vp-0}Let $p$ be a prime. Let $n\in\mathbb{Z}$. Then,
-$v_{p}\left(  n\right)  =0$ if and only if $p\nmid n$.
-\end{corollary}
-
-\begin{proof}
-[Proof of Corollary \ref{cor.ent.prime.vp-0}.]$\Longrightarrow:$ Assume that
-$v_{p}\left(  n\right)  =0$. We must prove that $p\nmid n$.
-
-We don't have $v_{p}\left(  n\right)  \geq1$ (since $v_{p}\left(  n\right)
-=0<1$). But Lemma \ref{lem.ent.prime.vp-def} (applied to $i=1$) shows that
-$p^{1}\mid n$ if and only if $v_{p}\left(  n\right)  \geq1$. Hence, we don't
-have $p^{1}\mid n$ (since we don't have $v_{p}\left(  n\right)  \geq1$). In
-other words, we have $p^{1}\nmid n$. In other words, $p\nmid n$ (since
-$p=p^{1}$). This proves the \textquotedblleft$\Longrightarrow$%
-\textquotedblright\ direction of Corollary \ref{cor.ent.prime.vp-0}.
-
-$\Longleftarrow:$ Assume that $p\nmid n$. We must prove that $v_{p}\left(
-n\right)  =0$.
-
-We don't have $p\mid n$ (since $p\nmid n$). In other words, we don't have
-$p^{1}\mid n$ (since $p^{1}=p$). But Lemma \ref{lem.ent.prime.vp-def} (applied
-to $i=1$) shows that $p^{1}\mid n$ if and only if $v_{p}\left(  n\right)
-\geq1$. Hence, we don't have $v_{p}\left(  n\right)  \geq1$ (since we don't
-have $p^{1}\mid n$). In other words, $v_{p}\left(  n\right)  <1$.
-
-If we had $n=0$, then we would have $p\mid0=n$, which would contradict $p\nmid
-n$. Hence, we don't have $n=0$. Thus, $p$ is nonzero. Hence, Definition
-\ref{def.ent.prime.vp} \textbf{(a)} shows that $v_{p}\left(  n\right)
-\in\mathbb{N}$. In light of this, we can conclude $v_{p}\left(  n\right)  =0$
-from $v_{p}\left(  n\right)  <1$. This proves the \textquotedblleft%
-$\Longleftarrow$\textquotedblright\ direction of Corollary
-\ref{cor.ent.prime.vp-0}.
-\end{proof}
-
 Here is another property of $p$-valuations that is useful in their study:
 
 \begin{lemma}
@@ -8083,13 +8048,7 @@ must prove that $\left(  a_{1},a_{2},\ldots,a_{k}\right)  $ and $\left(
 b_{1},b_{2},\ldots,b_{\ell}\right)  $ differ only in the order of their
 entries (i.e., are permutations of each other).
 
-Let $P$ be the set of all primes. Note that $\left(  a_{1},a_{2},\ldots
-,a_{k}\right)  $ and $\left(  b_{1},b_{2},\ldots,b_{\ell}\right)  $ are prime
-factorizations of $n$. Hence, $\left(  a_{1},a_{2},\ldots,a_{k}\right)  $ and
-$\left(  b_{1},b_{2},\ldots,b_{\ell}\right)  $ are tuples of primes, i.e.,
-tuples of elements of $P$.
-
-Let $p\in P$. Thus, $p$ is a prime (by the definition of $P$). Hence,
+Let $P$ be the set of all primes. Let $p\in P$. Thus, $p$ is a prime. Hence,
 Proposition \ref{prop.ent.prime.mult-in-pf} shows that%
 \begin{align*}
 &  \left(  \text{the number of times }p\text{ appears in the tuple }\left(
@@ -8281,132 +8240,51 @@ this proof, we WLOG assume that $m\neq0$. Therefore, $m$ is nonzero. Hence,
 $v_{p}\left(  m\right)  \in\mathbb{N}$ (by Definition \ref{def.ent.prime.vp}
 \textbf{(a)}), so that $v_{p}\left(  m\right)  <\infty$.
 
+TODO: write from here.
+
 If $n=0$, then Proposition \ref{prop.ent.primes.n|m} is
 true\footnote{\textit{Proof.} Assume that $n=0$. Thus, each prime $p$
 satisfies $v_{p}\left(  \underbrace{n}_{=0}\right)  =v_{p}\left(  0\right)
 =\infty$ (by Definition \ref{def.ent.prime.vp} \textbf{(b)}) and thus
-$v_{p}\left(  m\right)  <\infty=v_{p}\left(  n\right)  $. Applying this to
-$p=2$, we obtain $v_{2}\left(  m\right)  <v_{2}\left(  n\right)  $ (since $2$
-is a prime). Hence, we don't have $v_{2}\left(  n\right)  \leq v_{2}\left(
-m\right)  $. Thus, the statement \textquotedblleft each prime $p$ satisfies
-$v_{p}\left(  n\right)  \leq v_{p}\left(  m\right)  $\textquotedblright\ is
-false (since $p=2$ is a counterexample).
+$v_{p}\left(  m\right)  <\infty=v_{p}\left(  n\right)  $, so that we don't
+have $v_{p}\left(  n\right)  \leq v_{p}\left(  m\right)  $.
 \par
-If we had $n\mid m$, then there would be an integer $c$ such that $m=nc$. This
-would then lead to $m=\underbrace{n}_{=0}c=0$, which would contradict $m\neq
-0$. Hence, we cannot have $n\mid m$. Thus, the statements \textquotedblleft%
-$n\mid m$\textquotedblright\ and \textquotedblleft each prime $p$ satisfies
-$v_{p}\left(  n\right)  \leq v_{p}\left(  m\right)  $\textquotedblright\ are
-both false. Hence, $n\mid m$ if and only if each prime $p$ satisfies
-$v_{p}\left(  n\right)  \leq v_{p}\left(  m\right)  $. In other words,
-Proposition \ref{prop.ent.primes.n|m} is true. Qed.}. Hence, for the rest of
-this proof, we WLOG assume that $n\neq0$. Therefore, $n$ is nonzero.
+Also, $n\mid m$ does not hold (because $m$ is nonzero). Thus, the statements
+\textquotedblleft$n\mid m$\textquotedblright\ and \textquotedblleft each prime
+$p$ satisfies $v_{p}\left(  n\right)  \leq v_{p}\left(  m\right)
+$\textquotedblright\ are both false. Hence, $n\mid m$ if and only if each
+prime $p$ satisfies $v_{p}\left(  n\right)  \leq v_{p}\left(  m\right)  $. In
+other words, Proposition \ref{prop.ent.primes.n|m} is true. Qed.}. Hence, for
+the rest of this proof, we WLOG assume that $m\neq0$. Therefore, $m$ is nonzero.
 
-The statement of Proposition \ref{prop.ent.primes.n|m} does not change if we
-replace $n$ and $m$ by $\left\vert n\right\vert $ and $\left\vert m\right\vert
-$, respectively\footnote{Indeed, the statement \textquotedblleft$n\mid
-m$\textquotedblright\ does not change (since Proposition \ref{prop.ent.div.1}
-\textbf{(a)} yields that we have $n\mid m$ if and only if $\left\vert
-n\right\vert \mid\left\vert m\right\vert $), and the statement
-\textquotedblleft each prime $p$ satisfies $v_{p}\left(  n\right)  \leq
-v_{p}\left(  m\right)  $\textquotedblright\ does not change either (because
-Exercise \ref{exe.ent.prime.vp-abs} shows that $v_{p}\left(  \left\vert
-n\right\vert \right)  =v_{p}\left(  n\right)  $ and $v_{p}\left(  \left\vert
-m\right\vert \right)  =v_{p}\left(  m\right)  $).}. Hence, we can WLOG assume
-that $n$ and $m$ are nonnegative. Assume this. Then, $n\geq0$, so that $n>0$
-(since $n$ is nonzero). Hence, $n$ is a positive integer. Thus, Corollary
-\ref{cor.ent.primes.can-fac} yields%
-\begin{equation}
-n=\prod_{p\text{ prime}}p^{v_{p}\left(  n\right)  }.
-\label{pf.prop.ent.primes.n|m.n=}%
-\end{equation}
-Similarly,%
-\begin{equation}
-m=\prod_{p\text{ prime}}p^{v_{p}\left(  m\right)  }.
-\label{pf.prop.ent.primes.n|m.m=}%
-\end{equation}
-
-
-Our goal is to prove that $n\mid m$ if and only if each prime $p$ satisfies
-$v_{p}\left(  n\right)  \leq v_{p}\left(  m\right)  $. We shall now prove the
-\textquotedblleft$\Longleftarrow$\textquotedblright\ and \textquotedblleft%
-$\Longrightarrow$\textquotedblright\ directions of this \textquotedblleft if
-and only if\textquotedblright\ statement separately.
+WLOG assume that $m$ and $n$ are positive (since we can replace $n$ and $m$ by
+$\left\vert n\right\vert $ and $\left\vert m\right\vert $, and use Exercise
+\ref{exe.ent.prime.vp-abs}).
 
 $\Longleftarrow:$ Assume that each prime $p$ satisfies $v_{p}\left(  n\right)
-\leq v_{p}\left(  m\right)  $. We must prove that $n\mid m$.
+\leq v_{p}\left(  m\right)  $.
 
-The product $\prod_{p\text{ prime}}p^{v_{p}\left(  m\right)  -v_{p}\left(
-n\right)  }$ is well-defined\footnote{\textit{Proof. }Let $p$ be a prime such
-that $p>\left\vert m\right\vert $. Then, $v_{p}\left(  m\right)  =0$ (by Lemma
-\ref{lem.ent.primes.vpn=0} \textbf{(a)}, applied to $m$ instead of $n$), so
-that $v_{p}\left(  m\right)  -\underbrace{v_{p}\left(  n\right)  }_{\geq0}\leq
-v_{p}\left(  m\right)  =0$. On the other hand, $v_{p}\left(  n\right)  \leq
-v_{p}\left(  m\right)  $ (since we assumed that each prime $p$ satisfies
-$v_{p}\left(  n\right)  \leq v_{p}\left(  m\right)  $); thus, $v_{p}\left(
-m\right)  -v_{p}\left(  n\right)  \geq0$. Combining this with $v_{p}\left(
-m\right)  -v_{p}\left(  n\right)  \leq0$, we obtain $v_{p}\left(  m\right)
--v_{p}\left(  n\right)  =0$. Hence, $p^{v_{p}\left(  m\right)  -v_{p}\left(
-n\right)  }=p^{0}=1$.
-\par
-Now, forget that we fixed $p$. We thus have proven that every prime
-$p>\left\vert m\right\vert $ satisfies $p^{v_{p}\left(  m\right)
--v_{p}\left(  n\right)  }=1$. Hence, all but finitely many primes $p$ satisfy
-$p^{v_{p}\left(  m\right)  -v_{p}\left(  n\right)  }=1$ (since all but
-finitely many primes $p$ satisfy $p>\left\vert m\right\vert $). In other
-words, the product $\prod_{p\text{ prime}}p^{v_{p}\left(  m\right)
--v_{p}\left(  n\right)  }$ has only finitely many factors different from $1$.
-Hence, this product is well-defined.}.
+But Corollary \ref{cor.ent.primes.can-fac} yields%
+\[
+n=\prod_{p\text{ prime}}p^{v_{p}\left(  n\right)  }%
+\ \ \ \ \ \ \ \ \ \ \text{and}\ \ \ \ \ \ \ \ \ \ m=\prod_{p\text{ prime}%
+}p^{v_{p}\left(  m\right)  }.
+\]
+Thus $n\mid m$, since
+\[
+m=n\cdot\prod_{p\text{ prime}}\underbrace{p^{v_{p}\left(  m\right)
+-v_{p}\left(  n\right)  }}_{\substack{\text{an integer,}\\\text{since }%
+v_{p}\left(  n\right)  \leq v_{p}\left(  m\right)  }}.
+\]
 
-We have assumed that each prime $p$ satisfies $v_{p}\left(  n\right)  \leq
-v_{p}\left(  m\right)  $. In other words, each prime $p$ satisfies
-$v_{p}\left(  m\right)  -v_{p}\left(  n\right)  \geq0$ and therefore
-$p^{v_{p}\left(  m\right)  -v_{p}\left(  n\right)  }\in\mathbb{Z}$. Hence, the
-product $\prod_{p\text{ prime}}p^{v_{p}\left(  m\right)  -v_{p}\left(
-n\right)  }$ is a product of integers, and thus itself an integer. Let us
-denote this product by $c$. Thus,%
-\begin{equation}
-c=\prod_{p\text{ prime}}p^{v_{p}\left(  m\right)  -v_{p}\left(  n\right)  }.
-\label{pf.prop.ent.primes.n|m.c=}%
-\end{equation}
-Thus, $c$ is an integer (since we have just shown that $\prod_{p\text{ prime}%
-}p^{v_{p}\left(  m\right)  -v_{p}\left(  n\right)  }$ is an integer).
-Multiplying the equalities (\ref{pf.prop.ent.primes.n|m.n=}) and
-(\ref{pf.prop.ent.primes.n|m.c=}), we obtain%
-\begin{align*}
-nc  &  =\left(  \prod_{p\text{ prime}}p^{v_{p}\left(  n\right)  }\right)
-\left(  \prod_{p\text{ prime}}p^{v_{p}\left(  m\right)  -v_{p}\left(
-n\right)  }\right)  =\prod_{p\text{ prime}}\underbrace{\left(  p^{v_{p}\left(
-n\right)  }p^{v_{p}\left(  m\right)  -v_{p}\left(  n\right)  }\right)
-}_{\substack{=p^{v_{p}\left(  n\right)  +\left(  v_{p}\left(  m\right)
--v_{p}\left(  n\right)  \right)  }=p^{v_{p}\left(  m\right)  }\\\text{(since
-}v_{p}\left(  n\right)  +\left(  v_{p}\left(  m\right)  -v_{p}\left(
-n\right)  \right)  =v_{p}\left(  m\right)  \text{)}}}\\
-&  =\prod_{p\text{ prime}}p^{v_{p}\left(  m\right)  }%
-=m\ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.prop.ent.primes.n|m.m=}%
-)}\right)  .
-\end{align*}
-In other words, $m=nc$. Hence, $n\mid m$. This completes the proof of the
-\textquotedblleft$\Longleftarrow$\textquotedblright\ direction of Proposition
-\ref{prop.ent.primes.n|m}.
 
-$\Longrightarrow:$ Assume that $n\mid m$. We must prove that each prime $p$
+$\Longleftarrow:$ Assume $n\mid m$. We must prove that each prime $p$
 satisfies $v_{p}\left(  n\right)  \leq v_{p}\left(  m\right)  $.
 
-So let $p$ be a prime. Recall that $n\mid m$. In other words, there exists
-some integer $b$ such that $m=nb$. Consider this $b$. Now,%
-\begin{align*}
-v_{p}\left(  \underbrace{m}_{=nb}\right)   &  =v_{p}\left(  nb\right)
-=v_{p}\left(  n\right)  +\underbrace{v_{p}\left(  b\right)  }_{\geq
-0}\ \ \ \ \ \ \ \ \ \ \left(  \text{by Theorem \ref{thm.ent.prime.vp-ring}
-\textbf{(a)}, applied to }a=n\right) \\
-&  \geq v_{p}\left(  n\right)  ,
-\end{align*}
-so that $v_{p}\left(  n\right)  \leq v_{p}\left(  m\right)  $. Now, forget
-that we fixed $p$. We thus have proven that each prime $p$ satisfies
-$v_{p}\left(  n\right)  \leq v_{p}\left(  m\right)  $. This completes the
-proof of the \textquotedblleft$\Longrightarrow$\textquotedblright\ direction
-of Proposition \ref{prop.ent.primes.n|m}.
+So let $p$ be a prime. From $n\mid m$, we obtain $m=nb$ for some integer $b$.
+Thus, $v_{p}\left(  m\right)  =v_{p}\left(  nb\right)  =v_{p}\left(  n\right)
++\underbrace{v_{p}\left(  b\right)  }_{\geq0}\geq v_{p}\left(  n\right)  $, so
+that $v_{p}\left(  n\right)  \leq v_{p}\left(  m\right)  $.
 \end{proof}
 
 \begin{center}
@@ -8416,81 +8294,38 @@ of Proposition \ref{prop.ent.primes.n|m}.
 Canonical factorizations can also be used to describe gcds and lcms:
 
 \begin{proposition}
-\label{prop.ent.primes.gcd}Let $n$ and $m$ be two nonzero integers. Then,%
-\begin{equation}
-\gcd\left(  n,m\right)  =\prod_{p\text{ prime}}p^{\min\left\{  v_{p}\left(
-n\right)  ,v_{p}\left(  m\right)  \right\}  }
-\label{eq.prop.ent.primes.gcd.gcd}%
-\end{equation}
-an%
-\begin{equation}
-\operatorname{lcm}\left(  n,m\right)  =\prod_{p\text{ prime}}p^{\max\left\{
-v_{p}\left(  n\right)  ,v_{p}\left(  m\right)  \right\}  }.
-\label{eq.prop.ent.primes.gcd.lcm}%
-\end{equation}
+Let $n$ and $m$ be two nonzero integers. Then,%
+\begin{align*}
+\gcd\left(  n,m\right)    & =\prod_{p\text{ prime}}p^{\min\left\{
+v_{p}\left(  n\right)  ,v_{p}\left(  m\right)  \right\}  }%
+\ \ \ \ \ \ \ \ \ \ \text{and}\\
+\operatorname{lcm}\left(  n,m\right)    & =\prod_{p\text{ prime}}%
+p^{\max\left\{  v_{p}\left(  n\right)  ,v_{p}\left(  m\right)  \right\}  }.
+\end{align*}
 
 \end{proposition}
 
-TODO: write from here.
-
 \begin{proof}
-[Proof of Proposition \ref{prop.ent.primes.gcd}.]It is easy to see that the
-infinite products $\prod\limits_{p\text{ prime}}p^{\min\left\{  v_{p}\left(
-n\right)  ,v_{p}\left(  m\right)  \right\}  }$ and $\prod_{p\text{ prime}%
-}p^{\max\left\{  v_{p}\left(  n\right)  ,v_{p}\left(  m\right)  \right\}  }$
-are well-defined\footnote{\textit{Proof.} Let $p$ be a prime such that
-$p>\max\left\{  \left\vert m\right\vert ,\left\vert n\right\vert \right\}  $.
-Thus, $p>\max\left\{  \left\vert m\right\vert ,\left\vert n\right\vert
-\right\}  \geq\left\vert m\right\vert $ and therefore $v_{p}\left(  m\right)
-=0$ (by Lemma \ref{lem.ent.primes.vpn=0} \textbf{(a)}, applied to $m$ instead
-of $n$). Similarly, $v_{p}\left(  n\right)  =0$. Hence, $\max\left\{
-\underbrace{v_{p}\left(  n\right)  }_{=0},\underbrace{v_{p}\left(  m\right)
-}_{=0}\right\}  =\max\left\{  0,0\right\}  =0$ and therefore $p^{\max\left\{
-v_{p}\left(  n\right)  ,v_{p}\left(  m\right)  \right\}  }=p^{0}=1$.
-\par
-Now, forget that we fixed $p$. We thus have proven that every prime
-$p>\max\left\{  \left\vert m\right\vert ,\left\vert n\right\vert \right\}  $
-satisfies $p^{\max\left\{  v_{p}\left(  n\right)  ,v_{p}\left(  m\right)
-\right\}  }=1$. Hence, all but finitely many primes $p$ satisfy $p^{\max
-\left\{  v_{p}\left(  n\right)  ,v_{p}\left(  m\right)  \right\}  }=1$ (since
-all but finitely many primes $p$ satisfy $p>\max\left\{  \left\vert
-m\right\vert ,\left\vert n\right\vert \right\}  $). In other words, the
-product $\prod_{p\text{ prime}}p^{\max\left\{  v_{p}\left(  n\right)
-,v_{p}\left(  m\right)  \right\}  }$ has only finitely many factors different
-from $1$. Hence, this product is well-defined. Similarly, we can show that the
-product $\prod_{p\text{ prime}}p^{\min\left\{  v_{p}\left(  n\right)
-,v_{p}\left(  m\right)  \right\}  }$ is well-defined.}.
-
-Define two nonnegative integers%
-\[
-g=\prod\limits_{p\text{ prime}}p^{\min\left\{  v_{p}\left(  n\right)
-,v_{p}\left(  m\right)  \right\}  }\ \ \ \ \ \ \ \ \ \ \text{and}%
-\ \ \ \ \ \ \ \ \ \ h=\gcd\left(  n,m\right)  .
-\]
-
-
-Note that $h=\gcd\left(  n,m\right)  $ is a positive integer (since $n$ and
-$m$ are nonzero).
-
-Recall $n=\prod\limits_{p\text{ prime}}p^{v_{p}\left(  n\right)  }$. But each
-prime $p$ satisfies $\min\left\{  v_{p}\left(  n\right)  ,v_{p}\left(
-m\right)  \right\}  \leq v_{p}\left(  n\right)  $ and thus $p^{\min\left\{
-v_{p}\left(  n\right)  ,v_{p}\left(  m\right)  \right\}  }\mid p^{v_{p}\left(
-n\right)  }$. So $\prod\limits_{p\text{ prime}}p^{\min\left\{  v_{p}\left(
-n\right)  ,v_{p}\left(  m\right)  \right\}  }\mid\prod\limits_{p\text{ prime}%
-}p^{v_{p}\left(  n\right)  }$. In other words, $g\mid n$ (since $g=\prod
-\limits_{p\text{ prime}}p^{\min\left\{  v_{p}\left(  n\right)  ,v_{p}\left(
-m\right)  \right\}  }$ and $n=\prod\limits_{p\text{ prime}}p^{v_{p}\left(
-n\right)  }$). Similarly, $g\mid m$. Thus, $g$ is a common divisor of $n$ and
+The integer $g:=\prod\limits_{p\text{ prime}}p^{\min\left\{  v_{p}\left(
+n\right)  ,v_{p}\left(  m\right)  \right\}  }$ is a common divisor of $n$ and
 $m$.
 
-Hence, Lemma \ref{lem.ent.gcd.uniprop} yields $g\mid\gcd\left(  n,m\right)
-=h$.
+(Indeed, let us show that $g\mid n$. For that, recall $n=\prod\limits_{p\text{
+prime}}p^{v_{p}\left(  n\right)  }$. So we need to show that $\prod
+\limits_{p\text{ prime}}p^{\min\left\{  v_{p}\left(  n\right)  ,v_{p}\left(
+m\right)  \right\}  }\mid\prod\limits_{p\text{ prime}}p^{v_{p}\left(
+n\right)  }$. But this follows because each prime $p$ satisfies $\min\left\{
+v_{p}\left(  n\right)  ,v_{p}\left(  m\right)  \right\}  \leq v_{p}\left(
+n\right)  $ and thus $p^{\min\left\{  v_{p}\left(  n\right)  ,v_{p}\left(
+m\right)  \right\}  }\mid p^{v_{p}\left(  n\right)  }$. So $g\mid n$.
+Similarly, $g\mid m$. Thus, $g$ is a common divisor of $n$ and $m$.)
 
-On the other hand, fix any prime $p$. Then, $h\mid n$, and thus $v_{p}\left(
-h\right)  \leq v_{p}\left(  n\right)  $ (by Proposition
-\ref{prop.ent.primes.n|m}). Similarly, $v_{p}\left(  h\right)  \leq
-v_{p}\left(  m\right)  $. Combining these two inequalities, we obtain%
+Hence, $g\mid\gcd\left(  n,m\right)  $.
+
+On the other hand, let $h=\gcd\left(  n,m\right)  $. Fix any prime $p$. Then,
+$h\mid n$, and thus $v_{p}\left(  h\right)  \leq v_{p}\left(  n\right)  $ (by
+the Proposition above). Similarly, $v_{p}\left(  h\right)  \leq v_{p}\left(
+m\right)  $. Combining these two inequalities, we obtain%
 \[
 v_{p}\left(  h\right)  \leq\min\left\{  v_{p}\left(  n\right)  ,v_{p}\left(
 m\right)  \right\}  .
@@ -8501,9 +8336,9 @@ $p$, we thus conclude that $\prod\limits_{p\text{ prime}}p^{v_{p}\left(
 h\right)  }\mid\prod\limits_{p\text{ prime}}p^{\min\left\{  v_{p}\left(
 n\right)  ,v_{p}\left(  m\right)  \right\}  }$. Thus,%
 \begin{align*}
-h  &  =\prod\limits_{p\text{ prime}}p^{v_{p}\left(  h\right)  }%
-\ \ \ \ \ \ \ \ \ \ \left(  \text{by canonical factorization}\right) \\
-&  \mid\prod\limits_{p\text{ prime}}p^{\min\left\{  v_{p}\left(  n\right)
+h  & =\prod\limits_{p\text{ prime}}p^{v_{p}\left(  h\right)  }%
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by canonical factorization}\right)  \\
+& \mid\prod\limits_{p\text{ prime}}p^{\min\left\{  v_{p}\left(  n\right)
 ,v_{p}\left(  m\right)  \right\}  }=g.
 \end{align*}
 Combined with $g\mid\gcd\left(  n,m\right)  =h$, this yields $\left\vert
@@ -8512,63 +8347,52 @@ positive). In other words, $\prod\limits_{p\text{ prime}}p^{\min\left\{
 v_{p}\left(  n\right)  ,v_{p}\left(  m\right)  \right\}  }=\gcd\left(
 n,m\right)  $. This proves the first equation.
 
-The proof of the second equation is entirely symmetric: just flip all
-divisibilities and inequalities and replace \textquotedblleft$\min
-$\textquotedblright\ by \textquotedblleft$\max$\textquotedblright.
+The proof of the second equation is entirely symmetric.
 \end{proof}
 
 For example:%
 \begin{align*}
-&  \gcd\left(  3^{2}\cdot5\cdot7^{8},2\cdot3^{3}\cdot7^{2}\right) \\
-&  =2^{\min\left\{  0,1\right\}  }\cdot3^{\min\left\{  2,3\right\}  }%
+& \gcd\left(  3^{2}\cdot5\cdot7^{8},2\cdot3^{3}\cdot7^{2}\right)  \\
+& =2^{\min\left\{  0,1\right\}  }\cdot3^{\min\left\{  2,3\right\}  }%
 \cdot5^{\min\left\{  1,0\right\}  }\cdot7^{\min\left\{  8,2\right\}  }\\
-&  =2^{0}\cdot3^{2}\cdot5^{0}\cdot7^{2}=3^{2}\cdot7^{2}%
+& =2^{0}\cdot3^{2}\cdot5^{0}\cdot7^{2}=3^{2}\cdot7^{2}%
 \end{align*}
 and%
 \begin{align*}
-&  \operatorname{lcm}\left(  3^{2}\cdot5\cdot7^{8},2\cdot3^{3}\cdot
-7^{2}\right) \\
-&  =2^{\max\left\{  0,1\right\}  }\cdot3^{\max\left\{  2,3\right\}  }%
+& \operatorname{lcm}\left(  3^{2}\cdot5\cdot7^{8},2\cdot3^{3}\cdot
+7^{2}\right)  \\
+& =2^{\max\left\{  0,1\right\}  }\cdot3^{\max\left\{  2,3\right\}  }%
 \cdot5^{\max\left\{  1,0\right\}  }\cdot7^{\max\left\{  8,2\right\}  }\\
-&  =2^{1}\cdot3^{3}\cdot5^{1}\cdot7^{8}.
+& =2^{1}\cdot3^{3}\cdot5^{1}\cdot7^{8}.
 \end{align*}
 
 
+Similar results hold for $k$ numbers.
+
 \begin{remark}
-We can use Proposition \ref{prop.ent.primes.gcd} to reprove certain facts
-about lcms and gcds. For example, take our theorem that
+We can use the above proposition to reprove certain facts about lcms and gcds.
+For example, take our theorem that
 \[
 \gcd\left(  a,b\right)  \cdot\operatorname{lcm}\left(  a,b\right)  =\left\vert
 ab\right\vert
 \]
-for all $a,b\in\mathbb{Z}$. WLOG assume that $a,b\neq0$. Then, the canonical
-factorization of $\left\vert a\right\vert $ is%
-\[
-\left\vert a\right\vert =\prod_{p\text{ prime}}p^{v_{p}\left(  \left\vert
-a\right\vert \right)  }=\prod_{p\text{ prime}}p^{v_{p}\left(  a\right)
-}\ \ \ \ \ \ \ \ \ \ \left(  \text{since }v_{p}\left(  \left\vert a\right\vert
-\right)  =v_{p}\left(  a\right)  \right)  .
-\]
-Similarly,%
-\[
-\left\vert b\right\vert =\prod_{p\text{ prime}}p^{v_{p}\left(  b\right)  }.
-\]
-Now, Proposition \ref{prop.ent.primes.gcd} yields%
+for all $a,b\in\mathbb{Z}$. WLOG assume that $a,b\neq0$. Now, the proposition
+yields%
 \begin{align*}
-\gcd\left(  a,b\right)   &  =\prod_{p\text{ prime}}p^{\min\left\{
+\gcd\left(  a,b\right)    & =\prod_{p\text{ prime}}p^{\min\left\{
 v_{p}\left(  a\right)  ,v_{p}\left(  b\right)  \right\}  }%
 \ \ \ \ \ \ \ \ \ \ \text{and}\\
-\operatorname{lcm}\left(  a,b\right)   &  =\prod_{p\text{ prime}}%
+\operatorname{lcm}\left(  a,b\right)    & =\prod_{p\text{ prime}}%
 p^{\max\left\{  v_{p}\left(  a\right)  ,v_{p}\left(  b\right)  \right\}  }.
 \end{align*}
 Multiplying these, you get%
 \begin{align*}
-&  \gcd\left(  a,b\right)  \cdot\operatorname{lcm}\left(  a,b\right) \\
-&  =\left(  \prod_{p\text{ prime}}p^{\min\left\{  v_{p}\left(  a\right)
+& \gcd\left(  a,b\right)  \cdot\operatorname{lcm}\left(  a,b\right)  \\
+& =\left(  \prod_{p\text{ prime}}p^{\min\left\{  v_{p}\left(  a\right)
 ,v_{p}\left(  b\right)  \right\}  }\right)  \cdot\left(  \prod_{p\text{
 prime}}p^{\max\left\{  v_{p}\left(  a\right)  ,v_{p}\left(  b\right)
-\right\}  }\right) \\
-&  =\prod_{p\text{ prime}}\underbrace{\left(  p^{\min\left\{  v_{p}\left(
+\right\}  }\right)  \\
+& =\prod_{p\text{ prime}}\underbrace{\left(  p^{\min\left\{  v_{p}\left(
 a\right)  ,v_{p}\left(  b\right)  \right\}  }p^{\max\left\{  v_{p}\left(
 a\right)  ,v_{p}\left(  b\right)  \right\}  }\right)  }_{\substack{=p^{\min
 \left\{  v_{p}\left(  a\right)  ,v_{p}\left(  b\right)  \right\}
@@ -8576,11 +8400,11 @@ a\right)  ,v_{p}\left(  b\right)  \right\}  }\right)  }_{\substack{=p^{\min
 }\\=p^{v_{p}\left(  a\right)  +v_{p}\left(  b\right)  }\\\text{(since }%
 \min\left\{  u,v\right\}  +\max\left\{  u,v\right\}  =u+v\text{ for any
 }u,v\text{)}}}\\
-&  =\prod_{p\text{ prime}}\underbrace{p^{v_{p}\left(  a\right)  +v_{p}\left(
+& =\prod_{p\text{ prime}}\underbrace{p^{v_{p}\left(  a\right)  +v_{p}\left(
 b\right)  }}_{=p^{v_{p}\left(  a\right)  }p^{v_{p}\left(  b\right)  }}%
 =\prod_{p\text{ prime}}\left(  p^{v_{p}\left(  a\right)  }p^{v_{p}\left(
-b\right)  }\right) \\
-&  =\underbrace{\left(  \prod_{p\text{ prime}}p^{v_{p}\left(  a\right)
+b\right)  }\right)  \\
+& =\underbrace{\left(  \prod_{p\text{ prime}}p^{v_{p}\left(  a\right)
 }\right)  }_{\substack{=\left\vert a\right\vert \\\text{(by canonical
 factorization)}}}\underbrace{\left(  \prod_{p\text{ prime}}p^{v_{p}\left(
 b\right)  }\right)  }_{=\left\vert b\right\vert }=\left\vert a\right\vert
@@ -8588,74 +8412,35 @@ b\right)  }\right)  }_{=\left\vert b\right\vert }=\left\vert a\right\vert
 \end{align*}
 
 
-Similar arguments show%
+Similarly,%
 \begin{align*}
-\gcd\left(  a,b,c\right)  \cdot\operatorname{lcm}\left(  bc,ca,ab\right)   &
+\gcd\left(  a,b,c\right)  \cdot\operatorname{lcm}\left(  bc,ca,ab\right)    &
 =\left\vert abc\right\vert ;\\
-\operatorname{lcm}\left(  a,b,c\right)  \cdot\gcd\left(  bc,ca,ab\right)   &
+\operatorname{lcm}\left(  a,b,c\right)  \cdot\gcd\left(  bc,ca,ab\right)    &
 =\left\vert abc\right\vert ;\\
 \gcd\left(  a,b,c,d\right)  \cdot\operatorname{lcm}\left(
-bcd,cda,dab,abc\right)   &  =\left\vert abcd\right\vert ;\\
-\operatorname{lcm}\left(  a,b,c,d\right)  \cdot\gcd\left(
-bcd,cda,dab,abc\right)   &  =\left\vert abcd\right\vert .
+bcd,cda,dab,abc\right)    & =\left\vert abcd\right\vert .
 \end{align*}
-For example, let us see why the first of these holds:%
+For example, the last equation is because%
 \begin{align*}
-&  \underbrace{\gcd\left(  a,b,c\right)  }_{=\prod\limits_{p\text{ prime}%
-}p^{\min\left\{  v_{p}\left(  a\right)  ,v_{p}\left(  b\right)  ,v_{p}\left(
-c\right)  \right\}  }}\cdot\underbrace{\operatorname{lcm}\left(
-bc,ca,ab\right)  }_{=\prod\limits_{p\text{ prime}}p^{\max\left\{  v_{p}\left(
-bc\right)  ,v_{p}\left(  ca\right)  ,v_{p}\left(  ab\right)  \right\}  }}\\
-&  =\left(  \prod\limits_{p\text{ prime}}p^{\min\left\{  v_{p}\left(
-a\right)  ,v_{p}\left(  b\right)  ,v_{p}\left(  c\right)  \right\}  }\right)
-\cdot\left(  \prod\limits_{p\text{ prime}}p^{\max\left\{  v_{p}\left(
-bc\right)  ,v_{p}\left(  ca\right)  ,v_{p}\left(  ab\right)  \right\}
-}\right) \\
-&  =\prod\limits_{p\text{ prime}}\underbrace{p^{\min\left\{  v_{p}\left(
-a\right)  ,v_{p}\left(  b\right)  ,v_{p}\left(  c\right)  \right\}
-+\max\left\{  v_{p}\left(  bc\right)  ,v_{p}\left(  ca\right)  ,v_{p}\left(
-ab\right)  \right\}  }}_{\substack{=p^{v_{p}\left(  a\right)  +v_{p}\left(
-b\right)  +v_{p}\left(  c\right)  }\\\text{(this is because }v_{p}\left(
-bc\right)  =v_{p}\left(  abc\right)  -v_{p}\left(  a\right)  \text{ and
-likewise for the other two,}\\\text{so }\max\left\{  v_{p}\left(  bc\right)
-,v_{p}\left(  ca\right)  ,v_{p}\left(  ab\right)  \right\}  \\=\max\left\{
-v_{p}\left(  abc\right)  -v_{p}\left(  a\right)  ,v_{p}\left(  abc\right)
--v_{p}\left(  b\right)  ,v_{p}\left(  abc\right)  -v_{p}\left(  c\right)
-\right\}  \\=v_{p}\left(  abc\right)  -\min\left\{  v_{p}\left(  a\right)
-,v_{p}\left(  b\right)  ,v_{p}\left(  c\right)  \right\}  \text{,}\\\text{so
-}\min\left\{  v_{p}\left(  a\right)  ,v_{p}\left(  b\right)  ,v_{p}\left(
-c\right)  \right\}  +\max\left\{  v_{p}\left(  bc\right)  ,v_{p}\left(
-ca\right)  ,v_{p}\left(  ab\right)  \right\}  \\=v_{p}\left(  abc\right)
-=v_{p}\left(  a\right)  +v_{p}\left(  b\right)  +v_{p}\left(  c\right)
-\text{)}}}\\
-&  =\prod\limits_{p\text{ prime}}p^{v_{p}\left(  a\right)  +v_{p}\left(
-b\right)  +v_{p}\left(  c\right)  }=\underbrace{\left(  \prod\limits_{p\text{
-prime}}p^{v_{p}\left(  a\right)  }\right)  }_{=\left\vert a\right\vert
-}\underbrace{\left(  \prod\limits_{p\text{ prime}}p^{v_{p}\left(  b\right)
-}\right)  }_{=\left\vert b\right\vert }\underbrace{\left(  \prod
-\limits_{p\text{ prime}}p^{v_{p}\left(  c\right)  }\right)  }_{=\left\vert
-c\right\vert }\\
-&  =\left\vert a\right\vert \cdot\left\vert b\right\vert \cdot\left\vert
-c\right\vert =\left\vert abc\right\vert .
-\end{align*}
-And the last equality holds since%
-\begin{align*}
-&  \min\left\{  v_{p}\left(  a\right)  ,v_{p}\left(  b\right)  ,v_{p}\left(
-c\right)  ,v_{p}\left(  d\right)  \right\} \\
-&  +\max\left\{  \underbrace{v_{p}\left(  bcd\right)  }_{=v_{p}\left(
+& \min\left\{  v_{p}\left(  a\right)  ,v_{p}\left(  b\right)  ,v_{p}\left(
+c\right)  ,v_{p}\left(  d\right)  \right\}  \\
+& +\max\left\{  \underbrace{v_{p}\left(  bcd\right)  }_{=v_{p}\left(
 abcd\right)  -v_{p}\left(  a\right)  },\underbrace{v_{p}\left(  cda\right)
 ,v_{p}\left(  dab\right)  ,v_{p}\left(  abc\right)  }_{\text{similarly}%
-}\right\} \\
-&  =\min\left\{  v_{p}\left(  a\right)  ,v_{p}\left(  b\right)  ,v_{p}\left(
-c\right)  ,v_{p}\left(  d\right)  \right\} \\
-&  +\underbrace{\max\left\{  v_{p}\left(  abcd\right)  -v_{p}\left(  a\right)
+}\right\}  \\
+& =\min\left\{  v_{p}\left(  a\right)  ,v_{p}\left(  b\right)  ,v_{p}\left(
+c\right)  ,v_{p}\left(  d\right)  \right\}  \\
+& +\underbrace{\max\left\{  v_{p}\left(  abcd\right)  -v_{p}\left(  a\right)
 ,v_{p}\left(  abcd\right)  -v_{p}\left(  b\right)  ,v_{p}\left(  abcd\right)
 -v_{p}\left(  c\right)  ,v_{p}\left(  abcd\right)  -v_{p}\left(  d\right)
 \right\}  }_{=v_{p}\left(  abcd\right)  -\min\left\{  v_{p}\left(  a\right)
 ,v_{p}\left(  b\right)  ,v_{p}\left(  c\right)  ,v_{p}\left(  d\right)
-\right\}  }\\
-&  =v_{p}\left(  abcd\right)  .
-\end{align*}
+\right\}  }%
+\end{align*}%
+\[
+=v_{p}\left(  abcd\right)  .
+\]
 
 \end{remark}
 
@@ -8689,19 +8474,19 @@ Let $n$ and $m$ be two nonzero integers. Then, $n\perp m$ if and only if
 \begin{proof}
 We have the following equivalence:%
 \begin{align*}
-&  \left(  \sum_{p\text{ prime}}v_{p}\left(  n\right)  v_{p}\left(  m\right)
-=0\right) \\
-&  \Longleftrightarrow\ \left(  v_{p}\left(  n\right)  v_{p}\left(  m\right)
-=0\text{ for all primes }p\right) \\
-&  \ \ \ \ \ \ \ \ \ \ \left(  \text{since }v_{p}\left(  n\right)
-v_{p}\left(  m\right)  \geq0\text{ for all }p\right) \\
-&  \Longleftrightarrow\ \left(  \left(  v_{p}\left(  n\right)  =0\text{ or
-}v_{p}\left(  m\right)  =0\right)  \text{ for all primes }p\right) \\
-&  \Longleftrightarrow\ \left(  \left(  p\nmid n\text{ or }p\nmid m\right)
-\text{ for all primes }p\right) \\
-&  \Longleftrightarrow\ \left(  \text{there exists no prime }p\text{ dividing
-both }n\text{ and }m\right) \\
-&  \Longleftrightarrow\ \left(  n\perp m\right)  \ \ \ \ \ \ \ \ \ \ \left(
+& \left(  \sum_{p\text{ prime}}v_{p}\left(  n\right)  v_{p}\left(  m\right)
+=0\right)  \\
+& \Longleftrightarrow\ \left(  v_{p}\left(  n\right)  v_{p}\left(  m\right)
+=0\text{ for all primes }p\right)  \\
+& \ \ \ \ \ \ \ \ \ \ \left(  \text{since }v_{p}\left(  n\right)  v_{p}\left(
+m\right)  \geq0\text{ for all }p\right)  \\
+& \Longleftrightarrow\ \left(  \left(  v_{p}\left(  n\right)  =0\text{ or
+}v_{p}\left(  m\right)  =0\right)  \text{ for all primes }p\right)  \\
+& \Longleftrightarrow\ \left(  \left(  p\nmid n\text{ or }p\nmid m\right)
+\text{ for all primes }p\right)  \\
+& \Longleftrightarrow\ \left(  \text{there exists no prime }p\text{ dividing
+both }n\text{ and }m\right)  \\
+& \Longleftrightarrow\ \left(  n\perp m\right)  \ \ \ \ \ \ \ \ \ \ \left(
 \text{by the previous proposition}\right)  .
 \end{align*}
 
@@ -8710,365 +8495,164 @@ both }n\text{ and }m\right) \\
 \subsubsection{There are infinitely many primes}
 
 \begin{theorem}
-\label{thm.ent.primes.infin}There are infinitely many primes.
+There are infinitely many primes.
 \end{theorem}
 
 \begin{proof}
-[Proof of Theorem \ref{thm.ent.primes.infin}.]The following proof is a
-classic, appearing in Euclid's \textit{Elements}:
-
 Let $\left(  p_{1},p_{2},\ldots,p_{k}\right)  $ be any finite list of primes.
-We shall find a new prime distinct from each of $p_{1},p_{2},\ldots,p_{k}$.
+We shall find a further prime distinct from each of $p_{1},p_{2},\ldots,p_{k}$.
 
-Indeed, $p_{1},p_{2},\ldots,p_{k}$ are primes, and thus are integers $>1$ (by
-the definition of a \textquotedblleft prime\textquotedblright). Hence, they
-are positive integers; thus, their product $p_{1}p_{2}\cdots p_{k}$ is a
-positive integer as well. Thus, $p_{1}p_{2}\cdots p_{k}>0$.
+Indeed, let $n=p_{1}p_{2}\cdots p_{k}+1$. Then, $n>1$. Hence, $n$ has a prime
+divisor $p$. Consider this $p$.
 
-Now, let $n=p_{1}p_{2}\cdots p_{k}+1$. Then, $n=\underbrace{p_{1}p_{2}\cdots
-p_{k}}_{>0}+1>1$. Hence, Proposition \ref{prop.ent.primes.ex-pri-div} shows
-that there exists at least one prime $p$ such that $p\mid n$. Consider this
-$p$.
+We have $p\neq p_{i}$ for each $i$.
 
-We claim that $p$ is distinct from each of $p_{1},p_{2},\ldots,p_{k}$.
+[\textit{Proof:} Assume $p=p_{i}$. Thus, $p\mid p_{1}p_{2}\cdots p_{k}$. In
+other words, $p\mid n-1$ (since $n-1=p_{1}p_{2}\cdots p_{k}$). In other words,
+$n\equiv1\operatorname{mod}p$.
 
-[\textit{Proof:} Assume the contrary. Thus, $p=p_{i}$ for some $i\in\left\{
-1,2,\ldots,k\right\}  $. Consider this $i$.
+But $p\mid n$, so $n\equiv0\operatorname{mod}p$. Hence, $0\equiv
+n\equiv1\operatorname{mod}p$, so that $p\mid1-0=1$. This is absurd.]
 
-We have $p_{1}p_{2}\cdots p_{k}=p_{i}\cdot\left(  p_{1}p_{2}\cdots
-p_{i-1}p_{i+1}p_{i+2}\cdots p_{k}\right)  $. Thus, $p_{i}\mid p_{1}p_{2}\cdots
-p_{k}$ (since $p_{1}p_{2}\cdots p_{i-1}p_{i+1}p_{i+2}\cdots p_{k}$ is an
-integer). Hence, $p=p_{i}\mid p_{1}p_{2}\cdots p_{k}$. In other words,
-$p_{1}p_{2}\cdots p_{k}\equiv0\operatorname{mod}p$. Now,%
-\[
-n=\underbrace{p_{1}p_{2}\cdots p_{k}}_{\equiv0\operatorname{mod}p_{i}}%
-+1\equiv0+1=1\operatorname{mod}p_{i}.
-\]
-Hence, $1\equiv n\operatorname{mod}p$. But $p\mid n$ and thus $n\equiv
-0\operatorname{mod}p$. Hence, $1\equiv n\equiv0\operatorname{mod}p$; in other
-words, $p\mid1-0=1$. Thus, Proposition \ref{prop.ent.div.1} \textbf{(b)}
-(applied to $a=p$ and $b=1$) yields $\left\vert p\right\vert \leq\left\vert
-1\right\vert =1$. But $p$ is a prime; thus, $p>1>0$, so that $\left\vert
-p\right\vert =p>1$. This contradicts $\left\vert p\right\vert \leq1$. This
-contradiction shows that our assumption was wrong, qed.]
-
-Thus, we have proven that $p$ is distinct from each of $p_{1},p_{2}%
-,\ldots,p_{k}$. Hence, there exists a prime distinct from each of $p_{1}%
-,p_{2},\ldots,p_{k}$ (namely, $p$).
-
-Now, forget that we fixed $p_{1},p_{2},\ldots,p_{k}$. We thus have proven that
-if $\left(  p_{1},p_{2},\ldots,p_{k}\right)  $ is any finite list of primes,
-then there exists a prime distinct from each of $p_{1},p_{2},\ldots,p_{k}$. In
-other words, given any finite list of primes, there exists at least one prime
-that is not in this list. In other words, no finite list of primes can cover
-all the primes. In other words, there are infinitely many primes. This proves
-Theorem \ref{thm.ent.primes.infin}.
+In other words, the prime $p$ is distinct from each of $p_{1},p_{2}%
+,\ldots,p_{k}$.
 \end{proof}
 
-Note that our proof of Theorem \ref{thm.ent.primes.infin} is constructive: It
-gives an algorithm to construct arbitrarily many distinct primes. This
-algorithm is not very efficient, since $p_{1}p_{2}\cdots p_{k}+1$ can be very
-large even if $p_{1},p_{2},\ldots,p_{k}$ are fairly small. In practice, the
-sieve of Eratosthenes is much better for generating primes.
-\href{https://en.wikipedia.org/wiki/Generating_primes}{Much faster algorithms
-are known}.
+\section{Euler's totient function ($\phi$-function)}
 
-\subsection{Euler's totient function ($\phi$-function)}
-
-Recall that $\mathbb{P}$ stands for the set of all positive integers.
+Recall $\mathbb{P}=\left\{  1,2,3,\ldots\right\}  $.
 
 \begin{definition}
-\label{def.ent.phi.phi}We define a function $\phi:\mathbb{P}\rightarrow
-\mathbb{N}$ as follows: For each $n\in\mathbb{P}$, we let $\phi\left(
-n\right)  $ be the number of all $i\in\left\{  1,2,\ldots,n\right\}  $ that
-are coprime to $n$. In other words,%
-\begin{equation}
-\phi\left(  n\right)  =\left\vert \left\{  i\in\left\{  1,2,\ldots,n\right\}
-\ \mid\ i\perp n\right\}  \right\vert . \label{eq.def.ent.phi.phi.1}%
-\end{equation}
+Define a function $\phi:\mathbb{P}\rightarrow\mathbb{N}$ as follows:
 
+For each $n\in\mathbb{P}$, we let%
+\begin{align*}
+\phi\left(  n\right)    & =\left(  \text{the number of all }i\in\left\{
+1,2,\ldots,n\right\}  \text{ coprime to }n\right)  \\
+& =\left\vert \left\{  i\in\left\{  1,2,\ldots,n\right\}  \ \mid\ i\perp
+n\right\}  \right\vert .
+\end{align*}
 
-This function $\phi$ is called \textit{Euler's totient function} or just
-$\phi$\textit{-function}.
 \end{definition}
 
-\begin{example}
-\textbf{(a)} We have $\phi\left(  12\right)  =4$, since the number of all
-$i\in\left\{  1,2,\ldots,12\right\}  $ that are coprime to $12$ is $4$
-(indeed, these $i$ are $1$, $5$, $7$ and $11$).
+\begin{exam}
+\textbf{(a)} We have $\phi\left(  12\right)  =4$, since the $i\in\left\{
+1,2,\ldots,12\right\}  $ coprime to $12$ are $1,5,7,11$. (See%
+\[
+1,\text{2},\text{3},\text{4},5,\text{6},7,\text{8},\text{9},\text{10}%
+,11,\text{12.}%
+\]
+)
 
-\textbf{(b)} We have $\phi\left(  13\right)  =12$, since the number of all
-$i\in\left\{  1,2,\ldots,13\right\}  $ that are coprime to $13$ is $12$
-(indeed, these $i$ are $1,2,\ldots,12$).
+\textbf{(b)} We have $\phi\left(  13\right)  =12$, since the $i\in\left\{
+1,2,\ldots,13\right\}  $ coprime to $13$ are all of $1,2,\ldots,12$.
 
-\textbf{(c)} We have $\phi\left(  14\right)  =6$, since the number of all
-$i\in\left\{  1,2,\ldots,14\right\}  $ that are coprime to $14$ is $6$
-(indeed, these $i$ are $1,3,5,9,11,13$).
+\textbf{(c)} We have $\phi\left(  14\right)  =6$, since%
+\[
+1,\text{2},3,\text{4},5,\text{6},\text{7},\text{8},9,\text{10},11,\text{12}%
+,13,\text{14}.
+\]
 
-\textbf{(d)} We have $\phi\left(  1\right)  =1$, since the number of all
-$i\in\left\{  1,2,\ldots,1\right\}  $ that are coprime to $1$ is $1$ (indeed,
-the only such $i$ is $1$).
-\end{example}
-
-The $\phi$-function $\phi$ is denoted by $\varphi$ by some authors.
+\end{exam}
 
 \begin{proposition}
-\label{prop.ent.phi.p}Let $p$ be a prime. Then, $\phi\left(  p\right)  =p-1$.
+Let $p$ be a prime. Then, $\phi\left(  p\right)  =p-1$.
 \end{proposition}
 
-\begin{proof}
-TODO.
-\end{proof}
-
-Proposition \ref{prop.ent.phi.p} can be generalized as follows:
-
 \begin{exercise}
-\label{exe.ent.phi.pk}Let $p$ be a prime. Let $k$ be a positive integer. Prove
-that $\phi\left(  p^{k}\right)  =\left(  p-1\right)  p^{k-1}$.
+Let $p$ be a prime. Let $k$ be a positive integer. Then, $\phi\left(
+p^{k}\right)  =\left(  p-1\right)  p^{k-1}.$
 \end{exercise}
 
-\begin{proof}
-[Solution to Exercise \ref{exe.ent.phi.pk}.]TODO (HW3).
-\end{proof}
+\begin{theorem}
+Let $n$ be a positive integer. Then,%
+\begin{align*}
+\phi\left(  n\right)    & =\prod_{p\text{ prime}}\left(  \left(  p-1\right)
+p^{v_{p}\left(  n\right)  -1}\right)  \\
+& =n\cdot\prod_{\substack{p\text{ prime;}\\p\mid n}}\left(  1-\dfrac{1}%
+{p}\right)  .
+\end{align*}
 
-For example, for $n=12$, Theorem \ref{thm.ent.phi.sum-div} states that
+\end{theorem}
+
+\begin{theorem}
+Let $n$ be a positive integer. Then,%
+\[
+\sum\limits_{d\mid n}\phi\left(  d\right)  =n.
+\]
+Here and in the following, $\sum\limits_{d\mid n}$ means \textquotedblleft sum
+over all positive divisors $d$ of $n$\textquotedblright.
+\end{theorem}
+
+\begin{example}
+For $n=12$, this is saying that%
 \[
 \phi\left(  1\right)  +\phi\left(  2\right)  +\phi\left(  3\right)
 +\phi\left(  4\right)  +\phi\left(  6\right)  +\phi\left(  12\right)  =12.
 \]
 
+\end{example}
 
 \begin{proof}
-[Proof of Theorem \ref{thm.ent.phi.sum-div}.]TODO.
-\end{proof}
-
-\begin{theorem}
-\label{thm.ent.phi.mult}Let $m$ and $n$ be two coprime integers. Then,
-$\phi\left(  mn\right)  =\phi\left(  m\right)  \cdot\phi\left(  n\right)  $.
-\end{theorem}
-
-\begin{proof}
-TODO.
-\end{proof}
-
-\begin{theorem}
-\label{thm.ent.phi.explicit}Let $n$ be a positive integer. Then,%
-\[
-\phi\left(  n\right)  =\prod_{\substack{p\text{ prime;}\\p\mid n}}\left(
-\left(  p-1\right)  p^{v_{p}\left(  n\right)  -1}\right)  =n\cdot
-\prod_{\substack{p\text{ prime;}\\p\mid n}}\left(  1-\dfrac{1}{p}\right)  .
-\]
-
-\end{theorem}
-
-We shall leave Theorem \ref{thm.ent.phi.explicit} unproven at this point: its
-simplest proof relies on some abstract algebraic concepts (rings and their
-direct products) that will be introduced later.
-
-\begin{theorem}
-\label{thm.ent.phi.sum-div}Let $n$ be a positive integer. Then,%
-\[
-\sum_{d\mid n}\phi\left(  d\right)  =n.
-\]
-Here and in the following, the symbol \textquotedblleft$\sum_{d\mid n}%
-$\textquotedblright\ stands for \textquotedblleft sum over all
-\textbf{positive} divisors $d$ of $n$\textquotedblright.
-\end{theorem}
-
-For example, for $n=12$, this theorem states that%
-\[
-\phi\left(  1\right)  +\phi\left(  2\right)  +\phi\left(  3\right)
-+\phi\left(  4\right)  +\phi\left(  6\right)  +\phi\left(  12\right)  =12.
-\]
-
-
-\begin{proof}
-[Proof of Theorem \ref{thm.ent.phi.sum-div}.]We have%
+[Proof of Theorem.] Fix a positive divisor $d$ of $n$. We claim that%
 \begin{align*}
-n  &  =\left(  \text{the number of }i\in\left\{  1,2,\ldots,n\right\}  \right)
-\\
-&  =\sum_{d\mid n}\left(  \text{the number of }i\in\left\{  1,2,\ldots
-,n\right\}  \text{ such that }\gcd\left(  i,n\right)  =d\right)
+& \phi\left(  d\right)  \\
+& =\left(  \text{the number of }i\in\left\{  1,2,\ldots,n\right\}  \text{ such
+that }\gcd\left(  i,n\right)  =n/d\right)  .
 \end{align*}
-(because if $i\in\left\{  1,2,\ldots,n\right\}  $, then $\gcd\left(
-i,n\right)  $ is a positive divisor of $n$). Now, we claim the following:
 
-\begin{statement}
-\textit{Claim:} For each positive divisor $d$ of $n$, we have%
-\[
-\left(  \text{the number of }i\in\left\{  1,2,\ldots,n\right\}  \text{ such
-that }\gcd\left(  i,n\right)  =d\right)  =\phi\left(  n/d\right)  .
-\]
 
-\end{statement}
-
-[\textit{Proof of Claim:} Recall that $\gcd\left(  sa,sb\right)  =\left\vert
-s\right\vert \gcd\left(  a,b\right)  $ for all $a,b,s\in\mathbb{Z}$. We shall
-use this twice below.
-
-Let $d$ be a positive divisor of $n$. Then, there is a map%
+[\textit{Proof of Claim:} The definition of $\phi$ yields%
 \begin{align*}
-&  \left\{  i\in\left\{  1,2,\ldots,n\right\}  \ \mid\ \gcd\left(  i,n\right)
-=d\right\} \\
-&  \rightarrow\left\{  j\in\left\{  1,2,\ldots,n/d\right\}  \ \mid\ j\perp
-n/d\right\}
+& \phi\left(  d\right)  \\
+& =\left\vert \left\{  i\in\left\{  1,2,\ldots,d\right\}  \ \mid\ i\perp
+d\right\}  \right\vert \\
+& =\left\vert \left\{  j\in\left\{  1,2,\ldots,d\right\}  \ \mid\ j\perp
+d\right\}  \right\vert \\
+& =\left\vert \left\{  j\in\left\{  1,2,\ldots,d\right\}  \ \mid\ \gcd\left(
+j,d\right)  =1\right\}  \right\vert .
 \end{align*}
-given by $i\mapsto i/d$ (since $\gcd\left(  i,n\right)  =d$ implies that
-$i/d\in\mathbb{Z}$ and $\gcd\left(  i/d,n/d\right)  =\underbrace{\gcd\left(
-i,n\right)  }_{=d}/d=d/d=1$, so that $i/d\perp n/d$). This map is invertible
-(in fact, its inverse sends each $j$ to $jd$), thus is a bijection. Hence,%
+But there is a map%
 \begin{align*}
-&  \left\vert \left\{  i\in\left\{  1,2,\ldots,n\right\}  \ \mid\ \gcd\left(
-i,n\right)  =d\right\}  \right\vert \\
-&  =\left\vert \left\{  j\in\left\{  1,2,\ldots,n/d\right\}  \ \mid\ j\perp
-n/d\right\}  \right\vert \\
-&  =\left\vert \left\{  i\in\left\{  1,2,\ldots,n/d\right\}  \ \mid\ i\perp
-n/d\right\}  \right\vert \\
-&  =\phi\left(  n/d\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the
-definition of }\phi\right)  .
+& \left\{  j\in\left\{  1,2,\ldots,d\right\}  \ \mid\ \gcd\left(  j,d\right)
+=1\right\}  \\
+& \rightarrow\left\{  i\in\left\{  1,2,\ldots,n\right\}  \ \mid\ \gcd\left(
+i,n\right)  =n/d\right\}
 \end{align*}
-This is precisely the Claim.]
+sending each $j$ to $\left(  n/d\right)  \cdot j$. To prove this, recall that
+$\gcd\left(  sa,sb\right)  =\left\vert s\right\vert \cdot\gcd\left(
+a,b\right)  $. This map is a bijection, since it has an inverse map sending
+each $i$ to $i/\left(  n/d\right)  $. So we have%
+\begin{align*}
+& \left\vert \left\{  j\in\left\{  1,2,\ldots,d\right\}  \ \mid\ \gcd\left(
+j,d\right)  =1\right\}  \right\vert \\
+& =\left\vert \left\{  i\in\left\{  1,2,\ldots,n\right\}  \ \mid\ \gcd\left(
+i,n\right)  =n/d\right\}  \right\vert \\
+& =\left(  \text{the number of }i\in\left\{  1,2,\ldots,n\right\}  \text{ such
+that }\gcd\left(  i,n\right)  =n/d\right)  .
+\end{align*}
+This proves the Claim.)
 
 Now,%
 \begin{align*}
-n  &  =\sum_{d\mid n}\underbrace{\left(  \text{the number of }i\in\left\{
-1,2,\ldots,n\right\}  \text{ such that }\gcd\left(  i,n\right)  =d\right)
-}_{\substack{=\phi\left(  n/d\right)  \\\text{(by the Claim)}}}\\
-&  =\sum_{d\mid n}\phi\left(  n/d\right)  =\sum_{d\mid n}\phi\left(  d\right)
+n  & =\left(  \text{the number of }i\in\left\{  1,2,\ldots,n\right\}  \right)
+\\
+& =\sum_{d\mid n}\left(  \text{the number of }i\in\left\{  1,2,\ldots
+,n\right\}  \text{ such that }\gcd\left(  i,n\right)  =d\right)  \\
+& =\sum_{d\mid n}\underbrace{\left(  \text{the number of }i\in\left\{
+1,2,\ldots,n\right\}  \text{ such that }\gcd\left(  i,n\right)  =n/d\right)
+}_{\substack{=\phi\left(  d\right)  \\\text{(by Claim)}}}\\
+& \ \ \ \ \ \ \ \ \ \ \left(  \text{here, we have substituted }n/d\text{ for
+}d\right)  \\
+& =\sum_{d\mid n}\phi\left(  d\right)  .
 \end{align*}
-(here, we have substituted $d$ for $n/d$ in the sum, since the map%
-\begin{align*}
-\left\{  \text{positive divisors of }n\right\}   &  \rightarrow\left\{
-\text{positive divisors of }n\right\}  ,\\
-d  &  \mapsto n/d
-\end{align*}
-is a bijection).
+
 \end{proof}
 
-TODO.
-
-\subsection{Binomial coefficients}
-
-TODO:
-
-\begin{itemize}
-\item repeat HW0 results.
-
-\item binomial theorem.
-
-\item combinatorial meaning.
-
-\item $p\mid\dbinom{p}{k}$. two proofs: (1) using absorption identity, (2) by
-counting bitstrings.
-
-\item state necklace question. (teaser!)
-
-\item $\dbinom{2a}{2b}$ etc. and the Sierpinski triangle.
-
-\item Lucas's theorem. (teaser!)
-
-\item integer-valued polynomials. (teaser!)
-\end{itemize}
-
-\begin{thebibliography}{999999999}                                                                                        %
-
-
-\bibitem[Armstr18]{Armstrong}Drew Armstrong, \textit{Abstract Algebra I},
-2018.\newline\url{http://www.math.miami.edu/~armstrong/561fa18.php}
-
-\bibitem[Artin10]{Artin}Michael Artin, \textit{Algebra}, 2nd edition, Pearson 2010.
-
-\bibitem[Bosch18]{Bosch}Siegfried Bosch, \textit{Algebra -- From the Viewpoint
-of Galois Theory}, Springer 2018. \newline\url{https://www.springer.com/la/book/9783319951768}
-
-\bibitem[Burton10]{Burton}David M. Burton, \textit{Elementary Number Theory},
-7th edition, McGraw-Hill 2010.
-
-\bibitem[Conrad*]{Conrad*}Keith Conrad, \textit{Expository notes
-(\textquotedblleft blurbs\textquotedblright)}.\newline\url{https://kconrad.math.uconn.edu/blurbs/}
-
-\bibitem[ConradG]{Conrad-Gauss}Keith Conrad, \textit{The Gaussian
-integers}.\newline\url{http://www.math.uconn.edu/~kconrad/blurbs/ugradnumthy/Zinotes.pdf}
-
-\bibitem[Day16]{Day}Martin V. Day, \textit{An Introduction to Proofs and the
-Mathematical Vernacular}, 7 December 2016.\newline%
-\url{https://www.math.vt.edu/people/day/ProofsBook/IPaMV.pdf} .
-
-\bibitem[DumFoo04]{Dummit-Foote}David S. Dummit, Richard M. Foote,
-\textit{Abstract Algebra}, 3rd edition, Wiley 2004. \newline See
-\url{http://www.cems.uvm.edu/~rfoote/errata_3rd_edition.pdf} for errata.
-
-\bibitem[Galvin17]{Galvin}David Galvin, \textit{Basic discrete mathematics},
-13 December 2017.\newline%
-\url{http://www-users.math.umn.edu/~dgrinber/comb/60610lectures2017-Galvin.pdf}
-\newline(The URL might change, and the text may get updated. In order to
-reliably obtain the version of 13 December 2017, you can use the archive.org
-Wayback Machine:
-\url{https://web.archive.org/web/20180205122609/http://www-users.math.umn.edu/~dgrinber/comb/60610lectures2017-Galvin.pdf}
-.)
-
-\bibitem[GalQua17]{Gallier-RSA}Jean Gallier, Jocelyn Quaintance, \textit{Notes
-on Primality Testing And Public Key Cryptography, Part 1}, 8 November
-2017.\newline\url{https://www.cis.upenn.edu/~jean/RSA-primality-testing.pdf}
-
-\bibitem[Goodma16]{Goodman}Frederick M. Goodman, \textit{Algebra: Abstract and
-Concrete}, edition 2.6, 12 October 2016.\newline\url{http://homepage.divms.uiowa.edu/~goodman/algebrabook.dir/algebrabook.html}
-
-\bibitem[GrKnPa94]{GKP}Ronald L. Graham, Donald E. Knuth, Oren Patashnik,
-\textit{Concrete Mathematics, Second Edition}, Addison-Wesley 1994.\newline
-See \url{https://www-cs-faculty.stanford.edu/~knuth/gkp.html} for errata.
-
-\bibitem[Grinbe15]{detnotes}Darij Grinberg, \textit{Notes on the combinatorial
-fundamentals of algebra}, 10 January 2019.\newline%
-\url{http://www.cip.ifi.lmu.de/~grinberg/primes2015/sols.pdf} \newline The
-numbering of theorems and formulas in this link might shift when the project
-gets updated; for a \textquotedblleft frozen\textquotedblright\ version whose
-numbering is guaranteed to match that in the citations above, see
-\url{https://github.com/darijgr/detnotes/releases/tag/2019-01-10} .
-
-\bibitem[Grinbe16]{floor}Darij Grinberg, \textit{18.781 (Spring 2016): Floor
-and arithmetic functions}, 19 June 2016.\newline\url{http://www.cip.ifi.lmu.de/~grinberg/floor.pdf}
-
-\bibitem[Grinbe17]{lucas}Darij Grinberg, \textit{The Lucas and Babbage
-congruences}, 10 January 2019.\newline\url{http://www.cip.ifi.lmu.de/~grinberg/lucascong.pdf}
-
-\bibitem[Hammac18]{Hammack}Richard Hammack, \textit{Book of Proof}, 3rd
-edition 2018.\newline\url{http://www.people.vcu.edu/~rhammack/BookOfProof/}
-
-\bibitem[Heffer17]{Hefferon}Jim Hefferon, \textit{Linear Algebra}, 3rd edition
-2017.\newline\url{http://joshua.smcvt.edu/linearalgebra/}
-
-\bibitem[Knapp16a]{Knapp1}Anthony W. Knapp, \textit{Basic Algebra}, digital
-2nd edition 2016. \newline\url{http://www.math.stonybrook.edu/~aknapp/download.html}
-
-\bibitem[Knapp16b]{Knapp2}Anthony W. Knapp, \textit{Advanced Algebra}, digital
-2nd edition 2016. \newline\url{http://www.math.stonybrook.edu/~aknapp/download.html}
-
-\bibitem[LeLeMe18]{LeLeMe}Eric Lehman, F. Thomson Leighton, Albert R. Meyer,
-\textit{Mathematics for Computer Science}, revised Tuesday 6th June
-2018.\newline\url{https://courses.csail.mit.edu/6.042/spring18/mcs.pdf} .
-
-\bibitem[NiZuMo91]{NiZuMo91}Ivan Niven, Herbert S. Zuckerman, Hugh L.
-Montgomery, \textit{An Introduction to the Theory of Numbers}, 5th edition 1991.
-
-\bibitem[Pinter10]{Pinter}Charles C. Pinter, \textit{A book of abstract
-algebra}, 2nd edition, Dover 2010.\newline\url{https://www.amazon.com/Book-Abstract-Algebra-Second-Mathematics/dp/0486474178}
-
-\bibitem[Siksek15]{Siksek}Samir Siksek, \textit{Introduction to Abstract
-Algebra}, 2015.\newline\url{http://homepages.warwick.ac.uk/staff/S.Siksek/teaching/aa/aanotes.pdf}
-
-\bibitem[Strick13]{Strickland}Neil Strickland, \textit{Linear mathematics for
-applications}, 2013.\newline\url{https://neil-strickland.staff.shef.ac.uk/courses/MAS201/MAS201.pdf}
-
-\bibitem[UspHea39]{Uspensky-Heaslet}J. V. Uspensky, M. A. Heaslet,
-\textit{Elementary Number Theory}, McGraw-Hill 1939.
-
-\bibitem[Waerde91a]{Waerden1}B.L. van der Waerden, \textit{Algebra, Volume I},
-translated 7th edition, Springer 1991.
-
-\bibitem[Waerde91b]{Waerden2}B.L. van der Waerden, \textit{Algebra, Volume
-II}, translated 5th edition, Springer 1991.
-\end{thebibliography}
+\begin{theorem}
+Let $m$ and $n$ be two coprime integers. Then, $\phi\left(  mn\right)
+=\phi\left(  m\right)  \cdot\phi\left(  n\right)  $.
+\end{theorem}
 
 
 \end{document}
