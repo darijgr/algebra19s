@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Thursday, February 14, 2019 02:04:10}
+%TCIDATA{LastRevised=Friday, February 15, 2019 01:43:46}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -6895,12 +6895,12 @@ $m$. Thus, $m=\left\vert h\right\vert $.
 Also, set $N^{\prime}=\left\vert N\right\vert $. Thus, $N^{\prime}$ is an
 integer satisfying%
 \begin{align}
-N^{\prime} &  =\left\vert \underbrace{N}_{=gh}\right\vert =\left\vert
+N^{\prime}  &  =\left\vert \underbrace{N}_{=gh}\right\vert =\left\vert
 gh\right\vert =\underbrace{\left\vert g\right\vert }%
 _{\substack{=g\\\text{(since }g\text{ is positive)}}}\cdot
 \underbrace{\left\vert h\right\vert }_{=m}\ \ \ \ \ \ \ \ \ \ \left(  \text{by
-(\ref{eq.ent.div.abs(xy)})}\right)  \nonumber\\
-&  =gm.\label{sol.ent.lcm.lcmabc.c1.pf.3}%
+(\ref{eq.ent.div.abs(xy)})}\right) \nonumber\\
+&  =gm. \label{sol.ent.lcm.lcmabc.c1.pf.3}%
 \end{align}
 
 
@@ -6951,12 +6951,12 @@ wa,wb,wc\right)  $. Hence, $N^{\prime}\leq\gcd\left(  wa,wb,wc\right)  $
 set $\operatorname*{Div}\left(  wa,wb,wc\right)  $). Now,
 (\ref{sol.ent.lcm.lcmabc.c1.pf.3}) yields%
 \begin{align*}
-gm  & =N^{\prime}\leq\gcd\left(  wa,wb,wc\right)  =\underbrace{\left\vert
+gm  &  =N^{\prime}\leq\gcd\left(  wa,wb,wc\right)  =\underbrace{\left\vert
 w\right\vert }_{\substack{=w\\\text{(since }w\text{ is positive)}%
 }}\underbrace{\gcd\left(  a,b,c\right)  }_{=g}\\
-& \ \ \ \ \ \ \ \ \ \ \left(  \text{by Exercise \ref{exe.ent.gcd.sa,sb,sc}
-(applied to }s=w\text{)}\right)  \\
-& =wg=gw.
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Exercise \ref{exe.ent.gcd.sa,sb,sc}
+(applied to }s=w\text{)}\right) \\
+&  =wg=gw.
 \end{align*}
 We can divide both sides of this inequality by $g$ (since $g$ is positive),
 and thus obtain $m\leq w$. In other words, $w\geq m$.
@@ -8658,6 +8658,32 @@ i\in\left\{  1,2,\ldots,k\right\}  \text{ such that }a_{i}=p\right)  }%
 This proves Corollary \ref{cor.ent.primes.can-fac}.
 \end{proof}
 
+\begin{corollary}
+\label{cor.ent.primes.can-facZ}Let $n$ be a nonzero integer. Then,%
+\[
+\left\vert n\right\vert =\prod_{p\text{ prime}}p^{v_{p}\left(  n\right)  }.
+\]
+
+
+Here, the infinite product $\prod_{p\text{ prime}}p^{v_{p}\left(  n\right)  }$
+is well-defined (according to Lemma \ref{lem.ent.primes.vpn=0} \textbf{(b)}).
+\end{corollary}
+
+\begin{proof}
+[Proof of Corollary \ref{cor.ent.primes.can-facZ}.]The integer $\left\vert
+n\right\vert $ is positive (since $n$ is nonzero). Hence, Corollary
+\ref{cor.ent.primes.can-fac} (applied to $\left\vert n\right\vert $ instead of
+$n$) yields%
+\[
+\left\vert n\right\vert =\prod_{p\text{ prime}}\underbrace{p^{v_{p}\left(
+\left\vert n\right\vert \right)  }}_{\substack{=p^{v_{p}\left(  n\right)
+}\\\text{(since Exercise \ref{exe.ent.prime.vp-abs}}\\\text{yields }%
+v_{p}\left(  \left\vert n\right\vert \right)  =v_{p}\left(  n\right)
+\text{)}}}=\prod_{p\text{ prime}}p^{v_{p}\left(  n\right)  }.
+\]
+This proves Corollary \ref{cor.ent.primes.can-facZ}.
+\end{proof}
+
 We can furthermore use $p$-adic valuations to check divisibility of integers:
 
 \begin{proposition}
@@ -8811,6 +8837,94 @@ proof of the \textquotedblleft$\Longrightarrow$\textquotedblright\ direction
 of Proposition \ref{prop.ent.primes.n|m}.
 \end{proof}
 
+Let us extract one of the steps of our above proof into a separate lemma,
+since we shall use the same reasoning later on:
+
+\begin{lemma}
+\label{lem.ent.primes.prod|prod}For each prime $p$, let $a_{p}$ and $b_{p}$ be
+nonnegative integers such that
+\begin{equation}
+a_{p}\leq b_{p}. \label{eq.lem.ent.primes.prod|prod.apbp}%
+\end{equation}
+Assume that all but finitely many primes $p$ satisfy $b_{p}=0$. Then, the
+products $\prod_{p\text{ prime}}p^{a_{p}}$ and $\prod_{p\text{ prime}}%
+p^{b_{p}}$ are both well-defined and satisfy $\prod_{p\text{ prime}}p^{a_{p}%
+}\mid\prod_{p\text{ prime}}p^{b_{p}}$.
+\end{lemma}
+
+\begin{proof}
+[Proof of Lemma \ref{lem.ent.primes.prod|prod}.]This is going to be really
+boring: The well-definedness part is all about bookkeeping finiteness
+information, whereas the $\prod_{p\text{ prime}}p^{a_{p}}\mid\prod_{p\text{
+prime}}p^{b_{p}}$ claim is proven just as we proved the \textquotedblleft%
+$\Longleftarrow$\textquotedblright\ direction of Proposition
+\ref{prop.ent.primes.n|m}. For the sake of completeness, let us nevertheless
+give the complete proof:
+
+\begin{fineprint}
+All but finitely many primes $p$ satisfy $b_{p}=0$. In other words, there
+exists some finite set $S$ of primes such that every prime $p\notin S$
+satisfies
+\begin{equation}
+b_{p}=0. \label{pf.lem.ent.primes.prod|prod.1}%
+\end{equation}
+Consider this $S$. Clearly, all but finitely many primes $p$ satisfy $p\notin
+S$ (since $S$ is finite).
+
+Now, every prime $p\notin S$ satisfies
+\begin{equation}
+a_{p}=0 \label{pf.lem.ent.primes.prod|prod.2}%
+\end{equation}
+\ \footnote{\textit{Proof.} Let $p\notin S$ be a prime. Then,
+(\ref{eq.lem.ent.primes.prod|prod.apbp}) yields $a_{p}\leq b_{p}=0$ (by
+(\ref{pf.lem.ent.primes.prod|prod.1})). Thus, $a_{p}=0$ (since $a_{p}$ is a
+nonnegative integer), qed.}. Hence, all but finitely many primes $p$ satisfy
+$a_{p}=0$ (since all but finitely many primes $p$ satisfy $p\notin S$). Thus,
+all but finitely many primes $p$ satisfy $p^{a_{p}}=p^{0}=1$. In other words,
+only finitely many primes $p$ satisfy $p^{a_{p}}\neq1$. In other words, only
+finitely many factors of the product $\prod_{p\text{ prime}}p^{a_{p}}$ are
+different from $1$. Hence, this product $\prod_{p\text{ prime}}p^{a_{p}}$ is well-defined.
+
+Also, all but finitely many primes $p$ satisfy $b_{p}=0$. Therefore, all but
+finitely many primes $p$ satisfy $p^{b_{p}}=p^{0}=1$. In other words, only
+finitely many primes $p$ satisfy $p^{b_{p}}\neq1$. In other words, only
+finitely many factors of the product $\prod_{p\text{ prime}}p^{b_{p}}$ are
+different from $1$. Hence, this product $\prod_{p\text{ prime}}p^{b_{p}}$ is well-defined.
+
+The product $\prod_{p\text{ prime}}p^{b_{p}-a_{p}}$ is
+well-defined\footnote{\textit{Proof. }Every prime $p\notin S$ satisfies
+$\underbrace{b_{p}}_{\substack{=0\\\text{(by
+(\ref{pf.lem.ent.primes.prod|prod.1}))}}}-\underbrace{a_{p}}%
+_{\substack{=0\\\text{(by (\ref{pf.lem.ent.primes.prod|prod.2}))}}}=0-0=0$ and
+therefore $p^{b_{p}-a_{p}}=p^{0}=1$. Thus, all but finitely many primes $p$
+satisfy $p^{b_{p}-a_{p}}=1$ (since all but finitely many primes $p$ satisfy
+$p\notin S$). In other words, only finitely many primes $p$ satisfy
+$p^{b_{p}-a_{p}}\neq1$. In other words, only finitely many factors of the
+product $\prod_{p\text{ prime}}p^{b_{p}-a_{p}}$ are different from $1$. Hence,
+this product $\prod_{p\text{ prime}}p^{b_{p}-a_{p}}$ is well-defined.}. Denote
+this product by $c$.
+
+For each prime $p$, we have $b_{p}-a_{p}\geq0$ (by
+(\ref{eq.lem.ent.primes.prod|prod.apbp})) and thus $b_{p}-a_{p}\in\mathbb{N}$.
+Hence, for each prime $p$, the number $p^{b_{p}-a_{p}}$ is an integer.
+Therefore, $\prod_{p\text{ prime}}p^{b_{p}-a_{p}}$ is a product of integers,
+and thus itself an integer. In other words, $c$ is an integer (since
+$c=\prod_{p\text{ prime}}p^{b_{p}-a_{p}}$).
+
+But from $c=\prod_{p\text{ prime}}p^{b_{p}-a_{p}}$, we obtain%
+\[
+\left(  \prod_{p\text{ prime}}p^{a_{p}}\right)  c=\left(  \prod_{p\text{
+prime}}p^{a_{p}}\right)  \left(  \prod_{p\text{ prime}}p^{b_{p}-a_{p}}\right)
+=\prod_{p\text{ prime}}\underbrace{\left(  p^{a_{p}}p^{b_{p}-a_{p}}\right)
+}_{=p^{a_{p}+\left(  b_{p}-a_{p}\right)  }=p^{b_{p}}}=\prod_{p\text{ prime}%
+}p^{b_{p}}.
+\]
+Thus, $\prod_{p\text{ prime}}p^{a_{p}}\mid\prod_{p\text{ prime}}p^{b_{p}}$
+(since $c$ is an integer). This completes the proof of Lemma
+\ref{lem.ent.primes.prod|prod}.
+\end{fineprint}
+\end{proof}
+
 \begin{center}
 \textbf{2019-02-13 lecture}
 \end{center}
@@ -8833,22 +8947,26 @@ v_{p}\left(  n\right)  ,v_{p}\left(  m\right)  \right\}  }.
 
 \end{proposition}
 
-TODO: write from here.
-
 \begin{proof}
-[Proof of Proposition \ref{prop.ent.primes.gcd}.]It is easy to see that the
-infinite products $\prod\limits_{p\text{ prime}}p^{\min\left\{  v_{p}\left(
-n\right)  ,v_{p}\left(  m\right)  \right\}  }$ and $\prod_{p\text{ prime}%
-}p^{\max\left\{  v_{p}\left(  n\right)  ,v_{p}\left(  m\right)  \right\}  }$
-are well-defined\footnote{\textit{Proof.} Let $p$ be a prime such that
-$p>\max\left\{  \left\vert m\right\vert ,\left\vert n\right\vert \right\}  $.
-Thus, $p>\max\left\{  \left\vert m\right\vert ,\left\vert n\right\vert
-\right\}  \geq\left\vert m\right\vert $ and therefore $v_{p}\left(  m\right)
-=0$ (by Lemma \ref{lem.ent.primes.vpn=0} \textbf{(a)}, applied to $m$ instead
-of $n$). Similarly, $v_{p}\left(  n\right)  =0$. Hence, $\max\left\{
-\underbrace{v_{p}\left(  n\right)  }_{=0},\underbrace{v_{p}\left(  m\right)
-}_{=0}\right\}  =\max\left\{  0,0\right\}  =0$ and therefore $p^{\max\left\{
-v_{p}\left(  n\right)  ,v_{p}\left(  m\right)  \right\}  }=p^{0}=1$.
+[Proof of Proposition \ref{prop.ent.primes.gcd}.]If $p$ is any prime, then
+$v_{p}\left(  n\right)  $ and $v_{p}\left(  m\right)  $ are nonnegative
+integers (since $n$ and $m$ are nonzero), and thus so are $\min\left\{
+v_{p}\left(  n\right)  ,v_{p}\left(  m\right)  \right\}  $ and $\max\left\{
+v_{p}\left(  n\right)  ,v_{p}\left(  m\right)  \right\}  $.
+
+It is easy to see that the infinite products $\prod_{p\text{ prime}}%
+p^{\min\left\{  v_{p}\left(  n\right)  ,v_{p}\left(  m\right)  \right\}  }$
+and \newline$\prod_{p\text{ prime}}p^{\max\left\{  v_{p}\left(  n\right)
+,v_{p}\left(  m\right)  \right\}  }$ are well-defined\footnote{\textit{Proof.}
+Let $p$ be a prime such that $p>\max\left\{  \left\vert m\right\vert
+,\left\vert n\right\vert \right\}  $. Thus, $p>\max\left\{  \left\vert
+m\right\vert ,\left\vert n\right\vert \right\}  \geq\left\vert m\right\vert $
+and therefore $v_{p}\left(  m\right)  =0$ (by Lemma \ref{lem.ent.primes.vpn=0}
+\textbf{(a)}, applied to $m$ instead of $n$). Similarly, $v_{p}\left(
+n\right)  =0$. Hence, $\max\left\{  \underbrace{v_{p}\left(  n\right)  }%
+_{=0},\underbrace{v_{p}\left(  m\right)  }_{=0}\right\}  =\max\left\{
+0,0\right\}  =0$ and therefore $p^{\max\left\{  v_{p}\left(  n\right)
+,v_{p}\left(  m\right)  \right\}  }=p^{0}=1$.
 \par
 Now, forget that we fixed $p$. We thus have proven that every prime
 $p>\max\left\{  \left\vert m\right\vert ,\left\vert n\right\vert \right\}  $
@@ -8864,60 +8982,89 @@ product $\prod_{p\text{ prime}}p^{\min\left\{  v_{p}\left(  n\right)
 ,v_{p}\left(  m\right)  \right\}  }$ is well-defined.}.
 
 Define two nonnegative integers%
-\[
+\begin{equation}
 g=\prod\limits_{p\text{ prime}}p^{\min\left\{  v_{p}\left(  n\right)
 ,v_{p}\left(  m\right)  \right\}  }\ \ \ \ \ \ \ \ \ \ \text{and}%
 \ \ \ \ \ \ \ \ \ \ h=\gcd\left(  n,m\right)  .
-\]
+\label{pf.prop.ent.primes.gcd.g=h=}%
+\end{equation}
 
 
 Note that $h=\gcd\left(  n,m\right)  $ is a positive integer (since $n$ and
-$m$ are nonzero).
+$m$ are nonzero) and thus nonzero. Thus, $v_{p}\left(  h\right)  $ is a
+nonnegative integer for each prime $p$.
 
-Recall $n=\prod\limits_{p\text{ prime}}p^{v_{p}\left(  n\right)  }$. But each
-prime $p$ satisfies $\min\left\{  v_{p}\left(  n\right)  ,v_{p}\left(
-m\right)  \right\}  \leq v_{p}\left(  n\right)  $ and thus $p^{\min\left\{
-v_{p}\left(  n\right)  ,v_{p}\left(  m\right)  \right\}  }\mid p^{v_{p}\left(
-n\right)  }$. So $\prod\limits_{p\text{ prime}}p^{\min\left\{  v_{p}\left(
-n\right)  ,v_{p}\left(  m\right)  \right\}  }\mid\prod\limits_{p\text{ prime}%
-}p^{v_{p}\left(  n\right)  }$. In other words, $g\mid n$ (since $g=\prod
-\limits_{p\text{ prime}}p^{\min\left\{  v_{p}\left(  n\right)  ,v_{p}\left(
-m\right)  \right\}  }$ and $n=\prod\limits_{p\text{ prime}}p^{v_{p}\left(
-n\right)  }$). Similarly, $g\mid m$. Thus, $g$ is a common divisor of $n$ and
-$m$.
+Corollary \ref{cor.ent.primes.can-facZ} yields $\left\vert n\right\vert
+=\prod\limits_{p\text{ prime}}p^{v_{p}\left(  n\right)  }$. But each prime $p$
+satisfies \newline$\min\left\{  v_{p}\left(  n\right)  ,v_{p}\left(  m\right)
+\right\}  \leq v_{p}\left(  n\right)  $ (since the minimum of a set is $\leq$
+to any element of the set). Hence, Lemma \ref{lem.ent.primes.prod|prod}
+(applied to $a_{p}=\min\left\{  v_{p}\left(  n\right)  ,v_{p}\left(  m\right)
+\right\}  $ and $b_{p}=v_{p}\left(  n\right)  $) yields $\prod\limits_{p\text{
+prime}}p^{\min\left\{  v_{p}\left(  n\right)  ,v_{p}\left(  m\right)
+\right\}  }\mid\prod\limits_{p\text{ prime}}p^{v_{p}\left(  n\right)  }$. This
+rewrites as $g\mid\left\vert n\right\vert $ (since $g=\prod\limits_{p\text{
+prime}}p^{\min\left\{  v_{p}\left(  n\right)  ,v_{p}\left(  m\right)
+\right\}  }$ and $\left\vert n\right\vert =\prod\limits_{p\text{ prime}%
+}p^{v_{p}\left(  n\right)  }$). Hence, $g\mid\left\vert n\right\vert \mid n$
+(by Exercise \ref{exe.ent.div.aabs} \textbf{(b)}). Similarly, $g\mid m$. Thus,
+$\left(  g\mid n\text{ and }g\mid m\right)  $. Hence, Lemma
+\ref{lem.ent.gcd.uniprop} (applied to $g$, $n$ and $m$ instead of $m$, $a$ and
+$b$) yields $g\mid\gcd\left(  n,m\right)  =h$.
 
-Hence, Lemma \ref{lem.ent.gcd.uniprop} yields $g\mid\gcd\left(  n,m\right)
-=h$.
+On the other hand, Proposition \ref{prop.ent.primes.n|m} (applied to $h$ and
+$n$ instead of $n$ and $m$) shows that $h\mid n$ if and only if each prime $p$
+satisfies $v_{p}\left(  h\right)  \leq v_{p}\left(  n\right)  $. Thus, each
+prime $p$ satisfies $v_{p}\left(  h\right)  \leq v_{p}\left(  n\right)  $.
 
-On the other hand, fix any prime $p$. Then, $h\mid n$, and thus $v_{p}\left(
-h\right)  \leq v_{p}\left(  n\right)  $ (by Proposition
-\ref{prop.ent.primes.n|m}). Similarly, $v_{p}\left(  h\right)  \leq
-v_{p}\left(  m\right)  $. Combining these two inequalities, we obtain%
+Now, fix any prime $p$. Then, $v_{p}\left(  h\right)  \leq v_{p}\left(
+n\right)  $ (as we have just seen) and $v_{p}\left(  h\right)  \leq
+v_{p}\left(  m\right)  $ (similarly). Combining these two inequalities, we
+obtain%
 \[
 v_{p}\left(  h\right)  \leq\min\left\{  v_{p}\left(  n\right)  ,v_{p}\left(
-m\right)  \right\}  .
+m\right)  \right\}
 \]
-Hence, $p^{v_{p}\left(  h\right)  }\mid p^{\min\left\{  v_{p}\left(  n\right)
-,v_{p}\left(  m\right)  \right\}  }$. Since we have proven this for any prime
-$p$, we thus conclude that $\prod\limits_{p\text{ prime}}p^{v_{p}\left(
-h\right)  }\mid\prod\limits_{p\text{ prime}}p^{\min\left\{  v_{p}\left(
-n\right)  ,v_{p}\left(  m\right)  \right\}  }$. Thus,%
-\begin{align*}
-h  &  =\prod\limits_{p\text{ prime}}p^{v_{p}\left(  h\right)  }%
-\ \ \ \ \ \ \ \ \ \ \left(  \text{by canonical factorization}\right) \\
-&  \mid\prod\limits_{p\text{ prime}}p^{\min\left\{  v_{p}\left(  n\right)
-,v_{p}\left(  m\right)  \right\}  }=g.
-\end{align*}
-Combined with $g\mid\gcd\left(  n,m\right)  =h$, this yields $\left\vert
-g\right\vert =\left\vert h\right\vert $. Thus, $g=h$ (since $g$ and $h$ are
-positive). In other words, $\prod\limits_{p\text{ prime}}p^{\min\left\{
-v_{p}\left(  n\right)  ,v_{p}\left(  m\right)  \right\}  }=\gcd\left(
-n,m\right)  $. This proves the first equation.
+(since $\min\left\{  v_{p}\left(  n\right)  ,v_{p}\left(  m\right)  \right\}
+$ must be one of the two numbers $v_{p}\left(  n\right)  $ and $v_{p}\left(
+m\right)  $, but we have just seen that $v_{p}\left(  h\right)  $ is $\leq$ to
+each of these two numbers).
 
-The proof of the second equation is entirely symmetric: just flip all
-divisibilities and inequalities and replace \textquotedblleft$\min
-$\textquotedblright\ by \textquotedblleft$\max$\textquotedblright.
+Now, forget that we fixed $p$. We thus have show that each prime $p$ satisfies
+$v_{p}\left(  h\right)  \leq\min\left\{  v_{p}\left(  n\right)  ,v_{p}\left(
+m\right)  \right\}  $. Hence, Lemma \ref{lem.ent.primes.prod|prod} (applied to
+$a_{p}=v_{p}\left(  h\right)  $ and $b_{p}=\min\left\{  v_{p}\left(  n\right)
+,v_{p}\left(  m\right)  \right\}  $) yields $\prod\limits_{p\text{ prime}%
+}p^{v_{p}\left(  h\right)  }\mid\prod\limits_{p\text{ prime}}p^{\min\left\{
+v_{p}\left(  n\right)  ,v_{p}\left(  m\right)  \right\}  }$. But $h$ is
+positive; hence, Corollary \ref{cor.ent.primes.can-fac} (applied to $h$
+instead of $n$) yields%
+\[
+h=\prod\limits_{p\text{ prime}}p^{v_{p}\left(  h\right)  }\mid\prod
+\limits_{p\text{ prime}}p^{\min\left\{  v_{p}\left(  n\right)  ,v_{p}\left(
+m\right)  \right\}  }=g.
+\]
+
+
+Thus, we know that $g\mid h$ and $h\mid g$. Hence, Exercise
+\ref{exe.ent.div.abba} (applied to $a=g$ and $b=h$) yields $\left\vert
+g\right\vert =\left\vert h\right\vert $. But $g$ is nonnegative; thus,
+$\left\vert g\right\vert =g$. Hence, $g=\left\vert g\right\vert =\left\vert
+h\right\vert =h$ (since $h$ is positive). In view of
+(\ref{pf.prop.ent.primes.gcd.g=h=}), this rewrites as $\prod\limits_{p\text{
+prime}}p^{\min\left\{  v_{p}\left(  n\right)  ,v_{p}\left(  m\right)
+\right\}  }=\gcd\left(  n,m\right)  $. This proves
+(\ref{eq.prop.ent.primes.gcd.gcd}).
+
+The proof of (\ref{eq.prop.ent.primes.gcd.lcm}) is entirely analogous to the
+proof of (\ref{eq.prop.ent.primes.gcd.gcd}) we just gave: We merely need to
+flip all divisibilities and inequalities and replace \textquotedblleft$\min
+$\textquotedblright\ by \textquotedblleft$\max$\textquotedblright\ everywhere,
+and use Lemma \ref{lem.ent.lcm.uniprop} instead of Lemma
+\ref{lem.ent.gcd.uniprop}
 \end{proof}
+
+TODO: Write from here.
 
 For example:%
 \begin{align*}
@@ -9471,6 +9618,4 @@ translated 7th edition, Springer 1991.
 \bibitem[Waerde91b]{Waerden2}B.L. van der Waerden, \textit{Algebra, Volume
 II}, translated 5th edition, Springer 1991.
 \end{thebibliography}
-
-
 \end{document}
