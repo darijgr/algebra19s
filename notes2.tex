@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Friday, February 15, 2019 09:55:33}
+%TCIDATA{LastRevised=Saturday, February 16, 2019 13:26:50}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -9480,7 +9480,7 @@ This is precisely the Claim.]
 
 Now,%
 \begin{align*}
-n &  =\sum_{d\mid n}\underbrace{\left(  \text{the number of }i\in\left\{
+n  &  =\sum_{d\mid n}\underbrace{\left(  \text{the number of }i\in\left\{
 1,2,\ldots,n\right\}  \text{ such that }\gcd\left(  i,n\right)  =d\right)
 }_{\substack{=\phi\left(  n/d\right)  \\\text{(by the Claim)}}}\\
 &  =\sum_{d\mid n}\phi\left(  n/d\right)  =\sum_{d\mid n}\phi\left(  d\right)
@@ -9489,7 +9489,7 @@ n &  =\sum_{d\mid n}\underbrace{\left(  \text{the number of }i\in\left\{
 \begin{align*}
 \left\{  \text{positive divisors of }n\right\}   &  \rightarrow\left\{
 \text{positive divisors of }n\right\}  ,\\
-d &  \mapsto n/d
+d  &  \mapsto n/d
 \end{align*}
 is a bijection).
 
@@ -9499,112 +9499,128 @@ is a bijection).
 \begin{exercise}
 You have a corridor with $1000$ lightswitches, initially all off.
 
-Every night, a ghost glides along the corridor (always in the same direction).
+Every night, a ghost glides through the corridor (always in the same
+direction) and flips some of the switches:
 
-During the $1$st night, the ghost toggles each switch.
+On the $1$st night, the ghost flips every switch.
 
-During the $2$nd night, the ghost toggles switches $2,4,6,8,10,\ldots$.
+On the $2$nd night, the ghost flips switches $2,4,6,8,10,\ldots$.
 
-During the $3$rd night, the ghost toggles switches $3,6,9,12,15,\ldots$.
+On the $3$rd night, the ghost flips switches $3,6,9,12,15,\ldots$.
 
-And so on.
+etc.
 
-Which lights will be on after $1000$ nights?
+(For each $k\in\left\{  1,2,\ldots,1000\right\}  $, the ghost spends the
+$k$-th night flipping switches $k,2k,3k,\ldots$.)
+
+Which switches are on after $1000$ nights?
+
+$1,4,9,\ldots$
 \end{exercise}
 
 \begin{proof}
-[Solution.] We are asking which of the numbers $1,2,\ldots,1000$ have an odd
-number of positive divisors.
+[Solution.]In mathematical terms: Which positive integers $n$ have an odd
+number of positive divisors? It's exactly the perfect squares, because...
 
-\begin{statement}
-\textit{Claim:} A positive integer $n$ has an odd number of positive divisors
-if and only if $n$ is a perfect square.
-\end{statement}
-
-[\textit{Proof of claim:} Recall the bijection%
+Fix a positive integer $n$. Recall that the map%
 \begin{align*}
 \left\{  \text{positive divisors of }n\right\}   &  \rightarrow\left\{
 \text{positive divisors of }n\right\}  ,\\
-d &  \mapsto n/d.
+d  &  \mapsto n/d
 \end{align*}
-This matches each positive divisor of $n$ with another, unless the two are
-actually equal. But the latter only happens if there is a positive divisor $d$
-such that $n/d=d$, which means $n=d^{2}$. When $n$ is not a perfect square,
-this never happens. When $n$ is a perfect square, this happens exactly once.]
-
-So the lights $1^{2},2^{2},\ldots,31^{2}$ (and no others) will be on after the
-$1000$ nights.
+is a bijection. This groups the positive divisors $d$ of $n$ into pairs,
+except for those that satisfy $d=n/d$. When $n$ is not a perfect square, there
+are no such \textquotedblleft exceptional\textquotedblright\ divisors, since
+$d=n/d$ means $n=d^{2}$. When $n$ is a perfect square, there is exactly one
+such \textquotedblleft exceptional\textquotedblright\ divisor, namely
+$\sqrt{n}$. So the number of positive divisors of $n$ is even if $n$ is not a
+perfect square, and odd otherwise.
 \end{proof}
 
-\subsection{Euler, Fermat, Wilson}
+\subsection{Fermat, Euler, Wilson}
 
 \begin{theorem}
-(Fermat's Little Theorem = FLT)
+(Fermat's Little Theorem, short FLT)
 
 Let $p$ be a prime. Let $a\in\mathbb{Z}$.
 
 \textbf{(a)} If $p\nmid a$, then $a^{p-1}\equiv1\operatorname{mod}p$.
 
-\textbf{(b)} In general, $a^{p}\equiv a\operatorname{mod}p$.
+\textbf{(b)} Always, $a^{p}\equiv a\operatorname{mod}p$.
 \end{theorem}
 
-\begin{remark}
-Part \textbf{(b)} follows from \textbf{(a)}, because:
+We won't prove this right now; we will derive it from Euler's theorem.
 
-\begin{itemize}
-\item if $p\nmid a$, then \textbf{(a)} yields $a^{p-1}\equiv
-1\operatorname{mod}p$, thus $a^{p}=aa^{p-1}\equiv a1=a\operatorname{mod}p$.
+But let us observe why parts \textbf{(a)} and \textbf{(b)} of the FLT are equivalent.
 
-\item if $p\mid a$, then both $a^{p}$ and $a$ are $\equiv0\operatorname{mod}%
-p$, so $a^{p}\equiv a\operatorname{mod}p$.
-\end{itemize}
+We will use the following simple lemma:
 
-Conversely, part \textbf{(a)} follows from \textbf{(b)}, because: Assume
-$p\nmid a$. Then, $p\perp a$, so $a\perp p$. Thus, $a$ has a modular inverse
-$a^{\prime}$ modulo $p$. So $aa^{\prime}\equiv1\operatorname{mod}p$. Thus, we
-can \textquotedblleft cancel\textquotedblright\ $a$ from any congruence modulo
-$p$ by multiplying the congruence with $a^{\prime}$. Doing this with
-$a^{p}\equiv a\operatorname{mod}p$ (which follows from \textbf{(b)}), we
-obtain $a^{p-1}\equiv1\operatorname{mod}p$.
-\end{remark}
+\begin{lemma}
+(Cancellation lemma)
+
+Let $a$ and $n$ be coprime integers. Then, we can cancel $a$ from congruences
+modulo $n$: That is, if $ab\equiv ac\operatorname{mod}n$ for two integers $b$
+and $c$, then $b\equiv c\operatorname{mod}n$.
+\end{lemma}
+
+\begin{proof}
+Let $ab\equiv ac\operatorname{mod}n$. Thus, $n\mid ab-ac=a\left(  b-c\right)
+$. Since $n\perp a$, we can remove the $a$ here to get $n\mid b-c$.
+
+(Alternative proof: $a$ has a modular inverse $a^{\prime}$ modulo $n$, since
+$a\perp n$. Thus, multiplying the congruence $ab\equiv ac\operatorname{mod}n$
+with $a^{\prime}$, and get $b\equiv c\operatorname{mod}n$.)
+\end{proof}
+
+Now, why are parts \textbf{(a)} of (\textbf{b)} of FLT equivalent?
+
+[\textit{Part \textbf{(a)} }$\Longrightarrow$ \textit{part \textbf{(b)}:} If
+$p\nmid a$, then $a^{p}\equiv a\operatorname{mod}p$ follows by multiplying
+$a^{p-1}\equiv1\operatorname{mod}p$ by $a$. If $p\mid a$, then $a^{p}\equiv
+a\operatorname{mod}p$ follows from the fact that both $a^{p}$ and $a$ are
+$\equiv0\operatorname{mod}p$.
+
+\textit{Part \textbf{(b)} }$\Longrightarrow$ \textit{part \textbf{(a)}:}
+Assuming $p\nmid a$, we have $p\perp a$, and thus the Cancellation Lemma lets
+us cancel $a$ from $a^{p}\equiv a\operatorname{mod}p$, so we obtain
+$a^{p-1}\equiv1\operatorname{mod}p$.]
+
+More general than part \textbf{(a)} is:
 
 \begin{theorem}
-(Euler's Theorem)
+(Euler's theorem)
 
 Let $n$ be a positive integer. Let $a\in\mathbb{Z}$ be coprime to $n$.
 
 Then, $a^{\phi\left(  n\right)  }\equiv1\operatorname{mod}n$.
 \end{theorem}
 
-Euler's theorem yields part \textbf{(a)} of FLT, since $\phi\left(  p\right)
-=p-1$ when $p$ is prime.
-
-Proof later.
+This theorem yields part \textbf{(a)} of the FLT, since any prime $p$
+satisfies $\phi\left(  p\right)  =p-1$.
 
 \begin{exercise}
-What is the last digit of $3^{4^{5}}$?
+What is the last digit of $3^{4^{5}}$ ?
 
-Notational remark: $a^{b^{c}}$ means $a^{\left(  b^{c}\right)  }$, not
-$\left(  a^{b}\right)  ^{c}=a^{bc}$.
+(Note: $a^{b^{c}}$ means $a^{\left(  b^{c}\right)  }$, not $\left(
+a^{b}\right)  ^{c}=a^{bc}$.)
 \end{exercise}
 
 \begin{proof}
-[Solution.] The last digit (of a positive integer) is the remainder modulo
-$10$. So we compute modulo $10$.
+[Solution.]The last digit of a positive integer $n$ is $n\%10$ (that is, the
+remainder of $n$ upon division by $10$). So we need to work modulo $10$.
 
-Euler's theorem yields $3^{\phi\left(  10\right)  }\equiv1\operatorname{mod}%
-10$ since $3\perp10$.
-
-In view of $\phi\left(  10\right)  =4$, this becomes $3^{4}\equiv
-1\operatorname{mod}10$.
-
-Now, $3^{4^{5}}=3^{4\cdot4^{4}}=\left(  \underbrace{3^{4}}_{\equiv
-1\operatorname{mod}10}\right)  ^{4^{4}}\equiv1^{4^{4}}=1\operatorname{mod}10$.
+Since $3$ is coprime to $10$, we can apply Euler's theorem and get
+$3^{\phi\left(  10\right)  }\equiv1\operatorname{mod}10$. Since $\phi\left(
+10\right)  =4$, this rewrites as $3^{4}\equiv1\operatorname{mod}10$. Now,%
+\[
+3^{4^{5}}=3^{4\cdot4^{4}}=\left(  \underbrace{3^{4}}_{\equiv
+1\operatorname{mod}10}\right)  ^{4^{4}}\equiv1^{4^{4}}=1\operatorname{mod}10.
+\]
 So the last digit is $1$.
 \end{proof}
 
 \begin{lemma}
-Let $n$ be a positive integer. Then,%
+Let $n\in\mathbb{P}$. Then,%
 \[
 \phi\left(  n\right)  =\left\vert \left\{  i\in\left\{  0,1,\ldots
 ,n-1\right\}  \ \mid\ i\perp n\right\}  \right\vert .
@@ -9613,122 +9629,135 @@ Let $n$ be a positive integer. Then,%
 \end{lemma}
 
 \begin{proof}
-\textit{First proof:} If $n=1$, then this is easily done by hand. Otherwise,
-neither $0$ nor $n$ is coprime to $n$, so the sets
+\textit{First proof.} WLOG $n>1$. Thus, neither $0$ nor $n$ is coprime to $n$.
+So%
 \begin{align*}
-& \left\{  i\in\left\{  1,2,\ldots,n\right\}  \ \mid\ i\perp n\right\}
-\ \ \ \ \ \ \ \ \ \ \text{and}\\
-& \left\{  i\in\left\{  0,1,\ldots,n-1\right\}  \ \mid\ i\perp n\right\}
+&  \left\{  i\in\left\{  0,1,\ldots,n-1\right\}  \ \mid\ i\perp n\right\} \\
+&  =\left\{  i\in\left\{  1,2,\ldots,n\right\}  \ \mid\ i\perp n\right\}  ,
 \end{align*}
-are identical.
+so%
+\begin{align*}
+&  \left\vert \left\{  i\in\left\{  0,1,\ldots,n-1\right\}  \ \mid\ i\perp
+n\right\}  \right\vert \\
+&  =\left\vert \left\{  i\in\left\{  1,2,\ldots,n\right\}  \ \mid\ i\perp
+n\right\}  \right\vert =\phi\left(  n\right)
+\end{align*}
+by the definition of $\phi\left(  n\right)  $.
 
-\textit{Second proof:} $0$ is coprime to $n$ if and only if $n$ is coprime to
-$n$. So removing $n$ from the set $\left\{  1,2,\ldots,n\right\}  $ and adding
-$0$ to it does not change the number of elements coprime to $n$.
+\textit{Second proof.} The number $0$ is coprime to $n$ if and only if $n$ is
+coprime to $n$ (since $0\equiv n\operatorname{mod}n$ and thus $\gcd\left(
+0,n\right)  =\gcd\left(  n,n\right)  $). Hence, if we remove $n$ from the set
+$\left\{  1,2,\ldots,n\right\}  $ and add $0$ instead, the number of elements
+coprime to $n$ does not change. So%
+\begin{align*}
+&  \left\vert \left\{  i\in\left\{  0,1,\ldots,n-1\right\}  \ \mid\ i\perp
+n\right\}  \right\vert \\
+&  =\left\vert \left\{  i\in\left\{  1,2,\ldots,n\right\}  \ \mid\ i\perp
+n\right\}  \right\vert =\phi\left(  n\right)
+\end{align*}
+by the definition of $\phi\left(  n\right)  $.
 \end{proof}
 
 \begin{proof}
-[Proof of Euler's theorem.] Lemma says that%
+[Proof of Euler's theorem.]Let
 \[
-\phi\left(  n\right)  =\left\vert \left\{  i\in\left\{  0,1,\ldots
-,n-1\right\}  \ \mid\ i\perp n\right\}  \right\vert .
+C=\left\{  i\in\left\{  0,1,\ldots,n-1\right\}  \ \mid\ i\perp n\right\}  .
 \]
-So let $C:=\left\{  i\in\left\{  0,1,\ldots,n-1\right\}  \ \mid\ i\perp
-n\right\}  $.
+Then, the lemma above yields $\left\vert C\right\vert =\phi\left(  n\right)  $.
 
-Now, consider the map%
+Now, $z=\prod_{c\in C}c$. Then, $z\perp n$ (by Exercise
+\ref{exe.ent.coprime.ab-to-ck}).
+
+We have $\left(  ai\right)  \%n\in C$ for each $i\in C$.
+
+[\textit{Proof:} Let $i\in C$. Clearly, $\left(  ai\right)  \%n\in\left\{
+0,1,\ldots,n-1\right\}  $ (because it is a remainder). Also, $ai\perp n$
+(since $a\perp n$ and $i\perp n$), thus $\gcd\left(  n,ai\right)  =1$, thus
+$\gcd\left(  n,\left(  ai\right)  \%n\right)  =\gcd\left(  n,ai\right)  =1$,
+thus $\left(  ai\right)  \%n\perp n$. Hence, $\left(  ai\right)  \%n\in C$, qed.]
+
+Thus, we can define a map%
 \begin{align*}
-f:C  & \rightarrow C,\\
-i  & \mapsto\left(  ai\right)  \%n.
+f:C  &  \rightarrow C,\\
+i  &  \mapsto\left(  ai\right)  \%n.
 \end{align*}
-This is well-defined.
 
-[\textit{Proof:} Let $i\in C$. Then, $i\perp n$ and thus $ai\perp n$ (since
-$a\perp n$) and thus $\gcd\left(  ai,n\right)  =1$, but therefore $\gcd\left(
-n,\left(  ai\right)  \%n\right)  =\gcd\left(  n,ai\right)  =\gcd\left(
-ai,n\right)  =1$, and thus $\left(  ai\right)  \%n\perp n$. Therefore,
-$\left(  ai\right)  \%n\in C$ because $\left(  ai\right)  \%n\in\left\{
-0,1,\ldots,n-1\right\}  $.]
 
-Furthermore, the map $f$ is injective.
+The map $f$ is injective.
 
-[\textit{Proof:} Let $i\in C$ and $j\in C$ be such that $f\left(  i\right)
-=f\left(  j\right)  $. We must prove that $i=j$.
+[\textit{Proof:} Let $i$ and $j$ be two elements of $C$ such that $f\left(
+i\right)  =f\left(  j\right)  $. We must prove that $i=j$.
 
-We can rewrite $f\left(  i\right)  =f\left(  j\right)  $ as $\left(
-ai\right)  \%n=\left(  aj\right)  \%n$. By an old exercise (HW1), this is
-saying that $ai\equiv aj\operatorname{mod}n$. But $a$ has a modular inverse
-modulo $n$ (since $a\perp n$), so we can cancel $a$ from this congruence and
-obtain $i\equiv j\operatorname{mod}n$. Since both $i$ and $j$ lie in $\left\{
-0,1,\ldots,n-1\right\}  $, so this entails $i=j$. Qed.]
+We have $f\left(  i\right)  =f\left(  j\right)  $; in other words, $\left(
+ai\right)  \%n=\left(  aj\right)  \%n$. Thus, $ai\equiv aj\operatorname{mod}n$
+(by one of the HW1 exercises). By the Cancellation Lemma, we can cancel $a$
+from this congruence, and get $i\equiv j\operatorname{mod}n$. Since both $i$
+and $j$ lie in $\left\{  0,1,\ldots,n-1\right\}  $, this entails $i=j$. So $f$
+is injective.]
 
-Now we could prove that $f$ is surjective as well. But we can also get it for
-free: The map $f$ is an injective map between two finite sets of the same size
-(namely, $C$ and $C$). This automatically implies that $f$ is bijective, by
-the so-called \textit{Pigeonhole Principle for Injections}:
+Now, $C$ is finite, the map $f:C\rightarrow C$ is injective, and we have
+$\left\vert C\right\vert \geq\left\vert C\right\vert $. This yields that $f$
+is bijective, by the \textit{Pigeonhole Principle for Injections}:
 
 \begin{statement}
-\textit{Pigeonhole Principle for Injections:} Let $A$ and $B$ be two finite
-sets such that $\left\vert A\right\vert \geq\left\vert B\right\vert $. Then,
-any injective map from $A$ to $B$ is bijective.
+\textit{Pigeonhole Principle for Injections}: Let $A$ and $B$ be finite sets
+such that $\left\vert A\right\vert \geq\left\vert B\right\vert $. Let
+$f:A\rightarrow B$ be an injective map. Then, $f$ is bijective.
 \end{statement}
 
 \begin{statement}
-\textit{Pigeonhole Principle for Surjections:} Let $A$ and $B$ be two finite
-sets such that $\left\vert A\right\vert \leq\left\vert B\right\vert $. Then,
-any surjective map from $A$ to $B$ is bijective.
+\textit{Pigeonhole Principle for Surjections}: Let $A$ and $B$ be finite sets
+such that $\left\vert A\right\vert \leq\left\vert B\right\vert $. Let
+$f:A\rightarrow B$ be an surjective map. Then, $f$ is bijective.
 \end{statement}
 
-Now, we know that $f$ is bijective. Consider the product $\prod\limits_{c\in
-C}c$. We can substitute $f\left(  c\right)  $ for $c$ in it, since $f$ is
-bijective. Thus,%
+So $f$ is bijective. Thus, we can substitute $f\left(  c\right)  $ for $c$ in
+the product $\prod\limits_{c\in C}c$. So%
 \begin{align*}
-\prod\limits_{c\in C}c  & =\prod\limits_{c\in C}\underbrace{f\left(  c\right)
+\prod_{c\in C}c  &  =\prod_{c\in C}\underbrace{f\left(  c\right)
 }_{\substack{=\left(  ac\right)  \%n\\\equiv ac\operatorname{mod}n}%
-}\equiv\prod_{c\in C}\left(  ac\right)  \ \ \ \ \ \ \ \ \ \ \ \left(  \text{by
-(\ref{eq.exe.ent.mod.k-sum.b})}\right)  \\
-& =a^{\left\vert C\right\vert }\prod_{c\in C}c=a^{\phi\left(  n\right)  }%
-\prod_{c\in C}c\operatorname{mod}n
+}\equiv\prod_{c\in C}\left(  ac\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by
+(\ref{eq.exe.ent.mod.k-sum.b})}\right) \\
+&  =a^{\left\vert C\right\vert }\prod_{c\in C}c=a^{\phi\left(  n\right)
+}\prod_{c\in C}c\operatorname{mod}n.
 \end{align*}
-(since $\left\vert C\right\vert =\phi\left(  n\right)  $). Now, each $c\in C$
-is coprime to $n$ (by definition of $C$). Hence, $\prod_{c\in C}c$ is coprime
-to $n$ (by Exercise \ref{exe.ent.coprime.ab-to-ck}). Hence, we can cancel this
-product from the congruence above. We get $1\equiv a^{\phi\left(  n\right)
-}\operatorname{mod}n$. This is Euler's theorem.
-
-Thus, FLT follows.
+In other words, $z\equiv a^{\phi\left(  n\right)  }z\operatorname{mod}n$. The
+Cancellation Lemma lets us cancel $z$ (since $z\perp n$), so this becomes
+$1\equiv a^{\phi\left(  n\right)  }\operatorname{mod}n$. This proves Euler.
 \end{proof}
 
 \begin{remark}
-Which fractions $\dfrac{a}{b}$ of integers have a \textbf{purely periodic}
-decimal expansion? \textquotedblleft Purely periodic\textquotedblright\ means
-\textquotedblleft the repeating part starts right after the decimal
-point\textquotedblright.
+$\dfrac{1}{7}=\allowbreak0.142857142857142857\cdots=0.\overline{142857}$.
 
-$\dfrac{1}{6}=\allowbreak0.16666666\ldots$ is not purely periodic.
+$\dfrac{1}{6}=\allowbreak0.1666666\cdots=0.1\overline{6}$.
 
-$\dfrac{1}{7}=\allowbreak0.142857142857142857\ldots$ is purely periodic.
+$\dfrac{1}{2}=\allowbreak0.5000000\cdots=0.5\overline{0}$.
 
-$\dfrac{1}{5}=\allowbreak0.2000000\ldots$ is not purely periodic.
+Any fraction $\dfrac{a}{b}$ with $a,b\in\mathbb{Z}$ is periodic.
 
-The fraction $\dfrac{a}{b}$ (with $a\perp b$) is purely periodic if and only
-if $b\perp10$ (which is equivalent to $2\nmid b$ and $5\nmid b$). This can be
-proven using Euler's theorem: see Keith Conrad, \textit{Euler's theorem}.
+A fraction $\dfrac{a}{b}$ is called \textbf{purely periodic} if its period (in
+decimal notation) begins straight after the decimal point.
+
+So $\dfrac{1}{7}$ is purely periodic, but $\dfrac{1}{6}$ and $\dfrac{1}{2}$
+are not.
+
+Which fractions are purely periodic?
+
+Answer: A fraction $\dfrac{a}{b}$ (with $a\perp b$) is purely periodic if and
+only if $b\perp10$ (in other words, $2\nmid b$ and $5\nmid b$).
+
+(Reference: Keith Conrad, \textit{Euler's theorem}.)
 \end{remark}
-
-A teaser:
 
 \begin{theorem}
 (Wilson's theorem)
 
-If $p$ is a prime, then $\left(  p-1\right)  !\equiv-1\operatorname{mod}p$.
+Let $p$ be a prime. Then, $\left(  p-1\right)  !\equiv-1\operatorname{mod}p$.
 \end{theorem}
 
-We will prove this later.
+Proof later.
 
 \subsection{Binomial coefficients}
-
-Recall:
 
 \begin{definition}
 For any $n\in\mathbb{Q}$ and $k\in\mathbb{N}$, we define the \textit{binomial
@@ -9740,13 +9769,13 @@ n-k+1\right)  }{k!}=\dfrac{\prod_{i=0}^{k-1}\left(  n-i\right)  }{k!}.
 We furthermore set $\dbinom{n}{k}=0$ for all rational $k\notin\mathbb{N}$.
 \end{definition}
 
-On HW0, you have seen:
+Recall the following properties of binomial coefficients:
 
 \begin{enumerate}
 \item[\textbf{(a)}] If $n \in\mathbb{N}$ and $k \in\mathbb{N}$ are such that
 $n \geq k$, then
 \[
-\dbinom{n}{k} = \dfrac{n!}{k! \left(  n-k \right) !} .
+\dbinom{n}{k} = \dfrac{n!}{k! \left(  n-k \right)  !} .
 \]
 (This is often used as a definition of the binomial coefficients, but it is a
 lousy definition, as it only covers the case when $n, k \in\mathbb{N}$ and $n
@@ -9761,22 +9790,22 @@ $k > n$, then
 
 \item[\textbf{(c)}] If $n \in\mathbb{N}$ and $k \in\mathbb{Q}$, then
 \begin{align}
-\dbinom{n}{k} = \dbinom{n}{n-k} .\label{eq.exe.binom.101.c}%
+\dbinom{n}{k} = \dbinom{n}{n-k} . \label{eq.exe.binom.101.c}%
 \end{align}
 (This is known as the \textit{symmetry of binomial coefficients}. Note that it
 fails if $n \notin\mathbb{N}$.)
 
 \item[\textbf{(d)}] Any $n \in\mathbb{Q}$ and $k \in\mathbb{Q}$ satisfy
 \begin{align}
-\dbinom{-n}{k} = \left(  -1 \right) ^{k} \dbinom{k + n - 1}{k}
-.\label{eq.exe.binom.101.d}%
+\dbinom{-n}{k} = \left(  -1 \right)  ^{k} \dbinom{k + n - 1}{k} .
+\label{eq.exe.binom.101.d}%
 \end{align}
 (This is one of the versions of the \textit{upper negation formula}.)
 
 \item[\textbf{(e)}] Any $n \in\mathbb{Q}$ and $k \in\mathbb{Q}$ satisfy
 \begin{align}
-\dbinom{n}{k} = \dbinom{n-1}{k} + \dbinom{n-1}{k-1}
-.\label{eq.exe.binom.101.e}%
+\dbinom{n}{k} = \dbinom{n-1}{k} + \dbinom{n-1}{k-1} .
+\label{eq.exe.binom.101.e}%
 \end{align}
 (This is the \textit{recurrence of the binomial coefficients}, and is the
 reason why each entry of
@@ -9790,44 +9819,14 @@ k\dbinom{n}{k}=n\dbinom{n-1}{k-1}.
 
 \end{enumerate}
 
-The study of binomial coefficients properly belongs into Combinatorics. One of
-the main identities for binomial coefficients is:
-
 \begin{theorem}
-(Vandermonde convolution) For any $x,y\in\mathbb{Q}$ and $n\in\mathbb{N}$, we
-have%
+(Vandermonde convolution identity) Every $x,y\in\mathbb{Q}$ and $n\in
+\mathbb{N}$ satisfy%
 \[
 \dbinom{x+y}{n}=\sum_{k=0}^{n}\dbinom{x}{k}\dbinom{y}{n-k}.
 \]
 
 \end{theorem}
-
-\begin{proof}
-[Proof sketch.] Fix $n\in\mathbb{N}$. For any $u\in\mathbb{Q}$, we have%
-\begin{align*}
-\dbinom{u}{n}  & =\underbrace{\dbinom{u-1}{n}}_{=\dbinom{u-2}{n}+\dbinom
-{u-2}{n-1}}+\underbrace{\dbinom{u-1}{n-1}}_{=\dbinom{u-2}{n-1}+\dbinom
-{u-2}{n-2}}\\
-& =\underbrace{\dbinom{u-2}{n}}_{=\dbinom{u-3}{n}+\dbinom{u-3}{n-1}}%
-+2\dbinom{u-2}{n-1}+\dbinom{u-2}{n-2}\\
-& =\dbinom{u-3}{n}+3\dbinom{u-3}{n-1}+3\dbinom{u-3}{n-2}+\dbinom{u-3}{n-3}\\
-& =\cdots\\
-& =\sum_{k=0}^{v}\dbinom{v}{k}\dbinom{u-v}{n-k}\ \ \ \ \ \ \ \ \ \ \text{for
-each }v\in\mathbb{N}%
-\end{align*}
-(formally: this is proven by induction). Setting $u=x+y$ and $v=x$ in this, we
-obtain%
-\[
-\dbinom{x+y}{n}=\sum_{k=0}^{x}\dbinom{x}{k}\dbinom{y}{n-k}.
-\]
-
-
-This works when $x\in\mathbb{N}$.
-
-Now, I claim that having proven the identity for $x\in\mathbb{N}$, we
-automatically conclude that it holds for all $x\in\mathbb{Q}$. To prove this,
-$\ldots$.
-\end{proof}
 
 
 \end{document}

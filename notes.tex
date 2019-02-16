@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Friday, February 15, 2019 11:14:09}
+%TCIDATA{LastRevised=Saturday, February 16, 2019 14:13:56}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -5962,6 +5962,56 @@ solves Exercise \ref{exe.ent.coprime.powers}.
 \end{proof}
 \end{fineprint}
 
+The above results have one important application to congruences. Recall that
+if $a,b,c$ are integers satisfying $ab=ac$, then we can \textquotedblleft
+cancel\textquotedblright\ $a$ from the equality $ab=ac$ to obtain $b=c$ as
+long as $a$ is nonzero. Something similar is true for congruences modulo $n$,
+but the condition \textquotedblleft$a$ is nonzero\textquotedblright\ has to be
+replaced by \textquotedblleft$a$ is coprime to $n$\textquotedblright:
+
+\begin{lemma}
+\label{lem.ent.coprime.cancel}Let $a,b,c,n$ be integers such that $a\perp n$
+and $ab\equiv ac\operatorname{mod}n$. Then, $b\equiv c\operatorname{mod}n$.
+\end{lemma}
+
+Lemma \ref{lem.ent.coprime.cancel} says that we can cancel an integer $a$ from
+a congruence $ab\equiv ac\operatorname{mod}n$ as long as $a$ is coprime to
+$n$. Let us give two proofs of this lemma, to illustrate the uses of some of
+the previous results:
+
+\begin{proof}
+[First proof of Lemma \ref{lem.ent.coprime.cancel}.]We have $ab\equiv
+ac\operatorname{mod}n$. In other words, $n\mid ab-ac=a\left(  b-c\right)  $.
+But Proposition \ref{prop.ent.coprime.perp-symm} (applied to $n$ instead of
+$b$) shows that $a\perp n$ if and only if $n\perp a$. Thus, we have $n\perp a$
+(since $a\perp a$).
+
+Thus, we know that $n\mid a\left(  b-c\right)  $ and $n\perp a$. Hence,
+Theorem \ref{thm.ent.coprime.cancel} (applied to $n$, $a$ and $b-c$ instead of
+$a$, $b$ and $c$) yields $n\mid b-c$. In other words, $b\equiv
+c\operatorname{mod}n$. This proves Lemma \ref{lem.ent.coprime.cancel}.
+\end{proof}
+
+\begin{proof}
+[Second proof of Lemma \ref{lem.ent.coprime.cancel}.]Theorem
+\ref{thm.ent.coprime.modinv} \textbf{(b)} yields that there exists an
+$a^{\prime}\in\mathbb{Z}$ such that $aa^{\prime}\equiv1\operatorname{mod}n$
+(since $a\perp n$). Consider this $a^{\prime}$. Now, let us multiply the
+(trivial) congruence $a^{\prime}\equiv a^{\prime}\operatorname{mod}n$ with the
+congruence $ab\equiv ac\operatorname{mod}n$. We thus find%
+\[
+a^{\prime}ab\equiv\underbrace{a^{\prime}a}_{\equiv1\operatorname{mod}n}%
+c\equiv1c=c\operatorname{mod}n.
+\]
+Hence,
+\[
+c\equiv\underbrace{a^{\prime}a}_{\equiv1\operatorname{mod}n}b\equiv
+1b=b\operatorname{mod}n.
+\]
+In other words, $b\equiv c\operatorname{mod}n$. This proves Lemma
+\ref{lem.ent.coprime.cancel}.
+\end{proof}
+
 \subsubsection{An application to sums of powers}
 
 Let us show an application of Theorem \ref{thm.ent.coprime.combine}. First, we
@@ -9480,7 +9530,7 @@ This is precisely the Claim.]
 
 Now,%
 \begin{align*}
-n &  =\sum_{d\mid n}\underbrace{\left(  \text{the number of }i\in\left\{
+n  &  =\sum_{d\mid n}\underbrace{\left(  \text{the number of }i\in\left\{
 1,2,\ldots,n\right\}  \text{ such that }\gcd\left(  i,n\right)  =d\right)
 }_{\substack{=\phi\left(  n/d\right)  \\\text{(by the Claim)}}}\\
 &  =\sum_{d\mid n}\phi\left(  n/d\right)  =\sum_{d\mid n}\phi\left(  d\right)
@@ -9489,7 +9539,7 @@ n &  =\sum_{d\mid n}\underbrace{\left(  \text{the number of }i\in\left\{
 \begin{align*}
 \left\{  \text{positive divisors of }n\right\}   &  \rightarrow\left\{
 \text{positive divisors of }n\right\}  ,\\
-d &  \mapsto n/d
+d  &  \mapsto n/d
 \end{align*}
 is a bijection).
 
@@ -9497,114 +9547,143 @@ is a bijection).
 \end{proof}
 
 \begin{exercise}
-You have a corridor with $1000$ lightswitches, initially all off.
+You have a corridor with $1000$ lamps, initially all off. Each lamp has a
+lightswitch controlling its state.
 
-Every night, a ghost glides along the corridor (always in the same direction).
+Every night, a ghost glides through the corridor (always in the same
+direction) and flips some of the switches:
 
-During the $1$st night, the ghost toggles each switch.
+On the $1$st night, the ghost flips every switch.
 
-During the $2$nd night, the ghost toggles switches $2,4,6,8,10,\ldots$.
+On the $2$nd night, the ghost flips switches $2,4,6,8,10,\ldots$.
 
-During the $3$rd night, the ghost toggles switches $3,6,9,12,15,\ldots$.
+On the $3$rd night, the ghost flips switches $3,6,9,12,15,\ldots$.
 
-And so on.
+etc.
 
-Which lights will be on after $1000$ nights?
+(That is: For each $k\in\left\{  1,2,\ldots,1000\right\}  $, the ghost spends
+the $k$-th night flipping switches $k,2k,3k,\ldots$.)
+
+Which lamp will be on after $1000$ nights?
 \end{exercise}
 
 \begin{proof}
 [Solution.]We are asking which of the numbers $1,2,\ldots,1000$ have an odd
-number of positive divisors.
+number of positive divisors. (Indeed, after $1000$ night, for each
+$n\in\left\{  1,2,\ldots,1000\right\}  $, the $n$-th switch will have been
+flipped exactly once for each positive divisor of $n$; thus, the $n$-th lamp
+will be on if and only if $n$ has an odd number of positive divisors.)
 
 \begin{statement}
 \textit{Claim:} A positive integer $n$ has an odd number of positive divisors
 if and only if $n$ is a perfect square.
 \end{statement}
 
-[\textit{Proof of claim:} Recall the bijection%
+[\textit{Proof of claim:} Fix a positive integer $n$. Recall that the map%
 \begin{align*}
 \left\{  \text{positive divisors of }n\right\}   &  \rightarrow\left\{
 \text{positive divisors of }n\right\}  ,\\
-d  &  \mapsto n/d.
+d  &  \mapsto n/d
 \end{align*}
-This matches each positive divisor of $n$ with another, unless the two are
-actually equal. But the latter only happens if there is a positive divisor $d$
-such that $n/d=d$, which means $n=d^{2}$. When $n$ is not a perfect square,
-this never happens. When $n$ is a perfect square, this happens exactly once.]
+is a bijection. This groups the positive divisors $d$ of $n$ into pairs,
+except for those that satisfy $d=n/d$. When $n$ is not a perfect square, there
+are no such \textquotedblleft exceptional\textquotedblright\ divisors, since
+$d=n/d$ means $n=d^{2}$. When $n$ is a perfect square, there is exactly one
+such \textquotedblleft exceptional\textquotedblright\ divisor, namely
+$\sqrt{n}$. So the number of positive divisors of $n$ is even if $n$ is not a
+perfect square, and odd otherwise.]
 
-So the lights $1^{2},2^{2},\ldots,31^{2}$ (and no others) will be on after the
+So the lamps $1^{2},2^{2},\ldots,31^{2}$ (and no others) will be on after the
 $1000$ nights.
 \end{proof}
 
 \subsection{Euler, Fermat, Wilson}
 
-\begin{theorem}
-(Fermat's Little Theorem = FLT)
+The following theorem is known as \textit{Fermat's Little Theorem} (often
+abbreviated as \textquotedblleft FLT\textquotedblright):
 
-Let $p$ be a prime. Let $a\in\mathbb{Z}$.
+\begin{theorem}
+\label{thm.ent.fermat}Let $p$ be a prime. Let $a\in\mathbb{Z}$.
 
 \textbf{(a)} If $p\nmid a$, then $a^{p-1}\equiv1\operatorname{mod}p$.
 
-\textbf{(b)} In general, $a^{p}\equiv a\operatorname{mod}p$.
+\textbf{(b)} We always have $a^{p}\equiv a\operatorname{mod}p$.
 \end{theorem}
 
+The word \textquotedblleft little\textquotedblright\ in the name of Theorem
+\ref{thm.ent.fermat} is meant to distinguish the theorem from
+\textquotedblleft Fermat's Last Theorem\textquotedblright, a much more
+difficult result only proven in the 1990s. (Unfortunately, the latter result
+is also abbreviated as \textquotedblleft FLT\textquotedblright.)
+
+We will prove Theorem \ref{thm.ent.fermat} soon, by showing a more general
+result (Theorem \ref{thm.ent.euler}). But before we do so, we shall convince
+ourselves the parts \textbf{(a)} and \textbf{(b)} of Theorem
+\ref{thm.ent.fermat} are equivalent:
+
 \begin{remark}
-Part \textbf{(b)} follows from \textbf{(a)}, because:
+Theorem \ref{thm.ent.fermat} \textbf{(b)} follows from Theorem
+\ref{thm.ent.fermat} \textbf{(a)}, because:
 
 \begin{itemize}
-\item if $p\nmid a$, then \textbf{(a)} yields $a^{p-1}\equiv
-1\operatorname{mod}p$, thus $a^{p}=aa^{p-1}\equiv a1=a\operatorname{mod}p$.
+\item If $p\nmid a$, then Theorem \ref{thm.ent.fermat} \textbf{(a)} yields
+$a^{p-1}\equiv1\operatorname{mod}p$, thus $a^{p}=a\underbrace{a^{p-1}}%
+_{\equiv1\operatorname{mod}p}\equiv a1=a\operatorname{mod}p$.
 
-\item if $p\mid a$, then both $a^{p}$ and $a$ are $\equiv0\operatorname{mod}%
-p$, so $a^{p}\equiv a\operatorname{mod}p$.
+\item If $p\mid a$, then both $a^{p}$ and $a$ are $\equiv0\operatorname{mod}%
+p$, and therefore $a^{p}\equiv a\operatorname{mod}p$ follows.
 \end{itemize}
 
-Conversely, part \textbf{(a)} follows from \textbf{(b)}, because: Assume
-$p\nmid a$. Then, $p\perp a$, so $a\perp p$. Thus, $a$ has a modular inverse
-$a^{\prime}$ modulo $p$. So $aa^{\prime}\equiv1\operatorname{mod}p$. Thus, we
-can \textquotedblleft cancel\textquotedblright\ $a$ from any congruence modulo
-$p$ by multiplying the congruence with $a^{\prime}$. Doing this with
-$a^{p}\equiv a\operatorname{mod}p$ (which follows from \textbf{(b)}), we
-obtain $a^{p-1}\equiv1\operatorname{mod}p$.
+Conversely, Theorem \ref{thm.ent.fermat} \textbf{(a)} follows from Theorem
+\ref{thm.ent.fermat} \textbf{(b)}, because: Assume $p\nmid a$. Then, $p\perp
+a$, so $a\perp p$. Thus, we can \textquotedblleft cancel\textquotedblright%
+\ $a$ from any congruence modulo $p$ (by Lemma \ref{lem.ent.coprime.cancel}).
+Doing this to the congruence $a^{p}\equiv a\operatorname{mod}p$ (which follows
+from Theorem \ref{thm.ent.fermat} \textbf{(b)}), we obtain $a^{p-1}%
+\equiv1\operatorname{mod}p$.
 \end{remark}
 
-\begin{theorem}
-(Euler's Theorem)
+The next result is known as \textit{Euler's theorem}:
 
-Let $n$ be a positive integer. Let $a\in\mathbb{Z}$ be coprime to $n$.
+\begin{theorem}
+\label{thm.ent.euler}Let $n$ be a positive integer. Let $a\in\mathbb{Z}$ be
+coprime to $n$.
 
 Then, $a^{\phi\left(  n\right)  }\equiv1\operatorname{mod}n$.
 \end{theorem}
 
-Euler's theorem yields part \textbf{(a)} of FLT, since $\phi\left(  p\right)
-=p-1$ when $p$ is prime.
-
-Proof later.
+Theorem \ref{thm.ent.euler} yields Theorem \ref{thm.ent.fermat} \textbf{(a)},
+since $\phi\left(  p\right)  =p-1$ when $p$ is prime. Since we also know that
+Theorem \ref{thm.ent.fermat} \textbf{(b)} follows from Theorem
+\ref{thm.ent.fermat} \textbf{(a)}, we see that a proof of Theorem
+\ref{thm.ent.euler} will immediately yield the whol\"{o}e Theorem
+\ref{thm.ent.fermat}. Before we give said proof, let us show an example of how
+Theorem \ref{thm.ent.euler} can be used:
 
 \begin{exercise}
 What is the last digit of $3^{4^{5}}$?
 
-Notational remark: $a^{b^{c}}$ means $a^{\left(  b^{c}\right)  }$, not
-$\left(  a^{b}\right)  ^{c}=a^{bc}$.
+Notational remark: An expression of the form $a^{b^{c}}$ always means
+$a^{\left(  b^{c}\right)  }$, not $\left(  a^{b}\right)  ^{c}=a^{bc}$.
 \end{exercise}
 
 \begin{proof}
-[Solution.]The last digit (of a positive integer) is the remainder modulo
-$10$. So we compute modulo $10$.
+[Solution.]The last digit of a positive integer $n$ is $n\%10$ (that is, the
+remainder of $n$ upon division by $10$). So we need to work modulo $10$.
 
-Euler's theorem yields $3^{\phi\left(  10\right)  }\equiv1\operatorname{mod}%
-10$ since $3\perp10$.
-
-In view of $\phi\left(  10\right)  =4$, this becomes $3^{4}\equiv
-1\operatorname{mod}10$.
-
-Now, $3^{4^{5}}=3^{4\cdot4^{4}}=\left(  \underbrace{3^{4}}_{\equiv
-1\operatorname{mod}10}\right)  ^{4^{4}}\equiv1^{4^{4}}=1\operatorname{mod}10$.
-So the last digit is $1$.
+Since $3$ is coprime to $10$, we can apply Theorem \ref{thm.ent.euler} to
+$n=10$ and $a=3$. We thus get $3^{\phi\left(  10\right)  }\equiv
+1\operatorname{mod}10$. Since $\phi\left(  10\right)  =4$, this rewrites as
+$3^{4}\equiv1\operatorname{mod}10$. Now,%
+\[
+3^{4^{5}}=3^{4\cdot4^{4}}=\left(  \underbrace{3^{4}}_{\equiv
+1\operatorname{mod}10}\right)  ^{4^{4}}\equiv1^{4^{4}}=1\operatorname{mod}10.
+\]
+So the last digit of $3^{4^{5}}$ is $1$.
 \end{proof}
 
 \begin{lemma}
-Let $n$ be a positive integer. Then,%
+\label{lem.ent.euler.phi0}Let $n$ be a positive integer. Then,%
 \[
 \phi\left(  n\right)  =\left\vert \left\{  i\in\left\{  0,1,\ldots
 ,n-1\right\}  \ \mid\ i\perp n\right\}  \right\vert .
@@ -9613,107 +9692,152 @@ Let $n$ be a positive integer. Then,%
 \end{lemma}
 
 \begin{proof}
-\textit{First proof:} If $n=1$, then this is easily done by hand. Otherwise,
-neither $0$ nor $n$ is coprime to $n$, so the sets
+\textit{First proof:} If $n=1$, then this is easily done by hand. Thus, WLOG
+assume that $n>1$. Hence, neither $0$ nor $n$ is coprime to $n$ (since
+$\gcd\left(  0,n\right)  =n>1$ and $\gcd\left(  n,n\right)  =n>1$). Hence,%
 \begin{align*}
-&  \left\{  i\in\left\{  1,2,\ldots,n\right\}  \ \mid\ i\perp n\right\}
-\ \ \ \ \ \ \ \ \ \ \text{and}\\
-&  \left\{  i\in\left\{  0,1,\ldots,n-1\right\}  \ \mid\ i\perp n\right\}
+&  \left\{  i\in\left\{  0,1,\ldots,n-1\right\}  \ \mid\ i\perp n\right\}  \\
+&  =\left\{  i\in\left\{  1,2,\ldots,n\right\}  \ \mid\ i\perp n\right\}
 \end{align*}
-are identical.
+(because these sets could only differ in the elements $0$ and $n$, but none of
+these two elements belongs to any of these two sets), and therefore%
+\begin{align*}
+&  \left\vert \left\{  i\in\left\{  0,1,\ldots,n-1\right\}  \ \mid\ i\perp
+n\right\}  \right\vert \\
+&  =\left\vert \left\{  i\in\left\{  1,2,\ldots,n\right\}  \ \mid\ i\perp
+n\right\}  \right\vert =\phi\left(  n\right)
+\end{align*}
+by the definition of $\phi\left(  n\right)  $.
 
-\textit{Second proof:} $0$ is coprime to $n$ if and only if $n$ is coprime to
-$n$. So removing $n$ from the set $\left\{  1,2,\ldots,n\right\}  $ and adding
-$0$ to it does not change the number of elements coprime to $n$.
+\textit{Second proof:} The number $0$ is coprime to $n$ if and only if $n$ is
+coprime to $n$ (since $0\equiv n\operatorname{mod}n$ and thus $\gcd\left(
+0,n\right)  =\gcd\left(  n,n\right)  $). Hence, if we remove $n$ from the set
+$\left\{  1,2,\ldots,n\right\}  $ and add $0$ instead, the number of elements
+coprime to $n$ in that set does not change. Hence,%
+\begin{align*}
+&  \left\vert \left\{  i\in\left\{  0,1,\ldots,n-1\right\}  \ \mid\ i\perp
+n\right\}  \right\vert \\
+&  =\left\vert \left\{  i\in\left\{  1,2,\ldots,n\right\}  \ \mid\ i\perp
+n\right\}  \right\vert =\phi\left(  n\right)
+\end{align*}
+by the definition of $\phi\left(  n\right)  $.
 \end{proof}
 
 \begin{proof}
-[Proof of Euler's theorem.]Lemma says that%
+[Proof of Euler's theorem.]Let
 \[
-\phi\left(  n\right)  =\left\vert \left\{  i\in\left\{  0,1,\ldots
-,n-1\right\}  \ \mid\ i\perp n\right\}  \right\vert .
+C=\left\{  i\in\left\{  0,1,\ldots,n-1\right\}  \ \mid\ i\perp n\right\}  .
 \]
-So let $C:=\left\{  i\in\left\{  0,1,\ldots,n-1\right\}  \ \mid\ i\perp
-n\right\}  $.
+Then, Lemma \ref{lem.ent.euler.phi0} yields $\left\vert C\right\vert
+=\phi\left(  n\right)  $.
 
-Now, consider the map%
+Now, $z=\prod_{c\in C}c$. Then, $z\perp n$ (by Exercise
+\ref{exe.ent.coprime.ab-to-ck}).
+
+We have $\left(  ai\right)  \%n\in C$ for each $i\in C$.
+
+[\textit{Proof:} Let $i\in C$. Clearly, $\left(  ai\right)  \%n\in\left\{
+0,1,\ldots,n-1\right\}  $ (because it is a remainder). Also, $ai\perp n$
+(since $a\perp n$ and $i\perp n$), thus $\gcd\left(  n,ai\right)  =1$, thus
+$\gcd\left(  n,\left(  ai\right)  \%n\right)  =\gcd\left(  n,ai\right)  =1$,
+thus $\left(  ai\right)  \%n\perp n$. Hence, $\left(  ai\right)  \%n\in C$
+(since $\left(  ai\right)  \%n\in\left\{  0,1,\ldots,n-1\right\}  $), qed.]
+
+Thus, we can define a map%
 \begin{align*}
 f:C  &  \rightarrow C,\\
 i  &  \mapsto\left(  ai\right)  \%n.
 \end{align*}
-This is well-defined.
 
-[\textit{Proof:} Let $i\in C$. Then, $i\perp n$ and thus $ai\perp n$ (since
-$a\perp n$) and thus $\gcd\left(  ai,n\right)  =1$, but therefore $\gcd\left(
-n,\left(  ai\right)  \%n\right)  =\gcd\left(  n,ai\right)  =\gcd\left(
-ai,n\right)  =1$, and thus $\left(  ai\right)  \%n\perp n$. Therefore,
-$\left(  ai\right)  \%n\in C$ because $\left(  ai\right)  \%n\in\left\{
-0,1,\ldots,n-1\right\}  $.]
 
-Furthermore, the map $f$ is injective.
+The map $f$ is injective.
 
-[\textit{Proof:} Let $i\in C$ and $j\in C$ be such that $f\left(  i\right)
-=f\left(  j\right)  $. We must prove that $i=j$.
+[\textit{Proof:} Let $i$ and $j$ be two elements of $C$ such that $f\left(
+i\right)  =f\left(  j\right)  $. We must prove that $i=j$.
 
-We can rewrite $f\left(  i\right)  =f\left(  j\right)  $ as $\left(
-ai\right)  \%n=\left(  aj\right)  \%n$. By an old exercise (HW1), this is
-saying that $ai\equiv aj\operatorname{mod}n$. But $a$ has a modular inverse
-modulo $n$ (since $a\perp n$), so we can cancel $a$ from this congruence and
-obtain $i\equiv j\operatorname{mod}n$. Since both $i$ and $j$ lie in $\left\{
-0,1,\ldots,n-1\right\}  $, so this entails $i=j$. Qed.]
+We have $f\left(  i\right)  =f\left(  j\right)  $; in other words, $\left(
+ai\right)  \%n=\left(  aj\right)  \%n$. Thus, $ai\equiv aj\operatorname{mod}n$
+(by Exercise \ref{exe.ent.quo-rem.mod=rem}). By Lemma
+\ref{lem.ent.coprime.cancel}, we can cancel $a$ from this congruence, and get
+$i\equiv j\operatorname{mod}n$. Since both $i$ and $j$ lie in $\left\{
+0,1,\ldots,n-1\right\}  $, this entails $i=j$. So $f$ is injective.]
 
-Now we could prove that $f$ is surjective as well. But we can also get it for
-free: The map $f$ is an injective map between two finite sets of the same size
-(namely, $C$ and $C$). This automatically implies that $f$ is bijective, by
-the so-called \textit{Pigeonhole Principle for Injections}:
+Now, $C$ is finite, the map $f:C\rightarrow C$ is injective, and we have
+$\left\vert C\right\vert \geq\left\vert C\right\vert $. This yields that $f$
+is bijective, by the \textit{Pigeonhole Principle for Injections}:
 
 \begin{statement}
-\textit{Pigeonhole Principle for Injections:} Let $A$ and $B$ be two finite
-sets such that $\left\vert A\right\vert \geq\left\vert B\right\vert $. Then,
-any injective map from $A$ to $B$ is bijective.
+\textit{Pigeonhole Principle for Injections}: Let $A$ and $B$ be finite sets
+such that $\left\vert A\right\vert \geq\left\vert B\right\vert $. Let
+$f:A\rightarrow B$ be an injective map. Then, $f$ is bijective.
 \end{statement}
+
+This Pigeonhole Principle is one of the fundamental facts of combinatorics (or
+even of set theory); I will not prove it here. But since I have mentioned it,
+let me also the (equally important) counterpart for surjective maps:
 
 \begin{statement}
-\textit{Pigeonhole Principle for Surjections:} Let $A$ and $B$ be two finite
-sets such that $\left\vert A\right\vert \leq\left\vert B\right\vert $. Then,
-any surjective map from $A$ to $B$ is bijective.
+\textit{Pigeonhole Principle for Surjections}: Let $A$ and $B$ be finite sets
+such that $\left\vert A\right\vert \leq\left\vert B\right\vert $. Let
+$f:A\rightarrow B$ be an surjective map. Then, $f$ is bijective.
 \end{statement}
 
-Now, we know that $f$ is bijective. Consider the product $\prod\limits_{c\in
-C}c$. We can substitute $f\left(  c\right)  $ for $c$ in it, since $f$ is
-bijective. Thus,%
+Note that we didn't strictly \textbf{have} to apply the Pigeonhole Principle
+here; we could have also proven that $f$ is surjective (using the existence of
+modular inverses). I leave this alternative proof to the interested reader.
+
+So we know that the map $f$ is bijective. Thus, we can substitute $f\left(
+c\right)  $ for $c$ in the product $\prod\limits_{c\in C}c$. So%
 \begin{align*}
-\prod\limits_{c\in C}c  &  =\prod\limits_{c\in C}\underbrace{f\left(
-c\right)  }_{\substack{=\left(  ac\right)  \%n\\\equiv ac\operatorname{mod}%
-n}}\equiv\prod_{c\in C}\left(  ac\right)  \ \ \ \ \ \ \ \ \ \ \ \left(
-\text{by (\ref{eq.exe.ent.mod.k-sum.b})}\right) \\
+\prod_{c\in C}c &  =\prod_{c\in C}\underbrace{f\left(  c\right)
+}_{\substack{=\left(  ac\right)  \%n\\\equiv ac\operatorname{mod}n}%
+}\equiv\prod_{c\in C}\left(  ac\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by
+(\ref{eq.exe.ent.mod.k-sum.b})}\right)  \\
 &  =a^{\left\vert C\right\vert }\prod_{c\in C}c=a^{\phi\left(  n\right)
-}\prod_{c\in C}c\operatorname{mod}n
+}\prod_{c\in C}c\operatorname{mod}n\ \ \ \ \ \ \ \ \ \ \left(  \text{since
+}\left\vert C\right\vert =\phi\left(  n\right)  \right)  .
 \end{align*}
-(since $\left\vert C\right\vert =\phi\left(  n\right)  $). Now, each $c\in C$
-is coprime to $n$ (by definition of $C$). Hence, $\prod_{c\in C}c$ is coprime
-to $n$ (by Exercise \ref{exe.ent.coprime.ab-to-ck}). Hence, we can cancel this
-product from the congruence above. We get $1\equiv a^{\phi\left(  n\right)
-}\operatorname{mod}n$. This is Euler's theorem.
+In other words, $z\equiv a^{\phi\left(  n\right)  }z\operatorname{mod}n$
+(since $z=\prod\limits_{c\in C}c$). Lemma \ref{lem.ent.coprime.cancel} lets us
+cancel $z$ from this congruence (since $z\perp n$). We thus obtain $1\equiv
+a^{\phi\left(  n\right)  }\operatorname{mod}n$. This proves Theorem
+\ref{thm.ent.euler}.
+\end{proof}
 
-Thus, FLT follows.
+
+
+\begin{proof}
+[Proof of Theorem \ref{thm.ent.fermat}.] As we have explained above, Theorem
+\ref{thm.ent.fermat} follows from Theorem \ref{thm.ent.euler}.
 \end{proof}
 
 \begin{remark}
-Which fractions $\dfrac{a}{b}$ of integers have a \textbf{purely periodic}
-decimal expansion? \textquotedblleft Purely periodic\textquotedblright\ means
-\textquotedblleft the repeating part starts right after the decimal
-point\textquotedblright.
+Let us take a look at some fractions in decimal notation:
 
-$\dfrac{1}{6}=\allowbreak0.16666666\ldots$ is not purely periodic.
+$\dfrac{1}{7}=\allowbreak0.142857142857142857\cdots=0.\overline{142857}$
+(where the $\overline{}$ bar means \textquotedblleft repeat this part over and
+over\textquotedblright).
 
-$\dfrac{1}{7}=\allowbreak0.142857142857142857\ldots$ is purely periodic.
+$\dfrac{1}{6}=\allowbreak0.1666666\cdots=0.1\overline{6}$.
 
-$\dfrac{1}{5}=\allowbreak0.2000000\ldots$ is not purely periodic.
+$\dfrac{1}{2}=\allowbreak0.5000000\cdots=0.5\overline{0}$.
 
-The fraction $\dfrac{a}{b}$ (with $a\perp b$) is purely periodic if and only
-if $b\perp10$ (which is equivalent to $2\nmid b$ and $5\nmid b$). This can be
-proven using Euler's theorem: see Keith Conrad, \textit{Euler's theorem}.
+Any fraction $\dfrac{a}{b}$ with $a,b\in\mathbb{Z}$ has such a decimal
+representation with a period. (A \textit{period} means a part that gets
+repeated over and over.)
+
+A fraction $\dfrac{a}{b}$ is called \textit{purely periodic} if its period (in
+decimal notation) begins straight after the decimal point.
+
+So $\dfrac{1}{7}$ is purely periodic, but $\dfrac{1}{6}$ and $\dfrac{1}{2}$
+are not.
+
+Which fractions are purely periodic?
+
+Answer: A fraction $\dfrac{a}{b}$ (with $a\perp b$) is purely periodic if and
+only if $b\perp10$ (in other words, $2\nmid b$ and $5\nmid b$).
+
+This can be proven using Euler's theorem: see \cite{Conrad-Euler}.
 \end{remark}
 
 A teaser:
@@ -9721,7 +9845,7 @@ A teaser:
 \begin{theorem}
 (Wilson's theorem)
 
-If $p$ is a prime, then $\left(  p-1\right)  !\equiv-1\operatorname{mod}p$.
+Let $p$ be a prime. Then, $\left(  p-1\right)  !\equiv-1\operatorname{mod}p$.
 \end{theorem}
 
 We will prove this later.
@@ -9740,7 +9864,8 @@ n-k+1\right)  }{k!}=\dfrac{\prod_{i=0}^{k-1}\left(  n-i\right)  }{k!}.
 We furthermore set $\dbinom{n}{k}=0$ for all rational $k\notin\mathbb{N}$.
 \end{definition}
 
-On HW0, you have seen:
+Recall the following properties of binomial coefficients (that you have seen
+on HW0):
 
 \begin{enumerate}
 \item[\textbf{(a)}] If $n \in\mathbb{N}$ and $k \in\mathbb{N}$ are such that
@@ -9870,6 +9995,8 @@ of Galois Theory}, Springer 2018. \newline\url{https://www.springer.com/la/book/
 
 \bibitem[Conrad*]{Conrad*}Keith Conrad, \textit{Expository notes
 (\textquotedblleft blurbs\textquotedblright)}.\newline\url{https://kconrad.math.uconn.edu/blurbs/}
+
+\bibitem[ConradE]{Conrad-Euler}Keith Conrad, \textit{Euler's theorem}.\newline\url{https://kconrad.math.uconn.edu/blurbs/ugradnumthy/eulerthm.pdf}
 
 \bibitem[ConradG]{Conrad-Gauss}Keith Conrad, \textit{The Gaussian
 integers}.\newline\url{http://www.math.uconn.edu/~kconrad/blurbs/ugradnumthy/Zinotes.pdf}
