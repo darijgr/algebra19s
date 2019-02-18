@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, February 18, 2019 08:24:46}
+%TCIDATA{LastRevised=Monday, February 18, 2019 13:13:33}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -5905,7 +5905,7 @@ for $i=0$. This completes the induction base.
 that (\ref{sol.ent.coprime.combinek.goal}) holds for $i=j-1$. We must now
 prove that (\ref{sol.ent.coprime.combinek.goal}) holds for $i=j$.
 
-We have assumed that (\ref{sol.ent.coprime.ab-to-ck.goal}) holds for $i=j-1$.
+We have assumed that (\ref{sol.ent.coprime.combinek.goal}) holds for $i=j-1$.
 In other words, $b_{1}b_{2}\cdots b_{j-1}\mid c$.
 
 We have assumed that each $i\in\left\{  1,2,\ldots,k\right\}  $ satisfies
@@ -8986,12 +8986,11 @@ v_{q}\left(  n\right)  =b_{q}\ \ \ \ \ \ \ \ \ \ \text{for each prime }q.
 \end{corollary}
 
 \begin{proof}
-[Proof of Corollary \ref{cor.ent.primes.vp-of-can}.] The product
-$\prod_{p\text{ prime}}p^{b_{p}}$ is well-defined. (This can be shown just as
-in the proof of Lemma \ref{lem.ent.primes.prod|prod}.) Now, choose a list
-$\left(  a_{1},a_{2},\ldots,a_{k}\right)  $ of primes that contains each prime
-$p$ exactly $b_{p}$ times. (Such a list clearly exists: For example, we can
-pick%
+[Proof of Corollary \ref{cor.ent.primes.vp-of-can}.]The product $\prod
+_{p\text{ prime}}p^{b_{p}}$ is well-defined. (This can be shown just as in the
+proof of Lemma \ref{lem.ent.primes.prod|prod}.) Now, choose a list $\left(
+a_{1},a_{2},\ldots,a_{k}\right)  $ of primes that contains each prime $p$
+exactly $b_{p}$ times. (Such a list clearly exists: For example, we can pick%
 \[
 \left(  \underbrace{2,2,\ldots,2}_{b_{2}\text{ times}},\underbrace{3,3,\ldots
 ,3}_{b_{3}\text{ times}},\underbrace{5,5,\ldots,5}_{b_{5}\text{ times}}%
@@ -9016,9 +9015,9 @@ Let $q$ be a prime. Proposition \ref{prop.ent.prime.mult-in-pf} (applied to
 $p=q$) yields%
 \begin{align*}
 &  \left(  \text{the number of times }q\text{ appears in the tuple }\left(
-a_{1},a_{2},\ldots,a_{k}\right)  \right)  \\
+a_{1},a_{2},\ldots,a_{k}\right)  \right) \\
 &  =\left(  \text{the number of }i\in\left\{  1,2,\ldots,k\right\}  \text{
-such that }a_{i}=q\right)  \\
+such that }a_{i}=q\right) \\
 &  =v_{q}\left(  n\right)  .
 \end{align*}
 Thus,%
@@ -9178,32 +9177,32 @@ n,m\right)  $ using Proposition \ref{prop.ent.primes.gcd}.
 From $n=3^{2}\cdot5\cdot7^{8}$, we obtain (using Corollary
 \ref{cor.ent.primes.vp-of-can}) that%
 \begin{align*}
-v_{3}\left(  n\right)    & =2,\ \ \ \ \ \ \ \ \ \ v_{5}\left(  n\right)
+v_{3}\left(  n\right)   &  =2,\ \ \ \ \ \ \ \ \ \ v_{5}\left(  n\right)
 =1,\ \ \ \ \ \ \ \ \ \ v_{7}\left(  n\right)
 =8,\ \ \ \ \ \ \ \ \ \ \text{and}\\
-v_{p}\left(  n\right)    & =0\text{ for each prime }p\notin\left\{
+v_{p}\left(  n\right)   &  =0\text{ for each prime }p\notin\left\{
 3,5,7\right\}  .
 \end{align*}
 Similarly, from $m=2\cdot3^{3}\cdot7^{2}$, we obtain%
 \begin{align*}
-v_{2}\left(  m\right)    & =1,\ \ \ \ \ \ \ \ \ \ v_{3}\left(  m\right)
+v_{2}\left(  m\right)   &  =1,\ \ \ \ \ \ \ \ \ \ v_{3}\left(  m\right)
 =3,\ \ \ \ \ \ \ \ \ \ v_{7}\left(  m\right)
 =2,\ \ \ \ \ \ \ \ \ \ \text{and}\\
-v_{p}\left(  n\right)    & =0\text{ for each prime }p\notin\left\{
+v_{p}\left(  n\right)   &  =0\text{ for each prime }p\notin\left\{
 2,3,7\right\}  .
 \end{align*}
 Now, (\ref{eq.prop.ent.primes.gcd.gcd}) yields%
 \begin{align*}
-& \gcd\left(  n,m\right)  \\
-& =\prod_{p\text{ prime}}p^{\min\left\{  v_{p}\left(  n\right)  ,v_{p}\left(
+&  \gcd\left(  n,m\right)  \\
+&  =\prod_{p\text{ prime}}p^{\min\left\{  v_{p}\left(  n\right)  ,v_{p}\left(
 m\right)  \right\}  }\\
-& =\underbrace{2^{\min\left\{  v_{2}\left(  n\right)  ,v_{2}\left(  m\right)
+&  =\underbrace{2^{\min\left\{  v_{2}\left(  n\right)  ,v_{2}\left(  m\right)
 \right\}  }}_{=2^{\min\left\{  0,1\right\}  }=2^{0}}\cdot\underbrace{3^{\min
 \left\{  v_{3}\left(  n\right)  ,v_{3}\left(  m\right)  \right\}  }}%
 _{=3^{\min\left\{  2,3\right\}  }=3^{2}}\cdot\underbrace{5^{\min\left\{
 v_{5}\left(  n\right)  ,v_{5}\left(  m\right)  \right\}  }}_{=5^{\min\left\{
 1,0\right\}  }=5^{0}}\\
-& \ \ \ \ \ \ \ \ \ \ \cdot\underbrace{7^{\min\left\{  v_{7}\left(  n\right)
+&  \ \ \ \ \ \ \ \ \ \ \cdot\underbrace{7^{\min\left\{  v_{7}\left(  n\right)
 ,v_{7}\left(  m\right)  \right\}  }}_{=7^{\min\left\{  8,2\right\}  }=7^{2}%
 }\cdot\prod_{\substack{p\text{ prime;}\\p\notin\left\{  2,3,5,7\right\}
 }}\underbrace{p^{\min\left\{  v_{p}\left(  n\right)  ,v_{p}\left(  m\right)
@@ -9211,20 +9210,20 @@ v_{5}\left(  n\right)  ,v_{5}\left(  m\right)  \right\}  }}_{=5^{\min\left\{
 }v_{p}\left(  m\right)  =0\\\text{and thus }\min\left\{  v_{p}\left(
 n\right)  ,v_{p}\left(  m\right)  \right\}  =\min\left\{  0,0\right\}
 =0\text{)}}}\\
-& =2^{0}\cdot3^{2}\cdot5^{0}\cdot7^{2}=3^{2}\cdot7^{2}.
+&  =2^{0}\cdot3^{2}\cdot5^{0}\cdot7^{2}=3^{2}\cdot7^{2}.
 \end{align*}
 Likewise, (\ref{eq.prop.ent.primes.gcd.lcm}) yields%
 \begin{align*}
-& \operatorname{lcm}\left(  n,m\right)  \\
-& =\prod_{p\text{ prime}}p^{\max\left\{  v_{p}\left(  n\right)  ,v_{p}\left(
+&  \operatorname{lcm}\left(  n,m\right)  \\
+&  =\prod_{p\text{ prime}}p^{\max\left\{  v_{p}\left(  n\right)  ,v_{p}\left(
 m\right)  \right\}  }\\
-& =\underbrace{2^{\max\left\{  v_{2}\left(  n\right)  ,v_{2}\left(  m\right)
+&  =\underbrace{2^{\max\left\{  v_{2}\left(  n\right)  ,v_{2}\left(  m\right)
 \right\}  }}_{=2^{\max\left\{  0,1\right\}  }=2^{1}}\cdot\underbrace{3^{\max
 \left\{  v_{3}\left(  n\right)  ,v_{3}\left(  m\right)  \right\}  }}%
 _{=3^{\max\left\{  2,3\right\}  }=3^{3}}\cdot\underbrace{5^{\max\left\{
 v_{5}\left(  n\right)  ,v_{5}\left(  m\right)  \right\}  }}_{=5^{\max\left\{
 1,0\right\}  }=5^{1}}\\
-& \ \ \ \ \ \ \ \ \ \ \cdot\underbrace{7^{\max\left\{  v_{7}\left(  n\right)
+&  \ \ \ \ \ \ \ \ \ \ \cdot\underbrace{7^{\max\left\{  v_{7}\left(  n\right)
 ,v_{7}\left(  m\right)  \right\}  }}_{=7^{\max\left\{  8,2\right\}  }=7^{8}%
 }\cdot\prod_{\substack{p\text{ prime;}\\p\notin\left\{  2,3,5,7\right\}
 }}\underbrace{p^{\max\left\{  v_{p}\left(  n\right)  ,v_{p}\left(  m\right)
@@ -9232,33 +9231,96 @@ v_{5}\left(  n\right)  ,v_{5}\left(  m\right)  \right\}  }}_{=5^{\max\left\{
 }v_{p}\left(  m\right)  =0\\\text{and thus }\max\left\{  v_{p}\left(
 n\right)  ,v_{p}\left(  m\right)  \right\}  =\max\left\{  0,0\right\}
 =0\text{)}}}\\
-& =2^{1}\cdot3^{3}\cdot5^{1}\cdot7^{8}.
+&  =2^{1}\cdot3^{3}\cdot5^{1}\cdot7^{8}.
 \end{align*}
 
 \end{example}
 
-TODO: Write from here.
+Proposition \ref{prop.ent.primes.gcd} can be generalized to the case of $k$
+integers $b_{1},b_{2},\ldots,b_{k}$ instead of two integers $n,m$:
 
-We can use Proposition \ref{prop.ent.primes.gcd} to reprove certain facts
-about lcms and gcds. For example:
+\begin{proposition}
+\label{prop.ent.primes.gcd-k}Let $b_{1},b_{2},\ldots,b_{k}$ be finitely many
+nonzero integers, with $k>0$. Then,%
+\begin{equation}
+\gcd\left(  b_{1},b_{2},\ldots,b_{k}\right)  =\prod_{p\text{ prime}}%
+p^{\min\left\{  v_{p}\left(  b_{1}\right)  ,v_{p}\left(  b_{2}\right)
+,\ldots,v_{p}\left(  b_{k}\right)  \right\}  }%
+\label{eq.prop.ent.primes.gcd-k.gcd}%
+\end{equation}
+an%
+\begin{equation}
+\operatorname{lcm}\left(  b_{1},b_{2},\ldots,b_{k}\right)  =\prod_{p\text{
+prime}}p^{\max\left\{  v_{p}\left(  b_{1}\right)  ,v_{p}\left(  b_{2}\right)
+,\ldots,v_{p}\left(  b_{k}\right)  \right\}  }%
+.\label{eq.prop.ent.primes.gcd-k.lcm}%
+\end{equation}
+
+\end{proposition}
 
 \begin{proof}
-[Second proof of Theorem \ref{thm.ent.lcm.gcd*lcm}.] We must prove that%
+[Proof of Proposition \ref{prop.ent.primes.gcd-k}.] The proof of Proposition
+\ref{prop.ent.primes.gcd-k} is analogous to the proof of Proposition
+\ref{prop.ent.primes.gcd}, with two minor exceptions:
+
+\begin{itemize}
+\item Instead of applying Lemma \ref{lem.ent.gcd.uniprop} (in the proof of
+(\ref{eq.prop.ent.primes.gcd-k.gcd})), we now have to apply the analogous
+claim for $k$ integers\footnote{Namely: Let $m\in\mathbb{Z}$ and let
+$b_{1},b_{2},\ldots,b_{k}$ be integers such that $\left(  m\mid b_{i}\text{
+for all }i\in\left\{  1,2,\ldots,k\right\}  \right)  $. Then, $m\mid
+\gcd\left(  b_{1},b_{2},\ldots,b_{k}\right)  $.}. The latter claim follows
+from Theorem \ref{thm.ent.gcd.uniprop-mul} \textbf{(a)}.
+
+\item Instead of applying Lemma \ref{lem.ent.lcm.uniprop} (in the proof of
+(\ref{eq.prop.ent.primes.gcd-k.lcm})), we now have to apply the analogous
+claim for $k$ integers\footnote{Namely: Let $m\in\mathbb{Z}$ and let
+$b_{1},b_{2},\ldots,b_{k}$ be integers such that $\left(  b_{i}\mid m\text{
+for all }i\in\left\{  1,2,\ldots,k\right\}  \right)  $. Then,
+$\operatorname{lcm}\left(  b_{1},b_{2},\ldots,b_{k}\right)  \mid m$.}. The
+latter claim follows from Theorem \ref{thm.ent.lcm.uniprop-mul} \textbf{(a)}.
+Alternatively, instead of applying this claim, we can argue as follows:
+Setting $g=\prod_{p\text{ prime}}p^{\max\left\{  v_{p}\left(  b_{1}\right)
+,v_{p}\left(  b_{2}\right)  ,\ldots,v_{p}\left(  b_{k}\right)  \right\}  }$
+and $h=\operatorname{lcm}\left(  b_{1},b_{2},\ldots,b_{k}\right)  $, we see
+that $\left(  b_{i}\mid g\text{ for all }i\in\left\{  1,2,\ldots,k\right\}
+\right)  $ (by an argument analogous to the one we used to show $\left(  g\mid
+n\text{ and }g\mid m\right)  $ in the original proof of
+(\ref{eq.prop.ent.primes.gcd.gcd})). Thus, $g$ is a common multiple of
+$b_{1},b_{2},\ldots,b_{k}$. In other words, $g\in\operatorname*{Mul}\left(
+b_{1},b_{2},\ldots,b_{k}\right)  $. Hence, $g$ is a positive element of
+$\operatorname*{Mul}\left(  b_{1},b_{2},\ldots,b_{k}\right)  $ (since $g$ is
+positive). Hence, $g\geq\operatorname{lcm}\left(  b_{1},b_{2},\ldots
+,b_{k}\right)  $ (since $\operatorname{lcm}\left(  b_{1},b_{2},\ldots
+,b_{k}\right)  $ is the \textbf{smallest} positive element of
+$\operatorname*{Mul}\left(  b_{1},b_{2},\ldots,b_{k}\right)  $). In other
+words, $g\geq h$ (since $h=\operatorname{lcm}\left(  b_{1},b_{2},\ldots
+,b_{k}\right)  $). On the other hand, we prove $g\mid h$ (similarly to how we
+proved $h\mid g$ in the original proof of (\ref{eq.prop.ent.primes.gcd.gcd})).
+Thus, Proposition \ref{prop.ent.div.1} \textbf{(b)} (applied to $g$ and $h$
+instead of $a$ and $b$) yields $\left\vert g\right\vert \leq\left\vert
+h\right\vert $ (since $h\neq0$). Since $g$ is positive, we have $\left\vert
+g\right\vert =g$ and thus $g=\left\vert g\right\vert \leq\left\vert
+h\right\vert =h$ (since $h$ is positive). Combining this with $g\geq h$, we
+obtain $g=h$. As before, this completes the proof of
+(\ref{eq.prop.ent.primes.gcd-k.lcm}).
+\end{itemize}
+\end{proof}
+
+We can use Propositions \ref{prop.ent.primes.gcd} and
+\ref{prop.ent.primes.gcd-k} to reprove certain facts about lcms and gcds. For
+example, let us prove Theorem \ref{thm.ent.lcm.gcd*lcm} and solve Exercise
+\ref{exe.ent.lcm.lcmabc}:
+
+\begin{fineprint}
+\begin{proof}
+[Second proof of Theorem \ref{thm.ent.lcm.gcd*lcm} (sketched).]WLOG assume
+that $a$ and $b$ are nonzero (since otherwise, the claim of Proposition
+\ref{prop.ent.primes.gcd} easily reduces to $0=0$). Then, $ab$ is nonzero as
+well. Hence, Corollary \ref{cor.ent.primes.can-facZ} (applied to $n=ab$)
+yields%
 \[
-\gcd\left(  a,b\right)  \cdot\operatorname{lcm}\left(  a,b\right)  =\left\vert
-ab\right\vert
-\]
-for all $a,b\in\mathbb{Z}$. WLOG assume that $a,b\neq0$. Then, the canonical
-factorization of $\left\vert a\right\vert $ is%
-\[
-\left\vert a\right\vert =\prod_{p\text{ prime}}p^{v_{p}\left(  \left\vert
-a\right\vert \right)  }=\prod_{p\text{ prime}}p^{v_{p}\left(  a\right)
-}\ \ \ \ \ \ \ \ \ \ \left(  \text{since }v_{p}\left(  \left\vert a\right\vert
-\right)  =v_{p}\left(  a\right)  \right)  .
-\]
-Similarly,%
-\[
-\left\vert b\right\vert =\prod_{p\text{ prime}}p^{v_{p}\left(  b\right)  }.
+\left\vert ab\right\vert =\prod_{p\text{ prime}}p^{v_{p}\left(  ab\right)  }.
 \]
 Now, Proposition \ref{prop.ent.primes.gcd} yields%
 \begin{align*}
@@ -9268,7 +9330,7 @@ v_{p}\left(  a\right)  ,v_{p}\left(  b\right)  \right\}  }%
 \operatorname{lcm}\left(  a,b\right)   &  =\prod_{p\text{ prime}}%
 p^{\max\left\{  v_{p}\left(  a\right)  ,v_{p}\left(  b\right)  \right\}  }.
 \end{align*}
-Multiplying these, you get%
+Multiplying these two equalities, we get%
 \begin{align*}
 &  \gcd\left(  a,b\right)  \cdot\operatorname{lcm}\left(  a,b\right)  \\
 &  =\left(  \prod_{p\text{ prime}}p^{\min\left\{  v_{p}\left(  a\right)
@@ -9281,97 +9343,151 @@ a\right)  ,v_{p}\left(  b\right)  \right\}  }\right)  }_{\substack{=p^{\min
 \left\{  v_{p}\left(  a\right)  ,v_{p}\left(  b\right)  \right\}
 +\max\left\{  v_{p}\left(  a\right)  ,v_{p}\left(  b\right)  \right\}
 }\\=p^{v_{p}\left(  a\right)  +v_{p}\left(  b\right)  }\\\text{(since }%
-\min\left\{  u,v\right\}  +\max\left\{  u,v\right\}  =u+v\text{ for any
+\min\left\{  u,v\right\}  +\max\left\{  u,v\right\}  =u+v\text{ for any reals
 }u,v\text{)}}}\\
 &  =\prod_{p\text{ prime}}\underbrace{p^{v_{p}\left(  a\right)  +v_{p}\left(
-b\right)  }}_{=p^{v_{p}\left(  a\right)  }p^{v_{p}\left(  b\right)  }}%
-=\prod_{p\text{ prime}}\left(  p^{v_{p}\left(  a\right)  }p^{v_{p}\left(
-b\right)  }\right)  \\
-&  =\underbrace{\left(  \prod_{p\text{ prime}}p^{v_{p}\left(  a\right)
-}\right)  }_{\substack{=\left\vert a\right\vert \\\text{(by canonical
-factorization)}}}\underbrace{\left(  \prod_{p\text{ prime}}p^{v_{p}\left(
-b\right)  }\right)  }_{=\left\vert b\right\vert }=\left\vert a\right\vert
-\cdot\left\vert b\right\vert =\left\vert ab\right\vert .
+b\right)  }}_{\substack{=p^{v_{p}\left(  ab\right)  }\\\text{(since }%
+v_{p}\left(  a\right)  +v_{p}\left(  b\right)  =v_{p}\left(  ab\right)
+\\\text{(by Theorem \ref{thm.ent.prime.vp-ring} \textbf{(a)}))}}%
+}=\prod_{p\text{ prime}}p^{v_{p}\left(  ab\right)  }=\left\vert ab\right\vert
+.
 \end{align*}
-
+Hence, Theorem \ref{thm.ent.lcm.gcd*lcm} is proven again.
 \end{proof}
 
 \begin{proof}
-[Second solution to Exercise \ref{exe.ent.lcm.lcmabc}.] We have%
-\begin{align*}
-&  \underbrace{\gcd\left(  a,b,c\right)  }_{=\prod\limits_{p\text{ prime}%
-}p^{\min\left\{  v_{p}\left(  a\right)  ,v_{p}\left(  b\right)  ,v_{p}\left(
-c\right)  \right\}  }}\cdot\underbrace{\operatorname{lcm}\left(
-bc,ca,ab\right)  }_{=\prod\limits_{p\text{ prime}}p^{\max\left\{  v_{p}\left(
-bc\right)  ,v_{p}\left(  ca\right)  ,v_{p}\left(  ab\right)  \right\}  }}\\
+[Second solution to Exercise \ref{exe.ent.lcm.lcmabc} (sketched).]WLOG assume
+that $a,b,c$ are nonzero (since otherwise, the claim of Exercise
+\ref{exe.ent.lcm.lcmabc} easily reduces to $0=0$). Then, $abc$ is nonzero as
+well. Hence, Corollary \ref{cor.ent.primes.can-facZ} yields%
+\[
+\left\vert abc\right\vert =\prod_{p\text{ prime}}p^{v_{p}\left(  abc\right)
+}.
+\]
+We have%
+\begin{align}
+&  \underbrace{\gcd\left(  a,b,c\right)  }_{\substack{=\prod\limits_{p\text{
+prime}}p^{\min\left\{  v_{p}\left(  a\right)  ,v_{p}\left(  b\right)
+,v_{p}\left(  c\right)  \right\}  }\\\text{(by Proposition
+\ref{prop.ent.primes.gcd-k})}}}\cdot\underbrace{\operatorname{lcm}\left(
+bc,ca,ab\right)  }_{\substack{=\prod\limits_{p\text{ prime}}p^{\max\left\{
+v_{p}\left(  bc\right)  ,v_{p}\left(  ca\right)  ,v_{p}\left(  ab\right)
+\right\}  }\\\text{(by Proposition \ref{prop.ent.primes.gcd-k})}}}\nonumber\\
 &  =\left(  \prod\limits_{p\text{ prime}}p^{\min\left\{  v_{p}\left(
 a\right)  ,v_{p}\left(  b\right)  ,v_{p}\left(  c\right)  \right\}  }\right)
 \cdot\left(  \prod\limits_{p\text{ prime}}p^{\max\left\{  v_{p}\left(
 bc\right)  ,v_{p}\left(  ca\right)  ,v_{p}\left(  ab\right)  \right\}
-}\right)  \\
+}\right)  \nonumber\\
+&  =\prod\limits_{p\text{ prime}}\underbrace{\left(  p^{\min\left\{
+v_{p}\left(  a\right)  ,v_{p}\left(  b\right)  ,v_{p}\left(  c\right)
+\right\}  }p^{\max\left\{  v_{p}\left(  bc\right)  ,v_{p}\left(  ca\right)
+,v_{p}\left(  ab\right)  \right\}  }\right)  }_{=p^{\min\left\{  v_{p}\left(
+a\right)  ,v_{p}\left(  b\right)  ,v_{p}\left(  c\right)  \right\}
++\max\left\{  v_{p}\left(  bc\right)  ,v_{p}\left(  ca\right)  ,v_{p}\left(
+ab\right)  \right\}  }}\nonumber\\
+&  =\prod\limits_{p\text{ prime}}p^{\min\left\{  v_{p}\left(  a\right)
+,v_{p}\left(  b\right)  ,v_{p}\left(  c\right)  \right\}  +\max\left\{
+v_{p}\left(  bc\right)  ,v_{p}\left(  ca\right)  ,v_{p}\left(  ab\right)
+\right\}  }.\label{sol.ent.lcm.lcmabc.2nd.2}%
+\end{align}
+
+
+Let us now fix a prime $p$, and try to simplify \newline$\min\left\{
+v_{p}\left(  a\right)  ,v_{p}\left(  b\right)  ,v_{p}\left(  c\right)
+\right\}  +\max\left\{  v_{p}\left(  bc\right)  ,v_{p}\left(  ca\right)
+,v_{p}\left(  ab\right)  \right\}  $. Indeed, set $u=v_{p}\left(  abc\right)
+$. Note that $u\in\mathbb{N}$ (since $abc$ is nonzero).
+
+Theorem \ref{thm.ent.prime.vp-ring} \textbf{(a)} (applied to $ca$ and $b$
+instead of $a$ and $b$) yields $v_{p}\left(  cab\right)  =v_{p}\left(
+ca\right)  +v_{p}\left(  b\right)  $. Comparing this with $v_{p}\left(
+\underbrace{cab}_{=abc}\right)  =v_{p}\left(  abc\right)  =u$, we obtain
+$u=v_{p}\left(  ca\right)  +v_{p}\left(  b\right)  $. Subtracting
+$v_{p}\left(  b\right)  $ from this equality\footnote{This is allowed, since
+$v_{p}\left(  b\right)  \in\mathbb{N}$ (because $b$ is nonzero).}, we obtain
+$u-v_{p}\left(  b\right)  =v_{p}\left(  ca\right)  $. Thus, $v_{p}\left(
+ca\right)  =u-v_{p}\left(  b\right)  $. Similarly, $v_{p}\left(  ab\right)
+=u-v_{p}\left(  c\right)  $ and $v_{p}\left(  bc\right)  =u-v_{p}\left(
+a\right)  $. Now,%
+\begin{align}
+& \min\left\{  v_{p}\left(  a\right)  ,v_{p}\left(  b\right)  ,v_{p}\left(
+c\right)  \right\}  +\max\left\{  \underbrace{v_{p}\left(  bc\right)
+}_{=u-v_{p}\left(  a\right)  },\underbrace{v_{p}\left(  ca\right)  }%
+_{=u-v_{p}\left(  b\right)  },\underbrace{v_{p}\left(  ab\right)  }%
+_{=u-v_{p}\left(  c\right)  }\right\}  \nonumber\\
+& =\min\left\{  v_{p}\left(  a\right)  ,v_{p}\left(  b\right)  ,v_{p}\left(
+c\right)  \right\}  +\underbrace{\max\left\{  u-v_{p}\left(  a\right)
+,u-v_{p}\left(  b\right)  ,u-v_{p}\left(  c\right)  \right\}  }%
+_{\substack{=u-\min\left\{  v_{p}\left(  a\right)  ,v_{p}\left(  b\right)
+,v_{p}\left(  c\right)  \right\}  \\\text{(since any three reals
+}x,y,z\\\text{satisfy }\max\left\{  u-x,u-y,u-z\right\}  =u-\min\left\{
+x,y,z\right\}  \text{)}}}\nonumber\\
+& =\min\left\{  v_{p}\left(  a\right)  ,v_{p}\left(  b\right)  ,v_{p}\left(
+c\right)  \right\}  +\left(  u-\min\left\{  v_{p}\left(  a\right)
+,v_{p}\left(  b\right)  ,v_{p}\left(  c\right)  \right\}  \right)
+\nonumber\\
+& =u=v_{p}\left(  abc\right)  .\label{sol.ent.lcm.lcmabc.2nd.4}%
+\end{align}
+
+
+Now, forget that we fixed $p$. We thus have proven
+(\ref{sol.ent.lcm.lcmabc.2nd.4}) for each prime $p$. Thus,
+(\ref{sol.ent.lcm.lcmabc.2nd.2}) becomes%
+\begin{align*}
+&  \gcd\left(  a,b,c\right)  \cdot\operatorname{lcm}\left(  bc,ca,ab\right)
+\\
 &  =\prod\limits_{p\text{ prime}}\underbrace{p^{\min\left\{  v_{p}\left(
 a\right)  ,v_{p}\left(  b\right)  ,v_{p}\left(  c\right)  \right\}
 +\max\left\{  v_{p}\left(  bc\right)  ,v_{p}\left(  ca\right)  ,v_{p}\left(
-ab\right)  \right\}  }}_{\substack{=p^{v_{p}\left(  a\right)  +v_{p}\left(
-b\right)  +v_{p}\left(  c\right)  }\\\text{(this is because }v_{p}\left(
-bc\right)  =v_{p}\left(  abc\right)  -v_{p}\left(  a\right)  \text{ and
-likewise for the other two,}\\\text{so }\max\left\{  v_{p}\left(  bc\right)
-,v_{p}\left(  ca\right)  ,v_{p}\left(  ab\right)  \right\}  \\=\max\left\{
-v_{p}\left(  abc\right)  -v_{p}\left(  a\right)  ,v_{p}\left(  abc\right)
--v_{p}\left(  b\right)  ,v_{p}\left(  abc\right)  -v_{p}\left(  c\right)
-\right\}  \\=v_{p}\left(  abc\right)  -\min\left\{  v_{p}\left(  a\right)
-,v_{p}\left(  b\right)  ,v_{p}\left(  c\right)  \right\}  \text{,}\\\text{so
-}\min\left\{  v_{p}\left(  a\right)  ,v_{p}\left(  b\right)  ,v_{p}\left(
-c\right)  \right\}  +\max\left\{  v_{p}\left(  bc\right)  ,v_{p}\left(
-ca\right)  ,v_{p}\left(  ab\right)  \right\}  \\=v_{p}\left(  abc\right)
-=v_{p}\left(  a\right)  +v_{p}\left(  b\right)  +v_{p}\left(  c\right)
-\text{)}}}\\
-&  =\prod\limits_{p\text{ prime}}p^{v_{p}\left(  a\right)  +v_{p}\left(
-b\right)  +v_{p}\left(  c\right)  }=\underbrace{\left(  \prod\limits_{p\text{
-prime}}p^{v_{p}\left(  a\right)  }\right)  }_{=\left\vert a\right\vert
-}\underbrace{\left(  \prod\limits_{p\text{ prime}}p^{v_{p}\left(  b\right)
-}\right)  }_{=\left\vert b\right\vert }\underbrace{\left(  \prod
-\limits_{p\text{ prime}}p^{v_{p}\left(  c\right)  }\right)  }_{=\left\vert
-c\right\vert }\\
-&  =\left\vert a\right\vert \cdot\left\vert b\right\vert \cdot\left\vert
-c\right\vert =\left\vert abc\right\vert .
+ab\right)  \right\}  }}_{\substack{=p^{v_{p}\left(  abc\right)  }\\\text{(by
+(\ref{sol.ent.lcm.lcmabc.2nd.4}))}}}=\prod_{p\text{ prime}}p^{v_{p}\left(
+abc\right)  }=\left\vert abc\right\vert .
 \end{align*}
-This solves Exercise \ref{exe.ent.lcm.lcmabc} \textbf{(a)} again.
-
-Similarly we can re-solve Exercise \ref{exe.ent.lcm.lcmabc} \textbf{(b)}.
+This solves Exercise \ref{exe.ent.lcm.lcmabc} \textbf{(a)} again. Similarly we
+can re-solve Exercise \ref{exe.ent.lcm.lcmabc} \textbf{(b)}.
 \end{proof}
 
 \begin{remark}
-Similarly, we can show that
+Similarly, we could show that any four integers $a,b,c,d$ satisfy
 \begin{align*}
 \gcd\left(  a,b,c,d\right)  \cdot\operatorname{lcm}\left(
-bcd,cda,dab,abc\right)   &  =\left\vert abcd\right\vert ;\\
-\operatorname{lcm}\left(  a,b,c,d\right)  \cdot\gcd\left(
 bcd,cda,dab,abc\right)   &  =\left\vert abcd\right\vert
+\ \ \ \ \ \ \ \ \ \ \text{and}\\
+\operatorname{lcm}\left(  a,b,c,d\right)  \cdot\gcd\left(
+bcd,cda,dab,abc\right)   &  =\left\vert abcd\right\vert .
 \end{align*}
-for any four integers $a,b,c,d$. Indeed, the last equality holds since%
+Indeed, the last equality holds since each prime $p$ satisfies%
 \begin{align*}
 &  \min\left\{  v_{p}\left(  a\right)  ,v_{p}\left(  b\right)  ,v_{p}\left(
 c\right)  ,v_{p}\left(  d\right)  \right\}  \\
-&  +\max\left\{  \underbrace{v_{p}\left(  bcd\right)  }_{=v_{p}\left(
-abcd\right)  -v_{p}\left(  a\right)  },\underbrace{v_{p}\left(  cda\right)
-,v_{p}\left(  dab\right)  ,v_{p}\left(  abc\right)  }_{\text{similarly}%
-}\right\}  \\
+&  \ \ \ \ \ \ \ \ \ \ +\max\left\{  \underbrace{v_{p}\left(  bcd\right)
+}_{=v_{p}\left(  abcd\right)  -v_{p}\left(  a\right)  },\underbrace{v_{p}%
+\left(  cda\right)  }_{=v_{p}\left(  abcd\right)  -v_{p}\left(  b\right)
+},\underbrace{v_{p}\left(  dab\right)  }_{=v_{p}\left(  abcd\right)
+-v_{p}\left(  c\right)  },\underbrace{v_{p}\left(  abc\right)  }%
+_{=v_{p}\left(  abcd\right)  -v_{p}\left(  d\right)  }\right\}  \\
 &  =\min\left\{  v_{p}\left(  a\right)  ,v_{p}\left(  b\right)  ,v_{p}\left(
 c\right)  ,v_{p}\left(  d\right)  \right\}  \\
-&  +\underbrace{\max\left\{  v_{p}\left(  abcd\right)  -v_{p}\left(  a\right)
-,v_{p}\left(  abcd\right)  -v_{p}\left(  b\right)  ,v_{p}\left(  abcd\right)
--v_{p}\left(  c\right)  ,v_{p}\left(  abcd\right)  -v_{p}\left(  d\right)
-\right\}  }_{=v_{p}\left(  abcd\right)  -\min\left\{  v_{p}\left(  a\right)
-,v_{p}\left(  b\right)  ,v_{p}\left(  c\right)  ,v_{p}\left(  d\right)
-\right\}  }\\
-&  =v_{p}\left(  abcd\right)  .
+&  \ \ \ \ \ \ \ \ \ \ +\underbrace{\max\left\{  v_{p}\left(  abcd\right)
+-v_{p}\left(  a\right)  ,v_{p}\left(  abcd\right)  -v_{p}\left(  b\right)
+,v_{p}\left(  abcd\right)  -v_{p}\left(  c\right)  ,v_{p}\left(  abcd\right)
+-v_{p}\left(  d\right)  \right\}  }_{=v_{p}\left(  abcd\right)  -\min\left\{
+v_{p}\left(  a\right)  ,v_{p}\left(  b\right)  ,v_{p}\left(  c\right)
+,v_{p}\left(  d\right)  \right\}  }\\
+&  =\min\left\{  v_{p}\left(  a\right)  ,v_{p}\left(  b\right)  ,v_{p}\left(
+c\right)  ,v_{p}\left(  d\right)  \right\}  +\left(  v_{p}\left(  abcd\right)
+-\min\left\{  v_{p}\left(  a\right)  ,v_{p}\left(  b\right)  ,v_{p}\left(
+c\right)  ,v_{p}\left(  d\right)  \right\}  \right)  \\
+&  =v_{p}\left(  abcd\right)
 \end{align*}
-Similarly the first equality holds. You can likewise prove generalizations to
-$k$ integers.
+(assuming that $a,b,c,d$ are nonzero). Similarly, the first equality holds.
+You can likewise prove generalizations to $k$ integers.
 \end{remark}
+\end{fineprint}
 
 \subsubsection{Coprimality through prime factors}
+
+TODO: Write from here.
 
 \begin{proposition}
 \label{prop.ent.coprime.via-primes}Let $n$ and $m$ be two integers. Then,
@@ -9380,7 +9496,7 @@ $m$.
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.ent.coprime.via-primes}.] $\Longrightarrow:$
+[Proof of Proposition \ref{prop.ent.coprime.via-primes}.]$\Longrightarrow:$
 Assume that $n\perp m$. Thus, $\gcd\left(  n,m\right)  =1$. Now, if a prime
 $p$ would divide both $n$ and $m$, then it would also divide $\gcd\left(
 n,m\right)  =1$; but a prime $p$ cannot divide $1$. So there exists no prime
@@ -9406,17 +9522,17 @@ Let $n$ and $m$ be two nonzero integers. Then, $n\perp m$ if and only if
 We have the following equivalence:%
 \begin{align*}
 &  \left(  \sum_{p\text{ prime}}v_{p}\left(  n\right)  v_{p}\left(  m\right)
-=0\right)  \\
+=0\right) \\
 &  \Longleftrightarrow\ \left(  v_{p}\left(  n\right)  v_{p}\left(  m\right)
-=0\text{ for all primes }p\right)  \\
+=0\text{ for all primes }p\right) \\
 &  \ \ \ \ \ \ \ \ \ \ \left(  \text{since }v_{p}\left(  n\right)
-v_{p}\left(  m\right)  \geq0\text{ for all }p\right)  \\
+v_{p}\left(  m\right)  \geq0\text{ for all }p\right) \\
 &  \Longleftrightarrow\ \left(  \left(  v_{p}\left(  n\right)  =0\text{ or
-}v_{p}\left(  m\right)  =0\right)  \text{ for all primes }p\right)  \\
+}v_{p}\left(  m\right)  =0\right)  \text{ for all primes }p\right) \\
 &  \Longleftrightarrow\ \left(  \left(  p\nmid n\text{ or }p\nmid m\right)
-\text{ for all primes }p\right)  \\
+\text{ for all primes }p\right) \\
 &  \Longleftrightarrow\ \left(  \text{there exists no prime }p\text{ dividing
-both }n\text{ and }m\right)  \\
+both }n\text{ and }m\right) \\
 &  \Longleftrightarrow\ \left(  n\perp m\right)  \ \ \ \ \ \ \ \ \ \ \left(
 \text{by the previous proposition}\right)  .
 \end{align*}
@@ -9702,7 +9818,7 @@ if and only if $n$ is a perfect square.
 \begin{align*}
 \left\{  \text{positive divisors of }n\right\}   &  \rightarrow\left\{
 \text{positive divisors of }n\right\}  ,\\
-d &  \mapsto n/d
+d  &  \mapsto n/d
 \end{align*}
 is a bijection. This groups the positive divisors $d$ of $n$ into pairs,
 except for those that satisfy $d=n/d$. When $n$ is not a perfect square, there
@@ -9793,7 +9909,7 @@ remainder of $n$ upon division by $10$). So we need to work modulo $10$.
 Since $3$ is coprime to $10$, we can apply Theorem \ref{thm.ent.euler} to
 $n=10$ and $a=3$. We thus get $3^{\phi\left(  10\right)  }\equiv
 1\operatorname{mod}10$. Since $\phi\left(  10\right)  =4$, this rewrites as
-$3^{4}\equiv1\operatorname{mod}10$. Now,%
+$3^{4}\equiv1\operatorname{mod}10$. Now, $4^{5}=4\cdot4^{4}$, so that%
 \[
 3^{4^{5}}=3^{4\cdot4^{4}}=\left(  \underbrace{3^{4}}_{\equiv
 1\operatorname{mod}10}\right)  ^{4^{4}}\equiv1^{4^{4}}=1\operatorname{mod}10.
@@ -10095,8 +10211,6 @@ counting bitstrings.
 \end{itemize}
 
 \subsection{Application: The RSA cryptosystem}
-
-
 
 \begin{thebibliography}{999999999}                                                                                        %
 
