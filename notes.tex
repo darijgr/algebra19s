@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, February 18, 2019 20:23:40}
+%TCIDATA{LastRevised=Monday, February 18, 2019 23:50:16}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -9706,6 +9706,8 @@ are known}.
 
 \subsection{Euler's totient function ($\phi$-function)}
 
+\subsubsection{Definition and some formulas}
+
 Recall that $\mathbb{P}$ stands for the set of all positive integers.
 
 \begin{definition}
@@ -9748,17 +9750,15 @@ The $\phi$-function $\phi$ is denoted by $\varphi$ by some authors.
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.ent.phi.p}.]Sketch: The definition of $\phi$
-shows that \newline$\phi\left(  p\right)  =\left\vert \left\{  i\in\left\{
-1,2,\ldots,p\right\}  \ \mid\ i\perp p\right\}  \right\vert $. In other words,
-$\phi\left(  p\right)  $ is the number of all $i\in\left\{  1,2,\ldots
-,p\right\}  $ that are coprime to $p$. But we know exactly what these $i$ are:
-They are just the first $p-1$ positive integers $1,2,\ldots,p-1$. (In fact,
-Proposition \ref{prop.ent.primes.each-i-coprime} shows that each of the
-integers $1,2,\ldots,p-1$ is coprime to $p$, whereas $\gcd\left(  p,p\right)
-=p>1$ shows that $p$ is \textbf{not} coprime to $p$.) Thus, $\phi\left(
-p\right)  $ is the number of these $p-1$ integers; in other words,
-$\phi\left(  p\right)  =p-1$.
+[Proof of Proposition \ref{prop.ent.phi.p}.]Here is the idea: The definition
+of $\phi$ shows that $\phi\left(  p\right)  $ is the number of all
+$i\in\left\{  1,2,\ldots,p\right\}  $ that are coprime to $p$. But we know
+exactly what these $i$ are: They are just the first $p-1$ positive integers
+$1,2,\ldots,p-1$. (In fact, Proposition \ref{prop.ent.primes.each-i-coprime}
+shows that each of the integers $1,2,\ldots,p-1$ is coprime to $p$, whereas
+$\gcd\left(  p,p\right)  =p>1$ shows that $p$ is \textbf{not} coprime to $p$.)
+Thus, $\phi\left(  p\right)  $ is the number of these $p-1$ integers; in other
+words, $\phi\left(  p\right)  =p-1$.
 
 \begin{fineprint}
 For one last time, here is the proof in detail:
@@ -9817,7 +9817,7 @@ obtain%
 \left\{  i\in\left\{  1,2,\ldots,p\right\}  \ \mid\ i\perp p\right\}
 =\left\{  1,2,\ldots,p-1\right\}  .
 \]
-Now, the definition of $\phi$ yields%
+Now, (\ref{eq.def.ent.phi.phi.1}) (applied to $n=p$) yields%
 \[
 \phi\left(  p\right)  =\left\vert \underbrace{\left\{  i\in\left\{
 1,2,\ldots,p\right\}  \ \mid\ i\perp p\right\}  }_{=\left\{  1,2,\ldots
@@ -9838,8 +9838,6 @@ that $\phi\left(  p^{k}\right)  =\left(  p-1\right)  p^{k-1}$.
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.phi.pk}.]TODO (HW3).
 \end{proof}
-
-TODO: Write from here.
 
 \begin{theorem}
 \label{thm.ent.phi.mult}Let $m$ and $n$ be two coprime integers. Then,
@@ -9862,6 +9860,8 @@ We shall leave Theorem \ref{thm.ent.phi.explicit} unproven at this point: its
 simplest proof relies on some abstract algebraic concepts (rings and their
 direct products) that will be introduced later.
 
+\subsubsection{The totient sum theorem}
+
 \begin{theorem}
 \label{thm.ent.phi.sum-div}Let $n$ be a positive integer. Then,%
 \[
@@ -9879,76 +9879,12 @@ For example, for $n=12$, Theorem \ref{thm.ent.phi.sum-div} states that%
 \]
 
 
-\begin{proof}
-[Proof of Theorem \ref{thm.ent.phi.sum-div}.]We have%
-\begin{align*}
-n  &  =\left(  \text{the number of }i\in\left\{  1,2,\ldots,n\right\}  \right)
-\\
-&  =\sum_{d\mid n}\left(  \text{the number of }i\in\left\{  1,2,\ldots
-,n\right\}  \text{ such that }\gcd\left(  i,n\right)  =d\right)
-\end{align*}
-(because if $i\in\left\{  1,2,\ldots,n\right\}  $, then $\gcd\left(
-i,n\right)  $ is a positive divisor of $n$). Now, we claim the following:
-
-\begin{statement}
-\textit{Claim:} For each positive divisor $d$ of $n$, we have%
-\[
-\left(  \text{the number of }i\in\left\{  1,2,\ldots,n\right\}  \text{ such
-that }\gcd\left(  i,n\right)  =d\right)  =\phi\left(  n/d\right)  .
-\]
-
-\end{statement}
-
-[\textit{Proof of Claim:} Recall that $\gcd\left(  sa,sb\right)  =\left\vert
-s\right\vert \gcd\left(  a,b\right)  $ for all $a,b,s\in\mathbb{Z}$. We shall
-use this twice below.
-
-Let $d$ be a positive divisor of $n$. Then, there is a map%
-\begin{align*}
-&  \left\{  i\in\left\{  1,2,\ldots,n\right\}  \ \mid\ \gcd\left(  i,n\right)
-=d\right\} \\
-&  \rightarrow\left\{  j\in\left\{  1,2,\ldots,n/d\right\}  \ \mid\ j\perp
-n/d\right\}
-\end{align*}
-given by $i\mapsto i/d$ (since $\gcd\left(  i,n\right)  =d$ implies that
-$i/d\in\mathbb{Z}$ and $\gcd\left(  i/d,n/d\right)  =\underbrace{\gcd\left(
-i,n\right)  }_{=d}/d=d/d=1$, so that $i/d\perp n/d$). This map is invertible
-(in fact, its inverse sends each $j$ to $jd$), thus is a bijection. Hence,%
-\begin{align*}
-&  \left\vert \left\{  i\in\left\{  1,2,\ldots,n\right\}  \ \mid\ \gcd\left(
-i,n\right)  =d\right\}  \right\vert \\
-&  =\left\vert \left\{  j\in\left\{  1,2,\ldots,n/d\right\}  \ \mid\ j\perp
-n/d\right\}  \right\vert \\
-&  =\left\vert \left\{  i\in\left\{  1,2,\ldots,n/d\right\}  \ \mid\ i\perp
-n/d\right\}  \right\vert \\
-&  =\phi\left(  n/d\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the
-definition of }\phi\right)  .
-\end{align*}
-This is precisely the Claim.]
-
-Now,%
-\begin{align*}
-n  &  =\sum_{d\mid n}\underbrace{\left(  \text{the number of }i\in\left\{
-1,2,\ldots,n\right\}  \text{ such that }\gcd\left(  i,n\right)  =d\right)
-}_{\substack{=\phi\left(  n/d\right)  \\\text{(by the Claim)}}}\\
-&  =\sum_{d\mid n}\phi\left(  n/d\right)  =\sum_{d\mid n}\phi\left(  d\right)
-\end{align*}
-(here, we have substituted $d$ for $n/d$ in the sum, since the map%
-\begin{align*}
-\left\{  \text{positive divisors of }n\right\}   &  \rightarrow\left\{
-\text{positive divisors of }n\right\}  ,\\
-d  &  \mapsto n/d
-\end{align*}
-is a bijection).
-\end{proof}
-
-\begin{center}
-\textbf{2019-02-15 lecture}
-\end{center}
+Before we prove Theorem \ref{thm.ent.phi.sum-div}, let us motivate an argument
+via a classical puzzle:
 
 \begin{exercise}
-You have a corridor with $1000$ lamps, initially all off. Each lamp has a
-lightswitch controlling its state.
+\label{exe.ent.phi.ghosts}You have a corridor with $1000$ lamps, which are
+initially all off. Each lamp has a lightswitch controlling its state.
 
 Every night, a ghost glides through the corridor (always in the same
 direction) and flips some of the switches:
@@ -9964,38 +9900,378 @@ etc.
 (That is: For each $k\in\left\{  1,2,\ldots,1000\right\}  $, the ghost spends
 the $k$-th night flipping switches $k,2k,3k,\ldots$.)
 
-Which lamp will be on after $1000$ nights?
+Which lamps will be on after $1000$ nights?
 \end{exercise}
 
-\begin{proof}
-[Solution.]We are asking which of the numbers $1,2,\ldots,1000$ have an odd
-number of positive divisors. (Indeed, after $1000$ night, for each
-$n\in\left\{  1,2,\ldots,1000\right\}  $, the $n$-th switch will have been
+In more rigorous terms, Exercise \ref{exe.ent.phi.ghosts} is simply asking
+which of the numbers $1,2,\ldots,1000$ have an odd number of positive
+divisors. (Indeed, the situation after $1000$ nights looks as follows: For
+each $n\in\left\{  1,2,\ldots,1000\right\}  $, the $n$-th switch has been
 flipped exactly once for each positive divisor of $n$; thus, the $n$-th lamp
-will be on if and only if $n$ has an odd number of positive divisors.)
+is on if and only if $n$ has an odd number of positive divisors.)
 
-\begin{statement}
-\textit{Claim:} A positive integer $n$ has an odd number of positive divisors
-if and only if $n$ is a perfect square.
-\end{statement}
+Experiments reveal that among the first $10$ positive integers, only three
+have an odd number of positive divisors: namely, $1$, $4$ and $9$. (For
+example, $9$ has the $3$ positive divisors $1$, $3$ and $9$.) This suggests
+the following:
 
-[\textit{Proof of claim:} Fix a positive integer $n$. Recall that the map%
+\begin{proposition}
+\label{prop.ent.phi.ghosts}A positive integer $n$ has an odd number of
+positive divisors if and only if $n$ is a perfect square.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.ent.phi.ghosts}.]Fix a positive integer $n$.
+If $d$ is a positive divisor of $n$, then $n/d$ is a positive divisor of $n$
+as well\footnote{\textit{Proof.} Let $d$ be a positive divisor of $n$. Thus,
+$d$ is a positive integer satisfying $d\mid n$. But Proposition
+\ref{prop.ent.div.1} \textbf{(c)} (applied to $a=d$ and $b=n$) yields that
+$d\mid n$ if and only if $\dfrac{n}{d}\in\mathbb{Z}$ (since $d\neq0$). Hence,
+$\dfrac{n}{d}\in\mathbb{Z}$ (since $d\mid n$). In other words, $n/d\in
+\mathbb{Z}$. Moreover, $n/d$ is positive (since $n$ and $d$ are positive).
+\par
+So $n/d$ is a positive integer (since $n/d\in\mathbb{Z}$) and is a divisor of
+$n$ (since $n=\left(  n/d\right)  \cdot d$). Hence, $n/d$ is a positive
+divisor of $n$. Qed.}. This allows us to define a map%
+\begin{align*}
+F:\left\{  \text{positive divisors of }n\right\}   &  \rightarrow\left\{
+\text{positive divisors of }n\right\}  ,\\
+d  &  \mapsto n/d.
+\end{align*}
+This map $F$ has the property that $F\circ F=\operatorname*{id}$, because each
+$d\in\left\{  \text{positive divisors of }n\right\}  $ satisfies%
+\begin{align*}
+\left(  F\circ F\right)  \left(  d\right)   &  =F\left(  \underbrace{F\left(
+d\right)  }_{\substack{=n/d\\\text{(by the definition of }F\text{)}}}\right)
+=F\left(  n/d\right) \\
+&  =n/\left(  n/d\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition
+of }F\right) \\
+&  =d=\operatorname*{id}\left(  d\right)  .
+\end{align*}
+Hence, the map $F$ is inverse to itself. Thus, the map $F$ is invertible,
+i.e., is a bijection.
+
+For the rest of this proof, the word \textquotedblleft
+divisor\textquotedblright\ shall mean \textquotedblleft positive divisor of
+$n$\textquotedblright. Thus, $F$ is a map from $\left\{  \text{divisors}%
+\right\}  $ to $\left\{  \text{divisors}\right\}  $.
+
+The rough idea from here on is the following:\footnote{We shall give a more
+rigorous proof shortly.} The map $F$ \textquotedblleft pairs
+up\textquotedblright\ each divisor $d$ with the divisor $F\left(  d\right)
+=n/d$. Thus, the divisors are \textquotedblleft grouped into
+pairs\textquotedblright, except for those that satisfy $d=n/d$ (because these
+would have to be paired up with themselves). When $n$ is not a perfect square,
+there are no such \textquotedblleft exceptional\textquotedblright\ divisors,
+since $d=n/d$ means $n=d^{2}$. When $n$ is a perfect square, there is exactly
+one such \textquotedblleft exceptional\textquotedblright\ divisor, namely
+$\sqrt{n}$. So the number of divisors is even if $n$ is not a perfect square,
+and odd otherwise (because clearly, all the pairs have no effect on the parity
+of the total number of divisors, and thus can be forgotten). In other words,
+$n$ has an odd number of positive divisors if and only if $n$ is a perfect square.
+
+\begin{fineprint}
+There are several ways to make this argument rigorous; here is the easiest
+(though perhaps the least instructive one): A divisor $d$ shall be called
+
+\begin{itemize}
+\item \textit{small} if $d<n/d$;
+
+\item \textit{medium} if $d=n/d$;
+
+\item \textit{large} if $d>n/d$.
+\end{itemize}
+
+It is easy to see that if $d$ is a small divisor, then $F\left(  d\right)  $
+is a large divisor\footnote{\textit{Proof.} Let $d$ be a small divisor. Thus,
+$d<n/d$. Hence, $n/d>d=n/\left(  n/d\right)  $. In view of $F\left(  d\right)
+=n/d$, this rewrites as $F\left(  d\right)  >n/\left(  F\left(  d\right)
+\right)  $. In other words, $F\left(  d\right)  $ is a large divisor (by the
+definition of \textquotedblleft large divisor\textquotedblright). Qed.}.
+Hence, the map%
+\begin{align*}
+F^{+}:\left\{  \text{small divisors}\right\}   &  \rightarrow\left\{
+\text{large divisors}\right\}  ,\\
+d  &  \mapsto F\left(  d\right)
+\end{align*}
+is well-defined. Similarly, the map%
+\begin{align*}
+F^{-}:\left\{  \text{large divisors}\right\}   &  \rightarrow\left\{
+\text{small divisors}\right\}  ,\\
+d  &  \mapsto F\left(  d\right)
+\end{align*}
+is well-defined. These two maps $F^{+}$ and $F^{-}$ are both restrictions of
+the map $F$, and thus are mutually inverse (since the map $F$ is inverse to
+itself). Hence, the map $F^{+}$ is invertible, i.e., is a bijection. Thus, we
+have found a bijection from $\left\{  \text{small divisors}\right\}  $ to
+$\left\{  \text{large divisors}\right\}  $ (namely, $F^{+}$). Therefore,%
+\begin{equation}
+\left\vert \left\{  \text{small divisors}\right\}  \right\vert =\left\vert
+\left\{  \text{large divisors}\right\}  \right\vert .
+\label{pf.prop.ent.phi.ghosts.s=l}%
+\end{equation}
+
+
+On the other hand, let us take a look at medium divisors. If $d$ is a medium
+divisor, then $d=n/d$ (by the definition of \textquotedblleft
+medium\textquotedblright), so that $d^{2}=n$ and thus $n$ must be a perfect
+square. Thus, if $n$ is \textbf{not} a perfect square, then there are no
+medium divisors. In other words, if $n$ is \textbf{not} a perfect square, then%
+\begin{equation}
+\left\vert \left\{  \text{medium divisors}\right\}  \right\vert =0.
+\label{pf.prop.ent.phi.ghosts.m0}%
+\end{equation}
+
+
+But if $n$ \textbf{is} a perfect square, then $n$ has exactly one medium
+divisor\footnote{\textit{Proof.} Assume that $n$ is a perfect square. Thus,
+$n=w^{2}$ for some $w\in\mathbb{Z}$. Consider this $w$. Clearly, $w\neq0$
+(since $ww=w^{2}=n\neq0$), so that $\left\vert w\right\vert >0$.
+\par
+Let $u=\left\vert w\right\vert $. Thus, $u\in\mathbb{Z}$ (since $w\in
+\mathbb{Z}$). Hence, $u$ is a positive integer (since $u=\left\vert
+w\right\vert >0$). Moreover, from $u=\left\vert w\right\vert $, we obtain
+$u^{2}=\left\vert w\right\vert ^{2}=w^{2}=n$. Hence, $u=n/u$.
+\par
+This positive integer $u$ satisfies $uu=u^{2}=n$ and thus $u\mid n$. Hence,
+$u$ is a positive divisor of $n$ (that is, a divisor, as we call it). This
+divisor $u$ is medium, since it satisfies $u=n/u$.
+\par
+Moreover, if $d$ is any medium divisor, then $d=n/d$ (by the definition of
+\textquotedblleft medium\textquotedblright), thus $d^{2}=n=u^{2}$, thus
+$\sqrt{d^{2}}=\sqrt{u^{2}}=\left\vert u\right\vert =u$ (since $u$ is
+positive), thus $u=\sqrt{d^{2}}=\left\vert d\right\vert =d$ (since $d$ is
+positive) and therefore $d=u$. In other words, any medium divisor must equal
+$u$. This shows that $u$ is the \textbf{only} medium divisor (since we already
+know that $u$ is a medium divisor). Hence, $n$ has exactly one medium
+divisor.}. In other words, if $n$ \textbf{is} a perfect square, then%
+\begin{equation}
+\left\vert \left\{  \text{medium divisors}\right\}  \right\vert =1.
+\label{pf.prop.ent.phi.ghosts.m1}%
+\end{equation}
+
+
+But each divisor is either small or medium or large, and there are no overlaps
+between these three classes (i.e., a divisor cannot be small and medium at the
+same time, or small and large, or medium and large). Thus, in order to count
+the number of all divisors, we can add the number of small divisors, the
+number of medium divisors and the number of large divisors. In other words:%
+\begin{align*}
+\left\vert \left\{  \text{divisors}\right\}  \right\vert  &
+=\underbrace{\left\vert \left\{  \text{small divisors}\right\}  \right\vert
+}_{\substack{=\left\vert \left\{  \text{large divisors}\right\}  \right\vert
+\\\text{(by (\ref{pf.prop.ent.phi.ghosts.s=l}))}}}+\left\vert \left\{
+\text{medium divisors}\right\}  \right\vert +\left\vert \left\{  \text{large
+divisors}\right\}  \right\vert \\
+&  =\left\vert \left\{  \text{large divisors}\right\}  \right\vert +\left\vert
+\left\{  \text{medium divisors}\right\}  \right\vert +\left\vert \left\{
+\text{large divisors}\right\}  \right\vert \\
+&  =\underbrace{2\cdot\left\vert \left\{  \text{large divisors}\right\}
+\right\vert }_{\equiv0\operatorname{mod}2}+\left\vert \left\{  \text{medium
+divisors}\right\}  \right\vert \\
+&  \equiv\left\vert \left\{  \text{medium divisors}\right\}  \right\vert
+\operatorname{mod}2.
+\end{align*}
+
+
+Hence, if $n$ is \textbf{not} a perfect square, then%
+\[
+\left\vert \left\{  \text{divisors}\right\}  \right\vert \equiv\left\vert
+\left\{  \text{medium divisors}\right\}  \right\vert =0\operatorname{mod}2
+\]
+(by (\ref{pf.prop.ent.phi.ghosts.m0})). In other words, if $n$ is \textbf{not}
+a perfect square, then the number of divisors is even.
+
+On the other hand, if $n$ \textbf{is} a perfect square, then%
+\[
+\left\vert \left\{  \text{divisors}\right\}  \right\vert \equiv\left\vert
+\left\{  \text{medium divisors}\right\}  \right\vert =1\operatorname{mod}2
+\]
+(by (\ref{pf.prop.ent.phi.ghosts.m1})). In other words, if $n$ \textbf{is} a
+perfect square, then the number of divisors is odd.
+
+Combining the results of the previous paragraphs, we conclude that the number
+of divisors is odd if $n$ is a perfect square, and is even otherwise. In other
+words, $n$ has an odd number of positive divisors if and only if $n$ is a
+perfect square. This proves Proposition \ref{prop.ent.phi.ghosts}.
+\end{fineprint}
+\end{proof}
+
+Having proven Proposition \ref{prop.ent.phi.ghosts}, we now can answer
+Exercise \ref{exe.ent.phi.ghosts}: The $31$ lamps $1^{2},2^{2},\ldots,31^{2}$
+(and no others) will be on after the $1000$ nights. (Indeed, these $31$ lamps
+correspond to the $31$ perfect squares in the set $\left\{  1,2,\ldots
+,31\right\}  $.)
+
+The bijection $F$ from the proof of Proposition \ref{prop.ent.phi.ghosts} will
+serve us well in our proof of Theorem \ref{thm.ent.phi.sum-div}. Beside that,
+we need the following lemma:
+
+\begin{lemma}
+\label{lem.ent.phi.sum-div.n/d}Let $n$ be a positive integer. Let $d$ be a
+positive divisor of $n$. Then,%
+\[
+\left(  \text{the number of }i\in\left\{  1,2,\ldots,n\right\}  \text{ such
+that }\gcd\left(  i,n\right)  =d\right)  =\phi\left(  n/d\right)  .
+\]
+
+\end{lemma}
+
+\begin{proof}
+[Proof of Lemma \ref{lem.ent.phi.sum-div.n/d}.]We have $d\mid n$ (since $d$ is
+a divisor of $n$) and $d\neq0$ (since $d$ is positive). Thus, Proposition
+\ref{prop.ent.div.1} \textbf{(c)} (applied to $d$ and $n$ instead of $a$ and
+$b$) yields that $d\mid n$ if and only if $\dfrac{n}{d}\in\mathbb{Z}$. Thus,
+$\dfrac{n}{d}\in\mathbb{Z}$ (since $d\mid n$). In other words, $n/d\in
+\mathbb{Z}$.
+
+Define two sets $I$ and $J$ by%
+\begin{equation}
+I=\left\{  i\in\left\{  1,2,\ldots,n\right\}  \ \mid\ \gcd\left(  i,n\right)
+=d\right\}  \label{pf.lem.ent.phi.sum-div.n/d.I=}%
+\end{equation}
+and%
+\begin{equation}
+J=\left\{  j\in\left\{  1,2,\ldots,n/d\right\}  \ \mid\ j\perp n/d\right\}
+.\label{pf.lem.ent.phi.sum-div.n/d.J=}%
+\end{equation}
+But (\ref{eq.def.ent.phi.phi.1}) (applied to $n/d$ instead of $n$) yields%
+\begin{equation}
+\phi\left(  n/d\right)  =\left\vert \left\{  i\in\left\{  1,2,\ldots
+,n/d\right\}  \ \mid\ i\perp n/d\right\}  \right\vert =\left\vert J\right\vert
+\label{pf.lem.ent.phi.sum-div.n/d.2}%
+\end{equation}
+(since $\left\{  j\in\left\{  1,2,\ldots,n/d\right\}  \ \mid\ j\perp
+n/d\right\}  =J$).
+
+We shall next construct a bijection from $I$ to $J$ (which will show that
+$\left\vert I\right\vert =\left\vert J\right\vert $).
+
+For each $a\in I$, we have $a/d\in J$\ \ \ \ \footnote{\textit{Proof.} Let
+$a\in I$. Thus, $a\in I=\left\{  i\in\left\{  1,2,\ldots,n\right\}
+\ \mid\ \gcd\left(  i,n\right)  =d\right\}  $. In other words, $a$ is an
+element of $\left\{  1,2,\ldots,n\right\}  $ satisfying $\gcd\left(
+a,n\right)  =d$.
+\par
+Thus, $d=\gcd\left(  a,n\right)  \mid a$. But Proposition \ref{prop.ent.div.1}
+\textbf{(c)} (applied to $d$ and $a$ instead of $a$ and $b$) yields that
+$d\mid a$ if and only if $\dfrac{a}{d}\in\mathbb{Z}$. Thus, $\dfrac{a}{d}%
+\in\mathbb{Z}$ (since $d\mid a$). In other words, $a/d\in\mathbb{Z}$. Also,
+$a\in\left\{  1,2,\ldots,n\right\}  $, so that $0<a\leq n$. We can divide this
+chain of inequalities by $d$ (since $d$ is positive), and thus obtain
+$0<a/d\leq n/d$. Hence, $a/d\in\left\{  1,2,\ldots,n/d\right\}  $ (since
+$a/d\in\mathbb{Z}$). Furthermore, Corollary \ref{cor.ent.gcd.sa,sb} (applied
+to $d$, $a/d$ and $n/d$) yields%
+\[
+\gcd\left(  d\left(  a/d\right)  ,d\left(  n/d\right)  \right)
+=\underbrace{\left\vert d\right\vert }_{\substack{=d\\\text{(since }d\text{ is
+positive)}}}\gcd\left(  a/d,n/d\right)  =d\gcd\left(  a/d,n/d\right)  .
+\]
+Solving this for $\gcd\left(  a/d,n/d\right)  $, we obtain%
+\[
+\gcd\left(  a/d,n/d\right)  =\dfrac{1}{d}\gcd\left(  \underbrace{d\left(
+a/d\right)  }_{=a},\underbrace{d\left(  n/d\right)  }_{=n}\right)  =\dfrac
+{1}{d}\underbrace{\gcd\left(  a,n\right)  }_{=d}=\dfrac{1}{d}d=1.
+\]
+In other words, $a/d\perp n/d$.
+\par
+So we know that $a/d$ is an element of $\left\{  1,2,\ldots,n/d\right\}  $
+satisfying $a/d\perp n/d$. In other words, $a/d\in\left\{  j\in\left\{
+1,2,\ldots,n/d\right\}  \ \mid\ j\perp n/d\right\}  =J$. Qed.}. Hence, we can
+define a map%
+\begin{align*}
+f:I  &  \rightarrow J,\\
+a  &  \mapsto a/d.
+\end{align*}
+
+
+For each $b\in J$, we have $bd\in I$\ \ \ \ \footnote{\textit{Proof.} Let
+$b\in J$. Thus, $b\in J=\left\{  j\in\left\{  1,2,\ldots,n/d\right\}
+\ \mid\ j\perp n/d\right\}  $. In other words, $b$ is an element of $\left\{
+1,2,\ldots,n/d\right\}  $ satisfying $b\perp n/d$.
+\par
+From $b\in\left\{  1,2,\ldots,n/d\right\}  \subseteq\mathbb{Z}$ and
+$d\in\mathbb{Z}$, we obtain $bd\in\mathbb{Z}$. From $b\in\left\{
+1,2,\ldots,n/d\right\}  $, we obtain $0<b\leq n/d$. We can multiply this chain
+of inequalities by $d$ (since $d$ is positive), and thus obtain $0<bd\leq n$.
+Thus, $bd\in\left\{  1,2,\ldots,n\right\}  $ (since $bd\in\mathbb{Z}$).
+Corollary \ref{cor.ent.gcd.sa,sb} (applied to $d$, $b$ and $n/d$) yields%
+\[
+\gcd\left(  db,d\left(  n/d\right)  \right)  =\underbrace{\left\vert
+d\right\vert }_{\substack{=d\\\text{(since }d\text{ is positive)}%
+}}\underbrace{\gcd\left(  b,n/d\right)  }_{\substack{=1\\\text{(since }b\perp
+n/d\text{)}}}=d.
+\]
+Thus, $d=\gcd\left(  \underbrace{db}_{=bd},\underbrace{d\left(  n/d\right)
+}_{=n}\right)  =\gcd\left(  bd,n\right)  $, so that $\gcd\left(  bd,n\right)
+=d$.
+\par
+So we know that $bd$ is an element of $\left\{  1,2,\ldots,n\right\}  $
+satisfying $\gcd\left(  bd,n\right)  =d$. In other words, $bd\in\left\{
+i\in\left\{  1,2,\ldots,n\right\}  \ \mid\ \gcd\left(  i,n\right)  =d\right\}
+=I$, qed.}. Thus, we can define a map%
+\begin{align*}
+g:J  &  \rightarrow I,\\
+b  &  \mapsto bd.
+\end{align*}
+
+
+The two maps $f$ and $g$ are mutually inverse (since the map $f$ divides its
+input by $d$, while the map $g$ multiplies its input by $d$). Hence, $f$ is
+invertible, i.e., is a bijection. Thus, there exists a bijection from $I$ to
+$J$ (namely, $f$). Hence, $\left\vert I\right\vert =\left\vert J\right\vert
+=\phi\left(  n/d\right)  $ (by (\ref{pf.lem.ent.phi.sum-div.n/d.2})). Thus,%
+\begin{align*}
+\phi\left(  n/d\right)   &  =\left\vert I\right\vert =\left\vert \left\{
+i\in\left\{  1,2,\ldots,n\right\}  \ \mid\ \gcd\left(  i,n\right)  =d\right\}
+\right\vert \ \ \ \ \ \ \ \ \ \ \left(  \text{by
+(\ref{pf.lem.ent.phi.sum-div.n/d.I=})}\right)  \\
+&  =\left(  \text{the number of }i\in\left\{  1,2,\ldots,n\right\}  \text{
+such that }\gcd\left(  i,n\right)  =d\right)  .
+\end{align*}
+This proves Lemma \ref{lem.ent.phi.sum-div.n/d}.
+\end{proof}
+
+\begin{proof}
+[Proof of Theorem \ref{thm.ent.phi.sum-div}.]Consider the map $F$ we defined
+in the proof of Proposition \ref{prop.ent.phi.ghosts}. This map $F$ is a
+bijection (as we have seen back in that proof). In other words, the map%
 \begin{align*}
 \left\{  \text{positive divisors of }n\right\}   &  \rightarrow\left\{
 \text{positive divisors of }n\right\}  ,\\
-d  &  \mapsto n/d
+d &  \mapsto n/d
 \end{align*}
-is a bijection. This groups the positive divisors $d$ of $n$ into pairs,
-except for those that satisfy $d=n/d$. When $n$ is not a perfect square, there
-are no such \textquotedblleft exceptional\textquotedblright\ divisors, since
-$d=n/d$ means $n=d^{2}$. When $n$ is a perfect square, there is exactly one
-such \textquotedblleft exceptional\textquotedblright\ divisor, namely
-$\sqrt{n}$. So the number of positive divisors of $n$ is even if $n$ is not a
-perfect square, and odd otherwise.]
+is a bijection (since this is precisely the map $F$). Thus, we can substitute
+$n/d$ for $d$ in the sum $\sum_{d\mid n}\phi\left(  d\right)  $ (and, more
+generally, in any sum that ranges over all positive divisors $d$ of $n$). We
+thus obtain%
+\begin{equation}
+\sum_{d\mid n}\phi\left(  d\right)  =\sum_{d\mid n}\phi\left(  n/d\right)
+.\label{pf.thm.ent.phi.sum-div.subst}%
+\end{equation}
 
-So the lamps $1^{2},2^{2},\ldots,31^{2}$ (and no others) will be on after the
-$1000$ nights.
+
+But%
+\begin{align*}
+n &  =\left\vert \left\{  1,2,\ldots,n\right\}  \right\vert =\left(  \text{the
+number of }i\in\left\{  1,2,\ldots,n\right\}  \right)  \\
+&  =\sum_{d\mid n}\underbrace{\left(  \text{the number of }i\in\left\{
+1,2,\ldots,n\right\}  \text{ such that }\gcd\left(  i,n\right)  =d\right)
+}_{\substack{=\phi\left(  n/d\right)  \\\text{(by Lemma
+\ref{lem.ent.phi.sum-div.n/d})}}}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{because if }i\in\left\{  1,2,\ldots
+,n\right\}  \text{, then }\gcd\left(  i,n\right)  \text{ is a positive divisor
+of }n\right)  \\
+&  =\sum_{d\mid n}\phi\left(  n/d\right)  =\sum_{d\mid n}\phi\left(  d\right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.thm.ent.phi.sum-div.subst}%
+)}\right)  .
+\end{align*}
+This proves Theorem \ref{thm.ent.phi.sum-div}.
 \end{proof}
+
+\begin{center}
+\textbf{2019-02-15 lecture}
+\end{center}
 
 \subsection{Euler, Fermat, Wilson}
 
@@ -10012,35 +10288,42 @@ abbreviated as \textquotedblleft FLT\textquotedblright):
 
 The word \textquotedblleft little\textquotedblright\ in the name of Theorem
 \ref{thm.ent.fermat} is meant to distinguish the theorem from
-\textquotedblleft Fermat's Last Theorem\textquotedblright, a much more
-difficult result only proven in the 1990s. (Unfortunately, the latter result
-is also abbreviated as \textquotedblleft FLT\textquotedblright.)
+\textquotedblleft%
+\href{https://en.wikipedia.org/wiki/Fermat's_Last_Theorem}{Fermat's Last
+Theorem}\textquotedblright, a much more difficult result only proven in the
+1990s. (Unfortunately, the latter result is also abbreviated as
+\textquotedblleft FLT\textquotedblright.)
 
 We will prove Theorem \ref{thm.ent.fermat} soon, by showing a more general
-result (Theorem \ref{thm.ent.euler}). But before we do so, we shall convince
-ourselves the parts \textbf{(a)} and \textbf{(b)} of Theorem
+result (Theorem \ref{thm.ent.euler}). But before we do so, let us convince
+ourselves that the parts \textbf{(a)} and \textbf{(b)} of Theorem
 \ref{thm.ent.fermat} are equivalent:
 
 \begin{remark}
 Theorem \ref{thm.ent.fermat} \textbf{(b)} follows from Theorem
-\ref{thm.ent.fermat} \textbf{(a)}, because:
+\ref{thm.ent.fermat} \textbf{(a)}, because (using the notations of Theorem
+\ref{thm.ent.fermat}):
 
 \begin{itemize}
 \item If $p\nmid a$, then Theorem \ref{thm.ent.fermat} \textbf{(a)} yields
 $a^{p-1}\equiv1\operatorname{mod}p$, thus $a^{p}=a\underbrace{a^{p-1}}%
 _{\equiv1\operatorname{mod}p}\equiv a1=a\operatorname{mod}p$.
 
-\item If $p\mid a$, then both $a^{p}$ and $a$ are $\equiv0\operatorname{mod}%
-p$, and therefore $a^{p}\equiv a\operatorname{mod}p$ follows.
+\item If $p\mid a$, then both $a^{p}$ and $a$ are $\equiv0\operatorname{mod}p$
+(because $p\mid a$ entails $a\equiv0\operatorname{mod}p$ and thus $a^{p}%
+\equiv0^{p}=0\operatorname{mod}p$ (since $p>0$)), and therefore $a^{p}%
+\equiv0\equiv a\operatorname{mod}p$.
 \end{itemize}
 
 Conversely, Theorem \ref{thm.ent.fermat} \textbf{(a)} follows from Theorem
-\ref{thm.ent.fermat} \textbf{(b)}, because: Assume $p\nmid a$. Then, $p\perp
-a$, so $a\perp p$. Thus, we can \textquotedblleft cancel\textquotedblright%
-\ $a$ from any congruence modulo $p$ (by Lemma \ref{lem.ent.coprime.cancel}).
-Doing this to the congruence $a^{p}\equiv a\operatorname{mod}p$ (which follows
-from Theorem \ref{thm.ent.fermat} \textbf{(b)}), we obtain $a^{p-1}%
-\equiv1\operatorname{mod}p$.
+\ref{thm.ent.fermat} \textbf{(b)} by the following argument: Let $p$ and $a$
+be as in Theorem \ref{thm.ent.fermat}. Assume that $p\nmid a$. Then, $p\perp
+a$ (by Proposition \ref{prop.ent.primes.div-or-coprime}), so that $a\perp p$.
+Thus, we can \textquotedblleft cancel\textquotedblright\ $a$ from any
+congruence modulo $p$ (by Lemma \ref{lem.ent.coprime.cancel}). Doing this to
+the congruence $a^{p}\equiv a\operatorname{mod}p$ (which follows from Theorem
+\ref{thm.ent.fermat} \textbf{(b)}), we obtain $a^{p-1}\equiv
+1\operatorname{mod}p$.
 \end{remark}
 
 The next result is known as \textit{Euler's theorem}:
@@ -10056,20 +10339,24 @@ Theorem \ref{thm.ent.euler} yields Theorem \ref{thm.ent.fermat} \textbf{(a)},
 since $\phi\left(  p\right)  =p-1$ when $p$ is prime. Since we also know that
 Theorem \ref{thm.ent.fermat} \textbf{(b)} follows from Theorem
 \ref{thm.ent.fermat} \textbf{(a)}, we see that a proof of Theorem
-\ref{thm.ent.euler} will immediately yield the whol\"{o}e Theorem
+\ref{thm.ent.euler} will immediately yield the whole Theorem
 \ref{thm.ent.fermat}. Before we give said proof, let us show an example of how
 Theorem \ref{thm.ent.euler} can be used:
 
 \begin{exercise}
-What is the last digit of $3^{4^{5}}$?
+\label{exe.ent.euler345}What is the last digit of $3^{4^{5}}$?
 
-Notational remark: An expression of the form $a^{b^{c}}$ always means
-$a^{\left(  b^{c}\right)  }$, not $\left(  a^{b}\right)  ^{c}=a^{bc}$.
+\textit{Notational remark:} An expression of the form \textquotedblleft%
+$a^{b^{c}}$\textquotedblright\ always means $a^{\left(  b^{c}\right)  }$, not
+$\left(  a^{b}\right)  ^{c}$. (Actually, there is no need for an extra
+notation for $\left(  a^{b}\right)  ^{c}$, because $\left(  a^{b}\right)
+^{c}=a^{bc}$.)
 \end{exercise}
 
 \begin{proof}
-[Solution.]The last digit of a positive integer $n$ is $n\%10$ (that is, the
-remainder of $n$ upon division by $10$). So we need to work modulo $10$.
+[Solution.][Solution to Exercise \ref{exe.ent.euler345} (sketched).] The last
+digit of a positive integer $n$ is $n\%10$ (that is, the remainder of $n$ upon
+division by $10$). So we need to work modulo $10$.
 
 Since $3$ is coprime to $10$, we can apply Theorem \ref{thm.ent.euler} to
 $n=10$ and $a=3$. We thus get $3^{\phi\left(  10\right)  }\equiv
@@ -10081,6 +10368,10 @@ $3^{4}\equiv1\operatorname{mod}10$. Now, $4^{5}=4\cdot4^{4}$, so that%
 \]
 So the last digit of $3^{4^{5}}$ is $1$.
 \end{proof}
+
+Our proof of Theorem \ref{thm.ent.euler} will rely on the following lemma:
+
+TODO: Write from here.
 
 \begin{lemma}
 \label{lem.ent.euler.phi0}Let $n$ be a positive integer. Then,%
@@ -10096,7 +10387,7 @@ So the last digit of $3^{4^{5}}$ is $1$.
 assume that $n>1$. Hence, neither $0$ nor $n$ is coprime to $n$ (since
 $\gcd\left(  0,n\right)  =n>1$ and $\gcd\left(  n,n\right)  =n>1$). Hence,%
 \begin{align*}
-&  \left\{  i\in\left\{  0,1,\ldots,n-1\right\}  \ \mid\ i\perp n\right\} \\
+&  \left\{  i\in\left\{  0,1,\ldots,n-1\right\}  \ \mid\ i\perp n\right\}  \\
 &  =\left\{  i\in\left\{  1,2,\ldots,n\right\}  \ \mid\ i\perp n\right\}
 \end{align*}
 (because these sets could only differ in the elements $0$ and $n$, but none of
