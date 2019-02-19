@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, February 18, 2019 23:50:16}
+%TCIDATA{LastRevised=Tuesday, February 19, 2019 00:04:09}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -6012,6 +6012,66 @@ In other words, $b\equiv c\operatorname{mod}n$. This proves Lemma
 \ref{lem.ent.coprime.cancel}.
 \end{proof}
 
+For future use, let us restate Exercise \ref{exe.ent.coprime.ab-to-ck} in a
+form that uses \textquotedblleft unordered\textquotedblright\ finite products
+$\prod_{i\in I}b_{i}$ instead of $a_{1}a_{2}\cdots a_{k}$:
+
+\begin{exercise}
+\label{exe.ent.coprime.ab-to-cI}Let $c\in\mathbb{Z}$. Let $I$ be a finite set.
+For each $i\in I$, let $b_{i}$ be an integer such that $b_{i}\perp c$. Prove
+that $\prod_{i\in I}b_{i}\perp c$.
+\end{exercise}
+
+\begin{fineprint}
+\begin{proof}
+[Solution to Exercise \ref{exe.ent.coprime.ab-to-cI}.]Exercise
+\ref{exe.ent.coprime.ab-to-ck} and Exercise \ref{exe.ent.coprime.ab-to-cI} say
+the same thing: They say that if $c$ is a fixed integer, then a product of
+finitely many integers that are coprime to $c$ will also be coprime to $c$.
+The difference between these two exercises is merely how the product is
+indexed. Thus, deriving Exercise \ref{exe.ent.coprime.ab-to-cI} from Exercise
+\ref{exe.ent.coprime.ab-to-ck} is merely a matter of bookkeeping. Let us do
+this bookkeeping:
+
+By assumption, we have
+\begin{equation}
+b_{i}\perp c\ \ \ \ \ \ \ \ \ \ \text{for each }i\in I.
+\label{sol.ent.coprime.ab-to-cI.copri}%
+\end{equation}
+
+
+The set $I$ is finite; thus, we can define some $k\in\mathbb{N}$ by
+$k=\left\vert I\right\vert $. There exists a bijection $f:\left\{
+1,2,\ldots,k\right\}  \rightarrow I$ (since $k=\left\vert I\right\vert $).
+Pick such an $f$. Thus, $f\left(  1\right)  ,f\left(  2\right)  ,\ldots
+,f\left(  k\right)  $ are the $k$ elements of $I$; hence, $b_{f\left(
+1\right)  },b_{f\left(  2\right)  },\ldots,b_{f\left(  k\right)  }$ are $k$
+integers. Moreover, each $j\in\left\{  1,2,\ldots,k\right\}  $ satisfies
+$b_{f\left(  j\right)  }\perp c$ (by (\ref{sol.ent.coprime.ab-to-cI.copri}),
+applied to $i=f\left(  j\right)  $). Renaming the index $j$ as $i$ in this
+statement, we obtain: Each $i\in\left\{  1,2,\ldots,k\right\}  $ satisfies
+$b_{f\left(  i\right)  }\perp c$. Hence, Exercise
+\ref{exe.ent.coprime.ab-to-ck} (applied to $a_{i}=b_{f\left(  i\right)  }$)
+shows that
+\begin{equation}
+b_{f\left(  1\right)  }b_{f\left(  2\right)  }\cdots b_{f\left(  k\right)
+}\perp c. \label{sol.ent.coprime.ab-to-cI.copri3}%
+\end{equation}
+
+
+The map $f:\left\{  1,2,\ldots,k\right\}  \rightarrow I$ is a bijection.
+Hence, we can substitute $f\left(  j\right)  $ for $i$ in the product
+$\prod_{i\in I}b_{i}$. We thus find%
+\[
+\prod_{i\in I}b_{i}=\prod_{j\in\left\{  1,2,\ldots,k\right\}  }b_{f\left(
+j\right)  }=\prod_{j=1}^{k}b_{f\left(  j\right)  }=b_{f\left(  1\right)
+}b_{f\left(  2\right)  }\cdots b_{f\left(  k\right)  }.
+\]
+Thus, (\ref{sol.ent.coprime.ab-to-cI.copri3}) can be rewritten as $\prod_{i\in
+I}b_{i}\perp c$. This solves Exercise \ref{exe.ent.coprime.ab-to-cI}.
+\end{proof}
+\end{fineprint}
+
 \subsubsection{An application to sums of powers}
 
 Let us show an application of Theorem \ref{thm.ent.coprime.combine}. First, we
@@ -10132,8 +10192,8 @@ I=\left\{  i\in\left\{  1,2,\ldots,n\right\}  \ \mid\ \gcd\left(  i,n\right)
 \end{equation}
 and%
 \begin{equation}
-J=\left\{  j\in\left\{  1,2,\ldots,n/d\right\}  \ \mid\ j\perp n/d\right\}
-.\label{pf.lem.ent.phi.sum-div.n/d.J=}%
+J=\left\{  j\in\left\{  1,2,\ldots,n/d\right\}  \ \mid\ j\perp n/d\right\}  .
+\label{pf.lem.ent.phi.sum-div.n/d.J=}%
 \end{equation}
 But (\ref{eq.def.ent.phi.phi.1}) (applied to $n/d$ instead of $n$) yields%
 \begin{equation}
@@ -10225,7 +10285,7 @@ $J$ (namely, $f$). Hence, $\left\vert I\right\vert =\left\vert J\right\vert
 \phi\left(  n/d\right)   &  =\left\vert I\right\vert =\left\vert \left\{
 i\in\left\{  1,2,\ldots,n\right\}  \ \mid\ \gcd\left(  i,n\right)  =d\right\}
 \right\vert \ \ \ \ \ \ \ \ \ \ \left(  \text{by
-(\ref{pf.lem.ent.phi.sum-div.n/d.I=})}\right)  \\
+(\ref{pf.lem.ent.phi.sum-div.n/d.I=})}\right) \\
 &  =\left(  \text{the number of }i\in\left\{  1,2,\ldots,n\right\}  \text{
 such that }\gcd\left(  i,n\right)  =d\right)  .
 \end{align*}
@@ -10239,29 +10299,29 @@ bijection (as we have seen back in that proof). In other words, the map%
 \begin{align*}
 \left\{  \text{positive divisors of }n\right\}   &  \rightarrow\left\{
 \text{positive divisors of }n\right\}  ,\\
-d &  \mapsto n/d
+d  &  \mapsto n/d
 \end{align*}
 is a bijection (since this is precisely the map $F$). Thus, we can substitute
 $n/d$ for $d$ in the sum $\sum_{d\mid n}\phi\left(  d\right)  $ (and, more
 generally, in any sum that ranges over all positive divisors $d$ of $n$). We
 thus obtain%
 \begin{equation}
-\sum_{d\mid n}\phi\left(  d\right)  =\sum_{d\mid n}\phi\left(  n/d\right)
-.\label{pf.thm.ent.phi.sum-div.subst}%
+\sum_{d\mid n}\phi\left(  d\right)  =\sum_{d\mid n}\phi\left(  n/d\right)  .
+\label{pf.thm.ent.phi.sum-div.subst}%
 \end{equation}
 
 
 But%
 \begin{align*}
-n &  =\left\vert \left\{  1,2,\ldots,n\right\}  \right\vert =\left(  \text{the
-number of }i\in\left\{  1,2,\ldots,n\right\}  \right)  \\
+n  &  =\left\vert \left\{  1,2,\ldots,n\right\}  \right\vert =\left(
+\text{the number of }i\in\left\{  1,2,\ldots,n\right\}  \right) \\
 &  =\sum_{d\mid n}\underbrace{\left(  \text{the number of }i\in\left\{
 1,2,\ldots,n\right\}  \text{ such that }\gcd\left(  i,n\right)  =d\right)
 }_{\substack{=\phi\left(  n/d\right)  \\\text{(by Lemma
 \ref{lem.ent.phi.sum-div.n/d})}}}\\
 &  \ \ \ \ \ \ \ \ \ \ \left(  \text{because if }i\in\left\{  1,2,\ldots
 ,n\right\}  \text{, then }\gcd\left(  i,n\right)  \text{ is a positive divisor
-of }n\right)  \\
+of }n\right) \\
 &  =\sum_{d\mid n}\phi\left(  n/d\right)  =\sum_{d\mid n}\phi\left(  d\right)
 \ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.thm.ent.phi.sum-div.subst}%
 )}\right)  .
@@ -10387,7 +10447,7 @@ TODO: Write from here.
 assume that $n>1$. Hence, neither $0$ nor $n$ is coprime to $n$ (since
 $\gcd\left(  0,n\right)  =n>1$ and $\gcd\left(  n,n\right)  =n>1$). Hence,%
 \begin{align*}
-&  \left\{  i\in\left\{  0,1,\ldots,n-1\right\}  \ \mid\ i\perp n\right\}  \\
+&  \left\{  i\in\left\{  0,1,\ldots,n-1\right\}  \ \mid\ i\perp n\right\} \\
 &  =\left\{  i\in\left\{  1,2,\ldots,n\right\}  \ \mid\ i\perp n\right\}
 \end{align*}
 (because these sets could only differ in the elements $0$ and $n$, but none of
@@ -10423,7 +10483,7 @@ Then, Lemma \ref{lem.ent.euler.phi0} yields $\left\vert C\right\vert
 =\phi\left(  n\right)  $.
 
 Now, $z=\prod_{c\in C}c$. Then, $z\perp n$ (by Exercise
-\ref{exe.ent.coprime.ab-to-ck}).
+\ref{exe.ent.coprime.ab-to-cI}).
 
 We have $\left(  ai\right)  \%n\in C$ for each $i\in C$.
 
