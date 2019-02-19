@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Tuesday, February 19, 2019 14:28:24}
+%TCIDATA{LastRevised=Tuesday, February 19, 2019 19:34:47}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -5532,11 +5532,11 @@ This proves Theorem \ref{thm.ent.gcd.split}.
 \subsubsection{On converses of Bezout's theorem}
 
 Some words of warning are in order. Theorem \ref{thm.ent.gcd.bezout} says that
-if $a$ and $b$ are two integers, then $\gcd\left(  a, b \right) $ is a
+if $a$ and $b$ are two integers, then $\gcd\left(  a, b \right)  $ is a
 $\mathbb{Z}$-linear combination of $a$ and $b$. Note the indefinite article
 ``a'' here: There are (usually) many $\mathbb{Z}$-linear combinations of $a$
 and $b$, but only one gcd. It is definitely not true that every $\mathbb{Z}%
-$-linear combination of $a$ and $b$ must be $\gcd\left(  a, b \right) $.
+$-linear combination of $a$ and $b$ must be $\gcd\left(  a, b \right)  $.
 However, all these $\mathbb{Z}$-linear combinations are \textbf{multiples} of
 the gcd, as the following (simple) proposition says:
 
@@ -5547,13 +5547,13 @@ integers $x$ and $y$ satisfy $\gcd\left(  a, b \right)  \mid xa + yb$.
 
 \begin{proof}
 [Proof of Proposition \ref{prop.ent.gcd.bezout-conv}.]Let $x$ and $y$ be
-integers. Let $g = \gcd\left(  a, b \right) $. Thus, $g = \gcd\left(  a, b
+integers. Let $g = \gcd\left(  a, b \right)  $. Thus, $g = \gcd\left(  a, b
 \right)  \mid a$ (by Proposition \ref{prop.ent.gcd.props1} \textbf{(f)}).
 Hence, $g \mid a \mid xa$ (since $xa = ax$). In other words, $xa \equiv0
 \mod g$. Similarly, $yb \equiv0 \mod g$. Adding these two congruences
 together, we obtain $xa + yb \equiv0 + 0 = 0 \mod g$. In other words, $g \mid
 xa + yb$. In other words, $\gcd\left(  a, b \right)  \mid xa + yb$ (since $g =
-\gcd\left(  a, b \right) $). This proves Proposition
+\gcd\left(  a, b \right)  $). This proves Proposition
 \ref{prop.ent.gcd.bezout-conv}.
 \end{proof}
 
@@ -6015,7 +6015,7 @@ the previous results:
 ac\operatorname{mod}n$. In other words, $n\mid ab-ac=a\left(  b-c\right)  $.
 But Proposition \ref{prop.ent.coprime.perp-symm} (applied to $n$ instead of
 $b$) shows that $a\perp n$ if and only if $n\perp a$. Thus, we have $n\perp a$
-(since $a\perp a$).
+(since $a\perp n$).
 
 Thus, we know that $n\mid a\left(  b-c\right)  $ and $n\perp a$. Hence,
 Theorem \ref{thm.ent.coprime.cancel} (applied to $n$, $a$ and $b-c$ instead of
@@ -6100,6 +6100,31 @@ j\right)  }=\prod_{j=1}^{k}b_{f\left(  j\right)  }=b_{f\left(  1\right)
 \]
 Thus, (\ref{sol.ent.coprime.ab-to-cI.copri3}) can be rewritten as $\prod_{i\in
 I}b_{i}\perp c$. This solves Exercise \ref{exe.ent.coprime.ab-to-cI}.
+\end{proof}
+\end{fineprint}
+
+\begin{exercise}
+\label{exe.ent.coprime.b==c}Let $a,b,c$ be three integers such that $a\equiv
+b\operatorname{mod}c$. If $a\perp c$, then $b\perp c$.
+\end{exercise}
+
+\begin{fineprint}
+\begin{proof}
+[Solution to Exercise \ref{exe.ent.coprime.b==c}.] Assume that $a\perp c$. But
+Proposition \ref{prop.ent.coprime.perp-symm} (applied to $c$ instead of $b$)
+shows that $a\perp c$ if and only if $c\perp a$. Thus, we have $c\perp a$
+(since $a\perp c$). In other words, $c$ is coprime to $a$. In other words,
+$\gcd\left(  c,a\right)  =1$ (by the definition of \textquotedblleft
+coprime\textquotedblright).
+
+But $a\equiv b\operatorname{mod}c$. Hence, Proposition
+\ref{prop.ent.gcd.props1} \textbf{(e)} (applied to $c$, $a$ and $b$ instead of
+$a$, $b$ and $c$) yields $\gcd\left(  c,a\right)  =\gcd\left(  c,b\right)  $.
+Hence, $\gcd\left(  c,b\right)  =\gcd\left(  c,a\right)  =1$. In other words,
+$c$ is coprime to $b$. In other words, $c\perp b$. But Proposition
+\ref{prop.ent.coprime.perp-symm} (applied to $c$ instead of $a$) shows that
+$c\perp b$ if and only if $b\perp c$. Hence, $b\perp c$ (since $c\perp b$).
+This solves Exercise \ref{exe.ent.coprime.b==c}.
 \end{proof}
 \end{fineprint}
 
@@ -6395,27 +6420,25 @@ We have now proven both (\ref{sol.ent.coprime.1+2+...+n.g1}) and
 \end{exercise}
 
 \begin{fineprint}
-
-
 \begin{proof}
-[Solution to Exercise \ref{exe.ent.coprime.bezout-conv}.] Proposition
-\ref{prop.ent.gcd.bezout-conv} yields  $\gcd\left(  a, b \right)  \mid xa + yb
-= 1$.  Proposition \ref{prop.ent.div.1} \textbf{(b)} (applied  to $\gcd\left(
-a, b \right) $ and $1$ instead of $a$ and $b$)  thus yields $\left|
-\gcd\left(  a, b \right)  \right|  \leq\left|  1 \right|  = 1$.  But $\left|
-\gcd\left(  a, b \right)  \right|  = \gcd\left(  a, b \right) $ (since
-$\gcd\left(  a, b \right) $ is a nonnegative integer). Hence,  $\gcd\left(  a,
-b \right)  = \left|  \gcd\left(  a, b \right)  \right|  \leq1$.  Thus,
-$\gcd\left(  a, b \right) $ is either $0$ or $1$ (since  $\gcd\left(  a, b
-\right) $ is a nonnegative integer).
+[Solution to Exercise \ref{exe.ent.coprime.bezout-conv}.]Proposition
+\ref{prop.ent.gcd.bezout-conv} yields $\gcd\left(  a, b \right)  \mid xa + yb
+= 1$. Proposition \ref{prop.ent.div.1} \textbf{(b)} (applied to $\gcd\left(
+a, b \right)  $ and $1$ instead of $a$ and $b$) thus yields $\left|
+\gcd\left(  a, b \right)  \right|  \leq\left|  1 \right|  = 1$. But $\left|
+\gcd\left(  a, b \right)  \right|  = \gcd\left(  a, b \right)  $ (since
+$\gcd\left(  a, b \right)  $ is a nonnegative integer). Hence, $\gcd\left(  a,
+b \right)  = \left|  \gcd\left(  a, b \right)  \right|  \leq1$. Thus,
+$\gcd\left(  a, b \right)  $ is either $0$ or $1$ (since $\gcd\left(  a, b
+\right)  $ is a nonnegative integer).
 
-If we had $\gcd\left(  a, b \right)  = 0$, then we would have  $0 =
-\gcd\left(  a, b \right)  \mid1$, which is absurd (since  we don't have $0
-\mid1$). Thus, we cannot have  $\gcd\left(  a, b \right)  = 0$. Hence,
-$\gcd\left(  a, b \right) $ must  equal $1$ (since we know that $\gcd\left(
-a, b \right) $ is  either $0$ or $1$).  In other words, $\gcd\left(  a, b
-\right)  = 1$.  In other words, $a$ is coprime to $b$.  In other words, $a
-\perp b$.  This solves Exercise \ref{exe.ent.coprime.bezout-conv}. 
+If we had $\gcd\left(  a, b \right)  = 0$, then we would have $0 = \gcd\left(
+a, b \right)  \mid1$, which is absurd (since we don't have $0 \mid1$). Thus,
+we cannot have $\gcd\left(  a, b \right)  = 0$. Hence, $\gcd\left(  a, b
+\right)  $ must equal $1$ (since we know that $\gcd\left(  a, b \right)  $ is
+either $0$ or $1$). In other words, $\gcd\left(  a, b \right)  = 1$. In other
+words, $a$ is coprime to $b$. In other words, $a \perp b$. This solves
+Exercise \ref{exe.ent.coprime.bezout-conv}.
 \end{proof}
 \end{fineprint}
 
@@ -6482,7 +6505,9 @@ This solves Exercise \ref{exe.ent.coprime.gcd*gcd1}.
 \end{exercise}
 
 \begin{proof}
-[Solution to Exercise \ref{exe.ent.coprime.gcd*gcd2}.]TODO.
+[Solution to Exercise \ref{exe.ent.coprime.gcd*gcd2}.]\textbf{(a)} TODO.
+
+\textbf{(b)} TODO.
 \end{proof}
 
 \begin{exercise}
@@ -7618,7 +7643,7 @@ Again, Theorem \ref{thm.ent.primes.pab} has a converse:
 \begin{exercise}
 \label{exe.ent.primes.pab-conv}Let $p>1$ be an integer. Assume that for every
 $a,b\in\mathbb{Z}$ satisfying $p\mid ab$, we must have $p\mid a$ or $p\mid b$.
-Then, $p$ is prime.
+Prove that $p$ is prime.
 \end{exercise}
 
 \begin{fineprint}
@@ -7631,8 +7656,8 @@ Let $d$ be a positive divisor of $p$ other than $1$ and $p$. We shall derive a c
 We know that $d$ is a divisor of $p$ \textbf{other than} $1$ and $p$. Hence,
 $d\neq1$ and $d\neq p$.
 
-Indeed, $d$ is a divisor of $p$. In other words, there exists an integer $c$
-such that $p=dc$. Consider this $c$.
+But $d$ is a divisor of $p$. In other words, there exists an integer $c$ such
+that $p=dc$. Consider this $c$.
 
 The integer $d$ is positive, therefore nonzero. Hence, we can solve the
 equality $p=dc$ for $c$; thus we find $c=p/d>0$ (since both $p$ and $d$ are
@@ -7641,7 +7666,7 @@ positive). Thus, the integer $c$ is positive; hence, $c\geq1$. Also, $d\geq1$
 $d>1$.
 
 Since $c>0$, we can multiply the inequality $d>1$ by $c$. We thus find
-$cd>c\cdot1=c$. Hence, $c<cd=dc=p$. Since $c$is positive, we have $\left\vert
+$cd>c\cdot1=c$. Hence, $c<cd=dc=p$. Since $c$ is positive, we have $\left\vert
 c\right\vert =c<p$. But $p$ is positive; thus, $\left\vert p\right\vert
 =p>\left\vert c\right\vert $ (since $\left\vert c\right\vert <p$).
 
@@ -7974,7 +7999,7 @@ $k\leq\infty$ and $\infty\geq k$).
 or $\infty<k$).
 
 \item If $S$ is a nonempty set of integers, then $\min\left(  S\cup\left\{
-\infty\right\}  \right)  =\min S$.
+\infty\right\}  \right)  =\min S$ (provided that $\min S$ exists).
 
 \item If $S$ is any set of integers, then $\max\left(  S\cup\left\{
 \infty\right\}  \right)  =\infty$.
@@ -10528,12 +10553,12 @@ This proves Lemma \ref{lem.ent.euler.phi0}.
 [Second proof of Lemma \ref{lem.ent.euler.phi0}.]We have $n \mid n$ and thus
 $n \equiv0 \mod n$. Hence, Proposition \ref{prop.ent.gcd.props1} \textbf{(d)}
 (applied to $a = n$, $b = n$ and $c = 0$) yields that $\gcd\left(  n, n
-\right)  = \gcd\left(  n, 0 \right)  = \gcd\left(  0, n \right) $ (by
+\right)  = \gcd\left(  n, 0 \right)  = \gcd\left(  0, n \right)  $ (by
 Proposition \ref{prop.ent.gcd.props1} \textbf{(b)}). Hence, $\gcd\left(  0, n
 \right)  = 1$ holds if and only if $\gcd\left(  n, n \right)  = 1$. In other
 words, the number $0$ is coprime to $n$ if and only if $n$ is coprime to $n$.
 Hence, if we remove $n$ from the set $\left\{  1,2,\ldots,n\right\}  $ and add
-$0$ instead (so that our set becomes $\left\{  0, 1, \ldots, n-1 \right\} $),
+$0$ instead (so that our set becomes $\left\{  0, 1, \ldots, n-1 \right\}  $),
 then the number of elements coprime to $n$ in that set does not change. In
 other words,
 \begin{align*}
@@ -10541,15 +10566,15 @@ other words,
 \text{ that are coprime to } n \right) \\
 &  = \left(  \text{the number of all } i\in\left\{  1,2,\ldots,n\right\}
 \text{ that are coprime to } n \right) \\
-& = \left\vert \left\{  i\in\left\{  1,2,\ldots,n\right\}  \ \mid\ i\perp
+&  = \left\vert \left\{  i\in\left\{  1,2,\ldots,n\right\}  \ \mid\ i\perp
 n\right\}  \right\vert =\phi\left(  n\right)  \ \ \ \ \ \ \ \ \ \ \left(
 \text{by \eqref{eq.def.ent.phi.phi.1}} \right)  .
 \end{align*}
 In other words,
 \begin{align*}
-\phi\left(  n \right)   & = \left(  \text{the number of all } i\in\left\{
+\phi\left(  n \right)   &  = \left(  \text{the number of all } i\in\left\{
 0,1,\ldots,n-1\right\}  \text{ that are coprime to } n \right) \\
-& = \left\vert \left\{  i\in\left\{  0,1,\ldots,n-1\right\}  \ \mid\ i\perp
+&  = \left\vert \left\{  i\in\left\{  0,1,\ldots,n-1\right\}  \ \mid\ i\perp
 n\right\}  \right\vert .
 \end{align*}
 This proves Lemma \ref{lem.ent.euler.phi0} again.
@@ -10561,31 +10586,29 @@ exercise. Namely, recall that Theorem \ref{thm.ent.coprime.modinv}
 \textbf{(b)} guarantees the existence of a modular inverse for an integer $a$
 modulo an integer $n$ as soon as $a$ and $n$ are coprime. We can slightly
 improve this to guarantee a modular inverse that belongs to $\left\{  0, 1,
-\ldots, n-1 \right\} $ as long as $n$ is a positive integer:
+\ldots, n-1 \right\}  $ as long as $n$ is a positive integer:
 
 \begin{exercise}
 \label{exe.ent.coprime.modinv-in-set}Let $a$ be an integer, and $n$ be a
 positive integer such that $a \perp n$. Then, there exists an $a^{\prime}%
-\in\left\{  0,1,\ldots,n-1 \right\} $ such that $aa^{\prime}\equiv
+\in\left\{  0,1,\ldots,n-1 \right\}  $ such that $aa^{\prime}\equiv
 1\operatorname{mod}n$.
 \end{exercise}
 
 \begin{fineprint}
-
-
 \begin{proof}
-[Solution to Exercise \ref{exe.ent.coprime.modinv-in-set}.] Theorem
-\ref{thm.ent.coprime.modinv} \textbf{(b)} shows that  there exists an
-$a^{\prime}\in\mathbb{Z}$  such that $aa^{\prime}\equiv1\operatorname{mod}n$.
-Consider this $a^{\prime}$, and denote it by $u$.  Thus, $u$ is an element of
-$\mathbb{Z}$ and satisfies  $au \equiv1 \mod n$.  Corollary
-\ref{cor.ent.quo-rem.remmod} \textbf{(a)} yields  that $u\%n\in\left\{
-0,1,\ldots,n-1\right\}  $ and $u\%n\equiv u\operatorname{mod}n$.  Multiplying
-the congruences $a \equiv a \mod n$  and $u \% n \equiv u \mod n$ together,
-we find $a \left(  u\%n \right)  \equiv au \equiv1 \mod n$.  Hence, there
-exists an $a^{\prime}\in\left\{  0,1,\ldots,n-1 \right\} $  such that
-$aa^{\prime}\equiv1\operatorname{mod}n$  (namely, $a^{\prime} = u \% n$).
-This solves Exercise \ref{exe.ent.coprime.modinv-in-set}. 
+[Solution to Exercise \ref{exe.ent.coprime.modinv-in-set}.]Theorem
+\ref{thm.ent.coprime.modinv} \textbf{(b)} shows that there exists an
+$a^{\prime}\in\mathbb{Z}$ such that $aa^{\prime}\equiv1\operatorname{mod}n$.
+Consider this $a^{\prime}$, and denote it by $u$. Thus, $u$ is an element of
+$\mathbb{Z}$ and satisfies $au \equiv1 \mod n$. Corollary
+\ref{cor.ent.quo-rem.remmod} \textbf{(a)} yields that $u\%n\in\left\{
+0,1,\ldots,n-1\right\}  $ and $u\%n\equiv u\operatorname{mod}n$. Multiplying
+the congruences $a \equiv a \mod n$ and $u \% n \equiv u \mod n$ together, we
+find $a \left(  u\%n \right)  \equiv au \equiv1 \mod n$. Hence, there exists
+an $a^{\prime}\in\left\{  0,1,\ldots,n-1 \right\}  $ such that $aa^{\prime
+}\equiv1\operatorname{mod}n$ (namely, $a^{\prime} = u \% n$). This solves
+Exercise \ref{exe.ent.coprime.modinv-in-set}.
 \end{proof}
 \end{fineprint}
 \end{noncompile}
@@ -10597,20 +10620,30 @@ TODO: Write from here.
 \[
 C=\left\{  i\in\left\{  0,1,\ldots,n-1\right\}  \ \mid\ i\perp n\right\}  .
 \]
-Then, Lemma \ref{lem.ent.euler.phi0} yields $\left\vert C\right\vert
-=\phi\left(  n\right)  $.
+Then, Lemma \ref{lem.ent.euler.phi0} says that $\phi\left(  n\right)
+=\left\vert C\right\vert $.
 
-Now, $z=\prod_{i\in C}i$. Then, $z\perp n$ (by Exercise
-\ref{exe.ent.coprime.ab-to-cI}, since each $i \in C$ satisfies $i \perp n$).
+Now, $z=\prod_{i\in C}i$. Exercise \ref{exe.ent.coprime.ab-to-cI} (applied to
+$I=C$, $c=n$ and $b_{i}=i$) yields $\prod_{i\in C}i\perp n$ (since each $i\in
+C$ satisfies $i\perp n$). In other words, $z\perp n$ (since $z=\prod_{i\in
+C}i$).
 
 We have $\left(  ai\right)  \%n\in C$ for each $i\in C$.
 
-[\textit{Proof:} Let $i\in C$. Clearly, $\left(  ai\right)  \%n\in\left\{
-0,1,\ldots,n-1\right\}  $ (because it is a remainder). Also, $ai\perp n$
-(since $a\perp n$ and $i\perp n$), thus $\gcd\left(  n,ai\right)  =1$, thus
-$\gcd\left(  n,\left(  ai\right)  \%n\right)  =\gcd\left(  n,ai\right)  =1$,
-thus $\left(  ai\right)  \%n\perp n$. Hence, $\left(  ai\right)  \%n\in C$
-(since $\left(  ai\right)  \%n\in\left\{  0,1,\ldots,n-1\right\}  $), qed.]
+[\textit{Proof:} Let $i\in C$. Corollary \ref{cor.ent.quo-rem.remmod}
+\textbf{(a)} (applied to $u=ai$) yields that $\left(  ai\right)
+\%n\in\left\{  0,1,\ldots,n-1\right\}  $ and $\left(  ai\right)  \%n\equiv
+ai\operatorname{mod}n$. Thus, $ai\equiv\left(  ai\right)
+\%n\operatorname{mod}n$.
+
+From $a\perp n$ and $i\perp n$, we obtain $ai\perp n$ (by Theorem
+\ref{thm.ent.coprime.ab-to-c}, applied to $i$ and $n$ instead of $b$ and $c$).
+Hence, Exercise \ref{exe.ent.coprime.b==c} (applied to $ai$, $\left(
+ai\right)  \%n$ and $n$ instead of $a$, $b$ and $c$) yields $\left(
+ai\right)  \%n\perp n$ (since $ai\equiv\left(  ai\right)
+\%n\operatorname{mod}n$). Combining this with $\left(  ai\right)
+\%n\in\left\{  0,1,\ldots,n-1\right\}  $, we obtain $\left(  ai\right)  \%n\in
+C$ (by the definition of $C$), qed.]
 
 Thus, we can define a map%
 \begin{align*}
@@ -10624,12 +10657,29 @@ The map $f$ is injective.
 [\textit{Proof:} Let $i$ and $j$ be two elements of $C$ such that $f\left(
 i\right)  =f\left(  j\right)  $. We must prove that $i=j$.
 
-We have $f\left(  i\right)  =f\left(  j\right)  $; in other words, $\left(
-ai\right)  \%n=\left(  aj\right)  \%n$. Thus, $ai\equiv aj\operatorname{mod}n$
-(by Exercise \ref{exe.ent.quo-rem.mod=rem}). By Lemma
-\ref{lem.ent.coprime.cancel}, we can cancel $a$ from this congruence, and get
-$i\equiv j\operatorname{mod}n$. Since both $i$ and $j$ lie in $\left\{
-0,1,\ldots,n-1\right\}  $, this entails $i=j$. So $f$ is injective.]
+We have $f\left(  i\right)  =f\left(  j\right)  $. In view of $f\left(
+i\right)  =\left(  ai\right)  \%n$ (by the definition of $f$) and $f\left(
+j\right)  =\left(  aj\right)  \%n$, this rewrites as $\left(  ai\right)
+\%n=\left(  aj\right)  \%n$. But Exercise \ref{exe.ent.quo-rem.mod=rem}
+(applied to $u=ai$ and $v=aj$) shows that $ai\equiv aj\operatorname{mod}n$ if
+and only if $\left(  ai\right)  \%n=\left(  aj\right)  \%n$. Hence, we have
+$ai\equiv aj\operatorname{mod}n$ (since $\left(  ai\right)  \%n=\left(
+aj\right)  \%n$). By Lemma \ref{lem.ent.coprime.cancel}, we can
+\textquotedblleft cancel\textquotedblright\ $a$ from this congruence (since
+$a\perp n$), and obtain $i\equiv j\operatorname{mod}n$. But both $i$ and $j$
+belong to $C$ and thus belong to $\left\{  0,1,\ldots,n-1\right\}  $ (by the
+definition of $C$). Hence, from $i\equiv j\operatorname{mod}n$, we can easily
+obtain that $i=j$\ \ \ \ \footnote{\textit{Proof.} Corollary
+\ref{cor.ent.quo-rem.remmod} \textbf{(c)} (applied to $u=j$ and $c=i$) yields
+$i=j\%n$ (since $i\equiv j\operatorname{mod}n$ and $i\in\left\{
+0,1,\ldots,n-1\right\}  $). But Corollary \ref{cor.ent.quo-rem.remmod}
+\textbf{(c)} (applied to $u=j$ and $c=j$) yields $j=j\%n$ (since $j\equiv
+j\operatorname{mod}n$ and $j\in\left\{  0,1,\ldots,n-1\right\}  $). Hence,
+$i=j\%n=j$.}.
+
+Now, forget that we fixed $i$ and $j$. We thus have proven that if $i$ and $j$
+and two elements of $C$ such that $f\left(  i\right)  =f\left(  j\right)  $,
+then $i=j$. In other words, $f$ is injective.]
 
 \begin{noncompile}
 The map $f$ is surjective.
@@ -10637,24 +10687,49 @@ The map $f$ is surjective.
 [\textit{Proof:} Let $i \in C$. We shall prove that $i \in f\left(  C \right)
 $.
 
-Indeed, $i \in C$. Thus, $i \in\left\{  0, 1, \ldots, n-1 \right\} $ (by the
-definition of $C$).
+Indeed, $i\in C$. By the definition of $C$, this means that $i\in\left\{
+0,1,\ldots,n-1\right\}  $ and $i\perp n$.
 
-But Exercise \ref{exe.ent.coprime.modinv-in-set} shows that there exists an
-$a^{\prime}\in\left\{  0,1,\ldots,n-1 \right\} $ such that $aa^{\prime}%
-\equiv1\operatorname{mod}n$. Consider this $a^{\prime}$, and denote it by $u$.
-Thus, $u$ is an element of $\left\{  0, 1, \ldots, n-1 \right\} $ and
-satisfies $au \equiv1 \mod n$. From $ua = au \equiv1 \mod n$, we conclude that
-there exists an $u^{\prime} \in\mathbb{Z}$ such that $uu^{\prime} \equiv1
-\mod n$ (namely, $u^{\prime} = a$). Hence, Theorem
-\ref{thm.ent.coprime.modinv} \textbf{(c)} (applied to $u$ and $u^{\prime}$
-instead of $a$ and $a^{\prime}$) shows that $u \perp n$. From $u \in\left\{
-0, 1, \ldots, n-1 \right\} $ and $u \perp n$, we conclude that $u \in C$ (by
-the definition of $C$). Multiplying the two congruences $au \equiv1 \mod n$
-and $i \equiv i \mod n$, we obtain $aui \equiv1i = i \mod n$. But Corollary
-\ref{cor.ent.quo-rem.remmod} \textbf{(c)} says: If $c\in\left\{
-0,1,\ldots,n-1\right\}  $ is such that $c\equiv u\operatorname{mod}n$, then
-$c=u\%n$. [...] ]
+But Proposition \ref{thm.ent.coprime.modinv} \textbf{(b)} shows that there
+exists an $a^{\prime}\in\mathbb{Z}$ such that $aa^{\prime}\equiv
+1\operatorname{mod}n$ (since $a\perp n$). Consider this $a^{\prime}$, and
+denote it by $u$. Thus, $u$ is an element of $\mathbb{Z}$ and satisfies
+$au\equiv1\mod n$. From $ua=au\equiv1\mod n$, we conclude that there exists an
+$u^{\prime}\in\mathbb{Z}$ such that $uu^{\prime}\equiv1\mod n$ (namely,
+$u^{\prime}=a$). Hence, Theorem \ref{thm.ent.coprime.modinv} \textbf{(c)}
+(applied to $u$ and $u^{\prime}$ instead of $a$ and $a^{\prime}$) shows that
+$u\perp n$.
+
+Now, Corollary \ref{cor.ent.quo-rem.remmod} \textbf{(a)} (applied to $ui$
+instead of $u$) shows that $\left(  ui\right)  \%n\in\left\{  0,1,\ldots
+,n-1\right\}  $ and $\left(  ui\right)  \%n\equiv ui\operatorname{mod}n$. Set
+$j=\left(  ui\right)  \%n$. Thus, $j=\left(  ui\right)  \%n\in\left\{
+0,1,\ldots,n-1\right\}  $ and $j=\left(  ui\right)  \%n\equiv
+ui\operatorname{mod}n$. Multiplying the congruences $a\equiv
+a\operatorname{mod}n$ and $j\equiv ui\operatorname{mod}n$, we obtain%
+\[
+aj\equiv\underbrace{au}_{\equiv1\operatorname{mod}n}i\equiv
+1i=i\operatorname{mod}n.
+\]
+In other words, $i\equiv aj\operatorname{mod}n$. Therefore, Corollary
+\ref{cor.ent.quo-rem.remmod} \textbf{(c)} (applied to $aj$ and $i$ instead of
+$u$ and $c$) yields $i=\left(  aj\right)  \%n$ (since $i\in\left\{
+0,1,\ldots,n-1\right\}  $).
+
+Combining $u\perp n$ with $i\perp n$, we obtain $ui\perp n$ (by Theorem
+\ref{thm.ent.coprime.ab-to-c}, applied to $u$, $i$ and $n$ instead of $a$, $b$
+and $c$). Also, $ui\equiv j\operatorname{mod}n$ (since $j\equiv
+ui\operatorname{mod}n$). Hence, Exercise \ref{exe.ent.coprime.b==c} (applied
+to $ui$, $j$ and $n$ instead of $a$, $b$ and $c$) yields $j\perp n$. From
+$j\in\left\{  0,1,\ldots,n-1\right\}  $ and $j\perp n$, we obtain $j\in C$ (by
+the definition of $C$). Thus, $f\left(  j\right)  $ is well-defined. The
+definition of $f$ yields $f\left(  j\right)  =\left(  aj\right)  \%n=i$ (since
+$i=\left(  aj\right)  \%n$). Hence, $i=f\left(  \underbrace{j}_{\in C}\right)
+\in f\left(  C\right)  $.
+
+Now, forget that we fixed $i$. We thus have proven that $i\in f\left(
+C\right)  $ for each $i\in C$. In other words, $C\subseteq f\left(  C\right)
+$. In other words, the map $f$ is surjective.]
 \end{noncompile}
 
 Now, $C$ is finite, the map $f:C\rightarrow C$ is injective, and we have
@@ -10809,16 +10884,18 @@ k\dbinom{n}{k}=n\dbinom{n-1}{k-1}.
 \end{enumerate}
 
 \begin{theorem}
-(Combinatorial interpretation of binomial coefficients)
+\label{thm.binom.comb-int}(Combinatorial interpretation of binomial coefficients)
 
 Let $n\in\mathbb{N}$ and $k\in\mathbb{Q}$. Let $N$ be an $n$-element set.
 Then, $\dbinom{n}{k}$ is the number of $k$-element subsets of $N$.
 \end{theorem}
 
 \begin{proof}
-(Proof sketch. For details, see \cite[Exercise 3.4]{detnotes}, which proves
-the Theorem in the case $k\in\mathbb{N}$. The remaining case $k\notin%
-\mathbb{N}$ is obvious, because in that case the theorem simply says $0=0$.)
+[Proof of Theorem \ref{thm.binom.comb-int}.] What follows is an outline of the
+proof. For a detailed proof, see \cite[Exercise 3.4]{detnotes}, where I
+thoroughly prove Theorem \ref{thm.binom.comb-int} in the case $k\in\mathbb{N}%
+$. (The remaining case $k\notin\mathbb{N}$ is obvious, because in that case
+the theorem simply says $0=0$.)
 
 We proceed by induction on $n$:
 
@@ -10881,16 +10958,17 @@ Combining both counts, we conclude that%
 \end{proof}
 
 \begin{corollary}
-Let $n\in\mathbb{N}$ and $k\in\mathbb{Q}$. Then, $\dbinom{n}{k}$ is a
-nonnegative integer.
+\label{cor.binom.N->N}Let $n\in\mathbb{N}$ and $k\in\mathbb{Q}$. Then,
+$\dbinom{n}{k}$ is a nonnegative integer.
 \end{corollary}
 
 \begin{proposition}
-Let $n\in\mathbb{Z}$ and $k\in\mathbb{Q}$. Then, $\dbinom{n}{k}$ is a integer.
+\label{prop.binom.Z->Z}Let $n\in\mathbb{Z}$ and $k\in\mathbb{Q}$. Then,
+$\dbinom{n}{k}$ is a integer.
 \end{proposition}
 
 \begin{proof}
-If $n\geq0$, then this follows from the Corollary we just proved. Thus, WLOG
+If $n\geq0$, then this follows from Corollary \ref{cor.binom.N->N}. Thus, WLOG
 assume that $n<0$.
 
 WLOG assume that $k\in\mathbb{N}$ (since otherwise, $\dbinom{n}{k}=0$).
@@ -10905,14 +10983,15 @@ The upper negation formula (applied to $-n$ instead of $n$) yields%
 This is an integer.
 \end{proof}
 
-The Proposition allows us to study divisibilities and congruences between
-binomial coefficients (and you have seen a few of them on HW1). The study of
-binomial coefficients properly belongs into Combinatorics, but we will need
-some of the most basic results in this class. Here are two of the main
-identities for binomial coefficients:
+Proposition \ref{prop.binom.Z->Z} allows us to study divisibilities and
+congruences between binomial coefficients (and you have seen a few of them on
+HW1). The study of binomial coefficients properly belongs into Combinatorics,
+but we will need some of the most basic results in this class. Here are two of
+the main identities for binomial coefficients:
 
 \begin{theorem}
-(The Binomial Formula) Let $x,y$ be any numbers. Let $n\in\mathbb{N}$. Then,%
+\label{thm.binom.binf}(The Binomial Formula) Let $x,y$ be any numbers. Let
+$n\in\mathbb{N}$. Then,%
 \[
 \left(  x+y\right)  ^{n}=\sum_{k=0}^{n}\dbinom{n}{k}x^{k}y^{n-k}.
 \]
@@ -10925,7 +11004,8 @@ much any text on combinatorics) for details.
 \end{proof}
 
 \begin{theorem}
-(Vandermonde convolution) Let $x,y\in\mathbb{Q}$ and $n\in\mathbb{N}$. Then,%
+\label{thm.binom.vandermonde}(Vandermonde convolution) Let $x,y\in\mathbb{Q}$
+and $n\in\mathbb{N}$. Then,%
 \[
 \dbinom{x+y}{n}=\sum_{k=0}^{n}\dbinom{x}{k}\dbinom{y}{n-k}.
 \]
@@ -11008,7 +11088,8 @@ $y\in\mathbb{N}$.
 \textit{Step 3:} Now, we generalize this to $y\in\mathbb{Q}$ as well. To do
 so, proceed as in Step 2, but with the roles of $x$ and $y$ swapped.
 
-So the Theorem is proven (up to proving the Fact that we used).
+So Theorem \ref{thm.binom.vandermonde} is proven (up to proving the Fact that
+we used).
 
 Note that the way we used the Fact is known as the \textquotedblleft
 polynomial identity trick\textquotedblright.
@@ -11018,8 +11099,8 @@ So far we have proven identities between binomial coefficients. Let us now
 step to divisibilities and congruences.
 
 \begin{theorem}
-Let $p$ be a prime. Let $k\in\left\{  1,2,\ldots,p-1\right\}  $. Then,
-$p\mid\dbinom{p}{k}$.
+\label{thm.binom.p|bin}Let $p$ be a prime. Let $k\in\left\{  1,2,\ldots
+,p-1\right\}  $. Then, $p\mid\dbinom{p}{k}$.
 \end{theorem}
 
 \begin{proof}
@@ -11034,7 +11115,11 @@ k\dbinom{p}{k}=p\underbrace{\dbinom{p-1}{k-1}}_{\text{an integer}}.
 Thus, $p\mid k\dbinom{p}{k}$. Hence, $p\mid k$ or $p\mid\dbinom{p}{k}$ (since
 $p$ is prime). Since $p\nmid k$ (because $k\in\left\{  1,2,\ldots,p-1\right\}
 $), we thus have $p\mid\dbinom{p}{k}$.
+\end{proof}
 
+
+
+\begin{proof}
 [Second proof (outline).] The following is not rigorous and probably not
 readable; we will make sense of this later.
 
@@ -11050,7 +11135,7 @@ I claim that there is a bijection%
 \begin{align*}
 \left\{  k\text{-element subsets of }\left\{  1,2,\ldots,p\right\}  \right\}
 &  \rightarrow\left\{  p\text{-bitstrings with }k\text{ 1's}\right\}  ,\\
-S  &  \mapsto\left\{  \left(  i_{1},i_{2},\ldots,i_{p}\right)  \right\}  ,
+S &  \mapsto\left\{  \left(  i_{1},i_{2},\ldots,i_{p}\right)  \right\}  ,
 \end{align*}
 where $i_{x}=%
 \begin{cases}
@@ -11076,7 +11161,7 @@ Thus,%
 &  \left(  \text{the number of }p\text{-bitstrings with }k\text{ 1's}\right)
 \\
 &  =\left(  \text{the number of }k\text{-element subsets of }\left\{
-1,2,\ldots,p\right\}  \right) \\
+1,2,\ldots,p\right\}  \right)  \\
 &  =\dbinom{p}{k}.
 \end{align*}
 
