@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Tuesday, February 19, 2019 00:04:09}
+%TCIDATA{LastRevised=Tuesday, February 19, 2019 00:17:44}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -10482,8 +10482,7 @@ C=\left\{  i\in\left\{  0,1,\ldots,n-1\right\}  \ \mid\ i\perp n\right\}  .
 Then, Lemma \ref{lem.ent.euler.phi0} yields $\left\vert C\right\vert
 =\phi\left(  n\right)  $.
 
-Now, $z=\prod_{c\in C}c$. Then, $z\perp n$ (by Exercise
-\ref{exe.ent.coprime.ab-to-cI}).
+Now, $z=\prod_{c\in C}c$. Then, $z\perp n$ (by Exercise \ref{exe.ent.coprime.ab-to-cI}).
 
 We have $\left(  ai\right)  \%n\in C$ for each $i\in C$.
 
@@ -10664,12 +10663,126 @@ k\dbinom{n}{k}=n\dbinom{n-1}{k-1}.
 
 \end{enumerate}
 
-The study of binomial coefficients properly belongs into Combinatorics. One of
-the main identities for binomial coefficients is:
+
 
 \begin{theorem}
-(Vandermonde convolution) For any $x,y\in\mathbb{Q}$ and $n\in\mathbb{N}$, we
-have%
+(Combinatorial interpretation of binomial coefficients)
+
+Let $n\in\mathbb{N}$ and $k\in\mathbb{Q}$. Let $N$ be an $n$-element set.
+Then, $\dbinom{n}{k}$ is the number of $k$-element subsets of $N$.
+\end{theorem}
+
+\begin{proof}
+(Proof sketch. For details, see \cite[Exercise 3.4]{detnotes}, which proves
+the Theorem in the case $k\in\mathbb{N}$. The remaining case $k\notin%
+\mathbb{N}$ is obvious, because in that case the theorem simply says $0=0$.)
+
+We proceed by induction on $n$:
+
+\textit{Induction base:} $n=0$. Then, $\dbinom{n}{k}=\dbinom{0}{k}=%
+\begin{cases}
+1, & \text{if }k=0;\\
+0, & \text{if }k\neq0
+\end{cases}
+$ (follows from the definition). On the other hand, the set $N$ is empty
+(since $\left\vert N\right\vert =n=0$). Thus, its only subset is $\varnothing
+$, which is a $0$-element subset. Hence, the number of $k$-element subsets of
+$N$ is $%
+\begin{cases}
+1, & \text{if }k=0;\\
+0, & \text{if }k\neq0
+\end{cases}
+$.
+
+\textit{Induction step:} Let $n>0$. Assume (as the induction hypothesis) that
+the theorem holds for $n-1$ instead of $n$.
+
+Now, let $N$ be an $n$-element set. Pick any $a\in N$ (this exists because
+$\left\vert N\right\vert =n>0$). Now, the $k$-element subsets of $N$ can be
+classified into two types:
+
+\begin{itemize}
+\item Type 1: those that don't contain $a$;
+
+\item Type 2: those that contain $a$.
+\end{itemize}
+
+The number of Type-1 subsets is $\dbinom{n-1}{k}$ (by the induction
+hypothesis, since the Type-1 subsets are precisely the $k$-element subsets of
+the $\left(  n-1\right)  $-element set $N\setminus\left\{  a\right\}  $).
+
+The number of Type-2 subsets is $\dbinom{n-1}{k-1}$. (In fact, there is a
+bijection%
+\begin{align*}
+\left\{  \left(  k-1\right)  \text{-element subsets of }N\setminus\left\{
+a\right\}  \right\}   &  \rightarrow\left\{  \text{Type-2 }k\text{-element
+subsets of }N\right\}  ,\\
+S  &  \mapsto S\cup\left\{  a\right\}  .
+\end{align*}
+Hence,%
+\begin{align*}
+&  \left(  \text{the number of Type-2 }k\text{-element subsets of }N\right) \\
+&  =\left(  \text{the number of }\left(  k-1\right)  \text{-element subsets of
+}N\setminus\left\{  a\right\}  \right) \\
+&  =\dbinom{n-1}{k-1}\ \ \ \ \ \ \ \ \ \ \left(  \text{by the induction
+hypothesis}\right)  .
+\end{align*}
+)
+
+Combining both counts, we conclude that%
+\begin{align*}
+&  \left(  \text{the number of }k\text{-element subsets of }N\right) \\
+&  =\dbinom{n-1}{k}+\dbinom{n-1}{k-1}=\dbinom{n}{k}%
+\end{align*}
+(by the recurrence of the binomial coefficients). So the induction step is complete.
+\end{proof}
+
+\begin{corollary}
+Let $n\in\mathbb{N}$ and $k\in\mathbb{Q}$. Then, $\dbinom{n}{k}$ is a
+nonnegative integer.
+\end{corollary}
+
+\begin{proposition}
+Let $n\in\mathbb{Z}$ and $k\in\mathbb{Q}$. Then, $\dbinom{n}{k}$ is a integer.
+\end{proposition}
+
+\begin{proof}
+If $n\geq0$, then this follows from the Corollary we just proved. Thus, WLOG
+assume that $n<0$.
+
+WLOG assume that $k\in\mathbb{N}$ (since otherwise, $\dbinom{n}{k}=0$).
+
+The upper negation formula (applied to $-n$ instead of $n$) yields%
+\[
+\dbinom{n}{k}=\left(  -1\right)  ^{k}\underbrace{\dbinom{k-n-1}{k}%
+}_{\substack{\text{a nonnegative integer}\\\text{(by Corollary, since
+}k-n-1\in\mathbb{N}\\\text{(because }k\in\mathbb{N}\text{ and }-n-1\in
+\mathbb{N}\text{))}}}.
+\]
+This is an integer.
+\end{proof}
+
+The Proposition allows us to study divisibilities and congruences between
+binomial coefficients (and you have seen a few of them on HW1). The study of
+binomial coefficients properly belongs into Combinatorics, but we will need
+some of the most basic results in this class. Here are two of the main
+identities for binomial coefficients:
+
+\begin{theorem}
+(The Binomial Formula) Let $x,y$ be any numbers. Let $n\in\mathbb{N}$. Then,%
+\[
+\left(  x+y\right)  ^{n}=\sum_{k=0}^{n}\dbinom{n}{k}x^{k}y^{n-k}.
+\]
+
+\end{theorem}
+
+\begin{proof}
+Straightforward induction on $n$. See \cite[Exercise 3.6]{detnotes} (or pretty
+much any text on combinatorics) for details.
+\end{proof}
+
+\begin{theorem}
+(Vandermonde convolution) Let $x,y\in\mathbb{Q}$ and $n\in\mathbb{N}$. Then,%
 \[
 \dbinom{x+y}{n}=\sum_{k=0}^{n}\dbinom{x}{k}\dbinom{y}{n-k}.
 \]
@@ -10677,31 +10790,220 @@ have%
 \end{theorem}
 
 \begin{proof}
-[Proof sketch.]Fix $n\in\mathbb{N}$. For any $u\in\mathbb{Q}$, we have%
-\begin{align*}
-\dbinom{u}{n}  &  =\underbrace{\dbinom{u-1}{n}}_{=\dbinom{u-2}{n}+\dbinom
-{u-2}{n-1}}+\underbrace{\dbinom{u-1}{n-1}}_{=\dbinom{u-2}{n-1}+\dbinom
-{u-2}{n-2}}\\
-&  =\underbrace{\dbinom{u-2}{n}}_{=\dbinom{u-3}{n}+\dbinom{u-3}{n-1}}%
-+2\dbinom{u-2}{n-1}+\dbinom{u-2}{n-2}\\
-&  =\dbinom{u-3}{n}+3\dbinom{u-3}{n-1}+3\dbinom{u-3}{n-2}+\dbinom{u-3}{n-3}\\
-&  =\cdots\\
-&  =\sum_{k=0}^{v}\dbinom{v}{k}\dbinom{u-v}{n-k}\ \ \ \ \ \ \ \ \ \ \text{for
-each }v\in\mathbb{N}%
-\end{align*}
-(formally: this is proven by induction). Setting $u=x+y$ and $v=x$ in this, we
-obtain%
+[Proof outline.]The proof we are going to give is similar to the one given in
+\cite[\S 3.3.3]{detnotes} (but, unlike the latter proof, we use polynomials in
+$1$ variable only). See \cite[\S 3.3.2]{detnotes} for another (more boring and
+tedious, but conceptually simpler proof).
+
+\textit{Step 1:} Let us prove the Theorem in the case when $x,y\in\mathbb{N}$.
+
+Indeed, let $x,y\in\mathbb{N}$. Let%
 \[
-\dbinom{x+y}{n}=\sum_{k=0}^{x}\dbinom{x}{k}\dbinom{y}{n-k}.
+A=\left\{  1,2,\ldots,x\right\}  \cup\left\{  -1,-2,\ldots,-y\right\}  .
+\]
+Thus, $A$ is an $\left(  x+y\right)  $-element set. How many $n$-element
+subsets does $A$ have?
+
+\begin{itemize}
+\item On the one hand: The number of $n$-element subsets of $A$ is
+$\dbinom{x+y}{n}$ (by the Combinatorial Interpretation), since $A$ is an
+$\left(  x+y\right)  $-element set.
+
+\item On the other hand: Let us classify such subsets according to how many
+positive elements they have. For each $k\in\left\{  0,1,\ldots,n\right\}  $,
+the number of $n$-element subsets of $A$ having \textbf{exactly }$k$
+\textbf{positive elements} is
+\[
+\underbrace{\dbinom{x}{k}}_{\substack{\text{number of ways}\\\text{to pick
+}k\text{ positive elements}}}\underbrace{\dbinom{y}{n-k}}%
+_{\substack{\text{number of ways to}\\\text{pick }n-k\text{ negative
+elements}}}.
+\]
+Thus, the total number of $n$-element subsets of $A$ is $\sum\limits_{k=0}%
+^{n}\dbinom{x}{k}\dbinom{y}{n-k}$.
+\end{itemize}
+
+Comparing these two results, we obtain%
+\[
+\dbinom{x+y}{n}=\sum_{k=0}^{n}\dbinom{x}{k}\dbinom{y}{n-k}.
+\]
+Thus, the Theorem is proven for $x,y\in\mathbb{N}$.
+
+\textit{Step 2:} We shall next prove the Theorem for $x\in\mathbb{Q}$ and
+$y\in\mathbb{N}$.
+
+To do so, we fix $y\in\mathbb{N}$, but consider $x$ as a variable.
+
+Then, $\dbinom{x+y}{n}$ is a polynomial in $x$, since%
+\[
+\dbinom{x+y}{n}=\dfrac{\left(  x+y\right)  \left(  x+y-1\right)  \left(
+x+y-2\right)  \cdots\left(  x+y-n+1\right)  }{n!}.
+\]
+Also, $\sum\limits_{k=0}^{n}\dbinom{x}{k}\dbinom{y}{n-k}$ is a polynomial in
+$x$. Now, we need the following fact:
+
+\begin{statement}
+\textit{Fact:} If $P$ and $Q$ are two polynomials in a variable $x$ (say, with
+real coefficients), and if infinitely many $x\in\mathbb{Q}$ satisfy $P\left(
+x\right)  =Q\left(  x\right)  $, then $P=Q$ as polynomials.
+\end{statement}
+
+[We will prove this in detail in April or so, when we study polynomials. For
+now, we don't even properly know what a polynomial is!]
+
+Define two polynomials $P$ and $Q$ by $P\left(  x\right)  =\dbinom{x+y}{n}$
+and $Q\left(  x\right)  =\sum_{k=0}^{n}\dbinom{x}{k}\dbinom{y}{n-k}$. Then,
+Step 1 shows that $P\left(  x\right)  =Q\left(  x\right)  $ for all
+$x\in\mathbb{N}$. Thus, infinitely many $x\in\mathbb{Q}$ satisfy $P\left(
+x\right)  =Q\left(  x\right)  $. Thus, the Fact we just stated yields $P=Q$ as
+polynomials. Thus, $P\left(  x\right)  =Q\left(  x\right)  $ for all
+$x\in\mathbb{Q}$. This means that $\dbinom{x+y}{n}=\sum\limits_{k=0}%
+^{n}\dbinom{x}{k}\dbinom{y}{n-k}$ holds for \textbf{all} $x\in\mathbb{Q}$. But
+this is precisely saying that the Theorem holds for all $x\in\mathbb{Q}$ and
+$y\in\mathbb{N}$.
+
+\textit{Step 3:} Now, we generalize this to $y\in\mathbb{Q}$ as well. To do
+so, proceed as in Step 2, but with the roles of $x$ and $y$ swapped.
+
+So the Theorem is proven (up to proving the Fact that we used).
+
+Note that the way we used the Fact is known as the \textquotedblleft
+polynomial identity trick\textquotedblright.
+\end{proof}
+
+So far we have proven identities between binomial coefficients. Let us now
+step to divisibilities and congruences.
+
+\begin{theorem}
+Let $p$ be a prime. Let $k\in\left\{  1,2,\ldots,p-1\right\}  $. Then,
+$p\mid\dbinom{p}{k}$.
+\end{theorem}
+
+\begin{proof}
+[First proof.]Applying the identity%
+\[
+k\dbinom{n}{k}=n\dbinom{n-1}{k-1}%
+\]
+to $n=p$, we obtain%
+\[
+k\dbinom{p}{k}=p\underbrace{\dbinom{p-1}{k-1}}_{\text{an integer}}.
+\]
+Thus, $p\mid k\dbinom{p}{k}$. Hence, $p\mid k$ or $p\mid\dbinom{p}{k}$ (since
+$p$ is prime). Since $p\nmid k$ (because $k\in\left\{  1,2,\ldots,p-1\right\}
+$), we thus have $p\mid\dbinom{p}{k}$.
+
+[Second proof (outline).] The following is not rigorous and probably not
+readable; we will make sense of this later.
+
+We know that $\dbinom{p}{k}$ counts $k$-element subsets of $\left\{
+1,2,\ldots,p\right\}  $. We can restate this using $p$\textit{-bitstrings}.
+
+A $p$\textit{-bitstring} is a $p$-tuple $\left(  i_{1},i_{2},\ldots
+,i_{p}\right)  \in\left\{  0,1\right\}  ^{p}$. For example, the $2$-bitstrings
+are $\left(  0,0\right)  ,\ \left(  0,1\right)  ,\ \left(  1,0\right)
+,\ \left(  1,1\right)  $.
+
+I claim that there is a bijection%
+\begin{align*}
+\left\{  k\text{-element subsets of }\left\{  1,2,\ldots,p\right\}  \right\}
+&  \rightarrow\left\{  p\text{-bitstrings with }k\text{ 1's}\right\}  ,\\
+S  &  \mapsto\left\{  \left(  i_{1},i_{2},\ldots,i_{p}\right)  \right\}  ,
+\end{align*}
+where $i_{x}=%
+\begin{cases}
+1, & \text{if }x\in S;\\
+0, & \text{if }x\notin S
+\end{cases}
+$.
+
+(Example: If $p=3$ and $k=2$, then
+
+\begin{itemize}
+\item the $k$-element subsets of $\left\{  1,2,\ldots,p\right\}  $ are
+$\left\{  1,2\right\}  ,\ \left\{  1,3\right\}  ,\ \left\{  2,3\right\}  $;
+
+\item the $p$-bitstrings with $k$ 1's are $\left(  1,1,0\right)  ,\ \left(
+1,0,1\right)  ,\ \left(  0,1,1\right)  $.
+\end{itemize}
+
+These are listed in a way that the bijection sends them to each other in order.)
+
+Thus,%
+\begin{align*}
+&  \left(  \text{the number of }p\text{-bitstrings with }k\text{ 1's}\right)
+\\
+&  =\left(  \text{the number of }k\text{-element subsets of }\left\{
+1,2,\ldots,p\right\}  \right) \\
+&  =\dbinom{p}{k}.
+\end{align*}
+
+
+A \textit{necklace} is (basically) a bitstring up to cyclic rotation.
+
+\textit{Cyclic rotation} is the map $\mathbf{c}$ sending a $p$-bitstring
+$\left(  i_{1},i_{2},\ldots,i_{p}\right)  $ to $\left(  i_{2},i_{3}%
+,\ldots,i_{p},i_{1}\right)  $.
+
+If $\left(  i_{1},i_{2},\ldots,i_{p}\right)  $ is any $p$-bitstring, then
+\begin{align*}
+&  \left(  i_{1},i_{2},\ldots,i_{p}\right)  ,\ \ \ \ \ \ \ \ \ \ \mathbf{c}%
+\left(  i_{1},i_{2},\ldots,i_{p}\right)  ,\ \ \ \ \ \ \ \ \ \ \mathbf{c}%
+^{2}\left(  i_{1},i_{2},\ldots,i_{p}\right)  ,\\
+&  \ldots,\ \ \ \ \ \ \ \ \ \ \mathbf{c}^{p-1}\left(  i_{1},i_{2},\ldots
+,i_{p}\right)
+\end{align*}
+are all distinct \textbf{unless} it is either $\left(  0,0,\ldots,0\right)  $
+or $\left(  1,1,\ldots,1\right)  $.
+
+(Example: $\left(  1,1,0\right)  ,\ \left(  1,0,1\right)  ,\ \left(
+0,1,1\right)  $ are distinct.
+
+$\left(  1,0,1,0\right)  ,\ \left(  0,1,0,1\right)  ,\ \left(  1,0,1,0\right)
+,\ \left(  0,1,0,1\right)  $ are \textbf{not} distinct, but $4$ is not prime.)
+
+We don't claim that this is mathematically obvious! It will be a consequence
+of things we do later (group actions on sets).
+
+Thus, the $p$-bitstrings with $k$ 1's can be grouped into \textquotedblleft
+necklaces\textquotedblright: A necklace is always a group formed by a
+$p$-bitstring $\left(  i_{1},i_{2},\ldots,i_{p}\right)  $ and all its images
+$\mathbf{c}^{\ell}\left(  i_{1},i_{2},\ldots,i_{p}\right)  $ under cyclic
+rotation (applied several times). Each necklace contains exactly $p$ many
+$p$-bitstrings. So the number of $p$-bitstrings with $k$ 1's equals $p$ times
+the number of necklaces.
+\end{proof}
+
+\begin{theorem}
+(Lucas's theorem) Let $p$ be a prime. Let $a,b\in\mathbb{Z}$. Let
+$c,d\in\left\{  0,1,\ldots,p-1\right\}  $. Then,%
+\[
+\dbinom{pa+c}{pb+d}\equiv\dbinom{a}{b}\dbinom{c}{d}\operatorname{mod}p.
 \]
 
+\end{theorem}
 
-This works when $x\in\mathbb{N}$.
+\begin{theorem}
+(Lucas's theorem, take 2) Let $p$ be a prime. Let $a,b\in\mathbb{N}$. Write
+$a$ and $b$ in base $p$ as follows:%
+\[
+a=\overline{a_{k}a_{k-1}\cdots a_{0}}\ \ \ \ \ \ \ \ \ \ \text{and}%
+\ \ \ \ \ \ \ \ \ \ b=\overline{b_{k}b_{k-1}\cdots b_{0}}%
+\]
+(where leading zeroes are allowed). Then,%
+\[
+\dbinom{a}{b}\equiv\dbinom{a_{k}}{b_{k}}\dbinom{a_{k-1}}{b_{k-1}}\cdots
+\dbinom{a_{0}}{b_{0}}\operatorname{mod}p.
+\]
 
-Now, I claim that having proven the identity for $x\in\mathbb{N}$, we
-automatically conclude that it holds for all $x\in\mathbb{Q}$. To prove this,
-$\ldots$.
-\end{proof}
+\end{theorem}
+
+\begin{theorem}
+(Babbage's congruence) If $a,b\in\mathbb{Z}$ and if $p$ is a prime,%
+\[
+\dbinom{pa}{pb}\equiv\dbinom{a}{b}\operatorname{mod}p^{2}.
+\]
+
+\end{theorem}
 
 TODO.
 
@@ -10710,23 +11012,8 @@ TODO.
 TODO:
 
 \begin{itemize}
-\item binomial theorem.
-
-\item combinatorial meaning.
-
-\item $p\mid\dbinom{p}{k}$. two proofs: (1) using absorption identity, (2) by
-counting bitstrings.
-
-\item state necklace question. (teaser!)
-
-\item $\dbinom{2a}{2b}$ etc. and the Sierpinski triangle.
-
-\item Lucas's theorem. (teaser!)
-
 \item integer-valued polynomials. (teaser!)
 \end{itemize}
-
-\subsection{Application: The RSA cryptosystem}
 
 \begin{thebibliography}{999999999}                                                                                        %
 
