@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, February 18, 2019 13:13:33}
+%TCIDATA{LastRevised=Monday, February 18, 2019 20:23:40}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -819,9 +819,9 @@ Note that if $\mathbf{a}$ and $\mathbf{b}$ are two length-$m$ bitstrings, then
 the $0$'s in the bitstring $\mathbf{a}\operatorname*{XOR}\mathbf{b}$ are at
 the positions where $\mathbf{a}$ and $\mathbf{b}$ have equal entries, and the
 $1$'s in $\mathbf{a}\operatorname*{XOR}\mathbf{b}$ are at the positions where
-$\mathbf{a}$ and $\mathbf{b}$ have different entries. Thus, the operation
-$\operatorname*{XOR}$ on bitstring essentially pinpoints the differences
-between $\mathbf{a}$ and $\mathbf{b}$.
+$\mathbf{a}$ and $\mathbf{b}$ have different entries. Thus, $\mathbf{a}%
+\operatorname*{XOR}\mathbf{b}$ essentially pinpoints the differences between
+$\mathbf{a}$ and $\mathbf{b}$.
 
 We observe the following simple properties of these operations
 $\operatorname*{XOR}$ on bits and on bitstrings\footnote{As a mnemonic, we
@@ -897,7 +897,7 @@ a\operatorname*{XOR}b\right)  \operatorname*{XOR}c$ and $\mathbf{a}%
 \mathbf{c}$ as \textit{laws of associativity}. These are, of course, similar
 to well-known facts like $\alpha+\beta=\beta+\alpha$ and $\alpha+\left(
 \beta+\gamma\right)  =\left(  \alpha+\beta\right)  +\gamma$ for numbers
-$\alpha,\beta,\gamma$ (which is why we are giving them the same name). This
+$\alpha,\beta,\gamma$ (which is why we are giving them the same names). This
 similarity is not coincidental. Just as for addition or multiplication of
 numbers, these laws lead to a notion of \textquotedblleft
 XOR-products\textquotedblright:
@@ -1067,14 +1067,14 @@ Each person $i$ now receives the bitstring%
 \mathbf{x}_{i+1}\mathbf{x}_{i+2}\cdots\mathbf{x}_{n},
 \]
 where the product stands for \textit{concatenation} (i.e., the bitstring
-$\mathbf{a}_{i}$ is formed by writing down all of the bitstring $\mathbf{x}%
-_{1},\mathbf{x}_{2},\ldots,\mathbf{x}_{n}$ one after the other but skipping
-$\mathbf{x}_{i}$). Thus, each person $i$ can recover all the $n-1$ bitstrings
-$\mathbf{x}_{1},\mathbf{x}_{2},\ldots,\mathbf{x}_{i-1},\mathbf{x}%
-_{i+1},\mathbf{x}_{i+2},\ldots,\mathbf{x}_{n}$ (because their lengths are the
-length of $\mathbf{a}$, which is known), but knows nothing about
-$\mathbf{x}_{i}$ (his \textquotedblleft blind spot\textquotedblright). Hence,
-$2$ people together can recover all the $n$ bitstrings $\mathbf{x}%
+$\mathbf{a}_{i}$ is formed by writing down all of the bitstrings
+$\mathbf{x}_{1},\mathbf{x}_{2},\ldots,\mathbf{x}_{n}$ one after the other but
+skipping $\mathbf{x}_{i}$). Thus, each person $i$ can recover all the $n-1$
+bitstrings $\mathbf{x}_{1},\mathbf{x}_{2},\ldots,\mathbf{x}_{i-1}%
+,\mathbf{x}_{i+1},\mathbf{x}_{i+2},\ldots,\mathbf{x}_{n}$ (because their
+lengths are the length of $\mathbf{a}$, which is known), but knows nothing
+about $\mathbf{x}_{i}$ (his \textquotedblleft blind spot\textquotedblright).
+Hence, $2$ people together can recover all the $n$ bitstrings $\mathbf{x}%
 _{1},\mathbf{x}_{2},\ldots,\mathbf{x}_{n}$ and therefore recover the secret
 $\mathbf{a}$ (by (\ref{eq.intro.shamir.k=2.2})). On the other hand, each
 single person has no insight about $\mathbf{a}$ (this is proven similarly to
@@ -9193,7 +9193,7 @@ v_{p}\left(  n\right)   &  =0\text{ for each prime }p\notin\left\{
 \end{align*}
 Now, (\ref{eq.prop.ent.primes.gcd.gcd}) yields%
 \begin{align*}
-&  \gcd\left(  n,m\right)  \\
+&  \gcd\left(  n,m\right) \\
 &  =\prod_{p\text{ prime}}p^{\min\left\{  v_{p}\left(  n\right)  ,v_{p}\left(
 m\right)  \right\}  }\\
 &  =\underbrace{2^{\min\left\{  v_{2}\left(  n\right)  ,v_{2}\left(  m\right)
@@ -9214,7 +9214,7 @@ n\right)  ,v_{p}\left(  m\right)  \right\}  =\min\left\{  0,0\right\}
 \end{align*}
 Likewise, (\ref{eq.prop.ent.primes.gcd.lcm}) yields%
 \begin{align*}
-&  \operatorname{lcm}\left(  n,m\right)  \\
+&  \operatorname{lcm}\left(  n,m\right) \\
 &  =\prod_{p\text{ prime}}p^{\max\left\{  v_{p}\left(  n\right)  ,v_{p}\left(
 m\right)  \right\}  }\\
 &  =\underbrace{2^{\max\left\{  v_{2}\left(  n\right)  ,v_{2}\left(  m\right)
@@ -9245,21 +9245,21 @@ nonzero integers, with $k>0$. Then,%
 \begin{equation}
 \gcd\left(  b_{1},b_{2},\ldots,b_{k}\right)  =\prod_{p\text{ prime}}%
 p^{\min\left\{  v_{p}\left(  b_{1}\right)  ,v_{p}\left(  b_{2}\right)
-,\ldots,v_{p}\left(  b_{k}\right)  \right\}  }%
+,\ldots,v_{p}\left(  b_{k}\right)  \right\}  }
 \label{eq.prop.ent.primes.gcd-k.gcd}%
 \end{equation}
 an%
 \begin{equation}
 \operatorname{lcm}\left(  b_{1},b_{2},\ldots,b_{k}\right)  =\prod_{p\text{
 prime}}p^{\max\left\{  v_{p}\left(  b_{1}\right)  ,v_{p}\left(  b_{2}\right)
-,\ldots,v_{p}\left(  b_{k}\right)  \right\}  }%
-.\label{eq.prop.ent.primes.gcd-k.lcm}%
+,\ldots,v_{p}\left(  b_{k}\right)  \right\}  }.
+\label{eq.prop.ent.primes.gcd-k.lcm}%
 \end{equation}
 
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.ent.primes.gcd-k}.] The proof of Proposition
+[Proof of Proposition \ref{prop.ent.primes.gcd-k}.]The proof of Proposition
 \ref{prop.ent.primes.gcd-k} is analogous to the proof of Proposition
 \ref{prop.ent.primes.gcd}, with two minor exceptions:
 
@@ -9315,8 +9315,8 @@ example, let us prove Theorem \ref{thm.ent.lcm.gcd*lcm} and solve Exercise
 \begin{fineprint}
 \begin{proof}
 [Second proof of Theorem \ref{thm.ent.lcm.gcd*lcm} (sketched).]WLOG assume
-that $a$ and $b$ are nonzero (since otherwise, the claim of Proposition
-\ref{prop.ent.primes.gcd} easily reduces to $0=0$). Then, $ab$ is nonzero as
+that $a$ and $b$ are nonzero (since otherwise, the claim of Theorem
+\ref{thm.ent.lcm.gcd*lcm} easily reduces to $0=0$). Then, $ab$ is nonzero as
 well. Hence, Corollary \ref{cor.ent.primes.can-facZ} (applied to $n=ab$)
 yields%
 \[
@@ -9332,11 +9332,11 @@ p^{\max\left\{  v_{p}\left(  a\right)  ,v_{p}\left(  b\right)  \right\}  }.
 \end{align*}
 Multiplying these two equalities, we get%
 \begin{align*}
-&  \gcd\left(  a,b\right)  \cdot\operatorname{lcm}\left(  a,b\right)  \\
-&  =\left(  \prod_{p\text{ prime}}p^{\min\left\{  v_{p}\left(  a\right)
+\gcd\left(  a,b\right)  \cdot\operatorname{lcm}\left(  a,b\right)   &
+=\left(  \prod_{p\text{ prime}}p^{\min\left\{  v_{p}\left(  a\right)
 ,v_{p}\left(  b\right)  \right\}  }\right)  \cdot\left(  \prod_{p\text{
 prime}}p^{\max\left\{  v_{p}\left(  a\right)  ,v_{p}\left(  b\right)
-\right\}  }\right)  \\
+\right\}  }\right) \\
 &  =\prod_{p\text{ prime}}\underbrace{\left(  p^{\min\left\{  v_{p}\left(
 a\right)  ,v_{p}\left(  b\right)  \right\}  }p^{\max\left\{  v_{p}\left(
 a\right)  ,v_{p}\left(  b\right)  \right\}  }\right)  }_{\substack{=p^{\min
@@ -9377,7 +9377,7 @@ v_{p}\left(  bc\right)  ,v_{p}\left(  ca\right)  ,v_{p}\left(  ab\right)
 a\right)  ,v_{p}\left(  b\right)  ,v_{p}\left(  c\right)  \right\}  }\right)
 \cdot\left(  \prod\limits_{p\text{ prime}}p^{\max\left\{  v_{p}\left(
 bc\right)  ,v_{p}\left(  ca\right)  ,v_{p}\left(  ab\right)  \right\}
-}\right)  \nonumber\\
+}\right) \nonumber\\
 &  =\prod\limits_{p\text{ prime}}\underbrace{\left(  p^{\min\left\{
 v_{p}\left(  a\right)  ,v_{p}\left(  b\right)  ,v_{p}\left(  c\right)
 \right\}  }p^{\max\left\{  v_{p}\left(  bc\right)  ,v_{p}\left(  ca\right)
@@ -9388,7 +9388,7 @@ ab\right)  \right\}  }}\nonumber\\
 &  =\prod\limits_{p\text{ prime}}p^{\min\left\{  v_{p}\left(  a\right)
 ,v_{p}\left(  b\right)  ,v_{p}\left(  c\right)  \right\}  +\max\left\{
 v_{p}\left(  bc\right)  ,v_{p}\left(  ca\right)  ,v_{p}\left(  ab\right)
-\right\}  }.\label{sol.ent.lcm.lcmabc.2nd.2}%
+\right\}  }. \label{sol.ent.lcm.lcmabc.2nd.2}%
 \end{align}
 
 
@@ -9410,23 +9410,22 @@ ca\right)  =u-v_{p}\left(  b\right)  $. Similarly, $v_{p}\left(  ab\right)
 =u-v_{p}\left(  c\right)  $ and $v_{p}\left(  bc\right)  =u-v_{p}\left(
 a\right)  $. Now,%
 \begin{align}
-& \min\left\{  v_{p}\left(  a\right)  ,v_{p}\left(  b\right)  ,v_{p}\left(
+&  \min\left\{  v_{p}\left(  a\right)  ,v_{p}\left(  b\right)  ,v_{p}\left(
 c\right)  \right\}  +\max\left\{  \underbrace{v_{p}\left(  bc\right)
 }_{=u-v_{p}\left(  a\right)  },\underbrace{v_{p}\left(  ca\right)  }%
 _{=u-v_{p}\left(  b\right)  },\underbrace{v_{p}\left(  ab\right)  }%
-_{=u-v_{p}\left(  c\right)  }\right\}  \nonumber\\
-& =\min\left\{  v_{p}\left(  a\right)  ,v_{p}\left(  b\right)  ,v_{p}\left(
+_{=u-v_{p}\left(  c\right)  }\right\} \nonumber\\
+&  =\min\left\{  v_{p}\left(  a\right)  ,v_{p}\left(  b\right)  ,v_{p}\left(
 c\right)  \right\}  +\underbrace{\max\left\{  u-v_{p}\left(  a\right)
 ,u-v_{p}\left(  b\right)  ,u-v_{p}\left(  c\right)  \right\}  }%
 _{\substack{=u-\min\left\{  v_{p}\left(  a\right)  ,v_{p}\left(  b\right)
 ,v_{p}\left(  c\right)  \right\}  \\\text{(since any three reals
 }x,y,z\\\text{satisfy }\max\left\{  u-x,u-y,u-z\right\}  =u-\min\left\{
 x,y,z\right\}  \text{)}}}\nonumber\\
-& =\min\left\{  v_{p}\left(  a\right)  ,v_{p}\left(  b\right)  ,v_{p}\left(
+&  =\min\left\{  v_{p}\left(  a\right)  ,v_{p}\left(  b\right)  ,v_{p}\left(
 c\right)  \right\}  +\left(  u-\min\left\{  v_{p}\left(  a\right)
-,v_{p}\left(  b\right)  ,v_{p}\left(  c\right)  \right\}  \right)
-\nonumber\\
-& =u=v_{p}\left(  abc\right)  .\label{sol.ent.lcm.lcmabc.2nd.4}%
+,v_{p}\left(  b\right)  ,v_{p}\left(  c\right)  \right\}  \right) \nonumber\\
+&  =u=v_{p}\left(  abc\right)  . \label{sol.ent.lcm.lcmabc.2nd.4}%
 \end{align}
 
 
@@ -9434,8 +9433,7 @@ Now, forget that we fixed $p$. We thus have proven
 (\ref{sol.ent.lcm.lcmabc.2nd.4}) for each prime $p$. Thus,
 (\ref{sol.ent.lcm.lcmabc.2nd.2}) becomes%
 \begin{align*}
-&  \gcd\left(  a,b,c\right)  \cdot\operatorname{lcm}\left(  bc,ca,ab\right)
-\\
+&  \gcd\left(  a,b,c\right)  \cdot\operatorname{lcm}\left(  bc,ca,ab\right) \\
 &  =\prod\limits_{p\text{ prime}}\underbrace{p^{\min\left\{  v_{p}\left(
 a\right)  ,v_{p}\left(  b\right)  ,v_{p}\left(  c\right)  \right\}
 +\max\left\{  v_{p}\left(  bc\right)  ,v_{p}\left(  ca\right)  ,v_{p}\left(
@@ -9459,15 +9457,15 @@ bcd,cda,dab,abc\right)   &  =\left\vert abcd\right\vert .
 Indeed, the last equality holds since each prime $p$ satisfies%
 \begin{align*}
 &  \min\left\{  v_{p}\left(  a\right)  ,v_{p}\left(  b\right)  ,v_{p}\left(
-c\right)  ,v_{p}\left(  d\right)  \right\}  \\
+c\right)  ,v_{p}\left(  d\right)  \right\} \\
 &  \ \ \ \ \ \ \ \ \ \ +\max\left\{  \underbrace{v_{p}\left(  bcd\right)
 }_{=v_{p}\left(  abcd\right)  -v_{p}\left(  a\right)  },\underbrace{v_{p}%
 \left(  cda\right)  }_{=v_{p}\left(  abcd\right)  -v_{p}\left(  b\right)
 },\underbrace{v_{p}\left(  dab\right)  }_{=v_{p}\left(  abcd\right)
 -v_{p}\left(  c\right)  },\underbrace{v_{p}\left(  abc\right)  }%
-_{=v_{p}\left(  abcd\right)  -v_{p}\left(  d\right)  }\right\}  \\
+_{=v_{p}\left(  abcd\right)  -v_{p}\left(  d\right)  }\right\} \\
 &  =\min\left\{  v_{p}\left(  a\right)  ,v_{p}\left(  b\right)  ,v_{p}\left(
-c\right)  ,v_{p}\left(  d\right)  \right\}  \\
+c\right)  ,v_{p}\left(  d\right)  \right\} \\
 &  \ \ \ \ \ \ \ \ \ \ +\underbrace{\max\left\{  v_{p}\left(  abcd\right)
 -v_{p}\left(  a\right)  ,v_{p}\left(  abcd\right)  -v_{p}\left(  b\right)
 ,v_{p}\left(  abcd\right)  -v_{p}\left(  c\right)  ,v_{p}\left(  abcd\right)
@@ -9477,17 +9475,31 @@ v_{p}\left(  a\right)  ,v_{p}\left(  b\right)  ,v_{p}\left(  c\right)
 &  =\min\left\{  v_{p}\left(  a\right)  ,v_{p}\left(  b\right)  ,v_{p}\left(
 c\right)  ,v_{p}\left(  d\right)  \right\}  +\left(  v_{p}\left(  abcd\right)
 -\min\left\{  v_{p}\left(  a\right)  ,v_{p}\left(  b\right)  ,v_{p}\left(
-c\right)  ,v_{p}\left(  d\right)  \right\}  \right)  \\
+c\right)  ,v_{p}\left(  d\right)  \right\}  \right) \\
 &  =v_{p}\left(  abcd\right)
 \end{align*}
 (assuming that $a,b,c,d$ are nonzero). Similarly, the first equality holds.
-You can likewise prove generalizations to $k$ integers.
+You can likewise prove generalizations to $k$ integers.\footnotemark
 \end{remark}
+
+\footnotetext{That said, it is probably better (and easier) to generalize
+Claim 1 from the solution of Exercise \ref{exe.ent.lcm.lcmabc} to $k$
+integers:
+\par
+\begin{statement}
+\textit{Claim 2:} Let $k>0$. Let $N$ be an integer. Let $a_{1},a_{2}%
+,\ldots,a_{k}$ be $k$ integers, and let $x_{1},x_{2},\ldots,x_{k}$ be $k$
+integers such that $a_{1}x_{1}=a_{2}x_{2}=\cdots=a_{k}x_{k}=N$. Then,
+$\gcd\left(  a_{1},a_{2},\ldots,a_{k}\right)  \cdot\operatorname{lcm}\left(
+x_{1},x_{2},\ldots,x_{k}\right)  =\left\vert N\right\vert $.
+\end{statement}
+\par
+This Claim 2 can be proven either by generalizing the proof of Claim 1 from
+the solution of Exercise \ref{exe.ent.lcm.lcmabc}, or (again) using
+Proposition \ref{prop.ent.primes.gcd}.}
 \end{fineprint}
 
 \subsubsection{Coprimality through prime factors}
-
-TODO: Write from here.
 
 \begin{proposition}
 \label{prop.ent.coprime.via-primes}Let $n$ and $m$ be two integers. Then,
@@ -9497,21 +9509,59 @@ $m$.
 
 \begin{proof}
 [Proof of Proposition \ref{prop.ent.coprime.via-primes}.]$\Longrightarrow:$
-Assume that $n\perp m$. Thus, $\gcd\left(  n,m\right)  =1$. Now, if a prime
-$p$ would divide both $n$ and $m$, then it would also divide $\gcd\left(
-n,m\right)  =1$; but a prime $p$ cannot divide $1$. So there exists no prime
-$p$ that divides both $n$ and $m$.
+Assume that $n\perp m$. We must prove that there exists no prime $p$ that
+divides both $n$ and $m$.
+
+Let $p$ be a prime that divides both $n$ and $m$. Thus, $p\mid n$ and $p\mid
+m$. Hence, $p\mid\gcd\left(  n,m\right)  $ (by Lemma \ref{lem.ent.gcd.uniprop}%
+, applied to $p$, $n$ and $m$ instead of $m$, $a$ and $b$). But $\gcd\left(
+n,m\right)  =1$ (since $n\perp m$). Hence, $p\mid\gcd\left(  n,m\right)  =1$.
+Hence, Proposition \ref{prop.ent.div.1} \textbf{(b)} (applied to $a=p$ and
+$b=1$) yields $\left\vert p\right\vert \leq\left\vert 1\right\vert =1$.
+
+But $p$ is a prime; thus, $p>1>0$, so that $\left\vert p\right\vert =p$ and
+thus $p=\left\vert p\right\vert \leq1$. This contradicts $p>1$.
+
+Now, forget that we fixed $p$. We thus have obtained a contradiction for each
+prime $p$ that divides both $n$ and $m$. Hence, there exists no prime $p$ that
+divides both $n$ and $m$. This proves the \textquotedblleft$\Longrightarrow
+$\textquotedblright\ direction of Proposition
+\ref{prop.ent.coprime.via-primes}.
 
 $\Longleftarrow:$ Assume that there exists no prime $p$ that divides both $n$
-and $m$. In other words, no prime divides $\gcd\left(  n,m\right)  $. But if
-we had $\gcd\left(  n,m\right)  >1$, then there would be a prime dividing
-$\gcd\left(  n,m\right)  $ (since any integer $>1$ has a prime factor). So we
-have $\gcd\left(  n,m\right)  \leq1$, thus $\gcd\left(  n,m\right)  =1$. So
-$n\perp m$.
+and $m$. We must prove that $n\perp m$.
+
+Assume the contrary. Thus, we don't have $n\perp m$. In other words, we don't
+have $\gcd\left(  n,m\right)  =1$. In other words, $\gcd\left(  n,m\right)
+\neq1$. Hence, there exists at least one prime $p$ such that $p\mid\gcd\left(
+n,m\right)  $\ \ \ \ \footnote{\textit{Proof.} This is obvious if $\gcd\left(
+n,m\right)  =0$ (because in that case, we can take $p=2$, or any other prime).
+Thus, for the rest of this proof, we WLOG assume that $\gcd\left(  n,m\right)
+\neq0$. Thus, $\gcd\left(  n,m\right)  >1$ (since $\gcd\left(  n,m\right)  $
+is a nonnegative integers satisfying $\gcd\left(  n,m\right)  \neq0$ and
+$\gcd\left(  n,m\right)  \neq1$). Hence, Proposition
+\ref{prop.ent.primes.ex-pri-div} (applied to $\gcd\left(  n,m\right)  $
+instead of $n$) yields that there exists at least one prime $p$ such that
+$p\mid\gcd\left(  n,m\right)  $. Qed.}. Consider this $p$.
+
+We have $p\mid\gcd\left(  n,m\right)  \mid n$ and $p\mid\gcd\left(
+n,m\right)  \mid m$. Thus, the prime $p$ divides both $n$ and $m$. This
+contradicts the assumption that there exists no prime $p$ that divides both
+$n$ and $m$.
+
+This contradiction shows that our assumption was false. Hence, $n\perp m$ is
+proven. This proves the \textquotedblleft$\Longleftarrow$\textquotedblright%
+\ direction of Proposition \ref{prop.ent.coprime.via-primes}.
 \end{proof}
 
 \begin{corollary}
-Let $n$ and $m$ be two nonzero integers. Then, $n\perp m$ if and only if
+\label{cor.ent.coprime.orthogonal}Let $n$ and $m$ be two nonzero integers. Then:
+
+\textbf{(a)} The infinite sum $\sum_{p\text{ prime}}v_{p}\left(  n\right)
+v_{p}\left(  m\right)  $ is well-defined (i.e., all but finitely many primes
+$p$ satisfy $v_{p}\left(  n\right)  v_{p}\left(  m\right)  =0$).
+
+\textbf{(b)} We have $n\perp m$ if and only if
 \[
 \sum_{p\text{ prime}}v_{p}\left(  n\right)  v_{p}\left(  m\right)  =0.
 \]
@@ -9519,25 +9569,74 @@ Let $n$ and $m$ be two nonzero integers. Then, $n\perp m$ if and only if
 \end{corollary}
 
 \begin{proof}
-We have the following equivalence:%
+[Proof of Corollary \ref{cor.ent.coprime.orthogonal} (sketched).]\textbf{(a)}
+For every prime $p>\left\vert n\right\vert $, we have $v_{p}\left(  n\right)
+=0$ (by Lemma \ref{lem.ent.primes.vpn=0} \textbf{(a)}) and thus
+$\underbrace{v_{p}\left(  n\right)  }_{=0}v_{p}\left(  m\right)  =0$. Now,
+Corollary \ref{cor.ent.coprime.orthogonal} \textbf{(a)} follows easily.
+
+\textbf{(b)} A sum of nonnegative reals is $0$ if and only if each of its
+addends is $0$. Thus, the sum $\sum_{p\text{ prime}}v_{p}\left(  n\right)
+v_{p}\left(  m\right)  $ is $0$ if and only if we have $\left(  v_{p}\left(
+n\right)  v_{p}\left(  m\right)  =0\text{ for all primes }p\right)  $ (because
+all the addends $v_{p}\left(  n\right)  v_{p}\left(  m\right)  $ of our sum
+are nonnegative reals). Hence, we have the following chain of equivalences:%
 \begin{align*}
 &  \left(  \sum_{p\text{ prime}}v_{p}\left(  n\right)  v_{p}\left(  m\right)
 =0\right) \\
 &  \Longleftrightarrow\ \left(  v_{p}\left(  n\right)  v_{p}\left(  m\right)
 =0\text{ for all primes }p\right) \\
-&  \ \ \ \ \ \ \ \ \ \ \left(  \text{since }v_{p}\left(  n\right)
-v_{p}\left(  m\right)  \geq0\text{ for all }p\right) \\
 &  \Longleftrightarrow\ \left(  \left(  v_{p}\left(  n\right)  =0\text{ or
 }v_{p}\left(  m\right)  =0\right)  \text{ for all primes }p\right) \\
 &  \Longleftrightarrow\ \left(  \left(  p\nmid n\text{ or }p\nmid m\right)
 \text{ for all primes }p\right) \\
-&  \Longleftrightarrow\ \left(  \text{there exists no prime }p\text{ dividing
-both }n\text{ and }m\right) \\
+&  \ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{since Corollary \ref{cor.ent.prime.vp-0} yields the}\\
+\text{equivalences }\left(  v_{p}\left(  n\right)  =0\right)
+\Longleftrightarrow\left(  p\nmid n\right)  \text{ and }\left(  v_{p}\left(
+m\right)  =0\right)  \Longleftrightarrow\left(  p\nmid m\right) \\
+\text{for each prime }p
+\end{array}
+\right) \\
+&  \Longleftrightarrow\ \left(  \text{there exists no prime }p\text{ such that
+}\left(  p\mid n\text{ and }p\mid m\right)  \right) \\
+&  \Longleftrightarrow\ \left(  \text{there exists no prime }p\text{ that
+divides both }n\text{ and }m\right) \\
 &  \Longleftrightarrow\ \left(  n\perp m\right)  \ \ \ \ \ \ \ \ \ \ \left(
-\text{by the previous proposition}\right)  .
+\text{by Proposition \ref{prop.ent.coprime.via-primes}}\right)  .
 \end{align*}
-
+This proves Corollary \ref{cor.ent.coprime.orthogonal} \textbf{(b)}.
 \end{proof}
+
+Corollary \ref{cor.ent.coprime.orthogonal} \textbf{(b)} is the reason for the
+notation \textquotedblleft$\perp$\textquotedblright\ that we are using for
+coprimality. In fact, when $n$ is a positive integer, we can regard the
+$p$-valuations $v_{p}\left(  n\right)  $ as the \textquotedblleft
+coordinates\textquotedblright\ of $n$ in an (infinite-dimensional) Cartesian
+coordinate system. Then, the sum $\sum_{p\text{ prime}}v_{p}\left(  n\right)
+v_{p}\left(  m\right)  $ in Corollary \ref{cor.ent.coprime.orthogonal} is
+something like a \textquotedblleft%
+\href{https://en.wikipedia.org/wiki/Dot_product}{dot product}%
+\textquotedblright\ between $n$ and $m$. Thus, Corollary
+\ref{cor.ent.coprime.orthogonal} \textbf{(b)} shows that two integers $n$ and
+$m$ are coprime if and only if their \textquotedblleft dot
+product\textquotedblright\ is $0$. But for vectors in a Euclidean space, the
+dot product is $0$ if and only if the vectors are orthogonal. Thus, coprime
+integers are like orthogonal vectors. Of course, this analogy should be taken
+with a grain of salt; in particular, our \textquotedblleft dot
+product\textquotedblright\ is far from being bilinear\footnote{Or, rather, it
+is bilinear \textbf{with respect to multiplication}: If we denote
+$\sum_{p\text{ prime}}v_{p}\left(  n\right)  v_{p}\left(  m\right)  $ by
+$\left\langle n,m\right\rangle $, then we have%
+\[
+\left\langle n_{1}n_{2},m\right\rangle =\left\langle n_{1},m\right\rangle
++\left\langle n_{2},m\right\rangle \ \ \ \ \ \ \ \ \ \ \text{and}%
+\ \ \ \ \ \ \ \ \ \ \left\langle n,m_{1}m_{2}\right\rangle =\left\langle
+n,m_{1}\right\rangle +\left\langle n,m_{2}\right\rangle
+\]
+for arbitrary integers $n_{1},n_{2},m,n,m_{1},m_{2}$.}.
 
 \subsubsection{There are infinitely many primes}
 
@@ -9573,8 +9672,8 @@ p_{k}$ (since $p_{1}p_{2}\cdots p_{i-1}p_{i+1}p_{i+2}\cdots p_{k}$ is an
 integer). Hence, $p=p_{i}\mid p_{1}p_{2}\cdots p_{k}$. In other words,
 $p_{1}p_{2}\cdots p_{k}\equiv0\operatorname{mod}p$. Now,%
 \[
-n=\underbrace{p_{1}p_{2}\cdots p_{k}}_{\equiv0\operatorname{mod}p_{i}}%
-+1\equiv0+1=1\operatorname{mod}p_{i}.
+n=\underbrace{p_{1}p_{2}\cdots p_{k}}_{\equiv0\operatorname{mod}p}%
++1\equiv0+1=1\operatorname{mod}p.
 \]
 Hence, $1\equiv n\operatorname{mod}p$. But $p\mid n$ and thus $n\equiv
 0\operatorname{mod}p$. Hence, $1\equiv n\equiv0\operatorname{mod}p$; in other
@@ -9649,7 +9748,84 @@ The $\phi$-function $\phi$ is denoted by $\varphi$ by some authors.
 \end{proposition}
 
 \begin{proof}
-TODO.
+[Proof of Proposition \ref{prop.ent.phi.p}.]Sketch: The definition of $\phi$
+shows that \newline$\phi\left(  p\right)  =\left\vert \left\{  i\in\left\{
+1,2,\ldots,p\right\}  \ \mid\ i\perp p\right\}  \right\vert $. In other words,
+$\phi\left(  p\right)  $ is the number of all $i\in\left\{  1,2,\ldots
+,p\right\}  $ that are coprime to $p$. But we know exactly what these $i$ are:
+They are just the first $p-1$ positive integers $1,2,\ldots,p-1$. (In fact,
+Proposition \ref{prop.ent.primes.each-i-coprime} shows that each of the
+integers $1,2,\ldots,p-1$ is coprime to $p$, whereas $\gcd\left(  p,p\right)
+=p>1$ shows that $p$ is \textbf{not} coprime to $p$.) Thus, $\phi\left(
+p\right)  $ is the number of these $p-1$ integers; in other words,
+$\phi\left(  p\right)  =p-1$.
+
+\begin{fineprint}
+For one last time, here is the proof in detail:
+
+We have $p>1$ (since $p$ is a prime), thus $p\neq1$. Also, $p\mid p$; hence,
+Proposition \ref{prop.ent.gcd.props1} \textbf{(i)} (applied to $a=p$ and
+$b=p$) yields $\gcd\left(  p,p\right)  =\left\vert p\right\vert =p$ (since
+$p>1>0$). Thus, $\gcd\left(  p,p\right)  =p\neq1$; in other words, we don't
+have $p\perp p$.
+
+Now, we claim that%
+\begin{equation}
+\left\{  i\in\left\{  1,2,\ldots,p\right\}  \ \mid\ i\perp p\right\}
+\subseteq\left\{  1,2,\ldots,p-1\right\}  . \label{pf.prop.ent.phi.p.1}%
+\end{equation}
+
+
+[\textit{Proof of (\ref{pf.prop.ent.phi.p.1}):} Let $i\in\left\{
+1,2,\ldots,p\right\}  $ be such that $i\perp p$. If we had $i=p$, then we
+would have $p\perp p$ (since $i\perp p$ but $i=p$), which would contradict the
+fact that we don't have $p\perp p$. Thus, we cannot have $i=p$. Hence, we have
+$i\neq p$. Combining this with $i\in\left\{  1,2,\ldots,p\right\}  $, we
+obtain $i\in\left\{  1,2,\ldots,p\right\}  \setminus\left\{  p\right\}
+=\left\{  1,2,\ldots,p-1\right\}  $.
+
+Now, forget that we fixed $i$. We thus have proven that every $i\in\left\{
+1,2,\ldots,p\right\}  $ satisfying $i\perp p$ must belong to $\left\{
+1,2,\ldots,p-1\right\}  $. In other words, $\left\{  i\in\left\{
+1,2,\ldots,p\right\}  \ \mid\ i\perp p\right\}  \subseteq\left\{
+1,2,\ldots,p-1\right\}  $. This proves (\ref{pf.prop.ent.phi.p.1}).]
+
+Conversely, we have%
+\begin{equation}
+\left\{  1,2,\ldots,p-1\right\}  \subseteq\left\{  i\in\left\{  1,2,\ldots
+,p\right\}  \ \mid\ i\perp p\right\}  . \label{pf.prop.ent.phi.p.2}%
+\end{equation}
+
+
+[\textit{Proof of (\ref{pf.prop.ent.phi.p.2}):} Let $j\in\left\{
+1,2,\ldots,p-1\right\}  $. Thus, $j$ is coprime to $p$ (by Proposition
+\ref{prop.ent.primes.each-i-coprime}, applied to $i=j$). In other words,
+$j\perp p$. Also, $j\in\left\{  1,2,\ldots,p-1\right\}  \subseteq\left\{
+1,2,\ldots,p\right\}  $. Hence, $j$ is an $i\in\left\{  1,2,\ldots,p\right\}
+$ satisfying $i\perp p$. In other words, $j\in\left\{  i\in\left\{
+1,2,\ldots,p\right\}  \ \mid\ i\perp p\right\}  $.
+
+Now, forget that we fixed $j$. We thus have shown that $j\in\left\{
+i\in\left\{  1,2,\ldots,p\right\}  \ \mid\ i\perp p\right\}  $ for each
+$j\in\left\{  1,2,\ldots,p-1\right\}  $. In other words, $\left\{
+1,2,\ldots,p-1\right\}  \subseteq\left\{  i\in\left\{  1,2,\ldots,p\right\}
+\ \mid\ i\perp p\right\}  $. This proves (\ref{pf.prop.ent.phi.p.2}).]
+
+Combining (\ref{pf.prop.ent.phi.p.1}) with (\ref{pf.prop.ent.phi.p.2}), we
+obtain%
+\[
+\left\{  i\in\left\{  1,2,\ldots,p\right\}  \ \mid\ i\perp p\right\}
+=\left\{  1,2,\ldots,p-1\right\}  .
+\]
+Now, the definition of $\phi$ yields%
+\[
+\phi\left(  p\right)  =\left\vert \underbrace{\left\{  i\in\left\{
+1,2,\ldots,p\right\}  \ \mid\ i\perp p\right\}  }_{=\left\{  1,2,\ldots
+,p-1\right\}  }\right\vert =\left\vert \left\{  1,2,\ldots,p-1\right\}
+\right\vert =p-1.
+\]
+This proves Proposition \ref{prop.ent.phi.p}.
+\end{fineprint}
 \end{proof}
 
 Proposition \ref{prop.ent.phi.p} can be generalized as follows:
@@ -9663,25 +9839,14 @@ that $\phi\left(  p^{k}\right)  =\left(  p-1\right)  p^{k-1}$.
 [Solution to Exercise \ref{exe.ent.phi.pk}.]TODO (HW3).
 \end{proof}
 
-For example, for $n=12$, Theorem \ref{thm.ent.phi.sum-div} states that
-\[
-\phi\left(  1\right)  +\phi\left(  2\right)  +\phi\left(  3\right)
-+\phi\left(  4\right)  +\phi\left(  6\right)  +\phi\left(  12\right)  =12.
-\]
-
-
-\begin{proof}
-[Proof of Theorem \ref{thm.ent.phi.sum-div}.]TODO.
-\end{proof}
+TODO: Write from here.
 
 \begin{theorem}
 \label{thm.ent.phi.mult}Let $m$ and $n$ be two coprime integers. Then,
 $\phi\left(  mn\right)  =\phi\left(  m\right)  \cdot\phi\left(  n\right)  $.
 \end{theorem}
 
-\begin{proof}
-TODO.
-\end{proof}
+We will prove Theorem \ref{thm.ent.phi.mult} later.
 
 \begin{theorem}
 \label{thm.ent.phi.explicit}Let $n$ be a positive integer. Then,%
@@ -9707,7 +9872,7 @@ $\textquotedblright\ stands for \textquotedblleft sum over all
 \textbf{positive} divisors $d$ of $n$\textquotedblright.
 \end{theorem}
 
-For example, for $n=12$, this theorem states that%
+For example, for $n=12$, Theorem \ref{thm.ent.phi.sum-div} states that%
 \[
 \phi\left(  1\right)  +\phi\left(  2\right)  +\phi\left(  3\right)
 +\phi\left(  4\right)  +\phi\left(  6\right)  +\phi\left(  12\right)  =12.
