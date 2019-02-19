@@ -5529,6 +5529,43 @@ c_{1},c_{2},\ldots,c_{\ell}\right)  \right)  .
 This proves Theorem \ref{thm.ent.gcd.split}.
 \end{proof}
 
+\subsubsection{On converses of Bezout's theorem}
+
+Some words of warning are in order.
+Theorem \ref{thm.ent.gcd.bezout} says that if $a$ and $b$ are two
+integers, then $\gcd\tup{a, b}$ is a $\ZZ$-linear combination of $a$ and
+$b$.
+Note the indefinite article ``a'' here: There are (usually) many
+$\ZZ$-linear combinations of $a$ and $b$, but only one gcd.
+It is definitely not true that every $\ZZ$-linear combination of $a$
+and $b$ must be $\gcd\tup{a, b}$.
+However, all these $\ZZ$-linear combinations are \textbf{multiples} of
+the gcd, as the following (simple) proposition says:
+
+\begin{proposition}
+\label{prop.ent.gcd.bezout-conv}Let $a$ and $b$ be two integers. Then, any
+integers $x$ and $y$ satisfy $\gcd\tup{a, b} \mid xa + yb$.
+\end{proposition}
+
+\begin{proof}[Proof of Proposition \ref{prop.ent.gcd.bezout-conv}.]
+Let $x$ and $y$ be integers.
+Let $g = \gcd\tup{a, b}$.
+Thus, $g = \gcd\tup{a, b} \mid a$ (by
+Proposition \ref{prop.ent.gcd.props1} \textbf{(f)}).
+Hence, $g \mid a \mid xa$ (since $xa = ax$).
+In other words, $xa \equiv 0 \mod g$.
+Similarly, $yb \equiv 0 \mod g$.
+Adding these two congruences together, we obtain
+$xa + yb \equiv 0 + 0 = 0 \mod g$.
+In other words, $g \mid xa + yb$.
+In other words, $\gcd\tup{a, b} \mid xa + yb$
+(since $g = \gcd\tup{a, b}$).
+This proves Proposition \ref{prop.ent.gcd.bezout-conv}.
+\end{proof}
+
+A similar proposition holds for $\ZZ$-linear combinations of
+any number of integers $b_1, b_2, \ldots, b_k$.
+
 \begin{center}
 \textbf{2019-02-06 lecture}
 \end{center}
@@ -6357,6 +6394,38 @@ We have now proven both (\ref{sol.ent.coprime.1+2+...+n.g1}) and
 (\ref{sol.ent.coprime.1+2+...+n.g}), which in turn solves the problem.
 \end{proof}
 \end{fineprint}
+
+\begin{exercise} \label{exe.ent.coprime.bezout-conv}
+Let $a, b, x, y$ be integers such that $xa + yb = 1$.
+Prove that $a \perp b$.
+\end{exercise}
+
+\begin{fineprint}
+ \begin{proof}[Solution to Exercise \ref{exe.ent.coprime.bezout-conv}.]
+  Proposition \ref{prop.ent.gcd.bezout-conv} yields
+  $\gcd\tup{a, b} \mid xa + yb = 1$.
+  Proposition \ref{prop.ent.div.1} \textbf{(b)} (applied
+  to $\gcd\tup{a, b}$ and $1$ instead of $a$ and $b$)
+  thus yields $\abs{\gcd\tup{a, b}} \leq \abs{1} = 1$.
+  But $\abs{\gcd\tup{a, b}} = \gcd\tup{a, b}$ (since
+  $\gcd\tup{a, b}$ is a nonnegative integer). Hence,
+  $\gcd\tup{a, b} = \abs{\gcd\tup{a, b}} \leq 1$.
+  Thus, $\gcd\tup{a, b}$ is either $0$ or $1$ (since
+  $\gcd\tup{a, b}$ is a nonnegative integer).
+
+  If we had $\gcd\tup{a, b} = 0$, then we would have
+  $0 = \gcd\tup{a, b} \mid 1$, which is absurd (since
+  we don't have $0 \mid 1$). Thus, we cannot have
+  $\gcd\tup{a, b} = 0$. Hence, $\gcd\tup{a, b}$ must
+  equal $1$ (since we know that $\gcd\tup{a, b}$ is
+  either $0$ or $1$).
+  In other words, $\gcd\tup{a, b} = 1$.
+  In other words, $a$ is coprime to $b$.
+  In other words, $a \perp b$.
+  This solves Exercise \ref{exe.ent.coprime.bezout-conv}.
+ \end{proof}
+\end{fineprint}
+
 
 \begin{exercise}
 \label{exe.ent.coprime.gcd*gcd1}Let $u,v,x,y\in\mathbb{Z}$. Prove that
@@ -10413,8 +10482,7 @@ notation for $\left(  a^{b}\right)  ^{c}$, because $\left(  a^{b}\right)
 ^{c}=a^{bc}$.)
 \end{exercise}
 
-\begin{proof}
-[Solution.][Solution to Exercise \ref{exe.ent.euler345} (sketched).] The last
+\begin{proof}[Solution to Exercise \ref{exe.ent.euler345} (sketched).] The last
 digit of a positive integer $n$ is $n\%10$ (that is, the remainder of $n$ upon
 division by $10$). So we need to work modulo $10$.
 
@@ -10431,8 +10499,6 @@ So the last digit of $3^{4^{5}}$ is $1$.
 
 Our proof of Theorem \ref{thm.ent.euler} will rely on the following lemma:
 
-TODO: Write from here.
-
 \begin{lemma}
 \label{lem.ent.euler.phi0}Let $n$ be a positive integer. Then,%
 \[
@@ -10442,47 +10508,116 @@ TODO: Write from here.
 
 \end{lemma}
 
-\begin{proof}
-\textit{First proof:} If $n=1$, then this is easily done by hand. Thus, WLOG
-assume that $n>1$. Hence, neither $0$ nor $n$ is coprime to $n$ (since
+\begin{proof}[First proof of Lemma \ref{lem.ent.euler.phi0} (sketched).]
+If $n=1$, then this lemma can easily be proven by hand. Thus, WLOG
+assume that $n \neq 1$. Hence, $n > 1$ (since $n$ is a positive integer).
+Thus, neither $0$ nor $n$ is coprime to $n$ (since
 $\gcd\left(  0,n\right)  =n>1$ and $\gcd\left(  n,n\right)  =n>1$). Hence,%
 \begin{align*}
 &  \left\{  i\in\left\{  0,1,\ldots,n-1\right\}  \ \mid\ i\perp n\right\} \\
 &  =\left\{  i\in\left\{  1,2,\ldots,n\right\}  \ \mid\ i\perp n\right\}
 \end{align*}
 (because these sets could only differ in the elements $0$ and $n$, but none of
-these two elements belongs to any of these two sets), and therefore%
+these two elements belongs to any of these two sets\footnote{since neither
+$0$ nor $n$ is coprime to $n$}), and therefore%
 \begin{align*}
 &  \left\vert \left\{  i\in\left\{  0,1,\ldots,n-1\right\}  \ \mid\ i\perp
 n\right\}  \right\vert \\
 &  =\left\vert \left\{  i\in\left\{  1,2,\ldots,n\right\}  \ \mid\ i\perp
 n\right\}  \right\vert =\phi\left(  n\right)
+\ \ \ \ \ \ \ \ \ \  \tup{\text{by \eqref{eq.def.ent.phi.phi.1}}} .
 \end{align*}
-by the definition of $\phi\left(  n\right)  $.
-
-\textit{Second proof:} The number $0$ is coprime to $n$ if and only if $n$ is
-coprime to $n$ (since $0\equiv n\operatorname{mod}n$ and thus $\gcd\left(
-0,n\right)  =\gcd\left(  n,n\right)  $). Hence, if we remove $n$ from the set
-$\left\{  1,2,\ldots,n\right\}  $ and add $0$ instead, the number of elements
-coprime to $n$ in that set does not change. Hence,%
-\begin{align*}
-&  \left\vert \left\{  i\in\left\{  0,1,\ldots,n-1\right\}  \ \mid\ i\perp
-n\right\}  \right\vert \\
-&  =\left\vert \left\{  i\in\left\{  1,2,\ldots,n\right\}  \ \mid\ i\perp
-n\right\}  \right\vert =\phi\left(  n\right)
-\end{align*}
-by the definition of $\phi\left(  n\right)  $.
+This proves Lemma \ref{lem.ent.euler.phi0}.
 \end{proof}
 
+\begin{proof}[Second proof of Lemma \ref{lem.ent.euler.phi0}.]
+We have $n \mid n$ and thus $n \equiv 0 \mod n$. Hence,
+Proposition \ref{prop.ent.gcd.props1} \textbf{(d)} (applied to
+$a = n$, $b = n$ and $c = 0$) yields that
+$\gcd\tup{n, n} = \gcd\tup{n, 0} = \gcd\tup{0, n}$
+(by Proposition \ref{prop.ent.gcd.props1} \textbf{(b)}).
+Hence, $\gcd\tup{0, n} = 1$ holds if and only if $\gcd\tup{n, n} = 1$.
+In other words, the number $0$ is coprime to $n$ if and only if $n$ is
+coprime to $n$.
+Hence, if we remove $n$ from the set
+$\left\{  1,2,\ldots,n\right\}  $ and add $0$ instead
+(so that our set becomes $\set{0, 1, \ldots, n-1}$), then the
+number of elements
+coprime to $n$ in that set does not change.
+In other words,
+\begin{align*}
+&  \tup{ \text{the number of all }  i\in\left\{  0,1,\ldots,n-1\right\}  \text{ that are coprime to }
+n } \\
+&  =
+  \tup{ \text{the number of all }  i\in\left\{  1,2,\ldots,n\right\}  \text{ that are coprime to }
+n } \\
+&= \left\vert \left\{  i\in\left\{  1,2,\ldots,n\right\}  \ \mid\ i\perp
+n\right\}  \right\vert =\phi\left(  n\right)
+\ \ \ \ \ \ \ \ \ \  \tup{\text{by \eqref{eq.def.ent.phi.phi.1}}} .
+\end{align*}
+In other words,
+\begin{align*}
+ \phi\tup{n}
+ &= \tup{ \text{the number of all }  i\in\left\{  0,1,\ldots,n-1\right\}  \text{ that are coprime to }
+n } \\
+ &= \left\vert \left\{  i\in\left\{  0,1,\ldots
+,n-1\right\}  \ \mid\ i\perp n\right\}  \right\vert .
+\end{align*}
+This proves Lemma \ref{lem.ent.euler.phi0} again.
+\end{proof}
+
+\begin{noncompile}
+We will also need a fact about modular inverses, which we state
+as an exercise. Namely, recall that Theorem \ref{thm.ent.coprime.modinv}
+\textbf{(b)} guarantees the existence of a modular inverse for an
+integer $a$ modulo an integer $n$ as soon as $a$ and $n$ are coprime.
+We can slightly improve this to guarantee a modular inverse that
+belongs to $\set{0, 1, \ldots, n-1}$ as long as $n$ is a positive
+integer:
+
+\begin{exercise}
+\label{exe.ent.coprime.modinv-in-set}Let $a$ be an integer,
+and $n$ be a positive integer
+such that $a \perp n$.
+Then, there exists an $a^{\prime}\in\set{0,1,\ldots,n-1}$
+such that $aa^{\prime}\equiv1\operatorname{mod}n$.
+\end{exercise}
+
+\begin{fineprint}
+ \begin{proof}[Solution to Exercise \ref{exe.ent.coprime.modinv-in-set}.]
+  Theorem \ref{thm.ent.coprime.modinv} \textbf{(b)} shows that
+  there exists an $a^{\prime}\in\mathbb{Z}$
+  such that $aa^{\prime}\equiv1\operatorname{mod}n$.
+  Consider this $a^{\prime}$, and denote it by $u$.
+  Thus, $u$ is an element of $\ZZ$ and satisfies
+  $au \equiv 1 \mod n$.
+  Corollary \ref{cor.ent.quo-rem.remmod} \textbf{(a)} yields
+  that $u\%n\in\left\{  0,1,\ldots,n-1\right\}  $ and $u\%n\equiv
+  u\operatorname{mod}n$.
+  Multiplying the congruences $a \equiv a \mod n$
+  and $u \% n \equiv u \mod n$ together,
+  we find $a \tup{u\%n} \equiv au \equiv 1 \mod n$.
+  Hence, there exists an $a^{\prime}\in\set{0,1,\ldots,n-1}$
+  such that $aa^{\prime}\equiv1\operatorname{mod}n$
+  (namely, $a^{\prime} = u \% n$).
+  This solves Exercise \ref{exe.ent.coprime.modinv-in-set}.
+ \end{proof}
+
+\end{fineprint}
+\end{noncompile}
+
+TODO: Write from here.
+
 \begin{proof}
-[Proof of Euler's theorem.]Let
+[Proof of Theorem \ref{thm.ent.euler}.]Let
 \[
 C=\left\{  i\in\left\{  0,1,\ldots,n-1\right\}  \ \mid\ i\perp n\right\}  .
 \]
 Then, Lemma \ref{lem.ent.euler.phi0} yields $\left\vert C\right\vert
 =\phi\left(  n\right)  $.
 
-Now, $z=\prod_{c\in C}c$. Then, $z\perp n$ (by Exercise \ref{exe.ent.coprime.ab-to-cI}).
+Now, $z=\prod_{i\in C}i$. Then, $z\perp n$ (by Exercise \ref{exe.ent.coprime.ab-to-cI},
+since each $i \in C$ satisfies $i \perp n$).
 
 We have $\left(  ai\right)  \%n\in C$ for each $i\in C$.
 
@@ -10512,6 +10647,38 @@ ai\right)  \%n=\left(  aj\right)  \%n$. Thus, $ai\equiv aj\operatorname{mod}n$
 $i\equiv j\operatorname{mod}n$. Since both $i$ and $j$ lie in $\left\{
 0,1,\ldots,n-1\right\}  $, this entails $i=j$. So $f$ is injective.]
 
+\begin{noncompile}
+The map $f$ is surjective.
+
+[\textit{Proof:} Let $i \in C$. We shall prove that $i \in f\tup{C}$.
+
+Indeed, $i \in C$. Thus, $i \in \set{0, 1, \ldots, n-1}$
+(by the definition of $C$).
+
+But Exercise \ref{exe.ent.coprime.modinv-in-set} shows that
+there exists an $a^{\prime}\in\set{0,1,\ldots,n-1}$
+such that $aa^{\prime}\equiv1\operatorname{mod}n$.
+Consider this $a^{\prime}$, and denote it by $u$.
+Thus, $u$ is an element of $\set{0, 1, \ldots, n-1}$ and satisfies
+$au \equiv 1 \mod n$.
+From $ua = au \equiv 1 \mod n$,
+we conclude that there exists an $u^{\prime} \in \mathbb{Z}$ such
+that $uu^{\prime} \equiv 1 \mod n$ (namely, $u^{\prime} = a$).
+Hence, Theorem \ref{thm.ent.coprime.modinv}
+\textbf{(c)} (applied to $u$ and $u^{\prime}$ instead of $a$ and
+$a^{\prime}$) shows that $u \perp n$.
+From $u \in \set{0, 1, \ldots, n-1}$ and $u \perp n$, we conclude
+that $u \in C$ (by the definition of $C$).
+Multiplying the two congruences $au \equiv 1 \mod n$ and
+$i \equiv i \mod n$, we obtain
+$aui \equiv 1i = i \mod n$.
+But Corollary \ref{cor.ent.quo-rem.remmod} \textbf{(c)} says:
+If $c\in\left\{  0,1,\ldots,n-1\right\}  $ is such that $c\equiv
+u\operatorname{mod}n$, then $c=u\%n$.
+[...]
+]
+\end{noncompile}
+
 Now, $C$ is finite, the map $f:C\rightarrow C$ is injective, and we have
 $\left\vert C\right\vert \geq\left\vert C\right\vert $. This yields that $f$
 is bijective, by the \textit{Pigeonhole Principle for Injections}:
@@ -10537,18 +10704,18 @@ here; we could have also proven that $f$ is surjective (using the existence of
 modular inverses). I leave this alternative proof to the interested reader.
 
 So we know that the map $f$ is bijective. Thus, we can substitute $f\left(
-c\right)  $ for $c$ in the product $\prod\limits_{c\in C}c$. So%
+i\right)  $ for $i$ in the product $\prod\limits_{i\in C}i$. So%
 \begin{align*}
-\prod_{c\in C}c  &  =\prod_{c\in C}\underbrace{f\left(  c\right)
-}_{\substack{=\left(  ac\right)  \%n\\\equiv ac\operatorname{mod}n}%
-}\equiv\prod_{c\in C}\left(  ac\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by
+\prod_{i\in C}i  &  =\prod_{i\in C}\underbrace{f\left(  i\right)
+}_{\substack{=\left(  ai\right)  \%n\\\equiv ai\operatorname{mod}n}%
+}\equiv\prod_{i\in C}\left(  ai\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by
 (\ref{eq.exe.ent.mod.k-sum.b})}\right) \\
-&  =a^{\left\vert C\right\vert }\prod_{c\in C}c=a^{\phi\left(  n\right)
-}\prod_{c\in C}c\operatorname{mod}n\ \ \ \ \ \ \ \ \ \ \left(  \text{since
+&  =a^{\left\vert C\right\vert }\prod_{i\in C}i=a^{\phi\left(  n\right)
+}\prod_{i\in C}i\operatorname{mod}n\ \ \ \ \ \ \ \ \ \ \left(  \text{since
 }\left\vert C\right\vert =\phi\left(  n\right)  \right)  .
 \end{align*}
 In other words, $z\equiv a^{\phi\left(  n\right)  }z\operatorname{mod}n$
-(since $z=\prod\limits_{c\in C}c$). Lemma \ref{lem.ent.coprime.cancel} lets us
+(since $z=\prod\limits_{i\in C}i$). Lemma \ref{lem.ent.coprime.cancel} lets us
 cancel $z$ from this congruence (since $z\perp n$). We thus obtain $1\equiv
 a^{\phi\left(  n\right)  }\operatorname{mod}n$. This proves Theorem
 \ref{thm.ent.euler}.
