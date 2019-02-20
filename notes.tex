@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Tuesday, February 19, 2019 21:48:31}
+%TCIDATA{LastRevised=Tuesday, February 19, 2019 22:33:02}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -10646,7 +10646,7 @@ Then, Lemma \ref{lem.ent.euler.phi0} says that $\phi\left(  n\right)
 
 Now, set
 \begin{equation}
-z=\prod_{i\in C}i.\label{pf.thm.ent.euler.z=}%
+z=\prod_{i\in C}i. \label{pf.thm.ent.euler.z=}%
 \end{equation}
 Exercise \ref{exe.ent.coprime.ab-to-cI} (applied to $I=C$, $c=n$ and $b_{i}%
 =i$) yields $\prod_{i\in C}i\perp n$ (since each $i\in C$ satisfies $i\perp
@@ -10758,14 +10758,14 @@ is bijective. In other words, $f$ is a bijection from $C$ to $C$. Thus, we can
 substitute $f\left(  s\right)  $ for $i$ in the product $\prod\limits_{i\in
 C}i$. So we obtain%
 \begin{equation}
-\prod_{i\in C}i=\prod_{s\in C}f\left(  s\right)
-.\label{pf.thm.ent.euler.finale.1}%
+\prod_{i\in C}i=\prod_{s\in C}f\left(  s\right)  .
+\label{pf.thm.ent.euler.finale.1}%
 \end{equation}
 But for each $s\in C$, we have%
 \begin{align*}
-f\left(  s\right)    & =\left(  as\right)  \%n\ \ \ \ \ \ \ \ \ \ \left(
-\text{by the definition of }f\right)  \\
-& \equiv as\operatorname{mod}n\ \ \ \ \ \ \ \ \ \ \left(  \text{by Corollary
+f\left(  s\right)   &  =\left(  as\right)  \%n\ \ \ \ \ \ \ \ \ \ \left(
+\text{by the definition of }f\right) \\
+&  \equiv as\operatorname{mod}n\ \ \ \ \ \ \ \ \ \ \left(  \text{by Corollary
 \ref{cor.ent.quo-rem.remmod} \textbf{(a)}, applied to }u=as\right)  .
 \end{align*}
 Hence, (\ref{eq.exe.ent.mod.k-sum.b}) (applied to $S=C$, $a_{s}=f\left(
@@ -10779,10 +10779,10 @@ C\right\vert }z=a^{\phi\left(  n\right)  }z\operatorname{mod}n
 (since $\left\vert C\right\vert =\phi\left(  n\right)  $). Now,
 (\ref{pf.thm.ent.euler.z=}) becomes%
 \begin{align*}
-z  & =\prod_{i\in C}i=\prod_{s\in C}f\left(  s\right)
-\ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.thm.ent.euler.finale.1}%
-)}\right)  \\
-& \equiv a^{\phi\left(  n\right)  }z=za^{\phi\left(  n\right)  }%
+z  &  =\prod_{i\in C}i=\prod_{s\in C}f\left(  s\right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.thm.ent.euler.finale.1})}\right)
+\\
+&  \equiv a^{\phi\left(  n\right)  }z=za^{\phi\left(  n\right)  }%
 \operatorname{mod}n.
 \end{align*}
 Thus, $z\cdot1=z\equiv za^{\phi\left(  n\right)  }\operatorname{mod}n$. Lemma
@@ -10905,6 +10905,10 @@ Theorem \ref{thm.ent.wilson} has a converse: If an integer $p>1$ satisfies
 $\left(  p-1\right)  !\equiv-1\operatorname{mod}p$, then $p$ is a prime. (This
 is actually easier to porove than Theorem \ref{thm.ent.wilson} itself.)
 
+\begin{center}
+\textbf{2019-02-18 lecture}
+\end{center}
+
 \subsection{Binomial coefficients}
 
 Next, we shall introduce and briefly study binomial coefficients. While
@@ -10915,77 +10919,213 @@ their properties.
 Here is the definition of binomial coefficients (at least the one I am going
 to follow in these notes):
 
-TODO: Write from here!
-
-Recall:
-
 \begin{definition}
-For any $n\in\mathbb{Q}$ and $k\in\mathbb{N}$, we define the \textit{binomial
-coefficient} $\dbinom{n}{k}$ by
+\label{def.binom.binom}Let $n\in\mathbb{Q}$ and $k\in\mathbb{N}$. Then, we
+define the \textit{binomial coefficient} $\dbinom{n}{k}$ as follows:
+
+\textbf{(a)} If $k\in\mathbb{N}$, then we set
 \[
 \dbinom{n}{k}=\dfrac{n\left(  n-1\right)  \left(  n-2\right)  \cdots\left(
 n-k+1\right)  }{k!}=\dfrac{\prod_{i=0}^{k-1}\left(  n-i\right)  }{k!}.
 \]
-We furthermore set $\dbinom{n}{k}=0$ for all rational $k\notin\mathbb{N}$.
+
+
+\textbf{(b)} If $k\notin\mathbb{N}$, then we set $\dbinom{n}{k}=0$.
 \end{definition}
 
-Recall the following properties of binomial coefficients (that you have seen
-on HW0):
+This definition is exactly the definition of $\dbinom{n}{k}$ that we used in
+\href{http://www-users.math.umn.edu/~dgrinber/19s/hw0s.pdf}{homework set \#0}.
+It is also almost exactly the definition given in \cite[(5.1)]{GKP} (except
+that we are allowing $k$ to be non-integer, while the authors of \cite{GKP} do
+not). Our choice to require $n\in\mathbb{Q}$ is more or less arbitrary -- we
+could have as well made the same definition for $n\in\mathbb{R}$ or
+$n\in\mathbb{C}$ (but I am not aware of this generality being of much use).
 
-\begin{enumerate}
-\item[\textbf{(a)}] If $n \in\mathbb{N}$ and $k \in\mathbb{N}$ are such that
-$n \geq k$, then
+Here are some examples of binomial coefficients:
+
+\begin{example}
+\textbf{(a)} Definition \ref{def.binom.binom} \textbf{(a)} yields $\dbinom
+{n}{2}=\dfrac{n\left(  n-1\right)  }{2!}=\dfrac{n\left(  n-1\right)  }{2}$ for
+all $n\in\mathbb{Q}$. Thus, for example,%
 \[
-\dbinom{n}{k} = \dfrac{n!}{k! \left(  n-k \right)  !} .
+\dbinom{5}{2}=\dfrac{5\cdot4}{2}=10.
 \]
-(This is often used as a definition of the binomial coefficients, but it is a
-lousy definition, as it only covers the case when $n, k \in\mathbb{N}$ and $n
-\geq k$.)
 
-\item[\textbf{(b)}] If $n \in\mathbb{N}$ and $k \in\mathbb{Q}$ are such that
-$k > n$, then
+
+\textbf{(b)} We have%
+\begin{align*}
+\dbinom{5}{3}  &  =\dfrac{5\cdot4\cdot3}{3!}=\dfrac{60}{6}=10;\\
+\dbinom{1}{3}  &  =\dfrac{1\cdot0\cdot\left(  -1\right)  }{3!}=\dfrac{0}%
+{6}=0;\\
+\dbinom{-2}{3}  &  =\dfrac{\left(  -2\right)  \cdot\left(  -3\right)
+\cdot\left(  -4\right)  }{3!}=\dfrac{-24}{6}=-4;\\
+\dbinom{1/2}{3}  &  =\dfrac{\left(  1/2\right)  \cdot\left(  -1/2\right)
+\cdot\left(  -3/2\right)  }{3!}=\dfrac{3/8}{6}=\dfrac{1}{16}%
+\end{align*}
+(all by Definition \ref{def.binom.binom} \textbf{(a)}).
+
+\textbf{(c)} Definition \ref{def.binom.binom} \textbf{(b)} yields $\dbinom
+{4}{1/2}=0$ (since $1/2\notin\mathbb{N}$).
+\end{example}
+
+The binomial coefficients $\dbinom{n}{k}$ for $n\in\mathbb{N}$ and
+$k\in\left\{  0,1,\ldots,n\right\}  $ are particularly important. They are
+usually tabulated in a triangle-shaped table known as
+\textit{\href{https://en.wikipedia.org/wiki/Pascal's_triangle}{\textit{Pascal's
+triangle}}}, which starts as follows:%
+\[%
+\begin{array}
+[c]{ccccccccccccc}%
+\phantom{15} & \phantom{15} & \phantom{15} & \phantom{15} & \phantom{15} &
+\phantom{15} & 1 & \phantom{15} & \phantom{15} & \phantom{15} & \phantom{15} &
+\phantom{15} & \phantom{15}\\
+&  &  &  &  & 1 &  & 1 &  &  &  &  & \\
+&  &  &  & 1 &  & 2 &  & 1 &  &  &  & \\
+&  &  & 1 &  & 3 &  & 3 &  & 1 &  &  & \\
+&  & 1 &  & 4 &  & 6 &  & 4 &  & 1 &  & \\
+& 1 &  & 5 &  & 10 &  & 10 &  & 5 &  & 1 & \\
+1 &  & 6 &  & 15 &  & 20 &  & 15 &  & 6 &  & 1
+\end{array}
+\ .
+\]
+In this table, the binomial coefficient $\dbinom{n}{k}$ appears as the $k$-th
+entry (from the left) of the $n$-th row (but we count the rows from $0$; that
+is, the topmost row, consisting just of a single \textquotedblleft%
+$1$\textquotedblright, is actually the $0$-th row). We advise the reader to
+peruse \href{https://en.wikipedia.org/wiki/Pascal's_triangle}{the Wikipedia
+article} for the history and the multiple illustrious properties of Pascal's triangle.
+
+The expression $\dbinom{n}{k}$ is pronounced as \textquotedblleft$n$ choose
+$k$\textquotedblright. The reason for the word \textquotedblleft
+choose\textquotedblright\ will become clearer once we have seen Theorem
+\ref{thm.binom.comb-int} further below.
+
+Some of these properties are so fundamental that we are going to list them
+right now:
+
+\begin{theorem}
+\label{thm.binom.n!k!}Let $n\in\mathbb{N}$ and $k\in\mathbb{N}$ be such that
+$n\geq k$. Then,%
 \[
-\dbinom{n}{k} = 0.
+\dbinom{n}{k}=\dfrac{n!}{k!\left(  n-k\right)  !}.
 \]
 
+\end{theorem}
 
-\item[\textbf{(c)}] If $n \in\mathbb{N}$ and $k \in\mathbb{Q}$, then
-\begin{align}
-\dbinom{n}{k} = \dbinom{n}{n-k} . \label{eq.exe.binom.101.c}%
-\end{align}
-(This is known as the \textit{symmetry of binomial coefficients}. Note that it
-fails if $n \notin\mathbb{N}$.)
+\begin{proof}
+[Proof of Theorem \ref{thm.binom.n!k!}.]This was Exercise 3 \textbf{(a)} on
+\href{http://www-users.math.umn.edu/~dgrinber/19s/hw0s.pdf}{homework set \#0}.
+\end{proof}
 
-\item[\textbf{(d)}] Any $n \in\mathbb{Q}$ and $k \in\mathbb{Q}$ satisfy
-\begin{align}
-\dbinom{-n}{k} = \left(  -1 \right)  ^{k} \dbinom{k + n - 1}{k} .
-\label{eq.exe.binom.101.d}%
-\end{align}
-(This is one of the versions of the \textit{upper negation formula}.)
+Several authors use the formula $\dbinom{n}{k}=\dfrac{n!}{k!\left(
+n-k\right)  !}$ as a definition of the binomial coefficients. However, this
+definition has the massive disadvantage of being less general than Definition
+\ref{def.binom.binom} (since it only covers the case when $n,k\in\mathbb{N}$
+and $n\geq k$). To us, this formula is not a definition, but a result that can
+be proven.
 
-\item[\textbf{(e)}] Any $n \in\mathbb{Q}$ and $k \in\mathbb{Q}$ satisfy
-\begin{align}
-\dbinom{n}{k} = \dbinom{n-1}{k} + \dbinom{n-1}{k-1} .
-\label{eq.exe.binom.101.e}%
-\end{align}
-(This is the \textit{recurrence of the binomial coefficients}, and is the
-reason why each entry of
+\begin{theorem}
+\label{thm.binom.k>n0}Let $n\in\mathbb{N}$ and $k\in\mathbb{Q}$ be such that
+$k>n$. Then,
+\[
+\dbinom{n}{k}=0.
+\]
+
+\end{theorem}
+
+\begin{proof}
+[Proof of Theorem \ref{thm.binom.k>n0}.]This was Exercise 3 \textbf{(b)} on
+\href{http://www-users.math.umn.edu/~dgrinber/19s/hw0s.pdf}{homework set \#0}.
+\end{proof}
+
+\begin{theorem}
+\label{thm.binom.symmetry}Let $n\in\mathbb{N}$ and $k\in\mathbb{Q}$. Then,%
+\[
+\dbinom{n}{k}=\dbinom{n}{n-k}.
+\]
+
+\end{theorem}
+
+Theorem \ref{thm.binom.symmetry} is known as the \textit{symmetry of binomial
+coefficients}. Note that it fails if $n\notin\mathbb{N}$; thus, be careful
+when applying it!
+
+\begin{proof}
+[Proof of Theorem \ref{thm.binom.symmetry}.]This was Exercise 3 \textbf{(c)}
+on \href{http://www-users.math.umn.edu/~dgrinber/19s/hw0s.pdf}{homework set
+\#0}.
+\end{proof}
+
+\begin{theorem}
+\label{thm.binom.upneg-n}Let $n\in\mathbb{Q}$ and $k\in\mathbb{Q}$. Then,%
+\[
+\dbinom{-n}{k}=\left(  -1\right)  ^{k}\dbinom{k+n-1}{k}.
+\]
+
+\end{theorem}
+
+Theorem \ref{thm.binom.upneg-n} is one of the versions of the \textit{upper
+negation formula}.
+
+\begin{proof}
+[Proof of Theorem \ref{thm.binom.upneg-n}.]This was Exercise 3 \textbf{(d)} on
+\href{http://www-users.math.umn.edu/~dgrinber/19s/hw0s.pdf}{homework set \#0}.
+\end{proof}
+
+\begin{theorem}
+\label{thm.binom.rec}Any $n\in\mathbb{Q}$ and $k\in\mathbb{Q}$ satisfy
+\[
+\dbinom{n}{k}=\dbinom{n-1}{k}+\dbinom{n-1}{k-1}.
+\]
+
+\end{theorem}
+
+Theorem \ref{thm.binom.rec} is known as the \textit{recurrence of the binomial
+coefficients}, and is the reason why each entry of
 \href{https://en.wikipedia.org/wiki/Pascal%27s_triangle}{Pascal's triangle} is
-the sum of the two entries above it.)
+the sum of the two entries above it\footnote{Of course, this does not refer to
+the \textquotedblleft$1$\textquotedblright\ at the apex of Pascal's triangle
+(unless we extend the triangle further to the top by a $\left(  -1\right)
+$-st row).}.
 
-\item[\textbf{(f)}] Any $n\in\mathbb{Q}$ and $k\in\mathbb{Q}$ satisfy
+\begin{proof}
+[Proof of Theorem \ref{thm.binom.rec}.]This was Exercise 3 \textbf{(e)} on
+\href{http://www-users.math.umn.edu/~dgrinber/19s/hw0s.pdf}{homework set \#0}.
+\end{proof}
+
+\begin{theorem}
+\label{thm.binom.abs}Any $n\in\mathbb{Q}$ and $k\in\mathbb{Q}$ satisfy
 \[
 k\dbinom{n}{k}=n\dbinom{n-1}{k-1}.
 \]
 
-\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+[Proof of Theorem \ref{thm.binom.abs}.]This was Exercise 3 \textbf{(f)} on
+\href{http://www-users.math.umn.edu/~dgrinber/19s/hw0s.pdf}{homework set \#0}.
+\end{proof}
+
+The next property of binomial coefficients is one of the major motivations for
+their definitions:
 
 \begin{theorem}
-\label{thm.binom.comb-int}(Combinatorial interpretation of binomial coefficients)
-
-Let $n\in\mathbb{N}$ and $k\in\mathbb{Q}$. Let $N$ be an $n$-element set.
-Then, $\dbinom{n}{k}$ is the number of $k$-element subsets of $N$.
+\label{thm.binom.comb-int}Let $n\in\mathbb{N}$ and $k\in\mathbb{Q}$. Let $N$
+be an $n$-element set. Then, $\dbinom{n}{k}$ is the number of $k$-element
+subsets of $N$.
 \end{theorem}
+
+We shall refer to Theorem \ref{thm.binom.comb-int} as the
+\textit{Combinatorial interpretation of binomial coefficients}. Theorem
+\ref{thm.binom.comb-int} can be restated as \textquotedblleft$\dbinom{n}{k}$
+is the number of ways to choose $k$ elements (with no repetitions and with no
+regard for the order) from a given $n$-element set (when $n\in\mathbb{N}%
+$)\textquotedblright. This is the reason why $\dbinom{n}{k}$ is called
+\textquotedblleft$n$ choose $k$\textquotedblright. Note, however, that Theorem
+\ref{thm.binom.comb-int} does not directly help us compute $\dbinom{n}{k}$
+when $n\notin\mathbb{N}$.
+
+TODO: Write from here!
 
 \begin{proof}
 [Proof of Theorem \ref{thm.binom.comb-int}.]What follows is an outline of the
@@ -11330,7 +11470,9 @@ a=\overline{a_{k}a_{k-1}\cdots a_{0}}\ \ \ \ \ \ \ \ \ \ \text{and}%
 
 TODO.
 
-\subsection{Binomial coefficients}
+\begin{center}
+\textbf{2019-02-20 lecture}
+\end{center}
 
 TODO:
 
