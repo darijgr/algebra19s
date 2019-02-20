@@ -1,0 +1,572 @@
+\documentclass[numbers=enddot,12pt,final,onecolumn,notitlepage]{scrartcl}%
+\usepackage[headsepline,footsepline,manualmark]{scrlayer-scrpage}
+\usepackage[all,cmtip]{xy}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{framed}
+\usepackage{amsmath}
+\usepackage{comment}
+\usepackage{color}
+\usepackage{hyperref}
+\usepackage[sc]{mathpazo}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+%TCIDATA{OutputFilter=latex2.dll}
+%TCIDATA{Version=5.50.0.2960}
+%TCIDATA{LastRevised=Monday, February 04, 2019 18:09:38}
+%TCIDATA{SuppressPackageManagement}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{BibliographyScheme=Manual}
+%BeginMSIPreambleData
+\providecommand{\U}[1]{\protect\rule{.1in}{.1in}}
+%EndMSIPreambleData
+\theoremstyle{definition}
+\newtheorem{theo}{Theorem}[section]
+\newenvironment{theorem}[1][]
+{\begin{theo}[#1]\begin{leftbar}}
+{\end{leftbar}\end{theo}}
+\newtheorem{lem}[theo]{Lemma}
+\newenvironment{lemma}[1][]
+{\begin{lem}[#1]\begin{leftbar}}
+{\end{leftbar}\end{lem}}
+\newtheorem{prop}[theo]{Proposition}
+\newenvironment{proposition}[1][]
+{\begin{prop}[#1]\begin{leftbar}}
+{\end{leftbar}\end{prop}}
+\newtheorem{defi}[theo]{Definition}
+\newenvironment{definition}[1][]
+{\begin{defi}[#1]\begin{leftbar}}
+{\end{leftbar}\end{defi}}
+\newtheorem{remk}[theo]{Remark}
+\newenvironment{remark}[1][]
+{\begin{remk}[#1]\begin{leftbar}}
+{\end{leftbar}\end{remk}}
+\newtheorem{coro}[theo]{Corollary}
+\newenvironment{corollary}[1][]
+{\begin{coro}[#1]\begin{leftbar}}
+{\end{leftbar}\end{coro}}
+\newtheorem{conv}[theo]{Convention}
+\newenvironment{condition}[1][]
+{\begin{conv}[#1]\begin{leftbar}}
+{\end{leftbar}\end{conv}}
+\newtheorem{quest}[theo]{Question}
+\newenvironment{algorithm}[1][]
+{\begin{quest}[#1]\begin{leftbar}}
+{\end{leftbar}\end{quest}}
+\newtheorem{warn}[theo]{Warning}
+\newenvironment{conclusion}[1][]
+{\begin{warn}[#1]\begin{leftbar}}
+{\end{leftbar}\end{warn}}
+\newtheorem{conj}[theo]{Conjecture}
+\newenvironment{conjecture}[1][]
+{\begin{conj}[#1]\begin{leftbar}}
+{\end{leftbar}\end{conj}}
+\newtheorem{exmp}[theo]{Example}
+\newenvironment{example}[1][]
+{\begin{exmp}[#1]\begin{leftbar}}
+{\end{leftbar}\end{exmp}}
+\newenvironment{statement}{\begin{quote}}{\end{quote}}
+\newenvironment{fineprint}{\begin{small}}{\end{small}}
+\iffalse
+\newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\fi
+\newenvironment{verlong}{}{}
+\newenvironment{vershort}{}{}
+\newenvironment{noncompile}{}{}
+\excludecomment{verlong}
+\includecomment{vershort}
+\excludecomment{noncompile}
+\newcommand{\kk}{\mathbf{k}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\ev}{\operatorname{ev}}
+\newcommand{\Comp}{\operatorname{Comp}}
+\newcommand{\bk}{\mathbf{k}}
+\newcommand{\Nplus}{\mathbb{N}_{+}}
+\newcommand{\NN}{\mathbb{N}}
+\let\sumnonlimits\sum
+\let\prodnonlimits\prod
+\renewcommand{\sum}{\sumnonlimits\limits}
+\renewcommand{\prod}{\prodnonlimits\limits}
+\setlength\textheight{22.5cm}
+\setlength\textwidth{15cm}
+\ihead{Math 4281, Spring 2019, Darij Grinberg: Syllabus}
+\ohead{\today}
+\begin{document}
+
+\begin{center}
+Math 4281, Spring 2019: \textbf{Introduction to Modern Algebra}
+
+-- \textit{Syllabus} --
+
+Darij Grinberg, VinH 203B, \texttt{dgrinber@umn.edu}
+
+last update: \today
+
+\end{center}
+
+\section{Time \& Place}
+
+\textbf{Lectures:}
+
+\begin{itemize}
+\item Section 001: MWF 9:05--9:55,
+\href{http://campusmaps.umn.edu/vincent-hall}{Vincent Hall} 211.
+
+\item Section 002: MWF 11:15--12:05,
+\href{http://campusmaps.umn.edu/vincent-hall}{Vincent Hall} 211.
+\end{itemize}
+
+\noindent\textbf{Office hours:}
+
+\begin{itemize}
+\item Monday 14:35--15:35;
+
+\item Tuesday 10:00--11:00;
+
+\item Tuesday 12:00--13:00;
+
+\item Friday 14:30--15:00 (half an hour).
+\end{itemize}
+
+Usually in \href{http://campusmaps.umn.edu/lind-hall}{Lind Hall 4th floor
+(center of the hall)}. If I am not there, try
+\href{http://campusmaps.umn.edu/vincent-hall}{Vincent Hall 203B}. Otherwise,
+by appointment (email).
+
+\bigskip
+
+This class has \href{http://www-users.math.umn.edu/~dgrinber/19s/}{a website:
+http://www-users.math.umn.edu/\symbol{126}dgrinber/19s/} and two Canvas boards:
+
+\qquad\href{https://canvas.umn.edu/courses/99199}{Section 001:
+https://canvas.umn.edu/courses/99199}.
+
+\qquad\href{Section 002: https://canvas.umn.edu/courses/99188}{Section 002:
+https://canvas.umn.edu/courses/99188}.
+
+\bigskip
+
+\textbf{Homework} will usually be due on \textbf{Wednesday} (sometimes weekly,
+sometimes every other week) \textbf{at the beginning of class}. You can also
+submit your homework electronically via Canvas (see above) \textbf{provided
+that the problem set is submitted as 1 single PDF file}. See \textquotedblleft
+Grading\textquotedblright\ and \textquotedblleft Coursework\textquotedblright%
+\ below for details.
+
+\bigskip
+
+\textbf{Midterms} (3 in total) are like homework, but they count for more, and
+collaboration is not allowed (see below for details). There will be \textbf{no
+final exam}.
+
+\bigskip
+
+\section{Requirements}
+
+This is a pure mathematics class and relies heavily on proofs. You have to
+feel at home reading and writing mathematical proofs. You can catch up on this from:
+
+\begin{itemize}
+\item {}[LeLeMe] Eric Lehman, F. Thomson Leighton, Albert R. Meyer,
+\textit{Mathematics for Computer Science}, \newline%
+\url{https://courses.csail.mit.edu/6.042/spring18/mcs.pdf} . (You should know
+the material from Chapters 1--5, minus the CS parts.)
+
+\item {}[Hammack] Richard Hammack, \textit{Book of Proof},\newline\url{http://www.people.vcu.edu/~rhammack/BookOfProof/}
+
+\item {}[Day] Martin V. Day, \textit{An Introduction to Proofs and the
+Mathematical Vernacular},\newline%
+\url{https://www.math.vt.edu/people/day/ProofsBook/IPaMV.pdf} .
+\end{itemize}
+
+You should also know some linear algebra: Gaussian elimination, linear
+independence, vector spaces, dimension, rank of matrices. The more you know,
+the better. One of the best texts to learn linear algebra from is:
+
+\begin{itemize}
+\item {}[Hefferon] Jim Hefferon, \textit{Linear Algebra}, 2017,\newline\url{http://joshua.smcvt.edu/linearalgebra/}
+\end{itemize}
+
+\noindent if you have the time for it (it is long and thorough). If not, make
+sure you know at least the topics named above. We won't start using linear
+algebra until a few weeks into this class.
+
+\bigskip
+
+\section{Texts}
+
+\subsection{required:}
+
+\begin{noncompile}
+I will write lecture notes accompanying the class:%
+\[
+\text{\url{http://www.cip.ifi.lmu.de/~grinberg/t/18f/notes.pdf}}%
+\]
+(just started; they'll grow). I am not sure how detailed they will be; I might
+also supplement them with other freely available sources. Everything
+examinable will be in these notes (and homework).
+\end{noncompile}
+
+There is no required textbook if you attend class. I won't follow a text
+directly anyway. I will post class notes (= scans of what I'm projecting on
+the screen in class) on the
+\href{http://www-users.math.umn.edu/~dgrinber/19s/}{class website}.
+
+\subsection{recommended:}
+
+Here are some good texts I know:\footnote{The bracketed names (such as
+\textquotedblleft\lbrack Goodman]\textquotedblright) are the abbreviations by
+which I will refer to the texts in class.}
+
+\begin{itemize}
+\item {}[Goodman]
+\href{http://homepage.divms.uiowa.edu/~goodman/algebrabook.dir/algebrabook.html}{Frederick
+M. Goodman, \textit{Algebra: Abstract and Concrete}, edition 2.6}.\newline
+This is a long book going beyond what we will do in this class. We won't
+follow it directly either, but it has a lot of the material we care about.
+
+\item {}[Siksek]
+\href{http://homepages.warwick.ac.uk/staff/S.Siksek/teaching/aa/aanotes.pdf}{Samir
+Siksek, \textit{Introduction to Abstract Algebra}, 2015}.\newline This is
+probably the most amusing (though occasionally overdoing the goofiness) book
+on abstract algebra I've ever seen. It is also really good at motivating definitions.
+
+\item {}[Pinter]
+\href{https://www.amazon.com/Book-Abstract-Algebra-Second-Mathematics/dp/0486474178}{Charles
+C. Pinter, \textit{A book of abstract algebra}, 2nd edition, Dover
+2010}.\newline The link goes to an ebook version that doesn't look very good,
+but \href{http://store.doverpublications.com/0486474178.html}{you can get the
+original for less than \$20}.
+
+\item {}[Armstrong]
+\href{http://www.math.miami.edu/~armstrong/561fa18.php}{Drew Armstrong,
+\textit{Abstract Algebra I}, 2018}.\newline(Click on
+\href{http://www.math.miami.edu/~armstrong/561fa18/561fa18notes.pdf}{\textquotedblleft
+Course Notes\textquotedblright} for the main text.) This is new and I haven't
+had much experience with it, but Armstrong is a good expositor. Note that this
+only goes until group theory.
+\end{itemize}
+
+On specific topics:
+
+\begin{itemize}
+\item {}[Conrad-Gauss]
+\href{http://www.math.uconn.edu/~kconrad/blurbs/ugradnumthy/Zinotes.pdf}{Keith
+Conrad, \textit{The Gaussian integers}}.\newline This is a topic we'll spend
+some time with early on in this course. And Conrad is a really good writer;
+check out \href{http://www.math.uconn.edu/~kconrad/blurbs/}{his expository
+papers} for various other pieces of algebra.
+
+\item {}[Strickland]
+\href{https://neil-strickland.staff.shef.ac.uk/courses/MAS201/MAS201.pdf}{Neil
+Strickland, \textit{Linear mathematics for applications}}.\newline Would you
+have guessed by the title that these lecture notes have one of the most
+rigorous treatments of determinants I've seen in the linear algebra literature?
+
+\item {}[Gallier-RSA]
+\href{https://www.cis.upenn.edu/~jean/RSA-primality-testing.pdf}{Jean Gallier,
+Jocelyn Quaintance, \textit{Notes on Primality Testing And Public Key
+Cryptography, Part 1}}.\newline This contains most of the elementary number
+theory we'll be going through (modular arithmetic, RSA, groups), plus a lot
+that we won't (primality checking).
+\end{itemize}
+
+\begin{noncompile}
+You don't have to buy any of these, but I assume any of them would look nice
+on your shelf. (You can download [Bogart] and [GKP] from the URLs above, and
+you might be able to get [Aigner] for free from the UMN network. Of course,
+there are ways to get the other two as well if you know your way around the
+internet\footnote{Search for \textquotedblleft reddit
+textbooks\textquotedblright, for example.}.)
+\end{noncompile}
+
+\begin{fineprint}
+For the sake of completeness, here are links to some old editions of this
+class: \href{http://www-users.math.umn.edu/~kim00657/teaching/18f4281/}{Fall
+2018}, \href{http://mchmutov.net/teaching/4281teaching.html}{Spring 2018},
+\href{http://www-users.math.umn.edu/~musiker/4281/}{Fall 2017},
+\href{http://www-users.math.umn.edu/~musiker/4281/}{Spring 2017}. Note that
+they were structured differently from mine and used different texts.
+\end{fineprint}
+
+\bigskip
+
+\section{Contact}
+
+All material regarding the course (including homework) can be found on my
+homepage \url{http://www.cip.ifi.lmu.de/~grinberg/t/19s/}.
+
+The best way to reach me is by email to \texttt{dgrinber@umn.edu} .
+
+After I leave UMN (in Summer), the best way to reach me will be by email to
+\texttt{darijgrinberg@gmail.com} .
+
+\bigskip
+
+\section{Topics (tentative)}
+
+This is still far from finished and decided.
+
+Topics marked with an * \textbf{may} be excluded. Topics marked with an **
+probably \textbf{will} be excluded.
+
+\begin{enumerate}
+\item Introduction and motivating questions.
+
+\begin{enumerate}
+\item $n=x^{2}+y^{2}$.
+
+\item Algebraic vs. transcendental numbers; sums of algebraics.
+
+\item \href{https://en.wikipedia.org/wiki/Shamir%27s_Secret_Sharing}{Shamir's
+secret sharing scheme} and the need for finite fields.
+
+\item * Angle trisection, cube duplication, circle squaring.
+
+\item * Solving deg-$3$ equations; higher orders.
+\end{enumerate}
+
+\item Elementary number theory.
+
+\begin{enumerate}
+\item Divisibility.
+
+\item Congruences mod $n$.
+
+\item Division with remainder.
+
+\item gcd, Bezout, Euclidean algorithm.
+
+\item Primes and prime factorization.
+
+\item Modular inverses \& cancellation mod $n$.
+
+\item Fermat's little theorem.
+
+\item Euler's $\phi$-function and its properties.
+
+\item Chinese Remainder Theorem.
+\end{enumerate}
+
+\item $\mathbb{Z}/n$.
+
+\begin{enumerate}
+\item Equivalence relations.
+
+\item Equivalence classes and quotient sets.
+
+\item $\mathbb{Z}/n$.
+
+\item * RSA.
+
+\item * Primitive roots.
+\end{enumerate}
+
+\item Complex numbers.
+
+\item Gaussian integers and $n=x^{2}+y^{2}$ (follow Keith Conrad). Finish with
+discussion of other quadratic and higher-order number rings.
+
+\item Linear algebra. (Start with $\mathbb{F}\in\left\{  \mathbb{Q}%
+,\mathbb{R},\mathbb{C}\right\}  $, then analyze what was used, and conclude
+that $\mathbb{Z}/p$ also works. Then solve
+\href{https://en.wikipedia.org/wiki/Lights_Out_(game)}{lights-out} using
+$\mathbb{Z}/2$-linear algebra. Finally, do the Smith normal form over
+$\mathbb{Z}$ via the Euclidean algorithm. Discuss the failure of linear
+algebra of $\mathbb{Z}$ in more detail -- what works?)
+
+\item Permutations and determinants. (Include Cayley-Hamilton \& companion
+matrices. Apply to algebraic integers?)
+
+\item Groups. (Include subgroups, homomorphisms, direct products.)
+
+\item Group actions. (Include necklace counting.)
+
+\item Quotient groups and homomorphism theorems.
+
+\item Rings.
+
+\item Ring homomorphisms.
+
+\item Polynomials and their rings.
+
+\item Fields.
+
+\item Field extensions and angle trisection.
+
+\item Finite fields. (Prove existence by counting irreducible polys.)
+
+\item * Properties of rings (PID, UFD, etc.).
+
+\item * Symmetric polynomials and the Fundamental Theorem.
+
+\item * Galois theory introduction. (Apply to deg-$3$ maybe.)
+
+\item * Modules and their basic applications. (Apply to algebraic integers again?)
+\end{enumerate}
+
+\bigskip
+
+\section{Schedule (tentative)}
+
+To be decided.
+
+\begin{noncompile}
+This is my \textbf{best guess} at this point (and \textquotedblleft
+best\textquotedblright\ does not mean \textquotedblleft good\textquotedblright%
+). Even the midterm dates are \textbf{not set in stone}. Topics inside
+parentheses are the most likely to be sacrificed if I run out of time.
+
+Asterisks (*) mean days when I'll be away; class will be substituted.
+\end{noncompile}
+
+\bigskip
+
+\textbf{Ignore the due dates so far}; I need to decide between weekly and
+biweekly homework.%
+
+\[%
+\begin{tabular}
+[c]{||c||c||c||}\hline\hline
+\textbf{week} & \textbf{material} & \textbf{due}\\\hline\hline
+Jan 23, 25 &  & \\\hline\hline
+Jan 28, 30, 1 &  & \\\hline\hline
+Feb 4, 6, 8 &  & hw1\\\hline\hline
+Feb 11, 13, 15 &  & hw2?\\\hline\hline
+Feb 18, 20, 22 &  & hw3?\\\hline\hline
+Feb 25, 27, 1 &  & \\\hline\hline
+Mar 4, 6, 8 &  & MT1?\\\hline\hline
+Mar 11, 13, 15 &  & hw4?\\\hline\hline
+\textit{Mar 18--24} & \textit{break} & \\\hline\hline
+Mar 25, 27, 29 &  & hw5?\\\hline\hline
+Apr 1, 3, 5 &  & \\\hline\hline
+Apr 8, 10, 12 &  & MT2\\\hline\hline
+Apr 15, 17, 19 &  & hw6?\\\hline\hline
+Apr 22, 24, 26 &  & \\\hline\hline
+Apr 29, 1, 3 &  & MT3\\\hline\hline
+May 5 &  & \\\hline\hline
+\end{tabular}
+\ \ \ \ \ \ \ \ \ \
+\]
+
+
+\bigskip
+
+\section{Grading}
+
+The grade will be computed based on three take-home \textbf{midterms}
+(totalling to \textbf{60\%} of the final grade, each giving 20\% of the final
+grade) and somewhere between 5 and 10 \textbf{homework sets} (totalling to
+\textbf{40\%} of the final grade, but the lowest score will be dropped).
+
+Points will be deducted if your proofs are ambiguously worded or otherwise
+hard to understand. Writing readable arguments is part of mathematics; you can
+learn this from the references in the \textquotedblleft
+Requirements\textquotedblright\ section above and you can practice it on
+\href{https://math.stackexchange.com/}{math.stackexchange}.
+
+\bigskip
+
+\section{Coursework}
+
+Collaboration on homework is allowed, as long as:
+
+\begin{itemize}
+\item you \textbf{write} up the solutions autonomously and in your own words
+(in particular, this means that you have to \textbf{understand} them), and
+
+\item you \textbf{list the names of your collaborators} (there will be no
+penalties for collaboration, so you don't lose anything doing this!).
+\end{itemize}
+
+On the midterms, you have to \textbf{work alone} (you can \textbf{read}
+whatever you want, but you must \textbf{not contact} anyone about the midterm
+problems\footnote{It is OK to contact \textbf{me} with questions.}; in
+particular, you must \textbf{not ask} them on the internet).
+
+Homework and midterms should be submitted either in person during class, or
+via Canvas.
+
+\textbf{If you handwrite your solutions:}
+
+\begin{itemize}
+\item Make sure that your writing is legible.
+
+\item If you submit your solutions by email, make sure that your submission is
+\textbf{1 single PDF file} for a given homework set (not many 1-page JPGs!).
+Double-check that your scans are readable and aren't missing any relevant text
+near the margins.
+\end{itemize}
+
+\textbf{If you type up your solutions:}
+
+\begin{itemize}
+\item Again, make sure that your submission is \textbf{1 single PDF file} for
+a given homework set.
+
+\item Double-check that your text doesn't go over the margins (something that
+often happens when using LaTeX). If something is not on the page, we cannot
+grade it...
+\end{itemize}
+
+Calculators and computer algebra systems may be used, but are not necessary
+(and you are responsible for any resulting errors).
+
+\begin{noncompile}
+For emails, I suggest using \textquotedblleft\lbrack Math 4281] Homework set
+\#$n$ submission\textquotedblright\ ($n$ = the number of the problem set) as
+the subject line.
+\end{noncompile}
+
+\textbf{Late} homework or late midterms are \textbf{not accepted} in any
+situation; if you are not finished, submit whatever you have before the
+deadline. If you want to update your submission, you can do so (before the
+deadline!) by sending me an email that includes the whole updated submission
+(not just the parts you want changed).
+
+See also the following university policies:
+
+\begin{itemize}
+\item
+\href{https://policy.umn.edu/education/gradingtranscripts}{https://policy.umn.edu/education/gradingtranscripts}%
+
+
+\item
+\href{https://policy.umn.edu/research/academicmisconduct}{https://policy.umn.edu/research/academicmisconduct}%
+
+\end{itemize}
+
+\begin{noncompile}
+-----
+
+Things I want to get to:
+
+(a) angle trisection impossible,
+
+(b) sum\&prod of algebraic numbers/integers,
+
+(c) finite fields GF(q), $\Longleftarrow$ Gregg did existence proof.
+
+(d) the Lagrange interpolation cryptoscheme (Shamir)
+
+(e) Solving systems of linear equations over $\mathbb{Z}$ (a simple version of
+Smith normal form). (elementary, Euclidean alg),
+
+(f) Gaussian integers and writing $n$ as $x^{2}+y^{2}$ (this is in KConrad
+except for counting),
+
+(g) Fundamental theorem of algebra, proven using Sylow (may be too advanced),
+
+(h) quaternions (what exactly?).
+
+(i) Solving deg-3 and deg-4 equations. (Gregg: \textquotedblleft solving
+degree 3 polys and once when I taught it, I got a little further in Galois
+theory and contrasted deg 4 polys with Galois group V\_4 vs C\_4 (but did not
+discuss solving degree 4 in general)\textquotedblright)
+
+(j) Insolvability of deg-5 equation, probably with bare hints to its proof.
+\end{noncompile}
+
+
+\end{document}
