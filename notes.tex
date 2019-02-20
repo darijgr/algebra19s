@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Tuesday, February 19, 2019 19:34:47}
+%TCIDATA{LastRevised=Tuesday, February 19, 2019 21:48:31}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -6110,7 +6110,7 @@ b\operatorname{mod}c$. If $a\perp c$, then $b\perp c$.
 
 \begin{fineprint}
 \begin{proof}
-[Solution to Exercise \ref{exe.ent.coprime.b==c}.] Assume that $a\perp c$. But
+[Solution to Exercise \ref{exe.ent.coprime.b==c}.]Assume that $a\perp c$. But
 Proposition \ref{prop.ent.coprime.perp-symm} (applied to $c$ instead of $b$)
 shows that $a\perp c$ if and only if $c\perp a$. Thus, we have $c\perp a$
 (since $a\perp c$). In other words, $c$ is coprime to $a$. In other words,
@@ -10419,7 +10419,9 @@ This proves Theorem \ref{thm.ent.phi.sum-div}.
 \textbf{2019-02-15 lecture}
 \end{center}
 
-\subsection{Euler, Fermat, Wilson}
+\subsection{Fermat, Euler Wilson}
+
+\subsubsection{Fermat and Euler: statements}
 
 The following theorem is known as \textit{Fermat's Little Theorem} (often
 abbreviated as \textquotedblleft FLT\textquotedblright):
@@ -10482,12 +10484,12 @@ Then, $a^{\phi\left(  n\right)  }\equiv1\operatorname{mod}n$.
 \end{theorem}
 
 Theorem \ref{thm.ent.euler} yields Theorem \ref{thm.ent.fermat} \textbf{(a)},
-since $\phi\left(  p\right)  =p-1$ when $p$ is prime. Since we also know that
-Theorem \ref{thm.ent.fermat} \textbf{(b)} follows from Theorem
-\ref{thm.ent.fermat} \textbf{(a)}, we see that a proof of Theorem
-\ref{thm.ent.euler} will immediately yield the whole Theorem
-\ref{thm.ent.fermat}. Before we give said proof, let us show an example of how
-Theorem \ref{thm.ent.euler} can be used:
+since $\phi\left(  p\right)  =p-1$ when $p$ is prime\footnote{See below for
+details of this argument.}. Since we also know that Theorem
+\ref{thm.ent.fermat} \textbf{(b)} follows from Theorem \ref{thm.ent.fermat}
+\textbf{(a)}, we see that a proof of Theorem \ref{thm.ent.euler} will
+immediately yield the whole Theorem \ref{thm.ent.fermat}. Before we give said
+proof, let us show an example of how Theorem \ref{thm.ent.euler} can be used:
 
 \begin{exercise}
 \label{exe.ent.euler345}What is the last digit of $3^{4^{5}}$?
@@ -10514,6 +10516,27 @@ $3^{4}\equiv1\operatorname{mod}10$. Now, $4^{5}=4\cdot4^{4}$, so that%
 \]
 So the last digit of $3^{4^{5}}$ is $1$.
 \end{proof}
+
+Theorem \ref{thm.ent.euler} is also the reason why certain rational numbers
+(such as $\dfrac{2}{7}=0.\overline{285714}$\ \ \ \ \footnote{The bar
+($\overline{}$) over the \textquotedblleft$285714$\textquotedblright\ means
+that we are repeating $285714$ over and over. So $0.\overline{285714}%
+=0.285714285714285714\ldots$.}) have purely periodic decimal expansions, while
+others (such as $\dfrac{1}{12}=0.08\overline{3}=0.0833333\ldots$ or $\dfrac
+{1}{2}=0.5\overline{0}=0.50000\ldots$) have their periods start only after
+some initial nonrepeating block. We refer \cite[\S 4]{Conrad-Euler} to the
+details of this.\footnote{In brief, the rule is as follows: Any fraction
+$\dfrac{a}{b}$ with $a,b\in\mathbb{Z}$ (and $b\neq0$) has such a decimal
+representation with a period. (A \textit{period} means a part that gets
+repeated over and over.) A fraction $\dfrac{a}{b}$ is called \textit{purely
+periodic} if its period (in decimal notation) begins straight after the
+decimal point. So $\dfrac{2}{7}$ is purely periodic but $\dfrac{1}{12}$ and
+$\dfrac{1}{2}$ are not. Now, the answer is that a fraction $\dfrac{a}{b}$
+(with $a\perp b$) is purely periodic if and only if $b\perp10$ (in other
+words, $2\nmid b$ and $5\nmid b$). This can be proven using Theorem
+\ref{thm.ent.euler}.}
+
+\subsubsection{Proving Euler and Fermat}
 
 Our proof of Theorem \ref{thm.ent.euler} will rely on the following lemma:
 
@@ -10613,8 +10636,6 @@ Exercise \ref{exe.ent.coprime.modinv-in-set}.
 \end{fineprint}
 \end{noncompile}
 
-TODO: Write from here.
-
 \begin{proof}
 [Proof of Theorem \ref{thm.ent.euler}.]Let
 \[
@@ -10623,10 +10644,13 @@ C=\left\{  i\in\left\{  0,1,\ldots,n-1\right\}  \ \mid\ i\perp n\right\}  .
 Then, Lemma \ref{lem.ent.euler.phi0} says that $\phi\left(  n\right)
 =\left\vert C\right\vert $.
 
-Now, $z=\prod_{i\in C}i$. Exercise \ref{exe.ent.coprime.ab-to-cI} (applied to
-$I=C$, $c=n$ and $b_{i}=i$) yields $\prod_{i\in C}i\perp n$ (since each $i\in
-C$ satisfies $i\perp n$). In other words, $z\perp n$ (since $z=\prod_{i\in
-C}i$).
+Now, set
+\begin{equation}
+z=\prod_{i\in C}i.\label{pf.thm.ent.euler.z=}%
+\end{equation}
+Exercise \ref{exe.ent.coprime.ab-to-cI} (applied to $I=C$, $c=n$ and $b_{i}%
+=i$) yields $\prod_{i\in C}i\perp n$ (since each $i\in C$ satisfies $i\perp
+n$). In other words, $z\perp n$ (since $z=\prod_{i\in C}i$).
 
 We have $\left(  ai\right)  \%n\in C$ for each $i\in C$.
 
@@ -10681,11 +10705,9 @@ Now, forget that we fixed $i$ and $j$. We thus have proven that if $i$ and $j$
 and two elements of $C$ such that $f\left(  i\right)  =f\left(  j\right)  $,
 then $i=j$. In other words, $f$ is injective.]
 
-\begin{noncompile}
 The map $f$ is surjective.
 
-[\textit{Proof:} Let $i \in C$. We shall prove that $i \in f\left(  C \right)
-$.
+[\textit{Proof:} Let $i\in C$. We shall prove that $i\in f\left(  C\right)  $.
 
 Indeed, $i\in C$. By the definition of $C$, this means that $i\in\left\{
 0,1,\ldots,n-1\right\}  $ and $i\perp n$.
@@ -10730,95 +10752,170 @@ $i=\left(  aj\right)  \%n$). Hence, $i=f\left(  \underbrace{j}_{\in C}\right)
 Now, forget that we fixed $i$. We thus have proven that $i\in f\left(
 C\right)  $ for each $i\in C$. In other words, $C\subseteq f\left(  C\right)
 $. In other words, the map $f$ is surjective.]
-\end{noncompile}
 
-Now, $C$ is finite, the map $f:C\rightarrow C$ is injective, and we have
-$\left\vert C\right\vert \geq\left\vert C\right\vert $. This yields that $f$
-is bijective, by the \textit{Pigeonhole Principle for Injections}:
-
-\begin{statement}
-\textit{Pigeonhole Principle for Injections}: Let $A$ and $B$ be finite sets
-such that $\left\vert A\right\vert \geq\left\vert B\right\vert $. Let
-$f:A\rightarrow B$ be an injective map. Then, $f$ is bijective.
-\end{statement}
-
-This Pigeonhole Principle is one of the fundamental facts of combinatorics (or
-even of set theory); I will not prove it here. But since I have mentioned it,
-let me also the (equally important) counterpart for surjective maps:
-
-\begin{statement}
-\textit{Pigeonhole Principle for Surjections}: Let $A$ and $B$ be finite sets
-such that $\left\vert A\right\vert \leq\left\vert B\right\vert $. Let
-$f:A\rightarrow B$ be an surjective map. Then, $f$ is bijective.
-\end{statement}
-
-Note that we didn't strictly \textbf{have} to apply the Pigeonhole Principle
-here; we could have also proven that $f$ is surjective (using the existence of
-modular inverses). I leave this alternative proof to the interested reader.
-
-So we know that the map $f$ is bijective. Thus, we can substitute $f\left(
-i\right)  $ for $i$ in the product $\prod\limits_{i\in C}i$. So%
+Now we know that the map $f$ is injective and surjective. Hence, this map $f$
+is bijective. In other words, $f$ is a bijection from $C$ to $C$. Thus, we can
+substitute $f\left(  s\right)  $ for $i$ in the product $\prod\limits_{i\in
+C}i$. So we obtain%
+\begin{equation}
+\prod_{i\in C}i=\prod_{s\in C}f\left(  s\right)
+.\label{pf.thm.ent.euler.finale.1}%
+\end{equation}
+But for each $s\in C$, we have%
 \begin{align*}
-\prod_{i\in C}i  &  =\prod_{i\in C}\underbrace{f\left(  i\right)
-}_{\substack{=\left(  ai\right)  \%n\\\equiv ai\operatorname{mod}n}%
-}\equiv\prod_{i\in C}\left(  ai\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by
-(\ref{eq.exe.ent.mod.k-sum.b})}\right) \\
-&  =a^{\left\vert C\right\vert }\prod_{i\in C}i=a^{\phi\left(  n\right)
-}\prod_{i\in C}i\operatorname{mod}n\ \ \ \ \ \ \ \ \ \ \left(  \text{since
-}\left\vert C\right\vert =\phi\left(  n\right)  \right)  .
+f\left(  s\right)    & =\left(  as\right)  \%n\ \ \ \ \ \ \ \ \ \ \left(
+\text{by the definition of }f\right)  \\
+& \equiv as\operatorname{mod}n\ \ \ \ \ \ \ \ \ \ \left(  \text{by Corollary
+\ref{cor.ent.quo-rem.remmod} \textbf{(a)}, applied to }u=as\right)  .
 \end{align*}
-In other words, $z\equiv a^{\phi\left(  n\right)  }z\operatorname{mod}n$
-(since $z=\prod\limits_{i\in C}i$). Lemma \ref{lem.ent.coprime.cancel} lets us
-cancel $z$ from this congruence (since $z\perp n$). We thus obtain $1\equiv
-a^{\phi\left(  n\right)  }\operatorname{mod}n$. This proves Theorem
-\ref{thm.ent.euler}.
+Hence, (\ref{eq.exe.ent.mod.k-sum.b}) (applied to $S=C$, $a_{s}=f\left(
+s\right)  $ and $b\left(  s\right)  =as$) yields%
+\[
+\prod_{s\in C}f\left(  s\right)  \equiv\prod_{s\in C}\left(  as\right)
+=a^{\left\vert C\right\vert }\underbrace{\prod_{s\in C}s}_{\substack{=\prod
+_{i\in C}i=z\\\text{(by (\ref{pf.thm.ent.euler.z=}))}}}=a^{\left\vert
+C\right\vert }z=a^{\phi\left(  n\right)  }z\operatorname{mod}n
+\]
+(since $\left\vert C\right\vert =\phi\left(  n\right)  $). Now,
+(\ref{pf.thm.ent.euler.z=}) becomes%
+\begin{align*}
+z  & =\prod_{i\in C}i=\prod_{s\in C}f\left(  s\right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.thm.ent.euler.finale.1}%
+)}\right)  \\
+& \equiv a^{\phi\left(  n\right)  }z=za^{\phi\left(  n\right)  }%
+\operatorname{mod}n.
+\end{align*}
+Thus, $z\cdot1=z\equiv za^{\phi\left(  n\right)  }\operatorname{mod}n$. Lemma
+\ref{lem.ent.coprime.cancel} lets us \textquotedblleft
+cancel\textquotedblright\ $z$ from this congruence (since $z\perp n$). We thus
+obtain $1\equiv a^{\phi\left(  n\right)  }\operatorname{mod}n$. This proves
+Theorem \ref{thm.ent.euler}.
 \end{proof}
 
 \begin{proof}
 [Proof of Theorem \ref{thm.ent.fermat}.]As we have explained above, Theorem
 \ref{thm.ent.fermat} follows from Theorem \ref{thm.ent.euler}.
+
+\begin{fineprint}
+Here is the argument in more detail:
+
+\textbf{(a)} Assume that $p\nmid a$. Proposition \ref{prop.ent.phi.p} yields
+$\phi\left(  p\right)  =p-1$. But But Proposition
+\ref{prop.ent.primes.div-or-coprime} yields that either $p\mid a$ or $p\perp
+a$. Hence, $p\perp a$ (since $p\nmid a$). In other words, $a\perp p$. In other
+words, $a$ is coprime to $p$. Hence, Theorem \ref{thm.ent.euler} (applied to
+$n=p$) yields $a^{\phi\left(  p\right)  }\equiv1\operatorname{mod}p$. This
+rewrites as $a^{p-1}\equiv1\operatorname{mod}p$ (since $\phi\left(  p\right)
+=p-1$). This proves Theorem \ref{thm.ent.fermat} \textbf{(a)}.
+
+\textbf{(b)} We are in one of the following two cases:
+
+\textit{Case 1:} We have $p\nmid a$.
+
+\textit{Case 2:} We have $p\mid a$.
+
+Let us first consider Case 1. In this case, we have $p\nmid a$. Hence, Theorem
+\ref{thm.ent.fermat} \textbf{(a)} yields $a^{p-1}\equiv1\operatorname{mod}p$.
+Multiplying this congruence with the congruence $a\equiv a\operatorname{mod}%
+p$, we obtain $a^{p-1}a\equiv1a=a\operatorname{mod}p$. In view of
+$a^{p-1}a=a^{p}$, this rewrites as $a^{p}\equiv a\operatorname{mod}p$. Hence,
+Theorem \ref{thm.ent.fermat} \textbf{(b)} is proven in Case 1.
+
+Let us now consider Case 2. In this case, we have $p\mid a$. In other words,
+$a\equiv0\operatorname{mod}p$. Taking this congruence to the $p$-th power, we
+obtain $a^{p}\equiv0^{p}=0\operatorname{mod}p$ (since $p>0$). Thus,
+$a^{p}\equiv0\equiv a\operatorname{mod}p$ (since $a\equiv0\operatorname{mod}%
+p$). Hence, Theorem \ref{thm.ent.fermat} \textbf{(b)} is proven in Case 2.
+
+We have now proven Theorem \ref{thm.ent.fermat} \textbf{(b)} in both Cases 1
+and 2. Hence, Theorem \ref{thm.ent.fermat} \textbf{(b)} always holds.
+\end{fineprint}
 \end{proof}
 
-\begin{remark}
-Let us take a look at some fractions in decimal notation:
+\subsubsection{The Pigeonhole Principles}
 
-$\dfrac{1}{7}=\allowbreak0.142857142857142857\cdots=0.\overline{142857}$
-(where the $\overline{}$ bar means \textquotedblleft repeat this part over and
-over\textquotedblright).
-
-$\dfrac{1}{6}=\allowbreak0.1666666\cdots=0.1\overline{6}$.
-
-$\dfrac{1}{2}=\allowbreak0.5000000\cdots=0.5\overline{0}$.
-
-Any fraction $\dfrac{a}{b}$ with $a,b\in\mathbb{Z}$ has such a decimal
-representation with a period. (A \textit{period} means a part that gets
-repeated over and over.)
-
-A fraction $\dfrac{a}{b}$ is called \textit{purely periodic} if its period (in
-decimal notation) begins straight after the decimal point.
-
-So $\dfrac{1}{7}$ is purely periodic, but $\dfrac{1}{6}$ and $\dfrac{1}{2}$
-are not.
-
-Which fractions are purely periodic?
-
-Answer: A fraction $\dfrac{a}{b}$ (with $a\perp b$) is purely periodic if and
-only if $b\perp10$ (in other words, $2\nmid b$ and $5\nmid b$).
-
-This can be proven using Euler's theorem: see \cite{Conrad-Euler}.
-\end{remark}
-
-A teaser:
+In our above proof of Theorem \ref{thm.ent.euler}, we have proven that the map
+$f:C\rightarrow C$ (that we constructed) is injective and surjective. It turns
+out that this was, to some extent, wasteful: It would have been enough to
+prove one of the two properties only (i.e., injectivity \textbf{or}
+surjectivity). The reason for this are the following two basic facts about
+finite sets:
 
 \begin{theorem}
-(Wilson's theorem)
-
-Let $p$ be a prime. Then, $\left(  p-1\right)  !\equiv-1\operatorname{mod}p$.
+[Pigeonhole Principle for Injections]\label{thm.pigeon.inj}Let $A$ and $B$ be
+two finite sets such that $\left\vert A\right\vert \geq\left\vert B\right\vert
+$. Let $f:A\rightarrow B$ be an injective map. Then, $f$ is bijective.
 \end{theorem}
 
-We will prove this later.
+\begin{theorem}
+[Pigeonhole Principle for Surjections]\label{thm.pigeon.surj}Let $A$ and $B$
+be two finite sets such that $\left\vert A\right\vert \leq\left\vert
+B\right\vert $. Let $f:A\rightarrow B$ be an surjective map. Then, $f$ is bijective.
+\end{theorem}
+
+Theorem \ref{thm.pigeon.inj} is called the \textit{Pigeonhole Principle for
+Injection}, due to the following interpretation: If $a$ pigeons sit in $b$
+pigeonholes with $a\geq b$ (that is, there are at least as many pigeons as
+there are pigeonholes), and if no two pigeons are sharing the same hole, then
+every hole must have at least one pigeon in it. (This corresponds to the
+statement of Theorem \ref{thm.pigeon.inj} if you let $A$ be the set of
+pigeons, $B$ be the set of holes, and $f$ be the map that sends each pigeon to
+the hole it is sitting in. The injectivity of $f$ is then precisely the
+statement that no two pigeons are sharing the same hole.)
+
+Likewise, Theorem \ref{thm.pigeon.surj} is called the \textit{Pigeonhole
+Principle for Surjection}, due to the following interpretation: If $a$ pigeons
+sit in $b$ pigeonholes with $a\leq b$ (that is, there are at most as many
+pigeons as there are pigeonholes), and if each hole contains at least one
+pigeon, then no two pigeons are sharing the same hole.
+
+Theorem \ref{thm.pigeon.inj} and Theorem \ref{thm.pigeon.surj} are both basic
+facts of set theory; how to prove them depends on how you define the size of a
+finite set in the first place. See \cite[solution to Exercise 1.1]{detnotes}
+for one way of proving them (more precisely, Theorem \ref{thm.pigeon.inj} is
+the \textquotedblleft$\Longrightarrow$\textquotedblright\ direction of
+\cite[Lemma 1.5]{detnotes}, while Theorem \ref{thm.pigeon.surj} is the
+\textquotedblleft$\Longrightarrow$\textquotedblright\ direction of \cite[Lemma
+1.4]{detnotes}).
+
+Now, Theorem \ref{thm.pigeon.inj} can be used to simplify our above proof of
+Theorem \ref{thm.ent.euler}. Indeed, in the latter proof, once we have shown
+that $f$ is injective, we can immediately apply Theorem \ref{thm.pigeon.inj}
+(to $A=C$ and $B=C$) in order to conclude that $f$ is bijective (since $C$ is
+a finite set and satisfies $\left\vert C\right\vert \geq\left\vert
+C\right\vert $). The proof of surjectivity of $f$ is thus unnecessary.
+Alternatively, we could have omitted the proof of injectivity of $f$, and
+instead used the surjectivity of $f$ to apply Theorem \ref{thm.pigeon.surj}
+(to $A=C$ and $B=C$) in order to conclude that $f$ is bijective (since $C$ is
+a finite set and satisfies $\left\vert C\right\vert \leq\left\vert
+C\right\vert $). Either way, we would have obtained a shorter proof.
+
+\subsubsection{Wilson}
+
+The next theorem is known as \textit{Wilson's theorem}:
+
+\begin{theorem}
+\label{thm.ent.wilson}Let $p$ be a prime. Then, $\left(  p-1\right)
+!\equiv-1\operatorname{mod}p$.
+\end{theorem}
+
+We will prove this later, after defining $\mathbb{Z}/\left(  p\right)  $.
+
+Theorem \ref{thm.ent.wilson} has a converse: If an integer $p>1$ satisfies
+$\left(  p-1\right)  !\equiv-1\operatorname{mod}p$, then $p$ is a prime. (This
+is actually easier to porove than Theorem \ref{thm.ent.wilson} itself.)
 
 \subsection{Binomial coefficients}
+
+Next, we shall introduce and briefly study binomial coefficients. While
+binomial coefficients belong more to (enumerative) combinatorics than to
+algebra, they are used significantly in algebra, so we have to derive some of
+their properties.
+
+Here is the definition of binomial coefficients (at least the one I am going
+to follow in these notes):
+
+TODO: Write from here!
 
 Recall:
 
@@ -10891,7 +10988,7 @@ Then, $\dbinom{n}{k}$ is the number of $k$-element subsets of $N$.
 \end{theorem}
 
 \begin{proof}
-[Proof of Theorem \ref{thm.binom.comb-int}.] What follows is an outline of the
+[Proof of Theorem \ref{thm.binom.comb-int}.]What follows is an outline of the
 proof. For a detailed proof, see \cite[Exercise 3.4]{detnotes}, where I
 thoroughly prove Theorem \ref{thm.binom.comb-int} in the case $k\in\mathbb{N}%
 $. (The remaining case $k\notin\mathbb{N}$ is obvious, because in that case
@@ -11117,10 +11214,8 @@ $p$ is prime). Since $p\nmid k$ (because $k\in\left\{  1,2,\ldots,p-1\right\}
 $), we thus have $p\mid\dbinom{p}{k}$.
 \end{proof}
 
-
-
 \begin{proof}
-[Second proof (outline).] The following is not rigorous and probably not
+[Second proof (outline).]The following is not rigorous and probably not
 readable; we will make sense of this later.
 
 We know that $\dbinom{p}{k}$ counts $k$-element subsets of $\left\{
@@ -11135,7 +11230,7 @@ I claim that there is a bijection%
 \begin{align*}
 \left\{  k\text{-element subsets of }\left\{  1,2,\ldots,p\right\}  \right\}
 &  \rightarrow\left\{  p\text{-bitstrings with }k\text{ 1's}\right\}  ,\\
-S &  \mapsto\left\{  \left(  i_{1},i_{2},\ldots,i_{p}\right)  \right\}  ,
+S  &  \mapsto\left\{  \left(  i_{1},i_{2},\ldots,i_{p}\right)  \right\}  ,
 \end{align*}
 where $i_{x}=%
 \begin{cases}
@@ -11161,7 +11256,7 @@ Thus,%
 &  \left(  \text{the number of }p\text{-bitstrings with }k\text{ 1's}\right)
 \\
 &  =\left(  \text{the number of }k\text{-element subsets of }\left\{
-1,2,\ldots,p\right\}  \right)  \\
+1,2,\ldots,p\right\}  \right) \\
 &  =\dbinom{p}{k}.
 \end{align*}
 
