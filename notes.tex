@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Tuesday, February 19, 2019 22:33:02}
+%TCIDATA{LastRevised=Wednesday, February 20, 2019 00:23:17}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -10911,6 +10911,8 @@ is actually easier to porove than Theorem \ref{thm.ent.wilson} itself.)
 
 \subsection{Binomial coefficients}
 
+\subsubsection{Definitions and basics}
+
 Next, we shall introduce and briefly study binomial coefficients. While
 binomial coefficients belong more to (enumerative) combinatorics than to
 algebra, they are used significantly in algebra, so we have to derive some of
@@ -10954,17 +10956,20 @@ all $n\in\mathbb{Q}$. Thus, for example,%
 
 \textbf{(b)} We have%
 \begin{align*}
-\dbinom{5}{3}  &  =\dfrac{5\cdot4\cdot3}{3!}=\dfrac{60}{6}=10;\\
-\dbinom{1}{3}  &  =\dfrac{1\cdot0\cdot\left(  -1\right)  }{3!}=\dfrac{0}%
+\dbinom{5}{3} &  =\dfrac{5\cdot4\cdot3}{3!}=\dfrac{60}{6}=10;\\
+\dbinom{1}{3} &  =\dfrac{1\cdot0\cdot\left(  -1\right)  }{3!}=\dfrac{0}%
 {6}=0;\\
-\dbinom{-2}{3}  &  =\dfrac{\left(  -2\right)  \cdot\left(  -3\right)
+\dbinom{-2}{3} &  =\dfrac{\left(  -2\right)  \cdot\left(  -3\right)
 \cdot\left(  -4\right)  }{3!}=\dfrac{-24}{6}=-4;\\
-\dbinom{1/2}{3}  &  =\dfrac{\left(  1/2\right)  \cdot\left(  -1/2\right)
+\dbinom{1/2}{3} &  =\dfrac{\left(  1/2\right)  \cdot\left(  -1/2\right)
 \cdot\left(  -3/2\right)  }{3!}=\dfrac{3/8}{6}=\dfrac{1}{16}%
 \end{align*}
 (all by Definition \ref{def.binom.binom} \textbf{(a)}).
 
-\textbf{(c)} Definition \ref{def.binom.binom} \textbf{(b)} yields $\dbinom
+\textbf{(c)} Definition \ref{def.binom.binom} \textbf{(a)} yields $\dbinom
+{n}{1}=\dfrac{n}{1!}=\dfrac{n}{1}=n$ for all $n\in\mathbb{Q}$.
+
+\textbf{(d)} Definition \ref{def.binom.binom} \textbf{(b)} yields $\dbinom
 {4}{1/2}=0$ (since $1/2\notin\mathbb{N}$).
 \end{example}
 
@@ -11039,6 +11044,25 @@ $k>n$. Then,
 \end{proof}
 
 \begin{theorem}
+\label{thm.binom.n0}Let $n\in\mathbb{Q}$. Then,%
+\[
+\dbinom{n}{0}=1.
+\]
+
+\end{theorem}
+
+\begin{proof}
+[Proof of Theorem \ref{thm.binom.n0}.] Definition \ref{def.binom.binom}
+\textbf{(a)} (applied to $k=0$) yields%
+\[
+\dbinom{n}{0}=\dfrac{\prod_{i=0}^{0-1}\left(  n-i\right)  }{0!}=\dfrac{1}{1}%
+\]
+(since $\prod_{i=0}^{0-1}\left(  n-i\right)  =\left(  \text{empty
+product}\right)  =1$ and $0!=1$). Thus, $\dbinom{n}{0}=\dfrac{1}{1}=1$. This
+proves Theorem \ref{thm.binom.n0}.
+\end{proof}
+
+\begin{theorem}
 \label{thm.binom.symmetry}Let $n\in\mathbb{N}$ and $k\in\mathbb{Q}$. Then,%
 \[
 \dbinom{n}{k}=\dbinom{n}{n-k}.
@@ -11106,6 +11130,8 @@ k\dbinom{n}{k}=n\dbinom{n-1}{k-1}.
 \href{http://www-users.math.umn.edu/~dgrinber/19s/hw0s.pdf}{homework set \#0}.
 \end{proof}
 
+\subsubsection{Combinatorial interpretation}
+
 The next property of binomial coefficients is one of the major motivations for
 their definitions:
 
@@ -11125,8 +11151,6 @@ $)\textquotedblright. This is the reason why $\dbinom{n}{k}$ is called
 \ref{thm.binom.comb-int} does not directly help us compute $\dbinom{n}{k}$
 when $n\notin\mathbb{N}$.
 
-TODO: Write from here!
-
 \begin{proof}
 [Proof of Theorem \ref{thm.binom.comb-int}.]What follows is an outline of the
 proof. For a detailed proof, see \cite[Exercise 3.4]{detnotes}, where I
@@ -11136,62 +11160,158 @@ the theorem simply says $0=0$.)
 
 We proceed by induction on $n$:
 
-\textit{Induction base:} $n=0$. Then, $\dbinom{n}{k}=\dbinom{0}{k}=%
+\textit{Induction base:} Let $n$, $k$ and $N$ be as in Theorem
+\ref{thm.binom.comb-int}, and let us assume that $n=0$. From $n=0$, we obtain
+$\dbinom{n}{k}=\dbinom{0}{k}=%
 \begin{cases}
 1, & \text{if }k=0;\\
 0, & \text{if }k\neq0
 \end{cases}
-$ (follows from the definition). On the other hand, the set $N$ is empty
-(since $\left\vert N\right\vert =n=0$). Thus, its only subset is $\varnothing
-$, which is a $0$-element subset. Hence, the number of $k$-element subsets of
-$N$ is $%
+$ (this is easy to derive from Definition \ref{def.binom.binom}\footnote{To
+wit:
+\par
+\begin{itemize}
+\item If $k=0$, then $\dbinom{0}{k}=\dbinom{0}{0}=1$ (by Theorem
+\ref{thm.binom.n0}).
+\par
+\item If $k>0$, then Theorem \ref{thm.binom.k>n0} (applied to $0$ instead of
+$n$) yields $\dbinom{0}{k}=0$.
+\par
+\item If $k<0$, then $k\notin\mathbb{N}$ and thus $\dbinom{0}{k}=0$ (by
+Definition \ref{def.binom.binom} \textbf{(b)}).
+\end{itemize}
+\par
+Thus, in all three cases ($k=0$, $k>0$ and $k<0$), we conclude that
+$\dbinom{0}{k}=%
 \begin{cases}
 1, & \text{if }k=0;\\
 0, & \text{if }k\neq0
 \end{cases}
-$.
+$.}). On the other hand, the set $N$ is empty (since $\left\vert N\right\vert
+=n=0$). Thus, its only subset is $\varnothing$, which is a $0$-element subset.
+Hence, $N$ has exactly one $0$-element subset, and no subsets of any other
+size. Hence, the number of $k$-element subsets of $N$ is $%
+\begin{cases}
+1, & \text{if }k=0;\\
+0, & \text{if }k\neq0
+\end{cases}
+$. Comparing this with $\dbinom{n}{k}=%
+\begin{cases}
+1, & \text{if }k=0;\\
+0, & \text{if }k\neq0
+\end{cases}
+$, we conclude that $\dbinom{n}{k}$ is the number of $k$-element subsets of
+$N$. Thus, we have proven Theorem \ref{thm.binom.comb-int} under the
+assumption that $n=0$. This completes the induction step.
 
-\textit{Induction step:} Let $n>0$. Assume (as the induction hypothesis) that
-the theorem holds for $n-1$ instead of $n$.
+\textit{Induction step:} Let $m$ be a positive integer. Assume (as the
+induction hypothesis) that Theorem \ref{thm.binom.comb-int} holds for $n=m-1$.
+We must now prove that Theorem \ref{thm.binom.comb-int} holds for $n=m$.
 
-Now, let $N$ be an $n$-element set. Pick any $a\in N$ (this exists because
-$\left\vert N\right\vert =n>0$). Now, the $k$-element subsets of $N$ can be
-classified into two types:
+Let $k\in\mathbb{Q}$. Let $N$ be an $m$-element set. Thus, $\left\vert
+N\right\vert =m>0$. Hence, the set $N$ is nonempty; in other words, there
+exists some $a\in N$. Pick such an $a$. (It does not matter which one we
+choose, but we need to leave it fixed from now on). Clearly, $\left\vert
+N\setminus\left\{  a\right\}  \right\vert =m-1$ (since $\left\vert
+N\right\vert =m$). In other words, $N\setminus\left\{  a\right\}  $ is an
+$\left(  m-1\right)  $-element set.
+
+Now, the $k$-element subsets of $N$ can be classified into two types:
 
 \begin{itemize}
-\item Type 1: those that don't contain $a$;
+\item We say that a $k$-element subset is \textit{type-1} if it doesn't
+contain $a$.
 
-\item Type 2: those that contain $a$.
+\item We say that a $k$-element subset is \textit{type-2} if it does contain
+$a$.
 \end{itemize}
 
-The number of Type-1 subsets is $\dbinom{n-1}{k}$ (by the induction
-hypothesis, since the Type-1 subsets are precisely the $k$-element subsets of
-the $\left(  n-1\right)  $-element set $N\setminus\left\{  a\right\}  $).
+(We shall use the adjectives \textquotedblleft type-1\textquotedblright\ and
+\textquotedblleft type-2\textquotedblright\ for $k$-element subsets of $N$
+only. Thus, whenever we say \textquotedblleft type-1 subset\textquotedblright%
+\ in the following, we will always mean \textquotedblleft type-1 $k$-element
+subset of $N$\textquotedblright, and similarly for \textquotedblleft type-2
+subset\textquotedblright.)
 
-The number of Type-2 subsets is $\dbinom{n-1}{k-1}$. (In fact, there is a
-bijection%
+Clearly, any $k$-element subset of $N$ is either type-1 or type-2 (but never
+both at the same time).
+
+The type-1 subsets are precisely the $k$-element subsets of the $\left(
+m-1\right)  $-element set $N\setminus\left\{  a\right\}  $. By our induction
+hypothesis, we know that Theorem \ref{thm.binom.comb-int} holds for $n=m-1$.
+Hence, we can apply Theorem \ref{thm.binom.comb-int} to $m-1$ and
+$N\setminus\left\{  a\right\}  $ instead of $n$ and $N$. We thus conclude that
+$\dbinom{m-1}{k}$ is the number of $k$-element subsets of $N\setminus\left\{
+a\right\}  $. In other words, $\dbinom{m-1}{k}$ is the number of type-1
+subsets (since the type-1 subsets are precisely the $k$-element subsets of
+$N\setminus\left\{  a\right\}  $). In other words,%
+\begin{equation}
+\dbinom{m-1}{k}=\left(  \text{the number of type-1 subsets}\right)
+.\label{pf.thm.binom.comb-int.IS.1}%
+\end{equation}
+
+
+Now, let us count the type-2 subsets\footnote{Keep in mind that
+\textquotedblleft type-2 subset\textquotedblright\ means \textquotedblleft
+type-2 $k$-element subset of $N$\textquotedblright.}. This is a bit harder,
+since they are not subsets of $N\setminus\left\{  a\right\}  $ anymore.
+However, they are in 1-to-1 correspondence (aka bijection) with some such
+subsets. Namely, there is a bijection%
 \begin{align*}
 \left\{  \left(  k-1\right)  \text{-element subsets of }N\setminus\left\{
-a\right\}  \right\}   &  \rightarrow\left\{  \text{Type-2 }k\text{-element
-subsets of }N\right\}  ,\\
-S  &  \mapsto S\cup\left\{  a\right\}  .
+a\right\}  \right\}   &  \rightarrow\left\{  \text{type-2 subsets}\right\}
+,\\
+S &  \mapsto S\cup\left\{  a\right\}  .
 \end{align*}
-Hence,%
-\begin{align*}
-&  \left(  \text{the number of Type-2 }k\text{-element subsets of }N\right) \\
-&  =\left(  \text{the number of }\left(  k-1\right)  \text{-element subsets of
-}N\setminus\left\{  a\right\}  \right) \\
-&  =\dbinom{n-1}{k-1}\ \ \ \ \ \ \ \ \ \ \left(  \text{by the induction
-hypothesis}\right)  .
-\end{align*}
-)
+(The inverse of this bijection sends each type-2 subset $T$ to $T\setminus
+\left\{  a\right\}  $. You can easily show that these two maps are actually
+well-defined and mutually inverse, so that they really yare bijections.) This
+bijection shows that%
+\begin{equation}
+\left\vert \left\{  \text{type-2 subsets}\right\}  \right\vert =\left\vert
+\left\{  \left(  k-1\right)  \text{-element subsets of }N\setminus\left\{
+a\right\}  \right\}  \right\vert .\label{pf.thm.binom.comb-int.IS.2}%
+\end{equation}
+But recall that Theorem \ref{thm.binom.comb-int} holds for $n=m-1$. Hence, we
+can apply Theorem \ref{thm.binom.comb-int} to $m-1$, $k-1$ and $N\setminus
+\left\{  a\right\}  $ instead of $n$, $k$ and $N$. We thus conclude that
+$\dbinom{m-1}{k-1}$ is the number of $\left(  k-1\right)  $-element subsets of
+$N\setminus\left\{  a\right\}  $. In other words,
+\[
+\dbinom{m-1}{k-1}=\left\vert \left\{  \left(  k-1\right)  \text{-element
+subsets of }N\setminus\left\{  a\right\}  \right\}  \right\vert .
+\]
+Comparing this equality with (\ref{pf.thm.binom.comb-int.IS.2}), we obtain%
+\begin{align}
+\dbinom{m-1}{k-1}  & =\left\vert \left\{  \text{type-2 subsets}\right\}
+\right\vert \nonumber\\
+& =\left(  \text{the number of type-2 subsets}\right)
+.\label{pf.thm.binom.comb-int.IS.3}%
+\end{align}
 
-Combining both counts, we conclude that%
+
+Now, recall that any $k$-element subset of $N$ is either type-1 or type-2 (but
+never both at the same time). Hence, we can count all $k$-element subsets of
+$N$ by first counting the type-1 subsets, then counting the type-2 subsets,
+and then adding these two results. We thus find%
 \begin{align*}
-&  \left(  \text{the number of }k\text{-element subsets of }N\right) \\
-&  =\dbinom{n-1}{k}+\dbinom{n-1}{k-1}=\dbinom{n}{k}%
+&  \left(  \text{the number of }k\text{-element subsets of }N\right)  \\
+&  =\underbrace{\left(  \text{the number of type-1 subsets}\right)
+}_{\substack{=\dbinom{m-1}{k}\\\text{(by (\ref{pf.thm.binom.comb-int.IS.1}))}%
+}}+\underbrace{\left(  \text{the number of type-2 subsets}\right)
+}_{\substack{=\dbinom{m-1}{k-1}\\\text{(by (\ref{pf.thm.binom.comb-int.IS.3}%
+))}}}\\
+&  =\dbinom{m-1}{k}+\dbinom{m-1}{k-1}=\dbinom{m}{k}%
 \end{align*}
-(by the recurrence of the binomial coefficients). So the induction step is complete.
+(since Theorem \ref{thm.binom.rec} (applied to $m=n$) yields $\dbinom{m}%
+{k}=\dbinom{m-1}{k}+\dbinom{m-1}{k-1}$). In other words, $\dbinom{m}{k}$ is
+the number of $k$-element subsets of $N$.
+
+Now, forget that we fixed $N$ and $k$. We thus have shown that if
+$k\in\mathbb{Q}$ and if $N$ is an $m$-element set, then $\dbinom{m}{k}$ is the
+number of $k$-element subsets of $N$. In other words, Theorem
+\ref{thm.binom.comb-int} holds for $n=m$. This completes the induction step.
+Hence,  Theorem \ref{thm.binom.comb-int} is proven.
 \end{proof}
 
 \begin{corollary}
@@ -11199,61 +11319,118 @@ Combining both counts, we conclude that%
 $\dbinom{n}{k}$ is a nonnegative integer.
 \end{corollary}
 
+\begin{proof}
+[Proof of Corollary \ref{cor.binom.N->N}.] Let $N=\left\{  1,2,\ldots
+,n\right\}  $; thus, $N$ is an $n$-element set. Hence,  Theorem
+\ref{thm.binom.comb-int} shows that $\dbinom{n}{k}$ is the number of
+$k$-element subsets of $N$. But the latter number is clearly a nonnegative
+integer (since it counts something). Thus, $\dbinom{n}{k}$ is a nonnegative
+integer. This proves Corollary \ref{cor.binom.N->N}.
+\end{proof}
+
 \begin{proposition}
 \label{prop.binom.Z->Z}Let $n\in\mathbb{Z}$ and $k\in\mathbb{Q}$. Then,
 $\dbinom{n}{k}$ is a integer.
 \end{proposition}
 
 \begin{proof}
-If $n\geq0$, then this follows from Corollary \ref{cor.binom.N->N}. Thus, WLOG
-assume that $n<0$.
+[Proof of Proposition \ref{prop.binom.Z->Z}.] If $n\geq0$, then this follows
+from Corollary \ref{cor.binom.N->N} (because $n\geq0$ implies $n\in\mathbb{N}%
+$, and thus we can apply Corollary \ref{cor.binom.N->N}). Thus, for the rest
+of this proof, we WLOG assume that $n<0$. Hence, $n\leq-1$ (since $n$ is an
+integer), so that $n+1\leq0$ and thus $-\left(  n+1\right)  \geq0$. Therefore,
+$-\left(  n+1\right)  \in\mathbb{N}$ (since $-\left(  n+1\right)  $ is an integer).
 
-WLOG assume that $k\in\mathbb{N}$ (since otherwise, $\dbinom{n}{k}=0$).
+If $k\notin\mathbb{N}$, then $\dbinom{n}{k}$ is a integer (since Definition
+\ref{def.binom.binom} \textbf{(b)} yields $\dbinom{n}{k}=0$ in this case).
+Thus, for the rest of this proof, we WLOG assume that $k\in\mathbb{N}$. Thus,
+$k-n-1=\underbrace{k}_{\in\mathbb{N}}+\underbrace{\left(  -\left(  n+1\right)
+\right)  }_{\in\mathbb{N}}\in\mathbb{N}$. Hence, Corollary
+\ref{cor.binom.N->N} (applied to $k-n-1$ instead of $n$) yields that
+$\dbinom{k-n-1}{k}$ is a nonnegative integer. Thus, $\dbinom{k-n-1}{k}%
+\in\mathbb{Z}$.
 
-The upper negation formula (applied to $-n$ instead of $n$) yields%
+Theorem \ref{thm.binom.upneg-n} (applied to $-n$ instead of $n$) yields%
 \[
-\dbinom{n}{k}=\left(  -1\right)  ^{k}\underbrace{\dbinom{k-n-1}{k}%
-}_{\substack{\text{a nonnegative integer}\\\text{(by Corollary, since
-}k-n-1\in\mathbb{N}\\\text{(because }k\in\mathbb{N}\text{ and }-n-1\in
-\mathbb{N}\text{))}}}.
+\dbinom{-\left(  -n\right)  }{k}=\underbrace{\left(  -1\right)  ^{k}}%
+_{\in\mathbb{Z}}\underbrace{\dbinom{k+\left(  -n\right)  -1}{k}}%
+_{=\dbinom{k-n-1}{k}\in\mathbb{Z}}\in\mathbb{Z}.
 \]
-This is an integer.
+In other words, $\dbinom{n}{k}\in\mathbb{Z}$. In other words, $\dbinom{n}{k}$
+is an integer. Thus, Proposition \ref{prop.binom.Z->Z} is proven.
 \end{proof}
 
-Proposition \ref{prop.binom.Z->Z} allows us to study divisibilities and
-congruences between binomial coefficients (and you have seen a few of them on
-HW1). The study of binomial coefficients properly belongs into Combinatorics,
-but we will need some of the most basic results in this class. Here are two of
-the main identities for binomial coefficients:
+\subsubsection{Binomial formula and Vandermonde convolution}
+
+One of the staples of enumerative combinatorics are identities that involve
+binomial coefficients. Hundreds of such identities have been found (see, e.g.,
+\href{http://www.math.wvu.edu/~gould/}{Henry W. Gould's website} for some of
+them; see also \cite[Chapter 5]{GKP} and \cite[Chapter 3]{detnotes} for
+introductions). At this point, let us only show two of the most important ones
+(not counting the ones we have already shown above). Probably the most
+important one is the \textit{binomial formula}:
 
 \begin{theorem}
-\label{thm.binom.binf}(The Binomial Formula) Let $x,y$ be any numbers. Let
-$n\in\mathbb{N}$. Then,%
+\label{thm.binom.binf}Let $x,y$ be any numbers (e.g., rational or real or
+complex numbers). Let $n\in\mathbb{N}$. Then,%
 \[
 \left(  x+y\right)  ^{n}=\sum_{k=0}^{n}\dbinom{n}{k}x^{k}y^{n-k}.
 \]
 
 \end{theorem}
 
+Theorem \ref{thm.binom.binf} is known as the \textit{binomial formula} or the
+\textit{binomial theorem}. It generalizes the well-known and beloved
+identities%
+\begin{align*}
+\left(  x+y\right)  ^{2}  & =x^{2}+2xy+y^{2};\\
+\left(  x+y\right)  ^{3}  & =x^{3}+3x^{2}y+3xy^{2}+y^{3};\\
+\left(  x+y\right)  ^{4}  & =x^{4}+4x^{3}y+6x^{2}y^{2}+4xy^{3}+y^{4}%
+\end{align*}
+(as well as $\left(  x+y\right)  ^{1}=x^{1}+y^{1}$ and $\left(  x+y\right)
+^{0}=1$, of course).
+
 \begin{proof}
-Straightforward induction on $n$. See \cite[Exercise 3.6]{detnotes} (or pretty
-much any text on combinatorics) for details.
+[Proof of Theorem \ref{thm.binom.binf} (sketched).] This can be proven by a
+straightforward induction on $n$ (using Theorem \ref{thm.binom.rec} in the
+induction step). See \cite[Exercise 3.6]{detnotes} (or pretty much any text on
+combinatorics) for details of this proof. Alternatively, see \cite[Identity
+11.4]{Galvin} for combinatorial proofs (which rely on Theorem
+\ref{thm.binom.comb-int}).
 \end{proof}
 
+The next identity we want to show is the \textit{Vandermonde convolution
+identity}:
+
 \begin{theorem}
-\label{thm.binom.vandermonde}(Vandermonde convolution) Let $x,y\in\mathbb{Q}$
-and $n\in\mathbb{N}$. Then,%
+\label{thm.binom.vandermonde}Let $x,y\in\mathbb{Q}$ and $n\in\mathbb{N}$.
+Then,%
 \[
 \dbinom{x+y}{n}=\sum_{k=0}^{n}\dbinom{x}{k}\dbinom{y}{n-k}.
 \]
 
 \end{theorem}
 
+For example, for $n=2$, Theorem \ref{thm.binom.vandermonde} says that
+\[
+\dbinom{x+y}{2}=\underbrace{\dbinom{x}{0}}_{=1}\dbinom{y}{2}%
++\underbrace{\dbinom{x}{1}}_{=x}\underbrace{\dbinom{y}{1}}_{=y}+\dbinom{x}%
+{2}\underbrace{\dbinom{y}{0}}_{=1}=\dbinom{y}{2}+xy+\dbinom{x}{2}.
+\]
+
+
+TODO: Write from here!
+
 \begin{proof}
-[Proof outline.]The proof we are going to give is similar to the one given in
-\cite[\S 3.3.3]{detnotes} (but, unlike the latter proof, we use polynomials in
-$1$ variable only). See \cite[\S 3.3.2]{detnotes} for another (more boring and
-tedious, but conceptually simpler proof).
+[Proof of Theorem \ref{thm.binom.vandermonde} (sketched, incomplete).]The
+proof we are going to sketch is similar to the one given in \cite[\S 3.3.3]%
+{detnotes} (but, unlike the latter proof, we will use polynomials in $1$
+variable only). It will not be a complete proof, since it will rely on some
+properties of polynomials, and not only have we not proven these properties --
+we have actually not rigorously defined polynomials yet!
+
+See \cite[\S 3.3.2]{detnotes} for another (more boring and tedious, but
+conceptually simpler) proof.
 
 \textit{Step 1:} Let us prove the Theorem in the case when $x,y\in\mathbb{N}$.
 
@@ -11332,8 +11509,18 @@ Note that the way we used the Fact is known as the \textquotedblleft
 polynomial identity trick\textquotedblright.
 \end{proof}
 
+References \cite{GKP} and \cite{detnotes} for further identities.
+
+\subsubsection{Some divisibilities and congruences}
+
 So far we have proven identities between binomial coefficients. Let us now
 step to divisibilities and congruences.
+
+Proposition \ref{prop.binom.Z->Z} shows that binomial coefficients $\dbinom
+{n}{k}$ are integers whenever $n$ is an integer. This allows us to study
+divisibilities and congruences between binomial coefficients (and you have
+seen a few of them on
+\href{http://www-users.math.umn.edu/~dgrinber/19s/hw1s.pdf}{homework set \#1}).
 
 \begin{theorem}
 \label{thm.binom.p|bin}Let $p$ be a prime. Let $k\in\left\{  1,2,\ldots
