@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Wednesday, February 20, 2019 00:23:17}
+%TCIDATA{LastRevised=Wednesday, February 20, 2019 00:56:26}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -8574,26 +8574,31 @@ The next lemma that we shall use is a basic fact from elementary combinatorics:
 $ be two tuples of elements of $P$. Assume that for each $p\in P$, we have%
 \begin{align}
 &  \left(  \text{the number of times }p\text{ appears in }\left(  a_{1}%
-,a_{2},\ldots,a_{k}\right)  \right) \nonumber\\
+,a_{2},\ldots,a_{k}\right)  \right)  \nonumber\\
 &  =\left(  \text{the number of times }p\text{ appears in }\left(  b_{1}%
-,b_{2},\ldots,b_{\ell}\right)  \right)  .
-\label{eq.lem.comb.tuples.mult=perm.ass}%
+,b_{2},\ldots,b_{\ell}\right)  \right)
+.\label{eq.lem.comb.tuples.mult=perm.ass}%
 \end{align}
 Then, the two tuples $\left(  a_{1},a_{2},\ldots,a_{k}\right)  $ and $\left(
 b_{1},b_{2},\ldots,b_{\ell}\right)  $ differ only in the order of their
 entries (i.e., are permutations of each other). (In other words, we have
-$k=\ell$, and there exists a permutation $\sigma$ of $\left\{  1,2,\ldots
-,\ell\right\}  $ such that $\left(  a_{1},a_{2},\ldots,a_{k}\right)  =\left(
-b_{\sigma\left(  1\right)  },b_{\sigma\left(  2\right)  },\ldots
-,b_{\sigma\left(  \ell\right)  }\right)  $.)
+$k=\ell$, and there exists a permutation\footnotemark$\ \sigma$ of $\left\{
+1,2,\ldots,\ell\right\}  $ such that $\left(  a_{1},a_{2},\ldots,a_{k}\right)
+=\left(  b_{\sigma\left(  1\right)  },b_{\sigma\left(  2\right)  }%
+,\ldots,b_{\sigma\left(  \ell\right)  }\right)  $.)
 \end{lemma}
 
-Lemma \ref{lem.comb.tuples.mult=perm} is an intuitively obvious fact: It says
-that if two tuples (of any objects -- e.g., numbers) have the property that
-any object occurs as often in the first tuple as it does in the second tuple,
-then the two tuples differ only in the order of their entries. From the formal
-point of view, though, it is a statement that needs proof. Let us merely
-sketch how such a proof can be obtained, without going into the details:
+\footnotetext{The meaning of the word \textquotedblleft
+permutation\textquotedblright\ here is the following one: A
+\textit{permutation} of a set $S$ means a bijective map $\sigma:S\rightarrow
+S$. (We shall later study such permutations in more detail, at least for
+finite sets $S$.)} Lemma \ref{lem.comb.tuples.mult=perm} is an intuitively
+obvious fact: It says that if two tuples (of any objects -- e.g., numbers)
+have the property that any object occurs as often in the first tuple as it
+does in the second tuple, then the two tuples differ only in the order of
+their entries. From the formal point of view, though, it is a statement that
+needs proof. Let us merely sketch how such a proof can be obtained, without
+going into the details:
 
 \begin{fineprint}
 \begin{proof}
@@ -8781,14 +8786,11 @@ We have $n\neq0$ (since $n$ is nonzero). Thus, if we had $p\mid n$, then we
 would have $\left\vert p\right\vert \leq\left\vert n\right\vert $ (by
 Proposition \ref{prop.ent.div.1} \textbf{(b)}, applied to $a=p$ and $b=n$),
 which would contradict $\left\vert p\right\vert >\left\vert n\right\vert $.
-Thus, we cannot have $p\mid n$. But Proposition
-\ref{prop.ent.primes.div-or-coprime} (applied to $a=n$) shows that either
-$p\mid n$ or $p\perp n$. Hence, $p\perp n$ (since we cannot have $p\mid n$).
-In other words, $n\perp p$ (by Proposition \ref{prop.ent.coprime.perp-symm}).
-Also, $n=n\cdot p^{0}$ (since $p^{0}=1$). Thus, Lemma
-\ref{lem.ent.prime.vp-copr} \textbf{(b)} (applied to $i=0$ and $w=n$) yields
-$v_{p}\left(  n\right)  =0$. This proves Lemma \ref{lem.ent.primes.vpn=0}
-\textbf{(a)}.
+Thus, we cannot have $p\mid n$. In other words, we have $p\nmid n$.
+
+But Corollary \ref{cor.ent.prime.vp-0} yields that $v_{p}\left(  n\right)  =0$
+if and only if $p\nmid n$. Hence, $v_{p}\left(  n\right)  =0$ (since $p\nmid
+n$). This proves Lemma \ref{lem.ent.primes.vpn=0} \textbf{(a)}.
 
 \textbf{(b)} For every prime $p>\left\vert n\right\vert $, we have
 $v_{p}\left(  n\right)  =0$ (by Lemma \ref{lem.ent.primes.vpn=0} \textbf{(a)})
@@ -10956,12 +10958,12 @@ all $n\in\mathbb{Q}$. Thus, for example,%
 
 \textbf{(b)} We have%
 \begin{align*}
-\dbinom{5}{3} &  =\dfrac{5\cdot4\cdot3}{3!}=\dfrac{60}{6}=10;\\
-\dbinom{1}{3} &  =\dfrac{1\cdot0\cdot\left(  -1\right)  }{3!}=\dfrac{0}%
+\dbinom{5}{3}  &  =\dfrac{5\cdot4\cdot3}{3!}=\dfrac{60}{6}=10;\\
+\dbinom{1}{3}  &  =\dfrac{1\cdot0\cdot\left(  -1\right)  }{3!}=\dfrac{0}%
 {6}=0;\\
-\dbinom{-2}{3} &  =\dfrac{\left(  -2\right)  \cdot\left(  -3\right)
+\dbinom{-2}{3}  &  =\dfrac{\left(  -2\right)  \cdot\left(  -3\right)
 \cdot\left(  -4\right)  }{3!}=\dfrac{-24}{6}=-4;\\
-\dbinom{1/2}{3} &  =\dfrac{\left(  1/2\right)  \cdot\left(  -1/2\right)
+\dbinom{1/2}{3}  &  =\dfrac{\left(  1/2\right)  \cdot\left(  -1/2\right)
 \cdot\left(  -3/2\right)  }{3!}=\dfrac{3/8}{6}=\dfrac{1}{16}%
 \end{align*}
 (all by Definition \ref{def.binom.binom} \textbf{(a)}).
@@ -11052,7 +11054,7 @@ $k>n$. Then,
 \end{theorem}
 
 \begin{proof}
-[Proof of Theorem \ref{thm.binom.n0}.] Definition \ref{def.binom.binom}
+[Proof of Theorem \ref{thm.binom.n0}.]Definition \ref{def.binom.binom}
 \textbf{(a)} (applied to $k=0$) yields%
 \[
 \dbinom{n}{0}=\dfrac{\prod_{i=0}^{0-1}\left(  n-i\right)  }{0!}=\dfrac{1}{1}%
@@ -11246,8 +11248,8 @@ a\right\}  $. In other words, $\dbinom{m-1}{k}$ is the number of type-1
 subsets (since the type-1 subsets are precisely the $k$-element subsets of
 $N\setminus\left\{  a\right\}  $). In other words,%
 \begin{equation}
-\dbinom{m-1}{k}=\left(  \text{the number of type-1 subsets}\right)
-.\label{pf.thm.binom.comb-int.IS.1}%
+\dbinom{m-1}{k}=\left(  \text{the number of type-1 subsets}\right)  .
+\label{pf.thm.binom.comb-int.IS.1}%
 \end{equation}
 
 
@@ -11261,7 +11263,7 @@ subsets. Namely, there is a bijection%
 \left\{  \left(  k-1\right)  \text{-element subsets of }N\setminus\left\{
 a\right\}  \right\}   &  \rightarrow\left\{  \text{type-2 subsets}\right\}
 ,\\
-S &  \mapsto S\cup\left\{  a\right\}  .
+S  &  \mapsto S\cup\left\{  a\right\}  .
 \end{align*}
 (The inverse of this bijection sends each type-2 subset $T$ to $T\setminus
 \left\{  a\right\}  $. You can easily show that these two maps are actually
@@ -11270,7 +11272,7 @@ bijection shows that%
 \begin{equation}
 \left\vert \left\{  \text{type-2 subsets}\right\}  \right\vert =\left\vert
 \left\{  \left(  k-1\right)  \text{-element subsets of }N\setminus\left\{
-a\right\}  \right\}  \right\vert .\label{pf.thm.binom.comb-int.IS.2}%
+a\right\}  \right\}  \right\vert . \label{pf.thm.binom.comb-int.IS.2}%
 \end{equation}
 But recall that Theorem \ref{thm.binom.comb-int} holds for $n=m-1$. Hence, we
 can apply Theorem \ref{thm.binom.comb-int} to $m-1$, $k-1$ and $N\setminus
@@ -11283,10 +11285,10 @@ subsets of }N\setminus\left\{  a\right\}  \right\}  \right\vert .
 \]
 Comparing this equality with (\ref{pf.thm.binom.comb-int.IS.2}), we obtain%
 \begin{align}
-\dbinom{m-1}{k-1}  & =\left\vert \left\{  \text{type-2 subsets}\right\}
+\dbinom{m-1}{k-1}  &  =\left\vert \left\{  \text{type-2 subsets}\right\}
 \right\vert \nonumber\\
-& =\left(  \text{the number of type-2 subsets}\right)
-.\label{pf.thm.binom.comb-int.IS.3}%
+&  =\left(  \text{the number of type-2 subsets}\right)  .
+\label{pf.thm.binom.comb-int.IS.3}%
 \end{align}
 
 
@@ -11295,7 +11297,7 @@ never both at the same time). Hence, we can count all $k$-element subsets of
 $N$ by first counting the type-1 subsets, then counting the type-2 subsets,
 and then adding these two results. We thus find%
 \begin{align*}
-&  \left(  \text{the number of }k\text{-element subsets of }N\right)  \\
+&  \left(  \text{the number of }k\text{-element subsets of }N\right) \\
 &  =\underbrace{\left(  \text{the number of type-1 subsets}\right)
 }_{\substack{=\dbinom{m-1}{k}\\\text{(by (\ref{pf.thm.binom.comb-int.IS.1}))}%
 }}+\underbrace{\left(  \text{the number of type-2 subsets}\right)
@@ -11311,7 +11313,7 @@ Now, forget that we fixed $N$ and $k$. We thus have shown that if
 $k\in\mathbb{Q}$ and if $N$ is an $m$-element set, then $\dbinom{m}{k}$ is the
 number of $k$-element subsets of $N$. In other words, Theorem
 \ref{thm.binom.comb-int} holds for $n=m$. This completes the induction step.
-Hence,  Theorem \ref{thm.binom.comb-int} is proven.
+Hence, Theorem \ref{thm.binom.comb-int} is proven.
 \end{proof}
 
 \begin{corollary}
@@ -11320,8 +11322,8 @@ $\dbinom{n}{k}$ is a nonnegative integer.
 \end{corollary}
 
 \begin{proof}
-[Proof of Corollary \ref{cor.binom.N->N}.] Let $N=\left\{  1,2,\ldots
-,n\right\}  $; thus, $N$ is an $n$-element set. Hence,  Theorem
+[Proof of Corollary \ref{cor.binom.N->N}.]Let $N=\left\{  1,2,\ldots
+,n\right\}  $; thus, $N$ is an $n$-element set. Hence, Theorem
 \ref{thm.binom.comb-int} shows that $\dbinom{n}{k}$ is the number of
 $k$-element subsets of $N$. But the latter number is clearly a nonnegative
 integer (since it counts something). Thus, $\dbinom{n}{k}$ is a nonnegative
@@ -11334,7 +11336,7 @@ $\dbinom{n}{k}$ is a integer.
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.binom.Z->Z}.] If $n\geq0$, then this follows
+[Proof of Proposition \ref{prop.binom.Z->Z}.]If $n\geq0$, then this follows
 from Corollary \ref{cor.binom.N->N} (because $n\geq0$ implies $n\in\mathbb{N}%
 $, and thus we can apply Corollary \ref{cor.binom.N->N}). Thus, for the rest
 of this proof, we WLOG assume that $n<0$. Hence, $n\leq-1$ (since $n$ is an
@@ -11383,15 +11385,15 @@ Theorem \ref{thm.binom.binf} is known as the \textit{binomial formula} or the
 \textit{binomial theorem}. It generalizes the well-known and beloved
 identities%
 \begin{align*}
-\left(  x+y\right)  ^{2}  & =x^{2}+2xy+y^{2};\\
-\left(  x+y\right)  ^{3}  & =x^{3}+3x^{2}y+3xy^{2}+y^{3};\\
-\left(  x+y\right)  ^{4}  & =x^{4}+4x^{3}y+6x^{2}y^{2}+4xy^{3}+y^{4}%
+\left(  x+y\right)  ^{2}  &  =x^{2}+2xy+y^{2};\\
+\left(  x+y\right)  ^{3}  &  =x^{3}+3x^{2}y+3xy^{2}+y^{3};\\
+\left(  x+y\right)  ^{4}  &  =x^{4}+4x^{3}y+6x^{2}y^{2}+4xy^{3}+y^{4}%
 \end{align*}
 (as well as $\left(  x+y\right)  ^{1}=x^{1}+y^{1}$ and $\left(  x+y\right)
 ^{0}=1$, of course).
 
 \begin{proof}
-[Proof of Theorem \ref{thm.binom.binf} (sketched).] This can be proven by a
+[Proof of Theorem \ref{thm.binom.binf} (sketched).]This can be proven by a
 straightforward induction on $n$ (using Theorem \ref{thm.binom.rec} in the
 induction step). See \cite[Exercise 3.6]{detnotes} (or pretty much any text on
 combinatorics) for details of this proof. Alternatively, see \cite[Identity
