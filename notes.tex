@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Wednesday, February 20, 2019 21:05:40}
+%TCIDATA{LastRevised=Thursday, February 21, 2019 00:42:51}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -6505,9 +6505,73 @@ This solves Exercise \ref{exe.ent.coprime.gcd*gcd1}.
 \end{exercise}
 
 \begin{proof}
-[Solution to Exercise \ref{exe.ent.coprime.gcd*gcd2}.]\textbf{(a)} TODO.
+[Solution to Exercise \ref{exe.ent.coprime.gcd*gcd2}.]\textbf{(a)} Let
+$g=\gcd\left(  a,b,c\right)  $. Then, $g=\gcd\left(  a,b,c\right)  \geq0$
+(since any gcd is a nonnegative integer) and thus $\left\vert g\right\vert
+=g$. But Exercise \ref{exe.ent.gcd.sa,sb,sc} (applied to $s=a$) yields%
+\begin{equation}
+\gcd\left(  aa,ab,ac\right)  =\left\vert a\right\vert \underbrace{\gcd\left(
+a,b,c\right)  }_{=g=\left\vert g\right\vert }=\left\vert a\right\vert
+\cdot\left\vert g\right\vert =\left\vert ag\right\vert
+\label{sol.ent.coprime.gcd*gcd2.a.1}%
+\end{equation}
+(since (\ref{eq.ent.div.abs(xy)}) yields $\left\vert ag\right\vert =\left\vert
+a\right\vert \cdot\left\vert g\right\vert t).$
 
-\textbf{(b)} TODO.
+Exercise \ref{exe.ent.coprime.gcd*gcd1} (applied to $u=a$, $v=c$, $x=a$ and
+$y=b$) yields%
+\begin{align*}
+&  \gcd\left(  a,c\right)  \cdot\gcd\left(  a,b\right) \\
+&  =\gcd\left(  aa,ab,\underbrace{ca}_{=ac},\underbrace{cb}_{=bc}\right)
+=\gcd\left(  aa,ab,ac,bc\right) \\
+&  =\gcd\left(  \underbrace{\gcd\left(  aa,ab,ac\right)  }%
+_{\substack{=\left\vert ag\right\vert \\\text{(by
+(\ref{sol.ent.coprime.gcd*gcd2.a.1}))}}},bc\right) \\
+&  \ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{by Theorem \ref{thm.ent.gcd.uniprop-mul} \textbf{(d)}}\\
+\text{(applied to }4\text{ and }\left(  aa,ab,ac,bc\right)  \text{ instead of
+}k\text{ and }\left(  b_{1},b_{2},\ldots,b_{k}\right)  \text{)}%
+\end{array}
+\right) \\
+&  =\gcd\left(  \left\vert ag\right\vert ,bc\right)  =\gcd\left(
+ag,bc\right)
+\end{align*}
+(by Exercise \ref{exe.ent.gcd.abs} \textbf{(b)}, applied to $ag$ and $bc$
+instead of $a$ and $b$). In other words, $\gcd\left(  a,b\right)  \cdot
+\gcd\left(  a,c\right)  =\gcd\left(  ag,bc\right)  $. This solves Exercise
+\ref{exe.ent.coprime.gcd*gcd2} \textbf{(a)}.
+
+\textbf{(b)} Assume that $b\perp c$. Thus, $\gcd\left(  b,c\right)  =1$.
+
+Let $g=\gcd\left(  a,b,c\right)  $. Theorem \ref{thm.ent.gcd.split} (applied
+to $1$, $\left(  a\right)  $, $2$ and $\left(  b,c\right)  $ instead of $k$,
+$\left(  b_{1},b_{2},\ldots,b_{k}\right)  $, $\ell$ and $\left(  c_{1}%
+,c_{2},\ldots,c_{\ell}\right)  $) yields%
+\[
+\gcd\left(  a,b,c\right)  =\gcd\left(  \gcd\left(  a\right)  ,\underbrace{\gcd
+\left(  b,c\right)  }_{=1}\right)  =\gcd\left(  \gcd\left(  a\right)
+,1\right)  \mid1
+\]
+(by Proposition \ref{prop.ent.gcd.props1} \textbf{(f)}, applied to
+$\gcd\left(  a\right)  $ and $1$ instead of $a$ and $b$). This rewrites as
+$g\mid1$. Hence, Proposition \ref{prop.ent.div.1} \textbf{(b)} (applied to $g$
+and $1$ instead of $a$ and $b$) yields $\left\vert g\right\vert \leq\left\vert
+1\right\vert =1$. Also, if we had $g=0$, then we would have $0=g\mid1$, which
+would contradict $0\nmid1$. Thus, we cannot have $g=0$. Hence, $g\neq0$.
+
+But $g=\gcd\left(  a,b,c\right)  $ is a nonnegative integer (since any gcd is
+a nonnegative integer); hence, $g$ is a positive integer (since $g\neq0$).
+Thus, $g\geq1$. On the other hand, $g$ is positive; thus, $\left\vert
+g\right\vert =g$. Hence, $g=\left\vert g\right\vert \leq1$. Combined with
+$g\geq1$, this yields $g=1$. Now, Exercise \ref{exe.ent.coprime.gcd*gcd2}
+\textbf{(a)} yields
+\[
+\gcd\left(  a,b\right)  \cdot\gcd\left(  a,c\right)  =\gcd\left(
+a\underbrace{g}_{=1},bc\right)  =\gcd\left(  a,bc\right)  .
+\]
+This solves Exercise \ref{exe.ent.coprime.gcd*gcd2} \textbf{(b)}.
 \end{proof}
 
 \begin{exercise}
@@ -6518,6 +6582,249 @@ $b\mid c$. Prove that $ab\mid\gcd\left(  a,b,c\right)  \cdot c$.
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.coprime.combine2}.]TODO.
 \end{proof}
+
+\begin{exercise}
+\label{exe.ent.coprime.a/g}Let $a$ and $b$ be two integers that are not both
+zero. Let $g=\gcd\left(  a,b\right)  $. Prove that $\dfrac{a}{g}$ and
+$\dfrac{b}{g}$ are integers satisfying $\dfrac{a}{g}\perp\dfrac{b}{g}$.
+\end{exercise}
+
+\begin{fineprint}
+\begin{proof}
+[Solution to Exercise \ref{exe.ent.coprime.a/g}.]We have assumed that $a$ and
+$b$ are not both zero. In other words, the two integers $a,b$ are not all
+zero. Hence, Definition \ref{def.ent.gcd.gcd} shows that $\gcd\left(
+a,b\right)  $ is defined as the largest element of the set
+$\operatorname*{Div}\left(  a,b\right)  $ and is a positive integer.
+
+Now, $g=\gcd\left(  a,b\right)  $. Hence, $g$ is a positive integer (since
+$\gcd\left(  a,b\right)  $ is a positive integer). Thus, $\left\vert
+g\right\vert =g$. Also, $g\neq0$ (since $g$ is positive).
+
+Proposition \ref{prop.ent.gcd.props1} \textbf{(f)} yields $\gcd\left(
+a,b\right)  \mid a$ and $\gcd\left(  a,b\right)  \mid b$. Hence,
+$g=\gcd\left(  a,b\right)  \mid a$. But Proposition \ref{prop.ent.div.1}
+\textbf{(c)} (applied to $g$ and $a$ instead of $a$ and $b$) shows that $g\mid
+a$ if and only if $\dfrac{a}{g}\in\mathbb{Z}$. Hence, we have $\dfrac{a}{g}%
+\in\mathbb{Z}$ (since $g\mid a$). Similarly, $\dfrac{b}{g}\in\mathbb{Z}$.
+Thus, $\dfrac{a}{g}$ and $\dfrac{b}{g}$ are integers.
+
+It remains to prove that $\dfrac{a}{g}\perp\dfrac{b}{g}$. But Corollary
+\ref{cor.ent.gcd.sa,sb} (applied to $g$, $\dfrac{a}{g}$ and $\dfrac{b}{g}$
+instead of $s$, $a$ and $b$) shows that%
+\[
+\gcd\left(  g\cdot\dfrac{a}{g},g\cdot\dfrac{b}{g}\right)
+=\underbrace{\left\vert g\right\vert }_{=g}\gcd\left(  \dfrac{a}{g},\dfrac
+{b}{g}\right)  =g\gcd\left(  \dfrac{a}{g},\dfrac{b}{g}\right)  .
+\]
+Comparing this with%
+\[
+\gcd\left(  \underbrace{g\cdot\dfrac{a}{g}}_{=a},\underbrace{g\cdot\dfrac
+{b}{g}}_{=b}\right)  =\gcd\left(  a,b\right)  =g,
+\]
+we obtain $g\gcd\left(  \dfrac{a}{g},\dfrac{b}{g}\right)  =g$. We can cancel
+$g$ from this equality (since $g\neq0$), and thus obtain $\gcd\left(
+\dfrac{a}{g},\dfrac{b}{g}\right)  =1$. In other words, $\dfrac{a}{g}%
+\perp\dfrac{b}{g}$. Thus, the solution of Exercise \ref{exe.ent.coprime.a/g}
+is finished.
+\end{proof}
+\end{fineprint}
+
+\begin{exercise}
+\label{exe.ent.gcd.akbk}Let $a$ and $b$ be two integers. Let $k\in\mathbb{N}$.
+Prove that $\gcd\left(  a^{k},b^{k}\right)  =\left(  \gcd\left(  a,b\right)
+\right)  ^{k}$.
+\end{exercise}
+
+\begin{fineprint}
+\begin{proof}
+[Solution to Exercise \ref{exe.ent.gcd.akbk}.]If $k=0$, then Exercise
+\ref{exe.ent.gcd.akbk} holds\footnote{\textit{Proof.} Assume that $k=0$. Thus,
+$\left(  \gcd\left(  a,b\right)  \right)  ^{k}=\left(  \gcd\left(  a,b\right)
+\right)  ^{0}=1$.
+\par
+But $1\mid1$. Thus, Proposition \ref{prop.ent.gcd.props1} \textbf{(i)}
+(applied to $1$ and $1$ instead of $a$ and $b$) yields $\gcd\left(
+1,1\right)  =\left\vert 1\right\vert =1$. From $k=0$, we obtain $\gcd\left(
+a^{k},b^{k}\right)  =\gcd\left(  \underbrace{a^{0}}_{=1},\underbrace{b^{0}%
+}_{=1}\right)  =\gcd\left(  1,1\right)  =1$. Comparing this with $\left(
+\gcd\left(  a,b\right)  \right)  ^{k}=1$, we obtain $\gcd\left(  a^{k}%
+,b^{k}\right)  =\left(  \gcd\left(  a,b\right)  \right)  ^{k}$. Hence,
+Exercise \ref{exe.ent.gcd.akbk} holds (under the assumption that $k=0$).}.
+Hence, for the rest of this solution, we WLOG assume that $k\neq0$. Thus, $k$
+is a positive integer (since $k\in\mathbb{N}$); therefore, $0^{k}=0$.
+
+If the integers $a$ and $b$ are both zero, then Exercise
+\ref{exe.ent.gcd.akbk} holds\footnote{\textit{Proof.} Assume that $a$ and $b$
+are both zero. In other words, $a=0$ and $b=0$. Thus,
+\[
+\gcd\left(  a^{k},b^{k}\right)  =\gcd\left(  \underbrace{0^{k}}_{=0}%
+,\underbrace{0^{k}}_{=0}\right)  =\gcd\left(  0,0\right)  =\left\vert
+0\right\vert
+\]
+(by Proposition \ref{prop.ent.gcd.props1} \textbf{(i)}, applied to $0$ and $0$
+instead of $a$ and $b$). Thus, $\gcd\left(  a^{k},b^{k}\right)  =\left\vert
+0\right\vert =0$.
+\par
+But the integers $a,b$ are all zero (since $a=0$ and $b=0$). Thus, the
+definition of gcd yields $\gcd\left(  a,b\right)  =0$. Hence, $\left(
+\gcd\left(  a,b\right)  \right)  ^{k}=0^{k}=0$. Comparing this with
+$\gcd\left(  a^{k},b^{k}\right)  =0$, we obtain $\gcd\left(  a^{k}%
+,b^{k}\right)  =\left(  \gcd\left(  a,b\right)  \right)  ^{k}$. Hence,
+Exercise \ref{exe.ent.gcd.akbk} holds (under the assumption that $a$ and $b$
+are both zero).}. Thus, for the rest of this solution, we WLOG assume that $a$
+and $b$ are not both zero. Let $g=\gcd\left(  a,b\right)  $. Then, $g\geq0$
+(since any gcd is nonnegative) and therefore $g^{k}\geq0$. But Exercise
+\ref{exe.ent.coprime.a/g} yields that $\dfrac{a}{g}$ and $\dfrac{b}{g}$ are
+integers satisfying $\dfrac{a}{g}\perp\dfrac{b}{g}$. Therefore, Exercise
+\ref{exe.ent.coprime.powers} (applied to $\dfrac{a}{g}$, $\dfrac{b}{g}$, $k$
+and $k$ instead of $a$, $b$, $n$ and $m$) yields $\left(  \dfrac{a}{g}\right)
+^{k}\perp\left(  \dfrac{b}{g}\right)  ^{k}$. In other words, $\gcd\left(
+\left(  \dfrac{a}{g}\right)  ^{k},\left(  \dfrac{b}{g}\right)  ^{k}\right)
+=1$.
+
+Note that $\left(  \dfrac{a}{g}\right)  ^{k}$ and $\left(  \dfrac{b}%
+{g}\right)  ^{k}$ are integers (since $\dfrac{a}{g}$ and $\dfrac{b}{g}$ are
+integers). Thus, Corollary \ref{cor.ent.gcd.sa,sb} (applied to $g^{k}$,
+$\left(  \dfrac{a}{g}\right)  ^{k}$ and $\left(  \dfrac{b}{g}\right)  ^{k}$
+instead of $s$, $a$ and $b$) yields%
+\[
+\gcd\left(  g^{k}\left(  \dfrac{a}{g}\right)  ^{k},g^{k}\left(  \dfrac{b}%
+{g}\right)  ^{k}\right)  =\underbrace{\left\vert g^{k}\right\vert
+}_{\substack{=g^{k}\\\text{(since }g^{k}\geq0\text{)}}}\underbrace{\gcd\left(
+\left(  \dfrac{a}{g}\right)  ^{k},\left(  \dfrac{b}{g}\right)  ^{k}\right)
+}_{=1}=g^{k}=\left(  \gcd\left(  a,b\right)  \right)  ^{k}%
+\]
+(since $g=\gcd\left(  a,b\right)  $). Comparing this with%
+\[
+\gcd\left(  \underbrace{g^{k}\left(  \dfrac{a}{g}\right)  ^{k}}_{=a^{k}%
+},\underbrace{g^{k}\left(  \dfrac{b}{g}\right)  ^{k}}_{=b^{k}}\right)
+=\gcd\left(  a^{k},b^{k}\right)  ,
+\]
+we obtain $\gcd\left(  a^{k},b^{k}\right)  =\left(  \gcd\left(  a,b\right)
+\right)  ^{k}$. This solves Exercise \ref{exe.ent.gcd.akbk}.
+\end{proof}
+\end{fineprint}
+
+The next exercise is simply claiming the well-known fact that any rational
+number can be written as a reduced fraction:
+
+\begin{exercise}
+\label{exe.ent.coprime.frac-red}Let $r\in\mathbb{Q}$. Prove that there exist
+two \textbf{coprime} integers $a$ and $b$ satisfying $r=a/b$.
+\end{exercise}
+
+\begin{fineprint}
+\begin{proof}
+[Solution to Exercise \ref{exe.ent.coprime.frac-red}.]We have $r\in\mathbb{Q}%
+$. In other words, $r$ is a rational number. Thus, $r$ can be written in the
+form $r=x/y$ for some $x\in\mathbb{Z}$ and some nonzero $y\in\mathbb{Z}$ (by
+the definition of a rational number). Consider these $x$ and $y$. The integers
+$x$ and $y$ are not both zero (since $y$ is nonzero). Let $g=\gcd\left(
+x,y\right)  $. Exercise \ref{exe.ent.coprime.a/g} (applied to $a=x$ and $b=y$)
+yields that $\dfrac{x}{g}$ and $\dfrac{y}{g}$ are integers satisfying
+$\dfrac{x}{g}\perp\dfrac{y}{g}$. These two integers $\dfrac{x}{g}$ and
+$\dfrac{y}{g}$ are coprime (since $\dfrac{x}{g}\perp\dfrac{y}{g}$) and satisfy
+$r=\dfrac{x}{g}/\dfrac{y}{g}$ (since $\dfrac{x}{g}/\dfrac{y}{g}=x/y=r$).
+Hence, there exist two \textbf{coprime} integers $a$ and $b$ satisfying
+$r=a/b$ (namely, $a=\dfrac{x}{g}$ and $b=\dfrac{y}{g}$). This solves Exercise
+\ref{exe.ent.coprime.frac-red}.
+\end{proof}
+\end{fineprint}
+
+As an application of some of the preceding results, we can prove that certain
+numbers are irrational:
+
+\begin{exercise}
+\label{exe.ent.coprime.sqrtu+sqrtv}Prove the following:
+
+\textbf{(a)} If a positive integer $u$ is not a perfect square\footnotemark,
+then $\sqrt{u}$ is irrational.
+
+\textbf{(b)} If $u$ and $v$ are two positive integers, then $\sqrt{u}+\sqrt
+{v}$ is irrational unless both $u$ and $v$ are perfect squares.
+\end{exercise}
+
+\footnotetext{A \textit{perfect square} means the square of an integer.}
+
+\begin{fineprint}
+\begin{proof}
+[Solution to Exercise \ref{exe.ent.coprime.sqrtu+sqrtv}.]\textbf{(a)} Let $u$
+be a positive integer that is not a perfect square. We must prove that
+$\sqrt{u}$ is irrational.
+
+Assume the contrary. Thus, $\sqrt{u}$ is rational. In other words, $\sqrt
+{u}\in\mathbb{Q}$. Hence, Exercise \ref{exe.ent.coprime.frac-red} (applied to
+$r=\sqrt{u}$) yields that there exist two \textbf{coprime} integers $a$ and
+$b$ satisfying $\sqrt{u}=a/b$. Consider these $a$ and $b$.
+
+We have $a\perp b$ (since $a$ and $b$ are coprime). Thus, Exercise
+\ref{exe.ent.coprime.powers} (applied to $n=2$ and $m=2$) yields $a^{2}\perp
+b^{2}$. In other words, $b^{2}\perp a^{2}$ (by Proposition
+\ref{prop.ent.coprime.perp-symm}). In other words, $\gcd\left(  b^{2}%
+,a^{2}\right)  =1$. Also, $b^{2}$ is nonnegative (since any square of a real
+number is nonnegative).
+
+Squaring both sides of the equality $\sqrt{u}=a/b$, we obtain $u=\left(
+a/b\right)  ^{2}=a^{2}/b^{2}$, so that $a^{2}=b^{2}u$. Hence, $b^{2}\mid
+a^{2}$ (since $u$ is an integer). Thus, Proposition \ref{prop.ent.gcd.props1}
+\textbf{(i)} (applied to $b^{2}$ and $a^{2}$ instead of $a$ and $b$) yields
+$\gcd\left(  b^{2},a^{2}\right)  =\left\vert b^{2}\right\vert =b^{2}$ (since
+$b^{2}$ is nonnegative). Comparing this with $\gcd\left(  b^{2},a^{2}\right)
+=1$, we obtain $b^{2}=1$. Hence, $u=a^{2}/\underbrace{b^{2}}_{=1}=a^{2}$.
+Thus, $u$ is a perfect square (since $a$ is an integer). This contradicts the
+fact that $u$ is not a perfect square.
+
+This contradiction shows that our assumption was false. Hence, $\sqrt{u}$ is
+irrational. This solves Exercise \ref{exe.ent.coprime.sqrtu+sqrtv}
+\textbf{(a)}.
+
+\textbf{(b)} Let $u$ and $v$ be two positive integers that are not both
+perfect squares. We must prove that $\sqrt{u}+\sqrt{v}$ is irrational.
+
+Assume the contrary. Thus, $\sqrt{u}+\sqrt{v}$ is rational. Denote this
+rational number $\sqrt{u}+\sqrt{v}$ by $x$. Thus, $x=\sqrt{u}+\sqrt{v}$, so
+that $x-\sqrt{u}=\sqrt{v}$. Squaring both sides of this equality, we obtain
+$\left(  x-\sqrt{u}\right)  ^{2}=v$. Hence,%
+\[
+v=\left(  x-\sqrt{u}\right)  ^{2}=x^{2}-2x\sqrt{u}+\left(  \sqrt{u}\right)
+^{2}=x^{2}-2x\sqrt{u}+u.
+\]
+Subtracting $x^{2}+u$ from both sides of this equation, we obtain%
+\begin{equation}
+v-\left(  x^{2}+u\right)  =-2x\sqrt{u}.
+\label{sol.ent.coprime.sqrtu+sqrtv.b.2}%
+\end{equation}
+
+
+But $x=\sqrt{u}+\sqrt{v}>0$ (since $u$ and $v$ are positive) and thus $x\neq
+0$, so that $-2x\neq0$. Hence, we can solve the equation
+(\ref{sol.ent.coprime.sqrtu+sqrtv.b.2}) for $\sqrt{u}$; we thus obtain%
+\[
+\sqrt{u}=\dfrac{v-\left(  x^{2}+u\right)  }{-2x}.
+\]
+Thus, $\sqrt{u}$ is rational (since $v$, $x$ and $u$ are rational). Therefore,
+$u$ must be a perfect square (since otherwise, Exercise
+\ref{exe.ent.coprime.sqrtu+sqrtv} \textbf{(a)} would yield that $\sqrt{u}$ is
+irrational). Similarly, $v$ must be a perfect square. This shows that both $u$
+and $v$ are perfect squares; but this contradicts the fact that $u$ and $v$
+are not both perfect squares.
+
+This contradiction shows that our assumption was false. Hence, $\sqrt{u}%
++\sqrt{v}$ is irrational. This solves Exercise
+\ref{exe.ent.coprime.sqrtu+sqrtv} \textbf{(b)}.
+\end{proof}
+\end{fineprint}
+
+Exercise \ref{exe.ent.coprime.sqrtu+sqrtv} invites a rather natural
+generalization: If $u_{1},u_{2},\ldots,u_{k}$ are several positive integers
+that are not all perfect squares, then must $\sqrt{u_{1}}+\sqrt{u_{2}}%
++\cdots+\sqrt{u_{k}}$ always be irrational? It turns out that the answer is
+\textquotedblleft yes\textquotedblright, but this is not as easy to prove
+anymore as the two cases $k=1$ and $k=2$ that we handled in Exercise
+\ref{exe.ent.coprime.sqrtu+sqrtv}. Proofs of the general version can be found
+in \cite{Boreic08} (actually, a stronger statement is proven there, although
+it takes some work to derive ours from it).
 
 \begin{center}
 \textbf{2019-02-08 lecture}
@@ -7545,7 +7852,7 @@ Proposition \ref{prop.ent.gcd.props1} \textbf{(f)} (applied to $a=i$ and
 $b=p$) shows that $\gcd\left(  i,p\right)  \mid i$ and $\gcd\left(
 i,p\right)  \mid p$. From $\gcd\left(  i,p\right)  \mid i$ and $i\neq0$, we
 obtain $\left\vert \gcd\left(  i,p\right)  \right\vert \leq\left\vert
-i\right\vert $ (by Exercise \ref{prop.ent.div.1} \textbf{(a)}, applied to
+i\right\vert $ (by Exercise \ref{prop.ent.div.1} \textbf{(b)}, applied to
 $a=\gcd\left(  i,p\right)  $ and $b=i$). In view of $\left\vert \gcd\left(
 i,p\right)  \right\vert =\gcd\left(  i,p\right)  $ and $\left\vert
 i\right\vert =i$, this rewrites as $\gcd\left(  i,p\right)  \leq i$. Hence,
@@ -7754,6 +8061,48 @@ shows that our assumption was wrong. This proves Proposition
 \end{proof}
 \end{fineprint}
 
+\begin{exercise}
+\label{exe.ent.primes.coprime-to-pk}Let $p$ be a prime. Let $k$ be a positive
+integer. Let $a\in\mathbb{Z}$. Prove that $a\perp p^{k}$ holds if and only if
+$p\nmid a$.
+\end{exercise}
+
+\begin{fineprint}
+\begin{proof}
+[Solution to Exercise \ref{exe.ent.primes.coprime-to-pk}.]$\Longrightarrow:$
+Assume that $a\perp p^{k}$ holds. We must prove that $p\nmid a$.
+
+Assume the contrary. Thus, $p\mid a$. But $k\geq1$ (since $k$ is a positive
+integer), so that $1\leq k$. Hence, Exercise \ref{exe.ent.div.powers} (applied
+to $p$, $1$ and $k$ instead of $n$, $a$ and $b$) yields $p^{1}\mid p^{k}$. In
+other words, $p\mid p^{k}$ (since $p^{1}=p$). Now, Lemma
+\ref{lem.ent.gcd.uniprop} (applied to $m=p$ and $b=p^{k}$) yields $p\mid
+\gcd\left(  a,p^{k}\right)  $ (since $p\mid a$ and $p\mid p^{k}$). But from
+$a\perp p^{k}$, we obtain $\gcd\left(  a,p^{k}\right)  =1$. Hence, $p\mid
+\gcd\left(  a,p^{k}\right)  =1$. Thus, Proposition \ref{prop.ent.div.1}
+\textbf{(b)} (applied to $p$ and $1$ instead of $a$ and $b$) yields
+$\left\vert p\right\vert \leq\left\vert 1\right\vert =1$.
+
+Since $p$ is prime, we have $p>1>0$, so that $\left\vert p\right\vert =p>1$.
+This contradicts $\left\vert p\right\vert \leq1$. This contradiction shows
+that our assumption was false. Hence, $p\nmid a$ is proven. This concludes the
+proof of the \textquotedblleft$\Longrightarrow$\textquotedblright\ direction
+of Exercise \ref{exe.ent.primes.coprime-to-pk}.
+
+$\Longleftarrow:$ Assume that $p\nmid a$. We must prove that $a\perp p^{k}$.
+
+Proposition \ref{prop.ent.primes.div-or-coprime} yields that either $p\mid a$
+or $p\perp a$. Since $p\mid a$ does not hold (because $p\nmid a$), we thus
+conclude that $p\perp a$. But Proposition \ref{prop.ent.coprime.perp-symm}
+(applied to $b=p$) yields that $a\perp p$ if and only if $p\perp a$. Hence,
+$a\perp p$ (since $p\perp a$). Thus, Exercise \ref{exe.ent.coprime.powers}
+(applied to $b=p$, $n=1$ and $m=k$) yields $a^{1}\perp p^{k}$. In other words,
+$a\perp p^{k}$. This concludes the proof of the \textquotedblleft%
+$\Longleftarrow$\textquotedblright\ direction of Exercise
+\ref{exe.ent.primes.coprime-to-pk}.
+\end{proof}
+\end{fineprint}
+
 \subsubsection{Prime factorization I}
 
 The next simple proposition says that every integer $n>1$ is divisible by at
@@ -7770,17 +8119,17 @@ divisor of $n$ such that $n>1$. Thus, there exists a divisor $q$ of $n$ such
 that $q>1$ (namely, $q=n$). Let $d$ be the \textbf{smallest} such
 divisor\footnote{This exists, because the set of possible candidates is
 nonempty (by the previous sentence) and finite.}. Thus, $d$ is a divisor of
-$n$ and satisfies $d>1$. The integer $d$ is positive (since $d>1>0$).
+$n$ and satisfies $d>1$. The integer $d$ is positive (since $d>1>0$) and
+satisfies $d\mid n$ (since $d$ is a divisor of $n$).
 
 We claim that $d$ is a prime.
 
 \begin{fineprint}
 [\textit{Proof:} Let $e$ be any positive divisor of $d$. Assume (for the sake
 of contradiction) that $e\notin\left\{  1,d\right\}  $. Thus, $e\neq1$ and
-$e\neq d$. Now, $e$ is a divisor of $d$; thus, $e\mid d\mid n$ (since $d$ is a
-divisor of $n$). In other words, $e$ is a divisor of $n$. Also, $e>1$ (because
-$e$ is positive and $e\neq1$). Hence, $e$ is a divisor $q$ of $n$ such that
-$q>1$.
+$e\neq d$. Now, $e$ is a divisor of $d$; thus, $e\mid d\mid n$. In other
+words, $e$ is a divisor of $n$. Also, $e>1$ (because $e$ is positive and
+$e\neq1$). Hence, $e$ is a divisor $q$ of $n$ such that $q>1$.
 
 But $d$ was defined as the \textbf{smallest} divisor $q$ of $n$ such that
 $q>1$. Hence, any such divisor is $\geq d$. In other words, any divisor $q$ of
@@ -7789,12 +8138,13 @@ conclude that $e\geq d$ (since $e$ is a divisor $q$ of $n$ such that $q>1$).
 Combined with $e\neq d$, this yields $e>d$.
 
 But $e\mid d$ and $d\neq0$ (since $d>1>0$). Hence, $\left\vert e\right\vert
-\leq\left\vert d\right\vert $ (by Exercise \ref{prop.ent.div.1} \textbf{(a)},
-applied to $a=e$ and $b=d$). Since $e$ is positive, we have $e=\left\vert
-e\right\vert \leq\left\vert d\right\vert =d$ (since $d$ is positive). This
-contradicts $e>d$. This contradiction shows that our assumption (that
-$e\notin\left\{  1,d\right\}  $) was false. Thus, we have proven that
-$e\in\left\{  1,d\right\}  $. In other worde, $e$ is either $1$ or $d$.
+\leq\left\vert d\right\vert $ (by Exercise \ref{prop.ent.div.1} \textbf{(b)},
+applied to $a=e$ and $b=d$). Since $e$ is positive, we have $\left\vert
+e\right\vert =e$, so that $e=\left\vert e\right\vert \leq\left\vert
+d\right\vert =d$ (since $d$ is positive). This contradicts $e>d$. This
+contradiction shows that our assumption (that $e\notin\left\{  1,d\right\}  $)
+was false. Thus, we have proven that $e\in\left\{  1,d\right\}  $. In other
+worde, $e$ is either $1$ or $d$.
 
 Now, forget that we fixed $e$. We thus have proven that if $e$ is any positive
 divisor of $d$, then $e\in\left\{  1,d\right\}  $. In other words, any
@@ -7804,9 +8154,9 @@ divisors of $d$). In other words, $d$ is prime (by the definition of
 \textquotedblleft prime\textquotedblright).]
 \end{fineprint}
 
-So we know that $d\mid n$ (since $d$ is a divisor of $n$), and that $d$ is
-prime. Hence, there exists at least one prime $p$ such that $p\mid n$ (namely,
-$p=d$). This proves Proposition \ref{prop.ent.primes.ex-pri-div}.
+So we know that $d\mid n$, and that $d$ is prime. Hence, there exists at least
+one prime $p$ such that $p\mid n$ (namely, $p=d$). This proves Proposition
+\ref{prop.ent.primes.ex-pri-div}.
 \end{proof}
 
 \begin{definition}
@@ -8730,9 +9080,18 @@ other). This completes our proof of Theorem \ref{thm.ent.primes.fac-uni}
 
 \subsubsection{The canonical factorization}
 
-You have seen finite products such as
+You have seen finite products such as\footnote{Here and in the following, $n!$
+denotes the product $1\cdot2\cdot\cdots\cdot n$ whenever $n\in\mathbb{N}$.
+Thus, in particular,
 \begin{align*}
-\prod_{i\in\left\{  1,2,3,4,5\right\}  }i  &  =1\cdot2\cdot3\cdot
+0!  & =\left(  \text{empty product}\right)
+=1,\ \ \ \ \ \ \ \ \ \ 1!=1,\ \ \ \ \ \ \ \ \ \ 2!=1\cdot2=2,\\
+3!  & =1\cdot2\cdot3=6,\ \ \ \ \ \ \ \ \ \ 4!=1\cdot2\cdot3\cdot
+4=24,\ \ \ \ \ \ \ \ \ \ 5!=1\cdot2\cdot3\cdot4\cdot5=120.
+\end{align*}
+}
+\begin{align*}
+\prod_{i\in\left\{  1,2,3,4,5\right\}  }i &  =1\cdot2\cdot3\cdot
 4\cdot5=5!=120\ \ \ \ \ \ \ \ \ \ \text{and}\\
 \prod_{i\in\left\{  3,5,7\right\}  }\left(  i^{2}+1\right)   &  =\left(
 3^{2}+1\right)  \cdot\left(  5^{2}+1\right)  \cdot\left(  7^{2}+1\right)
@@ -10238,10 +10597,10 @@ On the other hand, if $n$ \textbf{is} a perfect square, then%
 (by (\ref{pf.prop.ent.phi.ghosts.m1})). In other words, if $n$ \textbf{is} a
 perfect square, then the number of divisors is odd.
 
-Combining the results of the previous paragraphs, we conclude that the number
-of divisors is odd if $n$ is a perfect square, and is even otherwise. In other
-words, $n$ has an odd number of positive divisors if and only if $n$ is a
-perfect square. This proves Proposition \ref{prop.ent.phi.ghosts}.
+Combining the results of the previous two paragraphs, we conclude that the
+number of divisors is odd if $n$ is a perfect square, and is even otherwise.
+In other words, $n$ has an odd number of positive divisors if and only if $n$
+is a perfect square. This proves Proposition \ref{prop.ent.phi.ghosts}.
 \end{fineprint}
 \end{proof}
 
@@ -10249,7 +10608,7 @@ Having proven Proposition \ref{prop.ent.phi.ghosts}, we now can answer
 Exercise \ref{exe.ent.phi.ghosts}: The $31$ lamps $1^{2},2^{2},\ldots,31^{2}$
 (and no others) will be on after the $1000$ nights. (Indeed, these $31$ lamps
 correspond to the $31$ perfect squares in the set $\left\{  1,2,\ldots
-,31\right\}  $.)
+,1000\right\}  $.)
 
 The bijection $F$ from the proof of Proposition \ref{prop.ent.phi.ghosts} will
 serve us well in our proof of Theorem \ref{thm.ent.phi.sum-div}. Beside that,
@@ -10271,7 +10630,8 @@ a divisor of $n$) and $d\neq0$ (since $d$ is positive). Thus, Proposition
 \ref{prop.ent.div.1} \textbf{(c)} (applied to $d$ and $n$ instead of $a$ and
 $b$) yields that $d\mid n$ if and only if $\dfrac{n}{d}\in\mathbb{Z}$. Thus,
 $\dfrac{n}{d}\in\mathbb{Z}$ (since $d\mid n$). In other words, $n/d\in
-\mathbb{Z}$.
+\mathbb{Z}$. Thus, $n/d$ is an integer. This integer $n/d$ is positive (since
+$n$ and $d$ are positive). Hence, $\phi\left(  n/d\right)  $ is well-defined.
 
 Define two sets $I$ and $J$ by%
 \begin{equation}
@@ -10280,7 +10640,7 @@ I=\left\{  i\in\left\{  1,2,\ldots,n\right\}  \ \mid\ \gcd\left(  i,n\right)
 \end{equation}
 and%
 \begin{equation}
-J=\left\{  j\in\left\{  1,2,\ldots,n/d\right\}  \ \mid\ j\perp n/d\right\}  .
+J=\left\{  i\in\left\{  1,2,\ldots,n/d\right\}  \ \mid\ i\perp n/d\right\}  .
 \label{pf.lem.ent.phi.sum-div.n/d.J=}%
 \end{equation}
 But (\ref{eq.def.ent.phi.phi.1}) (applied to $n/d$ instead of $n$) yields%
@@ -10289,7 +10649,7 @@ But (\ref{eq.def.ent.phi.phi.1}) (applied to $n/d$ instead of $n$) yields%
 ,n/d\right\}  \ \mid\ i\perp n/d\right\}  \right\vert =\left\vert J\right\vert
 \label{pf.lem.ent.phi.sum-div.n/d.2}%
 \end{equation}
-(since $\left\{  j\in\left\{  1,2,\ldots,n/d\right\}  \ \mid\ j\perp
+(since $\left\{  i\in\left\{  1,2,\ldots,n/d\right\}  \ \mid\ i\perp
 n/d\right\}  =J$).
 
 We shall next construct a bijection from $I$ to $J$ (which will show that
@@ -10309,7 +10669,7 @@ $a\in\left\{  1,2,\ldots,n\right\}  $, so that $0<a\leq n$. We can divide this
 chain of inequalities by $d$ (since $d$ is positive), and thus obtain
 $0<a/d\leq n/d$. Hence, $a/d\in\left\{  1,2,\ldots,n/d\right\}  $ (since
 $a/d\in\mathbb{Z}$). Furthermore, Corollary \ref{cor.ent.gcd.sa,sb} (applied
-to $d$, $a/d$ and $n/d$) yields%
+to $d$, $a/d$ and $n/d$ instead of $s$, $a$ and $b$) yields%
 \[
 \gcd\left(  d\left(  a/d\right)  ,d\left(  n/d\right)  \right)
 =\underbrace{\left\vert d\right\vert }_{\substack{=d\\\text{(since }d\text{ is
@@ -10324,8 +10684,8 @@ a/d\right)  }_{=a},\underbrace{d\left(  n/d\right)  }_{=n}\right)  =\dfrac
 In other words, $a/d\perp n/d$.
 \par
 So we know that $a/d$ is an element of $\left\{  1,2,\ldots,n/d\right\}  $
-satisfying $a/d\perp n/d$. In other words, $a/d\in\left\{  j\in\left\{
-1,2,\ldots,n/d\right\}  \ \mid\ j\perp n/d\right\}  =J$. Qed.}. Hence, we can
+satisfying $a/d\perp n/d$. In other words, $a/d\in\left\{  i\in\left\{
+1,2,\ldots,n/d\right\}  \ \mid\ i\perp n/d\right\}  =J$. Qed.}. Hence, we can
 define a map%
 \begin{align*}
 f:I  &  \rightarrow J,\\
@@ -10334,8 +10694,8 @@ a  &  \mapsto a/d.
 
 
 For each $b\in J$, we have $bd\in I$\ \ \ \ \footnote{\textit{Proof.} Let
-$b\in J$. Thus, $b\in J=\left\{  j\in\left\{  1,2,\ldots,n/d\right\}
-\ \mid\ j\perp n/d\right\}  $. In other words, $b$ is an element of $\left\{
+$b\in J$. Thus, $b\in J=\left\{  i\in\left\{  1,2,\ldots,n/d\right\}
+\ \mid\ i\perp n/d\right\}  $. In other words, $b$ is an element of $\left\{
 1,2,\ldots,n/d\right\}  $ satisfying $b\perp n/d$.
 \par
 From $b\in\left\{  1,2,\ldots,n/d\right\}  \subseteq\mathbb{Z}$ and
@@ -10343,7 +10703,8 @@ $d\in\mathbb{Z}$, we obtain $bd\in\mathbb{Z}$. From $b\in\left\{
 1,2,\ldots,n/d\right\}  $, we obtain $0<b\leq n/d$. We can multiply this chain
 of inequalities by $d$ (since $d$ is positive), and thus obtain $0<bd\leq n$.
 Thus, $bd\in\left\{  1,2,\ldots,n\right\}  $ (since $bd\in\mathbb{Z}$).
-Corollary \ref{cor.ent.gcd.sa,sb} (applied to $d$, $b$ and $n/d$) yields%
+Corollary \ref{cor.ent.gcd.sa,sb} (applied to $d$, $b$ and $n/d$ instead of
+$s$, $a$ and $b$) yields%
 \[
 \gcd\left(  db,d\left(  n/d\right)  \right)  =\underbrace{\left\vert
 d\right\vert }_{\substack{=d\\\text{(since }d\text{ is positive)}%
@@ -10802,7 +11163,7 @@ Theorem \ref{thm.ent.euler}.
 Here is the argument in more detail:
 
 \textbf{(a)} Assume that $p\nmid a$. Proposition \ref{prop.ent.phi.p} yields
-$\phi\left(  p\right)  =p-1$. But But Proposition
+$\phi\left(  p\right)  =p-1$. But Proposition
 \ref{prop.ent.primes.div-or-coprime} yields that either $p\mid a$ or $p\perp
 a$. Hence, $p\perp a$ (since $p\nmid a$). In other words, $a\perp p$. In other
 words, $a$ is coprime to $p$. Hence, Theorem \ref{thm.ent.euler} (applied to
@@ -10856,7 +11217,7 @@ B\right\vert $. Let $f:A\rightarrow B$ be an surjective map. Then, $f$ is biject
 \end{theorem}
 
 Theorem \ref{thm.pigeon.inj} is called the \textit{Pigeonhole Principle for
-Injection}, due to the following interpretation: If $a$ pigeons sit in $b$
+Injections}, due to the following interpretation: If $a$ pigeons sit in $b$
 pigeonholes with $a\geq b$ (that is, there are at least as many pigeons as
 there are pigeonholes), and if no two pigeons are sharing the same hole, then
 every hole must have at least one pigeon in it. (This corresponds to the
@@ -10866,9 +11227,9 @@ the hole it is sitting in. The injectivity of $f$ is then precisely the
 statement that no two pigeons are sharing the same hole.)
 
 Likewise, Theorem \ref{thm.pigeon.surj} is called the \textit{Pigeonhole
-Principle for Surjection}, due to the following interpretation: If $a$ pigeons
-sit in $b$ pigeonholes with $a\leq b$ (that is, there are at most as many
-pigeons as there are pigeonholes), and if each hole contains at least one
+Principle for Surjections}, due to the following interpretation: If $a$
+pigeons sit in $b$ pigeonholes with $a\leq b$ (that is, there are at most as
+many pigeons as there are pigeonholes), and if each hole contains at least one
 pigeon, then no two pigeons are sharing the same hole.
 
 Theorem \ref{thm.pigeon.inj} and Theorem \ref{thm.pigeon.surj} are both basic
@@ -10941,9 +11302,16 @@ This definition is exactly the definition of $\dbinom{n}{k}$ that we used in
 \href{http://www-users.math.umn.edu/~dgrinber/19s/hw0s.pdf}{homework set \#0}.
 It is also almost exactly the definition given in \cite[(5.1)]{GKP} (except
 that we are allowing $k$ to be non-integer, while the authors of \cite{GKP} do
-not). Our choice to require $n\in\mathbb{Q}$ is more or less arbitrary -- we
-could have as well made the same definition for $n\in\mathbb{R}$ or
-$n\in\mathbb{C}$ (but I am not aware of this generality being of much use).
+not). Definition \ref{def.binom.binom} is also identical with the definition
+of binomial coefficients in \cite{detnotes}. Our choice to require
+$n\in\mathbb{Q}$ is more or less arbitrary -- we could have as well made the
+same definition for $n\in\mathbb{R}$ or $n\in\mathbb{C}$ (but I am not aware
+of this generality being of much use).
+
+Generally, when you read literature on binomial coefficients, be aware that
+some authors use somewhat different definitions of $\dbinom{n}{k}$. All known
+definitions give the same results when $n$ and $k$ are nonnegative integers,
+but in the other cases there may be discrepancies.
 
 Here are some examples of binomial coefficients:
 
@@ -10956,17 +11324,19 @@ all $n\in\mathbb{Q}$. Thus, for example,%
 \]
 
 
-\textbf{(b)} We have%
+\textbf{(b)} Definition \ref{def.binom.binom} \textbf{(a)} yields $\dbinom
+{n}{3}=\dfrac{n\left(  n-1\right)  \left(  n-2\right)  }{3!}=\dfrac{n\left(
+n-1\right)  \left(  n-2\right)  }{6}$ for all $n\in\mathbb{Q}$. Thus, for
+example,%
 \begin{align*}
-\dbinom{5}{3}  &  =\dfrac{5\cdot4\cdot3}{3!}=\dfrac{60}{6}=10;\\
-\dbinom{1}{3}  &  =\dfrac{1\cdot0\cdot\left(  -1\right)  }{3!}=\dfrac{0}%
-{6}=0;\\
-\dbinom{-2}{3}  &  =\dfrac{\left(  -2\right)  \cdot\left(  -3\right)
-\cdot\left(  -4\right)  }{3!}=\dfrac{-24}{6}=-4;\\
-\dbinom{1/2}{3}  &  =\dfrac{\left(  1/2\right)  \cdot\left(  -1/2\right)
-\cdot\left(  -3/2\right)  }{3!}=\dfrac{3/8}{6}=\dfrac{1}{16}%
+\dbinom{5}{3} &  =\dfrac{5\cdot4\cdot3}{6}=\dfrac{60}{6}=10;\\
+\dbinom{1}{3} &  =\dfrac{1\cdot0\cdot\left(  -1\right)  }{6}=\dfrac{0}{6}=0;\\
+\dbinom{-2}{3} &  =\dfrac{\left(  -2\right)  \cdot\left(  -3\right)
+\cdot\left(  -4\right)  }{6}=\dfrac{-24}{6}=-4;\\
+\dbinom{1/2}{3} &  =\dfrac{\left(  1/2\right)  \cdot\left(  -1/2\right)
+\cdot\left(  -3/2\right)  }{6}=\dfrac{3/8}{6}=\dfrac{1}{16}.
 \end{align*}
-(all by Definition \ref{def.binom.binom} \textbf{(a)}).
+
 
 \textbf{(c)} Definition \ref{def.binom.binom} \textbf{(a)} yields $\dbinom
 {n}{1}=\dfrac{n}{1!}=\dfrac{n}{1}=n$ for all $n\in\mathbb{Q}$.
@@ -11395,10 +11765,9 @@ identities%
 \begin{proof}
 [Proof of Theorem \ref{thm.binom.binf} (sketched).]This can be proven by a
 straightforward induction on $n$ (using Theorem \ref{thm.binom.rec} in the
-induction step). See \cite[Exercise 3.6]{detnotes} (or pretty much any text on
-combinatorics) for details of this proof. Alternatively, see \cite[Identity
-11.4]{Galvin} for combinatorial proofs (which rely on Theorem
-\ref{thm.binom.comb-int}).
+induction step). See \cite[Exercise 3.6]{detnotes} for details of this proof.
+Alternatively, see \cite[Identity 11.4]{Galvin} for combinatorial proofs
+(which rely on Theorem \ref{thm.binom.comb-int}).
 \end{proof}
 
 The next identity we want to show is the \textit{Vandermonde convolution
@@ -11650,7 +12019,7 @@ a=\overline{a_{k}a_{k-1}\cdots a_{0}}\ \ \ \ \ \ \ \ \ \ \text{and}%
 \end{theorem}
 
 \begin{theorem}
-(Babbage's congruence) If $a,b\in\mathbb{Z}$ and if $p$ is a prime,%
+(Babbage's congruence) Let $p$ be a prime. Let $a,b\in\mathbb{Z}$. Then,%
 \[
 \dbinom{pa}{pb}\equiv\dbinom{a}{b}\operatorname{mod}p^{2}.
 \]
@@ -11751,7 +12120,7 @@ Let $S=\mathbb{Z}$.
 \textbf{(a)} The relation $=$ is a binary relation on $S$. As a subset of
 $S\times S$, it is%
 \begin{align*}
-&  \left\{  \left(  a,b\right)  \in S\times S\ \mid\ a=b\right\}  \\
+&  \left\{  \left(  a,b\right)  \in S\times S\ \mid\ a=b\right\} \\
 &  =\left\{  \left(  c,c\right)  \ \mid\ c\in S\right\}  =\left\{
 \ldots,\left(  -1,-1\right)  ,\left(  0,0\right)  ,\left(  1,1\right)
 ,\ldots\right\}  .
@@ -11936,23 +12305,23 @@ $\left[  a\right]  _{\sim}$ for $a\in S$.
 \begin{example}
 Consider the relation $\underset{3}{\equiv}$ on $\mathbb{Z}$. We have%
 \begin{align*}
-\left[  5\right]  _{\sim} &  =\left\{  b\in\mathbb{Z}\ \mid
+\left[  5\right]  _{\sim}  &  =\left\{  b\in\mathbb{Z}\ \mid
 \ 5\underset{3}{\equiv}b\right\}  =\left\{  b\in\mathbb{Z}\ \mid\ 5\equiv
-b\operatorname{mod}3\right\}  \\
+b\operatorname{mod}3\right\} \\
 &  =\left\{  \ldots,-4,-1,2,5,8,11,14,\ldots\right\}
 \end{align*}
 and%
 \begin{align*}
-\left[  3\right]  _{\sim} &  =\left\{  b\in\mathbb{Z}\ \mid
+\left[  3\right]  _{\sim}  &  =\left\{  b\in\mathbb{Z}\ \mid
 \ 3\underset{3}{\equiv}b\right\}  =\left\{  b\in\mathbb{Z}\ \mid\ 3\equiv
-b\operatorname{mod}3\right\}  \\
+b\operatorname{mod}3\right\} \\
 &  =\left\{  \ldots,-6,-3,0,3,6,9,12,\ldots\right\}
 \end{align*}
 and%
 \begin{align*}
-\left[  2\right]  _{\sim} &  =\left\{  b\in\mathbb{Z}\ \mid
+\left[  2\right]  _{\sim}  &  =\left\{  b\in\mathbb{Z}\ \mid
 \ 2\underset{3}{\equiv}b\right\}  =\left\{  b\in\mathbb{Z}\ \mid\ 2\equiv
-b\operatorname{mod}3\right\}  \\
+b\operatorname{mod}3\right\} \\
 &  =\left\{  \ldots,-4,-1,2,5,8,11,14,\ldots\right\}  =\left[  5\right]
 _{\sim}.
 \end{align*}
@@ -12097,6 +12466,9 @@ $\mathbb{Z}/n$
 
 \bibitem[Artin10]{Artin}Michael Artin, \textit{Algebra}, 2nd edition, Pearson 2010.
 
+\bibitem[Boreic08]{Boreic08}Iurie Boreico, \textit{Linear Independence of
+Radicals}, The Harvard College Mathematics Review 2.1 (2008).\newline\url{http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.630.1024&rep=rep1&type=pdf}
+
 \bibitem[Bosch18]{Bosch}Siegfried Bosch, \textit{Algebra -- From the Viewpoint
 of Galois Theory}, Springer 2018. \newline\url{https://www.springer.com/la/book/9783319951768}
 
@@ -12110,6 +12482,9 @@ of Galois Theory}, Springer 2018. \newline\url{https://www.springer.com/la/book/
 
 \bibitem[ConradG]{Conrad-Gauss}Keith Conrad, \textit{The Gaussian
 integers}.\newline\url{http://www.math.uconn.edu/~kconrad/blurbs/ugradnumthy/Zinotes.pdf}
+
+\bibitem[ConradI]{Conrad-Induction}Keith Conrad, \textit{Examples of proofs by
+induction}.\newline\url{https://kconrad.math.uconn.edu/blurbs/proofs/induction.pdf}
 
 \bibitem[Day16]{Day}Martin V. Day, \textit{An Introduction to Proofs and the
 Mathematical Vernacular}, 7 December 2016.\newline%
