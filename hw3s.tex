@@ -1,0 +1,405 @@
+% Like most advanced LaTeX files, this one begins with a lot of
+% boilerplate. You don't need to understand (or even read) most of it.
+% All you need to do is fill in your name, UMN ID, email address,
+% and the number of the pset. (Search for "METADATA" to find the place
+% for this.) Then, you can go straight to the "EXERCISE 1"
+% section and start writing your solutions.
+% The "VARIOUS USEFUL COMMANDS" section is probably worth taking a
+% look at at some point.
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+\documentclass[paper=a4, fontsize=12pt]{scrartcl} % A4 paper and 12pt font size
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm,amssymb} % Math packages
+\usepackage{mathrsfs}    % More math packages
+\usepackage{sectsty}  % Allows customizing section commands
+\allsectionsfont{\centering \normalfont\scshape} % Make all section titles centered, the default font and small caps %remove this to left align section tites
+\usepackage{hyperref} % Turns cross-references into hyperlinks,
+                      % and defines \url and \href commands.
+\usepackage{graphicx} % For embedding graphics files.
+\usepackage{framed}   % For the "leftbar" environment used below.
+\usepackage{ifthen}   % Used for the \powset command below.
+\usepackage{lastpage} % for counting the number of pages
+\usepackage[headsepline,footsepline,manualmark]{scrlayer-scrpage}
+\usepackage[height=10in,a4paper,hmargin={1in,0.8in}]{geometry}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{tikz}     % This is a powerful tool to draw vector
+                      % graphics inside LaTeX. In particular, you can
+                      % use it to draw graphs.
+\usepackage{verbatim} % For the "verbatim" environment, in which
+                      % special symbols can be used freely without
+                      % confusing the compiler. (And it's typeset in
+                      % a constant-width font.)
+                      % Useful, e.g., for quoting code (or ASCII art).
+
+%\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+
+\setlength\parindent{20pt} % Makes indentation for paragraphs longer.
+                           % This makes paragraphs stand out more.
+
+%----------------------------------------------------------------------------------------
+%	VARIOUS USEFUL COMMANDS
+%----------------------------------------------------------------------------------------
+% The commands below might be convenient. For example, you probably
+% prefer to write $\powset[2]{V}$ for the set of $2$-element subsets
+% of $V$, rather than writing $\mathcal{P}_2(V)$.
+% Notice that you can easily define your own commands like this.
+% Caveat: Some of these commands need to be properly "guarded" when
+% they occur in subscripts or superscripts. So you should not write
+% $K_\CC$, but rather $K_{\CC}$.
+\newcommand{\CC}{\mathbb{C}} % complex numbers
+\newcommand{\RR}{\mathbb{R}} % real numbers
+\newcommand{\QQ}{\mathbb{Q}} % rational numbers
+\newcommand{\NN}{\mathbb{N}} % nonnegative integers
+\newcommand{\PP}{\mathbb{P}} % positive integers
+\newcommand{\Z}[1]{\mathbb{Z}/#1\mathbb{Z}} % integers modulo k
+                                            % (syntax: "\Z{k}")
+\newcommand{\ZZ}{\mathbb{Z}} % integers
+\newcommand{\id}{\operatorname{id}} % identity map
+\newcommand{\lcm}{\operatorname{lcm}}
+% Lowest common multiple. For historical reasons, LaTeX has a \gcd
+% command built in, but not an \lcm command. The preceding line
+% rectifies that.
+\newcommand{\set}[1]{\left\{ #1 \right\}}
+% $\set{...}$ compiles to {...} (set-brackets).
+\newcommand{\abs}[1]{\left| #1 \right|}
+% $\abs{...}$ compiles to |...| (absolute value, or size of a set).
+\newcommand{\tup}[1]{\left( #1 \right)}
+% $\tup{...}$ compiles to (...) (parentheses, or tuple-brackets).
+\newcommand{\ive}[1]{\left[ #1 \right]}
+% $\ive{...}$ compiles to [...] (Iverson bracket, aka truth value; also, set of first n integers).
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+% $\floor{...}$ compiles to |_..._| (floor function).
+\newcommand{\underbrack}[2]{\underbrace{#1}_{\substack{#2}}}
+% $\underbrack{...1}{...2}$ yields
+% $\underbrace{...1}_{\substack{...2}}$. This is useful for doing
+% local rewriting transformations on mathematical expressions with
+% justifications. For example, try this out:
+% $ \underbrack{(a+b)^2}{= a^2 + 2ab + b^2 \\ \text{(by the binomial formula)}} $
+\newcommand{\powset}[2][]{\ifthenelse{\equal{#2}{}}{\mathcal{P}\left(#1\right)}{\mathcal{P}_{#1}\left(#2\right)}}
+% $\powset[k]{S}$ stands for the set of all $k$-element subsets of
+% $S$. The argument $k$ is optional, and if not provided, the result
+% is the whole powerset of $S$.
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command with 1 argument of height
+\newcommand{\nnn}{\nonumber\\} % Don't number this line in an "align" environment, and move on to the next line.
+
+%----------------------------------------------------------------------------------------
+%	MAKING SUMMATION SIGNS ALWAYS PUT THEIR BOUNDS ABOVE AND BELOW
+%	THE SIGN
+%----------------------------------------------------------------------------------------
+% The following are hacks to ensure that sums (such as
+% $\sum_{k=1}^n k$) always put their bounds (i.e., the $k=1$ and the
+% $n$) underneath and above the sign, as opposed to on its right.
+% Same for products (\prod), set unions (\bigcup) and set
+% intersections (\bigcap). Remove the 8 lines below if you do not want
+% this behavior.
+\let\sumnonlimits\sum
+\let\prodnonlimits\prod
+\let\cupnonlimits\bigcup
+\let\capnonlimits\bigcap
+\renewcommand{\sum}{\sumnonlimits\limits}
+\renewcommand{\prod}{\prodnonlimits\limits}
+\renewcommand{\bigcup}{\cupnonlimits\limits}
+\renewcommand{\bigcap}{\capnonlimits\limits}
+
+%----------------------------------------------------------------------------------------
+%	ENVIRONMENTS
+%----------------------------------------------------------------------------------------
+% The incantations below define how theorem environments
+% (\begin{theorem} ... \end{theorem}) and their likes will look like.
+\newtheoremstyle{plainsl}% <name>
+  {8pt plus 2pt minus 4pt}% <Space above>
+  {8pt plus 2pt minus 4pt}% <Space below>
+  {\slshape}% <Body font>
+  {0pt}% <Indent amount>
+  {\bfseries}% <Theorem head font>
+  {.}% <Punctuation after theorem head>
+  {5pt plus 1pt minus 1pt}% <Space after theorem headi>
+  {}% <Theorem head spec (can be left empty, meaning `normal')>
+
+% Environments which make the text inside them slanted:
+\theoremstyle{plainsl}
+  \newtheorem{theorem}{Theorem}[section]
+  \newtheorem{proposition}[theorem]{Proposition}
+  \newtheorem{lemma}[theorem]{Lemma}
+  \newtheorem{corollary}[theorem]{Corollary}
+  \newtheorem{conjecture}[theorem]{Conjecture}
+% Environments that don't:
+\theoremstyle{definition}
+  \newtheorem{definition}[theorem]{Definition}
+  \newtheorem{example}[theorem]{Example}
+  \newtheorem{exercise}[theorem]{Exercise}
+  \newtheorem{examples}[theorem]{Examples}
+  \newtheorem{algorithm}[theorem]{Algorithm}
+  \newtheorem{question}[theorem]{Question}
+ \theoremstyle{remark}
+  \newtheorem{remark}[theorem]{Remark}
+\newenvironment{statement}{\begin{quote}}{\end{quote}}
+\newenvironment{fineprint}{\begin{small}}{\end{small}}
+
+%----------------------------------------------------------------------------------------
+%	METADATA
+%----------------------------------------------------------------------------------------
+\newcommand{\myname}{Darij Grinberg} % ENTER YOUR NAME HERE
+\newcommand{\myid}{00000000} % ENTER YOUR UMN ID HERE
+\newcommand{\mymail}{dgrinber@umn.edu} % ENTER YOUR EMAIL HERE
+\newcommand{\psetnumber}{3} % ENTER THE NUMBER OF THIS PSET HERE
+
+%----------------------------------------------------------------------------------------
+%	HEADER AND FOOTER
+%----------------------------------------------------------------------------------------
+\ihead{Solutions to homework set \#\psetnumber} % Page header left
+\ohead{page \thepage\ of \pageref{LastPage}} % Page header right
+\ifoot{\myname, \myid} % left footer
+\ofoot{\mymail} % right footer
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+\title{	
+\normalfont \normalsize 
+\textsc{University of Minnesota, School of Mathematics} \\ [25pt] % Your university, school and/or department name(s)
+\horrule{0.5pt} \\[0.4cm] % Thin top horizontal rule
+\huge Math 4281: Introduction to Modern Algebra, \\
+Spring 2019:
+Homework \psetnumber\\% The assignment title
+\horrule{2pt} \\[0.5cm] % Thick bottom horizontal rule
+}
+\author{\myname}
+
+\begin{document}
+
+\maketitle % Print the title
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 1
+%----------------------------------------------------------------------------------------
+\horrule{0.3pt} \\[0.4cm]
+
+\section{Exercise 1: The Chinese remainder theorem for $k$ moduli}
+
+\subsection{Problem}
+
+Let $m_1, m_2, \ldots, m_k$ be $k$ mutually coprime integers.
+Let $a_1, a_2, \ldots, a_k \in \ZZ$.
+
+Prove the following:
+
+\begin{enumerate}
+
+\item[\textbf{(a)}]
+There exists an integer $x$ such that
+\[
+\tup{ x \equiv a_i \mod m_i \qquad \text{for all } i \in \set{1, 2, \ldots, k} } .
+\]
+
+\item[\textbf{(b)}]
+If $x_1$ and $x_2$ are two such integers $x$, then
+$x_1 \equiv x_2 \mod m_1 m_2 \cdots m_k$.
+
+\end{enumerate}
+
+[\textbf{Note:} This is stated without proof in the lecture notes;
+you cannot just cite that statement.]
+
+\subsection{Solution}
+
+See
+\href{http://www-users.math.umn.edu/~dgrinber/19s/notes.pdf}{the class notes},
+where this is Theorem 2.12.4. (The numbering may shift; it is one of the
+theorems in the
+``The Chinese remainder theorem (elementary form)''
+section.)
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 2
+%----------------------------------------------------------------------------------------
+\horrule{0.3pt} \\[0.4cm]
+
+\section{Exercise 2: More products of gcds}
+
+\subsection{Problem}
+
+Let $a, b, c$ be three integers.
+
+\begin{enumerate}
+
+\item[\textbf{(a)}]
+Prove that
+$\gcd\tup{a, b} \gcd\tup{a, c}
+= \gcd\tup{ag, bc}$,
+where $g = \gcd\tup{a, b, c}$.
+
+\item[\textbf{(b)}]
+Assume that $b \perp c$.
+Prove that
+$\gcd\tup{a, b} \gcd\tup{a, c} = \gcd\tup{a, bc}$.
+
+\end{enumerate}
+
+\subsection{Solution}
+
+See
+\href{http://www-users.math.umn.edu/~dgrinber/19s/notes.pdf}{the class notes},
+where this is Exercise 2.10.9. (The numbering may shift; it is one of the
+exercises in the
+``Coprime integers''
+section.)
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 3
+%----------------------------------------------------------------------------------------
+\horrule{0.3pt} \\[0.4cm]
+
+\section{Exercise 3: gcds and roots}
+
+\subsection{Problem}
+
+Prove the following:
+
+\begin{enumerate}
+
+\item[\textbf{(a)}]
+If two integers $a$ and $b$ are not both zero, and
+if $g = \gcd\tup{a, b}$, then $a/g \perp b/g$.
+
+\item[\textbf{(b)}]
+If $a$ and $b$ are two integers, then
+$\gcd\tup{a^k, b^k} = \gcd\tup{a, b}^k$ for each
+$k \in \NN$.
+
+\item[\textbf{(c)}]
+If $r \in \QQ$, then there exist two \textbf{coprime}
+integers $a$ and $b$ satisfying $r = a/b$.
+
+\item[\textbf{(d)}]
+If a positive integer $u$ is not a perfect
+square\footnote{A \textit{perfect square} means a square
+of an integer.},
+then $\sqrt{u}$ is irrational.
+
+\item[\textbf{(e)}]
+If $u$ and $v$ are two positive integers,
+then $\sqrt{u} + \sqrt{v}$ is irrational,
+unless both $u$ and $v$ are perfect squares.
+
+\end{enumerate}
+
+\subsection{Solution}
+
+See
+\href{http://www-users.math.umn.edu/~dgrinber/19s/notes.pdf}{the class notes},
+where this is Exercises 2.10.11, 2.10.12, 2.10.13 and 2.10.14.
+(The numbering may shift; all four of these exercises are in the
+``Coprime integers''
+section.)
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 4
+%----------------------------------------------------------------------------------------
+\horrule{0.3pt} \\[0.4cm]
+
+\section{Exercise 4: Basic binomial congruences}
+
+\subsection{Problem}
+
+Let $p$ be a prime.
+Let $k \in \set{0, 1, \ldots, p-1}$.
+Prove the following:
+
+\begin{enumerate}
+
+\item[\textbf{(a)}]
+We have $k! \perp p$.
+
+\item[\textbf{(b)}]
+If $u$ and $v$ are two integers such that $u \equiv v \mod p$,
+then
+$\dbinom{u}{k} \equiv \dbinom{v}{k} \mod p$.
+
+\item[\textbf{(c)}]
+We have $\dbinom{p-1}{k} \equiv \tup{-1}^k \mod p$.
+
+\end{enumerate}
+
+\subsection{Solution}
+
+This is proven in \cite[Section 5]{fleck}.
+(Specifically, part \textbf{(a)} is \cite[Lemma 5.2]{fleck};
+part \textbf{(b)} is \cite[Proposition 5.5]{fleck};
+part \textbf{(c)} is \cite[Proposition 3.1]{fleck}.)
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 5
+%----------------------------------------------------------------------------------------
+\horrule{0.3pt} \\[0.4cm]
+
+\section{Exercise 5: $\phi\tup{n}$ is even}
+
+\subsection{Problem}
+
+Let $n \in \NN$ satisfy $n > 2$.
+Recall that $\phi$ denotes the Euler totient function.
+Prove that $\phi\tup{n}$ is even.
+
+[\textbf{Hint:} Is there a way to pair up the numbers
+$i \in \set{1, 2, \ldots, n}$ coprime to $n$?]
+
+\subsection{Solution}
+
+See
+\href{http://www-users.math.umn.edu/~dgrinber/19s/notes.pdf}{the class notes},
+where this is Exercise 2.14.3.
+(The numbering may shift; the exercise is in the
+``Euler's totient function ($\phi$-function)''
+section.)
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 6
+%----------------------------------------------------------------------------------------
+\horrule{0.3pt} \\[0.4cm]
+
+\section{Exercise 6: $\phi\tup{p^k}$}
+
+\subsection{Problem}
+
+Let $p$ be a prime.
+Let $k$ be a positive integer.
+Prove that $\phi\tup{p^k} = \tup{p-1} p^{k-1}$.
+
+\subsection{Solution}
+
+See
+\href{http://www-users.math.umn.edu/~dgrinber/19s/notes.pdf}{the class notes},
+where this is Exercise 2.14.1.
+(The numbering may shift; the exercise is in the
+``Euler's totient function ($\phi$-function)''
+section.)
+
+\begin{thebibliography}{99999999}                                                                                         %
+
+% Feel free to add your sources -- or copy some from the source code
+% of the class notes ( http://www-users.math.umn.edu/~dgrinber/19s/notes.tex ).
+
+% This is the bibliography: The list of papers/books/articles/blogs/...
+% cited. The syntax is: "\bibitem[name]{tag}Reference",
+% where "name" is the name that will appear in the compiled
+% bibliography, and "tag" is the tag by which you will refer to
+% the source in the TeX file. For example, the following source
+% has name "GrKnPa94" (so you will see it referenced as
+% "[GrKnPa94]" in the compiled PDF) and tag "GKP" (so you
+% can cite it by writing "\cite{GKP}").
+
+\bibitem[Grinbe18]{fleck}Darij Grinberg,
+\textit{Fleck's binomial congruence using
+circulant matrices},
+10 January 2019. \\
+\url{http://www.cip.ifi.lmu.de/~grinberg/fleck.pdf}
+
+\end{thebibliography}
+
+\end{document}
+

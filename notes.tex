@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Thursday, February 21, 2019 01:25:15}
+%TCIDATA{LastRevised=Thursday, February 21, 2019 10:33:45}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -10523,9 +10523,120 @@ Proposition \ref{prop.ent.phi.p} can be generalized as follows:
 that $\phi\left(  p^{k}\right)  =\left(  p-1\right)  p^{k-1}$.
 \end{exercise}
 
+\begin{fineprint}
 \begin{proof}
-[Solution to Exercise \ref{exe.ent.phi.pk}.]TODO (HW3).
+[Solution to Exercise \ref{exe.ent.phi.pk}.]Let $M$ be the set $\left\{
+1p,2p,\ldots,p^{k-1}p\right\}  =\left\{  cp\ \mid\ c\in\left\{  1,2,\ldots
+,p^{k-1}\right\}  \right\}  $. This set $M$ has $p^{k-1}$ elements (since the
+$p^{k-1}$ numbers $1p,2p,\ldots,p^{k-1}p$ are all distinct). In other words,
+$\left\vert M\right\vert =p^{k-1}$. Also, $M\subseteq\left\{  1,2,\ldots
+,p^{k}\right\}  $\ \ \ \ \footnote{\textit{Proof.} Let $m\in M$. Thus, $m\in
+M=\left\{  1p,2p,\ldots,p^{k-1}p\right\}  $; in other words, $m=cp$ for some
+$c\in\left\{  1,2,\ldots,p^{k-1}\right\}  $. Consider this $c$. From
+$c\in\left\{  1,2,\ldots,p^{k-1}\right\}  $, we obtain $c\leq p^{k-1}$. We can
+multiply this inequality by $p$ (since $p>0$) and thus obtain $cp\leq
+p^{k-1}p=p^{k}$. Also, $cp$ is a positive integer (since $c$ and $p$ are
+positive integers). Thus, $cp$ is a positive integer and $\leq p^{k}$. In
+other words, $cp\in\left\{  1,2,\ldots,p^{k}\right\}  $. Thus, $m=cp\in
+\left\{  1,2,\ldots,p^{k}\right\}  $.
+\par
+Now, forget that we fixed $m$. We thus have shown that $m\in\left\{
+1,2,\ldots,p^{k}\right\}  $ for each $m\in M$. In other words, $M\subseteq
+\left\{  1,2,\ldots,p^{k}\right\}  $.}. Hence,%
+\begin{equation}
+\left\vert \left\{  1,2,\ldots,p^{k}\right\}  \setminus M\right\vert
+=\underbrace{\left\vert \left\{  1,2,\ldots,p^{k}\right\}  \right\vert
+}_{=p^{k}}-\underbrace{\left\vert M\right\vert }_{=p^{k-1}}=p^{k}-p^{k-1}.
+\label{sol.ent.phi.pk.0}%
+\end{equation}
+
+
+Next, we claim that%
+\begin{equation}
+\left\{  i\in\left\{  1,2,\ldots,p^{k}\right\}  \ \mid\ i\perp p^{k}\right\}
+\subseteq\left\{  1,2,\ldots,p^{k}\right\}  \setminus M.
+\label{sol.ent.phi.pk.1}%
+\end{equation}
+
+
+[\textit{Proof of (\ref{sol.ent.phi.pk.1}):} Let $a\in\left\{  i\in\left\{
+1,2,\ldots,p^{k}\right\}  \ \mid\ i\perp p^{k}\right\}  $. In other words, $a$
+is an element of $\left\{  1,2,\ldots,p^{k}\right\}  $ and satisfies $a\perp
+p^{k}$.
+
+Exercise \ref{exe.ent.primes.coprime-to-pk} shows that $a\perp p^{k}$ holds if
+and only if $p\nmid a$. Hence, $p\nmid a$ (since $a\perp p^{k}$), and
+therefore $a\notin M$\ \ \ \ \footnote{\textit{Proof.} Assume the contrary.
+Thus, $a\in M=\left\{  1p,2p,\ldots,p^{k-1}p\right\}  $. In other words,
+$a=cp$ for some $c\in\left\{  1,2,\ldots,p^{k-1}\right\}  $. Consider this
+$c$. Clearly, $c$ is an integer; thus, from $a=cp=pc$, we obtain $p\mid a$.
+But this contradicts $p\nmid a$. This contradiction shows that our assumption
+was false, qed.}. Combining $a\in\left\{  1,2,\ldots,p^{k}\right\}  $ with
+$a\notin M$, we obtain $a\in\left\{  1,2,\ldots,p^{k}\right\}  \setminus M$.
+
+Now, forget that we fixed $a$. Thus, we have shown that $a\in\left\{
+1,2,\ldots,p^{k}\right\}  \setminus M$ for each $a\in\left\{  i\in\left\{
+1,2,\ldots,p^{k}\right\}  \ \mid\ i\perp p^{k}\right\}  $. In other words,
+$\left\{  i\in\left\{  1,2,\ldots,p^{k}\right\}  \ \mid\ i\perp p^{k}\right\}
+\subseteq\left\{  1,2,\ldots,p^{k}\right\}  \setminus M$. This proves
+(\ref{sol.ent.phi.pk.1}).]
+
+Furthermore, we have%
+\begin{equation}
+\left\{  1,2,\ldots,p^{k}\right\}  \setminus M\subseteq\left\{  i\in\left\{
+1,2,\ldots,p^{k}\right\}  \ \mid\ i\perp p^{k}\right\}  .
+\label{sol.ent.phi.pk.2}%
+\end{equation}
+
+
+[\textit{Proof of (\ref{sol.ent.phi.pk.2}):} Let $a\in\left\{  1,2,\ldots
+,p^{k}\right\}  \setminus M$. In other words, $a\in\left\{  1,2,\ldots
+,p^{k}\right\}  $ and $a\notin M$.
+
+We have $p\nmid a$\ \ \ \ \footnote{\textit{Proof.} Assume the contrary. Thus,
+$p\mid a$. In other words, $a=pc$ for some integer $c$. Consider this $c$. We
+have $a=pc$, thus $c=a/p$ (since $p$ is nonzero). Also, $c=a/p>0$ (since $a$
+and $p$ are positive). Hence, $c$ is a positive integer. Furthermore, from
+$a\in\left\{  1,2,\ldots,p^{k}\right\}  $, we obtain $a\leq p^{k}$ and thus
+$a/p\leq p^{k}/p=p^{k-1}$, so that $c=a/p\leq p^{k-1}$. Thus, $c\in\left\{
+1,2,\ldots,p^{k-1}\right\}  $ (since $c$ is a positive integer) and therefore
+$cp\in\left\{  1p,2p,\ldots,p^{k-1}p\right\}  =M$ (by the definition of $M$).
+Now, $a=pc=cp\in M$; but this contradicts $a\notin M$. This contradiction
+shows that our assumption was false, qed.}. But Exercise
+\ref{exe.ent.primes.coprime-to-pk} shows that $a\perp p^{k}$ holds if and only
+if $p\nmid a$. Hence, $a\perp p^{k}$ (since $p\nmid a$). Now, we know that $a$
+is an $i\in\left\{  1,2,\ldots,p^{k}\right\}  $ satisfying $i\perp p^{k}$
+(since $a\in\left\{  1,2,\ldots,p^{k}\right\}  $ and $a\perp p^{k}$). In other
+words, $a\in\left\{  i\in\left\{  1,2,\ldots,p^{k}\right\}  \ \mid\ i\perp
+p^{k}\right\}  $.
+
+Now, forget that we fixed $a$. Thus, we have shown that $a\in\left\{
+i\in\left\{  1,2,\ldots,p^{k}\right\}  \ \mid\ i\perp p^{k}\right\}  $ for
+each $a\in\left\{  1,2,\ldots,p^{k}\right\}  \setminus M$. In other words,
+$\left\{  1,2,\ldots,p^{k}\right\}  \setminus M\subseteq\left\{  i\in\left\{
+1,2,\ldots,p^{k}\right\}  \ \mid\ i\perp p^{k}\right\}  $. This proves
+(\ref{sol.ent.phi.pk.2}).]
+
+Combining (\ref{sol.ent.phi.pk.1}) with (\ref{sol.ent.phi.pk.2}), we obtain%
+\[
+\left\{  i\in\left\{  1,2,\ldots,p^{k}\right\}  \ \mid\ i\perp p^{k}\right\}
+=\left\{  1,2,\ldots,p^{k}\right\}  \setminus M.
+\]
+
+
+Now, (\ref{eq.def.ent.phi.phi.1}) (applied to $n=p^{k}$) yields%
+\begin{align*}
+\phi\left(  p^{k}\right)   &  =\left\vert \underbrace{\left\{  i\in\left\{
+1,2,\ldots,p^{k}\right\}  \ \mid\ i\perp p^{k}\right\}  }_{=\left\{
+1,2,\ldots,p^{k}\right\}  \setminus M}\right\vert =\left\vert \left\{
+1,2,\ldots,p^{k}\right\}  \setminus M\right\vert \\
+&  =\underbrace{p^{k}}_{=pp^{k-1}}-p^{k-1}\ \ \ \ \ \ \ \ \ \ \left(  \text{by
+(\ref{sol.ent.phi.pk.0})}\right) \\
+&  =pp^{k-1}-p^{k-1}=\left(  p-1\right)  p^{k-1}.
+\end{align*}
+This solves Exercise \ref{exe.ent.phi.pk}.
 \end{proof}
+\end{fineprint}
 
 \begin{theorem}
 \label{thm.ent.phi.mult}Let $m$ and $n$ be two coprime integers. Then,
@@ -10958,6 +11069,170 @@ of }n\right) \\
 \end{align*}
 This proves Theorem \ref{thm.ent.phi.sum-div}.
 \end{proof}
+
+\begin{exercise}
+\label{exe.ent.phi.even}Let $n\in\mathbb{N}$ satisfy $n>2$. Prove that
+$\phi\left(  n\right)  $ is even.
+\end{exercise}
+
+\begin{fineprint}
+\begin{proof}
+[Solution to Exercise \ref{exe.ent.phi.even}.]The following solution is mostly
+a calque of the proof of Proposition \ref{prop.ent.phi.ghosts} we gave above,
+but using subtraction instead of division and using the relation
+\textquotedblleft coprime\textquotedblright\ instead of \textquotedblleft
+divides\textquotedblright.
+
+Clearly, $n$ is a positive integer (since $n>2$), so that $\phi\left(
+n\right)  $ is well-defined.
+
+Let $C=\left\{  i\in\left\{  1,2,\ldots,n\right\}  \ \mid\ i\perp n\right\}
+$. An element $c$ of $C$ is said to be
+
+\begin{itemize}
+\item \textit{small} if $c<n-c$;
+
+\item \textit{medium} if $c=n-c$;
+
+\item \textit{large} if $c>n-c$.
+\end{itemize}
+
+Now, it is easy to see that the set $C$ has no medium
+elements\footnote{\textit{Proof.} Let $c$ be a medium element of $C$. We shall
+derive a contradiction.
+\par
+We have $c\in C=\left\{  i\in\left\{  1,2,\ldots,n\right\}  \ \mid\ i\perp
+n\right\}  $. In other words, $c$ is an element of $\left\{  1,2,\ldots
+,n\right\}  $ and satisfies $c\perp n$. Clearly, the integer $c$ is positive
+(since $c\in\left\{  1,2,\ldots,n\right\}  $) and we have $\gcd\left(
+c,n\right)  =1$ (since $c\perp n$).
+\par
+Furthermore, $c$ is medium; in other words, $c=n-c$. Thus, $2c=n$, so that
+$n=2c=c\cdot2$. Hence, $c\mid n$. Thus, Proposition \ref{prop.ent.gcd.props1}
+\textbf{(i)} (applied to $a=c$ and $b=n$) yields $\gcd\left(  c,n\right)
+=\left\vert c\right\vert =c$ (since $c$ is positive). But from $2c=n$, we also
+obtain $c=n/2>2/2$ (since $n>2$). Thus, $\gcd\left(  c,n\right)  =c>2/2=1$.
+This contradicts $\gcd\left(  c,n\right)  =1$.
+\par
+Forget that we fixed $c$. We thus have obtained a contradiction for each
+medium element $c$ of $C$. Thus, there are no such elements. In other words,
+the set $C$ has no medium elements.}. In other words,%
+\[
+\left\vert \left\{  \text{medium elements of }C\right\}  \right\vert =0.
+\]
+
+
+Furthermore, if $c\in C$, then $n-c\in C$\ \ \ \ \footnote{\textit{Proof.} Let
+$c\in C$.
+\par
+We have $c\in C=\left\{  i\in\left\{  1,2,\ldots,n\right\}  \ \mid\ i\perp
+n\right\}  $. In other words, $c$ is an element of $\left\{  1,2,\ldots
+,n\right\}  $ and satisfies $c\perp n$. From $c\perp n$, we obtain $n\perp c$
+(by Proposition \ref{prop.ent.coprime.perp-symm}) and thus $\gcd\left(
+n,c\right)  =1$.
+\par
+But $n\mid n$. Hence, Proposition \ref{prop.ent.gcd.props1} \textbf{(i)}
+(applied to $a=n$ and $b=n$) yields $\gcd\left(  n,n\right)  =\left\vert
+n\right\vert =n$ (since $n$ is positive). Thus, $\gcd\left(  n,n\right)
+=n>2>1$, so that $\gcd\left(  n,n\right)  \neq1=\gcd\left(  n,c\right)  $ and
+therefore $n\neq c$. In other words, $c\neq n$.
+\par
+Combining $c\in\left\{  1,2,\ldots,n\right\}  $ with $c\neq n$, we find
+$c\in\left\{  1,2,\ldots,n\right\}  \setminus\left\{  n\right\}  =\left\{
+1,2,\ldots,n-1\right\}  $. Hence, $n-c\in\left\{  1,2,\ldots,n-1\right\}
+\subseteq\left\{  1,2,\ldots,n\right\}  $.
+\par
+We have $\underbrace{n}_{\equiv0\operatorname{mod}n}-c\equiv
+-c\operatorname{mod}n$. Hence, Proposition \ref{prop.ent.gcd.props1}
+\textbf{(d)} (applied to $n$, $n-c$ and $-c$ instead of $a$, $b$ and $c$)
+yields
+\begin{align*}
+\gcd\left(  n,n-c\right)   &  =\gcd\left(  n,-c\right)  =\gcd\left(
+n,c\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition
+\ref{prop.ent.gcd.props1} \textbf{(h)} (applied to }a=n\text{ and
+}b=-c\text{)}\right) \\
+&  =1.
+\end{align*}
+In other words, $n\perp n-c$. In other words, $n-c\perp n$ (by Proposition
+\ref{prop.ent.coprime.perp-symm}).
+\par
+Combining this with $n-c\in\left\{  1,2,\ldots,n\right\}  $, we conclude that
+$n-c$ is an $i\in\left\{  1,2,\ldots,n\right\}  $ satisfying $i\perp n$. In
+other words, $n-c\in\left\{  i\in\left\{  1,2,\ldots,n\right\}  \ \mid\ i\perp
+n\right\}  =C$. Qed.}. This allows us to define a map%
+\begin{align*}
+F:C  &  \rightarrow C,\\
+c  &  \mapsto n-c.
+\end{align*}
+This map $F$ has the property that $F\circ F=\operatorname*{id}$, because each
+$c\in C$ satisfies%
+\begin{align*}
+\left(  F\circ F\right)  \left(  c\right)   &  =F\left(  \underbrace{F\left(
+c\right)  }_{\substack{=n-c\\\text{(by the definition of }F\text{)}}}\right)
+=F\left(  n-c\right) \\
+&  =n-\left(  n-c\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition
+of }F\right) \\
+&  =c=\operatorname*{id}\left(  c\right)  .
+\end{align*}
+Hence, the map $F$ is inverse to itself. Thus, the map $F$ is invertible,
+i.e., is a bijection.
+
+It is easy to see that if $c$ is a small element of $C$, then $F\left(
+c\right)  $ is a large element of $C$\ \ \ \ \footnote{\textit{Proof.} Let $c$
+be a small element of $C$. Thus, $c<n-c$. Hence, $n-c>c=n-\left(  n-c\right)
+$. In view of $F\left(  c\right)  =n-c$, this rewrites as $F\left(  c\right)
+>n-F\left(  c\right)  $. In other words, $F\left(  c\right)  $ is a large
+element of $C$ (by the definition of \textquotedblleft large\textquotedblright%
+). Qed.}. Hence, the map%
+\begin{align*}
+F^{+}:\left\{  \text{small elements of }C\right\}   &  \rightarrow\left\{
+\text{large elements of }C\right\}  ,\\
+c  &  \mapsto F\left(  c\right)
+\end{align*}
+is well-defined. Similarly, the map%
+\begin{align*}
+F^{-}:\left\{  \text{large elements of }C\right\}   &  \rightarrow\left\{
+\text{small elements of }C\right\}  ,\\
+c  &  \mapsto F\left(  c\right)
+\end{align*}
+is well-defined. These two maps $F^{+}$ and $F^{-}$ are both restrictions of
+the map $F$, and thus are mutually inverse (since the map $F$ is inverse to
+itself). Hence, the map $F^{+}$ is invertible, i.e., is a bijection. Thus, we
+have found a bijection from $\left\{  \text{small elements of }C\right\}  $ to
+$\left\{  \text{large elements of }C\right\}  $ (namely, $F^{+}$). Therefore,%
+\[
+\left\vert \left\{  \text{small elements of }C\right\}  \right\vert
+=\left\vert \left\{  \text{large elements of }C\right\}  \right\vert .
+\]
+
+
+Now, (\ref{eq.def.ent.phi.phi.1}) yields%
+\begin{align*}
+\phi\left(  n\right)   &  =\left\vert \underbrace{\left\{  i\in\left\{
+1,2,\ldots,n\right\}  \ \mid\ i\perp n\right\}  }_{=C}\right\vert =\left\vert
+C\right\vert \\
+&  =\underbrace{\left\vert \left\{  \text{small elements of }C\right\}
+\right\vert }_{=\left\vert \left\{  \text{large elements of }C\right\}
+\right\vert }+\underbrace{\left\vert \left\{  \text{medium elements of
+}C\right\}  \right\vert }_{=0}+\left\vert \left\{  \text{large elements of
+}C\right\}  \right\vert \\
+&  \ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{since each element of }C\text{ is either small or medium or large}\\
+\text{(and there is no overlap between these three classes of elements)}%
+\end{array}
+\right) \\
+&  =\left\vert \left\{  \text{large elements of }C\right\}  \right\vert
++\left\vert \left\{  \text{large elements of }C\right\}  \right\vert \\
+&  =2\cdot\left\vert \left\{  \text{large elements of }C\right\}  \right\vert
+.
+\end{align*}
+Thus, $2\mid\phi\left(  n\right)  $ (since $\left\vert \left\{  \text{large
+elements of }C\right\}  \right\vert $ is an integer). In other words,
+$\phi\left(  n\right)  $ is even. This solves Exercise \ref{exe.ent.phi.even}.
+\end{proof}
+\end{fineprint}
 
 \begin{center}
 \textbf{2019-02-15 lecture}
@@ -11447,7 +11722,7 @@ We will prove this later, after defining $\mathbb{Z}/\left(  p\right)  $.
 
 Theorem \ref{thm.ent.wilson} has a converse: If an integer $p>1$ satisfies
 $\left(  p-1\right)  !\equiv-1\operatorname{mod}p$, then $p$ is a prime. (This
-is actually easier to porove than Theorem \ref{thm.ent.wilson} itself.)
+is actually easier to prove than Theorem \ref{thm.ent.wilson} itself.)
 
 \begin{center}
 \textbf{2019-02-18 lecture}
