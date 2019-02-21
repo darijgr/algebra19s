@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Thursday, February 21, 2019 00:42:51}
+%TCIDATA{LastRevised=Thursday, February 21, 2019 01:25:15}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -7648,10 +7648,10 @@ There is also a version of Theorem \ref{thm.ent.crt1} for multiple integers:
 integers. Let $a_{1},a_{2},\ldots,a_{k}\in\mathbb{Z}$.
 
 \textbf{(a)} There exists an integer $x$ such that
-\[
+\begin{equation}
 \left(  x\equiv a_{i}\operatorname{mod}m_{i}\text{ for all }i\in\left\{
-1,2,\ldots,k\right\}  \right)  .
-\]
+1,2,\ldots,k\right\}  \right)  . \label{eq.thm.ent.crt1k.1}%
+\end{equation}
 
 
 \textbf{(b)} If $x_{1}$ and $x_{2}$ are two such integers $x$, then
@@ -7662,8 +7662,183 @@ Again, Theorem \ref{thm.ent.crt1k} \textbf{(b)} is often stated in the form
 \textquotedblleft This integer $x$ is unique modulo $m_{1}m_{2}\cdots m_{k}%
 $\textquotedblright.
 
+Clearly, Theorem \ref{thm.ent.crt1} is the particular case of Theorem
+\ref{thm.ent.crt1k} obtained for $k=2$.
+
 \begin{proof}
-[Proof of Theorem \ref{thm.ent.crt1k}.]TODO: Exercise on induction.
+[Proof of Theorem \ref{thm.ent.crt1k}.]Forget that we fixed $k$ and
+$m_{1},m_{2},\ldots,m_{k}$ and $a_{1},a_{2},\ldots,a_{k}$.
+
+\textbf{(a)} We shall prove Theorem \ref{thm.ent.crt1k} \textbf{(a)} by
+induction on $k$:
+
+\textit{Induction base:} Let us check that Theorem \ref{thm.ent.crt1k}
+\textbf{(a)} holds for $k=0$. Indeed, if $k=0$, then Theorem
+\ref{thm.ent.crt1k} \textbf{(a)} states the following:
+
+\begin{statement}
+\textit{Claim 0:} Let $m_{1},m_{2},\ldots,m_{0}$ be $0$ mutually coprime
+integers. Let $a_{1},a_{2},\ldots,a_{0}\in\mathbb{Z}$. There exists an integer
+$x$ such that
+\begin{equation}
+\left(  x\equiv a_{i}\operatorname{mod}m_{i}\text{ for all }i\in\left\{
+1,2,\ldots,0\right\}  \right)  . \label{pf.thm.ent.crt1k.a.c0.claim}%
+\end{equation}
+
+\end{statement}
+
+But Claim 0 is true, because (\ref{pf.thm.ent.crt1k.a.c0.claim}) is vacuously
+true\footnote{since there exists no $i\in\left\{  1,2,\ldots,0\right\}  $} for
+\textbf{any} integer $x$ (so we can take, for example, $x=0$). In other words,
+Theorem \ref{thm.ent.crt1k} \textbf{(a)} holds for $k=0$; thus, the induction
+base is complete.
+
+Needless to say, Claim 0 is not an interesting statement, but it is a
+perfectly valid induction base! (But you are free to check the case $k=1$ by
+hand -- its proof is almost as easy as that for $k=0$.)
+
+\textit{Induction step:} Let $\ell$ be a positive integer. Assume that Theorem
+\ref{thm.ent.crt1k} \textbf{(a)} holds for $k=\ell-1$. We must now prove that
+Theorem \ref{thm.ent.crt1k} \textbf{(a)} holds for $k=\ell$.
+
+We have assumed that Theorem \ref{thm.ent.crt1k} \textbf{(a)} holds for
+$k=\ell-1$. In other words, the following claim holds:
+
+\begin{statement}
+\textit{Claim 1:} Let $m_{1},m_{2},\ldots,m_{\ell-1}$ be $\ell-1$ mutually
+coprime integers. Let $a_{1},a_{2},\ldots,a_{\ell-1}\in\mathbb{Z}$. There
+exists an integer $x$ such that
+\begin{equation}
+\left(  x\equiv a_{i}\operatorname{mod}m_{i}\text{ for all }i\in\left\{
+1,2,\ldots,\ell-1\right\}  \right)  . \label{pf.thm.ent.crt1k.a.c1.claim}%
+\end{equation}
+
+\end{statement}
+
+We must prove that Theorem \ref{thm.ent.crt1k} \textbf{(a)} holds for $k=\ell
+$. In other words, we must prove the following claim:
+
+\begin{statement}
+\textit{Claim 2:} Let $m_{1},m_{2},\ldots,m_{\ell}$ be $\ell$ mutually coprime
+integers. Let $a_{1},a_{2},\ldots,a_{\ell}\in\mathbb{Z}$. There exists an
+integer $x$ such that
+\begin{equation}
+\left(  x\equiv a_{i}\operatorname{mod}m_{i}\text{ for all }i\in\left\{
+1,2,\ldots,\ell\right\}  \right)  . \label{pf.thm.ent.crt1k.a.c2.claim}%
+\end{equation}
+
+\end{statement}
+
+[\textit{Proof of Claim 2:} The main idea of this proof is to combine Claim 1
+(applied to $m_{1},m_{2},\ldots,m_{\ell-1}$) with Theorem \ref{thm.ent.crt1}
+(applied to the coprime integers $m_{1}m_{2}\cdots m_{\ell-1}$ and $m_{\ell}%
+$). In details:
+
+The $\ell$ integers $m_{1},m_{2},\ldots,m_{\ell}$ are mutually coprime. Thus,
+the $\ell-1$ integers $m_{1},m_{2},\ldots,m_{\ell-1}$ are mutually coprime.
+Hence, Claim 1 shows that there exists an integer $x$ such that
+\[
+\left(  x\equiv a_{i}\operatorname{mod}m_{i}\text{ for all }i\in\left\{
+1,2,\ldots,\ell-1\right\}  \right)  .
+\]
+Consider this $x$, and denote it by $u$. Thus, $u$ is an integer such that%
+\begin{equation}
+\left(  u\equiv a_{i}\operatorname{mod}m_{i}\text{ for all }i\in\left\{
+1,2,\ldots,\ell-1\right\}  \right)  . \label{pf.thm.ent.crt1k.a.c2.pf.u}%
+\end{equation}
+
+
+Define an integer $m=m_{1}m_{2}\cdots m_{\ell-1}$.
+
+The integers $m$ and $m_{\ell}$ are coprime\footnote{\textit{Proof.} Recall
+that the $\ell$ integers $m_{1},m_{2},\ldots,m_{\ell}$ are mutually coprime.
+In other words, $m_{i}\perp m_{j}$ for any $i,j\in\left\{  1,2,\ldots
+,\ell\right\}  $ satisfying $i\neq j$. Applying this to $j=\ell$, we conclude
+that $m_{i}\perp m_{\ell}$ for any $i\in\left\{  1,2,\ldots,\ell\right\}  $
+satisfying $i\neq\ell$. In other words, $m_{i}\perp m_{\ell}$ for any
+$i\in\left\{  1,2,\ldots,\ell-1\right\}  $ (since the numbers $i\in\left\{
+1,2,\ldots,\ell\right\}  $ satisfying $i\neq\ell$ are precisely the numbers
+$i\in\left\{  1,2,\ldots,\ell-1\right\}  $). In other words, each
+$i\in\left\{  1,2,\ldots,\ell-1\right\}  $ satisfies $m_{i}\perp m_{\ell}$.
+Hence, Exercise \ref{exe.ent.coprime.ab-to-ck} (applied to $c=m_{\ell}$,
+$k=\ell-1$ and $a_{i}=m_{i}$) yields that $m_{1}m_{2}\cdots m_{\ell-1}\perp
+m_{\ell}$. This rewrites as $m\perp m_{\ell}$ (since $m=m_{1}m_{2}\cdots
+m_{\ell-1}$). In other words, the integers $m$ and $m_{\ell}$ are coprime.}.
+Hence, Theorem \ref{thm.ent.crt1} \textbf{(a)} (applied to $n=m_{\ell}$, $a=u$
+and $b=a_{\ell}$) yields that there exists an integer $x\in\mathbb{Z}$ such
+that%
+\[
+\left(  x\equiv u\operatorname{mod}m\text{ and }x\equiv a_{\ell}%
+\operatorname{mod}m_{\ell}\right)  .
+\]
+Consider this $x$, and denote it by $v$. Thus, $v$ is an integer such that%
+\[
+\left(  v\equiv u\operatorname{mod}m\text{ and }v\equiv a_{\ell}%
+\operatorname{mod}m_{\ell}\right)  .
+\]
+
+
+Now, let $i\in\left\{  1,2,\ldots,\ell-1\right\}  $. Then,
+\[
+m=m_{1}m_{2}\cdots m_{\ell-1}=m_{i}\cdot\left(  m_{1}m_{2}\cdots
+m_{i-1}m_{i+1}m_{i+2}\cdots m_{\ell}\right)  ;
+\]
+thus, $m_{i}\mid m$ (since $m_{1}m_{2}\cdots m_{i-1}m_{i+1}m_{i+2}\cdots
+m_{\ell}$ is an integer). But as we just have shown, we have $v\equiv
+u\operatorname{mod}m$. Hence, Proposition \ref{prop.ent.mod.basics}
+\textbf{(e)} (applied to $v$, $u$, $m$ and $m_{i}$ instead of $a$, $b$, $n$
+and $m$) yields $v\equiv u\operatorname{mod}m_{i}$ (since $m_{i}\mid m$).
+Hence,
+\[
+v\equiv u\equiv a_{i}\operatorname{mod}m_{i}\ \ \ \ \ \ \ \ \ \ \left(
+\text{by (\ref{pf.thm.ent.crt1k.a.c2.pf.u})}\right)  .
+\]
+
+
+Now, forget that we fixed $i$. We thus have proven the congruence $v\equiv
+a_{i}\operatorname{mod}m_{i}$ for each $i\in\left\{  1,2,\ldots,\ell
+-1\right\}  $. But this congruence also holds for $i=\ell$ (since $v\equiv
+a_{\ell}\operatorname{mod}m_{\ell}$). Hence, this congruence holds for all
+$i\in\left\{  1,2,\ldots,\ell\right\}  $. In other words, we have%
+\[
+v\equiv a_{i}\operatorname{mod}m_{i}\text{ for all }i\in\left\{
+1,2,\ldots,\ell\right\}  \text{.}%
+\]
+Thus, there exists an integer $x$ such that
+\[
+\left(  x\equiv a_{i}\operatorname{mod}m_{i}\text{ for all }i\in\left\{
+1,2,\ldots,\ell\right\}  \right)
+\]
+(namely, $x=v$). This proves Claim 2.]
+
+We have now proven Claim 2. In other words, Theorem \ref{thm.ent.crt1k}
+\textbf{(a)} is true for $k=\ell$. Thus, the induction step is complete, so we
+have proven Theorem \ref{thm.ent.crt1k} \textbf{(a)} by induction.
+
+\textbf{(b)} Let $k$ and $m_{1},m_{2},\ldots,m_{k}$ and $a_{1},a_{2}%
+,\ldots,a_{k}$ be as in Theorem \ref{thm.ent.crt1k}. Let $x_{1}$ and $x_{2}$
+be two integers $x$ such that (\ref{eq.thm.ent.crt1k.1}). We must prove that
+$x_{1}\equiv x_{2}\operatorname{mod}m_{1}m_{2}\cdots m_{k}$.
+
+We know that $x_{1}$ is an integer $x$ such that (\ref{eq.thm.ent.crt1k.1}).
+In other words, $x_{1}$ is an integer and has the property that%
+\begin{equation}
+\left(  x_{1}\equiv a_{i}\operatorname{mod}m_{i}\text{ for all }i\in\left\{
+1,2,\ldots,k\right\}  \right)  . \label{pf.thm.ent.crt1k.b.x1}%
+\end{equation}
+Now, let $i\in\left\{  1,2,\ldots,k\right\}  $. Then,
+(\ref{pf.thm.ent.crt1k.b.x1}) yields $x_{1}\equiv a_{i}\operatorname{mod}%
+m_{i}$. Similarly, $x_{2}\equiv a_{i}\operatorname{mod}m_{i}$. Hence,
+$x_{1}\equiv a_{i}\equiv x_{2}\operatorname{mod}m_{i}$. In other words,
+$m_{i}\mid x_{1}-x_{2}$.
+
+Now, forget that we fixed $i$. We thus have shown that $m_{i}\mid x_{1}-x_{2}$
+for each $i\in\left\{  1,2,\ldots,k\right\}  $. Hence, Exercise
+\ref{exe.ent.coprime.combinek} (applied to $c=x_{1}-x_{2}$ and $b_{i}=m_{i}$)
+shows that $m_{1}m_{2}\cdots m_{k}\mid x_{1}-x_{2}$ (since $m_{1},m_{2}%
+,\ldots,m_{k}$ are mutually coprime). In other words, $x_{1}\equiv
+x_{2}\operatorname{mod}m_{1}m_{2}\cdots m_{k}$. This proves Theorem
+\ref{thm.ent.crt1k} \textbf{(b)}.
 \end{proof}
 
 \subsection{Primes}
@@ -9090,14 +9265,14 @@ You have seen finite products such as\footnote{Here and in the following, $n!$
 denotes the product $1\cdot2\cdot\cdots\cdot n$ whenever $n\in\mathbb{N}$.
 Thus, in particular,
 \begin{align*}
-0!  & =\left(  \text{empty product}\right)
+0!  &  =\left(  \text{empty product}\right)
 =1,\ \ \ \ \ \ \ \ \ \ 1!=1,\ \ \ \ \ \ \ \ \ \ 2!=1\cdot2=2,\\
-3!  & =1\cdot2\cdot3=6,\ \ \ \ \ \ \ \ \ \ 4!=1\cdot2\cdot3\cdot
+3!  &  =1\cdot2\cdot3=6,\ \ \ \ \ \ \ \ \ \ 4!=1\cdot2\cdot3\cdot
 4=24,\ \ \ \ \ \ \ \ \ \ 5!=1\cdot2\cdot3\cdot4\cdot5=120.
 \end{align*}
 }
 \begin{align*}
-\prod_{i\in\left\{  1,2,3,4,5\right\}  }i &  =1\cdot2\cdot3\cdot
+\prod_{i\in\left\{  1,2,3,4,5\right\}  }i  &  =1\cdot2\cdot3\cdot
 4\cdot5=5!=120\ \ \ \ \ \ \ \ \ \ \text{and}\\
 \prod_{i\in\left\{  3,5,7\right\}  }\left(  i^{2}+1\right)   &  =\left(
 3^{2}+1\right)  \cdot\left(  5^{2}+1\right)  \cdot\left(  7^{2}+1\right)
@@ -11335,11 +11510,12 @@ all $n\in\mathbb{Q}$. Thus, for example,%
 n-1\right)  \left(  n-2\right)  }{6}$ for all $n\in\mathbb{Q}$. Thus, for
 example,%
 \begin{align*}
-\dbinom{5}{3} &  =\dfrac{5\cdot4\cdot3}{6}=\dfrac{60}{6}=10;\\
-\dbinom{1}{3} &  =\dfrac{1\cdot0\cdot\left(  -1\right)  }{6}=\dfrac{0}{6}=0;\\
-\dbinom{-2}{3} &  =\dfrac{\left(  -2\right)  \cdot\left(  -3\right)
+\dbinom{5}{3}  &  =\dfrac{5\cdot4\cdot3}{6}=\dfrac{60}{6}=10;\\
+\dbinom{1}{3}  &  =\dfrac{1\cdot0\cdot\left(  -1\right)  }{6}=\dfrac{0}%
+{6}=0;\\
+\dbinom{-2}{3}  &  =\dfrac{\left(  -2\right)  \cdot\left(  -3\right)
 \cdot\left(  -4\right)  }{6}=\dfrac{-24}{6}=-4;\\
-\dbinom{1/2}{3} &  =\dfrac{\left(  1/2\right)  \cdot\left(  -1/2\right)
+\dbinom{1/2}{3}  &  =\dfrac{\left(  1/2\right)  \cdot\left(  -1/2\right)
 \cdot\left(  -3/2\right)  }{6}=\dfrac{3/8}{6}=\dfrac{1}{16}.
 \end{align*}
 
