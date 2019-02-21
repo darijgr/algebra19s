@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Wednesday, February 20, 2019 09:56:58}
+%TCIDATA{LastRevised=Wednesday, February 20, 2019 21:05:40}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -11665,27 +11665,28 @@ TODO.
 
 TODO:
 
-
-
 \subsubsection{Integer-valued polynomials}
 
 \begin{definition}
 A polynomial $f$ with rational coefficients (or real coefficients) is said to
-be \textbf{integer-valued} if $\left(  f\left(  n\right)  \in\mathbb{Z}\text{
+be \textit{integer-valued} if $\left(  f\left(  n\right)  \in\mathbb{Z}\text{
 for all }n\in\mathbb{Z}\right)  $.
 \end{definition}
 
-This is \textbf{not} the same as having integer coefficients!
+Of course, a polynomial with integer coefficients is always integer-valued.
+
+But there are other integer-valued polynomials, too.
 
 For example, $\dbinom{x}{2}=\dfrac{x\left(  x-1\right)  }{2}$ is
-integer-valued, but its coefficients are $\dfrac{1}{2},-\dfrac{1}{2},0-$
+integer-valued, but its coefficients are $\dfrac{1}{2},-\dfrac{1}{2},0$.
 
 For another example, if $p$ is any prime, then $\dfrac{x^{p}-x}{p}$ is
 integer-valued (since Fermat's Little Theorem yields $a^{p}\equiv
 a\operatorname{mod}p$ for each $a\in\mathbb{Z}$, which means that
 $\dfrac{a^{p}-a}{p}\in\mathbb{Z}$ for each $a\in\mathbb{Z}$).
 
-$\Longrightarrow$ \textbf{Question:} How can we describe the integer-valued polynomials?
+This suggests the following \textbf{Question:} How can we describe the
+integer-valued polynomials?
 
 \begin{theorem}
 A polynomial $f$ (with rational coefficients) is integer-valued if and only if
@@ -11723,14 +11724,24 @@ integer-valued if and only if these $a_{k},a_{k-1},\ldots,a_{0}$ are integers.
 
 \subsection{Equivalence relations}
 
+Loosely speaking, a \textit{relation} on a set $S$ is a property that a pair
+$\left(  a,b\right)  \in S\times S$ of two elements of $S$ can either have or
+not have. For example, equality (denoted $=$) is a relation, since a pair
+$\left(  a,b\right)  \in S\times S$ is either equal (i.e., satisfies $a=b$) or
+not equal. Likewise, the divisibility relation (denoted $\mid$) is a relation
+on $\mathbb{Z}$, since a pair $\left(  a,b\right)  \in\mathbb{Z}%
+\times\mathbb{Z}$ either satisfies $a\mid b$ or does not.
+
+A formal definition of relations proceeds as follows:
+
 \begin{definition}
-Fix a set $S$. A \textbf{binary relation} on $S$ is (rigorously) a subset of
-$S\times S$ (that is, a set of pairs of elements of $S$).
+Fix a set $S$. A \textit{binary relation} on $S$ is a subset of $S\times S$
+(that is, a set of pairs of elements of $S$).
 
 If $R$ is a binary relation (on $S$), and if $a,b\in S$, then we write $aRb$
 for $\left(  a,b\right)  \in R$.
 
-The word \textquotedblleft\textbf{relation}\textquotedblright\ shall always
+The word \textquotedblleft\textit{relation}\textquotedblright\ shall always
 mean \textquotedblleft binary relation\textquotedblright\ unless we say otherwise.
 \end{definition}
 
@@ -11740,7 +11751,7 @@ Let $S=\mathbb{Z}$.
 \textbf{(a)} The relation $=$ is a binary relation on $S$. As a subset of
 $S\times S$, it is%
 \begin{align*}
-&  \left\{  \left(  a,b\right)  \in S\ \mid\ a=b\right\} \\
+&  \left\{  \left(  a,b\right)  \in S\times S\ \mid\ a=b\right\}  \\
 &  =\left\{  \left(  c,c\right)  \ \mid\ c\in S\right\}  =\left\{
 \ldots,\left(  -1,-1\right)  ,\left(  0,0\right)  ,\left(  1,1\right)
 ,\ldots\right\}  .
@@ -11750,67 +11761,81 @@ $S\times S$, it is%
 \textbf{(b)} The relation $<$ is a binary relation on $S$. As a subset of
 $S\times S$, it is%
 \[
-\left\{  \left(  a,b\right)  \in S\ \mid\ a<b\right\}  .
+\left\{  \left(  a,b\right)  \in S\times S\ \mid\ a<b\right\}  .
 \]
 
 
-\textbf{(c)} The relation $\leq$ is a binary relation on $S$.
+\textbf{(c)} The relation $\leq$ is a binary relation on $S$. As a subset of
+$S\times S$, it is%
+\[
+\left\{  \left(  a,b\right)  \in S\times S\ \mid\ a\leq b\right\}  .
+\]
 
-\textbf{(d)} Fix $n\in\mathbb{Z}$. Define a relation $\underset{n}{\equiv}$
-by
+
+\textbf{(d)} The relation $\neq$ is also a binary relation on $S$.
+
+\textbf{(e)} Fix $n\in\mathbb{Z}$. Define a relation $\underset{n}{\equiv}$ on
+$\mathbb{Z}$ by
 \[
 \left(  a\underset{n}{\equiv}b\right)  \Longleftrightarrow\left(  a\equiv
 b\operatorname{mod}n\right)  .
 \]
-Then, $\underset{n}{\equiv}$ is a relation on $S=\mathbb{Z}$, and is given by%
-\begin{align*}
-&  \left\{  \left(  a,b\right)  \in S\ \mid\ a\equiv b\operatorname{mod}%
-n\right\} \\
-&  =\left\{  \left(  c,c+nd\right)  \ \mid\ c,d\in\mathbb{Z}\right\}  .
-\end{align*}
+As a subset of $S\times S=\mathbb{Z}\times\mathbb{Z}$, this relation
+$\underset{n}{\equiv}$ is%
+\[
+\left\{  \left(  a,b\right)  \in S\times S\ \mid\ a\equiv b\operatorname{mod}%
+n\right\}  =\left\{  \left(  c,c+nd\right)  \ \mid\ c,d\in\mathbb{Z}\right\}
+.
+\]
 
 
-\textbf{(e)} The relation $\neq$ is a binary relation on $S$.
-
-\textbf{(f)} Define a relation $N$ by%
+\textbf{(f)} Define a binary relation $N$ on $S$ by%
 \[
 \left(  aNb\right)  \Longleftrightarrow\left(  \text{false}\right)
 \]
-(that is, $aNb$ never holds). This is, too, a binary relation on $S$, namely
-the empty subset of $S\times S$.
+(that is, $aNb$ never holds). As a subset of $S\times S$, this relation $N$ is
+just the empty subset of $S\times S$.
+
+\textbf{(g)} The relation $\mid$ (divisibility) is also a relation on
+$S=\mathbb{Z}$.
 \end{example}
 
 \begin{definition}
 Let $R$ be a binary relation on a set $S$.
 
-\textbf{(a)} We say that $R$ is \textbf{reflexive} if every $a\in S$ satisfies
+\textbf{(a)} We say that $R$ is \textit{reflexive} if every $a\in S$ satisfies
 $aRa$.
 
-\textbf{(b)} We say that $R$ is \textbf{symmetric} if every $a,b\in S$
+\textbf{(b)} We say that $R$ is \textit{symmetric} if every $a,b\in S$
 satisfying $aRb$ satisfy $bRa$.
 
-\textbf{(c)} We say that $R$ is \textbf{transitive} if every $a,b,c\in S$
+\textbf{(c)} We say that $R$ is \textit{transitive} if every $a,b,c\in S$
 satisfying $aRb$ and $bRc$ satisfy $aRc$.
 \end{definition}
 
 In the above example:
 
 \begin{itemize}
-\item $=$ is reflexive, symmetric and transitive;
+\item $=$ is reflexive, symmetric and transitive.
 
-\item $<$ is transitive but neither reflexive nor symmetric;
+\item $<$ is transitive, but neither reflexive nor symmetric.
 
-\item $\leq$ is reflexive and transitive but not symmetric;
+\item $\leq$ is reflexive and transitive, but not symmetric.
 
-\item $\underset{n}{\equiv}$ is reflexive, symmetric and transitive;
+\item $\neq$ is symmetric, but neither reflexive (since we do not have $a\neq
+a$) nor transitive.
 
-\item $\neq$ is symmetric but neither reflexive nor transitive.
+\item For any $n\in\mathbb{Z}$, the relation $\underset{n}{\equiv}$ is
+reflexive, symmetric and transitive.
 
-\item $N$ is symmetric and transitive but not reflexive.
+\item $N$ is symmetric and transitive\footnote{In fact, both of these
+statements are vacuously true.}, but not reflexive.
+
+\item $\mid$ is reflexive and transitive, but not symmetric.
 \end{itemize}
 
 \begin{definition}
-An \textbf{equivalence relation} on a set $S$ means a relation on $S$ that is
+An \textit{equivalence relation} on a set $S$ means a relation on $S$ that is
 reflexive, symmetric and transitive.
 \end{definition}
 
@@ -11818,11 +11843,12 @@ reflexive, symmetric and transitive.
 \textbf{(a)} The equality relation $=$ on any set $S$ is an equivalence relation.
 
 \textbf{(b)} For each $n\in\mathbb{Z}$, the congruence relation
-$\underset{n}{\equiv}$ is an equivalence relation.
+$\underset{n}{\equiv}$ on $\mathbb{Z}$ is an equivalence relation.
 
-\textbf{(c)} From elementary plane geometry: Congruence (e.g., of triangles)
-is an equivalence relation. Same for similarity. Same for direct similarity
-(meaning similarity and having the same orientation). Same for parallelism of lines.
+\textbf{(c)} Here are some examples from elementary plane geometry: Congruence
+(e.g., of triangles) is an equivalence relation. Same for similarity. Same for
+direct similarity (meaning similarity and having the same orientation). Same
+for parallelism of lines.
 
 \textbf{(d)} Let $S$ and $T$ be two sets, and let $f:S\rightarrow T$ be a map.
 Define a relation $\underset{f}{\equiv}$ on $S$ by%
@@ -11830,11 +11856,20 @@ Define a relation $\underset{f}{\equiv}$ on $S$ by%
 \left(  a\underset{f}{\equiv}b\right)  \Longleftrightarrow\left(  f\left(
 a\right)  =f\left(  b\right)  \right)  .
 \]
-This relation $\underset{f}{\equiv}$ is an equivalence relation. We will later
-see that \textbf{every} equivalence relation is actually of the form
-$\underset{f}{\equiv}$.
+This relation $\underset{f}{\equiv}$ is an equivalence relation.
 
-\textbf{(e)} Let
+We will soon learn that \textbf{every} equivalence relation on $S$ is actually
+of the form $\underset{f}{\equiv}$ for some $T$ and $f$.
+
+\textbf{(e)} Let $S=\left\{  \text{towns}\right\}  $, and let $\sim$ be the
+relation on $S$ is defined by%
+\[
+\left(  a\sim b\right)  \Longleftrightarrow\left(  \text{there is a land route
+from }a\text{ to }b\right)  .
+\]
+This $\sim$ is an equivalence relation.
+
+\textbf{(f)} Let
 \[
 S=\mathbb{Z}\times\left(  \mathbb{Z}\setminus\left\{  0\right\}  \right)
 =\left\{  \left(  a,b\right)  \ \mid\ a\in\mathbb{Z}\text{ and }b\in
@@ -11876,45 +11911,55 @@ and only if $\dfrac{a}{b}=\dfrac{c}{d}$ (but we have stated it without division)
 
 \subsection{Equivalence classes}
 
+\begin{proposition}
+Let $\sim$ be a symmetric relation on a set $S$. Let $a,b\in S$. Then, $a\sim
+b$ if and only if $b\sim a$.
+\end{proposition}
+
 \begin{definition}
 Let $\sim$ be an equivalence relation on a set $S$.
 
-\textbf{(a)} For each $a\in S$, we let $\left[  a\right]  _{\sim}$ be the set%
-\begin{align*}
-&  \left\{  b\in S\ \mid\ a\sim b\right\} \\
-&  =\left\{  b\in S\ \mid\ b\sim a\right\}  .
-\end{align*}
-This set $\left[  a\right]  _{\sim}$ is called the \textbf{equivalence class}
-of $a$.
+\textbf{(a)} For each $a\in S$, we let $\left[  a\right]  _{\sim}$ be the
+subset
+\[
+\left\{  b\in S\ \mid\ a\sim b\right\}  =\left\{  b\in S\ \mid\ b\sim
+a\right\}
+\]
+of $S$ (note that the equality sign here follows from the previous
+proposition). This subset $\left[  a\right]  _{\sim}$ is called the
+\textit{equivalence class} of $a$.
 
-\textbf{(b)} The \textbf{equivalence classes} of $\sim$ are just the sets
+\textbf{(b)} The \textit{equivalence classes} of $\sim$ are just the sets
 $\left[  a\right]  _{\sim}$ for $a\in S$.
 \end{definition}
 
 \begin{example}
 Consider the relation $\underset{3}{\equiv}$ on $\mathbb{Z}$. We have%
 \begin{align*}
-\left[  5\right]  _{\sim}  &  =\left\{  b\in\mathbb{Z}\ \mid
+\left[  5\right]  _{\sim} &  =\left\{  b\in\mathbb{Z}\ \mid
 \ 5\underset{3}{\equiv}b\right\}  =\left\{  b\in\mathbb{Z}\ \mid\ 5\equiv
-b\operatorname{mod}3\right\} \\
+b\operatorname{mod}3\right\}  \\
 &  =\left\{  \ldots,-4,-1,2,5,8,11,14,\ldots\right\}
 \end{align*}
 and%
 \begin{align*}
-\left[  3\right]  _{\sim}  &  =\left\{  b\in\mathbb{Z}\ \mid
+\left[  3\right]  _{\sim} &  =\left\{  b\in\mathbb{Z}\ \mid
 \ 3\underset{3}{\equiv}b\right\}  =\left\{  b\in\mathbb{Z}\ \mid\ 3\equiv
-b\operatorname{mod}3\right\} \\
-&  =\left\{  \ldots,-6,-3,0,3,6,9,\ldots\right\}
+b\operatorname{mod}3\right\}  \\
+&  =\left\{  \ldots,-6,-3,0,3,6,9,12,\ldots\right\}
 \end{align*}
 and%
 \begin{align*}
-\left[  2\right]  _{\sim}  &  =\left\{  b\in\mathbb{Z}\ \mid
+\left[  2\right]  _{\sim} &  =\left\{  b\in\mathbb{Z}\ \mid
 \ 2\underset{3}{\equiv}b\right\}  =\left\{  b\in\mathbb{Z}\ \mid\ 2\equiv
-b\operatorname{mod}3\right\} \\
-&  =\left\{  \ldots,-4,-1,2,5,8,11,14,\ldots\right\} \\
-&  =\left[  5\right]  _{\sim}.
+b\operatorname{mod}3\right\}  \\
+&  =\left\{  \ldots,-4,-1,2,5,8,11,14,\ldots\right\}  =\left[  5\right]
+_{\sim}.
 \end{align*}
 
+
+\textbf{(b)} The equivalence classes of the \textquotedblleft land
+route\textquotedblright\ relation are islands/continents.
 \end{example}
 
 \begin{theorem}
@@ -11939,15 +11984,20 @@ b\right]  _{\sim}\right)  .
 \end{theorem}
 
 \begin{proof}
+\textbf{(d)} We have $a\sim a$ (by reflexivity). In other words, $a\in\left[
+a\right]  _{\sim}$ (by the definition of $\left[  a\right]  _{\sim}$).
+
 \textbf{(a)} Assume $a\sim b$. Let $c\in\left[  a\right]  _{\sim}$. Thus,
 $c\sim a$ (by the definition of $\left[  a\right]  _{\sim}$). From $c\sim a$
 and $a\sim b$, we obtain $c\sim b$ (since $\sim$ is transitive). In other
 words, $c\in\left[  b\right]  _{\sim}$ (by the definition of $\left[
-b\right]  _{\sim}$). Thus, we have proven that $\left[  a\right]  _{\sim
-}\subseteq\left[  b\right]  _{\sim}$. Similarly, $\left[  b\right]  _{\sim
-}\subseteq\left[  a\right]  _{\sim}$ (because $a\sim b$ implies $b\sim a$).
-Combining these two $\subseteq$ relations, we obtain $\left[  a\right]
-_{\sim}=\left[  b\right]  _{\sim}$.
+b\right]  _{\sim}$). We have proven this for each $c\in\left[  a\right]
+_{\sim}$. Thus, $\left[  a\right]  _{\sim}\subseteq\left[  b\right]  _{\sim}$.
+The same argument (with $a$ and $b$ switched) yields $\left[  b\right]
+_{\sim}\subseteq\left[  a\right]  _{\sim}$ (since $a\sim b$ yields $b\sim a$).
+Combining $\left[  a\right]  _{\sim}\subseteq\left[  b\right]  _{\sim}$ with
+$\left[  b\right]  _{\sim}\subseteq\left[  a\right]  _{\sim}$, we obtain
+$\left[  a\right]  _{\sim}=\left[  b\right]  _{\sim}$.
 
 \textbf{(b)} Assume that we don't have $a\sim b$. Let $c\in\left[  a\right]
 _{\sim}\cap\left[  b\right]  _{\sim}$. We aim for a contradiction.
@@ -11955,41 +12005,33 @@ _{\sim}\cap\left[  b\right]  _{\sim}$. We aim for a contradiction.
 We have $c\in\left[  a\right]  _{\sim}\cap\left[  b\right]  _{\sim}=\left[
 a\right]  _{\sim}$, so that $c\sim a$ (by the definition of $\left[  a\right]
 _{\sim}$). Likewise, $c\sim b$. From $c\sim a$, we obtain $a\sim c$ (by
-symmetry). Combined with $c\sim b$, we obtain $a\sim b$ (by transitivity).
-This contradicts our assumption that we don't have $a\sim b$.
+symmetry). Combining this with $c\sim b$, we obtain $a\sim b$ (by
+transitivity). This contradicts our assumption that we don't have $a\sim b$.
 
 So we have found a contradiction for each $c\in\left[  a\right]  _{\sim}%
 \cap\left[  b\right]  _{\sim}$. Thus, there is no such $c$. In other words,
 $\left[  a\right]  _{\sim}\cap\left[  b\right]  _{\sim}=\varnothing$. In other
 words, $\left[  a\right]  _{\sim}$ and $\left[  b\right]  _{\sim}$ are disjoint.
 
-\textbf{(c)} We have $\left(  a\in\left[  b\right]  _{\sim}\right)
-\Longleftrightarrow\left(  a\sim b\right)  $ by the very definition of
-$\left[  b\right]  _{\sim}$. Similarly, $\left(  b\in\left[  a\right]  _{\sim
-}\right)  \Longleftrightarrow\left(  b\sim a\right)  $. But $\left(  b\sim
-a\right)  \Longleftrightarrow\left(  a\sim b\right)  $ by the symmetry of
-$\sim$. Finally, $\left(  a\sim b\right)  \Longleftrightarrow\left(  \left[
-a\right]  _{\sim}=\left[  b\right]  _{\sim}\right)  $ follows easily from the above.
+\textbf{(c)} The equivalence $\left(  a\sim b\right)  \Longleftrightarrow
+\left(  a\in\left[  b\right]  _{\sim}\right)  $ is easy, as it is simply the
+definition of $\left[  b\right]  _{\sim}$. Also, by symmetry, $\left(  a\sim
+b\right)  \Longleftrightarrow\left(  b\sim a\right)  \Longleftrightarrow
+\left(  b\in\left[  a\right]  _{\sim}\right)  $ (by the definition of $\left[
+a\right]  _{\sim}$).
 
-\textbf{(d)} $a\in\left[  a\right]  _{\sim}$ follows from $a\sim a$ (reflexivity).
+Finally, $\left(  a\sim b\right)  \Longleftrightarrow\left(  \left[  a\right]
+_{\sim}=\left[  b\right]  _{\sim}\right)  $. In fact, the $\Longrightarrow$
+part follows from part \textbf{(a)}, whereas the $\Longleftarrow$ part is easy
+(if $\left[  a\right]  _{\sim}=\left[  b\right]  _{\sim}$, then part
+\textbf{(d)} yields $a\in\left[  a\right]  _{\sim}=\left[  b\right]  _{\sim}$,
+and this means $a\sim b$).
 \end{proof}
 
 TODO:
 
 \begin{itemize}
-\item binary relations
-
-\item equivalence relations
-
-\item examples: $=$, $\equiv\operatorname{mod}n$ (aka $\underset{n}{\equiv}$),
-$\equiv$ under $f$ (aka $\underset{f}{\equiv}$), examples from geometry
-(similitude, congruence, parallelism, direct congruence).
-
-\item harder example: $ad=bc$ (defines fractions).
-
-\item eqclasses.
-
-\item examples: eqclasses for the above.
+\item examples: eqclasses for the above. (for example, $ad=bc$ yields rational numbers.)
 
 \item unordered $k$-tuples as eqclasses of $k$-tuples.
 
