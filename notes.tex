@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Friday, February 22, 2019 00:49:40}
+%TCIDATA{LastRevised=Friday, February 22, 2019 10:55:07}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -12705,41 +12705,47 @@ This $\sim$ is an equivalence relation.
 \textbf{(f)} Let
 \[
 S=\mathbb{Z}\times\left(  \mathbb{Z}\setminus\left\{  0\right\}  \right)
-=\left\{  \left(  a,b\right)  \ \mid\ a\in\mathbb{Z}\text{ and }b\in
-\mathbb{Z}\setminus\left\{  0\right\}  \right\}  .
+=\left\{  \left(  a_{1},a_{2}\right)  \ \mid\ a_{1}\in\mathbb{Z}\text{ and
+}a_{2}\in\mathbb{Z}\setminus\left\{  0\right\}  \right\}  .
 \]
 Define an relation $\underset{\ast}{\sim}$ on $S$ by%
 \[
-\left(  \left(  a,b\right)  \underset{\ast}{\sim}\left(  c,d\right)  \right)
-\ \Longleftrightarrow\ \left(  ad=bc\right)  .
+\left(  \left(  a_{1},a_{2}\right)  \underset{\ast}{\sim}\left(  b_{1}%
+,b_{2}\right)  \right)  \ \Longleftrightarrow\ \left(  a_{1}b_{2}=a_{2}%
+b_{1}\right)  .
 \]
 
 
-This $\underset{\ast}{\sim}$ is reflexive (because $\left(  a,b\right)
-\underset{\ast}{\sim}\left(  a,b\right)  $ just says $ab=ba$, which is true)
-and symmetric (because
+This $\underset{\ast}{\sim}$ is reflexive (because $\left(  a_{1}%
+,a_{2}\right)  \underset{\ast}{\sim}\left(  a_{1},a_{2}\right)  $ just says
+$a_{1}b_{1}=a_{1}b_{1}$, which is true) and symmetric (because
 \begin{align*}
-\left(  \left(  a,b\right)  \underset{\ast}{\sim}\left(  c,d\right)  \right)
-\  &  \Longleftrightarrow\ \left(  ad=bc\right)  \ \Longleftrightarrow
-\ \left(  da=cb\right)  \ \Longleftrightarrow\ \left(  cb=da\right) \\
-&  \Longleftrightarrow\ \left(  \left(  c,d\right)  \underset{\ast}{\sim
-}\left(  a,b\right)  \right)
+\left(  \left(  a_{1},a_{2}\right)  \underset{\ast}{\sim}\left(  b_{1}%
+,b_{2}\right)  \right)  \  &  \Longleftrightarrow\ \left(  a_{1}b_{2}%
+=a_{2}b_{1}\right)  \ \Longleftrightarrow\ \left(  b_{2}a_{1}=b_{1}%
+a_{2}\right)  \ \Longleftrightarrow\ \left(  b_{1}a_{2}=b_{2}a_{1}\right)  \\
+&  \Longleftrightarrow\ \left(  \left(  b_{1},b_{2}\right)  \underset{\ast
+}{\sim}\left(  a_{1},a_{2}\right)  \right)
 \end{align*}
-) and transitive (\textit{proof:} if $\left(  a,b\right)  \underset{\ast
-}{\sim}\left(  c,d\right)  $ and $\left(  c,d\right)  \underset{\ast}{\sim
-}\left(  e,f\right)  $, then $ad=bc$ and $cf=de$ and thus%
+) and transitive (\textit{proof:} if $\left(  a_{1},a_{2}\right)
+\underset{\ast}{\sim}\left(  b_{1},b_{2}\right)  $ and $\left(  b_{1}%
+,b_{2}\right)  \underset{\ast}{\sim}\left(  c_{1},c_{2}\right)  $, then
+$a_{1}b_{2}=a_{2}b_{1}$ and $b_{1}c_{2}=b_{2}c_{1}$ and thus%
 \[
-\underbrace{ad}_{=bc}f=b\underbrace{cf}_{=de}=bde,
+\underbrace{a_{1}b_{2}}_{=a_{2}b_{1}}c_{2}=a_{2}\underbrace{b_{1}c_{2}%
+}_{=b_{2}c_{1}}=a_{2}b_{2}c_{1},
 \]
-therefore $af=be$ (because $d$ is nonzero and thus can be cancelled), and this
-means exactly $\left(  a,b\right)  \underset{\ast}{\sim}\left(  e,f\right)
-$). So $\underset{\ast}{\sim}$ is an equivalence relation.
+therefore $a_{1}c_{2}=a_{2}c_{1}$ (because $b_{2}$ is nonzero and thus can be
+cancelled), and this means exactly $\left(  a_{1},a_{2}\right)  \underset{\ast
+}{\sim}\left(  c_{1},c_{2}\right)  $). So $\underset{\ast}{\sim}$ is an
+equivalence relation.
 
 What is this relation? One way to view it is as linear dependence between the
-two vectors $\left(  a,b\right)  $ and $\left(  c,d\right)  $.
+two vectors $\left(  a_{1},a_{2}\right)  $ and $\left(  b_{1},b_{2}\right)  $.
 
-Another is: $\left(  a,b\right)  \underset{\ast}{\sim}\left(  c,d\right)  $ if
-and only if $\dfrac{a}{b}=\dfrac{c}{d}$ (but we have stated it without division).
+Another is: $\left(  a_{1},a_{2}\right)  \underset{\ast}{\sim}\left(
+b_{1},b_{2}\right)  $ if and only if $\dfrac{a_{1}}{a_{2}}=\dfrac{b_{1}}%
+{b_{2}}$ (but we have stated it without division).
 \end{example}
 
 \subsection{Equivalence classes}
@@ -12795,8 +12801,20 @@ _{\sim}.
 route\textquotedblright\ relation are islands/continents.
 \end{example}
 
+\begin{proposition}
+\label{prop.equiv.eqclas.aina}Let $\sim$ be an equivalence relation on a set
+$S$. Let $a\in S$. Then, $a\in\left[  a\right]  _{\sim}$.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.equiv.eqclas.aina}.] We have $a\sim a$ (by
+reflexivity). In other words, $a\in\left[  a\right]  _{\sim}$ (by the
+definition of $\left[  a\right]  _{\sim}$).
+\end{proof}
+
 \begin{theorem}
-Let $\sim$ be an equivalence relation on a set $S$. Let $a,b\in S$.
+\label{thm.equiv.eqclas.disj}Let $\sim$ be an equivalence relation on a set
+$S$. Let $a,b\in S$.
 
 \textbf{(a)} If $a\sim b$, then $\left[  a\right]  _{\sim}=\left[  b\right]
 _{\sim}$.
@@ -12804,33 +12822,27 @@ _{\sim}$.
 \textbf{(b)} If not $a\sim b$, then $\left[  a\right]  _{\sim}$ and $\left[
 b\right]  _{\sim}$ are disjoint.
 
-\textbf{(c)} We have%
-\[
-\left(  a\sim b\right)  \Longleftrightarrow\left(  a\in\left[  b\right]
-_{\sim}\right)  \Longleftrightarrow\left(  b\in\left[  a\right]  _{\sim
-}\right)  \Longleftrightarrow\left(  \left[  a\right]  _{\sim}=\left[
-b\right]  _{\sim}\right)  .
-\]
+\textbf{(c)} We have $a\sim b$ if and only if $a\in\left[  b\right]  _{\sim}$.
 
+\textbf{(d)} We have $a\sim b$ if and only if $b\in\left[  a\right]  _{\sim}$.
 
-\textbf{(d)} We always have $a\in\left[  a\right]  _{\sim}$.
+\textbf{(e)} We have $a\sim b$ if and only if $\left[  a\right]  _{\sim
+}=\left[  b\right]  _{\sim}$.
 \end{theorem}
 
 \begin{proof}
-\textbf{(d)} We have $a\sim a$ (by reflexivity). In other words, $a\in\left[
-a\right]  _{\sim}$ (by the definition of $\left[  a\right]  _{\sim}$).
-
-\textbf{(a)} Assume $a\sim b$. Let $c\in\left[  a\right]  _{\sim}$. Thus,
-$c\sim a$ (by the definition of $\left[  a\right]  _{\sim}$). From $c\sim a$
-and $a\sim b$, we obtain $c\sim b$ (since $\sim$ is transitive). In other
-words, $c\in\left[  b\right]  _{\sim}$ (by the definition of $\left[
-b\right]  _{\sim}$). We have proven this for each $c\in\left[  a\right]
-_{\sim}$. Thus, $\left[  a\right]  _{\sim}\subseteq\left[  b\right]  _{\sim}$.
-The same argument (with $a$ and $b$ switched) yields $\left[  b\right]
-_{\sim}\subseteq\left[  a\right]  _{\sim}$ (since $a\sim b$ yields $b\sim a$).
-Combining $\left[  a\right]  _{\sim}\subseteq\left[  b\right]  _{\sim}$ with
-$\left[  b\right]  _{\sim}\subseteq\left[  a\right]  _{\sim}$, we obtain
-$\left[  a\right]  _{\sim}=\left[  b\right]  _{\sim}$.
+[Proof of Theorem \ref{thm.equiv.eqclas.disj}.] \textbf{(a)} Assume $a\sim b$.
+Let $c\in\left[  a\right]  _{\sim}$. Thus, $c\sim a$ (by the definition of
+$\left[  a\right]  _{\sim}$). From $c\sim a$ and $a\sim b$, we obtain $c\sim
+b$ (since $\sim$ is transitive). In other words, $c\in\left[  b\right]
+_{\sim}$ (by the definition of $\left[  b\right]  _{\sim}$). We have proven
+this for each $c\in\left[  a\right]  _{\sim}$. Thus, $\left[  a\right]
+_{\sim}\subseteq\left[  b\right]  _{\sim}$. The same argument (with $a$ and
+$b$ switched) yields $\left[  b\right]  _{\sim}\subseteq\left[  a\right]
+_{\sim}$ (since $a\sim b$ yields $b\sim a$). Combining $\left[  a\right]
+_{\sim}\subseteq\left[  b\right]  _{\sim}$ with $\left[  b\right]  _{\sim
+}\subseteq\left[  a\right]  _{\sim}$, we obtain $\left[  a\right]  _{\sim
+}=\left[  b\right]  _{\sim}$.
 
 \textbf{(b)} Assume that we don't have $a\sim b$. Let $c\in\left[  a\right]
 _{\sim}\cap\left[  b\right]  _{\sim}$. We aim for a contradiction.
@@ -12846,19 +12858,18 @@ So we have found a contradiction for each $c\in\left[  a\right]  _{\sim}%
 $\left[  a\right]  _{\sim}\cap\left[  b\right]  _{\sim}=\varnothing$. In other
 words, $\left[  a\right]  _{\sim}$ and $\left[  b\right]  _{\sim}$ are disjoint.
 
-\textbf{(c)} The equivalence $\left(  a\sim b\right)  \Longleftrightarrow
-\left(  a\in\left[  b\right]  _{\sim}\right)  $ is easy, as it is simply the
-definition of $\left[  b\right]  _{\sim}$. Also, by symmetry, $\left(  a\sim
-b\right)  \Longleftrightarrow\left(  b\sim a\right)  \Longleftrightarrow
-\left(  b\in\left[  a\right]  _{\sim}\right)  $ (by the definition of $\left[
+\textbf{(c)} This is simply the definition of $\left[  b\right]  _{\sim}$.
+
+\textbf{(d)} By symmetry of $\sim$, we have $\left(  a\sim b\right)
+\Longleftrightarrow\left(  b\sim a\right)  \Longleftrightarrow\left(
+b\in\left[  a\right]  _{\sim}\right)  $ (by the definition of $\left[
 a\right]  _{\sim}$).
 
-Finally, $\left(  a\sim b\right)  \Longleftrightarrow\left(  \left[  a\right]
-_{\sim}=\left[  b\right]  _{\sim}\right)  $. In fact, the $\Longrightarrow$
-part follows from part \textbf{(a)}, whereas the $\Longleftarrow$ part is easy
-(if $\left[  a\right]  _{\sim}=\left[  b\right]  _{\sim}$, then part
-\textbf{(d)} yields $a\in\left[  a\right]  _{\sim}=\left[  b\right]  _{\sim}$,
-and this means $a\sim b$).
+\textbf{(e)} The $\Longrightarrow$ part follows from part \textbf{(a)},
+whereas the $\Longleftarrow$ part is easy (if $\left[  a\right]  _{\sim
+}=\left[  b\right]  _{\sim}$, then Proposition \ref{prop.equiv.eqclas.aina}
+yields $a\in\left[  a\right]  _{\sim}=\left[  b\right]  _{\sim}$, and this
+means $a\sim b$).
 \end{proof}
 
 \begin{center}
@@ -12918,13 +12929,15 @@ also use it for remainder).
 $\mathbb{Z}/n\mathbb{Z}$ or $\mathbb{Z}_{n}$ (bad notation, since it means
 something else as well).
 
+\item apply Theorem \ref{thm.equiv.eqclas.disj} here.
+
 \item there are $n$ of them: $\left[  i\right]  _{n}$ for each $i\in\left\{
 0,1,\ldots,n-1\right\}  $.
 
 \item proof: we can define a map
 \begin{align*}
-R:\mathbb{Z}/n  & \rightarrow\left\{  0,1,\ldots,n-1\right\}  ,\\
-\left[  i\right]  _{n}  & \mapsto i\%n.
+R:\mathbb{Z}/n &  \rightarrow\left\{  0,1,\ldots,n-1\right\}  ,\\
+\left[  i\right]  _{n} &  \mapsto i\%n.
 \end{align*}
 why is this well-defined? what does this even mean? why couldn't we put an
 $i\%\left(  n+1\right)  $ here instead?
@@ -12939,9 +12952,9 @@ $\mathbb{Z}/n$ (again, talk about well-definedness).
 information about $i$ (for fixed $n$), do not mistake them for the same
 thing!
 \begin{align*}
-\left[  2\right]  _{5}+\left[  3\right]  _{5}  & =\left[  0\right]
+\left[  2\right]  _{5}+\left[  3\right]  _{5} &  =\left[  0\right]
 _{5},\ \ \ \ \ \ \ \ \ \ \text{but}\\
-2\%5+3\%5  & \neq0\%5.
+2\%5+3\%5 &  \neq0\%5.
 \end{align*}
 
 
