@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Sunday, February 24, 2019 14:37:55}
+%TCIDATA{LastRevised=Sunday, February 24, 2019 14:48:31}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -1558,6 +1558,28 @@ integer. Now, $n^{b}=n^{a}n^{b-a}$ (since $n^{a}n^{b-a}=n^{a+\left(
 b-a\right)  }=n^{b}$). Hence, there exists an integer $c$ such that
 $n^{b}=n^{a}c$ (namely, $c=n^{b-a}$). In other words, $n^{a}\mid n^{b}$ (by
 the definition of divisibility). This solves Exercise \ref{exe.ent.div.powers}.
+\end{proof}
+\end{fineprint}
+
+\begin{exercise}
+\label{exe.ent.div.g|1}Let $g$ be a nonnegative integer such that $g\mid1$.
+Prove that $g=1$.
+\end{exercise}
+
+\begin{fineprint}
+\begin{proof}
+[Solution to Exercise \ref{exe.ent.div.g|1}.] Assume the contrary. Thus,
+$g\neq1$. But Proposition \ref{prop.ent.div.1} \textbf{(b)} (applied to $g$
+and $1$ instead of $a$ and $b$) yields $\left\vert g\right\vert \leq\left\vert
+1\right\vert $ (since $g\mid1$ and $1\neq0$). But $g$ is nonnegative; hence,
+$\left\vert g\right\vert =g$, so that $g=\left\vert g\right\vert
+\leq\left\vert 1\right\vert =1$. Combining this with $g\neq1$, we obtain
+$g<1$. Hence, $g=0$ (since $g$ is a nonnegative integer).
+
+But $g\mid1$. In other words, there exists an integer $c$ such that $1=gc$
+(by Definition \ref{def.ent.div.div}). Consider this $c$. Now,
+$1=\underbrace{g}_{=0}c=0c=0$. This contradicts $1\neq0$. This contradiction
+shows that our assumption was wrong. Hence, Exercise \ref{exe.ent.div.g|1} is solved.
 \end{proof}
 \end{fineprint}
 
@@ -5600,14 +5622,15 @@ $\gcd\left(  2,3\right)  =1$.
 that%
 \begin{align*}
 \gcd\left(  a,\underbrace{a}_{=1a}+1\right)   &  =\gcd\left(  a,1a+1\right)
-=\gcd\left(  a,1\right) \\
+=\gcd\left(  a,1\right)  \\
 &  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition \ref{prop.ent.gcd.props1}
-\textbf{(c)}, applied to }u=1\text{ and }b=1\right) \\
+\textbf{(c)}, applied to }u=1\text{ and }b=1\right)  \\
 &  \mid1\ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition
 \ref{prop.ent.gcd.props1} \textbf{(e)}, applied to }b=1\right)  ,
 \end{align*}
-and thus $\gcd\left(  a,a+1\right)  =1$ (since $\gcd\left(  a,a+1\right)  $ is
-a nonnegative integer), which means that $a$ is coprime to $a+1$.
+and thus $\gcd\left(  a,a+1\right)  =1$ (by Exercise \ref{exe.ent.div.g|1},
+since $\gcd\left(  a,a+1\right)  $ is a nonnegative integer), which means that
+$a$ is coprime to $a+1$.
 
 \textbf{(d)} Let $a$ be an integer. When is $a$ coprime to $a+2$? If we try to
 compute $\gcd\left(  a,a+2\right)  $, we find%
@@ -5813,10 +5836,10 @@ Hence, from $aa^{\prime}\equiv1\operatorname{mod}n$, we obtain $aa^{\prime
 }\equiv1\operatorname{mod}g$ (by Proposition \ref{prop.ent.mod.basics}
 \textbf{(e)}, applied to $g$, $aa^{\prime}$ and $1$ instead of $m$, $a$ and
 $b$). Hence, $1\equiv aa^{\prime}\equiv0\operatorname{mod}g$. Equivalently,
-$g\mid1-0=1$. Thus, $g$ is a divisor of $1$, and hence must be $1$ itself
-(since $g$ is a nonnegative integer). Thus, $\gcd\left(  a,n\right)  =g=1$. In
-other words, $a$ is coprime to $n$. In other words, $a\perp n$. This proves
-Theorem \ref{thm.ent.coprime.modinv} \textbf{(c)}.
+$g\mid1-0=1$. Hence, $g=1$ (by Exercise \ref{exe.ent.div.g|1}, since $g$ is a
+nonnegative integer). Thus, $\gcd\left(  a,n\right)  =g=1$. In other words,
+$a$ is coprime to $n$. In other words, $a\perp n$. This proves Theorem
+\ref{thm.ent.coprime.modinv} \textbf{(c)}.
 \end{proof}
 
 \begin{theorem}
@@ -5872,11 +5895,11 @@ a_{1}a_{2}\cdots a_{i}\perp c\ \ \ \ \ \ \ \ \ \ \text{for each }i\in\left\{
 
 \textit{Induction base:} Proposition \ref{prop.ent.gcd.props1} \textbf{(f)}
 yields $\gcd\left(  1,c\right)  \mid1$ and thus $\gcd\left(  1,c\right)  =1$
-(since $\gcd\left(  1,c\right)  $ is a nonnegative integer). In other words,
-$1$ is coprime to $c$. In other words, $1\perp c$. Now, $a_{1}a_{2}\cdots
-a_{0}=\left(  \text{empty product}\right)  =1\perp c$. Hence,
-(\ref{sol.ent.coprime.ab-to-ck.goal}) holds for $i=0$. This completes the
-induction base.
+(by Exercise \ref{exe.ent.div.g|1}, since $\gcd\left(  1,c\right)  $ is a
+nonnegative integer). In other words, $1$ is coprime to $c$. In other words,
+$1\perp c$. Now, $a_{1}a_{2}\cdots a_{0}=\left(  \text{empty product}\right)
+=1\perp c$. Hence, (\ref{sol.ent.coprime.ab-to-ck.goal}) holds for $i=0$. This
+completes the induction base.
 
 \textit{Induction step:} Let $j\in\left\{  1,2,\ldots,k\right\}  $. Assume
 that (\ref{sol.ent.coprime.ab-to-ck.goal}) holds for $i=j-1$. We must now
@@ -6429,23 +6452,12 @@ We have now proven both (\ref{sol.ent.coprime.1+2+...+n.g1}) and
 \begin{fineprint}
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.coprime.bezout-conv}.]Proposition
-\ref{prop.ent.gcd.bezout-conv} yields $\gcd\left(  a, b \right)  \mid xa + yb
-= 1$. Proposition \ref{prop.ent.div.1} \textbf{(b)} (applied to $\gcd\left(
-a, b \right)  $ and $1$ instead of $a$ and $b$) thus yields $\left|
-\gcd\left(  a, b \right)  \right|  \leq\left|  1 \right|  = 1$. But $\left|
-\gcd\left(  a, b \right)  \right|  = \gcd\left(  a, b \right)  $ (since
-$\gcd\left(  a, b \right)  $ is a nonnegative integer). Hence, $\gcd\left(  a,
-b \right)  = \left|  \gcd\left(  a, b \right)  \right|  \leq1$. Thus,
-$\gcd\left(  a, b \right)  $ is either $0$ or $1$ (since $\gcd\left(  a, b
-\right)  $ is a nonnegative integer).
-
-If we had $\gcd\left(  a, b \right)  = 0$, then we would have $0 = \gcd\left(
-a, b \right)  \mid1$, which is absurd (since we don't have $0 \mid1$). Thus,
-we cannot have $\gcd\left(  a, b \right)  = 0$. Hence, $\gcd\left(  a, b
-\right)  $ must equal $1$ (since we know that $\gcd\left(  a, b \right)  $ is
-either $0$ or $1$). In other words, $\gcd\left(  a, b \right)  = 1$. In other
-words, $a$ is coprime to $b$. In other words, $a \perp b$. This solves
-Exercise \ref{exe.ent.coprime.bezout-conv}.
+\ref{prop.ent.gcd.bezout-conv} yields $\gcd\left(  a,b\right)  \mid xa+yb=1$.
+But $\gcd\left(  a,b\right)  $ is a nonnegative integer. Hence, Exercise
+\ref{exe.ent.div.g|1} (applied to $g=\gcd\left(  a,b\right)  $) yields
+$\gcd\left(  a,b\right)  =1$ (since $\gcd\left(  a,b\right)  \mid1$). In other
+words, $a$ is coprime to $b$. In other words, $a\perp b$. This solves Exercise
+\ref{exe.ent.coprime.bezout-conv}.
 \end{proof}
 \end{fineprint}
 
@@ -6467,7 +6479,7 @@ and $\left(  vx,vy\right)  $ instead of $k$, $\left(  b_{1},b_{2},\ldots
 yields
 \begin{equation}
 \gcd\left(  ux,uy,vx,vy\right)  =\gcd\left(  \gcd\left(  ux,uy\right)
-,\gcd\left(  vx,vy\right)  \right)  .\label{sol.ent.coprime.gcd*gcd1.3}%
+,\gcd\left(  vx,vy\right)  \right)  . \label{sol.ent.coprime.gcd*gcd1.3}%
 \end{equation}
 
 
@@ -6563,17 +6575,12 @@ $\left(  b_{1},b_{2},\ldots,b_{k}\right)  $, $\ell$ and $\left(  c_{1}%
 \]
 (by Proposition \ref{prop.ent.gcd.props1} \textbf{(f)}, applied to
 $\gcd\left(  a\right)  $ and $1$ instead of $a$ and $b$). This rewrites as
-$g\mid1$. Hence, Proposition \ref{prop.ent.div.1} \textbf{(b)} (applied to $g$
-and $1$ instead of $a$ and $b$) yields $\left\vert g\right\vert \leq\left\vert
-1\right\vert =1$. Also, if we had $g=0$, then we would have $0=g\mid1$, which
-would contradict $0\nmid1$. Thus, we cannot have $g=0$. Hence, $g\neq0$.
+$g\mid1$.
 
 But $g=\gcd\left(  a,b,c\right)  $ is a nonnegative integer (since any gcd is
-a nonnegative integer); hence, $g$ is a positive integer (since $g\neq0$).
-Thus, $g\geq1$. On the other hand, $g$ is positive; thus, $\left\vert
-g\right\vert =g$. Hence, $g=\left\vert g\right\vert \leq1$. Combined with
-$g\geq1$, this yields $g=1$. Now, Exercise \ref{exe.ent.coprime.gcd*gcd2}
-\textbf{(a)} yields
+a nonnegative integer). Hence, Exercise \ref{exe.ent.div.g|1} yields $g=1$
+(since $g\mid1$). Now, Exercise \ref{exe.ent.coprime.gcd*gcd2} \textbf{(a)}
+yields
 \[
 \gcd\left(  a,b\right)  \cdot\gcd\left(  a,c\right)  =\gcd\left(
 a\underbrace{g}_{=1},bc\right)  =\gcd\left(  a,bc\right)  .
@@ -12272,7 +12279,7 @@ Then,%
 \end{lemma}
 
 \begin{proof}
-[Proof of Lemma \ref{lem.binom.vandermonde.NN} (sketched).] Let%
+[Proof of Lemma \ref{lem.binom.vandermonde.NN} (sketched).]Let%
 \[
 A=\left\{  1,2,\ldots,x\right\}  \cup\left\{  -1,-2,\ldots,-y\right\}  .
 \]
@@ -12311,7 +12318,7 @@ In other words, we need to choose
 \begin{itemize}
 \item a $k$-element subset of the set $\left\{  1,2,\ldots,x\right\}  $, and
 
-\item an $\left(  n-k\right)  $-element subset of the set  $\left\{
+\item an $\left(  n-k\right)  $-element subset of the set $\left\{
 -1,-2,\ldots,-y\right\}  $.
 \end{itemize}
 
@@ -12336,18 +12343,18 @@ combinatorial principle we are using in the following computation is the
 so-called \textit{sum rule} (see, e.g., \cite[1.2]{Loehr-BC} or
 \cite[\S 15.2.3]{LeLeMe}).}%
 \begin{align*}
-& \left(  \text{the number of }n\text{-element subsets of }A\right)  \\
-& =\sum_{k=0}^{n}\underbrace{\left(  \text{the number of }n\text{-element
+&  \left(  \text{the number of }n\text{-element subsets of }A\right) \\
+&  =\sum_{k=0}^{n}\underbrace{\left(  \text{the number of }n\text{-element
 subsets of }A\text{ having exactly }k\text{ positive elements}\right)
 }_{\substack{=\dbinom{x}{k}\dbinom{y}{n-k}\\\text{(by Claim 1)}}}\\
-& \ \ \ \ \ \ \ \ \ \ \left(
+&  \ \ \ \ \ \ \ \ \ \ \left(
 \begin{array}
 [c]{c}%
 \text{since the number of positive elements of an }n\text{-element}\\
 \text{subset of }A\text{ must always be an integer between }0\text{ and }n
 \end{array}
-\right)  \\
-& =\sum_{k=0}^{n}\dbinom{x}{k}\dbinom{y}{n-k}.
+\right) \\
+&  =\sum_{k=0}^{n}\dbinom{x}{k}\dbinom{y}{n-k}.
 \end{align*}
 
 \end{itemize}
@@ -12400,10 +12407,10 @@ By pretending that the associativity law holds as well (so that $\left(
 x^{i+j}$ for rational $\lambda$ and $i,j\in\mathbb{N}$), we can multiply
 polynomials as well (first use distributivity to expand the product):%
 \begin{align*}
-\left(  3x-5\right)  \left(  x^{2}+3x+2\right)    & =3x\left(  x^{2}%
-+3x+2\right)  -5\left(  x^{2}+3x+2\right)  \\
-& =\left(  3x^{3}+9x^{2}+6x\right)  -\left(  5x^{2}+15x+10\right)  \\
-& =3x^{3}+4x^{2}-9x-10.
+\left(  3x-5\right)  \left(  x^{2}+3x+2\right)   &  =3x\left(  x^{2}%
++3x+2\right)  -5\left(  x^{2}+3x+2\right) \\
+&  =\left(  3x^{3}+9x^{2}+6x\right)  -\left(  5x^{2}+15x+10\right) \\
+&  =3x^{3}+4x^{2}-9x-10.
 \end{align*}
 Most importantly, it is possible to \textit{substitute} a number into a
 polynomial: If $u\in\mathbb{Q}$ and if $P=a_{k}x^{k}+a_{k-1}x^{k-1}%
@@ -12457,7 +12464,7 @@ Then, $\dbinom{x+y}{n}$ is a polynomial in $x$, since%
 x+y-2\right)  \cdots\left(  x+y-n+1\right)  }{n!}.
 \]
 Also, $\sum\limits_{k=0}^{n}\dbinom{x}{k}\dbinom{y}{n-k}$ is a polynomial in
-$x$. 
+$x$.
 
 Define two polynomials $P$ and $Q$ by $P\left(  x\right)  =\dbinom{x+y}{n}$
 and $Q\left(  x\right)  =\sum_{k=0}^{n}\dbinom{x}{k}\dbinom{y}{n-k}$. Then,
