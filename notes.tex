@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Friday, February 22, 2019 10:55:07}
+%TCIDATA{LastRevised=Sunday, February 24, 2019 13:36:46}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -12673,7 +12673,8 @@ reflexive, symmetric and transitive.
 \end{definition}
 
 \begin{example}
-\textbf{(a)} The equality relation $=$ on any set $S$ is an equivalence relation.
+\label{exa.equiv.eqrels1}\textbf{(a)} The equality relation $=$ on any set $S$
+is an equivalence relation.
 
 \textbf{(b)} For each $n\in\mathbb{Z}$, the congruence relation
 $\underset{n}{\equiv}$ on $\mathbb{Z}$ is an equivalence relation.
@@ -12723,7 +12724,7 @@ $a_{1}b_{1}=a_{1}b_{1}$, which is true) and symmetric (because
 \left(  \left(  a_{1},a_{2}\right)  \underset{\ast}{\sim}\left(  b_{1}%
 ,b_{2}\right)  \right)  \  &  \Longleftrightarrow\ \left(  a_{1}b_{2}%
 =a_{2}b_{1}\right)  \ \Longleftrightarrow\ \left(  b_{2}a_{1}=b_{1}%
-a_{2}\right)  \ \Longleftrightarrow\ \left(  b_{1}a_{2}=b_{2}a_{1}\right)  \\
+a_{2}\right)  \ \Longleftrightarrow\ \left(  b_{1}a_{2}=b_{2}a_{1}\right) \\
 &  \Longleftrightarrow\ \left(  \left(  b_{1},b_{2}\right)  \underset{\ast
 }{\sim}\left(  a_{1},a_{2}\right)  \right)
 \end{align*}
@@ -12807,7 +12808,7 @@ $S$. Let $a\in S$. Then, $a\in\left[  a\right]  _{\sim}$.
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.equiv.eqclas.aina}.] We have $a\sim a$ (by
+[Proof of Proposition \ref{prop.equiv.eqclas.aina}.]We have $a\sim a$ (by
 reflexivity). In other words, $a\in\left[  a\right]  _{\sim}$ (by the
 definition of $\left[  a\right]  _{\sim}$).
 \end{proof}
@@ -12831,7 +12832,7 @@ b\right]  _{\sim}$ are disjoint.
 \end{theorem}
 
 \begin{proof}
-[Proof of Theorem \ref{thm.equiv.eqclas.disj}.] \textbf{(a)} Assume $a\sim b$.
+[Proof of Theorem \ref{thm.equiv.eqclas.disj}.]\textbf{(a)} Assume $a\sim b$.
 Let $c\in\left[  a\right]  _{\sim}$. Thus, $c\sim a$ (by the definition of
 $\left[  a\right]  _{\sim}$). From $c\sim a$ and $a\sim b$, we obtain $c\sim
 b$ (since $\sim$ is transitive). In other words, $c\in\left[  b\right]
@@ -12878,11 +12879,419 @@ means $a\sim b$).
 
 \begin{example}
 Consider the relation $\underset{\ast}{\sim}$ on $S=\mathbb{Z}\times\left(
-\mathbb{Z}\setminus\left\{  0\right\}  \right)  $ defined in our previous
-examples. Its equivalence classes are the rational numbers. Indeed, the
-equivalence class of a pair $\left(  a,b\right)  \in S$ is commonly denoted by
-$\dfrac{a}{b}$. This is how rational numbers are defined!
+\mathbb{Z}\setminus\left\{  0\right\}  \right)  $ defined in Example
+\ref{exa.equiv.eqrels1} \textbf{(f)}. Its equivalence classes are the rational
+numbers. Indeed, the equivalence class of a pair $\left(  a_{1},a_{2}\right)
+\in S$ is commonly denoted by $\dfrac{a_{1}}{a_{2}}$ (or by $a_{1}/a_{2}$).
+This is how rational numbers are defined!
 \end{example}
+
+Equivalence classes appear in real life too, at least in the modern world.
+When you say that the sun rises approximately at 7 AM in\ February\footnote{in
+Minneapolis}, what do \textquotedblleft7 AM\textquotedblright\ and
+\textquotedblleft February\textquotedblright\ mean? Clearly, \textquotedblleft
+February\textquotedblright\ is not a specific month in history, since each
+year has its own February. Rather, it stands for an equivalence class of
+months, with respect to the relation of being a year apart. Similarly,
+\textquotedblleft7 AM\textquotedblright\ means an equivalence class of moments
+with respect to the relation of \textquotedblleft being a day
+apart\textquotedblright. Likewise, \textquotedblleft the
+horse\textquotedblright\ in \textquotedblleft the horse has a lifespan of 25
+years\textquotedblright\ refers not to a specific horse, but to the whole
+species, which is an equivalence class of creatures with respect to a certain
+relation\footnote{According to Darwin, the relation of being able to procreate
+-- although this is not per se an equivalence relation, so some tweaks need to
+be made (\textquotedblleft reflexive-and-transitive closure\textquotedblright)
+to turn it into one.}. Equivalence classes provide a way to refer to multiple
+objects (usually similar in some way) as if they were one.
+
+Let us give a few more mathematical examples for equivalences and equivalence classes:
+
+\begin{definition}
+Let $A$ be a set. A \textit{permutation} of $A$ means a bijective map
+$A\rightarrow A$.
+\end{definition}
+
+\begin{example}
+The map $\left\{  1,2,3,4\right\}  \rightarrow\left\{  1,2,3,4\right\}  $ that
+sends $1,2,3,4$ to $3,1,4,2$ is a permutation of $\left\{  1,2,3,4\right\}  $.
+\end{example}
+
+\begin{definition}
+Let $\left(  p_{1},p_{2},\ldots,p_{k}\right)  $ be a $k$-tuple. A
+\textit{permutation} (aka \textit{rearrangement}) of $\left(  p_{1}%
+,p_{2},\ldots,p_{k}\right)  $ means a $k$-tuple of the form $\left(
+p_{\sigma\left(  1\right)  },p_{\sigma\left(  2\right)  },\ldots
+,p_{\sigma\left(  k\right)  }\right)  $ where $\sigma$ is a permutation of the
+set $\left\{  1,2,\ldots,k\right\}  $.
+\end{definition}
+
+\begin{example}
+The $4$-tuple $\left(  1,3,1,2\right)  $ is a permutation of the $4$-tuple
+$\left(  3,2,1,1\right)  $. In fact, if we denote the $4$-tuple $\left(
+3,2,1,1\right)  $ by $\left(  p_{1},p_{2},p_{3},p_{4}\right)  $, then there
+exists a permutation $\sigma$ of the set $\left\{  1,2,3,4\right\}  $ such
+that $\left(  1,3,1,2\right)  =\left(  p_{\sigma\left(  1\right)  }%
+,p_{\sigma\left(  2\right)  },p_{\sigma\left(  3\right)  },p_{\sigma\left(
+4\right)  }\right)  $. (Actually, there exist two such permutations $\sigma$:
+One of them sends $1,2,3,4$ to $3,1,4,2$, while the other sends $1,2,3,4$ to
+$4,1,3,2$.)
+\end{example}
+
+\begin{definition}
+Let $A$ be a set, and let $k\in\mathbb{N}$. As we know, $A^{k}$ denotes the
+set of all $k$-tuples of elements of $A$.
+
+The relation $\underset{\operatorname*{perm}}{\sim}$ on $A^{k}$ is defined as
+follows:%
+\[
+\left(  \mathbf{p}\underset{\operatorname*{perm}}{\sim}\mathbf{q}\right)
+\Longleftrightarrow\left(  \mathbf{p}\text{ is a permutation of }%
+\mathbf{q}\right)  .
+\]
+For example, $\left(  3,8,8,2\right)  \underset{\operatorname*{perm}}{\sim
+}\left(  8,3,2,8\right)  $.
+
+The relation $\underset{\operatorname*{perm}}{\sim}$ is an equivalence
+relation. Its equivalence classes are called the \textit{unordered }%
+$k$\textit{-tuples} of elements of $A$. For example, for $k=2$ and
+$A=\mathbb{Z}$, the two $2$-tuples $\left(  6,8\right)  $ and $\left(
+8,6\right)  $ are permutations of each other, so $\left(  6,8\right)
+\underset{\operatorname*{perm}}{\sim}\left(  8,6\right)  $ and thus $\left[
+\left(  6,8\right)  \right]  _{\underset{\operatorname*{perm}}{\sim}}=\left[
+\left(  8,6\right)  \right]  _{\underset{\operatorname*{perm}}{\sim}}$.
+\end{definition}
+
+\begin{definition}
+Again, let $A$ be a set and $k\in\mathbb{N}$. If $\mathbf{a}=\left(
+a_{1},a_{2},\ldots,a_{k}\right)  \in A^{k}$, then a \textit{cyclic rotation}
+of $\mathbf{a}$ means a $k$-tuple of the form%
+\[
+\left(  a_{i+1},a_{i+2},\ldots,a_{k},a_{1},a_{2},\ldots,a_{i}\right)  \in
+A^{k}%
+\]
+for some $i\in\left\{  0,1,\ldots,k\right\}  $. An equivalent description of
+cyclic rotations: Let $C$ be the map $A^{k}\rightarrow A^{k}$ that sends each
+$\left(  a_{1},a_{2},\ldots,a_{k}\right)  $ to $\left(  a_{2},a_{3}%
+,\ldots,a_{k},a_{1}\right)  $. Then, it is easy to see that a cyclic rotation
+of $\mathbf{a}$ is the same as a $k$-tuple of the form $C^{i}\left(
+\mathbf{a}\right)  $ for some $i\in\left\{  0,1,\ldots,k\right\}  $. But it is
+also easy to see that $C^{k}=\operatorname*{id}$. Thus, the $C^{i}\left(
+\mathbf{a}\right)  $ for $i\in\left\{  0,1,\ldots,k\right\}  $ are exactly the
+$C^{i}\left(  \mathbf{a}\right)  $ for $i\in\mathbb{N}$.
+
+The relation $\underset{\operatorname*{cyc}}{\sim}$ on $A^{k}$ is defined as
+follows:%
+\begin{align*}
+\left(  \mathbf{p}\underset{\operatorname*{cyc}}{\sim}\mathbf{q}\right)   &
+\Longleftrightarrow\ \left(  \mathbf{p}\text{ is a cyclic rotation of
+}\mathbf{q}\right) \\
+&  \Longleftrightarrow\ \left(  \mathbf{p}=C^{i}\left(  \mathbf{q}\right)
+\text{ for some }i\in\mathbb{N}\right)  .
+\end{align*}
+
+
+This relation $\underset{\operatorname*{cyc}}{\sim}$ is an equivalence
+relation. Its equivalence classes are called \textit{necklaces} of length $k$
+over $A$.
+\end{definition}
+
+\begin{definition}
+Let $S$ be a set, and let $\sim$ be an equivalence relation on $S$.
+
+\textbf{(a)} The set of equivalence classes of $\sim$ is denoted by $S/\sim$.
+It is called the \textit{quotient} (or \textit{quotient set}) of $S$ by $\sim$.
+
+\textbf{(b)} The map%
+\begin{align*}
+S &  \rightarrow S/\sim,\\
+s &  \mapsto\left[  s\right]  _{\sim}%
+\end{align*}
+(which sends each element $s\in S$ to its equivalence class) is called the
+\textit{canonical projection (onto the quotient)}, and we will denote it by
+$\pi_{\sim}$.
+
+\textbf{(c)} An element of an equivalence class of $\sim$ is also called a
+\textit{representative} of this class.
+\end{definition}
+
+\subsection{$\mathbb{Z}/n$ (\textquotedblleft integers modulo $n$%
+\textquotedblright)}
+
+For this section, we fix a positive integer $n$.
+
+\begin{definition}
+A \textit{residue class modulo}\textbf{ }$n$ means an equivalence class of
+$\underset{n}{\equiv}$. (Recall: $\underset{n}{\equiv}$ is the equivalence
+relation on $\mathbb{Z}$ given by $\left(  a\underset{n}{\equiv}b\right)
+\Longleftrightarrow\left(  a\equiv b\operatorname{mod}n\right)  $.)
+\end{definition}
+
+For example,%
+\begin{align*}
+\left[  0\right]  _{\underset{5}{\equiv}} &  =\left\{  \ldots
+,-15,-10,-5,0,5,10,15,20,\ldots\right\}  ,\\
+\left[  1\right]  _{\underset{5}{\equiv}} &  =\left\{  \ldots
+,-14,-9,-4,1,6,11,16,21,\ldots\right\}  ,\\
+\left[  2\right]  _{\underset{5}{\equiv}} &  =\left\{  \ldots
+,-13,-8,-3,2,7,12,17,22,\ldots\right\}  ,\\
+\left[  3\right]  _{\underset{5}{\equiv}} &  =\left\{  \ldots
+,-12,-7,-2,3,8,13,18,23,\ldots\right\}  ,\\
+\left[  4\right]  _{\underset{5}{\equiv}} &  =\left\{  \ldots
+,-11,-6,-1,4,9,14,19,24,\ldots\right\}
+\end{align*}
+are all the residue classes modulo $5$. As you see, the classes are in 1-to-1
+correspondence with the $5$ possible remainders $0,1,2,3,4$ modulo $5$. This
+generalizes (see Theorem \ref{thm.equiv.Zn.explicit} below). First, a few notations:
+
+\begin{definition}
+\textbf{(a)} If $i$ is an integer, then we set $\left[  i\right]  _{n}=\left[
+i\right]  _{\underset{n}{\equiv}}$. (Some authors call this $\overline{i}_{n}$
+or $i\operatorname{mod}n$.)
+
+\textbf{(b)} The set $\mathbb{Z}/\underset{n}{\equiv}$ of residue classes
+modulo $n$ is called $\mathbb{Z}/n$. (Some authors call it $\mathbb{Z}/\left(
+n\right)  $ or $\mathbb{Z}/n\mathbb{Z}$ or $\mathbb{Z}_{n}$.)
+\end{definition}
+
+\begin{theorem}
+\label{thm.equiv.Zn.explicit}The set $\mathbb{Z}/n$ has exactly $n$ elements:
+$\left[  0\right]  _{n},\left[  1\right]  _{n},\ldots,\left[  n-1\right]
+_{n}$.
+\end{theorem}
+
+\begin{proof}
+We have a map%
+\begin{align*}
+\pi_{\underset{n}{\equiv}}:\mathbb{Z}  &  \rightarrow\mathbb{Z}/n,\\
+s  &  \mapsto\left[  s\right]  _{n}.
+\end{align*}
+We restrict it to the set $\left\{  0,1,\ldots,n-1\right\}  $, and get a map%
+\begin{align*}
+P:\left\{  0,1,\ldots,n-1\right\}   &  \rightarrow\mathbb{Z}/n,\\
+s  &  \mapsto\left[  s\right]  _{n}.
+\end{align*}
+Our goal is to prove that this map $P$ is bijective.
+
+How do we do that? We construct an inverse.
+
+To do so, we try to define a map%
+\begin{align*}
+R:\mathbb{Z}/n  &  \rightarrow\left\{  0,1,\ldots,n-1\right\}  ,\\
+\left[  s\right]  _{n}  &  \mapsto s\%n.
+\end{align*}
+Can we do this? Is this well-defined?
+
+Here is what could go wrong: One element of $\mathbb{Z}/n$ could be written as
+$\left[  s\right]  _{n}$ for several different integers $s$. For instance,
+$\left[  2\right]  _{5}=\left[  17\right]  _{5}$. If the corresponding
+remainders $s\%n$ were different, then the map $R$ would have to send the same
+class to several different numbers, and this is not something a map can do.
+This would happen if we tried to define%
+\begin{align*}
+R_{\operatorname*{wrong}}:\mathbb{Z}/n &  \rightarrow\left\{  0,1,\ldots
+,n-1\right\}  ,\\
+\left[  s\right]  _{n} &  \mapsto s\%\left(  n+1\right)  .
+\end{align*}
+Indeed, this ostensible map $R_{\operatorname*{wrong}}$ would send $\left[
+0\right]  _{n}$ to $0\%\left(  n+1\right)  =0$ and $\left[  -n\right]  _{n}$
+to $\left(  -n\right)  \%\left(  n+1\right)  =1$; however, $\left[  0\right]
+_{n}$ and $\left[  -n\right]  _{n}$ are the same class, whereas $0$ and $1$
+are not the same remainder, so this map would send the same class to two
+different numbers. Thus, the map $R_{\operatorname*{wrong}}$ does not exist.
+
+So we have to check that in the definition of
+\begin{align*}
+R:\mathbb{Z}/n  &  \rightarrow\left\{  0,1,\ldots,n-1\right\}  ,\\
+\left[  s\right]  _{n}  &  \mapsto s\%n,
+\end{align*}
+any two possible integers $s$ leading to the same class $\left[  s\right]
+_{n}$ also lead to the same remainder $s\%n$. In other words, we must prove
+the following claim:
+
+\begin{statement}
+\textit{Claim 1:} If $s_{1}$ and $s_{2}$ are two integers such that $\left[
+s_{1}\right]  _{n}=\left[  s_{2}\right]  _{n}$, then $s_{1}\%n=s_{2}\%n$.
+\end{statement}
+
+[\textit{Proof of Claim 1:} Let $s_{1}$ and $s_{2}$ be two integers such that
+$\left[  s_{1}\right]  _{n}=\left[  s_{2}\right]  _{n}$. In other words,
+$s_{1}\underset{n}{\equiv}s_{2}$ (by Theorem \ref{thm.equiv.eqclas.disj}
+\textbf{(e)}). In other words, $s_{1}\equiv s_{2}\operatorname{mod}n$. But
+this implies $s_{1}\%n=s_{2}\%n$ (by one of the HW1 exercises).]
+
+Claim 1 shows that $s\%n$ depends only on the \textbf{class} $\left[
+s\right]  _{n}$, but not on the actual integer $s$. Thus, the map $R$ is well-defined.
+
+\textbf{Bad news:} You'll have to do something like this (almost) every time
+you want to define a map out of a quotient set $S/\sim$.
+
+\textbf{Good news:} It is often easy.
+
+Anyway, now we have two maps%
+\begin{align*}
+P:\left\{  0,1,\ldots,n-1\right\}   &  \rightarrow\mathbb{Z}/n,\\
+s  &  \mapsto\left[  s\right]  _{n}%
+\end{align*}
+and%
+\begin{align*}
+R:\mathbb{Z}/n  &  \rightarrow\left\{  0,1,\ldots,n-1\right\}  ,\\
+\left[  s\right]  _{n}  &  \mapsto s\%n.
+\end{align*}
+We claim that they are mutually inverse. Indeed:
+
+\begin{itemize}
+\item $P\circ R=\operatorname*{id}$, since each $\left[  s\right]  _{n}%
+\in\mathbb{Z}/n$ satisfies%
+\begin{align*}
+\left(  P\circ R\right)  \left(  \left[  s\right]  _{n}\right)   &  =P\left(
+\underbrace{R\left(  \left[  s\right]  _{n}\right)  }_{=s\%n}\right)
+=P\left(  s\%n\right)  =\left[  s\%n\right]  _{n}\\
+&  =\left[  s\right]  _{n}\ \ \ \ \ \ \ \ \ \ \left(  \text{since }s\%n\equiv
+s\operatorname{mod}n\right) \\
+&  =\operatorname*{id}\left(  \left[  s\right]  _{n}\right)  .
+\end{align*}
+
+
+\item $R\circ P=\operatorname*{id}$, since each $s\in\left\{  0,1,\ldots
+,n-1\right\}  $ satisfies%
+\begin{align*}
+\left(  R\circ P\right)  \left(  s\right)   &  =R\left(  \underbrace{P\left(
+s\right)  }_{=\left[  s\right]  _{n}}\right)  =R\left(  \left[  s\right]
+_{n}\right)  =s\%n\\
+&  =s\ \ \ \ \ \ \ \ \ \ \left(  \text{since }s\in\left\{  0,1,\ldots
+,n-1\right\}  \right) \\
+&  =\operatorname*{id}\left(  s\right)  .
+\end{align*}
+
+\end{itemize}
+
+Thus, $P$ is invertible, i.e., bijective. Thus,%
+\begin{align*}
+\mathbb{Z}/n  &  =P\left(  \left\{  0,1,\ldots,n-1\right\}  \right) \\
+&  =\left\{  P\left(  0\right)  ,P\left(  1\right)  ,\ldots,P\left(
+n-1\right)  \right\} \\
+&  =\left\{  \left[  0\right]  _{n},\left[  1\right]  _{n},\ldots,\left[
+n-1\right]  _{n}\right\}  .
+\end{align*}
+Also, the injectivity of $P$ shows that $\left[  0\right]  _{n},\left[
+1\right]  _{n},\ldots,\left[  n-1\right]  _{n}$ are distinct.
+\end{proof}
+
+\begin{definition}
+\textbf{(a)} We define an \textit{addition} operation on $\mathbb{Z}/n$ as
+follows:%
+\[
+\left[  a\right]  _{n}+\left[  b\right]  _{n}:=\left[  a+b\right]  _{n}.
+\]
+
+
+\textbf{(b)} We define a \textit{subtraction}\textbf{ }operation on
+$\mathbb{Z}/n$ as follows:%
+\[
+\left[  a\right]  _{n}-\left[  b\right]  _{n}:=\left[  a-b\right]  _{n}.
+\]
+
+
+\textbf{(c)} We define a \textit{multiplication} operation on $\mathbb{Z}/n$
+as follows:%
+\[
+\left[  a\right]  _{n}\cdot\left[  b\right]  _{n}:=\left[  a\cdot b\right]
+_{n}.
+\]
+
+
+\textbf{(d)} If $\lambda\in\mathbb{Z}$ and $\left[  a\right]  _{n}%
+\in\mathbb{Z}/n$, then we set
+\[
+\lambda\cdot\left[  a\right]  _{n}:=\left[  \lambda a\right]  _{n}.
+\]
+
+\end{definition}
+
+\begin{theorem}
+Everything in this definition is well-defined.
+\end{theorem}
+
+\begin{proof}
+\textbf{(a)} We have to prove that $\left[  a+b\right]  _{n}$ depends only on
+the two classes $\left[  a\right]  _{n}$ and $\left[  b\right]  _{n}$, but not
+on the integers $a$ and $b$.
+
+So we have to prove the following:
+
+\begin{statement}
+\textit{Claim 1:} Let $a_{1}$ and $a_{2}$ be two integers such that $\left[
+a_{1}\right]  _{n}=\left[  a_{2}\right]  _{n}$. Let $b_{1}$ and $b_{2}$ be two
+integers such that $\left[  b_{1}\right]  _{n}=\left[  b_{2}\right]  _{n}$.
+Then,%
+\[
+\left[  a_{1}+b_{1}\right]  _{n}=\left[  a_{2}+b_{2}\right]  _{n}.
+\]
+
+\end{statement}
+
+[\textit{Proof of Claim 1:} From $\left[  a_{1}\right]  _{n}=\left[
+a_{2}\right]  _{n}$, we obtain $a_{1}\equiv a_{2}\operatorname{mod}n$. From
+$\left[  b_{1}\right]  _{n}=\left[  b_{2}\right]  _{n}$, we obtain
+$b_{1}\equiv b_{2}\operatorname{mod}n$. Adding these two congruences, we
+obtain $a_{1}+b_{1}\equiv a_{2}+b_{2}\operatorname{mod}n$. In other words,
+$\left[  a_{1}+b_{1}\right]  _{n}=\left[  a_{2}+b_{2}\right]  _{n}$.]
+
+Thus, Definition \textbf{(a)} is well-defined.
+
+\textbf{(b)} and \textbf{(c)} are proven similarly, since we can subtract and
+multiply congruences.
+
+\textbf{(d)} is proven similarly, since if $a_{1}\equiv a_{2}%
+\operatorname{mod}n$, then $\lambda a_{1}\equiv\lambda a_{2}\operatorname{mod}%
+n$.
+\end{proof}
+
+\begin{remark}
+We \textbf{cannot} define a division operation on $\mathbb{Z}/n$ as follows:%
+\[
+\left[  a\right]  _{n}/\left[  b\right]  _{n}:=\left[  a/b\right]  _{n}.
+\]
+Leaving aside the issues that $b$ could be $0$ or $a/b$ could be non-integer,
+this would still not be well-defined, because the class $\left[  a/b\right]
+_{n}$ depends not just on $\left[  a\right]  _{n}$ and $\left[  b\right]
+_{n}$ but also on the concrete choices of $a$ and $b$. For example, for $n=4$,
+this ostensible \textquotedblleft division operation\textquotedblright\ would
+have to satisfy
+\[
+\text{\textquotedblleft}\left[  6\right]  _{4}/\left[  2\right]
+_{4}\text{\textquotedblright}=\left[  6/2\right]  _{4}=\left[  3\right]  _{4}%
+\]
+and%
+\[
+\text{\textquotedblleft}\left[  2\right]  _{4}/\left[  2\right]
+_{4}\text{\textquotedblright}=\left[  2/2\right]  _{4}=\left[  1\right]  _{4},
+\]
+but this is impossible (since $\left[  6\right]  _{4}=\left[  2\right]  _{4}$
+but $\left[  3\right]  _{4}\neq\left[  1\right]  _{4}$).
+
+Similarly, you cannot define $\left(  \left[  a\right]  _{n}\right)  ^{\left[
+b\right]  _{n}}$.
+\end{remark}
+
+Caution: While $i\%n$ and $\left[  i\right]  _{n}$ encode the same information
+about $i$ (for fixed $n$), they are not the same thing! For example,%
+\begin{align*}
+\left[  2\right]  _{5}+\left[  3\right]  _{5}  &  =\left[  2+3\right]
+_{5}=\left[  5\right]  _{5}=\left[  0\right]  _{5}%
+,\ \ \ \ \ \ \ \ \ \ \text{but}\\
+2\%5+3\%5  &  =2+3=5\neq0\%5.
+\end{align*}
+
+
+(The last exercise on MT1 is about how $\left(  u+v\right)  \%n$ differs from
+$u\%n+v\%n$.)
+
+Note: The time \textquotedblleft3 PM\textquotedblright\ can be viewed as the
+residue class $\left[  15\right]  _{24}$. So the statement that
+\textquotedblleft10 hours from 3 PM is 1 AM\textquotedblright\ is saying
+$\left[  15\right]  _{24}+\left[  10\right]  _{24}=\left[  1\right]  _{24}$.)
 
 TODO:
 
@@ -12936,8 +13345,8 @@ something else as well).
 
 \item proof: we can define a map
 \begin{align*}
-R:\mathbb{Z}/n &  \rightarrow\left\{  0,1,\ldots,n-1\right\}  ,\\
-\left[  i\right]  _{n} &  \mapsto i\%n.
+R:\mathbb{Z}/n  &  \rightarrow\left\{  0,1,\ldots,n-1\right\}  ,\\
+\left[  i\right]  _{n}  &  \mapsto i\%n.
 \end{align*}
 why is this well-defined? what does this even mean? why couldn't we put an
 $i\%\left(  n+1\right)  $ here instead?
@@ -12952,9 +13361,9 @@ $\mathbb{Z}/n$ (again, talk about well-definedness).
 information about $i$ (for fixed $n$), do not mistake them for the same
 thing!
 \begin{align*}
-\left[  2\right]  _{5}+\left[  3\right]  _{5} &  =\left[  0\right]
+\left[  2\right]  _{5}+\left[  3\right]  _{5}  &  =\left[  0\right]
 _{5},\ \ \ \ \ \ \ \ \ \ \text{but}\\
-2\%5+3\%5 &  \neq0\%5.
+2\%5+3\%5  &  \neq0\%5.
 \end{align*}
 
 

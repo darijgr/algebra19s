@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Friday, February 22, 2019 09:56:39}
+%TCIDATA{LastRevised=Friday, February 22, 2019 12:07:55}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -12705,41 +12705,47 @@ This $\sim$ is an equivalence relation.
 \textbf{(f)} Let
 \[
 S=\mathbb{Z}\times\left(  \mathbb{Z}\setminus\left\{  0\right\}  \right)
-=\left\{  \left(  a,b\right)  \ \mid\ a\in\mathbb{Z}\text{ and }b\in
-\mathbb{Z}\setminus\left\{  0\right\}  \right\}  .
+=\left\{  \left(  a_{1},a_{2}\right)  \ \mid\ a_{1}\in\mathbb{Z}\text{ and
+}a_{2}\in\mathbb{Z}\setminus\left\{  0\right\}  \right\}  .
 \]
 Define an relation $\underset{\ast}{\sim}$ on $S$ by%
 \[
-\left(  \left(  a,b\right)  \underset{\ast}{\sim}\left(  c,d\right)  \right)
-\ \Longleftrightarrow\ \left(  ad=bc\right)  .
+\left(  \left(  a_{1},a_{2}\right)  \underset{\ast}{\sim}\left(  b_{1}%
+,b_{2}\right)  \right)  \ \Longleftrightarrow\ \left(  a_{1}b_{2}=a_{2}%
+b_{1}\right)  .
 \]
 
 
-This $\underset{\ast}{\sim}$ is reflexive (because $\left(  a,b\right)
-\underset{\ast}{\sim}\left(  a,b\right)  $ just says $ab=ba$, which is true)
-and symmetric (because
+This $\underset{\ast}{\sim}$ is reflexive (because $\left(  a_{1}%
+,a_{2}\right)  \underset{\ast}{\sim}\left(  a_{1},a_{2}\right)  $ just says
+$a_{1}b_{1}=a_{1}b_{1}$, which is true) and symmetric (because
 \begin{align*}
-\left(  \left(  a,b\right)  \underset{\ast}{\sim}\left(  c,d\right)  \right)
-\  &  \Longleftrightarrow\ \left(  ad=bc\right)  \ \Longleftrightarrow
-\ \left(  da=cb\right)  \ \Longleftrightarrow\ \left(  cb=da\right) \\
-&  \Longleftrightarrow\ \left(  \left(  c,d\right)  \underset{\ast}{\sim
-}\left(  a,b\right)  \right)
+\left(  \left(  a_{1},a_{2}\right)  \underset{\ast}{\sim}\left(  b_{1}%
+,b_{2}\right)  \right)  \  &  \Longleftrightarrow\ \left(  a_{1}b_{2}%
+=a_{2}b_{1}\right)  \ \Longleftrightarrow\ \left(  b_{2}a_{1}=b_{1}%
+a_{2}\right)  \ \Longleftrightarrow\ \left(  b_{1}a_{2}=b_{2}a_{1}\right) \\
+&  \Longleftrightarrow\ \left(  \left(  b_{1},b_{2}\right)  \underset{\ast
+}{\sim}\left(  a_{1},a_{2}\right)  \right)
 \end{align*}
-) and transitive (\textit{proof:} if $\left(  a,b\right)  \underset{\ast
-}{\sim}\left(  c,d\right)  $ and $\left(  c,d\right)  \underset{\ast}{\sim
-}\left(  e,f\right)  $, then $ad=bc$ and $cf=de$ and thus%
+) and transitive (\textit{proof:} if $\left(  a_{1},a_{2}\right)
+\underset{\ast}{\sim}\left(  b_{1},b_{2}\right)  $ and $\left(  b_{1}%
+,b_{2}\right)  \underset{\ast}{\sim}\left(  c_{1},c_{2}\right)  $, then
+$a_{1}b_{2}=a_{2}b_{1}$ and $b_{1}c_{2}=b_{2}c_{1}$ and thus%
 \[
-\underbrace{ad}_{=bc}f=b\underbrace{cf}_{=de}=bde,
+\underbrace{a_{1}b_{2}}_{=a_{2}b_{1}}c_{2}=a_{2}\underbrace{b_{1}c_{2}%
+}_{=b_{2}c_{1}}=a_{2}b_{2}c_{1},
 \]
-therefore $af=be$ (because $d$ is nonzero and thus can be cancelled), and this
-means exactly $\left(  a,b\right)  \underset{\ast}{\sim}\left(  e,f\right)
-$). So $\underset{\ast}{\sim}$ is an equivalence relation.
+therefore $a_{1}c_{2}=a_{2}c_{1}$ (because $b_{2}$ is nonzero and thus can be
+cancelled), and this means exactly $\left(  a_{1},a_{2}\right)  \underset{\ast
+}{\sim}\left(  c_{1},c_{2}\right)  $). So $\underset{\ast}{\sim}$ is an
+equivalence relation.
 
 What is this relation? One way to view it is as linear dependence between the
-two vectors $\left(  a,b\right)  $ and $\left(  c,d\right)  $.
+two vectors $\left(  a_{1},a_{2}\right)  $ and $\left(  b_{1},b_{2}\right)  $.
 
-Another is: $\left(  a,b\right)  \underset{\ast}{\sim}\left(  c,d\right)  $ if
-and only if $\dfrac{a}{b}=\dfrac{c}{d}$ (but we have stated it without division).
+Another is: $\left(  a_{1},a_{2}\right)  \underset{\ast}{\sim}\left(
+b_{1},b_{2}\right)  $ if and only if $\dfrac{a_{1}}{a_{2}}=\dfrac{b_{1}}%
+{b_{2}}$ (but we have stated it without division).
 \end{example}
 
 \subsection{Equivalence classes}
@@ -12795,8 +12801,20 @@ _{\sim}.
 route\textquotedblright\ relation are islands/continents.
 \end{example}
 
+\begin{proposition}
+\label{prop.equiv.eqclas.aina}Let $\sim$ be an equivalence relation on a set
+$S$. Let $a\in S$. Then, $a\in\left[  a\right]  _{\sim}$.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.equiv.eqclas.aina}.]We have $a\sim a$ (by
+reflexivity). In other words, $a\in\left[  a\right]  _{\sim}$ (by the
+definition of $\left[  a\right]  _{\sim}$).
+\end{proof}
+
 \begin{theorem}
-Let $\sim$ be an equivalence relation on a set $S$. Let $a,b\in S$.
+\label{thm.equiv.eqclas.disj}Let $\sim$ be an equivalence relation on a set
+$S$. Let $a,b\in S$.
 
 \textbf{(a)} If $a\sim b$, then $\left[  a\right]  _{\sim}=\left[  b\right]
 _{\sim}$.
@@ -12804,33 +12822,27 @@ _{\sim}$.
 \textbf{(b)} If not $a\sim b$, then $\left[  a\right]  _{\sim}$ and $\left[
 b\right]  _{\sim}$ are disjoint.
 
-\textbf{(c)} We have%
-\[
-\left(  a\sim b\right)  \Longleftrightarrow\left(  a\in\left[  b\right]
-_{\sim}\right)  \Longleftrightarrow\left(  b\in\left[  a\right]  _{\sim
-}\right)  \Longleftrightarrow\left(  \left[  a\right]  _{\sim}=\left[
-b\right]  _{\sim}\right)  .
-\]
+\textbf{(c)} We have $a\sim b$ if and only if $a\in\left[  b\right]  _{\sim}$.
 
+\textbf{(d)} We have $a\sim b$ if and only if $b\in\left[  a\right]  _{\sim}$.
 
-\textbf{(d)} We always have $a\in\left[  a\right]  _{\sim}$.
+\textbf{(e)} We have $a\sim b$ if and only if $\left[  a\right]  _{\sim
+}=\left[  b\right]  _{\sim}$.
 \end{theorem}
 
 \begin{proof}
-\textbf{(d)} We have $a\sim a$ (by reflexivity). In other words, $a\in\left[
-a\right]  _{\sim}$ (by the definition of $\left[  a\right]  _{\sim}$).
-
-\textbf{(a)} Assume $a\sim b$. Let $c\in\left[  a\right]  _{\sim}$. Thus,
-$c\sim a$ (by the definition of $\left[  a\right]  _{\sim}$). From $c\sim a$
-and $a\sim b$, we obtain $c\sim b$ (since $\sim$ is transitive). In other
-words, $c\in\left[  b\right]  _{\sim}$ (by the definition of $\left[
-b\right]  _{\sim}$). We have proven this for each $c\in\left[  a\right]
-_{\sim}$. Thus, $\left[  a\right]  _{\sim}\subseteq\left[  b\right]  _{\sim}$.
-The same argument (with $a$ and $b$ switched) yields $\left[  b\right]
-_{\sim}\subseteq\left[  a\right]  _{\sim}$ (since $a\sim b$ yields $b\sim a$).
-Combining $\left[  a\right]  _{\sim}\subseteq\left[  b\right]  _{\sim}$ with
-$\left[  b\right]  _{\sim}\subseteq\left[  a\right]  _{\sim}$, we obtain
-$\left[  a\right]  _{\sim}=\left[  b\right]  _{\sim}$.
+[Proof of Theorem \ref{thm.equiv.eqclas.disj}.]\textbf{(a)} Assume $a\sim b$.
+Let $c\in\left[  a\right]  _{\sim}$. Thus, $c\sim a$ (by the definition of
+$\left[  a\right]  _{\sim}$). From $c\sim a$ and $a\sim b$, we obtain $c\sim
+b$ (since $\sim$ is transitive). In other words, $c\in\left[  b\right]
+_{\sim}$ (by the definition of $\left[  b\right]  _{\sim}$). We have proven
+this for each $c\in\left[  a\right]  _{\sim}$. Thus, $\left[  a\right]
+_{\sim}\subseteq\left[  b\right]  _{\sim}$. The same argument (with $a$ and
+$b$ switched) yields $\left[  b\right]  _{\sim}\subseteq\left[  a\right]
+_{\sim}$ (since $a\sim b$ yields $b\sim a$). Combining $\left[  a\right]
+_{\sim}\subseteq\left[  b\right]  _{\sim}$ with $\left[  b\right]  _{\sim
+}\subseteq\left[  a\right]  _{\sim}$, we obtain $\left[  a\right]  _{\sim
+}=\left[  b\right]  _{\sim}$.
 
 \textbf{(b)} Assume that we don't have $a\sim b$. Let $c\in\left[  a\right]
 _{\sim}\cap\left[  b\right]  _{\sim}$. We aim for a contradiction.
@@ -12846,19 +12858,18 @@ So we have found a contradiction for each $c\in\left[  a\right]  _{\sim}%
 $\left[  a\right]  _{\sim}\cap\left[  b\right]  _{\sim}=\varnothing$. In other
 words, $\left[  a\right]  _{\sim}$ and $\left[  b\right]  _{\sim}$ are disjoint.
 
-\textbf{(c)} The equivalence $\left(  a\sim b\right)  \Longleftrightarrow
-\left(  a\in\left[  b\right]  _{\sim}\right)  $ is easy, as it is simply the
-definition of $\left[  b\right]  _{\sim}$. Also, by symmetry, $\left(  a\sim
-b\right)  \Longleftrightarrow\left(  b\sim a\right)  \Longleftrightarrow
-\left(  b\in\left[  a\right]  _{\sim}\right)  $ (by the definition of $\left[
+\textbf{(c)} This is simply the definition of $\left[  b\right]  _{\sim}$.
+
+\textbf{(d)} By symmetry of $\sim$, we have $\left(  a\sim b\right)
+\Longleftrightarrow\left(  b\sim a\right)  \Longleftrightarrow\left(
+b\in\left[  a\right]  _{\sim}\right)  $ (by the definition of $\left[
 a\right]  _{\sim}$).
 
-Finally, $\left(  a\sim b\right)  \Longleftrightarrow\left(  \left[  a\right]
-_{\sim}=\left[  b\right]  _{\sim}\right)  $. In fact, the $\Longrightarrow$
-part follows from part \textbf{(a)}, whereas the $\Longleftarrow$ part is easy
-(if $\left[  a\right]  _{\sim}=\left[  b\right]  _{\sim}$, then part
-\textbf{(d)} yields $a\in\left[  a\right]  _{\sim}=\left[  b\right]  _{\sim}$,
-and this means $a\sim b$).
+\textbf{(e)} The $\Longrightarrow$ part follows from part \textbf{(a)},
+whereas the $\Longleftarrow$ part is easy (if $\left[  a\right]  _{\sim
+}=\left[  b\right]  _{\sim}$, then Proposition \ref{prop.equiv.eqclas.aina}
+yields $a\in\left[  a\right]  _{\sim}=\left[  b\right]  _{\sim}$, and this
+means $a\sim b$).
 \end{proof}
 
 \begin{center}
@@ -12867,15 +12878,15 @@ and this means $a\sim b$).
 
 \begin{example}
 Consider the relation $\underset{\ast}{\sim}$ on $S=\mathbb{Z}\times\left(
-\mathbb{Z}\setminus\left\{  0\right\}  \right)  $ defined in our previous
-examples. Its equivalence classes are the rational numbers. Indeed, the
-equivalence class of a pair $\left(  a,b\right)  \in S$ is commonly denoted by
-$\dfrac{a}{b}$. This is how rational numbers are defined! For example,
-$\left(  6,8\right)  $ and $\left(  9,12\right)  $ are not the same pair, but
-they are $\underset{\ast}{\sim}$-related, and so $6/8$ and $9/12$ is the same fraction.
+\mathbb{Z}\setminus\left\{  0\right\}  \right)  $ defined before ($\left(
+a_{1},a_{2}\right)  \underset{\ast}{\sim}\left(  b_{1},b_{2}\right)  $ if and
+only if $a_{1}b_{2}=a_{2}b_{1}$). The equivalence classes of this relation are
+the rational numbers (more precisely, the class of $\left(  a_{1}%
+,a_{2}\right)  $ is called $a_{1}/a_{2}$). This is how the rational numbers
+are defined.
 \end{example}
 
-A few more examples for equivalences and equivalence classes:
+A few more examples for equivalence and equivalence classes:
 
 \begin{definition}
 Let $A$ be a set. A \textbf{permutation} of $A$ means a bijective map
@@ -12889,21 +12900,22 @@ sends $1,2,3,4$ to $3,1,4,2$ is a permutation of $\left\{  1,2,3,4\right\}  $.
 
 \begin{definition}
 Let $\left(  p_{1},p_{2},\ldots,p_{k}\right)  $ be a $k$-tuple. A
-\textbf{permutation }(aka \textbf{rearrangement}) \textbf{of }$\left(
-p_{1},p_{2},\ldots,p_{k}\right)  $ is a $k$-tuple of the form $\left(
+\textbf{permutation} (aka \textbf{rearrangement}) of $\left(  p_{1}%
+,p_{2},\ldots,p_{k}\right)  $ means a $k$-tuple of the form $\left(
 p_{\sigma\left(  1\right)  },p_{\sigma\left(  2\right)  },\ldots
 ,p_{\sigma\left(  k\right)  }\right)  $ where $\sigma$ is a permutation of the
 set $\left\{  1,2,\ldots,k\right\}  $.
 \end{definition}
 
-Caution: The $4$-tuple $\left(  1,3,1,2\right)  $ is a permutation of the
-$4$-tuple $\left(  3,2,1,1\right)  $, but there are two different permutations
-$\sigma$ of $\left\{  1,2,3,4\right\}  $ which yield this $4$-tuple.
+\begin{example}
+The $4$-tuple $\left(  1,3,1,2\right)  $ is a permutation of the $4$-tuple
+$\left(  3,2,1,1\right)  $. It is obtained for $\sigma$ sending $1,2,3,4$ to
+$3,1,4,2$. It is also obtained for $\sigma$ sending $1,2,3,4$ to $4,1,3,2$.
+\end{example}
 
 \begin{definition}
 Let $A$ be a set, and let $k\in\mathbb{N}$. As we know, $A^{k}$ denotes the
-set of $k$-tuples $\left(  a_{1},a_{2},\ldots,a_{k}\right)  $ of elements of
-$A$.
+set of all $k$-tuples of elements of $A$.
 
 The relation $\underset{\operatorname*{perm}}{\sim}$ on $A^{k}$ is defined as
 follows:%
@@ -12912,56 +12924,66 @@ follows:%
 \Longleftrightarrow\left(  \mathbf{p}\text{ is a permutation of }%
 \mathbf{q}\right)  .
 \]
+For example, $\left(  3,8,8,2\right)  \underset{\operatorname*{perm}}{\sim
+}\left(  8,3,2,8\right)  $.
 
-
-This relation $\underset{\operatorname*{perm}}{\sim}$ is an equivalence
-relation. Its equivalence classes are the \textbf{unordered }$k$%
-\textbf{-tuples} of elements of $A$. For example, for $k=2$ and $A=\mathbb{Z}%
-$, the two $2$-tuples $\left(  6,9\right)  $ and $\left(  9,6\right)  $ are
-permutations of each other, so $\left(  6,9\right)
-\underset{\operatorname*{perm}}{\sim}\left(  9,6\right)  $. Thus, $\left[
-\left(  6,9\right)  \right]  _{\underset{\operatorname*{perm}}{\sim}}=\left[
-\left(  9,6\right)  \right]  _{\underset{\operatorname*{perm}}{\sim}}$.
+The relation $\underset{\operatorname*{perm}}{\sim}$ is an equivalence
+relation. Its equivalence classes are called the \textbf{unordered }%
+$k$\textbf{-tuples} of elements of $A$. For example, for $k=2$ and
+$A=\mathbb{Z}$, the two $2$-tuples $\left(  6,8\right)  $ and $\left(
+8,6\right)  $ are permutations of each other, so $\left(  6,8\right)
+\underset{\operatorname*{perm}}{\sim}\left(  8,6\right)  $ and thus $\left[
+\left(  6,8\right)  \right]  _{\underset{\operatorname*{perm}}{\sim}}=\left[
+\left(  8,6\right)  \right]  _{\underset{\operatorname*{perm}}{\sim}}$.
 \end{definition}
 
 \begin{definition}
 Again, let $A$ be a set and $k\in\mathbb{N}$. If $\mathbf{a}=\left(
-a_{1},a_{2},\ldots,a_{k}\right)  \in A^{k}$, then a \textbf{rotation} of
-$\mathbf{a}$ means a $k$-tuple of the form
+a_{1},a_{2},\ldots,a_{k}\right)  \in A^{k}$, then a \textbf{cyclic rotation}
+of $\mathbf{a}$ means a $k$-tuple of the form%
 \[
-\left(  a_{i+1},a_{i+2},\ldots,a_{k},a_{1},a_{2},\ldots,a_{i}\right)  \in
-A^{k},
+\left(  a_{i+1},a_{i+2},\ldots,a_{n},a_{1},a_{2},\ldots,a_{i}\right)  \in
+A^{k}%
 \]
-for some $i\in\left\{  0,1,\ldots,k\right\}  $.
+for some $i\in\left\{  0,1,\ldots,k\right\}  $. An equivalent description: Let
+$C$ be the map $A^{k}\rightarrow A^{k}$ that sends each $\left(  a_{1}%
+,a_{2},\ldots,a_{k}\right)  $ to $\left(  a_{2},a_{3},\ldots,a_{k}%
+,a_{1}\right)  $. Then, it is easy to see that a cyclic rotation of
+$\mathbf{a}$ is the same as a $k$-tuple of the form $C^{i}\left(
+\mathbf{a}\right)  $ for some $i\in\left\{  0,1,\ldots,k\right\}  $. Now,
+$C^{k}=\operatorname*{id}$. Thus, the $C^{i}\left(  \mathbf{a}\right)  $ for
+$i\in\left\{  0,1,\ldots,k\right\}  $ are exactly the $C^{i}\left(
+\mathbf{a}\right)  $ for $i\in\mathbb{N}$.
 
 The relation $\underset{\operatorname*{cyc}}{\sim}$ on $A^{k}$ is defined as
 follows:%
-\[
-\left(  \mathbf{p}\underset{\operatorname*{cyc}}{\sim}\mathbf{q}\right)
-\Longleftrightarrow\left(  \mathbf{p}\text{ is a rotation of }\mathbf{q}%
-\right)  .
-\]
+\begin{align*}
+\left(  \mathbf{p}\underset{\operatorname*{cyc}}{\sim}\mathbf{q}\right)    &
+\Longleftrightarrow\ \left(  \mathbf{p}\text{ is a cyclic rotation of
+}\mathbf{q}\right)  \\
+& \Longleftrightarrow\ \left(  \mathbf{p}=C^{i}\left(  \mathbf{q}\right)
+\text{ for some }i\in\mathbb{N}\right)  .
+\end{align*}
 
 
 This relation $\underset{\operatorname*{cyc}}{\sim}$ is an equivalence
-relation. Its equivalence classes are called \textbf{necklaces} of size $k$
+relation. Its equivalence classes are called \textbf{necklaces} of length $k$
 over $A$.
 \end{definition}
 
 \begin{definition}
 Let $S$ be a set, and let $\sim$ be an equivalence relation on $S$.
 
-\textbf{(a)}\textit{ The set of equivalence classes of }$\sim$ is denoted by
-$S/\sim$. It is called the \textbf{quotient} (or \textbf{quotient set}) of $S$
-by $\sim$.
+\textbf{(a)} The set of equivalence classes of $\sim$ is denoted by $S/\sim$.
+It is called the \textbf{quotient} (or \textbf{quotient set}) of $S$ by $\sim$.
 
-\textbf{(b)} There is a map%
+\textbf{(b)} The map%
 \begin{align*}
 S  & \rightarrow S/\sim,\\
-s  & \mapsto\left[  s\right]  _{\sim}.
+s  & \mapsto\left[  s\right]  _{\sim}%
 \end{align*}
-This map is called the \textbf{canonical projection (onto the quotient)}, and
-we will denote it by $\pi_{\sim}$.
+is called the \textbf{canonical projection (onto the quotient)}, and we will
+denote it by $\pi_{\sim}$.
 \end{definition}
 
 \subsection{$\mathbb{Z}/n$ (\textquotedblleft integers modulo $n$%
@@ -12971,7 +12993,7 @@ For this section, we fix a positive integer $n$.
 
 \begin{definition}
 A \textbf{residue class modulo }$n$ means an equivalence class of
-$\underset{n}{\equiv}$. (Remember: $\underset{n}{\equiv}$ is the equivalence
+$\underset{n}{\equiv}$. (Recall: $\underset{n}{\equiv}$ is the equivalence
 relation on $\mathbb{Z}$ given by $\left(  a\underset{n}{\equiv}b\right)
 \Longleftrightarrow\left(  a\equiv b\operatorname{mod}n\right)  $.)
 \end{definition}
@@ -12979,19 +13001,19 @@ relation on $\mathbb{Z}$ given by $\left(  a\underset{n}{\equiv}b\right)
 For example,%
 \begin{align*}
 \left[  0\right]  _{\underset{5}{\equiv}}  & =\left\{  \ldots
-,-15,-10,-5,0,5,10,15,\ldots\right\}  ,\\
+,-15,-10,-5,0,5,10,15,20,\ldots\right\}  ,\\
 \left[  1\right]  _{\underset{5}{\equiv}}  & =\left\{  \ldots
-,-14,-9,-4,1,6,11,16,\ldots\right\}  ,\\
+,-14,-9,-4,1,6,11,16,21,\ldots\right\}  ,\\
 \left[  2\right]  _{\underset{5}{\equiv}}  & =\left\{  \ldots
 ,-13,-8,-3,2,7,12,17,22,\ldots\right\}  ,\\
 \left[  3\right]  _{\underset{5}{\equiv}}  & =\left\{  \ldots
-,-17,-12,-7,-2,3,8,13,18,\ldots\right\}  ,\\
+,-12,-7,-2,3,8,13,18,23,\ldots\right\}  ,\\
 \left[  4\right]  _{\underset{5}{\equiv}}  & =\left\{  \ldots
-,-16,-11,-6,-1,4,9,14,19,\ldots\right\}
+,-11,-6,-1,4,9,14,19,24,\ldots\right\}
 \end{align*}
 are all the residue classes modulo $5$. As you see, the classes are in 1-to-1
 correspondence with the $5$ possible remainders $0,1,2,3,4$ modulo $5$. This
-generalizes (see Theorem below). First, a few notations:
+generalizes (see the Theorem below). First, a few notations:
 
 \begin{definition}
 \textbf{(a)} If $i$ is an integer, then we set $\left[  i\right]  _{n}=\left[
@@ -13009,7 +13031,7 @@ _{n},\left[  1\right]  _{n},\ldots,\left[  n-1\right]  _{n}$.
 \end{theorem}
 
 \begin{proof}
-We have a map
+We have a map%
 \begin{align*}
 \pi_{\underset{n}{\equiv}}:\mathbb{Z}  & \rightarrow\mathbb{Z}/n,\\
 s  & \mapsto\left[  s\right]  _{n}.
@@ -13032,21 +13054,18 @@ Can we do this? Is this well-defined?
 
 Here is what could go wrong: One element of $\mathbb{Z}/n$ could be written as
 $\left[  s\right]  _{n}$ for several different integers $s$. For instance,
-$\left[  2\right]  _{5}=\left[  17\right]  _{5}$. If the corresponding numbers
-$s\%n$ were different, then the map $R$ would have to send the same class to
-several different numbers; thus there would not be such a map. This would
-happen if we tried to define%
+$\left[  2\right]  _{5}=\left[  17\right]  _{5}$. If the corresponding
+remainders $s\%n$ were different, then the map $R$ would have to send the same
+class to several different numbers, and this is not something a map can do.
+This would happen if we tried to define%
 \begin{align*}
 R_{\operatorname*{wrong}}:\mathbb{Z}/n  & \rightarrow\left\{  0,1,\ldots
 ,n-1\right\}  ,\\
 \left[  s\right]  _{n}  & \mapsto s\%\left(  n+1\right)  .
 \end{align*}
-This $R_{\operatorname*{wrong}}$ would send $\left[  0\right]  _{n}$ to $0$
-and $\left[  2n\right]  _{n}$ to $n-1$, but $\left[  0\right]  _{n}$ and
-$\left[  2n\right]  _{n}$ are the same class, so it would have to send one and
-the same class to two different numbers.
 
-So we have to check that in the definition of%
+
+So we have to check that in the definition of
 \begin{align*}
 R:\mathbb{Z}/n  & \rightarrow\left\{  0,1,\ldots,n-1\right\}  ,\\
 \left[  s\right]  _{n}  & \mapsto s\%n,
@@ -13061,20 +13080,20 @@ s_{1}\right]  _{n}=\left[  s_{2}\right]  _{n}$, then $s_{1}\%n=s_{2}\%n$.
 \end{statement}
 
 [\textit{Proof of Claim 1:} Let $s_{1}$ and $s_{2}$ be two integers such that
-$\left[  s_{1}\right]  _{n}=\left[  s_{2}\right]  _{n}$. Thus, $s_{1}%
-\underset{n}{\equiv}s_{2}$ (by Theorem above), which means $s_{1}\equiv
-s_{2}\operatorname{mod}n$. Now, one of the HW1 exercises yields $s_{1}%
-\%n=s_{2}\%n$.]
+$\left[  s_{1}\right]  _{n}=\left[  s_{2}\right]  _{n}$. In other words,
+$s_{1}\underset{n}{\equiv}s_{2}$ (by Theorem \ref{thm.equiv.eqclas.disj}
+\textbf{(e)}). In other words, $s_{1}\equiv s_{2}\operatorname{mod}n$. But
+this implies $s_{1}\%n=s_{2}\%n$ (by one of the HW1 exercises).]
 
-Claim 1 shows that $s\%n$ depends only on the \textbf{class }$\left[
-s\right]  _{n}$ but not on the actual integer $s$. Thus, the map $R$ is well-defined.
+Claim 1 shows that $s\%n$ depends only on the \textbf{class} $\left[
+s\right]  _{n}$, but not on the actual integer $s$. Thus, the map $R$ is well-defined.
 
 \textbf{Bad news:} You'll have to do something like this (almost) every time
 you want to define a map out of a quotient set $S/\sim$.
 
 \textbf{Good news:} It is often easy.
 
-Anyway, we have two maps%
+Anyway, now we have two maps%
 \begin{align*}
 P:\left\{  0,1,\ldots,n-1\right\}    & \rightarrow\mathbb{Z}/n,\\
 s  & \mapsto\left[  s\right]  _{n}%
@@ -13082,13 +13101,13 @@ s  & \mapsto\left[  s\right]  _{n}%
 and%
 \begin{align*}
 R:\mathbb{Z}/n  & \rightarrow\left\{  0,1,\ldots,n-1\right\}  ,\\
-\left[  s\right]  _{n}  & \mapsto s\%n
+\left[  s\right]  _{n}  & \mapsto s\%n.
 \end{align*}
-now. We claim that they are inverse. Indeed:
+We claim that they are mutually inverse. Indeed:
 
 \begin{itemize}
 \item $P\circ R=\operatorname*{id}$, since each $\left[  s\right]  _{n}%
-\in\mathbb{Z}/n$ satisfies
+\in\mathbb{Z}/n$ satisfies%
 \begin{align*}
 \left(  P\circ R\right)  \left(  \left[  s\right]  _{n}\right)    & =P\left(
 \underbrace{R\left(  \left[  s\right]  _{n}\right)  }_{=s\%n}\right)
@@ -13100,7 +13119,7 @@ s\operatorname{mod}n\right)  \\
 
 
 \item $R\circ P=\operatorname*{id}$, since each $s\in\left\{  0,1,\ldots
-,n-1\right\}  $ satisfies
+,n-1\right\}  $ satisfies%
 \begin{align*}
 \left(  R\circ P\right)  \left(  s\right)    & =R\left(  \underbrace{P\left(
 s\right)  }_{=\left[  s\right]  _{n}}\right)  =R\left(  \left[  s\right]
@@ -13112,35 +13131,35 @@ _{n}\right)  =s\%n\\
 
 \end{itemize}
 
-Thus, $P$ is invertible, i.e., a bijection. This shows that%
+Thus, $P$ is invertible, i.e., bijective. Thus,%
 \begin{align*}
 \mathbb{Z}/n  & =P\left(  \left\{  0,1,\ldots,n-1\right\}  \right)  \\
 & =\left\{  P\left(  0\right)  ,P\left(  1\right)  ,\ldots,P\left(
 n-1\right)  \right\}  \\
 & =\left\{  \left[  0\right]  _{n},\left[  1\right]  _{n},\ldots,\left[
-n-1\right]  _{n}\right\}
+n-1\right]  _{n}\right\}  .
 \end{align*}
-and also that $\left[  0\right]  _{n},\left[  1\right]  _{n},\ldots,\left[
-n-1\right]  _{n}$ are distinct (since $P$ is injective).
+Also, the injectivity of $P$ shows that $\left[  0\right]  _{n},\left[
+1\right]  _{n},\ldots,\left[  n-1\right]  _{n}$ are distinct.
 \end{proof}
 
 \begin{definition}
 \textbf{(a)} We define an \textbf{addition} operation on $\mathbb{Z}/n$ as
-follows:
+follows:%
 \[
 \left[  a\right]  _{n}+\left[  b\right]  _{n}:=\left[  a+b\right]  _{n}.
 \]
 
 
-\textbf{(b)} We define a \textbf{subtraction} operation on $\mathbb{Z}/n$ as
-follows:
+\textbf{(b)} We define an \textbf{subtraction }operation on $\mathbb{Z}/n$ as
+follows:%
 \[
 \left[  a\right]  _{n}-\left[  b\right]  _{n}:=\left[  a-b\right]  _{n}.
 \]
 
 
 \textbf{(c)} We define a \textbf{multiplication} operation on $\mathbb{Z}/n$
-as follows:
+as follows:%
 \[
 \left[  a\right]  _{n}\cdot\left[  b\right]  _{n}:=\left[  a\cdot b\right]
 _{n}.
@@ -13148,7 +13167,7 @@ _{n}.
 
 
 \textbf{(d)} If $\lambda\in\mathbb{Z}$ and $\left[  a\right]  _{n}%
-\in\mathbb{Z}/n$, then we define%
+\in\mathbb{Z}/n$, then
 \[
 \lambda\cdot\left[  a\right]  _{n}:=\left[  \lambda a\right]  _{n}.
 \]
@@ -13169,7 +13188,8 @@ So we have to prove the following:
 \begin{statement}
 \textit{Claim 1:} Let $a_{1}$ and $a_{2}$ be two integers such that $\left[
 a_{1}\right]  _{n}=\left[  a_{2}\right]  _{n}$. Let $b_{1}$ and $b_{2}$ be two
-integers that $\left[  b_{1}\right]  _{n}=\left[  b_{2}\right]  _{n}$. Then,%
+integers such that $\left[  b_{1}\right]  _{n}=\left[  b_{2}\right]  _{n}$.
+Then,%
 \[
 \left[  a_{1}+b_{1}\right]  _{n}=\left[  a_{2}+b_{2}\right]  _{n}.
 \]
@@ -13179,42 +13199,39 @@ integers that $\left[  b_{1}\right]  _{n}=\left[  b_{2}\right]  _{n}$. Then,%
 [\textit{Proof of Claim 1:} From $\left[  a_{1}\right]  _{n}=\left[
 a_{2}\right]  _{n}$, we obtain $a_{1}\equiv a_{2}\operatorname{mod}n$. From
 $\left[  b_{1}\right]  _{n}=\left[  b_{2}\right]  _{n}$, we obtain
-$b_{1}\equiv b_{2}\operatorname{mod}n$. Adding these congruences, we obtain
-$a_{1}+b_{1}\equiv a_{2}+b_{2}\operatorname{mod}n$. In other words, $\left[
-a_{1}+b_{1}\right]  _{n}=\left[  a_{2}+b_{2}\right]  _{n}$.]
+$b_{1}\equiv b_{2}\operatorname{mod}n$. Adding these two congruences, we
+obtain $a_{1}+b_{1}\equiv a_{2}+b_{2}\operatorname{mod}n$. This, in turn,
+means that $\left[  a_{1}+b_{1}\right]  _{n}=\left[  a_{2}+b_{2}\right]  _{n}$.]
 
 Thus, Definition \textbf{(a)} is well-defined.
 
-\textbf{(b)} and \textbf{(c)} are proven similarly, since we can also subtract
-and multiply congruences.
+\textbf{(b)} and \textbf{(c)} are proven similarly, since we can subtract and
+multiply congruences.
 
-\textbf{(d)} is proven similarly, because if $a_{1}\equiv a_{2}%
+\textbf{(d)} is proven similarly, since if $a_{1}\equiv a_{2}%
 \operatorname{mod}n$, then $\lambda a_{1}\equiv\lambda a_{2}\operatorname{mod}%
 n$.
 \end{proof}
 
 \begin{remark}
-We \textbf{cannot} define a division operation on $\mathbb{Z}/n$ as follows:
+We \textbf{cannot} define a division operation on $\mathbb{Z}/n$ as follows:%
 \[
-\left[  a\right]  _{n}/\left[  b\right]  _{n}:=\left[  a/b\right]  _{n}.
+\left[  a\right]  _{n}/\left[  b\right]  _{n}=\left[  a/b\right]  _{n}.
 \]
-Leaving aside the issue that $b$ could be $0$, this is still not well-defined,
-because the class $\left[  a/b\right]  _{n}$ depends on the specific choice of
-$a$ and $b$ and not just on $\left[  a\right]  _{n}$ and $\left[  b\right]
-_{n}$.
+Leaving aside the issues that $b$ could be $0$ or $a/b$ could be non-integer,
+this would still not be well-definedd, because the class $\left[  a/b\right]
+_{n}$ depends not just on $\left[  a\right]  _{n}$ and $\left[  b\right]
+_{n}$ but also on the concrete choices of $a$ and $b$. For example,
+\[
+\text{\textquotedblleft}\left[  6\right]  _{4}/\left[  2\right]
+_{4}\text{\textquotedblright}=\left[  6/2\right]  _{4}=\left[  3\right]  _{4}%
+\]
+is not equal to%
+\[
+\text{\textquotedblleft}\left[  2\right]  _{4}/\left[  2\right]
+_{4}\text{\textquotedblright}=\left[  2/2\right]  _{4}=\left[  1\right]  _{4}.
+\]
 
-For example, taking $n=4$, $a=6$ and $b=2$, we would get%
-\[
-\left[  6\right]  _{4}/\left[  2\right]  _{4}=\left[  6/2\right]  _{4}=\left[
-3\right]  _{4},
-\]
-but at the same time%
-\[
-\underbrace{\left[  6\right]  _{4}}_{=\left[  2\right]  _{4}}/\left[
-2\right]  _{4}=\left[  2\right]  _{4}/\left[  2\right]  _{4}=\left[
-2/2\right]  _{4}=\left[  1\right]  _{4},
-\]
-and these are not the same result.
 
 Similarly, you cannot define $\left(  \left[  a\right]  _{n}\right)  ^{\left[
 b\right]  _{n}}$.
@@ -13233,8 +13250,10 @@ _{5}=\left[  5\right]  _{5}=\left[  0\right]  _{5}%
 (The last exercise on MT1 is about how $\left(  u+v\right)  \%n$ differs from
 $u\%n+v\%n$.)
 
-Note: \textquotedblleft3 PM\textquotedblright\ can be viewed as the residue
-class $\left[  15\right]  _{24}$. So the statement that \textquotedblleft10
-hours from 3 PM is 1 AM\textquotedblright\ is saying $\left[  15\right]
-_{24}+\left[  10\right]  _{24}=\left[  1\right]  _{24}$.)
+Note. \textquotedblleft3 PM\textquotedblright\ can be viewed as the residue
+class $\left[  15\right]  _{24}$.
+
+$\left[  15\right]  _{24}+\left[  10\right]  _{24}=\left[  1\right]  _{24}$.
+
+
 \end{document}
