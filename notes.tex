@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Sunday, February 24, 2019 14:48:31}
+%TCIDATA{LastRevised=Sunday, February 24, 2019 23:22:18}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -1568,7 +1568,7 @@ Prove that $g=1$.
 
 \begin{fineprint}
 \begin{proof}
-[Solution to Exercise \ref{exe.ent.div.g|1}.] Assume the contrary. Thus,
+[Solution to Exercise \ref{exe.ent.div.g|1}.]Assume the contrary. Thus,
 $g\neq1$. But Proposition \ref{prop.ent.div.1} \textbf{(b)} (applied to $g$
 and $1$ instead of $a$ and $b$) yields $\left\vert g\right\vert \leq\left\vert
 1\right\vert $ (since $g\mid1$ and $1\neq0$). But $g$ is nonnegative; hence,
@@ -1576,10 +1576,10 @@ $\left\vert g\right\vert =g$, so that $g=\left\vert g\right\vert
 \leq\left\vert 1\right\vert =1$. Combining this with $g\neq1$, we obtain
 $g<1$. Hence, $g=0$ (since $g$ is a nonnegative integer).
 
-But $g\mid1$. In other words, there exists an integer $c$ such that $1=gc$
-(by Definition \ref{def.ent.div.div}). Consider this $c$. Now,
-$1=\underbrace{g}_{=0}c=0c=0$. This contradicts $1\neq0$. This contradiction
-shows that our assumption was wrong. Hence, Exercise \ref{exe.ent.div.g|1} is solved.
+But $g\mid1$. In other words, there exists an integer $c$ such that $1=gc$ (by
+Definition \ref{def.ent.div.div}). Consider this $c$. Now, $1=\underbrace{g}%
+_{=0}c=0c=0$. This contradicts $1\neq0$. This contradiction shows that our
+assumption was wrong. Hence, Exercise \ref{exe.ent.div.g|1} is solved.
 \end{proof}
 \end{fineprint}
 
@@ -5622,9 +5622,9 @@ $\gcd\left(  2,3\right)  =1$.
 that%
 \begin{align*}
 \gcd\left(  a,\underbrace{a}_{=1a}+1\right)   &  =\gcd\left(  a,1a+1\right)
-=\gcd\left(  a,1\right)  \\
+=\gcd\left(  a,1\right) \\
 &  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition \ref{prop.ent.gcd.props1}
-\textbf{(c)}, applied to }u=1\text{ and }b=1\right)  \\
+\textbf{(c)}, applied to }u=1\text{ and }b=1\right) \\
 &  \mid1\ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition
 \ref{prop.ent.gcd.props1} \textbf{(e)}, applied to }b=1\right)  ,
 \end{align*}
@@ -7792,7 +7792,7 @@ m=m_{1}m_{2}\cdots m_{\ell-1}=m_{i}\cdot\left(  m_{1}m_{2}\cdots
 m_{i-1}m_{i+1}m_{i+2}\cdots m_{\ell-1}\right)  ;
 \]
 thus, $m_{i}\mid m$ (since $m_{1}m_{2}\cdots m_{i-1}m_{i+1}m_{i+2}\cdots
-m_{\ell}$ is an integer). But as we just have shown, we have $v\equiv
+m_{\ell-1}$ is an integer). But as we just have shown, we have $v\equiv
 u\operatorname{mod}m$. Hence, Proposition \ref{prop.ent.mod.basics}
 \textbf{(e)} (applied to $v$, $u$, $m$ and $m_{i}$ instead of $a$, $b$, $n$
 and $m$) yields $v\equiv u\operatorname{mod}m_{i}$ (since $m_{i}\mid m$).
@@ -12270,101 +12270,105 @@ intermediate steps. The first one is to prove Theorem
 \ref{thm.binom.vandermonde} in the particular case when $x,y\in\mathbb{N}$:
 
 \begin{lemma}
-\label{lem.binom.vandermonde.NN}Let $x,y\in\mathbb{N}$ and $n\in\mathbb{N}$.
+\label{lem.binom.vandermonde.NN}Let $a,b\in\mathbb{N}$ and $n\in\mathbb{N}$.
 Then,%
 \[
-\dbinom{x+y}{n}=\sum_{k=0}^{n}\dbinom{x}{k}\dbinom{y}{n-k}.
+\dbinom{a+b}{n}=\sum_{k=0}^{n}\dbinom{a}{k}\dbinom{b}{n-k}.
 \]
 
 \end{lemma}
 
+(We have renamed the variables $x$ and $y$ from Theorem
+\ref{thm.binom.vandermonde} as $a$ and $b$ here, since we will soon use the
+letter \textquotedblleft$x$\textquotedblright\ for something completely different.)
+
 \begin{proof}
 [Proof of Lemma \ref{lem.binom.vandermonde.NN} (sketched).]Let%
 \[
-A=\left\{  1,2,\ldots,x\right\}  \cup\left\{  -1,-2,\ldots,-y\right\}  .
+C=\left\{  1,2,\ldots,a\right\}  \cup\left\{  -1,-2,\ldots,-b\right\}  .
 \]
-Thus, $A$ is an $\left(  x+y\right)  $-element set, containing only positive
-and negative integers. How many $n$-element subsets does $A$ have?
+Thus, $C$ is an $\left(  a+b\right)  $-element set, containing only positive
+and negative integers. How many $n$-element subsets does $C$ have?
 
 \begin{itemize}
-\item On the one hand: The set $A$ is an $\left(  x+y\right)  $-element set.
-Hence, Theorem \ref{thm.binom.comb-int} (applied to $x+y$, $n$ and $A$ instead
-of $n$, $k$ and $N$) shows that the number of $n$-element subsets of $A$ is
-$\dbinom{x+y}{n}$.
+\item On the one hand: The set $C$ is an $\left(  a+b\right)  $-element set.
+Hence, Theorem \ref{thm.binom.comb-int} (applied to $a+b$, $n$ and $C$ instead
+of $n$, $k$ and $N$) shows that the number of $n$-element subsets of $C$ is
+$\dbinom{a+b}{n}$.
 
-\item On the other hand: Let us classify the $n$-element subsets of $A$
+\item On the other hand: Let us classify the $n$-element subsets of $C$
 according to how many positive elements they have. We claim the following:
 
 \begin{statement}
 \textit{Claim 1:} For each $k\in\left\{  0,1,\ldots,n\right\}  $, the number
-of $n$-element subsets of $A$ having \textbf{exactly }$k$ \textbf{positive
-elements} is $\dbinom{x}{k}\dbinom{y}{n-k}$.
+of $n$-element subsets of $C$ having \textbf{exactly }$k$ \textbf{positive
+elements} is $\dbinom{a}{k}\dbinom{b}{n-k}$.
 \end{statement}
 
 [\textit{Proof of Claim 1:} Let $k\in\left\{  0,1,\ldots,n\right\}  $. In
-order to choose an $n$-element subset of $A$ having exactly $k$ positive
+order to choose an $n$-element subset of $C$ having exactly $k$ positive
 elements, we need to choose
 
 \begin{itemize}
-\item its $k$ positive elements from the set of all positive elements of $A$
-(that is, from the set $\left\{  1,2,\ldots,x\right\}  $), and
+\item its $k$ positive elements from the set of all positive elements of $C$
+(that is, from the set $\left\{  1,2,\ldots,a\right\}  $), and
 
 \item its remaining $n-k$ (negative) elements from the set of all negative
-elements of $A$ (that is, from the set $\left\{  -1,-2,\ldots,-y\right\}  $).
+elements of $C$ (that is, from the set $\left\{  -1,-2,\ldots,-b\right\}  $).
 \end{itemize}
 
 In other words, we need to choose
 
 \begin{itemize}
-\item a $k$-element subset of the set $\left\{  1,2,\ldots,x\right\}  $, and
+\item a $k$-element subset of the set $\left\{  1,2,\ldots,a\right\}  $, and
 
 \item an $\left(  n-k\right)  $-element subset of the set $\left\{
--1,-2,\ldots,-y\right\}  $.
+-1,-2,\ldots,-b\right\}  $.
 \end{itemize}
 
-Theorem \ref{thm.binom.comb-int} (applied to $x$, $k$ and $\left\{
-1,2,\ldots,x\right\}  $ instead of $n$, $k$ and $N$) shows that the number of
-$k$-element subsets of the set $\left\{  1,2,\ldots,x\right\}  $ is
-$\dbinom{x}{k}$ (since $\left\{  1,2,\ldots,x\right\}  $ is an $x$-element
+Theorem \ref{thm.binom.comb-int} (applied to $a$, $k$ and $\left\{
+1,2,\ldots,a\right\}  $ instead of $n$, $k$ and $N$) shows that the number of
+$k$-element subsets of the set $\left\{  1,2,\ldots,a\right\}  $ is
+$\dbinom{a}{k}$ (since $\left\{  1,2,\ldots,a\right\}  $ is an $a$-element
 set). Similarly, the number of $\left(  n-k\right)  $-element subsets of the
-set $\left\{  -1,-2,\ldots,-y\right\}  $ is $\dbinom{y}{n-k}$. Since we need
+set $\left\{  -1,-2,\ldots,-b\right\}  $ is $\dbinom{b}{n-k}$. Since we need
 to choose one of the former subsets and one of the latter subsets (and our
 choices are independent -- i.e., any of the former subsets can be combined
 with any of the latter), we thus conclude that the total number of options we
-have is $\dbinom{x}{k}\dbinom{y}{n-k}$\ \ \ \ \footnote{The combinatorial
+have is $\dbinom{a}{k}\dbinom{b}{n-k}$\ \ \ \ \footnote{The combinatorial
 principle we are using here is the so-called \textit{product rule} (see, e.g.,
 \cite[1.8]{Loehr-BC} or \cite[\S 15.2.1]{LeLeMe}).}. In other words, the
-number of $n$-element subsets of $A$ having \textbf{exactly }$k$
-\textbf{positive elements} is $\dbinom{x}{k}\dbinom{y}{n-k}$. This proves
+number of $n$-element subsets of $C$ having \textbf{exactly }$k$
+\textbf{positive elements} is $\dbinom{a}{k}\dbinom{b}{n-k}$. This proves
 Claim 1.]
 
-Now, the total number of $n$-element subsets of $A$ is\footnote{The
+Now, the total number of $n$-element subsets of $C$ is\footnote{The
 combinatorial principle we are using in the following computation is the
 so-called \textit{sum rule} (see, e.g., \cite[1.2]{Loehr-BC} or
 \cite[\S 15.2.3]{LeLeMe}).}%
 \begin{align*}
-&  \left(  \text{the number of }n\text{-element subsets of }A\right) \\
+&  \left(  \text{the number of }n\text{-element subsets of }C\right) \\
 &  =\sum_{k=0}^{n}\underbrace{\left(  \text{the number of }n\text{-element
-subsets of }A\text{ having exactly }k\text{ positive elements}\right)
-}_{\substack{=\dbinom{x}{k}\dbinom{y}{n-k}\\\text{(by Claim 1)}}}\\
+subsets of }C\text{ having exactly }k\text{ positive elements}\right)
+}_{\substack{=\dbinom{a}{k}\dbinom{b}{n-k}\\\text{(by Claim 1)}}}\\
 &  \ \ \ \ \ \ \ \ \ \ \left(
 \begin{array}
 [c]{c}%
 \text{since the number of positive elements of an }n\text{-element}\\
-\text{subset of }A\text{ must always be an integer between }0\text{ and }n
+\text{subset of }C\text{ must always be an integer between }0\text{ and }n
 \end{array}
 \right) \\
-&  =\sum_{k=0}^{n}\dbinom{x}{k}\dbinom{y}{n-k}.
+&  =\sum_{k=0}^{n}\dbinom{a}{k}\dbinom{b}{n-k}.
 \end{align*}
 
 \end{itemize}
 
-Now, we have computed the number of $n$-element subsets of $A$ in two ways.
-The first way yielded the result $\dbinom{x+y}{n}$, while the second way
-yielded $\sum_{k=0}^{n}\dbinom{x}{k}\dbinom{y}{n-k}$. But these two results
+Now, we have computed the number of $n$-element subsets of $C$ in two ways.
+The first way yielded the result $\dbinom{a+b}{n}$, while the second way
+yielded $\sum_{k=0}^{n}\dbinom{a}{k}\dbinom{b}{n-k}$. But these two results
 clearly have to be equal. In other words, we have%
 \[
-\dbinom{x+y}{n}=\sum_{k=0}^{n}\dbinom{x}{k}\dbinom{y}{n-k}.
+\dbinom{a+b}{n}=\sum_{k=0}^{n}\dbinom{a}{k}\dbinom{b}{n-k}.
 \]
 Thus, Lemma \ref{lem.binom.vandermonde.NN} holds.
 
@@ -12375,37 +12379,37 @@ examples of such proofs, and see most textbooks on combinatorics for more.)
 
 This shows that Theorem \ref{thm.binom.vandermonde} holds for all
 $x\in\mathbb{N}$ and $y\in\mathbb{N}$. In order to extend its reach to
-arbitrary rational $x$ and $y$, we shall use the \textquotedblleft polynomial
+arbitrary rational $a$ and $b$, we shall use the \textquotedblleft polynomial
 identity trick\textquotedblright. First, let us briefly explain what
 polynomials are, without giving a formal definition.
 
 Informally, a \textit{polynomial} (in $1$ variable $x$, with rational
 coefficients) is an \textquotedblleft expression\textquotedblright\ of the
 form $a_{k}x^{k}+a_{k-1}x^{k-1}+\cdots+a_{0}$, where $a_{k},a_{k-1}%
-,\ldots,a_{0}$ are (fixed) rational numbers and where $x$ is a
-\textquotedblleft placeholder\textquotedblright\ (called
-\textit{indeterminate} or \textit{variable}). For example, $4x^{3}%
-+2x^{2}-\dfrac{1}{3}x+\dfrac{2}{7}$ is a polynomial, and so is $0x^{3}%
-+x^{2}-0x+\dfrac{1}{3}$. We can omit terms of the form \textquotedblleft%
-$0x^{i}$\textquotedblright\ when writing down a polynomial and treat the
-result as being the same polynomial; thus, $0x^{3}+x^{2}-0x+\dfrac{1}{3}$ can
-also be written as $x^{2}-0x+\dfrac{1}{3}$ and as $x^{2}+\dfrac{1}{3}$.
-Likewise, we can treat the \textquotedblleft$+$\textquotedblright\ signs as
-signifying addition and behaving like it, so, e.g., commutativity holds:
-$2x^{3}+5x$ and $5x+2x^{3}$ are the same polynomial (but $2x+5x^{3}$ is
-different). We also pretend that distributivity holds, so \textquotedblleft
-like terms\textquotedblright\ can be combined: e.g., we have $4x^{3}%
-+9x^{3}=\left(  4+9\right)  x^{3}=13x^{3}$ or $4x^{3}-12x^{3}=\left(
+,\ldots,a_{0}$ are (fixed) rational numbers and where $x$ is a (so far
+meaningless) symbol\ (called \textit{indeterminate} or \textit{variable}). For
+example, $4x^{3}+2x^{2}-\dfrac{1}{3}x+\dfrac{2}{7}$ is a polynomial, and so is
+$0x^{3}+x^{2}-0x+\dfrac{1}{3}$. We can omit terms of the form
+\textquotedblleft$0x^{i}$\textquotedblright\ when writing down a polynomial
+and treat the result as being the same polynomial; thus, $0x^{3}%
++x^{2}-0x+\dfrac{1}{3}$ can also be written as $x^{2}-0x+\dfrac{1}{3}$ and as
+$x^{2}+\dfrac{1}{3}$. Likewise, we can treat the \textquotedblleft%
+$+$\textquotedblright\ signs as signifying addition and behaving like it, so,
+e.g., commutativity holds: $2x^{3}+5x$ and $5x+2x^{3}$ are the same polynomial
+(but $2x+5x^{3}$ is different). We also pretend that distributivity holds, so
+\textquotedblleft like terms\textquotedblright\ can be combined: e.g., we have
+$4x^{3}+9x^{3}=\left(  4+9\right)  x^{3}=13x^{3}$ or $4x^{3}-12x^{3}=\left(
 4-12\right)  x^{3}=-8x^{3}$. Thus, we can add two polynomials: e.g.,%
 \[
 \left(  3x^{2}-1x+\dfrac{1}{2}\right)  +\left(  6x-7\right)  =3x^{2}%
 +\underbrace{\left(  -1+6\right)  }_{=5}x+\underbrace{\left(  \dfrac{1}%
 {2}-7\right)  }_{=\dfrac{-13}{2}}=3x^{2}+5x+\dfrac{-13}{2}.
 \]
-By pretending that the associativity law holds as well (so that $\left(
-\lambda x^{i}\right)  x^{j}=\lambda\left(  x^{i}x^{j}\right)  =\lambda
-x^{i+j}$ for rational $\lambda$ and $i,j\in\mathbb{N}$), we can multiply
-polynomials as well (first use distributivity to expand the product):%
+By pretending that the $x^{i}$ (with $i\in\mathbb{N}$) are actual powers of
+the symbol $x$, and that multiplication obeys the associativity law (so that
+$\left(  \lambda x^{i}\right)  x^{j}=\lambda\left(  x^{i}x^{j}\right)
+=\lambda x^{i+j}$ for rational $\lambda$ and $i,j\in\mathbb{N}$), we can
+multiply polynomials as well (first use distributivity to expand the product):%
 \begin{align*}
 \left(  3x-5\right)  \left(  x^{2}+3x+2\right)   &  =3x\left(  x^{2}%
 +3x+2\right)  -5\left(  x^{2}+3x+2\right) \\
@@ -12426,11 +12430,11 @@ and that can be added and multiplied by a rational number. For example, $u$
 can be a real number or a square matrix or another polynomial. (We will later
 learn the precise meaning of \textquotedblleft anything\textquotedblright\ here.)
 
-We have been vague in our definition, since making it rigorous would take us a
-fair way afield. But we \textbf{will} eventually (in April?) define
-polynomials rigorously and prove that all of the above claims (e.g., about
-associativity and distributivity) actually hold. For now, we need a basic
-property of polynomials:
+We have been vague in our definition of polynomials, since making it rigorous
+would take us a fair way afield. But we \textbf{will} eventually (in April?)
+define polynomials rigorously and prove that all of the above claims (e.g.,
+about associativity and distributivity) actually hold. For now, we need a
+basic property of polynomials:
 
 \begin{proposition}
 \label{prop.poly.informal.f=g}Let $P$ and $Q$ be two polynomials in $1$
@@ -12439,68 +12443,178 @@ $u\in\mathbb{Q}$ satisfy $P\left(  u\right)  =Q\left(  u\right)  $. Then,
 $P=Q$ (as polynomials).
 \end{proposition}
 
-We will prove Proposition \ref{prop.poly.informal.f=g} later.%
+We will prove Proposition \ref{prop.poly.informal.f=g} later.
 
-\[%
-\begin{tabular}
-[c]{||l||}\hline\hline
-\textbf{You have reached the end of the finished part.}\\
-\textbf{TODO: Write from here.}\\\hline\hline
-\end{tabular}
-\
+Note that polynomials are not functions -- despite the fact that we can
+substitute numbers into them and obtain other numbers. However, in many
+regards, they behave like functions. For what we are going to do in this
+section, the difference does not matter; we can treat polynomials as functions here.
+
+With Lemma \ref{lem.binom.vandermonde.NN}, we have proven Theorem
+\ref{thm.binom.vandermonde} in the case when $x$ and $y$ belong to
+$\mathbb{N}$. Our goal, however, is to prove it for arbitrary $x,y\in
+\mathbb{Q}$. Let us first go to the intermediate level of generality --
+allowing $x$ to be arbitrary, but still requiring $y\in\mathbb{N}$. Thus, we
+want to prove the following lemma:
+
+\begin{lemma}
+\label{lem.binom.vandermonde.QN}Let $a\in\mathbb{Q}$, $b\in\mathbb{N}$ and
+$n\in\mathbb{N}$. Then,%
+\[
+\dbinom{a+b}{n}=\sum_{k=0}^{n}\dbinom{a}{k}\dbinom{b}{n-k}.
 \]
 
+\end{lemma}
 
 \begin{proof}
-[Proof of Theorem \ref{thm.binom.vandermonde} (sketched, incomplete).]%
-\textit{Step 2:} We shall next prove Theorem \ref{thm.binom.vandermonde} for
-$x\in\mathbb{Q}$ and $y\in\mathbb{N}$.
-
-To do so, we fix $y\in\mathbb{N}$, but consider $x$ as a variable.
-
-Then, $\dbinom{x+y}{n}$ is a polynomial in $x$, since%
+[Proof of Lemma \ref{lem.binom.vandermonde.NN} (sketched).]Let us define a
+polynomial $P$ in $1$ variable $x$ with rational coefficients as follows:%
+\begin{equation}
+P=\dbinom{x+b}{n}. \label{pf.lem.binom.vandermonde.NN.P=}%
+\end{equation}
+The \textquotedblleft binomial coefficient\textquotedblright\ $\dbinom{x+b}%
+{n}$ here is to be understood by extending Definition \ref{def.binom.binom}
+\textbf{(a)} in the obvious fashion to the case when $n$ is a polynomial (in
+our case, $x+b$) rather than a rational number. Thus,%
 \[
-\dbinom{x+y}{n}=\dfrac{\left(  x+y\right)  \left(  x+y-1\right)  \left(
-x+y-2\right)  \cdots\left(  x+y-n+1\right)  }{n!}.
+\dbinom{x+b}{n}=\dfrac{\left(  x+b\right)  \left(  x+b-1\right)  \left(
+x+b-2\right)  \cdots\left(  x+b-n+1\right)  }{n!}.
 \]
-Also, $\sum\limits_{k=0}^{n}\dbinom{x}{k}\dbinom{y}{n-k}$ is a polynomial in
-$x$.
 
-Define two polynomials $P$ and $Q$ by $P\left(  x\right)  =\dbinom{x+y}{n}$
-and $Q\left(  x\right)  =\sum_{k=0}^{n}\dbinom{x}{k}\dbinom{y}{n-k}$. Then,
-Lemma \ref{lem.binom.vandermonde.NN} shows that $P\left(  x\right)  =Q\left(
-x\right)  $ for all $x\in\mathbb{N}$. Thus, infinitely many $x\in\mathbb{Q}$
-satisfy $P\left(  x\right)  =Q\left(  x\right)  $. In other words, infinitely
-many $u\in\mathbb{Q}$ satisfy $P\left(  u\right)  =Q\left(  u\right)  $. Thus,
-Proposition \ref{prop.poly.informal.f=g} yields $P=Q$ as polynomials. Thus,
-$P\left(  x\right)  =Q\left(  x\right)  $ for all $x\in\mathbb{Q}$. This means
-that $\dbinom{x+y}{n}=\sum\limits_{k=0}^{n}\dbinom{x}{k}\dbinom{y}{n-k}$ holds
-for \textbf{all} $x\in\mathbb{Q}$. But this is precisely saying that Theorem
-\ref{thm.binom.vandermonde} holds for all $x\in\mathbb{Q}$ and $y\in
-\mathbb{N}$.
 
-\textit{Step 3:} Now, we generalize this to $y\in\mathbb{Q}$ as well. To do
-so, proceed as in Step 2, but with the roles of $x$ and $y$ swapped.
+Let us also define a polynomial $Q$ in $1$ variable $x$ with rational
+coefficients as follows:%
+\begin{equation}
+Q=\sum_{k=0}^{n}\dbinom{x}{k}\dbinom{b}{n-k}.
+\label{pf.lem.binom.vandermonde.NN.Q=}%
+\end{equation}
+(Again, the \textquotedblleft binomial coefficients\textquotedblright%
+\ $\dbinom{x}{k}$ are defined via our extension of Definition
+\ref{def.binom.binom} \textbf{(a)}, and can be explicitly written as
+$\dbinom{x}{k}=\dfrac{x\left(  x-1\right)  \left(  x-2\right)  \cdots\left(
+x-k+1\right)  }{k!}$. Meanwhile, the $\dbinom{b}{n-k}$ are just constant integers.)
 
-So Theorem \ref{thm.binom.vandermonde} is proven (up to defining polynomials
-and proving Proposition \ref{prop.poly.informal.f=g}).
+Now, for each $u\in\mathbb{N}$, we have%
+\begin{align*}
+P\left(  u\right)   &  =\dbinom{u+b}{n}\ \ \ \ \ \ \ \ \ \ \left(  \text{by
+substituting }u\text{ for }x\text{ in the equality
+(\ref{pf.lem.binom.vandermonde.NN.P=})}\right) \\
+&  =\sum_{k=0}^{n}\dbinom{u}{k}\dbinom{b}{n-k}%
+\end{align*}
+(by Lemma \ref{lem.binom.vandermonde.NN}, applied to $u$ instead of $a$) and%
+\[
+Q\left(  u\right)  =\sum_{k=0}^{n}\dbinom{u}{k}\dbinom{b}{n-k}%
+\]
+(by substituting $u$ for $x$ in the equality
+(\ref{pf.lem.binom.vandermonde.NN.Q=})). Comparing these two equalities, we
+obtain $P\left(  u\right)  =Q\left(  u\right)  $ for all $u\in\mathbb{N}$.
+Hence, infinitely many $u\in\mathbb{Q}$ satisfy $P\left(  u\right)  =Q\left(
+u\right)  $ (since infinitely many $u\in\mathbb{Q}$ satisfy $u\in\mathbb{N}$).
+Thus, Proposition \ref{prop.poly.informal.f=g} yields $P=Q$. In view of
+(\ref{pf.lem.binom.vandermonde.NN.P=}) and
+(\ref{pf.lem.binom.vandermonde.NN.Q=}), this rewrites as%
+\begin{equation}
+\dbinom{x+b}{n}=\sum_{k=0}^{n}\dbinom{x}{k}\dbinom{b}{n-k}.
+\label{pf.lem.binom.vandermonde.NN.final}%
+\end{equation}
+Now, substituting $a$ for $x$ in this equality of polynomials, we obtain
+$\dbinom{a+b}{n}=\sum_{k=0}^{n}\dbinom{a}{k}\dbinom{b}{n-k}$. This proves
+Lemma \ref{lem.binom.vandermonde.QN}.
+\end{proof}
 
-(Note that the way we used Proposition \ref{prop.poly.informal.f=g} is known
-as the \textquotedblleft polynomial identity trick\textquotedblright.)
+Let us summarize the main idea of this proof: We replaced the rational number
+$a$ by the indeterminate $x$, thus transforming the identity we were proving
+into an equality between two polynomials (namely, $P=Q$). But in order to
+prove an equality between polynomials, it suffices to prove that it holds at
+infinitely many numbers (by Proposition \ref{prop.poly.informal.f=g}); thus,
+in particular, it suffices to check it at all nonnegative integers. But this
+is precisely what we did in Lemma \ref{lem.binom.vandermonde.NN} above. This
+kind of argument (with its use of Proposition \ref{prop.poly.informal.f=g}) is
+known as the \textquotedblleft polynomial identity trick\textquotedblright.
+
+Now, let us extend the reach of Lemma \ref{lem.binom.vandermonde.QN} further,
+allowing both $a$ and $b$ to be arbitrary (and thus obtaining the whole
+Theorem \ref{thm.binom.vandermonde}):
+
+\begin{lemma}
+\label{lem.binom.vandermonde.QQ}Let $a,b\in\mathbb{Q}$ and $n\in\mathbb{N}$.
+Then,%
+\[
+\dbinom{a+b}{n}=\sum_{k=0}^{n}\dbinom{a}{k}\dbinom{b}{n-k}.
+\]
+
+\end{lemma}
+
+\begin{proof}
+[Proof of Lemma \ref{lem.binom.vandermonde.QQ} (sketched).]Deriving Lemma
+\ref{lem.binom.vandermonde.QQ} from Lemma \ref{lem.binom.vandermonde.QN} is
+very similar to deriving Lemma \ref{lem.binom.vandermonde.QN} from Lemma
+\ref{lem.binom.vandermonde.NN}. The main difference is that we replace $b$
+(rather than $a$) by the indeterminate $x$ now.
+
+\begin{fineprint}
+Here are the details: Let us define a polynomial $P$ in $1$ variable $x$ with
+rational coefficients as follows:%
+\begin{equation}
+P=\dbinom{a+x}{n}. \label{pf.lem.binom.vandermonde.QQ.P=}%
+\end{equation}
+
+
+Let us also define a polynomial $Q$ in $1$ variable $x$ with rational
+coefficients as follows:%
+\begin{equation}
+Q=\sum_{k=0}^{n}\dbinom{a}{k}\dbinom{x}{n-k}.
+\label{pf.lem.binom.vandermonde.QQ.Q=}%
+\end{equation}
+
+
+Now, for each $u\in\mathbb{N}$, we have%
+\begin{align*}
+P\left(  u\right)   &  =\dbinom{a+u}{n}\ \ \ \ \ \ \ \ \ \ \left(  \text{by
+substituting }u\text{ for }x\text{ in the equality
+(\ref{pf.lem.binom.vandermonde.QQ.P=})}\right) \\
+&  =\sum_{k=0}^{n}\dbinom{a}{k}\dbinom{u}{n-k}%
+\end{align*}
+(by Lemma \ref{lem.binom.vandermonde.QN}, applied to $u$ instead of $b$) and%
+\[
+Q\left(  u\right)  =\sum_{k=0}^{n}\dbinom{a}{k}\dbinom{u}{n-k}%
+\]
+(by substituting $u$ for $x$ in the equality
+(\ref{pf.lem.binom.vandermonde.QQ.Q=})). Comparing these two equalities, we
+obtain $P\left(  u\right)  =Q\left(  u\right)  $ for all $u\in\mathbb{N}$.
+Hence, infinitely many $u\in\mathbb{Q}$ satisfy $P\left(  u\right)  =Q\left(
+u\right)  $ (since infinitely many $u\in\mathbb{Q}$ satisfy $u\in\mathbb{N}$).
+Thus, Proposition \ref{prop.poly.informal.f=g} yields $P=Q$. In view of
+(\ref{pf.lem.binom.vandermonde.QQ.P=}) and
+(\ref{pf.lem.binom.vandermonde.QQ.Q=}), this rewrites as%
+\[
+\dbinom{a+x}{n}=\sum_{k=0}^{n}\dbinom{a}{k}\dbinom{x}{n-k}.
+\]
+Now, substituting $a$ for $x$ in this equality of polynomials, we obtain
+$\dbinom{a+b}{n}=\sum_{k=0}^{n}\dbinom{a}{k}\dbinom{b}{n-k}$. This proves
+Lemma \ref{lem.binom.vandermonde.QQ}.
+\end{fineprint}
+\end{proof}
+
+\begin{proof}
+[Proof of Theorem \ref{thm.binom.vandermonde} (sketched).]Theorem
+\ref{thm.binom.vandermonde} is just Lemma \ref{lem.binom.vandermonde.QQ}, with
+$a$ and $b$ renamed as $x$ and $y$.
 \end{proof}
 
 See \cite{GKP} and \cite{detnotes} for further identities involving binomial coefficients.
 
 \subsubsection{Some divisibilities and congruences}
 
-So far we have proven identities between binomial coefficients. Let us now
-step to divisibilities and congruences.
+So far we have been proving identities between binomial coefficients. Let us
+now step to divisibilities and congruences.
 
 Proposition \ref{prop.binom.Z->Z} shows that binomial coefficients $\dbinom
 {n}{k}$ are integers whenever $n$ is an integer. This allows us to study
 divisibilities and congruences between binomial coefficients (and you have
 seen a few of them on
-\href{http://www-users.math.umn.edu/~dgrinber/19s/hw1s.pdf}{homework set \#1}).
+\href{http://www-users.math.umn.edu/~dgrinber/19s/hw1s.pdf}{homework set
+\#1}). One of the most important such divisibilities is the following fact:
 
 \begin{theorem}
 \label{thm.binom.p|bin}Let $p$ be a prime. Let $k\in\left\{  1,2,\ldots
@@ -12508,18 +12622,27 @@ seen a few of them on
 \end{theorem}
 
 \begin{proof}
-[First proof.]Applying Theorem \ref{thm.binom.abs} to $n=p$, we obtain%
+[First proof of Theorem \ref{thm.binom.p|bin}.]Applying Theorem
+\ref{thm.binom.abs} to $n=p$, we obtain%
 \[
-k\dbinom{p}{k}=p\underbrace{\dbinom{p-1}{k-1}}_{\text{an integer}}.
+k\dbinom{p}{k}=p\dbinom{p-1}{k-1}.
 \]
-Thus, $p\mid k\dbinom{p}{k}$. Hence, $p\mid k$ or $p\mid\dbinom{p}{k}$ (since
-$p$ is prime). Since $p\nmid k$ (because $k\in\left\{  1,2,\ldots,p-1\right\}
-$), we thus have $p\mid\dbinom{p}{k}$.
+Thus, $p\mid k\dbinom{p}{k}$ (since $\dbinom{p-1}{k-1}$ is an
+integer\footnote{by an application of Proposition \ref{prop.binom.Z->Z}}). But
+Proposition \ref{prop.ent.primes.each-i-coprime} (applied to $i=k$) yields
+that $k$ is coprime to $p$. In other words, $k\perp p$, and thus $p\perp k$.
+Hence, Theorem \ref{thm.ent.coprime.cancel} (applied to $a=p$, $b=k$ and
+$c=\dbinom{p}{k}$) yields $p\mid\dbinom{p}{k}$ (since $p\mid k\dbinom{p}{k}$).
+This proves Theorem \ref{thm.binom.p|bin}.
 \end{proof}
 
+We shall see a second, combinatorial proof of Theorem \ref{thm.binom.p|bin}
+further below; it will rely on the concept of group actions.
+
+\begin{noncompile}
 \begin{proof}
-[Second proof (outline).]The following is not rigorous and probably not
-readable; we will make sense of this later.
+[Second proof of Theorem \ref{thm.binom.p|bin} (outline).]The following is not
+rigorous and probably not readable; we will make sense of this later.
 
 We know that $\dbinom{p}{k}$ counts $k$-element subsets of $\left\{
 1,2,\ldots,p\right\}  $. We can restate this using $p$\textit{-bitstrings}.
@@ -12598,10 +12721,14 @@ rotation (applied several times). Each necklace contains exactly $p$ many
 $p$-bitstrings. So the number of $p$-bitstrings with $k$ 1's equals $p$ times
 the number of necklaces.
 \end{proof}
+\end{noncompile}
+
+Let us state two congruences for binomial coefficients, which we will show
+later using tools from abstract algebra:
 
 \begin{theorem}
-(Lucas's theorem) Let $p$ be a prime. Let $a,b\in\mathbb{Z}$. Let
-$c,d\in\left\{  0,1,\ldots,p-1\right\}  $. Then,%
+[Lucas's congruence]\label{thm.binom.lucas}Let $p$ be a prime. Let
+$a,b\in\mathbb{Z}$. Let $c,d\in\left\{  0,1,\ldots,p-1\right\}  $. Then,%
 \[
 \dbinom{pa+c}{pb+d}\equiv\dbinom{a}{b}\dbinom{c}{d}\operatorname{mod}p.
 \]
@@ -12609,67 +12736,119 @@ $c,d\in\left\{  0,1,\ldots,p-1\right\}  $. Then,%
 \end{theorem}
 
 \begin{theorem}
-(Lucas's theorem, take 2) Let $p$ be a prime. Let $a,b\in\mathbb{N}$. Write
-$a$ and $b$ in base $p$ as follows:%
-\[
-a=\overline{a_{k}a_{k-1}\cdots a_{0}}\ \ \ \ \ \ \ \ \ \ \text{and}%
-\ \ \ \ \ \ \ \ \ \ b=\overline{b_{k}b_{k-1}\cdots b_{0}}%
-\]
-(where leading zeroes are allowed). Then,%
-\[
-\dbinom{a}{b}\equiv\dbinom{a_{k}}{b_{k}}\dbinom{a_{k-1}}{b_{k-1}}\cdots
-\dbinom{a_{0}}{b_{0}}\operatorname{mod}p.
-\]
-
-\end{theorem}
-
-\begin{theorem}
-(Babbage's congruence) Let $p$ be a prime. Let $a,b\in\mathbb{Z}$. Then,%
+[Babbage's congruence]\label{thm.binom.babbage}Let $p$ be a prime. Let
+$a,b\in\mathbb{Z}$. Then,%
 \[
 \dbinom{pa}{pb}\equiv\dbinom{a}{b}\operatorname{mod}p^{2}.
 \]
 
 \end{theorem}
 
-TODO.
+For the impatient: Elementary proofs of Theorem \ref{thm.binom.lucas} and
+Theorem \ref{thm.binom.babbage} can be found in \cite{lucas}.
+
+\begin{remark}
+Lucas's congruence has the following consequence: Let $p$ be a prime. Let
+$a,b\in\mathbb{N}$. Write $a$ and $b$ in base $p$ as follows:%
+\begin{align*}
+a  &  =a_{k}p^{k}+a_{k-1}p^{k-1}+\cdots+a_{0}p^{0}%
+\ \ \ \ \ \ \ \ \ \ \text{and}\\
+b  &  =b_{k}p^{k}+b_{k-1}p^{k-1}+\cdots+b_{0}p^{0}%
+\end{align*}
+with $k\in\mathbb{N}$ and $a_{k},a_{k-1},\ldots,a_{0},b_{k},b_{k-1}%
+,\ldots,b_{0}\in\left\{  0,1,\ldots,p-1\right\}  $. (Note that we allow
+\textquotedblleft leading zeroes\textquotedblright\ -- i.e., any of $a_{k}$
+and $b_{k}$ can be $0$.) Then,%
+\[
+\dbinom{a}{b}\equiv\dbinom{a_{k}}{b_{k}}\dbinom{a_{k-1}}{b_{k-1}}\cdots
+\dbinom{a_{0}}{b_{0}}\operatorname{mod}p.
+\]
+(This can be easily proven by induction on $k$, using Theorem
+\ref{thm.binom.lucas} in the induction step.) This allows for quick
+computation of remainders of $\dbinom{a}{b}$ modulo prime numbers, and also
+explains (when applied to $p=2$) why
+\href{https://en.wikipedia.org/wiki/Sierpinski_triangle#Pascal's_triangle}{we
+can obtain (an approximation of) Sierpinski's triangle from Pascal's triangle
+by coloring all even numbers white and all odd numbers black}.
+\end{remark}
+
+See \cite{Mestro14} and \cite{Granvi05} for overviews of more complicated
+divisibilities and congruences for binomial coefficients.
 
 \begin{center}
 \textbf{2019-02-20 lecture}
 \end{center}
 
-TODO:
-
 \subsubsection{Integer-valued polynomials}
 
+Now that we have introduced polynomials (albeit informally and on somewhat
+shaky foundations) and binomial coefficients (albeit briefly), it would be a
+shame to leave unmentioned a subject that connects the two particularly
+closely: the \textit{integer-valued polynomials}. We are going to state a few
+basic facts, but we will not prove them.
+
+If $f=a_{k}x^{k}+a_{k-1}x^{k-1}+\cdots+a_{0}$ is a polynomial (in $1$ variable
+$x$, with rational coefficients), then the rational numbers $a_{k}%
+,a_{k-1},\ldots,a_{0}$ are called the \textit{coefficients} of $f$. The
+coefficients of a polynomial $f$ are uniquely determined by $f$ (except for
+the fact that we can always add terms of the form $0x^{\ell}$ and thus obtain
+extra coefficients that are equal to $0$). (This fact is not obvious, given
+our \textquotedblleft definition\textquotedblright\ of polynomials
+above\footnote{For example, why cannot we start with (say) $6x^{2}+5x+4$, then
+rewrite it as $\left(  2x+1\right)  \left(  3x+1\right)  +3$, then do some
+other transformations (using commutativity, associativity and other laws), and
+finally end up with a polynomial that has different coefficients (say,
+$3x^{2}+9x+4$) ? We cannot, but it is not easy to prove with what we have.}.
+We will later define polynomials more formally as sequences of coefficients;
+then this will become clear.)
+
+If $f=a_{k}x^{k}+a_{k-1}x^{k-1}+\cdots+a_{0}$ is a polynomial (in $1$ variable
+$x$, with rational coefficients) such that $a_{k}\neq0$ (each polynomial that
+is not just $0$ can be written in such a form), then the integer $k$ is called
+the \textit{degree} of $f$.
+
 \begin{definition}
-A polynomial $P$ with rational coefficients (or real coefficients) is said to
-be \textit{integer-valued} if $\left(  P\left(  n\right)  \in\mathbb{Z}\text{
-for all }n\in\mathbb{Z}\right)  $.
+\label{def.ivp.ivp}A polynomial $P$ with rational coefficients is said to be
+\textit{integer-valued} if $\left(  P\left(  n\right)  \in\mathbb{Z}\text{ for
+all }n\in\mathbb{Z}\right)  $.
 \end{definition}
 
 Of course, a polynomial with integer coefficients is always integer-valued.
-
 But there are other integer-valued polynomials, too.
 
-For example, $\dbinom{x}{2}=\dfrac{x\left(  x-1\right)  }{2}$ is
-integer-valued, but its coefficients are $\dfrac{1}{2},-\dfrac{1}{2},0$.
+\begin{example}
+\label{exa.ivp.ivps1}\textbf{(a)} The polynomial $\dbinom{x}{2}=\dfrac
+{x\left(  x-1\right)  }{2}=\dfrac{1}{2}x^{2}-\dfrac{1}{2}x$ is integer-valued
+(since $\dbinom{n}{2}\in\mathbb{Z}$ for each $n\in\mathbb{Z}$), but its
+coefficients are $\dfrac{1}{2},-\dfrac{1}{2},0$.
 
-For another example, if $p$ is any prime, then $\dfrac{x^{p}-x}{p}$ is
+\textbf{(b)} More generally: If $k\in\mathbb{N}$ is arbitrary, then the
+polynomial $\dbinom{x}{k}$ is integer-valued (since $\dbinom{n}{k}%
+\in\mathbb{Z}$ for each $n\in\mathbb{Z}$).
+
+\textbf{(c)} If $p$ is any prime, then the polynomial $\dfrac{x^{p}-x}{p}$ is
 integer-valued (since Fermat's Little Theorem yields $a^{p}\equiv
 a\operatorname{mod}p$ for each $a\in\mathbb{Z}$, which means that
-$\dfrac{a^{p}-a}{p}\in\mathbb{Z}$ for each $a\in\mathbb{Z}$).
+$\dfrac{a^{p}-a}{p}\in\mathbb{Z}$ for each $a\in\mathbb{Z}$). Its coefficients
+are not integers.
+\end{example}
 
-This suggests the following \textbf{Question:} How can we describe the
+This suggests the following question\textbf{:} How can we describe the
 integer-valued polynomials?
 
 \begin{theorem}
-A polynomial $P$ (with rational coefficients) is integer-valued if and only if
-$P$ can be written in the form%
+\label{thm.ivp.binomial}Let $k\in\mathbb{N}$.
+
+\textbf{(a)} Any polynomial $P$ (in $1$ variable $x$, with rational
+coefficients) of degree $k$ can be uniquely written in the form%
 \[
 P\left(  x\right)  =a_{k}\dbinom{x}{k}+a_{k-1}\dbinom{x}{k-1}+\cdots
 +a_{0}\dbinom{x}{0}%
 \]
-for some (constant) integers $a_{k},a_{k-1},\ldots,a_{0}$.
+with \textbf{rational} $a_{k},a_{k-1},\ldots,a_{0}$.
+
+\textbf{(b)} The polynomial $P$ is integer-valued if and only if these
+$a_{k},a_{k-1},\ldots,a_{0}$ are integers.
 \end{theorem}
 
 For example, the integer-valued polynomial $\dfrac{x^{3}-x}{3}$ can be written
@@ -12683,16 +12862,17 @@ for
 a_{3}=2,\ \ \ \ \ \ \ \ \ \ a_{2}=2,\ \ \ \ \ \ \ \ \ \ a_{1}%
 =0,\ \ \ \ \ \ \ \ \ \ a_{0}=0.
 \]
-
-
-In general: Any polynomial $P$ (with rational coefficients) of degree $k$ can
-be uniquely written in the form%
-\[
-P\left(  x\right)  =a_{k}\dbinom{x}{k}+a_{k-1}\dbinom{x}{k-1}+\cdots
-+a_{0}\dbinom{x}{0}%
+These $a_{3},a_{2},a_{1},a_{0}$ are integers -- exactly as Theorem
+\ref{thm.ivp.binomial} \textbf{(b)} says.%
+\[%
+\begin{tabular}
+[c]{||l||}\hline\hline
+\textbf{You have reached the end of the finished part.}\\
+\textbf{TODO: Write from here.}\\\hline\hline
+\end{tabular}
+\ \ \ \
 \]
-with \textbf{rational} $a_{k},a_{k-1},\ldots,a_{0}$. The polynomial $P$ is
-integer-valued if and only if these $a_{k},a_{k-1},\ldots,a_{0}$ are integers.
+
 
 \section{Equivalence relations and residue classes}
 
@@ -13188,11 +13368,13 @@ generalizes (see Theorem \ref{thm.equiv.Zn.explicit} below). First, a few notati
 \begin{definition}
 \textbf{(a)} If $i$ is an integer, then we set $\left[  i\right]  _{n}=\left[
 i\right]  _{\underset{n}{\equiv}}$. (Some authors call this $\overline{i}_{n}$
-or $i\operatorname{mod}n$.)
+or $i\operatorname{mod}n$. Be careful with the notation $i\operatorname{mod}%
+n$, since other authors use it for $i\%n$.)
 
 \textbf{(b)} The set $\mathbb{Z}/\underset{n}{\equiv}$ of residue classes
 modulo $n$ is called $\mathbb{Z}/n$. (Some authors call it $\mathbb{Z}/\left(
-n\right)  $ or $\mathbb{Z}/n\mathbb{Z}$ or $\mathbb{Z}_{n}$.)
+n\right)  $ or $\mathbb{Z}/n\mathbb{Z}$ or $\mathbb{Z}_{n}$. Be careful with
+the notation $\mathbb{Z}_{n}$, since it has a different meaning, too.)
 \end{definition}
 
 \begin{theorem}
@@ -13438,77 +13620,12 @@ $\left[  15\right]  _{24}+\left[  10\right]  _{24}=\left[  1\right]  _{24}$.)
 TODO:
 
 \begin{itemize}
-\item examples: eqclasses for the above.
-
-\item define permutation of finite set.
-
-\item unordered $k$-tuples as eqclasses of $k$-tuples. first start with pairs!
-\textquotedblleft what is an unordered pair?\textquotedblright
-
-\item necklaces as eqclasses of $k$-tuples.
-
-\item \textquotedblleft what time is 3 PM\textquotedblright? this mystic
-\textquotedblleft3 PM\textquotedblright\ is not a specific time, but actually
-stands for a certain time of each day, i.e., infinitely many different times
-considered as one. similarly, \textquotedblleft the horse\textquotedblright%
-\ in \textquotedblleft the modern domestic horse has a life expectancy of 25
-to 30 years\textquotedblright\ is not a specific horse but the whole species.
-
-\textquotedblleft3 PM\textquotedblright\ is actually an equivalence class
-modulo $\underset{24}{\equiv}$, at least if we consider time to pass
-discretely in 1-hour blocks. species, too, can be defined as eqclasses.
-
-\item define $S/\sim$ as the set of all equivalence classes. call it quotient set.
-
-\item canonical projection $\pi_{\sim}:S\rightarrow S/\sim$ sends each $i$ to
-$\left[  i\right]  _{\sim}$.
+\item define permutation of finite set in its proper place (= before factorization).
 \end{itemize}
 
 \subsection{$\mathbb{Z}/n$}
 
 \begin{itemize}
-\item fix a positive integer $n$.
-
-\item define \textit{residue classes} as eqclasses of $\underset{n}{\equiv}$
-on $\mathbb{Z}$.
-
-\item for now, set $\left[  i\right]  _{n}:=\left[  i\right]
-_{\underset{n}{\equiv}}$. another notation is $i\operatorname{mod}n$ (but some
-also use it for remainder).
-
-\item their set $\mathbb{Z}/\underset{n}{\equiv}$ is called $\mathbb{Z}/n$ or
-$\mathbb{Z}/n\mathbb{Z}$ or $\mathbb{Z}_{n}$ (bad notation, since it means
-something else as well).
-
-\item apply Theorem \ref{thm.equiv.eqclas.disj} here.
-
-\item there are $n$ of them: $\left[  i\right]  _{n}$ for each $i\in\left\{
-0,1,\ldots,n-1\right\}  $.
-
-\item proof: we can define a map
-\begin{align*}
-R:\mathbb{Z}/n  &  \rightarrow\left\{  0,1,\ldots,n-1\right\}  ,\\
-\left[  i\right]  _{n}  &  \mapsto i\%n.
-\end{align*}
-why is this well-defined? what does this even mean? why couldn't we put an
-$i\%\left(  n+1\right)  $ here instead?
-
-now, prove that this map $R$ is inverse to $\pi\mid_{\left\{  0,1,\ldots
-,n-1\right\}  }$, where $\pi=\pi_{\underset{n}{\equiv}}$.
-
-\item define $+$, $-$ and $\cdot$ but not $/$ or $\symbol{94}$ on
-$\mathbb{Z}/n$ (again, talk about well-definedness).
-
-\item caution: while $i\%n$ and $\left[  i\right]  _{n}$ encode the same
-information about $i$ (for fixed $n$), do not mistake them for the same
-thing!
-\begin{align*}
-\left[  2\right]  _{5}+\left[  3\right]  _{5}  &  =\left[  0\right]
-_{5},\ \ \ \ \ \ \ \ \ \ \text{but}\\
-2\%5+3\%5  &  \neq0\%5.
-\end{align*}
-
-
 \item modular inverses are now unique and are proper inverses:
 
 An integer $a^{\prime}\in\mathbb{Z}$ is a modular inverse of $a\in\mathbb{Z}$
@@ -13606,9 +13723,8 @@ on Primality Testing And Public Key Cryptography, Part 1}, 8 November
 \bibitem[Goodma16]{Goodman}Frederick M. Goodman, \textit{Algebra: Abstract and
 Concrete}, edition 2.6, 12 October 2016.\newline\url{http://homepage.divms.uiowa.edu/~goodman/algebrabook.dir/algebrabook.html}
 
-\bibitem[GrKnPa94]{GKP}Ronald L. Graham, Donald E. Knuth, Oren Patashnik,
-\textit{Concrete Mathematics, Second Edition}, Addison-Wesley 1994.\newline
-See \url{https://www-cs-faculty.stanford.edu/~knuth/gkp.html} for errata.
+\bibitem[Granvi05]{Granvi05}Andrew Granville, \textit{Binomial coefficients
+modulo prime powers}, preprint.\newline\url{https://web.archive.org/web/20181024055320/http://ebooks.bharathuniv.ac.in/gdlc1/gdlc1/Engineering Merged Library v3.0/Andrew Granville/Binomial Coefficients Modulo Prime Powers (5579)/Binomial Coefficients Modulo Prime Powers - Andrew Granville.pdf}
 
 \bibitem[Grinbe15]{detnotes}Darij Grinberg, \textit{Notes on the combinatorial
 fundamentals of algebra}, 10 January 2019.\newline%
@@ -13623,6 +13739,10 @@ and arithmetic functions}, 19 June 2016.\newline\url{http://www.cip.ifi.lmu.de/~
 
 \bibitem[Grinbe17]{lucas}Darij Grinberg, \textit{The Lucas and Babbage
 congruences}, 10 January 2019.\newline\url{http://www.cip.ifi.lmu.de/~grinberg/lucascong.pdf}
+
+\bibitem[GrKnPa94]{GKP}Ronald L. Graham, Donald E. Knuth, Oren Patashnik,
+\textit{Concrete Mathematics, Second Edition}, Addison-Wesley 1994.\newline
+See \url{https://www-cs-faculty.stanford.edu/~knuth/gkp.html} for errata.
 
 \bibitem[Hammac18]{Hammack}Richard Hammack, \textit{Book of Proof}, 3rd
 edition 2018.\newline\url{http://www.people.vcu.edu/~rhammack/BookOfProof/}
@@ -13643,6 +13763,10 @@ edition 2018.\newline\url{http://www.people.vcu.edu/~rhammack/BookOfProof/}
 \bibitem[Loehr11]{Loehr-BC}%
 \href{http://www.math.vt.edu/people/nloehr/bijbook.html}{Nicholas A. Loehr,
 \textit{Bijective Combinatorics}, Chapman \& Hall/CRC 2011.}
+
+\bibitem[Mestro14]{Mestro14}\href{https://arxiv.org/abs/1409.3820v1}{Romeo
+Me\v{s}trovi\'{c}, \textit{Lucas' theorem: its generalizations, extensions and
+applications (1878--2014)}, arXiv:1409.3820v1.}
 
 \bibitem[NiZuMo91]{NiZuMo91}Ivan Niven, Herbert S. Zuckerman, Hugh L.
 Montgomery, \textit{An Introduction to the Theory of Numbers}, 5th edition 1991.
