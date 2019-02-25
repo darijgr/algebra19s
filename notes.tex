@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Sunday, February 24, 2019 23:22:18}
+%TCIDATA{LastRevised=Monday, February 25, 2019 00:16:15}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -8445,7 +8445,191 @@ integer $n$ are equal to each other up to the order of their entries (i.e.,
 are permutations of each other). This is indeed true, and we are going to
 prove this soon (in Theorem \ref{thm.ent.primes.fac-uni} below).
 
+\subsubsection{Permutations}
+
+First of all: what is a \textquotedblleft permutation\textquotedblright, and
+what exactly does \textquotedblleft equal to each other up to the order of
+their entries\textquotedblright\ mean?
+
+Informally speaking, a permutation of a tuple\footnote{Recall: a prime
+factorization is a tuple.} $\left(  a_{1},a_{2},\ldots,a_{k}\right)  $ is a
+tuple obtained from $\left(  a_{1},a_{2},\ldots,a_{k}\right)  $ by rearranging
+its entries (without inserting new entries, or removing or duplicating
+existing entries). To be rigorous, we need to encode this rearrangement via a
+bijective map $\sigma:\left\{  1,2,\ldots,k\right\}  \rightarrow\left\{
+1,2,\ldots,k\right\}  $ which will tell us which entry of our original tuple
+will go to which position in the rearranged tuple. Such bijective maps, too,
+are called permutations -- but permutations of sets, not of tuples. So let us
+first define permutations of a set, and then use this to define permutations
+of a tuple:
+
+\begin{definition}
+Let $A$ be a set. A \textit{permutation} of $A$ means a bijective map
+$A\rightarrow A$.
+\end{definition}
+
+\begin{example}
+\textbf{(a)} The map $\left\{  1,2,3,4\right\}  \rightarrow\left\{
+1,2,3,4\right\}  $ that sends $1,2,3,4$ to $3,1,4,2$ (respectively) is a
+permutation of $\left\{  1,2,3,4\right\}  $.
+
+\textbf{(b)} The map $\left\{  1,2,3\right\}  \rightarrow\left\{
+1,2,3\right\}  $ that sends $1,2,3$ to $2,3,1$ (respectively) is a permutation
+of $\left\{  1,2,3\right\}  $.
+
+\textbf{(c)} For each set $A$, the identity map $\operatorname*{id}%
+:A\rightarrow A$ is a permutation of $A$.
+\end{example}
+
+Thus, we have defined permutations of a set. We shall later study such
+permutations in more detail, at least for finite sets $A$.
+
+Now we can define permutations of a tuple:
+
+\begin{definition}
+Let $\left(  p_{1},p_{2},\ldots,p_{k}\right)  $ be a $k$-tuple. A
+\textit{permutation} of $\left(  p_{1},p_{2},\ldots,p_{k}\right)  $ means a
+$k$-tuple of the form $\left(  p_{\sigma\left(  1\right)  },p_{\sigma\left(
+2\right)  },\ldots,p_{\sigma\left(  k\right)  }\right)  $ where $\sigma$ is a
+permutation of the set $\left\{  1,2,\ldots,k\right\}  $. A
+\textit{permutation} of $\left(  p_{1},p_{2},\ldots,p_{k}\right)  $ is also
+known as a \textit{rearrangement} of $\left(  p_{1},p_{2},\ldots,p_{k}\right)
+$.
+\end{definition}
+
+\begin{example}
+\textbf{(a)} The $4$-tuple $\left(  1,3,1,2\right)  $ is a permutation of the
+$4$-tuple $\left(  3,2,1,1\right)  $. In fact, if we denote the $4$-tuple
+$\left(  3,2,1,1\right)  $ by $\left(  p_{1},p_{2},p_{3},p_{4}\right)  $, then
+there exists a permutation $\sigma$ of the set $\left\{  1,2,3,4\right\}  $
+such that $\left(  1,3,1,2\right)  =\left(  p_{\sigma\left(  1\right)
+},p_{\sigma\left(  2\right)  },p_{\sigma\left(  3\right)  },p_{\sigma\left(
+4\right)  }\right)  $. (Actually, there exist two such permutations $\sigma$:
+One of them sends $1,2,3,4$ to $3,1,4,2$, while the other sends $1,2,3,4$ to
+$4,1,3,2$.)
+
+\textbf{(b)} Any $k$-tuple is a permutation of itself. Indeed, if $\left(
+p_{1},p_{2},\ldots,p_{k}\right)  $ is any $k$-tuple, then $\left(  p_{1}%
+,p_{2},\ldots,p_{k}\right)  =\left(  p_{\sigma\left(  1\right)  }%
+,p_{\sigma\left(  2\right)  },\ldots,p_{\sigma\left(  k\right)  }\right)  $ if
+we let $\sigma$ be the identity map $\operatorname*{id}:\left\{
+1,2,\ldots,k\right\}  \rightarrow\left\{  1,2,\ldots,k\right\}  $.
+\end{example}
+
+The following fact is easy and fundamental:
+
+\begin{proposition}
+Let $\left(  p_{1},p_{2},\ldots,p_{k}\right)  $ be a $k$-tuple. If $\left(
+q_{1},q_{2},\ldots,q_{k}\right)  $ is a permutation of $\left(  p_{1}%
+,p_{2},\ldots,p_{k}\right)  $, then $\left(  p_{1},p_{2},\ldots,p_{k}\right)
+$ is a permutation of $\left(  q_{1},q_{2},\ldots,q_{k}\right)  $.
+\end{proposition}
+
+Now, we can say what we mean when we say that two tuples differ only in the
+order of their entries:
+
+\begin{definition}
+We say that two tuples \textit{differ only in the order of their entries} if
+they are permutations of each other.
+\end{definition}
+
+The next lemma that we shall use is a basic fact from elementary combinatorics:
+
+\begin{lemma}
+\label{lem.comb.tuples.mult=perm}Let $P$ be a set. Let $\left(  a_{1}%
+,a_{2},\ldots,a_{k}\right)  $ and $\left(  b_{1},b_{2},\ldots,b_{\ell}\right)
+$ be two tuples of elements of $P$. Assume that for each $p\in P$, we have%
+\begin{align}
+&  \left(  \text{the number of times }p\text{ appears in }\left(  a_{1}%
+,a_{2},\ldots,a_{k}\right)  \right) \nonumber\\
+&  =\left(  \text{the number of times }p\text{ appears in }\left(  b_{1}%
+,b_{2},\ldots,b_{\ell}\right)  \right)  .
+\label{eq.lem.comb.tuples.mult=perm.ass}%
+\end{align}
+Then, the two tuples $\left(  a_{1},a_{2},\ldots,a_{k}\right)  $ and $\left(
+b_{1},b_{2},\ldots,b_{\ell}\right)  $ differ only in the order of their
+entries (i.e., are permutations of each other). (In other words, we have
+$k=\ell$, and there exists a permutation$\ \sigma$ of the set $\left\{
+1,2,\ldots,\ell\right\}  $ such that $\left(  a_{1},a_{2},\ldots,a_{k}\right)
+=\left(  b_{\sigma\left(  1\right)  },b_{\sigma\left(  2\right)  }%
+,\ldots,b_{\sigma\left(  \ell\right)  }\right)  $.)
+\end{lemma}
+
+Lemma \ref{lem.comb.tuples.mult=perm} is an intuitively obvious fact: It says
+that if two tuples (of any objects -- e.g., numbers) have the property that
+any object occurs as often in the first tuple as it does in the second tuple,
+then the two tuples differ only in the order of their entries. From the formal
+point of view, though, it is a statement that needs proof. Let us merely
+sketch how such a proof can be obtained, without going into the details:
+
+\begin{fineprint}
+\begin{proof}
+[Proof of Lemma \ref{lem.comb.tuples.mult=perm} (sketched).]We can WLOG assume
+that the set $P$ is finite (since otherwise, we can replace $P$ by the finite
+subset $\left\{  a_{1},a_{2},\ldots,a_{k},b_{1},b_{2},\ldots,b_{\ell}\right\}
+$, without breaking the assumption that $\left(  a_{1},a_{2},\ldots
+,a_{k}\right)  $ and $\left(  b_{1},b_{2},\ldots,b_{\ell}\right)  $ are two
+tuples of elements of $P$). Assume this (at least if you don't want to use the
+Axiom of Choice\footnote{I don't.}).
+
+For each $p\in P$, define two sets%
+\begin{align*}
+A_{p}  &  =\left\{  i\in\left\{  1,2,\ldots,k\right\}  \ \mid\ a_{i}%
+=p\right\}  ;\\
+B_{p}  &  =\left\{  j\in\left\{  1,2,\ldots,\ell\right\}  \ \mid
+\ b_{j}=p\right\}  .
+\end{align*}
+The equation (\ref{eq.lem.comb.tuples.mult=perm.ass}) then says that
+$\left\vert A_{p}\right\vert =\left\vert B_{p}\right\vert $ for each $p\in P$.
+Hence, for each $p\in P$, there exists a bijection $\phi_{p}:A_{p}\rightarrow
+B_{p}$ (because if two sets have the same size, then there exists a bijection
+between them). Pick such a bijection $\phi_{p}$ for each $p\in P$. (This does
+not require the Axiom of Choice, since $P$ is finite.)
+
+Now, define a map $\sigma:\left\{  1,2,\ldots,k\right\}  \rightarrow\left\{
+1,2,\ldots,\ell\right\}  $ as follows: For each $i\in\left\{  1,2,\ldots
+,k\right\}  $, set $\sigma\left(  i\right)  =\phi_{p}\left(  i\right)  $,
+where $p=a_{i}$. Thus, for each $p\in P$, the map $\sigma$ sends each $i\in
+A_{p}$ to an element of $B_{p}$ (because if $i\in A_{p}$, then $a_{i}=p$, and
+thus the definition of $\sigma$ yields $\sigma\left(  i\right)  =\phi
+_{p}\left(  i\right)  \in B_{p}$.)
+
+It is not hard to see that this map $\sigma$ is a bijection. (Its inverse map
+sends each $j\in\left\{  1,2,\ldots,\ell\right\}  $ to $\phi_{p}^{-1}\left(
+j\right)  $, where $p=b_{j}$.) Thus, we have found a bijection from $\left\{
+1,2,\ldots,k\right\}  $ to $\left\{  1,2,\ldots,\ell\right\}  $. This shows
+that the sets $\left\{  1,2,\ldots,k\right\}  $ and $\left\{  1,2,\ldots
+,\ell\right\}  $ have the same size; in other words, $k=\ell$. Thus, the
+bijection $\sigma$ is actually a bijection from $\left\{  1,2,\ldots
+,\ell\right\}  $ to $\left\{  1,2,\ldots,\ell\right\}  $. In other words,
+$\sigma$ is a permutation of the set $\left\{  1,2,\ldots,\ell\right\}  $.
+
+Finally, it is easy to see that $\left(  a_{1},a_{2},\ldots,a_{k}\right)
+=\left(  b_{\sigma\left(  1\right)  },b_{\sigma\left(  2\right)  }%
+,\ldots,b_{\sigma\left(  \ell\right)  }\right)  $. (Indeed, let $i\in\left\{
+1,2,\ldots,k\right\}  $, and set $p=a_{i}$; then, the definition of $\sigma$
+yields $\sigma\left(  i\right)  =\phi_{p}\left(  i\right)  \in B_{p}$ and
+therefore $b_{\sigma\left(  i\right)  }=a_{i}$. Since this holds for each $i$,
+we thus conclude that $\left(  b_{\sigma\left(  1\right)  },b_{\sigma\left(
+2\right)  },\ldots,b_{\sigma\left(  k\right)  }\right)  =\left(  a_{1}%
+,a_{2},\ldots,a_{k}\right)  $. Thus, $\left(  a_{1},a_{2},\ldots,a_{k}\right)
+=\left(  b_{\sigma\left(  1\right)  },b_{\sigma\left(  2\right)  }%
+,\ldots,b_{\sigma\left(  k\right)  }\right)  =\left(  b_{\sigma\left(
+1\right)  },b_{\sigma\left(  2\right)  },\ldots,b_{\sigma\left(  \ell\right)
+}\right)  $ (since $k=\ell$).) Thus, we have found a permutation $\sigma$ of
+the set $\left\{  1,2,\ldots,\ell\right\}  $ such that $\left(  a_{1}%
+,a_{2},\ldots,a_{k}\right)  =\left(  b_{\sigma\left(  1\right)  }%
+,b_{\sigma\left(  2\right)  },\ldots,b_{\sigma\left(  \ell\right)  }\right)
+$. In other words, the two tuples $\left(  a_{1},a_{2},\ldots,a_{k}\right)  $
+and $\left(  b_{1},b_{2},\ldots,b_{\ell}\right)  $ are permutations of each
+other. This proves Lemma \ref{lem.comb.tuples.mult=perm}.
+\end{proof}
+\end{fineprint}
+
 \subsubsection{$p$-valuations}
+
+Now, let us come back to number theory. We first claim that a nonzero integer
+$n$ can only be divisible by finitely many powers of a given prime $p$. More precisely:
 
 \begin{lemma}
 \label{lem.ent.prime.vp-wd}Let $p$ be a prime. Let $n$ be a nonzero integer.
@@ -9104,98 +9288,6 @@ such that }a_{i}=p\right) \\
 \end{align*}
 This proves Proposition \ref{prop.ent.prime.mult-in-pf}.
 \end{proof}
-
-The next lemma that we shall use is a basic fact from elementary combinatorics:
-
-\begin{lemma}
-\label{lem.comb.tuples.mult=perm}Let $P$ be a set. Let $\left(  a_{1}%
-,a_{2},\ldots,a_{k}\right)  $ and $\left(  b_{1},b_{2},\ldots,b_{\ell}\right)
-$ be two tuples of elements of $P$. Assume that for each $p\in P$, we have%
-\begin{align}
-&  \left(  \text{the number of times }p\text{ appears in }\left(  a_{1}%
-,a_{2},\ldots,a_{k}\right)  \right) \nonumber\\
-&  =\left(  \text{the number of times }p\text{ appears in }\left(  b_{1}%
-,b_{2},\ldots,b_{\ell}\right)  \right)  .
-\label{eq.lem.comb.tuples.mult=perm.ass}%
-\end{align}
-Then, the two tuples $\left(  a_{1},a_{2},\ldots,a_{k}\right)  $ and $\left(
-b_{1},b_{2},\ldots,b_{\ell}\right)  $ differ only in the order of their
-entries (i.e., are permutations of each other). (In other words, we have
-$k=\ell$, and there exists a permutation\footnotemark$\ \sigma$ of $\left\{
-1,2,\ldots,\ell\right\}  $ such that $\left(  a_{1},a_{2},\ldots,a_{k}\right)
-=\left(  b_{\sigma\left(  1\right)  },b_{\sigma\left(  2\right)  }%
-,\ldots,b_{\sigma\left(  \ell\right)  }\right)  $.)
-\end{lemma}
-
-\footnotetext{The meaning of the word \textquotedblleft
-permutation\textquotedblright\ here is the following one: A
-\textit{permutation} of a set $S$ means a bijective map $\sigma:S\rightarrow
-S$. (We shall later study such permutations in more detail, at least for
-finite sets $S$.)} Lemma \ref{lem.comb.tuples.mult=perm} is an intuitively
-obvious fact: It says that if two tuples (of any objects -- e.g., numbers)
-have the property that any object occurs as often in the first tuple as it
-does in the second tuple, then the two tuples differ only in the order of
-their entries. From the formal point of view, though, it is a statement that
-needs proof. Let us merely sketch how such a proof can be obtained, without
-going into the details:
-
-\begin{fineprint}
-\begin{proof}
-[Proof of Lemma \ref{lem.comb.tuples.mult=perm} (sketched).]We can WLOG assume
-that the set $P$ is finite (since otherwise, we can replace $P$ by the finite
-subset $\left\{  a_{1},a_{2},\ldots,a_{k},b_{1},b_{2},\ldots,b_{\ell}\right\}
-$, without breaking the assumption that $\left(  a_{1},a_{2},\ldots
-,a_{k}\right)  $ and $\left(  b_{1},b_{2},\ldots,b_{\ell}\right)  $ are two
-tuples of elements of $P$). Assume this (at least if you don't want to use the
-Axiom of Choice\footnote{I don't.}).
-
-For each $p\in P$, define two sets%
-\begin{align*}
-A_{p}  &  =\left\{  i\in\left\{  1,2,\ldots,k\right\}  \ \mid\ a_{i}%
-=p\right\}  ;\\
-B_{p}  &  =\left\{  j\in\left\{  1,2,\ldots,\ell\right\}  \ \mid
-\ b_{j}=p\right\}  .
-\end{align*}
-The equation (\ref{eq.lem.comb.tuples.mult=perm.ass}) then says that
-$\left\vert A_{p}\right\vert =\left\vert B_{p}\right\vert $ for each $p\in P$.
-Hence, for each $p\in P$, there exists a bijection $\phi_{p}:A_{p}\rightarrow
-B_{p}$ (because if two sets have the same size, then there exists a bijection
-between them). Pick such a bijection $\phi_{p}$ for each $p\in P$. (This does
-not require the Axiom of Choice, since $P$ is finite.)
-
-Now, define a map $\sigma:\left\{  1,2,\ldots,k\right\}  \rightarrow\left\{
-1,2,\ldots,\ell\right\}  $ as follows: For each $i\in\left\{  1,2,\ldots
-,k\right\}  $, set $\sigma\left(  i\right)  =\phi_{p}\left(  i\right)  $,
-where $p=a_{i}$. It is not hard to see that this map $\sigma$ is a bijection.
-(Its inverse map sends each $j\in\left\{  1,2,\ldots,\ell\right\}  $ to
-$\phi_{p}^{-1}\left(  j\right)  $, where $p=b_{j}$.) Thus, we have found a
-bijection from $\left\{  1,2,\ldots,k\right\}  $ to $\left\{  1,2,\ldots
-,\ell\right\}  $. This shows that the sets $\left\{  1,2,\ldots,k\right\}  $
-and $\left\{  1,2,\ldots,\ell\right\}  $ have the same size; in other words,
-$k=\ell$. Thus, the bijection $\sigma$ is actually a bijection from $\left\{
-1,2,\ldots,\ell\right\}  $ to $\left\{  1,2,\ldots,\ell\right\}  $. In other
-words, $\sigma$ is a permutation of $\left\{  1,2,\ldots,\ell\right\}  $.
-Finally, it is easy to see that $\left(  a_{1},a_{2},\ldots,a_{k}\right)
-=\left(  b_{\sigma\left(  1\right)  },b_{\sigma\left(  2\right)  }%
-,\ldots,b_{\sigma\left(  \ell\right)  }\right)  $. (Indeed, let $i\in\left\{
-1,2,\ldots,k\right\}  $, and set $p=a_{i}$; then, the definition of $\sigma$
-yields $\sigma\left(  i\right)  =\phi_{p}\left(  i\right)  \in B_{p}$ and
-therefore $b_{\sigma\left(  i\right)  }=a_{i}$. Since this holds for each $i$,
-we thus conclude that $\left(  b_{\sigma\left(  1\right)  },b_{\sigma\left(
-2\right)  },\ldots,b_{\sigma\left(  k\right)  }\right)  =\left(  a_{1}%
-,a_{2},\ldots,a_{k}\right)  $. Thus, $\left(  a_{1},a_{2},\ldots,a_{k}\right)
-=\left(  b_{\sigma\left(  1\right)  },b_{\sigma\left(  2\right)  }%
-,\ldots,b_{\sigma\left(  k\right)  }\right)  =\left(  b_{\sigma\left(
-1\right)  },b_{\sigma\left(  2\right)  },\ldots,b_{\sigma\left(  \ell\right)
-}\right)  $ (since $k=\ell$).) Thus, we have found a permutation $\sigma$ of
-$\left\{  1,2,\ldots,\ell\right\}  $ such that $\left(  a_{1},a_{2}%
-,\ldots,a_{k}\right)  =\left(  b_{\sigma\left(  1\right)  },b_{\sigma\left(
-2\right)  },\ldots,b_{\sigma\left(  \ell\right)  }\right)  $. In other words,
-the two tuples $\left(  a_{1},a_{2},\ldots,a_{k}\right)  $ and $\left(
-b_{1},b_{2},\ldots,b_{\ell}\right)  $ are permutations of each other. This
-proves Lemma \ref{lem.comb.tuples.mult=perm}.
-\end{proof}
-\end{fineprint}
 
 We are finally ready to prove the so-called \textit{Fundamental Theorem of
 Arithmetic}:
@@ -11246,7 +11338,7 @@ $\phi\left(  n\right)  $ is even. This solves Exercise \ref{exe.ent.phi.even}.
 \textbf{2019-02-15 lecture}
 \end{center}
 
-\subsection{Fermat, Euler Wilson}
+\subsection{Fermat, Euler, Wilson}
 
 \subsubsection{Fermat and Euler: statements}
 
@@ -13229,37 +13321,6 @@ objects (usually similar in some way) as if they were one.
 Let us give a few more mathematical examples for equivalences and equivalence classes:
 
 \begin{definition}
-Let $A$ be a set. A \textit{permutation} of $A$ means a bijective map
-$A\rightarrow A$.
-\end{definition}
-
-\begin{example}
-The map $\left\{  1,2,3,4\right\}  \rightarrow\left\{  1,2,3,4\right\}  $ that
-sends $1,2,3,4$ to $3,1,4,2$ is a permutation of $\left\{  1,2,3,4\right\}  $.
-\end{example}
-
-\begin{definition}
-Let $\left(  p_{1},p_{2},\ldots,p_{k}\right)  $ be a $k$-tuple. A
-\textit{permutation} (aka \textit{rearrangement}) of $\left(  p_{1}%
-,p_{2},\ldots,p_{k}\right)  $ means a $k$-tuple of the form $\left(
-p_{\sigma\left(  1\right)  },p_{\sigma\left(  2\right)  },\ldots
-,p_{\sigma\left(  k\right)  }\right)  $ where $\sigma$ is a permutation of the
-set $\left\{  1,2,\ldots,k\right\}  $.
-\end{definition}
-
-\begin{example}
-The $4$-tuple $\left(  1,3,1,2\right)  $ is a permutation of the $4$-tuple
-$\left(  3,2,1,1\right)  $. In fact, if we denote the $4$-tuple $\left(
-3,2,1,1\right)  $ by $\left(  p_{1},p_{2},p_{3},p_{4}\right)  $, then there
-exists a permutation $\sigma$ of the set $\left\{  1,2,3,4\right\}  $ such
-that $\left(  1,3,1,2\right)  =\left(  p_{\sigma\left(  1\right)  }%
-,p_{\sigma\left(  2\right)  },p_{\sigma\left(  3\right)  },p_{\sigma\left(
-4\right)  }\right)  $. (Actually, there exist two such permutations $\sigma$:
-One of them sends $1,2,3,4$ to $3,1,4,2$, while the other sends $1,2,3,4$ to
-$4,1,3,2$.)
-\end{example}
-
-\begin{definition}
 Let $A$ be a set, and let $k\in\mathbb{N}$. As we know, $A^{k}$ denotes the
 set of all $k$-tuples of elements of $A$.
 
@@ -13270,8 +13331,9 @@ follows:%
 \Longleftrightarrow\left(  \mathbf{p}\text{ is a permutation of }%
 \mathbf{q}\right)  .
 \]
-For example, $\left(  3,8,8,2\right)  \underset{\operatorname*{perm}}{\sim
-}\left(  8,3,2,8\right)  $.
+(We are using Definition \ref{def.ent.perm.perm-tup} here.) For example,
+$\left(  3,8,8,2\right)  \underset{\operatorname*{perm}}{\sim}\left(
+8,3,2,8\right)  $.
 
 The relation $\underset{\operatorname*{perm}}{\sim}$ is an equivalence
 relation. Its equivalence classes are called the \textit{unordered }%
@@ -13620,17 +13682,17 @@ $\left[  15\right]  _{24}+\left[  10\right]  _{24}=\left[  1\right]  _{24}$.)
 TODO:
 
 \begin{itemize}
-\item define permutation of finite set in its proper place (= before factorization).
-\end{itemize}
-
-\subsection{$\mathbb{Z}/n$}
-
-\begin{itemize}
 \item modular inverses are now unique and are proper inverses:
+
+Define an \textit{inverse} of an $\alpha\in\mathbb{Z}/n$ to be an
+$\alpha^{\prime}\in\mathbb{Z}/n$ such that $\alpha\alpha^{\prime}=\left[
+1\right]  _{n}$.
 
 An integer $a^{\prime}\in\mathbb{Z}$ is a modular inverse of $a\in\mathbb{Z}$
 modulo $n$ if and only if $\left[  a\right]  _{n}\cdot\left[  a^{\prime
 }\right]  _{n}=\left[  1\right]  _{n}$.
+
+Thus: If $a\perp n$, then $\left[  a\right]  _{n}$ has a unique inverse.
 
 \item prove Wilson's theorem. (example: $p=11$: here $2\cdot6$ and $3\cdot4$
 and $5\cdot9$ and $7\cdot8$ are pairs of inverses.)
@@ -13656,6 +13718,10 @@ $\mathbb{Z}/n$.
 \item $\phi\left(  mn\right)  =\phi\left(  m\right)  \phi\left(  n\right)  $
 for $m$ and $n$ coprime.
 
+\item $\phi\left(  n_{1}n_{2}\cdots n_{k}\right)  =\phi\left(  n_{1}\right)
+\phi\left(  n_{2}\right)  \cdots\phi\left(  n_{k}\right)  $ if $n_{i}$
+mutually coprime.
+
 \item the formula for $\phi$:%
 \[
 \phi\left(  n\right)  =\prod_{\substack{p\text{ prime;}\\p\mid n}}\left(
@@ -13668,7 +13734,9 @@ for $m$ and $n$ coprime.
 \subsection{RSA}
 
 \begin{itemize}
-\item RSA
+\item RSA.
+
+\item cite Gallier for primality testing.
 \end{itemize}
 
 \begin{thebibliography}{999999999}                                                                                        %
