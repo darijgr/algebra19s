@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, February 25, 2019 10:30:58}
+%TCIDATA{LastRevised=Monday, February 25, 2019 10:44:49}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -5482,21 +5482,21 @@ theory as the \textit{Yoneda lemma}.
 
 \begin{proof}
 [Proof of Theorem \ref{thm.ent.gcd.split}.]Let $m\in\mathbb{Z}$. Theorem
-\ref{thm.ent.gcd.uniprop-mul} \textbf{(a)} (applied to $\left(  b_{1}%
-,b_{2},\ldots,b_{k},c_{1},c_{2},\ldots,c_{\ell}\right)  $ instead of $\left(
-b_{1},b_{2},\ldots,b_{k}\right)  $) shows that we have the following
-equivalence:%
+\ref{thm.ent.gcd.uniprop-mul} \textbf{(a)} (applied to $k+\ell$ and
+\newline$\left(  b_{1},b_{2},\ldots,b_{k},c_{1},c_{2},\ldots,c_{\ell}\right)
+$ instead of $k$ and $\left(  b_{1},b_{2},\ldots,b_{k}\right)  $) shows that
+we have the following equivalence:%
 \begin{align*}
 &  \ \left(  \left(  m\mid b_{i}\text{ for all }i\in\left\{  1,2,\ldots
 ,k\right\}  \right)  \text{ and }\left(  m\mid c_{i}\text{ for all }%
-i\in\left\{  1,2,\ldots,\ell\right\}  \right)  \right) \\
+i\in\left\{  1,2,\ldots,\ell\right\}  \right)  \right)  \\
 &  \Longleftrightarrow\ \left(  m\mid\gcd\left(  b_{1},b_{2},\ldots
 ,b_{k},c_{1},c_{2},\ldots,c_{\ell}\right)  \right)  .
 \end{align*}
 Hence, we have the following chain of equivalences:%
 \begin{align*}
 &  \ \left(  m\mid\gcd\left(  b_{1},b_{2},\ldots,b_{k},c_{1},c_{2}%
-,\ldots,c_{\ell}\right)  \right) \\
+,\ldots,c_{\ell}\right)  \right)  \\
 &  \Longleftrightarrow\ \left(  \underbrace{\left(  m\mid b_{i}\text{ for all
 }i\in\left\{  1,2,\ldots,k\right\}  \right)  }_{\substack{\Longleftrightarrow
 \ \left(  m\mid\gcd\left(  b_{1},b_{2},\ldots,b_{k}\right)  \right)
@@ -5504,15 +5504,15 @@ Hence, we have the following chain of equivalences:%
 }\underbrace{\left(  m\mid c_{i}\text{ for all }i\in\left\{  1,2,\ldots
 ,\ell\right\}  \right)  }_{\substack{\Longleftrightarrow\ \left(  m\mid
 \gcd\left(  c_{1},c_{2},\ldots,c_{\ell}\right)  \right)  \\\text{(by Theorem
-\ref{thm.ent.gcd.uniprop-mul} \textbf{(a)},}\\\text{applied to }\left(
-c_{1},c_{2},\ldots,c_{\ell}\right)  \text{ instead of }\left(  b_{1}%
-,b_{2},\ldots,b_{k}\right)  \text{)}}}\right) \\
+\ref{thm.ent.gcd.uniprop-mul} \textbf{(a)},}\\\text{applied to }\ell\text{ and
+}\left(  c_{1},c_{2},\ldots,c_{\ell}\right)  \\\text{instead of }k\text{ and
+}\left(  b_{1},b_{2},\ldots,b_{k}\right)  \text{)}}}\right)  \\
 &  \Longleftrightarrow\ \left(  m\mid\gcd\left(  b_{1},b_{2},\ldots
 ,b_{k}\right)  \text{ and }m\mid\gcd\left(  c_{1},c_{2},\ldots,c_{\ell
-}\right)  \right) \\
+}\right)  \right)  \\
 &  \Longleftrightarrow\ \left(  m\mid\gcd\left(  \gcd\left(  b_{1}%
 ,b_{2},\ldots,b_{k}\right)  ,\gcd\left(  c_{1},c_{2},\ldots,c_{\ell}\right)
-\right)  \right) \\
+\right)  \right)  \\
 &  \ \ \ \ \ \ \ \ \ \ \left(
 \begin{array}
 [c]{c}%
@@ -5528,21 +5528,21 @@ Now, forget that we fixed $m$. We thus have shown that each $m\in\mathbb{Z}$
 satisfies the equivalence%
 \begin{align*}
 &  \ \left(  m\mid\gcd\left(  b_{1},b_{2},\ldots,b_{k},c_{1},c_{2}%
-,\ldots,c_{\ell}\right)  \right) \\
+,\ldots,c_{\ell}\right)  \right)  \\
 &  \Longleftrightarrow\ \left(  m\mid\gcd\left(  \gcd\left(  b_{1}%
 ,b_{2},\ldots,b_{k}\right)  ,\gcd\left(  c_{1},c_{2},\ldots,c_{\ell}\right)
 \right)  \right)  .
 \end{align*}
-Hence, Lemma \ref{lem.ent.gcd.yoneda} (applied to $a=\gcd\left(  b_{1}%
-,b_{2},\ldots,b_{k},c_{1},c_{2},\ldots,c_{\ell}\right)  $ and \newline%
-$b=\gcd\left(  \gcd\left(  b_{1},b_{2},\ldots,b_{k}\right)  ,\gcd\left(
-c_{1},c_{2},\ldots,c_{\ell}\right)  \right)  $) yields%
+Hence, Lemma \ref{lem.ent.gcd.yoneda} \textbf{(b)} (applied to $a=\gcd\left(
+b_{1},b_{2},\ldots,b_{k},c_{1},c_{2},\ldots,c_{\ell}\right)  $ and
+\newline$b=\gcd\left(  \gcd\left(  b_{1},b_{2},\ldots,b_{k}\right)
+,\gcd\left(  c_{1},c_{2},\ldots,c_{\ell}\right)  \right)  $) yields%
 \begin{align}
 &  \left\vert \gcd\left(  b_{1},b_{2},\ldots,b_{k},c_{1},c_{2},\ldots,c_{\ell
 }\right)  \right\vert \nonumber\\
 &  =\left\vert \gcd\left(  \gcd\left(  b_{1},b_{2},\ldots,b_{k}\right)
-,\gcd\left(  c_{1},c_{2},\ldots,c_{\ell}\right)  \right)  \right\vert .
-\label{pf.thm.ent.gcd.split.abs-equal}%
+,\gcd\left(  c_{1},c_{2},\ldots,c_{\ell}\right)  \right)  \right\vert
+.\label{pf.thm.ent.gcd.split.abs-equal}%
 \end{align}
 
 
@@ -11470,25 +11470,23 @@ Our proof of Theorem \ref{thm.ent.euler} will rely on the following lemma:
 
 \begin{proof}
 [First proof of Lemma \ref{lem.ent.euler.phi0} (sketched).]If $n=1$, then this
-lemma can easily be proven by hand. Thus, WLOG assume that $n \neq1$. Hence,
-$n > 1$ (since $n$ is a positive integer). Thus, neither $0$ nor $n$ is
-coprime to $n$ (since $\gcd\left(  0,n\right)  =n>1$ and $\gcd\left(
-n,n\right)  =n>1$). Hence,%
-\begin{align*}
-&  \left\{  i\in\left\{  0,1,\ldots,n-1\right\}  \ \mid\ i\perp n\right\} \\
-&  =\left\{  i\in\left\{  1,2,\ldots,n\right\}  \ \mid\ i\perp n\right\}
-\end{align*}
+lemma can easily be proven by hand. Thus, WLOG assume that $n\neq1$. Hence,
+$n>1$ (since $n$ is a positive integer). Thus, neither $0$ nor $n$ is coprime
+to $n$ (since $\gcd\left(  0,n\right)  =n>1$ and $\gcd\left(  n,n\right)
+=n>1$). Hence,%
+\[
+\left\{  i\in\left\{  0,1,\ldots,n-1\right\}  \ \mid\ i\perp n\right\}
+=\left\{  i\in\left\{  1,2,\ldots,n\right\}  \ \mid\ i\perp n\right\}
+\]
 (because these sets could only differ in the elements $0$ and $n$, but none of
 these two elements belongs to any of these two sets\footnote{since neither $0$
 nor $n$ is coprime to $n$}), and therefore%
-\begin{align*}
-&  \left\vert \left\{  i\in\left\{  0,1,\ldots,n-1\right\}  \ \mid\ i\perp
-n\right\}  \right\vert \\
-&  =\left\vert \left\{  i\in\left\{  1,2,\ldots,n\right\}  \ \mid\ i\perp
-n\right\}  \right\vert =\phi\left(  n\right)  \ \ \ \ \ \ \ \ \ \ \left(
-\text{by \eqref{eq.def.ent.phi.phi.1}} \right)  .
-\end{align*}
-This proves Lemma \ref{lem.ent.euler.phi0}.
+\[
+\left\vert \left\{  i\in\left\{  0,1,\ldots,n-1\right\}  \ \mid\ i\perp
+n\right\}  \right\vert =\left\vert \left\{  i\in\left\{  1,2,\ldots,n\right\}
+\ \mid\ i\perp n\right\}  \right\vert =\phi\left(  n\right)
+\]
+(by \eqref{eq.def.ent.phi.phi.1}). This proves Lemma \ref{lem.ent.euler.phi0}.
 \end{proof}
 
 \begin{proof}
@@ -13842,7 +13840,7 @@ elements are all distinct (since $\left[  0\right]  _{n},\left[  1\right]
 _{n},\ldots,\left[  n-1\right]  _{n}$ are distinct). Hence,%
 \begin{align*}
 \left\vert U_{n}\right\vert  &  =\left(  \text{the number of }a\in\left\{
-0,1,\ldots,n-1\right\}  \text{ that satisfy }a\perp n\right)  \\
+0,1,\ldots,n-1\right\}  \text{ that satisfy }a\perp n\right) \\
 &  =\left\vert \left\{  i\in\left\{  0,1,\ldots,n-1\right\}  \ \mid\ i\perp
 n\right\}  \right\vert =\phi\left(  n\right)
 \end{align*}
@@ -13986,7 +13984,7 @@ is a bijection.
 \begin{example}
 Let $m=3$ and $n=2$ in this theorem. Then, this theorem says that the map%
 \begin{align*}
-\mathbb{Z}/6 &  \rightarrow\left(  \mathbb{Z}/3\right)  \times\left(
+\mathbb{Z}/6  &  \rightarrow\left(  \mathbb{Z}/3\right)  \times\left(
 \mathbb{Z}/2\right)  ,\\
 \alpha &  \mapsto\left(  \pi_{6,3}\left(  \alpha\right)  ,\pi_{6,2}\left(
 \alpha\right)  \right)
@@ -14019,9 +14017,8 @@ _{6},\ \ \ \left[  5\right]  _{6}\ \ \ \ \ \ \ \ \ \ \text{to}\\
 \end{example}
 
 \begin{proof}
-[Proof of Theorem \ref{thm.equiv.CRT2}.] The maps $\pi_{mn,m}$ and $\pi
-_{mn,n}$ are well-defined, since $m$ and $n$ are divisors of $mn$. Thus, the
-map%
+[Proof of Theorem \ref{thm.equiv.CRT2}.]The maps $\pi_{mn,m}$ and $\pi_{mn,n}$
+are well-defined, since $m$ and $n$ are divisors of $mn$. Thus, the map%
 \begin{align*}
 \mathbb{Z}/\left(  mn\right)   &  \rightarrow\left(  \mathbb{Z}/m\right)
 \times\left(  \mathbb{Z}/n\right)  ,\\
@@ -14043,7 +14040,7 @@ S\left(  \alpha\right)   &  =\left(  \pi_{mn,m}\left(  \alpha\right)
 ,\pi_{mn,n}\left(  \alpha\right)  \right)  =\left(  \underbrace{\pi
 _{mn,m}\left(  \left[  a\right]  _{mn}\right)  }_{=\left[  a\right]  _{m}%
 },\underbrace{\pi_{mn,n}\left(  \left[  a\right]  _{mn}\right)  }_{=\left[
-a\right]  _{n}}\right)  \\
+a\right]  _{n}}\right) \\
 &  =\left(  \left[  a\right]  _{m},\left[  a\right]  _{n}\right)
 \end{align*}
 and similarly $S\left(  \beta\right)  =\left(  \left[  b\right]  _{m},\left[
