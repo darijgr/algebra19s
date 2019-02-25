@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, February 25, 2019 10:30:58}
+%TCIDATA{LastRevised=Monday, February 25, 2019 09:54:57}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -13108,8 +13108,8 @@ This relation $\underset{f}{\equiv}$ is an equivalence relation.
 We will soon learn that \textbf{every} equivalence relation on $S$ is actually
 of the form $\underset{f}{\equiv}$ for some $T$ and $f$.
 
-\textbf{(e)} Let $S$ be the set of all points on the landmass of the Earth,
-and let $\sim$ be the relation on $S$ is defined by%
+\textbf{(e)} Let $S=\left\{  \text{towns}\right\}  $, and let $\sim$ be the
+relation on $S$ is defined by%
 \[
 \left(  a\sim b\right)  \Longleftrightarrow\left(  \text{there is a land route
 from }a\text{ to }b\right)  .
@@ -13315,12 +13315,8 @@ species, which is an equivalence class of creatures with respect to a certain
 relation\footnote{According to Darwin, the relation of being able to procreate
 -- although this is not per se an equivalence relation, so some tweaks need to
 be made (\textquotedblleft reflexive-and-transitive closure\textquotedblright)
-to turn it into one.}. Finally, the equivalence classes of the relation $\sim$
-in Example \ref{exa.equiv.eqrels1} \textbf{(e)} are commonly referred to as
-\textquotedblleft continents\textquotedblright\footnote{at least if one
-considers Eurasia to be a single continent} or \textquotedblleft
-islands\textquotedblright. Equivalence classes provide a way to refer to
-multiple objects (usually similar in some way) as if they were one.
+to turn it into one.}. Equivalence classes provide a way to refer to multiple
+objects (usually similar in some way) as if they were one.
 
 Let us give a few more mathematical examples for equivalences and equivalence classes:
 
@@ -13588,8 +13584,7 @@ as follows:%
 \left[  a\right]  _{n}\cdot\left[  b\right]  _{n}:=\left[  a\cdot b\right]
 _{n}.
 \]
-We shall also write $\alpha\beta$ for the product $\alpha\cdot\beta$ of two
-remainder classes $\alpha,\beta\in\mathbb{Z}/n$.
+
 
 \textbf{(d)} If $\lambda\in\mathbb{Z}$ and $\left[  a\right]  _{n}%
 \in\mathbb{Z}/n$, then we set
@@ -13685,10 +13680,8 @@ residue class $\left[  15\right]  _{24}$. So the statement that
 $\left[  15\right]  _{24}+\left[  10\right]  _{24}=\left[  1\right]  _{24}$.)
 
 \begin{theorem}
-\label{thm.equiv.Z/n.rules}The following rules for addition, subtraction and
-multiplication in $\mathbb{Z}/n$ hold:
-
-\textbf{(a)} $\alpha+\beta=\beta+\alpha$ for any $\alpha,\beta\in\mathbb{Z}/n$.
+\label{thm.equiv.Z/n.rules}\textbf{(a)} $\alpha+\beta=\beta+\alpha$ for any
+$\alpha,\beta\in\mathbb{Z}/n$.
 
 \textbf{(b)} $\alpha+\left(  \beta+\gamma\right)  =\left(  \alpha
 +\beta\right)  +\gamma$ for any $\alpha,\beta,\gamma\in\mathbb{Z}/n$.
@@ -13711,25 +13704,7 @@ multiplication in $\mathbb{Z}/n$ hold:
 
 \textbf{(h)} $\alpha\cdot\left[  0\right]  _{n}=\left[  0\right]  _{n}$ for
 any $\alpha\in\mathbb{Z}/n$.
-
-\textbf{(i)} If $\alpha,\beta,\gamma\in\mathbb{Z}/n$, then we have the
-equivalence $\left(  \alpha-\beta=\gamma\right)  \Longleftrightarrow\left(
-\alpha=\beta+\gamma\right)  $.
-
-\textbf{(j)} We have $\lambda\cdot\left(  \alpha+\beta\right)  =\lambda
-\alpha+\lambda\beta$ for any $\lambda\in\mathbb{Z}$ and $\alpha,\beta
-\in\mathbb{Z}/n$.
-
-\textbf{(k)} We have $\lambda\cdot\left(  \mu\alpha\right)  =\left(
-\lambda\mu\right)  \alpha$ for any $\lambda,\mu\in\mathbb{Z}$ and $\alpha
-\in\mathbb{Z}/n$.
 \end{theorem}
-
-\begin{proof}
-These properties are \textquotedblleft inherited from $\mathbb{Z}%
-$\textquotedblright: Fix a representative for each residue class involved, and
-use the corresponding rules for integers.
-\end{proof}
 
 \subsection{Modular inverses revisited}
 
@@ -13747,7 +13722,7 @@ Let us restate this in terms of residue classes.
 Again, we fix a positive integer $n$.
 
 \begin{definition}
-Let $\alpha\in\mathbb{Z}/n$. An \textit{inverse} of $\alpha$ means an
+Let $\alpha\in\mathbb{Z}/n$. An \textbf{inverse} of $\alpha$ means an
 $\alpha^{\prime}\in\mathbb{Z}/n$ such that $\alpha\cdot\alpha^{\prime}=\left[
 1\right]  _{n}$.
 \end{definition}
@@ -13797,23 +13772,21 @@ To prove this, we fix two inverses $\beta$ and $\gamma$ of $\alpha$. We must
 show $\beta=\gamma$.
 
 We have $\alpha\beta=\left[  1\right]  _{n}$ and $\alpha\gamma=\left[
-1\right]  _{n}$. The \textquotedblleft triple product\textquotedblright%
-\ $\alpha\beta\gamma$ is well-defined, since Theorem \ref{thm.equiv.Z/n.rules}
-\textbf{(f)} shows that $\left(  \alpha\beta\right)  \gamma=\alpha\left(
-\beta\gamma\right)  $. Now, comparing
+1\right]  _{n}$. Thus, by Theorem \ref{thm.equiv.Z/n.rules} \textbf{(f)}, we
+have%
 \[
 \underbrace{\alpha\beta}_{=\left[  1\right]  _{n}}\gamma=\left[  1\right]
 _{n}\gamma=\gamma\cdot\left[  1\right]  _{n}=\gamma\ \ \ \ \ \ \ \ \ \ \left(
-\text{by Theorem \ref{thm.equiv.Z/n.rules} \textbf{(d)}}\right)
+\text{by Theorem \ref{thm.equiv.Z/n.rules} \textbf{(d)}}\right)  .
 \]
-with%
+But also%
 \[
 \alpha\beta\gamma=\underbrace{\alpha\gamma}_{=\left[  1\right]  _{n}}%
 \beta=\left[  1\right]  _{n}\beta=\beta\cdot\left[  1\right]  _{n}%
 =\beta\ \ \ \ \ \ \ \ \ \ \left(  \text{by Theorem \ref{thm.equiv.Z/n.rules}
-\textbf{(d)}}\right)  ,
+\textbf{(d)}}\right)  .
 \]
-we find $\beta=\gamma$, as desired.
+Comparing these two equalities, we find $\beta=\gamma$, as desired.
 
 So $\left[  a\right]  _{n}$ has a unique inverse (since it has an inverse
 $\left[  a^{\prime}\right]  _{n}$, and it has at most one inverse).
@@ -13836,36 +13809,33 @@ and only if $a\perp n$. This follows from the proposition above.
 $\left[  0\right]  _{n},\left[  1\right]  _{n},\ldots,\left[  n-1\right]
 _{n}$. By part \textbf{(a)}, the ones among these $n$ elements that belong to
 $U_{n}$ are exactly the ones of the form $\left[  a\right]  _{n}$ with $a\perp
-n$. So $U_{n}$ consists of the elements $\left[  a\right]  _{n}$ for all
-$a\in\left\{  0,1,\ldots,n-1\right\}  $ that satisfy $a\perp n$, and these
-elements are all distinct (since $\left[  0\right]  _{n},\left[  1\right]
-_{n},\ldots,\left[  n-1\right]  _{n}$ are distinct). Hence,%
+n$. So%
 \begin{align*}
-\left\vert U_{n}\right\vert  &  =\left(  \text{the number of }a\in\left\{
+\left\vert U_{n}\right\vert  & =\left(  \text{the number of }a\in\left\{
 0,1,\ldots,n-1\right\}  \text{ that satisfy }a\perp n\right)  \\
-&  =\left\vert \left\{  i\in\left\{  0,1,\ldots,n-1\right\}  \ \mid\ i\perp
+& =\left\vert \left\{  i\in\left\{  0,1,\ldots,n-1\right\}  \ \mid\ i\perp
 n\right\}  \right\vert =\phi\left(  n\right)
 \end{align*}
 (by Lemma \ref{lem.ent.euler.phi0}).
 \end{proof}
 
 \begin{proof}
-[Proof of Theorem \ref{thm.ent.wilson}.]Recall%
+[Proof of Theorem \ref{thm.ent.wilson}.] Recall%
 \[
 \left(  p-1\right)  !=1\cdot2\cdot\cdots\cdot\left(  p-1\right)  .
 \]
 Thus,%
 \begin{align*}
-\left[  \left(  p-1\right)  !\right]  _{p}  &  =\left[  1\cdot2\cdot
-\cdots\cdot\left(  p-1\right)  \right]  _{p}\\
-&  =\left[  1\right]  _{p}\cdot\left[  2\right]  _{p}\cdot\cdots\cdot\left[
+\left[  \left(  p-1\right)  !\right]  _{p}  & =\left[  1\cdot2\cdot\cdots
+\cdot\left(  p-1\right)  \right]  _{p}\\
+& =\left[  1\right]  _{p}\cdot\left[  2\right]  _{p}\cdot\cdots\cdot\left[
 p-1\right]  _{p}.
 \end{align*}
 Now, the $p-1$ residue classes $\left[  1\right]  _{p},\left[  2\right]
 _{p},\ldots,\left[  p-1\right]  _{p}$ are precisely the $p-1$ residue classes
 in $\mathbb{Z}/p$ that have inverses. Now, recall that the inverse of an
 inverse is the original element ($\left(  \alpha^{-1}\right)  ^{-1}=\alpha$).
-Thus, we can try to pair up each class with its inverse.
+Thus, we can pair up each class with its inverse.
 
 \textit{Example:} If $p=11$, then we have the $10$ classes%
 \[
@@ -13889,15 +13859,15 @@ actually paired.
 
 So%
 \begin{align*}
-\left[  10!\right]  _{11}  &  =\left[  1\right]  _{11}\cdot\left[  2\right]
+\left[  10!\right]  _{11}  & =\left[  1\right]  _{11}\cdot\left[  2\right]
 _{11}\cdot\cdots\cdot\left[  10\right]  _{11}\\
-&  =\underbrace{\left(  \left[  2\right]  _{11}\cdot\left[  6\right]
+& =\underbrace{\left(  \left[  2\right]  _{11}\cdot\left[  6\right]
 _{11}\right)  }_{=\left[  1\right]  _{11}}\cdot\underbrace{\left(  \left[
 3\right]  _{11}\cdot\left[  4\right]  _{11}\right)  }_{=\left[  1\right]
 _{11}}\cdot\underbrace{\left(  \left[  5\right]  _{11}\cdot\left[  9\right]
 _{11}\right)  }_{=\left[  1\right]  _{11}}\cdot\left[  1\right]  _{11}%
 \cdot\left[  10\right]  _{11}\\
-&  =\left[  10\right]  _{11}=\left[  -1\right]  _{11},
+& =\left[  10\right]  _{11}=\left[  -1\right]  _{11},
 \end{align*}
 so $10!\equiv-1\operatorname{mod}11$.
 
@@ -13945,8 +13915,8 @@ _{p}$. In other words, $\left(  p-1\right)  !\equiv p-1\equiv
 Let $n$ be a positive integer. Let $d$ be a positive divisor of $n$. Then,
 there is a map%
 \begin{align*}
-\pi_{n,d}:\mathbb{Z}/n  &  \rightarrow\mathbb{Z}/d,\\
-\left[  a\right]  _{n}  &  \mapsto\left[  a\right]  _{d}.
+\pi_{n,d}:\mathbb{Z}/n  & \rightarrow\mathbb{Z}/d,\\
+\left[  a\right]  _{n}  & \mapsto\left[  a\right]  _{d}.
 \end{align*}
 
 \end{definition}
@@ -13971,14 +13941,14 @@ $a_{1}\equiv a_{2}\operatorname{mod}n$, thus $a_{1}\equiv a_{2}%
 _{d}=\left[  a_{2}\right]  _{d}$.)
 
 \begin{theorem}
-\label{thm.equiv.CRT2}(Chinese Remainder Theorem, bijective form)
+(Chinese Remainder Theorem, bijective form)
 
 Let $m$ and $n$ be two coprime positive integers. Then, the map%
 \begin{align*}
-\mathbb{Z}/\left(  mn\right)   &  \rightarrow\left(  \mathbb{Z}/m\right)
+\mathbb{Z}/\left(  mn\right)    & \rightarrow\left(  \mathbb{Z}/m\right)
 \times\left(  \mathbb{Z}/n\right)  ,\\
-\alpha &  \mapsto\left(  \pi_{mn,m}\left(  \alpha\right)  ,\pi_{mn,n}\left(
-\alpha\right)  \right)
+i  & \mapsto\left(  \pi_{mn,m}\left(  i\right)  ,\pi_{mn,n}\left(  i\right)
+\right)
 \end{align*}
 is a bijection.
 \end{theorem}
@@ -13986,17 +13956,17 @@ is a bijection.
 \begin{example}
 Let $m=3$ and $n=2$ in this theorem. Then, this theorem says that the map%
 \begin{align*}
-\mathbb{Z}/6 &  \rightarrow\left(  \mathbb{Z}/3\right)  \times\left(
+\mathbb{Z}/6  & \rightarrow\left(  \mathbb{Z}/3\right)  \times\left(
 \mathbb{Z}/2\right)  ,\\
-\alpha &  \mapsto\left(  \pi_{6,3}\left(  \alpha\right)  ,\pi_{6,2}\left(
-\alpha\right)  \right)
+i  & \mapsto\left(  \pi_{6,3}\left(  i\right)  ,\pi_{6,2}\left(  i\right)
+\right)
 \end{align*}
 is a bijection. This map sends%
 \begin{align*}
-&  \left[  0\right]  _{6},\ \ \ \ \left[  1\right]  _{6},\ \ \ \left[
+& \left[  0\right]  _{6},\ \ \ \ \left[  1\right]  _{6},\ \ \ \left[
 2\right]  _{6},\ \ \ \left[  3\right]  _{6},\ \ \ \left[  4\right]
 _{6},\ \ \ \left[  5\right]  _{6}\ \ \ \ \ \ \ \ \ \ \text{to}\\
-&  \left(  \left[  0\right]  _{3},\left[  0\right]  _{2}\right)
+& \left(  \left[  0\right]  _{3},\left[  0\right]  _{2}\right)
 ,\ \ \ \ \left(  \left[  1\right]  _{3},\left[  1\right]  _{2}\right)
 ,\ \ \ \ \left(  \left[  2\right]  _{3},\left[  2\right]  _{2}\right)
 ,\ \ \ \ \left(  \left[  3\right]  _{3},\left[  3\right]  _{2}\right)
@@ -14005,10 +13975,10 @@ _{6},\ \ \ \left[  5\right]  _{6}\ \ \ \ \ \ \ \ \ \ \text{to}\\
 \end{align*}
 In other words, it sends%
 \begin{align*}
-&  \left[  0\right]  _{6},\ \ \ \ \left[  1\right]  _{6},\ \ \ \left[
+& \left[  0\right]  _{6},\ \ \ \ \left[  1\right]  _{6},\ \ \ \left[
 2\right]  _{6},\ \ \ \left[  3\right]  _{6},\ \ \ \left[  4\right]
 _{6},\ \ \ \left[  5\right]  _{6}\ \ \ \ \ \ \ \ \ \ \text{to}\\
-&  \left(  \left[  0\right]  _{3},\left[  0\right]  _{2}\right)
+& \left(  \left[  0\right]  _{3},\left[  0\right]  _{2}\right)
 ,\ \ \ \ \left(  \left[  1\right]  _{3},\left[  1\right]  _{2}\right)
 ,\ \ \ \ \left(  \left[  2\right]  _{3},\left[  0\right]  _{2}\right)
 ,\ \ \ \ \left(  \left[  0\right]  _{3},\left[  1\right]  _{2}\right)
@@ -14019,37 +13989,38 @@ _{6},\ \ \ \left[  5\right]  _{6}\ \ \ \ \ \ \ \ \ \ \text{to}\\
 \end{example}
 
 \begin{proof}
-[Proof of Theorem \ref{thm.equiv.CRT2}.] The maps $\pi_{mn,m}$ and $\pi
-_{mn,n}$ are well-defined, since $m$ and $n$ are divisors of $mn$. Thus, the
-map%
+The maps $\pi_{mn,m}$ and $\pi_{mn,n}$ are well-defined, since $m$ and $n$ are
+divisors of $mn$. Thus, the map%
 \begin{align*}
-\mathbb{Z}/\left(  mn\right)   &  \rightarrow\left(  \mathbb{Z}/m\right)
+\mathbb{Z}/\left(  mn\right)    & \rightarrow\left(  \mathbb{Z}/m\right)
 \times\left(  \mathbb{Z}/n\right)  ,\\
-\alpha &  \mapsto\left(  \pi_{mn,m}\left(  \alpha\right)  ,\pi_{mn,n}\left(
-\alpha\right)  \right)
+i  & \mapsto\left(  \pi_{mn,m}\left(  i\right)  ,\pi_{mn,n}\left(  i\right)
+\right)
 \end{align*}
 is well-defined. Let me denote it by $S$.
 
-We want to prove that $S$ is a bijection.
+We want to prove that $S$ is a bijection. By the Pigeonhole Principle, it
+suffices to prove that it is an injection \textbf{or} that it is a surjection,
+since $\mathbb{Z}/\left(  mn\right)  $ and $\left(  \mathbb{Z}/m\right)
+\times\left(  \mathbb{Z}/n\right)  $ are finite sets of the same size.
 
-\textit{Proof that }$S$ \textit{is an injection:} Let $\alpha,\beta
-\in\mathbb{Z}/\left(  mn\right)  $ be such that $S\left(  \alpha\right)
-=S\left(  \beta\right)  $. We want to prove $\alpha=\beta$.
+\textit{Proof that }$S$ \textit{is an injection:} Let $i,j\in\mathbb{Z}%
+/\left(  mn\right)  $ be such that $S\left(  i\right)  =S\left(  j\right)  $.
+We want to prove $i=j$.
 
-Write $\alpha=\left[  a\right]  _{mn}$ and $\beta=\left[  b\right]  _{mn}$ for
-two integers $a$ and $b$. We have
+Write $i=\left[  a\right]  _{mn}$ and $j=\left[  b\right]  _{mn}$ for two
+integers $a$ and $b$. We have
 \begin{align*}
-S\left(  \alpha\right)   &  =\left(  \pi_{mn,m}\left(  \alpha\right)
-,\pi_{mn,n}\left(  \alpha\right)  \right)  =\left(  \underbrace{\pi
-_{mn,m}\left(  \left[  a\right]  _{mn}\right)  }_{=\left[  a\right]  _{m}%
-},\underbrace{\pi_{mn,n}\left(  \left[  a\right]  _{mn}\right)  }_{=\left[
-a\right]  _{n}}\right)  \\
-&  =\left(  \left[  a\right]  _{m},\left[  a\right]  _{n}\right)
+S\left(  i\right)    & =\left(  \pi_{mn,m}\left(  i\right)  ,\pi_{mn,n}\left(
+i\right)  \right)  =\left(  \underbrace{\pi_{mn,m}\left(  \left[  a\right]
+_{mn}\right)  }_{=\left[  a\right]  _{m}},\underbrace{\pi_{mn,n}\left(
+\left[  a\right]  _{mn}\right)  }_{=\left[  a\right]  _{n}}\right)  \\
+& =\left(  \left[  a\right]  _{m},\left[  a\right]  _{n}\right)
 \end{align*}
-and similarly $S\left(  \beta\right)  =\left(  \left[  b\right]  _{m},\left[
-b\right]  _{n}\right)  $. Thus, $S\left(  \alpha\right)  =S\left(
-\beta\right)  $ rewrites as $\left(  \left[  a\right]  _{m},\left[  a\right]
-_{n}\right)  =\left(  \left[  b\right]  _{m},\left[  b\right]  _{n}\right)  $.
+and similarly $S\left(  j\right)  =\left(  \left[  b\right]  _{m},\left[
+b\right]  _{n}\right)  $. Thus, $S\left(  i\right)  =S\left(  j\right)  $
+rewrites as $\left(  \left[  a\right]  _{m},\left[  a\right]  _{n}\right)
+=\left(  \left[  b\right]  _{m},\left[  b\right]  _{n}\right)  $.
 
 Thus, $\left[  a\right]  _{m}=\left[  b\right]  _{m}$ and $\left[  a\right]
 _{n}=\left[  b\right]  _{n}$.
@@ -14061,8 +14032,8 @@ Similarly, $n\mid a-b$.
 
 Since $m\perp n$, we can combine these two divisibilities to $mn\mid a-b$. In
 other words, $a\equiv b\operatorname{mod}mn$. In other words, $\left[
-a\right]  _{mn}=\left[  b\right]  _{mn}$. In other words, $\alpha=\beta$. So
-we have shown that $S$ is injective.
+a\right]  _{mn}=\left[  b\right]  _{mn}$. In other words, $i=j$. So we have
+shown that $S$ is injective.
 
 \textit{Proof that }$S$ \textit{is surjective:} Fix $\left(  \alpha
 ,\beta\right)  \in\left(  \mathbb{Z}/m\right)  \times\left(  \mathbb{Z}%
@@ -14078,15 +14049,15 @@ n\right)  .
 \]
 Fix such an $x$. Now,
 \begin{align*}
-S\left(  \left[  x\right]  _{mn}\right)   &  =\left(  \underbrace{\pi
+S\left(  \left[  x\right]  _{mn}\right)    & =\left(  \underbrace{\pi
 _{mn,m}\left(  \left[  x\right]  _{mn}\right)  }_{=\left[  x\right]  _{m}%
 },\underbrace{\pi_{mn,n}\left(  \left[  x\right]  _{mn}\right)  }_{=\left[
-x\right]  _{n}}\right) \\
-&  =\left(  \underbrace{\left[  x\right]  _{m}}_{\substack{=\left[  a\right]
+x\right]  _{n}}\right)  \\
+& =\left(  \underbrace{\left[  x\right]  _{m}}_{\substack{=\left[  a\right]
 _{m}\\\text{(since }x\equiv a\operatorname{mod}m\text{)}}},\underbrace{\left[
 x\right]  _{n}}_{\substack{=\left[  b\right]  _{n}\\\text{(since }x\equiv
-b\operatorname{mod}n\text{)}}}\right) \\
-&  =\left(  \underbrace{\left[  a\right]  _{m}}_{=\alpha},\underbrace{\left[
+b\operatorname{mod}n\text{)}}}\right)  \\
+& =\left(  \underbrace{\left[  a\right]  _{m}}_{=\alpha},\underbrace{\left[
 b\right]  _{n}}_{=\beta}\right)  =\left(  \alpha,\beta\right)  .
 \end{align*}
 Thus, there exists a $\gamma\in\mathbb{Z}/\left(  mn\right)  $ such that
@@ -14094,161 +14065,7 @@ $S\left(  \gamma\right)  =\left(  \alpha,\beta\right)  $ (namely,
 $\gamma=\left[  x\right]  _{mn}$). This proves that $S$ is surjective.
 
 So, $S$ is bijective (being both injective and surjective). This proves the Theorem.
-
-(We could have saved ourselves some of the work by invoking the Pigeonhole
-Principle. Indeed, our goal was to show that $S$ is bijective. By the
-Pigeonhole Principle, it suffices to prove that it is an injection \textbf{or}
-that it is a surjection, since $\mathbb{Z}/\left(  mn\right)  $ and $\left(
-\mathbb{Z}/m\right)  \times\left(  \mathbb{Z}/n\right)  $ are finite sets of
-the same size. But this argument would be harder to generalize to certain
-settings that we might later want to generalize the Theorem to.)
 \end{proof}
-
-TODO:
-
-\begin{itemize}
-\item $\phi\left(  mn\right)  =\phi\left(  m\right)  \phi\left(  n\right)  $
-for $m$ and $n$ coprime.
-
-\item $\phi\left(  n_{1}n_{2}\cdots n_{k}\right)  =\phi\left(  n_{1}\right)
-\phi\left(  n_{2}\right)  \cdots\phi\left(  n_{k}\right)  $ if $n_{i}$
-mutually coprime.
-
-\item the formula for $\phi$:%
-\[
-\phi\left(  n\right)  =\prod_{\substack{p\text{ prime;}\\p\mid n}}\left(
-\left(  p-1\right)  p^{v_{p}\left(  n\right)  -1}\right)  =n\cdot
-\prod_{\substack{p\text{ prime;}\\p\mid n}}\left(  1-\dfrac{1}{p}\right)  .
-\]
-
-\end{itemize}
-
-\subsection{RSA}
-
-\begin{itemize}
-\item RSA.
-
-\item cite Gallier for primality testing.
-\end{itemize}
-
-\begin{thebibliography}{999999999}                                                                                        %
-
-
-\bibitem[Armstr18]{Armstrong}Drew Armstrong, \textit{Abstract Algebra I},
-2018.\newline\url{http://www.math.miami.edu/~armstrong/561fa18.php}
-
-\bibitem[Artin10]{Artin}Michael Artin, \textit{Algebra}, 2nd edition, Pearson 2010.
-
-\bibitem[Boreic08]{Boreic08}Iurie Boreico, \textit{Linear Independence of
-Radicals}, The Harvard College Mathematics Review 2.1 (2008).\newline\url{http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.630.1024&rep=rep1&type=pdf}
-
-\bibitem[Bosch18]{Bosch}Siegfried Bosch, \textit{Algebra -- From the Viewpoint
-of Galois Theory}, Springer 2018. \newline\url{https://www.springer.com/la/book/9783319951768}
-
-\bibitem[Burton10]{Burton}David M. Burton, \textit{Elementary Number Theory},
-7th edition, McGraw-Hill 2010.
-
-\bibitem[Conrad*]{Conrad*}Keith Conrad, \textit{Expository notes
-(\textquotedblleft blurbs\textquotedblright)}.\newline\url{https://kconrad.math.uconn.edu/blurbs/}
-
-\bibitem[ConradE]{Conrad-Euler}Keith Conrad, \textit{Euler's theorem}.\newline\url{https://kconrad.math.uconn.edu/blurbs/ugradnumthy/eulerthm.pdf}
-
-\bibitem[ConradG]{Conrad-Gauss}Keith Conrad, \textit{The Gaussian
-integers}.\newline\url{http://www.math.uconn.edu/~kconrad/blurbs/ugradnumthy/Zinotes.pdf}
-
-\bibitem[ConradI]{Conrad-Induction}Keith Conrad, \textit{Examples of proofs by
-induction}.\newline\url{https://kconrad.math.uconn.edu/blurbs/proofs/induction.pdf}
-
-\bibitem[Day16]{Day}Martin V. Day, \textit{An Introduction to Proofs and the
-Mathematical Vernacular}, 7 December 2016.\newline%
-\url{https://www.math.vt.edu/people/day/ProofsBook/IPaMV.pdf} .
-
-\bibitem[DumFoo04]{Dummit-Foote}David S. Dummit, Richard M. Foote,
-\textit{Abstract Algebra}, 3rd edition, Wiley 2004. \newline See
-\url{http://www.cems.uvm.edu/~rfoote/errata_3rd_edition.pdf} for errata.
-
-\bibitem[Galvin17]{Galvin}David Galvin, \textit{Basic discrete mathematics},
-13 December 2017.\newline%
-\url{http://www-users.math.umn.edu/~dgrinber/comb/60610lectures2017-Galvin.pdf}
-\newline(The URL might change, and the text may get updated. In order to
-reliably obtain the version of 13 December 2017, you can use the archive.org
-Wayback Machine:
-\url{https://web.archive.org/web/20180205122609/http://www-users.math.umn.edu/~dgrinber/comb/60610lectures2017-Galvin.pdf}
-.)
-
-\bibitem[GalQua17]{Gallier-RSA}Jean Gallier, Jocelyn Quaintance, \textit{Notes
-on Primality Testing And Public Key Cryptography, Part 1}, 8 November
-2017.\newline\url{https://www.cis.upenn.edu/~jean/RSA-primality-testing.pdf}
-
-\bibitem[Goodma16]{Goodman}Frederick M. Goodman, \textit{Algebra: Abstract and
-Concrete}, edition 2.6, 12 October 2016.\newline\url{http://homepage.divms.uiowa.edu/~goodman/algebrabook.dir/algebrabook.html}
-
-\bibitem[Granvi05]{Granvi05}Andrew Granville, \textit{Binomial coefficients
-modulo prime powers}, preprint.\newline\url{https://web.archive.org/web/20181024055320/http://ebooks.bharathuniv.ac.in/gdlc1/gdlc1/Engineering Merged Library v3.0/Andrew Granville/Binomial Coefficients Modulo Prime Powers (5579)/Binomial Coefficients Modulo Prime Powers - Andrew Granville.pdf}
-
-\bibitem[Grinbe15]{detnotes}Darij Grinberg, \textit{Notes on the combinatorial
-fundamentals of algebra}, 10 January 2019.\newline%
-\url{http://www.cip.ifi.lmu.de/~grinberg/primes2015/sols.pdf} \newline The
-numbering of theorems and formulas in this link might shift when the project
-gets updated; for a \textquotedblleft frozen\textquotedblright\ version whose
-numbering is guaranteed to match that in the citations above, see
-\url{https://github.com/darijgr/detnotes/releases/tag/2019-01-10} .
-
-\bibitem[Grinbe16]{floor}Darij Grinberg, \textit{18.781 (Spring 2016): Floor
-and arithmetic functions}, 19 June 2016.\newline\url{http://www.cip.ifi.lmu.de/~grinberg/floor.pdf}
-
-\bibitem[Grinbe17]{lucas}Darij Grinberg, \textit{The Lucas and Babbage
-congruences}, 10 January 2019.\newline\url{http://www.cip.ifi.lmu.de/~grinberg/lucascong.pdf}
-
-\bibitem[GrKnPa94]{GKP}Ronald L. Graham, Donald E. Knuth, Oren Patashnik,
-\textit{Concrete Mathematics, Second Edition}, Addison-Wesley 1994.\newline
-See \url{https://www-cs-faculty.stanford.edu/~knuth/gkp.html} for errata.
-
-\bibitem[Hammac18]{Hammack}Richard Hammack, \textit{Book of Proof}, 3rd
-edition 2018.\newline\url{http://www.people.vcu.edu/~rhammack/BookOfProof/}
-
-\bibitem[Heffer17]{Hefferon}Jim Hefferon, \textit{Linear Algebra}, 3rd edition
-2017.\newline\url{http://joshua.smcvt.edu/linearalgebra/}
-
-\bibitem[Knapp16a]{Knapp1}Anthony W. Knapp, \textit{Basic Algebra}, digital
-2nd edition 2016. \newline\url{http://www.math.stonybrook.edu/~aknapp/download.html}
-
-\bibitem[Knapp16b]{Knapp2}Anthony W. Knapp, \textit{Advanced Algebra}, digital
-2nd edition 2016. \newline\url{http://www.math.stonybrook.edu/~aknapp/download.html}
-
-\bibitem[LeLeMe18]{LeLeMe}Eric Lehman, F. Thomson Leighton, Albert R. Meyer,
-\textit{Mathematics for Computer Science}, revised Tuesday 6th June
-2018.\newline\url{https://courses.csail.mit.edu/6.042/spring18/mcs.pdf} .
-
-\bibitem[Loehr11]{Loehr-BC}%
-\href{http://www.math.vt.edu/people/nloehr/bijbook.html}{Nicholas A. Loehr,
-\textit{Bijective Combinatorics}, Chapman \& Hall/CRC 2011.}
-
-\bibitem[Mestro14]{Mestro14}\href{https://arxiv.org/abs/1409.3820v1}{Romeo
-Me\v{s}trovi\'{c}, \textit{Lucas' theorem: its generalizations, extensions and
-applications (1878--2014)}, arXiv:1409.3820v1.}
-
-\bibitem[NiZuMo91]{NiZuMo91}Ivan Niven, Herbert S. Zuckerman, Hugh L.
-Montgomery, \textit{An Introduction to the Theory of Numbers}, 5th edition 1991.
-
-\bibitem[Pinter10]{Pinter}Charles C. Pinter, \textit{A book of abstract
-algebra}, 2nd edition, Dover 2010.\newline\url{https://www.amazon.com/Book-Abstract-Algebra-Second-Mathematics/dp/0486474178}
-
-\bibitem[Siksek15]{Siksek}Samir Siksek, \textit{Introduction to Abstract
-Algebra}, 2015.\newline\url{http://homepages.warwick.ac.uk/staff/S.Siksek/teaching/aa/aanotes.pdf}
-
-\bibitem[Strick13]{Strickland}Neil Strickland, \textit{Linear mathematics for
-applications}, 2013.\newline\url{https://neil-strickland.staff.shef.ac.uk/courses/MAS201/MAS201.pdf}
-
-\bibitem[UspHea39]{Uspensky-Heaslet}J. V. Uspensky, M. A. Heaslet,
-\textit{Elementary Number Theory}, McGraw-Hill 1939.
-
-\bibitem[Waerde91a]{Waerden1}B.L. van der Waerden, \textit{Algebra, Volume I},
-translated 7th edition, Springer 1991.
-
-\bibitem[Waerde91b]{Waerden2}B.L. van der Waerden, \textit{Algebra, Volume
-II}, translated 5th edition, Springer 1991.
-\end{thebibliography}
 
 
 \end{document}
