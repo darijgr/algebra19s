@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Wednesday, February 27, 2019 01:31:29}
+%TCIDATA{LastRevised=Wednesday, February 27, 2019 08:21:10}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -6632,10 +6632,10 @@ a,b,c\right)  .
 \]
 Now,%
 \begin{align*}
-ab  & \mid\gcd\left(  \underbrace{ac}_{=ca},\underbrace{bc}_{=bc},cc\right)
+ab  &  \mid\gcd\left(  \underbrace{ac}_{=ca},\underbrace{bc}_{=bc},cc\right)
 =\gcd\left(  ca,bc,cc\right)  =\left\vert c\right\vert \gcd\left(
-a,b,c\right)  \\
-& \mid c\gcd\left(  a,b,c\right)  =\gcd\left(  a,b,c\right)  \cdot c.
+a,b,c\right) \\
+&  \mid c\gcd\left(  a,b,c\right)  =\gcd\left(  a,b,c\right)  \cdot c.
 \end{align*}
 This solves Exercise \ref{exe.ent.coprime.combine2}.
 \end{proof}
@@ -12546,8 +12546,8 @@ $\left(  \lambda x^{i}\right)  x^{j}=\lambda\left(  x^{i}x^{j}\right)
 multiply polynomials as well (first use distributivity to expand the product):%
 \begin{align*}
 \left(  3x-5\right)  \left(  x^{2}+3x+2\right)   &  =3x\left(  x^{2}%
-+3x+2\right)  -5\left(  x^{2}+3x+2\right)  \\
-&  =\left(  3x^{3}+9x^{2}+6x\right)  -\left(  5x^{2}+15x+10\right)  \\
++3x+2\right)  -5\left(  x^{2}+3x+2\right) \\
+&  =\left(  3x^{3}+9x^{2}+6x\right)  -\left(  5x^{2}+15x+10\right) \\
 &  =3x^{3}+4x^{2}-9x-10.
 \end{align*}
 
@@ -13222,6 +13222,14 @@ Let $\sim$ be a symmetric relation on a set $S$. Let $a,b\in S$. Then, $a\sim
 b$ if and only if $b\sim a$.
 \end{proposition}
 
+\begin{proof}
+The symmetry axiom shows that if $a\sim b$, then $b\sim a$. But the same
+argument (with the roles of $a$ and $b$ interchanged) shows that if $b\sim a$,
+then $a\sim b$. Combining these two implications, we conclude the equivalence
+$\left(  a\sim b\right)  \Longleftrightarrow\left(  b\sim a\right)  $. This
+proves the Proposition.
+\end{proof}
+
 \begin{definition}
 Let $\sim$ be an equivalence relation on a set $S$.
 
@@ -13650,6 +13658,13 @@ remainder classes $\alpha,\beta\in\mathbb{Z}/n$.
 \lambda\cdot\left[  a\right]  _{n}:=\left[  \lambda a\right]  _{n}.
 \]
 
+
+\textbf{(e)} If $k\in\mathbb{N}$ and $\left[  a\right]  _{n}\in\mathbb{Z}/n$,
+then we set
+\[
+\left(  \left[  a\right]  _{n}\right)  ^{k}:=\left[  a^{k}\right]  _{n}.
+\]
+
 \end{definition}
 
 \begin{theorem}
@@ -13689,6 +13704,9 @@ multiply congruences.
 \textbf{(d)} is proven similarly, since if $a_{1}\equiv a_{2}%
 \operatorname{mod}n$, then $\lambda a_{1}\equiv\lambda a_{2}\operatorname{mod}%
 n$.
+
+\textbf{(e)} is proven similarly using Exercise
+\ref{exe.ent.mod.basics.k-power}.
 \end{proof}
 
 \begin{remark}
@@ -14223,7 +14241,8 @@ TODO:
 
 \begin{itemize}
 \item $\phi\left(  mn\right)  =\phi\left(  m\right)  \phi\left(  n\right)  $
-for $m$ and $n$ coprime.
+for $m$ and $n$ coprime. (proof: bijection $U_{mn}\rightarrow U_{m}\times
+U_{n}$ by restricting the $S$ from previous theorem.)
 
 \item $\phi\left(  n_{1}n_{2}\cdots n_{k}\right)  =\phi\left(  n_{1}\right)
 \phi\left(  n_{2}\right)  \cdots\phi\left(  n_{k}\right)  $ if $n_{i}$
@@ -14252,6 +14271,19 @@ mutually coprime.
 
 \begin{itemize}
 \item Follow \cite{LaNaSc16}.
+
+\item identify $a\in\mathbb{R}$ with $\left(  a,0\right)  \in\mathbb{C}$.
+
+\item $\overline{z}:=a+bi$.
+
+\item $N\left(  z\right)  =z\overline{z}\in\mathbb{R}$.
+
+\item how to discover $\left(  a^{2}+b^{2}\right)  \left(  c^{2}+d^{2}\right)
+$ identity.
+
+\item $\left\vert z\right\vert =\sqrt{N\left(  z\right)  }$.
+
+\item FTA.
 \end{itemize}
 
 \begin{thebibliography}{999999999}                                                                                        %
