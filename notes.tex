@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, February 25, 2019 10:44:49}
+%TCIDATA{LastRevised=Wednesday, February 27, 2019 01:12:12}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -5489,14 +5489,14 @@ we have the following equivalence:%
 \begin{align*}
 &  \ \left(  \left(  m\mid b_{i}\text{ for all }i\in\left\{  1,2,\ldots
 ,k\right\}  \right)  \text{ and }\left(  m\mid c_{i}\text{ for all }%
-i\in\left\{  1,2,\ldots,\ell\right\}  \right)  \right)  \\
+i\in\left\{  1,2,\ldots,\ell\right\}  \right)  \right) \\
 &  \Longleftrightarrow\ \left(  m\mid\gcd\left(  b_{1},b_{2},\ldots
 ,b_{k},c_{1},c_{2},\ldots,c_{\ell}\right)  \right)  .
 \end{align*}
 Hence, we have the following chain of equivalences:%
 \begin{align*}
 &  \ \left(  m\mid\gcd\left(  b_{1},b_{2},\ldots,b_{k},c_{1},c_{2}%
-,\ldots,c_{\ell}\right)  \right)  \\
+,\ldots,c_{\ell}\right)  \right) \\
 &  \Longleftrightarrow\ \left(  \underbrace{\left(  m\mid b_{i}\text{ for all
 }i\in\left\{  1,2,\ldots,k\right\}  \right)  }_{\substack{\Longleftrightarrow
 \ \left(  m\mid\gcd\left(  b_{1},b_{2},\ldots,b_{k}\right)  \right)
@@ -5506,13 +5506,13 @@ Hence, we have the following chain of equivalences:%
 \gcd\left(  c_{1},c_{2},\ldots,c_{\ell}\right)  \right)  \\\text{(by Theorem
 \ref{thm.ent.gcd.uniprop-mul} \textbf{(a)},}\\\text{applied to }\ell\text{ and
 }\left(  c_{1},c_{2},\ldots,c_{\ell}\right)  \\\text{instead of }k\text{ and
-}\left(  b_{1},b_{2},\ldots,b_{k}\right)  \text{)}}}\right)  \\
+}\left(  b_{1},b_{2},\ldots,b_{k}\right)  \text{)}}}\right) \\
 &  \Longleftrightarrow\ \left(  m\mid\gcd\left(  b_{1},b_{2},\ldots
 ,b_{k}\right)  \text{ and }m\mid\gcd\left(  c_{1},c_{2},\ldots,c_{\ell
-}\right)  \right)  \\
+}\right)  \right) \\
 &  \Longleftrightarrow\ \left(  m\mid\gcd\left(  \gcd\left(  b_{1}%
 ,b_{2},\ldots,b_{k}\right)  ,\gcd\left(  c_{1},c_{2},\ldots,c_{\ell}\right)
-\right)  \right)  \\
+\right)  \right) \\
 &  \ \ \ \ \ \ \ \ \ \ \left(
 \begin{array}
 [c]{c}%
@@ -5528,7 +5528,7 @@ Now, forget that we fixed $m$. We thus have shown that each $m\in\mathbb{Z}$
 satisfies the equivalence%
 \begin{align*}
 &  \ \left(  m\mid\gcd\left(  b_{1},b_{2},\ldots,b_{k},c_{1},c_{2}%
-,\ldots,c_{\ell}\right)  \right)  \\
+,\ldots,c_{\ell}\right)  \right) \\
 &  \Longleftrightarrow\ \left(  m\mid\gcd\left(  \gcd\left(  b_{1}%
 ,b_{2},\ldots,b_{k}\right)  ,\gcd\left(  c_{1},c_{2},\ldots,c_{\ell}\right)
 \right)  \right)  .
@@ -5541,8 +5541,8 @@ b_{1},b_{2},\ldots,b_{k},c_{1},c_{2},\ldots,c_{\ell}\right)  $ and
 &  \left\vert \gcd\left(  b_{1},b_{2},\ldots,b_{k},c_{1},c_{2},\ldots,c_{\ell
 }\right)  \right\vert \nonumber\\
 &  =\left\vert \gcd\left(  \gcd\left(  b_{1},b_{2},\ldots,b_{k}\right)
-,\gcd\left(  c_{1},c_{2},\ldots,c_{\ell}\right)  \right)  \right\vert
-.\label{pf.thm.ent.gcd.split.abs-equal}%
+,\gcd\left(  c_{1},c_{2},\ldots,c_{\ell}\right)  \right)  \right\vert .
+\label{pf.thm.ent.gcd.split.abs-equal}%
 \end{align}
 
 
@@ -13724,15 +13724,42 @@ equivalence $\left(  \alpha-\beta=\gamma\right)  \Longleftrightarrow\left(
 \end{theorem}
 
 \begin{proof}
-These properties are \textquotedblleft inherited from $\mathbb{Z}%
-$\textquotedblright: Fix a representative for each residue class involved, and
-use the corresponding rules for integers.
+These properties (except for \textbf{(i)}) are \textquotedblleft inherited
+from $\mathbb{Z}$\textquotedblright: Fix a representative for each residue
+class involved, and use the corresponding rules for integers. (In fact, the
+operations $+,-,\cdot$ and scaling on $\mathbb{Z}/n$ are defined by picking a
+representative of each residue class and doing the analogous operation
+\textbf{with the representatives} (and then taking the residue class again).
+So all the above rules, except for \textbf{(i)}, follow from the corresponding
+rules for integers.)
 \end{proof}
+
+\begin{remark}
+\textbf{(a)} Finite sums ($\sum_{i\in I}\alpha_{i}$) and finite products
+($\prod_{i\in I}\alpha_{i}$) of elements $\alpha_{i}\in\mathbb{Z}/n$ are
+well-defined and satisfy the same rules that finite sums and finite products
+of integers satisfy. (The proofs are identical to the analogous proofs for
+integers, but use Theorem \ref{thm.equiv.Z/n.rules} instead of the usual rules
+of commutativity, associativity etc.) Thus, for example, $\alpha_{1}%
++\alpha_{2}+\cdots+\alpha_{k}$ and $\alpha_{1}\alpha_{2}\cdots\alpha_{k}$ are
+well-defined whenever $\alpha_{1},\alpha_{2},\ldots,\alpha_{k}\in\mathbb{Z}/n$.
+
+\textbf{(b)} If $a_{1},a_{2},\ldots,a_{k}$ are $k$ integers, then
+\begin{align*}
+\left[  a_{1}\right]  _{n}+\left[  a_{2}\right]  _{n}+\cdots+\left[
+a_{k}\right]  _{n} &  =\left[  a_{1}+a_{2}+\cdots+a_{k}\right]  _{n}%
+\ \ \ \ \ \ \ \ \ \ \text{and}\\
+\left[  a_{1}\right]  _{n}\cdot\left[  a_{2}\right]  _{n}\cdot\cdots
+\cdot\left[  a_{k}\right]  _{n} &  =\left[  a_{1}a_{2}\cdots a_{k}\right]
+_{n}.
+\end{align*}
+This can be proven by a straightforward induction on $k$.
+\end{remark}
 
 \subsection{Modular inverses revisited}
 
-\textquotedblleft Slogan\textquotedblright: Working with residue classes turns
-modular inverses into actual inverses.
+The idea of this section is that working with residue classes turns modular
+inverses into actual inverses.
 
 Recall: Integers other than $1$ and $-1$ have no actual inverses in
 $\mathbb{Z}$.
@@ -13769,53 +13796,61 @@ unique inverse.
 
 \begin{proof}
 \textbf{(a)} Assume that $\left[  a\right]  _{n}\in\mathbb{Z}/n$ has an
-inverse. Denote this inverse by $\left[  a^{\prime}\right]  _{n}$ for some
+inverse. Write this inverse as $\left[  a^{\prime}\right]  _{n}$ for some
 $a^{\prime}\in\mathbb{Z}$. Then, $\left[  a\right]  _{n}\cdot\left[
-a^{\prime}\right]  _{n}=\left[  1\right]  _{n}$. Thus, $\left[  a\right]
-_{n}\cdot\left[  a^{\prime}\right]  _{n}=\left[  aa^{\prime}\right]  _{n}$, so
-that $\left[  aa^{\prime}\right]  _{n}=\left[  a\right]  _{n}\cdot\left[
-a^{\prime}\right]  _{n}=\left[  1\right]  _{n}$. In other words, $aa^{\prime
-}\equiv1\operatorname{mod}n$. Thus, Theorem \ref{thm.ent.coprime.modinv}
-\textbf{(c)} yields $a\perp n$.
+a^{\prime}\right]  _{n}=\left[  1\right]  _{n}$. But the definition of
+multiplication on $\mathbb{Z}/n$ yields $\left[  a\right]  _{n}\cdot\left[
+a^{\prime}\right]  _{n}=\left[  aa^{\prime}\right]  _{n}$, so that $\left[
+aa^{\prime}\right]  _{n}=\left[  a\right]  _{n}\cdot\left[  a^{\prime}\right]
+_{n}=\left[  1\right]  _{n}$. In other words, $aa^{\prime}\equiv
+1\operatorname{mod}n$. Thus, Theorem \ref{thm.ent.coprime.modinv} \textbf{(c)}
+yields $a\perp n$.
 
-\textbf{(b)} Assume that $a\perp n$. Then, Theorem
+\textbf{(b)} Assume that $a\perp n$. Hence, Theorem
 \ref{thm.ent.coprime.modinv} \textbf{(b)} yields that there exists an
 $a^{\prime}\in\mathbb{Z}$ such that $aa^{\prime}\equiv1\operatorname{mod}n$.
-This $a^{\prime}$ then satisfies $\left[  a\right]  _{n}\cdot\left[
+Consider this $a^{\prime}$. We have $\left[  a\right]  _{n}\cdot\left[
 a^{\prime}\right]  _{n}=\left[  aa^{\prime}\right]  _{n}=\left[  1\right]
-_{n}$, and thus $\left[  a^{\prime}\right]  _{n}$ is an inverse of $\left[
-a\right]  _{n}$.
+_{n}$ (since $aa^{\prime}\equiv1\operatorname{mod}n$), and thus $\left[
+a^{\prime}\right]  _{n}$ is an inverse of $\left[  a\right]  _{n}$. So we have
+proven that $\left[  a\right]  _{n}$ has \textbf{at least }one inverse.
 
 But it remains to prove that $\left[  a\right]  _{n}$ has \textbf{at most} one inverse.
 
-First, set $\alpha=\left[  a\right]  _{n}$, so we must prove that $\alpha$ has
-at most one inverse.
+First, set $\alpha=\left[  a\right]  _{n}$. Thus, we must prove that $\alpha$
+has at most one inverse.
 
 To prove this, we fix two inverses $\beta$ and $\gamma$ of $\alpha$. We must
-show $\beta=\gamma$.
+show that $\beta=\gamma$.
 
-We have $\alpha\beta=\left[  1\right]  _{n}$ and $\alpha\gamma=\left[
-1\right]  _{n}$. The \textquotedblleft triple product\textquotedblright%
-\ $\alpha\beta\gamma$ is well-defined, since Theorem \ref{thm.equiv.Z/n.rules}
-\textbf{(f)} shows that $\left(  \alpha\beta\right)  \gamma=\alpha\left(
-\beta\gamma\right)  $. Now, comparing
+We have $\alpha\beta=\left[  1\right]  _{n}$ (since $\beta$ is an inverse of
+$\alpha$) and $\alpha\gamma=\left[  1\right]  _{n}$ (similarly). Theorem
+\ref{thm.equiv.Z/n.rules} \textbf{(f)} shows that $\gamma\left(  \alpha
+\beta\right)  =\left(  \gamma\alpha\right)  \beta$. Now, comparing
 \[
-\underbrace{\alpha\beta}_{=\left[  1\right]  _{n}}\gamma=\left[  1\right]
-_{n}\gamma=\gamma\cdot\left[  1\right]  _{n}=\gamma\ \ \ \ \ \ \ \ \ \ \left(
-\text{by Theorem \ref{thm.equiv.Z/n.rules} \textbf{(d)}}\right)
+\gamma\left(  \underbrace{\alpha\beta}_{=\left[  1\right]  _{n}}\right)
+=\gamma\cdot\left[  1\right]  _{n}=\gamma\ \ \ \ \ \ \ \ \ \ \left(  \text{by
+Theorem \ref{thm.equiv.Z/n.rules} \textbf{(d)}}\right)
 \]
 with%
 \[
-\alpha\beta\gamma=\underbrace{\alpha\gamma}_{=\left[  1\right]  _{n}}%
-\beta=\left[  1\right]  _{n}\beta=\beta\cdot\left[  1\right]  _{n}%
-=\beta\ \ \ \ \ \ \ \ \ \ \left(  \text{by Theorem \ref{thm.equiv.Z/n.rules}
-\textbf{(d)}}\right)  ,
+\gamma\left(  \alpha\beta\right)  =\left(  \underbrace{\gamma\alpha}%
+_{=\alpha\gamma=\left[  1\right]  _{n}}\right)  \beta=\left[  1\right]
+_{n}\beta=\beta\cdot\left[  1\right]  _{n}=\beta\ \ \ \ \ \ \ \ \ \ \left(
+\text{by Theorem \ref{thm.equiv.Z/n.rules} \textbf{(d)}}\right)  ,
 \]
 we find $\beta=\gamma$, as desired.
 
-So $\left[  a\right]  _{n}$ has a unique inverse (since it has an inverse
-$\left[  a^{\prime}\right]  _{n}$, and it has at most one inverse).
+So $\left[  a\right]  _{n}$ has a unique inverse (since it has at least one
+inverse and at most one inverse).
 \end{proof}
+
+The proposition above lets us speak of \textquotedblleft the
+inverse\textquotedblright\ of a class $\alpha\in\mathbb{Z}/n$, provided that
+$\alpha$ has an inverse. Indeed, if $\alpha$ has an inverse, then
+$\alpha=\left[  a\right]  _{n}$ for some integer $a$ satisfying $a\perp n$ (by
+part \textbf{(a)} of the proposition), and thus $\alpha=\left[  a\right]
+_{n}\in\mathbb{Z}/n$ has a unique inverse (by part \textbf{(b)}).
 
 \begin{corollary}
 Let $U_{n}$ be the set of all $\alpha\in\mathbb{Z}/n$ that have an inverse. Then:
@@ -13828,19 +13863,20 @@ and only if $a\perp n$.
 
 \begin{proof}
 \textbf{(a)} This is just saying: $\left[  a\right]  _{n}$ has an inverse if
-and only if $a\perp n$. This follows from the proposition above.
+and only if $a\perp n$. But this follows from the proposition above.
 
 \textbf{(b)} Recall that $\mathbb{Z}/n$ consists of the $n$ distinct elements
 $\left[  0\right]  _{n},\left[  1\right]  _{n},\ldots,\left[  n-1\right]
 _{n}$. By part \textbf{(a)}, the ones among these $n$ elements that belong to
 $U_{n}$ are exactly the ones of the form $\left[  a\right]  _{n}$ with $a\perp
 n$. So $U_{n}$ consists of the elements $\left[  a\right]  _{n}$ for all
-$a\in\left\{  0,1,\ldots,n-1\right\}  $ that satisfy $a\perp n$, and these
-elements are all distinct (since $\left[  0\right]  _{n},\left[  1\right]
-_{n},\ldots,\left[  n-1\right]  _{n}$ are distinct). Hence,%
+$a\in\left\{  0,1,\ldots,n-1\right\}  $ that satisfy $a\perp n$, and
+furthermore these elements are all distinct (since $\left[  0\right]
+_{n},\left[  1\right]  _{n},\ldots,\left[  n-1\right]  _{n}$ are distinct).
+Hence,%
 \begin{align*}
 \left\vert U_{n}\right\vert  &  =\left(  \text{the number of }a\in\left\{
-0,1,\ldots,n-1\right\}  \text{ that satisfy }a\perp n\right) \\
+0,1,\ldots,n-1\right\}  \text{ that satisfy }a\perp n\right)  \\
 &  =\left\vert \left\{  i\in\left\{  0,1,\ldots,n-1\right\}  \ \mid\ i\perp
 n\right\}  \right\vert =\phi\left(  n\right)
 \end{align*}
@@ -13853,17 +13889,24 @@ n\right\}  \right\vert =\phi\left(  n\right)
 \left(  p-1\right)  !=1\cdot2\cdot\cdots\cdot\left(  p-1\right)  .
 \]
 Thus,%
-\begin{align*}
-\left[  \left(  p-1\right)  !\right]  _{p}  &  =\left[  1\cdot2\cdot
-\cdots\cdot\left(  p-1\right)  \right]  _{p}\\
-&  =\left[  1\right]  _{p}\cdot\left[  2\right]  _{p}\cdot\cdots\cdot\left[
-p-1\right]  _{p}.
-\end{align*}
-Now, the $p-1$ residue classes $\left[  1\right]  _{p},\left[  2\right]
+\[
+\left[  \left(  p-1\right)  !\right]  _{p}=\left[  1\cdot2\cdot\cdots
+\cdot\left(  p-1\right)  \right]  _{p}=\left[  1\right]  _{p}\cdot\left[
+2\right]  _{p}\cdot\cdots\cdot\left[  p-1\right]  _{p}.
+\]
+
+
+The $p-1$ residue classes $\left[  1\right]  _{p},\left[  2\right]
 _{p},\ldots,\left[  p-1\right]  _{p}$ are precisely the $p-1$ residue classes
-in $\mathbb{Z}/p$ that have inverses. Now, recall that the inverse of an
-inverse is the original element ($\left(  \alpha^{-1}\right)  ^{-1}=\alpha$).
-Thus, we can try to pair up each class with its inverse.
+in $\mathbb{Z}/p$ that have inverses (since $1,2,\ldots,p-1$ are coprime to
+$p$, while the remaining class $\left[  0\right]  _{p}$ does not have $0$
+coprime to $p$). Their inverses must also be among these $p-1$ residue classes
+(since an inverse always has an inverse: $\left(  \alpha^{-1}\right)
+^{-1}=\alpha$). So there is an involution on the set $\left\{  \left[
+1\right]  _{p},\left[  2\right]  _{p},\ldots,\left[  p-1\right]  _{p}\right\}
+$ that sends each class to its inverse (again since $\left(  \alpha
+^{-1}\right)  ^{-1}=\alpha$). We can use it to try to pair up each class with
+its inverse.
 
 \textit{Example:} If $p=11$, then we have the $10$ classes%
 \[
@@ -13881,9 +13924,14 @@ We pair $\left[  3\right]  _{11}$ up with $\left[  4\right]  _{11}$.
 
 We pair $\left[  5\right]  _{11}$ up with $\left[  9\right]  _{11}$.
 
+We pair $\left[  7\right]  _{11}$ up with $\left[  8\right]  _{11}$.
+
 Also, the two classes $\left[  1\right]  _{11}$ and $\left[  10\right]  _{11}$
 each \textquotedblleft pair with itself\textquotedblright, so they are not
 actually paired.
+
+The two classes $\left[  1\right]  _{11}$ and $\left[  10\right]  _{11}$ each
+\textquotedblleft pair with itself\textquotedblright, so they are not actually paired.
 
 So%
 \begin{align*}
@@ -13893,48 +13941,55 @@ _{11}\cdot\cdots\cdot\left[  10\right]  _{11}\\
 _{11}\right)  }_{=\left[  1\right]  _{11}}\cdot\underbrace{\left(  \left[
 3\right]  _{11}\cdot\left[  4\right]  _{11}\right)  }_{=\left[  1\right]
 _{11}}\cdot\underbrace{\left(  \left[  5\right]  _{11}\cdot\left[  9\right]
-_{11}\right)  }_{=\left[  1\right]  _{11}}\cdot\left[  1\right]  _{11}%
-\cdot\left[  10\right]  _{11}\\
+_{11}\right)  }_{=\left[  1\right]  _{11}}\\
+&  \ \ \ \ \ \ \ \ \ \ \cdot\underbrace{\left(  \left[  7\right]  _{11}%
+\cdot\left[  8\right]  _{11}\right)  }_{=\left[  1\right]  _{11}}\cdot\left[
+1\right]  _{11}\cdot\left[  10\right]  _{11}\\
 &  =\left[  10\right]  _{11}=\left[  -1\right]  _{11},
 \end{align*}
 so $10!\equiv-1\operatorname{mod}11$.
 
-In the general case: We can still pair each class $\alpha\in U_{p}$ (the
-notation is from the Corollary above) with its inverse. The only classes that
-remain unpaired are the ones that are their own inverses. Which ones are they?
+Back to the general case: We can still pair each class $\alpha\in U_{p}$ (the
+notation $U_{p}$ is from the corollary above) with its inverse. The only
+classes that remain unpaired are the ones that are their own inverses. Which
+ones are they?
 
 Clearly, $\left[  1\right]  _{p}$ and $\left[  p-1\right]  _{p}$ are two
-classes that are their own inverse. (Caveat: When $p=2$, they are actually the
-same class.)
+classes that are their own inverses (indeed, for $\left[  p-1\right]  _{p}$,
+it is true because $\left[  p-1\right]  _{p}=\left[  -1\right]  _{p}=-\left[
+1\right]  _{p}$).
 
-Are there any other such classes? Let's see.
+Are there any other such classes? Let us see.
 
 Let $\left[  a\right]  _{p}$ be a class that is its own inverse. Thus,
 $\left[  a\right]  _{p}\cdot\left[  a\right]  _{p}=\left[  1\right]  _{p}$.
 
-This means $aa\equiv1\operatorname{mod}p$. In other words, $p\mid
-aa-1=a^{2}-1=\left(  a+1\right)  \left(  a-1\right)  $. Since $p$ is a prime,
-this yields either $p\mid a+1$ or $p\mid a-1$. In other words, either
-$a\equiv-1\operatorname{mod}p$ or $a\equiv1\operatorname{mod}p$. In other
-words, $\left[  a\right]  _{p}$ is either $\left[  -1\right]  _{p}$ or
-$\left[  1\right]  _{p}$. In other words, $\left[  a\right]  _{p}$ is either
-$\left[  p-1\right]  _{p}$ or $\left[  1\right]  _{p}$.
+In other words, $aa\equiv1\operatorname{mod}p$. Thus, $p\mid aa-1=a^{2}%
+-1=\left(  a+1\right)  \left(  a-1\right)  $. Since $p$ is prime, we thus have
+either $p\mid a+1$ or $p\mid a-1$. In other words, either $a\equiv
+-1\operatorname{mod}p$ or $a\equiv1\operatorname{mod}p$. In other words,
+$\left[  a\right]  _{p}=\left[  -1\right]  _{p}$ or $\left[  a\right]
+_{p}=\left[  1\right]  _{p}$.
 
-So the only classes that are their own inverse are $\left[  1\right]  _{p}$
-and $\left[  p-1\right]  _{p}$.
+So any class that is its own inverse must be either $\left[  -1\right]
+_{p}=\left[  p-1\right]  _{p}$ or $\left[  1\right]  _{p}$.
+
+So we conclude that the only classes that are their own inverses are $\left[
+1\right]  _{p}$ and $\left[  p-1\right]  _{p}$.
 
 Thus, in the product $\left[  1\right]  _{p}\cdot\left[  2\right]  _{p}%
-\cdot\cdots\cdot\left[  p-1\right]  _{p}$, all factors are paired up (thus
-neutralizing each other) except for $\left[  1\right]  _{p}$ and $\left[
-p-1\right]  _{p}$. Hence, the value of the product is%
+\cdot\cdots\cdot\left[  p-1\right]  _{p}$, all factors are paired up except
+for $\left[  1\right]  _{p}$ and $\left[  p-1\right]  _{p}$. Since paired
+factors neutralize each other, we thus conclude that the value of this product
+is%
 \[
-\left[  1\right]  _{p}\cdot\left[  p-1\right]  _{p}=\left[  p-1\right]  _{p}.
+\left[  1\right]  _{p}\cdot\left[  p-1\right]  _{p}=\left[  p-1\right]
+_{p}=\left[  -1\right]  _{p}.
 \]
-This yields $\left[  \left(  p-1\right)  !\right]  _{p}=\left[  p-1\right]
-_{p}$. In other words, $\left(  p-1\right)  !\equiv p-1\equiv
--1\operatorname{mod}p$.
+This yields $\left[  \left(  p-1\right)  !\right]  _{p}=\left[  -1\right]
+_{p}$. In other words, $\left(  p-1\right)  !\equiv-1\operatorname{mod}p$.
 
-(Exercise: Tweak this to work for $p=2$.)
+(Exercise: Tweak this argument to work for $p=2$.)
 \end{proof}
 
 \subsection{The Chinese Remainder Theorem reexamined}
@@ -13953,9 +14008,14 @@ For example, the map $\pi_{6,2}:\mathbb{Z}/6\rightarrow\mathbb{Z}/2$ sends
 $\left[  0\right]  _{6},\left[  1\right]  _{6},\left[  2\right]  _{6},\left[
 3\right]  _{6},\left[  4\right]  _{6},\left[  5\right]  _{6}$ to $\left[
 0\right]  _{2},\left[  1\right]  _{2},\left[  2\right]  _{2},\left[  3\right]
-_{2},\left[  4\right]  _{2},\left[  5\right]  _{2}$ (which means $\left[
+_{2},\left[  4\right]  _{2},\left[  5\right]  _{2}$. In other words, it sends
+$\left[  0\right]  _{6},\left[  1\right]  _{6},\left[  2\right]  _{6},\left[
+3\right]  _{6},\left[  4\right]  _{6},\left[  5\right]  _{6}$ to $\left[
 0\right]  _{2},\left[  1\right]  _{2},\left[  0\right]  _{2},\left[  1\right]
-_{2},\left[  0\right]  _{2},\left[  1\right]  _{2}$).
+_{2},\left[  0\right]  _{2},\left[  1\right]  _{2}$ (since $\left[  2\right]
+_{2}=\left[  0\right]  _{2}$ and $\left[  3\right]  _{2}=\left[  1\right]
+_{2}$ and $\left[  4\right]  _{2}=\left[  0\right]  _{2}$ and $\left[
+5\right]  _{2}=\left[  1\right]  _{2}$).
 
 Why is $\pi_{n,d}$ well-defined?
 
@@ -13963,10 +14023,10 @@ Why is $\pi_{n,d}$ well-defined?
 a_{1}\right]  _{n}=\left[  a_{2}\right]  _{n}$. We must prove that $\left[
 a_{1}\right]  _{d}=\left[  a_{2}\right]  _{d}$.
 
-From $\left[  a_{1}\right]  _{n}=\left[  a_{2}\right]  _{n}$, we obtain
-$a_{1}\equiv a_{2}\operatorname{mod}n$, thus $a_{1}\equiv a_{2}%
-\operatorname{mod}d$ (since $d\mid n$), thus $\left[  a_{1}\right]
-_{d}=\left[  a_{2}\right]  _{d}$.)
+We have assumed $\left[  a_{1}\right]  _{n}=\left[  a_{2}\right]  _{n}$. In
+other words, $a_{1}\equiv a_{2}\operatorname{mod}n$, thus $a_{1}\equiv
+a_{2}\operatorname{mod}d$ (since $d\mid n$). In other words, $\left[
+a_{1}\right]  _{d}=\left[  a_{2}\right]  _{d}$.)
 
 \begin{theorem}
 \label{thm.equiv.CRT2}(Chinese Remainder Theorem, bijective form)
@@ -14025,7 +14085,7 @@ are well-defined, since $m$ and $n$ are divisors of $mn$. Thus, the map%
 \alpha &  \mapsto\left(  \pi_{mn,m}\left(  \alpha\right)  ,\pi_{mn,n}\left(
 \alpha\right)  \right)
 \end{align*}
-is well-defined. Let me denote it by $S$.
+is well-defined. Let us denote this map by $S$.
 
 We want to prove that $S$ is a bijection.
 
@@ -14034,32 +14094,31 @@ We want to prove that $S$ is a bijection.
 =S\left(  \beta\right)  $. We want to prove $\alpha=\beta$.
 
 Write $\alpha=\left[  a\right]  _{mn}$ and $\beta=\left[  b\right]  _{mn}$ for
-two integers $a$ and $b$. We have
+two integers $a$ and $b$. The definition of $S$ yields
 \begin{align*}
-S\left(  \alpha\right)   &  =\left(  \pi_{mn,m}\left(  \alpha\right)
-,\pi_{mn,n}\left(  \alpha\right)  \right)  =\left(  \underbrace{\pi
+S\left(  \alpha\right)   &  =\left(  \pi_{mn,m}\left(  \underbrace{\alpha
+}_{=\left[  a\right]  _{mn}}\right)  ,\pi_{mn,n}\left(  \underbrace{\alpha
+}_{=\left[  a\right]  _{mn}}\right)  \right)  =\left(  \underbrace{\pi
 _{mn,m}\left(  \left[  a\right]  _{mn}\right)  }_{=\left[  a\right]  _{m}%
 },\underbrace{\pi_{mn,n}\left(  \left[  a\right]  _{mn}\right)  }_{=\left[
-a\right]  _{n}}\right) \\
+a\right]  _{n}}\right)  \\
 &  =\left(  \left[  a\right]  _{m},\left[  a\right]  _{n}\right)
 \end{align*}
 and similarly $S\left(  \beta\right)  =\left(  \left[  b\right]  _{m},\left[
 b\right]  _{n}\right)  $. Thus, $S\left(  \alpha\right)  =S\left(
 \beta\right)  $ rewrites as $\left(  \left[  a\right]  _{m},\left[  a\right]
 _{n}\right)  =\left(  \left[  b\right]  _{m},\left[  b\right]  _{n}\right)  $.
-
-Thus, $\left[  a\right]  _{m}=\left[  b\right]  _{m}$ and $\left[  a\right]
-_{n}=\left[  b\right]  _{n}$.
+In other words, $\left[  a\right]  _{m}=\left[  b\right]  _{m}$ and $\left[
+a\right]  _{n}=\left[  b\right]  _{n}$.
 
 Now, $\left[  a\right]  _{m}=\left[  b\right]  _{m}$ means $a\equiv
-b\operatorname{mod}m$, so that $m\mid a-b$.
+b\operatorname{mod}m$; in other words, $m\mid a-b$. Similarly, $n\mid a-b$.
 
-Similarly, $n\mid a-b$.
-
-Since $m\perp n$, we can combine these two divisibilities to $mn\mid a-b$. In
-other words, $a\equiv b\operatorname{mod}mn$. In other words, $\left[
-a\right]  _{mn}=\left[  b\right]  _{mn}$. In other words, $\alpha=\beta$. So
-we have shown that $S$ is injective.
+Since $m\perp n$, we can combine these two divisibilities to obtain $mn\mid
+a-b$. In other words, $a\equiv b\operatorname{mod}mn$. In other words,
+$\left[  a\right]  _{mn}=\left[  b\right]  _{mn}$. In other words,
+$\alpha=\beta$ (since $\alpha=\left[  a\right]  _{mn}$ and $\beta=\left[
+b\right]  _{mn}$). So we have shown that $S$ is injective.
 
 \textit{Proof that }$S$ \textit{is surjective:} Fix $\left(  \alpha
 ,\beta\right)  \in\left(  \mathbb{Z}/m\right)  \times\left(  \mathbb{Z}%
@@ -14126,6 +14185,8 @@ mutually coprime.
 \item RSA.
 
 \item cite Gallier for primality testing.
+
+\item Chinese Remainder Theorem for computation.
 \end{itemize}
 
 \begin{thebibliography}{999999999}                                                                                        %
