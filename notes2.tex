@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Wednesday, February 27, 2019 09:55:48}
+%TCIDATA{LastRevised=Wednesday, February 27, 2019 12:05:11}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -14237,6 +14237,10 @@ the same size. But this argument would be harder to generalize to certain
 settings that we might later want to generalize the Theorem to.)
 \end{proof}
 
+\begin{center}
+\textbf{2019-02-27 lecture}
+\end{center}
+
 Recall Theorem \ref{thm.ent.phi.mult}: Let $m$ and $n$ be two coprime
 integers. Then, $\phi\left(  mn\right)  =\phi\left(  m\right)  \cdot
 \phi\left(  n\right)  $.
@@ -14244,7 +14248,7 @@ integers. Then, $\phi\left(  mn\right)  =\phi\left(  m\right)  \cdot
 \begin{proof}
 [Proof of Theorem \ref{thm.ent.phi.mult}.]We know that $\phi\left(  n\right)
 =\left\vert U_{n}\right\vert $. Similarly, $\phi\left(  m\right)  =\left\vert
-U_{m}\right\vert $ and $\phi\left(  mn\right)  =\left\vert U_{n}\right\vert $.
+U_{m}\right\vert $ and $\phi\left(  mn\right)  =\left\vert U_{mn}\right\vert $.
 
 Now, let $S$ be the map%
 \begin{align*}
@@ -14256,29 +14260,48 @@ Now, let $S$ be the map%
 Then, $S$ is a bijection (by Theorem \ref{thm.equiv.CRT2}).
 
 \begin{statement}
+\textit{Claim 0:} We have $\pi_{mn,m}\left(  \alpha\beta\right)  =\pi
+_{mn,m}\left(  \alpha\right)  \cdot\pi_{mn,m}\left(  \beta\right)  $ for all
+$\alpha,\beta\in\mathbb{Z}/\left(  mn\right)  $.
+\end{statement}
+
+[\textit{Proof:} Write $\alpha$ and $\beta$ as $\alpha=\left[  a\right]
+_{mn}$ and $\beta=\left[  b\right]  _{mn}$ for some integers $a$ and $b$.
+Then, the claim rewrites as $\left[  ab\right]  _{m}=\left[  a\right]
+_{m}\cdot\left[  b\right]  _{m}$. But this follows from the definition of
+multiplication on $\mathbb{Z}/m$.]
+
+Note that $U_{m}\times U_{n}\subseteq\left(  \mathbb{Z}/m\right)
+\times\left(  \mathbb{Z}/n\right)  $.
+
+\begin{statement}
 \textit{Claim 1:} Let $\alpha\in\mathbb{Z}/\left(  mn\right)  $. If $\alpha\in
 U_{mn}$, then $S\left(  \alpha\right)  \in U_{m}\times U_{n}$.
 \end{statement}
 
 [\textit{Proof:} Assume that $\alpha\in U_{mn}$. Thus, $\alpha$ has an inverse
-$\beta\in\mathbb{Z}/\left(  mn\right)  $. Now, $\pi_{mn,m}\left(  \alpha
-\beta\right)  =\pi_{mn,m}\left(  \alpha\right)  \cdot\pi_{mn,m}\left(
-\beta\right)  $ (since we can write $\alpha=\left[  a\right]  _{mn}$ and
-$\beta=\left[  b\right]  _{mn}$ for some integers $a$ and $b$; then this
-simply rewrites as $\left[  ab\right]  _{m}=\left[  a\right]  _{m}\cdot\left[
-b\right]  _{m}$). Thus,%
-\begin{align*}
-\pi_{mn,m}\left(  \alpha\right)  \cdot\pi_{mn,m}\left(  \beta\right)   &
+$\beta\in\mathbb{Z}/\left(  mn\right)  $. Consider this $\beta$. Hence,
+$\alpha\beta=\left[  1\right]  _{mn}$.
+
+Now, Claim 0 yields $\pi_{mn,m}\left(  \alpha\beta\right)  =\pi_{mn,m}\left(
+\alpha\right)  \cdot\pi_{mn,m}\left(  \beta\right)  $, so%
+\[
+\pi_{mn,m}\left(  \alpha\right)  \cdot\pi_{mn,m}\left(  \beta\right)
 =\pi_{mn,m}\left(  \underbrace{\alpha\beta}_{=\left[  1\right]  _{mn}}\right)
-=\pi_{mn,m}\left(  \left[  1\right]  _{mn}\right) \\
-&  =\left[  1\right]  _{m}.
-\end{align*}
-This means that $\pi_{mn,m}\left(  \beta\right)  $ is an inverse of
-$\pi_{mn,m}\left(  \alpha\right)  $. Thus, $\pi_{mn,m}\left(  \alpha\right)
-\in U_{m}$. Similarly, $\pi_{mn,n}\left(  \alpha\right)  \in U_{m}$. Hence,
-$S\left(  \alpha\right)  =\left(  \pi_{mn,m}\left(  \alpha\right)  ,\pi
-_{mn,n}\left(  \alpha\right)  \right)  \in U_{m}\times U_{n}$. This proves
-Claim 1.]
+=\pi_{mn,m}\left(  \left[  1\right]  _{mn}\right)  =\left[  1\right]  _{m}.
+\]
+Thus, $\pi_{mn,m}\left(  \beta\right)  $ is an inverse of $\pi_{mn,m}\left(
+\alpha\right)  $ in $\mathbb{Z}/m$. Therefore, $\pi_{mn,m}\left(
+\alpha\right)  \in U_{m}$. Similarly, $\pi_{mn,n}\left(  \alpha\right)  \in
+U_{n}$. Now, the definition of $S$ yields%
+\[
+S\left(  \alpha\right)  =\left(  \underbrace{\pi_{mn,m}\left(  \alpha\right)
+}_{\in U_{m}},\underbrace{\pi_{mn,n}\left(  \alpha\right)  }_{\in U_{n}%
+}\right)  \in U_{m}\times U_{n}.
+\]
+Thus, Claim 1 is proven.]
+
+Conversely:
 
 \begin{statement}
 \textit{Claim 2:} Let $\alpha\in\mathbb{Z}/\left(  mn\right)  $. If $S\left(
@@ -14286,55 +14309,63 @@ Claim 1.]
 \end{statement}
 
 [\textit{Proof:} Assume that $S\left(  \alpha\right)  \in U_{m}\times U_{n}$.
-In other words, $\left(  \pi_{mn,m}\left(  \alpha\right)  ,\pi_{mn,n}\left(
-\alpha\right)  \right)  \in U_{m}\times U_{n}$. Thus, $\pi_{mn,m}\left(
-\alpha\right)  \in U_{m}$ and $\pi_{mn,n}\left(  \alpha\right)  \in U_{n}$.
+Since $S\left(  \alpha\right)  =\left(  \pi_{mn,m}\left(  \alpha\right)
+,\pi_{mn,n}\left(  \alpha\right)  \right)  $, this rewrites as $\left(
+\pi_{mn,m}\left(  \alpha\right)  ,\pi_{mn,n}\left(  \alpha\right)  \right)
+\in U_{m}\times U_{n}$. In other words, $\pi_{mn,m}\left(  \alpha\right)  \in
+U_{m}$ and $\pi_{mn,n}\left(  \alpha\right)  \in U_{n}$.
 
-So $\pi_{mn,m}\left(  \alpha\right)  $ has an inverse $\gamma\in\mathbb{Z}/m$,
-whereas $\pi_{mn,n}\left(  \alpha\right)  $ has an inverse $\delta
-\in\mathbb{Z}/n$. Now, $\left(  \gamma,\delta\right)  \in\left(
-\mathbb{Z}/m\right)  \times\left(  \mathbb{Z}/n\right)  $, and thus I can
-write $\left(  \gamma,\delta\right)  $ as $S\left(  \beta\right)  $ for some
-$\beta\in\mathbb{Z}/\left(  mn\right)  $ (since $S$ is a bijection). Now,
+In other words, $\pi_{mn,m}\left(  \alpha\right)  $ has an inverse $\gamma
+\in\mathbb{Z}/m$, while $\pi_{mn,n}\left(  \alpha\right)  $ has an inverse
+$\delta\in\mathbb{Z}/n$. Consider these $\gamma$ and $\delta$.
+
+We have $\left(  \gamma,\delta\right)  \in\left(  \mathbb{Z}/m\right)
+\times\left(  \mathbb{Z}/n\right)  $. Since $S$ is bijective, we can thus find
+a $\beta\in\mathbb{Z}/\left(  mn\right)  $ such that $S\left(  \beta\right)
+=\left(  \gamma,\delta\right)  $. Consider this $\beta$. We have%
 \[
 \left(  \gamma,\delta\right)  =S\left(  \beta\right)  =\left(  \pi
-_{mn,m}\left(  \beta\right)  ,\pi_{mn,n}\left(  \beta\right)  \right)  ,
+_{mn,m}\left(  \beta\right)  ,\pi_{mn,n}\left(  \beta\right)  \right)  .
 \]
-so that $\gamma=\pi_{mn,m}\left(  \beta\right)  $ and $\delta=\pi
-_{mn,n}\left(  \beta\right)  $.
+In other words, $\gamma=\pi_{mn,m}\left(  \beta\right)  $ and $\delta
+=\pi_{mn,n}\left(  \beta\right)  $.
 
-Now, we want to argue that $\beta$ is an inverse of $\alpha$. This means
-proving that $\alpha\beta=\left[  1\right]  _{mn}$. Since $S$ is bijective,
-this is tantamount to showing that $S\left(  \alpha\beta\right)  =S\left(
-\left[  1\right]  _{mn}\right)  $. In other words, we need to show that
+Now, we want to prove that $\beta$ is an inverse of $\alpha$ (in
+$\mathbb{Z}/\left(  mn\right)  $). This means proving that $\alpha
+\beta=\left[  1\right]  _{mn}$. Since $S$ is bijective, this is tantamount to
+proving that $S\left(  \alpha\beta\right)  =S\left(  \left[  1\right]
+_{mn}\right)  $. In other words, we need to show that%
 \[
 \left(  \pi_{mn,m}\left(  \alpha\beta\right)  ,\pi_{mn,n}\left(  \alpha
 \beta\right)  \right)  =\left(  \pi_{mn,m}\left(  \left[  1\right]
-_{mn}\right)  ,\pi_{mn,n}\left(  \left[  1\right]  _{mn}\right)  \right)  .
+_{mn}\right)  ,\pi_{mn,n}\left(  \left[  1\right]  _{mn}\right)  \right)
 \]
-In other words, we need to show that%
+(because of how $S$ is defined). In other words, we need to show that
 \[
 \pi_{mn,m}\left(  \alpha\beta\right)  =\pi_{mn,m}\left(  \left[  1\right]
 _{mn}\right)  \ \ \ \ \ \ \ \ \ \ \text{and}\ \ \ \ \ \ \ \ \ \ \pi
 _{mn,n}\left(  \alpha\beta\right)  =\pi_{mn,n}\left(  \left[  1\right]
 _{mn}\right)  .
 \]
-But%
+But this is true, since
 \begin{align*}
-\pi_{mn,m}\left(  \alpha\beta\right)   &  =\pi_{mn,m}\left(  \alpha\right)
-\cdot\underbrace{\pi_{mn,m}\left(  \beta\right)  }_{=\gamma}=\pi_{mn,m}\left(
-\alpha\right)  \cdot\gamma\\
-&  =\left[  1\right]  _{m}\ \ \ \ \ \ \ \ \ \ \left(  \text{since }%
-\gamma\text{ is an inverse of }\pi_{mn,m}\left(  \alpha\right)  \right) \\
-&  =\pi_{mn,m}\left(  \left[  1\right]  _{mn}\right)
+\pi_{mn,m}\left(  \alpha\beta\right)    & =\pi_{mn,m}\left(  \alpha\right)
+\cdot\underbrace{\pi_{mn,m}\left(  \beta\right)  }_{=\gamma}%
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by Claim 0}\right)  \\
+& =\pi_{mn,m}\left(  \alpha\right)  \cdot\gamma=\left[  1\right]
+_{m}\ \ \ \ \ \ \ \ \ \ \left(  \text{since }\gamma\text{ is an inverse of
+}\pi_{mn,m}\left(  \alpha\right)  \right)  \\
+& =\pi_{mn,m}\left(  \left[  1\right]  _{mn}\right)
 \end{align*}
 and similarly $\pi_{mn,n}\left(  \alpha\beta\right)  =\pi_{mn,n}\left(
 \left[  1\right]  _{mn}\right)  $. So Claim 2 is proven.]
 
-Combining Claim 1 with Claim 2, we obtain the equivalence $\left(  \alpha\in
-U_{mn}\right)  \Longleftrightarrow\left(  S\left(  \alpha\right)  \in
-U_{m}\times U_{n}\right)  $ for each $\alpha\in\left(  \mathbb{Z}/m\right)
-\times\left(  \mathbb{Z}/n\right)  $.
+Combining Claim 1 with Claim 2, we obtain the equivalence%
+\[
+\left(  \alpha\in U_{mn}\right)  \Longleftrightarrow\left(  S\left(
+\alpha\right)  \in U_{m}\times U_{n}\right)
+\]
+for each $\alpha\in\mathbb{Z}/\left(  mn\right)  $.
 
 Thus, $U_{m}\times U_{n}$ is the image of the set $U_{mn}$ under the bijection
 $S$. So%
@@ -14342,64 +14373,69 @@ $S$. So%
 \left\vert U_{m}\times U_{n}\right\vert =\left\vert U_{mn}\right\vert
 =\phi\left(  mn\right)  .
 \]
-Thus,%
+Therefore,%
 \[
 \phi\left(  mn\right)  =\left\vert U_{m}\times U_{n}\right\vert
 =\underbrace{\left\vert U_{m}\right\vert }_{=\phi\left(  m\right)  }%
 \cdot\underbrace{\left\vert U_{n}\right\vert }_{=\phi\left(  n\right)  }%
-=\phi\left(  m\right)  \cdot\phi\left(  n\right)  ,
+=\phi\left(  m\right)  \cdot\phi\left(  n\right)  .
 \]
-qed.
+So Theorem \ref{thm.ent.phi.mult} is proven.
 \end{proof}
 
 \begin{corollary}
-If $n_{1},n_{2},\ldots,n_{k}$ are mutually coprime positive integers, then
-$\phi\left(  n_{1}n_{2}\cdots n_{k}\right)  =\phi\left(  n_{1}\right)
-\cdot\phi\left(  n_{2}\right)  \cdot\cdots\cdot\phi\left(  n_{k}\right)  $.
+\label{cor.ent.phi.multk}If $n_{1},n_{2},\ldots,n_{k}$ are mutually coprime
+positive integers, then $\phi\left(  n_{1}n_{2}\cdots n_{k}\right)
+=\phi\left(  n_{1}\right)  \cdot\phi\left(  n_{2}\right)  \cdot\cdots\cdot
+\phi\left(  n_{k}\right)  $.
 \end{corollary}
 
 \begin{proof}
-Induction on $k$. Base case: $\phi\left(  1\right)  =1$. In the induction
-step, use the Theorem \ref{thm.ent.phi.mult}.
+[Proof of Corollary \ref{cor.ent.phi.multk}.] Induction on $k$. The base case
+($k=0$) uses $\phi\left(  1\right)  =1$. The induction step relies on Theorem
+\ref{thm.ent.phi.mult} and the observation that $n_{1}n_{2}\cdots n_{k-1}\perp
+n_{k}$.
 \end{proof}
 
 \begin{proof}
-[Proof of Theorem \ref{thm.ent.phi.explicit}.]Recall that%
+[Proof of Theorem \ref{thm.ent.phi.explicit}.] The canonical factorization of
+$n$ yields%
 \begin{align*}
-n &  =\prod_{p\text{ prime}}p^{v_{p}\left(  n\right)  }=\left(  \prod
+n  & =\prod_{p\text{ prime}}p^{v_{p}\left(  n\right)  }=\left(  \prod
 _{\substack{p\text{ prime;}\\p\mid n}}p^{v_{p}\left(  n\right)  }\right)
 \cdot\left(  \prod_{\substack{p\text{ prime;}\\p\nmid n}}\underbrace{p^{v_{p}%
 \left(  n\right)  }}_{=p^{0}=1}\right)  \\
-&  =\prod_{\substack{p\text{ prime;}\\p\mid n}}p^{v_{p}\left(  n\right)  }.
+& =\prod_{\substack{p\text{ prime;}\\p\mid n}}p^{v_{p}\left(  n\right)  }.
 \end{align*}
-The factors $p^{v_{p}\left(  n\right)  }$ for different primes $p$ are coprime
-(since two integers are coprime if and only if they have no prime factors in
-common). Thus, the previous Corollary yields%
+The factors $p^{v_{p}\left(  n\right)  }$ for different primes $p$ are
+mutually coprime (e.g., by Exercise \ref{exe.ent.coprime.powers}, since
+different primes are coprime). Thus, Corollary \ref{cor.ent.phi.multk} yields%
 \begin{align*}
 \phi\left(  \prod_{\substack{p\text{ prime;}\\p\mid n}}p^{v_{p}\left(
-n\right)  }\right)   &  =\prod_{\substack{p\text{ prime;}\\p\mid
+n\right)  }\right)    & =\prod_{\substack{p\text{ prime;}\\p\mid
 n}}\underbrace{\phi\left(  p^{v_{p}\left(  n\right)  }\right)  }%
-_{\substack{=\left(  p-1\right)  p^{v_{p}\left(  n\right)  -1}\\\text{(since
-}v_{p}\left(  n\right)  >0\text{)}}}\\
-&  =\prod_{\substack{p\text{ prime;}\\p\mid n}}\left(  \left(  p-1\right)
+_{\substack{=\left(  p-1\right)  p^{v_{p}\left(  n\right)  -1}\\\text{(by
+Exercise \ref{exe.ent.phi.pk},}\\\text{since }v_{p}\left(  n\right)  \text{ is
+a positive integer)}}}\\
+& =\prod_{\substack{p\text{ prime;}\\p\mid n}}\left(  \left(  p-1\right)
 p^{v_{p}\left(  n\right)  -1}\right)  .
 \end{align*}
-Since $n=\prod_{\substack{p\text{ prime;}\\p\mid n}}p^{v_{p}\left(  n\right)
-}$, this rewrites as
+In view of $n=\prod_{\substack{p\text{ prime;}\\p\mid n}}p^{v_{p}\left(
+n\right)  }$, this rewrites as%
 \begin{align*}
-\phi\left(  n\right)   &  =\prod_{\substack{p\text{ prime;}\\p\mid
+\phi\left(  n\right)    & =\prod_{\substack{p\text{ prime;}\\p\mid
 n}}\underbrace{\left(  \left(  p-1\right)  p^{v_{p}\left(  n\right)
--1}\right)  }_{=p^{v_{p}\left(  n\right)  }\cdot\left(  1-\dfrac{1}{p}\right)
-}\\
-&  =\prod_{\substack{p\text{ prime;}\\p\mid n}}\left(  p^{v_{p}\left(
-n\right)  }\cdot\left(  1-\dfrac{1}{p}\right)  \right)  \\
-&  =\underbrace{\left(  \prod_{\substack{p\text{ prime;}\\p\mid n}%
+-1}\right)  }_{\substack{=p^{v_{p}\left(  n\right)  }-p^{v_{p}\left(
+n\right)  -1}\\=p^{v_{p}\left(  n\right)  }-p^{v_{p}\left(  n\right)
+}/p\\=p^{v_{p}\left(  n\right)  }\left(  1-\dfrac{1}{p}\right)  }%
+}=\prod_{\substack{p\text{ prime;}\\p\mid n}}\left(  p^{v_{p}\left(  n\right)
+}\left(  1-\dfrac{1}{p}\right)  \right)  \\
+& =\underbrace{\left(  \prod_{\substack{p\text{ prime;}\\p\mid n}%
 }p^{v_{p}\left(  n\right)  }\right)  }_{=n}\cdot\prod_{\substack{p\text{
-prime;}\\p\mid n}}\left(  1-\dfrac{1}{p}\right)  \\
-&  =n\cdot\prod_{\substack{p\text{ prime;}\\p\mid n}}\left(  1-\dfrac{1}%
-{p}\right)  .
+prime;}\\p\mid n}}\left(  1-\dfrac{1}{p}\right)  =n\cdot\prod
+_{\substack{p\text{ prime;}\\p\mid n}}\left(  1-\dfrac{1}{p}\right)  .
 \end{align*}
-This proves the theorem.
+This proves Theorem \ref{thm.ent.phi.explicit}.
 \end{proof}
 
 \subsection{A couple of applications of elementary number theory}
@@ -14408,148 +14444,153 @@ This proves the theorem.
 
 This is one of the first modern algorithms for encrypting data.
 
-(RSA = Rivest, Shamir, Adleman.)
+(RSA = Rivest, Shamir and Adleman.)
 
-Standard setting: Albert (A) and Julia (J) want to communicate secretly.
+Standard setup: Albert and Julia want to communicate secretly,
+\textbf{without} having to give each other keys in advance.
 
 Albert wants to send encrypted messages that only Julia can read, and receive
-encrypted messages that only he can read. The channel of communication may
+encrypted messsages that only he can read. The channel of communication may
 have eavesdroppers. How can we do that?
 
-\textbf{Setup}
+\textbf{Setup:}
 
 \begin{itemize}
 \item Albert generates two distinct large and sufficiently random primes $p$
 and $q$. (This involves a lot of technicalities like actually finding large
-primes. See \cite{Gallier-RSA} if you are interested in them.)
+primes. See \cite{Gallier-RSA} if you are interested.)
 
 \item Albert computes $m=pq$. This number (called the \textbf{modulus}) he
-makes public. (Note that it is hard to factor a number into primes, so the
+makes public. (Note that it is hard to factor a number into primes. Thus, the
 public will not know $p$ and $q$.)
 
 \item Albert computes $\ell=\left(  p-1\right)  \left(  q-1\right)  $, but
 keeps this number private.
 
 \item Albert randomly picks an $e\in\left\{  2,3,\ldots,\ell-1\right\}  $ such
-that $e\perp\ell$. This number will be called the \textbf{encryption key}.
+that $e\perp\ell$. This number $e$ will be called the \textbf{encryption key},
+and Albert keeps it private.
 
-\item Albert computes a positive modular inverse $d$ of $e$ modulo $\ell$.
+\item Albert computes a positive modular inverse $d$ of $e$ modulo $\ell$
+(that is, a positive integer $d$ such that $ed\equiv1\operatorname{mod}\ell$).
 This number will be called the \textbf{decryption key}.
 
 \item Albert publishes the pair $\left(  e,m\right)  $ as his \textbf{public
 key}.
 \end{itemize}
 
-\textbf{Encrypting a message}
+\textbf{Encrypting a message:}
 
-If Julia wants to send a message $x$ to Albert:
+If Julia wants to send a message $x\in\mathbb{Z}/m$ to Albert:
 
 \begin{itemize}
-\item She encodes $x$ as a class in $\mathbb{Z}/m$ (or, rather, as a list of
-classes, each handled separately).
-
-\item She computes $x^{e}$ in $\mathbb{Z}/m$. (This can be done in reasonable
-time using binary exponentiation: $a^{2n}=\left(  a^{n}\right)  ^{2}$ and
-$a^{2n+1}=\left(  a^{n}\right)  ^{2}a$.)
+\item She computes $x^{e}$ in $\mathbb{Z}/m$. (This is realistically
+computable by \textit{binary exponentiation}: We can compute $a^{n}$ for
+$a\in\mathbb{Z}/m$ and $n\in\mathbb{N}$ recursively via the formulas
+$a^{2k}=\left(  a^{k}\right)  ^{2}$ and $a^{2k+1}=\left(  a^{k}\right)  ^{2}a$.)
 
 \item She sends $x^{e}$ to Albert.
 \end{itemize}
 
-\textbf{Decrypting a message}
+\textbf{Decrypting a message:}
 
-Albert receives $y=x^{e}$ and wants to recover $x$:
+Albert receives $y=x^{e}$ and recovers $x$ as follows:
 
 \begin{itemize}
-\item He computes $y^{d}$. This is $x$. (Proved soon.)
+\item He sets $x=y^{d}$. (This follows from Lemma below.)
 \end{itemize}
 
 This way, Julia can send a message to Albert that no one can intercept (unless
-they know algorithms we don't).
+they know $d$, or have algorithms that no one knows so far).
 
-This relies on the following fact:
+We are using the following fact:
 
 \begin{lemma}
 (The RSA lemma): Let $p$ and $q$ be two distinct primes. Let $a\in\mathbb{Z}$.
+Let $N$ be a positive integer such that $N\equiv1\operatorname{mod}\left(
+p-1\right)  \left(  q-1\right)  $. Then,%
+\[
+a^{N}\equiv a\operatorname{mod}pq.
+\]
 
-Then, $a^{N}\equiv a\operatorname{mod}pq$ for every $N\geq1$ satisfying
-$N\equiv1\operatorname{mod}\left(  p-1\right)  \left(  q-1\right)  $.
 \end{lemma}
 
-This lemma can be restated as saying $x^{N}=x$ for each $x\in\mathbb{Z}%
-/\left(  pq\right)  $ when $N\geq1$ satisfying $N\equiv1\operatorname{mod}%
-\left(  p-1\right)  \left(  q-1\right)  $. Now, when Albert receives $y$ from
-Julia and computes $y^{d}$, we have%
-\begin{align*}
-y^{d}  & =\left(  x^{e}\right)  ^{d}\ \ \ \ \ \ \ \ \ \ \left(  \text{since
-}y=x^{e}\right)  \\
-& =x^{de}.
-\end{align*}
-But $d$ was a modular inverse of $e$ modulo $\ell$. Thus, $de\equiv
+This lemma can be restated as saying that $x^{N}=x$ for each $x\in
+\mathbb{Z}/\left(  pq\right)  $ (when $p$, $q$ and $N$ are as in the lemma).
+Now, when Albert receives $y=x^{e}$ from Julia, we hasve%
+\[
+y^{d}=\left(  x^{e}\right)  ^{d}=x^{ed}.
+\]
+But $d$ was a modular inverse of $e$ modulo $\ell$; thus, $ed\equiv
 1\operatorname{mod}\ell$. Since $\ell=\left(  p-1\right)  \left(  q-1\right)
-$, the RSA lemma yields $x^{de}=x$. So $y^{d}=x^{de}=x$.
+$, the RSA lemma (applied to $N=ed$) yields $x^{ed}=x$. Thus, $y^{d}=x^{ed}%
+=x$, so Albert recovers the message.
 
 \begin{proof}
 [Proof of the RSA lemma.] We need to show that $pq\mid a^{N}-a$. Since $p\perp
 q$, it suffices to prove that $p\mid a^{N}-a$ and $q\mid a^{N}-a$.
 
-Let us prove that $p\mid a^{N}-a$. Two cases are possible:
+Let us prove that $p\mid a^{N}-a$ first. Two cases are possible:
 
-\textit{Case 1:} $p\mid a$.
+\textit{Case 1:} We have $p\mid a$.
 
-\textit{Case 2:} $p\nmid a$.
+\textit{Case 2:} We have $p\nmid a$.
 
-In Case 1, it is easy to see that  $p\mid a^{N}-a$.
+In Case 1, it is easy to see that $p\mid a^{N}-a$.
 
-Now to Case 2. Here, $p\nmid a$. Hence, $a^{p-1}\equiv1\operatorname{mod}p$
-(by Fermat's theorem). But $N\equiv1\operatorname{mod}\left(  p-1\right)
-\left(  q-1\right)  $. Hence, $N\equiv1\operatorname{mod}p-1$ (since
-$p-1\mid\left(  p-1\right)  \left(  q-1\right)  $). So $p-1\mid N-1$, so
-$N-1=\left(  p-1\right)  c$ for some integer $c$, and clearly $c$ is
-nonnegative. Thus, $N=\left(  p-1\right)  c+1$. Hence,%
-\[
-a^{N}=a^{\left(  p-1\right)  c+1}=a^{\left(  p-1\right)  c}a=\left(
-\underbrace{a^{p-1}}_{\equiv1\operatorname{mod}p}\right)  ^{c}a\equiv
-1^{c}a=a\operatorname{mod}p.
-\]
+Now, consider Case 2. In this case, we have $p\nmid a$. Hence, Fermat's little
+theorem yields $a^{p-1}\equiv1\operatorname{mod}p$. Thus, $a^{c\left(
+p-1\right)  }=\left(  \underbrace{a^{p-1}}_{\equiv1\operatorname{mod}%
+p}\right)  ^{c}\equiv1^{c}=1\operatorname{mod}p$ for each $c\in\mathbb{N}$.
+
+Now, $N\equiv1\operatorname{mod}\left(  p-1\right)  \left(  q-1\right)  $. In
+other words, $\left(  p-1\right)  \left(  q-1\right)  \mid N-1$. Hence,
+$p-1\mid\left(  p-1\right)  \left(  q-1\right)  \mid N-1$. In other words,
+$N-1=c\left(  p-1\right)  $ for some integer $c$. This $c$ belongs to
+$\mathbb{N}$ (since $N-1$ and $p-1$ are nonnegative). So we have $a^{c\left(
+p-1\right)  }\equiv1\operatorname{mod}p$. But
+\begin{align*}
+a^{N}  & =aa^{N-1}=a\underbrace{a^{c\left(  p-1\right)  }}_{\equiv
+1\operatorname{mod}p}\ \ \ \ \ \ \ \ \ \ \left(  \text{since }N-1=c\left(
+p-1\right)  \right)  \\
+& \equiv a1=a\operatorname{mod}p.
+\end{align*}
 In other words, $p\mid a^{N}-a$.
 
-So $p\mid a^{N}-a$ always holds. Similarly, $q\mid a^{N}-a$. This proves the lemma.
+So we have proven $p\mid a^{N}-a$ in both Cases. Similarly, we can prove
+$q\mid a^{N}-a$. Thus, the lemma is proven.
 \end{proof}
 
 \subsubsection{Computing using the Chinese Remainder Theorem}
 
-Assume that you have an expression $a$ that is made of integers, addition,
-subtraction and multiplication. For example, say%
-\[
-a=15^{3}+15^{7}-15^{4}-15^{6}.
-\]
-You want to compute $a$. Somehow you know that the result is fairly small (in
-the sense that $0\leq a<10^{9}$). But the intermediate steps are forbiddingly
-large, so you cannot just compute them straightforwardly.
+$a=400^{3}+403^{3}-401^{3}-402^{3}$.
 
-One way to go around this problem is by computing $a$ modulo several coprime
-numbers. For example, we can compute $\left[  a\right]  _{2}$ (by doing the
-whole computation in $\mathbb{Z}/2$ instead) and $\left[  a\right]  _{3}$ and
-$\left[  a\right]  _{5}$ and $\left[  a\right]  _{7}$ etc.
+$a=\ ?$.
 
-The Chinese Remainder Theorem lets us \textquotedblleft
-patch\textquotedblright\ these results together:
+Assume you know that $0\leq a<10000$.
+
+How do you find $a$ quickly?
+
+One trick: By computing in $\mathbb{Z}/2$, you can find $\left[  a\right]
+_{2}$. Similarly, you can find $\left[  a\right]  _{3}$ and $\left[  a\right]
+_{5}$ and $\left[  a\right]  _{7}$ and so on.
+
+Now, using the Chinese Remainder Theorem, you can
 
 \begin{itemize}
-\item From $\left[  a\right]  _{2}$ and $\left[  a\right]  _{3}$, you can get
-$\left[  a\right]  _{6}$.
+\item patch $\left[  a\right]  _{2}$ and $\left[  a\right]  _{3}$ together to
+obtain $\left[  a\right]  _{6}$;
 
-\item From $\left[  a\right]  _{6}$ and $\left[  a\right]  _{5}$, you can get
-$\left[  a\right]  _{30}$.
+\item patch $\left[  a\right]  _{6}$ and $\left[  a\right]  _{5}$ together to
+obtain $\left[  a\right]  _{30}$;
 
-\item From $\left[  a\right]  _{30}$ and $\left[  a\right]  _{7}$, you can get
-$\left[  a\right]  _{210}$.
+\item patch $\left[  a\right]  _{30}$ and $\left[  a\right]  _{7}$ together to
+obtain $\left[  a\right]  _{210}$;
+
+\item and so on.
 \end{itemize}
 
-and so on, until you get $\left[  a\right]  _{N}$ for some $N>10^{9}$. But
-then you know $a\%N$, and this has to be $a$ because $0\leq a<10^{9}$.
-
-
-
-
+After not too many steps, you will have $\left[  a\right]  _{N}$ for some
+$N>10000$. Thus, you will know $a\%N$. But this assumption $0\leq a<10000$
+yields $a\%N=a$, so you know $a$.
 \end{document}
