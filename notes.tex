@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Wednesday, February 27, 2019 01:12:12}
+%TCIDATA{LastRevised=Wednesday, February 27, 2019 01:31:29}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -6593,9 +6593,53 @@ This solves Exercise \ref{exe.ent.coprime.gcd*gcd2} \textbf{(b)}.
 $b\mid c$. Prove that $ab\mid\gcd\left(  a,b,c\right)  \cdot c$.
 \end{exercise}
 
+\begin{fineprint}
 \begin{proof}
-[Solution to Exercise \ref{exe.ent.coprime.combine2}.]TODO.
+[Solution to Exercise \ref{exe.ent.coprime.combine2}.]Exercise
+\ref{exe.ent.div.aabs} \textbf{(b)} (applied to $c$ instead of $a$) yields
+$\left\vert c\right\vert \mid c$. (This means \textquotedblleft$\left\vert
+c\right\vert $ divides $c$\textquotedblright.) Also, Proposition
+\ref{prop.ent.div.2} \textbf{(a)} (applied to $\gcd\left(  a,b,c\right)  $
+instead of $a$) yields $\gcd\left(  a,b,c\right)  \mid\gcd\left(
+a,b,c\right)  $. Hence, Proposition \ref{prop.ent.div.2} \textbf{(c)} (applied
+to $a_{1}=\left\vert c\right\vert $, $a_{2}=\gcd\left(  a,b,c\right)  $,
+$b_{1}=c$ and $b_{2}=\gcd\left(  a,b,c\right)  $) yields $\left\vert
+c\right\vert \gcd\left(  a,b,c\right)  \mid c\gcd\left(  a,b,c\right)  $.
+
+Proposition \ref{prop.ent.div.2} \textbf{(a)} yields $a\mid a$. Hence, $a\mid
+a$ and $b\mid c$. Thus, Proposition \ref{prop.ent.div.2} \textbf{(c)} (applied
+to $a_{1}=a$, $a_{2}=b$, $b_{1}=a$ and $b_{2}=c$) yields $ab\mid ac$. The same
+argument (with the roles of $a$ and $b$ interchanged) yields $ba\mid bc$. In
+other words, $ab\mid bc$. Finally, Proposition \ref{prop.ent.div.2}
+\textbf{(c)} (applied to $a_{1}=a$, $a_{2}=b$, $b_{1}=c$ and $b_{2}=c$) yields
+$ab\mid cc$ (since $a\mid c$ and $b\mid c$).
+
+Now, we have $\left(  ab\mid ac\text{ and }ab\mid bc\text{ and }ab\mid
+cc\right)  $. But Theorem \ref{thm.ent.gcd.uniprop-mul} \textbf{(a)} (applied
+to $k=3$, $\left(  b_{1},b_{2},\ldots,b_{k}\right)  =\left(  ac,bc,cc\right)
+$ and $m=ab$) yields that we have the following logical equivalence:%
+\[
+\left(  ab\mid ac\text{ and }ab\mid bc\text{ and }ab\mid cc\right)
+\ \Longleftrightarrow\ \left(  ab\mid\gcd\left(  ac,bc,cc\right)  \right)  .
+\]
+Hence, we have $ab\mid\gcd\left(  ac,bc,cc\right)  $ (since we have $\left(
+ab\mid ac\text{ and }ab\mid bc\text{ and }ab\mid cc\right)  $).
+
+Exercise \ref{exe.ent.gcd.sa,sb,sc} (applied to $s=c$) yields
+\[
+\gcd\left(  ca,cb,cc\right)  =\left\vert c\right\vert \gcd\left(
+a,b,c\right)  .
+\]
+Now,%
+\begin{align*}
+ab  & \mid\gcd\left(  \underbrace{ac}_{=ca},\underbrace{bc}_{=bc},cc\right)
+=\gcd\left(  ca,bc,cc\right)  =\left\vert c\right\vert \gcd\left(
+a,b,c\right)  \\
+& \mid c\gcd\left(  a,b,c\right)  =\gcd\left(  a,b,c\right)  \cdot c.
+\end{align*}
+This solves Exercise \ref{exe.ent.coprime.combine2}.
 \end{proof}
+\end{fineprint}
 
 \begin{exercise}
 \label{exe.ent.coprime.a/g}Let $a$ and $b$ be two integers that are not both
@@ -11816,7 +11860,7 @@ The next theorem is known as \textit{Wilson's theorem}:
 !\equiv-1\operatorname{mod}p$.
 \end{theorem}
 
-We will prove this later, after defining $\mathbb{Z}/\left(  p\right)  $.
+We will prove this later, after defining $\mathbb{Z}/p$.
 
 Theorem \ref{thm.ent.wilson} has a converse: If an integer $p>1$ satisfies
 $\left(  p-1\right)  !\equiv-1\operatorname{mod}p$, then $p$ is a prime. (This
@@ -11856,8 +11900,8 @@ This definition is exactly the definition of $\dbinom{n}{k}$ that we used in
 \href{http://www-users.math.umn.edu/~dgrinber/19s/hw0s.pdf}{homework set \#0}.
 It is also almost exactly the definition given in \cite[(5.1)]{GKP} (except
 that we are allowing $k$ to be non-integer, while the authors of \cite{GKP} do
-not). Definition \ref{def.binom.binom} is also identical with the definition
-of binomial coefficients in \cite{detnotes}. Our choice to require
+not). Definition \ref{def.binom.binom} \textbf{(a)} is also identical with the
+definition of binomial coefficients in \cite{detnotes}. Our choice to require
 $n\in\mathbb{Q}$ is more or less arbitrary -- we could have as well made the
 same definition for $n\in\mathbb{R}$ or $n\in\mathbb{C}$ (but I am not aware
 of this generality being of much use).
@@ -12271,17 +12315,17 @@ $-\left(  n+1\right)  \in\mathbb{N}$ (since $-\left(  n+1\right)  $ is an intege
 If $k\notin\mathbb{N}$, then $\dbinom{n}{k}$ is a integer (since Definition
 \ref{def.binom.binom} \textbf{(b)} yields $\dbinom{n}{k}=0$ in this case).
 Thus, for the rest of this proof, we WLOG assume that $k\in\mathbb{N}$. Thus,
-$k-n-1=\underbrace{k}_{\in\mathbb{N}}+\underbrace{\left(  -\left(  n+1\right)
-\right)  }_{\in\mathbb{N}}\in\mathbb{N}$. Hence, Corollary
-\ref{cor.binom.N->N} (applied to $k-n-1$ instead of $n$) yields that
-$\dbinom{k-n-1}{k}$ is a nonnegative integer. Thus, $\dbinom{k-n-1}{k}%
-\in\mathbb{Z}$.
+$k+\left(  -n\right)  -1=\underbrace{k}_{\in\mathbb{N}}+\underbrace{\left(
+-\left(  n+1\right)  \right)  }_{\in\mathbb{N}}\in\mathbb{N}$. Hence,
+Corollary \ref{cor.binom.N->N} (applied to $k+\left(  -n\right)  -1$ instead
+of $n$) yields that $\dbinom{k+\left(  -n\right)  -1}{k}$ is a nonnegative
+integer. Thus, $\dbinom{k+\left(  -n\right)  -1}{k}\in\mathbb{Z}$.
 
 Theorem \ref{thm.binom.upneg-n} (applied to $-n$ instead of $n$) yields%
 \[
 \dbinom{-\left(  -n\right)  }{k}=\underbrace{\left(  -1\right)  ^{k}}%
 _{\in\mathbb{Z}}\underbrace{\dbinom{k+\left(  -n\right)  -1}{k}}%
-_{=\dbinom{k-n-1}{k}\in\mathbb{Z}}\in\mathbb{Z}.
+_{\in\mathbb{Z}}\in\mathbb{Z}.
 \]
 In other words, $\dbinom{n}{k}\in\mathbb{Z}$. In other words, $\dbinom{n}{k}$
 is an integer. Thus, Proposition \ref{prop.binom.Z->Z} is proven.
@@ -12291,11 +12335,11 @@ is an integer. Thus, Proposition \ref{prop.binom.Z->Z} is proven.
 
 One of the staples of enumerative combinatorics are identities that involve
 binomial coefficients. Hundreds of such identities have been found (see, e.g.,
-\href{http://www.math.wvu.edu/~gould/}{Henry W. Gould's website} for some of
-them; see also \cite[Chapter 5]{GKP} and \cite[Chapter 3]{detnotes} for
-introductions). At this point, let us only show two of the most important ones
-(not counting the ones we have already shown above). Probably the most
-important one is the \textit{binomial formula}:
+\href{http://www.math.wvu.edu/~gould/}{Henry W. Gould's website} for a list of
+some of them; see also \cite[Chapter 5]{GKP} and \cite[Chapter 3]{detnotes}
+for introductions). At this point, let us only show two of the most important
+ones (not counting the ones we have already shown above). Probably the most
+famous one is the \textit{binomial formula}:
 
 \begin{theorem}
 \label{thm.binom.binf}Let $x,y$ be any numbers (e.g., rational or real or
@@ -12502,23 +12546,32 @@ $\left(  \lambda x^{i}\right)  x^{j}=\lambda\left(  x^{i}x^{j}\right)
 multiply polynomials as well (first use distributivity to expand the product):%
 \begin{align*}
 \left(  3x-5\right)  \left(  x^{2}+3x+2\right)   &  =3x\left(  x^{2}%
-+3x+2\right)  -5\left(  x^{2}+3x+2\right) \\
-&  =\left(  3x^{3}+9x^{2}+6x\right)  -\left(  5x^{2}+15x+10\right) \\
++3x+2\right)  -5\left(  x^{2}+3x+2\right)  \\
+&  =\left(  3x^{3}+9x^{2}+6x\right)  -\left(  5x^{2}+15x+10\right)  \\
 &  =3x^{3}+4x^{2}-9x-10.
 \end{align*}
+
+
 Most importantly, it is possible to \textit{substitute} a number into a
 polynomial: If $u\in\mathbb{Q}$ and if $P=a_{k}x^{k}+a_{k-1}x^{k-1}%
 +\cdots+a_{0}$ is a polynomial, then we define $P\left(  u\right)  $ (called
-the \textit{evaluation} of $P$ at $u$, or the \textit{result of substituting
-}$u$ \textit{for }$x$ \textit{in} $P$) to be the number $a_{k}u^{k}%
-+a_{k-1}u^{k-1}+\cdots+a_{0}$. More generally, if $P$ is given in any of its
-forms (e.g., as a product of other polynomials), then we can compute $P\left(
-u\right)  $ by substituting $u$ for each $x$ in this form. Even more
-generally, $u$ does not have to be a rational number -- it can be (roughly
-speaking!) anything that can be taken to the $i$-th power for $i\in\mathbb{N}$
-and that can be added and multiplied by a rational number. For example, $u$
-can be a real number or a square matrix or another polynomial. (We will later
-learn the precise meaning of \textquotedblleft anything\textquotedblright\ here.)
+the \textit{evaluation} of $P$ \textit{at} $u$, or the \textit{result of
+substituting }$u$ \textit{for }$x$ \textit{in} $P$) to be the number
+$a_{k}u^{k}+a_{k-1}u^{k-1}+\cdots+a_{0}$. More generally, if the polynomial
+$P$ is given in any of its forms (e.g., as a product of other polynomials),
+then we can compute $P\left(  u\right)  $ by replacing each $x$ appearing in
+this form by an $u$. For example, if $P=\left(  2x+1\right)  \left(
+3x+1\right)  -\left(  4x+1\right)  \left(  5x+1\right)  $, then $P\left(
+u\right)  =\left(  2u+1\right)  \left(  3u+1\right)  -\left(  4u+1\right)
+\left(  5u+1\right)  $; thus, we do not need to expand $P$ before substituting
+$u$ into it.
+
+Even more generally, $u$ does not have to be a rational number in order to be
+substituted in a polynomial $P$ -- it can be (roughly speaking!) anything that
+can be taken to the $i$-th power for $i\in\mathbb{N}$ and that can be added
+and multiplied by a rational number. For example, $u$ can be a real number or
+a square matrix or another polynomial. (We will later learn the precise
+meaning of \textquotedblleft anything\textquotedblright\ here.)
 
 We have been vague in our definition of polynomials, since making it rigorous
 would take us a fair way afield. But we \textbf{will} eventually (in April?)
@@ -12692,7 +12745,9 @@ Lemma \ref{lem.binom.vandermonde.QQ}.
 $a$ and $b$ renamed as $x$ and $y$.
 \end{proof}
 
+\begin{noncompile}
 See \cite{GKP} and \cite{detnotes} for further identities involving binomial coefficients.
+\end{noncompile}
 
 \subsubsection{Some divisibilities and congruences}
 
@@ -13682,6 +13737,10 @@ residue class $\left[  15\right]  _{24}$. So the statement that
 \textquotedblleft10 hours from 3 PM is 1 AM\textquotedblright\ is saying
 $\left[  15\right]  _{24}+\left[  10\right]  _{24}=\left[  1\right]  _{24}$.)
 
+\begin{center}
+\textbf{2019-02-25 lecture}
+\end{center}
+
 \begin{theorem}
 \label{thm.equiv.Z/n.rules}The following rules for addition, subtraction and
 multiplication in $\mathbb{Z}/n$ hold:
@@ -13747,10 +13806,10 @@ well-defined whenever $\alpha_{1},\alpha_{2},\ldots,\alpha_{k}\in\mathbb{Z}/n$.
 \textbf{(b)} If $a_{1},a_{2},\ldots,a_{k}$ are $k$ integers, then
 \begin{align*}
 \left[  a_{1}\right]  _{n}+\left[  a_{2}\right]  _{n}+\cdots+\left[
-a_{k}\right]  _{n} &  =\left[  a_{1}+a_{2}+\cdots+a_{k}\right]  _{n}%
-\ \ \ \ \ \ \ \ \ \ \text{and}\\
+a_{k}\right]  _{n}  &  =\left[  a_{1}+a_{2}+\cdots+a_{k}\right]
+_{n}\ \ \ \ \ \ \ \ \ \ \text{and}\\
 \left[  a_{1}\right]  _{n}\cdot\left[  a_{2}\right]  _{n}\cdot\cdots
-\cdot\left[  a_{k}\right]  _{n} &  =\left[  a_{1}a_{2}\cdots a_{k}\right]
+\cdot\left[  a_{k}\right]  _{n}  &  =\left[  a_{1}a_{2}\cdots a_{k}\right]
 _{n}.
 \end{align*}
 This can be proven by a straightforward induction on $k$.
@@ -13876,7 +13935,7 @@ _{n},\left[  1\right]  _{n},\ldots,\left[  n-1\right]  _{n}$ are distinct).
 Hence,%
 \begin{align*}
 \left\vert U_{n}\right\vert  &  =\left(  \text{the number of }a\in\left\{
-0,1,\ldots,n-1\right\}  \text{ that satisfy }a\perp n\right)  \\
+0,1,\ldots,n-1\right\}  \text{ that satisfy }a\perp n\right) \\
 &  =\left\vert \left\{  i\in\left\{  0,1,\ldots,n-1\right\}  \ \mid\ i\perp
 n\right\}  \right\vert =\phi\left(  n\right)
 \end{align*}
@@ -14101,7 +14160,7 @@ S\left(  \alpha\right)   &  =\left(  \pi_{mn,m}\left(  \underbrace{\alpha
 }_{=\left[  a\right]  _{mn}}\right)  \right)  =\left(  \underbrace{\pi
 _{mn,m}\left(  \left[  a\right]  _{mn}\right)  }_{=\left[  a\right]  _{m}%
 },\underbrace{\pi_{mn,n}\left(  \left[  a\right]  _{mn}\right)  }_{=\left[
-a\right]  _{n}}\right)  \\
+a\right]  _{n}}\right) \\
 &  =\left(  \left[  a\right]  _{m},\left[  a\right]  _{n}\right)
 \end{align*}
 and similarly $S\left(  \beta\right)  =\left(  \left[  b\right]  _{m},\left[
@@ -14189,6 +14248,12 @@ mutually coprime.
 \item Chinese Remainder Theorem for computation.
 \end{itemize}
 
+\section{Complex numbers}
+
+\begin{itemize}
+\item Follow \cite{LaNaSc16}.
+\end{itemize}
+
 \begin{thebibliography}{999999999}                                                                                        %
 
 
@@ -14273,6 +14338,10 @@ edition 2018.\newline\url{http://www.people.vcu.edu/~rhammack/BookOfProof/}
 
 \bibitem[Knapp16b]{Knapp2}Anthony W. Knapp, \textit{Advanced Algebra}, digital
 2nd edition 2016. \newline\url{http://www.math.stonybrook.edu/~aknapp/download.html}
+
+\bibitem[LaNaSc16]{LaNaSc16}Isaiah Lankham, Bruno Nachtergaele, Anne
+Schilling, \textit{Linear Algebra As an Introduction to Abstract Mathematics},
+2016.\newline\url{https://www.math.ucdavis.edu/~anne/linear_algebra/mat67_course_notes.pdf}
 
 \bibitem[LeLeMe18]{LeLeMe}Eric Lehman, F. Thomson Leighton, Albert R. Meyer,
 \textit{Mathematics for Computer Science}, revised Tuesday 6th June
