@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Wednesday, February 27, 2019 19:22:55}
+%TCIDATA{LastRevised=Wednesday, February 27, 2019 19:33:59}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -3757,6 +3757,112 @@ Hence, $g$ is positive. This completes the proof of Proposition
 \ref{prop.ent.Div.fin}.
 \end{proof}
 
+The following exercise shows that the set $\operatorname*{Div}\left(
+b_{1},b_{2},\ldots,b_{k}\right)  $ depends only on the \textbf{set} $\left\{
+b_{1},b_{2},\ldots,b_{k}\right\}  $, but not on the numbers $b_{1}%
+,b_{2},\ldots,b_{k}$ themselves. Thus, for example, any integers $a$, $b$ and
+$c$ satisfy $\operatorname*{Div}\left(  a,b,c,a\right)  =\operatorname*{Div}%
+\left(  c,a,b\right)  $ (since $\left\{  a,b,c,a\right\}  =\left\{
+c,a,b\right\}  $) and $\operatorname*{Div}\left(  a,a,b,a\right)
+=\operatorname*{Div}\left(  a,b,b\right)  $ (since $\left\{  a,a,b,a\right\}
+=\left\{  a,b,b\right\}  $).
+
+\begin{exercise}
+\label{exe.ent.Div.set}Let $b_{1},b_{2},\ldots,b_{k}$ be finitely many
+integers. Let $c_{1},c_{2},\ldots,c_{\ell}$ be finitely many integers. Prove
+that if%
+\[
+\left\{  b_{1},b_{2},\ldots,b_{k}\right\}  =\left\{  c_{1},c_{2}%
+,\ldots,c_{\ell}\right\}  ,
+\]
+then%
+\[
+\operatorname*{Div}\left(  b_{1},b_{2},\ldots,b_{k}\right)
+=\operatorname*{Div}\left(  c_{1},c_{2},\ldots,c_{\ell}\right)  .
+\]
+
+\end{exercise}
+
+\begin{fineprint}
+\begin{proof}
+[Solution to Exercise \ref{exe.ent.Div.set}.] Assume that $\left\{
+b_{1},b_{2},\ldots,b_{k}\right\}  =\left\{  c_{1},c_{2},\ldots,c_{\ell
+}\right\}  $.
+
+Let $a$ be an integer. Then, $a$ is a common divisor of $b_{1},b_{2}%
+,\ldots,b_{k}$ if and only if $a$ satisfies $\left(  a\mid b_{i}\text{ for all
+}i\in\left\{  1,2,\ldots,k\right\}  \right)  $ (by the definition of
+\textquotedblleft common divisor\textquotedblright). Hence, we have the
+following chain of equivalences:%
+\begin{align*}
+& \ \left(  a\text{ is a common divisor of }b_{1},b_{2},\ldots,b_{k}\right)
+\\
+& \Longleftrightarrow\ \left(  a\mid b_{i}\text{ for all }i\in\left\{
+1,2,\ldots,k\right\}  \right)  \\
+& \Longleftrightarrow\ \left(  a\mid b_{1}\text{ and }a\mid b_{2}\text{ and
+}\cdots\text{ and }a\mid b_{k}\right)  \\
+& \Longleftrightarrow\ \left(  a\mid u\text{ for each }u\in\left\{
+b_{1},b_{2},\ldots,b_{k}\right\}  \right)  .
+\end{align*}
+But $\operatorname*{Div}\left(  b_{1},b_{2},\ldots,b_{k}\right)  $ is the set
+of all common divisors of $b_{1},b_{2},\ldots,b_{k}$. Hence, we have
+$a\in\operatorname*{Div}\left(  b_{1},b_{2},\ldots,b_{k}\right)  $ if and only
+if $a$ is a common divisor of $b_{1},b_{2},\ldots,b_{k}$. Thus, we have the
+following chain of equivalences:%
+\begin{align}
+& \ \left(  a\in\operatorname*{Div}\left(  b_{1},b_{2},\ldots,b_{k}\right)
+\right)  \nonumber\\
+& \Longleftrightarrow\ \left(  a\text{ is a common divisor of }b_{1}%
+,b_{2},\ldots,b_{k}\right)  \nonumber\\
+& \Longleftrightarrow\ \left(  a\mid u\text{ for each }u\in\left\{
+b_{1},b_{2},\ldots,b_{k}\right\}  \right)  .\label{sol.ent.Div.set.1}%
+\end{align}
+The same argument (applied to $\ell$ and $\left(  c_{1},c_{2},\ldots,c_{\ell
+}\right)  $ instead of $k$ and $\left(  b_{1},b_{2},\ldots,b_{k}\right)  $)
+yields the equivalence%
+\begin{align}
+& \ \left(  a\in\operatorname*{Div}\left(  c_{1},c_{2},\ldots,c_{\ell}\right)
+\right)  \nonumber\\
+& \Longleftrightarrow\ \left(  a\mid u\text{ for each }u\in\left\{
+c_{1},c_{2},\ldots,c_{\ell}\right\}  \right)  .\label{sol.ent.Div.set.2}%
+\end{align}
+
+
+Now, we have the following chain of equivalences:%
+\begin{align*}
+& \ \left(  a\in\operatorname*{Div}\left(  b_{1},b_{2},\ldots,b_{k}\right)
+\right)  \\
+& \Longleftrightarrow\ \left(  a\mid u\text{ for each }u\in
+\underbrace{\left\{  b_{1},b_{2},\ldots,b_{k}\right\}  }_{=\left\{
+c_{1},c_{2},\ldots,c_{\ell}\right\}  }\right)  \ \ \ \ \ \ \ \ \ \ \left(
+\text{by (\ref{sol.ent.Div.set.1})}\right)  \\
+& \Longleftrightarrow\ \left(  a\mid u\text{ for each }u\in\left\{
+c_{1},c_{2},\ldots,c_{\ell}\right\}  \right)  \\
+& \Longleftrightarrow\ \left(  a\in\operatorname*{Div}\left(  c_{1}%
+,c_{2},\ldots,c_{\ell}\right)  \right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by
+(\ref{sol.ent.Div.set.2})}\right)  .
+\end{align*}
+
+
+Now, forget that we fixed $a$. We thus have proven the equivalence
+\[
+\left(  a\in\operatorname*{Div}\left(  b_{1},b_{2},\ldots,b_{k}\right)
+\right)  \ \Longleftrightarrow\ \left(  a\in\operatorname*{Div}\left(
+c_{1},c_{2},\ldots,c_{\ell}\right)  \right)
+\]
+for each integer $a$. In other words, an integer $a$ belongs to the set
+$\operatorname*{Div}\left(  b_{1},b_{2},\ldots,b_{k}\right)  $ if and only if
+it belongs to the set $\operatorname*{Div}\left(  c_{1},c_{2},\ldots,c_{\ell
+}\right)  $. In other words, the two sets $\operatorname*{Div}\left(
+b_{1},b_{2},\ldots,b_{k}\right)  $ and $\operatorname*{Div}\left(  c_{1}%
+,c_{2},\ldots,c_{\ell}\right)  $ contain the exact same integers. Since both
+of these sets consist of integers only, this entails that these two sets are
+equal. In other words, $\operatorname*{Div}\left(  b_{1},b_{2},\ldots
+,b_{k}\right)  =\operatorname*{Div}\left(  c_{1},c_{2},\ldots,c_{\ell}\right)
+$. This solves Exercise \ref{exe.ent.Div.set}.
+\end{proof}
+\end{fineprint}
+
 \subsubsection{Greatest common divisors}
 
 Proposition \ref{prop.ent.Div.fin} allows us to make a crucial definition:
@@ -4315,30 +4421,68 @@ $\gcd\left(  210,45\right)  $ as follows:%
 \begin{align*}
 \gcd\left(  210,45\right)   &  =\gcd\left(  45,210\right)
 \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition \ref{prop.ent.gcd.props1}
-\textbf{(b)}}\right) \\
+\textbf{(b)}}\right)  \\
 &  =\gcd\left(  45,\underbrace{210\%45}_{=30}\right)
 \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition \ref{prop.ent.gcd.props1}
-\textbf{(e)}}\right) \\
-&  =\gcd\left(  45,30\right) \\
+\textbf{(e)}}\right)  \\
+&  =\gcd\left(  45,30\right)  \\
 &  =\gcd\left(  30,45\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition
-\ref{prop.ent.gcd.props1} \textbf{(b)}}\right) \\
+\ref{prop.ent.gcd.props1} \textbf{(b)}}\right)  \\
 &  =\gcd\left(  30,\underbrace{45\%30}_{=15}\right)
 \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition \ref{prop.ent.gcd.props1}
-\textbf{(e)}}\right) \\
-&  =\gcd\left(  30,15\right) \\
+\textbf{(e)}}\right)  \\
+&  =\gcd\left(  30,15\right)  \\
 &  =\gcd\left(  15,30\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition
-\ref{prop.ent.gcd.props1} \textbf{(b)}}\right) \\
+\ref{prop.ent.gcd.props1} \textbf{(b)}}\right)  \\
 &  =\gcd\left(  15,\underbrace{30\%15}_{=0}\right)
 \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition \ref{prop.ent.gcd.props1}
-\textbf{(e)}}\right) \\
+\textbf{(e)}}\right)  \\
 &  =\gcd\left(  15,0\right)  =\left\vert 15\right\vert
 \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition \ref{prop.ent.gcd.props1}
-\textbf{(a)}}\right) \\
+\textbf{(a)}}\right)  \\
 &  =15.
 \end{align*}
 This method of computing $\gcd\left(  a,b\right)  $ is called the
 \textit{Euclidean algorithm}, and is usually much faster than the divisors of
 $a$ or the divisors of $b$ can be found!
+
+The following exercise shows that the number $\gcd\left(  b_{1},b_{2}%
+,\ldots,b_{k}\right)  $ depends only on the \textbf{set} $\left\{  b_{1}%
+,b_{2},\ldots,b_{k}\right\}  $, but not on the numbers $b_{1},b_{2}%
+,\ldots,b_{k}$ themselves. Thus, for example, any integers $a$, $b$ and $c$
+satisfy $\gcd\left(  a,b,c,a\right)  =\gcd\left(  c,a,b\right)  $ (since
+$\left\{  a,b,c,a\right\}  =\left\{  c,a,b\right\}  $) and $\gcd\left(
+a,a,b,a\right)  =\gcd\left(  a,b,b\right)  $ (since $\left\{  a,a,b,a\right\}
+=\left\{  a,b,b\right\}  $).
+
+\begin{exercise}
+\label{exe.ent.gcd.set}Let $b_{1},b_{2},\ldots,b_{k}$ be finitely many
+integers. Let $c_{1},c_{2},\ldots,c_{\ell}$ be finitely many integers. Prove
+that if%
+\[
+\left\{  b_{1},b_{2},\ldots,b_{k}\right\}  =\left\{  c_{1},c_{2}%
+,\ldots,c_{\ell}\right\}  ,
+\]
+then%
+\[
+\gcd\left(  b_{1},b_{2},\ldots,b_{k}\right)  =\gcd\left(  c_{1},c_{2}%
+,\ldots,c_{\ell}\right)  .
+\]
+
+\end{exercise}
+
+\begin{fineprint}
+\begin{proof}
+[Solution to Exercise \ref{exe.ent.gcd.set}.] Assume that $\left\{
+b_{1},b_{2},\ldots,b_{k}\right\}  =\left\{  c_{1},c_{2},\ldots,c_{\ell
+}\right\}  $. Then, Exercise \ref{exe.ent.Div.set} yields $\operatorname*{Div}%
+\left(  b_{1},b_{2},\ldots,b_{k}\right)  =\operatorname*{Div}\left(
+c_{1},c_{2},\ldots,c_{\ell}\right)  $. Hence, Lemma
+\ref{lem.ent.gcd.through-Divc} yields $\gcd\left(  b_{1},b_{2},\ldots
+,b_{k}\right)  =\gcd\left(  c_{1},c_{2},\ldots,c_{\ell}\right)  $. This solves
+Exercise \ref{exe.ent.gcd.set}.
+\end{proof}
+\end{fineprint}
 
 \subsubsection{Bezout's theorem}
 
@@ -5436,14 +5580,14 @@ b_{k}\right)  \ \Longleftrightarrow\ \left(  m\mid\gcd\left(  b_{1}%
 \end{theorem}
 
 \begin{proof}
-[Proof of Corollary \ref{cor.ent.gcd.uniprop-mula}.] Let $m\in\mathbb{Z}$.
+[Proof of Corollary \ref{cor.ent.gcd.uniprop-mula}.]Let $m\in\mathbb{Z}$.
 Then, we have the following chain of equivalences:%
 \begin{align*}
-& \ \left(  m\mid b_{1}\text{ and }m\mid b_{2}\text{ and }\cdots\text{ and
-}m\mid b_{k}\right)  \\
-& \Longleftrightarrow\ \left(  m\mid b_{i}\text{ for all }i\in\left\{
-1,2,\ldots,k\right\}  \right)  \\
-& \Longleftrightarrow\ \left(  m\mid\gcd\left(  b_{1},b_{2},\ldots
+&  \ \left(  m\mid b_{1}\text{ and }m\mid b_{2}\text{ and }\cdots\text{ and
+}m\mid b_{k}\right) \\
+&  \Longleftrightarrow\ \left(  m\mid b_{i}\text{ for all }i\in\left\{
+1,2,\ldots,k\right\}  \right) \\
+&  \Longleftrightarrow\ \left(  m\mid\gcd\left(  b_{1},b_{2},\ldots
 ,b_{k}\right)  \right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Theorem
 \ref{thm.ent.gcd.uniprop-mul} \textbf{(a)}}\right)  .
 \end{align*}
@@ -5454,7 +5598,7 @@ This proves Corollary \ref{cor.ent.gcd.uniprop-mula}.
 \label{thm.ent.gcd.split}Let $b_{1},b_{2},\ldots,b_{k}$ be integers, and let
 $c_{1},c_{2},\ldots,c_{\ell}$ be integers. Then,%
 \begin{align*}
-&  \gcd\left(  b_{1},b_{2},\ldots,b_{k},c_{1},c_{2},\ldots,c_{\ell}\right)  \\
+&  \gcd\left(  b_{1},b_{2},\ldots,b_{k},c_{1},c_{2},\ldots,c_{\ell}\right) \\
 &  =\gcd\left(  \gcd\left(  b_{1},b_{2},\ldots,b_{k}\right)  ,\gcd\left(
 c_{1},c_{2},\ldots,c_{\ell}\right)  \right)  .
 \end{align*}
@@ -5521,17 +5665,17 @@ following equivalence:%
 \begin{align*}
 &  \ \left(  m\mid b_{1}\text{ and }m\mid b_{2}\text{ and }\cdots\text{ and
 }m\mid b_{k}\text{ and }m\mid c_{1}\text{ and }m\mid c_{2}\text{ and }%
-\cdots\text{ and }m\mid c_{\ell}\right)  \\
+\cdots\text{ and }m\mid c_{\ell}\right) \\
 &  \Longleftrightarrow\ \left(  m\mid\gcd\left(  b_{1},b_{2},\ldots
 ,b_{k},c_{1},c_{2},\ldots,c_{\ell}\right)  \right)  .
 \end{align*}
 Hence, we have the following chain of equivalences:%
 \begin{align*}
 &  \ \left(  m\mid\gcd\left(  b_{1},b_{2},\ldots,b_{k},c_{1},c_{2}%
-,\ldots,c_{\ell}\right)  \right)  \\
+,\ldots,c_{\ell}\right)  \right) \\
 \Longleftrightarrow\  &  \left(  m\mid b_{1}\text{ and }m\mid b_{2}\text{ and
 }\cdots\text{ and }m\mid b_{k}\text{ and }m\mid c_{1}\text{ and }m\mid
-c_{2}\text{ and }\cdots\text{ and }m\mid c_{\ell}\right)  \\
+c_{2}\text{ and }\cdots\text{ and }m\mid c_{\ell}\right) \\
 \Longleftrightarrow\  &  \left(  \underbrace{\left(  m\mid b_{i}\text{ for all
 }i\in\left\{  1,2,\ldots,k\right\}  \right)  }_{\substack{\Longleftrightarrow
 \ \left(  m\mid\gcd\left(  b_{1},b_{2},\ldots,b_{k}\right)  \right)
@@ -5541,13 +5685,13 @@ c_{2}\text{ and }\cdots\text{ and }m\mid c_{\ell}\right)  \\
 \gcd\left(  c_{1},c_{2},\ldots,c_{\ell}\right)  \right)  \\\text{(by Theorem
 \ref{thm.ent.gcd.uniprop-mul} \textbf{(a)},}\\\text{applied to }\ell\text{ and
 }\left(  c_{1},c_{2},\ldots,c_{\ell}\right)  \\\text{instead of }k\text{ and
-}\left(  b_{1},b_{2},\ldots,b_{k}\right)  \text{)}}}\right)  \\
+}\left(  b_{1},b_{2},\ldots,b_{k}\right)  \text{)}}}\right) \\
 \Longleftrightarrow\  &  \left(  m\mid\gcd\left(  b_{1},b_{2},\ldots
 ,b_{k}\right)  \text{ and }m\mid\gcd\left(  c_{1},c_{2},\ldots,c_{\ell
-}\right)  \right)  \\
+}\right)  \right) \\
 \Longleftrightarrow\  &  \left(  m\mid\gcd\left(  \gcd\left(  b_{1}%
 ,b_{2},\ldots,b_{k}\right)  ,\gcd\left(  c_{1},c_{2},\ldots,c_{\ell}\right)
-\right)  \right)  \\
+\right)  \right) \\
 &  \ \ \ \ \ \ \ \ \ \ \left(
 \begin{array}
 [c]{c}%
