@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Wednesday, February 27, 2019 12:15:28}
+%TCIDATA{LastRevised=Wednesday, February 27, 2019 19:22:55}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -5418,11 +5418,43 @@ holds for $k=\ell$. This completes the induction step. Thus, Theorem
 also proven.
 \end{proof}
 
+For future reference, let us restate Theorem \ref{thm.ent.gcd.uniprop-mul}
+\textbf{(a)} as follows:
+
+\begin{corollary}
+\label{cor.ent.gcd.uniprop-mula}Let $b_{1},b_{2},\ldots,b_{k}$ be integers.
+\end{corollary}
+
+\begin{theorem}
+For each $m\in\mathbb{Z}$, we have the following logical equivalence:%
+\[
+\left(  m\mid b_{1}\text{ and }m\mid b_{2}\text{ and }\cdots\text{ and }m\mid
+b_{k}\right)  \ \Longleftrightarrow\ \left(  m\mid\gcd\left(  b_{1}%
+,b_{2},\ldots,b_{k}\right)  \right)  .
+\]
+
+\end{theorem}
+
+\begin{proof}
+[Proof of Corollary \ref{cor.ent.gcd.uniprop-mula}.] Let $m\in\mathbb{Z}$.
+Then, we have the following chain of equivalences:%
+\begin{align*}
+& \ \left(  m\mid b_{1}\text{ and }m\mid b_{2}\text{ and }\cdots\text{ and
+}m\mid b_{k}\right)  \\
+& \Longleftrightarrow\ \left(  m\mid b_{i}\text{ for all }i\in\left\{
+1,2,\ldots,k\right\}  \right)  \\
+& \Longleftrightarrow\ \left(  m\mid\gcd\left(  b_{1},b_{2},\ldots
+,b_{k}\right)  \right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Theorem
+\ref{thm.ent.gcd.uniprop-mul} \textbf{(a)}}\right)  .
+\end{align*}
+This proves Corollary \ref{cor.ent.gcd.uniprop-mula}.
+\end{proof}
+
 \begin{theorem}
 \label{thm.ent.gcd.split}Let $b_{1},b_{2},\ldots,b_{k}$ be integers, and let
 $c_{1},c_{2},\ldots,c_{\ell}$ be integers. Then,%
 \begin{align*}
-&  \gcd\left(  b_{1},b_{2},\ldots,b_{k},c_{1},c_{2},\ldots,c_{\ell}\right) \\
+&  \gcd\left(  b_{1},b_{2},\ldots,b_{k},c_{1},c_{2},\ldots,c_{\ell}\right)  \\
 &  =\gcd\left(  \gcd\left(  b_{1},b_{2},\ldots,b_{k}\right)  ,\gcd\left(
 c_{1},c_{2},\ldots,c_{\ell}\right)  \right)  .
 \end{align*}
@@ -5481,23 +5513,26 @@ Lemma \ref{lem.ent.gcd.yoneda} is a simple case of what is known in category
 theory as the \textit{Yoneda lemma}.
 
 \begin{proof}
-[Proof of Theorem \ref{thm.ent.gcd.split}.]Let $m\in\mathbb{Z}$. Theorem
-\ref{thm.ent.gcd.uniprop-mul} \textbf{(a)} (applied to $k+\ell$ and
-\newline$\left(  b_{1},b_{2},\ldots,b_{k},c_{1},c_{2},\ldots,c_{\ell}\right)
-$ instead of $k$ and $\left(  b_{1},b_{2},\ldots,b_{k}\right)  $) shows that
-we have the following equivalence:%
+[Proof of Theorem \ref{thm.ent.gcd.split}.]Let $m\in\mathbb{Z}$. Corollary
+\ref{cor.ent.gcd.uniprop-mula} (applied to $k+\ell$ and \newline$\left(
+b_{1},b_{2},\ldots,b_{k},c_{1},c_{2},\ldots,c_{\ell}\right)  $ instead of $k$
+and $\left(  b_{1},b_{2},\ldots,b_{k}\right)  $) shows that we have the
+following equivalence:%
 \begin{align*}
-&  \ \left(  \left(  m\mid b_{i}\text{ for all }i\in\left\{  1,2,\ldots
-,k\right\}  \right)  \text{ and }\left(  m\mid c_{i}\text{ for all }%
-i\in\left\{  1,2,\ldots,\ell\right\}  \right)  \right) \\
+&  \ \left(  m\mid b_{1}\text{ and }m\mid b_{2}\text{ and }\cdots\text{ and
+}m\mid b_{k}\text{ and }m\mid c_{1}\text{ and }m\mid c_{2}\text{ and }%
+\cdots\text{ and }m\mid c_{\ell}\right)  \\
 &  \Longleftrightarrow\ \left(  m\mid\gcd\left(  b_{1},b_{2},\ldots
 ,b_{k},c_{1},c_{2},\ldots,c_{\ell}\right)  \right)  .
 \end{align*}
 Hence, we have the following chain of equivalences:%
 \begin{align*}
 &  \ \left(  m\mid\gcd\left(  b_{1},b_{2},\ldots,b_{k},c_{1},c_{2}%
-,\ldots,c_{\ell}\right)  \right) \\
-&  \Longleftrightarrow\ \left(  \underbrace{\left(  m\mid b_{i}\text{ for all
+,\ldots,c_{\ell}\right)  \right)  \\
+\Longleftrightarrow\  &  \left(  m\mid b_{1}\text{ and }m\mid b_{2}\text{ and
+}\cdots\text{ and }m\mid b_{k}\text{ and }m\mid c_{1}\text{ and }m\mid
+c_{2}\text{ and }\cdots\text{ and }m\mid c_{\ell}\right)  \\
+\Longleftrightarrow\  &  \left(  \underbrace{\left(  m\mid b_{i}\text{ for all
 }i\in\left\{  1,2,\ldots,k\right\}  \right)  }_{\substack{\Longleftrightarrow
 \ \left(  m\mid\gcd\left(  b_{1},b_{2},\ldots,b_{k}\right)  \right)
 \\\text{(by Theorem \ref{thm.ent.gcd.uniprop-mul} \textbf{(a)})}}}\text{ and
@@ -5506,13 +5541,13 @@ Hence, we have the following chain of equivalences:%
 \gcd\left(  c_{1},c_{2},\ldots,c_{\ell}\right)  \right)  \\\text{(by Theorem
 \ref{thm.ent.gcd.uniprop-mul} \textbf{(a)},}\\\text{applied to }\ell\text{ and
 }\left(  c_{1},c_{2},\ldots,c_{\ell}\right)  \\\text{instead of }k\text{ and
-}\left(  b_{1},b_{2},\ldots,b_{k}\right)  \text{)}}}\right) \\
-&  \Longleftrightarrow\ \left(  m\mid\gcd\left(  b_{1},b_{2},\ldots
+}\left(  b_{1},b_{2},\ldots,b_{k}\right)  \text{)}}}\right)  \\
+\Longleftrightarrow\  &  \left(  m\mid\gcd\left(  b_{1},b_{2},\ldots
 ,b_{k}\right)  \text{ and }m\mid\gcd\left(  c_{1},c_{2},\ldots,c_{\ell
-}\right)  \right) \\
-&  \Longleftrightarrow\ \left(  m\mid\gcd\left(  \gcd\left(  b_{1}%
+}\right)  \right)  \\
+\Longleftrightarrow\  &  \left(  m\mid\gcd\left(  \gcd\left(  b_{1}%
 ,b_{2},\ldots,b_{k}\right)  ,\gcd\left(  c_{1},c_{2},\ldots,c_{\ell}\right)
-\right)  \right) \\
+\right)  \right)  \\
 &  \ \ \ \ \ \ \ \ \ \ \left(
 \begin{array}
 [c]{c}%
@@ -6615,9 +6650,9 @@ other words, $ab\mid bc$. Finally, Proposition \ref{prop.ent.div.2}
 $ab\mid cc$ (since $a\mid c$ and $b\mid c$).
 
 Now, we have $\left(  ab\mid ac\text{ and }ab\mid bc\text{ and }ab\mid
-cc\right)  $. But Theorem \ref{thm.ent.gcd.uniprop-mul} \textbf{(a)} (applied
-to $k=3$, $\left(  b_{1},b_{2},\ldots,b_{k}\right)  =\left(  ac,bc,cc\right)
-$ and $m=ab$) yields that we have the following logical equivalence:%
+cc\right)  $. But Corollary \ref{cor.ent.gcd.uniprop-mula} (applied to $k=3$,
+$\left(  b_{1},b_{2},\ldots,b_{k}\right)  =\left(  ac,bc,cc\right)  $ and
+$m=ab$) yields that we have the following logical equivalence:%
 \[
 \left(  ab\mid ac\text{ and }ab\mid bc\text{ and }ab\mid cc\right)
 \ \Longleftrightarrow\ \left(  ab\mid\gcd\left(  ac,bc,cc\right)  \right)  .
@@ -14349,13 +14384,13 @@ _{mn}\right)  .
 \]
 But this is true, since
 \begin{align*}
-\pi_{mn,m}\left(  \alpha\beta\right)    & =\pi_{mn,m}\left(  \alpha\right)
+\pi_{mn,m}\left(  \alpha\beta\right)   &  =\pi_{mn,m}\left(  \alpha\right)
 \cdot\underbrace{\pi_{mn,m}\left(  \beta\right)  }_{=\gamma}%
-\ \ \ \ \ \ \ \ \ \ \left(  \text{by Claim 0}\right)  \\
-& =\pi_{mn,m}\left(  \alpha\right)  \cdot\gamma=\left[  1\right]
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by Claim 0}\right) \\
+&  =\pi_{mn,m}\left(  \alpha\right)  \cdot\gamma=\left[  1\right]
 _{m}\ \ \ \ \ \ \ \ \ \ \left(  \text{since }\gamma\text{ is an inverse of
-}\pi_{mn,m}\left(  \alpha\right)  \right)  \\
-& =\pi_{mn,m}\left(  \left[  1\right]  _{mn}\right)
+}\pi_{mn,m}\left(  \alpha\right)  \right) \\
+&  =\pi_{mn,m}\left(  \left[  1\right]  _{mn}\right)
 \end{align*}
 and similarly $\pi_{mn,n}\left(  \alpha\beta\right)  =\pi_{mn,n}\left(
 \left[  1\right]  _{mn}\right)  $. So Claim 2 is proven.]
@@ -14391,46 +14426,46 @@ positive integers, then $\phi\left(  n_{1}n_{2}\cdots n_{k}\right)
 \end{corollary}
 
 \begin{proof}
-[Proof of Corollary \ref{cor.ent.phi.multk}.] Induction on $k$. The base case
+[Proof of Corollary \ref{cor.ent.phi.multk}.]Induction on $k$. The base case
 ($k=0$) uses $\phi\left(  1\right)  =1$. The induction step relies on Theorem
 \ref{thm.ent.phi.mult} and the observation that $n_{1}n_{2}\cdots n_{k-1}\perp
 n_{k}$.
 \end{proof}
 
 \begin{proof}
-[Proof of Theorem \ref{thm.ent.phi.explicit}.] The canonical factorization of
+[Proof of Theorem \ref{thm.ent.phi.explicit}.]The canonical factorization of
 $n$ yields%
 \begin{align*}
-n  & =\prod_{p\text{ prime}}p^{v_{p}\left(  n\right)  }=\left(  \prod
-_{\substack{p\text{ prime;}\\p\mid n}}p^{v_{p}\left(  n\right)  }\right)
+n  &  =\prod_{p\text{ prime}}p^{v_{p}\left(  n\right)  }=\left(
+\prod_{\substack{p\text{ prime;}\\p\mid n}}p^{v_{p}\left(  n\right)  }\right)
 \cdot\left(  \prod_{\substack{p\text{ prime;}\\p\nmid n}}\underbrace{p^{v_{p}%
-\left(  n\right)  }}_{=p^{0}=1}\right)  \\
-& =\prod_{\substack{p\text{ prime;}\\p\mid n}}p^{v_{p}\left(  n\right)  }.
+\left(  n\right)  }}_{=p^{0}=1}\right) \\
+&  =\prod_{\substack{p\text{ prime;}\\p\mid n}}p^{v_{p}\left(  n\right)  }.
 \end{align*}
 The factors $p^{v_{p}\left(  n\right)  }$ for different primes $p$ are
 mutually coprime (e.g., by Exercise \ref{exe.ent.coprime.powers}, since
 different primes are coprime). Thus, Corollary \ref{cor.ent.phi.multk} yields%
 \begin{align*}
 \phi\left(  \prod_{\substack{p\text{ prime;}\\p\mid n}}p^{v_{p}\left(
-n\right)  }\right)    & =\prod_{\substack{p\text{ prime;}\\p\mid
+n\right)  }\right)   &  =\prod_{\substack{p\text{ prime;}\\p\mid
 n}}\underbrace{\phi\left(  p^{v_{p}\left(  n\right)  }\right)  }%
 _{\substack{=\left(  p-1\right)  p^{v_{p}\left(  n\right)  -1}\\\text{(by
 Exercise \ref{exe.ent.phi.pk},}\\\text{since }v_{p}\left(  n\right)  \text{ is
 a positive integer)}}}\\
-& =\prod_{\substack{p\text{ prime;}\\p\mid n}}\left(  \left(  p-1\right)
+&  =\prod_{\substack{p\text{ prime;}\\p\mid n}}\left(  \left(  p-1\right)
 p^{v_{p}\left(  n\right)  -1}\right)  .
 \end{align*}
 In view of $n=\prod_{\substack{p\text{ prime;}\\p\mid n}}p^{v_{p}\left(
 n\right)  }$, this rewrites as%
 \begin{align*}
-\phi\left(  n\right)    & =\prod_{\substack{p\text{ prime;}\\p\mid
+\phi\left(  n\right)   &  =\prod_{\substack{p\text{ prime;}\\p\mid
 n}}\underbrace{\left(  \left(  p-1\right)  p^{v_{p}\left(  n\right)
 -1}\right)  }_{\substack{=p^{v_{p}\left(  n\right)  }-p^{v_{p}\left(
 n\right)  -1}\\=p^{v_{p}\left(  n\right)  }-p^{v_{p}\left(  n\right)
 }/p\\=p^{v_{p}\left(  n\right)  }\left(  1-\dfrac{1}{p}\right)  }%
 }=\prod_{\substack{p\text{ prime;}\\p\mid n}}\left(  p^{v_{p}\left(  n\right)
-}\left(  1-\dfrac{1}{p}\right)  \right)  \\
-& =\underbrace{\left(  \prod_{\substack{p\text{ prime;}\\p\mid n}%
+}\left(  1-\dfrac{1}{p}\right)  \right) \\
+&  =\underbrace{\left(  \prod_{\substack{p\text{ prime;}\\p\mid n}%
 }p^{v_{p}\left(  n\right)  }\right)  }_{=n}\cdot\prod_{\substack{p\text{
 prime;}\\p\mid n}}\left(  1-\dfrac{1}{p}\right)  =n\cdot\prod
 _{\substack{p\text{ prime;}\\p\mid n}}\left(  1-\dfrac{1}{p}\right)  .
@@ -14527,7 +14562,7 @@ $, the RSA lemma (applied to $N=ed$) yields $x^{ed}=x$. Thus, $y^{d}=x^{ed}%
 =x$, so Albert recovers the message.
 
 \begin{proof}
-[Proof of the RSA lemma.] We need to show that $pq\mid a^{N}-a$. Since $p\perp
+[Proof of the RSA lemma.]We need to show that $pq\mid a^{N}-a$. Since $p\perp
 q$, it suffices to prove that $p\mid a^{N}-a$ and $q\mid a^{N}-a$.
 
 Let us prove that $p\mid a^{N}-a$ first. Two cases are possible:
@@ -14550,10 +14585,10 @@ $N-1=c\left(  p-1\right)  $ for some integer $c$. This $c$ belongs to
 $\mathbb{N}$ (since $N-1$ and $p-1$ are nonnegative). So we have $a^{c\left(
 p-1\right)  }\equiv1\operatorname{mod}p$. But
 \begin{align*}
-a^{N}  & =aa^{N-1}=a\underbrace{a^{c\left(  p-1\right)  }}_{\equiv
+a^{N}  &  =aa^{N-1}=a\underbrace{a^{c\left(  p-1\right)  }}_{\equiv
 1\operatorname{mod}p}\ \ \ \ \ \ \ \ \ \ \left(  \text{since }N-1=c\left(
-p-1\right)  \right)  \\
-& \equiv a1=a\operatorname{mod}p.
+p-1\right)  \right) \\
+&  \equiv a1=a\operatorname{mod}p.
 \end{align*}
 In other words, $p\mid a^{N}-a$.
 
