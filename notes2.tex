@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Friday, March 01, 2019 09:55:37}
+%TCIDATA{LastRevised=Friday, March 01, 2019 12:04:58}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -14734,33 +14734,84 @@ e.g., for factoring integer polynomials.
 \textbf{2019-03-01 lecture}
 \end{center}
 
-\subsection{Primitive roots (introduction)}
+\subsection{Primitive roots (preview?)}
 
 \begin{definition}
-Let $n$ be a positive integer. A residue class $\alpha\in\mathbb{Z}/n$ is said
-to be a \textbf{primitive root} modulo $n$ if any invertible residue class
-$\beta\in\mathbb{Z}/n$ is a power of $\alpha$.
-\end{definition}
+Let $n$ be a positive integer. An invertible residue class $\alpha
+\in\mathbb{Z}/n$ is said to be a \textbf{primitive root} modulo $n$ if every
+invertible residue class $\beta\in\mathbb{Z}/n$ is a power of $\alpha$.
 
 (\textquotedblleft Invertible\textquotedblright\ means \textquotedblleft has
-an inverse\textquotedblright. \textquotedblleft Power\textquotedblright\ means
-$\beta^{m}$ for some $m\in\mathbb{N}$.)
+an inverse\textquotedblright. \textquotedblleft Power of $\alpha
+$\textquotedblright\ means $\alpha^{m}$ for some $m\in\mathbb{N}$.)
+\end{definition}
+
+\begin{example}
+Let $n=9$. The invertible residue classes in $\mathbb{Z}/9$ are $\left[
+1\right]  _{9},\left[  2\right]  _{9},\left[  4\right]  _{9},\left[  5\right]
+_{9},\left[  7\right]  _{9},\left[  8\right]  _{9}$.
+
+Clearly, $\left[  1\right]  _{9}$ is not a primitive root modulo $9$, since
+all its powers equal $\left[  1\right]  _{9}$.
+
+The powers of $\left[  2\right]  _{9}$ are
+\begin{align*}
+\left(  \left[  2\right]  _{9}\right)  ^{0}  &  =\left[  1\right]  _{9},\\
+\left(  \left[  2\right]  _{9}\right)  ^{1}  &  =\left[  2\right]  _{9},\\
+\left(  \left[  2\right]  _{9}\right)  ^{2}  &  =\left[  4\right]  _{9},\\
+\left(  \left[  2\right]  _{9}\right)  ^{3}  &  =\left[  8\right]  _{9},\\
+\left(  \left[  2\right]  _{9}\right)  ^{4}  &  =\left[  16\right]
+_{9}=\left[  7\right]  _{9},\\
+\left(  \left[  2\right]  _{9}\right)  ^{5}  &  =\left[  2\cdot7\right]
+_{9}=\left[  14\right]  _{9}=\left[  5\right]  _{9},\\
+&  \ldots.
+\end{align*}
+So all six invertible classes are covered. Thus, $\left[  2\right]  _{9}$ is a
+primitive root modulo $9$.
+\end{example}
 
 Note that Euler's theorem yields that if $\beta$ is an invertible residue
 class in $\mathbb{Z}/n$, then $\beta^{\phi\left(  n\right)  }=\left[
-1\right]  _{n}$.
+1\right]  _{n}$. So such a $\beta$ has at most $\phi\left(  n\right)  $
+distinct powers. When $\beta$ has \textbf{exactly} $\phi\left(  n\right)  $
+distinct powers, it is a primitive root.
+
+\begin{example}
+What are the primitive roots modulo $8$ ?
+
+The invertible residue classes in $\mathbb{Z}/8$ are $\left[  1\right]
+_{8},\left[  3\right]  _{8},\left[  5\right]  _{8},\left[  7\right]  _{8}$.
+
+Again, $\left[  1\right]  _{8}$ is certainly not a primitive root.
+
+The powers of $\left[  3\right]  _{8}$ are
+\begin{align*}
+\left(  \left[  3\right]  _{8}\right)  ^{0}  &  =\left[  1\right]  _{8},\\
+\left(  \left[  3\right]  _{8}\right)  ^{1}  &  =\left[  3\right]  _{8},\\
+\left(  \left[  3\right]  _{8}\right)  ^{2}  &  =\left[  9\right]
+_{8}=\left[  1\right]  _{8},\\
+&  \ldots
+\end{align*}
+(so the even powers are $\left[  1\right]  _{8}$ and the odd powers are
+$\left[  3\right]  _{8}$). So $\left[  3\right]  _{8}$ is not a primitive root.
+
+The same behavior prevents $\left[  5\right]  _{8}$ and $\left[  7\right]
+_{8}$ from being primitive roots.
+
+So there are no primitive roots modulo $8$.
+\end{example}
 
 \begin{theorem}
 (Gauss) Let $n$ be a positive integer.
 
-A primitive root modulo $n$ exists if and only if $n$ is
+\textbf{(a)} A primitive root modulo $n$ exists if and only if $n$ is
 
 \begin{itemize}
 \item either $1$,
 
 \item or a prime $p$,
 
-\item or a power $p^{k}$ of an odd prime $p$ (remember: odd primes are just
+\item or a power $p^{k}$ of an odd prime $p$ (recall: odd primes are just
 primes $\neq2$),
 
 \item or $4$,
@@ -14768,60 +14819,57 @@ primes $\neq2$),
 \item or $2p^{k}$ for an odd prime $p$.
 \end{itemize}
 
-If a primitive root modulo $n$ exists, then there are precisely $\phi\left(
-\phi\left(  n\right)  \right)  $ of them.
+\textbf{(b)} If a primitive root modulo $n$ exists, then there are precisely
+$\phi\left(  \phi\left(  n\right)  \right)  $ many of them.
 \end{theorem}
 
-This would be fairly hard to prove at this point, but will be doable with some
-abstract algebra (at least the case $n=p$). See Chapter 4 of [Gallier-RSA].
-
-\begin{example}
-Let $n=9$. Find a primitive root modulo $9$.
-
-Note: The invertible residue classes are $\left[  1\right]  _{9},\left[
-2\right]  _{9},\left[  4\right]  _{9},\left[  5\right]  _{9},\left[  7\right]
-_{9},\left[  8\right]  _{9}$.
-
-The powers of $\left[  2\right]  _{9}$ are $\left[  1\right]  _{9},\left[
-2\right]  _{9},\left[  4\right]  _{9},\left[  8\right]  _{9},\left[  7\right]
-_{9},\left[  5\right]  _{9}$, which are all the $6$ invertible residue
-classes. So $\left[  2\right]  _{9}$ is a primitive root modulo $9$.
-\end{example}
+This would be fairly difficult to prove at this point, but will be doable with
+some abstract algebra (at least in the case $n=p$). See Chapter 4 of [Gallier-RSA].
 
 \section{Complex numbers and Gaussian integers}
 
-\subsection{Complex numbers}
+\subsubsection{Complex numbers}
 
-The \textquotedblleft idea\textquotedblright\ behind complex numbers: Let's
-extend real numbers by a mystical $\sqrt{-1}$. So let us just pretend that
-$-1$ has a square root. Denote this square root by $i$. So $i$ is some sort of
-new weird number such that $i^{2}=-1$.
+First, let me recall the idea behind complex numbers unrigorously. Let us
+extend the real numbers by a mystical \textquotedblleft$\sqrt{-1}%
+$\textquotedblright. So let us just pretend that $-1$ has a square root that
+behaves (in some ways) like a normal number would. Denote this square root by
+$i$. So $i$ is some sort of weird new number such that $i^{2}=-1$.
 
-Now, we get a bunch of new numbers: $a+bi+ci^{2}+\cdots$ for reals
-$a,b,c,\ldots$. But $ci^{2}=-c$, and similarly $di^{3}=-di$ and so on. So
-really all our new numbers have the form $a+bi$ for reals $a,b$.
+Now, we get a bunch of new numbers from $i$ by applying addition, subtraction
+and multiplication. They all have the form $a+bi+ci^{2}+di^{3}+\cdots$ (that
+is, polynomials in $i$) for some reals $a,b,c,d,\ldots$. However, this form
+can be reduced to the form $a^{\prime}+b^{\prime}i$ because $i^{2}=-1$,
+$i^{3}=i\underbrace{i^{2}}_{=-1}=-i$ and so on. So all our new numbers have
+the form $a+bi$ for two reals $a$ and $b$.
 
-Operations:%
+If we pretend that the standard rules of arithmetic still hold for our new
+numbers, then we get%
 \begin{align*}
-\left(  a+bi\right)  +\left(  c+di\right)    & =\left(  a+c\right)  +\left(
+\left(  a+bi\right)  +\left(  c+di\right)   &  =\left(  a+c\right)  +\left(
 b+d\right)  i,\\
-\left(  a+bi\right)  -\left(  c+di\right)    & =\left(  a-c\right)  +\left(
+\left(  a+bi\right)  -\left(  c+di\right)   &  =\left(  a-c\right)  +\left(
 b-d\right)  i,\\
-\left(  a+bi\right)  \left(  c+di\right)    & =ac+adi+bci+bd\underbrace{i^{2}%
+\left(  a+bi\right)  \left(  c+di\right)   &  =ac+adi+bci+bd\underbrace{i^{2}%
 }_{=-1}\\
-& =\left(  ac-bd\right)  +\left(  ad+bc\right)  i.\\
-\dfrac{a+bi}{c+di}  & =\dfrac{\left(  a+bi\right)  \left(  c-di\right)
+&  =ac+adi+bci-bd\\
+&  =\left(  ac-bd\right)  +\left(  ad+bc\right)  i,\\
+\dfrac{a+bi}{c+di}  &  =\dfrac{\left(  a+bi\right)  \left(  c-di\right)
 }{\left(  c+di\right)  \left(  c-di\right)  }=\dfrac{\left(  ac+bd\right)
-+\left(  bc-ad\right)  i}{c^{2}+d^{2}}%
++\left(  bc-ad\right)  i}{c^{2}+d^{2}}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{if }c,d\text{ are not both }0\right)
 \end{align*}
-(compare the latter formula with the standard procedure for rationalizing
-denominators: $\dfrac{a+b\sqrt{2}}{c+d\sqrt{2}}=\dfrac{\left(  a+b\sqrt
-{2}\right)  \left(  c-d\sqrt{2}\right)  }{\left(  c+d\sqrt{2}\right)  \left(
-c-d\sqrt{2}\right)  }=\dfrac{\left(  ac-2bd\right)  +\left(  bc+ad\right)
-\sqrt{2}}{c^{2}-2d^{2}}$).
+(note that the latter formula is an analogue of the standard procedure for
+rationalizing denominators:%
+\[
+\dfrac{a+\sqrt{2}}{c+d\sqrt{2}}=\dfrac{\left(  a+b\sqrt{2}\right)  \left(
+c-d\sqrt{2}\right)  }{\left(  c+d\sqrt{2}\right)  \left(  c-d\sqrt{2}\right)
+}=\dfrac{\left(  ac-2bd\right)  +\left(  bc-ad\right)  \sqrt{2}}{c^{2}-2d^{2}}%
+\]
+except that now our square root is $\sqrt{-1}=i$).
 
-However, not everything works. We cannot do inequalities with these new
-numbers. Indeed, assuming that we can, we would have:
+However, not everything works. Inequalities do not make sense for these new
+numbers. Indeed, if they would make sense, then we would have:
 
 \begin{itemize}
 \item if $i\geq0$, then $i^{2}\geq0$, contradicting $i^{2}=-1<0$.
@@ -14830,32 +14878,34 @@ numbers. Indeed, assuming that we can, we would have:
 $i^{2}=-1<0$.
 \end{itemize}
 
-So we still have the operations $+,-,\cdot$ but we lose the relations
-$<,\leq,>,\geq$.
+So our weird new numbers have the operations $+,-,\cdot,/$ but not the
+relations $<,\leq,>,\geq$.
 
 But why does this all work? Why don't we run into contradictions just using
 the operations $+,-,\cdot$ alone?
 
-So let us give a formal definition of complex numbers:
+So let us forget this motivation and instead give a formal definition of
+complex numbers:
 
 \begin{definition}
 A \textbf{complex number} is a pair $\left(  a,b\right)  $ of two real numbers.
 
 We let $\mathbb{C}$ be the set of all complex numbers.
 
-We let $i_{\mathbb{C}}$ (or just $i$) be the complex number $\left(
-0,1\right)  $. (Some call it $j$ or $\iota$ or just $\sqrt{-1}$.)
-
-Define operations $+,-,\cdot$ on $\mathbb{C}$ as follows:%
-\begin{align*}
-\left(  a,b\right)  +\left(  c,d\right)    & =\left(  a+c,b+d\right)  ,\\
-\left(  a,b\right)  -\left(  c,d\right)    & =\left(  a-c,b-d\right)  ,\\
-\left(  a,b\right)  \left(  c,d\right)    & =\left(  ac-bd,ad+bc\right)  .
-\end{align*}
-
-
 For each real number $r$, we denote the complex number $\left(  r,0\right)  $
 by $r_{\mathbb{C}}$.
+
+We let $i$ be the complex number $\left(  0,1\right)  $. When the notation $i$
+is ambiguous, I will be using $i_{\mathbb{C}}$ instead. (Some authors call it
+$j$ or $\iota$ or just $\sqrt{-1}$.)
+
+Define three binary operations $+,-,\cdot$ on $\mathbb{C}$ as follows:%
+\begin{align*}
+\left(  a,b\right)  +\left(  c,d\right)   &  =\left(  a+c,b+d\right)  ,\\
+\left(  a,b\right)  -\left(  c,d\right)   &  =\left(  a-c,b-d\right)  ,\\
+\left(  a,b\right)  \left(  c,d\right)   &  =\left(  ac-bd,ad+bc\right)  .
+\end{align*}
+
 \end{definition}
 
 For example,%
@@ -14864,7 +14914,9 @@ ii=\left(  0,1\right)  \left(  0,1\right)  =\left(  0\cdot0-1\cdot
 1,0\cdot1+1\cdot0\right)  =\left(  -1,0\right)  =\left(  -1\right)
 _{\mathbb{C}}.
 \]
-
+So $i$ \textquotedblleft acts as a square root of $-1$\textquotedblright. But
+we also have $\left(  -i\right)  \left(  -i\right)  =\left(  -1\right)
+_{\mathbb{C}}$, so $-i$ fits the same bill.
 
 \begin{theorem}
 \label{thm.CC.CC.rules}The following rules for addition, subtraction and
@@ -14898,54 +14950,44 @@ equivalence $\left(  \alpha-\beta=\gamma\right)  \Longleftrightarrow\left(
 \end{theorem}
 
 \begin{proof}
-All parts are straightforward. I will only prove \textbf{(f)}, since this is
-the hardest part.
+All parts are straightforward. I will only prove \textbf{(f)}, since it is the
+hardest part.
 
 \textbf{(f)} Let $\alpha,\beta,\gamma\in\mathbb{C}$. Write $\alpha
 ,\beta,\gamma$ as $\alpha=\left(  a,a^{\prime}\right)  $ and $\beta=\left(
-b,b^{\prime}\right)  $ and $\gamma=\left(  c,c^{\prime}\right)  $. Now,%
+b,b^{\prime}\right)  $ and $\gamma=\left(  c,c^{\prime}\right)  $. Thus,%
 \begin{align*}
-\alpha\cdot\left(  \beta\cdot\gamma\right)    & =\left(  a,a^{\prime}\right)
+\alpha\cdot\left(  \beta\cdot\gamma\right)   &  =\left(  a,a^{\prime}\right)
 \cdot\underbrace{\left(  \left(  b,b^{\prime}\right)  \cdot\left(
 c,c^{\prime}\right)  \right)  }_{=\left(  bc-b^{\prime}c^{\prime},bc^{\prime
-}+cb^{\prime}\right)  }\\
-& =\left(  a,a^{\prime}\right)  \cdot\left(  bc-b^{\prime}c^{\prime
-},bc^{\prime}+cb^{\prime}\right)  \\
-& =\left(  a\left(  bc-b^{\prime}c^{\prime}\right)  -a^{\prime}\left(
-bc^{\prime}+cb^{\prime}\right)  ,a\left(  bc^{\prime}+cb^{\prime}\right)
-+a^{\prime}\left(  bc-b^{\prime}c^{\prime}\right)  \right)
+}+b^{\prime}c\right)  }\\
+&  =\left(  a,a^{\prime}\right)  \cdot\left(  bc-b^{\prime}c^{\prime
+},bc^{\prime}+b^{\prime}c\right) \\
+&  =\left(  a\left(  bc-b^{\prime}c^{\prime}\right)  -a^{\prime}\left(
+bc^{\prime}+b^{\prime}c\right)  ,a\left(  bc^{\prime}+b^{\prime}c\right)
++a^{\prime}\left(  bc-b^{\prime}c^{\prime}\right)  \right) \\
+&  =\left(  abc-ab^{\prime}c^{\prime}-a^{\prime}bc^{\prime}-a^{\prime
+}b^{\prime}c,abc^{\prime}+ab^{\prime}c+a^{\prime}bc-a^{\prime}b^{\prime
+}c^{\prime}\right)
 \end{align*}
-and%
+\newline and%
 \begin{align*}
-\left(  \alpha\cdot\beta\right)  \cdot\gamma & =\underbrace{\left(  \left(
+\left(  \alpha\cdot\beta\right)  \cdot\gamma &  =\underbrace{\left(  \left(
 a,a^{\prime}\right)  \cdot\left(  b,b^{\prime}\right)  \right)  }_{=\left(
-ab-a^{\prime}b^{\prime},ab^{\prime}+ba^{\prime}\right)  }\cdot\left(
-c,c^{\prime}\right)  \\
-& =\left(  ab-a^{\prime}b^{\prime},ab^{\prime}+ba^{\prime}\right)
-\cdot\left(  c,c^{\prime}\right)  \\
-& =\left(  \left(  ab-a^{\prime}b^{\prime}\right)  c-\left(  ab^{\prime
-}+ba^{\prime}\right)  c^{\prime},\left(  ab^{\prime}+ba^{\prime}\right)
-c+\left(  ab-a^{\prime}b^{\prime}\right)  c^{\prime}\right)  .
+ab-a^{\prime}b^{\prime},ab^{\prime}+a^{\prime}b\right)  }\cdot\left(
+c,c^{\prime}\right) \\
+&  =\left(  ab-a^{\prime}b^{\prime},ab^{\prime}+a^{\prime}b\right)
+\cdot\left(  c,c^{\prime}\right) \\
+&  =\left(  \left(  ab-a^{\prime}b^{\prime}\right)  c-\left(  ab^{\prime
+}+a^{\prime}b\right)  c^{\prime},\left(  ab-a^{\prime}b^{\prime}\right)
+c^{\prime}+\left(  ab^{\prime}+a^{\prime}b\right)  c\right) \\
+&  =\left(  abc-ab^{\prime}c^{\prime}-a^{\prime}bc^{\prime}-a^{\prime
+}b^{\prime}c,abc^{\prime}+ab^{\prime}c+a^{\prime}bc-a^{\prime}b^{\prime
+}c^{\prime}\right)  .
 \end{align*}
-So it remains to prove%
-\begin{align*}
-& \left(  a\left(  bc-b^{\prime}c^{\prime}\right)  -a^{\prime}\left(
-bc^{\prime}+cb^{\prime}\right)  ,a\left(  bc^{\prime}+cb^{\prime}\right)
-+a^{\prime}\left(  bc-b^{\prime}c^{\prime}\right)  \right)  \\
-& =\left(  \left(  ab-a^{\prime}b^{\prime}\right)  c-\left(  ab^{\prime
-}+ba^{\prime}\right)  c^{\prime},\left(  ab^{\prime}+ba^{\prime}\right)
-c+\left(  ab-a^{\prime}b^{\prime}\right)  c^{\prime}\right)  .
-\end{align*}
-This is just a matter of straightforward expanding:%
-\begin{align*}
-& a\left(  bc-b^{\prime}c^{\prime}\right)  -a^{\prime}\left(  bc^{\prime
-}+cb^{\prime}\right)  \\
-& =\left(  ab-a^{\prime}b^{\prime}\right)  c-\left(  ab^{\prime}+ba^{\prime
-}\right)  c^{\prime}%
-\end{align*}
-since both sides are $\allowbreak abc-ba^{\prime}c^{\prime}-ca^{\prime
-}b^{\prime}-ab^{\prime}c^{\prime}$. Similarly for the second entries of the
-pairs. Thus, \textbf{(f)} is proven.
+Comparing these equalities, we see that $\alpha\cdot\left(  \beta\cdot
+\gamma\right)  =\left(  \alpha\cdot\beta\right)  \cdot\gamma$. So part
+\textbf{(f)} is proven.
 \end{proof}
 
 \begin{remark}
@@ -14962,71 +15004,80 @@ whenever $\alpha_{1},\alpha_{2},\ldots,\alpha_{k}\in\mathbb{C}$.
 \begin{theorem}
 For any real numbers $a$ and $b$, we have%
 \begin{align*}
-\underbrace{\left(  ab\right)  _{\mathbb{C}}}_{=\left(  ab,0\right)  }  &
-=\underbrace{a_{\mathbb{C}}}_{=\left(  a,0\right)  }\underbrace{b_{\mathbb{C}%
-}}_{=\left(  b,0\right)  }\ \ \ \ \ \ \ \ \ \ \text{and}\\
-\left(  a+b\right)  _{\mathbb{C}}  & =a_{\mathbb{C}}+b_{\mathbb{C}%
+\left(  a+b\right)  _{\mathbb{C}}  &  =a_{\mathbb{C}}+b_{\mathbb{C}%
 }\ \ \ \ \ \ \ \ \ \ \text{and}\\
-\left(  a-b\right)  _{\mathbb{C}}  & =a_{\mathbb{C}}-b_{\mathbb{C}}.
+\left(  a-b\right)  _{\mathbb{C}}  &  =a_{\mathbb{C}}-b_{\mathbb{C}%
+}\ \ \ \ \ \ \ \ \ \ \text{and}\\
+\left(  ab\right)  _{\mathbb{C}}  &  =a_{\mathbb{C}}b_{\mathbb{C}}.
 \end{align*}
 
 \end{theorem}
 
 \begin{proof}
-Easy verification.
+Easy verification. For example, the third equality follows from%
+\begin{align*}
+\underbrace{a_{\mathbb{C}}}_{=\left(  a,0\right)  }\underbrace{b_{\mathbb{C}}%
+}_{=\left(  b,0\right)  }  &  =\left(  a,0\right)  \left(  b,0\right)
+=\left(  ab-0\cdot0,a\cdot0+0\cdot b\right) \\
+&  =\left(  ab,0\right)  =\left(  ab\right)  _{\mathbb{C}}.
+\end{align*}
+
 \end{proof}
-
-\begin{convention}
-From now on, for each real number $r$, we shall identify the real number $r$
-with the complex number $r_{\mathbb{C}}$. This is legitimate, due to the
-previous theorem.
-\end{convention}
-
-So the complex numbers extend the real numbers: $\mathbb{R}\subseteq
-\mathbb{C}$.
 
 \begin{remark}
 If $a_{1},a_{2},\ldots,a_{k}$ are $k$ reals, then
 \begin{align*}
-\left(  a_{1}+a_{2}+\cdots+a_{k}\right)  _{\mathbb{C}} &  =\left(
-a_{1}\right)  _{\mathbb{C}}+\left(  a_{2}\right)  _{\mathbb{C}}+\cdots+\left(
-a_{k}\right)  _{\mathbb{C}}\ \ \ \ \ \ \ \ \ \ \text{and}\\
-\left(  a_{1}\cdot a_{2}\cdot\cdots\cdot a_{k}\right)  _{\mathbb{C}} &
-=\left(  a_{1}\right)  _{\mathbb{C}}\cdot\left(  a_{2}\right)  _{\mathbb{C}%
-}\cdot\cdots\cdot\left(  a_{k}\right)  _{\mathbb{C}}.
+\left(  a_{1}\right)  _{\mathbb{C}}+\left(  a_{2}\right)  _{\mathbb{C}}%
++\cdots+\left(  a_{k}\right)  _{_{\mathbb{C}}}  &  =\left(  a_{1}+a_{2}%
++\cdots+a_{k}\right)  _{\mathbb{C}}\ \ \ \ \ \ \ \ \ \ \text{and}\\
+\left(  a_{1}\right)  _{\mathbb{C}}\cdot\left(  a_{2}\right)  _{\mathbb{C}%
+}\cdot\cdots\cdot\left(  a_{k}\right)  _{_{\mathbb{C}}}  &  =\left(
+a_{1}a_{2}\cdots a_{k}\right)  _{\mathbb{C}}.
 \end{align*}
 This can be proven by a straightforward induction on $k$.
 \end{remark}
 
+\begin{convention}
+From now on, for each real number $r$, we shall identify the real number $r$
+with the complex number $r_{\mathbb{C}}=\left(  r,0\right)  $. This is
+legitimate, due to the previous theorem.
+\end{convention}
+
+Thus, the complex numbers extend the real numbers: $\mathbb{R}\subseteq
+\mathbb{C}$.
+
 \begin{definition}
 An \textbf{inverse} of a complex number $\alpha$ is a complex number $\beta$
 such that $\alpha\beta=1$. (Recall that $1=1_{\mathbb{C}}$ by the convention
-we just made.)
+that we just made.)
 \end{definition}
 
 \begin{theorem}
 Let $\alpha$ be a nonzero complex number. (\textquotedblleft
 Nonzero\textquotedblright\ means \textquotedblleft distinct from
-$0=0_{\mathbb{C}}=\left(  0,0\right)  $.) Then, $\alpha$ has a unique inverse.
+$0=0_{\mathbb{C}}=\left(  0,0\right)  $\textquotedblright.) Then, $\alpha$ has
+a unique inverse.
 \end{theorem}
 
 \begin{proof}
-\textit{Existence of the inverse:} Write $\alpha=\left(  c,d\right)  $ for two
-real numbers $c$ and $d$. Then, $c^{2}+d^{2}>0$ (since $\left(  c,d\right)
-=\alpha\neq0=\left(  0,0\right)  $). Now, set $\beta=\left(  \dfrac{c}%
-{c^{2}+d^{2}},\dfrac{-d}{c^{2}+d^{2}}\right)  $. Then,%
+\textit{Existence of the inverse:} Write $\alpha$ as $\alpha=\left(
+c,d\right)  $ for two real numbers $c$ and $d$. Then, $c^{2}+d^{2}>0$ (since
+$\left(  c,d\right)  =\alpha\neq0=\left(  0,0\right)  $). Now, set%
+\[
+\beta=\left(  \dfrac{c}{c^{2}+d^{2}},\dfrac{-d}{c^{2}+d^{2}}\right)  .
+\]
+Then,%
 \begin{align*}
-\alpha\beta & =\left(  c,d\right)  \left(  \dfrac{c}{c^{2}+d^{2}},\dfrac
+\alpha\beta &  =\left(  c,d\right)  \left(  \dfrac{c}{c^{2}+d^{2}},\dfrac
 {-d}{c^{2}+d^{2}}\right)  \\
-& =\left(  c\cdot\dfrac{c}{c^{2}+d^{2}}-d\cdot\dfrac{-d}{c^{2}+d^{2}}%
+&  =\left(  c\cdot\dfrac{c}{c^{2}+d^{2}}-d\cdot\dfrac{-d}{c^{2}+d^{2}}%
 ,c\cdot\dfrac{-d}{c^{2}+d^{2}}+d\cdot\dfrac{c}{c^{2}+d^{2}}\right)  \\
-& =\left(  1,0\right)  =1_{\mathbb{C}}.
+&  =\left(  1,0\right)  =1_{\mathbb{C}}.
 \end{align*}
-So $\beta$ is an inverse to $\alpha$.
+So $\beta$ is an inverse of $\alpha$.
 
 \textit{Uniqueness of the inverse:} We proved the uniqueness of an inverse of
-an invertible element of $\mathbb{Z}/n$. The very same argument applies to
-complex numbers.
+an invertible element in $\mathbb{Z}/n$. The same argument applies to complex numbers.
 \end{proof}
 
 \begin{definition}
@@ -15038,10 +15089,17 @@ $\beta\neq0$. Then, the quotient $\dfrac{\alpha}{\beta}$ (also known as
 $\alpha/\beta$) is defined as $\alpha\cdot\beta^{-1}$.
 \end{definition}
 
-It is easy to see that division undoes multiplication: For three complex
-numbers $\alpha,\beta,\gamma$ with $\beta\neq0$, we have the equivalence
-$\left(  \gamma=\dfrac{\alpha}{\beta}\right)  \Longleftrightarrow\left(
-\alpha=\beta\gamma\right)  $.
+It is easy to see that division undoes multiplication:
+
+\begin{proposition}
+Given three complex numbers $\alpha,\beta,\gamma$ with $\beta\neq0$. Then, we
+have the equivalence%
+\[
+\left(  \gamma=\dfrac{\alpha}{\beta}\right)  \Longleftrightarrow\left(
+\alpha=\beta\gamma\right)  .
+\]
+
+\end{proposition}
 
 \begin{definition}
 Let $\alpha\in\mathbb{C}$.
@@ -15053,39 +15111,48 @@ Let $\alpha\in\mathbb{C}$.
 \alpha^{-1}\right)  ^{-n}$ whenever $\alpha\neq0$.
 \end{definition}
 
-Note: Fractional powers (like $\alpha^{1/2}$) are not really well-defined.
+Caution: Fractional powers (like $\alpha^{1/2}$) are not really well-defined.
 
 The usual rules for exponents apply: e.g.,%
 \begin{align*}
 \left(  \alpha\beta\right)  ^{n}  & =\alpha^{n}\beta^{n}%
-,\ \ \ \ \ \ \ \ \ \ \alpha^{n+m}=\alpha^{n}\alpha^{m},\\
+,\ \ \ \ \ \ \ \ \ \ \alpha^{n+m}=\alpha^{n}\alpha^{m}%
+,\ \ \ \ \ \ \ \ \ \ \left(  \alpha^{n}\right)  ^{m}=\alpha^{nm},\\
 \left(  \alpha+\beta\right)  ^{n}  & =\sum_{k=0}^{n}\dbinom{n}{k}\alpha
-^{k}\beta^{n-k},\ \ \ \ \ \ \ \ \ \ \left(  \alpha^{n}\right)  ^{m}%
-=\alpha^{nm},
+^{k}\beta^{n-k}\ \ \ \ \ \ \ \ \ \ \text{for }n\in\mathbb{N}\text{.}%
 \end{align*}
-etc.
+
 
 \begin{definition}
-Let $\alpha=\left(  a,b\right)  $ be a complex number. Then, the \textbf{norm}
-$\operatorname*{N}\left(  \alpha\right)  $ of $\alpha$ is defined to be the
-real number $a^{2}+b^{2}\in\mathbb{R}$. Also, the \textbf{absolute value}
-$\left\vert \alpha\right\vert $ of $\alpha$ is defined to be the real number
-$\sqrt{a^{2}+b^{2}}=\sqrt{\operatorname*{N}\left(  \alpha\right)  }%
-\in\mathbb{R}$.
+Let $\alpha=\left(  a,b\right)  $ be a complex number.
+
+\textbf{(a)} The \textbf{norm} of $\alpha$ is defined to be the real number
+$a^{2}+b^{2}\in\mathbb{R}$. This norm is called $\operatorname*{N}\left(
+\alpha\right)  $. Note that $\operatorname*{N}\left(  \alpha\right)  \geq0$,
+and equality holds only when $\alpha=0$.
+
+\textbf{(b)} The \textbf{absolute value} (or \textbf{modulus} or
+\textbf{length}) of $\alpha$ is defined to be $\sqrt{\operatorname*{N}\left(
+\alpha\right)  }=\sqrt{a^{2}+b^{2}}\in\mathbb{R}$. It is called $\left\vert
+\alpha\right\vert $.
 \end{definition}
 
 Note that $\left\vert a_{\mathbb{C}}\right\vert =\left\vert a\right\vert $ for
-each $a\in\mathbb{R}$.
+all $a\in\mathbb{R}$.
 
 \begin{definition}
-Let $\alpha=\left(  a,b\right)  \in\mathbb{C}$. The \textbf{conjugate}
-$\overline{\alpha}$ of $\alpha$ is defined as $\left(  a,-b\right)
-\in\mathbb{C}$.
+Let $\alpha=\left(  a,b\right)  \in\mathbb{C}$.
+
+The \textbf{conjugate} $\overline{\alpha}$ of $\alpha$ is defined as $\left(
+a,-b\right)  \in\mathbb{C}$.
 \end{definition}
+
+Note that $\alpha=\overline{\alpha}$ if and only if $\alpha\in\mathbb{R}$ (or,
+more formally: $\alpha=r_{\mathbb{C}}$ for some $r\in\mathbb{R}$).
 
 \begin{proposition}
 Let $\alpha\in\mathbb{C}$. Then, $\operatorname*{N}\left(  \alpha\right)
-=\alpha\overline{\alpha}$ (or, more formally, $\left(  \operatorname*{N}%
+=\alpha\overline{\alpha}$ (or, more formally: $\left(  \operatorname*{N}%
 \left(  \alpha\right)  \right)  _{\mathbb{C}}=\alpha\overline{\alpha}$).
 \end{proposition}
 
@@ -15103,10 +15170,15 @@ aa-b\left(  -b\right)  ,a\left(  -b\right)  +ba\right)  \\
 \end{proof}
 
 \begin{proposition}
-Let $\alpha$ and $\beta$ be two complex numbers. Then, $\operatorname*{N}%
-\left(  \alpha\beta\right)  =\operatorname*{N}\left(  \alpha\right)
-\cdot\operatorname*{N}\left(  \beta\right)  $.
+Let $\alpha$ and $\beta$ be two complex numbers. Then,%
+\[
+\operatorname*{N}\left(  \alpha\beta\right)  =\operatorname*{N}\left(
+\alpha\right)  \cdot\operatorname*{N}\left(  \beta\right)  .
+\]
+
 \end{proposition}
+
+General reference for complex numbers: [LaNaSc]
 
 
 \end{document}
