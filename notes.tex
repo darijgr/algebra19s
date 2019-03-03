@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Saturday, March 02, 2019 19:36:30}
+%TCIDATA{LastRevised=Saturday, March 02, 2019 21:54:32}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -224,7 +224,7 @@ the word ``example'': We will prove a lot about them, much of which is neither
 straightforward nor easy.)
 
 First, I will show some motivating questions that are easy to state yet
-require abstract algebra to prove. We will hopefully see their answers by the
+require abstract algebra to answer. We will hopefully see their answers by the
 end of this class. (Some of them can also be answered elementarily, without
 using abstract algebra, but such answers usually take more work and are harder
 to find.)
@@ -264,23 +264,23 @@ of two perfect squares.
 We can of course approach Question~\ref{quest.intro.sum-of-2sq.1} using a
 computer: It is very easy to check, for a given integer $n$, whether $n$ is a
 sum of two perfect squares. (Just check all possibilities for $a$ and $b$ for
-the validity of the equation $n = a^{2} + b^{2}$. You only need to try $a$ and
-$b$ belonging to $\left\{  0, 1, \ldots, \left\lfloor \sqrt{n} \right\rfloor
-\right\}  $, where $\left\lfloor y \right\rfloor $ (for a real number $y$)
-denotes the smallest integer that is less or equal than $y$ (also known as
-``$y$ rounded down'').) If you do this, you will see that among the first
-$101$ nonnegative integers, the ones that can be written as sums of two
-perfect squares are precisely
+the validity of the equation $n=a^{2}+b^{2}$. You only need to try $a$ and $b$
+belonging to $\left\{  0,1,\ldots,\left\lfloor \sqrt{n}\right\rfloor \right\}
+$, where $\left\lfloor y\right\rfloor $ (for a real number $y$) denotes the
+largest integer that is less or equal than $y$ (also known as
+\textquotedblleft$y$ rounded down\textquotedblright).) If you do this, you
+will see that among the first $101$ nonnegative integers, the ones that can be
+written as sums of two perfect squares are precisely
 \begin{align*}
-&  0, 1, 2, 4, 5, 8, 9, 10, 13, 16, 17, 18, 20, 25, 26, 29,\\
-&  32, 34, 36, 37, 40, 41, 45, 49, 50, 52, 53, 58, 61, 64,\\
-&  65, 68, 72, 73, 74, 80, 81, 82, 85, 89, 90, 97, 98, 100 .
+&  0,1,2,4,5,8,9,10,13,16,17,18,20,25,26,29,\\
+&  32,34,36,37,40,41,45,49,50,52,53,58,61,64,\\
+&  65,68,72,73,74,80,81,82,85,89,90,97,98,100.
 \end{align*}
 Having this data, you can look up the sequence in \href{https://oeis.org/}{the
 Online Encyclopedia of Integer Sequences (short OEIS)}, and see that the
 sequence of these integers is known as \href{https://oeis.org/A001481}{OEIS
-Sequence A001481}. In the ``Comments'' field, you can read a lot of what is
-known about it (albeit in telegraphic style).
+Sequence A001481}. In the \textquotedblleft Comments\textquotedblright\ field,
+you can read a lot of what is known about it (albeit in telegraphic style).
 
 For example, one of the comments says ``Closed under multiplication''. This is
 short for ``if you multiply two entries of the sequence, then the product will
@@ -1630,7 +1630,7 @@ means something like \textquotedblleft with respect to\textquotedblright. You
 should think of \textquotedblleft$a$ is congruent to $b$ modulo $n$%
 \textquotedblright\ as a relation between all three of the numbers $a$, $b$
 and $n$, but $a$ and $b$ are the \textquotedblleft main
-characters\textquotedblright\ and $n$ sets the scenery.
+characters\textquotedblright\ and $n$ sets the scene.
 
 \begin{exercise}
 \label{exe.ent.mod.a+b=a-b}Let $a,b\in\mathbb{Z}$. Prove that $a+b\equiv
@@ -2100,6 +2100,44 @@ b_{1}b_{2}\operatorname{mod}n_{1}n_{2}$ ?
 [Solution to Exercise \ref{exe.ent.mod.prod-wrong}.]No, it is not true. For
 example, $a_{1}=1$, $a_{2}=1$, $b_{1}=1$, $b_{2}=0$, $n_{1}=0$ and $n_{2}=1$
 yield a counterexample.
+\end{proof}
+\end{fineprint}
+
+\begin{exercise}
+\label{exe.ent.mod.a+nd}Let $a,b,n\in\mathbb{Z}$. Prove that $a\equiv
+b\operatorname{mod}n$ if and only if there exists some $d\in\mathbb{Z}$ such
+that $b=a+nd$.
+\end{exercise}
+
+\begin{fineprint}
+\begin{proof}
+[Solution to Exercise \ref{exe.ent.mod.a+nd}.] If $a\equiv b\operatorname{mod}%
+n$, then $b\equiv a\operatorname{mod}n$ (by Proposition
+\ref{prop.ent.mod.basics} \textbf{(c)}). In other words, the implication
+$\left(  a\equiv b\operatorname{mod}n\right)  \Longrightarrow\left(  b\equiv
+a\operatorname{mod}n\right)  $ holds. The same argument (but with the roles of
+$a$ and $b$ swapped) shows that the implication $\left(  b\equiv
+a\operatorname{mod}n\right)  \Longrightarrow\left(  a\equiv
+b\operatorname{mod}n\right)  $ holds. Combining these two implications, we
+obtain the logical equivalence $\left(  a\equiv b\operatorname{mod}n\right)
+\Longleftrightarrow\left(  b\equiv a\operatorname{mod}n\right)  $. Thus, we
+have the following chain of logical equivalences:%
+\begin{align*}
+& \ \left(  a\equiv b\operatorname{mod}n\right)  \\
+& \Longleftrightarrow\ \left(  b\equiv a\operatorname{mod}n\right)  \\
+& \Longleftrightarrow\ \left(  n\mid b-a\right)  \ \ \ \ \ \ \ \ \ \ \left(
+\text{by the definition of congruence}\right)  \\
+& \Longleftrightarrow\ \left(  \text{there exists an integer }d\text{ such
+that }b-a=nd\right)  \\
+& \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of divisibility}\right)
+\\
+& \Longleftrightarrow\ \left(  \text{there exists an integer }d\text{ such
+that }b=a+nd\right)
+\end{align*}
+(since the equation $b-a=nd$ for an integer $d$ is equivalent to $b=a+nd$). In
+other words, $a\equiv b\operatorname{mod}n$ if and only if there exists some
+$d\in\mathbb{Z}$ such that $b=a+nd$. This solves Exercise
+\ref{exe.ent.mod.a+nd}.
 \end{proof}
 \end{fineprint}
 
@@ -13146,7 +13184,7 @@ are not integers.
 \end{example}
 
 This suggests the following question\textbf{:} How can we describe the
-integer-valued polynomials?
+integer-valued polynomials? The following 1915 result of Polya gives an answer:
 
 \begin{theorem}
 \label{thm.ivp.binomial}Let $k\in\mathbb{N}$.
@@ -13175,20 +13213,16 @@ a_{3}=2,\ \ \ \ \ \ \ \ \ \ a_{2}=2,\ \ \ \ \ \ \ \ \ \ a_{1}%
 =0,\ \ \ \ \ \ \ \ \ \ a_{0}=0.
 \]
 These $a_{3},a_{2},a_{1},a_{0}$ are integers -- exactly as Theorem
-\ref{thm.ivp.binomial} \textbf{(b)} says.%
-\[%
-\begin{tabular}
-[c]{||l||}\hline\hline
-\textbf{You have reached the end of the finished part.}\\
-\textbf{TODO: Write from here.}\\\hline\hline
-\end{tabular}
-\ \ \ \
-\]
+\ref{thm.ivp.binomial} \textbf{(b)} says.
 
+I sketched a proof of Theorem \ref{thm.ivp.binomial} \textbf{(b)} in a talk in
+2013 ( \url{http://www.cip.ifi.lmu.de/~grinberg/storrs2013.pdf} )\footnote{In
+this talk, I refer to integer-valued polynomials as \textquotedblleft
+integral-valued polynomials\textquotedblright.}.
 
 \section{Equivalence relations and residue classes}
 
-\subsection{Equivalence relations}
+\subsection{Relations}
 
 Loosely speaking, a \textit{relation} on a set $S$ is a property that two
 elements $a$ and $b$ of $S$ (or, more formally, a pair $\left(  a,b\right)
@@ -13211,13 +13245,25 @@ The word \textquotedblleft\textit{relation}\textquotedblright\ shall always
 mean \textquotedblleft binary relation\textquotedblright\ unless we say otherwise.
 \end{definition}
 
+So a relation on a set $S$ is, formally speaking, a subset of $S\times S$ --
+but in practice, we think of it as a property that holds for some pairs
+$\left(  a,b\right)  \in S\times S$ (namely, for the ones that belong to this
+subset) and does not hold for some others (namely, for the ones that do not
+belong to this subset).\footnote{Here, the word \textquotedblleft
+some\textquotedblright\ can mean \textquotedblleft none\textquotedblright\ or
+\textquotedblleft all\textquotedblright\ or anything inbetween.} In order to
+define a relation $R$ on a given set $S$, it suffices to tell which pairs
+$\left(  a,b\right)  \in S\times S$ satisfy $aRb$ (because then, $R$ will
+simply be the set of all these pairs $\left(  a,b\right)  $). Let us define
+several relations on the set $\mathbb{Z}$ by this strategy:
+
 \begin{example}
 \label{exa.eqrel.rel.rels1}Let $S=\mathbb{Z}$.
 
 \textbf{(a)} The relation $=$ is a binary relation on $S$. As a subset of
-$S\times S$, it is%
+$S\times S$, this relation is%
 \begin{align*}
-&  \left\{  \left(  a,b\right)  \in S\times S\ \mid\ a=b\right\} \\
+&  \left\{  \left(  a,b\right)  \in S\times S\ \mid\ a=b\right\}  \\
 &  =\left\{  \left(  c,c\right)  \ \mid\ c\in S\right\}  =\left\{
 \ldots,\left(  -1,-1\right)  ,\left(  0,0\right)  ,\left(  1,1\right)
 ,\ldots\right\}  .
@@ -13225,14 +13271,14 @@ $S\times S$, it is%
 
 
 \textbf{(b)} The relation $<$ is a binary relation on $S$. As a subset of
-$S\times S$, it is%
+$S\times S$, this relation is%
 \[
 \left\{  \left(  a,b\right)  \in S\times S\ \mid\ a<b\right\}  .
 \]
 
 
 \textbf{(c)} The relation $\leq$ is a binary relation on $S$. As a subset of
-$S\times S$, it is%
+$S\times S$, this relation is%
 \[
 \left\{  \left(  a,b\right)  \in S\times S\ \mid\ a\leq b\right\}  .
 \]
@@ -13241,30 +13287,63 @@ $S\times S$, it is%
 \textbf{(d)} The relation $\neq$ is also a binary relation on $S$.
 
 \textbf{(e)} Fix $n\in\mathbb{Z}$. Define a relation $\underset{n}{\equiv}$ on
-$\mathbb{Z}$ by
+$S=\mathbb{Z}$ by
 \[
 \left(  a\underset{n}{\equiv}b\right)  \Longleftrightarrow\left(  a\equiv
 b\operatorname{mod}n\right)  .
 \]
 As a subset of $S\times S=\mathbb{Z}\times\mathbb{Z}$, this relation
 $\underset{n}{\equiv}$ is%
+\begin{align*}
+& \left\{  \left(  a,b\right)  \in\mathbb{Z}\times\mathbb{Z}\ \mid\ a\equiv
+b\operatorname{mod}n\right\}  \\
+& =\left\{  \left(  a,b\right)  \in\mathbb{Z}\times\mathbb{Z}\ \mid
+\ \text{there exists an integer }d\text{ such that }b=a+nd\right\}  \\
+& \ \ \ \ \ \ \ \ \ \ \left(  \text{by Exercise \ref{exe.ent.mod.a+nd}%
+}\right)  \\
+& =\left\{  \left(  a,a+nd\right)  \ \mid\ a,d\in\mathbb{Z}\right\}  .
+\end{align*}
+
+
+Note that the relation $\underset{0}{\equiv}$ is exactly the relation $=$ (by
+Example \ref{exa.ent.cong.triv} \textbf{(c)}).
+
+\textbf{(f)} Define a binary relation \fbox{$N$} on $S$ by%
 \[
-\left\{  \left(  a,b\right)  \in S\times S\ \mid\ a\equiv b\operatorname{mod}%
-n\right\}  =\left\{  \left(  c,c+nd\right)  \ \mid\ c,d\in\mathbb{Z}\right\}
-.
+\left(  a\fbox{$N$}b\right)  \Longleftrightarrow\left(  \text{false}\right)
 \]
+(that is, $a\fbox{$N$}b$ never holds, no matter what $a$ and $b$ are). As a
+subset of $S\times S$, this relation \fbox{$N$} is just the empty subset of
+$S\times S$.
 
-
-\textbf{(f)} Define a binary relation $N$ on $S$ by%
+\textbf{(g)} On the other extreme: Define a binary relation \fbox{$A$} on $S$
+by%
 \[
-\left(  aNb\right)  \Longleftrightarrow\left(  \text{false}\right)
+\left(  a\fbox{$A$}b\right)  \Longleftrightarrow\left(  \text{true}\right)
 \]
-(that is, $aNb$ never holds). As a subset of $S\times S$, this relation $N$ is
-just the empty subset of $S\times S$.
+(that is, $a\fbox{$A$}b$ holds for all $a$ and $b$). As a subset of $S\times
+S$, this relation \fbox{$A$} is the whole set $S\times S$. Note that the
+relation \fbox{$A$} is exactly the relation $\underset{1}{\equiv}$ (by Example
+\ref{exa.ent.cong.triv} \textbf{(d)}).
 
-\textbf{(g)} The relation $\mid$ (divisibility) is also a relation on
+\textbf{(h)} The relation $\mid$ (divisibility) is also a relation on
 $S=\mathbb{Z}$.
+
+\textbf{(i)} The relation $\perp$ (coprimality) is also a relation on
+$S=\mathbb{Z}$.
+
+\textbf{(j)} We have defined several relations on the set $S=\mathbb{Z}$ now.
+The relations $=$, $\neq$, \fbox{$N$} and \fbox{$A$} (or, rather, relations
+analogous to them) can be defined on \textbf{any} set.
 \end{example}
+
+\subsection{Equivalence relations}
+
+Relations occur frequently in mathematics, and there is a bunch of properties
+that a relation can have or not have. (See
+\href{https://en.wikipedia.org/wiki/Binary_relation}{the Wikipedia article on
+binary relations} for a long list of such properties.) We shall need only the
+following three:
 
 \begin{definition}
 \label{def.eqrel.rel.rst}Let $R$ be a binary relation on a set $S$.
@@ -13279,31 +13358,100 @@ satisfying $aRb$ satisfy $bRa$.
 satisfying $aRb$ and $bRc$ satisfy $aRc$.
 \end{definition}
 
-In the above example:
+(Here are mnemonics for the three words we just defined:
 
 \begin{itemize}
-\item $=$ is reflexive, symmetric and transitive.
+\item \textquotedblleft Reflexive\textquotedblright\ should make you think of
+$R$ as a mirror through which $a$ can see itself (that is, satisfy $aRa$).
 
-\item $<$ is transitive, but neither reflexive nor symmetric.
+\item \textquotedblleft Symmetric\textquotedblright\ means that the roles of
+$a$ and $b$ in $aRb$ are interchangeable -- a symmetry.
 
-\item $\leq$ is reflexive and transitive, but not symmetric.
-
-\item $\neq$ is symmetric, but neither reflexive (since we do not have $a\neq
-a$) nor transitive.
-
-\item For any $n\in\mathbb{Z}$, the relation $\underset{n}{\equiv}$ is
-reflexive, symmetric and transitive.
-
-\item $N$ is symmetric and transitive\footnote{In fact, both of these
-statements are vacuously true.}, but not reflexive.
-
-\item $\mid$ is reflexive and transitive, but not symmetric.
+\item \textquotedblleft Transitive\textquotedblright\ means that you can
+\textquotedblleft transit\textquotedblright\ an element $b$ on your way from
+$a$ to $c$ (that is, if you treat $aRb$ as the existence of a
+\textquotedblleft path\textquotedblright\ from $a$ to $b$, and $bRc$ as the
+existence of a \textquotedblleft path\textquotedblright\ from $b$ to $c$, then
+you can combine a \textquotedblleft path\textquotedblright\ from $a$ to $b$
+with a \textquotedblleft path\textquotedblright\ from $b$ to $c$ to get a
+\textquotedblleft path\textquotedblright\ from $a$ to $c$).)
 \end{itemize}
 
-\begin{noncompile}
-See \href{https://en.wikipedia.org/wiki/Binary_relation}{the Wikipedia article
-on binary relations} for further properties of relations.
-\end{noncompile}
+Let us see some examples of these properties of relations:
+
+\begin{example}
+\label{exa.eqrel.rel.rst1}Let $S$ be the set $\mathbb{Z}$. Consider the
+relations on $\mathbb{Z}$ defined in Example \ref{exa.eqrel.rel.rels1}.
+
+\textbf{(a)} The relation $=$ is reflexive, symmetric and transitive. Indeed:
+
+\begin{itemize}
+\item The relation $=$ is reflexive, because every $a\in S$ satisfies $a=a$.
+
+\item The relation $=$ is symmetric, because every $a,b\in S$ satisfying $a=b$
+satisfy $b=a$.
+
+\item The relation $=$ is transitive, because every $a,b,c\in S$ satisfying
+$a=b$ and $b=c$ satisfy $a=c$.
+\end{itemize}
+
+\textbf{(b)} The relation $<$ is transitive (because every $a,b,c\in S$
+satisfying $a<b$ and $b<c$ satisfy $a<c$), but neither reflexive nor
+symmetric. Indeed, not every $a\in S$ satisfies $a<a$ (in fact, no $a\in S$
+satisfies $a<a$); thus, $<$ is not reflexive. Similarly, $<$ is not symmetric,
+since $a<b$ does not imply $b<a$ (quite the opposite).
+
+\textbf{(c)} The relation $\leq$ is transitive (because every $a,b,c\in S$
+satisfying $a\leq b$ and $b\leq c$ satisfy $a\leq c$) and reflexive (since
+every $a\in S$ satisfies $a\leq a$), but not symmetric.
+
+\textbf{(d)} The relation $\neq$ is symmetric (since every $a,b\in S$
+satisfying $a\neq b$ satisfy $b\neq a$), but neither transitive nor reflexive.
+(Indeed, it is not transitive since $2\neq3$ and $3\neq2$ do not lead to
+$2\neq2$. It is not reflexive because $2\neq2$.)
+
+\textbf{(e)} For each $n\in\mathbb{Z}$, the relation $\underset{n}{\equiv}$ is
+reflexive, symmetric and transitive. Indeed, Proposition
+\ref{prop.ent.mod.basics} \textbf{(b)} shows that every $a,b,c\in\mathbb{Z}$
+satisfying $a\equiv b\operatorname{mod}n$ and $b\equiv c\operatorname{mod}n$
+satisfy $a\equiv c\operatorname{mod}n$. In other words, every $a,b,c\in S$
+satisfying $a\underset{n}{\equiv}b$ and $b\underset{n}{\equiv}c$ satisfy
+$a\underset{n}{\equiv}c$. But this means precisely that the relation
+$\underset{n}{\equiv}$ is transitive. Similarly, the relation
+$\underset{n}{\equiv}$ is reflexive (by Proposition \ref{prop.ent.mod.basics}
+\textbf{(a)}) and symmetric (by Proposition \ref{prop.ent.mod.basics}
+\textbf{(c)}).
+
+\textbf{(f)} The relation \fbox{$N$} is symmetric and transitive, but not
+reflexive. This may appear strange, but is a completely straightforward
+consequence of the concept of \textquotedblleft%
+\href{https://en.wikipedia.org/wiki/Vacuous_truth}{vacuous truth}%
+\textquotedblright: Every $a,b\in S$ satisfying $a\fbox{$N$}b$ satisfy
+$b\fbox{$N$}a$ (because there are no such $a,b$ to begin with -- since
+$a$\fbox{$N$}$b$ never holds). Thus, \fbox{$N$} is symmetric. Similarly,
+\fbox{$N$} is transitive. But \fbox{$N$} is not reflexive, since (for example)
+$1\fbox{$N$}1$ does not hold.
+
+\textbf{(g)} The relation \fbox{$A$} is reflexive, symmetric and transitive.
+All of this is trivial, because $a$\fbox{$A$}$b$ holds for all $a,b\in S$.
+
+\textbf{(h)} The divisibility relation $\mid$ is reflexive (by Proposition
+\ref{prop.ent.div.2} \textbf{(a)}) and transitive (by Proposition
+\ref{prop.ent.div.2} \textbf{(b)}), but not symmetric.
+
+\textbf{(i)} The coprimality relation (by Proposition
+\ref{prop.ent.coprime.perp-symm}), but neither reflexive nor transitive.
+\end{example}%
+
+\[%
+\begin{tabular}
+[c]{||l||}\hline\hline
+\textbf{You have reached the end of the finished part.}\\
+\textbf{TODO: Write from here.}\\\hline\hline
+\end{tabular}
+\ \ \ \ \
+\]
+
 
 \begin{definition}
 \label{def.eqrel.rel.eqrel}An \textit{equivalence relation} on a set $S$ means
@@ -13362,7 +13510,7 @@ $a_{1}b_{1}=a_{1}b_{1}$, which is true) and symmetric (because
 \left(  \left(  a_{1},a_{2}\right)  \underset{\ast}{\sim}\left(  b_{1}%
 ,b_{2}\right)  \right)  \  &  \Longleftrightarrow\ \left(  a_{1}b_{2}%
 =a_{2}b_{1}\right)  \ \Longleftrightarrow\ \left(  b_{2}a_{1}=b_{1}%
-a_{2}\right)  \ \Longleftrightarrow\ \left(  b_{1}a_{2}=b_{2}a_{1}\right)  \\
+a_{2}\right)  \ \Longleftrightarrow\ \left(  b_{1}a_{2}=b_{2}a_{1}\right) \\
 &  \Longleftrightarrow\ \left(  \left(  b_{1},b_{2}\right)  \underset{\ast
 }{\sim}\left(  a_{1},a_{2}\right)  \right)
 \end{align*}
@@ -13423,23 +13571,23 @@ $\left[  a\right]  _{\sim}$ for $a\in S$.
 \label{exa.eqrel.eqcl.mod3}Consider the relation $\underset{3}{\equiv}$ on
 $\mathbb{Z}$. We have%
 \begin{align*}
-\left[  5\right]  _{\underset{3}{\equiv}} &  =\left\{  b\in\mathbb{Z}%
+\left[  5\right]  _{\underset{3}{\equiv}}  &  =\left\{  b\in\mathbb{Z}%
 \ \mid\ 5\underset{3}{\equiv}b\right\}  =\left\{  b\in\mathbb{Z}%
-\ \mid\ 5\equiv b\operatorname{mod}3\right\}  \\
+\ \mid\ 5\equiv b\operatorname{mod}3\right\} \\
 &  =\left\{  \ldots,-4,-1,2,5,8,11,14,\ldots\right\}
 \end{align*}
 and%
 \begin{align*}
-\left[  3\right]  _{\underset{3}{\equiv}} &  =\left\{  b\in\mathbb{Z}%
+\left[  3\right]  _{\underset{3}{\equiv}}  &  =\left\{  b\in\mathbb{Z}%
 \ \mid\ 3\underset{3}{\equiv}b\right\}  =\left\{  b\in\mathbb{Z}%
-\ \mid\ 3\equiv b\operatorname{mod}3\right\}  \\
+\ \mid\ 3\equiv b\operatorname{mod}3\right\} \\
 &  =\left\{  \ldots,-6,-3,0,3,6,9,12,\ldots\right\}
 \end{align*}
 and%
 \begin{align*}
-\left[  2\right]  _{\underset{3}{\equiv}} &  =\left\{  b\in\mathbb{Z}%
+\left[  2\right]  _{\underset{3}{\equiv}}  &  =\left\{  b\in\mathbb{Z}%
 \ \mid\ 2\underset{3}{\equiv}b\right\}  =\left\{  b\in\mathbb{Z}%
-\ \mid\ 2\equiv b\operatorname{mod}3\right\}  \\
+\ \mid\ 2\equiv b\operatorname{mod}3\right\} \\
 &  =\left\{  \ldots,-4,-1,2,5,8,11,14,\ldots\right\}  =\left[  5\right]
 _{\sim}.
 \end{align*}
@@ -14571,13 +14719,13 @@ n_{k}$.
 \end{proof}
 
 \begin{proof}
-[Proof of Theorem \ref{thm.ent.phi.explicit}.]The canonical factorization of
-$n$ yields%
+[Proof of Theorem \ref{thm.ent.phi.explicit}.]Corollary
+\ref{cor.ent.primes.can-fac} yields%
 \begin{align*}
-n  &  =\prod_{p\text{ prime}}p^{v_{p}\left(  n\right)  }=\left(
-\prod_{\substack{p\text{ prime;}\\p\mid n}}p^{v_{p}\left(  n\right)  }\right)
+n &  =\prod_{p\text{ prime}}p^{v_{p}\left(  n\right)  }=\left(  \prod
+_{\substack{p\text{ prime;}\\p\mid n}}p^{v_{p}\left(  n\right)  }\right)
 \cdot\left(  \prod_{\substack{p\text{ prime;}\\p\nmid n}}\underbrace{p^{v_{p}%
-\left(  n\right)  }}_{=p^{0}=1}\right) \\
+\left(  n\right)  }}_{=p^{0}=1}\right)  \\
 &  =\prod_{\substack{p\text{ prime;}\\p\mid n}}p^{v_{p}\left(  n\right)  }.
 \end{align*}
 The factors $p^{v_{p}\left(  n\right)  }$ for different primes $p$ are
@@ -14602,7 +14750,7 @@ n}}\underbrace{\left(  \left(  p-1\right)  p^{v_{p}\left(  n\right)
 n\right)  -1}\\=p^{v_{p}\left(  n\right)  }-p^{v_{p}\left(  n\right)
 }/p\\=p^{v_{p}\left(  n\right)  }\left(  1-\dfrac{1}{p}\right)  }%
 }=\prod_{\substack{p\text{ prime;}\\p\mid n}}\left(  p^{v_{p}\left(  n\right)
-}\left(  1-\dfrac{1}{p}\right)  \right) \\
+}\left(  1-\dfrac{1}{p}\right)  \right)  \\
 &  =\underbrace{\left(  \prod_{\substack{p\text{ prime;}\\p\mid n}%
 }p^{v_{p}\left(  n\right)  }\right)  }_{=n}\cdot\prod_{\substack{p\text{
 prime;}\\p\mid n}}\left(  1-\dfrac{1}{p}\right)  =n\cdot\prod
@@ -14670,7 +14818,7 @@ $a^{2k}=\left(  a^{k}\right)  ^{2}$ and $a^{2k+1}=\left(  a^{k}\right)  ^{2}a$.)
 Albert receives $y=x^{e}$ and recovers $x$ as follows:
 
 \begin{itemize}
-\item He sets $x=y^{d}$. (This follows from Lemma below.)
+\item He sets $x=y^{d}$. (This follows from Lemma \ref{lem.ent.rsa.rsa-lem} below.)
 \end{itemize}
 
 This way, Julia can send a message to Albert that no one can intercept (unless
@@ -14679,9 +14827,9 @@ they know $d$, or have algorithms that no one knows so far).
 We are using the following fact:
 
 \begin{lemma}
-(The RSA lemma): Let $p$ and $q$ be two distinct primes. Let $a\in\mathbb{Z}$.
-Let $N$ be a positive integer such that $N\equiv1\operatorname{mod}\left(
-p-1\right)  \left(  q-1\right)  $. Then,%
+\label{lem.ent.rsa.rsa-lem}Let $p$ and $q$ be two distinct primes. Let
+$a\in\mathbb{Z}$. Let $N$ be a positive integer such that $N\equiv
+1\operatorname{mod}\left(  p-1\right)  \left(  q-1\right)  $. Then,%
 \[
 a^{N}\equiv a\operatorname{mod}pq.
 \]
@@ -14696,12 +14844,13 @@ y^{d}=\left(  x^{e}\right)  ^{d}=x^{ed}.
 \]
 But $d$ was a modular inverse of $e$ modulo $\ell$; thus, $ed\equiv
 1\operatorname{mod}\ell$. Since $\ell=\left(  p-1\right)  \left(  q-1\right)
-$, the RSA lemma (applied to $N=ed$) yields $x^{ed}=x$. Thus, $y^{d}=x^{ed}%
-=x$, so Albert recovers the message.
+$, Lemma \ref{lem.ent.rsa.rsa-lem} (applied to $N=ed$) yields $x^{ed}=x$.
+Thus, $y^{d}=x^{ed}=x$, so Albert recovers the message.
 
 \begin{proof}
-[Proof of the RSA lemma.]We need to show that $pq\mid a^{N}-a$. Since $p\perp
-q$, it suffices to prove that $p\mid a^{N}-a$ and $q\mid a^{N}-a$.
+[Proof of Lemma \ref{lem.ent.rsa.rsa-lem}.]We need to show that $pq\mid
+a^{N}-a$. Since $p\perp q$, it suffices to prove that $p\mid a^{N}-a$ and
+$q\mid a^{N}-a$.
 
 Let us prove that $p\mid a^{N}-a$ first. Two cases are possible:
 
@@ -14719,19 +14868,20 @@ p}\right)  ^{c}\equiv1^{c}=1\operatorname{mod}p$ for each $c\in\mathbb{N}$.
 Now, $N\equiv1\operatorname{mod}\left(  p-1\right)  \left(  q-1\right)  $. In
 other words, $\left(  p-1\right)  \left(  q-1\right)  \mid N-1$. Hence,
 $p-1\mid\left(  p-1\right)  \left(  q-1\right)  \mid N-1$. In other words,
-$N-1=c\left(  p-1\right)  $ for some integer $c$. This $c$ belongs to
-$\mathbb{N}$ (since $N-1$ and $p-1$ are nonnegative). So we have $a^{c\left(
-p-1\right)  }\equiv1\operatorname{mod}p$. But
+$N-1=c\left(  p-1\right)  $ for some integer $c$. Consider this $c$. From
+$N-1=c\left(  p-1\right)  $, we conclude that $c$ is nonnegative (since $N-1$
+is nonnegative and $p-1$ is positive). In other words, $c\in\mathbb{N}$. So we
+have $a^{c\left(  p-1\right)  }\equiv1\operatorname{mod}p$. But
 \begin{align*}
-a^{N}  &  =aa^{N-1}=a\underbrace{a^{c\left(  p-1\right)  }}_{\equiv
+a^{N} &  =aa^{N-1}=a\underbrace{a^{c\left(  p-1\right)  }}_{\equiv
 1\operatorname{mod}p}\ \ \ \ \ \ \ \ \ \ \left(  \text{since }N-1=c\left(
-p-1\right)  \right) \\
+p-1\right)  \right)  \\
 &  \equiv a1=a\operatorname{mod}p.
 \end{align*}
 In other words, $p\mid a^{N}-a$.
 
 So we have proven $p\mid a^{N}-a$ in both Cases. Similarly, we can prove
-$q\mid a^{N}-a$. Thus, the lemma is proven.
+$q\mid a^{N}-a$. Thus, Lemma \ref{lem.ent.rsa.rsa-lem} is proven.
 \end{proof}
 
 \subsubsection{Computing using the Chinese Remainder Theorem}
@@ -15096,7 +15246,7 @@ Thus, the complex numbers extend the real numbers: $\mathbb{R}\subseteq
 \mathbb{C}$.
 
 \begin{definition}
-An \textbf{inverse} of a complex number $\alpha$ is a complex number $\beta$
+An \textit{inverse} of a complex number $\alpha$ is a complex number $\beta$
 such that $\alpha\beta=1$. (Recall that $1=1_{\mathbb{C}}$ by the convention
 that we just made.)
 \end{definition}
@@ -15175,13 +15325,13 @@ The usual rules for exponents apply: e.g.,%
 \begin{definition}
 Let $\alpha=\left(  a,b\right)  $ be a complex number.
 
-\textbf{(a)} The \textbf{norm} of $\alpha$ is defined to be the real number
+\textbf{(a)} The \textit{norm} of $\alpha$ is defined to be the real number
 $a^{2}+b^{2}\in\mathbb{R}$. This norm is called $\operatorname*{N}\left(
 \alpha\right)  $. Note that $\operatorname*{N}\left(  \alpha\right)  \geq0$,
 and equality holds only when $\alpha=0$.
 
-\textbf{(b)} The \textbf{absolute value} (or \textbf{modulus} or
-\textbf{length}) of $\alpha$ is defined to be $\sqrt{\operatorname*{N}\left(
+\textbf{(b)} The \textit{absolute value} (or \textit{modulus} or
+\textit{length}) of $\alpha$ is defined to be $\sqrt{\operatorname*{N}\left(
 \alpha\right)  }=\sqrt{a^{2}+b^{2}}\in\mathbb{R}$. It is called $\left\vert
 \alpha\right\vert $.
 \end{definition}
@@ -15192,7 +15342,7 @@ all $a\in\mathbb{R}$.
 \begin{definition}
 Let $\alpha=\left(  a,b\right)  \in\mathbb{C}$.
 
-The \textbf{conjugate} $\overline{\alpha}$ of $\alpha$ is defined as $\left(
+The \textit{conjugate} $\overline{\alpha}$ of $\alpha$ is defined as $\left(
 a,-b\right)  \in\mathbb{C}$.
 \end{definition}
 
