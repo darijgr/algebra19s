@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Sunday, March 03, 2019 00:52:14}
+%TCIDATA{LastRevised=Sunday, March 03, 2019 01:47:40}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -262,9 +262,9 @@ For a similar but simpler reason, no negative number can be written as a sum
 of two perfect squares.
 
 We can of course approach Question~\ref{quest.intro.sum-of-2sq.1} using a
-computer: It is very easy to check, for a given integer $n$, whether $n$ is a
-sum of two perfect squares. (Just check all possibilities for $a$ and $b$ for
-the validity of the equation $n=a^{2}+b^{2}$. You only need to try $a$ and $b$
+computer: It is easy to check, for a given integer $n$, whether $n$ is a sum
+of two perfect squares. (Just check all possibilities for $a$ and $b$ for the
+validity of the equation $n=a^{2}+b^{2}$. You only need to try $a$ and $b$
 belonging to $\left\{  0,1,\ldots,\left\lfloor \sqrt{n}\right\rfloor \right\}
 $, where $\left\lfloor y\right\rfloor $ (for a real number $y$) denotes the
 largest integer that is less or equal than $y$ (also known as
@@ -723,9 +723,10 @@ $S$ is (informally speaking) a function that takes two elements of $S$ and
 assigns a new element of $S$ to them. More formally:
 
 \begin{definition}
-A \textit{binary operation} on a set $S$ is a map $f$ from $S\times S$ to $S$.
-When $f$ is a binary operation on $S$ and $a$ and $b$ are two elements of $S$,
-we shall write $afb$ for the value $f\left(  a,b\right)  $.
+\label{def.intro.binop}A \textit{binary operation} on a set $S$ is a map $f$
+from $S\times S$ to $S$. When $f$ is a binary operation on $S$ and $a$ and $b$
+are two elements of $S$, we shall write $afb$ for the value $f\left(
+a,b\right)  $.
 \end{definition}
 
 \begin{example}
@@ -8671,8 +8672,8 @@ first define permutations of a set, and then use this to define permutations
 of a tuple:
 
 \begin{definition}
-Let $A$ be a set. A \textit{permutation} of $A$ means a bijective map
-$A\rightarrow A$.
+\label{def.comb.tuples.perm-set}Let $A$ be a set. A \textit{permutation} of
+$A$ means a bijective map $A\rightarrow A$.
 \end{definition}
 
 \begin{example}
@@ -8726,11 +8727,76 @@ we let $\sigma$ be the identity map $\operatorname*{id}:\left\{
 The following fact is easy and fundamental:
 
 \begin{proposition}
-Let $\left(  p_{1},p_{2},\ldots,p_{k}\right)  $ be a $k$-tuple. If $\left(
-q_{1},q_{2},\ldots,q_{k}\right)  $ is a permutation of $\left(  p_{1}%
-,p_{2},\ldots,p_{k}\right)  $, then $\left(  p_{1},p_{2},\ldots,p_{k}\right)
-$ is a permutation of $\left(  q_{1},q_{2},\ldots,q_{k}\right)  $.
+\label{prop.comb.tuples.perm.symm}Let $\left(  p_{1},p_{2},\ldots
+,p_{k}\right)  $ be a $k$-tuple. If $\left(  q_{1},q_{2},\ldots,q_{k}\right)
+$ is a permutation of $\left(  p_{1},p_{2},\ldots,p_{k}\right)  $, then
+$\left(  p_{1},p_{2},\ldots,p_{k}\right)  $ is a permutation of $\left(
+q_{1},q_{2},\ldots,q_{k}\right)  $.
 \end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.comb.tuples.perm.symm}.]If you don't insist on
+formalization, this is obvious: Any rearrangement of the entries of a
+$k$-tuple can be undone by another rearrangement (which places the entries
+back in their old positions). Thus, $\left(  p_{1},p_{2},\ldots,p_{k}\right)
+$ can be obtained from $\left(  q_{1},q_{2},\ldots,q_{k}\right)  $ by
+rearranging the entries.
+
+\begin{fineprint}
+Here is a formal proof:
+
+Assume that $\left(  q_{1},q_{2},\ldots,q_{k}\right)  $ is a permutation of
+$\left(  p_{1},p_{2},\ldots,p_{k}\right)  $. In other words, the $k$-tuple
+$\left(  q_{1},q_{2},\ldots,q_{k}\right)  $ has the form $\left(
+p_{\sigma\left(  1\right)  },p_{\sigma\left(  2\right)  },\ldots
+,p_{\sigma\left(  k\right)  }\right)  $ for some permutation $\sigma$ of the
+set $\left\{  1,2,\ldots,k\right\}  $ (by Definition
+\ref{def.comb.tuples.perm-tup}). Consider this $\sigma$, and denote it by
+$\tau$. Thus, $\tau$ is a permutation of the set $\left\{  1,2,\ldots
+,k\right\}  $ and has the property that $\left(  q_{1},q_{2},\ldots
+,q_{k}\right)  =\left(  p_{\tau\left(  1\right)  },p_{\tau\left(  2\right)
+},\ldots,p_{\tau\left(  k\right)  }\right)  $.
+
+Now, $\tau$ is a permutation of the set $\left\{  1,2,\ldots,k\right\}  $. In
+other words, $\tau$ is a bijective map $\left\{  1,2,\ldots,k\right\}
+\rightarrow\left\{  1,2,\ldots,k\right\}  $ (by Definition
+\ref{def.comb.tuples.perm-set}). So the map $\tau$ is bijective, hence
+invertible. Thus, its inverse $\tau^{-1}$ is well-defined and is also
+invertible\footnote{And its inverse is $\left(  \tau^{-1}\right)  ^{-1}=\tau
+$.}, hence bijective. So we know that $\tau^{-1}$ is a bijective map $\left\{
+1,2,\ldots,k\right\}  \rightarrow\left\{  1,2,\ldots,k\right\}  $. In other
+words, $\tau^{-1}$ is a permutation of the set $\left\{  1,2,\ldots,k\right\}
+$ (by Definition \ref{def.comb.tuples.perm-set}).
+
+We have $\left(  q_{1},q_{2},\ldots,q_{k}\right)  =\left(  p_{\tau\left(
+1\right)  },p_{\tau\left(  2\right)  },\ldots,p_{\tau\left(  k\right)
+}\right)  $. In other words,
+\begin{equation}
+q_{i}=p_{\tau\left(  i\right)  }\ \ \ \ \ \ \ \ \ \ \text{for each }%
+i\in\left\{  1,2,\ldots,k\right\}  . \label{pf.prop.comb.tuples.perm.symm.1}%
+\end{equation}
+Hence, for each $j\in\left\{  1,2,\ldots,k\right\}  $, we have%
+\begin{align*}
+q_{\tau^{-1}\left(  j\right)  }  &  =p_{\tau\left(  \tau^{-1}\left(  j\right)
+\right)  }\ \ \ \ \ \ \ \ \ \ \left(  \text{by
+(\ref{pf.prop.comb.tuples.perm.symm.1}), applied to }i=\tau^{-1}\left(
+j\right)  \right) \\
+&  =p_{j}\ \ \ \ \ \ \ \ \ \ \left(  \text{since }\tau\left(  \tau^{-1}\left(
+j\right)  \right)  =j\right)  .
+\end{align*}
+In other words, $\left(  q_{\tau^{-1}\left(  1\right)  },q_{\tau^{-1}\left(
+2\right)  },\ldots,q_{\tau^{-1}\left(  k\right)  }\right)  =\left(
+p_{1},p_{2},\ldots,p_{k}\right)  $. Hence, the $k$-tuple $\left(  p_{1}%
+,p_{2},\ldots,p_{k}\right)  $ has the form $\left(  q_{\sigma\left(  1\right)
+},q_{\sigma\left(  2\right)  },\ldots,q_{\sigma\left(  k\right)  }\right)  $
+for some permutation $\sigma$ of the set $\left\{  1,2,\ldots,k\right\}  $
+(namely, $\sigma=\tau^{-1}$). In other words, the $k$-tuple $\left(
+p_{1},p_{2},\ldots,p_{k}\right)  $ is a permutation of the $k$-tuple $\left(
+q_{1},q_{2},\ldots,q_{k}\right)  $ (by Definition
+\ref{def.comb.tuples.perm-tup}). This proves Proposition
+\ref{prop.comb.tuples.perm.symm}.
+\end{fineprint}
+\end{proof}
 
 Now, we can say what we mean when we say that two tuples differ only in the
 order of their entries:
@@ -13774,6 +13840,8 @@ implications, we obtain the equivalence $\left(  a\sim b\right)
 
 \subsection{Equivalence classes}
 
+\subsubsection{Definition of equivalence classes}
+
 We can now state one of the most important definitions in mathematics:
 
 \begin{definition}
@@ -13819,6 +13887,8 @@ and%
 Note that $\left[  5\right]  _{\underset{3}{\equiv}}=\left[  2\right]
 _{\underset{3}{\equiv}}$, as you can easily see.
 \end{example}
+
+\subsubsection{Basic properties}
 
 \begin{proposition}
 \label{prop.eqrel.eqcl.ab}Let $\sim$ be an equivalence relation on a set $S$.
@@ -13973,11 +14043,11 @@ Prove that any two equivalence classes of $\sim$ are either identical or disjoin
 
 \begin{fineprint}
 \begin{proof}
-[Solution to Exercise \ref{exe.eqrel.eqcl.dj}.] Let $\alpha$ and $\beta$ be
-two equivalence classes of $\sim$. Thus, $\alpha=\left[  x\right]  _{\sim}$
-and $\beta=\left[  y\right]  _{\sim}$ for two elements $x$ and $y$ of $S$ (by
-the definition of \textquotedblleft equivalence classes of $\sim
-$\textquotedblright). Consider these $x$ and $y$.
+[Solution to Exercise \ref{exe.eqrel.eqcl.dj}.]Let $\alpha$ and $\beta$ be two
+equivalence classes of $\sim$. Thus, $\alpha=\left[  x\right]  _{\sim}$ and
+$\beta=\left[  y\right]  _{\sim}$ for two elements $x$ and $y$ of $S$ (by the
+definition of \textquotedblleft equivalence classes of $\sim$%
+\textquotedblright). Consider these $x$ and $y$.
 
 If $x\sim y$, then the classes $\left[  x\right]  _{\sim}$ and $\left[
 y\right]  _{\sim}$ are identical (by Theorem \ref{thm.eqrel.eqcl.disj}
@@ -13998,6 +14068,8 @@ $\beta$ are either identical or disjoint. This solves Exercise
 \begin{center}
 \textbf{2019-02-22 lecture}
 \end{center}
+
+\subsubsection{More examples}
 
 \begin{example}
 Consider the relation $\underset{\ast}{\sim}$ on $S=\mathbb{Z}\times\left(
@@ -14034,6 +14106,9 @@ considers Eurasia to be a single continent} or \textquotedblleft
 islands\textquotedblright. Equivalence classes provide a way to refer to
 multiple objects (usually similar in some way) as if they were one.
 
+\subsubsection{The \textquotedblleft is a permutation of\textquotedblright%
+\ relation on tuples}
+
 Let us give a few more mathematical examples for equivalences and equivalence classes:
 
 \begin{definition}
@@ -14055,21 +14130,161 @@ $\left(  3,8,8,2\right)  \underset{\operatorname*{perm}}{\sim}\left(
 \begin{exercise}
 \label{exe.eqrel.eqcl.perm.eq}Prove that the relation
 $\underset{\operatorname*{perm}}{\sim}$ is an equivalence relation.
-\end{exercise}%
+\end{exercise}
 
-\[%
-\begin{tabular}
-[c]{||l||}\hline\hline
-\textbf{You have reached the end of the finished part.}\\
-\textbf{TODO: Write from here.}\\\hline\hline
-\end{tabular}
-\
-\]
-
-
+\begin{fineprint}
 \begin{proof}
-[Solution to Exercise \ref{exe.eqrel.eqcl.perm.eq}.] Indeed: TODO.
+[Solution to Exercise \ref{exe.eqrel.eqcl.perm.eq}.]Indeed:
+
+\begin{itemize}
+\item The relation $\underset{\operatorname*{perm}}{\sim}$ is reflexive.
+
+[\textit{Proof:} Informally, this is obvious, because each $k$-tuple is a
+permutation of itself (just permute it by leaving all its entries in place).
+The formal version of this argument proceeds as follows:
+
+Let $\mathbf{a}\in A^{k}$. Write the $k$-tuple $\mathbf{a}$ in the form
+$\mathbf{a}=\left(  a_{1},a_{2},\ldots,a_{k}\right)  $ for some $a_{1}%
+,a_{2},\ldots,a_{k}\in A$. Then, $\mathbf{a}=\left(  a_{1},a_{2},\ldots
+,a_{k}\right)  =\left(  a_{\operatorname*{id}\left(  1\right)  }%
+,a_{\operatorname*{id}\left(  2\right)  },\ldots,a_{\operatorname*{id}\left(
+k\right)  }\right)  $. Hence, the $k$-tuple $\mathbf{a}$ has the form $\left(
+a_{\sigma\left(  1\right)  },a_{\sigma\left(  2\right)  },\ldots
+,a_{\sigma\left(  k\right)  }\right)  $ for some permutation $\sigma$ of the
+set $\left\{  1,2,\ldots,k\right\}  $ (namely, for $\sigma=\operatorname*{id}%
+$). In other words, $\mathbf{a}$ is a permutation of the $k$-tuple $\left(
+a_{1},a_{2},\ldots,a_{k}\right)  $ (by Definition
+\ref{def.comb.tuples.perm-tup}). In other words, $\mathbf{a}$ is a permutation
+of the $k$-tuple $\mathbf{a}$ (since $\mathbf{a}=\left(  a_{1},a_{2}%
+,\ldots,a_{k}\right)  $). In other words, $\mathbf{a}%
+\underset{\operatorname*{perm}}{\sim}\mathbf{a}$ (by the definition of the
+relation $\underset{\operatorname*{perm}}{\sim}$).
+
+Now, forget that we fixed $\mathbf{a}$. We thus have proven that every
+$\mathbf{a}\in A^{k}$ satisfies $\mathbf{a}\underset{\operatorname*{perm}%
+}{\sim}\mathbf{a}$. In other words, the relation
+$\underset{\operatorname*{perm}}{\sim}$ is reflexive.]
+
+\item The relation $\underset{\operatorname*{perm}}{\sim}$ is symmetric.
+
+[\textit{Proof:} Let $\mathbf{a},\mathbf{b}\in A^{k}$ be such that
+$\mathbf{a}\underset{\operatorname*{perm}}{\sim}\mathbf{b}$. We shall prove
+that $\mathbf{b}\underset{\operatorname*{perm}}{\sim}\mathbf{a}$.
+
+Let $\mathbf{a}\in A^{k}$. Write the $k$-tuple $\mathbf{a}$ in the form
+$\mathbf{a}=\left(  a_{1},a_{2},\ldots,a_{k}\right)  $ for some $a_{1}%
+,a_{2},\ldots,a_{k}\in A$. Write the $k$-tuple $\mathbf{b}$ in the form
+$\mathbf{b}=\left(  b_{1},b_{2},\ldots,b_{k}\right)  $ for some $b_{1}%
+,b_{2},\ldots,b_{k}\in A$. We have $\mathbf{a}\underset{\operatorname*{perm}%
+}{\sim}\mathbf{b}$. In other words, $\mathbf{a}$ is a permutation of
+$\mathbf{b}$ (by the definition of the relation
+$\underset{\operatorname*{perm}}{\sim}$). In other words, $\left(  a_{1}%
+,a_{2},\ldots,a_{k}\right)  $ is a permutation of $\left(  b_{1},b_{2}%
+,\ldots,b_{k}\right)  $ (since $\mathbf{a}=\left(  a_{1},a_{2},\ldots
+,a_{k}\right)  $ and $\mathbf{b}=\left(  b_{1},b_{2},\ldots,b_{k}\right)  $).
+Hence, Proposition \ref{prop.comb.tuples.perm.symm} (applied to $p_{i}=b_{i}$
+and $q_{i}=a_{i}$) shows that $\left(  b_{1},b_{2},\ldots,b_{k}\right)  $ is a
+permutation of $\left(  a_{1},a_{2},\ldots,a_{k}\right)  $. In other words,
+$\mathbf{b}$ is a permutation of $\mathbf{a}$ (since $\mathbf{a}=\left(
+a_{1},a_{2},\ldots,a_{k}\right)  $ and $\mathbf{b}=\left(  b_{1},b_{2}%
+,\ldots,b_{k}\right)  $). In other words, $\mathbf{b}%
+\underset{\operatorname*{perm}}{\sim}\mathbf{a}$.
+
+Forget that we fixed $\mathbf{a}$ and $\mathbf{b}$. We thus have shown that
+every $\mathbf{a},\mathbf{b}\in A^{k}$ satisfying $\mathbf{a}%
+\underset{\operatorname*{perm}}{\sim}\mathbf{b}$ satisfy $\mathbf{b}%
+\underset{\operatorname*{perm}}{\sim}\mathbf{a}$. In other words, the relation
+$\underset{\operatorname*{perm}}{\sim}$ is symmetric.]
+
+\item The relation $\underset{\operatorname*{perm}}{\sim}$ is transitive.
+
+[\textit{Proof:} Let $\mathbf{a},\mathbf{b},\mathbf{c}\in A^{k}$ be such that
+$\mathbf{a}\underset{\operatorname*{perm}}{\sim}\mathbf{b}$ and $\mathbf{b}%
+\underset{\operatorname*{perm}}{\sim}\mathbf{c}$. We shall prove that
+$\mathbf{a}\underset{\operatorname*{perm}}{\sim}\mathbf{c}$.
+
+Let $\mathbf{a}\in A^{k}$. Write the $k$-tuple $\mathbf{a}$ in the form
+$\mathbf{a}=\left(  a_{1},a_{2},\ldots,a_{k}\right)  $ for some $a_{1}%
+,a_{2},\ldots,a_{k}\in A$. Write the $k$-tuple $\mathbf{b}$ in the form
+$\mathbf{b}=\left(  b_{1},b_{2},\ldots,b_{k}\right)  $ for some $b_{1}%
+,b_{2},\ldots,b_{k}\in A$. Write the $k$-tuple $\mathbf{c}$ in the form
+$\mathbf{c}=\left(  c_{1},c_{2},\ldots,c_{k}\right)  $ for some $c_{1}%
+,c_{2},\ldots,c_{k}\in A$.
+
+We have $\mathbf{a}\underset{\operatorname*{perm}}{\sim}\mathbf{b}$. In other
+words, $\mathbf{a}$ is a permutation of $\mathbf{b}$ (by the definition of the
+relation $\underset{\operatorname*{perm}}{\sim}$). In other words, $\left(
+a_{1},a_{2},\ldots,a_{k}\right)  $ is a permutation of $\left(  b_{1}%
+,b_{2},\ldots,b_{k}\right)  $ (since $\mathbf{a}=\left(  a_{1},a_{2}%
+,\ldots,a_{k}\right)  $ and $\mathbf{b}=\left(  b_{1},b_{2},\ldots
+,b_{k}\right)  $). In other words, the $k$-tuple $\left(  a_{1},a_{2}%
+,\ldots,a_{k}\right)  $ has the form $\left(  b_{\sigma\left(  1\right)
+},b_{\sigma\left(  2\right)  },\ldots,b_{\sigma\left(  k\right)  }\right)  $
+for some permutation $\sigma$ of the set $\left\{  1,2,\ldots,k\right\}  $ (by
+Definition \ref{def.comb.tuples.perm-tup}). Consider this $\sigma$, and denote
+it by $\lambda$. Thus, $\lambda$ is a permutation of $\left\{  1,2,\ldots
+,k\right\}  $ and has the property that $\left(  a_{1},a_{2},\ldots
+,a_{k}\right)  =\left(  b_{\lambda\left(  1\right)  },b_{\lambda\left(
+2\right)  },\ldots,b_{\lambda\left(  k\right)  }\right)  $. Likewise, we can
+find a permutation $\mu$ of $\left\{  1,2,\ldots,k\right\}  $ with the
+property that $\left(  b_{1},b_{2},\ldots,b_{k}\right)  =\left(  c_{\mu\left(
+1\right)  },c_{\mu\left(  2\right)  },\ldots,c_{\mu\left(  k\right)  }\right)
+$ (because of our assumption that $\mathbf{b}\underset{\operatorname*{perm}%
+}{\sim}\mathbf{c}$). Consider this $\mu$ as well.
+
+Now $\mu$ and $\lambda$ are permutations of the set $\left\{  1,2,\ldots
+,k\right\}  $, that is, bijective maps $\left\{  1,2,\ldots,k\right\}
+\rightarrow\left\{  1,2,\ldots,k\right\}  $. Hence, their composition
+$\mu\circ\lambda$ is a bijective map $\left\{  1,2,\ldots,k\right\}
+\rightarrow\left\{  1,2,\ldots,k\right\}  $ as well, i.e., is a permutation of
+the set $\left\{  1,2,\ldots,k\right\}  $.
+
+Recall that $\left(  b_{1},b_{2},\ldots,b_{k}\right)  =\left(  c_{\mu\left(
+1\right)  },c_{\mu\left(  2\right)  },\ldots,c_{\mu\left(  k\right)  }\right)
+$. In other words, each $j\in\left\{  1,2,\ldots,k\right\}  $ satisfies%
+\begin{equation}
+b_{j}=c_{\mu\left(  j\right)  }. \label{sol.eqrel.eqcl.perm.eq.trans-bc}%
+\end{equation}
+
+
+Also, $\left(  a_{1},a_{2},\ldots,a_{k}\right)  =\left(  b_{\lambda\left(
+1\right)  },b_{\lambda\left(  2\right)  },\ldots,b_{\lambda\left(  k\right)
+}\right)  $. Hence, each $i\in\left\{  1,2,\ldots,k\right\}  $ satisfies%
+\begin{align*}
+a_{i}  &  =b_{\lambda\left(  i\right)  }=c_{\mu\left(  \lambda\left(
+i\right)  \right)  }\ \ \ \ \ \ \ \ \ \ \left(  \text{by
+(\ref{sol.eqrel.eqcl.perm.eq.trans-bc})}\right) \\
+&  =c_{\left(  \mu\circ\lambda\right)  \left(  i\right)  }.
+\end{align*}
+In other words, we have $\left(  a_{1},a_{2},\ldots,a_{k}\right)  =\left(
+c_{\left(  \mu\circ\lambda\right)  \left(  1\right)  },c_{\left(  \mu
+\circ\lambda\right)  \left(  2\right)  },\ldots,c_{\left(  \mu\circ
+\lambda\right)  \left(  k\right)  }\right)  $. Hence, the $k$-tuple $\left(
+a_{1},a_{2},\ldots,a_{k}\right)  $ has the form $\left(  c_{\sigma\left(
+1\right)  },c_{\sigma\left(  2\right)  },\ldots,c_{\sigma\left(  k\right)
+}\right)  $ for some permutation $\sigma$ of the set $\left\{  1,2,\ldots
+,k\right\}  $ (namely, for $\sigma=\mu\circ\lambda$). In other words, the
+$k$-tuple $\left(  a_{1},a_{2},\ldots,a_{k}\right)  $ is a permutation of
+$\left(  c_{1},c_{2},\ldots,c_{k}\right)  $ (by Definition
+\ref{def.comb.tuples.perm-tup}). In other words, $\mathbf{a}$ is a permutation
+of $\mathbf{c}$ (since $\mathbf{a}=\left(  a_{1},a_{2},\ldots,a_{k}\right)  $
+and $\mathbf{c}=\left(  c_{1},c_{2},\ldots,c_{k}\right)  $). In other words,
+$\mathbf{a}\underset{\operatorname*{perm}}{\sim}\mathbf{c}$.
+
+Forget that we fixed $\mathbf{a},\mathbf{b},\mathbf{c}$. We thus have shown
+that every $\mathbf{a},\mathbf{b},\mathbf{c}\in A^{k}$ satisfying
+$\mathbf{a}\underset{\operatorname*{perm}}{\sim}\mathbf{b}$ and $\mathbf{b}%
+\underset{\operatorname*{perm}}{\sim}\mathbf{c}$ satisfy $\mathbf{a}%
+\underset{\operatorname*{perm}}{\sim}\mathbf{c}$.. In other words, the
+relation $\underset{\operatorname*{perm}}{\sim}$ is transitive.]
+\end{itemize}
+
+We now know that the relation $\underset{\operatorname*{perm}}{\sim}$ is
+reflexive, symmetric and transitive. In other words,
+$\underset{\operatorname*{perm}}{\sim}$ is an equivalence relation. This
+solves Exercise \ref{exe.eqrel.eqcl.perm.eq}.
 \end{proof}
+\end{fineprint}
 
 \begin{definition}
 \label{def.eqrel.eqcl.perm.unord-tup}Let $A$ be a set, and let $k\in
@@ -14084,6 +14299,9 @@ _{\underset{\operatorname*{perm}}{\sim}}=\left[  \left(  8,6\right)  \right]
 _{\underset{\operatorname*{perm}}{\sim}}$.
 \end{definition}
 
+\subsubsection{The \textquotedblleft is a cyclic rotation of\textquotedblright%
+\ relation on tuples}
+
 \begin{definition}
 Again, let $A$ be a set and $k\in\mathbb{N}$. If $\mathbf{a}=\left(
 a_{1},a_{2},\ldots,a_{k}\right)  \in A^{k}$, then a \textit{cyclic rotation}
@@ -14094,11 +14312,15 @@ A^{k}%
 \]
 for some $i\in\left\{  0,1,\ldots,k\right\}  $.
 
+For example, the cyclic rotations of the $3$-tuple $\left(  1,4,5\right)  $
+are $\left(  1,4,5\right)  $, $\left(  4,5,1\right)  $ and $\left(
+5,1,4\right)  $.
+
 (Here is an equivalent description of cyclic rotations: Let $C$ be the map
-$A^{k}\rightarrow A^{k}$ that sends each $\left(  a_{1},a_{2},\ldots
-,a_{k}\right)  $ to $\left(  a_{2},a_{3},\ldots,a_{k},a_{1}\right)  $. Then,
-it is easy to see that a cyclic rotation of $\mathbf{a}$ is the same as a
-$k$-tuple of the form $C^{i}\left(  \mathbf{a}\right)  $ for some
+$A^{k}\rightarrow A^{k}$ that sends each $k$-tuple $\left(  a_{1},a_{2}%
+,\ldots,a_{k}\right)  $ to $\left(  a_{2},a_{3},\ldots,a_{k},a_{1}\right)  $.
+Then, it is easy to see that a cyclic rotation of $\mathbf{a}$ is the same as
+a $k$-tuple of the form $C^{i}\left(  \mathbf{a}\right)  $ for some
 $i\in\left\{  0,1,\ldots,k\right\}  $. But it is also easy to see that
 $C^{k}=\operatorname*{id}$. Thus, the $C^{i}\left(  \mathbf{a}\right)  $ for
 $i\in\left\{  0,1,\ldots,k\right\}  $ are exactly the $C^{i}\left(
@@ -14109,7 +14331,7 @@ follows:%
 \begin{align*}
 \left(  \mathbf{p}\underset{\operatorname*{cyc}}{\sim}\mathbf{q}\right)   &
 \Longleftrightarrow\ \left(  \mathbf{p}\text{ is a cyclic rotation of
-}\mathbf{q}\right)  \\
+}\mathbf{q}\right) \\
 &  \Longleftrightarrow\ \left(  \mathbf{p}=C^{i}\left(  \mathbf{q}\right)
 \text{ for some }i\in\mathbb{N}\right)  .
 \end{align*}
@@ -14120,8 +14342,15 @@ relation. Its equivalence classes are called \textit{necklaces} of length $k$
 over $A$.
 \end{definition}
 
+We shall not prove the statements claimed in this definition, since they are
+particular cases of more general results that will be proven below (about
+groups acting on sets).
+
+\subsubsection{Definition of the quotient set and the projection map}
+
 \begin{definition}
-Let $S$ be a set, and let $\sim$ be an equivalence relation on $S$.
+\label{def.eqrel.eqcl.proj}Let $S$ be a set, and let $\sim$ be an equivalence
+relation on $S$.
 
 \textbf{(a)} The set of equivalence classes of $\sim$ is denoted by $S/\sim$.
 It is called the \textit{quotient} (or \textit{quotient set}) of $S$ by $\sim$.
@@ -14142,13 +14371,16 @@ $\pi_{\sim}$.
 \subsection{$\mathbb{Z}/n$ (\textquotedblleft integers modulo $n$%
 \textquotedblright)}
 
+We now come to one of the most important example of equivalence classes: the
+residue classes of integers modulo a given positive integer $n$.
+
 \begin{convention}
 For this section, we fix a positive integer $n$.
 \end{convention}
 
 \begin{definition}
-\textbf{(a)} Define a relation $\underset{n}{\equiv}$ on the set $\mathbb{Z}$
-by
+\label{def.eqrel.Z/n.res-class}\textbf{(a)} Define a relation
+$\underset{n}{\equiv}$ on the set $\mathbb{Z}$ by
 \[
 \left(  a\underset{n}{\equiv}b\right)  \Longleftrightarrow\left(  a\equiv
 b\operatorname{mod}n\right)  .
@@ -14165,31 +14397,41 @@ class of the relation $\underset{n}{\equiv}$.
 
 For example,%
 \begin{align*}
-\left[  0\right]  _{\underset{5}{\equiv}}  &  =\left\{  \ldots
+\left[  0\right]  _{\underset{5}{\equiv}} &  =\left\{  \ldots
 ,-15,-10,-5,0,5,10,15,20,\ldots\right\}  ,\\
-\left[  1\right]  _{\underset{5}{\equiv}}  &  =\left\{  \ldots
+\left[  1\right]  _{\underset{5}{\equiv}} &  =\left\{  \ldots
 ,-14,-9,-4,1,6,11,16,21,\ldots\right\}  ,\\
-\left[  2\right]  _{\underset{5}{\equiv}}  &  =\left\{  \ldots
+\left[  2\right]  _{\underset{5}{\equiv}} &  =\left\{  \ldots
 ,-13,-8,-3,2,7,12,17,22,\ldots\right\}  ,\\
-\left[  3\right]  _{\underset{5}{\equiv}}  &  =\left\{  \ldots
+\left[  3\right]  _{\underset{5}{\equiv}} &  =\left\{  \ldots
 ,-12,-7,-2,3,8,13,18,23,\ldots\right\}  ,\\
-\left[  4\right]  _{\underset{5}{\equiv}}  &  =\left\{  \ldots
+\left[  4\right]  _{\underset{5}{\equiv}} &  =\left\{  \ldots
 ,-11,-6,-1,4,9,14,19,24,\ldots\right\}
 \end{align*}
-are all the residue classes modulo $5$. As you see, the classes are in 1-to-1
-correspondence with the $5$ possible remainders $0,1,2,3,4$ modulo $5$. This
-generalizes (see Theorem \ref{thm.eqrel.Zn.explicit} below). First, a few notations:
+are all the residue classes modulo $5$. As you see, these classes are in
+1-to-1 correspondence with the $5$ possible remainders $0,1,2,3,4$ modulo $5$.
+This generalizes (see Theorem \ref{thm.eqrel.Zn.explicit} below). First, a few notations:
 
 \begin{definition}
-\textbf{(a)} If $i$ is an integer, then we set $\left[  i\right]  _{n}=\left[
-i\right]  _{\underset{n}{\equiv}}$. (Some authors call this $\overline{i}_{n}$
+\label{def.eqrel.Z/n.Z/n}\textbf{(a)} If $i$ is an integer, then we denote the
+residue class $\left[  i\right]  _{\underset{n}{\equiv}}$ by $\left[
+i\right]  _{n}$. (Some authors denote this residue class by $\overline{i}_{n}$
 or $i\operatorname{mod}n$. Be careful with the notation $i\operatorname{mod}%
-n$, since other authors use it for $i\%n$.)
+n$, since other authors use it for the integer $i\%n$.)
 
 \textbf{(b)} The set $\mathbb{Z}/\underset{n}{\equiv}$ of residue classes
 modulo $n$ is called $\mathbb{Z}/n$. (Some authors call it $\mathbb{Z}/\left(
 n\right)  $ or $\mathbb{Z}/n\mathbb{Z}$ or $\mathbb{Z}_{n}$. Be careful with
-the notation $\mathbb{Z}_{n}$, since it has a different meaning, too.)
+the notation $\mathbb{Z}_{n}$, since it has a different meaning, too.)%
+\[%
+\begin{tabular}
+[c]{||l||}\hline\hline
+\textbf{You have reached the end of the finished part.}\\
+\textbf{TODO: Write on from here.}\\\hline\hline
+\end{tabular}
+\ \ \ \
+\]
+
 \end{definition}
 
 \begin{theorem}
@@ -14199,15 +14441,15 @@ _{n}$.
 \end{theorem}
 
 \begin{proof}
-We have a map%
+[Proof of Theorem \ref{thm.eqrel.Zn.explicit}.] We have a map%
 \begin{align*}
-\pi_{\underset{n}{\equiv}}:\mathbb{Z}  &  \rightarrow\mathbb{Z}/n,\\
-s  &  \mapsto\left[  s\right]  _{n}.
+\pi_{\underset{n}{\equiv}}:\mathbb{Z} &  \rightarrow\mathbb{Z}/n,\\
+s &  \mapsto\left[  s\right]  _{n}.
 \end{align*}
 We restrict it to the set $\left\{  0,1,\ldots,n-1\right\}  $, and get a map%
 \begin{align*}
 P:\left\{  0,1,\ldots,n-1\right\}   &  \rightarrow\mathbb{Z}/n,\\
-s  &  \mapsto\left[  s\right]  _{n}.
+s &  \mapsto\left[  s\right]  _{n}.
 \end{align*}
 Our goal is to prove that this map $P$ is bijective.
 
@@ -14220,12 +14462,12 @@ R:\mathbb{Z}/n  &  \rightarrow\left\{  0,1,\ldots,n-1\right\}  ,\\
 \end{align*}
 Can we do this? Is this well-defined?
 
-Here is what could go wrong: One element of $\mathbb{Z}/n$ could be written as
-$\left[  s\right]  _{n}$ for several different integers $s$. For instance,
-$\left[  2\right]  _{5}=\left[  17\right]  _{5}$. If the corresponding
-remainders $s\%n$ were different, then the map $R$ would have to send the same
-class to several different numbers, and this is not something a map can do.
-This would happen if we tried to define%
+Here is what could go wrong: One element $\sigma$ of $\mathbb{Z}/n$ could be
+written as $\left[  s\right]  _{n}$ for several different integers $s$. For
+instance, $\left[  2\right]  _{5}=\left[  17\right]  _{5}$. If the
+corresponding remainders $s\%n$ were different, then the map $R$ would have to
+send the class $\sigma$ to several different numbers, and this is not
+something a map can do. This would happen if we tried to define%
 \begin{align*}
 R_{\operatorname*{wrong}}:\mathbb{Z}/n  &  \rightarrow\left\{  0,1,\ldots
 ,n-1\right\}  ,\\
@@ -14235,7 +14477,7 @@ Indeed, this ostensible map $R_{\operatorname*{wrong}}$ would send $\left[
 0\right]  _{n}$ to $0\%\left(  n+1\right)  =0$ and $\left[  -n\right]  _{n}$
 to $\left(  -n\right)  \%\left(  n+1\right)  =1$; however, $\left[  0\right]
 _{n}$ and $\left[  -n\right]  _{n}$ are the same class, whereas $0$ and $1$
-are not the same remainder, so this map would send the same class to two
+are not the same number, so this map would send the same class to two
 different numbers. Thus, the map $R_{\operatorname*{wrong}}$ does not exist.
 
 So we have to check that in the definition of
@@ -14256,7 +14498,7 @@ s_{1}\right]  _{n}=\left[  s_{2}\right]  _{n}$, then $s_{1}\%n=s_{2}\%n$.
 $\left[  s_{1}\right]  _{n}=\left[  s_{2}\right]  _{n}$. In other words,
 $s_{1}\underset{n}{\equiv}s_{2}$ (by Theorem \ref{thm.eqrel.eqcl.disj}
 \textbf{(e)}). In other words, $s_{1}\equiv s_{2}\operatorname{mod}n$. But
-this implies $s_{1}\%n=s_{2}\%n$ (by one of the HW1 exercises).]
+this implies $s_{1}\%n=s_{2}\%n$ (by Exercise \ref{exe.ent.quo-rem.mod=rem}).]
 
 Claim 1 shows that $s\%n$ depends only on the \textbf{class} $\left[
 s\right]  _{n}$, but not on the actual integer $s$. Thus, the map $R$ is well-defined.
@@ -14316,29 +14558,33 @@ Also, the injectivity of $P$ shows that $\left[  0\right]  _{n},\left[
 1\right]  _{n},\ldots,\left[  n-1\right]  _{n}$ are distinct.
 \end{proof}
 
+Let us recall the concept of a binary operation (defined in Definition
+\ref{def.intro.binop}). We shall now define several such operations on the set
+$\mathbb{Z}/n$:
+
 \begin{definition}
-\textbf{(a)} We define an \textit{addition} operation on $\mathbb{Z}/n$ as
-follows:%
+\textbf{(a)} We define a binary operation $+$ on $\mathbb{Z}/n$ (called
+\textit{addition}) as follows:%
 \[
 \left[  a\right]  _{n}+\left[  b\right]  _{n}:=\left[  a+b\right]  _{n}.
 \]
 
 
-\textbf{(b)} We define a \textit{subtraction}\textbf{ }operation on
-$\mathbb{Z}/n$ as follows:%
+\textbf{(b)} We define a binary operation $-$ on $\mathbb{Z}/n$ (called
+\textit{subtraction}) as follows:%
 \[
 \left[  a\right]  _{n}-\left[  b\right]  _{n}:=\left[  a-b\right]  _{n}.
 \]
 
 
-\textbf{(c)} We define a \textit{multiplication} operation on $\mathbb{Z}/n$
-as follows:%
+\textbf{(c)} We define a binary operation $\cdot$ on $\mathbb{Z}/n$ (called
+\textit{multiplication}) as follows:%
 \[
 \left[  a\right]  _{n}\cdot\left[  b\right]  _{n}:=\left[  a\cdot b\right]
 _{n}.
 \]
 We shall also write $\alpha\beta$ for the product $\alpha\cdot\beta$ of two
-remainder classes $\alpha,\beta\in\mathbb{Z}/n$.
+residue classes $\alpha,\beta\in\mathbb{Z}/n$.
 
 \textbf{(d)} If $\lambda\in\mathbb{Z}$ and $\left[  a\right]  _{n}%
 \in\mathbb{Z}/n$, then we set
@@ -14424,6 +14670,8 @@ but $\left[  3\right]  _{4}\neq\left[  1\right]  _{4}$).
 Similarly, you cannot define $\left(  \left[  a\right]  _{n}\right)  ^{\left[
 b\right]  _{n}}$.
 \end{remark}
+
+TODO: Define sum, product, etc. of two residue classes.
 
 Caution: While $i\%n$ and $\left[  i\right]  _{n}$ encode the same information
 about $i$ (for fixed $n$), they are not the same thing! For example,%
@@ -14770,8 +15018,8 @@ _{p}$. In other words, $\left(  p-1\right)  !\equiv-1\operatorname{mod}p$.
 \label{def.eqrel.Zn.pind}Let $n$ be a positive integer. Let $d$ be a positive
 divisor of $n$. Then, there is a map%
 \begin{align*}
-\pi_{n,d}:\mathbb{Z}/n &  \rightarrow\mathbb{Z}/d,\\
-\left[  a\right]  _{n} &  \mapsto\left[  a\right]  _{d}.
+\pi_{n,d}:\mathbb{Z}/n  &  \rightarrow\mathbb{Z}/d,\\
+\left[  a\right]  _{n}  &  \mapsto\left[  a\right]  _{d}.
 \end{align*}
 
 \end{definition}
@@ -14817,7 +15065,7 @@ is a bijection.
 Let $m=3$ and $n=2$ for this example. Then, Theorem \ref{thm.eqrel.CRT2} says
 that the map%
 \begin{align*}
-\mathbb{Z}/6 &  \rightarrow\left(  \mathbb{Z}/3\right)  \times\left(
+\mathbb{Z}/6  &  \rightarrow\left(  \mathbb{Z}/3\right)  \times\left(
 \mathbb{Z}/2\right)  ,\\
 \alpha &  \mapsto\left(  \pi_{6,3}\left(  \alpha\right)  ,\pi_{6,2}\left(
 \alpha\right)  \right)
