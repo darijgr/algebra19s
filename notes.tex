@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Sunday, March 03, 2019 00:14:06}
+%TCIDATA{LastRevised=Sunday, March 03, 2019 00:52:14}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -7147,10 +7147,11 @@ element. Therefore, this set $\operatorname*{Mul}\left(  b_{1},b_{2}%
 well\footnote{Here we are using the following basic fact: If a set of integers
 $S$ has a positive element, then it has a \textbf{smallest} positive element
 as well. (To prove this fact, you can fix a positive element $s\in S$, which
-exists by assumption; then, the set $\left\{  1,2,\ldots,s\right\} \cap S$ is
-finite and nonempty, and thus clearly has a smallest element; now you can
-easily check that its smallest element must also be the smallest positive
-element of $S$.)}. This proves Proposition \ref{prop.ent.Mul.exi}.
+exists by assumption; then, the set $\left\{  1,2,\ldots,s\right\}  \cap S$ is
+finite and nonempty (since it contains $s$), and thus clearly has a smallest
+element; now you can easily check that its smallest element must also be the
+smallest positive element of $S$.)}. This proves Proposition
+\ref{prop.ent.Mul.exi}.
 \end{proof}
 
 \begin{definition}
@@ -13554,7 +13555,7 @@ This relation $\underset{f}{\equiv}$ is an equivalence relation.
 \end{example}
 
 \begin{proof}
-[Proof of Example \ref{exa.eqrel.eqrel.eqrelf}.] Indeed:
+[Proof of Example \ref{exa.eqrel.eqrel.eqrelf}.]Indeed:
 
 \begin{itemize}
 \item The relation $\underset{f}{\equiv}$ is reflexive, because every $a\in S$
@@ -13613,7 +13614,7 @@ This relation $\underset{\ast}{\sim}$ is an equivalence relation.
 \end{example}
 
 \begin{proof}
-[Proof of Example \ref{exa.eqrel.eqrel.eqrelQ}.] Indeed:
+[Proof of Example \ref{exa.eqrel.eqrel.eqrelQ}.]Indeed:
 
 \begin{itemize}
 \item The relation $\underset{\ast}{\sim}$ is reflexive.
@@ -13759,7 +13760,7 @@ Let $a,b\in S$. Then, $a\sim b$ if and only if $b\sim a$.
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.eqrel.rel.symm-ba}.] The relation $\sim$ is
+[Proof of Proposition \ref{prop.eqrel.rel.symm-ba}.]The relation $\sim$ is
 symmetric. Thus, if $a$ and $b$ satisfy $a\sim b$, then they also satisfy
 $b\sim a$ (by the definition of \textquotedblleft symmetric\textquotedblright%
 ). In other words, we have the logical implication $\left(  a\sim b\right)
@@ -13773,136 +13774,226 @@ implications, we obtain the equivalence $\left(  a\sim b\right)
 
 \subsection{Equivalence classes}
 
-We can now state one of the most important definitions in mathematics:%
-\[%
-\begin{tabular}
-[c]{||l||}\hline\hline
-\textbf{You have reached the end of the finished part.}\\
-\textbf{TODO: Write from here.}\\\hline\hline
-\end{tabular}
-\ \ \ \ \ \
-\]
-
+We can now state one of the most important definitions in mathematics:
 
 \begin{definition}
 \label{def.eqrel.eqcl.eqcl}Let $\sim$ be an equivalence relation on a set $S$.
 
-\textbf{(a)} For each $a\in S$, we let $\left[  a\right]  _{\sim}$ be the
-subset
-\[
-\left\{  b\in S\ \mid\ a\sim b\right\}  =\left\{  b\in S\ \mid\ b\sim
-a\right\}
-\]
-of $S$ (note that the equality sign here follows from the previous
-proposition). This subset $\left[  a\right]  _{\sim}$ is called the
-\textit{equivalence class} of $a$.
+\textbf{(a)} For each $a\in S$, we define a subset $\left[  a\right]  _{\sim}$
+of $S$ by%
+\begin{equation}
+\left[  a\right]  _{\sim}=\left\{  b\in S\ \mid\ b\sim a\right\}  .
+\label{eq.def.eqrel.eqcl.eqcl.a.eq}%
+\end{equation}
+This subset $\left[  a\right]  _{\sim}$ is called the \textit{equivalence
+class} of $a$.
 
-\textbf{(b)} The \textit{equivalence classes} of $\sim$ are just the sets
-$\left[  a\right]  _{\sim}$ for $a\in S$.
+\textbf{(b)} The \textit{equivalence classes} of $\sim$ are defined to be the
+sets $\left[  a\right]  _{\sim}$ for $a\in S$.
 \end{definition}
 
 \begin{example}
 \label{exa.eqrel.eqcl.mod3}Consider the relation $\underset{3}{\equiv}$ on
-$\mathbb{Z}$. We have%
+$\mathbb{Z}$ (defined in Example \ref{exa.eqrel.rel.rels1} \textbf{(e)}). We
+have%
 \begin{align*}
 \left[  5\right]  _{\underset{3}{\equiv}}  &  =\left\{  b\in\mathbb{Z}%
-\ \mid\ 5\underset{3}{\equiv}b\right\}  =\left\{  b\in\mathbb{Z}%
-\ \mid\ 5\equiv b\operatorname{mod}3\right\} \\
+\ \mid\ b\underset{3}{\equiv}5\right\}  =\left\{  b\in\mathbb{Z}%
+\ \mid\ b\equiv5\operatorname{mod}3\right\} \\
 &  =\left\{  \ldots,-4,-1,2,5,8,11,14,\ldots\right\}
 \end{align*}
 and%
 \begin{align*}
 \left[  3\right]  _{\underset{3}{\equiv}}  &  =\left\{  b\in\mathbb{Z}%
-\ \mid\ 3\underset{3}{\equiv}b\right\}  =\left\{  b\in\mathbb{Z}%
-\ \mid\ 3\equiv b\operatorname{mod}3\right\} \\
+\ \mid\ b\underset{3}{\equiv}3\right\}  =\left\{  b\in\mathbb{Z}%
+\ \mid\ b\equiv3\operatorname{mod}3\right\} \\
 &  =\left\{  \ldots,-6,-3,0,3,6,9,12,\ldots\right\}
 \end{align*}
 and%
 \begin{align*}
 \left[  2\right]  _{\underset{3}{\equiv}}  &  =\left\{  b\in\mathbb{Z}%
-\ \mid\ 2\underset{3}{\equiv}b\right\}  =\left\{  b\in\mathbb{Z}%
-\ \mid\ 2\equiv b\operatorname{mod}3\right\} \\
-&  =\left\{  \ldots,-4,-1,2,5,8,11,14,\ldots\right\}  =\left[  5\right]
-_{\sim}.
+\ \mid\ b\underset{3}{\equiv}2\right\}  =\left\{  b\in\mathbb{Z}%
+\ \mid\ b\equiv2\operatorname{mod}3\right\} \\
+&  =\left\{  \ldots,-4,-1,2,5,8,11,14,\ldots\right\}  .
 \end{align*}
-
+Note that $\left[  5\right]  _{\underset{3}{\equiv}}=\left[  2\right]
+_{\underset{3}{\equiv}}$, as you can easily see.
 \end{example}
 
 \begin{proposition}
-\label{prop.eqrel.eqclas.aina}Let $\sim$ be an equivalence relation on a set
+\label{prop.eqrel.eqcl.ab}Let $\sim$ be an equivalence relation on a set $S$.
+Let $a\in S$. Then,%
+\[
+\left[  a\right]  _{\sim}=\left\{  b\in S\ \mid\ a\sim b\right\}  .
+\]
+
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.eqrel.eqcl.ab}.]The relation $\sim$ is
+symmetric (since it is an equivalence relation). Thus, for any $b\in S$, we
+have $\left(  a\sim b\text{ if and only if }b\sim a\right)  $ (by Proposition
+\ref{prop.eqrel.rel.symm-ba}). Hence, $\left\{  b\in S\ \mid\ a\sim b\right\}
+=\left\{  b\in S\ \mid\ b\sim a\right\}  $. Comparing this with
+(\ref{eq.def.eqrel.eqcl.eqcl.a.eq}), we obtain $\left[  a\right]  _{\sim
+}=\left\{  b\in S\ \mid\ a\sim b\right\}  $. This proves Proposition
+\ref{prop.eqrel.eqcl.ab}.
+\end{proof}
+
+Proposition \ref{prop.eqrel.eqcl.ab} shows that we can replace the condition
+\textquotedblleft$b\sim a$\textquotedblright\ by \textquotedblleft$a\sim
+b$\textquotedblright\ in Definition \ref{def.eqrel.eqcl.eqcl} \textbf{(a)}
+without changing the meaning of the definition. (Some authors, such as Swanson
+in \cite[Definition 2.3.6]{Swanso18}, do exactly that.)
+
+\begin{proposition}
+\label{prop.eqrel.eqcl.aina}Let $\sim$ be an equivalence relation on a set
 $S$. Let $a\in S$. Then, $a\in\left[  a\right]  _{\sim}$.
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.eqrel.eqclas.aina}.]The relation $\sim$ is
+[Proof of Proposition \ref{prop.eqrel.eqcl.aina}.]The relation $\sim$ is
 reflexive (since it is an equivalence relation). Thus, $a\sim a$. In other
-words, $a\in\left[  a\right]  _{\sim}$ (by the definition of $\left[
-a\right]  _{\sim}$).
+words, $a$ is a $b\in S$ satisfying $b\sim a$. In other words, $a\in\left\{
+b\in S\ \mid\ b\sim a\right\}  $. But $\left[  a\right]  _{\sim}=\left\{  b\in
+S\ \mid\ b\sim a\right\}  $ (by the definition of $\left[  a\right]  _{\sim}%
+$). Hence, $a\in\left\{  b\in S\ \mid\ b\sim a\right\}  =\left[  a\right]
+_{\sim}$. This proves Proposition \ref{prop.eqrel.eqcl.aina}.
 \end{proof}
 
-Proposition \ref{prop.eqrel.eqclas.aina} shows that all equivalence classes of
+Proposition \ref{prop.eqrel.eqcl.aina} shows that all equivalence classes of
 an equivalence relation are nonempty sets (because each equivalence class
 $\left[  a\right]  _{\sim}$ contains at least the element $a$).
 
 \begin{theorem}
-\label{thm.eqrel.eqclas.disj}Let $\sim$ be an equivalence relation on a set
-$S$. Let $a,b\in S$.
+\label{thm.eqrel.eqcl.disj}Let $\sim$ be an equivalence relation on a set $S$.
+Let $x,y\in S$.
 
-\textbf{(a)} If $a\sim b$, then $\left[  a\right]  _{\sim}=\left[  b\right]
+\textbf{(a)} If $x\sim y$, then $\left[  x\right]  _{\sim}=\left[  y\right]
 _{\sim}$.
 
-\textbf{(b)} If not $a\sim b$, then the sets $\left[  a\right]  _{\sim}$ and
-$\left[  b\right]  _{\sim}$ are disjoint.
+\textbf{(b)} If not $x\sim y$, then the sets $\left[  x\right]  _{\sim}$ and
+$\left[  y\right]  _{\sim}$ are disjoint.
 
-\textbf{(c)} We have $a\sim b$ if and only if $a\in\left[  b\right]  _{\sim}$.
+\textbf{(c)} We have $x\sim y$ if and only if $x\in\left[  y\right]  _{\sim}$.
 
-\textbf{(d)} We have $a\sim b$ if and only if $b\in\left[  a\right]  _{\sim}$.
+\textbf{(d)} We have $x\sim y$ if and only if $y\in\left[  x\right]  _{\sim}$.
 
-\textbf{(e)} We have $a\sim b$ if and only if $\left[  a\right]  _{\sim
-}=\left[  b\right]  _{\sim}$.
+\textbf{(e)} We have $x\sim y$ if and only if $\left[  x\right]  _{\sim
+}=\left[  y\right]  _{\sim}$.
 \end{theorem}
 
 \begin{proof}
-[Proof of Theorem \ref{thm.eqrel.eqclas.disj}.]\textbf{(a)} Assume $a\sim b$.
-Let $c\in\left[  a\right]  _{\sim}$. Thus, $c\sim a$ (by the definition of
-$\left[  a\right]  _{\sim}$). From $c\sim a$ and $a\sim b$, we obtain $c\sim
-b$ (since $\sim$ is transitive). In other words, $c\in\left[  b\right]
-_{\sim}$ (by the definition of $\left[  b\right]  _{\sim}$). We have proven
-this for each $c\in\left[  a\right]  _{\sim}$. Thus, $\left[  a\right]
-_{\sim}\subseteq\left[  b\right]  _{\sim}$. The same argument (with $a$ and
-$b$ switched) yields $\left[  b\right]  _{\sim}\subseteq\left[  a\right]
-_{\sim}$ (since $a\sim b$ yields $b\sim a$). Combining $\left[  a\right]
-_{\sim}\subseteq\left[  b\right]  _{\sim}$ with $\left[  b\right]  _{\sim
-}\subseteq\left[  a\right]  _{\sim}$, we obtain $\left[  a\right]  _{\sim
-}=\left[  b\right]  _{\sim}$.
+[Proof of Theorem \ref{thm.eqrel.eqcl.disj}.]The relation $\sim$ is transitive
+(since it is an equivalence relation) and symmetric (for the same reason).
 
-\textbf{(b)} Assume that we don't have $a\sim b$. Let $c\in\left[  a\right]
-_{\sim}\cap\left[  b\right]  _{\sim}$. We aim for a contradiction.
+The definition of $\left[  x\right]  _{\sim}$ yields $\left[  x\right]
+_{\sim}=\left\{  b\in S\ \mid\ b\sim x\right\}  $. Similarly, $\left[
+y\right]  _{\sim}=\left\{  b\in S\ \mid\ b\sim y\right\}  $.
 
-We have $c\in\left[  a\right]  _{\sim}\cap\left[  b\right]  _{\sim}=\left[
-a\right]  _{\sim}$, so that $c\sim a$ (by the definition of $\left[  a\right]
-_{\sim}$). Likewise, $c\sim b$. From $c\sim a$, we obtain $a\sim c$ (by
-symmetry). Combining this with $c\sim b$, we obtain $a\sim b$ (by
-transitivity). This contradicts our assumption that we don't have $a\sim b$.
+\textbf{(a)} Assume that $x\sim y$. Thus, $y\sim x$ (since the relation $\sim$
+is symmetric).
 
-So we have found a contradiction for each $c\in\left[  a\right]  _{\sim}%
-\cap\left[  b\right]  _{\sim}$. Thus, there is no such $c$. In other words,
-$\left[  a\right]  _{\sim}\cap\left[  b\right]  _{\sim}=\varnothing$. In other
-words, $\left[  a\right]  _{\sim}$ and $\left[  b\right]  _{\sim}$ are disjoint.
+Let $c\in\left[  x\right]  _{\sim}$. Thus, $c\in\left[  x\right]  _{\sim
+}=\left\{  b\in S\ \mid\ b\sim x\right\}  $. Thus, $c\sim x$. From $c\sim x$
+and $x\sim y$, we obtain $c\sim y$ (since the relation $\sim$ is transitive).
+Hence, $c\in\left\{  b\in S\ \mid\ b\sim y\right\}  $. In other words,
+$c\in\left[  y\right]  _{\sim}$ (since $\left[  y\right]  _{\sim}=\left\{
+b\in S\ \mid\ b\sim y\right\}  $).
 
-\textbf{(c)} This is simply the definition of $\left[  b\right]  _{\sim}$.
+Forget that we fixed $c$. We thus have proven that $c\in\left[  y\right]
+_{\sim}$ for each $c\in\left[  x\right]  _{\sim}$. Thus, $\left[  x\right]
+_{\sim}\subseteq\left[  y\right]  _{\sim}$. The same argument (with $x$ and
+$y$ switched) yields $\left[  y\right]  _{\sim}\subseteq\left[  x\right]
+_{\sim}$ (since $y\sim x$). Combining $\left[  x\right]  _{\sim}%
+\subseteq\left[  y\right]  _{\sim}$ with $\left[  y\right]  _{\sim}%
+\subseteq\left[  x\right]  _{\sim}$, we obtain $\left[  x\right]  _{\sim
+}=\left[  y\right]  _{\sim}$. This proves Theorem \ref{thm.eqrel.eqcl.disj}
+\textbf{(a)}.
 
-\textbf{(d)} By symmetry of $\sim$, we have $\left(  a\sim b\right)
-\Longleftrightarrow\left(  b\sim a\right)  \Longleftrightarrow\left(
-b\in\left[  a\right]  _{\sim}\right)  $ (by the definition of $\left[
-a\right]  _{\sim}$).
+\textbf{(b)} Assume that we don't have $x\sim y$. Let $c\in\left[  x\right]
+_{\sim}\cap\left[  y\right]  _{\sim}$. We aim for a contradiction.
 
-\textbf{(e)} The $\Longrightarrow$ part follows from part \textbf{(a)},
-whereas the $\Longleftarrow$ part is easy (if $\left[  a\right]  _{\sim
-}=\left[  b\right]  _{\sim}$, then Proposition \ref{prop.eqrel.eqclas.aina}
-yields $a\in\left[  a\right]  _{\sim}=\left[  b\right]  _{\sim}$, and this
-means $a\sim b$).
+We have $c\in\left[  x\right]  _{\sim}\cap\left[  y\right]  _{\sim}%
+\subseteq\left[  x\right]  _{\sim}=\left\{  b\in S\ \mid\ b\sim x\right\}  $,
+so that $c\sim x$. Likewise, $c\sim y$. From $c\sim x$, we obtain $x\sim c$
+(since the relation $\sim$ is symmetric). Combining this with $c\sim y$, we
+obtain $x\sim y$ (since $\sim$ is transitive). This contradicts our assumption
+that we don't have $x\sim y$.
+
+Now, forget that we fixed $c$. So we have found a contradiction for each
+$c\in\left[  x\right]  _{\sim}\cap\left[  y\right]  _{\sim}$. Thus, there is
+no such $c$. In other words, $\left[  x\right]  _{\sim}\cap\left[  y\right]
+_{\sim}=\varnothing$. In other words, the sets $\left[  x\right]  _{\sim}$ and
+$\left[  y\right]  _{\sim}$ are disjoint. This proves Theorem
+\ref{thm.eqrel.eqcl.disj} \textbf{(b)}.
+
+\textbf{(c)} Recall that $\left[  y\right]  _{\sim}=\left\{  b\in
+S\ \mid\ b\sim y\right\}  $. Thus, we have $x\in\left[  y\right]  _{\sim}$ if
+and only if $x\sim y$. In other words, we have $x\sim y$ if and only if
+$x\in\left[  y\right]  _{\sim}$. This proves Theorem \ref{thm.eqrel.eqcl.disj}
+\textbf{(c)}.
+
+\textbf{(d)} Theorem \ref{thm.eqrel.eqcl.disj} \textbf{(c)} (applied to $y$
+and $x$ instead of $x$ and $y$) shows that we have $y\sim x$ if and only if
+$y\in\left[  x\right]  _{\sim}$. In other words, we have the logical
+equivalence $\left(  y\sim x\right)  \Longleftrightarrow\left(  y\in\left[
+x\right]  _{\sim}\right)  $.
+
+Proposition \ref{prop.eqrel.rel.symm-ba} (applied to $a=x$ and $b=y$) shows
+that we have $x\sim y$ if and only if $y\sim x$. Thus, we have the following
+chain of logical equivalences:
+\[
+\left(  x\sim y\right)  \Longleftrightarrow\left(  y\sim x\right)
+\Longleftrightarrow\left(  y\in\left[  x\right]  _{\sim}\right)
+\]
+In other words, we have $x\sim y$ if and only if $y\in\left[  x\right]
+_{\sim}$. This proves Theorem \ref{thm.eqrel.eqcl.disj} \textbf{(d)}.
+
+\textbf{(e)} $\Longrightarrow:$ Assume that $x\sim y$. Then, Theorem
+\ref{thm.eqrel.eqcl.disj} \textbf{(a)} yields $\left[  x\right]  _{\sim
+}=\left[  y\right]  _{\sim}$. Thus, the \textquotedblleft$\Longrightarrow
+$\textquotedblright\ direction of Theorem \ref{thm.eqrel.eqcl.disj}
+\textbf{(e)} is proven.
+
+$\Longleftarrow:$ Assume that $\left[  x\right]  _{\sim}=\left[  y\right]
+_{\sim}$. Then, Proposition \ref{prop.eqrel.eqcl.aina} (applied to $a=x$)
+yields $x\in\left[  x\right]  _{\sim}=\left[  y\right]  _{\sim}=\left\{  b\in
+S\ \mid\ b\sim y\right\}  $. In other words, $x\sim y$. This proves the
+\textquotedblleft$\Longleftarrow$\textquotedblright\ direction of Theorem
+\ref{thm.eqrel.eqcl.disj} \textbf{(e)}.
 \end{proof}
+
+Theorem \ref{thm.eqrel.eqcl.disj} yields an important property of equivalence classes:
+
+\begin{exercise}
+\label{exe.eqrel.eqcl.dj}Let $\sim$ be an equivalence relation on a set $S$.
+Prove that any two equivalence classes of $\sim$ are either identical or disjoint.
+\end{exercise}
+
+\begin{fineprint}
+\begin{proof}
+[Solution to Exercise \ref{exe.eqrel.eqcl.dj}.] Let $\alpha$ and $\beta$ be
+two equivalence classes of $\sim$. Thus, $\alpha=\left[  x\right]  _{\sim}$
+and $\beta=\left[  y\right]  _{\sim}$ for two elements $x$ and $y$ of $S$ (by
+the definition of \textquotedblleft equivalence classes of $\sim
+$\textquotedblright). Consider these $x$ and $y$.
+
+If $x\sim y$, then the classes $\left[  x\right]  _{\sim}$ and $\left[
+y\right]  _{\sim}$ are identical (by Theorem \ref{thm.eqrel.eqcl.disj}
+\textbf{(a)}). Otherwise, they are disjoint (by Theorem
+\ref{thm.eqrel.eqcl.disj} \textbf{(b)}). Thus, in either case, the classes
+$\left[  x\right]  _{\sim}$ and $\left[  y\right]  _{\sim}$ are either
+identical or disjoint. In view of $\alpha=\left[  x\right]  _{\sim}$ and
+$\beta=\left[  y\right]  _{\sim}$, this rewrites as follows: The classes
+$\alpha$ and $\beta$ are either identical or disjoint.
+
+Now, forget that we fixed $\alpha$ and $\beta$. We thus have shown that if
+$\alpha$ and $\beta$ are two equivalence classes of $\sim$, then $\alpha$ and
+$\beta$ are either identical or disjoint. This solves Exercise
+\ref{exe.eqrel.eqcl.dj}.
+\end{proof}
+\end{fineprint}
 
 \begin{center}
 \textbf{2019-02-22 lecture}
@@ -13912,9 +14003,10 @@ means $a\sim b$).
 Consider the relation $\underset{\ast}{\sim}$ on $S=\mathbb{Z}\times\left(
 \mathbb{Z}\setminus\left\{  0\right\}  \right)  $ defined in Example
 \ref{exa.eqrel.eqrel.eqrelQ}. Its equivalence classes are the rational
-numbers. Indeed, the equivalence class of a pair $\left(  a_{1},a_{2}\right)
-\in S$ is commonly denoted by $\dfrac{a_{1}}{a_{2}}$ (or by $a_{1}/a_{2}$).
-This is how rational numbers are defined!
+numbers. Indeed, the equivalence class $\left[  \left(  a_{1},a_{2}\right)
+\right]  _{\underset{\ast}{\sim}}$ of a pair $\left(  a_{1},a_{2}\right)  \in
+S$ is commonly denoted by $\dfrac{a_{1}}{a_{2}}$ (or by $a_{1}/a_{2}$). This
+is how rational numbers are defined!
 \end{example}
 
 Equivalence classes appear in real life too, at least in the modern world.
@@ -13923,18 +14015,20 @@ Minneapolis}, what do \textquotedblleft7 AM\textquotedblright\ and
 \textquotedblleft February\textquotedblright\ mean? Clearly, \textquotedblleft
 February\textquotedblright\ is not a specific month in history, since each
 year has its own February. Rather, it stands for an equivalence class of
-months, with respect to the relation of being a year apart. Similarly,
-\textquotedblleft7 AM\textquotedblright\ means an equivalence class of moments
-with respect to the relation of \textquotedblleft being a day
+months, with respect to the relation of \textquotedblleft being an integer
+number of years apart\textquotedblright. Similarly, \textquotedblleft7
+AM\textquotedblright\ means an equivalence class of moments with respect to
+the relation of \textquotedblleft being an integer number of days
 apart\textquotedblright. Likewise, \textquotedblleft the
 horse\textquotedblright\ in \textquotedblleft the horse has a lifespan of 25
 years\textquotedblright\ refers not to a specific horse, but to the whole
 species, which is an equivalence class of creatures with respect to a certain
-relation\footnote{According to Darwin, the relation of being able to procreate
--- although this is not per se an equivalence relation, so some tweaks need to
-be made (\textquotedblleft reflexive-and-transitive closure\textquotedblright)
-to turn it into one.}. Finally, the equivalence classes of the relation $\sim$
-in Example \ref{exa.eqrel.eqrel.eqrel-continents} are commonly referred to as
+relation\footnote{According to Darwin, the relation is \textquotedblleft being
+able to procreate\textquotedblright\ -- although this is not per se an
+equivalence relation, so some tweaks need to be made (\textquotedblleft
+reflexive-and-transitive closure\textquotedblright) to turn it into one.}.
+Finally, the equivalence classes of the relation $\sim$ in Example
+\ref{exa.eqrel.eqrel.eqrel-continents} are commonly referred to as
 \textquotedblleft continents\textquotedblright\footnote{at least if one
 considers Eurasia to be a single continent} or \textquotedblleft
 islands\textquotedblright. Equivalence classes provide a way to refer to
@@ -13943,8 +14037,8 @@ multiple objects (usually similar in some way) as if they were one.
 Let us give a few more mathematical examples for equivalences and equivalence classes:
 
 \begin{definition}
-Let $A$ be a set, and let $k\in\mathbb{N}$. As we know, $A^{k}$ denotes the
-set of all $k$-tuples of elements of $A$.
+\label{def.eqrel.eqcl.perm}Let $A$ be a set, and let $k\in\mathbb{N}$. As we
+know, $A^{k}$ denotes the set of all $k$-tuples of elements of $A$.
 
 The relation $\underset{\operatorname*{perm}}{\sim}$ on $A^{k}$ is defined as
 follows:%
@@ -13956,15 +14050,38 @@ follows:%
 (We are using Definition \ref{def.comb.tuples.perm-tup} here.) For example,
 $\left(  3,8,8,2\right)  \underset{\operatorname*{perm}}{\sim}\left(
 8,3,2,8\right)  $.
+\end{definition}
 
-The relation $\underset{\operatorname*{perm}}{\sim}$ is an equivalence
-relation. Its equivalence classes are called the \textit{unordered }%
-$k$\textit{-tuples} of elements of $A$. For example, for $k=2$ and
-$A=\mathbb{Z}$, the two $2$-tuples $\left(  6,8\right)  $ and $\left(
-8,6\right)  $ are permutations of each other, so $\left(  6,8\right)
-\underset{\operatorname*{perm}}{\sim}\left(  8,6\right)  $ and thus $\left[
-\left(  6,8\right)  \right]  _{\underset{\operatorname*{perm}}{\sim}}=\left[
-\left(  8,6\right)  \right]  _{\underset{\operatorname*{perm}}{\sim}}$.
+\begin{exercise}
+\label{exe.eqrel.eqcl.perm.eq}Prove that the relation
+$\underset{\operatorname*{perm}}{\sim}$ is an equivalence relation.
+\end{exercise}%
+
+\[%
+\begin{tabular}
+[c]{||l||}\hline\hline
+\textbf{You have reached the end of the finished part.}\\
+\textbf{TODO: Write from here.}\\\hline\hline
+\end{tabular}
+\
+\]
+
+
+\begin{proof}
+[Solution to Exercise \ref{exe.eqrel.eqcl.perm.eq}.] Indeed: TODO.
+\end{proof}
+
+\begin{definition}
+\label{def.eqrel.eqcl.perm.unord-tup}Let $A$ be a set, and let $k\in
+\mathbb{N}$. The relation $\underset{\operatorname*{perm}}{\sim}$ on $A^{k}$
+is an equivalence relation (by Exercise \ref{exe.eqrel.eqcl.perm.eq}). Its
+equivalence classes are called the \textit{unordered }$k$\textit{-tuples} of
+elements of $A$. For example, for $k=2$ and $A=\mathbb{Z}$, the two $2$-tuples
+$\left(  6,8\right)  $ and $\left(  8,6\right)  $ are permutations of each
+other, so $\left(  6,8\right)  \underset{\operatorname*{perm}}{\sim}\left(
+8,6\right)  $ and thus $\left[  \left(  6,8\right)  \right]
+_{\underset{\operatorname*{perm}}{\sim}}=\left[  \left(  8,6\right)  \right]
+_{\underset{\operatorname*{perm}}{\sim}}$.
 \end{definition}
 
 \begin{definition}
@@ -13975,22 +14092,24 @@ of $\mathbf{a}$ means a $k$-tuple of the form%
 \left(  a_{i+1},a_{i+2},\ldots,a_{k},a_{1},a_{2},\ldots,a_{i}\right)  \in
 A^{k}%
 \]
-for some $i\in\left\{  0,1,\ldots,k\right\}  $. An equivalent description of
-cyclic rotations: Let $C$ be the map $A^{k}\rightarrow A^{k}$ that sends each
-$\left(  a_{1},a_{2},\ldots,a_{k}\right)  $ to $\left(  a_{2},a_{3}%
-,\ldots,a_{k},a_{1}\right)  $. Then, it is easy to see that a cyclic rotation
-of $\mathbf{a}$ is the same as a $k$-tuple of the form $C^{i}\left(
-\mathbf{a}\right)  $ for some $i\in\left\{  0,1,\ldots,k\right\}  $. But it is
-also easy to see that $C^{k}=\operatorname*{id}$. Thus, the $C^{i}\left(
-\mathbf{a}\right)  $ for $i\in\left\{  0,1,\ldots,k\right\}  $ are exactly the
-$C^{i}\left(  \mathbf{a}\right)  $ for $i\in\mathbb{N}$.
+for some $i\in\left\{  0,1,\ldots,k\right\}  $.
+
+(Here is an equivalent description of cyclic rotations: Let $C$ be the map
+$A^{k}\rightarrow A^{k}$ that sends each $\left(  a_{1},a_{2},\ldots
+,a_{k}\right)  $ to $\left(  a_{2},a_{3},\ldots,a_{k},a_{1}\right)  $. Then,
+it is easy to see that a cyclic rotation of $\mathbf{a}$ is the same as a
+$k$-tuple of the form $C^{i}\left(  \mathbf{a}\right)  $ for some
+$i\in\left\{  0,1,\ldots,k\right\}  $. But it is also easy to see that
+$C^{k}=\operatorname*{id}$. Thus, the $C^{i}\left(  \mathbf{a}\right)  $ for
+$i\in\left\{  0,1,\ldots,k\right\}  $ are exactly the $C^{i}\left(
+\mathbf{a}\right)  $ for $i\in\mathbb{N}$.)
 
 The relation $\underset{\operatorname*{cyc}}{\sim}$ on $A^{k}$ is defined as
 follows:%
 \begin{align*}
 \left(  \mathbf{p}\underset{\operatorname*{cyc}}{\sim}\mathbf{q}\right)   &
 \Longleftrightarrow\ \left(  \mathbf{p}\text{ is a cyclic rotation of
-}\mathbf{q}\right) \\
+}\mathbf{q}\right)  \\
 &  \Longleftrightarrow\ \left(  \mathbf{p}=C^{i}\left(  \mathbf{q}\right)
 \text{ for some }i\in\mathbb{N}\right)  .
 \end{align*}
@@ -14135,7 +14254,7 @@ s_{1}\right]  _{n}=\left[  s_{2}\right]  _{n}$, then $s_{1}\%n=s_{2}\%n$.
 
 [\textit{Proof of Claim 1:} Let $s_{1}$ and $s_{2}$ be two integers such that
 $\left[  s_{1}\right]  _{n}=\left[  s_{2}\right]  _{n}$. In other words,
-$s_{1}\underset{n}{\equiv}s_{2}$ (by Theorem \ref{thm.eqrel.eqclas.disj}
+$s_{1}\underset{n}{\equiv}s_{2}$ (by Theorem \ref{thm.eqrel.eqcl.disj}
 \textbf{(e)}). In other words, $s_{1}\equiv s_{2}\operatorname{mod}n$. But
 this implies $s_{1}\%n=s_{2}\%n$ (by one of the HW1 exercises).]
 
@@ -14530,7 +14649,14 @@ n\right\}  \right\vert =\phi\left(  n\right)
 \end{proof}
 
 \begin{proof}
-[Proof of Theorem \ref{thm.ent.wilson}.]Recall%
+[Proof of Theorem \ref{thm.ent.wilson}.]If $p=2$, then the claim of Theorem
+\ref{thm.ent.wilson} is easy to check. Thus, we WLOG assume that $p\neq2$ for
+the rest of this proof. Hence, $p>2$ (since $p$ is prime, and thus $p>1$).
+Thus, $p-1\neq1$. Thus, $p-1\not \equiv 1\operatorname{mod}p$. In other words,
+the two residue classes $\left[  1\right]  _{p}$ and $\left[  p-1\right]
+_{p}$ are distinct.
+
+Recall%
 \[
 \left(  p-1\right)  !=1\cdot2\cdot\cdots\cdot\left(  p-1\right)  .
 \]
@@ -14641,11 +14767,11 @@ _{p}$. In other words, $\left(  p-1\right)  !\equiv-1\operatorname{mod}p$.
 \subsection{The Chinese Remainder Theorem reexamined}
 
 \begin{definition}
-Let $n$ be a positive integer. Let $d$ be a positive divisor of $n$. Then,
-there is a map%
+\label{def.eqrel.Zn.pind}Let $n$ be a positive integer. Let $d$ be a positive
+divisor of $n$. Then, there is a map%
 \begin{align*}
-\pi_{n,d}:\mathbb{Z}/n  &  \rightarrow\mathbb{Z}/d,\\
-\left[  a\right]  _{n}  &  \mapsto\left[  a\right]  _{d}.
+\pi_{n,d}:\mathbb{Z}/n &  \rightarrow\mathbb{Z}/d,\\
+\left[  a\right]  _{n} &  \mapsto\left[  a\right]  _{d}.
 \end{align*}
 
 \end{definition}
@@ -14688,9 +14814,10 @@ is a bijection.
 \end{theorem}
 
 \begin{example}
-Let $m=3$ and $n=2$ in this theorem. Then, this theorem says that the map%
+Let $m=3$ and $n=2$ for this example. Then, Theorem \ref{thm.eqrel.CRT2} says
+that the map%
 \begin{align*}
-\mathbb{Z}/6  &  \rightarrow\left(  \mathbb{Z}/3\right)  \times\left(
+\mathbb{Z}/6 &  \rightarrow\left(  \mathbb{Z}/3\right)  \times\left(
 \mathbb{Z}/2\right)  ,\\
 \alpha &  \mapsto\left(  \pi_{6,3}\left(  \alpha\right)  ,\pi_{6,2}\left(
 \alpha\right)  \right)
@@ -14733,10 +14860,11 @@ are well-defined, since $m$ and $n$ are divisors of $mn$. Thus, the map%
 \end{align*}
 is well-defined. Let us denote this map by $S$.
 
-We want to prove that $S$ is a bijection.
+We want to prove that $S$ is a bijection. To that aim, we shall prove that $S$
+is injective and surjective.
 
-\textit{Proof that }$S$ \textit{is an injection:} Let $\alpha,\beta
-\in\mathbb{Z}/\left(  mn\right)  $ be such that $S\left(  \alpha\right)
+\textit{Proof that }$S$ \textit{is injective:} Let $\alpha,\beta\in
+\mathbb{Z}/\left(  mn\right)  $ be such that $S\left(  \alpha\right)
 =S\left(  \beta\right)  $. We want to prove $\alpha=\beta$.
 
 Write $\alpha=\left[  a\right]  _{mn}$ and $\beta=\left[  b\right]  _{mn}$ for
@@ -14771,26 +14899,28 @@ b\right]  _{mn}$). So we have shown that $S$ is injective.
 /n\right)  $. We want to find a $\gamma\in\mathbb{Z}/\left(  mn\right)  $ such
 that $S\left(  \gamma\right)  =\left(  \alpha,\beta\right)  $.
 
-Write $\alpha$ as $\alpha=\left[  a\right]  _{m}$ and write $\beta$ as
-$\beta=\left[  b\right]  _{n}$. Theorem \ref{thm.ent.crt1} \textbf{(a)} shows
-that there exists an integer $x\in\mathbb{Z}$ such that%
+Write $\alpha$ as $\alpha=\left[  a\right]  _{m}$ for some integer $a$ (since
+$\alpha\in\mathbb{Z}/m$). Similarly, write $\beta$ as $\beta=\left[  b\right]
+_{n}$. Theorem \ref{thm.ent.crt1} \textbf{(a)} shows that there exists an
+integer $x\in\mathbb{Z}$ such that%
 \[
 \left(  x\equiv a\operatorname{mod}m\text{ and }x\equiv b\operatorname{mod}%
 n\right)  .
 \]
-Fix such an $x$. Now,
-\begin{align*}
-S\left(  \left[  x\right]  _{mn}\right)   &  =\left(  \underbrace{\pi
-_{mn,m}\left(  \left[  x\right]  _{mn}\right)  }_{=\left[  x\right]  _{m}%
+Fix such an $x$. The definition of $\pi_{mn,m}$ yields $\pi_{mn,m}\left(
+\left[  x\right]  _{mn}\right)  =\left[  x\right]  _{m}=\left[  a\right]
+_{m}$ (since $x\equiv a\operatorname{mod}m$). The definition of $\pi_{mn,n}$
+yields $\pi_{mn,n}\left(  \left[  x\right]  _{mn}\right)  =\left[  x\right]
+_{n}=\left[  b\right]  _{n}$ (since $x\equiv b\operatorname{mod}n$). Now, the
+definition of $S$ yields
+\[
+S\left(  \left[  x\right]  _{mn}\right)  =\left(  \underbrace{\pi
+_{mn,m}\left(  \left[  x\right]  _{mn}\right)  }_{=\left[  a\right]  _{m}%
 },\underbrace{\pi_{mn,n}\left(  \left[  x\right]  _{mn}\right)  }_{=\left[
-x\right]  _{n}}\right) \\
-&  =\left(  \underbrace{\left[  x\right]  _{m}}_{\substack{=\left[  a\right]
-_{m}\\\text{(since }x\equiv a\operatorname{mod}m\text{)}}},\underbrace{\left[
-x\right]  _{n}}_{\substack{=\left[  b\right]  _{n}\\\text{(since }x\equiv
-b\operatorname{mod}n\text{)}}}\right) \\
-&  =\left(  \underbrace{\left[  a\right]  _{m}}_{=\alpha},\underbrace{\left[
-b\right]  _{n}}_{=\beta}\right)  =\left(  \alpha,\beta\right)  .
-\end{align*}
+b\right]  _{n}}\right)  =\left(  \underbrace{\left[  a\right]  _{m}}_{=\alpha
+},\underbrace{\left[  b\right]  _{n}}_{=\beta}\right)  =\left(  \alpha
+,\beta\right)  .
+\]
 Thus, there exists a $\gamma\in\mathbb{Z}/\left(  mn\right)  $ such that
 $S\left(  \gamma\right)  =\left(  \alpha,\beta\right)  $ (namely,
 $\gamma=\left[  x\right]  _{mn}$). This proves that $S$ is surjective.
