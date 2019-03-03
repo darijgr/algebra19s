@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Friday, March 01, 2019 12:07:31}
+%TCIDATA{LastRevised=Saturday, March 02, 2019 19:36:30}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -12297,7 +12297,7 @@ $. Comparing this with $\dbinom{n}{k}=%
 \end{cases}
 $, we conclude that $\dbinom{n}{k}$ is the number of $k$-element subsets of
 $N$. Thus, we have proven Theorem \ref{thm.binom.comb-int} under the
-assumption that $n=0$. This completes the induction step.
+assumption that $n=0$. This completes the induction base.
 
 \textit{Induction step:} Let $m$ be a positive integer. Assume (as the
 induction hypothesis) that Theorem \ref{thm.binom.comb-int} holds for $n=m-1$.
@@ -12306,7 +12306,7 @@ We must now prove that Theorem \ref{thm.binom.comb-int} holds for $n=m$.
 Let $k\in\mathbb{Q}$. Let $N$ be an $m$-element set. Thus, $\left\vert
 N\right\vert =m>0$. Hence, the set $N$ is nonempty; in other words, there
 exists some $a\in N$. Pick such an $a$. (It does not matter which one we
-choose, but we need to leave it fixed from now on). Clearly, $\left\vert
+choose, but we need to leave it fixed from now on.) Clearly, $\left\vert
 N\setminus\left\{  a\right\}  \right\vert =m-1$ (since $\left\vert
 N\right\vert =m$). In other words, $N\setminus\left\{  a\right\}  $ is an
 $\left(  m-1\right)  $-element set.
@@ -12388,7 +12388,10 @@ Comparing this equality with (\ref{pf.thm.binom.comb-int.IS.2}), we obtain%
 Now, recall that any $k$-element subset of $N$ is either type-1 or type-2 (but
 never both at the same time). Hence, we can count all $k$-element subsets of
 $N$ by first counting the type-1 subsets, then counting the type-2 subsets,
-and then adding these two results. We thus find%
+and then adding these two results. We thus find\footnote{The combinatorial
+principle we are using in the following computation is the so-called
+\textit{sum rule} in its simplest form (see, e.g., \cite[1.1]{Loehr-BC} or
+\cite[\S 15.2.3]{LeLeMe}).}%
 \begin{align*}
 &  \left(  \text{the number of }k\text{-element subsets of }N\right) \\
 &  =\underbrace{\left(  \text{the number of type-1 subsets}\right)
@@ -12398,7 +12401,7 @@ and then adding these two results. We thus find%
 ))}}}\\
 &  =\dbinom{m-1}{k}+\dbinom{m-1}{k-1}=\dbinom{m}{k}%
 \end{align*}
-(since Theorem \ref{thm.binom.rec} (applied to $m=n$) yields $\dbinom{m}%
+(since Theorem \ref{thm.binom.rec} (applied to $n=m$) yields $\dbinom{m}%
 {k}=\dbinom{m-1}{k}+\dbinom{m-1}{k-1}$). In other words, $\dbinom{m}{k}$ is
 the number of $k$-element subsets of $N$.
 
@@ -12454,6 +12457,45 @@ _{\in\mathbb{Z}}\in\mathbb{Z}.
 In other words, $\dbinom{n}{k}\in\mathbb{Z}$. In other words, $\dbinom{n}{k}$
 is an integer. Thus, Proposition \ref{prop.binom.Z->Z} is proven.
 \end{proof}
+
+\begin{exercise}
+\label{exe.binom.k!divprod}Let $k\in\mathbb{N}$. Prove that the product of any
+$k$ consecutive integers is divisible by $k!$.
+\end{exercise}
+
+\begin{fineprint}
+\begin{proof}
+[Solution to Exercise \ref{exe.binom.k!divprod}.]A product of $k$ consecutive
+integers always has the form \newline$\left(  a+1\right)  \left(  a+2\right)
+\cdots\left(  a+k\right)  $ for some $a\in\mathbb{Z}$. Thus, we must prove
+that $\left(  a+1\right)  \left(  a+2\right)  \cdots\left(  a+k\right)  $ is
+divisible by $k!$ for each $a\in\mathbb{Z}$.
+
+Let $a\in\mathbb{Z}$. We must prove that $\left(  a+1\right)  \left(
+a+2\right)  \cdots\left(  a+k\right)  $ is divisible by $k!$.
+
+Proposition \ref{prop.binom.Z->Z} (applied to $n=a+k$) yields that
+$\dbinom{a+k}{k}$ is an integer. Now, the definition of $\dbinom{a+k}{k}$
+yields%
+\[
+\dbinom{a+k}{k}=\dfrac{\left(  a+k\right)  \left(  a+k-1\right)  \left(
+a+k-2\right)  \cdots\left(  a+k-k+1\right)  }{k!}.
+\]
+Multiplying both sides of this equality by $k!$, we find%
+\begin{align*}
+k!\dbinom{a+k}{k}  &  =\left(  a+k\right)  \left(  a+k-1\right)  \left(
+a+k-2\right)  \cdots\left(  a+k-k+1\right) \\
+&  =\left(  a+k\right)  \left(  a+k-1\right)  \left(  a+k-2\right)
+\cdots\left(  a+1\right) \\
+&  =\left(  a+1\right)  \left(  a+2\right)  \cdots\left(  a+k\right)
+\end{align*}
+(here, we have reversed the order of the factors in the product). Thus,
+$\left(  a+1\right)  \left(  a+2\right)  \cdots\left(  a+k\right)
+=k!\dbinom{a+k}{k}$. Since $\dbinom{a+k}{k}$ is an integer, this equality
+yields that $\left(  a+1\right)  \left(  a+2\right)  \cdots\left(  a+k\right)
+$ is divisible by $k!$. This solves Exercise \ref{exe.binom.k!divprod}.
+\end{proof}
+\end{fineprint}
 
 \subsubsection{Binomial formula and Vandermonde convolution}
 
@@ -12857,7 +12899,7 @@ Thus, Proposition \ref{prop.poly.informal.f=g} yields $P=Q$. In view of
 \[
 \dbinom{a+x}{n}=\sum_{k=0}^{n}\dbinom{a}{k}\dbinom{x}{n-k}.
 \]
-Now, substituting $a$ for $x$ in this equality of polynomials, we obtain
+Now, substituting $b$ for $x$ in this equality of polynomials, we obtain
 $\dbinom{a+b}{n}=\sum_{k=0}^{n}\dbinom{a}{k}\dbinom{b}{n-k}$. This proves
 Lemma \ref{lem.binom.vandermonde.QQ}.
 \end{fineprint}
@@ -12956,11 +12998,11 @@ Thus,%
 \end{align*}
 
 
-A \textit{necklace} is (basically) a bitstring up to cyclic rotation.
-
 \textit{Cyclic rotation} is the map $\mathbf{c}$ sending a $p$-bitstring
 $\left(  i_{1},i_{2},\ldots,i_{p}\right)  $ to $\left(  i_{2},i_{3}%
 ,\ldots,i_{p},i_{1}\right)  $.
+
+A \textit{necklace} is (basically) a bitstring up to cyclic rotation.
 
 If $\left(  i_{1},i_{2},\ldots,i_{p}\right)  $ is any $p$-bitstring, then
 \begin{align*}
@@ -13073,8 +13115,8 @@ then this will become clear.)
 
 If $f=a_{k}x^{k}+a_{k-1}x^{k-1}+\cdots+a_{0}$ is a polynomial (in $1$ variable
 $x$, with rational coefficients) such that $a_{k}\neq0$ (each polynomial that
-is not just $0$ can be written in such a form), then the integer $k$ is called
-the \textit{degree} of $f$.
+is not just $0$ can be uniquely written in such a form), then the integer $k$
+is called the \textit{degree} of $f$.
 
 \begin{definition}
 \label{def.ivp.ivp}A polynomial $P$ with rational coefficients is said to be
@@ -13083,7 +13125,7 @@ all }n\in\mathbb{Z}\right)  $.
 \end{definition}
 
 Of course, a polynomial with integer coefficients is always integer-valued.
-But there are other integer-valued polynomials, too.
+But there are other integer-valued polynomials, too:
 
 \begin{example}
 \label{exa.ivp.ivps1}\textbf{(a)} The polynomial $\dbinom{x}{2}=\dfrac
@@ -13092,7 +13134,8 @@ But there are other integer-valued polynomials, too.
 coefficients are $\dfrac{1}{2},-\dfrac{1}{2},0$.
 
 \textbf{(b)} More generally: If $k\in\mathbb{N}$ is arbitrary, then the
-polynomial $\dbinom{x}{k}$ is integer-valued (since $\dbinom{n}{k}%
+polynomial $\dbinom{x}{k}=\dfrac{x\left(  x-1\right)  \left(  x-2\right)
+\cdots\left(  x-k+1\right)  }{k!}$ is integer-valued (since $\dbinom{n}{k}%
 \in\mathbb{Z}$ for each $n\in\mathbb{Z}$).
 
 \textbf{(c)} If $p$ is any prime, then the polynomial $\dfrac{x^{p}-x}{p}$ is
@@ -13147,19 +13190,19 @@ These $a_{3},a_{2},a_{1},a_{0}$ are integers -- exactly as Theorem
 
 \subsection{Equivalence relations}
 
-Loosely speaking, a \textit{relation} on a set $S$ is a property that a pair
-$\left(  a,b\right)  \in S\times S$ of two elements of $S$ can either have or
-not have. For example, equality (denoted $=$) is a relation, since a pair
-$\left(  a,b\right)  \in S\times S$ is either equal (i.e., satisfies $a=b$) or
-not equal. Likewise, the divisibility relation (denoted $\mid$) is a relation
-on $\mathbb{Z}$, since a pair $\left(  a,b\right)  \in\mathbb{Z}%
-\times\mathbb{Z}$ either satisfies $a\mid b$ or does not.
+Loosely speaking, a \textit{relation} on a set $S$ is a property that two
+elements $a$ and $b$ of $S$ (or, more formally, a pair $\left(  a,b\right)
+\in S\times S$ of two elements of $S$) can either have or not have. For
+example, equality (denoted $=$) is a relation, since two elements $a$ and $b$
+of $S$ are either equal (i.e., satisfy $a=b$) or not equal. Likewise, the
+divisibility relation (denoted $\mid$) is a relation on $\mathbb{Z}$, since
+two elements $a$ and $b$ of $\mathbb{Z}$ either satisfy $a\mid b$ or do not.
 
 A formal definition of relations proceeds as follows:
 
 \begin{definition}
-Fix a set $S$. A \textit{binary relation} on $S$ is a subset of $S\times S$
-(that is, a set of pairs of elements of $S$).
+\label{def.eqrel.rel.rel}Fix a set $S$. A \textit{binary relation} on $S$ is a
+subset of $S\times S$ (that is, a set of pairs of elements of $S$).
 
 If $R$ is a binary relation (on $S$), and if $a,b\in S$, then we write $aRb$
 for $\left(  a,b\right)  \in R$.
@@ -13169,7 +13212,7 @@ mean \textquotedblleft binary relation\textquotedblright\ unless we say otherwis
 \end{definition}
 
 \begin{example}
-Let $S=\mathbb{Z}$.
+\label{exa.eqrel.rel.rels1}Let $S=\mathbb{Z}$.
 
 \textbf{(a)} The relation $=$ is a binary relation on $S$. As a subset of
 $S\times S$, it is%
@@ -13224,7 +13267,7 @@ $S=\mathbb{Z}$.
 \end{example}
 
 \begin{definition}
-Let $R$ be a binary relation on a set $S$.
+\label{def.eqrel.rel.rst}Let $R$ be a binary relation on a set $S$.
 
 \textbf{(a)} We say that $R$ is \textit{reflexive} if every $a\in S$ satisfies
 $aRa$.
@@ -13257,9 +13300,14 @@ statements are vacuously true.}, but not reflexive.
 \item $\mid$ is reflexive and transitive, but not symmetric.
 \end{itemize}
 
+\begin{noncompile}
+See \href{https://en.wikipedia.org/wiki/Binary_relation}{the Wikipedia article
+on binary relations} for further properties of relations.
+\end{noncompile}
+
 \begin{definition}
-An \textit{equivalence relation} on a set $S$ means a relation on $S$ that is
-reflexive, symmetric and transitive.
+\label{def.eqrel.rel.eqrel}An \textit{equivalence relation} on a set $S$ means
+a relation on $S$ that is reflexive, symmetric and transitive.
 \end{definition}
 
 \begin{example}
@@ -13314,7 +13362,7 @@ $a_{1}b_{1}=a_{1}b_{1}$, which is true) and symmetric (because
 \left(  \left(  a_{1},a_{2}\right)  \underset{\ast}{\sim}\left(  b_{1}%
 ,b_{2}\right)  \right)  \  &  \Longleftrightarrow\ \left(  a_{1}b_{2}%
 =a_{2}b_{1}\right)  \ \Longleftrightarrow\ \left(  b_{2}a_{1}=b_{1}%
-a_{2}\right)  \ \Longleftrightarrow\ \left(  b_{1}a_{2}=b_{2}a_{1}\right) \\
+a_{2}\right)  \ \Longleftrightarrow\ \left(  b_{1}a_{2}=b_{2}a_{1}\right)  \\
 &  \Longleftrightarrow\ \left(  \left(  b_{1},b_{2}\right)  \underset{\ast
 }{\sim}\left(  a_{1},a_{2}\right)  \right)
 \end{align*}
@@ -13342,8 +13390,8 @@ b_{1},b_{2}\right)  $ if and only if $\dfrac{a_{1}}{a_{2}}=\dfrac{b_{1}}%
 \subsection{Equivalence classes}
 
 \begin{proposition}
-Let $\sim$ be a symmetric relation on a set $S$. Let $a,b\in S$. Then, $a\sim
-b$ if and only if $b\sim a$.
+\label{prop.eqrel.rel.symm-ba}Let $\sim$ be a symmetric relation on a set $S$.
+Let $a,b\in S$. Then, $a\sim b$ if and only if $b\sim a$.
 \end{proposition}
 
 \begin{proof}
@@ -13351,11 +13399,11 @@ The symmetry axiom shows that if $a\sim b$, then $b\sim a$. But the same
 argument (with the roles of $a$ and $b$ interchanged) shows that if $b\sim a$,
 then $a\sim b$. Combining these two implications, we conclude the equivalence
 $\left(  a\sim b\right)  \Longleftrightarrow\left(  b\sim a\right)  $. This
-proves the Proposition.
+proves Proposition \ref{prop.eqrel.rel.symm-ba}.
 \end{proof}
 
 \begin{definition}
-Let $\sim$ be an equivalence relation on a set $S$.
+\label{def.eqrel.eqcl.eqcl}Let $\sim$ be an equivalence relation on a set $S$.
 
 \textbf{(a)} For each $a\in S$, we let $\left[  a\right]  _{\sim}$ be the
 subset
@@ -13372,25 +13420,26 @@ $\left[  a\right]  _{\sim}$ for $a\in S$.
 \end{definition}
 
 \begin{example}
-Consider the relation $\underset{3}{\equiv}$ on $\mathbb{Z}$. We have%
+\label{exa.eqrel.eqcl.mod3}Consider the relation $\underset{3}{\equiv}$ on
+$\mathbb{Z}$. We have%
 \begin{align*}
-\left[  5\right]  _{\sim}  &  =\left\{  b\in\mathbb{Z}\ \mid
-\ 5\underset{3}{\equiv}b\right\}  =\left\{  b\in\mathbb{Z}\ \mid\ 5\equiv
-b\operatorname{mod}3\right\} \\
+\left[  5\right]  _{\underset{3}{\equiv}} &  =\left\{  b\in\mathbb{Z}%
+\ \mid\ 5\underset{3}{\equiv}b\right\}  =\left\{  b\in\mathbb{Z}%
+\ \mid\ 5\equiv b\operatorname{mod}3\right\}  \\
 &  =\left\{  \ldots,-4,-1,2,5,8,11,14,\ldots\right\}
 \end{align*}
 and%
 \begin{align*}
-\left[  3\right]  _{\sim}  &  =\left\{  b\in\mathbb{Z}\ \mid
-\ 3\underset{3}{\equiv}b\right\}  =\left\{  b\in\mathbb{Z}\ \mid\ 3\equiv
-b\operatorname{mod}3\right\} \\
+\left[  3\right]  _{\underset{3}{\equiv}} &  =\left\{  b\in\mathbb{Z}%
+\ \mid\ 3\underset{3}{\equiv}b\right\}  =\left\{  b\in\mathbb{Z}%
+\ \mid\ 3\equiv b\operatorname{mod}3\right\}  \\
 &  =\left\{  \ldots,-6,-3,0,3,6,9,12,\ldots\right\}
 \end{align*}
 and%
 \begin{align*}
-\left[  2\right]  _{\sim}  &  =\left\{  b\in\mathbb{Z}\ \mid
-\ 2\underset{3}{\equiv}b\right\}  =\left\{  b\in\mathbb{Z}\ \mid\ 2\equiv
-b\operatorname{mod}3\right\} \\
+\left[  2\right]  _{\underset{3}{\equiv}} &  =\left\{  b\in\mathbb{Z}%
+\ \mid\ 2\underset{3}{\equiv}b\right\}  =\left\{  b\in\mathbb{Z}%
+\ \mid\ 2\equiv b\operatorname{mod}3\right\}  \\
 &  =\left\{  \ldots,-4,-1,2,5,8,11,14,\ldots\right\}  =\left[  5\right]
 _{\sim}.
 \end{align*}
@@ -14584,7 +14633,7 @@ have eavesdroppers. How can we do that?
 and $q$. (This involves a lot of technicalities like actually finding large
 primes. See \cite{Gallier-RSA} if you are interested.)
 
-\item Albert computes $m=pq$. This number (called the \textbf{modulus}) he
+\item Albert computes $m=pq$. This number (called the \textit{modulus}) he
 makes public. (Note that it is hard to factor a number into primes. Thus, the
 public will not know $p$ and $q$.)
 
@@ -14592,14 +14641,14 @@ public will not know $p$ and $q$.)
 keeps this number private.
 
 \item Albert randomly picks an $e\in\left\{  2,3,\ldots,\ell-1\right\}  $ such
-that $e\perp\ell$. This number $e$ will be called the \textbf{encryption key},
+that $e\perp\ell$. This number $e$ will be called the \textit{encryption key},
 and Albert keeps it private.
 
 \item Albert computes a positive modular inverse $d$ of $e$ modulo $\ell$
 (that is, a positive integer $d$ such that $ed\equiv1\operatorname{mod}\ell$).
-This number will be called the \textbf{decryption key}.
+This number will be called the \textit{decryption key}.
 
-\item Albert publishes the pair $\left(  e,m\right)  $ as his \textbf{public
+\item Albert publishes the pair $\left(  e,m\right)  $ as his \textit{public
 key}.
 \end{itemize}
 
@@ -14828,7 +14877,7 @@ some abstract algebra (at least in the case $n=p$). See Chapter 4 of [Gallier-RS
 
 \section{Complex numbers and Gaussian integers}
 
-\subsubsection{Complex numbers}
+\subsection{Complex numbers}
 
 First, let me recall the idea behind complex numbers unrigorously. Let us
 extend the real numbers by a mystical \textquotedblleft$\sqrt{-1}%
@@ -14888,7 +14937,7 @@ So let us forget this motivation and instead give a formal definition of
 complex numbers:
 
 \begin{definition}
-A \textbf{complex number} is a pair $\left(  a,b\right)  $ of two real numbers.
+A \textit{complex number} is a pair $\left(  a,b\right)  $ of two real numbers.
 
 We let $\mathbb{C}$ be the set of all complex numbers.
 
@@ -15177,6 +15226,10 @@ Let $\alpha$ and $\beta$ be two complex numbers. Then,%
 \]
 
 \end{proposition}
+
+\begin{center}
+\textbf{2019-03-04 lecture}
+\end{center}
 
 General reference for complex numbers: \cite{LaNaSc16}.
 
