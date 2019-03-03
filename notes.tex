@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Saturday, March 02, 2019 21:54:32}
+%TCIDATA{LastRevised=Saturday, March 02, 2019 22:09:58}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -13377,13 +13377,37 @@ with a \textquotedblleft path\textquotedblright\ from $b$ to $c$ to get a
 \textquotedblleft path\textquotedblright\ from $a$ to $c$).)
 \end{itemize}
 
-Let us see some examples of these properties of relations:
+Let us see some examples of these properties of relations\footnote{See further
+below for the proofs of the claims made in this example.}:
 
 \begin{example}
 \label{exa.eqrel.rel.rst1}Let $S$ be the set $\mathbb{Z}$. Consider the
 relations on $\mathbb{Z}$ defined in Example \ref{exa.eqrel.rel.rels1}.
 
-\textbf{(a)} The relation $=$ is reflexive, symmetric and transitive. Indeed:
+\textbf{(a)} The relation $=$ is reflexive, symmetric and transitive.
+
+\textbf{(b)} The relation $<$ is transitive, but neither reflexive nor symmetric.
+
+\textbf{(c)} The relation $\leq$ is transitive and reflexive, but not symmetric.
+
+\textbf{(d)} The relation $\neq$ is symmetric, but neither reflexive nor transitive.
+
+\textbf{(e)} For each $n\in\mathbb{Z}$, the relation $\underset{n}{\equiv}$ is
+reflexive, symmetric and transitive.
+
+\textbf{(f)} The relation \fbox{$N$} is symmetric and transitive, but not reflexive.
+
+\textbf{(g)} The relation \fbox{$A$} is reflexive, symmetric and transitive.
+
+\textbf{(h)} The divisibility relation $\mid$ is reflexive and transitive, but
+not symmetric.
+
+\textbf{(i)} The coprimality relation $\perp$ is symmetric, but neither
+reflexive nor transitive.
+\end{example}
+
+\begin{proof}
+[Proof of Example \ref{exa.eqrel.rel.rst1}.] \textbf{(a)} Indeed:
 
 \begin{itemize}
 \item The relation $=$ is reflexive, because every $a\in S$ satisfies $a=a$.
@@ -13395,53 +13419,103 @@ satisfy $b=a$.
 $a=b$ and $b=c$ satisfy $a=c$.
 \end{itemize}
 
-\textbf{(b)} The relation $<$ is transitive (because every $a,b,c\in S$
-satisfying $a<b$ and $b<c$ satisfy $a<c$), but neither reflexive nor
-symmetric. Indeed, not every $a\in S$ satisfies $a<a$ (in fact, no $a\in S$
-satisfies $a<a$); thus, $<$ is not reflexive. Similarly, $<$ is not symmetric,
-since $a<b$ does not imply $b<a$ (quite the opposite).
+\textbf{(b)} Indeed:
 
-\textbf{(c)} The relation $\leq$ is transitive (because every $a,b,c\in S$
-satisfying $a\leq b$ and $b\leq c$ satisfy $a\leq c$) and reflexive (since
-every $a\in S$ satisfies $a\leq a$), but not symmetric.
+\begin{itemize}
+\item The relation $<$ is transitive (because every $a,b,c\in S$ satisfying
+$a<b$ and $b<c$ satisfy $a<c$).
 
-\textbf{(d)} The relation $\neq$ is symmetric (since every $a,b\in S$
-satisfying $a\neq b$ satisfy $b\neq a$), but neither transitive nor reflexive.
-(Indeed, it is not transitive since $2\neq3$ and $3\neq2$ do not lead to
-$2\neq2$. It is not reflexive because $2\neq2$.)
+\item Not every $a\in S$ satisfies $a<a$ (in fact, no $a\in S$ satisfies
+$a<a$); thus, $<$ is not reflexive.
 
-\textbf{(e)} For each $n\in\mathbb{Z}$, the relation $\underset{n}{\equiv}$ is
-reflexive, symmetric and transitive. Indeed, Proposition
-\ref{prop.ent.mod.basics} \textbf{(b)} shows that every $a,b,c\in\mathbb{Z}$
-satisfying $a\equiv b\operatorname{mod}n$ and $b\equiv c\operatorname{mod}n$
-satisfy $a\equiv c\operatorname{mod}n$. In other words, every $a,b,c\in S$
-satisfying $a\underset{n}{\equiv}b$ and $b\underset{n}{\equiv}c$ satisfy
-$a\underset{n}{\equiv}c$. But this means precisely that the relation
-$\underset{n}{\equiv}$ is transitive. Similarly, the relation
-$\underset{n}{\equiv}$ is reflexive (by Proposition \ref{prop.ent.mod.basics}
-\textbf{(a)}) and symmetric (by Proposition \ref{prop.ent.mod.basics}
-\textbf{(c)}).
+\item Similarly, $<$ is not symmetric, since $a<b$ does not imply $b<a$ (quite
+the opposite).
+\end{itemize}
 
-\textbf{(f)} The relation \fbox{$N$} is symmetric and transitive, but not
-reflexive. This may appear strange, but is a completely straightforward
+\textbf{(c)} Indeed:
+
+\begin{itemize}
+\item The relation $\leq$ is transitive (because every $a,b,c\in S$ satisfying
+$a\leq b$ and $b\leq c$ satisfy $a\leq c$).
+
+\item The relation $\leq$ is reflexive (since every $a\in S$ satisfies $a\leq
+a$).
+
+\item The relation $\leq$ is not symmetric (since $a\leq b$ does not imply
+$b\leq a$; for example, $1\leq2$ holds but $2\leq1$ does not).
+\end{itemize}
+
+\textbf{(d)} Indeed:
+
+\begin{itemize}
+\item The relation $\neq$ is transitive (because every $a,b\in S$ satisfying
+$a\neq b$ satisfy $b\neq a$).
+
+\item The relation $\neq$ is not reflexive (since we don't have $2\neq2$).
+
+\item The relation $\neq$ is not transitive (since $2\neq3$ and $3\neq2$ do
+not lead to $2\neq2$).
+\end{itemize}
+
+\textbf{(e)} Let $n\in\mathbb{Z}$.
+
+\begin{itemize}
+\item Proposition \ref{prop.ent.mod.basics} \textbf{(b)} shows that every
+$a,b,c\in\mathbb{Z}$ satisfying $a\equiv b\operatorname{mod}n$ and $b\equiv
+c\operatorname{mod}n$ satisfy $a\equiv c\operatorname{mod}n$. In other words,
+every $a,b,c\in S$ satisfying $a\underset{n}{\equiv}b$ and
+$b\underset{n}{\equiv}c$ satisfy $a\underset{n}{\equiv}c$ (since the
+definition of $\underset{n}{\equiv}$ shows that the three statements
+\[
+\left(  a\underset{n}{\equiv}b\right)  ,\ \ \ \ \ \ \ \ \ \ \left(
+b\underset{n}{\equiv}c\right)  ,\ \ \ \ \ \ \ \ \ \ \left(
+a\underset{n}{\equiv}c\right)
+\]
+are equivalent to%
+\[
+\left(  a\equiv b\operatorname{mod}n\right)  ,\ \ \ \ \ \ \ \ \ \ \left(
+b\equiv c\operatorname{mod}n\right)  ,\ \ \ \ \ \ \ \ \ \ \left(  a\equiv
+c\operatorname{mod}n\right)  ,
+\]
+respectively). But this means precisely that the relation $\underset{n}{\equiv
+}$ is transitive.
+
+\item Similarly, the relation $\underset{n}{\equiv}$ is reflexive (by
+Proposition \ref{prop.ent.mod.basics} \textbf{(a)}).
+
+\item Similarly, the relation $\underset{n}{\equiv}$ is symmetric (by
+Proposition \ref{prop.ent.mod.basics} \textbf{(c)}).
+\end{itemize}
+
+\textbf{(f)} This may appear strange, but is a completely straightforward
 consequence of the concept of \textquotedblleft%
 \href{https://en.wikipedia.org/wiki/Vacuous_truth}{vacuous truth}%
-\textquotedblright: Every $a,b\in S$ satisfying $a\fbox{$N$}b$ satisfy
-$b\fbox{$N$}a$ (because there are no such $a,b$ to begin with -- since
-$a$\fbox{$N$}$b$ never holds). Thus, \fbox{$N$} is symmetric. Similarly,
-\fbox{$N$} is transitive. But \fbox{$N$} is not reflexive, since (for example)
-$1\fbox{$N$}1$ does not hold.
+\textquotedblright:
 
-\textbf{(g)} The relation \fbox{$A$} is reflexive, symmetric and transitive.
-All of this is trivial, because $a$\fbox{$A$}$b$ holds for all $a,b\in S$.
+\begin{itemize}
+\item Every $a,b\in S$ satisfying $a\fbox{$N$}b$ satisfy $b\fbox{$N$}a$
+(because there are no such $a,b$ to begin with -- since $a$\fbox{$N$}$b$ never
+holds). Thus, \fbox{$N$} is symmetric.
+
+\item Similarly, \fbox{$N$} is transitive.
+
+\item But \fbox{$N$} is not reflexive, since (for example) $1\fbox{$N$}1$ does
+not hold.
+\end{itemize}
+
+\textbf{(g)} All of this is trivial, because $a$\fbox{$A$}$b$ holds for all
+$a,b\in S$.
 
 \textbf{(h)} The divisibility relation $\mid$ is reflexive (by Proposition
 \ref{prop.ent.div.2} \textbf{(a)}) and transitive (by Proposition
-\ref{prop.ent.div.2} \textbf{(b)}), but not symmetric.
+\ref{prop.ent.div.2} \textbf{(b)}), but not symmetric (since $1\mid2$ does not
+lead to $2\mid1$).
 
-\textbf{(i)} The coprimality relation (by Proposition
-\ref{prop.ent.coprime.perp-symm}), but neither reflexive nor transitive.
-\end{example}%
+\textbf{(i)} The coprimality relation is symmetric (by Proposition
+\ref{prop.ent.coprime.perp-symm}), but neither reflexive (since we don't have
+$2\perp2$) nor transitive (since $2\perp3$ and $3\perp2$ do not lead to
+$2\perp2$).
+\end{proof}%
 
 \[%
 \begin{tabular}
