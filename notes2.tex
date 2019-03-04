@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, March 04, 2019 09:56:16}
+%TCIDATA{LastRevised=Monday, March 04, 2019 12:05:29}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -16321,66 +16321,72 @@ Let $\alpha$ and $\beta$ be two complex numbers. Then:
 \end{proposition}
 
 \begin{proof}
-\textbf{(c)} Write $\alpha$ as $\alpha=\left(  a,b\right)  $ and write $\beta$
-as $\beta=\left(  c,d\right)  $ for reals $a,b,c,d$. Then, $\alpha\cdot
-\beta=\left(  a,b\right)  \left(  c,d\right)  =\left(  ac-bd,ad+bc\right)  $.
+\textbf{(c)} Write $\alpha$ as $\alpha=\left(  a,b\right)  $ for
+$a,b\in\mathbb{R}$.
+
+Write $\beta$ as $\beta=\left(  c,d\right)  $ for $c,d\in\mathbb{R}$.
+
+Thus, $\alpha\cdot\beta=\left(  a,b\right)  \left(  c,d\right)  =\left(
+ac-bd,ad+bc\right)  $.
+
 Hence, $\overline{\alpha\cdot\beta}=\left(  ac-bd,-\left(  ad+bc\right)
-\right)  $
+\right)  $.
 
-But $\overline{\alpha}=\left(  a,-b\right)  $ and $\overline{\beta}=\left(
-c,-d\right)  $, so that $\overline{\alpha}\cdot\overline{\beta}=\left(
-a,-b\right)  \left(  c,-d\right)  =\left(  ac-\left(  -b\right)  \left(
--d\right)  ,a\left(  -d\right)  +b\left(  -c\right)  \right)  =\left(
-ac+bd,-\left(  ad+bc\right)  \right)  $. Comparing this with $\overline
-{\alpha\cdot\beta}=\left(  ac-bd,-\left(  ad+bc\right)  \right)  $, we obtain
-$\overline{\alpha\cdot\beta}=\overline{\alpha}\cdot\overline{\beta}$.
+On the other hand, $\overline{\alpha}=\left(  a,-b\right)  $ (since
+$\alpha=\left(  a,b\right)  $) and $\overline{\beta}=\left(  c,-d\right)  $
+(similarly). Hence,%
+\begin{align*}
+\overline{\alpha}\cdot\overline{\beta}  &  =\left(  ac-\left(  -b\right)
+\left(  -d\right)  ,a\left(  -d\right)  +b\left(  -c\right)  \right) \\
+&  =\left(  ac-bd,-\left(  ad+bc\right)  \right)  =\overline{\alpha\cdot\beta
+}.
+\end{align*}
+This proves part \textbf{(c)}.
 
-\textbf{(a)}, \textbf{(b)} are similar but easier.
+\textbf{(a)} and \textbf{(b)} are similar but easier.
 
 \textbf{(d)} The proposition above (from last time) yields $\operatorname*{N}%
-\left(  \alpha\right)  =\alpha\overline{\alpha}$. Likewise, $\operatorname*{N}%
-\left(  \beta\right)  =\beta\overline{\beta}$ and $\operatorname*{N}\left(
-\alpha\beta\right)  =\alpha\beta\overline{\alpha\beta}$. Thus,%
+\left(  \alpha\right)  =\alpha\overline{\alpha}$. Similarly,
+$\operatorname*{N}\left(  \beta\right)  =\beta\overline{\beta}$ and
+$\operatorname*{N}\left(  \alpha\beta\right)  =\alpha\beta\cdot\overline
+{\alpha\beta}$. Hence,%
 \begin{align*}
-\operatorname*{N}\left(  \alpha\beta\right)   &  =\alpha\beta
+\operatorname*{N}\left(  \alpha\beta\right)   &  =\alpha\beta\cdot
 \underbrace{\overline{\alpha\beta}}_{\substack{=\overline{\alpha\cdot\beta
-}=\overline{\alpha}\cdot\overline{\beta}\\\text{(by \textbf{(c)})}}%
-}=\alpha\beta\overline{\alpha}\cdot\overline{\beta}\\
+}=\overline{\alpha}\cdot\overline{\beta}\\\text{(by part \textbf{(c)})}%
+}}=\alpha\beta\cdot\overline{\alpha}\cdot\overline{\beta}\\
 &  =\underbrace{\left(  \alpha\overline{\alpha}\right)  }_{=\operatorname*{N}%
 \left(  \alpha\right)  }\cdot\underbrace{\left(  \beta\overline{\beta}\right)
 }_{=\operatorname*{N}\left(  \beta\right)  }=\operatorname*{N}\left(
 \alpha\right)  \cdot\operatorname*{N}\left(  \beta\right)  .
 \end{align*}
-
+This proves part \textbf{(d)}.
 \end{proof}
 
-Remember the Brahmagupta--Fibonacci identity,
+Recall the Brahmagupta--Fibonacci identity
 \[
 \left(  a^{2}+b^{2}\right)  \left(  c^{2}+d^{2}\right)  =\left(  ad+bc\right)
 ^{2}+\left(  ac-bd\right)  ^{2}%
 \]
-for $a,b,c,d\in\mathbb{R}$. This is simply saying that%
+for reals $a,b,c,d$. This is precisely the identity%
 \[
 \operatorname*{N}\left(  \alpha\right)  \cdot\operatorname*{N}\left(
 \beta\right)  =\operatorname*{N}\left(  \alpha\beta\right)
 \]
-for the complex numbers $\alpha=\left(  a,b\right)  =a+bi$ and $\beta=\left(
-c,d\right)  =c+di$.
+for $\alpha=a+bi$ and $\beta=c+di$.
 
 \begin{definition}
 Let $\alpha=\left(  a,b\right)  =a+bi$ be a complex number.
 
-Then, $a$ is called the \textbf{real part} of $\alpha$ and denoted
-$\operatorname*{Re}\alpha$ (or $\mathfrak{R}\alpha$).
+Then, $a$ is called the \textbf{real part} of $\alpha$ and is denoted by
+$\operatorname*{Re}\alpha$ or $\mathfrak{R}\alpha$.
 
-Also, $b$ is called the \textbf{imaginary part} of $\alpha$ and denoted
-$\operatorname*{Im}\alpha$.
+Also, $b$ is called the \textbf{imaginary part} of $\alpha$ and is denoted by
+$\operatorname*{Im}\alpha$ or $\mathfrak{I}\alpha$.
 \end{definition}
 
 \begin{proposition}
-Define a map $\mu:\mathbb{C}\rightarrow\mathbb{R}^{2\times2}$ (where
-$\mathbb{R}^{2\times2}$ is the set of $2\times2$-matrices with real entries)
-by%
+Define a map $\mu:\mathbb{C}\rightarrow\mathbb{R}^{2\times2}$ by%
 \[
 \mu\left(  a+bi\right)  =\left(
 \begin{array}
@@ -16406,8 +16412,8 @@ a & b\\
 \end{proposition}
 
 \begin{proof}
-\textbf{(a)}, \textbf{(b)} and \textbf{(c)} are straightforward computations.
-E.g., for \textbf{(c)}, you want%
+\textbf{(a)}, \textbf{(b)} and \textbf{(c)} are straightforward computations:
+e.g., for \textbf{(c)}, we need%
 \[
 \left(
 \begin{array}
@@ -16431,20 +16437,10 @@ ac-bd & ad+bc\\
 \]
 
 
-\textbf{(d)} You can always reconstruct $a+bi$ from $\left(
-\begin{array}
-[c]{cc}%
-a & b\\
--b & a
-\end{array}
-\right)  $.
+\textbf{(d)} Obvious.
 \end{proof}
 
-This proposition really says that we can regard complex numbers as a specific
-kind of $2\times2$-matrices with real entries.
-
-Finally, let me mention without proof the so-called \textit{Fundamental
-Theorem of Algebra}:
+Finally: the \textit{Fundamental Theorem of Algebra}:
 
 \begin{theorem}
 Let $p\left(  x\right)  $ be a polynomial of degree $n$ with complex
@@ -16457,41 +16453,31 @@ _{2}\right)  \cdots\left(  x-\alpha_{n}\right)  .
 
 \end{theorem}
 
-In other words, any polynomial with complex coefficients can be factored into
-linear factors. This is in contrast to real numbers, where polynomials can at
-best be factored into linear and quadratic factors. (For example, $x^{2}+1$
-cannot be factored further over the real numbers, but factors as $\left(
-x+i\right)  \left(  x-i\right)  $ over the complex numbers.)
-
-The Fundamental Theorem of Algebra is not actually a theorem of algebra. It
-relies heavily on the concepts of real and complex numbers. So it is actually
-a theorem of analysis. For a proof, see [LaNaSc16, Theorem 3.2.2].
+This is not actually a Theorem of Algebra. See [LaNaSc16, Theorem 3.2.2].
 
 \subsection{Gaussian integers}
 
-\subsubsection{Definitions and basics}
-
 \begin{definition}
 A \textbf{Gaussian integer} is a complex number $\left(  a,b\right)  $ with
-$a,b\in\mathbb{Z}$.
+$\left(  a,b\right)  \in\mathbb{Z}$.
 \end{definition}
 
-For example, $3+5i$ and $3-7i$ are Gaussian integers. So are $0$, $1$ and $i$.
-But not $\dfrac{1}{2}+3i$ or $\sqrt{2}+4i$.
+For example, $3+5i$ and $3-7i$ and $0$ and $1$ and $i$ are Gaussian integers,
+but $\dfrac{1}{2}+7i$ and $\sqrt{2}$ are not.
 
 \begin{definition}
 We let $\mathbb{Z}\left[  i\right]  $ be the set of all Gaussian integers.
 \end{definition}
 
-Our goal in this section is to replicate as much as we can of the old number
-theory for integers for Gaussian integers.
+Our goal in this section: How much of elementary number theory can be tweaked
+to work for Gaussian integers?
 
-We will try to use Greek letters for Gaussian integers and Roman letters for integers.
+I will try to use Greek letters for Gaussian integers and Roman letters for integers.
 
 \begin{definition}
-\textbf{(a)} A Gaussian integer $\alpha\in\mathbb{Z}\left[  i\right]  $ is
-said to be \textbf{invertible in }$\mathbb{Z}\left[  i\right]  $ if it has an
-inverse in $\mathbb{Z}\left[  i\right]  $.
+\textbf{(a)} A Gaussian integer $\alpha$ is said to be \textbf{invertible in
+}$\mathbb{Z}\left[  i\right]  $ if it has an inverse in $\mathbb{Z}\left[
+i\right]  $.
 
 A \textbf{unit} will mean a Gaussian integer that is invertible in
 $\mathbb{Z}\left[  i\right]  $.
@@ -16501,16 +16487,18 @@ $\mathbb{Z}\left[  i\right]  $.
 \left(  \alpha\sim\beta\right)  \Longleftrightarrow\left(  \alpha=\gamma
 \beta\text{ for some unit }\gamma\in\mathbb{Z}\left[  i\right]  \right)  .
 \]
-This relation will be called \textbf{unit-equivalence} (or \textbf{equivalence
-up to unit}).
+
+
+This relation will be called \textbf{unit-equivalence} (or \textbf{equality up
+to unit}).
 \end{definition}
 
-For comparison: The units of $\mathbb{Z}$ (that is, the integers that are
-invertible in $\mathbb{Z}$) are $1$ and $-1$. So the similarly defined
-relation $\sim$ on $\mathbb{Z}\left[  i\right]  $ would just be given by%
+For comparison: The units of $\mathbb{Z}$ are $1$ and $-1$. So the similarly
+defined relation $\sim$ on $\mathbb{Z}\left[  i\right]  $ would just be given
+by%
 \begin{align*}
 \left(  a\sim b\right)   &  \Longleftrightarrow\left(  a=cb\text{ for some
-}c\in\left\{  1,-1\right\}  \right) \\
+unit }c\in\mathbb{Z}\right) \\
 &  \Longleftrightarrow\left(  a=b\text{ or }a=-b\right)  \Longleftrightarrow
 \left(  \left\vert a\right\vert =\left\vert b\right\vert \right)  .
 \end{align*}
@@ -16521,13 +16509,15 @@ The relation $\sim$ on $\mathbb{Z}\left[  i\right]  $ is an equivalence relation
 \end{proposition}
 
 \begin{proof}
-The product of two units is a unit (since $\left(  \alpha\beta\right)
-^{-1}=\beta^{-1}\alpha^{-1}$). Thus, $\sim$ is transitive.
+Reflexivity: $\alpha\sim\alpha$ since $\alpha=1\alpha$ (and $1$ is a unit).
 
-The inverse of a unit is a unit (since $\left(  \alpha^{-1}\right)
-^{-1}=\alpha$). Thus, $\sim$ is symmetric.
+Symmetry: If $\alpha\sim\beta$, then $\alpha=\gamma\beta$ for some unit
+$\gamma$, and then $\gamma^{-1}$ is also a unit (since $\left(  \gamma
+^{-1}\right)  ^{-1}=\gamma$), so that $\beta=\gamma^{-1}\alpha$ yields
+$\beta\sim\alpha$.
 
-Finally, $\sim$ is reflexive (since $1$ is a unit).
+Transitivity: This is because the product of two units is a unit again (since
+$\left(  \alpha\beta\right)  ^{-1}=\beta^{-1}\alpha^{-1}$).
 \end{proof}
 
 \begin{proposition}
@@ -16536,8 +16526,8 @@ Let $\alpha\in\mathbb{Z}\left[  i\right]  $. Then, $\operatorname*{N}\left(
 \end{proposition}
 
 \begin{proof}
-Write $\alpha$ as $\left(  a,b\right)  $ for $a,b\in\mathbb{Z}$. Then,
-$\operatorname*{N}\left(  \alpha\right)  =a^{2}+b^{2}\in\mathbb{N}$.
+Write $\alpha$ as $\alpha=\left(  a,b\right)  $ for some $a,b\in\mathbb{Z}$.
+Now, $\operatorname*{N}\left(  \alpha\right)  =a^{2}+b^{2}\in\mathbb{N}$.
 \end{proof}
 
 \begin{proposition}
@@ -16545,37 +16535,30 @@ The units of $\mathbb{Z}\left[  i\right]  $ are $1,-1,i,-i$.
 \end{proposition}
 
 \begin{proof}
-First of all, $1,-1,i,-i$ are units of $\mathbb{Z}\left[  i\right]  $ (since
-$i\left(  -i\right)  =1$). It remains to prove that there are no other units.
+Clearly, $1,-1,i,-i$ are units (since $i\left(  -i\right)  =1$). It remains to
+prove that there are no other units.
 
 So let $\alpha\in\mathbb{Z}\left[  i\right]  $ be a unit. Thus, it has an
 inverse $\alpha^{-1}\in\mathbb{Z}\left[  i\right]  $.
 
 Hence, $\alpha\alpha^{-1}=1$, so that $\operatorname*{N}\left(  \alpha
 \alpha^{-1}\right)  =\operatorname*{N}\left(  1\right)  =\operatorname*{N}%
-\left(  \left(  1,0\right)  \right)  =1^{2}+0^{2}=1$. But the formula
-$\operatorname*{N}\left(  \alpha\beta\right)  =\operatorname*{N}\left(
-\alpha\right)  \cdot\operatorname*{N}\left(  \beta\right)  $ (applied to
-$\beta=\alpha^{-1}$) yields $\operatorname*{N}\left(  \alpha\alpha
-^{-1}\right)  =\operatorname*{N}\left(  \alpha\right)  \cdot\operatorname*{N}%
-\left(  \alpha^{-1}\right)  $. Hence, $\operatorname*{N}\left(  \alpha\right)
-\cdot\operatorname*{N}\left(  \alpha^{-1}\right)  =\operatorname*{N}\left(
-\alpha\alpha^{-1}\right)  =1$. But the previous proposition yields
-$\operatorname*{N}\left(  \alpha\right)  ,\operatorname*{N}\left(  \alpha
-^{-1}\right)  \in\mathbb{N}$. Hence, $\operatorname*{N}\left(  \alpha\right)
-\cdot\operatorname*{N}\left(  \alpha^{-1}\right)  =1$ yields
-$\operatorname*{N}\left(  \alpha\right)  =\operatorname*{N}\left(  \alpha
-^{-1}\right)  =1$.
+\left(  \left(  1,0\right)  \right)  =1^{2}+0^{2}=1$. But $\operatorname*{N}%
+\left(  \alpha\beta\right)  =\operatorname*{N}\left(  \alpha\right)
+\cdot\operatorname*{N}\left(  \beta\right)  $ (applied to $\beta=\alpha^{-1}$)
+yields $\operatorname*{N}\left(  \alpha\alpha^{-1}\right)  =\operatorname*{N}%
+\left(  \alpha\right)  \cdot\operatorname*{N}\left(  \alpha^{-1}\right)  $. So
+$\operatorname*{N}\left(  \alpha\right)  \cdot\operatorname*{N}\left(
+\alpha^{-1}\right)  =\operatorname*{N}\left(  \alpha\alpha^{-1}\right)  =1$.
+Since both $\operatorname*{N}\left(  \alpha\right)  $ and $\operatorname*{N}%
+\left(  \alpha^{-1}\right)  $ belong to $\mathbb{N}$, this yields
+$\operatorname*{N}\left(  \alpha\right)  =1$.
 
-But write $\alpha$ as $\alpha=\left(  a,b\right)  $ with $a,b\in\mathbb{Z}$.
-Then, $a^{2}+b^{2}=\operatorname*{N}\left(  \alpha\right)  =1$. This entails
-that $\left(  a,b\right)  $ is either $\left(  1,0\right)  $ or $\left(
--1,0\right)  $ or $\left(  0,1\right)  $ or $\left(  0,-1\right)  $. In other
-words, $\alpha$ is either $1$ or $-1$ or $i$ or $-i$. This proves the proposition.
+This yields $\alpha\in\left\{  1,-1,i,-i\right\}  $ by an argument like the
+following: Write $\alpha$ as $\left(  a,b\right)  $ for $a,b\in\mathbb{Z}$.
+Then, $a^{2}+b^{2}=\operatorname*{N}\left(  \alpha\right)  =1$, so each of
+$a^{2}$ and $b^{2}$ must be $0$ and $1$, and now check all the cases.
 \end{proof}
-
-This proposition allows us to easily check for two complex numbers $\alpha$
-and $\beta$ whether $\alpha\sim\beta$ holds.
 
 \begin{definition}
 Let $\alpha$ and $\beta$ be two Gaussian integers. We say that $\alpha
@@ -16596,44 +16579,41 @@ i\right]  $. Then, $a\mid\beta$ if and only if $a$ divides both $b$ and $c$.
 \begin{proof}
 We have the following equivalence:%
 \begin{align*}
-&  \ \left(  a\mid\beta\right) \\
-&  \Longleftrightarrow\ \left(  \text{there exists a Gaussian integer }%
-\gamma\text{ such that }\beta=a\gamma\right) \\
-&  \Longleftrightarrow\ \left(  \text{there exists a Gaussian integer }\left(
-u,v\right)  \text{ such that }\beta=a\left(  u,v\right)  \right) \\
-&  \Longleftrightarrow\ \left(  \text{there exist integers }u\text{ and
+& \ \left(  a\mid\beta\right)  \\
+& \Longleftrightarrow\ \left(  \text{there exists a Gaussian integer }%
+\gamma\text{ such that }\beta=a\gamma\right)  \\
+& \Longleftrightarrow\ \left(  \text{there exists a Gaussian integer }\left(
+u,v\right)  \text{ such that }\beta=a\left(  u,v\right)  \right)  \\
+& \Longleftrightarrow\ \left(  \text{there exist two integers }u\text{ and
 }v\text{ such that }\beta=a\left(  u,v\right)  \right)
 \end{align*}%
 \begin{align*}
-&  \Longleftrightarrow\ \left(  \text{there exist integers }u\text{ and
+& \Longleftrightarrow\ \left(  \text{there exist two integers }u\text{ and
 }v\text{ such that }\underbrace{\left(  b,c\right)  =a\left(  u,v\right)
-}_{\Longleftrightarrow\ \left(  b=au\text{ and }c=av\right)  }\right) \\
-&  \Longleftrightarrow\ \left(  \text{there exist integers }u\text{ and
-}v\text{ such that }b=au\text{ and }c=av\right) \\
-&  \Longleftrightarrow\ \underbrace{\left(  \text{there exists an integer
-}u\text{ such that }b=au\right)  }_{\Longleftrightarrow\ \left(  a\mid
-b\right)  }\\
-&  \ \ \ \ \ \ \ \ \ \ \wedge\underbrace{\left(  \text{there exists an integer
-}v\text{ such that }c=av\right)  }_{\Longleftrightarrow\ \left(  a\mid
-c\right)  }%
+}_{\Longleftrightarrow\ \left(  b=au\text{ and }c=av\right)  }\right)  \\
+& \Longleftrightarrow\ \left(  \text{there exist two integers }u\text{ and
+}v\text{ such that }b=au\text{ and }c=av\right)  \\
+& \Longleftrightarrow\ \left(  \text{there exists an integer }u\text{ such
+that }b=au\right)  \\
+& \ \ \ \ \ \ \ \ \ \ \wedge\left(  \text{there exists an integer }v\text{
+such that }c=av\right)
 \end{align*}%
 \begin{align*}
-&  \Longleftrightarrow\ \left(  a\mid b\right)  \wedge\left(  a\mid c\right)
+& \Longleftrightarrow\ \left(  a\mid b\right)  \wedge\left(  a\mid c\right)
 \\
-&  \Longleftrightarrow\ \left(  a\text{ divides }b\text{ and }c\right)  .
+& \Longleftrightarrow\ \left(  a\text{ divides }b\text{ and }c\right)  .
 \end{align*}
 
 \end{proof}
 
-This remark shows, in particular, that when $a$ and $b$ are integers, this new
-definition of $a\mid b$ agrees with the old definition.
+This remark shows that the new definition of $\mid$ for Gaussian integers does
+not clash with the old definition of $\mid$ for integers.
 
 \begin{proposition}
 Let $\alpha$ and $\beta$ be two Gaussian integers.
 
 \textbf{(a)} We have $\alpha\mid\beta$ only if $\operatorname*{N}\left(
-\alpha\right)  \mid\operatorname*{N}\left(  \beta\right)  $. (But the converse
-does not hold!)
+\alpha\right)  \mid\operatorname*{N}\left(  \beta\right)  $.
 
 \textbf{(b)} If $\alpha\mid\beta$ and $\beta\neq0$, then $\operatorname*{N}%
 \left(  \alpha\right)  \leq\operatorname*{N}\left(  \beta\right)  $.
@@ -16643,32 +16623,30 @@ $\dfrac{\beta}{\alpha}\in\mathbb{Z}\left[  i\right]  $.
 \end{proposition}
 
 \begin{proof}
-\textbf{(a)} Assume that $\alpha\mid\beta$. Then, $\beta=\alpha\gamma$ for
-some $\gamma\in\mathbb{Z}\left[  i\right]  $. Thus, $\operatorname*{N}\left(
+\textbf{(a)} Assume $\alpha\mid\beta$. Then, $\beta=\alpha\gamma$ for some
+$\gamma\in\mathbb{Z}\left[  i\right]  $. Thus, $\operatorname*{N}\left(
 \beta\right)  =\operatorname*{N}\left(  \alpha\gamma\right)
-=\operatorname*{N}\left(  \alpha\right)  \cdot\operatorname*{N}\left(
-\gamma\right)  $, so $\operatorname*{N}\left(  \alpha\right)  \mid
-\operatorname*{N}\left(  \beta\right)  $ since $\operatorname*{N}\left(
-\gamma\right)  \in\mathbb{N}$.
+=\operatorname*{N}\left(  \alpha\right)  \cdot\underbrace{\operatorname*{N}%
+\left(  \gamma\right)  }_{\in\mathbb{N}}$. Thus, $\operatorname*{N}\left(
+\alpha\right)  \mid\operatorname*{N}\left(  \beta\right)  $.
 
-\textbf{(b)} follows from \textbf{(a)}, since the norms are nonnegative
-integers (and since $\beta\neq0$ implies $\operatorname*{N}\left(
-\beta\right)  \neq0$).
+\textbf{(b)} Follows from \textbf{(a)}, since $\operatorname*{N}\left(
+\beta\right)  >0$.
 
-\textbf{(c)} is proven as in the integer case.
+\textbf{(c)} As for integers.
 \end{proof}
 
 \begin{proposition}
-\textbf{(a)} We have $\alpha\mid\alpha$ for every $\alpha\in\mathbb{Z}$. (This
-is called the \textit{reflexivity of divisibility}.)
+\textbf{(a)} We have $\alpha\mid\alpha$ for every $\alpha\in\mathbb{Z}\left[
+i\right]  $. (This is called the \textit{reflexivity of divisibility}.)
 
-\textbf{(b)} If $\alpha,\beta,\gamma\in\mathbb{Z}$ satisfy $\alpha\mid\beta$
-and $\beta\mid\gamma$, then $\alpha\mid\gamma$. (This is called the
-\textit{transitivity of divisibility}.)
+\textbf{(b)} If $\alpha,\beta,\gamma\in\mathbb{Z}\left[  i\right]  $ satisfy
+$\alpha\mid\beta$ and $\beta\mid\gamma$, then $\alpha\mid\gamma$. (This is
+called the \textit{transitivity of divisibility}.)
 
-\textbf{(c)} If $\alpha_{1},\alpha_{2},\beta_{1},\beta_{2}\in\mathbb{Z}$
-satisfy $\alpha_{1}\mid\beta_{1}$ and $\alpha_{2}\mid\beta_{2}$, then
-$\alpha_{1}\alpha_{2}\mid\beta_{1}\beta_{2}$.
+\textbf{(c)} If $\alpha_{1},\alpha_{2},\beta_{1},\beta_{2}\in\mathbb{Z}\left[
+i\right]  $ satisfy $\alpha_{1}\mid\beta_{1}$ and $\alpha_{2}\mid\beta_{2}$,
+then $\alpha_{1}\alpha_{2}\mid\beta_{1}\beta_{2}$.
 \end{proposition}
 
 \begin{exercise}
@@ -16677,19 +16655,13 @@ and $\beta\mid\alpha$. Prove that $\alpha\sim\beta$.
 \end{exercise}
 
 \begin{proof}
-[Solution sketch.]WLOG assume that $\alpha\neq0$. Then, $\beta\neq0$. Now,
-from $\alpha\mid\beta$, we obtain $\dfrac{\beta}{\alpha}\in\mathbb{Z}\left[
-i\right]  $. Similarly, $\dfrac{\alpha}{\beta}\in\mathbb{Z}\left[  i\right]
-$. Thus, $\dfrac{\beta}{\alpha}$ and $\dfrac{\alpha}{\beta}$ are mutually
-inverse Gaussian integers. So $\dfrac{\beta}{\alpha}$ is invertible, i.e., is
-a unit. But $\beta=\alpha\cdot\dfrac{\beta}{\alpha}$, so $\beta\sim\alpha$
-(since $\dfrac{\beta}{\alpha}$ is a unit), and thus $\alpha\sim\beta$.
+[Solution sketch.] Just observe that $\dfrac{\alpha}{\beta}$ and $\dfrac
+{\beta}{\alpha}$ are mutually inverse.
 \end{proof}
 
 \begin{exercise}
-Let $\alpha,\beta,\gamma$ be three Gaussian integers such that $\gamma\neq0$.
-Prove that $\alpha\mid\beta$ holds if and only if $\alpha\gamma\mid\beta
-\gamma$.
+Let $\alpha,\beta,\gamma$ be three integers such that $\gamma\neq0$. Prove
+that $\alpha\mid\beta$ holds if and only if $\alpha\gamma\mid\beta\gamma$.
 \end{exercise}
 
 \begin{exercise}
@@ -16699,57 +16671,20 @@ $a\leq b$. Prove that $\nu^{a}\mid\nu^{b}$.
 
 \begin{exercise}
 Let $\gamma$ be a Gaussian integer such that $\gamma\mid1$. Prove that
-$\gamma\sim1$ (that is, $\gamma$ is a unit, i.e., either $1$ or $-1$ or $i$ or
-$-i$).
+$\gamma\sim1$ (that is, $\gamma$ is either $1$ or $-1$ or $i$ or $-i$).
 \end{exercise}
 
 \begin{definition}
-Let $\nu,\alpha,\beta\in\mathbb{Z}\left[  i\right]  $. We say that $\alpha$
-\textit{is congruent to }$\beta$ \textit{modulo }$\nu$ if and only if $\nu
-\mid\alpha-\beta$. We shall use the notation \textquotedblleft$\alpha
-\equiv\beta\operatorname{mod}\nu$\textquotedblright\ for \textquotedblleft%
-$\alpha$ is congruent to $\beta$ modulo $\nu$\textquotedblright.
+Let $\nu,\alpha,\beta\in\mathbb{Z}$. We say that $\alpha$ \textit{is congruent
+to }$\beta$ \textit{modulo }$\nu$ if and only if $\nu\mid\alpha-\beta$. We
+shall use the notation \textquotedblleft$\alpha\equiv\beta\operatorname{mod}%
+\nu$\textquotedblright\ for \textquotedblleft$\alpha$ is congruent to $\beta$
+modulo $\nu$\textquotedblright.
 
 We furthermore shall use the notation \textquotedblleft$\alpha\not \equiv
 \beta\operatorname{mod}\nu$\textquotedblright\ for \textquotedblleft$\alpha$
 is not congruent to $\beta$ modulo $\nu$\textquotedblright.
 \end{definition}
 
-\begin{proposition}
-Let $\nu\in\mathbb{Z}\left[  i\right]  $ and $\alpha\in\mathbb{Z}\left[
-i\right]  $. Then, $\alpha\equiv0\operatorname{mod}\nu$ if and only if
-$\nu\mid\alpha$.
-\end{proposition}
 
-\begin{proposition}
-Let $\nu\in\mathbb{Z}\left[  i\right]  $.
-
-\textbf{(a)} We have $\alpha\equiv\alpha\operatorname{mod}\nu$ for every
-$\alpha\in\mathbb{Z}\left[  i\right]  $.
-
-\textbf{(b)} If $\alpha,\beta,\gamma\in\mathbb{Z}\left[  i\right]  $ satisfy
-$\alpha\equiv\beta\operatorname{mod}\nu$ and $\beta\equiv\gamma
-\operatorname{mod}\nu$, then $\alpha\equiv\gamma\operatorname{mod}\nu$.
-
-\textbf{(c)} If $\alpha,\beta\in\mathbb{Z}\left[  i\right]  $ satisfy
-$\alpha\equiv\beta\operatorname{mod}\nu$, then $\beta\equiv\alpha
-\operatorname{mod}\nu$.
-
-\textbf{(d)} If $\alpha_{1},\alpha_{2},\beta_{1},\beta_{2}\in\mathbb{Z}\left[
-i\right]  $ satisfy $\alpha_{1}\equiv\beta_{1}\operatorname{mod}\nu$ and
-$\alpha_{2}\equiv\beta_{2}\operatorname{mod}\nu$, then%
-\begin{align}
-\alpha_{1}+\alpha_{2}  &  \equiv\beta_{1}+\beta_{2}\operatorname{mod}\nu;\\
-\alpha_{1}-\alpha_{2}  &  \equiv\beta_{1}-\beta_{2}\operatorname{mod}\nu;\\
-\alpha_{1}\alpha_{2}  &  \equiv\beta_{1}\beta_{2}\operatorname{mod}\nu.
-\end{align}
-
-
-\textbf{(e)} Let $\mu\in\mathbb{Z}\left[  i\right]  $ be such that $\mu\mid
-\nu$. If $\alpha,\beta\in\mathbb{Z}\left[  i\right]  $ satisfy $\alpha
-\equiv\beta\operatorname{mod}\nu$, then $\alpha\equiv\beta\operatorname{mod}%
-\mu$.
-\end{proposition}
-
-Next time: Making division with remainder work for Gaussian integers.
 \end{document}
