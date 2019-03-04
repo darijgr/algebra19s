@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Sunday, March 03, 2019 18:19:30}
+%TCIDATA{LastRevised=Sunday, March 03, 2019 22:56:30}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -10101,14 +10101,14 @@ Canonical factorizations can also be used to describe gcds and lcms:
 \label{prop.ent.primes.gcd}Let $n$ and $m$ be two nonzero integers. Then,%
 \begin{equation}
 \gcd\left(  n,m\right)  =\prod_{p\text{ prime}}p^{\min\left\{  v_{p}\left(
-n\right)  ,v_{p}\left(  m\right)  \right\}  }%
+n\right)  ,v_{p}\left(  m\right)  \right\}  }
 \label{eq.prop.ent.primes.gcd.gcd}%
 \end{equation}
 and%
 \begin{equation}
 \operatorname{lcm}\left(  n,m\right)  =\prod_{p\text{ prime}}p^{\max\left\{
-v_{p}\left(  n\right)  ,v_{p}\left(  m\right)  \right\}  }%
-.\label{eq.prop.ent.primes.gcd.lcm}%
+v_{p}\left(  n\right)  ,v_{p}\left(  m\right)  \right\}  }.
+\label{eq.prop.ent.primes.gcd.lcm}%
 \end{equation}
 
 \end{proposition}
@@ -10764,6 +10764,34 @@ large even if $p_{1},p_{2},\ldots,p_{k}$ are fairly small. In practice, the
 sieve of Eratosthenes is much better for generating primes.
 \href{https://en.wikipedia.org/wiki/Generating_primes}{Much faster algorithms
 are known}.
+
+\begin{exercise}
+\label{exe.ent.primes.aa-1}Let $p$ be a prime. Let $a\in\mathbb{Z}$ be such
+that $a^{2}\equiv1\operatorname{mod}p$. Prove that $a\equiv1\operatorname{mod}%
+p$ or $a\equiv-1\operatorname{mod}p$.
+\end{exercise}
+
+\begin{fineprint}
+\begin{proof}
+[Solution to Exercise \ref{exe.ent.primes.aa-1}.] We have $a^{2}%
+\equiv1\operatorname{mod}p$. In other words, $p\mid a^{2}-1=\left(
+a-1\right)  \left(  a+1\right)  $. Hence, Theorem \ref{thm.ent.primes.pab}
+(applied to $a-1$ and $a+1$ instead of $a$ and $b$) yields that $p\mid a-1$ or
+$p\mid a+1$. In view of the logical equivalences%
+\[
+\left(  p\mid a-1\right)  \ \Longleftrightarrow\ \left(  a\equiv
+1\operatorname{mod}p\right)
+\]
+and%
+\[
+\left(  p\mid\underbrace{a+1}_{=a-\left(  -1\right)  }\right)
+\ \Longleftrightarrow\ \left(  p\mid a-\left(  -1\right)  \right)
+\ \Longleftrightarrow\ \left(  a\equiv-1\operatorname{mod}p\right)  ,
+\]
+this rewrites as follows: $a\equiv1\operatorname{mod}p$ or $a\equiv
+-1\operatorname{mod}p$. This solves Exercise \ref{exe.ent.primes.aa-1}.
+\end{proof}
+\end{fineprint}
 
 \subsection{Euler's totient function ($\phi$-function)}
 
@@ -14711,28 +14739,90 @@ n-1\right]  _{n}$. This proves Theorem \ref{thm.eqrel.Zn.explicit}.
 
 In the above proof of Theorem \ref{thm.eqrel.Zn.explicit}, we have witnessed
 an important issue in dealing with quotient sets: If you want to define a map
-$f$ going \textbf{out} of a quotient set $S/\sim$ (in our case, the quotient
-set was $\mathbb{Z}/\underset{n}{\equiv}$ (also known as $\mathbb{Z}/n$), and
-the map was $R$), then the easiest way to do so is often to specify $f\left(
-\left[  s\right]  _{\sim}\right)  $ for each equivalence class $\left[
-s\right]  _{\sim}$; but in order to ensure that this definition is
-well-defined (i.e., that our map $f$ actually exists), we need to verify that
-the value of $f\left(  \left[  s\right]  _{\sim}\right)  $ we are specifying
-depends \textbf{only on the equivalence class }$\left[  s\right]  _{\sim}$ but
-not on the representative $s$ that we choose for it in our definition. This
-verification (which we did in our above proof by proving Claim 1) is often
-quite easy, but it is necessary.%
+$f$ going \textbf{out} of a quotient set $S/\sim$\ \ \ \ \footnote{In our
+case, the quotient set was $\mathbb{Z}/\underset{n}{\equiv}$ (also known as
+$\mathbb{Z}/n$), and the map we wanted to define was $R$.}, then the easiest
+way to do so is often to specify $f\left(  \left[  s\right]  _{\sim}\right)  $
+for each equivalence class $\left[  s\right]  _{\sim}$; but in order to ensure
+that this definition is well-defined (i.e., that our map $f$ actually exists),
+we need to verify that the value of $f\left(  \left[  s\right]  _{\sim
+}\right)  $ we are specifying depends \textbf{only on the equivalence class
+}$\left[  s\right]  _{\sim}$ but not on the representative $s$ that we choose
+for it in our definition. In other words, we need to verify that if $s_{1}$
+and $s_{2}$ are two elements of $S$ such that $\left[  s_{1}\right]  _{\sim
+}=\left[  s_{2}\right]  _{\sim}$, then our definition of $f$ assigns the same
+value to $f\left(  \left[  s_{1}\right]  _{\sim}\right)  $ as it does to
+$f\left(  \left[  s_{2}\right]  _{\sim}\right)  $. This verification (which we
+did in our above proof by proving Claim 1) is often quite easy, but it is necessary.
+
+Let us restate this strategy for defining maps out of a quotient set more rigorously:
+
+\begin{remark}
+Let $S$ and $T$ be two sets, and let $\sim$ be an equivalence relation on $S$.
+Assume that we want to define a map%
+\begin{align*}
+f:S/\sim & \rightarrow T,\\
+\left[  s\right]  _{\sim}  & \mapsto F\left(  s\right)  ,
+\end{align*}
+where $F\left(  s\right)  $ is some element of $T$ for each $s\in S$. (That
+is, we want to define a map $f:S\rightarrow T$ such that every $s\in S$
+satisfies $f\left(  \left[  s\right]  _{\sim}\right)  =F\left(  s\right)  $.)
+
+In order to ensure that this $f$ is well-defined, we need to verify that if
+$s_{1}$ and $s_{2}$ are two elements of $S$ such that $\left[  s_{1}\right]
+_{\sim}=\left[  s_{2}\right]  _{\sim}$, then $F\left(  s_{1}\right)  =F\left(
+s_{2}\right)  $. If this verification has been done, the map $f$ is well-defined.
+\end{remark}
+
+Let us state this even more formally, as a theorem:
+
+\begin{theorem}
+\label{thm.eqrel.quot.uniprop.1}Let $S$ and $T$ be two sets, and let $\sim$ be
+an equivalence relation on $S$. For each $s\in S$, let $F\left(  s\right)  $
+be an element of $T$. (In other words, let $F$ be a map from $S$ to $T$.)
+Assume that the following assumption holds:
+
+\begin{statement}
+\textit{Assumption 1:} If $s_{1}$ and $s_{2}$ are two elements of $S$
+satisfying $s_{1}\sim s_{2}$, then $F\left(  s_{1}\right)  =F\left(
+s_{2}\right)  $.
+\end{statement}
+
+Then, there exists a unique map $f:S\rightarrow T$ such that every $s\in S$
+satisfies $f\left(  \left[  s\right]  _{\sim}\right)  =F\left(  s\right)  $.
+\end{theorem}
+
+Theorem \ref{thm.eqrel.quot.uniprop.1} says that (under the assumption that
+Assumption 1 holds) we can define a map%
+\begin{align*}
+f:S/\sim &  \rightarrow T,\\
+\left[  s\right]  _{\sim} &  \mapsto F\left(  s\right)  .
+\end{align*}
+For example, the map $R$ defined in our proof of Theorem
+\ref{thm.eqrel.Zn.explicit} was defined in this way (with $\mathbb{Z}$,
+$\mathbb{Z}$, $\underset{n}{\equiv}$ and $s\%n$ playing the roles of $S$, $T$,
+$\sim$ and $F\left(  s\right)  $), and our proof of Claim 1 was essentially us
+verifying that Assumption 1 of Theorem \ref{thm.eqrel.Zn.explicit} is
+satisfied.%
 \[%
 \begin{tabular}
 [c]{||l||}\hline\hline
 \textbf{You have reached the end of the finished part.}\\
 \textbf{TODO: Write on from here.}\\\hline\hline
 \end{tabular}
-\ \ \ \ \
+\ \ \ \ \ \ \
 \]
 
 
-TODO: Possibly state this more concretely.
+For the sake of completeness, let us give a formal proof for Theorem
+\ref{thm.eqrel.quot.uniprop.1} as well:
+
+\begin{proof}
+[Proof of Theorem \ref{thm.eqrel.quot.uniprop.1}.] TODO.
+\end{proof}
+
+Theorem \ref{thm.eqrel.quot.uniprop.1} is known as the \textit{universal
+property of the quotient set}.
 
 Let us recall the concept of a binary operation (defined in Definition
 \ref{def.intro.binop}). We shall now define several such operations on the set
@@ -15160,15 +15250,14 @@ Are there any other such classes? Let us see.
 Let $\left[  a\right]  _{p}$ be a class that is its own inverse. Thus,
 $\left[  a\right]  _{p}\cdot\left[  a\right]  _{p}=\left[  1\right]  _{p}$.
 
-In other words, $aa\equiv1\operatorname{mod}p$. Thus, $p\mid aa-1=a^{2}%
--1=\left(  a+1\right)  \left(  a-1\right)  $. Since $p$ is prime, we thus have
-either $p\mid a+1$ or $p\mid a-1$. In other words, either $a\equiv
--1\operatorname{mod}p$ or $a\equiv1\operatorname{mod}p$. In other words,
-$\left[  a\right]  _{p}=\left[  -1\right]  _{p}$ or $\left[  a\right]
-_{p}=\left[  1\right]  _{p}$.
+In other words, $aa\equiv1\operatorname{mod}p$. Thus, $a^{2}\equiv
+1\operatorname{mod}p$. Hence, Exercise \ref{exe.ent.primes.aa-1} shows that
+$a\equiv1\operatorname{mod}p$ or $a\equiv-1\operatorname{mod}p$. In other
+words, $\left[  a\right]  _{p}=\left[  1\right]  _{p}$ or $\left[  a\right]
+_{p}=\left[  -1\right]  _{p}$.
 
-So any class that is its own inverse must be either $\left[  -1\right]
-_{p}=\left[  p-1\right]  _{p}$ or $\left[  1\right]  _{p}$.
+So any class that is its own inverse must be either $\left[  1\right]  _{p}$
+or $\left[  -1\right]  _{p}=\left[  p-1\right]  _{p}$.
 
 So we conclude that the only classes that are their own inverses are $\left[
 1\right]  _{p}$ and $\left[  p-1\right]  _{p}$.
@@ -15640,7 +15729,7 @@ a^{N}\equiv a\operatorname{mod}pq.
 
 This lemma can be restated as saying that $x^{N}=x$ for each $x\in
 \mathbb{Z}/\left(  pq\right)  $ (when $p$, $q$ and $N$ are as in the lemma).
-Now, when Albert receives $y=x^{e}$ from Julia, we hasve%
+Now, when Albert receives $y=x^{e}$ from Julia, we have%
 \[
 y^{d}=\left(  x^{e}\right)  ^{d}=x^{ed}.
 \]
@@ -15825,7 +15914,8 @@ $\phi\left(  \phi\left(  n\right)  \right)  $ many of them.
 \end{theorem}
 
 This would be fairly difficult to prove at this point, but will be doable with
-some abstract algebra (at least in the case $n=p$). See Chapter 4 of [Gallier-RSA].
+some abstract algebra (at least in the case $n=p$). See \cite[Chapter
+4]{Gallier-RSA}.
 
 \section{Complex numbers and Gaussian integers}
 
@@ -16161,8 +16251,8 @@ Let $\alpha\in\mathbb{C}$. Then, $\operatorname*{N}\left(  \alpha\right)
 Write $\alpha$ as $\alpha=\left(  a,b\right)  $. Then, $\overline{\alpha
 }=\left(  a,-b\right)  $. Thus,%
 \begin{align*}
-\alpha\overline{\alpha}  &  =\left(  a,b\right)  \left(  a,-b\right)  =\left(
-aa-b\left(  -b\right)  ,a\left(  -b\right)  +ba\right) \\
+\alpha\overline{\alpha} &  =\left(  a,b\right)  \left(  a,-b\right)  =\left(
+aa-b\left(  -b\right)  ,a\left(  -b\right)  +ba\right)  \\
 &  =\left(  \underbrace{a^{2}+b^{2}}_{=\operatorname*{N}\left(  \alpha\right)
 },0\right)  =\left(  \operatorname*{N}\left(  \alpha\right)  ,0\right)
 =\left(  \operatorname*{N}\left(  \alpha\right)  \right)  _{\mathbb{C}}.
@@ -16170,33 +16260,67 @@ aa-b\left(  -b\right)  ,a\left(  -b\right)  +ba\right) \\
 
 \end{proof}
 
-\begin{proposition}
-Let $\alpha$ and $\beta$ be two complex numbers. Then,%
-\[
-\operatorname*{N}\left(  \alpha\beta\right)  =\operatorname*{N}\left(
-\alpha\right)  \cdot\operatorname*{N}\left(  \beta\right)  .
-\]
-
-\end{proposition}
+General reference for complex numbers: \cite{LaNaSc16}.
 
 \begin{center}
 \textbf{2019-03-04 lecture}
 \end{center}
 
-General reference for complex numbers: \cite{LaNaSc16}.
+\begin{proposition}
+Let $\alpha$ and $\beta$ be two complex numbers. Then:
 
-\section{Complex numbers}
+\textbf{(a)} We have $\overline{\alpha+\beta}=\overline{\alpha}+\overline
+{\beta}$.
+
+\textbf{(b)} We have $\overline{\alpha\cdot\beta}=\overline{\alpha}%
+\cdot\overline{\beta}$.
+
+\textbf{(c)} We have $\operatorname*{N}\left(  \alpha\beta\right)
+=\operatorname*{N}\left(  \alpha\right)  \cdot\operatorname*{N}\left(
+\beta\right)  $.
+\end{proposition}
+
+\begin{proof}
+\textbf{(a)} Straightforward computation.
+
+\textbf{(b)} Same.
+
+\textbf{(c)} The previous proposition yields $\operatorname*{N}\left(
+\alpha\right)  =\alpha\overline{\alpha}$ and similarly $\operatorname*{N}%
+\left(  \beta\right)  =\beta\overline{\beta}$ and $\operatorname*{N}\left(
+\alpha\beta\right)  =\alpha\beta\overline{\alpha\beta}$. Now, use part
+\textbf{(b)}.
+\end{proof}
+
+By the way, remember
+\href{https://en.wikipedia.org/wiki/Brahmagupta-Fibonacci_identity}{the
+Brahmagupta-Fibonacci identity} (\ref{eq.intro.sum-of-2sq.sum*sum}), which
+said that%
+
+\[
+\left(  a^{2}+b^{2}\right)  \left(  c^{2}+d^{2}\right)  =\left(  ad+bc\right)
+^{2}+\left(  ac-bd\right)  ^{2}%
+\]
+for $a,b,c,d\in\mathbb{R}$ ? This is simply saying $\operatorname*{N}\left(
+\alpha\beta\right)  =\operatorname*{N}\left(  \alpha\right)  \cdot
+\operatorname*{N}\left(  \beta\right)  $ for $\alpha=a+bi$ and $\beta=c+di$.
 
 \begin{itemize}
-\item conjugation is aut.
+\item Homomorphism $\mu:\mathbb{C}\rightarrow\mathbb{R}^{2\times2}$ sending
+$a+bi$ to $\left(
+\begin{array}
+[c]{cc}%
+a & b\\
+-b & a
+\end{array}
+\right)  $. Thus, associativity reproven.
 
-\item how to discover $\left(  a^{2}+b^{2}\right)  \left(  c^{2}+d^{2}\right)
-$ identity.
+\item Notations $\operatorname*{Re}$ and $\operatorname*{Im}$.
 
-\item Argand diagram.
-
-\item FTA.
+\item FTA \cite[Theorem 3.2.2]{LaNaSc16}. (But this is not a theorem of algebra.)
 \end{itemize}
+
+\subsection{Gaussian integers}
 
 \begin{thebibliography}{999999999}                                                                                        %
 
