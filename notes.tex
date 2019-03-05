@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, March 04, 2019 12:15:14}
+%TCIDATA{LastRevised=Monday, March 04, 2019 21:41:15}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -13279,7 +13279,8 @@ are not integers.
 \end{example}
 
 This suggests the following question\textbf{:} How can we describe the
-integer-valued polynomials? The following 1915 result of Polya gives an answer:
+integer-valued polynomials? The following result of P\'{o}lya \cite{Polya19}
+gives an answer:
 
 \begin{theorem}
 \label{thm.ivp.binomial}Let $k\in\mathbb{N}$.
@@ -13313,7 +13314,8 @@ These $a_{3},a_{2},a_{1},a_{0}$ are integers -- exactly as Theorem
 I sketched a proof of Theorem \ref{thm.ivp.binomial} \textbf{(b)} in a talk in
 2013 ( \url{http://www.cip.ifi.lmu.de/~grinberg/storrs2013.pdf} )\footnote{In
 this talk, I refer to integer-valued polynomials as \textquotedblleft
-integral-valued polynomials\textquotedblright.}.
+integral-valued polynomials\textquotedblright.}. See also \cite{daSilv12} for
+a self-contained proof.
 
 \section{Equivalence relations and residue classes}
 
@@ -14093,6 +14095,10 @@ $\beta$ are either identical or disjoint. This solves Exercise
 \end{proof}
 \end{fineprint}
 
+In the following, we will try to use Greek letters for equivalence classes and
+Roman letters for their representatives (as we did in the solution to Exercise
+\ref{exe.eqrel.eqcl.dj} above).
+
 \begin{center}
 \textbf{2019-02-22 lecture}
 \end{center}
@@ -14302,8 +14308,8 @@ Forget that we fixed $\mathbf{a},\mathbf{b},\mathbf{c}$. We thus have shown
 that every $\mathbf{a},\mathbf{b},\mathbf{c}\in A^{k}$ satisfying
 $\mathbf{a}\underset{\operatorname*{perm}}{\sim}\mathbf{b}$ and $\mathbf{b}%
 \underset{\operatorname*{perm}}{\sim}\mathbf{c}$ satisfy $\mathbf{a}%
-\underset{\operatorname*{perm}}{\sim}\mathbf{c}$.. In other words, the
-relation $\underset{\operatorname*{perm}}{\sim}$ is transitive.]
+\underset{\operatorname*{perm}}{\sim}\mathbf{c}$. In other words, the relation
+$\underset{\operatorname*{perm}}{\sim}$ is transitive.]
 \end{itemize}
 
 We now know that the relation $\underset{\operatorname*{perm}}{\sim}$ is
@@ -14407,13 +14413,16 @@ $\phi$:
 a $q$-element set (where $q\in\mathbb{N}$). Then, the number of necklaces of
 length $k$ over a $q$-element set $A$ is%
 \[
-\dfrac{1}{n}\sum_{d\mid n}\phi\left(  d\right)  q^{n/d}.
+\dfrac{1}{k}\sum_{d\mid k}\phi\left(  d\right)  q^{k/d}.
 \]
 
 \end{theorem}
 
-Note that it is not (a priori) clear that $\dfrac{1}{n}\sum_{d\mid n}%
-\phi\left(  d\right)  q^{n/d}$ is an integer!
+Note that it is not (a priori) clear that $\dfrac{1}{k}\sum_{d\mid k}%
+\phi\left(  d\right)  q^{k/d}$ is an integer! (Actually, this holds even when
+$q$ is a negative integer, even though there exist no $q$-element sets in that
+case. Thus, $\dfrac{1}{k}\sum_{d\mid k}\phi\left(  d\right)  x^{k/d}$ is
+another integer-valued polynomial for each positive integer $k$.
 
 We will prove Theorem \ref{thm.eqrel.eqcl.necklace-count} using the concept of
 group actions further below.
@@ -14429,7 +14438,7 @@ It is called the \textit{quotient} (or \textit{quotient set}) of $S$ by $\sim$.
 
 \textbf{(b)} The map%
 \begin{align*}
-S  &  \rightarrow S/\sim,\\
+S  &  \rightarrow\left.  S/\sim\right.  ,\\
 s  &  \mapsto\left[  s\right]  _{\sim}%
 \end{align*}
 (which sends each element $s\in S$ to its equivalence class) is called the
@@ -14449,6 +14458,8 @@ residue classes of integers modulo a given positive integer $n$.
 \begin{convention}
 For this section, we fix a positive integer $n$.
 \end{convention}
+
+\subsubsection{Definition of $\mathbb{Z}/n$}
 
 \begin{definition}
 \label{def.eqrel.Z/n.res-class}\textbf{(a)} Define a relation
@@ -14496,6 +14507,8 @@ modulo $n$ is called $\mathbb{Z}/n$. (Some authors call it $\mathbb{Z}/\left(
 n\right)  $ or $\mathbb{Z}/n\mathbb{Z}$ or $\mathbb{Z}_{n}$. Be careful with
 the notation $\mathbb{Z}_{n}$, since it has a different meaning, too.)
 \end{definition}
+
+\subsubsection{How $\mathbb{Z}/n$ looks like}
 
 Let us now state and rigorously prove what we have just observed on the
 example of $n=5$:
@@ -14737,31 +14750,34 @@ namely $\left[  0\right]  _{n},\left[  1\right]  _{n},\ldots,\left[
 n-1\right]  _{n}$. This proves Theorem \ref{thm.eqrel.Zn.explicit}.
 \end{proof}
 
+\subsubsection{Making choices that don't matter: The universal property of
+quotient sets}
+
 In the above proof of Theorem \ref{thm.eqrel.Zn.explicit}, we have witnessed
 an important issue in dealing with quotient sets: If you want to define a map
 $f$ going \textbf{out} of a quotient set $S/\sim$\ \ \ \ \footnote{In our
 case, the quotient set was $\mathbb{Z}/\underset{n}{\equiv}$ (also known as
 $\mathbb{Z}/n$), and the map we wanted to define was $R$.}, then the easiest
 way to do so is often to specify $f\left(  \left[  s\right]  _{\sim}\right)  $
-for each equivalence class $\left[  s\right]  _{\sim}$; but in order to ensure
-that this definition is well-defined (i.e., that our map $f$ actually exists),
-we need to verify that the value of $f\left(  \left[  s\right]  _{\sim
-}\right)  $ we are specifying depends \textbf{only on the equivalence class
-}$\left[  s\right]  _{\sim}$ but not on the representative $s$ that we choose
-for it in our definition. In other words, we need to verify that if $s_{1}$
-and $s_{2}$ are two elements of $S$ such that $\left[  s_{1}\right]  _{\sim
-}=\left[  s_{2}\right]  _{\sim}$, then our definition of $f$ assigns the same
-value to $f\left(  \left[  s_{1}\right]  _{\sim}\right)  $ as it does to
-$f\left(  \left[  s_{2}\right]  _{\sim}\right)  $. This verification (which we
-did in our above proof by proving Claim 1) is often quite easy, but it is necessary.
+for each $s\in S$; but in order to ensure that this definition is well-defined
+(i.e., that our map $f$ actually exists), we need to verify that the value of
+$f\left(  \left[  s\right]  _{\sim}\right)  $ we are specifying depends
+\textbf{only on the equivalence class }$\left[  s\right]  _{\sim}$ but not on
+the representative $s$ that we choose for it in our definition. In other
+words, we need to verify that if $s_{1}$ and $s_{2}$ are two elements of $S$
+such that $\left[  s_{1}\right]  _{\sim}=\left[  s_{2}\right]  _{\sim}$, then
+our definition of $f$ assigns the same value to $f\left(  \left[
+s_{1}\right]  _{\sim}\right)  $ as it does to $f\left(  \left[  s_{2}\right]
+_{\sim}\right)  $. This verification (which we did in our above proof by
+proving Claim 1) is often quite easy, but it is necessary.
 
 Let us restate this strategy for defining maps out of a quotient set more rigorously:
 
 \begin{remark}
-Let $S$ and $T$ be two sets, and let $\sim$ be an equivalence relation on $S$.
-Assume that we want to define a map%
+\label{rmk.eqrel.quot.uniprop-as-method}Let $S$ and $T$ be two sets, and let
+$\sim$ be an equivalence relation on $S$. Assume that we want to define a map%
 \begin{align*}
-f:S/\sim &  \rightarrow T,\\
+f:\left.  S/\sim\right.   &  \rightarrow T,\\
 \left[  s\right]  _{\sim}  &  \mapsto F\left(  s\right)  ,
 \end{align*}
 where $F\left(  s\right)  $ is some element of $T$ for each $s\in S$. (That
@@ -14774,7 +14790,50 @@ _{\sim}=\left[  s_{2}\right]  _{\sim}$, then $F\left(  s_{1}\right)  =F\left(
 s_{2}\right)  $. If this verification has been done, the map $f$ is well-defined.
 \end{remark}
 
-Let us state this even more formally, as a theorem:
+\begin{noncompile}
+Let us illustrate this method of defining maps on a few more examples:
+
+\begin{example}
+Let $A$ be a set, and let $k\in\mathbb{N}$. Recall the notion of
+\textquotedblleft unordered $k$-tuples of elements of $A$\textquotedblright;
+these were defined (in Definition \ref{def.eqrel.eqcl.perm.unord-tup}) as
+equivalence classes of the relation $\underset{\operatorname*{perm}}{\sim}$ on
+the set $A^{k}$. So $A^{k}/\underset{\operatorname*{perm}}{\sim}$ is the set
+of all unordered $k$-tuples of elements of $A$.
+
+\textbf{(a)} Let us fix some $c\in A$, and try to define a map
+\begin{align*}
+\operatorname*{mult}\nolimits_{c}:\left.  A^{k}/\underset{\operatorname*{perm}%
+}{\sim}\right.   &  \rightarrow\mathbb{N},\\
+\left[  \left(  a_{1},a_{2},\ldots,a_{k}\right)  \right]
+_{\underset{\operatorname*{perm}}{\sim}}  &  \mapsto\left(  \text{the number
+of }i\in\left\{  1,2,\ldots,k\right\}  \text{ such that }a_{i}=c\right)  .
+\end{align*}
+Informally speaking, this map $\operatorname*{mult}\nolimits_{c}$ should
+simply map an unordered $k$-tuple $\left[  \left(  a_{1},a_{2},\ldots
+,a_{k}\right)  \right]  _{\underset{\operatorname*{perm}}{\sim}}$ to the
+number of times that $c$ appears as an entry in $\left(  a_{1},a_{2}%
+,\ldots,a_{k}\right)  $. (This is called the \textit{multiplicity} of $c$ in
+$\left[  \left(  a_{1},a_{2},\ldots,a_{k}\right)  \right]
+_{\underset{\operatorname*{perm}}{\sim}}$; thus, the notation
+\textquotedblleft$\operatorname*{mult}\nolimits_{c}$\textquotedblright.)
+
+Intuitively, it is clear that this map $\operatorname*{mult}\nolimits_{c}$
+should be well-defined: After all, the number of times that $c$ appears as an
+entry in a $k$-tuple does not depend on the order of the entries of the tuple
+(i.e., it does not change when the $k$-tuple gets permuted), so it makes sense
+to speak of it for unordered $k$-tuples. The formal proof is just a
+formalization of this argument: You show that if $s_{1}=\left(  a_{1}%
+,a_{2},\ldots,a_{k}\right)  $ and $s_{2}=\left(  b_{1},b_{2},\ldots
+,b_{k}\right)  $ are two $k$-tuples in $A^{k}$ such that $\left[  \left(
+a_{1},a_{2},\ldots,a_{k}\right)  \right]  _{\underset{\operatorname*{perm}%
+}{\sim}}=$
+
+TODO! Finish this!
+\end{example}
+\end{noncompile}
+
+We can restate this method of defining maps as a rigorous theorem:
 
 \begin{theorem}
 \label{thm.eqrel.quot.uniprop.1}Let $S$ and $T$ be two sets, and let $\sim$ be
@@ -14788,41 +14847,148 @@ satisfying $s_{1}\sim s_{2}$, then $F\left(  s_{1}\right)  =F\left(
 s_{2}\right)  $.
 \end{statement}
 
-Then, there exists a unique map $f:S\rightarrow T$ such that every $s\in S$
-satisfies $f\left(  \left[  s\right]  _{\sim}\right)  =F\left(  s\right)  $.
+Then, there exists a unique map $f:\left.  S/\sim\right.  \rightarrow T$ such
+that every $s\in S$ satisfies $f\left(  \left[  s\right]  _{\sim}\right)
+=F\left(  s\right)  $.
 \end{theorem}
 
 Theorem \ref{thm.eqrel.quot.uniprop.1} says that (under the assumption that
 Assumption 1 holds) we can define a map%
 \begin{align*}
-f:S/\sim &  \rightarrow T,\\
+f:\left.  S/\sim\right.   &  \rightarrow T,\\
 \left[  s\right]  _{\sim}  &  \mapsto F\left(  s\right)  .
 \end{align*}
 For example, the map $R$ defined in our proof of Theorem
 \ref{thm.eqrel.Zn.explicit} was defined in this way (with $\mathbb{Z}$,
 $\mathbb{Z}$, $\underset{n}{\equiv}$ and $s\%n$ playing the roles of $S$, $T$,
 $\sim$ and $F\left(  s\right)  $), and our proof of Claim 1 was essentially us
-verifying that Assumption 1 of Theorem \ref{thm.eqrel.Zn.explicit} is
-satisfied.%
+verifying that Assumption 1 of Theorem \ref{thm.eqrel.Zn.explicit} is satisfied.
+
+\begin{fineprint}
+For the sake of completeness, let us give a formal proof for Theorem
+\ref{thm.eqrel.quot.uniprop.1} as well:
+
+\begin{proof}
+[Proof of Theorem \ref{thm.eqrel.quot.uniprop.1}.]We need to prove the
+following two statements:
+
+\begin{statement}
+\textit{Statement 1:} There exists \textbf{at least one} map $f:\left.
+S/\sim\right.  \rightarrow T$ such that every $s\in S$ satisfies $f\left(
+\left[  s\right]  _{\sim}\right)  =F\left(  s\right)  $.
+\end{statement}
+
+\begin{statement}
+\textit{Statement 2:} There exists \textbf{at most one} map $f:\left.
+S/\sim\right.  \rightarrow T$ such that every $s\in S$ satisfies $f\left(
+\left[  s\right]  _{\sim}\right)  =F\left(  s\right)  $.
+\end{statement}
+
+[\textit{Proof of Statement 1:} We define a map $\varphi$ as follows:
+
+Let $\sigma\in\left.  S/\sim\right.  $. Thus, $\sigma$ is an equivalence class
+of $\sim$ (by the definition of $S/\sim$). In other words, $\sigma=\left[
+s\right]  _{\sim}$ for some element $s\in S$. In other words, there exists
+some element $s\in S$ such that $\sigma=\left[  s\right]  _{\sim}$. If $s_{1}$
+and $s_{2}$ are two such elements $s$, then $F\left(  s_{1}\right)  =F\left(
+s_{2}\right)  $\ \ \ \ \footnote{\textit{Proof.} Let $s_{1}$ and $s_{2}$ be
+two such elements $s$. Then, $\sigma=\left[  s_{1}\right]  _{\sim}$ (since
+$s_{1}$ is an element $s\in S$ such that $\sigma=\left[  s\right]  _{\sim}$)
+and $\sigma=\left[  s_{2}\right]  _{\sim}$ (for similar reasons). Hence,
+$\left[  s_{1}\right]  _{\sim}=\sigma=\left[  s_{2}\right]  _{\sim}$. But
+Theorem \ref{thm.eqrel.eqcl.disj} \textbf{(e)} (applied to $x=s_{1}$ and
+$y=s_{2}$) yields that we have $s_{1}\sim s_{2}$ if and only if $\left[
+s_{1}\right]  _{\sim}=\left[  s_{2}\right]  _{\sim}$. Hence, we have
+$s_{1}\sim s_{2}$ (since $\left[  s_{1}\right]  _{\sim}=\left[  s_{2}\right]
+_{\sim}$). Thus, Assumption 1 shows that $F\left(  s_{1}\right)  =F\left(
+s_{2}\right)  $, qed.}. Thus, the element $F\left(  s\right)  \in T$ obtained
+from such an element $s$ does not depend on the choice of $s$ (as long as
+$\sigma$ is fixed). Hence, we can define $\varphi\left(  \sigma\right)  $ by
+setting
+\begin{equation}
+\varphi\left(  \sigma\right)  =F\left(  s\right)  ,
+\label{pf.thm.eqrel.quot.uniprop.1.s1.pf.3}%
+\end{equation}
+where $s$ is any element of $S$ satisfying $\sigma=\left[  s\right]  _{\sim}$.
+
+Define $\varphi\left(  \sigma\right)  $ this way. Thus, we have defined an
+element $\varphi\left(  \sigma\right)  $ of $T$ for each $\sigma\in\left.
+S/\sim\right.  $. Hence, we have defined a map $\varphi:\left.  S/\sim\right.
+\rightarrow T$. Moreover, this map has the property that every $s\in S$
+satisfies $\varphi\left(  \left[  s\right]  _{\sim}\right)  =F\left(
+s\right)  $. (Indeed, this follows from
+(\ref{pf.thm.eqrel.quot.uniprop.1.s1.pf.3}) (applied to $\sigma=\left[
+s\right]  _{\sim}$), since obviously $\left[  s\right]  _{\sim}=\left[
+s\right]  _{\sim}$.)
+
+Hence, there exists \textbf{at least one} map $f:\left.  S/\sim\right.
+\rightarrow T$ such that every $s\in S$ satisfies $f\left(  \left[  s\right]
+_{\sim}\right)  =F\left(  s\right)  $ (namely, the map $\varphi$). This proves
+Statement 1.]
+
+[\textit{Proof of Statement 2:} Let $f_{1}$ and $f_{2}$ be two maps $f:\left.
+S/\sim\right.  \rightarrow T$ such that every $s\in S$ satisfies $f\left(
+\left[  s\right]  _{\sim}\right)  =F\left(  s\right)  $. We shall show that
+$f_{1}=f_{2}$.
+
+We know that $f_{1}$ is a map $f:\left.  S/\sim\right.  \rightarrow T$ such
+that every $s\in S$ satisfies $f\left(  \left[  s\right]  _{\sim}\right)
+=F\left(  s\right)  $. In other words, $f_{1}$ is a map from $\left.
+S/\sim\right.  $ to $T$ and has the property that
+\begin{equation}
+\text{every }s\in S\text{ satisfies }f_{1}\left(  \left[  s\right]  _{\sim
+}\right)  =F\left(  s\right)  . \label{pf.thm.eqrel.quot.uniprop.1.s2.pf.1}%
+\end{equation}
+Likewise, $f_{2}$ is a map from $\left.  S/\sim\right.  $ to $T$ and has the
+property that
+\begin{equation}
+\text{every }s\in S\text{ satisfies }f_{2}\left(  \left[  s\right]  _{\sim
+}\right)  =F\left(  s\right)  . \label{pf.thm.eqrel.quot.uniprop.1.s2.pf.2}%
+\end{equation}
+
+
+Now, let $\sigma\in\left.  S/\sim\right.  $ be arbitrary. Thus, $\sigma$ is an
+equivalence class of $\sim$ (by the definition of $S/\sim$). In other words,
+$\sigma=\left[  s\right]  _{\sim}$ for some element $s\in S$. Consider this
+$s$. Then, from $\sigma=\left[  s\right]  _{\sim}$, we obtain $f_{1}\left(
+\sigma\right)  =f_{1}\left(  \left[  s\right]  _{\sim}\right)  =F\left(
+s\right)  $ (by (\ref{pf.thm.eqrel.quot.uniprop.1.s2.pf.1})). Similarly,
+$f_{2}\left(  \sigma\right)  =F\left(  s\right)  $. Comparing these two
+equalities, we find $f_{1}\left(  \sigma\right)  =f_{2}\left(  \sigma\right)
+$.
+
+Forget that we fixed $\sigma$. We thus have proven that $f_{1}\left(
+\sigma\right)  =f_{2}\left(  \sigma\right)  $ for each $\sigma\in\left.
+S/\sim\right.  $. In other words, $f_{1}=f_{2}$.
+
+Forget that we fixed $f_{1}$ and $f_{2}$. We thus have proven that if $f_{1}$
+and $f_{2}$ are two maps $f:\left.  S/\sim\right.  \rightarrow T$ such that
+every $s\in S$ satisfies $f\left(  \left[  s\right]  _{\sim}\right)  =F\left(
+s\right)  $, then $f_{1}=f_{2}$. In other words, there exists \textbf{at most
+one} such map $f$. This proves Statement 2.]
+
+Now, we conclude that there exists a unique map $f:\left.  S/\sim\right.
+\rightarrow T$ such that every $s\in S$ satisfies $f\left(  \left[  s\right]
+_{\sim}\right)  =F\left(  s\right)  $ (because Statement 1 shows that there
+exists \textbf{at least one} such map, while Statement 2 shows that there
+exists \textbf{at most one} such map). This proves Theorem
+\ref{thm.eqrel.quot.uniprop.1}.
+\end{proof}
+\end{fineprint}
+
+Theorem \ref{thm.eqrel.quot.uniprop.1} is known as the \textit{universal
+property of the quotient set}.%
 \[%
 \begin{tabular}
 [c]{||l||}\hline\hline
 \textbf{You have reached the end of the finished part.}\\
 \textbf{TODO: Write on from here.}\\\hline\hline
 \end{tabular}
-\ \ \ \ \ \ \
 \]
 
 
-For the sake of completeness, let us give a formal proof for Theorem
-\ref{thm.eqrel.quot.uniprop.1} as well:
-
-\begin{proof}
-[Proof of Theorem \ref{thm.eqrel.quot.uniprop.1}.]TODO.
-\end{proof}
-
-Theorem \ref{thm.eqrel.quot.uniprop.1} is known as the \textit{universal
-property of the quotient set}.
+\subsubsection{Addition, subtraction, multiplication and powers in
+$\mathbb{Z}/n$}
 
 Let us recall the concept of a binary operation (defined in Definition
 \ref{def.intro.binop}). We shall now define several such operations on the set
@@ -16199,9 +16365,9 @@ $\left(  c,d\right)  =\alpha\neq0=\left(  0,0\right)  $). Now, set%
 Then,%
 \begin{align*}
 \alpha\beta &  =\left(  c,d\right)  \left(  \dfrac{c}{c^{2}+d^{2}},\dfrac
-{-d}{c^{2}+d^{2}}\right)  \\
+{-d}{c^{2}+d^{2}}\right) \\
 &  =\left(  c\cdot\dfrac{c}{c^{2}+d^{2}}-d\cdot\dfrac{-d}{c^{2}+d^{2}}%
-,c\cdot\dfrac{-d}{c^{2}+d^{2}}+d\cdot\dfrac{c}{c^{2}+d^{2}}\right)  \\
+,c\cdot\dfrac{-d}{c^{2}+d^{2}}+d\cdot\dfrac{c}{c^{2}+d^{2}}\right) \\
 &  =\left(  1,0\right)  =1_{\mathbb{C}}.
 \end{align*}
 So $\beta$ is an inverse of $\alpha$.
@@ -16501,7 +16667,7 @@ $a,b\in\mathbb{Z}$.
 \end{definition}
 
 For example, $3+5i$ and $3-7i$ are Gaussian integers. So are $0$, $1$ and $i$.
-Every integer is a Gaussian integers. But $\dfrac{1}{2}+3i$ and $\sqrt{2}+4i$
+Every integer is a Gaussian integer. But $\dfrac{1}{2}+3i$ and $\sqrt{2}+4i$
 are not Gaussian integers.
 
 Equivalently, we could have defined Gaussian integers in the same way as we
@@ -16535,15 +16701,21 @@ to unit}).
 \end{definition}
 
 For comparison: The units of $\mathbb{Z}$ (that is, the integers that are
-invertible in $\mathbb{Z}$) are $1$ and $-1$. So the similarly defined
-relation $\sim$ on $\mathbb{Z}\left[  i\right]  $ would just be given by%
+invertible in $\mathbb{Z}$) are $1$ and $-1$. So if we defined a relation
+$\underset{\mathbb{Z}}{\sim}$ on $\mathbb{Z}$ in the same way as we defined
+the relation $\sim$ (but requiring $\gamma\in\mathbb{Z}$ instead of $\gamma
+\in\mathbb{Z}\left[  i\right]  $), then this relation would just be given by%
 \begin{align*}
-\left(  a\sim b\right)   &  \Longleftrightarrow\left(  a=cb\text{ for some
-}c\in\left\{  1,-1\right\}  \right) \\
+\left(  a\underset{\mathbb{Z}}{\sim}b\right)   &  \Longleftrightarrow\left(
+a=cb\text{ for some }c\in\left\{  1,-1\right\}  \right)  \\
 &  \Longleftrightarrow\left(  a=b\text{ or }a=-b\right)  \Longleftrightarrow
 \left(  \left\vert a\right\vert =\left\vert b\right\vert \right)  .
 \end{align*}
-
+But this does not hold for the relation $\sim$. It is easy to find two
+Gaussian integers $\alpha$ and $\beta$ such that $\left\vert \alpha\right\vert
+=\left\vert \beta\right\vert $ holds but $\alpha\sim\beta$ does not (for
+example, $\alpha=16+63i$ and $\beta=33+56i$ both have absolute value $65$ but
+are not unit-equivalent).
 
 \begin{proposition}
 The relation $\sim$ on $\mathbb{Z}\left[  i\right]  $ is an equivalence relation.
@@ -16580,7 +16752,8 @@ Let $\alpha\in\mathbb{Z}\left[  i\right]  $. Then, $\operatorname*{N}\left(
 
 \begin{proof}
 Write $\alpha$ as $\left(  a,b\right)  $ for $a,b\in\mathbb{Z}$. Then,
-$\operatorname*{N}\left(  \alpha\right)  =a^{2}+b^{2}\in\mathbb{N}$.
+$\operatorname*{N}\left(  \alpha\right)  =a^{2}+b^{2}\in\mathbb{N}$, since
+squares of integers belong to $\mathbb{N}$.
 \end{proof}
 
 \begin{proposition}
@@ -16613,8 +16786,11 @@ $\operatorname*{N}\left(  \alpha\right)  =\operatorname*{N}\left(  \alpha
 But write $\alpha$ as $\alpha=\left(  a,b\right)  $ with $a,b\in\mathbb{Z}$.
 Then, $a^{2}+b^{2}=\operatorname*{N}\left(  \alpha\right)  =1$. This entails
 that $\left(  a,b\right)  $ is either $\left(  1,0\right)  $ or $\left(
--1,0\right)  $ or $\left(  0,1\right)  $ or $\left(  0,-1\right)  $. In other
-words, $\alpha$ is either $1$ or $-1$ or $i$ or $-i$. This proves the proposition.
+-1,0\right)  $ or $\left(  0,1\right)  $ or $\left(  0,-1\right)  $ (since
+$a^{2}+b^{2}=1$ leads to $a^{2}\leq1$ and thus $a\in\left\{  0,1,-1\right\}  $
+and similarly $b\in\left\{  0,1,-1\right\}  $, and we can check all these
+cases by hand). In other words, $\alpha$ is either $1$ or $-1$ or $i$ or $-i$.
+This proves the proposition.
 \end{proof}
 
 As a consequence of this proposition, if we are given two Gaussian integers
@@ -16639,26 +16815,26 @@ i\right]  $. Then, $a\mid\beta$ if and only if $a$ divides both $b$ and $c$.
 \begin{proof}
 We have the following equivalence:%
 \begin{align*}
-&  \ \left(  a\mid\beta\right)  \\
+&  \ \left(  a\mid\beta\right) \\
 &  \Longleftrightarrow\ \left(  \text{there exists a Gaussian integer }%
-\gamma\text{ such that }\beta=a\gamma\right)  \\
+\gamma\text{ such that }\beta=a\gamma\right) \\
 &  \Longleftrightarrow\ \left(  \text{there exists a Gaussian integer }\left(
-u,v\right)  \text{ such that }\beta=a\left(  u,v\right)  \right)  \\
+u,v\right)  \text{ such that }\beta=a\left(  u,v\right)  \right) \\
 &  \Longleftrightarrow\ \left(  \text{there exist integers }u\text{ and
 }v\text{ such that }\beta=a\left(  u,v\right)  \right) \\
 &  \Longleftrightarrow\ \left(  \text{there exist integers }u\text{ and
 }v\text{ such that }\underbrace{\left(  b,c\right)  =\left(  au,av\right)
-}_{\Longleftrightarrow\ \left(  b=au\text{ and }c=av\right)  }\right)  \\
+}_{\Longleftrightarrow\ \left(  b=au\text{ and }c=av\right)  }\right) \\
 &  \ \ \ \ \ \ \ \ \ \ \left(  \text{since }\beta=\left(  b,c\right)  \text{
-and }a\left(  u,v\right)  =\left(  au,av\right)  \right)  \\
+and }a\left(  u,v\right)  =\left(  au,av\right)  \right) \\
 &  \Longleftrightarrow\ \left(  \text{there exist integers }u\text{ and
-}v\text{ such that }b=au\text{ and }c=av\right)  \\
+}v\text{ such that }b=au\text{ and }c=av\right) \\
 &  \Longleftrightarrow\ \underbrace{\left(  \text{there exists an integer
 }u\text{ such that }b=au\right)  }_{\Longleftrightarrow\ \left(  a\mid
 b\right)  }\\
 &  \ \ \ \ \ \ \ \ \ \ \wedge\underbrace{\left(  \text{there exists an integer
 }v\text{ such that }c=av\right)  }_{\Longleftrightarrow\ \left(  a\mid
-c\right)  } \\
+c\right)  }\\
 &  \Longleftrightarrow\ \left(  a\mid b\right)  \wedge\left(  a\mid c\right)
 \\
 &  \Longleftrightarrow\ \left(  a\text{ divides }b\text{ and }c\right)  .
@@ -16744,6 +16920,10 @@ $\gamma\sim1$ (that is, $\gamma$ is a unit, i.e., either $1$ or $-1$ or $i$ or
 $-i$).
 \end{exercise}
 
+\begin{center}
+\textbf{2019-03-06 lecture}
+\end{center}
+
 \begin{definition}
 Let $\nu,\alpha,\beta\in\mathbb{Z}\left[  i\right]  $. We say that $\alpha$
 \textit{is congruent to }$\beta$ \textit{modulo }$\nu$ if and only if $\nu
@@ -16792,10 +16972,6 @@ $\alpha_{2}\equiv\beta_{2}\operatorname{mod}\nu$, then%
 \mu$.
 \end{proposition}
 
-\begin{center}
-\textbf{2019-03-06 lecture}
-\end{center}
-
 Now, let us try to make division with remainder work for Gaussian integers.
 
 \begin{thebibliography}{999999999}                                                                                        %
@@ -16825,6 +17001,12 @@ integers}.\newline\url{http://www.math.uconn.edu/~kconrad/blurbs/ugradnumthy/Zin
 
 \bibitem[ConradI]{Conrad-Induction}Keith Conrad, \textit{Examples of proofs by
 induction}.\newline\url{https://kconrad.math.uconn.edu/blurbs/proofs/induction.pdf}
+
+\bibitem[daSilv12]{daSilv12}%
+\href{https://math.stackexchange.com/users/10704/}{Patrick Da Silva},
+\textit{\href{https://math.stackexchange.com/questions/108296/polynomial-in-mathbbqx-sending-integers-to-integers}{\textit{Polynomial
+in }$\mathbb{Q}\left[  x\right]  $\textit{ sending integers to integers?},
+math.stackexchange answer \#108318}}.
 
 \bibitem[Day16]{Day}Martin V. Day, \textit{An Introduction to Proofs and the
 Mathematical Vernacular}, 7 December 2016.\newline%
@@ -16904,6 +17086,11 @@ Montgomery, \textit{An Introduction to the Theory of Numbers}, 5th edition 1991.
 
 \bibitem[Pinter10]{Pinter}Charles C. Pinter, \textit{A book of abstract
 algebra}, 2nd edition, Dover 2010.\newline\url{https://www.amazon.com/Book-Abstract-Algebra-Second-Mathematics/dp/0486474178}
+
+\bibitem[Polya19]{Polya19}\href{https://eudml.org/doc/149483}{Georg P\'{o}lya,
+\textit{\"{U}ber ganzwertige Polynome in algebraischen Zahlk\"{o}rpern},
+Journal f\"{u}r die Reine und Angewandte Mathematik (Crelle's Journal),
+\textbf{149} (1919), pp. 97--116}.
 
 \bibitem[Siksek15]{Siksek}Samir Siksek, \textit{Introduction to Abstract
 Algebra}, 2015.\newline\url{http://homepages.warwick.ac.uk/staff/S.Siksek/teaching/aa/aanotes.pdf}
