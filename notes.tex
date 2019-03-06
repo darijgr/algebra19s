@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Wednesday, March 06, 2019 10:28:40}
+%TCIDATA{LastRevised=Wednesday, March 06, 2019 12:18:12}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -3117,7 +3117,7 @@ $u$ for which it is not unique).
 
 \begin{fineprint}
 \begin{proof}
-[Solution to Exercise \ref{exe.ent.quo-rem.minrem}.] \textbf{(a)} Theorem
+[Solution to Exercise \ref{exe.ent.quo-rem.minrem}.]\textbf{(a)} Theorem
 \ref{thm.ent.quorem.full} shows that there exists a unique pair $\left(
 q,r\right)  \in\mathbb{Z}\times\left\{  0,1,\ldots,n-1\right\}  $ such that
 $u=qn+r$. Consider this pair $\left(  q,r\right)  $, and denote it by $\left(
@@ -16867,6 +16867,10 @@ Let $\alpha$ and $\beta$ be two complex numbers. Then:
 \textbf{(d)} We have $\operatorname*{N}\left(  \alpha\beta\right)
 =\operatorname*{N}\left(  \alpha\right)  \cdot\operatorname*{N}\left(
 \beta\right)  $.
+
+\textbf{(e)} If $\beta\neq0$, then $\operatorname*{N}\left(  \dfrac{\alpha
+}{\beta}\right)  =\dfrac{\operatorname*{N}\left(  \alpha\right)
+}{\operatorname*{N}\left(  \beta\right)  }$,
 \end{proposition}
 
 \begin{proof}
@@ -16911,6 +16915,15 @@ $\operatorname*{N}\left(  \alpha\beta\right)  =\alpha\beta\overline
 \operatorname*{N}\left(  \beta\right)  .
 \]
 This proves part \textbf{(d)}.
+
+\textbf{(e)} Assume that $\beta\neq0$. Part \textbf{(d)} (applied to
+$\dfrac{\alpha}{\beta}$ instead of $\alpha$) yields $\operatorname*{N}\left(
+\dfrac{\alpha}{\beta}\cdot\beta\right)  =\operatorname*{N}\left(
+\dfrac{\alpha}{\beta}\right)  \cdot\operatorname*{N}\left(  \beta\right)  $.
+In view of $\dfrac{\alpha}{\beta}\cdot\beta=\alpha$, this rewrites as
+$\operatorname*{N}\left(  \alpha\right)  =\operatorname*{N}\left(
+\dfrac{\alpha}{\beta}\right)  \cdot\operatorname*{N}\left(  \beta\right)  $.
+From this, part \textbf{(e)} follows.
 \end{proof}
 
 Remember the Brahmagupta--Fibonacci identity
@@ -17135,6 +17148,20 @@ $\delta\varepsilon$ satisfies $\alpha=\left(  \delta\varepsilon\right)
 \gamma$ (since $\alpha=\delta\underbrace{\beta}_{=\varepsilon\gamma}%
 =\delta\varepsilon\gamma=\left(  \delta\varepsilon\right)  \gamma$). Hence,
 $\alpha\sim\gamma$.]
+\end{proof}
+
+\begin{definition}
+The \textit{unit-equivalence classes} are defined to be the equivalence
+classes of the relation $\sim$ on $\mathbb{Z}\left[  i\right]  $.
+\end{definition}
+
+\begin{proposition}
+The unit-equivalence classes are the sets of the form $\left\{  \alpha
+,i\alpha,-\alpha,-i\alpha\right\}  $ for some $\alpha\in\mathbb{C}$.
+\end{proposition}
+
+\begin{proof}
+Easy.
 \end{proof}
 
 \begin{proposition}
@@ -17367,6 +17394,337 @@ $\alpha_{2}\equiv\beta_{2}\operatorname{mod}\nu$, then%
 Now, let us try to make division with remainder work for Gaussian integers.
 This is no longer easy or just a straightforward modification of the
 corresponding situation for integers.
+
+Let us recall how division with remainder works for (usual) integers. The
+relevant fact (Theorem \ref{thm.ent.quorem.full} with $u$ and $n$ renamed as
+$a$ and $b$) is the following:
+
+\begin{theorem}
+Let $b$ be a positive integer. Let $a\in\mathbb{Z}$. Then, there exists a
+unique pair $\left(  q,r\right)  \in\mathbb{Z}\times\left\{  0,1,\ldots
+,b-1\right\}  $ such that $a=qb+r$.
+\end{theorem}
+
+With Gaussian integers, it is no longer clear what $\left\{  0,1,\ldots
+,b-1\right\}  $ would be. We have Gaussian integers $\alpha$ and $\beta\neq0$,
+and we want a pair $\left(  \gamma,\rho\right)  \in\mathbb{Z}\left[  i\right]
+\times\mathbb{Z}\left[  i\right]  $ such that $\alpha=\gamma\beta+\rho$ and
+$\operatorname*{N}\left(  \rho\right)  <\operatorname*{N}\left(  \beta\right)
+$.
+
+Turns out that such a pair exists (but is not unique).
+
+To prove this, let us first prove the analogous statement about integers --
+which turns out to be not the original Theorem \ref{thm.ent.quorem.full}, but
+rather a modified version thereof:
+
+\begin{theorem}
+(Minimum-size division theorem) Let $b$ be a positive integer. Let
+$a\in\mathbb{Z}$. Then, there exist integers $q$ and $r$ such that $a=qb+r$
+and $\left\vert r\right\vert \leq b/2$.
+\end{theorem}
+
+This is the claim of Exercise \ref{exe.ent.quo-rem.minrem} \textbf{(a)}. Note
+that $\left(  q,r\right)  $ is not always unique. (Proof idea: The multiples
+of $b$ split the real line into intervals of length $b$. Thus, every point $a$
+on the real line is at most $b/2$ away from the closest multiple of $b$.)
+
+Now, let us state an analogous fact for Gaussian integers:
+
+\begin{theorem}
+\label{thm.Z[i].gauss.quorem}(Division-with-remainder theorem for Gaussian integers:)
+
+Let $\alpha$ and $\beta\neq0$ be Gaussian integers. There exist Gaussian
+integers $\gamma$ and $\rho$ such that $\alpha=\gamma\beta+\rho$ and
+$\operatorname*{N}\left(  \rho\right)  \leq\operatorname*{N}\left(
+\beta\right)  /2$.
+\end{theorem}
+
+Note that $\left(  \gamma,\rho\right)  $ is not unique. Yet, this is the
+closest we can get to Theorem \ref{thm.ent.quorem.full} in $\mathbb{Z}\left[
+i\right]  $.
+
+\begin{proof}
+[Proof of Theorem \ref{thm.Z[i].gauss.quorem}.] (Following \cite[proof of
+Theorem 3.1]{Conrad-Gauss}.) Let $N=\operatorname*{N}\left(  \beta\right)  $.
+Write%
+\begin{align*}
+\dfrac{\alpha}{\beta} &  =\dfrac{\alpha\overline{\beta}}{\beta\overline{\beta
+}}=\dfrac{\alpha\overline{\beta}}{N}\ \ \ \ \ \ \ \ \ \ \left(  \text{since
+}\beta\overline{\beta}=\operatorname*{N}\left(  \beta\right)  =N\right)  \\
+&  =\dfrac{m+ni}{N}%
+\end{align*}
+for some $m,n\in\mathbb{Z}$ (since $\alpha\overline{\beta}$ is a Gaussian
+integer). Note that $N=\operatorname*{N}\left(  \beta\right)  >0$ since
+$\beta\neq0$.
+
+Use the Minimum-size division theorem (applied to $b=N$) to write%
+\[
+m=q_{1}N+r_{1}\ \ \ \ \ \ \ \ \ \ \text{and}\ \ \ \ \ \ \ \ \ \ n=q_{2}N+r_{2}%
+\]
+with $q_{1},r_{1},q_{2},r_{2}\in\mathbb{Z}$ satisfying $\left\vert
+r_{1}\right\vert \leq N/2$ and $\left\vert r_{2}\right\vert \leq N/2$.
+
+Now,%
+\begin{align*}
+\dfrac{\alpha}{\beta} &  =\dfrac{m+ni}{N}=\dfrac{\left(  q_{1}N+r_{1}\right)
++\left(  q_{2}N+r_{2}\right)  i}{N}\\
+&  =\left(  q_{1}+q_{2}i\right)  +\dfrac{r_{1}+r_{2}i}{N}.
+\end{align*}
+Set $\gamma=q_{1}+q_{2}i$ and $\rho=\alpha-\gamma\beta$. Note that $\gamma$
+and thus $\rho$ are Gaussian integers. The above equation becomes
+$\dfrac{\alpha}{\beta}=\gamma+\dfrac{r_{1}+r_{2}i}{N}$, so $\dfrac{r_{1}%
++r_{2}i}{N}=\dfrac{\alpha}{\beta}-\gamma=\dfrac{\alpha-\gamma\beta}{\beta
+}=\dfrac{\rho}{\beta}$. Note that from $\rho=\alpha-\gamma\beta$, we obtain
+$\alpha=\gamma\beta+\rho$. Thus it remains to prove $\operatorname*{N}\left(
+\rho\right)  \leq\operatorname*{N}\left(  \beta\right)  /2$.
+
+The equality $\dfrac{r_{1}+r_{2}i}{N}=\dfrac{\rho}{\beta}$ yields%
+\begin{align*}
+\rho &  =\beta\cdot\dfrac{r_{1}+r_{2}i}{N}=\beta\cdot\dfrac{r_{1}+r_{2}%
+i}{\beta\overline{\beta}}\ \ \ \ \ \ \ \ \ \ \left(  \text{since
+}N=\operatorname*{N}\left(  \beta\right)  =\beta\overline{\beta}\right)  \\
+&  =\dfrac{r_{1}+r_{2}i}{\overline{\beta}}%
+\end{align*}
+and thus%
+\begin{align*}
+\operatorname*{N}\left(  \rho\right)   &  =\operatorname*{N}\left(
+\dfrac{r_{1}+r_{2}i}{\overline{\beta}}\right)  =\dfrac{\operatorname*{N}%
+\left(  r_{1}+r_{2}i\right)  }{\operatorname*{N}\left(  \overline{\beta
+}\right)  }\ \ \ \ \ \ \ \ \ \ \left(  \text{by the Lemma above}\right)  \\
+&  =\dfrac{r_{1}^{2}+r_{2}^{2}}{N}\ \ \ \ \ \ \ \ \ \ \left(  \text{since
+}\operatorname*{N}\left(  r_{1}+r_{2}i\right)  =r_{1}^{2}+r_{2}^{2}\text{ and
+}\operatorname*{N}\left(  \overline{\beta}\right)  =\operatorname*{N}\left(
+\beta\right)  =N\right)  \\
+&  \leq\dfrac{\left(  N/2\right)  ^{2}+\left(  N/2\right)  ^{2}}{N}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{since }\left\vert r_{1}\right\vert \leq
+N/2\text{ and }\left\vert r_{2}\right\vert \leq N/2\right)  \\
+&  =N/2=\operatorname*{N}\left(  \beta\right)  /2
+\end{align*}
+(since $N=\operatorname*{N}\left(  \beta\right)  $). This proves the Theorem.
+\end{proof}
+
+Note: We cannot define $\alpha//\beta$ or $\alpha\%\beta$ for Gaussian
+integers $\alpha$ and $\beta$, since there is no uniqueness statement in our
+above Theorem.
+
+\subsubsection{Common divisors}
+
+\begin{definition}
+Let $\beta\in\mathbb{Z}\left[  i\right]  $. The \textit{divisors} of $\beta$
+are defined as the Gaussian integers that divide $\beta$.
+\end{definition}
+
+\begin{proposition}
+\textbf{(a)} If $\beta\in\mathbb{Z}\left[  i\right]  $, then $1$ and $\beta$
+are divisors of $\beta$.
+
+\textbf{(b)} The divisors of $0$ are all the Gaussian integers.
+
+\textbf{(c)} Let $\beta\in\mathbb{Z}\left[  i\right]  $ be nonzero. Then, all
+divisors of $\beta$ belong to the set%
+\[
+\left\{  x+yi\ \mid\ x,y\in\mathbb{Z}\text{ satisfying }\left\vert
+x\right\vert \leq\left\vert \beta\right\vert \text{ and }\left\vert
+y\right\vert \leq\left\vert \beta\right\vert \right\}  .
+\]
+
+\end{proposition}
+
+\begin{proof}
+\textbf{(a)}, \textbf{(b)} clear.
+
+\textbf{(c)} Let $x+yi$ be a divisor of $\beta$. Then, $\operatorname*{N}%
+\left(  x+yi\right)  \leq\operatorname*{N}\left(  \beta\right)  $, thus
+$\left\vert x+yi\right\vert \leq\left\vert \beta\right\vert $ (since
+$\left\vert \alpha\right\vert =\sqrt{\operatorname*{N}\left(  \alpha\right)
+}$ for every $\alpha\in\mathbb{C}$). But $\left\vert x+yi\right\vert
+=\sqrt{x^{2}+y^{2}}\geq\sqrt{x^{2}}=\left\vert x\right\vert $, so that
+$\left\vert x\right\vert \leq\left\vert x+yi\right\vert \leq\left\vert
+\beta\right\vert $. Similarly, $\left\vert y\right\vert \leq\left\vert
+\beta\right\vert $.
+\end{proof}
+
+Thus, again, finding all divisors of a Gaussian integers is a problem solvable
+in finite time.
+
+\begin{definition}
+Let $\beta_{1},\beta_{2},\ldots,\beta_{k}$ be Gaussian integers. Then, the
+\textit{common divisors} of $\beta_{1},\beta_{2},\ldots,\beta_{k}$ are defined
+to be the Gaussian integers $\alpha$ that satisfy%
+\begin{equation}
+\left(  \alpha\mid\beta_{i}\text{ for all }i\in\left\{  1,2,\ldots,k\right\}
+\right)
+\end{equation}
+(in other words, that divide all of the Gaussian integers $\beta_{1},\beta
+_{2},\ldots,\beta_{k}$). We let $\operatorname*{Div}\left(  \beta_{1}%
+,\beta_{2},\ldots,\beta_{k}\right)  $ denote the set of these common divisors.
+\end{definition}
+
+We cannot directly define $\gcd\left(  \beta_{1},\beta_{2},\ldots,\beta
+_{k}\right)  $ to be the greatest element of $\operatorname*{Div}\left(
+\beta_{1},\beta_{2},\ldots,\beta_{k}\right)  $, since \textquotedblleft
+greatest\textquotedblright\ does not make sense for complex numbers. (Even if
+we wanted \textquotedblleft greatest in norm\textquotedblright, it would not
+a-priori be obvious that there are no ties, i.e., that such a greatest common
+divisor is unique.)
+
+\begin{proposition}
+\textbf{(a)} We have $\operatorname*{Div}\left(  \alpha,0\right)
+=\operatorname*{Div}\left(  \alpha\right)  $ for all $\alpha\in\mathbb{Z}%
+\left[  i\right]  $.
+
+\textbf{(b)} We have $\operatorname*{Div}\left(  \alpha,\beta\right)
+=\operatorname*{Div}\left(  \beta,\alpha\right)  $ for all $\alpha,\beta
+\in\mathbb{Z}\left[  i\right]  $.
+
+\textbf{(c)} We have $\operatorname*{Div}\left(  \alpha,\eta\alpha
++\beta\right)  =\operatorname*{Div}\left(  \alpha,\beta\right)  $ for all
+$\alpha,\beta,\eta\in\mathbb{Z}\left[  i\right]  $.
+
+\textbf{(d)} If $\alpha,\beta,\gamma\in\mathbb{Z}\left[  i\right]  $ satisfy
+$\beta\equiv\gamma\operatorname{mod}\alpha$, then $\operatorname*{Div}\left(
+\alpha,\beta\right)  =\operatorname*{Div}\left(  \alpha,\gamma\right)  $.
+
+\textbf{(g)} We have $\operatorname*{Div}\left(  \eta\alpha,\beta\right)
+=\operatorname*{Div}\left(  \alpha,\beta\right)  $ for all $\alpha,\beta
+\in\mathbb{Z}\left[  i\right]  $ for every unit $\eta\in\mathbb{Z}\left[
+i\right]  $.
+
+\textbf{(h)} We have $\operatorname*{Div}\left(  \alpha,\eta\beta\right)
+=\operatorname*{Div}\left(  \alpha,\beta\right)  $ for all $\alpha,\beta
+\in\mathbb{Z}\left[  i\right]  $ for every unit $\eta\in\mathbb{Z}\left[
+i\right]  $.
+
+\textbf{(i)} If $\alpha,\beta\in\mathbb{Z}\left[  i\right]  $ satisfy
+$\alpha\mid\beta$, then $\operatorname*{Div}\left(  \alpha,\beta\right)
+=\operatorname*{Div}\left(  \alpha\right)  $.
+
+\textbf{(j)} The common divisors of the empty list of Gaussian integers are
+$\operatorname*{Div}\left(  {}\right)  =\mathbb{Z}\left[  i\right]  $.
+\end{proposition}
+
+\begin{proof}
+\textbf{(g)} Let $\eta\in\mathbb{Z}\left[  i\right]  $ be a unit.
+
+Claim: The divisors of $\alpha$ are exactly the divisors of $\eta\alpha$.
+
+(Indeed, any divisor of $\alpha$ is clearly a divisor of $\eta\alpha$.
+Conversely, since $\eta^{-1}$ is a Gaussian integer, any divisor of
+$\eta\alpha$ is a divisor of $\eta^{-1}\eta\alpha=\alpha$.)
+
+The rest is proven just as for integers, except that we don't make the final
+step from $\operatorname*{Div}$ to $\gcd$.
+\end{proof}
+
+Now, we can compute $\operatorname*{Div}\left(  \alpha,\beta\right)  $ for
+Gaussian integers $\alpha$ and $\beta$ by a version of the \textquotedblleft
+Euclidean algorithm\textquotedblright\ that we used to compute $\gcd\left(
+a,b\right)  $ for integers $a$ and $b$. For example, we can compute
+$\operatorname*{Div}\left(  32+9i,4+11i\right)  $ as follows:%
+\begin{align*}
+&  \operatorname*{Div}\left(  32+9i,4+11i\right) \\
+&  =\operatorname*{Div}\left(  4+11i,\underbrace{32+9i}_{=\left(  2-2i\right)
+\left(  4+11i\right)  +\left(  2-5i\right)  }\right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition \textbf{(b)}}\right) \\
+&  =\operatorname*{Div}\left(  4+11i,\left(  2-2i\right)  \left(
+4+11i\right)  +\left(  2-5i\right)  \right) \\
+&  =\operatorname*{Div}\left(  4+11i,2-5i\right)  \ \ \ \ \ \ \ \ \ \ \left(
+\text{by Proposition \textbf{(c)}}\right) \\
+&  =\operatorname*{Div}\left(  2-5i,\underbrace{4+11i}_{=\left(  -2+i\right)
+\left(  2-5i\right)  +\left(  3-i\right)  }\right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition \textbf{(b)}}\right) \\
+&  =\operatorname*{Div}\left(  2-5i,\left(  -2+i\right)  \left(  2-5i\right)
++\left(  3-i\right)  \right) \\
+&  =\operatorname*{Div}\left(  2-5i,3-i\right)  \ \ \ \ \ \ \ \ \ \ \left(
+\text{by Proposition \textbf{(c)}}\right) \\
+&  =\operatorname*{Div}\left(  3-i,\underbrace{2-5i}_{=\left(  1-i\right)
+\left(  3-i\right)  -i}\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by
+Proposition \textbf{(b)}}\right)
+\end{align*}%
+\begin{align*}
+&  =\operatorname*{Div}\left(  3-i,\left(  1-i\right)  \left(  3-i\right)
+-i\right) \\
+&  =\operatorname*{Div}\left(  3-i,-i\right)  \ \ \ \ \ \ \ \ \ \ \left(
+\text{by Proposition \textbf{(c)}}\right) \\
+&  =\operatorname*{Div}\left(  -i,\underbrace{3-i}_{=\left(  1+3i\right)
+\left(  -i\right)  +0}\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by
+Proposition \textbf{(b)}}\right) \\
+&  =\operatorname*{Div}\left(  -i,\left(  1+3i\right)  \left(  -i\right)
++0\right) \\
+&  =\operatorname*{Div}\left(  -i,0\right)  \ \ \ \ \ \ \ \ \ \ \left(
+\text{by Proposition \textbf{(c)}}\right) \\
+&  =\operatorname*{Div}\left(  -i\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by
+Proposition \textbf{(a)}}\right) \\
+&  =\left\{  1,i,-1,-i\right\}  .
+\end{align*}
+In the same way, for \textbf{any} two Gaussian integers $\alpha$ and $\beta$
+we obtain a Gaussian integer $\gamma$ such that $\operatorname*{Div}\left(
+\alpha,\beta\right)  =\operatorname*{Div}\left(  \gamma\right)  $. This
+resulting $\gamma$ will actually be unique up to multiplication by units
+(i.e., its unit-equivalence class will be unique). Better yet, we have the following:
+
+\begin{theorem}
+(Bezout's theorem for Gaussian integer:)
+
+Let $\alpha,\beta\in\mathbb{Z}\left[  i\right]  $. Then:
+
+\textbf{(a)} There exists a $\mathbb{Z}\left[  i\right]  $-linear combination
+$\gamma$ of $\alpha$ and $\beta$ that is a common divisor of $\alpha$ and
+$\beta$. (Note: A $\mathbb{Z}\left[  i\right]  $\textbf{-linear combination of
+}$\alpha$ \textbf{and }$\beta$ means a Gaussian integer of the form
+$\lambda\alpha+\mu\beta$ with $\lambda,\mu\in\mathbb{Z}\left[  i\right]  $.)
+
+\textbf{(b)} It satisfies $\operatorname*{Div}\left(  \alpha,\beta\right)
+=\operatorname*{Div}\left(  \gamma\right)  $.
+
+\textbf{(c)} The unit-equivalence class of $\gamma$ is uniquely determined.
+\end{theorem}
+
+With this theorem in hand, it makes sense to call $\gamma$ the
+\textquotedblleft greatest common divisor\textquotedblright\ of $\alpha$ and
+$\beta$, but rigorously speaking this name should be reserved for the
+unit-equivalence class of $\gamma$ since $\gamma$ itself is not unique.
+
+\begin{proof}
+[Proof of Bezout's theorem (sketched).]\textbf{(a)} Strong induction on
+$\operatorname*{N}\left(  \alpha\right)  +\operatorname*{N}\left(
+\beta\right)  $. This is analogous to the proof of Lemma
+\ref{lem.ent.gcd.bezout.++}. (But instead of the usual division-with-remainder
+theorem, you have to use Theorem \ref{thm.Z[i].gauss.quorem}. Note that the
+inequality $\operatorname*{N}\left(  \rho\right)  \leq\operatorname*{N}\left(
+\beta\right)  /2$ in Theorem \ref{thm.Z[i].gauss.quorem} implies
+$\operatorname*{N}\left(  \rho\right)  <\operatorname*{N}\left(  \beta\right)
+$, which is the only inequality you need.)
+\end{proof}
+
+\begin{center}
+\textbf{2019-03-08 lecture}
+\end{center}
+
+\begin{proof}
+\textbf{(b)} $\subseteq:$ Since $\gamma$ is a $\mathbb{Z}\left[  i\right]
+$-linear combination of $\alpha$ and $\beta$, every common divisor of $\alpha$
+and $\beta$ must also divide $\gamma$. Thus, $\operatorname*{Div}\left(
+\alpha,\beta\right)  \subseteq\operatorname*{Div}\left(  \gamma\right)  $.
+
+$\supseteq:$ Since $\gamma$ is a common divisor of $\alpha$ and $\beta$, every
+divisor of $\gamma$ must be a common divisor of $\alpha$ and $\beta$. Thus,
+$\operatorname*{Div}\left(  \alpha,\beta\right)  \supseteq\operatorname*{Div}%
+\left(  \gamma\right)  $.
+
+\textbf{(c)} Let $\gamma_{1}$ and $\gamma_{2}$ be two such $\gamma$'s. We must
+prove that $\gamma_{1}\sim\gamma_{2}$.
+
+We have $\operatorname*{Div}\left(  \alpha,\beta\right)  =\operatorname*{Div}%
+\left(  \gamma_{1}\right)  $ and $\operatorname*{Div}\left(  \alpha
+,\beta\right)  =\operatorname*{Div}\left(  \gamma_{2}\right)  $, so that
+$\operatorname*{Div}\left(  \gamma_{1}\right)  =\operatorname*{Div}\left(
+\gamma_{2}\right)  $. Now, $\gamma_{1}\in\operatorname*{Div}\left(  \gamma
+_{1}\right)  =\operatorname*{Div}\left(  \gamma_{2}\right)  $, thus
+$\gamma_{1}\mid\gamma_{2}$. Similarly, $\gamma_{2}\mid\gamma_{1}$. Combining
+these, we obtain $\gamma_{1}\sim\gamma_{2}$.
+\end{proof}
 
 TODO:
 
