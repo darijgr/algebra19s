@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Tuesday, March 05, 2019 19:13:56}
+%TCIDATA{LastRevised=Wednesday, March 06, 2019 08:30:27}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -14829,7 +14829,7 @@ Let us illustrate this method of defining maps on a few more examples:
 Let $A$ be a set, and let $k\in\mathbb{N}$. Fix some $c\in A$. We can then
 define a map%
 \begin{align*}
-\operatorname*{mult}\nolimits_{c}:A^{k} &  \rightarrow\mathbb{N},\\
+\operatorname*{mult}\nolimits_{c}:A^{k}  &  \rightarrow\mathbb{N},\\
 \left(  a_{1},a_{2},\ldots,a_{k}\right)   &  \mapsto\left(  \text{the number
 of }i\in\left\{  1,2,\ldots,k\right\}  \text{ such that }a_{i}=c\right)  .
 \end{align*}
@@ -14918,7 +14918,7 @@ On the other hand, if we tried to define a map%
 \begin{align*}
 \operatorname*{first}:\left.  A^{k}/\underset{\operatorname*{perm}}{\sim
 }\right.   &  \rightarrow\mathbb{N},\\
-\left[  \mathbf{a}\right]  _{\underset{\operatorname*{perm}}{\sim}} &
+\left[  \mathbf{a}\right]  _{\underset{\operatorname*{perm}}{\sim}}  &
 \mapsto\left(  \text{the first entry of }\mathbf{a}\right)
 \end{align*}
 (assuming that $k>0$, so that an ordered $k$-tuple does indeed have a first
@@ -15346,7 +15346,8 @@ _{4}\text{\textquotedblright}=\left[  6/2\right]  _{4}=\left[  3\right]  _{4}%
 and%
 \[
 \text{\textquotedblleft}\left[  2\right]  _{4}/\left[  2\right]
-_{4}\text{\textquotedblright}=\left[  2/2\right]  _{4}=\left[  1\right]  _{4},
+_{4}\text{\textquotedblright}=\left[  2/2\right]  _{4}=\left[  1\right]
+_{4},
 \]
 but this is impossible (since $\left[  6\right]  _{4}=\left[  2\right]  _{4}$
 but $\left[  3\right]  _{4}\neq\left[  1\right]  _{4}$).
@@ -17285,6 +17286,118 @@ $\alpha_{2}\equiv\beta_{2}\operatorname{mod}\nu$, then%
 Now, let us try to make division with remainder work for Gaussian integers.
 This is no longer easy or just a straightforward modification of the
 corresponding situation for integers.
+
+TODO:
+
+\begin{itemize}
+\item Recall old divrem (renaming): Theorem: Let $b$ be a positive integer.
+Let $a\in\mathbb{Z}$. Then, there exists a unique pair $\left(  q,r\right)
+\in\mathbb{Z}\times\left\{  0,1,\ldots,n-1\right\}  $ such that $a=qb+r$.
+
+\item No longer clear what it means to have $r\in\left\{  0,1,\ldots
+,b-1\right\}  $.
+
+\item Geometric view of divrem: find which interval $\left[  k,k+1\right)  $
+the rational number $a/b$ lies in.
+
+\item Try the same for Gaussian integers: For Gaussian integers $\beta\neq0$
+and $\alpha$, look at which grid square $\alpha/\beta$ lies in, and go down-left.
+
+\item Not quite good: [Conrad-Gauss] Example 3.2.
+
+\item However, we can do better: Don't go down-left, but go to the nearest
+grid point. Distance $<1$ for geometric reasons. This leads to:
+
+\item Theorem: Let $\alpha$ and $\beta\neq0$ be Gaussian integers. Then, there
+exist Gaussian integers $\gamma,\rho$ such that $\alpha=\gamma\beta+\rho$ and
+$\operatorname*{N}\left(  \rho\right)  <\operatorname*{N}\left(  \beta\right)
+$ (and, even better, $\operatorname*{N}\left(  \rho\right)  \leq\dfrac{1}%
+{2}\operatorname*{N}\left(  \beta\right)  $).
+
+\item State and prove analogous theorem for integers.
+
+\item Formal proof: Follow [Conrad-Gauss] Theorem 3.1.
+
+\item No uniqueness here, so no way of defining $\alpha\%\beta$ and
+$\alpha//\beta$.
+
+\item Def. 2.9.1.
+
+\item Prop. 2.9.2: all divisors of $\beta$ have norm $\leq\operatorname*{N}%
+\left(  \beta\right)  $ (which still gives a finite set).
+
+\item Def. 2.9.3.
+
+\item Not clear what gcd would be: What is \textquotedblleft
+greatest\textquotedblright? Greatest in norm? Couldn't there be ties?
+
+\item Work with $\operatorname*{Div}$ first.
+
+\item Prop. 2.9.7 but for $\operatorname*{Div}$.
+
+\item \textquotedblleft Euclidean algorithm\textquotedblright: [Conrad-Gauss]
+Example 4.4.
+
+\item Thm. 2.9.11 (Bezout) now generalized:
+
+Let $\alpha,\beta\in\mathbb{Z}\left[  i\right]  $. Then:
+
+\textbf{(a)} There exists a $\mathbb{Z}\left[  i\right]  $-linear combination
+(explain) $\gamma$ of $\alpha$ and $\beta$ that is a common divisor of
+$\alpha$ and $\beta$.
+
+\textbf{(b)} It satisfies $\operatorname*{Div}\left(  \alpha,\beta\right)
+=\operatorname*{Div}\gamma$.
+
+\textbf{(c)} The unit-equivalence class of $\gamma$ is uniquely determined.
+
+\item Proof: \textbf{(a)} Strong induction on $\operatorname*{N}\left(
+\alpha\right)  +\operatorname*{N}\left(  \beta\right)  $. We don't need the
+sign-switch argument.
+
+\textbf{(b)} $\subseteq$ and $\supseteq$.
+
+\textbf{(c)} $\operatorname*{Div}\gamma$ determines the unit-equivalence class
+of $\gamma$.
+
+\item Def: The \textit{gcd} of $\alpha$ and $\beta$ is defined to be $\gamma$
+from Theorem 2.9.11 (or more precisely, its unit-equivalence class when
+uniqueness is needed).
+
+\item Thm. 2.9.14 is now clear.
+
+\item Thm. 2.9.16.
+
+\item Thm. 2.9.18.
+
+\item Cor. 2.9.19.
+
+\item Exe 2.9.3.
+
+\item Thm. 2.9.20 needs different proof since we used $\leq$. More
+importantly, we have not defined the $\gcd$ of several Gaussian ints. So
+again, let us proceed differently:
+
+Let $\alpha_{1},\alpha_{2},\ldots,\alpha_{k}\in\mathbb{Z}\left[  i\right]  $. Then:
+
+\textbf{(a)} There exists a $\mathbb{Z}\left[  i\right]  $-linear combination
+(explain) $\gamma$ of $\alpha_{1},\alpha_{2},\ldots,\alpha_{k}$ that is a
+common divisor of $\alpha_{1},\alpha_{2},\ldots,\alpha_{k}$.
+
+\textbf{(b)} It satisfies $\operatorname*{Div}\left(  \alpha_{1},\alpha
+_{2},\ldots,\alpha_{k}\right)  =\operatorname*{Div}\gamma$.
+
+\textbf{(c)} The unit-equivalence class of $\gamma$ is uniquely determined.
+
+\item Proof: Induction/$k$.
+
+\item Thm. 2.9.26.
+
+\item .......
+
+\item Conjugates: $\alpha\mid\beta\Longleftrightarrow\overline{\alpha}%
+\mid\overline{\beta}$.
+\end{itemize}
 
 \begin{thebibliography}{999999999}                                                                                        %
 
