@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, March 04, 2019 21:41:15}
+%TCIDATA{LastRevised=Tuesday, March 05, 2019 19:13:56}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -8626,6 +8626,9 @@ tuple $\left(  p_{1},p_{2},\ldots,p_{k}\right)  $ of primes such that
 $n=p_{1}p_{2}\cdots p_{k}$.
 \end{definition}
 
+Keep in mind that \textquotedblleft tuple\textquotedblright\ always means
+\textquotedblleft ordered tuple\textquotedblright\ unless we say otherwise.
+
 \begin{example}
 \textbf{(a)} The prime factorizations of $12$ are%
 \[
@@ -8898,6 +8901,26 @@ and $\left(  b_{1},b_{2},\ldots,b_{\ell}\right)  $ are permutations of each
 other. This proves Lemma \ref{lem.comb.tuples.mult=perm}.
 \end{proof}
 \end{fineprint}
+
+Lemma \ref{lem.comb.tuples.mult=perm} has a converse that is much simpler:
+
+\begin{lemma}
+\label{lem.comb.tuples.mult=perm.conv}Let $P$ be a set. Let $\left(
+a_{1},a_{2},\ldots,a_{k}\right)  $ and $\left(  b_{1},b_{2},\ldots,b_{\ell
+}\right)  $ be two tuples of elements of $P$. Assume that these two tuples
+$\left(  a_{1},a_{2},\ldots,a_{k}\right)  $ and $\left(  b_{1},b_{2}%
+,\ldots,b_{\ell}\right)  $ differ only in the order of their entries (i.e.,
+are permutations of each other). Then, for each $p\in P$, we have%
+\begin{align*}
+&  \left(  \text{the number of times }p\text{ appears in }\left(  a_{1}%
+,a_{2},\ldots,a_{k}\right)  \right) \\
+&  =\left(  \text{the number of times }p\text{ appears in }\left(  b_{1}%
+,b_{2},\ldots,b_{\ell}\right)  \right)  .
+\end{align*}
+
+\end{lemma}
+
+We leave the proof of this lemma to the reader.
 
 \subsubsection{$p$-valuations}
 
@@ -13545,7 +13568,7 @@ $b\leq a$; for example, $1\leq2$ holds but $2\leq1$ does not).
 \textbf{(d)} Indeed:
 
 \begin{itemize}
-\item The relation $\neq$ is transitive (because every $a,b\in S$ satisfying
+\item The relation $\neq$ is symmetric (because every $a,b\in S$ satisfying
 $a\neq b$ satisfy $b\neq a$).
 
 \item The relation $\neq$ is not reflexive (since we don't have $2\neq2$).
@@ -13828,10 +13851,11 @@ integers but rational numbers}, but the definition of rational numbers (at
 least the usual definition, given in \cite[\S 3.6]{Swanso18} and in many other
 places) already relies on the claims of Example \ref{exa.eqrel.eqrel.eqrelQ}.
 (Namely, the rational numbers are defined as the equivalence classes of the
-relation $\underset{\ast}{\sim}$; this is explained below.) Thus, our above
-proof of Example \ref{exa.eqrel.eqrel.eqrelQ} was not a waste of time, but
-rather an important prerequisite for the construction of rational numbers (one
-of the cornerstones of mathematics).
+relation $\underset{\ast}{\sim}$; this is explained in Example
+\ref{exa.eqrel.eqcl.rat} below.) Thus, our above proof of Example
+\ref{exa.eqrel.eqrel.eqrelQ} was not a waste of time, but rather an important
+prerequisite for the construction of rational numbers (one of the cornerstones
+of mathematics).
 
 If you are familiar with basic linear algebra, you may notice that the
 relation $\underset{\ast}{\sim}$ from Example \ref{exa.eqrel.eqrel.eqrelQ} can
@@ -14106,13 +14130,13 @@ Roman letters for their representatives (as we did in the solution to Exercise
 \subsubsection{More examples}
 
 \begin{example}
-Consider the relation $\underset{\ast}{\sim}$ on $S=\mathbb{Z}\times\left(
-\mathbb{Z}\setminus\left\{  0\right\}  \right)  $ defined in Example
-\ref{exa.eqrel.eqrel.eqrelQ}. Its equivalence classes are the rational
-numbers. Indeed, the equivalence class $\left[  \left(  a_{1},a_{2}\right)
-\right]  _{\underset{\ast}{\sim}}$ of a pair $\left(  a_{1},a_{2}\right)  \in
-S$ is commonly denoted by $\dfrac{a_{1}}{a_{2}}$ (or by $a_{1}/a_{2}$). This
-is how rational numbers are defined!
+\label{exa.eqrel.eqcl.rat}Consider the relation $\underset{\ast}{\sim}$ on
+$S=\mathbb{Z}\times\left(  \mathbb{Z}\setminus\left\{  0\right\}  \right)  $
+defined in Example \ref{exa.eqrel.eqrel.eqrelQ}. Its equivalence classes are
+the rational numbers. Indeed, the equivalence class $\left[  \left(
+a_{1},a_{2}\right)  \right]  _{\underset{\ast}{\sim}}$ of a pair $\left(
+a_{1},a_{2}\right)  \in S$ is commonly denoted by $\dfrac{a_{1}}{a_{2}}$ (or
+by $a_{1}/a_{2}$). This is how rational numbers are defined!
 \end{example}
 
 Equivalence classes appear in real life too, at least in the modern world.
@@ -14790,48 +14814,125 @@ _{\sim}=\left[  s_{2}\right]  _{\sim}$, then $F\left(  s_{1}\right)  =F\left(
 s_{2}\right)  $. If this verification has been done, the map $f$ is well-defined.
 \end{remark}
 
-\begin{noncompile}
+Further examples of maps out of quotient sets defined in this way can be found
+in \cite{Conrad-Well}\footnote{When reading \cite[Example 1.1]{Conrad-Well},
+keep in mind that rational numbers are defined as equivalence classes of
+elements of $\mathbb{Z}\times\left(  \mathbb{Z}\setminus\left\{  0\right\}
+\right)  $, as we have seen in Example \ref{exa.eqrel.eqcl.rat}. Thus,
+$\mathbb{Q}$ is actually a quotient set: namely, $\mathbb{Q}=S/\underset{\ast
+}{\sim}$ using the notations of Example \ref{exa.eqrel.eqcl.rat}.}.
+
+\begin{fineprint}
 Let us illustrate this method of defining maps on a few more examples:
 
 \begin{example}
-Let $A$ be a set, and let $k\in\mathbb{N}$. Recall the notion of
-\textquotedblleft unordered $k$-tuples of elements of $A$\textquotedblright;
-these were defined (in Definition \ref{def.eqrel.eqcl.perm.unord-tup}) as
+Let $A$ be a set, and let $k\in\mathbb{N}$. Fix some $c\in A$. We can then
+define a map%
+\begin{align*}
+\operatorname*{mult}\nolimits_{c}:A^{k} &  \rightarrow\mathbb{N},\\
+\left(  a_{1},a_{2},\ldots,a_{k}\right)   &  \mapsto\left(  \text{the number
+of }i\in\left\{  1,2,\ldots,k\right\}  \text{ such that }a_{i}=c\right)  .
+\end{align*}
+This map $\operatorname*{mult}\nolimits_{c}$ simply sends each $k$-tuple to
+the number of times that $c$ appears in this $k$-tuple. For example,
+$\operatorname*{mult}\nolimits_{5}\left(  1,5,2,4,7,5,5,6\right)  =3$, since
+$5$ appears exactly $3$ times in the $8$-tuple $\left(
+1,5,2,4,7,5,5,6\right)  $ (assuming that $k=8$ and $A=\mathbb{Z}$). It is
+clear that this map $\operatorname*{mult}\nolimits_{c}$ is well-defined. (The
+number $\operatorname*{mult}\nolimits_{c}\mathbf{a}$ for a $k$-tuple
+$\mathbf{a}$ is called the \textit{multiplicity of }$c$ \textit{in
+}$\mathbf{a}$. Therefore the notation \textquotedblleft$\operatorname*{mult}%
+\nolimits_{c}$\textquotedblright.)
+
+Now, it stands to reason that the same can be done with \textbf{unordered}
+$k$-tuples: After all, the number of times that $c$ appears in a $k$-tuple
+should not depend on the order of the entries of the tuple. To formalize this,
+however, we need to deal with quotient sets. Indeed, recall that the
+\textquotedblleft unordered $k$-tuples of elements of $A$\textquotedblright%
+\ were defined (in Definition \ref{def.eqrel.eqcl.perm.unord-tup}) as
 equivalence classes of the relation $\underset{\operatorname*{perm}}{\sim}$ on
 the set $A^{k}$. So $A^{k}/\underset{\operatorname*{perm}}{\sim}$ is the set
-of all unordered $k$-tuples of elements of $A$.
-
-\textbf{(a)} Let us fix some $c\in A$, and try to define a map
+of all unordered $k$-tuples of elements of $A$. The map that counts how often
+$c$ appears in an unordered $k$-tuple should thus have the form%
 \begin{align*}
-\operatorname*{mult}\nolimits_{c}:\left.  A^{k}/\underset{\operatorname*{perm}%
-}{\sim}\right.   &  \rightarrow\mathbb{N},\\
+\operatorname*{mult}\nolimits_{c}^{\prime}:\left.  A^{k}%
+/\underset{\operatorname*{perm}}{\sim}\right.   &  \rightarrow\mathbb{N},\\
 \left[  \left(  a_{1},a_{2},\ldots,a_{k}\right)  \right]
 _{\underset{\operatorname*{perm}}{\sim}}  &  \mapsto\left(  \text{the number
 of }i\in\left\{  1,2,\ldots,k\right\}  \text{ such that }a_{i}=c\right)  .
 \end{align*}
-Informally speaking, this map $\operatorname*{mult}\nolimits_{c}$ should
-simply map an unordered $k$-tuple $\left[  \left(  a_{1},a_{2},\ldots
-,a_{k}\right)  \right]  _{\underset{\operatorname*{perm}}{\sim}}$ to the
-number of times that $c$ appears as an entry in $\left(  a_{1},a_{2}%
-,\ldots,a_{k}\right)  $. (This is called the \textit{multiplicity} of $c$ in
-$\left[  \left(  a_{1},a_{2},\ldots,a_{k}\right)  \right]
-_{\underset{\operatorname*{perm}}{\sim}}$; thus, the notation
-\textquotedblleft$\operatorname*{mult}\nolimits_{c}$\textquotedblright.)
+Or, to put it more compactly (making use of the map $\operatorname*{mult}%
+\nolimits_{c}$ for \textbf{ordered} $k$-tuples defined above), it should have
+the form%
+\begin{align*}
+\operatorname*{mult}\nolimits_{c}^{\prime}:\left.  A^{k}%
+/\underset{\operatorname*{perm}}{\sim}\right.   &  \rightarrow\mathbb{N},\\
+\left[  \mathbf{a}\right]  _{\underset{\operatorname*{perm}}{\sim}}  &
+\mapsto\operatorname*{mult}\nolimits_{c}\mathbf{a}.
+\end{align*}
+The question is: Why is this map $\operatorname*{mult}\nolimits_{c}^{\prime}$ well-defined?
 
-Intuitively, it is clear that this map $\operatorname*{mult}\nolimits_{c}$
-should be well-defined: After all, the number of times that $c$ appears as an
-entry in a $k$-tuple does not depend on the order of the entries of the tuple
-(i.e., it does not change when the $k$-tuple gets permuted), so it makes sense
-to speak of it for unordered $k$-tuples. The formal proof is just a
-formalization of this argument: You show that if $s_{1}=\left(  a_{1}%
-,a_{2},\ldots,a_{k}\right)  $ and $s_{2}=\left(  b_{1},b_{2},\ldots
-,b_{k}\right)  $ are two $k$-tuples in $A^{k}$ such that $\left[  \left(
-a_{1},a_{2},\ldots,a_{k}\right)  \right]  _{\underset{\operatorname*{perm}%
-}{\sim}}=$
+Remark \ref{rmk.eqrel.quot.uniprop-as-method} (applied to $A^{k}$,
+$\mathbb{N}$ and $\underset{\operatorname*{perm}}{\sim}$ instead of $S$, $T$
+and $\sim$) shows that in order to ensure that this map $\operatorname*{mult}%
+\nolimits_{c}^{\prime}$ is well-defined, we need to verify that if
+$\mathbf{a}_{1}$ and $\mathbf{a}_{2}$ are two elements of $A^{k}$ (that is,
+two ordered $k$-tuples) such that $\left[  \mathbf{a}_{1}\right]
+_{\underset{\operatorname*{perm}}{\sim}}=\left[  \mathbf{a}_{2}\right]
+_{\underset{\operatorname*{perm}}{\sim}}$, then $\operatorname*{mult}%
+\nolimits_{c}\left(  \mathbf{a}_{1}\right)  =\operatorname*{mult}%
+\nolimits_{c}\left(  \mathbf{a}_{2}\right)  $. Let us do this: Let
+$\mathbf{a}_{1}$ and $\mathbf{a}_{2}$ be two elements of $A^{k}$ (that is, two
+ordered $k$-tuples) such that $\left[  \mathbf{a}_{1}\right]
+_{\underset{\operatorname*{perm}}{\sim}}=\left[  \mathbf{a}_{2}\right]
+_{\underset{\operatorname*{perm}}{\sim}}$. Now, $\left[  \mathbf{a}%
+_{1}\right]  _{\underset{\operatorname*{perm}}{\sim}}=\left[  \mathbf{a}%
+_{2}\right]  _{\underset{\operatorname*{perm}}{\sim}}$ entails $\mathbf{a}%
+_{1}\underset{\operatorname*{perm}}{\sim}\mathbf{a}_{2}$ (indeed, Theorem
+\ref{thm.eqrel.eqcl.disj} \textbf{(e)} shows that we have $\mathbf{a}%
+_{1}\underset{\operatorname*{perm}}{\sim}\mathbf{a}_{2}$ if and only if
+$\left[  \mathbf{a}_{1}\right]  _{\underset{\operatorname*{perm}}{\sim}%
+}=\left[  \mathbf{a}_{2}\right]  _{\underset{\operatorname*{perm}}{\sim}}$).
+In other words, $\mathbf{a}_{1}$ is a permutation of $\mathbf{a}_{2}$ (by the
+definition of $\underset{\operatorname*{perm}}{\sim}$). In other words, the
+tuples $\mathbf{a}_{1}$ and $\mathbf{a}_{2}$ differ only in the order of their
+entries. Hence, Lemma \ref{lem.comb.tuples.mult=perm.conv} (applied to $A$,
+$\mathbf{a}_{1}$, $\mathbf{a}_{2}$ and $c$ instead of $P$, $\left(
+a_{1},a_{2},\ldots,a_{k}\right)  $, $\left(  b_{1},b_{2},\ldots,b_{\ell
+}\right)  $ and $p$) yields that%
+\[
+\left(  \text{the number of times }c\text{ appears in }\mathbf{a}_{1}\right)
+=\left(  \text{the number of times }c\text{ appears in }\mathbf{a}_{2}\right)
+.
+\]
+This rewrites as $\operatorname*{mult}\nolimits_{c}\left(  \mathbf{a}%
+_{1}\right)  =\operatorname*{mult}\nolimits_{c}\left(  \mathbf{a}_{2}\right)
+$ (since $\left(  \text{the number of times }c\text{ appears in }%
+\mathbf{a}_{1}\right)  =\operatorname*{mult}\nolimits_{c}\left(
+\mathbf{a}_{1}\right)  $ and $\left(  \text{the number of times }c\text{
+appears in }\mathbf{a}_{2}\right)  =\operatorname*{mult}\nolimits_{c}\left(
+\mathbf{a}_{2}\right)  $). This is what we needed to prove. Thus, we have
+shown that $\operatorname*{mult}\nolimits_{c}^{\prime}$ is well-defined.
 
-TODO! Finish this!
+On the other hand, if we tried to define a map%
+\begin{align*}
+\operatorname*{first}:\left.  A^{k}/\underset{\operatorname*{perm}}{\sim
+}\right.   &  \rightarrow\mathbb{N},\\
+\left[  \mathbf{a}\right]  _{\underset{\operatorname*{perm}}{\sim}} &
+\mapsto\left(  \text{the first entry of }\mathbf{a}\right)
+\end{align*}
+(assuming that $k>0$, so that an ordered $k$-tuple does indeed have a first
+entry), then we would run into troubles, because it is \textbf{not} true that
+if $\mathbf{a}_{1}$ and $\mathbf{a}_{2}$ are two elements of $A^{k}$ such that
+$\left[  \mathbf{a}_{1}\right]  _{\underset{\operatorname*{perm}}{\sim}%
+}=\left[  \mathbf{a}_{2}\right]  _{\underset{\operatorname*{perm}}{\sim}}$,
+then $\left(  \text{the first entry of }\mathbf{a}_{1}\right)  =\left(
+\text{the first entry of }\mathbf{a}_{2}\right)  $. And this is no surprise:
+There is no such thing as \textquotedblleft the first entry\textquotedblright%
+\ of an unordered $k$-tuple. The first entry of a $k$-tuple is sensitive to
+the reordering of its entries.
 \end{example}
-\end{noncompile}
+\end{fineprint}
 
 We can restate this method of defining maps as a rigorous theorem:
 
@@ -14977,69 +15078,214 @@ exists \textbf{at most one} such map). This proves Theorem
 \end{fineprint}
 
 Theorem \ref{thm.eqrel.quot.uniprop.1} is known as the \textit{universal
-property of the quotient set}.%
-\[%
-\begin{tabular}
-[c]{||l||}\hline\hline
-\textbf{You have reached the end of the finished part.}\\
-\textbf{TODO: Write on from here.}\\\hline\hline
-\end{tabular}
-\]
+property of the quotient set}.
 
+\subsubsection{Projecting from $\mathbb{Z}/n$ to $\mathbb{Z}/d$}
+
+As another example of a map from a quotient set, let us define certain maps
+from $\mathbb{Z}/n$ to $\mathbb{Z}/d$ that exist whenever two positive
+integers $n$ and $d$ satisfy $d\mid n$:
+
+\begin{proposition}
+\label{prop.eqrel.Zn.pind.wd}Let $n$ be a positive integer. Let $d$ be a
+positive divisor of $n$. Then, there is a map%
+\begin{align*}
+\pi_{n,d}:\mathbb{Z}/n  &  \rightarrow\mathbb{Z}/d,\\
+\left[  s\right]  _{n}  &  \mapsto\left[  s\right]  _{d}.
+\end{align*}
+
+\end{proposition}
+
+\begin{example}
+\label{exa.eqrel.Zn.pind.wd}\textbf{(a)} For example, for $n=6$ and $d=2$,
+Proposition \ref{prop.eqrel.Zn.pind.wd} says that there is a map
+\begin{align*}
+\pi_{6,2}:\mathbb{Z}/6  &  \rightarrow\mathbb{Z}/2,\\
+\left[  s\right]  _{6}  &  \mapsto\left[  s\right]  _{2}.
+\end{align*}
+This map sends the residue classes
+\begin{align*}
+&  \left[  0\right]  _{6},\left[  1\right]  _{6},\left[  2\right]
+_{6},\left[  3\right]  _{6},\left[  4\right]  _{6},\left[  5\right]  _{6}\\
+\text{to }  &  \left[  0\right]  _{2},\left[  1\right]  _{2},\left[  2\right]
+_{2},\left[  3\right]  _{2},\left[  4\right]  _{2},\left[  5\right]
+_{2}\text{, respectively.}%
+\end{align*}
+In other words, it sends the residue classes%
+\begin{align*}
+&  \left[  0\right]  _{6},\left[  1\right]  _{6},\left[  2\right]
+_{6},\left[  3\right]  _{6},\left[  4\right]  _{6},\left[  5\right]  _{6}\\
+\text{to }  &  \left[  0\right]  _{2},\left[  1\right]  _{2},\left[  0\right]
+_{2},\left[  1\right]  _{2},\left[  0\right]  _{2},\left[  1\right]
+_{2}\text{, respectively}%
+\end{align*}
+(since $\left[  2\right]  _{2}=\left[  0\right]  _{2}$ and $\left[  3\right]
+_{2}=\left[  1\right]  _{2}$ and $\left[  4\right]  _{2}=\left[  0\right]
+_{2}$ and $\left[  5\right]  _{2}=\left[  1\right]  _{2}$). More generally,
+for arbitrary $n$ and $d$, the map $\pi_{n,d}$ sends the $n$ residue classes
+$\left[  0\right]  _{n},\left[  1\right]  _{n},\ldots,\left[  n-1\right]
+_{n}$ to
+\[
+\left[  0\right]  _{d},\left[  1\right]  _{d},\ldots,\left[  d-1\right]
+_{d},\left[  0\right]  _{d},\left[  1\right]  _{d},\ldots,\left[  d-1\right]
+_{d},\ldots,\left[  0\right]  _{d},\left[  1\right]  _{d},\ldots,\left[
+d-1\right]  _{d}%
+\]
+(that is, $\left[  0\right]  _{d},\left[  1\right]  _{d},\ldots,\left[
+d-1\right]  _{d}$ in this order, repeated $\dfrac{n}{d}$ many times), respectively.
+
+\textbf{(b)} For a non-example, set $n=3$ and $d=2$. Then, Proposition
+\ref{prop.eqrel.Zn.pind.wd} does not apply, since $2$ is not a divisor of $3$.
+And for good reason: There is no map%
+\begin{align*}
+\pi_{3,2}:\mathbb{Z}/3  &  \rightarrow\mathbb{Z}/2,\\
+\left[  s\right]  _{3}  &  \mapsto\left[  s\right]  _{2}.
+\end{align*}
+Indeed, this map would have to send $\left[  0\right]  _{3}$ and $\left[
+3\right]  _{3}$ to $\left[  0\right]  _{2}$ and $\left[  3\right]  _{2}$,
+respectively; but this means sending two equal inputs to different outputs
+(since $\left[  0\right]  _{3}=\left[  3\right]  _{3}$ but $\left[  0\right]
+_{2}\neq\left[  3\right]  _{2}$), which is impossible. More generally, if a
+positive integer $d$ is \textbf{not} a divisor of a positive integer $n$, then
+there is no map%
+\begin{align*}
+\pi_{n,d}:\mathbb{Z}/n  &  \rightarrow\mathbb{Z}/d,\\
+\left[  s\right]  _{n}  &  \mapsto\left[  s\right]  _{d}.
+\end{align*}
+
+\end{example}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.eqrel.Zn.pind.wd}.]We must prove that, for an
+integer $s\in\mathbb{Z}$, the class $\left[  s\right]  _{d}\in\mathbb{Z}/d$
+depends only on the residue class $\left[  s\right]  _{n}$ but not on the
+integer $s$ itself. In other words, we need to prove the following claim:
+
+\begin{statement}
+\textit{Claim 1:} If $s_{1}$ and $s_{2}$ are two integers such that $\left[
+s_{1}\right]  _{n}=\left[  s_{2}\right]  _{n}$, then, $\left[  s_{1}\right]
+_{d}=\left[  s_{2}\right]  _{d}$.
+\end{statement}
+
+[\textit{Proof of Claim 1:} Let $s_{1}$ and $s_{2}$ be two integers such that
+$\left[  s_{1}\right]  _{n}=\left[  s_{2}\right]  _{n}$. In other words,
+$\left[  s_{1}\right]  _{\underset{n}{\equiv}}=\left[  s_{2}\right]
+_{\underset{n}{\equiv}}$ (since $\left[  x\right]  _{n}$ is just a shorthand
+for $\left[  x\right]  _{\underset{n}{\equiv}}$).
+
+But Theorem \ref{thm.eqrel.eqcl.disj} \textbf{(e)} (applied to $\mathbb{Z}$,
+$\underset{n}{\equiv}$, $s_{1}$ and $s_{2}$ instead of $S$, $\sim$, $x$ and
+$y$) shows that we have $s_{1}\underset{n}{\equiv}s_{2}$ if and only if
+$\left[  s_{1}\right]  _{\underset{n}{\equiv}}=\left[  s_{2}\right]
+_{\underset{n}{\equiv}}$. Thus, we have $s_{1}\underset{n}{\equiv}s_{2}$
+(since $\left[  s_{1}\right]  _{\underset{n}{\equiv}}=\left[  s_{2}\right]
+_{\underset{n}{\equiv}}$). In other words, $s_{1}\equiv s_{2}%
+\operatorname{mod}n$. Hence, Proposition \ref{prop.ent.mod.basics}
+\textbf{(e)} (applied to $s_{1}$, $s_{2}$ and $d$ instead of $a$, $b$ and $m$)
+yields $s_{1}\equiv s_{2}\operatorname{mod}d$ (since $d\mid n$). In other
+words, $s_{1}\underset{d}{\equiv}s_{2}$. According to Theorem
+\ref{thm.eqrel.eqcl.disj} \textbf{(e)} (applied to $\mathbb{Z}$,
+$\underset{d}{\equiv}$, $s_{1}$ and $s_{2}$ instead of $S$, $\sim$, $x$ and
+$y$), this is equivalent to $\left[  s_{1}\right]  _{\underset{d}{\equiv}%
+}=\left[  s_{2}\right]  _{\underset{d}{\equiv}}$. In other words, $\left[
+s_{1}\right]  _{d}=\left[  s_{2}\right]  _{d}$ (since $\left[  x\right]  _{d}$
+is just a shorthand for $\left[  x\right]  _{\underset{d}{\equiv}}$). This
+proves Claim 1.]
+
+Having proven Claim 1, we can now conclude that the map%
+\begin{align*}
+\pi_{n,d}:\mathbb{Z}/n  &  \rightarrow\mathbb{Z}/d,\\
+\left[  s\right]  _{n}  &  \mapsto\left[  s\right]  _{d}%
+\end{align*}
+is well-defined. (Strictly speaking, this follows from applying Theorem
+\ref{thm.eqrel.quot.uniprop.1} to $\mathbb{Z}$, $\mathbb{Z}/d$,
+$\underset{n}{\equiv}$ and $\left[  s\right]  _{d}$ instead of $S$, $T$,
+$\sim$ and $F\left(  s\right)  $. The Claim 1 that we proved above guarantees
+that Assumption 1 of Theorem \ref{thm.eqrel.quot.uniprop.1} is satisfied.)
+Hence, Proposition \ref{prop.eqrel.Zn.pind.wd} is proven.
+\end{proof}
 
 \subsubsection{Addition, subtraction, multiplication and powers in
 $\mathbb{Z}/n$}
 
 Let us recall the concept of a binary operation (defined in Definition
 \ref{def.intro.binop}). We shall now define several such operations on the set
-$\mathbb{Z}/n$:
+$\mathbb{Z}/n$\ \ \ \ \footnote{We will check afterwards that these operations
+are indeed well-defined.}:
 
 \begin{definition}
-\textbf{(a)} We define a binary operation $+$ on $\mathbb{Z}/n$ (called
-\textit{addition}) as follows:%
+\label{def.eqrel.Z/n.op}\textbf{(a)} We define a binary operation $+$ on
+$\mathbb{Z}/n$ (called \textit{addition}) by setting%
 \[
-\left[  a\right]  _{n}+\left[  b\right]  _{n}:=\left[  a+b\right]  _{n}.
+\left[  a\right]  _{n}+\left[  b\right]  _{n}=\left[  a+b\right]
+_{n}\ \ \ \ \ \ \ \ \ \ \text{for any integers }a\text{ and }b.
 \]
 
 
 \textbf{(b)} We define a binary operation $-$ on $\mathbb{Z}/n$ (called
-\textit{subtraction}) as follows:%
+\textit{subtraction}) by setting%
 \[
-\left[  a\right]  _{n}-\left[  b\right]  _{n}:=\left[  a-b\right]  _{n}.
+\left[  a\right]  _{n}-\left[  b\right]  _{n}=\left[  a-b\right]
+_{n}\ \ \ \ \ \ \ \ \ \ \text{for any integers }a\text{ and }b.
 \]
 
 
 \textbf{(c)} We define a binary operation $\cdot$ on $\mathbb{Z}/n$ (called
-\textit{multiplication}) as follows:%
+\textit{multiplication}) by setting%
 \[
-\left[  a\right]  _{n}\cdot\left[  b\right]  _{n}:=\left[  a\cdot b\right]
-_{n}.
+\left[  a\right]  _{n}\cdot\left[  b\right]  _{n}=\left[  a\cdot b\right]
+_{n}\ \ \ \ \ \ \ \ \ \ \text{for any integers }a\text{ and }b.
 \]
-
+We also write $\left[  a\right]  _{n}\left[  b\right]  _{n}$ for $\left[
+a\right]  _{n}\cdot\left[  b\right]  _{n}$.
 
 \textbf{(d)} If $\lambda\in\mathbb{Z}$ and $\left[  a\right]  _{n}%
 \in\mathbb{Z}/n$, then we set
 \[
-\lambda\cdot\left[  a\right]  _{n}:=\left[  \lambda a\right]  _{n}.
+\lambda\cdot\left[  a\right]  _{n}=\left[  \lambda a\right]  _{n}.
 \]
-
+We also write $\lambda\left[  a\right]  _{n}$ for $\lambda\cdot\left[
+a\right]  _{n}$.
 
 \textbf{(e)} If $k\in\mathbb{N}$ and $\left[  a\right]  _{n}\in\mathbb{Z}/n$,
 then we set
 \[
-\left(  \left[  a\right]  _{n}\right)  ^{k}:=\left[  a^{k}\right]  _{n}.
+\left(  \left[  a\right]  _{n}\right)  ^{k}=\left[  a^{k}\right]  _{n}.
 \]
 
 \end{definition}
 
 \begin{theorem}
-Everything in this definition is well-defined.
+\label{thm.eqrel.Z/n.op.wd}Everything defined in Definition
+\ref{def.eqrel.Z/n.op} is well-defined.
 \end{theorem}
 
+%
+
+\[%
+\begin{tabular}
+[c]{||l||}\hline\hline
+\textbf{You have reached the end of the finished part.}\\
+\textbf{TODO: Write on from here.}\\\hline\hline
+\end{tabular}
+\
+\]
+
+
 \begin{proof}
-\textbf{(a)} We have to prove that $\left[  a+b\right]  _{n}$ depends only on
-the two classes $\left[  a\right]  _{n}$ and $\left[  b\right]  _{n}$, but not
-on the integers $a$ and $b$.
+[Proof of Theorem \ref{thm.eqrel.Z/n.op.wd}.]\textbf{(a)} We are in the same
+situation in which we were when defining the map $R$ in the proof of Theorem
+\ref{thm.eqrel.Zn.explicit}: We are trying to define a map (in the current
+case, the binary operation $+$, which should be a map from $\left(
+\mathbb{Z}/n\right)  \times\left(  \mathbb{Z}/n\right)  $ to $\mathbb{Z}/n$)
+by specifying how it acts on inputs of the form $\left[  a\right]  _{n}$, but
+our definition refers to the integer $a$. (Actually, it is a little bit more
+complicated: We have two inputs $\left[  a\right]  _{n}$ and $\left[
+b\right]  _{n}$ and thus two integers $a$ and $b$. But the problem is the
+same.) We want to prove that this map is well-defined. This requires checking
+that the output (that is, $\left[  a+b\right]  _{n}$) depends only on the two
+classes $\left[  a\right]  _{n}$ and $\left[  b\right]  _{n}$, but not on the
+integers $a$ and $b$.
 
 So we have to prove the following:
 
@@ -15074,6 +15320,14 @@ n$.
 \ref{exe.ent.mod.basics.k-power}.
 \end{proof}
 
+We shall follow \href{https://en.wikipedia.org/wiki/Order_of_operations}{the
+usual \textquotedblleft PEMDAS\textquotedblright\ rules for the order of
+operations} when interpreting expressions involving the operations defined in
+Definition \ref{def.eqrel.Z/n.op}. Thus, for example, $\alpha+\beta\cdot
+\gamma$ means $\alpha+\left(  \beta\cdot\gamma\right)  $ and not $\left(
+\alpha+\beta\right)  \cdot\gamma$; likewise, $\alpha\beta^{k}+\gamma$ means
+$\left(  \alpha\left(  \beta^{k}\right)  \right)  +\gamma$ and not any other interpretation.
+
 \begin{remark}
 We \textbf{cannot} define a division operation on $\mathbb{Z}/n$ as follows:%
 \[
@@ -15092,8 +15346,7 @@ _{4}\text{\textquotedblright}=\left[  6/2\right]  _{4}=\left[  3\right]  _{4}%
 and%
 \[
 \text{\textquotedblleft}\left[  2\right]  _{4}/\left[  2\right]
-_{4}\text{\textquotedblright}=\left[  2/2\right]  _{4}=\left[  1\right]
-_{4},
+_{4}\text{\textquotedblright}=\left[  2/2\right]  _{4}=\left[  1\right]  _{4},
 \]
 but this is impossible (since $\left[  6\right]  _{4}=\left[  2\right]  _{4}$
 but $\left[  3\right]  _{4}\neq\left[  1\right]  _{4}$).
@@ -15114,8 +15367,8 @@ we shall refer to $\alpha-\beta$ as the \textit{difference} of $\alpha$ and
 $\beta$.
 
 \textbf{(c)} If $\alpha$ and $\beta$ are two elements of $\mathbb{Z}/n$, then
-we shall refer to $\alpha\cdot\beta$ as the \textit{product} of $\alpha$ and
-$\beta$. We shall also write $\alpha\beta$ for this product.
+we shall refer to $\alpha\cdot\beta$ (also known as $\alpha\beta$) as the
+\textit{product} of $\alpha$ and $\beta$.
 
 \textbf{(c)} If $k\in\mathbb{N}$ and $\alpha\in\mathbb{Z}/n$, then we shall
 refer to $\alpha^{k}$ as the $k$\textit{-th power} of $\alpha$.
@@ -15147,29 +15400,31 @@ $\left[  15\right]  _{24}+\left[  10\right]  _{24}=\left[  1\right]  _{24}$.)
 \label{thm.eqrel.Z/n.rules}The following rules for addition, subtraction and
 multiplication in $\mathbb{Z}/n$ hold:
 
-\textbf{(a)} $\alpha+\beta=\beta+\alpha$ for any $\alpha,\beta\in\mathbb{Z}/n$.
-
-\textbf{(b)} $\alpha+\left(  \beta+\gamma\right)  =\left(  \alpha
-+\beta\right)  +\gamma$ for any $\alpha,\beta,\gamma\in\mathbb{Z}/n$.
-
-\textbf{(c)} $\alpha+\left[  0\right]  _{n}=\alpha$ for any $\alpha
+\textbf{(a)} We have $\alpha+\beta=\beta+\alpha$ for any $\alpha,\beta
 \in\mathbb{Z}/n$.
 
-\textbf{(d)} $\alpha\cdot\left[  1\right]  _{n}=\alpha$ for any $\alpha
+\textbf{(b)} We have $\alpha+\left(  \beta+\gamma\right)  =\left(
+\alpha+\beta\right)  +\gamma$ for any $\alpha,\beta,\gamma\in\mathbb{Z}/n$.
+
+\textbf{(c)} We have $\alpha+\left[  0\right]  _{n}=\alpha$ for any $\alpha
 \in\mathbb{Z}/n$.
 
-\textbf{(e)} $\alpha\cdot\beta=\beta\cdot\alpha$ for any $\alpha,\beta
+\textbf{(d)} We have $\alpha\cdot\left[  1\right]  _{n}=\alpha$ for any
+$\alpha\in\mathbb{Z}/n$.
+
+\textbf{(e)} We have $\alpha\cdot\beta=\beta\cdot\alpha$ for any $\alpha
+,\beta\in\mathbb{Z}/n$.
+
+\textbf{(f)} We have $\alpha\cdot\left(  \beta\cdot\gamma\right)  =\left(
+\alpha\cdot\beta\right)  \cdot\gamma$ for any $\alpha,\beta,\gamma
 \in\mathbb{Z}/n$.
 
-\textbf{(f)} $\alpha\cdot\left(  \beta\cdot\gamma\right)  =\left(  \alpha
-\cdot\beta\right)  \cdot\gamma$ for any $\alpha,\beta,\gamma\in\mathbb{Z}/n$.
-
-\textbf{(g)} $\alpha\cdot\left(  \beta+\gamma\right)  =\alpha\beta
-+\alpha\gamma$ and $\left(  \alpha+\beta\right)  \cdot\gamma=\alpha
+\textbf{(g)} We have $\alpha\cdot\left(  \beta+\gamma\right)  =\alpha
+\beta+\alpha\gamma$ and $\left(  \alpha+\beta\right)  \cdot\gamma=\alpha
 \gamma+\beta\gamma$ for any $\alpha,\beta,\gamma\in\mathbb{Z}/n$.
 
-\textbf{(h)} $\alpha\cdot\left[  0\right]  _{n}=\left[  0\right]  _{n}$ for
-any $\alpha\in\mathbb{Z}/n$.
+\textbf{(h)} We have $\alpha\cdot\left[  0\right]  _{n}=\left[  0\right]
+_{n}$ for any $\alpha\in\mathbb{Z}/n$.
 
 \textbf{(i)} If $\alpha,\beta,\gamma\in\mathbb{Z}/n$, then we have the
 equivalence $\left(  \alpha-\beta=\gamma\right)  \Longleftrightarrow\left(
@@ -15463,122 +15718,137 @@ _{p}$. In other words, $\left(  p-1\right)  !\equiv-1\operatorname{mod}p$.
 
 \begin{definition}
 \label{def.eqrel.Zn.pind}Let $n$ be a positive integer. Let $d$ be a positive
-divisor of $n$. Then, there is a map%
+divisor of $n$. Then, define the map%
 \begin{align*}
 \pi_{n,d}:\mathbb{Z}/n  &  \rightarrow\mathbb{Z}/d,\\
-\left[  a\right]  _{n}  &  \mapsto\left[  a\right]  _{d}.
+\left[  s\right]  _{n}  &  \mapsto\left[  s\right]  _{d}.
 \end{align*}
-
+(This is well-defined, according to Proposition \ref{prop.eqrel.Zn.pind.wd}.)
 \end{definition}
 
-For example, the map $\pi_{6,2}:\mathbb{Z}/6\rightarrow\mathbb{Z}/2$ sends
-$\left[  0\right]  _{6},\left[  1\right]  _{6},\left[  2\right]  _{6},\left[
-3\right]  _{6},\left[  4\right]  _{6},\left[  5\right]  _{6}$ to $\left[
-0\right]  _{2},\left[  1\right]  _{2},\left[  2\right]  _{2},\left[  3\right]
-_{2},\left[  4\right]  _{2},\left[  5\right]  _{2}$. In other words, it sends
-$\left[  0\right]  _{6},\left[  1\right]  _{6},\left[  2\right]  _{6},\left[
-3\right]  _{6},\left[  4\right]  _{6},\left[  5\right]  _{6}$ to $\left[
-0\right]  _{2},\left[  1\right]  _{2},\left[  0\right]  _{2},\left[  1\right]
-_{2},\left[  0\right]  _{2},\left[  1\right]  _{2}$ (since $\left[  2\right]
-_{2}=\left[  0\right]  _{2}$ and $\left[  3\right]  _{2}=\left[  1\right]
-_{2}$ and $\left[  4\right]  _{2}=\left[  0\right]  _{2}$ and $\left[
-5\right]  _{2}=\left[  1\right]  _{2}$).
-
-Why is $\pi_{n,d}$ well-defined?
-
-(\textit{Proof:} Let $a_{1},a_{2}$ be two integers such that $\left[
-a_{1}\right]  _{n}=\left[  a_{2}\right]  _{n}$. We must prove that $\left[
-a_{1}\right]  _{d}=\left[  a_{2}\right]  _{d}$.
-
-We have assumed $\left[  a_{1}\right]  _{n}=\left[  a_{2}\right]  _{n}$. In
-other words, $a_{1}\equiv a_{2}\operatorname{mod}n$, thus $a_{1}\equiv
-a_{2}\operatorname{mod}d$ (since $d\mid n$). In other words, $\left[
-a_{1}\right]  _{d}=\left[  a_{2}\right]  _{d}$.)
+See Example \ref{exa.eqrel.Zn.pind.wd} \textbf{(a)} for how this map looks like.
 
 \begin{theorem}
 \label{thm.eqrel.CRT2}(Chinese Remainder Theorem, bijective form)
 
 Let $m$ and $n$ be two coprime positive integers. Then, the map%
 \begin{align*}
-\mathbb{Z}/\left(  mn\right)   &  \rightarrow\left(  \mathbb{Z}/m\right)
-\times\left(  \mathbb{Z}/n\right)  ,\\
+S_{m,n}  &  :\mathbb{Z}/\left(  mn\right)  \rightarrow\left(  \mathbb{Z}%
+/m\right)  \times\left(  \mathbb{Z}/n\right)  ,\\
 \alpha &  \mapsto\left(  \pi_{mn,m}\left(  \alpha\right)  ,\pi_{mn,n}\left(
 \alpha\right)  \right)
 \end{align*}
-is a bijection.
+is well-defined and is a bijection. It sends each $\left[  s\right]  _{mn}$
+(with $s\in\mathbb{Z}$) to the pair $\left(  \left[  s\right]  _{m},\left[
+s\right]  _{n}\right)  $.
 \end{theorem}
 
 \begin{example}
-Let $m=3$ and $n=2$ for this example. Then, Theorem \ref{thm.eqrel.CRT2} says
+\textbf{(a)} Theorem \ref{thm.eqrel.CRT2} (applied to $m=3$ and $n=2$) says
 that the map%
 \begin{align*}
-\mathbb{Z}/6  &  \rightarrow\left(  \mathbb{Z}/3\right)  \times\left(
+S_{3,2}:\mathbb{Z}/6  &  \rightarrow\left(  \mathbb{Z}/3\right)  \times\left(
 \mathbb{Z}/2\right)  ,\\
 \alpha &  \mapsto\left(  \pi_{6,3}\left(  \alpha\right)  ,\pi_{6,2}\left(
 \alpha\right)  \right)
 \end{align*}
 is a bijection. This map sends%
-\begin{align*}
-&  \left[  0\right]  _{6},\ \ \ \ \left[  1\right]  _{6},\ \ \ \left[
-2\right]  _{6},\ \ \ \left[  3\right]  _{6},\ \ \ \left[  4\right]
-_{6},\ \ \ \left[  5\right]  _{6}\ \ \ \ \ \ \ \ \ \ \text{to}\\
-&  \left(  \left[  0\right]  _{3},\left[  0\right]  _{2}\right)
-,\ \ \ \ \left(  \left[  1\right]  _{3},\left[  1\right]  _{2}\right)
-,\ \ \ \ \left(  \left[  2\right]  _{3},\left[  2\right]  _{2}\right)
-,\ \ \ \ \left(  \left[  3\right]  _{3},\left[  3\right]  _{2}\right)
-,\ \ \ \left(  \left[  4\right]  _{3},\left[  4\right]  _{2}\right)
-,\ \ \ \left(  \left[  5\right]  _{3},\left[  5\right]  _{2}\right)  .
-\end{align*}
-In other words, it sends%
-\begin{align*}
-&  \left[  0\right]  _{6},\ \ \ \ \left[  1\right]  _{6},\ \ \ \left[
-2\right]  _{6},\ \ \ \left[  3\right]  _{6},\ \ \ \left[  4\right]
-_{6},\ \ \ \left[  5\right]  _{6}\ \ \ \ \ \ \ \ \ \ \text{to}\\
-&  \left(  \left[  0\right]  _{3},\left[  0\right]  _{2}\right)
-,\ \ \ \ \left(  \left[  1\right]  _{3},\left[  1\right]  _{2}\right)
-,\ \ \ \ \left(  \left[  2\right]  _{3},\left[  0\right]  _{2}\right)
-,\ \ \ \ \left(  \left[  0\right]  _{3},\left[  1\right]  _{2}\right)
-,\ \ \ \left(  \left[  1\right]  _{3},\left[  0\right]  _{2}\right)
-,\ \ \ \left(  \left[  2\right]  _{3},\left[  1\right]  _{2}\right)  .
-\end{align*}
+\[%
+\begin{array}
+[c]{cccccccc}%
+\left[  0\right]  _{6}, & \left[  1\right]  _{6}, & \left[  2\right]  _{6}, &
+\left[  3\right]  _{6}, & \left[  4\right]  _{6}, & \left[  5\right]  _{6} &
+& \text{to}\\
+\left(  \left[  0\right]  _{3},\left[  0\right]  _{2}\right)  , & \left(
+\left[  1\right]  _{3},\left[  1\right]  _{2}\right)  , & \left(  \left[
+2\right]  _{3},\left[  2\right]  _{2}\right)  , & \left(  \left[  3\right]
+_{3},\left[  3\right]  _{2}\right)  , & \left(  \left[  4\right]  _{3},\left[
+4\right]  _{2}\right)  , & \left(  \left[  5\right]  _{3},\left[  5\right]
+_{2}\right)  , &  &
+\end{array}
+\]
+respectively. In other words, it sends%
+\[%
+\begin{array}
+[c]{cccccccc}%
+\left[  0\right]  _{6}, & \left[  1\right]  _{6}, & \left[  2\right]  _{6}, &
+\left[  3\right]  _{6}, & \left[  4\right]  _{6}, & \left[  5\right]  _{6} &
+& \text{to}\\
+\left(  \left[  0\right]  _{3},\left[  0\right]  _{2}\right)  , & \left(
+\left[  1\right]  _{3},\left[  1\right]  _{2}\right)  , & \left(  \left[
+2\right]  _{3},\left[  0\right]  _{2}\right)  , & \left(  \left[  0\right]
+_{3},\left[  1\right]  _{2}\right)  , & \left(  \left[  1\right]  _{3},\left[
+0\right]  _{2}\right)  , & \left(  \left[  2\right]  _{3},\left[  1\right]
+_{2}\right)  , &  &
+\end{array}
+\]
+respectively (since $\left[  2\right]  _{2}=\left[  0\right]  _{2}$ and
+$\left[  3\right]  _{3}=\left[  0\right]  _{3}$ and $\left[  3\right]
+_{2}=\left[  1\right]  _{2}$ and so on). This list of values shows that this
+map is bijective (since it takes on every possible value in $\left(
+\mathbb{Z}/3\right)  \times\left(  \mathbb{Z}/2\right)  $ exactly once).
+Theorem \ref{thm.eqrel.CRT2} says that this holds for arbitrary coprime $m$
+and $n$.
 
+\textbf{(b)} Let us see how Theorem \ref{thm.eqrel.CRT2} fails when $m$ and
+$n$ are \textbf{not} coprime. For example, take $m=6$ and $n=4$. Then, the map%
+\begin{align*}
+S_{6,4}:\mathbb{Z}/24  &  \rightarrow\left(  \mathbb{Z}/6\right)
+\times\left(  \mathbb{Z}/4\right)  ,\\
+\alpha &  \mapsto\left(  \pi_{24,6}\left(  \alpha\right)  ,\pi_{24,4}\left(
+\alpha\right)  \right)
+\end{align*}
+is \textbf{not} a bijection. Indeed, it is neither injective (for example, it
+sends both $\left[  0\right]  _{24}$ and $\left[  12\right]  _{24}$ to the
+same pair $\left(  \left[  0\right]  _{6},\left[  0\right]  _{4}\right)  $)
+nor surjective (for example, it never takes the value $\left(  \left[
+1\right]  _{6},\left[  2\right]  _{4}\right)  $).
 \end{example}
 
 \begin{proof}
 [Proof of Theorem \ref{thm.eqrel.CRT2}.]The maps $\pi_{mn,m}$ and $\pi_{mn,n}$
 are well-defined, since $m$ and $n$ are divisors of $mn$. Thus, the map%
 \begin{align*}
-\mathbb{Z}/\left(  mn\right)   &  \rightarrow\left(  \mathbb{Z}/m\right)
-\times\left(  \mathbb{Z}/n\right)  ,\\
+S_{m,n}:\mathbb{Z}/\left(  mn\right)   &  \rightarrow\left(  \mathbb{Z}%
+/m\right)  \times\left(  \mathbb{Z}/n\right)  ,\\
 \alpha &  \mapsto\left(  \pi_{mn,m}\left(  \alpha\right)  ,\pi_{mn,n}\left(
 \alpha\right)  \right)
 \end{align*}
-is well-defined. Let us denote this map by $S$.
+is well-defined. Consider this map $S_{m,n}$. Clearly, for each $s\in
+\mathbb{Z}$, we have%
+\begin{align}
+S_{m,n}\left(  \left[  s\right]  _{mn}\right)   &  =\left(  \underbrace{\pi
+_{mn,m}\left(  \left[  s\right]  _{mn}\right)  }_{\substack{=\left[  s\right]
+_{m}\\\text{(by the definition of }\pi_{mn,m}\text{)}}},\underbrace{\pi
+_{mn,n}\left(  \left[  s\right]  _{mn}\right)  }_{\substack{=\left[  s\right]
+_{n}\\\text{(by the definition of }\pi_{mn,n}\text{)}}}\right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of }S_{m,n}\right)
+\nonumber\\
+&  =\left(  \left[  s\right]  _{m},\left[  s\right]  _{n}\right)  .
+\label{pf.thm.eqrel.CRT2.Ss=}%
+\end{align}
+In other words, the map $S_{m,n}$ sends each $\left[  s\right]  _{mn}$ (with
+$s\in\mathbb{Z}$) to the pair $\left(  \left[  s\right]  _{m},\left[
+s\right]  _{n}\right)  $.
 
-We want to prove that $S$ is a bijection. To that aim, we shall prove that $S$
-is injective and surjective.
+It thus remains to prove that $S_{m,n}$ is a bijection. To that aim, we shall
+prove that $S_{m,n}$ is injective and surjective.
 
-\textit{Proof that }$S$ \textit{is injective:} Let $\alpha,\beta\in
-\mathbb{Z}/\left(  mn\right)  $ be such that $S\left(  \alpha\right)
-=S\left(  \beta\right)  $. We want to prove $\alpha=\beta$.
+\textit{Proof that }$S_{m,n}$ \textit{is injective:} Let $\alpha,\beta
+\in\mathbb{Z}/\left(  mn\right)  $ be such that $S_{m,n}\left(  \alpha\right)
+=S_{m,n}\left(  \beta\right)  $. We want to prove $\alpha=\beta$.
 
 Write $\alpha=\left[  a\right]  _{mn}$ and $\beta=\left[  b\right]  _{mn}$ for
-two integers $a$ and $b$. The definition of $S$ yields
-\begin{align*}
-S\left(  \alpha\right)   &  =\left(  \pi_{mn,m}\left(  \underbrace{\alpha
-}_{=\left[  a\right]  _{mn}}\right)  ,\pi_{mn,n}\left(  \underbrace{\alpha
-}_{=\left[  a\right]  _{mn}}\right)  \right)  =\left(  \underbrace{\pi
-_{mn,m}\left(  \left[  a\right]  _{mn}\right)  }_{=\left[  a\right]  _{m}%
-},\underbrace{\pi_{mn,n}\left(  \left[  a\right]  _{mn}\right)  }_{=\left[
-a\right]  _{n}}\right) \\
-&  =\left(  \left[  a\right]  _{m},\left[  a\right]  _{n}\right)
-\end{align*}
-and similarly $S\left(  \beta\right)  =\left(  \left[  b\right]  _{m},\left[
-b\right]  _{n}\right)  $. Thus, $S\left(  \alpha\right)  =S\left(
-\beta\right)  $ rewrites as $\left(  \left[  a\right]  _{m},\left[  a\right]
-_{n}\right)  =\left(  \left[  b\right]  _{m},\left[  b\right]  _{n}\right)  $.
-In other words, $\left[  a\right]  _{m}=\left[  b\right]  _{m}$ and $\left[
-a\right]  _{n}=\left[  b\right]  _{n}$.
+two integers $a$ and $b$. From $\alpha=\left[  a\right]  _{mn}$, we obtain
+$S_{m,n}\left(  \alpha\right)  =S_{m,n}\left(  \left[  a\right]  _{mn}\right)
+=\left(  \left[  a\right]  _{m},\left[  a\right]  _{n}\right)  $ (by
+(\ref{pf.thm.eqrel.CRT2.Ss=}), applied to $s=a$). Similarly, $S_{m,n}\left(
+\beta\right)  =\left(  \left[  b\right]  _{m},\left[  b\right]  _{n}\right)
+$. Thus, $S_{m,n}\left(  \alpha\right)  =S_{m,n}\left(  \beta\right)  $
+rewrites as $\left(  \left[  a\right]  _{m},\left[  a\right]  _{n}\right)
+=\left(  \left[  b\right]  _{m},\left[  b\right]  _{n}\right)  $. In other
+words, $\left[  a\right]  _{m}=\left[  b\right]  _{m}$ and $\left[  a\right]
+_{n}=\left[  b\right]  _{n}$.
 
 Now, $\left[  a\right]  _{m}=\left[  b\right]  _{m}$ means $a\equiv
 b\operatorname{mod}m$; in other words, $m\mid a-b$. Similarly, $n\mid a-b$.
@@ -15587,12 +15857,13 @@ Since $m\perp n$, we can combine these two divisibilities to obtain $mn\mid
 a-b$. In other words, $a\equiv b\operatorname{mod}mn$. In other words,
 $\left[  a\right]  _{mn}=\left[  b\right]  _{mn}$. In other words,
 $\alpha=\beta$ (since $\alpha=\left[  a\right]  _{mn}$ and $\beta=\left[
-b\right]  _{mn}$). So we have shown that $S$ is injective.
+b\right]  _{mn}$). So we have shown that $S_{m,n}$ is injective.
 
-\textit{Proof that }$S$ \textit{is surjective:} Fix $\left(  \alpha
-,\beta\right)  \in\left(  \mathbb{Z}/m\right)  \times\left(  \mathbb{Z}%
-/n\right)  $. We want to find a $\gamma\in\mathbb{Z}/\left(  mn\right)  $ such
-that $S\left(  \gamma\right)  =\left(  \alpha,\beta\right)  $.
+\textit{Proof that }$S_{m,n}$ \textit{is surjective:} Fix $\left(
+\alpha,\beta\right)  \in\left(  \mathbb{Z}/m\right)  \times\left(
+\mathbb{Z}/n\right)  $. We want to find a $\gamma\in\mathbb{Z}/\left(
+mn\right)  $ such that $S_{m,n}\left(  \gamma\right)  =\left(  \alpha
+,\beta\right)  $.
 
 Write $\alpha$ as $\alpha=\left[  a\right]  _{m}$ for some integer $a$ (since
 $\alpha\in\mathbb{Z}/m$). Similarly, write $\beta$ as $\beta=\left[  b\right]
@@ -15602,28 +15873,24 @@ integer $x\in\mathbb{Z}$ such that%
 \left(  x\equiv a\operatorname{mod}m\text{ and }x\equiv b\operatorname{mod}%
 n\right)  .
 \]
-Fix such an $x$. The definition of $\pi_{mn,m}$ yields $\pi_{mn,m}\left(
-\left[  x\right]  _{mn}\right)  =\left[  x\right]  _{m}=\left[  a\right]
-_{m}$ (since $x\equiv a\operatorname{mod}m$). The definition of $\pi_{mn,n}$
-yields $\pi_{mn,n}\left(  \left[  x\right]  _{mn}\right)  =\left[  x\right]
-_{n}=\left[  b\right]  _{n}$ (since $x\equiv b\operatorname{mod}n$). Now, the
-definition of $S$ yields
+Fix such an $x$. We have $\left[  x\right]  _{m}=\left[  a\right]  _{m}$
+(since $x\equiv a\operatorname{mod}m$) and $\left[  x\right]  _{n}=\left[
+b\right]  _{n}$ (since $x\equiv b\operatorname{mod}n$). Now,
+(\ref{pf.thm.eqrel.CRT2.Ss=}) (applied to $s=x$) yields
 \[
-S\left(  \left[  x\right]  _{mn}\right)  =\left(  \underbrace{\pi
-_{mn,m}\left(  \left[  x\right]  _{mn}\right)  }_{=\left[  a\right]  _{m}%
-},\underbrace{\pi_{mn,n}\left(  \left[  x\right]  _{mn}\right)  }_{=\left[
-b\right]  _{n}}\right)  =\left(  \underbrace{\left[  a\right]  _{m}}_{=\alpha
-},\underbrace{\left[  b\right]  _{n}}_{=\beta}\right)  =\left(  \alpha
-,\beta\right)  .
+S_{m,n}\left(  \left[  x\right]  _{mn}\right)  =\left(  \underbrace{\left[
+x\right]  _{m}}_{=\left[  a\right]  _{m}=\alpha},\underbrace{\left[  x\right]
+_{n}}_{=\left[  b\right]  _{n}=\beta}\right)  =\left(  \alpha,\beta\right)  .
 \]
 Thus, there exists a $\gamma\in\mathbb{Z}/\left(  mn\right)  $ such that
-$S\left(  \gamma\right)  =\left(  \alpha,\beta\right)  $ (namely,
-$\gamma=\left[  x\right]  _{mn}$). This proves that $S$ is surjective.
+$S_{m,n}\left(  \gamma\right)  =\left(  \alpha,\beta\right)  $ (namely,
+$\gamma=\left[  x\right]  _{mn}$). This proves that $S_{m,n}$ is surjective.
 
-So, $S$ is bijective (being both injective and surjective). This proves the Theorem.
+So, $S_{m,n}$ is bijective (being both injective and surjective). This proves
+the Theorem.
 
 (We could have saved ourselves some of the work by invoking the Pigeonhole
-Principle. Indeed, our goal was to show that $S$ is bijective. By the
+Principle. Indeed, our goal was to show that $S_{m,n}$ is bijective. By the
 Pigeonhole Principle, it suffices to prove that it is an injection \textbf{or}
 that it is a surjection, since $\mathbb{Z}/\left(  mn\right)  $ and $\left(
 \mathbb{Z}/m\right)  \times\left(  \mathbb{Z}/n\right)  $ are finite sets of
@@ -15644,14 +15911,14 @@ integers. Then, $\phi\left(  mn\right)  =\phi\left(  m\right)  \cdot
 =\left\vert U_{n}\right\vert $. Similarly, $\phi\left(  m\right)  =\left\vert
 U_{m}\right\vert $ and $\phi\left(  mn\right)  =\left\vert U_{mn}\right\vert $.
 
-Now, let $S$ be the map%
+Now, let $S_{m,n}$ be the map%
 \begin{align*}
 \mathbb{Z}/\left(  mn\right)   &  \rightarrow\left(  \mathbb{Z}/m\right)
 \times\left(  \mathbb{Z}/n\right)  ,\\
 \alpha &  \mapsto\left(  \pi_{mn,m}\left(  \alpha\right)  ,\pi_{mn,n}\left(
 \alpha\right)  \right)  .
 \end{align*}
-Then, $S$ is a bijection (by Theorem \ref{thm.eqrel.CRT2}).
+Then, $S_{m,n}$ is a bijection (by Theorem \ref{thm.eqrel.CRT2}).
 
 \begin{statement}
 \textit{Claim 0:} We have $\pi_{mn,m}\left(  \alpha\beta\right)  =\pi
@@ -15670,7 +15937,7 @@ Note that $U_{m}\times U_{n}\subseteq\left(  \mathbb{Z}/m\right)
 
 \begin{statement}
 \textit{Claim 1:} Let $\alpha\in\mathbb{Z}/\left(  mn\right)  $. If $\alpha\in
-U_{mn}$, then $S\left(  \alpha\right)  \in U_{m}\times U_{n}$.
+U_{mn}$, then $S_{m,n}\left(  \alpha\right)  \in U_{m}\times U_{n}$.
 \end{statement}
 
 [\textit{Proof:} Assume that $\alpha\in U_{mn}$. Thus, $\alpha$ has an inverse
@@ -15687,54 +15954,54 @@ Now, Claim 0 yields $\pi_{mn,m}\left(  \alpha\beta\right)  =\pi_{mn,m}\left(
 Thus, $\pi_{mn,m}\left(  \beta\right)  $ is an inverse of $\pi_{mn,m}\left(
 \alpha\right)  $ in $\mathbb{Z}/m$. Therefore, $\pi_{mn,m}\left(
 \alpha\right)  \in U_{m}$. Similarly, $\pi_{mn,n}\left(  \alpha\right)  \in
-U_{n}$. Now, the definition of $S$ yields%
+U_{n}$. Now, the definition of $S_{m,n}$ yields%
 \[
-S\left(  \alpha\right)  =\left(  \underbrace{\pi_{mn,m}\left(  \alpha\right)
-}_{\in U_{m}},\underbrace{\pi_{mn,n}\left(  \alpha\right)  }_{\in U_{n}%
-}\right)  \in U_{m}\times U_{n}.
+S_{m,n}\left(  \alpha\right)  =\left(  \underbrace{\pi_{mn,m}\left(
+\alpha\right)  }_{\in U_{m}},\underbrace{\pi_{mn,n}\left(  \alpha\right)
+}_{\in U_{n}}\right)  \in U_{m}\times U_{n}.
 \]
 Thus, Claim 1 is proven.]
 
 Conversely:
 
 \begin{statement}
-\textit{Claim 2:} Let $\alpha\in\mathbb{Z}/\left(  mn\right)  $. If $S\left(
-\alpha\right)  \in U_{m}\times U_{n}$, then $\alpha\in U_{mn}$.
+\textit{Claim 2:} Let $\alpha\in\mathbb{Z}/\left(  mn\right)  $. If
+$S_{m,n}\left(  \alpha\right)  \in U_{m}\times U_{n}$, then $\alpha\in U_{mn}$.
 \end{statement}
 
-[\textit{Proof:} Assume that $S\left(  \alpha\right)  \in U_{m}\times U_{n}$.
-Since $S\left(  \alpha\right)  =\left(  \pi_{mn,m}\left(  \alpha\right)
-,\pi_{mn,n}\left(  \alpha\right)  \right)  $, this rewrites as $\left(
-\pi_{mn,m}\left(  \alpha\right)  ,\pi_{mn,n}\left(  \alpha\right)  \right)
-\in U_{m}\times U_{n}$. In other words, $\pi_{mn,m}\left(  \alpha\right)  \in
-U_{m}$ and $\pi_{mn,n}\left(  \alpha\right)  \in U_{n}$.
+[\textit{Proof:} Assume that $S_{m,n}\left(  \alpha\right)  \in U_{m}\times
+U_{n}$. Since $S_{m,n}\left(  \alpha\right)  =\left(  \pi_{mn,m}\left(
+\alpha\right)  ,\pi_{mn,n}\left(  \alpha\right)  \right)  $, this rewrites as
+$\left(  \pi_{mn,m}\left(  \alpha\right)  ,\pi_{mn,n}\left(  \alpha\right)
+\right)  \in U_{m}\times U_{n}$. In other words, $\pi_{mn,m}\left(
+\alpha\right)  \in U_{m}$ and $\pi_{mn,n}\left(  \alpha\right)  \in U_{n}$.
 
 In other words, $\pi_{mn,m}\left(  \alpha\right)  $ has an inverse $\gamma
 \in\mathbb{Z}/m$, while $\pi_{mn,n}\left(  \alpha\right)  $ has an inverse
 $\delta\in\mathbb{Z}/n$. Consider these $\gamma$ and $\delta$.
 
 We have $\left(  \gamma,\delta\right)  \in\left(  \mathbb{Z}/m\right)
-\times\left(  \mathbb{Z}/n\right)  $. Since $S$ is bijective, we can thus find
-a $\beta\in\mathbb{Z}/\left(  mn\right)  $ such that $S\left(  \beta\right)
-=\left(  \gamma,\delta\right)  $. Consider this $\beta$. We have%
+\times\left(  \mathbb{Z}/n\right)  $. Since $S_{m,n}$ is bijective, we can
+thus find a $\beta\in\mathbb{Z}/\left(  mn\right)  $ such that $S_{m,n}\left(
+\beta\right)  =\left(  \gamma,\delta\right)  $. Consider this $\beta$. We have%
 \[
-\left(  \gamma,\delta\right)  =S\left(  \beta\right)  =\left(  \pi
-_{mn,m}\left(  \beta\right)  ,\pi_{mn,n}\left(  \beta\right)  \right)  .
+\left(  \gamma,\delta\right)  =S_{m,n}\left(  \beta\right)  =\left(
+\pi_{mn,m}\left(  \beta\right)  ,\pi_{mn,n}\left(  \beta\right)  \right)  .
 \]
 In other words, $\gamma=\pi_{mn,m}\left(  \beta\right)  $ and $\delta
 =\pi_{mn,n}\left(  \beta\right)  $.
 
 Now, we want to prove that $\beta$ is an inverse of $\alpha$ (in
 $\mathbb{Z}/\left(  mn\right)  $). This means proving that $\alpha
-\beta=\left[  1\right]  _{mn}$. Since $S$ is bijective, this is tantamount to
-proving that $S\left(  \alpha\beta\right)  =S\left(  \left[  1\right]
-_{mn}\right)  $. In other words, we need to show that%
+\beta=\left[  1\right]  _{mn}$. Since $S_{m,n}$ is bijective, this is
+tantamount to proving that $S_{m,n}\left(  \alpha\beta\right)  =S_{m,n}\left(
+\left[  1\right]  _{mn}\right)  $. In other words, we need to show that%
 \[
 \left(  \pi_{mn,m}\left(  \alpha\beta\right)  ,\pi_{mn,n}\left(  \alpha
 \beta\right)  \right)  =\left(  \pi_{mn,m}\left(  \left[  1\right]
 _{mn}\right)  ,\pi_{mn,n}\left(  \left[  1\right]  _{mn}\right)  \right)
 \]
-(because of how $S$ is defined). In other words, we need to show that
+(because of how $S_{m,n}$ is defined). In other words, we need to show that
 \[
 \pi_{mn,m}\left(  \alpha\beta\right)  =\pi_{mn,m}\left(  \left[  1\right]
 _{mn}\right)  \ \ \ \ \ \ \ \ \ \ \text{and}\ \ \ \ \ \ \ \ \ \ \pi
@@ -15756,13 +16023,13 @@ and similarly $\pi_{mn,n}\left(  \alpha\beta\right)  =\pi_{mn,n}\left(
 
 Combining Claim 1 with Claim 2, we obtain the equivalence%
 \[
-\left(  \alpha\in U_{mn}\right)  \Longleftrightarrow\left(  S\left(
+\left(  \alpha\in U_{mn}\right)  \Longleftrightarrow\left(  S_{m,n}\left(
 \alpha\right)  \in U_{m}\times U_{n}\right)
 \]
 for each $\alpha\in\mathbb{Z}/\left(  mn\right)  $.
 
 Thus, $U_{m}\times U_{n}$ is the image of the set $U_{mn}$ under the bijection
-$S$. So%
+$S_{m,n}$. So%
 \[
 \left\vert U_{m}\times U_{n}\right\vert =\left\vert U_{mn}\right\vert
 =\phi\left(  mn\right)  .
@@ -15981,8 +16248,9 @@ huge anymore) and similarly $\left[  a\right]  _{3}$ and $\left[  a\right]
 _{5}$ and $\left[  a\right]  _{7}$ etc. (here we are using $n=2,3,5,7$, but we
 don't have to use primes -- we just need a bunch of coprime integers).
 
-The Chinese Remainder Theorem (plus an actual algorithm that computes $S^{-1}%
-$) lets us \textquotedblleft patch\textquotedblright\ these results together:
+The Chinese Remainder Theorem (plus an actual algorithm that computes $\left(
+S_{m,n}\right)  ^{-1}$) lets us \textquotedblleft patch\textquotedblright%
+\ these results together:
 
 \begin{itemize}
 \item From $\left[  a\right]  _{2}$ and $\left[  a\right]  _{3}$, you can get
@@ -16163,7 +16431,8 @@ So let us forget this motivation and instead give a formal definition of
 complex numbers:
 
 \begin{definition}
-A \textit{complex number} is a pair $\left(  a,b\right)  $ of two real numbers.
+\label{def.CC.CC}A \textit{complex number} is a pair $\left(  a,b\right)  $ of
+two real numbers.
 
 We let $\mathbb{C}$ be the set of all complex numbers.
 
@@ -16174,13 +16443,15 @@ We let $i$ be the complex number $\left(  0,1\right)  $. When the notation $i$
 is ambiguous, I will be using $i_{\mathbb{C}}$ instead. (Some authors call it
 $j$ or $\iota$ or just $\sqrt{-1}$.)
 
-Define three binary operations $+,-,\cdot$ on $\mathbb{C}$ as follows:%
+Define three binary operations $+,-,\cdot$ on $\mathbb{C}$ by setting%
 \begin{align*}
 \left(  a,b\right)  +\left(  c,d\right)   &  =\left(  a+c,b+d\right)  ,\\
 \left(  a,b\right)  -\left(  c,d\right)   &  =\left(  a-c,b-d\right)  ,\\
-\left(  a,b\right)  \left(  c,d\right)   &  =\left(  ac-bd,ad+bc\right)  .
+\left(  a,b\right)  \cdot\left(  c,d\right)   &  =\left(  ac-bd,ad+bc\right)
 \end{align*}
-
+for all $\left(  a,b\right)  \in\mathbb{C}$ and $\left(  c,d\right)
+\in\mathbb{C}$. We also write $\left(  a,b\right)  \left(  c,d\right)  $ for
+$\left(  a,b\right)  \cdot\left(  c,d\right)  $.
 \end{definition}
 
 For example,%
@@ -16196,31 +16467,43 @@ _{\mathbb{C}}$, so $-i$ fits the same bill.
 We are leaving division undefined so far, because we will later get it more or
 less for free.
 
+We shall follow \href{https://en.wikipedia.org/wiki/Order_of_operations}{the
+usual \textquotedblleft PEMDAS\textquotedblright\ rules for the order of
+operations} when interpreting expressions involving the operations $+,-,\cdot$
+on $\mathbb{C}$. Thus, for example, $\alpha+\beta\cdot\gamma$ means
+$\alpha+\left(  \beta\cdot\gamma\right)  $ and not $\left(  \alpha
++\beta\right)  \cdot\gamma$; likewise, $\alpha\beta^{k}+\gamma$ means $\left(
+\alpha\left(  \beta^{k}\right)  \right)  +\gamma$ and not any other interpretation.
+
 \begin{theorem}
 \label{thm.CC.CC.rules}The following rules for addition, subtraction and
 multiplication in $\mathbb{C}$ hold:
 
-\textbf{(a)} $\alpha+\beta=\beta+\alpha$ for any $\alpha,\beta\in\mathbb{C}$.
-
-\textbf{(b)} $\alpha+\left(  \beta+\gamma\right)  =\left(  \alpha
-+\beta\right)  +\gamma$ for any $\alpha,\beta,\gamma\in\mathbb{C}$.
-
-\textbf{(c)} $\alpha+0_{\mathbb{C}}=\alpha$ for any $\alpha\in\mathbb{C}$.
-
-\textbf{(d)} $\alpha\cdot1_{\mathbb{C}}=\alpha$ for any $\alpha\in\mathbb{C}$.
-
-\textbf{(e)} $\alpha\cdot\beta=\beta\cdot\alpha$ for any $\alpha,\beta
+\textbf{(a)} We have $\alpha+\beta=\beta+\alpha$ for any $\alpha,\beta
 \in\mathbb{C}$.
 
-\textbf{(f)} $\alpha\cdot\left(  \beta\cdot\gamma\right)  =\left(  \alpha
-\cdot\beta\right)  \cdot\gamma$ for any $\alpha,\beta,\gamma\in\mathbb{C}$.
+\textbf{(b)} We have $\alpha+\left(  \beta+\gamma\right)  =\left(
+\alpha+\beta\right)  +\gamma$ for any $\alpha,\beta,\gamma\in\mathbb{C}$.
 
-\textbf{(g)} $\alpha\cdot\left(  \beta+\gamma\right)  =\alpha\beta
-+\alpha\gamma$ and $\left(  \alpha+\beta\right)  \cdot\gamma=\alpha
+\textbf{(c)} We have $\alpha+0_{\mathbb{C}}=\alpha$ for any $\alpha
+\in\mathbb{C}$.
+
+\textbf{(d)} We have $\alpha\cdot1_{\mathbb{C}}=\alpha$ for any $\alpha
+\in\mathbb{C}$.
+
+\textbf{(e)} We have $\alpha\cdot\beta=\beta\cdot\alpha$ for any $\alpha
+,\beta\in\mathbb{C}$.
+
+\textbf{(f)} We have $\alpha\cdot\left(  \beta\cdot\gamma\right)  =\left(
+\alpha\cdot\beta\right)  \cdot\gamma$ for any $\alpha,\beta,\gamma
+\in\mathbb{C}$.
+
+\textbf{(g)} We have $\alpha\cdot\left(  \beta+\gamma\right)  =\alpha
+\beta+\alpha\gamma$ and $\left(  \alpha+\beta\right)  \cdot\gamma=\alpha
 \gamma+\beta\gamma$ for any $\alpha,\beta,\gamma\in\mathbb{C}$.
 
-\textbf{(h)} $\alpha\cdot0_{\mathbb{C}}=0_{\mathbb{C}}$ for any $\alpha
-\in\mathbb{C}$.
+\textbf{(h)} We have $\alpha\cdot0_{\mathbb{C}}=0_{\mathbb{C}}$ for any
+$\alpha\in\mathbb{C}$.
 
 \textbf{(i)} If $\alpha,\beta,\gamma\in\mathbb{C}$, then we have the
 equivalence $\left(  \alpha-\beta=\gamma\right)  \Longleftrightarrow\left(
@@ -16396,6 +16679,20 @@ have the equivalence%
 \]
 
 \end{proposition}
+
+\begin{proof}
+$\Longrightarrow:$ Assume that $\gamma=\dfrac{\alpha}{\beta}$. Thus,
+$\gamma=\dfrac{\alpha}{\beta}=\alpha\beta^{-1}$. Multiplying both sides with
+$\beta$, we obtain $\gamma\beta=\alpha\underbrace{\beta^{-1}\beta}_{=1}%
+=\alpha$. Hence, $\alpha=\gamma\beta=\beta\gamma$. This proves the
+\textquotedblleft$\Longrightarrow$\textquotedblright\ direction.
+
+$\Longleftarrow:$ Assume that $\alpha=\beta\gamma$. Multiplying both sides
+with $\beta^{-1}$, we obtain $\beta^{-1}\alpha=\underbrace{\beta^{-1}\beta
+}_{=1}\gamma=\gamma$, so that $\gamma=\beta^{-1}\alpha=\alpha\beta^{-1}%
+=\dfrac{\alpha}{\beta}$. This proves the \textquotedblleft$\Longleftarrow
+$\textquotedblright\ direction.
+\end{proof}
 
 \begin{definition}
 Let $\alpha\in\mathbb{C}$.
@@ -16649,9 +16946,9 @@ _{2}\right)  \cdots\left(  x-\alpha_{n}\right)  .
 
 In other words, any polynomial with complex coefficients can be factored into
 linear factors. This is in contrast to real numbers, where polynomials can at
-best be factored into linear and quadratic factors. (For example, $x^{2}+1$
-cannot be factored further over the real numbers, but factors as $\left(
-x+i\right)  \left(  x-i\right)  $ over the complex numbers.)
+best be factored into linear and quadratic factors. (For example, the
+polynomial $x^{2}+1$ cannot be factored further over the real numbers, but
+factors as $\left(  x+i\right)  \left(  x-i\right)  $ over the complex numbers.)
 
 The Fundamental Theorem of Algebra is not actually a theorem of algebra. It
 relies heavily on the concepts of real and complex numbers. So it is actually
@@ -16683,6 +16980,19 @@ of Gaussian integers.
 
 We will try to use Greek letters for Gaussian integers and Roman letters for integers.
 
+\begin{proposition}
+\textbf{(a)} Let $\alpha$ and $\beta$ be two Gaussian integers. Then,
+$\alpha+\beta$, $\alpha-\beta$ and $\alpha\cdot\beta$ are Gaussian integers.
+
+\textbf{(b)} Sums and products of finitely many Gaussian integers are Gaussian integers.
+\end{proposition}
+
+\begin{proof}
+\textbf{(a)} This follows from the definitions of $+,-,\cdot$ on $\mathbb{C}$.
+
+\textbf{(b)} This follows by induction from part \textbf{(a)}.
+\end{proof}
+
 \begin{definition}
 \textbf{(a)} A Gaussian integer $\alpha\in\mathbb{Z}\left[  i\right]  $ is
 said to be \textit{invertible in}\textbf{ }$\mathbb{Z}\left[  i\right]  $ if
@@ -16707,7 +17017,7 @@ the relation $\sim$ (but requiring $\gamma\in\mathbb{Z}$ instead of $\gamma
 \in\mathbb{Z}\left[  i\right]  $), then this relation would just be given by%
 \begin{align*}
 \left(  a\underset{\mathbb{Z}}{\sim}b\right)   &  \Longleftrightarrow\left(
-a=cb\text{ for some }c\in\left\{  1,-1\right\}  \right)  \\
+a=cb\text{ for some }c\in\left\{  1,-1\right\}  \right) \\
 &  \Longleftrightarrow\left(  a=b\text{ or }a=-b\right)  \Longleftrightarrow
 \left(  \left\vert a\right\vert =\left\vert b\right\vert \right)  .
 \end{align*}
@@ -16973,6 +17283,8 @@ $\alpha_{2}\equiv\beta_{2}\operatorname{mod}\nu$, then%
 \end{proposition}
 
 Now, let us try to make division with remainder work for Gaussian integers.
+This is no longer easy or just a straightforward modification of the
+corresponding situation for integers.
 
 \begin{thebibliography}{999999999}                                                                                        %
 
@@ -17001,6 +17313,9 @@ integers}.\newline\url{http://www.math.uconn.edu/~kconrad/blurbs/ugradnumthy/Zin
 
 \bibitem[ConradI]{Conrad-Induction}Keith Conrad, \textit{Examples of proofs by
 induction}.\newline\url{https://kconrad.math.uconn.edu/blurbs/proofs/induction.pdf}
+
+\bibitem[ConradW]{Conrad-Well}Keith Conrad, \textit{Well-defined
+functions}.\newline\url{https://kconrad.math.uconn.edu/blurbs/proofs/welldefined.pdf}
 
 \bibitem[daSilv12]{daSilv12}%
 \href{https://math.stackexchange.com/users/10704/}{Patrick Da Silva},
