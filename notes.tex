@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Wednesday, March 06, 2019 08:30:27}
+%TCIDATA{LastRevised=Wednesday, March 06, 2019 10:28:40}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -2631,7 +2631,9 @@ $. Then, there exists a unique pair $\left(  q,r\right)  \in\mathbb{Z}%
 \times\left\{  0,1,\ldots,n-1\right\}  $ such that $u=qn+r$.
 \end{theorem}
 
-Before we prove this theorem, let us introduce the notations that it justifies:
+We shall refer to this as the \textquotedblleft\textit{division-with-remainder
+theorem for integers}\textquotedblright. Before we prove this theorem, let us
+introduce the notations that it justifies:
 
 \begin{definition}
 \label{def.ent.quorem}Let $n$ be a positive integer. Let $u\in\mathbb{Z}$.
@@ -3092,6 +3094,85 @@ From $u\%n\equiv u\operatorname{mod}n$, we obtain $u\equiv u\%n=v\%n\equiv
 v\operatorname{mod}n$. Thus, we have proven $u\equiv v\operatorname{mod}n$.
 This proves the \textquotedblleft$\Longleftarrow$\textquotedblright\ direction
 of Exercise \ref{exe.ent.quo-rem.mod=rem}.
+\end{proof}
+\end{fineprint}
+
+The following exercise provides an analogue of Theorem
+\ref{thm.ent.quorem.full}, in which $r$ is required to be an integer
+satisfying $\left\vert r\right\vert \leq n/2$ rather than an element of
+$\left\{  0,1,\ldots,n-1\right\}  $. Note, however, that $r$ is not always
+unique in this case.
+
+\begin{exercise}
+\label{exe.ent.quo-rem.minrem}Let $n$ be a positive integer. Let
+$u\in\mathbb{Z}$.
+
+\textbf{(a)} Prove that there exists a pair $\left(  q,r\right)  \in
+\mathbb{Z}\times\mathbb{Z}$ such that $u=qn+r$ and $\left\vert r\right\vert
+\leq n/2$.
+
+\textbf{(b)} Prove that this pair is not unique in general (i.e., find $n$ and
+$u$ for which it is not unique).
+\end{exercise}
+
+\begin{fineprint}
+\begin{proof}
+[Solution to Exercise \ref{exe.ent.quo-rem.minrem}.] \textbf{(a)} Theorem
+\ref{thm.ent.quorem.full} shows that there exists a unique pair $\left(
+q,r\right)  \in\mathbb{Z}\times\left\{  0,1,\ldots,n-1\right\}  $ such that
+$u=qn+r$. Consider this pair $\left(  q,r\right)  $, and denote it by $\left(
+s,t\right)  $. Thus, $\left(  s,t\right)  \in\mathbb{Z}\times\left\{
+0,1,\ldots,n-1\right\}  $ is a pair satisfying $u=sn+t$. From $\left(
+s,t\right)  \in\mathbb{Z}\times\left\{  0,1,\ldots,n-1\right\}  $, we obtain
+$s\in\mathbb{Z}$ and $t\in\left\{  0,1,\ldots,n-1\right\}  \subseteq
+\mathbb{Z}$.
+
+We are in one of the following two cases:
+
+\textit{Case 1:} We have $t\leq n/2$.
+
+\textit{Case 2:} We have $t>n/2$.
+
+Let us first consider Case 1. In this case, we have $t\leq n/2$. But $t$ is
+nonnegative (since $t\in\left\{  0,1,\ldots,n-1\right\}  $); thus, $\left\vert
+t\right\vert =t\leq n/2$. So we have $\left(  s,t\right)  \in\mathbb{Z}%
+\times\mathbb{Z}$ (since $s\in\mathbb{Z}$ and $t\in\mathbb{Z}$) and $u=sn+t$
+and $\left\vert t\right\vert \leq n/2$. Hence, there exists a pair $\left(
+q,r\right)  \in\mathbb{Z}\times\mathbb{Z}$ such that $u=qn+r$ and $\left\vert
+r\right\vert \leq n/2$ (namely, $\left(  q,r\right)  =\left(  s,t\right)  $).
+Thus, Exercise \ref{exe.ent.quo-rem.minrem} \textbf{(a)} is solved in Case 1.
+
+Let us now consider Case 2. In this case, we have $t>n/2$. But $t\in\left\{
+0,1,\ldots,n-1\right\}  $, thus $t\leq n-1\leq n$. Hence, $t-n\leq0$. Hence,
+$\left\vert t-n\right\vert =-\left(  t-n\right)  =n-\underbrace{t}%
+_{>n/2}<n-n/2=n/2$. Therefore, $\left\vert t-n\right\vert \leq n/2$.
+Furthermore, $t-n\in\mathbb{Z}$ (since $t\in\mathbb{Z}$ and $n\in\mathbb{Z}$)
+and $s+1\in\mathbb{Z}$ (since $s\in\mathbb{Z}$). So we have $\left(
+s+1,t-n\right)  \in\mathbb{Z}\times\mathbb{Z}$ (since $s+1\in\mathbb{Z}$ and
+$t-n\in\mathbb{Z}$) and $u=\left(  s+1\right)  n+\left(  t-n\right)  $ (since
+$\left(  s+1\right)  n+\left(  t-n\right)  =sn+t=u$) and $\left\vert
+t-n\right\vert \leq n/2$. Hence, there exists a pair $\left(  q,r\right)
+\in\mathbb{Z}\times\mathbb{Z}$ such that $u=qn+r$ and $\left\vert r\right\vert
+\leq n/2$ (namely, $\left(  q,r\right)  =\left(  s+1,t-n\right)  $). Thus,
+Exercise \ref{exe.ent.quo-rem.minrem} \textbf{(a)} is solved in Case 2.
+
+We have now solved Exercise \ref{exe.ent.quo-rem.minrem} \textbf{(a)} in each
+of the two Cases 1 and 2. Since these two Cases cover all possibilities, we
+thus conclude that Exercise \ref{exe.ent.quo-rem.minrem} \textbf{(a)} always holds.
+
+\textbf{(b)} For example, if $n=2$ and $u=5$, then both $\left(  2,1\right)  $
+and $\left(  3,-1\right)  $ are pairs $\left(  q,r\right)  \in\mathbb{Z}%
+\times\mathbb{Z}$ such that $u=qn+r$ and $\left\vert r\right\vert \leq n/2$.
+
+More generally: If $n=2k$ for some positive integer $k$, and if $u\equiv
+k\operatorname{mod}n$, then both $\left(  \left(  u-k\right)  /n,k\right)  $
+and $\left(  \left(  u+k\right)  /n,-k\right)  $ are pairs $\left(
+q,r\right)  \in\mathbb{Z}\times\mathbb{Z}$ such that $u=qn+r$ and $\left\vert
+r\right\vert \leq n/2$.
+
+[It is not hard to see that these are the \textbf{only} cases in which the
+pair $\left(  q,r\right)  $ from Exercise \ref{exe.ent.quo-rem.minrem}
+\textbf{(a)} is not unique.]
 \end{proof}
 \end{fineprint}
 
@@ -16311,11 +16392,11 @@ So all six invertible classes are covered. Thus, $\left[  2\right]  _{9}$ is a
 primitive root modulo $9$.
 \end{example}
 
-Note that Euler's theorem yields that if $\beta$ is an invertible residue
-class in $\mathbb{Z}/n$, then $\beta^{\phi\left(  n\right)  }=\left[
-1\right]  _{n}$. So such a $\beta$ has at most $\phi\left(  n\right)  $
-distinct powers. When $\beta$ has \textbf{exactly} $\phi\left(  n\right)  $
-distinct powers, it is a primitive root.
+Note that Euler's theorem (Theorem \ref{thm.ent.euler}) yields that if $\beta$
+is an invertible residue class in $\mathbb{Z}/n$, then $\beta^{\phi\left(
+n\right)  }=\left[  1\right]  _{n}$. So such a $\beta$ has at most
+$\phi\left(  n\right)  $ distinct powers. When $\beta$ has \textbf{exactly}
+$\phi\left(  n\right)  $ distinct powers, it is a primitive root.
 
 \begin{example}
 What are the primitive roots modulo $8$ ?
@@ -16847,8 +16928,8 @@ for the complex numbers $\alpha=\left(  a,b\right)  =a+bi$ and $\beta=\left(
 c,d\right)  =c+di$. Thus, the identity (\ref{eq.intro.sum-of-2sq.sum*sum}) is
 just part \textbf{(d)} of the above proposition, restated without the use of
 complex numbers. This answers the question of how you could have come up with
-this identity (although it should be said that Brahmagupta must have found it
-in a different way, since complex numbers were not known to him).
+this identity (although Brahmagupta must have found it in a different way,
+since complex numbers were not known to him).
 
 \begin{definition}
 Let $\alpha=\left(  a,b\right)  =a+bi$ be a complex number.
