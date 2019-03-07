@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Wednesday, March 06, 2019 12:18:12}
+%TCIDATA{LastRevised=Wednesday, March 06, 2019 22:17:39}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -3173,6 +3173,83 @@ r\right\vert \leq n/2$.
 [It is not hard to see that these are the \textbf{only} cases in which the
 pair $\left(  q,r\right)  $ from Exercise \ref{exe.ent.quo-rem.minrem}
 \textbf{(a)} is not unique.]
+\end{proof}
+\end{fineprint}
+
+\begin{convention}
+The symbols $//$ and $\%$ will be granted higher precedence (in the sense of
+\href{https://en.wikipedia.org/wiki/Order_of_operations}{operator precedence})
+than addition. This means that an expression of the form \textquotedblleft%
+$c+a//n+b$\textquotedblright\ will always be interpreted as \textquotedblleft%
+$c+\left(  a//n\right)  +b$\textquotedblright, rather than as
+\textquotedblleft$\left(  c+a\right)  //\left(  n+b\right)  $%
+\textquotedblright\ (or in any other way). Likewise, an expression of the form
+\textquotedblleft$c+a\%n+b$\textquotedblright\ will always be interpreted as
+\textquotedblleft$c+\left(  a\%n\right)  +b$\textquotedblright, rather than as
+\textquotedblleft$\left(  c+a\right)  \%\left(  n+b\right)  $%
+\textquotedblright.
+\end{convention}
+
+\begin{exercise}
+\label{exe.ent.quo-rem.u+v}Let $u$ and $v$ be two integers. Let $n$ be a
+positive integer. Prove that
+\[
+u\%n+v\%n-\left(  u+v\right)  \%n\in\left\{  0,n\right\}  .
+\]
+
+\end{exercise}
+
+\begin{fineprint}
+\begin{proof}
+[Solution to Exercise \ref{exe.ent.quo-rem.u+v}.] Corollary
+\ref{cor.ent.quo-rem.remmod} \textbf{(a)} yields that $u\%n\in\left\{
+0,1,\ldots,n-1\right\}  $ and $u\%n\equiv u\operatorname{mod}n$. From
+$u\%n\in\left\{  0,1,\ldots,n-1\right\}  $, we conclude that $u\%n$ is an
+integer satisfying $0\leq u\%n\leq n-1$.
+
+Corollary \ref{cor.ent.quo-rem.remmod} \textbf{(a)} (applied to $v$ instead of
+$u$) yields that $v\%n\in\left\{  0,1,\ldots,n-1\right\}  $ and $v\%n\equiv
+v\operatorname{mod}n$. From $v\%n\in\left\{  0,1,\ldots,n-1\right\}  $, we
+conclude that $v\%n$ is an integer satisfying $0\leq v\%n\leq n-1$.
+
+Corollary \ref{cor.ent.quo-rem.remmod} \textbf{(a)} (applied to $u+v$ instead
+of $u$) yields that $\left(  u+v\right)  \%n\in\left\{  0,1,\ldots
+,n-1\right\}  $ and $\left(  u+v\right)  \%n\equiv u+v\operatorname{mod}n$.
+From $\left(  u+v\right)  \%n\in\left\{  0,1,\ldots,n-1\right\}  $, we
+conclude that $\left(  u+v\right)  \%n$ is an integer satisfying $0\leq\left(
+u+v\right)  \%n\leq n-1$.
+
+Adding the congruences $u\%n\equiv u\operatorname{mod}n$ and $v\%n\equiv
+v\operatorname{mod}n$ together, we obtain $u\%n+v\%n\equiv
+u+v\operatorname{mod}n$. Subtracting the congruence $\left(  u+v\right)
+\%n\equiv u+v\operatorname{mod}n$ from this congruence, we obtain
+$u\%n+v\%n-\left(  u+v\right)  \%n\equiv\left(  u+v\right)  -\left(
+u+v\right)  =0\operatorname{mod}n$. By Proposition \ref{prop.ent.mod.0}
+(applied to $a=u\%n+v\%n-\left(  u+v\right)  \%n$), this entails $n\mid
+u\%n+v\%n-\left(  u+v\right)  \%n$. In other words, there exists an integer
+$c$ such that $u\%n+v\%n-\left(  u+v\right)  \%n=nc$. Consider this $c$.
+
+Hence,%
+\[
+nc=\underbrace{u\%n}_{\leq n-1<n}+\underbrace{v\%n}_{\leq n-1<n}%
+-\underbrace{\left(  u+v\right)  \%n}_{\geq0}<n+n-0=2n=n\cdot2.
+\]
+We can divide this inequality by $n$ (since $n$ is positive). We thus obtain
+$c<2$. Hence, $c\leq1$ (since $c$ is an integer).
+
+On the other hand,
+\[
+nc=\underbrace{u\%n}_{\geq0}+\underbrace{v\%n}_{\geq0}-\underbrace{\left(
+u+v\right)  \%n}_{\leq n-1<n}>0+0-n=-n=n\cdot\left(  -1\right)  .
+\]
+We can divide this inequality by $n$ (since $n$ is positive). We thus obtain
+$c>-1$. Hence, $c\geq0$ (since $c$ is an integer).
+
+Combining $c\geq0$ with $c\leq1$, we obtain $c\in\left\{  0,1\right\}  $
+(since $c$ is an integer). In other words, we have $c=0$ or $c=1$. Hence, we
+have $nc=n\cdot0=0$ or $nc=n\cdot1=n$. In other words, $nc\in\left\{
+0,n\right\}  $. Now, recall that $u\%n+v\%n-\left(  u+v\right)  \%n=nc\in
+\left\{  0,n\right\}  $. This solves Exercise \ref{exe.ent.quo-rem.u+v}.
 \end{proof}
 \end{fineprint}
 
@@ -17445,13 +17522,14 @@ closest we can get to Theorem \ref{thm.ent.quorem.full} in $\mathbb{Z}\left[
 i\right]  $.
 
 \begin{proof}
-[Proof of Theorem \ref{thm.Z[i].gauss.quorem}.] (Following \cite[proof of
+[Proof of Theorem \ref{thm.Z[i].gauss.quorem}.](Following \cite[proof of
 Theorem 3.1]{Conrad-Gauss}.) Let $N=\operatorname*{N}\left(  \beta\right)  $.
 Write%
 \begin{align*}
-\dfrac{\alpha}{\beta} &  =\dfrac{\alpha\overline{\beta}}{\beta\overline{\beta
-}}=\dfrac{\alpha\overline{\beta}}{N}\ \ \ \ \ \ \ \ \ \ \left(  \text{since
-}\beta\overline{\beta}=\operatorname*{N}\left(  \beta\right)  =N\right)  \\
+\dfrac{\alpha}{\beta}  &  =\dfrac{\alpha\overline{\beta}}{\beta\overline
+{\beta}}=\dfrac{\alpha\overline{\beta}}{N}\ \ \ \ \ \ \ \ \ \ \left(
+\text{since }\beta\overline{\beta}=\operatorname*{N}\left(  \beta\right)
+=N\right) \\
 &  =\dfrac{m+ni}{N}%
 \end{align*}
 for some $m,n\in\mathbb{Z}$ (since $\alpha\overline{\beta}$ is a Gaussian
@@ -17467,7 +17545,7 @@ r_{1}\right\vert \leq N/2$ and $\left\vert r_{2}\right\vert \leq N/2$.
 
 Now,%
 \begin{align*}
-\dfrac{\alpha}{\beta} &  =\dfrac{m+ni}{N}=\dfrac{\left(  q_{1}N+r_{1}\right)
+\dfrac{\alpha}{\beta}  &  =\dfrac{m+ni}{N}=\dfrac{\left(  q_{1}N+r_{1}\right)
 +\left(  q_{2}N+r_{2}\right)  i}{N}\\
 &  =\left(  q_{1}+q_{2}i\right)  +\dfrac{r_{1}+r_{2}i}{N}.
 \end{align*}
@@ -17483,7 +17561,7 @@ The equality $\dfrac{r_{1}+r_{2}i}{N}=\dfrac{\rho}{\beta}$ yields%
 \begin{align*}
 \rho &  =\beta\cdot\dfrac{r_{1}+r_{2}i}{N}=\beta\cdot\dfrac{r_{1}+r_{2}%
 i}{\beta\overline{\beta}}\ \ \ \ \ \ \ \ \ \ \left(  \text{since
-}N=\operatorname*{N}\left(  \beta\right)  =\beta\overline{\beta}\right)  \\
+}N=\operatorname*{N}\left(  \beta\right)  =\beta\overline{\beta}\right) \\
 &  =\dfrac{r_{1}+r_{2}i}{\overline{\beta}}%
 \end{align*}
 and thus%
@@ -17491,14 +17569,14 @@ and thus%
 \operatorname*{N}\left(  \rho\right)   &  =\operatorname*{N}\left(
 \dfrac{r_{1}+r_{2}i}{\overline{\beta}}\right)  =\dfrac{\operatorname*{N}%
 \left(  r_{1}+r_{2}i\right)  }{\operatorname*{N}\left(  \overline{\beta
-}\right)  }\ \ \ \ \ \ \ \ \ \ \left(  \text{by the Lemma above}\right)  \\
+}\right)  }\ \ \ \ \ \ \ \ \ \ \left(  \text{by the Lemma above}\right) \\
 &  =\dfrac{r_{1}^{2}+r_{2}^{2}}{N}\ \ \ \ \ \ \ \ \ \ \left(  \text{since
 }\operatorname*{N}\left(  r_{1}+r_{2}i\right)  =r_{1}^{2}+r_{2}^{2}\text{ and
 }\operatorname*{N}\left(  \overline{\beta}\right)  =\operatorname*{N}\left(
-\beta\right)  =N\right)  \\
+\beta\right)  =N\right) \\
 &  \leq\dfrac{\left(  N/2\right)  ^{2}+\left(  N/2\right)  ^{2}}{N}\\
 &  \ \ \ \ \ \ \ \ \ \ \left(  \text{since }\left\vert r_{1}\right\vert \leq
-N/2\text{ and }\left\vert r_{2}\right\vert \leq N/2\right)  \\
+N/2\text{ and }\left\vert r_{2}\right\vert \leq N/2\right) \\
 &  =N/2=\operatorname*{N}\left(  \beta\right)  /2
 \end{align*}
 (since $N=\operatorname*{N}\left(  \beta\right)  $). This proves the Theorem.
