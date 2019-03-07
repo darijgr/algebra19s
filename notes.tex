@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Wednesday, March 06, 2019 22:17:39}
+%TCIDATA{LastRevised=Wednesday, March 06, 2019 22:52:51}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -3201,7 +3201,7 @@ u\%n+v\%n-\left(  u+v\right)  \%n\in\left\{  0,n\right\}  .
 
 \begin{fineprint}
 \begin{proof}
-[Solution to Exercise \ref{exe.ent.quo-rem.u+v}.] Corollary
+[Solution to Exercise \ref{exe.ent.quo-rem.u+v}.]Corollary
 \ref{cor.ent.quo-rem.remmod} \textbf{(a)} yields that $u\%n\in\left\{
 0,1,\ldots,n-1\right\}  $ and $u\%n\equiv u\operatorname{mod}n$. From
 $u\%n\in\left\{  0,1,\ldots,n-1\right\}  $, we conclude that $u\%n$ is an
@@ -4721,7 +4721,10 @@ there exist integers $x\in\mathbb{Z}$ and $y\in\mathbb{Z}$ such that%
 [Proof of Lemma \ref{lem.ent.gcd.bezout.++}.]The following proof uses a
 strategy similar to the Euclidean algorithm (making one of $a$ and $b$ smaller
 repeatedly until one of $a$ and $b$ becomes $0$), and can in fact be viewed as
-a \textquotedblleft protocol\textquotedblright\ of the algorithm.
+a \textquotedblleft protocol\textquotedblright\ of the algorithm\footnote{or,
+rather, of a more primitive version of the Euclidean algorithm, in which we
+apply not the full power of Proposition \ref{prop.ent.gcd.props1} \textbf{(e)}
+but only the identity $\gcd\left(  a,b\right)  =\gcd\left(  a,b-a\right)  $}.
 
 We use strong induction on $a+b$. Thus, we fix an $n\in\mathbb{N}$, and assume
 (as induction hypothesis) that Lemma \ref{lem.ent.gcd.bezout.++} holds
@@ -4928,6 +4931,194 @@ We have now proven Theorem \ref{thm.ent.gcd.bezout} in both Cases 1 and 2.
 Hence, Theorem \ref{thm.ent.gcd.bezout} is proven.
 \end{fineprint}
 \end{proof}
+
+\begin{exercise}
+\label{exe.ent.gcd.an-1}Let $u$ be an integer.
+
+\textbf{(a)} Prove that $u^{b}-1\equiv u^{a}-1\operatorname{mod}u^{b-a}-1$ for
+any $a\in\mathbb{N}$ and $b\in\mathbb{N}$ satisfying $b\geq a$.
+
+\textbf{(b)} Prove that $\gcd\left(  u^{a}-1,u^{b}-1\right)  =\left\vert
+u^{\gcd\left(  a,b\right)  }-1\right\vert $ for all $a\in\mathbb{N}$ and
+$b\in\mathbb{N}$.
+\end{exercise}
+
+\begin{fineprint}
+\begin{proof}
+[Solution to Exercise \ref{exe.ent.gcd.an-1}.]\textbf{(a)} Let $a\in
+\mathbb{N}$ and $b\in\mathbb{N}$ be such that $b\geq a$.
+
+We have $b-a\geq0$ (since $b\geq a$), hence $b-a\in\mathbb{N}$. Thus,
+$u^{b-a}$ is an integer. We have%
+\begin{align*}
+\left(  u^{b}-1\right)  -\left(  u^{a}-1\right)    & =u^{b}-u^{a}%
+=\underbrace{u^{\left(  b-a\right)  +a}}_{=u^{b-a}u^{a}}-u^{a}%
+\ \ \ \ \ \ \ \ \ \ \left(  \text{since }b=\left(  b-a\right)  +a\right)  \\
+& =u^{b-a}u^{a}-u^{a}=\left(  u^{b-a}-1\right)  u^{a}.
+\end{align*}
+Thus, $u^{b-a}-1\mid\left(  u^{b}-1\right)  -\left(  u^{a}-1\right)  $ (since
+$u^{a}$ is an integer). In other words, $u^{b}-1\equiv u^{a}%
+-1\operatorname{mod}u^{b-a}-1$. This solves Exercise \ref{exe.ent.gcd.an-1}
+\textbf{(a)}.
+
+\begin{noncompile}
+(Old version of the proof, longer:)
+
+We have $b-a\geq0$ (since $b\geq a$), hence $b-a\in\mathbb{N}$. Thus,
+$u^{b-a}$ is an integer. Moreover, $u^{a}u^{b-a}=u^{a+\left(  b-a\right)
+}=u^{b}$ (since $a+\left(  b-a\right)  =b$). Now,%
+\[
+\underbrace{u^{a}\left(  u^{b-a}-1\right)  }_{=u^{a}u^{b-a}-u^{a}}+\left(
+u^{a}-1\right)  =u^{a}u^{b-a}-u^{a}+\left(  u^{a}-1\right)  =\underbrace{u^{a}%
+u^{b-a}}_{=u^{b}}-1=u^{b}-1.
+\]
+Hence, $\left(  u^{b}-1\right)  -\left(  u^{a}-1\right)  =u^{a}\left(
+u^{b-a}-1\right)  =\left(  u^{b-a}-1\right)  u^{a}$. Thus, $u^{b-a}%
+-1\mid\left(  u^{b}-1\right)  -\left(  u^{a}-1\right)  $ (since $u^{a}$ is an
+integer). In other words, $u^{b}-1\equiv u^{a}-1\operatorname{mod}u^{b-a}-1$.
+This solves Exercise \ref{exe.ent.gcd.an-1} \textbf{(a)}.
+\end{noncompile}
+
+\textbf{(b)} The following argument will imitate our proof of Lemma
+\ref{lem.ent.gcd.bezout.++} above.
+
+We use strong induction on $a+b$. Thus, we fix an $n\in\mathbb{N}$, and assume
+(as induction hypothesis) that Exercise \ref{exe.ent.gcd.an-1} \textbf{(b)}
+holds whenever $a+b<n$. We must now prove that Exercise \ref{exe.ent.gcd.an-1}
+\textbf{(b)} holds whenever $a+b=n$.
+
+We have assumed that Exercise \ref{exe.ent.gcd.an-1} \textbf{(b)} holds
+whenever $a+b<n$. In other words, the following statement holds:
+
+\begin{statement}
+\textit{Statement 1:} Let $a\in\mathbb{N}$ and $b\in\mathbb{N}$ be such that
+$a+b<n$. Then, $\gcd\left(  u^{a}-1,u^{b}-1\right)  =\left\vert u^{\gcd\left(
+a,b\right)  }-1\right\vert $.
+\end{statement}
+
+Now, we must prove that Exercise \ref{exe.ent.gcd.an-1} \textbf{(b)} holds
+whenever $a+b=n$. Let us first prove this in the case when $b\geq a$:
+
+\begin{statement}
+\textit{Statement 2:} Let $a\in\mathbb{N}$ and $b\in\mathbb{N}$ be such that
+$a+b=n$ and $b\geq a$. Then, $\gcd\left(  u^{a}-1,u^{b}-1\right)  =\left\vert
+u^{\gcd\left(  a,b\right)  }-1\right\vert $.
+\end{statement}
+
+[\textit{Proof of Statement 2:} We are in one of the following two cases:
+
+\textit{Case 1:} We have $a=0$.
+
+\textit{Case 2:} We have $a\neq0$.
+
+Let us first consider Case 1. In this case, we have $a=0$. Hence, $u^{a}%
+=u^{0}=1$ and thus $u^{a}-1=0$. Thus,%
+\begin{align}
+\gcd\left(  \underbrace{u^{a}-1}_{=0},u^{b}-1\right)   &  =\gcd\left(
+0,u^{b}-1\right)  =\gcd\left(  u^{b}-1,0\right) \nonumber\\
+&  \ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{by Proposition \ref{prop.ent.gcd.props1} \textbf{(b)}, applied to
+}0\text{ and }u^{b}-1\\
+\text{instead of }a\text{ and }b
+\end{array}
+\right) \nonumber\\
+&  =\left\vert u^{b}-1\right\vert \label{sol.ent.gcd.an-1.b.s2.pf.1}%
+\end{align}
+(since Proposition \ref{prop.ent.gcd.props1} \textbf{(a)} (applied to
+$u^{b}-1$ instead of $a$) yields $\gcd\left(  u^{b}-1,0\right)  =\gcd\left(
+u^{b}-1\right)  =\left\vert u^{b}-1\right\vert $).
+
+But Proposition \ref{prop.ent.gcd.props1} \textbf{(b)} yields $\gcd\left(
+a,b\right)  =\gcd\left(  b,\underbrace{a}_{=0}\right)  =\gcd\left(
+b,0\right)  $. Now, Proposition \ref{prop.ent.gcd.props1} \textbf{(a)}
+(applied to $b$ instead of $a$) yields $\gcd\left(  b,0\right)  =\gcd\left(
+b\right)  =\left\vert b\right\vert $. Hence, $\gcd\left(  a,b\right)
+=\gcd\left(  b,0\right)  =\left\vert b\right\vert =b$ (since $b$ is
+nonnegative). Hence, $\left\vert u^{\gcd\left(  a,b\right)  }-1\right\vert
+=\left\vert u^{b}-1\right\vert $. Comparing this equality with
+(\ref{sol.ent.gcd.an-1.b.s2.pf.1}), we obtain $\gcd\left(  u^{a}%
+-1,u^{b}-1\right)  =\left\vert u^{\gcd\left(  a,b\right)  }-1\right\vert $.
+Thus, Statement 2 is proven in Case 1.
+
+Let us next consider Case 2. In this case, we have $a\neq0$. Hence, $a>0$
+(since $a\in\mathbb{N}$), so that $a+b>b$. Hence, $b<a+b=n$.
+
+From $b\geq a$, we obtain $b-a\in\mathbb{N}$. Moreover, $a\in\mathbb{N}$ and
+$b-a\in\mathbb{N}$ satisfy $a+\left(  b-a\right)  =b<n$. Therefore, we can
+apply Statement 1 \textbf{to }$b-a$ \textbf{instead of }$b$. Thus we obtain
+that $\gcd\left(  u^{a}-1,u^{b-a}-1\right)  =\left\vert u^{\gcd\left(
+a,b-a\right)  }-1\right\vert $.
+
+But Proposition \ref{prop.ent.gcd.props1} \textbf{(c)} (applied to $u=-1$)
+yields $\gcd\left(  a,\left(  -1\right)  a+b\right)  =\gcd\left(  a,b\right)
+$. This rewrites as $\gcd\left(  a,b-a\right)  =\gcd\left(  a,b\right)  $
+(since $\left(  -1\right)  a+b=b-a$).
+
+Recall that $b-a\in\mathbb{N}$. Also, $b\geq b-a$ (since $a\geq0$). Hence,
+Exercise \ref{exe.ent.gcd.an-1} \textbf{(a)} (applied to $b-a$ instead of $a$)
+yields $u^{b}-1\equiv u^{b-a}-1\operatorname{mod}u^{b-\left(  b-a\right)  }%
+-1$. Since $b-\left(  b-a\right)  =a$, this rewrites as $u^{b}-1\equiv
+u^{b-a}-1\operatorname{mod}u^{a}-1$. Hence, Proposition
+\ref{prop.ent.gcd.props1} \textbf{(d)} (applied to $u^{a}-1$, $u^{b}-1$ and
+$u^{b-a}-1$ instead of $a$, $b$ and $c$) yields
+\begin{align*}
+\gcd\left(  u^{a}-1,u^{b}-1\right)   &  =\gcd\left(  u^{a}-1,u^{b-a}-1\right)
+=\left\vert u^{\gcd\left(  a,b-a\right)  }-1\right\vert \\
+&  =\left\vert u^{\gcd\left(  a,b\right)  }-1\right\vert
+\ \ \ \ \ \ \ \ \ \ \left(  \text{since }\gcd\left(  a,b-a\right)
+=\gcd\left(  a,b\right)  \right)  .
+\end{align*}
+Thus, Statement 2 is proven in Case 2.
+
+We have now proven Statement 2 in both Cases 1 and 2. Hence, Statement 2 is
+always proven.]
+
+Now, we can prove that Exercise \ref{exe.ent.gcd.an-1} \textbf{(b)} holds
+whenever $a+b=n$:
+
+\begin{statement}
+\textit{Statement 3:} Let $a\in\mathbb{N}$ and $b\in\mathbb{N}$ be such that
+$a+b=n$. Then, $\gcd\left(  u^{a}-1,u^{b}-1\right)  =\left\vert u^{\gcd\left(
+a,b\right)  }-1\right\vert $.
+\end{statement}
+
+[\textit{Proof of Statement 3:} We are in one of the following two cases:
+
+\textit{Case 1:} We have $b\geq a$.
+
+\textit{Case 2:} We have $b<a$.
+
+Let us first consider Case 1. In this case, we have $b\geq a$. Hence,
+Statement 2 shows that $\gcd\left(  u^{a}-1,u^{b}-1\right)  =\left\vert
+u^{\gcd\left(  a,b\right)  }-1\right\vert $. Thus, Statement 3 is proven in
+Case 1.
+
+Let us next consider Case 2. In this case, we have $b<a$. Hence, $a>b$, so
+that $a\geq b$. This shows that we can apply Statement 2 \textbf{to }%
+$b$\textbf{ and }$a$ \textbf{instead of }$a$ \textbf{and }$b$. Thus we obtain
+$\gcd\left(  u^{b}-1,u^{a}-1\right)  =\left\vert u^{\gcd\left(  b,a\right)
+}-1\right\vert $. But Proposition \ref{prop.ent.gcd.props1} \textbf{(b)}
+yields $\gcd\left(  a,b\right)  =\gcd\left(  b,a\right)  $. Moreover,
+Proposition \ref{prop.ent.gcd.props1} \textbf{(b)} (applied to $u^{a}-1$ and
+$u^{b}-1$ instead of $a$ and $b$) yields%
+\[
+\gcd\left(  u^{a}-1,u^{b}-1\right)  =\gcd\left(  u^{b}-1,u^{a}-1\right)
+=\left\vert u^{\gcd\left(  b,a\right)  }-1\right\vert =\left\vert
+u^{\gcd\left(  a,b\right)  }-1\right\vert
+\]
+(since $\gcd\left(  b,a\right)  =\gcd\left(  a,b\right)  $). Thus, Statement 3
+is proven in Case 2.
+
+We have now proven Statement 3 in both Cases 1 and 2. Hence, Statement 3 is
+always proven.]
+
+By proving Statement 3, we have shown that Exercise \ref{exe.ent.gcd.an-1}
+\textbf{(b)} holds whenever $a+b=n$. This completes the induction step. Thus,
+Exercise \ref{exe.ent.gcd.an-1} \textbf{(b)} is proven by strong induction.
+\end{proof}
+\end{fineprint}
 
 \subsubsection{First applications of Bezout's theorem}
 
@@ -5961,7 +6152,7 @@ xa + yb$. In other words, $\gcd\left(  a, b \right)  \mid xa + yb$ (since $g =
 \end{proof}
 
 A similar proposition holds for $\mathbb{Z}$-linear combinations of any number
-of integers $b_{1}, b_{2}, \ldots, b_{k}$.
+of integers $b_{1},b_{2},\ldots,b_{k}$.
 
 \begin{center}
 \textbf{2019-02-06 lecture}
