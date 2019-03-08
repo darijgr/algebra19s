@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Friday, March 08, 2019 15:53:52}
+%TCIDATA{LastRevised=Friday, March 08, 2019 16:18:23}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -6557,12 +6557,13 @@ a_{1}a_{2}\cdots a_{i}\perp c\ \ \ \ \ \ \ \ \ \ \text{for each }i\in\left\{
 (\ref{sol.ent.coprime.ab-to-ck.goal}) by induction on $i$:
 
 \textit{Induction base:} Proposition \ref{prop.ent.gcd.props1} \textbf{(f)}
-yields $\gcd\left(  1,c\right)  \mid1$ and thus $\gcd\left(  1,c\right)  =1$
-(by Exercise \ref{exe.ent.div.g|1}, since $\gcd\left(  1,c\right)  $ is a
-nonnegative integer). In other words, $1$ is coprime to $c$. In other words,
-$1\perp c$. Now, $a_{1}a_{2}\cdots a_{0}=\left(  \text{empty product}\right)
-=1\perp c$. Hence, (\ref{sol.ent.coprime.ab-to-ck.goal}) holds for $i=0$. This
-completes the induction base.
+(applied to $a=1$ and $b=c$) yields $\gcd\left(  1,c\right)  \mid1$ and thus
+$\gcd\left(  1,c\right)  =1$ (by Exercise \ref{exe.ent.div.g|1}, since
+$\gcd\left(  1,c\right)  $ is a nonnegative integer). In other words, $1$ is
+coprime to $c$. In other words, $1\perp c$. Now, $a_{1}a_{2}\cdots
+a_{0}=\left(  \text{empty product}\right)  =1\perp c$. Hence,
+(\ref{sol.ent.coprime.ab-to-ck.goal}) holds for $i=0$. This completes the
+induction base.
 
 \textit{Induction step:} Let $j\in\left\{  1,2,\ldots,k\right\}  $. Assume
 that (\ref{sol.ent.coprime.ab-to-ck.goal}) holds for $i=j-1$. We must now
@@ -6798,7 +6799,7 @@ I}b_{i}\perp c$. This solves Exercise \ref{exe.ent.coprime.ab-to-cI}.
 
 \begin{exercise}
 \label{exe.ent.coprime.b==c}Let $a,b,c$ be three integers such that $a\equiv
-b\operatorname{mod}c$. If $a\perp c$, then $b\perp c$.
+b\operatorname{mod}c$. Prove that if $a\perp c$, then $b\perp c$.
 \end{exercise}
 
 \begin{fineprint}
@@ -12853,89 +12854,224 @@ This contradiction shows that our assumption was false. Hence, $a = 1$ or $a =
 p-1$.
 
 Now, forget that we fixed $a$. We thus have proven that every medium element
-$a$ of $A$ satisfies $a = 1$ or $a = p-1$. In other words, ever medium element
-of $A$ is either $1$ and $p-1$. Since we know that $1$ and $p-1$ actually are
+$a$ of $A$ satisfies $a=1$ or $a=p-1$. In other words, ever medium element of
+$A$ is either $1$ and $p-1$. Since we know that $1$ and $p-1$ actually are
 medium elements of $A$, we thus conclude that the medium elements of $A$ are
 precisely $1$ and $p-1$.]
 
-It is easy to see that if $a$ is a small element of $A$, then $J\left(  a
-\right) $ is a large element of $A$\ \ \ \ \footnote{\textit{Proof.} Let $a$
-be a small element of $A$. Thus, $a < J\left(  a \right) $. Note that $J
-\left(  a \right)  \in A$ (since $J$ is a map from $A$ to $A$). But $J \circ J
-= \operatorname{id}$, so that $\left(  J \circ J \right) \left(  a \right)  =
-\operatorname{id}{a} = a < J\left(  a \right) $. In view of $\left(  J \circ J
-\right) \left(  a \right)  = J\left(  J\left(  a \right)  \right) $, this
-rewrites as $J\left(  J\left(  a \right)  \right)  < J\left(  a \right) $. In
-other words, the element $J \left(  a \right) $ of $A$ is large (by the
+So we have shown that the medium elements of $A$ are precisely $1$ and $p-1$.
+Since these two elements are actually distinct (because $p-1\neq1$), we thus
+obtain%
+\begin{equation}
+\prod_{\substack{a\in A;\\a\text{ is medium}}}a=1\cdot\left(  p-1\right)
+=p-1\equiv-1\operatorname{mod}p.\label{pf.thm.ent.wilson.prodmed}%
+\end{equation}
+
+
+It is easy to see that if $a$ is a small element of $A$, then $J\left(
+a\right)  $ is a large element of $A$\ \ \ \ \footnote{\textit{Proof.} Let $a$
+be a small element of $A$. Thus, $a<J\left(  a\right)  $. Note that $J\left(
+a\right)  \in A$ (since $J$ is a map from $A$ to $A$). But $J\circ
+J=\operatorname{id}$, so that $\left(  J\circ J\right)  \left(  a\right)
+=\operatorname{id}{a}=a<J\left(  a\right)  $. In view of $\left(  J\circ
+J\right)  \left(  a\right)  =J\left(  J\left(  a\right)  \right)  $, this
+rewrites as $J\left(  J\left(  a\right)  \right)  <J\left(  a\right)  $. In
+other words, the element $J\left(  a\right)  $ of $A$ is large (by the
 definition of \textquotedblleft large\textquotedblright). Qed.}. Hence, the
 map%
 \begin{align*}
 J^{+}:\left\{  \text{small elements of }A\right\}   &  \rightarrow\left\{
 \text{large elements of }A\right\}  ,\\
-a  &  \mapsto J\left(  a\right)
+a &  \mapsto J\left(  a\right)
 \end{align*}
 is well-defined. Similarly, the map%
 \begin{align*}
 J^{-}:\left\{  \text{large elements of }A\right\}   &  \rightarrow\left\{
 \text{small elements of }A\right\}  ,\\
-a  &  \mapsto J\left(  a\right)
+a &  \mapsto J\left(  a\right)
 \end{align*}
 is well-defined. These two maps $J^{+}$ and $J^{-}$ are both restrictions of
 the map $J$, and thus are mutually inverse (since the map $J$ is inverse to
-itself). Hence, the map $J^{+}$ is invertible, i.e., is a bijection. XXXThus,
-we have found a bijection from $\left\{  \text{small elements of }C\right\}  $
-to $\left\{  \text{large elements of }C\right\}  $ (namely, $F^{+}$).
-Therefore,%
-\[
-\left\vert \left\{  \text{small elements of }C\right\}  \right\vert
-=\left\vert \left\{  \text{large elements of }C\right\}  \right\vert .
-\]
-
-
-Now, (\ref{eq.def.ent.phi.phi.1}) yields%
+itself). Hence, the map $J^{+}$ is invertible, i.e., is a bijection. In other
+words, the map%
 \begin{align*}
-\phi\left(  n\right)   &  =\left\vert \underbrace{\left\{  i\in\left\{
-1,2,\ldots,n\right\}  \ \mid\ i\perp n\right\}  }_{=C}\right\vert =\left\vert
-C\right\vert \\
-&  =\underbrace{\left\vert \left\{  \text{small elements of }C\right\}
-\right\vert }_{=\left\vert \left\{  \text{large elements of }C\right\}
-\right\vert }+\underbrace{\left\vert \left\{  \text{medium elements of
-}C\right\}  \right\vert }_{=0}+\left\vert \left\{  \text{large elements of
-}C\right\}  \right\vert \\
-&  \ \ \ \ \ \ \ \ \ \ \left(
+\left\{  \text{small elements of }A\right\}   &  \rightarrow\left\{
+\text{large elements of }A\right\}  ,\\
+a &  \mapsto J\left(  a\right)
+\end{align*}
+is a bijection (since this map is just the map $J^{+}$). Thus, we can
+substitute $J\left(  b\right)  $ for $a$ in the product $\prod_{\substack{a\in
+A;\\a\text{ is large}}}a$. We thus obtain%
+\begin{equation}
+\prod_{\substack{a\in A;\\a\text{ is large}}}a=\prod_{\substack{b\in
+A;\\b\text{ is small}}}J\left(  b\right)  =\prod_{\substack{a\in A;\\a\text{
+is small}}}J\left(  a\right)  \label{pf.thm.ent.wilson.prodlar}%
+\end{equation}
+(here, we have renamed the index $b$ as $a$ in the product). Now, the
+definition of $\left(  p-1\right)  !$ yields%
+\begin{align}
+\left(  p-1\right)  !  & =1\cdot2\cdot\cdots\cdot\left(  p-1\right)
+=\prod_{a\in A}a\nonumber\\
+& =\left(  \prod_{\substack{a\in A;\\a\text{ is small}}}a\right)
+\cdot\underbrace{\left(  \prod_{\substack{a\in A;\\a\text{ is medium}%
+}}a\right)  }_{\substack{\equiv-1\operatorname{mod}p\\\text{(by
+(\ref{pf.thm.ent.wilson.prodmed}))}}}\cdot\underbrace{\left(  \prod
+_{\substack{a\in A;\\a\text{ is large}}}a\right)  }_{\substack{=\prod
+_{\substack{a\in A;\\a\text{ is small}}}J\left(  a\right)  \\\text{(by
+(\ref{pf.thm.ent.wilson.prodlar}))}}}\nonumber\\
+& \ \ \ \ \ \ \ \ \ \ \left(
 \begin{array}
 [c]{c}%
-\text{since each element of }C\text{ is either small or medium or large}\\
-\text{(and there is no overlap between these three classes of elements)}%
+\text{since each }a\in A\text{ is either small or medium or large (but
+never}\\
+\text{has more than one of these three attributes simultaneously)}%
 \end{array}
-\right) \\
-&  =\left\vert \left\{  \text{large elements of }C\right\}  \right\vert
-+\left\vert \left\{  \text{large elements of }C\right\}  \right\vert \\
-&  =2\cdot\left\vert \left\{  \text{large elements of }C\right\}  \right\vert
-.
+\right)  \nonumber\\
+& \equiv\left(  \prod_{\substack{a\in A;\\a\text{ is small}}}a\right)
+\cdot\left(  -1\right)  \cdot\left(  \prod_{\substack{a\in A;\\a\text{ is
+small}}}J\left(  a\right)  \right)  =-\underbrace{\left(  \prod
+_{\substack{a\in A;\\a\text{ is small}}}a\right)  \cdot\left(  \prod
+_{\substack{a\in A;\\a\text{ is small}}}J\left(  a\right)  \right)  }%
+_{=\prod_{\substack{a\in A;\\a\text{ is small}}}\left(  aJ\left(  a\right)
+\right)  }\nonumber\\
+& =-\prod_{\substack{a\in A;\\a\text{ is small}}}\left(  aJ\left(  a\right)
+\right)  \operatorname{mod}p.\label{pf.thm.ent.wilson.6}%
+\end{align}
+
+
+But it is clear that $\prod_{\substack{a\in A;\\a\text{ is small}%
+}}\underbrace{\left(  aJ\left(  a\right)  \right)  }_{\substack{\equiv
+1\operatorname{mod}p\\\text{(by (\ref{pf.thm.ent.wilson.aJa}))}}%
+}\equiv1\operatorname{mod}p$\ \ \ \ \footnote{\textit{Proof.} Here is this
+argument in more detail:
+\par
+Every $a\in\left\{  \text{small elements of }A\right\}  $ satisfies $aJ\left(
+a\right)  \equiv1\operatorname{mod}p$ (by (\ref{pf.thm.ent.wilson.aJa})).
+Renaming the index $a$ as $s$ in this statement, we obtain the following:
+Every $s\in\left\{  \text{small elements of }A\right\}  $ satisfies $sJ\left(
+s\right)  \equiv1\operatorname{mod}p$. Hence, (\ref{eq.exe.ent.mod.k-sum.b})
+(applied to $n=p$, $S=\left\{  \text{small elements of }A\right\}  $,
+$a_{s}=sJ\left(  s\right)  $ and $b_{s}=1$) yields
+\[
+\prod_{s\in\left\{  \text{small elements of }A\right\}  }\left(  sJ\left(
+s\right)  \right)  \equiv\prod_{s\in\left\{  \text{small elements of
+}A\right\}  }1=1\operatorname{mod}p.
+\]
+In view of%
+\begin{align*}
+\prod_{s\in\left\{  \text{small elements of }A\right\}  }\left(  sJ\left(
+s\right)  \right)    & =\prod_{a\in\left\{  \text{small elements of
+}A\right\}  }\left(  aJ\left(  a\right)  \right)  \ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{here, we have renamed the}\\
+\text{index }s\text{ as }i\text{ in the product}%
+\end{array}
+\right)  \\
+& =\prod_{\substack{a\in A;\\a\text{ is small}}}\left(  aJ\left(  a\right)
+\right)  ,
 \end{align*}
-Thus, $2\mid\phi\left(  n\right)  $ (since $\left\vert \left\{  \text{large
-elements of }C\right\}  \right\vert $ is an integer). In other words,
-$\phi\left(  n\right)  $ is even. This so
-\end{fineprint}
-
-XXX
-
-$\left(  p-1\right)  !\equiv-1\operatorname{mod}p$.
-
-Exercise \ref{exe.ent.primes.aa-1}
-
-XXX
-
+this rewrites as $\prod_{\substack{a\in A;\\a\text{ is small}}}\left(
+aJ\left(  a\right)  \right)  \equiv1\operatorname{mod}p$.}. Hence,
+(\ref{pf.thm.ent.wilson.6}) rewrites as%
+\[
+\left(  p-1\right)  !\equiv-\underbrace{\prod_{\substack{a\in A;\\a\text{ is
+small}}}\left(  aJ\left(  a\right)  \right)  }_{\equiv1\operatorname{mod}%
+p}\equiv-1\operatorname{mod}p.
+\]
 This proves Theorem \ref{thm.ent.wilson}.
+\end{fineprint}
 \end{proof}
 
 Later, in Section \ref{sect.equiv.modinv}, we shall give a different version
 of this proof.
 
-Theorem \ref{thm.ent.wilson} has a converse: If an integer $p>1$ satisfies
-$\left(  p-1\right)  !\equiv-1\operatorname{mod}p$, then $p$ is a prime. (This
-is actually easier to prove than Theorem \ref{thm.ent.wilson} itself.)
+Theorem \ref{thm.ent.wilson} has a converse:
+
+\begin{exercise}
+\label{exe.ent.wilson.converse}If an integer $p>1$ satisfies $\left(
+p-1\right)  !\equiv-1\operatorname{mod}p$, then prove that $p$ is a prime.
+\end{exercise}
+
+(This is actually easier to prove than Theorem \ref{thm.ent.wilson} itself.)
+
+\begin{exercise}
+\label{exe.ent.wilson.gauss}Let $p$ be a prime. Prove that
+\[
+\left(  p-1\right)  !\equiv p-1\operatorname{mod}1+2+\cdots+\left(
+p-1\right)  .
+\]
+
+\end{exercise}
+
+\begin{fineprint}
+\begin{proof}
+[Solution to Exercise \ref{exe.ent.wilson.gauss}.] Theorem
+\ref{thm.ent.wilson} yields
+\[
+\left(  p-1\right)  !\equiv-1\equiv p-1\operatorname{mod}p
+\]
+(since $p-1\equiv-1\operatorname{mod}p$). In other words, $p\mid\left(
+p-1\right)  !-\left(  p-1\right)  $.
+
+On the other hand, $p>1$ (since $p$ is a prime). Now, the definition of
+$\left(  p-1\right)  !$ yields%
+\[
+\left(  p-1\right)  !=1\cdot2\cdot\cdots\cdot\left(  p-1\right)  =\left(
+1\cdot2\cdot\cdots\cdot\left(  p-2\right)  \right)  \cdot\left(  p-1\right)  .
+\]
+Subtracting $p-1$ from both sides of this equality, we obtain%
+\begin{align*}
+\left(  p-1\right)  !-\left(  p-1\right)    & =\left(  1\cdot2\cdot\cdots
+\cdot\left(  p-2\right)  \right)  \cdot\left(  p-1\right)  -\left(
+p-1\right)  \\
+& =\left(  1\cdot2\cdot\cdots\cdot\left(  p-2\right)  -1\right)  \cdot\left(
+p-1\right)  \\
+& =\left(  p-1\right)  \cdot\left(  1\cdot2\cdot\cdots\cdot\left(  p-2\right)
+-1\right)  .
+\end{align*}
+Hence, $p-1\mid\left(  p-1\right)  !-\left(  p-1\right)  $ (since
+$1\cdot2\cdot\cdots\cdot\left(  p-2\right)  -1$ is an integer).
+
+Now, it is easy to see that $p-1\perp p$\ \ \ \ \footnote{\textit{Proof.}
+Proposition \ref{prop.ent.gcd.props1} \textbf{(c)} (applied to $a=p-1$, $b=1$
+and $u=1$) yields $\gcd\left(  p-1,1\left(  p-1\right)  +1\right)
+=\gcd\left(  p-1,1\right)  $. But Proposition \ref{prop.ent.gcd.props1}
+\textbf{(f)} (applied to $a=p-1$ and $b=1$) yields $\gcd\left(  p-1,1\right)
+\mid p-1$ and $\gcd\left(  p-1,1\right)  \mid1$. Since $\gcd\left(
+p-1,1\right)  $ is a nonnegative integer satisfying $\gcd\left(  p-1,1\right)
+\mid1$, we obtain $\gcd\left(  p-1,1\right)  =1$ (by Exercise
+\ref{exe.ent.div.g|1}, applied to $g=\gcd\left(  p-1,1\right)  $). Hence,
+\[
+\gcd\left(  p-1,\underbrace{p}_{=1\left(  p-1\right)  +1}\right)  =\gcd\left(
+p-1,1\left(  p-1\right)  +1\right)  =\gcd\left(  p-1,1\right)  =1.
+\]
+In other words, $p-1\perp p$.}. Furthermore, recall that $p-1\mid\left(
+p-1\right)  !-\left(  p-1\right)  $ and $p\mid\left(  p-1\right)  !-\left(
+p-1\right)  $. Hence, Theorem \ref{thm.ent.coprime.combine} (applied to
+$a=p-1$, $b=p$ and $c=\left(  p-1\right)  !-\left(  p-1\right)  $) yields%
+\begin{equation}
+\left(  p-1\right)  p\mid\left(  p-1\right)  !-\left(  p-1\right)
+.\label{sol.ent.wilson.gauss.at}%
+\end{equation}
+
+
+But Proposition \ref{prop.ent.1+2+...+n} (applied to $n=p-1$) yields%
+\[
+1+2+\cdots+\left(  p-1\right)  =\dfrac{\left(  p-1\right)  \left(  \left(
+p-1\right)  +1\right)  }{2}=\dfrac{\left(  p-1\right)  p}{2}.
+\]
+Hence, $\left(  p-1\right)  p=\left(  1+2+\cdots+\left(  p-1\right)  \right)
+\cdot2$, so that
+\[
+1+2+\cdots+\left(  p-1\right)  \mid\left(  p-1\right)  p\mid\left(
+p-1\right)  !-\left(  p-1\right)
+\]
+(by (\ref{sol.ent.wilson.gauss.at})). In other words, $\left(  p-1\right)
+!\equiv p-1\operatorname{mod}1+2+\cdots+\left(  p-1\right)  $. This solves
+Exercise \ref{exe.ent.wilson.gauss}.
+\end{proof}
+\end{fineprint}
 
 \begin{center}
 \textbf{2019-02-18 lecture}
