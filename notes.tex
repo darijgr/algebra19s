@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Friday, March 08, 2019 16:18:23}
+%TCIDATA{LastRevised=Friday, March 08, 2019 16:29:48}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -12771,12 +12771,45 @@ between the factors of the product $1\cdot2\cdot\cdots\cdot\left(  p-1\right)
 $ (pairing up each factor $a$ with the factor $J\left(  a\right)  $), which
 will pair up almost all of them -- more precisely, all of them except for the
 very first and very last factors (since these two factors would have to pair
-up with themselves). Any two different factors paired up with each other will
-have a product that is $\equiv1\operatorname{mod}p$ (by
-(\ref{pf.thm.ent.wilson.aJa})), and thus the product of all the $p-1$ factors
-will reduce (when working modulo $p$) to the product of the two factors that
-have not been paired up, which will be $1\cdot\left(  p-1\right)
-=p-1\equiv-1\operatorname{mod}p$.
+up with themselves)\footnote{The reason \textbf{why} it is precisely these two
+factors that will not be paired up is not completely trivial. It follows from
+Exercise \ref{exe.ent.primes.aa-1}.}. For example, if $p=11$, then we have the
+following table of values of $J$:%
+\[%
+\begin{tabular}
+[c]{|c||c|c|c|c|c|c|c|c|c|c||}\hline
+$a$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ & $8$ & $9$ & $10$\\\hline
+$J\left(  a\right)  $ & $1$ & $6$ & $4$ & $3$ & $9$ & $2$ & $8$ & $7$ & $5$ &
+$10$\\\hline
+\end{tabular}
+\]
+(since, for example, $2$ is the unique $a^{\prime}\in A$ satisfying $2\cdot
+a^{\prime}\equiv1\operatorname{mod}11$), and thus we pair up the factors of
+the product $1\cdot2\cdot\cdots\cdot\left(  p-1\right)  $ as follows:%
+\begin{align*}
+1\cdot2\cdot\cdots\cdot\left(  p-1\right)    & =1\cdot2\cdot3\cdot4\cdot
+5\cdot6\cdot7\cdot8\cdot9\cdot10\\
+& =1\cdot\left(  2\cdot6\right)  \cdot\left(  3\cdot4\right)  \cdot\left(
+5\cdot9\right)  \cdot\left(  7\cdot8\right)  \cdot10.
+\end{align*}
+By the definition of the map $J$, each pair has the form $\left(  a,J\left(
+a\right)  \right)  $ for some $a\in A$, and thus the product of any two
+different factors paired up with each other is $\equiv1\operatorname{mod}p$
+(by (\ref{pf.thm.ent.wilson.aJa})). For example, if $p=11$, then we have%
+\begin{align*}
+1\cdot2\cdot\cdots\cdot\left(  p-1\right)    & =1\cdot\underbrace{\left(
+2\cdot6\right)  }_{\equiv1\operatorname{mod}11}\cdot\underbrace{\left(
+3\cdot4\right)  }_{\equiv1\operatorname{mod}11}\cdot\underbrace{\left(
+5\cdot9\right)  }_{\equiv1\operatorname{mod}11}\cdot\underbrace{\left(
+7\cdot8\right)  }_{\equiv1\operatorname{mod}11}\cdot10\\
+& \equiv1\cdot10\operatorname{mod}11.
+\end{align*}
+Thus, any two different factors paired up with each other \textquotedblleft
+neutralize\textquotedblright\ each other when being multiplied (as long as we
+are computing modulo $p$). Hence, the product of all the $p-1$ factors will
+reduce (when working modulo $p$) to the product of the two factors that have
+not been paired up, which will be $1\cdot\left(  p-1\right)  =p-1\equiv
+-1\operatorname{mod}p$.
 
 \begin{fineprint}
 Here are the details of this argument:
@@ -12794,9 +12827,9 @@ An element $a$ of $A$ will be called
 Now, we claim that the medium elements of $A$ are precisely $1$ and $p-1$.
 
 [\textit{Proof:} We have $1 \leq p-1$ (since $p \geq2$). Thus, $1 \in\left\{
-1,2,\ldots,p-1\right\}  = A$ and $p-1 \in\left\{ 1,2,\ldots,p-1\right\}  = A$.
-The element $1$ of $A$ is medium\footnote{\textit{Proof.} We have $1\in A$.
-Hence, $J\left(  1\right)  \in A$ (since $J$ is a map from $A$ to $A$).
+1,2,\ldots,p-1\right\}  = A$ and $p-1 \in\left\{  1,2,\ldots,p-1\right\}  =
+A$. The element $1$ of $A$ is medium\footnote{\textit{Proof.} We have $1\in
+A$. Hence, $J\left(  1\right)  \in A$ (since $J$ is a map from $A$ to $A$).
 Furthermore, (\ref{pf.thm.ent.wilson.aJa}) (applied to $a=1$) yields
 $1J\left(  1\right)  \equiv1\operatorname{mod}p$. Thus, $1\equiv1J\left(
 1\right)  =J\left(  1\right)  \operatorname{mod}p$. Thus, Lemma
@@ -12841,14 +12874,14 @@ If we had $a \equiv p-1 \mod p$, then Lemma \ref{lem.ent.wilson.modi}
 which would contradict the fact that $a=p-1$ does not hold. Thus, we do not
 have $a \equiv p-1 \mod p$.
 
-We have assumed that $a$ is medium. In other words, $a = J\left( a\right) $.
+We have assumed that $a$ is medium. In other words, $a = J\left(  a\right)  $.
 But (\ref{pf.thm.ent.wilson.aJa}) yields $aJ\left(  a \right)  \equiv1
-\mod p$. Thus, $a^{2} = a \underbrace{a}_{= J\left(  a \right) } = aJ\left(  a
-\right)  \equiv1 \mod p$. Hence, Exercise \ref{exe.ent.primes.aa-1} shows that
-$a\equiv1\operatorname{mod}p$ or $a\equiv-1\operatorname{mod}p$. Hence, we
-must have $a \equiv-1 \mod p$ (since we do not have $a \equiv1 \mod p$). Thus,
-$a \equiv-1 \equiv p-1 \mod p$ (since $p-1 \equiv-1 \mod p$). This contradicts
-the fact that we do not have $a \equiv p-1 \mod p$.
+\mod p$. Thus, $a^{2} = a \underbrace{a}_{= J\left(  a \right)  } = aJ\left(
+a \right)  \equiv1 \mod p$. Hence, Exercise \ref{exe.ent.primes.aa-1} shows
+that $a\equiv1\operatorname{mod}p$ or $a\equiv-1\operatorname{mod}p$. Hence,
+we must have $a \equiv-1 \mod p$ (since we do not have $a \equiv1 \mod p$).
+Thus, $a \equiv-1 \equiv p-1 \mod p$ (since $p-1 \equiv-1 \mod p$). This
+contradicts the fact that we do not have $a \equiv p-1 \mod p$.
 
 This contradiction shows that our assumption was false. Hence, $a = 1$ or $a =
 p-1$.
@@ -12864,7 +12897,7 @@ Since these two elements are actually distinct (because $p-1\neq1$), we thus
 obtain%
 \begin{equation}
 \prod_{\substack{a\in A;\\a\text{ is medium}}}a=1\cdot\left(  p-1\right)
-=p-1\equiv-1\operatorname{mod}p.\label{pf.thm.ent.wilson.prodmed}%
+=p-1\equiv-1\operatorname{mod}p. \label{pf.thm.ent.wilson.prodmed}%
 \end{equation}
 
 
@@ -12882,13 +12915,13 @@ map%
 \begin{align*}
 J^{+}:\left\{  \text{small elements of }A\right\}   &  \rightarrow\left\{
 \text{large elements of }A\right\}  ,\\
-a &  \mapsto J\left(  a\right)
+a  &  \mapsto J\left(  a\right)
 \end{align*}
 is well-defined. Similarly, the map%
 \begin{align*}
 J^{-}:\left\{  \text{large elements of }A\right\}   &  \rightarrow\left\{
 \text{small elements of }A\right\}  ,\\
-a &  \mapsto J\left(  a\right)
+a  &  \mapsto J\left(  a\right)
 \end{align*}
 is well-defined. These two maps $J^{+}$ and $J^{-}$ are both restrictions of
 the map $J$, and thus are mutually inverse (since the map $J$ is inverse to
@@ -12897,7 +12930,7 @@ words, the map%
 \begin{align*}
 \left\{  \text{small elements of }A\right\}   &  \rightarrow\left\{
 \text{large elements of }A\right\}  ,\\
-a &  \mapsto J\left(  a\right)
+a  &  \mapsto J\left(  a\right)
 \end{align*}
 is a bijection (since this map is just the map $J^{+}$). Thus, we can
 substitute $J\left(  b\right)  $ for $a$ in the product $\prod_{\substack{a\in
@@ -12910,32 +12943,32 @@ is small}}}J\left(  a\right)  \label{pf.thm.ent.wilson.prodlar}%
 (here, we have renamed the index $b$ as $a$ in the product). Now, the
 definition of $\left(  p-1\right)  !$ yields%
 \begin{align}
-\left(  p-1\right)  !  & =1\cdot2\cdot\cdots\cdot\left(  p-1\right)
+\left(  p-1\right)  !  &  =1\cdot2\cdot\cdots\cdot\left(  p-1\right)
 =\prod_{a\in A}a\nonumber\\
-& =\left(  \prod_{\substack{a\in A;\\a\text{ is small}}}a\right)
+&  =\left(  \prod_{\substack{a\in A;\\a\text{ is small}}}a\right)
 \cdot\underbrace{\left(  \prod_{\substack{a\in A;\\a\text{ is medium}%
 }}a\right)  }_{\substack{\equiv-1\operatorname{mod}p\\\text{(by
 (\ref{pf.thm.ent.wilson.prodmed}))}}}\cdot\underbrace{\left(  \prod
 _{\substack{a\in A;\\a\text{ is large}}}a\right)  }_{\substack{=\prod
 _{\substack{a\in A;\\a\text{ is small}}}J\left(  a\right)  \\\text{(by
 (\ref{pf.thm.ent.wilson.prodlar}))}}}\nonumber\\
-& \ \ \ \ \ \ \ \ \ \ \left(
+&  \ \ \ \ \ \ \ \ \ \ \left(
 \begin{array}
 [c]{c}%
 \text{since each }a\in A\text{ is either small or medium or large (but
 never}\\
 \text{has more than one of these three attributes simultaneously)}%
 \end{array}
-\right)  \nonumber\\
-& \equiv\left(  \prod_{\substack{a\in A;\\a\text{ is small}}}a\right)
+\right) \nonumber\\
+&  \equiv\left(  \prod_{\substack{a\in A;\\a\text{ is small}}}a\right)
 \cdot\left(  -1\right)  \cdot\left(  \prod_{\substack{a\in A;\\a\text{ is
 small}}}J\left(  a\right)  \right)  =-\underbrace{\left(  \prod
 _{\substack{a\in A;\\a\text{ is small}}}a\right)  \cdot\left(  \prod
 _{\substack{a\in A;\\a\text{ is small}}}J\left(  a\right)  \right)  }%
 _{=\prod_{\substack{a\in A;\\a\text{ is small}}}\left(  aJ\left(  a\right)
 \right)  }\nonumber\\
-& =-\prod_{\substack{a\in A;\\a\text{ is small}}}\left(  aJ\left(  a\right)
-\right)  \operatorname{mod}p.\label{pf.thm.ent.wilson.6}%
+&  =-\prod_{\substack{a\in A;\\a\text{ is small}}}\left(  aJ\left(  a\right)
+\right)  \operatorname{mod}p. \label{pf.thm.ent.wilson.6}%
 \end{align}
 
 
@@ -12960,15 +12993,15 @@ s\right)  \right)  \equiv\prod_{s\in\left\{  \text{small elements of
 In view of%
 \begin{align*}
 \prod_{s\in\left\{  \text{small elements of }A\right\}  }\left(  sJ\left(
-s\right)  \right)    & =\prod_{a\in\left\{  \text{small elements of
+s\right)  \right)   &  =\prod_{a\in\left\{  \text{small elements of
 }A\right\}  }\left(  aJ\left(  a\right)  \right)  \ \ \ \ \ \ \ \ \ \ \left(
 \begin{array}
 [c]{c}%
 \text{here, we have renamed the}\\
 \text{index }s\text{ as }i\text{ in the product}%
 \end{array}
-\right)  \\
-& =\prod_{\substack{a\in A;\\a\text{ is small}}}\left(  aJ\left(  a\right)
+\right) \\
+&  =\prod_{\substack{a\in A;\\a\text{ is small}}}\left(  aJ\left(  a\right)
 \right)  ,
 \end{align*}
 this rewrites as $\prod_{\substack{a\in A;\\a\text{ is small}}}\left(
@@ -13006,8 +13039,8 @@ p-1\right)  .
 
 \begin{fineprint}
 \begin{proof}
-[Solution to Exercise \ref{exe.ent.wilson.gauss}.] Theorem
-\ref{thm.ent.wilson} yields
+[Solution to Exercise \ref{exe.ent.wilson.gauss}.]Theorem \ref{thm.ent.wilson}
+yields
 \[
 \left(  p-1\right)  !\equiv-1\equiv p-1\operatorname{mod}p
 \]
@@ -13018,17 +13051,18 @@ On the other hand, $p>1$ (since $p$ is a prime). Now, the definition of
 $\left(  p-1\right)  !$ yields%
 \[
 \left(  p-1\right)  !=1\cdot2\cdot\cdots\cdot\left(  p-1\right)  =\left(
-1\cdot2\cdot\cdots\cdot\left(  p-2\right)  \right)  \cdot\left(  p-1\right)  .
+1\cdot2\cdot\cdots\cdot\left(  p-2\right)  \right)  \cdot\left(  p-1\right)
+.
 \]
 Subtracting $p-1$ from both sides of this equality, we obtain%
 \begin{align*}
-\left(  p-1\right)  !-\left(  p-1\right)    & =\left(  1\cdot2\cdot\cdots
-\cdot\left(  p-2\right)  \right)  \cdot\left(  p-1\right)  -\left(
-p-1\right)  \\
-& =\left(  1\cdot2\cdot\cdots\cdot\left(  p-2\right)  -1\right)  \cdot\left(
-p-1\right)  \\
-& =\left(  p-1\right)  \cdot\left(  1\cdot2\cdot\cdots\cdot\left(  p-2\right)
--1\right)  .
+\left(  p-1\right)  !-\left(  p-1\right)   &  =\left(  1\cdot2\cdot\cdots
+\cdot\left(  p-2\right)  \right)  \cdot\left(  p-1\right)  -\left(  p-1\right)
+\\
+&  =\left(  1\cdot2\cdot\cdots\cdot\left(  p-2\right)  -1\right)  \cdot\left(
+p-1\right) \\
+&  =\left(  p-1\right)  \cdot\left(  1\cdot2\cdot\cdots\cdot\left(
+p-2\right)  -1\right)  .
 \end{align*}
 Hence, $p-1\mid\left(  p-1\right)  !-\left(  p-1\right)  $ (since
 $1\cdot2\cdot\cdots\cdot\left(  p-2\right)  -1$ is an integer).
@@ -13051,8 +13085,8 @@ p-1\right)  !-\left(  p-1\right)  $ and $p\mid\left(  p-1\right)  !-\left(
 p-1\right)  $. Hence, Theorem \ref{thm.ent.coprime.combine} (applied to
 $a=p-1$, $b=p$ and $c=\left(  p-1\right)  !-\left(  p-1\right)  $) yields%
 \begin{equation}
-\left(  p-1\right)  p\mid\left(  p-1\right)  !-\left(  p-1\right)
-.\label{sol.ent.wilson.gauss.at}%
+\left(  p-1\right)  p\mid\left(  p-1\right)  !-\left(  p-1\right)  .
+\label{sol.ent.wilson.gauss.at}%
 \end{equation}
 
 
