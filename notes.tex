@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Friday, March 08, 2019 01:11:03}
+%TCIDATA{LastRevised=Friday, March 08, 2019 08:35:31}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -8237,14 +8237,14 @@ Theorem \ref{thm.ent.crt1}).
 
 Now, set $x_{0}=nn^{\prime}a+mm^{\prime}b$. Then,%
 \[
-x_{0}=nn^{\prime}a+\underbrace{mm^{\prime}b}_{\equiv0\operatorname{mod}%
-m}\equiv\underbrace{nn^{\prime}}_{\equiv1\operatorname{mod}m}a\equiv
-a\operatorname{mod}m
+x_{0}=\underbrace{nn^{\prime}}_{\equiv1\operatorname{mod}m}%
+a+\underbrace{mm^{\prime}b}_{\equiv0\operatorname{mod}m}\equiv
+1a+0=a\operatorname{mod}m
 \]
 (here, we have used the Principle of substitutivity for congruences, which we
 described in Section \ref{sect.ent.subst-mod}) and similarly $x_{0}\equiv
 b\operatorname{mod}n$. Thus, there exists an integer $x\in\mathbb{Z}$ such
-that \newline$\left(  x\equiv a\operatorname{mod}m\text{ and }x\equiv
+that $\left(  x\equiv a\operatorname{mod}m\text{ and }x\equiv
 b\operatorname{mod}n\right)  $ (namely, $x=x_{0}$). This proves Theorem
 \ref{thm.ent.crt1} \textbf{(a)}.
 
@@ -8730,36 +8730,31 @@ $. Then, either $p\mid a$ or $p\perp a$.
 [Proof of Proposition \ref{prop.ent.primes.div-or-coprime}.]Assume the
 contrary. Thus, neither $p\mid a$ nor $p\perp a$.
 
-Corollary \ref{cor.ent.quo-rem.remmod} \textbf{(b)} (applied to $n=p$ and
-$u=a$) yields that we have $p\mid a$ if and only if $a\%p=0$. Thus, we don't
-have $a\%p=0$ (since we don't have $p\mid a$). In other words, $a\%p\neq0$.
+We know that $p$ is prime. In other words, $p$ is an integer greater than $1$
+such that the only positive divisors of $p$ are $1$ and $p$ (by the definition
+of \textquotedblleft prime\textquotedblright).
 
-Corollary \ref{cor.ent.quo-rem.remmod} \textbf{(a)} (applied to $n=p$ and
-$u=a$) yields that $a\%p\in\left\{  0,1,\ldots,p-1\right\}  $ and $a\%p\equiv
-a\operatorname{mod}p$. Combining $a\%p\in\left\{  0,1,\ldots,p-1\right\}  $
-with $a\%p\neq0$, we obtain $a\%p\in\left\{  0,1,\ldots,p-1\right\}
-\setminus\left\{  0\right\}  =\left\{  1,2,\ldots,p-1\right\}  $. Hence,
-Proposition \ref{prop.ent.primes.each-i-coprime} (applied to $i=a\%p$) yields
-that $a\%p$ is coprime to $p$. In other words, $\gcd\left(  a\%p,p\right)  =1$.
+In particular, $p$ is greater than $1$. Hence, $p>1>0$, so that $p\neq0$.
+Hence, $a$ and $p$ are not all zero. Thus, $\gcd\left(  a,p\right)  $ is a
+positive integer.
 
-But $p$ is prime, and thus is a positive integer (by the definition of a
-\textquotedblleft prime\textquotedblright). Proposition
-\ref{prop.ent.gcd.props1} \textbf{(e)} (applied to $p$ and $a$ instead of $a$
-and $b$) yields%
-\begin{align*}
-\gcd\left(  p,a\right)   &  =\gcd\left(  p,a\%p\right)  =\gcd\left(
-a\%p,p\right) \\
-&  \ \ \ \ \ \ \ \ \ \ \left(
-\begin{array}
-[c]{c}%
-\text{by Proposition \ref{prop.ent.gcd.props1} \textbf{(b)},}\\
-\text{applied to }p\text{ and }a\%p\text{ instead of }a\text{ and }b
-\end{array}
-\right) \\
-&  =1.
-\end{align*}
-In other words, $p$ is coprime to $a$. In other words, $p\perp a$. This
-contradicts the fact that we don't have $p\perp a$.
+Proposition \ref{prop.ent.gcd.props1} \textbf{(f)} (applied to $b=p$) shows
+that $\gcd\left(  a,p\right)  \mid a$ and $\gcd\left(  a,p\right)  \mid p$. If
+we had $\gcd\left(  a,p\right)  =p$, then we would obtain $p=\gcd\left(
+a,p\right)  \mid a$, which would contradict the fact that we do not have
+$p\mid a$. Hence, we cannot have $\gcd\left(  a,p\right)  =p$. In other words,
+we have $\gcd\left(  a,p\right)  \neq p$.
+
+The integer $\gcd\left(  a,p\right)  $ is a positive divisor of $p$ (since
+$\gcd\left(  a,p\right)  $ is positive and satisfies $\gcd\left(  a,p\right)
+\mid p$), and thus must be either $1$ or $p$ (since the only positive divisors
+of $p$ are $1$ and $p$). Since we know that $\gcd\left(  a,p\right)  \neq p$,
+we thus conclude that $\gcd\left(  a,p\right)  =1$. But Proposition
+\ref{prop.ent.gcd.props1} \textbf{(b)} (applied to $b=p$) yields $\gcd\left(
+a,p\right)  =\gcd\left(  p,a\right)  $. Thus, $\gcd\left(  p,a\right)
+=\gcd\left(  a,p\right)  =1$. In other words, $p$ is coprime to $a$ (by the
+definition of \textquotedblleft coprime\textquotedblright). In other words,
+$p\perp a$. This contradicts the fact that we don't have $p\perp a$.
 
 This contradiction shows that our assumption was false. Hence, Proposition
 \ref{prop.ent.primes.div-or-coprime} is proven.
@@ -16845,7 +16840,7 @@ b-d\right)  i,\\
 }_{=-1}\\
 &  =ac+adi+bci-bd\\
 &  =\left(  ac-bd\right)  +\left(  ad+bc\right)  i,\\
-\dfrac{a+bi}{c+di} &  =\dfrac{\left(  a+bi\right)  \left(  c-di\right)
+\dfrac{a+bi}{c+di}  &  =\dfrac{\left(  a+bi\right)  \left(  c-di\right)
 }{\left(  c+di\right)  \left(  c-di\right)  }=\dfrac{\left(  ac+bd\right)
 +\left(  bc-ad\right)  i}{c^{2}+d^{2}}\\
 &  \ \ \ \ \ \ \ \ \ \ \left(  \text{if }c,d\text{ are not both }0\right)  .
@@ -17038,10 +17033,10 @@ Easy verification. For example, the third equality follows from%
 If $a_{1},a_{2},\ldots,a_{k}$ are $k$ reals, then
 \begin{align*}
 \left(  a_{1}\right)  _{\mathbb{C}}+\left(  a_{2}\right)  _{\mathbb{C}}%
-+\cdots+\left(  a_{k}\right)  _{\mathbb{C}} &  =\left(  a_{1}+a_{2}%
++\cdots+\left(  a_{k}\right)  _{\mathbb{C}}  &  =\left(  a_{1}+a_{2}%
 +\cdots+a_{k}\right)  _{\mathbb{C}}\ \ \ \ \ \ \ \ \ \ \text{and}\\
 \left(  a_{1}\right)  _{\mathbb{C}}\cdot\left(  a_{2}\right)  _{\mathbb{C}%
-}\cdot\cdots\cdot\left(  a_{k}\right)  _{\mathbb{C}} &  =\left(  a_{1}%
+}\cdot\cdots\cdot\left(  a_{k}\right)  _{\mathbb{C}}  &  =\left(  a_{1}%
 a_{2}\cdots a_{k}\right)  _{\mathbb{C}}.
 \end{align*}
 This can be proven by a straightforward induction on $k$.
@@ -17067,11 +17062,11 @@ the complex numbers $a_{\mathbb{C}}=\left(  a,0\right)  $ and $b_{\mathbb{C}%
 }=\left(  b,0\right)  $, respectively. Thus,%
 \begin{align*}
 \underbrace{a}_{=\left(  a,0\right)  }+\underbrace{b}_{=\left(  b,0\right)
-}\underbrace{i}_{=\left(  0,1\right)  }  & =\left(  a,0\right)
+}\underbrace{i}_{=\left(  0,1\right)  }  &  =\left(  a,0\right)
 +\underbrace{\left(  b,0\right)  \left(  0,1\right)  }_{=\left(
 b\cdot0-0\cdot1,b\cdot1+0\cdot0\right)  =\left(  0,b\right)  }=\left(
-a,0\right)  +\left(  0,b\right)  \\
-& =\left(  a+0,0+b\right)  =\left(  a,b\right)  .
+a,0\right)  +\left(  0,b\right) \\
+&  =\left(  a+0,0+b\right)  =\left(  a,b\right)  .
 \end{align*}
 
 \end{proof}
@@ -17224,8 +17219,8 @@ Let $\alpha\in\mathbb{C}$. Then, $\operatorname*{N}\left(  \alpha\right)
 Write $\alpha$ as $\alpha=\left(  a,b\right)  $. Then, $\overline{\alpha
 }=\left(  a,-b\right)  $. Thus,%
 \begin{align*}
-\alpha\overline{\alpha} &  =\left(  a,b\right)  \left(  a,-b\right)  =\left(
-aa-b\left(  -b\right)  ,a\left(  -b\right)  +ba\right)  \\
+\alpha\overline{\alpha}  &  =\left(  a,b\right)  \left(  a,-b\right)  =\left(
+aa-b\left(  -b\right)  ,a\left(  -b\right)  +ba\right) \\
 &  =\left(  \underbrace{a^{2}+b^{2}}_{=\operatorname*{N}\left(  \alpha\right)
 },0\right)  =\left(  \operatorname*{N}\left(  \alpha\right)  ,0\right)
 =\left(  \operatorname*{N}\left(  \alpha\right)  \right)  _{\mathbb{C}}.
@@ -18011,41 +18006,41 @@ Euclidean algorithm\textquotedblright\ that we used to compute $\gcd\left(
 a,b\right)  $ for integers $a$ and $b$. For example, we can compute
 $\operatorname*{Div}\left(  32+9i,4+11i\right)  $ as follows:%
 \begin{align*}
-&  \operatorname*{Div}\left(  32+9i,4+11i\right)  \\
+&  \operatorname*{Div}\left(  32+9i,4+11i\right) \\
 &  =\operatorname*{Div}\left(  4+11i,\underbrace{32+9i}_{=\left(  2-2i\right)
 \left(  4+11i\right)  +\left(  2-5i\right)  }\right)
 \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition
-\ref{prop.Z[i].gauss.divrules} \textbf{(b)}}\right)  \\
+\ref{prop.Z[i].gauss.divrules} \textbf{(b)}}\right) \\
 &  =\operatorname*{Div}\left(  4+11i,\left(  2-2i\right)  \left(
-4+11i\right)  +\left(  2-5i\right)  \right)  \\
+4+11i\right)  +\left(  2-5i\right)  \right) \\
 &  =\operatorname*{Div}\left(  4+11i,2-5i\right)  \ \ \ \ \ \ \ \ \ \ \left(
-\text{by Proposition \ref{prop.Z[i].gauss.divrules} \textbf{(c)}}\right)  \\
+\text{by Proposition \ref{prop.Z[i].gauss.divrules} \textbf{(c)}}\right) \\
 &  =\operatorname*{Div}\left(  2-5i,\underbrace{4+11i}_{=\left(  -2+i\right)
 \left(  2-5i\right)  +\left(  3-i\right)  }\right)
 \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition
-\ref{prop.Z[i].gauss.divrules} \textbf{(b)}}\right)  \\
+\ref{prop.Z[i].gauss.divrules} \textbf{(b)}}\right) \\
 &  =\operatorname*{Div}\left(  2-5i,\left(  -2+i\right)  \left(  2-5i\right)
-+\left(  3-i\right)  \right)  \\
++\left(  3-i\right)  \right) \\
 &  =\operatorname*{Div}\left(  2-5i,3-i\right)  \ \ \ \ \ \ \ \ \ \ \left(
-\text{by Proposition \ref{prop.Z[i].gauss.divrules} \textbf{(c)}}\right)  \\
+\text{by Proposition \ref{prop.Z[i].gauss.divrules} \textbf{(c)}}\right) \\
 &  =\operatorname*{Div}\left(  3-i,\underbrace{2-5i}_{=\left(  1-i\right)
 \left(  3-i\right)  -i}\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by
 Proposition \ref{prop.Z[i].gauss.divrules} \textbf{(b)}}\right)
 \end{align*}%
 \begin{align*}
 &  =\operatorname*{Div}\left(  3-i,\left(  1-i\right)  \left(  3-i\right)
--i\right)  \\
+-i\right) \\
 &  =\operatorname*{Div}\left(  3-i,-i\right)  \ \ \ \ \ \ \ \ \ \ \left(
-\text{by Proposition \ref{prop.Z[i].gauss.divrules} \textbf{(c)}}\right)  \\
+\text{by Proposition \ref{prop.Z[i].gauss.divrules} \textbf{(c)}}\right) \\
 &  =\operatorname*{Div}\left(  -i,\underbrace{3-i}_{=\left(  1+3i\right)
 \left(  -i\right)  +0}\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by
-Proposition \ref{prop.Z[i].gauss.divrules} \textbf{(b)}}\right)  \\
+Proposition \ref{prop.Z[i].gauss.divrules} \textbf{(b)}}\right) \\
 &  =\operatorname*{Div}\left(  -i,\left(  1+3i\right)  \left(  -i\right)
-+0\right)  \\
++0\right) \\
 &  =\operatorname*{Div}\left(  -i,0\right)  \ \ \ \ \ \ \ \ \ \ \left(
-\text{by Proposition \ref{prop.Z[i].gauss.divrules} \textbf{(c)}}\right)  \\
+\text{by Proposition \ref{prop.Z[i].gauss.divrules} \textbf{(c)}}\right) \\
 &  =\operatorname*{Div}\left(  -i\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by
-Proposition \ref{prop.Z[i].gauss.divrules} \textbf{(a)}}\right)  \\
+Proposition \ref{prop.Z[i].gauss.divrules} \textbf{(a)}}\right) \\
 &  =\left\{  1,i,-1,-i\right\}  .
 \end{align*}
 In the same way, for \textbf{any} two Gaussian integers $\alpha$ and $\beta$
@@ -18143,13 +18138,14 @@ $\operatorname*{Div}\left(  \alpha,\beta\right)  =\operatorname*{Div}\left(
 \left(  \alpha,\beta\right)  =\operatorname*{Lin}\left(  \alpha,\rho\right)  $
 (since every $\lambda,\mu\in\mathbb{Z}\left[  i\right]  $ satisfy%
 \begin{align*}
-\lambda\alpha+\mu\underbrace{\beta}_{=\gamma\alpha+\rho}  & =\lambda\alpha
-+\mu\left(  \gamma\alpha+\rho\right)  =\left(  \lambda+\mu\gamma\right)
+\lambda\alpha+\mu\underbrace{\beta}_{=\gamma\alpha+\rho}  &  =\lambda
+\alpha+\mu\left(  \gamma\alpha+\rho\right)  =\left(  \lambda+\mu\gamma\right)
 \alpha+\mu\rho\in\operatorname*{Lin}\left(  \alpha,\rho\right)
 \ \ \ \ \ \ \ \ \ \ \text{and}\\
-\lambda\alpha+\mu\underbrace{\rho}_{=\beta-\gamma\alpha}  & =\lambda\alpha
-+\mu\left(  \beta-\gamma\alpha\right)  =\left(  \lambda-\mu\gamma\right)
-\alpha+\mu\beta\in\operatorname*{Lin}\left(  \alpha,\beta\right)
+\lambda\alpha+\mu\underbrace{\rho}_{=\beta-\gamma\alpha}  &  =\lambda
+\alpha+\mu\left(  \beta-\gamma\alpha\right)  =\left(  \lambda-\mu
+\gamma\right)  \alpha+\mu\beta\in\operatorname*{Lin}\left(  \alpha
+,\beta\right)
 \end{align*}
 ). Hence, proving $\operatorname*{Div}\left(  \alpha,\beta\right)
 \cap\operatorname*{Lin}\left(  \alpha,\beta\right)  \neq\varnothing$ boils
@@ -18189,7 +18185,7 @@ $\gamma_{1}\mid\gamma_{2}$. Similarly, $\gamma_{2}\mid\gamma_{1}$. Combining
 these, we obtain $\gamma_{1}\sim\gamma_{2}$.
 \end{proof}
 
-TODO:
+OLD TODO:
 
 \begin{itemize}
 \item Geometric view of divrem: find which interval $\left[  k,k+1\right)  $
@@ -18203,25 +18199,12 @@ and $\alpha$, look at which grid square $\alpha/\beta$ lies in, and go down-left
 \item However, we can do better: Don't go down-left, but go to the nearest
 grid point. Distance $<1$ for geometric reasons. This leads to:
 
-\item Theorem: Let $\alpha$ and $\beta\neq0$ be Gaussian integers. Then, there
-exist Gaussian integers $\gamma,\rho$ such that $\alpha=\gamma\beta+\rho$ and
-$\operatorname*{N}\left(  \rho\right)  <\operatorname*{N}\left(  \beta\right)
-$ (and, even better, $\operatorname*{N}\left(  \rho\right)  \leq\dfrac{1}%
-{2}\operatorname*{N}\left(  \beta\right)  $).
-
-\item State and prove analogous theorem for integers.
-
-\item Formal proof: Follow [Conrad-Gauss] Theorem 3.1.
-
 \item Def. 2.9.1.
 
 \item Prop. 2.9.2: all divisors of $\beta$ have norm $\leq\operatorname*{N}%
 \left(  \beta\right)  $ (which still gives a finite set).
 
 \item Def. 2.9.3.
-
-\item Not clear what gcd would be: What is \textquotedblleft
-greatest\textquotedblright? Greatest in norm? Couldn't there be ties?
 
 \item Work with $\operatorname*{Div}$ first.
 
@@ -18242,16 +18225,11 @@ $\alpha$ and $\beta$.
 =\operatorname*{Div}\gamma$.
 
 \textbf{(c)} The unit-equivalence class of $\gamma$ is uniquely determined.
+\end{itemize}
 
-\item Proof: \textbf{(a)} Strong induction on $\operatorname*{N}\left(
-\alpha\right)  +\operatorname*{N}\left(  \beta\right)  $. We don't need the
-sign-switch argument.
+TODO:
 
-\textbf{(b)} $\subseteq$ and $\supseteq$.
-
-\textbf{(c)} $\operatorname*{Div}\gamma$ determines the unit-equivalence class
-of $\gamma$.
-
+\begin{itemize}
 \item Def: The \textit{gcd} of $\alpha$ and $\beta$ is defined to be $\gamma$
 from Theorem 2.9.11 (or more precisely, its unit-equivalence class when
 uniqueness is needed).
@@ -18264,7 +18242,7 @@ uniqueness is needed).
 
 \item Cor. 2.9.19.
 
-\item Exe 2.9.3.
+\item Exe 2.9.4.
 
 \item Thm. 2.9.20 needs different proof since we used $\leq$. More
 importantly, we have not defined the $\gcd$ of several Gaussian ints. So
@@ -18277,7 +18255,7 @@ Let $\alpha_{1},\alpha_{2},\ldots,\alpha_{k}\in\mathbb{Z}\left[  i\right]  $. Th
 common divisor of $\alpha_{1},\alpha_{2},\ldots,\alpha_{k}$.
 
 \textbf{(b)} It satisfies $\operatorname*{Div}\left(  \alpha_{1},\alpha
-_{2},\ldots,\alpha_{k}\right)  =\operatorname*{Div}\gamma$.
+_{2},\ldots,\alpha_{k}\right)  =\operatorname*{Div}\left(  \gamma\right)  $.
 
 \textbf{(c)} The unit-equivalence class of $\gamma$ is uniquely determined.
 
@@ -18285,10 +18263,51 @@ _{2},\ldots,\alpha_{k}\right)  =\operatorname*{Div}\gamma$.
 
 \item Thm. 2.9.26.
 
-\item .......
-
 \item Conjugates: $\alpha\mid\beta\Longleftrightarrow\overline{\alpha}%
 \mid\overline{\beta}$.
+
+\item Def. 2.10.3 $\perp$.
+
+\item Prop 2.10.4.
+
+\item Thm 2.10.6.
+
+\item Thm 2.10.7.
+
+\item Thm 2.10.9.
+
+\item actually all properties from coprime section hold.
+
+\item lcms exist, and $\gcd\left(  \alpha,\beta\right)  \operatorname{lcm}%
+\left(  \alpha,\beta\right)  \sim\alpha\beta$.
+
+\item go over lcm properties.
+
+\item CRT holds.
+
+\item define Gaussian primes. (don't just call them primes.) Say nonzero
+nonunit whose only divisors are $\sim1$ or $\sim\alpha$.
+
+\item $2=\left(  1+i\right)  \left(  1-i\right)  $ not Gaussian prime.
+
+\item If $\operatorname*{N}\left(  \alpha\right)  $ prime, then $\alpha$
+Gaussian prime.
+
+\item Thus, $1+i$ is a Gaussian prime.
+
+\item But no converse! $3$ is a Gaussian prime. To see this, use
+\textquotedblleft If $\alpha\mid\beta$, then $\operatorname*{N}\left(
+\alpha\right)  \mid\operatorname*{N}\left(  \beta\right)  $\textquotedblright.
+
+\item $5=\left(  1+2i\right)  \left(  1-2i\right)  $ not Gaussian prime.
+
+\item $7$ is a Gaussian prime again.
+
+\item What is the pattern?
+
+\item Prop. 2.13.5 works again.
+
+\item ....
 \end{itemize}
 
 \begin{thebibliography}{999999999}                                                                                        %
