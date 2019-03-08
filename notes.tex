@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Wednesday, March 06, 2019 22:52:51}
+%TCIDATA{LastRevised=Thursday, March 07, 2019 23:43:25}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -4951,10 +4951,10 @@ $b\in\mathbb{N}$.
 We have $b-a\geq0$ (since $b\geq a$), hence $b-a\in\mathbb{N}$. Thus,
 $u^{b-a}$ is an integer. We have%
 \begin{align*}
-\left(  u^{b}-1\right)  -\left(  u^{a}-1\right)    & =u^{b}-u^{a}%
+\left(  u^{b}-1\right)  -\left(  u^{a}-1\right)   &  =u^{b}-u^{a}%
 =\underbrace{u^{\left(  b-a\right)  +a}}_{=u^{b-a}u^{a}}-u^{a}%
-\ \ \ \ \ \ \ \ \ \ \left(  \text{since }b=\left(  b-a\right)  +a\right)  \\
-& =u^{b-a}u^{a}-u^{a}=\left(  u^{b-a}-1\right)  u^{a}.
+\ \ \ \ \ \ \ \ \ \ \left(  \text{since }b=\left(  b-a\right)  +a\right) \\
+&  =u^{b-a}u^{a}-u^{a}=\left(  u^{b-a}-1\right)  u^{a}.
 \end{align*}
 Thus, $u^{b-a}-1\mid\left(  u^{b}-1\right)  -\left(  u^{a}-1\right)  $ (since
 $u^{a}$ is an integer). In other words, $u^{b}-1\equiv u^{a}%
@@ -5831,6 +5831,104 @@ a,b\right) \\
 &  =\left\vert s\right\vert \gcd\left(  a,b,c\right)  .
 \end{align*}
 This solves Exercise \ref{exe.ent.gcd.sa,sb,sc}.
+\end{proof}
+\end{fineprint}
+
+More generally, Corollary \ref{cor.ent.gcd.sa,sb} can be generalized to any
+number of integers:
+
+\begin{exercise}
+\label{exe.ent.gcd.sak}Let $s\in\mathbb{Z}$, and let $a_{1},a_{2},\ldots
+,a_{k}$ be integers. Prove that $\gcd\left(  sa_{1},sa_{2},\ldots
+,sa_{k}\right)  =\left\vert s\right\vert \gcd\left(  a_{1},a_{2},\ldots
+,a_{k}\right)  $.
+\end{exercise}
+
+\begin{fineprint}
+\begin{proof}
+[Proof of Exercise \ref{exe.ent.gcd.sak}.]We shall show that%
+\begin{equation}
+\gcd\left(  sa_{1},sa_{2},\ldots,sa_{i}\right)  =\left\vert s\right\vert
+\gcd\left(  a_{1},a_{2},\ldots,a_{i}\right)  \label{sol.ent.gcd.sak.1}%
+\end{equation}
+for each $i\in\left\{  0,1,\ldots,k\right\}  $.
+
+[\textit{Proof of (\ref{sol.ent.gcd.sak.1}):} We proceed by induction on $i$:
+
+\textit{Induction base:} Proposition \ref{prop.ent.gcd.props1} \textbf{(j)}
+shows that the greatest common divisor of the empty list of integers is
+$\gcd\left(  {}\right)  =0$. Now, comparing $\gcd\left(  sa_{1},sa_{2}%
+,\ldots,sa_{0}\right)  =\gcd\left(  {}\right)  =0$ with $\left\vert
+s\right\vert \underbrace{\gcd\left(  a_{1},a_{2},\ldots,a_{0}\right)  }%
+_{=\gcd\left(  {}\right)  =0}=0$, we obtain $\gcd\left(  sa_{1},sa_{2}%
+,\ldots,sa_{0}\right)  =\left\vert s\right\vert \gcd\left(  a_{1},a_{2}%
+,\ldots,a_{0}\right)  $. In other words, (\ref{sol.ent.gcd.sak.1}) holds for
+$i=0$. This completes the induction base.
+
+\textit{Induction step:} Let $j\in\left\{  1,2,\ldots,k\right\}  $. Assume
+that (\ref{sol.ent.gcd.sak.1}) holds for $i=j-1$. We must prove that
+(\ref{sol.ent.gcd.sak.1}) holds for $i=j$.
+
+We have assumed that (\ref{sol.ent.gcd.sak.1}) holds for $i=j-1$. In other
+words, we have%
+\begin{equation}
+\gcd\left(  sa_{1},sa_{2},\ldots,sa_{j-1}\right)  =\left\vert s\right\vert
+\gcd\left(  a_{1},a_{2},\ldots,a_{j-1}\right)  .
+\label{sol.ent.gcd.sak.1.pf.2}%
+\end{equation}
+But $\gcd\left(  a_{1},a_{2},\ldots,a_{j-1}\right)  $ is a nonnegative integer
+(by the definition of $\gcd\left(  a_{1},a_{2},\ldots,a_{j-1}\right)  $). The
+equality (\ref{eq.ent.div.abs(xy)}) (applied to $x=s$ and $y=\gcd\left(
+a_{1},a_{2},\ldots,a_{j-1}\right)  $) yields%
+\begin{align}
+\left\vert s\gcd\left(  a_{1},a_{2},\ldots,a_{j-1}\right)  \right\vert  &
+=\left\vert s\right\vert \cdot\underbrace{\left\vert \gcd\left(  a_{1}%
+,a_{2},\ldots,a_{j-1}\right)  \right\vert }_{\substack{=\gcd\left(
+a_{1},a_{2},\ldots,a_{j-1}\right)  \\\text{(since }\gcd\left(  a_{1}%
+,a_{2},\ldots,a_{j-1}\right)  \text{ is nonnegative)}}}=\left\vert
+s\right\vert \gcd\left(  a_{1},a_{2},\ldots,a_{j-1}\right) \nonumber\\
+&  =\gcd\left(  sa_{1},sa_{2},\ldots,sa_{j-1}\right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{sol.ent.gcd.sak.1.pf.2})}\right)  .
+\label{sol.ent.gcd.sak.1.pf.3}%
+\end{align}
+
+
+Theorem \ref{thm.ent.gcd.uniprop-mul} \textbf{(d)} (applied to $j$ and $a_{i}$
+instead of $k$ and $b_{i}$) yields
+\begin{equation}
+\gcd\left(  a_{1},a_{2},\ldots,a_{j}\right)  =\gcd\left(  \gcd\left(
+a_{1},a_{2},\ldots,a_{j-1}\right)  ,a_{j}\right)
+.\label{sol.ent.gcd.sak.1.pf.5}%
+\end{equation}
+Theorem \ref{thm.ent.gcd.uniprop-mul} \textbf{(d)} (applied to $j$ and
+$sa_{i}$ instead of $k$ and $b_{i}$) yields
+\begin{align*}
+&  \gcd\left(  sa_{1},sa_{2},\ldots,sa_{j}\right)  \\
+&  =\gcd\left(  \underbrace{\gcd\left(  sa_{1},sa_{2},\ldots,sa_{j-1}\right)
+}_{\substack{=\left\vert s\gcd\left(  a_{1},a_{2},\ldots,a_{j-1}\right)
+\right\vert \\\text{(by (\ref{sol.ent.gcd.sak.1.pf.3}))}}},sa_{j}\right)  \\
+&  =\gcd\left(  \left\vert s\gcd\left(  a_{1},a_{2},\ldots,a_{j-1}\right)
+\right\vert ,sa_{j}\right)  \\
+&  =\gcd\left(  s\gcd\left(  a_{1},a_{2},\ldots,a_{j-1}\right)  ,sa_{j}%
+\right)  \\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Exercise \ref{exe.ent.gcd.abs}
+\textbf{(b)}, applied to }s\gcd\left(  a_{1},a_{2},\ldots,a_{j-1}\right)
+\text{ and }sa_{j}\text{ instead of }a\text{ and }b\right)  \\
+&  =\left\vert s\right\vert \underbrace{\gcd\left(  \gcd\left(  a_{1}%
+,a_{2},\ldots,a_{j-1}\right)  ,a_{j}\right)  }_{\substack{=\gcd\left(
+a_{1},a_{2},\ldots,a_{j}\right)  \\\text{(by (\ref{sol.ent.gcd.sak.1.pf.5}))}%
+}}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Corollary \ref{cor.ent.gcd.sa,sb},
+applied to }\gcd\left(  a_{1},a_{2},\ldots,a_{j-1}\right)  \text{ and }%
+a_{j}\text{ instead of }a\text{ and }b\right)  \\
+&  =\left\vert s\right\vert \gcd\left(  a_{1},a_{2},\ldots,a_{j}\right)  .
+\end{align*}
+In other words, (\ref{sol.ent.gcd.sak.1}) holds for $i=j$. This completes the
+induction step. Thus, (\ref{sol.ent.gcd.sak.1}) is proven.]
+
+Now, (\ref{sol.ent.gcd.sak.1}) (applied to $i=k$) yields $\gcd\left(
+sa_{1},sa_{2},\ldots,sa_{k}\right)  =\left\vert s\right\vert \gcd\left(
+a_{1},a_{2},\ldots,a_{k}\right)  $. This solves Exercise \ref{exe.ent.gcd.sak}.
 \end{proof}
 \end{fineprint}
 
