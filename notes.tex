@@ -12745,7 +12745,7 @@ We are now ready to prove Theorem \ref{thm.ent.wilson}:
 !=1!=1\equiv-1\operatorname{mod}2$ (since $1-\left(  -1\right)  =2$ is
 divisible by $2$). In other words, Theorem \ref{thm.ent.wilson} holds when
 $p=2$. Hence, for the rest of this proof, we WLOG assume that we don't have
-$p=2$. Hence, $p\neq2$.
+$p=2$. Hence, $p\neq2$. Thus, $1 \neq p-1$.
 
 But $p$ is a prime; thus, $p>1$, so that $p\geq2$ (since $p$ is an integer).
 Combining this with $p\neq2$, we obtain $p>2$, so that $p\geq3$ (since $p$ is
@@ -12754,7 +12754,8 @@ an integer).
 Define the set $A$ and the map $J:A\rightarrow A$ as in Lemma
 \ref{lem.ent.wilson.modi}. Hence, Lemma \ref{lem.ent.wilson.modi} \textbf{(c)}
 shows that this map $J$ is a bijection satisfying $J\circ J=\operatorname*{id}%
-$. For each $a\in A$, we have
+$. The equality $J \circ J = \id$ shows that the map $J$ is inverse to itself.
+For each $a\in A$, we have
 \begin{equation}
 aJ\left(  a\right)  \equiv1\operatorname{mod}p.\label{pf.thm.ent.wilson.aJa}%
 \end{equation}
@@ -12776,6 +12777,7 @@ will reduce (when working modulo $p$) to the product of the two factors that
 have not been paired up, which will be $1\cdot\left(  p-1\right)
 =p-1\equiv-1\operatorname{mod}p$.
 
+\begin{fineprint}
 Here are the details of this argument:
 
 An element $a$ of $A$ will be called
@@ -12790,18 +12792,19 @@ An element $a$ of $A$ will be called
 
 Now, we claim that the medium elements of $A$ are precisely $1$ and $p-1$.
 
-[\textit{Proof:} The element $1$ is medium\footnote{\textit{Proof.} We have
-$1\leq1\leq p-1$ (since $p\geq2$) and thus $1\in\left\{  1,2,\ldots
-,p-1\right\}  =A$ (since $A=\left\{  1,2,\ldots,p-1\right\}  $). Hence,
+[\textit{Proof:} We have $1 \leq p-1$ (since $p \geq 2$). Thus,
+$1 \in \left\{1,2,\ldots,p-1\right\} = A$ and
+$p-1 \in \left\{1,2,\ldots,p-1\right\} = A$.
+The element $1$ of $A$
+is medium\footnote{\textit{Proof.} We have $1\in A$. Hence,
 $J\left(  1\right)  \in A$ (since $J$ is a map from $A$ to $A$). Furthermore,
 (\ref{pf.thm.ent.wilson.aJa}) (applied to $a=1$) yields $1J\left(  1\right)
 \equiv1\operatorname{mod}p$. Thus, $1\equiv1J\left(  1\right)  =J\left(
 1\right)  \operatorname{mod}p$. Thus, Lemma \ref{lem.ent.wilson.modi}
 \textbf{(a)} (applied to $a_{1}=1$ and $a_{2}=J\left(  1\right)  $) yields
 $1=J\left(  1\right)  $. In other words, the element $1$ of $A$ is medium.}.
-The element $p-1$ is medium\footnote{\textit{Proof.} We have $p\geq2$, hence
-$1\leq p-1\leq p-1$ and thus $p-1\in\left\{  1,2,\ldots,p-1\right\}  =A$
-(since $A=\left\{  1,2,\ldots,p-1\right\}  $). Hence, $J\left(  p-1\right)
+The element $p-1$ of $A$ is medium\footnote{\textit{Proof.} We have
+$p-1 \in A$. Hence, $J\left(  p-1\right)
 \in A$ (since $J$ is a map from $A$ to $A$). Furthermore,
 (\ref{pf.thm.ent.wilson.aJa}) (applied to $a=p-1$) yields $\left(  p-1\right)
 J\left(  p-1\right)  \equiv1\operatorname{mod}p$. Multiplying this congruence
@@ -12826,112 +12829,65 @@ are the only medium elements of $A$.
 
 Indeed, let $a$ be a medium element of $A$. We shall show that $a=1$ or
 $a=p-1$.
-\end{proof}
 
-\begin{fineprint}
-XXX
+Indeed, assume the contrary. Thus, neither $a=1$ nor $a=p-1$ holds.
 
-\begin{proof}
-set $C$ has no medium elements\footnote{\textit{Proof.} Let $c$ be a medium
-element of $C$. We shall derive a contradiction.
-\par
-We have $c\in C=\left\{  i\in\left\{  1,2,\ldots,n\right\}  \ \mid\ i\perp
-n\right\}  $. In other words, $c$ is an element of $\left\{  1,2,\ldots
-,n\right\}  $ and satisfies $c\perp n$. Clearly, the integer $c$ is positive
-(since $c\in\left\{  1,2,\ldots,n\right\}  $) and we have $\gcd\left(
-c,n\right)  =1$ (since $c\perp n$).
-\par
-Furthermore, $c$ is medium; in other words, $c=n-c$. Thus, $2c=n$, so that
-$n=2c=c\cdot2$. Hence, $c\mid n$. Thus, Proposition \ref{prop.ent.gcd.props1}
-\textbf{(i)} (applied to $a=c$ and $b=n$) yields $\gcd\left(  c,n\right)
-=\left\vert c\right\vert =c$ (since $c$ is positive). But from $2c=n$, we also
-obtain $c=n/2>2/2$ (since $n>2$). Thus, $\gcd\left(  c,n\right)  =c>2/2=1$.
-This contradicts $\gcd\left(  c,n\right)  =1$.
-\par
-Forget that we fixed $c$. We thus have obtained a contradiction for each
-medium element $c$ of $C$. Thus, there are no such elements. In other words,
-the set $C$ has no medium elements.}. In other words,%
-\[
-\left\vert \left\{  \text{medium elements of }C\right\}  \right\vert =0.
-\]
+If we had $a \equiv 1 \mod p$, then Lemma \ref{lem.ent.wilson.modi}
+\textbf{(a)} (applied to $a_{1}=a$ and $a_{2}=1$) would yield
+$a = 1$, which would contradict the fact that $a=1$ does not hold.
+Thus, we do not have $a \equiv 1 \mod p$.
 
+If we had $a \equiv p-1 \mod p$, then Lemma \ref{lem.ent.wilson.modi}
+\textbf{(a)} (applied to $a_{1}=a$ and $a_{2}=p-1$) would yield
+$a = p-1$, which would contradict the fact that $a=p-1$ does not hold.
+Thus, we do not have $a \equiv p-1 \mod p$.
 
-Furthermore, if $c\in C$, then $n-c\in C$\ \ \ \ \footnote{\textit{Proof.} Let
-$c\in C$.
-\par
-We have $c\in C=\left\{  i\in\left\{  1,2,\ldots,n\right\}  \ \mid\ i\perp
-n\right\}  $. In other words, $c$ is an element of $\left\{  1,2,\ldots
-,n\right\}  $ and satisfies $c\perp n$. From $c\perp n$, we obtain $n\perp c$
-(by Proposition \ref{prop.ent.coprime.perp-symm}) and thus $\gcd\left(
-n,c\right)  =1$.
-\par
-But $n\mid n$. Hence, Proposition \ref{prop.ent.gcd.props1} \textbf{(i)}
-(applied to $a=n$ and $b=n$) yields $\gcd\left(  n,n\right)  =\left\vert
-n\right\vert =n$ (since $n$ is positive). Thus, $\gcd\left(  n,n\right)
-=n>2>1$, so that $\gcd\left(  n,n\right)  \neq1=\gcd\left(  n,c\right)  $ and
-therefore $n\neq c$. In other words, $c\neq n$.
-\par
-Combining $c\in\left\{  1,2,\ldots,n\right\}  $ with $c\neq n$, we find
-$c\in\left\{  1,2,\ldots,n\right\}  \setminus\left\{  n\right\}  =\left\{
-1,2,\ldots,n-1\right\}  $. Hence, $n-c\in\left\{  1,2,\ldots,n-1\right\}
-\subseteq\left\{  1,2,\ldots,n\right\}  $.
-\par
-We have $\underbrace{n}_{\equiv0\operatorname{mod}n}-c\equiv
--c\operatorname{mod}n$. Hence, Proposition \ref{prop.ent.gcd.props1}
-\textbf{(d)} (applied to $n$, $n-c$ and $-c$ instead of $a$, $b$ and $c$)
-yields
-\begin{align*}
-\gcd\left(  n,n-c\right)   &  =\gcd\left(  n,-c\right)  =\gcd\left(
-n,c\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition
-\ref{prop.ent.gcd.props1} \textbf{(h)} (applied to }a=n\text{ and
-}b=-c\text{)}\right)  \\
-&  =1.
-\end{align*}
-In other words, $n\perp n-c$. In other words, $n-c\perp n$ (by Proposition
-\ref{prop.ent.coprime.perp-symm}).
-\par
-Combining this with $n-c\in\left\{  1,2,\ldots,n\right\}  $, we conclude that
-$n-c$ is an $i\in\left\{  1,2,\ldots,n\right\}  $ satisfying $i\perp n$. In
-other words, $n-c\in\left\{  i\in\left\{  1,2,\ldots,n\right\}  \ \mid\ i\perp
-n\right\}  =C$. Qed.}. This allows us to define a map%
-\begin{align*}
-F:C &  \rightarrow C,\\
-c &  \mapsto n-c.
-\end{align*}
-This map $F$ has the property that $F\circ F=\operatorname*{id}$, because each
-$c\in C$ satisfies%
-\begin{align*}
-\left(  F\circ F\right)  \left(  c\right)   &  =F\left(  \underbrace{F\left(
-c\right)  }_{\substack{=n-c\\\text{(by the definition of }F\text{)}}}\right)
-=F\left(  n-c\right)  \\
-&  =n-\left(  n-c\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition
-of }F\right)  \\
-&  =c=\operatorname*{id}\left(  c\right)  .
-\end{align*}
-Hence, the map $F$ is inverse to itself. Thus, the map $F$ is invertible,
-i.e., is a bijection.
+We have assumed that $a$ is medium. In other words, $a = J\left(a\right)$.
+But (\ref{pf.thm.ent.wilson.aJa}) yields $aJ\tup{a} \equiv 1 \mod p$.
+Thus, $a^2 = a \underbrace{a}_{= J\tup{a}} = aJ\tup{a} \equiv 1 \mod p$.
+Hence, Exercise \ref{exe.ent.primes.aa-1} shows that $a\equiv1\operatorname{mod}%
+p$ or $a\equiv-1\operatorname{mod}p$.
+Hence, we must have $a \equiv -1 \mod p$ (since we do not have
+$a \equiv 1 \mod p$). Thus, $a \equiv -1 \equiv p-1 \mod p$ (since
+$p-1 \equiv -1 \mod p$). This contradicts the fact that we do not
+have $a \equiv p-1 \mod p$.
 
-It is easy to see that if $c$ is a small element of $C$, then $F\left(
-c\right)  $ is a large element of $C$\ \ \ \ \footnote{\textit{Proof.} Let $c$
-be a small element of $C$. Thus, $c<n-c$. Hence, $n-c>c=n-\left(  n-c\right)
-$. In view of $F\left(  c\right)  =n-c$, this rewrites as $F\left(  c\right)
->n-F\left(  c\right)  $. In other words, $F\left(  c\right)  $ is a large
-element of $C$ (by the definition of \textquotedblleft large\textquotedblright%
+This contradiction shows that our assumption was false. Hence,
+$a = 1$ or $a = p-1$.
+
+Now, forget that we fixed $a$.
+We thus have proven that every medium element $a$ of $A$ satisfies $a = 1$
+or $a = p-1$.
+In other words, ever medium element of $A$ is either $1$ and $p-1$.
+Since we know that $1$ and $p-1$ actually are medium elements of $A$,
+we thus conclude that the medium elements of $A$ are precisely $1$ and $p-1$.]
+
+It is easy to see that if $a$ is a small element of $A$, then $J\tup{a}$
+is a large element of $A$\ \ \ \ \footnote{\textit{Proof.} Let $a$
+be a small element of $A$. Thus, $a < J\tup{a}$.
+Note that $J \tup{a} \in A$ (since $J$ is a map from $A$ to $A$).
+But
+$J \circ J = \id$, so that $\tup{J \circ J}\tup{a} = \id{a} = a < J\tup{a}$.
+In view of $\tup{J \circ J}\tup{a} = J\tup{J\tup{a}}$,
+this rewrites as $J\tup{J\tup{a}} < J\tup{a}$.
+In other words, the element $J \tup{a}$ of $A$ is large (by the definition
+of \textquotedblleft large\textquotedblright%
 ). Qed.}. Hence, the map%
 \begin{align*}
-F^{+}:\left\{  \text{small elements of }C\right\}   &  \rightarrow\left\{
-\text{large elements of }C\right\}  ,\\
-c &  \mapsto F\left(  c\right)
+J^{+}:\left\{  \text{small elements of }A\right\}   &  \rightarrow\left\{
+\text{large elements of }A\right\}  ,\\
+a &  \mapsto J\left(  a\right)
 \end{align*}
 is well-defined. Similarly, the map%
 \begin{align*}
-F^{-}:\left\{  \text{large elements of }C\right\}   &  \rightarrow\left\{
-\text{small elements of }C\right\}  ,\\
-c &  \mapsto F\left(  c\right)
+J^{-}:\left\{  \text{large elements of }A\right\}   &  \rightarrow\left\{
+\text{small elements of }A\right\}  ,\\
+a &  \mapsto J\left(  a\right)
 \end{align*}
-is well-defined. These two maps $F^{+}$ and $F^{-}$ are both restrictions of
-the map $F$, and thus are mutually inverse (since the map $F$ is inverse to
-itself). Hence, the map $F^{+}$ is invertible, i.e., is a bijection. Thus, we
+is well-defined. These two maps $J^{+}$ and $J^{-}$ are both restrictions of
+the map $J$, and thus are mutually inverse (since the map $J$ is inverse to
+itself). Hence, the map $J^{+}$ is invertible, i.e., is a bijection.
+XXXThus, we
 have found a bijection from $\left\{  \text{small elements of }C\right\}  $ to
 $\left\{  \text{large elements of }C\right\}  $ (namely, $F^{+}$). Therefore,%
 \[
@@ -12965,10 +12921,8 @@ C\right\vert \\
 Thus, $2\mid\phi\left(  n\right)  $ (since $\left\vert \left\{  \text{large
 elements of }C\right\}  \right\vert $ is an integer). In other words,
 $\phi\left(  n\right)  $ is even. This so
-\end{proof}
 \end{fineprint}
 
-\begin{proof}
 XXX
 
 $\left(  p-1\right)  !\equiv-1\operatorname{mod}p$.
