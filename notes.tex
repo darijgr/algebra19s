@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Friday, March 08, 2019 16:29:48}
+%TCIDATA{LastRevised=Friday, March 08, 2019 20:02:11}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -229,7 +229,7 @@ end of this class. (Some of them can also be answered elementarily, without
 using abstract algebra, but such answers usually take more work and are harder
 to find.)
 
-\subsection{\label{subsect.intro.sum-of-2sq}Motivation: $n=x^{2}+y^{2}$}
+\subsection{\label{sect.intro.sum-of-2sq}Motivation: $n=x^{2}+y^{2}$}
 
 A \textit{perfect square} means the square of an integer. Thus, the perfect
 squares are
@@ -445,7 +445,7 @@ Question~\ref{quest.intro.sum-of-2sq.2}, in terms of divisors of $n$ of the
 forms $4k+1$ and $4k+3$. We will see these formulas after we have properly
 understood the concept of Gaussian integers.
 
-\subsection{\label{subsect.intro.algnum}Motivation: Algebraic numbers}
+\subsection{\label{sect.intro.algnum}Motivation: Algebraic numbers}
 
 \begin{noncompile}
 Recall how the number system was constructed. In a way, each extension was
@@ -485,9 +485,10 @@ polynomial $P$ with rational coefficients such that $P\left(  z \right)  = 0$.
 In other words, a real number $z$ is algebraic if and only if it is a root of
 a nonzero polynomial with rational coefficients.
 
-(If you know the complex numbers, you can replace ``real'' by ``complex'' in
+(If you know the complex numbers, you can replace \textquotedblleft
+real\textquotedblright\ by \textquotedblleft complex\textquotedblright\ in
 this definition; but we shall only see real numbers in this little
-motivational subsection.)
+motivational section.)
 
 Examples:
 
@@ -2961,6 +2962,28 @@ follows by combining Lemma \ref{lem.ent.quorem.exist} with Lemma
 \ref{lem.ent.quorem.unique}.
 \end{proof}
 
+\begin{remark}
+\label{rmk.ent.quo-rem.full.geo}We can visualize Theorem
+\ref{thm.ent.quorem.full} as follows: Mark all the multiples of $n$ on the
+real line. These multiples are evenly spaced points, with a distance of $n$
+between any two neighboring multiples. Thus, they subdivide the real line into
+infinitely many intervals of length $n$. More precisely, for each
+$a\in\mathbb{Z}$, let $I_{a}$ be the interval $\left[  an,\left(  a+1\right)
+n\right)  =\left\{  x\in\mathbb{Z}\ \mid\ an\leq x<\left(  a+1\right)
+n\right\}  $; then, every real belongs to exactly one of these intervals
+$I_{a}$. (This is intuitively clear -- I am not saying this is a rigorous
+proof.) Thus, in particular, $u$ belongs to $I_{q}$ for some $q\in\mathbb{Z}$.
+This $q$ is precisely the $q$ in the unique pair $\left(  q,r\right)
+\in\mathbb{Z}\times\left\{  0,1,\ldots,n-1\right\}  $ satisfying $u=qn+r$.
+Moreover, the $r$ from this pair specifies the relative position of $u$ in the
+interval $I_{q}$.
+
+(Unfortunately, it is not clear to me whether this intuition can be turned
+into a proper proof of Theorem \ref{thm.ent.quorem.full}, since it relies on
+the fact that every real number belongs to exactly one of the intervals
+$I_{a}$, which fact may well require Theorem \ref{thm.ent.quorem.full} for its proof.)
+\end{remark}
+
 The following properties of the quotient and the remainder are simple but will
 be used all the time:
 
@@ -3175,6 +3198,27 @@ pair $\left(  q,r\right)  $ from Exercise \ref{exe.ent.quo-rem.minrem}
 \textbf{(a)} is not unique.]
 \end{proof}
 \end{fineprint}
+
+\begin{remark}
+\label{rmk.ent.quo-rem.minrem.geo}There is a simple visualization that makes
+Exercise \ref{exe.ent.quo-rem.minrem} \textbf{(a)} intuitively obvious: Mark
+all the multiples of $n$ on the real line. These multiples are evenly spaced
+points, with a distance of $n$ between any two neighboring multiples. Hence,
+every point on the real line is at most a distance of $n/2$ away from the
+closest multiple of $n$. Applying this to the point $u$, we conclude that $u$
+is at most a distance of $n/2$ away from the closest multiple of $n$. In other
+words, if $qn$ is the closest multiple of $n$ to $u$ (or one of the two
+closest multiples of $n$, if $u$ is in the middle between two multiples), then
+$\left\vert u-qn\right\vert \leq n/2$. Thus, if we set $r=u-qn$, then $u=qn+r$
+and $\left\vert r\right\vert \leq n/2$. This proves Exercise
+\ref{exe.ent.quo-rem.minrem} \textbf{(a)} intuitively.
+
+This point of view also makes Exercise \ref{exe.ent.quo-rem.minrem}
+\textbf{(b)} evident: When the point $u$ is exactly in the middle of one of
+the length-$n$ intervals between multiples of $n$, then there are two
+multiples of $n$ equally close to $u$, and we can pick either of them; hence,
+the pair $\left(  q,r\right)  $ is not unique.
+\end{remark}
 
 \begin{convention}
 The symbols $//$ and $\%$ will be granted higher precedence (in the sense of
@@ -3727,8 +3771,8 @@ neat exercise. A full proof can be found in \cite[proof of Proposition
 \subsubsection{Divisors}
 
 \begin{definition}
-Let $b\in\mathbb{Z}$. The \textit{divisors} of $b$ are defined as the integers
-that divide $b$.
+\label{def.ent.divisors.divisors}Let $b\in\mathbb{Z}$. The \textit{divisors}
+of $b$ are defined as the integers that divide $b$.
 \end{definition}
 
 Be aware that some authors use a mildly different definition of
@@ -12787,9 +12831,9 @@ $10$\\\hline
 a^{\prime}\equiv1\operatorname{mod}11$), and thus we pair up the factors of
 the product $1\cdot2\cdot\cdots\cdot\left(  p-1\right)  $ as follows:%
 \begin{align*}
-1\cdot2\cdot\cdots\cdot\left(  p-1\right)    & =1\cdot2\cdot3\cdot4\cdot
+1\cdot2\cdot\cdots\cdot\left(  p-1\right)   &  =1\cdot2\cdot3\cdot4\cdot
 5\cdot6\cdot7\cdot8\cdot9\cdot10\\
-& =1\cdot\left(  2\cdot6\right)  \cdot\left(  3\cdot4\right)  \cdot\left(
+&  =1\cdot\left(  2\cdot6\right)  \cdot\left(  3\cdot4\right)  \cdot\left(
 5\cdot9\right)  \cdot\left(  7\cdot8\right)  \cdot10.
 \end{align*}
 By the definition of the map $J$, each pair has the form $\left(  a,J\left(
@@ -12797,12 +12841,12 @@ a\right)  \right)  $ for some $a\in A$, and thus the product of any two
 different factors paired up with each other is $\equiv1\operatorname{mod}p$
 (by (\ref{pf.thm.ent.wilson.aJa})). For example, if $p=11$, then we have%
 \begin{align*}
-1\cdot2\cdot\cdots\cdot\left(  p-1\right)    & =1\cdot\underbrace{\left(
+1\cdot2\cdot\cdots\cdot\left(  p-1\right)   &  =1\cdot\underbrace{\left(
 2\cdot6\right)  }_{\equiv1\operatorname{mod}11}\cdot\underbrace{\left(
 3\cdot4\right)  }_{\equiv1\operatorname{mod}11}\cdot\underbrace{\left(
 5\cdot9\right)  }_{\equiv1\operatorname{mod}11}\cdot\underbrace{\left(
 7\cdot8\right)  }_{\equiv1\operatorname{mod}11}\cdot10\\
-& \equiv1\cdot10\operatorname{mod}11.
+&  \equiv1\cdot10\operatorname{mod}11.
 \end{align*}
 Thus, any two different factors paired up with each other \textquotedblleft
 neutralize\textquotedblright\ each other when being multiplied (as long as we
@@ -17477,8 +17521,8 @@ equivalence $\left(  \alpha-\beta=\gamma\right)  \Longleftrightarrow\left(
 \end{theorem}
 
 \begin{proof}
-All parts are straightforward. I will only prove \textbf{(f)}, since it is the
-hardest part.
+[Proof of Theorem \ref{thm.CC.CC.rules}.]All parts are straightforward. I will
+only prove \textbf{(f)}, since it is the hardest part.
 
 \textbf{(f)} Let $\alpha,\beta,\gamma\in\mathbb{C}$. Write $\alpha
 ,\beta,\gamma$ as $\alpha=\left(  a,a^{\prime}\right)  $ and $\beta=\left(
@@ -17529,7 +17573,7 @@ whenever $\alpha_{1},\alpha_{2},\ldots,\alpha_{k}\in\mathbb{C}$.
 \end{remark}
 
 \begin{theorem}
-For any real numbers $a$ and $b$, we have%
+\label{thm.CC.RRtoCC.hom}For any real numbers $a$ and $b$, we have%
 \begin{align*}
 \left(  a+b\right)  _{\mathbb{C}}  &  =a_{\mathbb{C}}+b_{\mathbb{C}%
 }\ \ \ \ \ \ \ \ \ \ \text{and}\\
@@ -17541,7 +17585,8 @@ For any real numbers $a$ and $b$, we have%
 \end{theorem}
 
 \begin{proof}
-Easy verification. For example, the third equality follows from%
+[Proof of Theorem \ref{thm.CC.RRtoCC.hom}.]Easy verification. For example, the
+third equality follows from%
 \begin{align*}
 \underbrace{a_{\mathbb{C}}}_{=\left(  a,0\right)  }\underbrace{b_{\mathbb{C}}%
 }_{=\left(  b,0\right)  }  &  =\left(  a,0\right)  \left(  b,0\right)
@@ -17552,7 +17597,7 @@ Easy verification. For example, the third equality follows from%
 \end{proof}
 
 \begin{remark}
-If $a_{1},a_{2},\ldots,a_{k}$ are $k$ reals, then
+\label{rmk.CC.RRtoCC.homk}If $a_{1},a_{2},\ldots,a_{k}$ are $k$ reals, then
 \begin{align*}
 \left(  a_{1}\right)  _{\mathbb{C}}+\left(  a_{2}\right)  _{\mathbb{C}}%
 +\cdots+\left(  a_{k}\right)  _{\mathbb{C}}  &  =\left(  a_{1}+a_{2}%
@@ -17565,23 +17610,23 @@ This can be proven by a straightforward induction on $k$.
 \end{remark}
 
 \begin{convention}
-From now on, for each real number $r$, we shall identify the real number $r$
-with the complex number $r_{\mathbb{C}}=\left(  r,0\right)  $. This is
-legitimate, due to the previous theorem.
+\label{conv.CC.RRtoCC.embed}From now on, for each real number $r$, we shall
+identify the real number $r$ with the complex number $r_{\mathbb{C}}=\left(
+r,0\right)  $. This is legitimate, due to the previous theorem.
 \end{convention}
 
 Thus, the complex numbers extend the real numbers: $\mathbb{R}\subseteq
 \mathbb{C}$.
 
 \begin{proposition}
-For any $\left(  a,b\right)  \in\mathbb{C}$, we have $\left(  a,b\right)
-=a+bi$.
+\label{prop.CC.RRtoCC.a+bi}For any $\left(  a,b\right)  \in\mathbb{C}$, we
+have $\left(  a,b\right)  =a+bi$.
 \end{proposition}
 
 \begin{proof}
-By the Convention we just made, we identify the real numbers $a$ and $b$ with
-the complex numbers $a_{\mathbb{C}}=\left(  a,0\right)  $ and $b_{\mathbb{C}%
-}=\left(  b,0\right)  $, respectively. Thus,%
+By Convention \ref{conv.CC.RRtoCC.embed}, we identify the real numbers $a$ and
+$b$ with the complex numbers $a_{\mathbb{C}}=\left(  a,0\right)  $ and
+$b_{\mathbb{C}}=\left(  b,0\right)  $, respectively. Thus,%
 \begin{align*}
 \underbrace{a}_{=\left(  a,0\right)  }+\underbrace{b}_{=\left(  b,0\right)
 }\underbrace{i}_{=\left(  0,1\right)  }  &  =\left(  a,0\right)
@@ -17594,8 +17639,8 @@ a,0\right)  +\left(  0,b\right) \\
 \end{proof}
 
 \begin{proposition}
-For any $a\in\mathbb{R}$ and $\left(  b,c\right)  \in\mathbb{C}$, we have
-$a\left(  b,c\right)  =\left(  ab,ac\right)  $.
+\label{prop.CC.CC.a(b,c)}For any $a\in\mathbb{R}$ and $\left(  b,c\right)
+\in\mathbb{C}$, we have $a\left(  b,c\right)  =\left(  ab,ac\right)  $.
 \end{proposition}
 
 \begin{proof}
@@ -17603,16 +17648,16 @@ Straightforward verification.
 \end{proof}
 
 \begin{definition}
-An \textit{inverse} of a complex number $\alpha$ is a complex number $\beta$
-such that $\alpha\beta=1$. (Recall that $1=1_{\mathbb{C}}$ by the convention
-that we just made.)
+\label{def.CC.CC.inverse.inverse}An \textit{inverse} of a complex number
+$\alpha$ is a complex number $\beta$ such that $\alpha\beta=1$. (Recall that
+$1=1_{\mathbb{C}}$ by the convention that we just made.)
 \end{definition}
 
 \begin{theorem}
-Let $\alpha$ be a nonzero complex number. (\textquotedblleft
-Nonzero\textquotedblright\ means \textquotedblleft distinct from
-$0=0_{\mathbb{C}}=\left(  0,0\right)  $\textquotedblright.) Then, $\alpha$ has
-a unique inverse.
+\label{thm.CC.CC.inverse.unique}Let $\alpha$ be a nonzero complex number.
+(\textquotedblleft Nonzero\textquotedblright\ means \textquotedblleft distinct
+from $0=0_{\mathbb{C}}=\left(  0,0\right)  $\textquotedblright.) Then,
+$\alpha$ has a unique inverse.
 \end{theorem}
 
 \begin{proof}
@@ -17637,8 +17682,8 @@ an invertible element in $\mathbb{Z}/n$. The same argument applies to complex nu
 \end{proof}
 
 \begin{definition}
-\textbf{(a)} The inverse of a nonzero complex number $\beta$ is called
-$\beta^{-1}$.
+\label{def.CC.CC.inverse.notations}\textbf{(a)} The inverse of a nonzero
+complex number $\beta$ is called $\beta^{-1}$.
 
 \textbf{(b)} Let $\alpha$ and $\beta$ be two complex numbers such that
 $\beta\neq0$. Then, the quotient $\dfrac{\alpha}{\beta}$ (also known as
@@ -17648,8 +17693,8 @@ $\alpha/\beta$) is defined as $\alpha\cdot\beta^{-1}$.
 It is easy to see that division undoes multiplication:
 
 \begin{proposition}
-Given three complex numbers $\alpha,\beta,\gamma$ with $\beta\neq0$. Then, we
-have the equivalence%
+\label{prop.CC.CC.inverse.undo}Given three complex numbers $\alpha
+,\beta,\gamma$ with $\beta\neq0$. Then, we have the equivalence%
 \[
 \left(  \gamma=\dfrac{\alpha}{\beta}\right)  \Longleftrightarrow\left(
 \alpha=\beta\gamma\right)  .
@@ -17672,7 +17717,7 @@ $\textquotedblright\ direction.
 \end{proof}
 
 \begin{definition}
-Let $\alpha\in\mathbb{C}$.
+\label{def.CC.CC.power}Let $\alpha\in\mathbb{C}$.
 
 \textbf{(a)} For any $n\in\mathbb{N}$, we set $\alpha^{n}=\underbrace{\alpha
 \alpha\cdots\alpha}_{n\text{ times}}$.
@@ -17683,20 +17728,34 @@ Let $\alpha\in\mathbb{C}$.
 
 Caution: Fractional powers (like $\alpha^{1/2}$) are not really well-defined.
 
-The usual rules for exponents apply: e.g.,%
-\begin{align*}
-\left(  \alpha\beta\right)  ^{n}  &  =\alpha^{n}\beta^{n}%
+\begin{proposition}
+\textbf{(a)} Complex numbers satisfy the usual rules for exponents apply:
+e.g., we have%
+\[
+\left(  \alpha\beta\right)  ^{n}=\alpha^{n}\beta^{n}%
 ,\ \ \ \ \ \ \ \ \ \ \alpha^{n+m}=\alpha^{n}\alpha^{m}%
-,\ \ \ \ \ \ \ \ \ \ \left(  \alpha^{n}\right)  ^{m}=\alpha^{nm},\\
-\left(  \alpha+\beta\right)  ^{n}  &  =\sum_{k=0}^{n}\dbinom{n}{k}\alpha
-^{k}\beta^{n-k}\ \ \ \ \ \ \ \ \ \ \text{for }n\in\mathbb{N}\text{.}%
-\end{align*}
+,\ \ \ \ \ \ \ \ \ \ \left(  \alpha^{n}\right)  ^{m}=\alpha^{nm}%
+\]
+for all $\alpha,\beta\in\mathbb{C}$ and $n,m\in\mathbb{N}$. These equalities
+also hold for arbitrary $n,m\in\mathbb{Z}$ when $\alpha$ and $\beta$ are nonzero.
 
+\textbf{(b)} Complex numbers satisfy the binomial formula: That is, if
+$\alpha,\beta\in\mathbb{C}$, then%
+\[
+\left(  \alpha+\beta\right)  ^{n}=\sum_{k=0}^{n}\dbinom{n}{k}\alpha^{k}%
+\beta^{n-k}\ \ \ \ \ \ \ \ \ \ \text{for }n\in\mathbb{N}\text{.}%
+\]
+
+\end{proposition}
+
+\begin{proof}
+The same arguments as for real (or rational) numbers apply here.
+\end{proof}
 
 Also, $i^{2}=ii=-1$.
 
 \begin{definition}
-Let $\alpha=\left(  a,b\right)  $ be a complex number.
+\label{def.CC.norm.norm-abs}Let $\alpha=\left(  a,b\right)  $ be a complex number.
 
 \textbf{(a)} The \textit{norm} of $\alpha$ is defined to be the real number
 $a^{2}+b^{2}\in\mathbb{R}$. This norm is called $\operatorname*{N}\left(
@@ -17713,33 +17772,38 @@ Note that $\left\vert a_{\mathbb{C}}\right\vert =\left\vert a\right\vert $ for
 all $a\in\mathbb{R}$.
 
 \begin{definition}
-Let $\alpha=\left(  a,b\right)  \in\mathbb{C}$.
+\label{def.CC.conj.conj}Let $\alpha=\left(  a,b\right)  \in\mathbb{C}$.
 
-The \textit{conjugate} $\overline{\alpha}$ of $\alpha$ is defined as $\left(
-a,-b\right)  \in\mathbb{C}$.
+The \textit{conjugate} $\overline{\alpha}$ of $\alpha$ is defined to be the
+complex number $\left(  a,-b\right)  \in\mathbb{C}$.
 \end{definition}
 
 The following is easy to check:
 
-\begin{remark}
-Let $\alpha\in\mathbb{C}$.
+\begin{proposition}
+\label{prop.CC.conj.conjconj}Let $\alpha\in\mathbb{C}$.
 
 \textbf{(a)} We have $\alpha=\overline{\alpha}$ if and only if $\alpha
 \in\mathbb{R}$ (or, more formally: $\alpha=r_{\mathbb{C}}$ for some
 $r\in\mathbb{R}$).
 
 \textbf{(b)} We always have $\overline{\overline{\alpha}}=\alpha$.
-\end{remark}
+\end{proposition}
 
 \begin{proposition}
-Let $\alpha\in\mathbb{C}$. Then, $\operatorname*{N}\left(  \alpha\right)
-=\alpha\overline{\alpha}$ (or, more formally: $\left(  \operatorname*{N}%
-\left(  \alpha\right)  \right)  _{\mathbb{C}}=\alpha\overline{\alpha}$).
+\label{prop.CC.norm.conj}Let $\alpha\in\mathbb{C}$.
+
+\textbf{(a)} We have $\operatorname*{N}\left(  \alpha\right)  =\alpha
+\overline{\alpha}$ (or, more formally: $\left(  \operatorname*{N}\left(
+\alpha\right)  \right)  _{\mathbb{C}}=\alpha\overline{\alpha}$).
+
+\textbf{(b)} We have $\operatorname*{N}\left(  \overline{\alpha}\right)
+=\operatorname*{N}\left(  \alpha\right)  $.
 \end{proposition}
 
 \begin{proof}
-Write $\alpha$ as $\alpha=\left(  a,b\right)  $. Then, $\overline{\alpha
-}=\left(  a,-b\right)  $. Thus,%
+\textbf{(a)} Write $\alpha$ as $\alpha=\left(  a,b\right)  $. Then,
+$\overline{\alpha}=\left(  a,-b\right)  $. Thus,%
 \begin{align*}
 \alpha\overline{\alpha}  &  =\left(  a,b\right)  \left(  a,-b\right)  =\left(
 aa-b\left(  -b\right)  ,a\left(  -b\right)  +ba\right) \\
@@ -17747,17 +17811,25 @@ aa-b\left(  -b\right)  ,a\left(  -b\right)  +ba\right) \\
 },0\right)  =\left(  \operatorname*{N}\left(  \alpha\right)  ,0\right)
 =\left(  \operatorname*{N}\left(  \alpha\right)  \right)  _{\mathbb{C}}.
 \end{align*}
+This proves Proposition \ref{prop.CC.norm.conj} \textbf{(a)}.
 
+\textbf{(b)} Write $\alpha$ as $\alpha=\left(  a,b\right)  $. Then,
+$\overline{\alpha}=\left(  a,-b\right)  $. Thus, the definition of
+$\operatorname*{N}\left(  \overline{\alpha}\right)  $ yields
+$\operatorname*{N}\left(  \overline{\alpha}\right)  =a^{2}+\left(  -b\right)
+^{2}=a^{2}+b^{2}=\operatorname*{N}\left(  \alpha\right)  $ (since this is how
+$\operatorname*{N}\left(  \alpha\right)  $ was defined).
 \end{proof}
 
-General reference for complex numbers: \cite{LaNaSc16}.
+A good reference for the basic properties of complex numbers is
+\cite{LaNaSc16}.
 
 \begin{center}
 \textbf{2019-03-04 lecture}
 \end{center}
 
 \begin{proposition}
-Let $\alpha$ and $\beta$ be two complex numbers. Then:
+\label{prop.CC.conj.hom}Let $\alpha$ and $\beta$ be two complex numbers. Then:
 
 \textbf{(a)} We have $\overline{\alpha+\beta}=\overline{\alpha}+\overline
 {\beta}$.
@@ -17849,7 +17921,7 @@ this identity (although Brahmagupta must have found it in a different way,
 since complex numbers were not known to him).
 
 \begin{definition}
-Let $\alpha=\left(  a,b\right)  =a+bi$ be a complex number.
+\label{def.CC.ReIm}Let $\alpha=\left(  a,b\right)  =a+bi$ be a complex number.
 
 Then, $a$ is called the \textit{real part} of $\alpha$ and denoted
 $\operatorname*{Re}\alpha$ (or $\mathfrak{R}\alpha$).
@@ -17859,7 +17931,8 @@ $\operatorname*{Im}\alpha$ (or $\mathfrak{I}\alpha$).
 \end{definition}
 
 \begin{proposition}
-Let $\mathbb{R}^{2\times2}$ be the set of $2\times2$-matrices with real entries.
+\label{prop.CC.as-matrices.mu}Let $\mathbb{R}^{2\times2}$ be the set of
+$2\times2$-matrices with real entries.
 
 Define a map $\mu:\mathbb{C}\rightarrow\mathbb{R}^{2\times2}$ by%
 \[
@@ -17921,21 +17994,22 @@ a & b\\
 \right)  $.
 \end{proof}
 
-This proposition really says that (instead of regarding complex numbers as
-pairs of real numbers) we can regard complex numbers as a specific kind of
-$2\times2$-matrices with real entries (by identifying each complex number
-$\alpha$ with the matrix $\mu\left(  \alpha\right)  $). This viewpoint has the
-advantage that multiplication of complex numbers becomes a particular case of
-matrix multiplication. (We could have saved ourselves the trouble of proving
-the associativity of multiplication for complex numbers if we had taken this viewpoint.)
+Proposition \ref{prop.CC.as-matrices.mu} really says that (instead of
+regarding complex numbers as pairs of real numbers) we can regard complex
+numbers as a specific kind of $2\times2$-matrices with real entries (by
+identifying each complex number $\alpha$ with the matrix $\mu\left(
+\alpha\right)  $). This viewpoint has the advantage that multiplication of
+complex numbers becomes a particular case of matrix multiplication. (We could
+have saved ourselves the trouble of proving the associativity of
+multiplication for complex numbers if we had taken this viewpoint.)
 
 Finally, let me mention without proof the so-called \textit{Fundamental
 Theorem of Algebra}:
 
 \begin{theorem}
-Let $p\left(  x\right)  $ be a polynomial of degree $n$ with complex
-coefficients. Then, there exist complex numbers $\alpha_{1},\alpha_{2}%
-,\ldots,\alpha_{n}$ and $\beta$ such that%
+\label{thm.CC.FTA.factor}Let $p\left(  x\right)  $ be a polynomial of degree
+$n$ with complex coefficients. Then, there exist complex numbers $\alpha
+_{1},\alpha_{2},\ldots,\alpha_{n}$ and $\beta$ such that%
 \[
 p\left(  x\right)  =\beta\left(  x-\alpha_{1}\right)  \left(  x-\alpha
 _{2}\right)  \cdots\left(  x-\alpha_{n}\right)  .
@@ -17955,11 +18029,23 @@ a theorem of analysis. For a proof, see \cite[Theorem 3.2.2]{LaNaSc16}.
 
 \subsection{Gaussian integers}
 
+Inside the set $\mathbb{C}$ of all complex numbers (an uncountable set) lies a
+much smaller (countable) set of numbers, which are much closer to integers
+than even to real numbers. We shall study them partly for their own sake,
+partly as an instructive example of what will later call a commutative ring,
+and partly in order to answer the questions from Section
+\ref{sect.intro.sum-of-2sq} (although complex numbers were never mentioned in
+that section).
+
+We shall follow Keith Conrad's notes \cite{Conrad-Gauss} for most of this
+section (but at the end we will go a bit further in order to answer Question
+\ref{quest.intro.sum-of-2sq.2} \textbf{(b)}).
+
 \subsubsection{Definitions and basics}
 
 \begin{definition}
-A \textit{Gaussian integer} is a complex number $\left(  a,b\right)  $ with
-$a,b\in\mathbb{Z}$.
+\label{def.Z[i].gauss.gauss}A \textit{Gaussian integer} is a complex number
+$\left(  a,b\right)  $ with $a,b\in\mathbb{Z}$.
 \end{definition}
 
 For example, $3+5i$ and $3-7i$ are Gaussian integers. So are $0$, $1$ and $i$.
@@ -17970,7 +18056,8 @@ Equivalently, we could have defined Gaussian integers in the same way as we
 defined complex numbers, but using $\mathbb{Z}$ instead of $\mathbb{R}$.
 
 \begin{definition}
-We let $\mathbb{Z}\left[  i\right]  $ be the set of all Gaussian integers.
+\label{def.Z[i].gauss.Z[i]}We let $\mathbb{Z}\left[  i\right]  $ be the set of
+all Gaussian integers.
 \end{definition}
 
 Elementary number theory concerns itself with integers (mostly). Our goal in
@@ -17980,8 +18067,9 @@ of Gaussian integers.
 We will try to use Greek letters for Gaussian integers and Roman letters for integers.
 
 \begin{proposition}
-\textbf{(a)} Let $\alpha$ and $\beta$ be two Gaussian integers. Then,
-$\alpha+\beta$, $\alpha-\beta$ and $\alpha\cdot\beta$ are Gaussian integers.
+\label{prop.Z[i].gauss.ring}\textbf{(a)} Let $\alpha$ and $\beta$ be two
+Gaussian integers. Then, $\alpha+\beta$, $\alpha-\beta$ and $\alpha\cdot\beta$
+are Gaussian integers.
 
 \textbf{(b)} Sums and products of finitely many Gaussian integers are Gaussian integers.
 \end{proposition}
@@ -17992,10 +18080,20 @@ $\alpha+\beta$, $\alpha-\beta$ and $\alpha\cdot\beta$ are Gaussian integers.
 \textbf{(b)} This follows by induction from part \textbf{(a)}.
 \end{proof}
 
+\begin{proposition}
+\label{prop.Z[i].gauss.conj}Let $\alpha$ be a Gaussian integer. Then,
+$\overline{\alpha}$ is a Gaussian integer.
+\end{proposition}
+
+\begin{proof}
+Obvious.
+\end{proof}
+
 \begin{definition}
-\textbf{(a)} A Gaussian integer $\alpha\in\mathbb{Z}\left[  i\right]  $ is
-said to be \textit{invertible in}\textbf{ }$\mathbb{Z}\left[  i\right]  $ if
-it has an inverse in $\mathbb{Z}\left[  i\right]  $.
+\label{def.Z[i].gauss.unit}\textbf{(a)} A Gaussian integer $\alpha
+\in\mathbb{Z}\left[  i\right]  $ is said to be \textit{invertible in}\textbf{
+}$\mathbb{Z}\left[  i\right]  $ if it has an inverse in $\mathbb{Z}\left[
+i\right]  $.
 
 A \textit{unit} will mean a Gaussian integer that is invertible in
 $\mathbb{Z}\left[  i\right]  $.
@@ -18014,12 +18112,13 @@ invertible in $\mathbb{Z}$) are $1$ and $-1$. So if we defined a relation
 $\underset{\mathbb{Z}}{\sim}$ on $\mathbb{Z}$ in the same way as we defined
 the relation $\sim$ (but requiring $\gamma\in\mathbb{Z}$ instead of $\gamma
 \in\mathbb{Z}\left[  i\right]  $), then this relation would just be given by%
-\begin{align*}
+\begin{align}
 \left(  a\underset{\mathbb{Z}}{\sim}b\right)   &  \Longleftrightarrow\left(
-a=cb\text{ for some }c\in\left\{  1,-1\right\}  \right) \\
+a=cb\text{ for some }c\in\left\{  1,-1\right\}  \right) \nonumber\\
 &  \Longleftrightarrow\left(  a=b\text{ or }a=-b\right)  \Longleftrightarrow
 \left(  \left\vert a\right\vert =\left\vert b\right\vert \right)  .
-\end{align*}
+\label{eq.Z[i].gauss.unit-Z}%
+\end{align}
 But this does not hold for the relation $\sim$. It is easy to find two
 Gaussian integers $\alpha$ and $\beta$ such that $\left\vert \alpha\right\vert
 =\left\vert \beta\right\vert $ holds but $\alpha\sim\beta$ does not (for
@@ -18027,7 +18126,8 @@ example, $\alpha=16+63i$ and $\beta=33+56i$ both have absolute value $65$ but
 are not unit-equivalent).
 
 \begin{proposition}
-The relation $\sim$ on $\mathbb{Z}\left[  i\right]  $ is an equivalence relation.
+\label{prop.Z[i].gauss.uniteq.eqrel}The relation $\sim$ on $\mathbb{Z}\left[
+i\right]  $ is an equivalence relation.
 \end{proposition}
 
 \begin{proof}
@@ -18055,23 +18155,9 @@ unit $\delta\varepsilon$ satisfies $\alpha=\left(  \delta\varepsilon\right)
 $\alpha\sim\gamma$.]
 \end{proof}
 
-\begin{definition}
-The \textit{unit-equivalence classes} are defined to be the equivalence
-classes of the relation $\sim$ on $\mathbb{Z}\left[  i\right]  $.
-\end{definition}
-
 \begin{proposition}
-The unit-equivalence classes are the sets of the form $\left\{  \alpha
-,i\alpha,-\alpha,-i\alpha\right\}  $ for some $\alpha\in\mathbb{C}$.
-\end{proposition}
-
-\begin{proof}
-Easy.
-\end{proof}
-
-\begin{proposition}
-Let $\alpha\in\mathbb{Z}\left[  i\right]  $. Then, $\operatorname*{N}\left(
-\alpha\right)  \in\mathbb{N}$.
+\label{prop.Z[i].gauss.Norm-N}Let $\alpha\in\mathbb{Z}\left[  i\right]  $.
+Then, $\operatorname*{N}\left(  \alpha\right)  \in\mathbb{N}$.
 \end{proposition}
 
 \begin{proof}
@@ -18081,7 +18167,8 @@ squares of integers belong to $\mathbb{N}$.
 \end{proof}
 
 \begin{proposition}
-The units of $\mathbb{Z}\left[  i\right]  $ are $1,-1,i,-i$.
+\label{prop.Z[i].gauss.units}The units of $\mathbb{Z}\left[  i\right]  $ are
+$1,-1,i,-i$.
 \end{proposition}
 
 \begin{proof}
@@ -18120,10 +18207,77 @@ This proves the proposition.
 As a consequence of this proposition, if we are given two Gaussian integers
 $\alpha$ and $\beta$, we can easily check whether $\alpha\sim\beta$ holds.
 
+\begin{proposition}
+\label{prop.Z[i].gauss.norm1}Let $\alpha$ be a Gaussian integer.
+
+\textbf{(a)} We have $\operatorname*{N}\left(  \alpha\right)  =0$ if and only
+if $\alpha=0$.
+
+\textbf{(b)} We have $\operatorname*{N}\left(  \alpha\right)  =1$ if and only
+if $\alpha$ is a unit.
+\end{proposition}
+
+\begin{proof}
+Write $\alpha$ as $\alpha=\left(  a,b\right)  =a+bi$ for $a,b\in\mathbb{Z}$.
+Then, $\operatorname*{N}\left(  \alpha\right)  =a^{2}+b^{2}$.
+
+\textbf{(a)} We have $\operatorname*{N}\left(  \alpha\right)  =0$ if only if
+$a^{2}+b^{2}=0$ (since $\operatorname*{N}\left(  \alpha\right)  =a^{2}+b^{2}%
+$), which can only happen when both $a$ and $b$ equal $0$, which means that
+$\alpha=0$.
+
+\textbf{(b)} We have $\operatorname*{N}\left(  \alpha\right)  =a^{2}+b^{2}$.
+Thus, $\operatorname*{N}\left(  \alpha\right)  =1$ if and only if one of $a$
+and $b$ is $\pm1$ and the other is $0$; but this characterizes the Gaussian
+integers $1,-1,i,-i$, which are precisely the units.
+\end{proof}
+
 \begin{definition}
-Let $\alpha$ and $\beta$ be two Gaussian integers. We say that $\alpha
-\mid\beta$ (or \textquotedblleft$\alpha$ \textit{divides} $\beta
-$\textquotedblright\ or \textquotedblleft$\beta$ is \textit{divisible by
+\label{def.Z[i].gauss.uniteq.cl}The \textit{unit-equivalence classes} are
+defined to be the equivalence classes of the relation $\sim$ on $\mathbb{Z}%
+\left[  i\right]  $.
+\end{definition}
+
+\begin{proposition}
+\label{prop.Z[i].gauss.uniteq.cl}The unit-equivalence classes are the sets of
+the form $\left\{  \alpha,i\alpha,-\alpha,-i\alpha\right\}  $ for some
+$\alpha\in\mathbb{C}$.
+\end{proposition}
+
+\begin{proof}
+Easy.
+\end{proof}
+
+\begin{proposition}
+\label{prop.Z[i].gauss.uniteq.1}Let $\alpha$ be a Gaussian integer. Then,
+$\alpha\sim1$ if and only if $\alpha$ is a unit.
+\end{proposition}
+
+\begin{proposition}
+\label{prop.Z[i].gauss.uniteq.norm=norm}Let $\alpha$ and $\beta$ be two
+unit-equivalent Gaussian integers. Then, $\operatorname*{N}\left(
+\alpha\right)  =\operatorname*{N}\left(  \beta\right)  $.
+\end{proposition}
+
+\begin{proof}
+We have $\alpha=\gamma\beta$ for some unit $\gamma\in\mathbb{Z}\left[
+i\right]  $ (since $\alpha\sim\beta$). Consider this $\gamma$. Since $\gamma$
+is a unit, we have $\operatorname*{N}\left(  \gamma\right)  =1$ (by
+Proposition \ref{prop.Z[i].gauss.norm1} \textbf{(b)}). Thus,
+$\operatorname*{N}\left(  \alpha\right)  =\underbrace{\operatorname*{N}\left(
+\gamma\right)  }_{=1}\operatorname*{N}\left(  \beta\right)  =\operatorname*{N}%
+\left(  \beta\right)  $.
+\end{proof}
+
+\subsubsection{Divisibility and congruence}
+
+Now, we begin to do proper number theory with Gaussian integers. The next
+definition is the straightforward analogue of Definition \ref{def.ent.div.div}.
+
+\begin{definition}
+\label{def.Z[i].gauss.div}Let $\alpha$ and $\beta$ be two Gaussian integers.
+We say that $\alpha\mid\beta$ (or \textquotedblleft$\alpha$ \textit{divides}
+$\beta$\textquotedblright\ or \textquotedblleft$\beta$ is \textit{divisible by
 }$\alpha$\textquotedblright\ or \textquotedblleft$\beta$ is a
 \textit{multiple} of $\alpha$\textquotedblright) if there exists a Gaussian
 integer $\gamma$ such that $\beta=\alpha\gamma$.
@@ -18131,10 +18285,27 @@ integer $\gamma$ such that $\beta=\alpha\gamma$.
 We furthermore say that $\alpha\nmid\beta$ if $\alpha$ does not divide $\beta$.
 \end{definition}
 
-\begin{remark}
-Let $a\in\mathbb{Z}$ and $\beta=\left(  b,c\right)  \in\mathbb{Z}\left[
-i\right]  $. Then, $a\mid\beta$ if and only if $a$ divides both $b$ and $c$.
-\end{remark}
+When making such a definition, we need to be very careful: Potentially, it
+might create a clash of notations. In fact, every integer is a Gaussian
+integer. If $a$ and $b$ are integers, then the statement \textquotedblleft%
+$a\mid b$\textquotedblright\ already has a meaning (explained in Definition
+\ref{def.ent.div.div}). Definition \ref{def.Z[i].gauss.div} gives this
+statement a new meaning, because we can consider our integers $a$ and $b$ as
+Gaussian integers. If these two meanings are not equivalent, then we have laid
+ourselves a landmine!
+
+Fortunately, these two meanings \textbf{are} equivalent. That is: If $a$ and
+$b$ are two integers, then the statement \textquotedblleft$a\mid
+b$\textquotedblright\ interpreted according to Definition
+\ref{def.ent.div.div} is equivalent to the statement \textquotedblleft$a\mid
+b$\textquotedblright\ interpreted according to Definition
+\ref{def.Z[i].gauss.div}. This follows from the following proposition:
+
+\begin{proposition}
+\label{prop.Z[i].gauss.div.int|gauss}Let $a\in\mathbb{Z}$ and $\beta=\left(
+b,c\right)  \in\mathbb{Z}\left[  i\right]  $. Then, $a\mid\beta$ if and only
+if $a$ divides both $b$ and $c$.
+\end{proposition}
 
 \begin{proof}
 We have the following equivalence:%
@@ -18166,15 +18337,14 @@ c\right)  }\\
 
 \end{proof}
 
-This remark shows, in particular, that when $a$ and $b$ are integers, this new
-definition of $a\mid b$ agrees with the old definition.
+The next proposition is a (partial) analogue of Proposition
+\ref{prop.ent.div.1}:
 
 \begin{proposition}
-Let $\alpha$ and $\beta$ be two Gaussian integers.
+\label{prop.Z[i].gauss.div.1}Let $\alpha$ and $\beta$ be two Gaussian integers.
 
-\textbf{(a)} We have $\alpha\mid\beta$ only if $\operatorname*{N}\left(
-\alpha\right)  \mid\operatorname*{N}\left(  \beta\right)  $. (But the converse
-does not hold!)
+\textbf{(a)} If $\alpha\mid\beta$, then $\operatorname*{N}\left(
+\alpha\right)  \mid\operatorname*{N}\left(  \beta\right)  $.
 
 \textbf{(b)} If $\alpha\mid\beta$ and $\beta\neq0$, then $\operatorname*{N}%
 \left(  \alpha\right)  \leq\operatorname*{N}\left(  \beta\right)  $.
@@ -18183,14 +18353,24 @@ does not hold!)
 $\dfrac{\beta}{\alpha}\in\mathbb{Z}\left[  i\right]  $.
 \end{proposition}
 
+Note that we are using the norms $\operatorname*{N}\left(  \alpha\right)  $
+and $\operatorname*{N}\left(  \beta\right)  $ as analogues of $\left\vert
+a\right\vert $ and $\left\vert b\right\vert $ here, since the absolute values
+$\left\vert \alpha\right\vert $ and $\left\vert \beta\right\vert $ of Gaussian
+integers are often irrational and thus it makes no sense to talk of their divisibility.
+
+Note that the converse of Proposition \ref{prop.Z[i].gauss.div.1} does not
+hold. (That is, $\operatorname*{N}\left(  \alpha\right)  \mid\operatorname*{N}%
+\left(  \beta\right)  $ does not yield $\alpha\mid\beta$.)
+
 \begin{proof}
-\textbf{(a)} Assume that $\alpha\mid\beta$. Then, $\beta=\alpha\gamma$ for
-some $\gamma\in\mathbb{Z}\left[  i\right]  $. Thus, $\operatorname*{N}\left(
-\beta\right)  =\operatorname*{N}\left(  \alpha\gamma\right)
-=\operatorname*{N}\left(  \alpha\right)  \cdot\operatorname*{N}\left(
-\gamma\right)  $, so $\operatorname*{N}\left(  \alpha\right)  \mid
-\operatorname*{N}\left(  \beta\right)  $ since $\operatorname*{N}\left(
-\gamma\right)  \in\mathbb{N}$.
+[Proof of Proposition \ref{prop.Z[i].gauss.div.1}.]\textbf{(a)} Assume that
+$\alpha\mid\beta$. Then, $\beta=\alpha\gamma$ for some $\gamma\in
+\mathbb{Z}\left[  i\right]  $. Thus, $\operatorname*{N}\left(  \beta\right)
+=\operatorname*{N}\left(  \alpha\gamma\right)  =\operatorname*{N}\left(
+\alpha\right)  \cdot\operatorname*{N}\left(  \gamma\right)  $, so
+$\operatorname*{N}\left(  \alpha\right)  \mid\operatorname*{N}\left(
+\beta\right)  $ since $\operatorname*{N}\left(  \gamma\right)  \in\mathbb{N}$.
 
 \textbf{(b)} follows from \textbf{(a)}, since the norms are nonnegative
 integers (and since $\beta\neq0$ implies $\operatorname*{N}\left(
@@ -18199,9 +18379,13 @@ integers (and since $\beta\neq0$ implies $\operatorname*{N}\left(
 \textbf{(c)} is proven as in the integer case.
 \end{proof}
 
+The next proposition is a straightforward analogue of Proposition
+\ref{prop.ent.div.2}:
+
 \begin{proposition}
-\textbf{(a)} We have $\alpha\mid\alpha$ for every $\alpha\in\mathbb{Z}\left[
-i\right]  $. (This is called the \textit{reflexivity of divisibility}.)
+\label{prop.Z[i].div.2}\textbf{(a)} We have $\alpha\mid\alpha$ for every
+$\alpha\in\mathbb{Z}\left[  i\right]  $. (This is called the
+\textit{reflexivity of divisibility}.)
 
 \textbf{(b)} If $\alpha,\beta,\gamma\in\mathbb{Z}\left[  i\right]  $ satisfy
 $\alpha\mid\beta$ and $\beta\mid\gamma$, then $\alpha\mid\gamma$. (This is
@@ -18212,9 +18396,17 @@ i\right]  $ satisfy $\alpha_{1}\mid\beta_{1}$ and $\alpha_{2}\mid\beta_{2}$,
 then $\alpha_{1}\alpha_{2}\mid\beta_{1}\beta_{2}$.
 \end{proposition}
 
+\begin{proof}
+Analogous to the proof of Proposition \ref{prop.ent.div.2}.
+\end{proof}
+
+The next exercise is a Gaussian-integer analogue of Exercise
+\ref{exe.ent.div.abba}:
+
 \begin{exercise}
-Let $\alpha$ and $\beta$ be two Gaussian integers such that $\alpha\mid\beta$
-and $\beta\mid\alpha$. Prove that $\alpha\sim\beta$.
+\label{exe.Z[i].div.abba}Let $\alpha$ and $\beta$ be two Gaussian integers
+such that $\alpha\mid\beta$ and $\beta\mid\alpha$. Prove that $\alpha\sim
+\beta$.
 \end{exercise}
 
 \begin{proof}
@@ -18227,47 +18419,98 @@ a unit. But $\beta=\alpha\cdot\dfrac{\beta}{\alpha}$, so $\beta\sim\alpha$
 (since $\dfrac{\beta}{\alpha}$ is a unit), and thus $\alpha\sim\beta$.
 \end{proof}
 
-\begin{exercise}
-Let $\alpha,\beta,\gamma$ be three Gaussian integers such that $\gamma\neq0$.
-Prove that $\alpha\mid\beta$ holds if and only if $\alpha\gamma\mid\beta
-\gamma$.
-\end{exercise}
+Note that the conclusion \textquotedblleft$\alpha\sim\beta$\textquotedblright%
+\ in Exercise \ref{exe.Z[i].div.abba} is the proper Gaussian-integer analogue
+of the conclusion \textquotedblleft$\left\vert a\right\vert =\left\vert
+b\right\vert $\textquotedblright\ in Exercise \ref{exe.ent.div.abba} (since
+(\ref{eq.Z[i].gauss.unit-Z}) shows that unit-equivalence on $\mathbb{Z}\left[
+i\right]  $ is an analogue of the \textquotedblleft have the same absolute
+value\textquotedblright\ relation on $\mathbb{Z}$). (We could have stated the
+weaker conclusion $\left\vert \alpha\right\vert =\left\vert \beta\right\vert $
+as well, but it would not be half as useful.)
+
+The next exercise is an analogue of Exercise \ref{exe.ent.div.acbc}:
 
 \begin{exercise}
-Let $\nu\in\mathbb{Z}\left[  i\right]  $. Let $a,b\in\mathbb{N}$ be such that
-$a\leq b$. Prove that $\nu^{a}\mid\nu^{b}$.
+\label{exe.Z[i].div.acbc}Let $\alpha,\beta,\gamma$ be three Gaussian integers
+such that $\gamma\neq0$. Prove that $\alpha\mid\beta$ holds if and only if
+$\alpha\gamma\mid\beta\gamma$.
 \end{exercise}
 
+The next exercise is an analogue of Exercise \ref{exe.ent.div.powers}:
+
 \begin{exercise}
-Let $\gamma$ be a Gaussian integer such that $\gamma\mid1$. Prove that
-$\gamma\sim1$ (that is, $\gamma$ is a unit, i.e., either $1$ or $-1$ or $i$ or
-$-i$).
+\label{exe.Z[i].div.powers}Let $\nu\in\mathbb{Z}\left[  i\right]  $. Let
+$a,b\in\mathbb{N}$ be such that $a\leq b$. Prove that $\nu^{a}\mid\nu^{b}$.
+\end{exercise}
+
+Needless to say, the $a$ and $b$ in this exercise still have to be nonnegative
+integers, since Gaussian integers make no sense in exponents.
+
+The next exercise is an analogue of Exercise \ref{exe.ent.div.g|1}:
+
+\begin{exercise}
+\label{exe.Z[i].div.g|1}Let $\gamma$ be a Gaussian integer such that
+$\gamma\mid1$. Prove that $\gamma\sim1$ (that is, $\gamma$ is a unit, i.e.,
+either $1$ or $-1$ or $i$ or $-i$).
+\end{exercise}
+
+Next comes another trivial fact:
+
+\begin{exercise}
+\label{exe.Z[i].div.conj}Let $\alpha$ and $\beta$ be Gaussian integers such
+that $\alpha\mid\beta$. Prove that $\overline{\alpha}\mid\overline{\beta}$.
 \end{exercise}
 
 \begin{center}
 \textbf{2019-03-06 lecture}
 \end{center}
 
+We have defined congruence for integers in Definition \ref{def.ent.cong}. We
+can repeat the same definition for Gaussian integers:
+
 \begin{definition}
-Let $\nu,\alpha,\beta\in\mathbb{Z}\left[  i\right]  $. We say that $\alpha$
-\textit{is congruent to }$\beta$ \textit{modulo }$\nu$ if and only if $\nu
-\mid\alpha-\beta$. We shall use the notation \textquotedblleft$\alpha
-\equiv\beta\operatorname{mod}\nu$\textquotedblright\ for \textquotedblleft%
-$\alpha$ is congruent to $\beta$ modulo $\nu$\textquotedblright.
+\label{def.Z[i].cong}Let $\nu,\alpha,\beta\in\mathbb{Z}\left[  i\right]  $. We
+say that $\alpha$ \textit{is congruent to }$\beta$ \textit{modulo }$\nu$ if
+and only if $\nu\mid\alpha-\beta$. We shall use the notation \textquotedblleft%
+$\alpha\equiv\beta\operatorname{mod}\nu$\textquotedblright\ for
+\textquotedblleft$\alpha$ is congruent to $\beta$ modulo $\nu$%
+\textquotedblright.
 
 We furthermore shall use the notation \textquotedblleft$\alpha\not \equiv
 \beta\operatorname{mod}\nu$\textquotedblright\ for \textquotedblleft$\alpha$
 is not congruent to $\beta$ modulo $\nu$\textquotedblright.
 \end{definition}
 
-\begin{proposition}
-Let $\nu\in\mathbb{Z}\left[  i\right]  $ and $\alpha\in\mathbb{Z}\left[
-i\right]  $. Then, $\alpha\equiv0\operatorname{mod}\nu$ if and only if
-$\nu\mid\alpha$.
-\end{proposition}
+Once again, such a definition risks sneaking in ambiguity, but fortunately
+this one does not: If $n,a,b\in\mathbb{Z}$, then the statement
+\textquotedblleft$a\equiv b\operatorname{mod}n$\textquotedblright\ interpreted
+according to Definition \ref{def.ent.cong} is equivalent to the statement
+\textquotedblleft$a\equiv b\operatorname{mod}n$\textquotedblright\ interpreted
+according to Definition \ref{def.Z[i].cong} (by treating $n,a,b$ as Gaussian
+integers). To do so, recall that both statements are defined to mean
+\textquotedblleft$n\mid a-b$\textquotedblright, and the meaning of the latter
+statement does not depend on whether we interpret $n,a,b$ as integers or as
+Gaussian integers.
+
+The next proposition is a straightforward analogue of Proposition
+\ref{prop.ent.mod.0}:
 
 \begin{proposition}
-Let $\nu\in\mathbb{Z}\left[  i\right]  $.
+\label{prop.Z[i].mod.0}Let $\nu\in\mathbb{Z}\left[  i\right]  $ and $\alpha
+\in\mathbb{Z}\left[  i\right]  $. Then, $\alpha\equiv0\operatorname{mod}\nu$
+if and only if $\nu\mid\alpha$.
+\end{proposition}
+
+\begin{proof}
+Analogous to the proof of Proposition \ref{prop.ent.mod.0}.
+\end{proof}
+
+The next proposition is a straightforward analogue of Proposition
+\ref{prop.ent.mod.basics}:
+
+\begin{proposition}
+\label{prop.Z[i].mod.basics}Let $\nu\in\mathbb{Z}\left[  i\right]  $.
 
 \textbf{(a)} We have $\alpha\equiv\alpha\operatorname{mod}\nu$ for every
 $\alpha\in\mathbb{Z}\left[  i\right]  $.
@@ -18284,9 +18527,12 @@ $\alpha\equiv\beta\operatorname{mod}\nu$, then $\beta\equiv\alpha
 i\right]  $ satisfy $\alpha_{1}\equiv\beta_{1}\operatorname{mod}\nu$ and
 $\alpha_{2}\equiv\beta_{2}\operatorname{mod}\nu$, then%
 \begin{align}
-\alpha_{1}+\alpha_{2}  &  \equiv\beta_{1}+\beta_{2}\operatorname{mod}\nu;\\
-\alpha_{1}-\alpha_{2}  &  \equiv\beta_{1}-\beta_{2}\operatorname{mod}\nu;\\
+\alpha_{1}+\alpha_{2}  &  \equiv\beta_{1}+\beta_{2}\operatorname{mod}%
+\nu;\label{eq.prop.Z[i].mod.basics.d.1}\\
+\alpha_{1}-\alpha_{2}  &  \equiv\beta_{1}-\beta_{2}\operatorname{mod}%
+\nu;\label{eq.prop.Z[i].mod.basics.d.2}\\
 \alpha_{1}\alpha_{2}  &  \equiv\beta_{1}\beta_{2}\operatorname{mod}\nu.
+\label{eq.prop.Z[i].mod.basics.d.3}%
 \end{align}
 
 
@@ -18295,6 +18541,12 @@ $\alpha_{2}\equiv\beta_{2}\operatorname{mod}\nu$, then%
 \equiv\beta\operatorname{mod}\nu$, then $\alpha\equiv\beta\operatorname{mod}%
 \mu$.
 \end{proposition}
+
+\begin{proof}
+Analogous to the proof of Proposition \ref{prop.ent.mod.basics}.
+\end{proof}
+
+\subsubsection{Division with remainder}
 
 Now, let us try to make division with remainder work for Gaussian integers.
 This is no longer easy or just a straightforward modification of the
@@ -18329,9 +18581,7 @@ and $\left\vert r\right\vert \leq b/2$.
 \end{theorem}
 
 This is the claim of Exercise \ref{exe.ent.quo-rem.minrem} \textbf{(a)}. Note
-that $\left(  q,r\right)  $ is not always unique. (Proof idea: The multiples
-of $b$ split the real line into intervals of length $b$. Thus, every point $a$
-on the real line is at most $b/2$ away from the closest multiple of $b$.)
+that $\left(  q,r\right)  $ is not always unique.
 
 Now, let us state an analogous fact for Gaussian integers:
 
@@ -18344,47 +18594,77 @@ $\operatorname*{N}\left(  \rho\right)  \leq\operatorname*{N}\left(
 \beta\right)  /2$.
 \end{theorem}
 
-Note that $\left(  \gamma,\rho\right)  $ is not unique. Yet, this is the
-closest we can get to Theorem \ref{thm.ent.quorem.full} in $\mathbb{Z}\left[
-i\right]  $.
+Note that $\left(  \gamma,\rho\right)  $ is not unique. It is best to regard
+Theorem \ref{thm.Z[i].gauss.quorem} as an analogue of Exercise
+\ref{exe.ent.quo-rem.minrem} \textbf{(a)}, not as an analogue of Theorem
+\ref{thm.ent.quorem.full}; nevertheless, it is the closest we can get to
+Theorem \ref{thm.ent.quorem.full} in $\mathbb{Z}\left[  i\right]  $, and can
+often be substituted in places where one would usually want to apply Theorem
+\ref{thm.ent.quorem.full}.
+
+Theorem \ref{thm.Z[i].gauss.quorem} can be visualized geometrically (similarly
+to the visualizations shown in Remark \ref{rmk.ent.quo-rem.full.geo} and
+Remark \ref{rmk.ent.quo-rem.minrem.geo}). See \cite[\S 7]{Conrad-Gauss} for
+the details.
 
 \begin{proof}
-[Proof of Theorem \ref{thm.Z[i].gauss.quorem}.](Following \cite[proof of
-Theorem 3.1]{Conrad-Gauss}.) Let $N=\operatorname*{N}\left(  \beta\right)  $.
-Write%
-\begin{align*}
-\dfrac{\alpha}{\beta}  &  =\dfrac{\alpha\overline{\beta}}{\beta\overline
-{\beta}}=\dfrac{\alpha\overline{\beta}}{N}\ \ \ \ \ \ \ \ \ \ \left(
-\text{since }\beta\overline{\beta}=\operatorname*{N}\left(  \beta\right)
-=N\right) \\
-&  =\dfrac{m+ni}{N}%
-\end{align*}
-for some $m,n\in\mathbb{Z}$ (since $\alpha\overline{\beta}$ is a Gaussian
-integer). Note that $N=\operatorname*{N}\left(  \beta\right)  >0$ since
-$\beta\neq0$.
-
-Use the Minimum-size division theorem (applied to $b=N$) to write%
+[Proof of Theorem \ref{thm.Z[i].gauss.quorem}.](The following proof follows
+\cite[proof of Theorem 3.1]{Conrad-Gauss}.) Let $N=\operatorname*{N}\left(
+\beta\right)  $. Write%
 \[
-m=q_{1}N+r_{1}\ \ \ \ \ \ \ \ \ \ \text{and}\ \ \ \ \ \ \ \ \ \ n=q_{2}N+r_{2}%
+\dfrac{\alpha}{\beta}=\dfrac{\alpha\overline{\beta}}{\beta\overline{\beta}%
+}=\dfrac{\alpha\overline{\beta}}{N}\ \ \ \ \ \ \ \ \ \ \left(  \text{since
+}\beta\overline{\beta}=\operatorname*{N}\left(  \beta\right)  =N\right)  .
 \]
-with $q_{1},r_{1},q_{2},r_{2}\in\mathbb{Z}$ satisfying $\left\vert
-r_{1}\right\vert \leq N/2$ and $\left\vert r_{2}\right\vert \leq N/2$.
+Note that $\alpha\overline{\beta}$ is a Gaussian integer (since $\alpha$ and
+$\overline{\beta}$ are Gaussian integers); thus, we can write it in the form
+\[
+\alpha\overline{\beta}=m+ni\ \ \ \ \ \ \ \ \ \ \text{for some }m,n\in
+\mathbb{Z}.
+\]
+Consider these $m,n$. Note that $N=\operatorname*{N}\left(  \beta\right)  >0$
+since $\beta\neq0$.
+
+Exercise \ref{exe.ent.quo-rem.minrem} \textbf{(a)} (applied to $N$ and $m$
+instead of $n$ and $u$) shows that there exists a pair $\left(  q_{1}%
+,r_{1}\right)  \in\mathbb{Z}\times\mathbb{Z}$ such that
+\[
+m=q_{1}N+r_{1}\ \ \ \ \ \ \ \ \ \ \text{and}\ \ \ \ \ \ \ \ \ \ \left\vert
+r_{1}\right\vert \leq N/2.
+\]
+Consider this pair.
+
+Exercise \ref{exe.ent.quo-rem.minrem} \textbf{(a)} (applied to $N$ and $n$
+instead of $n$ and $u$) shows that there exists a pair $\left(  q_{2}%
+,r_{2}\right)  \in\mathbb{Z}\times\mathbb{Z}$ such that
+\[
+n=q_{2}N+r_{2}\ \ \ \ \ \ \ \ \ \ \text{and}\ \ \ \ \ \ \ \ \ \ \left\vert
+r_{2}\right\vert \leq N/2.
+\]
+Consider this pair.
 
 Now,%
-\begin{align*}
-\dfrac{\alpha}{\beta}  &  =\dfrac{m+ni}{N}=\dfrac{\left(  q_{1}N+r_{1}\right)
-+\left(  q_{2}N+r_{2}\right)  i}{N}\\
+\begin{align}
+\dfrac{\alpha}{\beta}  &  =\dfrac{\alpha\overline{\beta}}{N}=\dfrac{\left(
+q_{1}N+r_{1}\right)  +\left(  q_{2}N+r_{2}\right)  i}{N}\nonumber\\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{since }\alpha\overline{\beta
+}=\underbrace{m}_{=q_{1}N+r_{1}}+\underbrace{n}_{=q_{2}N+r_{2}}i=\left(
+q_{1}N+r_{1}\right)  +\left(  q_{2}N+r_{2}\right)  i\right) \nonumber\\
 &  =\left(  q_{1}+q_{2}i\right)  +\dfrac{r_{1}+r_{2}i}{N}.
-\end{align*}
+\label{pf.thm.Z[i].gauss.quorem.4}%
+\end{align}
 Set $\gamma=q_{1}+q_{2}i$ and $\rho=\alpha-\gamma\beta$. Note that $\gamma$
-and thus $\rho$ are Gaussian integers. The above equation becomes
-$\dfrac{\alpha}{\beta}=\gamma+\dfrac{r_{1}+r_{2}i}{N}$, so $\dfrac{r_{1}%
-+r_{2}i}{N}=\dfrac{\alpha}{\beta}-\gamma=\dfrac{\alpha-\gamma\beta}{\beta
-}=\dfrac{\rho}{\beta}$. Note that from $\rho=\alpha-\gamma\beta$, we obtain
-$\alpha=\gamma\beta+\rho$. Thus it remains to prove $\operatorname*{N}\left(
-\rho\right)  \leq\operatorname*{N}\left(  \beta\right)  /2$.
+and thus $\rho$ are Gaussian integers.
 
-The equality $\dfrac{r_{1}+r_{2}i}{N}=\dfrac{\rho}{\beta}$ yields%
+From $\rho=\alpha-\gamma\beta$, we obtain $\alpha=\gamma\beta+\rho$. Thus it
+remains to prove $\operatorname*{N}\left(  \rho\right)  \leq\operatorname*{N}%
+\left(  \beta\right)  /2$.
+
+The equation (\ref{pf.thm.Z[i].gauss.quorem.4}) becomes $\dfrac{\alpha}{\beta
+}=\gamma+\dfrac{r_{1}+r_{2}i}{N}$ (since $q_{1}+q_{2}i=\gamma$), so that
+$\dfrac{r_{1}+r_{2}i}{N}=\dfrac{\alpha}{\beta}-\gamma=\dfrac{\alpha
+-\gamma\beta}{\beta}=\dfrac{\rho}{\beta}$ (since $\alpha-\gamma\beta=\rho$).
+Hence,%
 \begin{align*}
 \rho &  =\beta\cdot\dfrac{r_{1}+r_{2}i}{N}=\beta\cdot\dfrac{r_{1}+r_{2}%
 i}{\beta\overline{\beta}}\ \ \ \ \ \ \ \ \ \ \left(  \text{since
@@ -18396,7 +18676,8 @@ and thus%
 \operatorname*{N}\left(  \rho\right)   &  =\operatorname*{N}\left(
 \dfrac{r_{1}+r_{2}i}{\overline{\beta}}\right)  =\dfrac{\operatorname*{N}%
 \left(  r_{1}+r_{2}i\right)  }{\operatorname*{N}\left(  \overline{\beta
-}\right)  }\ \ \ \ \ \ \ \ \ \ \left(  \text{by the Lemma above}\right) \\
+}\right)  }\ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition
+\ref{prop.CC.conj.hom} \textbf{(e)}}\right) \\
 &  =\dfrac{r_{1}^{2}+r_{2}^{2}}{N}\ \ \ \ \ \ \ \ \ \ \left(  \text{since
 }\operatorname*{N}\left(  r_{1}+r_{2}i\right)  =r_{1}^{2}+r_{2}^{2}\text{ and
 }\operatorname*{N}\left(  \overline{\beta}\right)  =\operatorname*{N}\left(
@@ -18406,28 +18687,46 @@ and thus%
 N/2\text{ and }\left\vert r_{2}\right\vert \leq N/2\right) \\
 &  =N/2=\operatorname*{N}\left(  \beta\right)  /2
 \end{align*}
-(since $N=\operatorname*{N}\left(  \beta\right)  $). This proves the Theorem.
+(since $N=\operatorname*{N}\left(  \beta\right)  $). This proves Theorem
+\ref{thm.Z[i].gauss.quorem}.
 \end{proof}
 
 Note: We cannot define $\alpha//\beta$ or $\alpha\%\beta$ for Gaussian
-integers $\alpha$ and $\beta$, since there is no uniqueness statement in our
-above Theorem.
+integers $\alpha$ and $\beta$, since there is no uniqueness statement in
+Theorem \ref{thm.Z[i].gauss.quorem}.
 
 \subsubsection{Common divisors}
 
+Next, we define the Gaussian divisors of a Gaussian integer (in analogy to
+Definition \ref{def.ent.divisors.divisors}):
+
 \begin{definition}
-Let $\beta\in\mathbb{Z}\left[  i\right]  $. The \textit{divisors} of $\beta$
-are defined as the Gaussian integers that divide $\beta$.
+\label{def.Z[i].divisors.divisors}Let $\beta\in\mathbb{Z}\left[  i\right]  $.
+The \textit{Gaussian divisors} of $\beta$ are defined as the Gaussian integers
+that divide $\beta$.
 \end{definition}
 
-\begin{proposition}
-\textbf{(a)} If $\beta\in\mathbb{Z}\left[  i\right]  $, then $1$ and $\beta$
-are divisors of $\beta$.
+Note that we are calling them \textquotedblleft Gaussian
+divisors\textquotedblright\ and not \textquotedblleft
+divisors\textquotedblright, because when $\beta$ is an actual integer, there
+are (usually) Gaussian divisors of $\beta$ that are not divisors of $\beta$
+(in the sense of Definition \ref{def.ent.divisors.divisors}). For example,
+$1+i$ is a Gaussian divisor of $2$ (since $2=\left(  1+i\right)  \left(
+1-i\right)  $), but the only divisors of $2$ (in the sense of Definition
+\ref{def.ent.divisors.divisors}) are $-2,-1,1,2$. This is one of those
+situations where using the same name for a concept and its Gaussian-integer
+analogue would lead to ambiguities.
 
-\textbf{(b)} The divisors of $0$ are all the Gaussian integers.
+The following is an analogue of Proposition \ref{prop.ent.divisors.find}:
+
+\begin{proposition}
+\label{prop.Z[i].divisors.find}\textbf{(a)} If $\beta\in\mathbb{Z}\left[
+i\right]  $, then $1$ and $\beta$ are Gaussian divisors of $\beta$.
+
+\textbf{(b)} The Gaussian divisors of $0$ are all the Gaussian integers.
 
 \textbf{(c)} Let $\beta\in\mathbb{Z}\left[  i\right]  $ be nonzero. Then, all
-divisors of $\beta$ belong to the set%
+Gaussian divisors of $\beta$ belong to the set%
 \[
 \left\{  x+yi\ \mid\ x,y\in\mathbb{Z}\text{ satisfying }\left\vert
 x\right\vert \leq\left\vert \beta\right\vert \text{ and }\left\vert
@@ -18437,34 +18736,45 @@ y\right\vert \leq\left\vert \beta\right\vert \right\}  .
 \end{proposition}
 
 \begin{proof}
-\textbf{(a)}, \textbf{(b)} clear.
+[Proof of Proposition \ref{prop.Z[i].divisors.find}.]Parts \textbf{(a)} and
+\textbf{(b)} are clear.
 
-\textbf{(c)} Let $x+yi$ be a divisor of $\beta$. Then, $\operatorname*{N}%
-\left(  x+yi\right)  \leq\operatorname*{N}\left(  \beta\right)  $, thus
-$\left\vert x+yi\right\vert \leq\left\vert \beta\right\vert $ (since
-$\left\vert \alpha\right\vert =\sqrt{\operatorname*{N}\left(  \alpha\right)
-}$ for every $\alpha\in\mathbb{C}$). But $\left\vert x+yi\right\vert
-=\sqrt{x^{2}+y^{2}}\geq\sqrt{x^{2}}=\left\vert x\right\vert $, so that
-$\left\vert x\right\vert \leq\left\vert x+yi\right\vert \leq\left\vert
-\beta\right\vert $. Similarly, $\left\vert y\right\vert \leq\left\vert
-\beta\right\vert $.
+\textbf{(c)} Let $x+yi$ be a Gaussian divisor of $\beta$. Then, Proposition
+\ref{prop.Z[i].gauss.div.1} \textbf{(b)} yields $\operatorname*{N}\left(
+x+yi\right)  \leq\operatorname*{N}\left(  \beta\right)  $, thus $\left\vert
+x+yi\right\vert \leq\left\vert \beta\right\vert $ (since $\left\vert
+\alpha\right\vert =\sqrt{\operatorname*{N}\left(  \alpha\right)  }$ for every
+$\alpha\in\mathbb{C}$). But $\left\vert x+yi\right\vert =\sqrt{x^{2}+y^{2}%
+}\geq\sqrt{x^{2}}=\left\vert x\right\vert $, so that $\left\vert x\right\vert
+\leq\left\vert x+yi\right\vert \leq\left\vert \beta\right\vert $. Similarly,
+$\left\vert y\right\vert \leq\left\vert \beta\right\vert $.
 \end{proof}
 
-Thus, again, finding all divisors of a Gaussian integers is a problem solvable
-in finite time.
+Thus, again, finding all Gaussian divisors of a Gaussian integer $\beta$ is a
+problem solvable in finite time. (Indeed, the set in Proposition
+\ref{prop.Z[i].divisors.find} \textbf{(c)} is clearly finite.)
+
+The following is a straightforward analogue of Definition \ref{def.ent.Div}:
 
 \begin{definition}
-Let $\beta_{1},\beta_{2},\ldots,\beta_{k}$ be Gaussian integers. Then, the
-\textit{common divisors} of $\beta_{1},\beta_{2},\ldots,\beta_{k}$ are defined
-to be the Gaussian integers $\alpha$ that satisfy%
+\label{def.Z[i].Div}Let $\beta_{1},\beta_{2},\ldots,\beta_{k}$ be Gaussian
+integers. Then, the \textit{common Gaussian divisors} of $\beta_{1},\beta
+_{2},\ldots,\beta_{k}$ are defined to be the Gaussian integers $\alpha$ that
+satisfy%
 \begin{equation}
 \left(  \alpha\mid\beta_{i}\text{ for all }i\in\left\{  1,2,\ldots,k\right\}
-\right)
+\right)  \label{eq.def.Z[i].Div.cond}%
 \end{equation}
 (in other words, that divide all of the Gaussian integers $\beta_{1},\beta
 _{2},\ldots,\beta_{k}$). We let $\operatorname*{Div}\left(  \beta_{1}%
-,\beta_{2},\ldots,\beta_{k}\right)  $ denote the set of these common divisors.
+,\beta_{2},\ldots,\beta_{k}\right)  $ denote the set of these common Gaussian divisors.
 \end{definition}
+
+The notation $\operatorname*{Div}\left(  \beta_{1},\beta_{2},\ldots,\beta
+_{k}\right)  $ is actually ambiguous, because when $\beta_{1},\beta_{2}%
+,\ldots,\beta_{k}$ are integers, it may mean both the set of common divisors
+and the set of common Gaussian divisors of $\beta_{1},\beta_{2},\ldots
+,\beta_{k}$. We hope that it will not cause \textbf{us} ambiguities in what follows.
 
 We cannot directly define $\gcd\left(  \beta_{1},\beta_{2},\ldots,\beta
 _{k}\right)  $ to be the greatest element of $\operatorname*{Div}\left(
@@ -18472,7 +18782,12 @@ _{k}\right)  $ to be the greatest element of $\operatorname*{Div}\left(
 greatest\textquotedblright\ does not make sense for complex numbers. (Even if
 we wanted \textquotedblleft greatest in norm\textquotedblright, it would not
 a-priori be obvious that there are no ties, i.e., that such a greatest common
-divisor is unique.)
+Gaussian divisor is unique.)
+
+However, it turns out that $\gcd\left(  \beta_{1},\beta_{2},\ldots,\beta
+_{k}\right)  $ actually can be defined reasonably (although only up to
+multiplication by units). Before we can do so, let us state some basic
+properties of common Gaussian divisors:
 
 \begin{proposition}
 \label{prop.Z[i].gauss.divrules}\textbf{(a)} We have $\operatorname*{Div}%
@@ -18505,18 +18820,28 @@ i\right]  $.
 $\alpha\mid\beta$, then $\operatorname*{Div}\left(  \alpha,\beta\right)
 =\operatorname*{Div}\left(  \alpha\right)  $.
 
-\textbf{(j)} The common divisors of the empty list of Gaussian integers are
-$\operatorname*{Div}\left(  {}\right)  =\mathbb{Z}\left[  i\right]  $.
+\textbf{(j)} The common Gaussian divisors of the empty list of Gaussian
+integers are $\operatorname*{Div}\left(  {}\right)  =\mathbb{Z}\left[
+i\right]  $.
 \end{proposition}
 
 \begin{proof}
+Most of these facts are analogues of Proposition \ref{prop.ent.gcd.props1}, or
+rather of the corresponding properties of $\operatorname*{Div}\left(
+a,b\right)  $ for two integers $a$ and $b$ that were proven during our proof
+of Proposition \ref{prop.ent.gcd.props1}. Their proofs also are
+straightforward adaptations of the proofs of the latter properties. Let us
+only sketch the proof of \textbf{(g)}, since it may require some extra thinking:
+
 \textbf{(g)} Let $\eta\in\mathbb{Z}\left[  i\right]  $ be a unit.
 
-Claim: The divisors of $\alpha$ are exactly the divisors of $\eta\alpha$.
+Claim: The Gaussian divisors of $\alpha$ are exactly the Gaussian divisors of
+$\eta\alpha$.
 
-(Indeed, any divisor of $\alpha$ is clearly a divisor of $\eta\alpha$.
-Conversely, since $\eta^{-1}$ is a Gaussian integer, any divisor of
-$\eta\alpha$ is a divisor of $\eta^{-1}\eta\alpha=\alpha$.)
+(Indeed, any Gaussian divisor of $\alpha$ is clearly a Gaussian divisor of
+$\eta\alpha$. Conversely, since $\eta^{-1}$ is a Gaussian integer, any
+Gaussian divisor of $\eta\alpha$ is a Gaussian divisor of $\eta^{-1}\eta
+\alpha=\alpha$.)
 
 The rest is proven just as for integers, except that we don't make the final
 step from $\operatorname*{Div}$ to $\gcd$.
@@ -18526,7 +18851,8 @@ Now, we can compute $\operatorname*{Div}\left(  \alpha,\beta\right)  $ for
 Gaussian integers $\alpha$ and $\beta$ by a version of the \textquotedblleft
 Euclidean algorithm\textquotedblright\ that we used to compute $\gcd\left(
 a,b\right)  $ for integers $a$ and $b$. For example, we can compute
-$\operatorname*{Div}\left(  32+9i,4+11i\right)  $ as follows:%
+$\operatorname*{Div}\left(  32+9i,4+11i\right)  $ as follows:\footnote{This is
+\cite[Example 4.4]{Conrad-Gauss}.}%
 \begin{align*}
 &  \operatorname*{Div}\left(  32+9i,4+11i\right) \\
 &  =\operatorname*{Div}\left(  4+11i,\underbrace{32+9i}_{=\left(  2-2i\right)
@@ -18572,15 +18898,16 @@ resulting $\gamma$ will actually be unique up to multiplication by units
 (i.e., its unit-equivalence class will be unique). Better yet, we have the following:
 
 \begin{theorem}
-(Bezout's theorem for Gaussian integers:)
+\label{thm.Z[i].gauss.bezout}(Bezout's theorem for Gaussian integers:)
 
 Let $\alpha,\beta\in\mathbb{Z}\left[  i\right]  $. Then:
 
 \textbf{(a)} There exists a $\mathbb{Z}\left[  i\right]  $-linear combination
-$\gamma$ of $\alpha$ and $\beta$ that is a common divisor of $\alpha$ and
-$\beta$. (Note: A $\mathbb{Z}\left[  i\right]  $\textbf{-linear combination of
-}$\alpha$ \textbf{and }$\beta$ means a Gaussian integer of the form
-$\lambda\alpha+\mu\beta$ with $\lambda,\mu\in\mathbb{Z}\left[  i\right]  $.)
+$\gamma$ of $\alpha$ and $\beta$ that is a common Gaussian divisor of $\alpha$
+and $\beta$. (Note: A $\mathbb{Z}\left[  i\right]  $\textbf{-linear
+combination of }$\alpha$ \textbf{and }$\beta$ means a Gaussian integer of the
+form $\lambda\alpha+\mu\beta$ with $\lambda,\mu\in\mathbb{Z}\left[  i\right]
+$.)
 
 \textbf{(b)} It satisfies $\operatorname*{Div}\left(  \alpha,\beta\right)
 =\operatorname*{Div}\left(  \gamma\right)  $.
@@ -18588,19 +18915,24 @@ $\lambda\alpha+\mu\beta$ with $\lambda,\mu\in\mathbb{Z}\left[  i\right]  $.)
 \textbf{(c)} The unit-equivalence class of $\gamma$ is uniquely determined.
 \end{theorem}
 
-With this theorem in hand, it makes sense to call $\gamma$ the
-\textquotedblleft greatest common divisor\textquotedblright\ of $\alpha$ and
-$\beta$, but rigorously speaking this name should be reserved for the
-unit-equivalence class of $\gamma$ since $\gamma$ itself is not unique.
+This theorem is, in a sense, a generalization of Theorem
+\ref{thm.ent.gcd.bezout}, even though (unlike the latter theorem) it does not
+rely on an already existing concept of \textquotedblleft greatest common
+divisor\textquotedblright\ but rather builds the foundation for such a
+concept. With Theorem \ref{thm.Z[i].gauss.bezout} in hand, it makes sense to
+call $\gamma$ the \textquotedblleft greatest common Gaussian
+divisor\textquotedblright\ of $\alpha$ and $\beta$, but rigorously speaking
+this name should be reserved for the unit-equivalence class of $\gamma$ since
+$\gamma$ itself is not unique.
 
 \begin{center}
 \textbf{2019-03-08 lecture}
 \end{center}
 
 \begin{proof}
-[Proof of Bezout's theorem (sketched).]\textbf{(a)} Rough idea: This is
-analogous to the proof of Lemma \ref{lem.ent.gcd.bezout.++}. (But instead of
-strong induction on $a+b$, we need to do strong induction on
+[Proof of Theorem \ref{thm.Z[i].gauss.bezout} (sketched).]\textbf{(a)} Rough
+idea: This is analogous to the proof of Lemma \ref{lem.ent.gcd.bezout.++}.
+(But instead of strong induction on $a+b$, we need to do strong induction on
 $\operatorname*{N}\left(  \alpha\right)  +\operatorname*{N}\left(
 \beta\right)  $. Also, instead of the usual division-with-remainder theorem,
 you have to use Theorem \ref{thm.Z[i].gauss.quorem}. Note that the inequality
@@ -18615,7 +18947,7 @@ Actually, here are some more details of the proof. For any $\alpha,\beta
 combinations of $\alpha$ and $\beta$. (This will be called the $\mathbb{Z}%
 \left[  i\right]  $\textit{-linear span of }$\alpha$ \textit{and }$\beta$
 later on, in analogy to spans in classical linear algebra.) Now, the claim of
-part \textbf{(a)} of Bezout's theorem can be restated as follows:%
+Theorem \ref{thm.Z[i].gauss.bezout} \textbf{(a)} can be restated as follows:%
 \[
 \operatorname*{Div}\left(  \alpha,\beta\right)  \cap\operatorname*{Lin}\left(
 \alpha,\beta\right)  \neq\varnothing.
@@ -18681,18 +19013,19 @@ follows from the induction hypothesis, since%
 \beta\right)  }<\operatorname*{N}\left(  \alpha\right)  +\operatorname*{N}%
 \left(  \beta\right)  =n.
 \]
-This completes the induction step. Thus, the nonemptiness (and thus part
-\textbf{(a)} of Bezout's theorem) follows by induction.
+This completes the induction step. Thus, the nonemptiness (and thus Theorem
+\ref{thm.Z[i].gauss.bezout} \textbf{(a)}) follows by induction.
 
 \textbf{(b)} $\subseteq:$ Since $\gamma$ is a $\mathbb{Z}\left[  i\right]
-$-linear combination of $\alpha$ and $\beta$, every common divisor of $\alpha$
-and $\beta$ must also divide $\gamma$. Thus, $\operatorname*{Div}\left(
-\alpha,\beta\right)  \subseteq\operatorname*{Div}\left(  \gamma\right)  $.
+$-linear combination of $\alpha$ and $\beta$, every common Gaussian divisor of
+$\alpha$ and $\beta$ must also divide $\gamma$. Thus, $\operatorname*{Div}%
+\left(  \alpha,\beta\right)  \subseteq\operatorname*{Div}\left(
+\gamma\right)  $.
 
-$\supseteq:$ Since $\gamma$ is a common divisor of $\alpha$ and $\beta$, every
-divisor of $\gamma$ must be a common divisor of $\alpha$ and $\beta$. Thus,
-$\operatorname*{Div}\left(  \alpha,\beta\right)  \supseteq\operatorname*{Div}%
-\left(  \gamma\right)  $.
+$\supseteq:$ Since $\gamma$ is a common Gaussian divisor of $\alpha$ and
+$\beta$, every Gaussian divisor of $\gamma$ must be a common Gaussian divisor
+of $\alpha$ and $\beta$. Thus, $\operatorname*{Div}\left(  \alpha
+,\beta\right)  \supseteq\operatorname*{Div}\left(  \gamma\right)  $.
 
 \textbf{(c)} Let $\gamma_{1}$ and $\gamma_{2}$ be two such $\gamma$'s. We must
 prove that $\gamma_{1}\sim\gamma_{2}$.
@@ -18707,89 +19040,332 @@ $\gamma_{1}\mid\gamma_{2}$. Similarly, $\gamma_{2}\mid\gamma_{1}$. Combining
 these, we obtain $\gamma_{1}\sim\gamma_{2}$.
 \end{proof}
 
-OLD TODO:
+\begin{definition}
+The \textit{greatest common Gaussian divisor} (or, short, \textit{gcd}) of two
+Gaussian integers $\alpha$ and $\beta$ is defined to be the $\gamma$ from
+Theorem \ref{thm.Z[i].gauss.bezout} \textbf{(a)}. It is called $\gcd\left(
+\alpha,\beta\right)  $.
 
-\begin{itemize}
-\item Geometric view of divrem: find which interval $\left[  k,k+1\right)  $
-the rational number $a/b$ lies in.
+So it is a common Gaussian divisor of $\alpha$ and $\beta$ and also a
+$\mathbb{Z}\left[  i\right]  $-linear combination of $\alpha$ and $\beta$ and
+satisfies $\operatorname*{Div}\left(  \gcd\left(  \alpha,\beta\right)
+\right)  =\operatorname*{Div}\left(  \alpha,\beta\right)  $.
 
-\item Try the same for Gaussian integers: For Gaussian integers $\beta\neq0$
-and $\alpha$, look at which grid square $\alpha/\beta$ lies in, and go down-left.
+However, it is only well-defined up to unit-equivalence. Thus, if you have
+$\gamma_{1}=\gcd\left(  \alpha,\beta\right)  $ and $\gamma_{2}=\gcd\left(
+\alpha,\beta\right)  $, then you cannot conclude that $\gamma_{1}=\gamma_{2}$
+(you can only conclude $\gamma_{1}\sim\gamma_{2}$). So, strictly speaking, we
+should have defined $\gcd\left(  \alpha,\beta\right)  $ as a unit-equivalence
+class, not as a concrete Gaussian integer. But we will allow ourselves this
+abuse of notation. We shall not write equality signs like the one in
+\textquotedblleft$\gamma_{1}=\gcd\left(  \alpha,\beta\right)  $%
+\textquotedblright, however; we instead prefer \textquotedblleft$\gamma
+_{1}\sim\gcd\left(  \alpha,\beta\right)  $\textquotedblright. Generally,
+whenever you see $\gcd\left(  \alpha,\beta\right)  $ in a statement, you
+should be understanding the statement to hold for \textbf{every} possible
+choice of $\gcd\left(  \alpha,\beta\right)  $.
+\end{definition}
 
-\item Not quite good: [Conrad-Gauss] Example 3.2.
+\begin{proposition}
+Let $\alpha$ and $\beta$ be two Gaussian integers, not both equal to $0$.
+Then, the possible values of $\gcd\left(  \alpha,\beta\right)  $ (that is,
+strictly speaking, all four elements of the unit-equivalence class
+$\gcd\left(  \alpha,\beta\right)  $) are exactly the elements of
+$\operatorname*{Div}\left(  \alpha,\beta\right)  $ having the largest norm.
+\end{proposition}
 
-\item However, we can do better: Don't go down-left, but go to the nearest
-grid point. Distance $<1$ for geometric reasons. This leads to:
+\begin{proof}
+First of all, $\gcd\left(  \alpha,\beta\right)  $ is a Gaussian divisor of
+$\alpha$ and $\beta$, and thus is $\neq0$ (since $\alpha$ and $\beta$ are not
+both equal to $0$). Thus, there are exactly four possible values of
+$\gcd\left(  \alpha,\beta\right)  $. We must show that these values are
+exactly the elements of $\operatorname*{Div}\left(  \alpha,\beta\right)  $
+having the largest norm.
 
-\item Def. 2.9.1.
+In other words, we must show the following two claims:
 
-\item Prop. 2.9.2: all divisors of $\beta$ have norm $\leq\operatorname*{N}%
-\left(  \beta\right)  $ (which still gives a finite set).
+\begin{statement}
+\textit{Claim 1:} We have $\operatorname*{N}\left(  \gcd\left(  \alpha
+,\beta\right)  \right)  >\operatorname*{N}\left(  \gamma\right)  $ for each
+$\gamma\in\operatorname*{Div}\left(  \alpha,\beta\right)  $ that does not
+satisfy $\gamma\sim\gcd\left(  \alpha,\beta\right)  $.
+\end{statement}
 
-\item Def. 2.9.3.
+\begin{statement}
+\textit{Claim 2:} We have $\operatorname*{N}\left(  \gcd\left(  \alpha
+,\beta\right)  \right)  =\operatorname*{N}\left(  \gamma\right)  $ for each
+$\gamma\in\operatorname*{Div}\left(  \alpha,\beta\right)  $ that does satisfy
+$\gamma\sim\gcd\left(  \alpha,\beta\right)  $.
+\end{statement}
 
-\item Work with $\operatorname*{Div}$ first.
+Claim 2 is obvious, since any two unit-equivalent Gaussian integers have the
+same norm (by Proposition \ref{prop.Z[i].gauss.uniteq.norm=norm}).
 
-\item Prop. 2.9.7 but for $\operatorname*{Div}$.
+[\textit{Proof of Claim 1:} Let $\gamma\in\operatorname*{Div}\left(
+\alpha,\beta\right)  $ do not satisfy $\gamma\sim\gcd\left(  \alpha
+,\beta\right)  $. Now, $\gamma\in\operatorname*{Div}\left(  \alpha
+,\beta\right)  =\operatorname*{Div}\left(  \gcd\left(  \alpha,\beta\right)
+\right)  $ (since $\operatorname*{Div}\left(  \gcd\left(  \alpha,\beta\right)
+\right)  =\operatorname*{Div}\left(  \alpha,\beta\right)  $). Hence,
+$\gamma\mid\gcd\left(  \alpha,\beta\right)  $.
 
-\item \textquotedblleft Euclidean algorithm\textquotedblright: [Conrad-Gauss]
-Example 4.4.
+Let us set $\delta=\gcd\left(  \alpha,\beta\right)  $. So $\gamma\mid\delta$.
+Hence, $\gamma\neq0$ (since $\delta\neq0$ (because $\alpha$ and $\beta$ are
+not both zero)). Thus, $\gamma\mid\delta$ yields that $\dfrac{\delta}{\gamma}$
+is a Gaussian integer, which is furthermore nonzero (since $\delta\neq0$). If
+this Gaussian integer $\dfrac{\delta}{\gamma}$ was a unit, then we would have
+$\gamma\sim\delta=\gcd\left(  \alpha,\beta\right)  $, which would contradict
+the assumption that $\gamma$ does not satisfy $\gamma\sim\gcd\left(
+\alpha,\beta\right)  $. So $\dfrac{\delta}{\gamma}$ is a nonzero Gaussian
+integer that is not a unit. Hence, $\operatorname*{N}\left(  \dfrac{\delta
+}{\gamma}\right)  >1$ (because Proposition \ref{prop.Z[i].gauss.norm1} yields
+that every nonzero Gaussian integer that is not a unit must have norm $>1$).
+Now,%
+\[
+\operatorname*{N}\left(  \delta\right)  =\underbrace{\operatorname*{N}\left(
+\dfrac{\delta}{\gamma}\right)  }_{>1}\cdot\operatorname*{N}\left(
+\gamma\right)  >\operatorname*{N}\left(  \gamma\right)  .
+\]
+In other words, $\operatorname*{N}\left(  \gcd\left(  \alpha,\beta\right)
+\right)  >\operatorname*{N}\left(  \gamma\right)  $. This proves Claim 1.]
+\end{proof}
 
-\item Thm. 2.9.11 (Bezout) now generalized:
+This proposition shows that $\gcd\left(  \alpha,\beta\right)  $ is uniquely
+determined by the set $\operatorname*{Div}\left(  \alpha,\beta\right)  $.
+(Yes, you have to consider the case $\alpha=\beta=0$ separately in proving
+this.) Hence, Proposition \ref{prop.Z[i].gauss.divrules} yields:
 
-Let $\alpha,\beta\in\mathbb{Z}\left[  i\right]  $. Then:
+\begin{proposition}
+\textbf{(a)} We have $\gcd\left(  \alpha,0\right)  \sim\gcd\left(
+\alpha\right)  $ for all $\alpha\in\mathbb{Z}\left[  i\right]  $.
 
-\textbf{(a)} There exists a $\mathbb{Z}\left[  i\right]  $-linear combination
-(explain) $\gamma$ of $\alpha$ and $\beta$ that is a common divisor of
-$\alpha$ and $\beta$.
+\textbf{(b)} We have $\gcd\left(  \alpha,\beta\right)  \sim\gcd\left(
+\beta,\alpha\right)  $ for all $\alpha,\beta\in\mathbb{Z}\left[  i\right]  $.
 
-\textbf{(b)} It satisfies $\operatorname*{Div}\left(  \alpha,\beta\right)
-=\operatorname*{Div}\gamma$.
+\textbf{(c)} We have $\gcd\left(  \alpha,\eta\alpha+\beta\right)  \sim
+\gcd\left(  \alpha,\beta\right)  $ for all $\alpha,\beta,\eta\in
+\mathbb{Z}\left[  i\right]  $.
 
-\textbf{(c)} The unit-equivalence class of $\gamma$ is uniquely determined.
-\end{itemize}
+\textbf{(d)} If $\alpha,\beta,\gamma\in\mathbb{Z}\left[  i\right]  $ satisfy
+$\beta\equiv\gamma\operatorname{mod}\alpha$, then $\gcd\left(  \alpha
+,\beta\right)  \sim\gcd\left(  \alpha,\gamma\right)  $.
 
-TODO:
+\textbf{(g)} We have $\gcd\left(  \eta\alpha,\beta\right)  \sim\gcd\left(
+\alpha,\beta\right)  $ for all $\alpha,\beta\in\mathbb{Z}\left[  i\right]  $
+for every unit $\eta\in\mathbb{Z}\left[  i\right]  $.
 
-\begin{itemize}
-\item Def: The \textit{gcd} of $\alpha$ and $\beta$ is defined to be $\gamma$
-from Theorem 2.9.11 (or more precisely, its unit-equivalence class when
-uniqueness is needed).
+\textbf{(h)} We have $\gcd\left(  \alpha,\eta\beta\right)  \sim\gcd\left(
+\alpha,\beta\right)  $ for all $\alpha,\beta\in\mathbb{Z}\left[  i\right]  $
+for every unit $\eta\in\mathbb{Z}\left[  i\right]  $.
 
-\item Thm. 2.9.14 is now clear.
+\textbf{(i)} If $\alpha,\beta\in\mathbb{Z}\left[  i\right]  $ satisfy
+$\alpha\mid\beta$, then $\gcd\left(  \alpha,\beta\right)  \sim\gcd\left(
+\alpha\right)  $.
 
-\item Thm. 2.9.16.
+\textbf{(j)} The greatest common Gaussian divisor of the empty list of
+Gaussian integers is $\gcd\left(  {}\right)  =0$.
+\end{proposition}
 
-\item Thm. 2.9.18.
+Theorem \ref{thm.ent.gcd.uniprop} still holds for Gaussian integers.
 
-\item Cor. 2.9.19.
+Theorem \ref{thm.ent.gcd.combine} still holds for Gaussian integers.
 
-\item Exe 2.9.4.
+Theorem \ref{thm.ent.gcd.cancel} still holds for Gaussian integers.
 
-\item Thm. 2.9.20 needs different proof since we used $\leq$. More
-importantly, we have not defined the $\gcd$ of several Gaussian ints. So
-again, let us proceed differently:
+Corollary \ref{cor.ent.gcd.sa,sb} has to be modified as follows:
+
+\begin{corollary}
+Let $\sigma,\alpha,\beta\in\mathbb{Z}\left[  i\right]  $. Then,
+\[
+\gcd\left(  \sigma\alpha,\sigma\beta\right)  \sim\sigma\gcd\left(
+\alpha,\beta\right)  .
+\]
+
+\end{corollary}
+
+Exercise \ref{exe.ent.gcd.div} still holds for Gaussian integers.
+
+Exercise \ref{exe.ent.gcd.abs} becomes the claim that if $\alpha_{1}\sim
+\alpha_{2}$ and $\beta_{1}\sim\beta_{2}$, then $\gcd\left(  \alpha_{1}%
+,\beta_{1}\right)  \sim\gcd\left(  \alpha_{2},\beta_{2}\right)  $. The
+solution does not carry over, but you can easily prove this new claim by hand.
+
+Greatest common Gaussian divisors of $k$ Gaussian integers can also be defined.
+
+\begin{proposition}
+\label{prop.Z[i].gauss.gcd=gcd}Let $a$ and $b$ be two integers. Then,%
+\[
+\gcd\nolimits_{\mathbb{Z}}\left(  a,b\right)  \sim\gcd\nolimits_{\mathbb{Z}%
+\left[  i\right]  }\left(  a,b\right)  .
+\]
+Here, $\gcd\nolimits_{\mathbb{Z}}$ means \textquotedblleft the gcd of two
+integers as defined in Definition \ref{def.ent.gcd.gcd}\textquotedblright,
+whereas $\gcd\nolimits_{\mathbb{Z}\left[  i\right]  }$ means \textquotedblleft
+the greatest common Gaussian divisor of Gaussian integers\textquotedblright.
+\end{proposition}
+
+\begin{proof}
+The integer $\gcd\nolimits_{\mathbb{Z}}\left(  a,b\right)  $ is a common
+divisor of $a$ and $b$ and also is a $\mathbb{Z}$-linear combination of $a$
+and $b$ (by Bezout). Therefore, it is also a common Gaussian divisor of the
+Gaussian integers $a$ and $b$ and also is a $\mathbb{Z}\left[  i\right]
+$-linear combination of $a$ and $b$. But this yields that it is $\gcd
+\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  a,b\right)  $ (due to the
+definition of $\gcd\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  a,b\right)
+$).
+\end{proof}
+
+This proposition allows us to write \textquotedblleft$\gcd$\textquotedblright%
+\ for both concepts of gcd without having to disambiguate the meaning.
+
+The next definition is an analogue of Definition \ref{def.ent.coprime.coprime}:
+
+\begin{definition}
+Let $\alpha$ and $\beta$ be two Gaussian integers. We say that $\alpha$ is
+\textbf{coprime} to $\beta$ if and only if $\gcd\left(  \alpha,\beta\right)
+\sim1$ (that is, $\gcd\left(  \alpha,\beta\right)  $ is a unit).
+\end{definition}
+
+Thus, any two coprime integers are also two coprime Gaussian integers (because
+of Proposition \ref{prop.Z[i].gauss.gcd=gcd}).
+
+Everything we said about coprimality of integers still holds for Gaussian integers.
+
+\begin{noncompile}
+Let us generalize Theorem \ref{thm.Z[i].gauss.bezout} to $k$ Gaussian integers:
+
+\begin{theorem}
+(Bezout's theorem for $k$ Gaussian integers:)
 
 Let $\alpha_{1},\alpha_{2},\ldots,\alpha_{k}\in\mathbb{Z}\left[  i\right]  $. Then:
 
 \textbf{(a)} There exists a $\mathbb{Z}\left[  i\right]  $-linear combination
-(explain) $\gamma$ of $\alpha_{1},\alpha_{2},\ldots,\alpha_{k}$ that is a
-common divisor of $\alpha_{1},\alpha_{2},\ldots,\alpha_{k}$.
+$\gamma$ of $\alpha_{1},\alpha_{2},\ldots,\alpha_{k}$ that is a common
+Gaussian divisor of $\alpha_{1},\alpha_{2},\ldots,\alpha_{k}$. (Note: A
+$\mathbb{Z}\left[  i\right]  $\textbf{-linear combination of }$\alpha
+_{1},\alpha_{2},\ldots,\alpha_{k}$ means a Gaussian integer of the form
+$\lambda_{1}\alpha_{1}+\lambda_{2}\alpha_{2}+\cdots+\lambda_{k}\alpha_{k}$
+with $\lambda_{1},\lambda_{2},\ldots,\lambda_{k}\in\mathbb{Z}\left[  i\right]
+$.)
 
 \textbf{(b)} It satisfies $\operatorname*{Div}\left(  \alpha_{1},\alpha
 _{2},\ldots,\alpha_{k}\right)  =\operatorname*{Div}\left(  \gamma\right)  $.
 
 \textbf{(c)} The unit-equivalence class of $\gamma$ is uniquely determined.
+\end{theorem}
 
-\item Proof: Induction/$k$.
+\begin{proof}
+[Proof sketch.]Induction on $k$, similar to the proof of Theorem
+\ref{thm.ent.gcd.uniprop-mul}. The details are left to the reader.
+\end{proof}
 
-\item Thm. 2.9.26.
+Again, the $\gamma$ from this theorem is called $\gcd\left(  \alpha_{1}%
+,\alpha_{2},\ldots,\alpha_{k}\right)  $ and is unique up to unit-equivalence.
 
-\item Conjugates: $\alpha\mid\beta\Longleftrightarrow\overline{\alpha}%
-\mid\overline{\beta}$.
+Theorem \ref{thm.ent.gcd.uniprop-mul} generalizes as follows:
 
-\item Def. 2.10.3 $\perp$.
+\begin{theorem}
+Let $\beta_{1},\beta_{2},\ldots,\beta_{k}$ be integers.
 
+\textbf{(a)} For each $\mu\in\mathbb{Z}\left[  i\right]  $, we have the
+following logical equivalence:%
+\[
+\left(  \mu\mid\beta_{i}\text{ for all }i\in\left\{  1,2,\ldots,k\right\}
+\right)  \ \Longleftrightarrow\ \left(  \mu\mid\gcd\left(  \beta_{1},\beta
+_{2},\ldots,\beta_{k}\right)  \right)  .
+\]
+
+
+\textbf{(b)} The common Gaussian divisors of $\beta_{1},\beta_{2},\ldots
+,\beta_{k}$ are precisely the Gaussian divisors of $\gcd\left(  \beta
+_{1},\beta_{2},\ldots,\beta_{k}\right)  $.
+
+\textbf{(c)} We have $\operatorname*{Div}\left(  \beta_{1},\beta_{2}%
+,\ldots,\beta_{k}\right)  =\operatorname*{Div}\left(  \gcd\left(  \beta
+_{1},\beta_{2},\ldots,\beta_{k}\right)  \right)  $.
+
+\textbf{(d)} If $k>0$, then%
+\[
+\gcd\left(  \beta_{1},\beta_{2},\ldots,\beta_{k}\right)  \sim\gcd\left(
+\gcd\left(  \beta_{1},\beta_{2},\ldots,\beta_{k-1}\right)  ,\beta_{k}\right)
+.
+\]
+
+\end{theorem}
+
+Theorem \ref{thm.ent.gcd.split} still holds for Gaussian integers, with the
+obvious changes (the $=$ sign is replaced by $\sim$).
+\end{noncompile}
+
+We could define \textit{Gaussian rationals} (their set is called
+$\mathbb{Q}\left[  i\right]  $) as complex numbers $a+bi$ with $a,b\in
+\mathbb{Q}$. These are exactly the quotients of Gaussian integers.
+
+Lowest common multiples of Gaussian integers still exist, but their definition
+has to be modified. For example, we can define $\operatorname{lcm}\left(
+\alpha,\beta\right)  $ as the (unique up to unit-equivalence) Gaussian integer
+$\gamma$ such that the common multiples of $\alpha$ and $\beta$ are the
+multiples of $\gamma$. (We would have to prove that it actually is unique and
+exists.) Theorem \ref{thm.ent.lcm.gcd*lcm} still holds, in the sense that
+$\gcd\left(  \alpha,\beta\right)  \cdot\operatorname{lcm}\left(  \alpha
+,\beta\right)  \sim\alpha\beta$. Many other properties of lowest common
+multiplies extend to Gaussian integers.
+
+The Chinese remainder theorem (Theorem \ref{thm.ent.crt1}) still holds for
+coprime Gaussian integers $\mu$ and $\nu$. Similarly for $k$ mutually coprime
+Gaussian integers.
+
+\subsubsection{Gaussian primes}
+
+\begin{definition}
+Let $\pi$ (unrelated to $3.1415...$) be a nonzero Gaussian integer that is not
+a unit. We say that $\pi$ is a \textbf{Gaussian prime} if each Gaussian
+divisor of $\pi$ is either a unit or unit-equivalent to $\pi$.
+\end{definition}
+
+The Gaussian primes are \textbf{not} a superset of the primes. For example,
+$2$ is not a Gaussian prime, since $2=\left(  1+i\right)  \left(  1-i\right)
+$ (since the factors $1+i$ and $1-i$ have norms $2$, which means that they are
+neither units themselves (since units would have norm $1$) nor unit-equivalent
+to $2$ (since $2$ has norm $4$, but unit-equivalent Gaussian integers have
+equal norms)). So don't forget the word \textquotedblleft
+Gaussian\textquotedblright\ when you mean it!
+
+Let us search for Gaussian primes. So we know that $2$ is not a Gaussian
+prime. What about $3$?
+
+If we had $3=\left(  a+bi\right)  \left(  c+di\right)  $ with neither $a+bi$
+nor $c+di$ being a unit, then we would get%
+\begin{align*}
+\operatorname*{N}\left(  3\right)   &  =\operatorname*{N}\left(  \left(
+a+bi\right)  \left(  c+di\right)  \right)  =\operatorname*{N}\left(
+a+bi\right)  \cdot\operatorname*{N}\left(  c+di\right) \\
+&  =\left(  a^{2}+b^{2}\right)  \cdot\left(  c^{2}+d^{2}\right)  ,
+\end{align*}
+so that%
+\[
+\left(  a^{2}+b^{2}\right)  \cdot\left(  c^{2}+d^{2}\right)
+=\operatorname*{N}\left(  3\right)  =3^{2}+0^{2}=9.
+\]
+Since $a^{2}+b^{2}$ and $c^{2}+d^{2}$ are nonnegative integers, this would
+mean that
+
+\begin{itemize}
+\item \textbf{either} $a^{2}+b^{2}=1$ and $c^{2}+d^{2}=9$,
+
+\item \textbf{or }$a^{2}+b^{2}=3$ and $c^{2}+d^{2}=3$,
+
+\item \textbf{or }$a^{2}+b^{2}=9$ and $c^{2}+d^{2}=1$.
+\end{itemize}
+
+The first and third of these options are impossible, since neither $a+bi$ nor
+$c+di$ should be a unit, but non-units cannot have norm $1$. So the second
+option must be true. Thus, $a^{2}+b^{2}=3$ and $c^{2}+d^{2}=3$. But this is
+impossible since $a$ and $b$ have to be integers. So $3$ is a Gaussian prime.
+
+TODO:
+
+\begin{itemize}
 \item Prop 2.10.4.
 
 \item Thm 2.10.6.
@@ -18800,18 +19376,17 @@ _{2},\ldots,\alpha_{k}\right)  =\operatorname*{Div}\left(  \gamma\right)  $.
 
 \item actually all properties from coprime section hold.
 
-\item lcms exist, and $\gcd\left(  \alpha,\beta\right)  \operatorname{lcm}%
-\left(  \alpha,\beta\right)  \sim\alpha\beta$.
-
-\item go over lcm properties.
-
-\item CRT holds.
-
 \item define Gaussian primes. (don't just call them primes.) Say nonzero
-nonunit whose only divisors are $\sim1$ or $\sim\alpha$.
+nonunit whose only Gaussian divisors are $\sim1$ or $\sim\alpha$.
+\end{itemize}
 
-\item $2=\left(  1+i\right)  \left(  1-i\right)  $ not Gaussian prime.
+\begin{center}
+\textbf{2019-03-11 lecture}
+\end{center}
 
+TODO:
+
+\begin{itemize}
 \item If $\operatorname*{N}\left(  \alpha\right)  $ prime, then $\alpha$
 Gaussian prime.
 
