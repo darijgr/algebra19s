@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Friday, March 08, 2019 22:03:45}
+%TCIDATA{LastRevised=Saturday, March 09, 2019 17:31:01}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -10630,6 +10630,91 @@ prime $p$ exactly $b_{p}$ times, and thus contains the prime $q$ exactly
 $b_{q}$ times). This proves Corollary \ref{cor.ent.primes.vp-of-can}.
 \end{proof}
 
+The next exercise says that a nonnegative integer $n$ is uniquely determined
+by the family $\left(  v_{p}\left(  n\right)  \right)  _{p\text{ prime}}$ of
+its $p$-valuations for all primes $p$:
+
+\begin{exercise}
+\label{exe.ent.primes.vp=vp}Let $n$ and $m$ be two nonnegative integers.
+Assume that
+\begin{equation}
+v_{p}\left(  n\right)  =v_{p}\left(  m\right)  \ \ \ \ \ \ \ \ \ \ \text{for
+every prime }p. \label{eq.exe.ent.primes.vp=vp.ass}%
+\end{equation}
+Prove that $n=m$.
+\end{exercise}
+
+\begin{fineprint}
+\begin{proof}
+[Solution to Exercise \ref{exe.ent.primes.vp=vp}.]Applying
+(\ref{eq.exe.ent.primes.vp=vp.ass}) to $p=2$, we obtain $v_{2}\left(
+n\right)  =v_{2}\left(  m\right)  $ (since $2$ is a prime).
+
+If $n$ is nonzero, then $v_{p}\left(  n\right)  $ is a nonnegative integer for
+every prime $p$ (by Definition \ref{def.ent.prime.vp} \textbf{(a)}). Applying
+this to $p=2$, we conclude the following: If $n$ is nonzero, then
+$v_{2}\left(  n\right)  $ is a nonnegative integer and thus satisfies
+$v_{2}\left(  n\right)  \neq\infty$. Thus, we have shown that
+\begin{equation}
+\text{if }n\text{ is nonzero, then }v_{2}\left(  n\right)  \neq\infty.
+\label{sol.ent.primes.vp=vp.1}%
+\end{equation}
+The same argument (applied to $m$ instead of $n$) shows that%
+\begin{equation}
+\text{if }m\text{ is nonzero, then }v_{2}\left(  m\right)  \neq\infty.
+\label{sol.ent.primes.vp=vp.2}%
+\end{equation}
+
+
+We are in one of the following two cases:
+
+\textit{Case 1:} We have $n=0$.
+
+\textit{Case 2:} We have $n\neq0$.
+
+Let us first consider Case 1. In this case, we have $n=0$. Thus, $v_{2}\left(
+n\right)  =v_{2}\left(  0\right)  =\infty$ (by Definition
+\ref{def.ent.prime.vp} \textbf{(b)}). Comparing this with $v_{2}\left(
+n\right)  =v_{2}\left(  m\right)  $, we obtain $v_{2}\left(  m\right)
+=\infty$. But if $m$ was nonzero, then we would have $v_{2}\left(  m\right)
+\neq\infty$ (by (\ref{sol.ent.primes.vp=vp.2})), which would contradict
+$v_{2}\left(  m\right)  =\infty$. Hence, $m$ cannot be nonzero. In other
+words, $m$ must be $0$. Thus, $m=0$. Comparing this with $n=0$, we obtain
+$n=m$. Hence, Exercise \ref{exe.ent.primes.vp=vp} is solved in Case 1.
+
+Let us now consider Case 2. In this case, we have $n\neq0$. Thus, $n$ is
+nonzero; hence, $v_{2}\left(  n\right)  \neq\infty$ (by
+(\ref{sol.ent.primes.vp=vp.1})). If we had $m=0$, then we would have
+$v_{2}\left(  n\right)  =v_{2}\left(  \underbrace{m}_{=0}\right)
+=v_{2}\left(  0\right)  =\infty$ (by Definition \ref{def.ent.prime.vp}
+\textbf{(b)}), which would contradict $v_{2}\left(  n\right)  \neq\infty$.
+Thus, we cannot have $m=0$. Hence, $m$ is nonzero.
+
+The integer $n$ is nonzero and nonnegative; thus, the integer $n$ is positive.
+Thus, Corollary \ref{cor.ent.primes.can-fac} yields%
+\begin{equation}
+n=\prod_{p\text{ prime}}\underbrace{p^{v_{p}\left(  n\right)  }}%
+_{\substack{=p^{v_{p}\left(  m\right)  }\\\text{(since
+(\ref{eq.exe.ent.primes.vp=vp.ass})}\\\text{yields }v_{p}\left(  n\right)
+=v_{p}\left(  m\right)  \text{)}}}=\prod_{p\text{ prime}}p^{v_{p}\left(
+m\right)  }. \label{sol.ent.primes.vp=vp.5}%
+\end{equation}
+
+
+The integer $m$ is nonzero and nonnegative; thus, the integer $m$ is positive.
+Hence, Corollary \ref{cor.ent.primes.can-fac} (applied to $m$ instead of $n$)
+yields%
+\[
+m=\prod_{p\text{ prime}}p^{v_{p}\left(  m\right)  }.
+\]
+Comparing this with (\ref{sol.ent.primes.vp=vp.5}), we obtain $n=m$. Thus,
+Exercise \ref{exe.ent.primes.vp=vp} is solved in Case 2.
+
+We have now solved Exercise \ref{exe.ent.primes.vp=vp} in both of the Cases 1
+and 2. Hence, Exercise \ref{exe.ent.primes.vp=vp} always holds.
+\end{proof}
+\end{fineprint}
+
 \begin{center}
 \textbf{2019-02-13 lecture}
 \end{center}
@@ -16274,6 +16359,329 @@ $\sim$ and $F\left(  s\right)  $. The Claim 1 that we proved above guarantees
 that Assumption 1 of Theorem \ref{thm.eqrel.quot.uniprop.1} is satisfied.)
 Hence, Proposition \ref{prop.eqrel.Zn.pind.wd} is proven.
 \end{proof}
+
+The next exercise is unrelated to $\mathbb{Z}/n$, but has been placed in this
+section because it relies on the same sort of \textquotedblleft
+well-definedness\textquotedblright\ argument that we have seen in our proofs above:
+
+\begin{exercise}
+\label{exe.eqrel.quot.wp}Fix a prime $p$. For each nonzero rational number
+$r$, define an integer $w_{p}\left(  r\right)  $ (called the \textit{extended
+$p$-adic valuation} of $r$) as follows: We write $r$ in the form $r=a/b$ for
+two nonzero integers $a$ and $b$, and we set $w_{p}\left(  r\right)
+=v_{p}\left(  a\right)  -v_{p}\left(  b\right)  $. (It also makes sense to set
+$w_{p}\left(  0\right)  =\infty$, but we shall not concern ourselves with this
+border case in this exercise.)
+
+\textbf{(a)} Prove that this is well-defined -- i.e., that $w_{p}\left(
+r\right)  $ does not depend on the precise choice of $a$ and $b$ satisfying
+$r=a/b$.
+
+\textbf{(b)} Prove that $w_{p}\left(  n\right)  =v_{p}\left(  n\right)  $ for
+each nonzero integer $n$.
+
+\textbf{(c)} Prove that $w_{p}\left(  ab\right)  =w_{p}\left(  a\right)
++w_{p}\left(  b\right)  $ for any two nonzero rational numbers $a$ and $b$.
+
+\textbf{(d)} Prove that $w_{p}\left(  a+b\right)  \geq\min\left\{
+w_{p}\left(  a\right)  ,w_{p}\left(  b\right)  \right\}  $ for any two nonzero
+rational numbers $a$ and $b$ if $a+b\neq0$.
+\end{exercise}
+
+\begin{fineprint}
+\begin{proof}
+[Solution to Exercise \ref{exe.eqrel.quot.wp}.]\textbf{(a)} Let $r$ be a
+nonzero rational number. We must prove that the integer $w_{p}\left(
+r\right)  $ is well-defined. Recall that we have defined $w_{p}\left(
+r\right)  $ by setting $w_{p}\left(  r\right)  =v_{p}\left(  a\right)
+-v_{p}\left(  b\right)  $, where we write $r$ in the form $r=a/b$ for two
+nonzero integers $a$ and $b$. In order to prove that $w_{p}\left(  r\right)  $
+is well-defined, we must thus verify the following three claims:
+
+\begin{statement}
+\textit{Claim 1:} It is possible to write $r$ in the form $r=a/b$ for two
+nonzero integers $a$ and $b$.
+\end{statement}
+
+\begin{statement}
+\textit{Claim 2:} If we write $r$ in the form $r=a/b$ for two nonzero integers
+$a$ and $b$, then $v_{p}\left(  a\right)  -v_{p}\left(  b\right)  $ is a
+well-defined integer.\footnote{This needs saying, because $p$-valuations can
+be $\infty$ and thus their differences may fail to be well-defined integers
+(for example, $\infty-\infty$ is not even well-defined).}
+\end{statement}
+
+\begin{statement}
+\textit{Claim 3:} If we write $r$ in the form $r=a/b$ for two nonzero integers
+$a$ and $b$, then the integer $v_{p}\left(  a\right)  -v_{p}\left(  b\right)
+$ depends only on $p$ and $r$ (but not on $a$ and $b$).
+\end{statement}
+
+Claim 1 and Claim 2 are easy to verify:
+
+[\textit{Proof of Claim 1:} We know that $r$ is a rational number. Hence, we
+can write $r$ in the form $r=c/d$ for some integer $c$ and some nonzero
+integer $d$. Consider these $c$ and $d$. If we had $c=0$, then we would have
+$r=\underbrace{c}_{=0}/d=0$; but this would contradict the fact that $r$ is
+nonzero. Hence, we cannot have $c=0$. Thus, $c$ is nonzero. Thus, there exist
+two nonzero integers $a$ and $b$ such that $r=a/b$ (namely, $a=c$ and $b=d$).
+In other words, it is possible to write $r$ in the form $r=a/b$ for two
+nonzero integers $a$ and $b$. This proves Claim 1.]
+
+[\textit{Proof of Claim 2:} Assume that $r$ is written in the form $r=a/b$ for
+two nonzero integers $a$ and $b$. Definition \ref{def.ent.prime.vp}
+\textbf{(a)} shows that $v_{p}\left(  n\right)  \in\mathbb{N}$ for each
+nonzero integer $n$. Thus, $v_{p}\left(  a\right)  \in\mathbb{N}$ (since $a$
+is nonzero) and $v_{p}\left(  b\right)  \in\mathbb{N}$ (since $b$ is nonzero).
+Hence, $\underbrace{v_{p}\left(  a\right)  }_{\in\mathbb{N}}-\underbrace{v_{p}%
+\left(  b\right)  }_{\in\mathbb{N}}\in\mathbb{Z}$. In other words,
+$v_{p}\left(  a\right)  -v_{p}\left(  b\right)  $ is a well-defined integer.
+This proves Claim 2.]
+
+It remains to prove Claim 3. Clearly, Claim 3 can be restated as folllows:
+
+\begin{statement}
+\textit{Claim 4:} Let $\left(  a_{1},b_{1}\right)  $ and $\left(  a_{2}%
+,b_{2}\right)  $ be two pairs $\left(  a,b\right)  $ of nonzero integers $a$
+and $b$ satisfying $r=a/b$. Then, $v_{p}\left(  a_{1}\right)  -v_{p}\left(
+b_{1}\right)  =v_{p}\left(  a_{2}\right)  -v_{p}\left(  b_{2}\right)  $.
+\end{statement}
+
+[\textit{Proof of Claim 4:} We have assumed that $\left(  a_{1},b_{1}\right)
+$ is a pair $\left(  a,b\right)  $ of nonzero integers $a$ and $b$ satisfying
+$r=a/b$. In other words, $\left(  a_{1},b_{1}\right)  $ is a pair of nonzero
+integers satisfying $r=a_{1}/b_{1}$. Similarly, $\left(  a_{2},b_{2}\right)  $
+is a pair of nonzero integers satisfying $r=a_{2}/b_{2}$.
+
+We have $r=a_{1}/b_{1}$, thus $a_{1}/b_{1}=r=a_{2}/b_{2}$. Multiplying this
+equality by $b_{1}b_{2}$, we find $a_{1}b_{2}=a_{2}b_{1}$. Theorem
+\ref{thm.ent.prime.vp-ring} \textbf{(a)} (applied to $a=a_{1}$ and $b=b_{2}$)
+yields $v_{p}\left(  a_{1}b_{2}\right)  =v_{p}\left(  a_{1}\right)
++v_{p}\left(  b_{2}\right)  $. Theorem \ref{thm.ent.prime.vp-ring}
+\textbf{(a)} (applied to $a=a_{2}$ and $b=b_{1}$) yields $v_{p}\left(
+a_{2}b_{1}\right)  =v_{p}\left(  a_{2}\right)  +v_{p}\left(  b_{1}\right)  $.
+Now, from $v_{p}\left(  a_{1}b_{2}\right)  =v_{p}\left(  a_{1}\right)
++v_{p}\left(  b_{2}\right)  $, we obtain%
+\begin{equation}
+v_{p}\left(  a_{1}\right)  +v_{p}\left(  b_{2}\right)  =v_{p}\left(
+\underbrace{a_{1}b_{2}}_{=a_{2}b_{1}}\right)  =v_{p}\left(  a_{2}b_{1}\right)
+=v_{p}\left(  a_{2}\right)  +v_{p}\left(  b_{1}\right)  .
+\label{sol.eqrel.quot.wp.a.3}%
+\end{equation}
+But $b_{1}$ is a nonzero integer (since $\left(  a_{1},b_{1}\right)  $ is a
+pair of nonzero integers); thus, $v_{p}\left(  b_{1}\right)  \in\mathbb{N}$
+(since Definition \ref{def.ent.prime.vp} \textbf{(a)} shows that $v_{p}\left(
+n\right)  \in\mathbb{N}$ for each nonzero integer $n$). Similarly,
+$v_{p}\left(  b_{2}\right)  \in\mathbb{N}$. Hence, $\underbrace{v_{p}\left(
+b_{1}\right)  }_{\in\mathbb{N}}+\underbrace{v_{p}\left(  b_{2}\right)  }%
+_{\in\mathbb{N}}\in\mathbb{N}$. Thus, we can subtract $v_{p}\left(
+b_{1}\right)  +v_{p}\left(  b_{2}\right)  $ from both sides of the equality
+(\ref{sol.eqrel.quot.wp.a.3}). We thus obtain $v_{p}\left(  a_{1}\right)
+-v_{p}\left(  b_{1}\right)  =v_{p}\left(  a_{2}\right)  -v_{p}\left(
+b_{2}\right)  $. This proves Claim 4.]
+
+As we recall, Claim 4 is just a restatement of Claim 1. Hence, Claim 1 is
+proven (since Claim 4 is proven). From Claims 1, 2 and 3, we conclude that
+$w_{p}\left(  r\right)  $ is well-defined. Thus, Exercise
+\ref{exe.eqrel.quot.wp} \textbf{(a)} is solved.
+
+Let us state a consequence of the definition of $w_{p}\left(  r\right)  $: If
+$r$ is a nonzero rational number, and if $a$ and $b$ are two nonzero integers
+satisfying $r=a/b$, then%
+\begin{equation}
+w_{p}\left(  r\right)  =v_{p}\left(  a\right)  -v_{p}\left(  b\right)  .
+\label{sol.eqrel.quot.wp.a.cons}%
+\end{equation}
+
+
+\textbf{(b)} Let $n$ be a nonzero integer. We must prove that $w_{p}\left(
+n\right)  =v_{p}\left(  n\right)  $.
+
+We know that $n$ and $1$ are two nonzero integers satisfying $n=n/1$. Hence,
+(\ref{sol.eqrel.quot.wp.a.cons}) (applied to $r=n$, $a=n$ and $b=1$) yields%
+\[
+w_{p}\left(  n\right)  =v_{p}\left(  n\right)  -\underbrace{v_{p}\left(
+1\right)  }_{\substack{=0\\\text{(by Theorem \ref{thm.ent.prime.vp-ring}
+\textbf{(c)})}}}=v_{p}\left(  n\right)  .
+\]
+This solves Exercise \ref{exe.eqrel.quot.wp} \textbf{(b)}.
+
+\textbf{(c)} Let $a$ and $b$ be two nonzero rational numbers. We must show
+that $w_{p}\left(  ab\right)  =w_{p}\left(  a\right)  +w_{p}\left(  b\right)
+$.
+
+We know that $a$ is a rational number. Thus, we can write $a$ in the form
+$a=u_{1}/v_{1}$ for some integer $u_{1}$ and some nonzero integer $v_{1}$.
+Consider these $u_{1}$ and $v_{1}$. If we had $u_{1}=0$, then we would have
+$a=\underbrace{u_{1}}_{=0}/v_{1}=0$, which would contradict the assumption
+that $a$ is nonzero. Hence, we do not have $u_{1}=0$. In other words, $u_{1}$
+is nonzero. Thus, (\ref{sol.eqrel.quot.wp.a.cons}) (applied to $a$, $u_{1}$
+and $v_{1}$ instead of $r$, $a$ and $b$) yields
+\begin{equation}
+w_{p}\left(  a\right)  =v_{p}\left(  u_{1}\right)  -v_{p}\left(  v_{1}\right)
+. \label{sol.eqrel.quot.wp.c.wpa=}%
+\end{equation}
+
+
+We know that $b$ is a rational number. Thus, we can write $b$ in the form
+$b=u_{2}/v_{2}$ for some integer $u_{2}$ and some nonzero integer $v_{2}$.
+Consider these $u_{2}$ and $v_{2}$. If we had $u_{2}=0$, then we would have
+$b=\underbrace{u_{2}}_{=0}/v_{2}=0$, which would contradict the assumption
+that $b$ is nonzero. Hence, we do not have $u_{2}=0$. In other words, $u_{2}$
+is nonzero. Thus, (\ref{sol.eqrel.quot.wp.a.cons}) (applied to $b$, $u_{2}$
+and $v_{2}$ instead of $r$, $a$ and $b$) yields
+\begin{equation}
+w_{p}\left(  b\right)  =v_{p}\left(  u_{2}\right)  -v_{p}\left(  v_{2}\right)
+. \label{sol.eqrel.quot.wp.c.wpb=}%
+\end{equation}
+
+
+From $a=u_{1}/v_{1}$ and $b=u_{2}/v_{2}$, we obtain%
+\[
+ab=\left(  u_{1}/v_{1}\right)  \left(  u_{2}/v_{2}\right)  =\left(  u_{1}%
+u_{2}\right)  /\left(  v_{1}v_{2}\right)  .
+\]
+Moreover, the integer $u_{1}u_{2}$ is nonzero (since $u_{1}$ and $u_{2}$ are
+nonzero), and the integer $v_{1}v_{2}$ is nonzero (since $v_{1}$ and $v_{2}$
+are nonzero). Hence, (\ref{sol.eqrel.quot.wp.a.cons}) (applied to $ab$,
+$u_{1}u_{2}$ and $v_{1}v_{2}$ instead of $r$, $a$ and $b$) yields
+\begin{align*}
+w_{p}\left(  ab\right)   &  =\underbrace{v_{p}\left(  u_{1}u_{2}\right)
+}_{\substack{=v_{p}\left(  u_{1}\right)  +v_{p}\left(  u_{2}\right)
+\\\text{(by Theorem \ref{thm.ent.prime.vp-ring} \textbf{(a),}}\\\text{applied
+to }u_{1}\text{ and }u_{2}\text{ instead of }a\text{ and }b\text{)}%
+}}-\underbrace{v_{p}\left(  v_{1}v_{2}\right)  }_{\substack{=v_{p}\left(
+v_{1}\right)  +v_{p}\left(  v_{2}\right)  \\\text{(by Theorem
+\ref{thm.ent.prime.vp-ring} \textbf{(a),}}\\\text{applied to }v_{1}\text{ and
+}v_{2}\text{ instead of }a\text{ and }b\text{)}}}\\
+&  =\left(  v_{p}\left(  u_{1}\right)  +v_{p}\left(  u_{2}\right)  \right)
+-\left(  v_{p}\left(  v_{1}\right)  +v_{p}\left(  v_{2}\right)  \right) \\
+&  =\underbrace{\left(  v_{p}\left(  u_{1}\right)  -v_{p}\left(  v_{1}\right)
+\right)  }_{\substack{=w_{p}\left(  a\right)  \\\text{(by
+(\ref{sol.eqrel.quot.wp.c.wpa=}))}}}+\underbrace{\left(  v_{p}\left(
+u_{2}\right)  -v_{p}\left(  v_{2}\right)  \right)  }_{\substack{=w_{p}\left(
+b\right)  \\\text{(by (\ref{sol.eqrel.quot.wp.c.wpb=}))}}}\\
+&  =w_{p}\left(  a\right)  +w_{p}\left(  b\right)  .
+\end{align*}
+This solves Exercise \ref{exe.eqrel.quot.wp} \textbf{(c)}.
+
+\textbf{(d)} Let $a$ and $b$ be two nonzero rational numbers such that
+$a+b\neq0$. We must show that $w_{p}\left(  a+b\right)  \geq\min\left\{
+w_{p}\left(  a\right)  ,w_{p}\left(  b\right)  \right\}  $.
+
+Note that $a+b$ is a nonzero rational number (since $a+b\neq0$); thus,
+$w_{p}\left(  a+b\right)  $ is well-defined.
+
+We know that $a$ is a rational number. Thus, we can write $a$ in the form
+$a=u_{1}/v_{1}$ for some integer $u_{1}$ and some nonzero integer $v_{1}$.
+Consider these $u_{1}$ and $v_{1}$. Then, $u_{1}$ is nonzero (this is proven
+in the same way as in our solution to Exercise \ref{exe.eqrel.quot.wp}
+\textbf{(c)}). Thus, (\ref{sol.eqrel.quot.wp.a.cons}) (applied to $a$, $u_{1}$
+and $v_{1}$ instead of $r$, $a$ and $b$) yields
+\begin{equation}
+w_{p}\left(  a\right)  =v_{p}\left(  u_{1}\right)  -v_{p}\left(  v_{1}\right)
+. \label{sol.eqrel.quot.wp.d.wpa=}%
+\end{equation}
+
+
+We know that $b$ is a rational number. Thus, we can write $b$ in the form
+$b=u_{2}/v_{2}$ for some integer $u_{2}$ and some nonzero integer $v_{2}$.
+Consider these $u_{2}$ and $v_{2}$. Then, $u_{2}$ is nonzero (this is proven
+in the same way as in our solution to Exercise \ref{exe.eqrel.quot.wp}
+\textbf{(c)}). Thus, (\ref{sol.eqrel.quot.wp.a.cons}) (applied to $b$, $u_{2}$
+and $v_{2}$ instead of $r$, $a$ and $b$) yields
+\begin{equation}
+w_{p}\left(  b\right)  =v_{p}\left(  u_{2}\right)  -v_{p}\left(  v_{2}\right)
+. \label{sol.eqrel.quot.wp.d.wpb=}%
+\end{equation}
+
+
+From $a=u_{1}/v_{1}$ and $b=u_{2}/v_{2}$, we obtain%
+\[
+a+b=\left(  u_{1}/v_{1}\right)  +\left(  u_{2}/v_{2}\right)  =\left(
+u_{1}v_{2}+u_{2}v_{1}\right)  /\left(  v_{1}v_{2}\right)  .
+\]
+Moreover, the integer $u_{1}v_{2}+u_{2}v_{1}$ is nonzero (because otherwise,
+we would have $u_{1}v_{2}+u_{2}v_{1}=0$ and therefore $a+b=\underbrace{\left(
+u_{1}v_{2}+u_{2}v_{1}\right)  }_{=0}/\left(  v_{1}v_{2}\right)  =0$, which
+would contradict $a+b\neq0$), and the integer $v_{1}v_{2}$ is nonzero (since
+$v_{1}$ and $v_{2}$ are nonzero). Hence, (\ref{sol.eqrel.quot.wp.a.cons})
+(applied to $a+b$, $u_{1}v_{2}+u_{2}v_{1}$ and $v_{1}v_{2}$ instead of $r$,
+$a$ and $b$) yields
+\begin{align}
+w_{p}\left(  a+b\right)   &  =\underbrace{v_{p}\left(  u_{1}v_{2}+u_{2}%
+v_{1}\right)  }_{\substack{\geq\min\left\{  v_{p}\left(  u_{1}v_{2}\right)
+,v_{p}\left(  u_{2}v_{1}\right)  \right\}  \\\text{(by Theorem
+\ref{thm.ent.prime.vp-ring} \textbf{(b),}}\\\text{applied to }u_{1}v_{2}\text{
+and }u_{2}v_{1}\text{ instead of }a\text{ and }b\text{)}}}-\underbrace{v_{p}%
+\left(  v_{1}v_{2}\right)  }_{\substack{=v_{p}\left(  v_{1}\right)
++v_{p}\left(  v_{2}\right)  \\\text{(by Theorem \ref{thm.ent.prime.vp-ring}
+\textbf{(a),}}\\\text{applied to }v_{1}\text{ and }v_{2}\text{ instead of
+}a\text{ and }b\text{)}}}\nonumber\\
+&  \geq\min\left\{  \underbrace{v_{p}\left(  u_{1}v_{2}\right)  }%
+_{\substack{=v_{p}\left(  u_{1}\right)  +v_{p}\left(  v_{2}\right)
+\\\text{(by Theorem \ref{thm.ent.prime.vp-ring} \textbf{(a),}}\\\text{applied
+to }u_{1}\text{ and }v_{2}\\\text{instead of }a\text{ and }b\text{)}%
+}},\underbrace{v_{p}\left(  u_{2}v_{1}\right)  }_{\substack{=v_{p}\left(
+u_{2}\right)  +v_{p}\left(  v_{1}\right)  \\\text{(by Theorem
+\ref{thm.ent.prime.vp-ring} \textbf{(a),}}\\\text{applied to }u_{2}\text{ and
+}v_{1}\\\text{instead of }a\text{ and }b\text{)}}}\right\}  -\left(
+v_{p}\left(  v_{1}\right)  +v_{p}\left(  v_{2}\right)  \right)  \nonumber\\
+&  =\min\left\{  v_{p}\left(  u_{1}\right)  +v_{p}\left(  v_{2}\right)
+,v_{p}\left(  u_{2}\right)  +v_{p}\left(  v_{1}\right)  \right\}  -\left(
+v_{p}\left(  v_{1}\right)  +v_{p}\left(  v_{2}\right)  \right)
+.\label{sol.eqrel.quot.wp.d.6}%
+\end{align}
+
+
+But it is easy to see that any three numbers $i,j,k\in\mathbb{N}$ satisfy%
+\begin{equation}
+\min\left\{  i,j\right\}  -k=\min\left\{  i-k,j-k\right\}
+\label{sol.eqrel.quot.wp.d.min-}%
+\end{equation}
+\footnote{\textit{Proof of (\ref{sol.eqrel.quot.wp.d.min-}):} Let
+$i,j,k\in\mathbb{N}$ be three numbers. We must prove the equaltity
+(\ref{sol.eqrel.quot.wp.d.min-}). We can WLOG assume that $i\leq j$ (since $i$
+and $j$ play symmetric roles in our claim, and thus swapping $i$ with $j$ will
+not change anything). Assume this. Hence, $\underbrace{i}_{\leq j}-k\leq j-k$,
+thus $\min\left\{  i-k,j-k\right\}  =i-k$. Comparing this with
+$\underbrace{\min\left\{  i,j\right\}  }_{\substack{=i\\\text{(since }i\leq
+j\text{)}}}-k=i-k$, we obtain $\min\left\{  i,j\right\}  -k=\min\left\{
+i-k,j-k\right\}  $. This proves (\ref{sol.eqrel.quot.wp.d.min-}).}. Also, it
+is easy to see that the three numbers $v_{p}\left(  u_{1}\right)
++v_{p}\left(  v_{2}\right)  ,v_{p}\left(  u_{2}\right)  +v_{p}\left(
+v_{1}\right)  ,v_{p}\left(  v_{1}\right)  +v_{p}\left(  v_{2}\right)  $ belong
+to $\mathbb{N}$ (since $u_{1},u_{2},v_{1},v_{2}$ are all nonzero). Hence,
+(\ref{sol.eqrel.quot.wp.d.min-}) (applied to $i=v_{p}\left(  u_{1}\right)
++v_{p}\left(  v_{2}\right)  $, $j=v_{p}\left(  u_{2}\right)  +v_{p}\left(
+v_{1}\right)  $ and $k=v_{p}\left(  v_{1}\right)  +v_{p}\left(  v_{2}\right)
+$) yields%
+\begin{align*}
+&  \min\left\{  v_{p}\left(  u_{1}\right)  +v_{p}\left(  v_{2}\right)
+,v_{p}\left(  u_{2}\right)  +v_{p}\left(  v_{1}\right)  \right\}  -\left(
+v_{p}\left(  v_{1}\right)  +v_{p}\left(  v_{2}\right)  \right) \\
+&  =\min\left\{  \underbrace{v_{p}\left(  u_{1}\right)  +v_{p}\left(
+v_{2}\right)  -\left(  v_{p}\left(  v_{1}\right)  +v_{p}\left(  v_{2}\right)
+\right)  }_{\substack{=v_{p}\left(  u_{1}\right)  -v_{p}\left(  v_{1}\right)
+=w_{p}\left(  a\right)  \\\text{(by (\ref{sol.eqrel.quot.wp.d.wpa=}))}%
+}},\underbrace{v_{p}\left(  u_{2}\right)  +v_{p}\left(  v_{1}\right)  -\left(
+v_{p}\left(  v_{1}\right)  +v_{p}\left(  v_{2}\right)  \right)  }%
+_{\substack{=v_{p}\left(  u_{2}\right)  -v_{p}\left(  v_{2}\right)
+=w_{p}\left(  b\right)  \\\text{(by (\ref{sol.eqrel.quot.wp.d.wpb=}))}%
+}}\right\} \\
+&  =\min\left\{  w_{p}\left(  a\right)  ,w_{p}\left(  b\right)  \right\}  .
+\end{align*}
+Thus, (\ref{sol.eqrel.quot.wp.d.6}) becomes%
+\begin{align*}
+w_{p}\left(  a+b\right)   &  \geq\min\left\{  v_{p}\left(  u_{1}\right)
++v_{p}\left(  v_{2}\right)  ,v_{p}\left(  u_{2}\right)  +v_{p}\left(
+v_{1}\right)  \right\}  -\left(  v_{p}\left(  v_{1}\right)  +v_{p}\left(
+v_{2}\right)  \right) \\
+&  =\min\left\{  w_{p}\left(  a\right)  ,w_{p}\left(  b\right)  \right\}  .
+\end{align*}
+This solves Exercise \ref{exe.eqrel.quot.wp} \textbf{(d)}.
+\end{proof}
+\end{fineprint}
 
 \subsubsection{Addition, subtraction and multiplication in $\mathbb{Z}/n$}
 
