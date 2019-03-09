@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Friday, March 08, 2019 20:09:13}
+%TCIDATA{LastRevised=Friday, March 08, 2019 22:03:45}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -4135,7 +4135,11 @@ decision, as it will greatly reduce the number of exceptions in our results.)
 \end{itemize}
 
 Thus, in either case, this greatest common divisor is a nonnegative integer.
-We denote it by $\gcd\left(  b_{1},b_{2},\ldots,b_{k}\right)  $.
+We denote it by $\gcd\left(  b_{1},b_{2},\ldots,b_{k}\right)  $. (Some authors
+also call it $\left(  b_{1},b_{2},\ldots,b_{k}\right)  $, which is rather
+dangerous as the same notation stands for a $k$-tuple. We shall avoid this
+notation at all cost, but you should be aware of it when reading
+number-theoretical literature.)
 
 We shall also use the word \textquotedblleft\textit{gcd}\textquotedblright\ as
 shorthand for \textquotedblleft greatest common divisor\textquotedblright.
@@ -5584,12 +5588,12 @@ Thus, $\gcd\left(  b_{1},b_{2},\ldots,b_{k}\right)  =0$ (by Definition
 For each $m\in\mathbb{Z}$, we have the logical equivalence%
 \begin{align*}
 &  \ \left(  m\mid b_{i}\text{ for all }i\in\left\{  1,2,\ldots,k\right\}
-\right)  \\
+\right) \\
 &  \Longleftrightarrow\ \left(  \text{truth}\right)
 \ \ \ \ \ \ \ \ \ \ \left(  \text{since there exists no }i\in\left\{
-1,2,\ldots,k\right\}  \right)  \\
+1,2,\ldots,k\right\}  \right) \\
 &  \Longleftrightarrow\ \left(  m\mid0\right)  \ \ \ \ \ \ \ \ \ \ \left(
-\text{since }m\mid0\text{ is always true}\right)  \\
+\text{since }m\mid0\text{ is always true}\right) \\
 &  \Longleftrightarrow\ \left(  m\mid\gcd\left(  b_{1},b_{2},\ldots
 ,b_{k}\right)  \right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{since }0=\gcd\left(
 b_{1},b_{2},\ldots,b_{k}\right)  \right)  .
@@ -5634,7 +5638,8 @@ precisely the divisors of $\gcd\left(  b_{1},b_{2},\ldots,b_{\ell-1}\right)  $.
 \textbf{(d)} If $\ell-1>0$, then%
 \[
 \gcd\left(  b_{1},b_{2},\ldots,b_{\ell-1}\right)  =\gcd\left(  \gcd\left(
-b_{1},b_{2},\ldots,b_{\left(  \ell-1\right)  -1}\right)  ,b_{\ell-1}\right)  .
+b_{1},b_{2},\ldots,b_{\left(  \ell-1\right)  -1}\right)  ,b_{\ell-1}\right)
+.
 \]
 
 \end{statement}
@@ -5790,21 +5795,21 @@ Statement 2 \textbf{(d)} is proven.
 \textbf{(a)} Let $m\in\mathbb{Z}$. Then, we have the equivalence%
 \begin{align*}
 &  \ \left(  m\mid b_{i}\text{ for all }i\in\left\{  1,2,\ldots,\ell\right\}
-\right)  \\
+\right) \\
 &  \Longleftrightarrow\ \left(  \underbrace{\left(  m\mid b_{i}\text{ for all
 }i\in\left\{  1,2,\ldots,\ell-1\right\}  \right)  }%
 _{\substack{\Longleftrightarrow\ \left(  m\mid\gcd\left(  b_{1},b_{2}%
 ,\ldots,b_{\ell-1}\right)  \right)  \\\text{(by Statement 1 \textbf{(a)})}%
-}}\text{ and }m\mid b_{\ell}\right)  \\
+}}\text{ and }m\mid b_{\ell}\right) \\
 &  \Longleftrightarrow\ \left(  m\mid\gcd\left(  b_{1},b_{2},\ldots,b_{\ell
--1}\right)  \text{ and }m\mid b_{\ell}\right)  \\
+-1}\right)  \text{ and }m\mid b_{\ell}\right) \\
 &  \Longleftrightarrow\ \left(  m\mid\underbrace{\gcd\left(  \gcd\left(
 b_{1},b_{2},\ldots,b_{\ell-1}\right)  ,b_{\ell}\right)  }_{\substack{=\gcd
 \left(  b_{1},b_{2},\ldots,b_{\ell}\right)  \\\text{(by Statement 2
-\textbf{(d)}, which we have just proved)}}}\right)  \\
+\textbf{(d)}, which we have just proved)}}}\right) \\
 &  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Theorem \ref{thm.ent.gcd.uniprop}
 \textbf{(a)}, applied to }a=\gcd\left(  b_{1},b_{2},\ldots,b_{\ell-1}\right)
-\text{ and }b=b_{\ell}\right)  \\
+\text{ and }b=b_{\ell}\right) \\
 &  \Longleftrightarrow\ \left(  m\mid\gcd\left(  b_{1},b_{2},\ldots,b_{\ell
 }\right)  \right)  .
 \end{align*}
@@ -7687,6 +7692,7 @@ $b_{1},b_{2},\ldots,b_{k}$ is zero), then it is defined to be $0$.
 
 Thus, in either case, this lowest common multiple is a nonnegative integer. We
 denote it by $\operatorname{lcm}\left(  b_{1},b_{2},\ldots,b_{k}\right)  $.
+(Some authors also call it $\left[  b_{1},b_{2},\ldots,b_{k}\right]  $.)
 
 We shall also use the word \textquotedblleft\textit{lcm}\textquotedblright\ as
 shorthand for \textquotedblleft lowest common multiple\textquotedblright.
@@ -15545,7 +15551,8 @@ For example,%
 \end{align*}
 are all the residue classes modulo $5$. As you see, these classes are in
 1-to-1 correspondence with the $5$ possible remainders $0,1,2,3,4$ modulo $5$.
-This generalizes (see Theorem \ref{thm.eqrel.Zn.explicit} below). First, a few notations:
+This generalizes (see Theorem \ref{thm.eqrel.Zn.explicit} below). First, let
+us introduce a few notations:
 
 \begin{definition}
 \label{def.eqrel.Z/n.Z/n}\textbf{(a)} If $i$ is an integer, then we denote the
@@ -15572,19 +15579,61 @@ n-1\right]  _{n}$. (In particular, these elements $\left[  0\right]
 _{n},\left[  1\right]  _{n},\ldots,\left[  n-1\right]  _{n}$ are distinct.)
 \end{theorem}
 
-\begin{proof}
-[Proof of Theorem \ref{thm.eqrel.Zn.explicit}.]If $\sigma\in\mathbb{Z}/n$,
-then $\sigma$ is a residue class modulo $n$ (by the definition of
-$\mathbb{Z}/n$), and thus is an equivalence class of the relation
-$\underset{n}{\equiv}$ (by the definition of a residue class). Hence, this
-$\sigma$ can be written in the form $\left[  s\right]  _{\underset{n}{\equiv}%
-}$ for some integer $s$. In other words, this $\sigma$ can be written in the
-form $\left[  s\right]  _{n}$ for some integer $s$ (since we have defined
-$\left[  s\right]  _{n}$ to be a shorthand for $\left[  s\right]
-_{\underset{n}{\equiv}}$). In other words, each element of $\mathbb{Z}/n$ has
-the form $\left[  s\right]  _{n}$ for some integer $s$.
+Before we prove this, let us make a simple observation:
 
-We have a map%
+\begin{proposition}
+\label{prop.eqrel.Zn.ab}\textbf{(a)} Each element of $\mathbb{Z}/n$ can be
+written in the form $\left[  s\right]  _{n}$ for some integer $s$.
+
+\textbf{(b)} Let $a$ and $b$ be integers. Then, we have $\left[  a\right]
+_{n}=\left[  b\right]  _{n}$ if and only if $a\equiv b\operatorname{mod}n$.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.eqrel.Zn.ab}.]\textbf{(a)} If $\sigma
+\in\mathbb{Z}/n$, then $\sigma$ is a residue class modulo $n$ (by the
+definition of $\mathbb{Z}/n$), and thus is an equivalence class of the
+relation $\underset{n}{\equiv}$ (by the definition of a residue class). Hence,
+this $\sigma$ can be written in the form $\left[  s\right]
+_{\underset{n}{\equiv}}$ for some integer $s$. In other words, this $\sigma$
+can be written in the form $\left[  s\right]  _{n}$ for some integer $s$
+(since we have defined $\left[  s\right]  _{n}$ to be a shorthand for $\left[
+s\right]  _{\underset{n}{\equiv}}$). In other words, each element of
+$\mathbb{Z}/n$ can be written in the form $\left[  s\right]  _{n}$ for some
+integer $s$. This proves Proposition \ref{prop.eqrel.Zn.ab} \textbf{(a)}.
+
+\textbf{(b)} Theorem \ref{thm.eqrel.eqcl.disj} \textbf{(e)} (applied to
+$\mathbb{Z}$, $\underset{n}{\equiv}$, $a$ and $b$ instead of $S$, $\sim$, $x$
+and $y$) shows that we have $a\underset{n}{\equiv}b$ if and only if $\left[
+a\right]  _{\underset{n}{\equiv}}=\left[  b\right]  _{\underset{n}{\equiv}}$.
+Thus, we have the logical equivalence
+\begin{equation}
+\left(  a\underset{n}{\equiv}b\right)  \ \Longleftrightarrow\ \left(  \left[
+a\right]  _{\underset{n}{\equiv}}=\left[  b\right]  _{\underset{n}{\equiv}%
+}\right)  \label{pf.prop.eqrel.Zn.ab.1}%
+\end{equation}
+
+
+Definition \ref{def.eqrel.Z/n.Z/n} \textbf{(a)} shows that $\left[  a\right]
+_{n}=\left[  a\right]  _{\underset{n}{\equiv}}$ and $\left[  b\right]
+_{n}=\left[  b\right]  _{\underset{n}{\equiv}}$. Hence, we have the following
+chain of logical equivalences:
+\begin{align*}
+\left(  \left[  a\right]  _{n}=\left[  b\right]  _{n}\right)  \  &
+\Longleftrightarrow\ \left(  \left[  a\right]  _{\underset{n}{\equiv}}=\left[
+b\right]  _{\underset{n}{\equiv}}\right) \\
+&  \Longleftrightarrow\ \left(  a\underset{n}{\equiv}b\right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.prop.eqrel.Zn.ab.1})}\right) \\
+&  \Longleftrightarrow\ \left(  a\equiv b\operatorname{mod}n\right)
+\end{align*}
+(by the definition of the relation $\underset{n}{\equiv}$). In other words, we
+have $\left[  a\right]  _{n}=\left[  b\right]  _{n}$ if and only if $a\equiv
+b\operatorname{mod}n$. This proves Proposition \ref{prop.eqrel.Zn.ab}
+\textbf{(b)}.
+\end{proof}
+
+\begin{proof}
+[Proof of Theorem \ref{thm.eqrel.Zn.explicit}.]We have a map%
 \begin{align*}
 \pi_{\underset{n}{\equiv}}:\mathbb{Z}  &  \rightarrow\mathbb{Z}/n,\\
 s  &  \mapsto\left[  s\right]  _{n}.
@@ -15620,8 +15669,9 @@ $s\%n$). Can we do this? Would this map $R$ be actually well-defined?
 
 First of all, our definition of $R$ does indeed specify a value of $R\left(
 \sigma\right)  $ for each $\sigma\in\mathbb{Z}/n$. This is because each
-element of $\mathbb{Z}/n$ has the form $\left[  s\right]  _{n}$ for some
-integer $s$, and therefore our definition tells us where this element should
+element of $\mathbb{Z}/n$ can be written in the form $\left[  s\right]  _{n}$
+for some integer $s$ (because of Proposition \ref{prop.eqrel.Zn.ab}
+\textbf{(a)}), and therefore our definition tells us where this element should
 go under $R$.
 
 Furthermore, if $s$ is an integer, then $s\%n\in\left\{  0,1,\ldots
@@ -15679,30 +15729,24 @@ s_{1}\right]  _{n}=\left[  s_{2}\right]  _{n}$, then $s_{1}\%n=s_{2}\%n$.
 \end{statement}
 
 [\textit{Proof of Claim 1:} Let $s_{1}$ and $s_{2}$ be two integers such that
-$\left[  s_{1}\right]  _{n}=\left[  s_{2}\right]  _{n}$. In other words,
-$\left[  s_{1}\right]  _{\underset{n}{\equiv}}=\left[  s_{2}\right]
-_{\underset{n}{\equiv}}$ (since $\left[  x\right]  _{n}$ is just a shorthand
-for $\left[  x\right]  _{\underset{n}{\equiv}}$).
+$\left[  s_{1}\right]  _{n}=\left[  s_{2}\right]  _{n}$.
 
-But Theorem \ref{thm.eqrel.eqcl.disj} \textbf{(e)} (applied to $\mathbb{Z}$,
-$\underset{n}{\equiv}$, $s_{1}$ and $s_{2}$ instead of $S$, $\sim$, $x$ and
-$y$) shows that we have $s_{1}\underset{n}{\equiv}s_{2}$ if and only if
-$\left[  s_{1}\right]  _{\underset{n}{\equiv}}=\left[  s_{2}\right]
-_{\underset{n}{\equiv}}$. Thus, we have $s_{1}\underset{n}{\equiv}s_{2}$
-(since $\left[  s_{1}\right]  _{\underset{n}{\equiv}}=\left[  s_{2}\right]
-_{\underset{n}{\equiv}}$). In other words, $s_{1}\equiv s_{2}%
-\operatorname{mod}n$. But Exercise \ref{exe.ent.quo-rem.mod=rem} (applied to
-$u=s_{1}$ and $v=s_{2}$) shows that $s_{1}\equiv s_{2}\operatorname{mod}n$ if
-and only if $s_{1}\%n=s_{2}\%n$. Hence, we have $s_{1}\%n=s_{2}\%n$. This
-proves Claim 1.]
+Proposition \ref{prop.eqrel.Zn.ab} \textbf{(b)} (applied to $s_{1}$ and
+$s_{2}$ instead of $a$ and $b$) shows that we have $\left[  s_{1}\right]
+_{n}=\left[  s_{2}\right]  _{n}$ if and only if $s_{1}\equiv s_{2}%
+\operatorname{mod}n$. Thus, we have $s_{1}\equiv s_{2}\operatorname{mod}n$
+(since $\left[  s_{1}\right]  _{n}=\left[  s_{2}\right]  _{n}$). But Exercise
+\ref{exe.ent.quo-rem.mod=rem} (applied to $u=s_{1}$ and $v=s_{2}$) shows that
+$s_{1}\equiv s_{2}\operatorname{mod}n$ if and only if $s_{1}\%n=s_{2}\%n$.
+Hence, we have $s_{1}\%n=s_{2}\%n$. This proves Claim 1.]
 
 Claim 1 shows that if $s$ is an integer, then $s\%n$ depends only on the
 \textbf{residue class} $\left[  s\right]  _{n}$, but not on the actual integer
 $s$. Thus, if we have a residue class $\sigma\in\mathbb{Z}/n$, then we can
-write $\sigma$ as $\sigma=\left[  s\right]  _{n}$ for some integer $s$ (since
-every residue class in $\mathbb{Z}/n$ has this form), and then the integer
-$s\%n$ will depend only on the class $\sigma$ and not on the specific choice
-of this integer $s$. Hence, the map $R$ is well-defined.
+write $\sigma$ in the form $\sigma=\left[  s\right]  _{n}$ for some integer
+$s$ (since every residue class in $\mathbb{Z}/n$ can be written in this form),
+and then the integer $s\%n$ will depend only on the class $\sigma$ and not on
+the specific choice of this integer $s$. Hence, the map $R$ is well-defined.
 
 Now we have two maps%
 \begin{align*}
@@ -15723,8 +15767,9 @@ We claim that they are mutually inverse. Indeed:
 P\circ R\right)  \left(  \sigma\right)  =\operatorname*{id}\left(
 \sigma\right)  $.
 
-Recall that each element of $\mathbb{Z}/n$ has the form $\left[  s\right]
-_{n}$ for some integer $s$. Hence, $\sigma$ has this form. In other words,
+Proposition \ref{prop.eqrel.Zn.ab} \textbf{(a)} says that each element of
+$\mathbb{Z}/n$ can be written in the form $\left[  s\right]  _{n}$ for some
+integer $s$. Hence, $\sigma$ can be written in this form. In other words,
 $\sigma=\left[  s\right]  _{n}$ for some integer $s$. Consider this $s$. The
 definition of $R$ yields $R\left(  \left[  s\right]  _{n}\right)  =s\%n$.
 Corollary \ref{cor.ent.quo-rem.remmod} \textbf{(a)} (applied to $u=s$) yields
@@ -15819,13 +15864,12 @@ for each $s\in S$; but in order to ensure that this definition is well-defined
 (i.e., that our map $f$ actually exists), we need to verify that the value of
 $f\left(  \left[  s\right]  _{\sim}\right)  $ we are specifying depends
 \textbf{only on the equivalence class }$\left[  s\right]  _{\sim}$ but not on
-the representative $s$ that we choose for it in our definition. In other
-words, we need to verify that if $s_{1}$ and $s_{2}$ are two elements of $S$
-such that $\left[  s_{1}\right]  _{\sim}=\left[  s_{2}\right]  _{\sim}$, then
-our definition of $f$ assigns the same value to $f\left(  \left[
-s_{1}\right]  _{\sim}\right)  $ as it does to $f\left(  \left[  s_{2}\right]
-_{\sim}\right)  $. This verification (which we did in our above proof by
-proving Claim 1) is often quite easy, but it is necessary.
+the representative $s$. In other words, we need to verify that if $s_{1}$ and
+$s_{2}$ are two elements of $S$ such that $\left[  s_{1}\right]  _{\sim
+}=\left[  s_{2}\right]  _{\sim}$, then our definition of $f$ assigns the same
+value to $f\left(  \left[  s_{1}\right]  _{\sim}\right)  $ as it does to
+$f\left(  \left[  s_{2}\right]  _{\sim}\right)  $. This verification (which we
+did in our above proof by proving Claim 1) is often quite easy, but it is necessary.
 
 Let us restate this strategy for defining maps out of a quotient set more rigorously:
 
@@ -15962,7 +16006,7 @@ then $\left(  \text{the first entry of }\mathbf{a}_{1}\right)  =\left(
 \text{the first entry of }\mathbf{a}_{2}\right)  $. And this is no surprise:
 There is no such thing as \textquotedblleft the first entry\textquotedblright%
 \ of an unordered $k$-tuple. The first entry of a $k$-tuple is sensitive to
-the reordering of its entries.
+reordering of its entries.
 \end{example}
 \end{fineprint}
 
@@ -15995,7 +16039,7 @@ For example, the map $R$ defined in our proof of Theorem
 \ref{thm.eqrel.Zn.explicit} was defined in this way (with $\mathbb{Z}$,
 $\mathbb{Z}$, $\underset{n}{\equiv}$ and $s\%n$ playing the roles of $S$, $T$,
 $\sim$ and $F\left(  s\right)  $), and our proof of Claim 1 was essentially us
-verifying that Assumption 1 of Theorem \ref{thm.eqrel.Zn.explicit} is satisfied.
+verifying that Assumption 1 of Theorem \ref{thm.eqrel.quot.uniprop.1} is satisfied.
 
 \begin{fineprint}
 For the sake of completeness, let us give a formal proof for Theorem
@@ -16200,28 +16244,22 @@ _{d}=\left[  s_{2}\right]  _{d}$.
 \end{statement}
 
 [\textit{Proof of Claim 1:} Let $s_{1}$ and $s_{2}$ be two integers such that
-$\left[  s_{1}\right]  _{n}=\left[  s_{2}\right]  _{n}$. In other words,
-$\left[  s_{1}\right]  _{\underset{n}{\equiv}}=\left[  s_{2}\right]
-_{\underset{n}{\equiv}}$ (since $\left[  x\right]  _{n}$ is just a shorthand
-for $\left[  x\right]  _{\underset{n}{\equiv}}$).
+$\left[  s_{1}\right]  _{n}=\left[  s_{2}\right]  _{n}$.
 
-But Theorem \ref{thm.eqrel.eqcl.disj} \textbf{(e)} (applied to $\mathbb{Z}$,
-$\underset{n}{\equiv}$, $s_{1}$ and $s_{2}$ instead of $S$, $\sim$, $x$ and
-$y$) shows that we have $s_{1}\underset{n}{\equiv}s_{2}$ if and only if
-$\left[  s_{1}\right]  _{\underset{n}{\equiv}}=\left[  s_{2}\right]
-_{\underset{n}{\equiv}}$. Thus, we have $s_{1}\underset{n}{\equiv}s_{2}$
-(since $\left[  s_{1}\right]  _{\underset{n}{\equiv}}=\left[  s_{2}\right]
-_{\underset{n}{\equiv}}$). In other words, $s_{1}\equiv s_{2}%
-\operatorname{mod}n$. Hence, Proposition \ref{prop.ent.mod.basics}
-\textbf{(e)} (applied to $s_{1}$, $s_{2}$ and $d$ instead of $a$, $b$ and $m$)
-yields $s_{1}\equiv s_{2}\operatorname{mod}d$ (since $d\mid n$). In other
-words, $s_{1}\underset{d}{\equiv}s_{2}$. According to Theorem
-\ref{thm.eqrel.eqcl.disj} \textbf{(e)} (applied to $\mathbb{Z}$,
-$\underset{d}{\equiv}$, $s_{1}$ and $s_{2}$ instead of $S$, $\sim$, $x$ and
-$y$), this is equivalent to $\left[  s_{1}\right]  _{\underset{d}{\equiv}%
-}=\left[  s_{2}\right]  _{\underset{d}{\equiv}}$. In other words, $\left[
-s_{1}\right]  _{d}=\left[  s_{2}\right]  _{d}$ (since $\left[  x\right]  _{d}$
-is just a shorthand for $\left[  x\right]  _{\underset{d}{\equiv}}$). This
+Proposition \ref{prop.eqrel.Zn.ab} \textbf{(b)} (applied to $a=s_{1}$ and
+$b=s_{2}$) shows that we have $\left[  s_{1}\right]  _{n}=\left[
+s_{2}\right]  _{n}$ if and only if $s_{1}\equiv s_{2}\operatorname{mod}n$.
+Thus, we have $s_{1}\equiv s_{2}\operatorname{mod}n$ (since $\left[
+s_{1}\right]  _{n}=\left[  s_{2}\right]  _{n}$). Hence, Proposition
+\ref{prop.ent.mod.basics} \textbf{(e)} (applied to $s_{1}$, $s_{2}$ and $d$
+instead of $a$, $b$ and $m$) yields $s_{1}\equiv s_{2}\operatorname{mod}d$
+(since $d\mid n$).
+
+But Proposition \ref{prop.eqrel.Zn.ab} \textbf{(b)} (applied to $d$, $s_{1}$
+and $s_{2}$ instead of $n$, $a$ and $b$) shows that we have $\left[
+s_{1}\right]  _{d}=\left[  s_{2}\right]  _{d}$ if and only if $s_{1}\equiv
+s_{2}\operatorname{mod}d$. Thus, we have $\left[  s_{1}\right]  _{d}=\left[
+s_{2}\right]  _{d}$ (since $s_{1}\equiv s_{2}\operatorname{mod}d$). This
 proves Claim 1.]
 
 Having proven Claim 1, we can now conclude that the map%
@@ -16229,7 +16267,7 @@ Having proven Claim 1, we can now conclude that the map%
 \pi_{n,d}:\mathbb{Z}/n  &  \rightarrow\mathbb{Z}/d,\\
 \left[  s\right]  _{n}  &  \mapsto\left[  s\right]  _{d}%
 \end{align*}
-is well-defined. (Strictly speaking, this follows from applying Theorem
+is well-defined. (This can be regarded as a consequence of applying Theorem
 \ref{thm.eqrel.quot.uniprop.1} to $\mathbb{Z}$, $\mathbb{Z}/d$,
 $\underset{n}{\equiv}$ and $\left[  s\right]  _{d}$ instead of $S$, $T$,
 $\sim$ and $F\left(  s\right)  $. The Claim 1 that we proved above guarantees
@@ -16237,8 +16275,7 @@ that Assumption 1 of Theorem \ref{thm.eqrel.quot.uniprop.1} is satisfied.)
 Hence, Proposition \ref{prop.eqrel.Zn.pind.wd} is proven.
 \end{proof}
 
-\subsubsection{Addition, subtraction, multiplication and powers in
-$\mathbb{Z}/n$}
+\subsubsection{Addition, subtraction and multiplication in $\mathbb{Z}/n$}
 
 Let us recall the concept of a binary operation (defined in Definition
 \ref{def.intro.binop}). We shall now define several such operations on the set
@@ -16252,7 +16289,10 @@ $\mathbb{Z}/n$ (called \textit{addition}) by setting%
 \left[  a\right]  _{n}+\left[  b\right]  _{n}=\left[  a+b\right]
 _{n}\ \ \ \ \ \ \ \ \ \ \text{for any integers }a\text{ and }b.
 \]
-
+(In other words, we define a binary operation $+$ on $\mathbb{Z}/n$ as
+follows: For any $\alpha,\beta\in\mathbb{Z}/n$, we let $\alpha+\beta=\left[
+a+b\right]  _{n}$, where $a$ and $b$ are two integers satisfying
+$\alpha=\left[  a\right]  _{n}$ and $\beta=\left[  b\right]  _{n}$.)
 
 \textbf{(b)} We define a binary operation $-$ on $\mathbb{Z}/n$ (called
 \textit{subtraction}) by setting%
@@ -16270,21 +16310,6 @@ _{n}\ \ \ \ \ \ \ \ \ \ \text{for any integers }a\text{ and }b.
 \]
 We also write $\left[  a\right]  _{n}\left[  b\right]  _{n}$ for $\left[
 a\right]  _{n}\cdot\left[  b\right]  _{n}$.
-
-\textbf{(d)} If $\lambda\in\mathbb{Z}$ and $\left[  a\right]  _{n}%
-\in\mathbb{Z}/n$, then we set
-\[
-\lambda\cdot\left[  a\right]  _{n}=\left[  \lambda a\right]  _{n}.
-\]
-We also write $\lambda\left[  a\right]  _{n}$ for $\lambda\cdot\left[
-a\right]  _{n}$.
-
-\textbf{(e)} If $k\in\mathbb{N}$ and $\left[  a\right]  _{n}\in\mathbb{Z}/n$,
-then we set
-\[
-\left(  \left[  a\right]  _{n}\right)  ^{k}=\left[  a^{k}\right]  _{n}.
-\]
-
 \end{definition}
 
 \begin{theorem}
@@ -16292,32 +16317,23 @@ then we set
 \ref{def.eqrel.Z/n.op} is well-defined.
 \end{theorem}
 
-%
-
-\[%
-\begin{tabular}
-[c]{||l||}\hline\hline
-\textbf{You have reached the end of the finished part.}\\
-\textbf{TODO: Write on from here.}\\\hline\hline
-\end{tabular}
-\
-\]
-
-
 \begin{proof}
-[Proof of Theorem \ref{thm.eqrel.Z/n.op.wd}.]\textbf{(a)} We are in the same
-situation in which we were when defining the map $R$ in the proof of Theorem
-\ref{thm.eqrel.Zn.explicit}: We are trying to define a map (in the current
-case, the binary operation $+$, which should be a map from $\left(
-\mathbb{Z}/n\right)  \times\left(  \mathbb{Z}/n\right)  $ to $\mathbb{Z}/n$)
-by specifying how it acts on inputs of the form $\left[  a\right]  _{n}$, but
-our definition refers to the integer $a$. (Actually, it is a little bit more
-complicated: We have two inputs $\left[  a\right]  _{n}$ and $\left[
-b\right]  _{n}$ and thus two integers $a$ and $b$. But the problem is the
-same.) We want to prove that this map is well-defined. This requires checking
-that the output (that is, $\left[  a+b\right]  _{n}$) depends only on the two
-classes $\left[  a\right]  _{n}$ and $\left[  b\right]  _{n}$, but not on the
-integers $a$ and $b$.
+[Proof of Theorem \ref{thm.eqrel.Z/n.op.wd}.]\textbf{(a)} Let us first prove
+that the binary operation $+$ in Definition \ref{def.eqrel.Z/n.op}
+\textbf{(a)} is well-defined.
+
+Indeed, here we are in the same situation in which we were when defining the
+map $R$ in the proof of Theorem \ref{thm.eqrel.Zn.explicit}: We are trying to
+define a map (in the current case, the binary operation $+$, which should be a
+map from $\left(  \mathbb{Z}/n\right)  \times\left(  \mathbb{Z}/n\right)  $ to
+$\mathbb{Z}/n$) by specifying how it acts on inputs of the form $\left[
+a\right]  _{n}$, but our definition refers to the integer $a$. (Actually, it
+is a little bit more complicated: We have two inputs $\left[  a\right]  _{n}$
+and $\left[  b\right]  _{n}$ and thus two integers $a$ and $b$. But the
+problem we are facing is the same.) We want to prove that this map is
+well-defined. This requires checking that the output (that is, $\left[
+a+b\right]  _{n}$) depends only on the two classes $\left[  a\right]  _{n}$
+and $\left[  b\right]  _{n}$, but not on the integers $a$ and $b$.
 
 So we have to prove the following:
 
@@ -16332,45 +16348,59 @@ Then,%
 
 \end{statement}
 
-[\textit{Proof of Claim 1:} From $\left[  a_{1}\right]  _{n}=\left[
-a_{2}\right]  _{n}$, we obtain $a_{1}\equiv a_{2}\operatorname{mod}n$. From
-$\left[  b_{1}\right]  _{n}=\left[  b_{2}\right]  _{n}$, we obtain
-$b_{1}\equiv b_{2}\operatorname{mod}n$. Adding these two congruences, we
-obtain $a_{1}+b_{1}\equiv a_{2}+b_{2}\operatorname{mod}n$. In other words,
-$\left[  a_{1}+b_{1}\right]  _{n}=\left[  a_{2}+b_{2}\right]  _{n}$.]
+[\textit{Proof of Claim 1:} Proposition \ref{prop.eqrel.Zn.ab} \textbf{(b)}
+(applied to $a_{1}$ and $a_{2}$ instead of $a$ and $b$) shows that we have
+$\left[  a_{1}\right]  _{n}=\left[  a_{2}\right]  _{n}$ if and only if
+$a_{1}\equiv a_{2}\operatorname{mod}n$. Thus, we have $a_{1}\equiv
+a_{2}\operatorname{mod}n$ (since $\left[  a_{1}\right]  _{n}=\left[
+a_{2}\right]  _{n}$). Similarly, $b_{1}\equiv b_{2}\operatorname{mod}n$ (since
+$\left[  b_{1}\right]  _{n}=\left[  b_{2}\right]  _{n}$). Adding these two
+congruences together, we obtain $a_{1}+b_{1}\equiv a_{2}+b_{2}%
+\operatorname{mod}n$.
 
-Thus, Definition \textbf{(a)} is well-defined.
+But Proposition \ref{prop.eqrel.Zn.ab} \textbf{(b)} (applied to $a_{1}+b_{1}$
+and $a_{2}+b_{2}$ instead of $a$ and $b$) shows that we have $\left[
+a_{1}+b_{1}\right]  _{n}=\left[  a_{2}+b_{2}\right]  _{n}$ if and only if
+$a_{1}+b_{1}\equiv a_{2}+b_{2}\operatorname{mod}n$. Thus, we have $\left[
+a_{1}+b_{1}\right]  _{n}=\left[  a_{2}+b_{2}\right]  _{n}$ (since $a_{1}%
++b_{1}\equiv a_{2}+b_{2}\operatorname{mod}n$). This proves Claim 1.]
 
-\textbf{(b)} and \textbf{(c)} are proven similarly, since we can subtract and
-multiply congruences.
+Claim 1 shows that in Definition \ref{def.eqrel.Z/n.op} \textbf{(a)}, the
+residue class $\left[  a+b\right]  _{n}$ depends only on the two classes
+$\left[  a\right]  _{n}$ and $\left[  b\right]  _{n}$, but not on the integers
+$a$ and $b$. Thus, the binary operation $+$ is indeed well-defined.
 
-\textbf{(d)} is proven similarly, since if $a_{1}\equiv a_{2}%
-\operatorname{mod}n$, then $\lambda a_{1}\equiv\lambda a_{2}\operatorname{mod}%
-n$.
+\textbf{(b)} The binary operation $-$ in Definition \ref{def.eqrel.Z/n.op}
+\textbf{(b)} is well-defined. This can be proven in the same way as we just
+proved that the binary operation $+$ in Definition \ref{def.eqrel.Z/n.op}
+\textbf{(a)} is well-defined; the only difference is that we now have to
+subtract the congruences $a_{1}\equiv a_{2}\operatorname{mod}n$ and
+$b_{1}\equiv b_{2}\operatorname{mod}n$ instead of adding them together.
 
-\textbf{(e)} is proven similarly using Exercise
-\ref{exe.ent.mod.basics.k-power}.
+\textbf{(c)} The binary operation $\cdot$ in Definition \ref{def.eqrel.Z/n.op}
+\textbf{(c)} is well-defined. This can be proven in the same way as we just
+proved that the binary operation $+$ in Definition \ref{def.eqrel.Z/n.op}
+\textbf{(a)} is well-defined; the only difference is that we now have to
+multiply the congruences $a_{1}\equiv a_{2}\operatorname{mod}n$ and
+$b_{1}\equiv b_{2}\operatorname{mod}n$ instead of adding them together.
+
+Thus, we have proven that all three operations $+$, $-$ and $\cdot$ in
+Definition \ref{def.eqrel.Z/n.op} are well-defined. This proves Theorem
+\ref{thm.eqrel.Z/n.op.wd}.
 \end{proof}
 
-We shall follow \href{https://en.wikipedia.org/wiki/Order_of_operations}{the
-usual \textquotedblleft PEMDAS\textquotedblright\ rules for the order of
-operations} when interpreting expressions involving the operations defined in
-Definition \ref{def.eqrel.Z/n.op}. Thus, for example, $\alpha+\beta\cdot
-\gamma$ means $\alpha+\left(  \beta\cdot\gamma\right)  $ and not $\left(
-\alpha+\beta\right)  \cdot\gamma$; likewise, $\alpha\beta^{k}+\gamma$ means
-$\left(  \alpha\left(  \beta^{k}\right)  \right)  +\gamma$ and not any other interpretation.
-
 \begin{remark}
-We \textbf{cannot} define a division operation on $\mathbb{Z}/n$ as follows:%
+We \textbf{cannot} define a division operation on $\mathbb{Z}/n$ by setting%
 \[
-\left[  a\right]  _{n}/\left[  b\right]  _{n}:=\left[  a/b\right]  _{n}.
+\left[  a\right]  _{n}/\left[  b\right]  _{n}:=\left[  a/b\right]
+_{n}\ \ \ \ \ \ \ \ \ \ \text{for any integers }a\text{ and }b.
 \]
-Leaving aside the issues that $b$ could be $0$ or $a/b$ could be non-integer,
-this would still not be well-defined, because the class $\left[  a/b\right]
-_{n}$ depends not just on $\left[  a\right]  _{n}$ and $\left[  b\right]
-_{n}$ but also on the concrete choices of $a$ and $b$. For example, for $n=4$,
-this ostensible \textquotedblleft division operation\textquotedblright\ would
-have to satisfy
+Indeed, leaving aside the issues that $b$ could be $0$ or $a/b$ could be
+non-integer, this would still not be well-defined, because the class $\left[
+a/b\right]  _{n}$ depends not just on $\left[  a\right]  _{n}$ and $\left[
+b\right]  _{n}$ but also on the concrete choices of $a$ and $b$. For example,
+for $n=4$, this ostensible \textquotedblleft division
+operation\textquotedblright\ would have to satisfy
 \[
 \text{\textquotedblleft}\left[  6\right]  _{4}/\left[  2\right]
 _{4}\text{\textquotedblright}=\left[  6/2\right]  _{4}=\left[  3\right]  _{4}%
@@ -16384,16 +16414,17 @@ _{4},
 but this is impossible (since $\left[  6\right]  _{4}=\left[  2\right]  _{4}$
 but $\left[  3\right]  _{4}\neq\left[  1\right]  _{4}$).
 
-Similarly, you cannot define $\left(  \left[  a\right]  _{n}\right)  ^{\left[
-b\right]  _{n}}$.
+For similar reasons, we cannot define $\left(  \left[  a\right]  _{n}\right)
+^{\left[  b\right]  _{n}}$.
 \end{remark}
 
 For the outputs of our binary operations $+$, $-$ and $\cdot$ on
 $\mathbb{Z}/n$, we shall use the same terminology as with integers:
 
 \begin{definition}
-\textbf{(a)} If $\alpha$ and $\beta$ are two elements of $\mathbb{Z}/n$, then
-we shall refer to $\alpha+\beta$ as the \textit{sum} of $\alpha$ and $\beta$.
+\label{def.eqrel.Z/n.sum-diff-prod}\textbf{(a)} If $\alpha$ and $\beta$ are
+two elements of $\mathbb{Z}/n$, then we shall refer to $\alpha+\beta$ as the
+\textit{sum} of $\alpha$ and $\beta$.
 
 \textbf{(b)} If $\alpha$ and $\beta$ are two elements of $\mathbb{Z}/n$, then
 we shall refer to $\alpha-\beta$ as the \textit{difference} of $\alpha$ and
@@ -16402,32 +16433,215 @@ $\beta$.
 \textbf{(c)} If $\alpha$ and $\beta$ are two elements of $\mathbb{Z}/n$, then
 we shall refer to $\alpha\cdot\beta$ (also known as $\alpha\beta$) as the
 \textit{product} of $\alpha$ and $\beta$.
-
-\textbf{(c)} If $k\in\mathbb{N}$ and $\alpha\in\mathbb{Z}/n$, then we shall
-refer to $\alpha^{k}$ as the $k$\textit{-th power} of $\alpha$.
 \end{definition}
 
-Caution: While $i\%n$ and $\left[  i\right]  _{n}$ encode the same information
-about $i$ (for fixed $n$), they are not the same thing! For example,%
+Caution: While the remainder $i\%n$ and the residue class $\left[  i\right]
+_{n}$ encode the same information about an integer $i$ (for fixed $n$), they
+are not the same thing! For example, any two integers $u$ and $v$ satisfy
+$\left[  u\right]  _{n}+\left[  v\right]  _{n}=\left[  u+v\right]  _{n}$ but
+don't always satisfy $u\%n+v\%n=\left(  u+v\right)  \%n$\ \ \ \ \footnote{Here
+is a specific example:%
 \begin{align*}
 \left[  2\right]  _{5}+\left[  3\right]  _{5}  &  =\left[  2+3\right]
 _{5}=\left[  5\right]  _{5}=\left[  0\right]  _{5}%
 ,\ \ \ \ \ \ \ \ \ \ \text{but}\\
-2\%5+3\%5  &  =2+3=5\neq0\%5.
+2\%5+3\%5  &  =2+3=5\neq0\%5;
 \end{align*}
+\par
+Exercise \ref{exe.ent.quo-rem.u+v} addresses how $u\%n+v\%n$ differs from
+$\left(  u+v\right)  \%n$.}. Thus, it is important to distinguish between
+$i\%n$ and $\left[  i\right]  _{n}$.
 
+\begin{remark}
+We can view the residue classes modulo $24$ (that is, the elements of
+$\mathbb{Z}/24$) as the hours of the day. For example, the time
+\textquotedblleft2 AM\textquotedblright\ can be viewed as the residue class
+$\left[  2\right]  _{24}$, whereas the time \textquotedblleft3
+PM\textquotedblright\ can be viewed as the residue class $\left[  15\right]
+_{24}$. From this point of view, addition of residue classes is a rather
+familiar operation: For example, the statement that \textquotedblleft10 hours
+from 3 PM is 1 AM\textquotedblright\ is saying $\left[  15\right]
+_{24}+\left[  10\right]  _{24}=\left[  1\right]  _{24}$.
+\end{remark}
 
-(The last exercise on MT1 is about how $\left(  u+v\right)  \%n$ differs from
-$u\%n+v\%n$.)
+\subsubsection{Scaling by $r\in\mathbb{Z}$}
 
-Note: The time \textquotedblleft3 PM\textquotedblright\ can be viewed as the
-residue class $\left[  15\right]  _{24}$. So the statement that
-\textquotedblleft10 hours from 3 PM is 1 AM\textquotedblright\ is saying
-$\left[  15\right]  _{24}+\left[  10\right]  _{24}=\left[  1\right]  _{24}$.)
+Let us define another operation -- not binary this time -- on $\mathbb{Z}/n$:
+
+\begin{definition}
+\label{def.eqrel.Z/n.scaling}Fix $r\in\mathbb{Z}$.
+
+For any $\alpha\in\mathbb{Z}/n$, we define a residue class $r\alpha
+\in\mathbb{Z}/n$ by setting
+\[
+\left(  r\left[  a\right]  _{n}=\left[  ra\right]  _{n}%
+\ \ \ \ \ \ \ \ \ \ \text{for any }a\in\mathbb{Z}\right)  .
+\]
+(In other words, for any $\alpha\in\mathbb{Z}/n$, we let $r\alpha=\left[
+ra\right]  _{n}$, where $a$ is an integer satisfying $\alpha=\left[  a\right]
+_{n}$.) This is well-defined, because of Proposition
+\ref{prop.eqrel.Z/n.scaling.wd} \textbf{(a)} below.
+
+We also write $r\cdot\left[  a\right]  _{n}$ for $r\left[  a\right]  _{n}$.
+\end{definition}
+
+\begin{proposition}
+\label{prop.eqrel.Z/n.scaling.wd}Fix $r\in\mathbb{Z}$.
+
+\textbf{(a)} For any $\alpha\in\mathbb{Z}/n$, the residue class $r\alpha
+\in\mathbb{Z}/n$ in Definition \ref{def.eqrel.Z/n.scaling} is well-defined.
+
+\textbf{(b)} For any $\alpha\in\mathbb{Z}/n$, we have $r\alpha=\left[
+r\right]  _{n}\cdot\alpha$.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.eqrel.Z/n.scaling.wd}.]\textbf{(a)} We are
+again in the same situation in which we were when defining the map $R$ in the
+proof of Theorem \ref{thm.eqrel.Zn.explicit}: We are trying to define a map
+(in this case, the map%
+\begin{align*}
+\mathbb{Z}/n  &  \rightarrow\mathbb{Z}/n,\\
+\alpha &  \mapsto r\alpha
+\end{align*}
+) by specifying how it acts on inputs of the form $\left[  a\right]  _{n}$,
+but our definition refers to the integer $a$. We want to prove that this map
+is well-defined. This requires checking that the output (that is, $\left[
+ra\right]  _{n}$) depends only on the class $\left[  a\right]  _{n}$, but not
+on the integer $a$. So we have to prove the following:
+
+\begin{statement}
+\textit{Claim 1:} Let $a_{1}$ and $a_{2}$ be two integers such that $\left[
+a_{1}\right]  _{n}=\left[  a_{2}\right]  _{n}$. Then, $\left[  ra_{1}\right]
+_{n}=\left[  ra_{2}\right]  $.
+\end{statement}
+
+[\textit{Proof of Claim 1:} Proposition \ref{prop.eqrel.Zn.ab} \textbf{(b)}
+(applied to $a_{1}$ and $a_{2}$ instead of $a$ and $b$) shows that we have
+$\left[  a_{1}\right]  _{n}=\left[  a_{2}\right]  _{n}$ if and only if
+$a_{1}\equiv a_{2}\operatorname{mod}n$. Thus, we have $a_{1}\equiv
+a_{2}\operatorname{mod}n$ (since $\left[  a_{1}\right]  _{n}=\left[
+a_{2}\right]  _{n}$). On the other hand, we have the (obvious) congruence
+$r\equiv r\operatorname{mod}n$. Multiplying this congruence by the congruence
+$a_{1}\equiv a_{2}\operatorname{mod}n$, we obtain $ra_{1}\equiv ra_{2}%
+\operatorname{mod}n$.
+
+But Proposition \ref{prop.eqrel.Zn.ab} \textbf{(b)} (applied to $ra_{1}$ and
+$ra_{2}$ instead of $a$ and $b$) shows that we have $\left[  ra_{1}\right]
+_{n}=\left[  ra_{2}\right]  _{n}$ if and only if $ra_{1}\equiv ra_{2}%
+\operatorname{mod}n$. Thus, we have $\left[  ra_{1}\right]  _{n}=\left[
+ra_{2}\right]  _{n}$ (since $ra_{1}\equiv ra_{2}\operatorname{mod}n$). This
+proves Claim 1.]
+
+Claim 1 shows that in Definition \ref{def.eqrel.Z/n.scaling}, the residue
+class $\left[  ra\right]  _{n}$ depends only on the class $\left[  a\right]
+_{n}$, but not on the integer $a$. Thus, the residue class $r\alpha$ is indeed
+well-defined for each $\alpha\in\mathbb{Z}/n$. This proves Proposition
+\ref{prop.eqrel.Z/n.scaling.wd} \textbf{(a)}.
+
+\textbf{(b)} Let $\alpha\in\mathbb{Z}/n$. Proposition \ref{prop.eqrel.Zn.ab}
+\textbf{(a)} shows that each element of $\mathbb{Z}/n$ can be written in the
+form $\left[  s\right]  _{n}$ for some integer $s$. Thus, $\alpha\in
+\mathbb{Z}/n$ can be written in this form. In other words, $\alpha=\left[
+a\right]  _{n}$ for some integer $a$. Consider this $a$. Comparing%
+\[
+r\underbrace{\alpha}_{=\left[  a\right]  _{n}}=r\left[  a\right]  _{n}=\left[
+ra\right]  _{n}\ \ \ \ \ \ \ \ \ \ \left(  \text{by Definition
+\ref{def.eqrel.Z/n.scaling}}\right)
+\]
+with%
+\begin{align*}
+\left[  r\right]  _{n}\cdot\underbrace{\alpha}_{=\left[  a\right]  _{n}}  &
+=\left[  r\right]  _{n}\cdot\left[  \alpha_{n}\right]  =\left[  r\cdot
+a\right]  _{n}\ \ \ \ \ \ \ \ \ \ \left(  \text{by Definition
+\ref{def.eqrel.Z/n.op} \textbf{(c)}}\right) \\
+&  =\left[  ra\right]  _{n},
+\end{align*}
+we obtain $r\alpha=\left[  r\right]  _{n}\cdot\alpha$. This proves Proposition
+\ref{prop.eqrel.Z/n.scaling.wd} \textbf{(b)}.
+\end{proof}
+
+For a fixed $r\in\mathbb{Z}$, we shall refer to the map
+\begin{align*}
+\mathbb{Z}/n  &  \rightarrow\mathbb{Z}/n,\\
+\alpha &  \mapsto r\alpha
+\end{align*}
+as \textit{scaling by }$r$. This map is actually the same as multiplication by
+the residue class $\left[  r\right]  _{n}$ (by Proposition
+\ref{prop.eqrel.Z/n.scaling.wd} \textbf{(b)}). So why did we define it
+\textquotedblleft from scratch\textquotedblright\ rather than piggybacking on
+the already established definition of multiplication in $\mathbb{Z}/n$
+(Definition \ref{def.eqrel.Z/n.op} \textbf{(c)})? The reason is that scaling
+operations appear much more frequently in algebra than multiplication
+operations. (For example, every vector space has a scaling operation, but
+usually there is no way of multiplying two vectors.) Thus, it is useful to
+have seen a scaling operation constructed independently.
+
+\subsubsection{$k$-th powers for $k\in\mathbb{N}$}
+
+Similarly to Definition \ref{def.eqrel.Z/n.scaling}, we can define what it
+means to take the $k$-th power of a residue class in $\mathbb{Z}/n$, when $k$
+is a nonnegative integer.
+
+\begin{definition}
+\label{def.eqrel.Z/n.kpower}Fix $k\in\mathbb{N}$.
+
+For any $\alpha\in\mathbb{Z}/n$, we define a residue class $\alpha^{k}%
+\in\mathbb{Z}/n$ by setting
+\[
+\left(  \left(  \left[  a\right]  _{n}\right)  ^{k}=\left[  a^{k}\right]
+_{n}\ \ \ \ \ \ \ \ \ \ \text{for any }a\in\mathbb{Z}\right)  .
+\]
+(In other words, for any $\alpha\in\mathbb{Z}/n$, we let $\alpha^{k}=\left[
+a^{k}\right]  _{n}$, where $a$ is an integer satisfying $\alpha=\left[
+a\right]  _{n}$.) This is well-defined, because of Proposition
+\ref{prop.eqrel.Z/n.kpower.wd} below.
+
+If $\alpha\in\mathbb{Z}/n$, then we shall refer to $\alpha^{k}$ as the
+$k$\textit{-th power} of $\alpha$.
+\end{definition}
+
+\begin{proposition}
+\label{prop.eqrel.Z/n.kpower.wd}Fix $k\in\mathbb{N}$. For any $\alpha
+\in\mathbb{Z}/n$, the residue class $\alpha^{k}\in\mathbb{Z}/n$ in Definition
+\ref{def.eqrel.Z/n.kpower} is well-defined.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.eqrel.Z/n.scaling.wd}.]This proof is analogous
+to the above proof of Proposition \ref{prop.eqrel.Z/n.scaling.wd}
+\textbf{(a)}; but instead of multiplying the two congruences $r\equiv
+r\operatorname{mod}n$ and $a_{1}\equiv a_{2}\operatorname{mod}n$, we now need
+to take the $k$-th power of the congruence $a_{1}\equiv a_{2}%
+\operatorname{mod}n$. (Exercise \ref{exe.ent.mod.basics.k-power} allows us to
+do that.)
+\end{proof}
 
 \begin{center}
 \textbf{2019-02-25 lecture}
 \end{center}
+
+\subsubsection{Rules and properties for the operations}
+
+\begin{convention}
+We shall follow \href{https://en.wikipedia.org/wiki/Order_of_operations}{the
+usual \textquotedblleft PEMDAS\textquotedblright\ rules for the order of
+operations} when interpreting expressions involving the operations defined in
+Definition \ref{def.eqrel.Z/n.op}, Definition \ref{def.eqrel.Z/n.scaling} and
+Definition \ref{def.eqrel.Z/n.kpower}\footnote{The scaling operation (defined
+in Definition \ref{def.eqrel.Z/n.scaling}) is treated exactly like
+multiplication.}. Thus, for example, the expression \textquotedblleft%
+$\alpha\cdot\beta+\gamma\cdot\delta$\textquotedblright\ means $\left(
+\alpha\cdot\beta\right)  +\left(  \gamma\cdot\delta\right)  $ and not
+$\alpha\cdot\left(  \beta+\gamma\right)  \cdot\delta$. Likewise, the
+expression \textquotedblleft$\alpha\beta^{k}+r\gamma$\textquotedblright\ (with
+$r\in\mathbb{Z}$) should be understood as \textquotedblleft$\left(
+\alpha\left(  \beta^{k}\right)  \right)  +\left(  r\gamma\right)
+$\textquotedblright\ and not in any other way.
+\end{convention}
+
+We shall now study some properties of the many \textquotedblleft
+arithmetical\textquotedblright\ operations we have defined on $\mathbb{Z}/n$.
 
 \begin{theorem}
 \label{thm.eqrel.Z/n.rules}The following rules for addition, subtraction and
@@ -16463,24 +16677,41 @@ _{n}$ for any $\alpha\in\mathbb{Z}/n$.
 equivalence $\left(  \alpha-\beta=\gamma\right)  \Longleftrightarrow\left(
 \alpha=\beta+\gamma\right)  $.
 
-\textbf{(j)} We have $\lambda\cdot\left(  \alpha+\beta\right)  =\lambda
-\alpha+\lambda\beta$ for any $\lambda\in\mathbb{Z}$ and $\alpha,\beta
-\in\mathbb{Z}/n$.
+\textbf{(j)} We have $r\left(  \alpha+\beta\right)  =r\alpha+r\beta$ for any
+$r\in\mathbb{Z}$ and $\alpha,\beta\in\mathbb{Z}/n$.
 
-\textbf{(k)} We have $\lambda\cdot\left(  \mu\alpha\right)  =\left(
-\lambda\mu\right)  \alpha$ for any $\lambda,\mu\in\mathbb{Z}$ and $\alpha
-\in\mathbb{Z}/n$.
+\textbf{(k)} We have $r\left(  s\alpha\right)  =\left(  rs\right)  \alpha$ for
+any $r,s\in\mathbb{Z}$ and $\alpha\in\mathbb{Z}/n$.
 \end{theorem}
 
+These properties should all look familiar, as they mirror the classical
+properties of the arithmetic operations on integers, rational numbers and real
+numbers (with the caveat that the residue classes $\left[  0\right]  _{n}$ and
+$\left[  1\right]  _{n}$ take on the roles of the numbers $0$ and $1$). For
+example, Theorem \ref{thm.eqrel.Z/n.rules} \textbf{(g)} corresponds to the
+laws of distributivity for numbers. Parts \textbf{(a)}, \textbf{(b)},
+\textbf{(c)}, \textbf{(i)}, \textbf{(j)} and \textbf{(k)} of Theorem
+\ref{thm.eqrel.Z/n.rules} furthermore are reminiscent of the axioms for a
+vector space (with the caveat that scaling by $r$ is only defined for integers
+$r$ here, so $\mathbb{Z}/n$ is not precisely a vector space).%
+\[%
+\begin{tabular}
+[c]{||l||}\hline\hline
+\textbf{You have reached the end of the finished part.}\\
+\textbf{TODO: Write on from here.}\\\hline\hline
+\end{tabular}
+\]
+
+
 \begin{proof}
-These properties (except for \textbf{(i)}) are \textquotedblleft inherited
-from $\mathbb{Z}$\textquotedblright: Fix a representative for each residue
-class involved, and use the corresponding rules for integers. (In fact, the
-operations $+,-,\cdot$ and scaling on $\mathbb{Z}/n$ are defined by picking a
-representative of each residue class and doing the analogous operation
-\textbf{with the representatives} (and then taking the residue class again).
-So all the above rules, except for \textbf{(i)}, follow from the corresponding
-rules for integers.)
+[Proof of Theorem \ref{thm.eqrel.Z/n.rules}.]These properties (except for
+\textbf{(i)}) are \textquotedblleft inherited from $\mathbb{Z}$%
+\textquotedblright: Fix a representative for each residue class involved, and
+use the corresponding rules for integers. (In fact, the operations $+,-,\cdot$
+and scaling on $\mathbb{Z}/n$ are defined by picking a representative of each
+residue class and doing the analogous operation \textbf{with the
+representatives} (and then taking the residue class again). So all the above
+rules, except for \textbf{(i)}, follow from the corresponding rules for integers.)
 \end{proof}
 
 \begin{remark}
@@ -16504,6 +16735,49 @@ _{n}.
 \end{align*}
 This can be proven by a straightforward induction on $k$.
 \end{remark}
+
+Also, the standard rules for exponents apply to residue classes:
+
+\begin{theorem}
+\textbf{(a)} We have $\alpha^{0}=\left[  1\right]  _{n}$ for any $\alpha
+\in\mathbb{Z}/n$.
+
+\textbf{(b)} We have $\alpha^{1}=\alpha$ for any $\alpha\in\mathbb{Z}/n$.
+
+\textbf{(c)} We have $\alpha^{k}=\underbrace{\alpha\alpha\cdots\alpha
+}_{k\text{ times}}$ for any $\alpha\in\mathbb{Z}/n$ and $k\in\mathbb{N}$.
+
+\textbf{(d)} We have $\alpha^{u+v}=\alpha^{u}\alpha^{v}$ for any $\alpha
+\in\mathbb{Z}/n$ and any $u,v\in\mathbb{N}$.
+
+\textbf{(e)} We have $\left(  \alpha\beta\right)  ^{k}=\alpha^{k}\beta^{k}$
+for any $\alpha,\beta\in\mathbb{Z}/n$ and $k\in\mathbb{N}$.
+
+\textbf{(f)} We have $\left(  \alpha^{u}\right)  ^{v}=\alpha^{uv}$ for any
+$\alpha\in\mathbb{Z}/n$ and any $u,v\in\mathbb{N}$.
+\end{theorem}
+
+\begin{proof}
+These properties follow from the analogous properties of integers, in the same
+way as in the proof of Theorem \ref{thm.eqrel.Z/n.rules}.
+\end{proof}
+
+Also, the binomial formula holds:
+
+\begin{theorem}
+\label{thm.eqrel.Z/n.binf}Let $\alpha,\beta\in\mathbb{Z}/n$ and $m\in
+\mathbb{N}$. Then,%
+\[
+\left(  \alpha+\beta\right)  ^{m}=\sum_{k=0}^{m}\dbinom{m}{k}\alpha^{k}%
+\beta^{m-k}.
+\]
+
+\end{theorem}
+
+\begin{proof}
+This follows from Theorem \ref{thm.binom.binf}, in the same way as in the
+proof of Theorem \ref{thm.eqrel.Z/n.rules}.
+\end{proof}
 
 \subsection{\label{sect.equiv.modinv}Modular inverses revisited}
 
