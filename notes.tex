@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Friday, March 08, 2019 20:02:11}
+%TCIDATA{LastRevised=Friday, March 08, 2019 20:09:13}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -83,6 +83,7 @@
 \iffalse
 \newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
 \newenvironment{question}[1][Question]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\newenvironment{teachingnote}[1][Teaching note]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
 \fi
 \let\sumnonlimits\sum
 \let\prodnonlimits\prod
@@ -103,9 +104,11 @@
 \newenvironment{verlong}{}{}
 \newenvironment{vershort}{}{}
 \newenvironment{noncompile}{}{}
+\newenvironment{teachingnote}{}{}
 \excludecomment{verlong}
 \includecomment{vershort}
 \excludecomment{noncompile}
+\excludecomment{teachingnote}
 \newcommand{\CC}{\mathbb{C}}
 \newcommand{\RR}{\mathbb{R}}
 \newcommand{\QQ}{\mathbb{Q}}
@@ -4746,6 +4749,13 @@ exactly the notion of a \textquotedblleft linear combination\textquotedblright%
 \ in linear algebra, except that now the scalars must come from $\mathbb{Z}$),
 so this is just a restatement of Theorem \ref{thm.ent.gcd.bezout}.
 
+\begin{teachingnote}
+The following proof of Bezout's theorem is not quite the fastest, nor does it
+generalize to polynomial rings over fields. Maybe replace it by another, which
+uses division with remainder and induction on $\left\vert a\right\vert
++\left\vert b\right\vert $ (so no need to split into three steps).
+\end{teachingnote}
+
 Theorem \ref{thm.ent.gcd.bezout} is known as \textit{Bezout's theorem} (or
 \textit{Bezout's identity})\footnote{or \textit{Bezout's theorem for integers}
 if you want to be more precise (as there are similar theorems for other
@@ -5505,6 +5515,11 @@ b\right\vert \right)  =\gcd\left(  a,b\right)  $ (by Exercise
 
 \subsubsection{gcds of multiple numbers}
 
+\begin{teachingnote}
+I am not sure how useful this section is for an algebra class. It probably is
+used for the Smith normal form, but before that?
+\end{teachingnote}
+
 The following theorem generalizes some of the previous facts to gcds of
 multiple integers:
 
@@ -5535,6 +5550,11 @@ b_{1},b_{2},\ldots,b_{k-1}\right)  ,b_{k}\right)  .
 
 \end{theorem}
 
+\begin{teachingnote}
+The following proof generalizes badly to more general rings (even
+$\mathbb{Z}\left[  i\right]  $ maybe?), as it uses inequalities.
+\end{teachingnote}
+
 \begin{proof}
 [Proof of Theorem \ref{thm.ent.gcd.uniprop-mul}.]Forget that we fixed
 $b_{1},b_{2},\ldots,b_{k}$. Rather than prove the four parts of Theorem
@@ -5564,12 +5584,12 @@ Thus, $\gcd\left(  b_{1},b_{2},\ldots,b_{k}\right)  =0$ (by Definition
 For each $m\in\mathbb{Z}$, we have the logical equivalence%
 \begin{align*}
 &  \ \left(  m\mid b_{i}\text{ for all }i\in\left\{  1,2,\ldots,k\right\}
-\right) \\
+\right)  \\
 &  \Longleftrightarrow\ \left(  \text{truth}\right)
 \ \ \ \ \ \ \ \ \ \ \left(  \text{since there exists no }i\in\left\{
-1,2,\ldots,k\right\}  \right) \\
+1,2,\ldots,k\right\}  \right)  \\
 &  \Longleftrightarrow\ \left(  m\mid0\right)  \ \ \ \ \ \ \ \ \ \ \left(
-\text{since }m\mid0\text{ is always true}\right) \\
+\text{since }m\mid0\text{ is always true}\right)  \\
 &  \Longleftrightarrow\ \left(  m\mid\gcd\left(  b_{1},b_{2},\ldots
 ,b_{k}\right)  \right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{since }0=\gcd\left(
 b_{1},b_{2},\ldots,b_{k}\right)  \right)  .
@@ -5614,8 +5634,7 @@ precisely the divisors of $\gcd\left(  b_{1},b_{2},\ldots,b_{\ell-1}\right)  $.
 \textbf{(d)} If $\ell-1>0$, then%
 \[
 \gcd\left(  b_{1},b_{2},\ldots,b_{\ell-1}\right)  =\gcd\left(  \gcd\left(
-b_{1},b_{2},\ldots,b_{\left(  \ell-1\right)  -1}\right)  ,b_{\ell-1}\right)
-.
+b_{1},b_{2},\ldots,b_{\left(  \ell-1\right)  -1}\right)  ,b_{\ell-1}\right)  .
 \]
 
 \end{statement}
@@ -5771,21 +5790,21 @@ Statement 2 \textbf{(d)} is proven.
 \textbf{(a)} Let $m\in\mathbb{Z}$. Then, we have the equivalence%
 \begin{align*}
 &  \ \left(  m\mid b_{i}\text{ for all }i\in\left\{  1,2,\ldots,\ell\right\}
-\right) \\
+\right)  \\
 &  \Longleftrightarrow\ \left(  \underbrace{\left(  m\mid b_{i}\text{ for all
 }i\in\left\{  1,2,\ldots,\ell-1\right\}  \right)  }%
 _{\substack{\Longleftrightarrow\ \left(  m\mid\gcd\left(  b_{1},b_{2}%
 ,\ldots,b_{\ell-1}\right)  \right)  \\\text{(by Statement 1 \textbf{(a)})}%
-}}\text{ and }m\mid b_{\ell}\right) \\
+}}\text{ and }m\mid b_{\ell}\right)  \\
 &  \Longleftrightarrow\ \left(  m\mid\gcd\left(  b_{1},b_{2},\ldots,b_{\ell
--1}\right)  \text{ and }m\mid b_{\ell}\right) \\
+-1}\right)  \text{ and }m\mid b_{\ell}\right)  \\
 &  \Longleftrightarrow\ \left(  m\mid\underbrace{\gcd\left(  \gcd\left(
 b_{1},b_{2},\ldots,b_{\ell-1}\right)  ,b_{\ell}\right)  }_{\substack{=\gcd
 \left(  b_{1},b_{2},\ldots,b_{\ell}\right)  \\\text{(by Statement 2
-\textbf{(d)}, which we have just proved)}}}\right) \\
+\textbf{(d)}, which we have just proved)}}}\right)  \\
 &  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Theorem \ref{thm.ent.gcd.uniprop}
 \textbf{(a)}, applied to }a=\gcd\left(  b_{1},b_{2},\ldots,b_{\ell-1}\right)
-\text{ and }b=b_{\ell}\right) \\
+\text{ and }b=b_{\ell}\right)  \\
 &  \Longleftrightarrow\ \left(  m\mid\gcd\left(  b_{1},b_{2},\ldots,b_{\ell
 }\right)  \right)  .
 \end{align*}
@@ -7544,6 +7563,10 @@ it takes some work to derive ours from it).
 \end{center}
 
 \subsection{Lowest common multiples}
+
+\begin{teachingnote}
+I don't think this section is actually used anywhere later in this course.
+\end{teachingnote}
 
 Common multiples are, in a sense, a \textquotedblleft mirror
 version\textquotedblright\ of common divisors. Here is their definition:
@@ -15781,6 +15804,10 @@ n-1\right]  _{n}$. This proves Theorem \ref{thm.eqrel.Zn.explicit}.
 
 \subsubsection{Making choices that don't matter: The universal property of
 quotient sets}
+
+\begin{teachingnote}
+I haven't taught this subsection in class.
+\end{teachingnote}
 
 In the above proof of Theorem \ref{thm.eqrel.Zn.explicit}, we have witnessed
 an important issue in dealing with quotient sets: If you want to define a map
