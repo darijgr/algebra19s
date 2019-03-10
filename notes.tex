@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Saturday, March 09, 2019 22:38:14}
+%TCIDATA{LastRevised=Saturday, March 09, 2019 22:52:28}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -6106,16 +6106,6 @@ straightforward changes; the main thrust of the argument remains unchanged.)
 \end{proof}
 
 \begin{exercise}
-\label{exe.ent.lcm.lcmabc}Let $a,b,c$ be three integers.
-
-\textbf{(a)} Prove that $\gcd\left(  a,b,c\right)  \cdot\operatorname{lcm}%
-\left(  bc,ca,ab\right)  =\left\vert abc\right\vert $.
-
-\textbf{(b)} Prove that $\operatorname{lcm}\left(  a,b,c\right)  \cdot
-\gcd\left(  bc,ca,ab\right)  =\left\vert abc\right\vert $.
-\end{exercise}
-
-\begin{exercise}
 \label{exe.ent.lcm.props1}Let $a,b\in\mathbb{Z}$.
 
 \textbf{(a)} Prove that $\operatorname{lcm}\left(  a,b\right)
@@ -6129,6 +6119,16 @@ straightforward changes; the main thrust of the argument remains unchanged.)
 
 \textbf{(d)} If $a,b\in\mathbb{Z}$ satisfy $a\mid b$, then $\operatorname{lcm}%
 \left(  a,b\right)  =\left\vert b\right\vert $.
+\end{exercise}
+
+\begin{exercise}
+\label{exe.ent.lcm.lcmabc}Let $a,b,c$ be three integers.
+
+\textbf{(a)} Prove that $\gcd\left(  a,b,c\right)  \cdot\operatorname{lcm}%
+\left(  bc,ca,ab\right)  =\left\vert abc\right\vert $.
+
+\textbf{(b)} Prove that $\operatorname{lcm}\left(  a,b,c\right)  \cdot
+\gcd\left(  bc,ca,ab\right)  =\left\vert abc\right\vert $.
 \end{exercise}
 
 \subsection{The Chinese remainder theorem (elementary form)}
@@ -16768,17 +16768,17 @@ same norm (by Proposition \ref{prop.Z[i].gauss.uniteq.norm=norm}).
 $\gamma\mid\gcd\left(  \alpha,\beta\right)  $.
 
 Let us set $\delta=\gcd\left(  \alpha,\beta\right)  $. So $\gamma\mid\delta$.
-Hence, $\gamma\neq0$ (since $\delta\neq0$ (because $\alpha$ and $\beta$ are
-not both zero)). Thus, $\gamma\mid\delta$ yields that $\dfrac{\delta}{\gamma}$
-is a Gaussian integer, which is furthermore nonzero (since $\delta\neq0$). If
-this Gaussian integer $\dfrac{\delta}{\gamma}$ was a unit, then we would have
-$\gamma\sim\delta=\gcd\left(  \alpha,\beta\right)  $, which would contradict
-the assumption that $\gamma$ does not satisfy $\gamma\sim\gcd\left(
-\alpha,\beta\right)  $. So $\dfrac{\delta}{\gamma}$ is a nonzero Gaussian
-integer that is not a unit. Hence, $\operatorname*{N}\left(  \dfrac{\delta
-}{\gamma}\right)  >1$ (because Proposition \ref{prop.Z[i].gauss.norm1} yields
-that every nonzero Gaussian integer that is not a unit must have norm $>1$).
-Now,%
+We have $\delta\neq0$ (because $\alpha$ and $\beta$ are not both zero) and
+thus $\gamma\neq0$ (since $\gamma\mid\delta$). Thus, $\gamma\mid\delta$ yields
+that $\dfrac{\delta}{\gamma}$ is a Gaussian integer, which is furthermore
+nonzero (since $\delta\neq0$). If this Gaussian integer $\dfrac{\delta}%
+{\gamma}$ was a unit, then we would have $\gamma\sim\delta=\gcd\left(
+\alpha,\beta\right)  $, which would contradict the assumption that $\gamma$
+does not satisfy $\gamma\sim\gcd\left(  \alpha,\beta\right)  $. So
+$\dfrac{\delta}{\gamma}$ is a nonzero Gaussian integer that is not a unit.
+Hence, $\operatorname*{N}\left(  \dfrac{\delta}{\gamma}\right)  >1$ (because
+Proposition \ref{prop.Z[i].gauss.norm1} yields that every nonzero Gaussian
+integer that is not a unit must have norm $>1$). Now,%
 \[
 \operatorname*{N}\left(  \delta\right)  =\underbrace{\operatorname*{N}\left(
 \dfrac{\delta}{\gamma}\right)  }_{>1}\cdot\operatorname*{N}\left(
@@ -17067,7 +17067,8 @@ Gaussian prime.
 
 \item What is the pattern?
 
-\item Prop. 2.13.5 works again.
+\item Proposition \ref{prop.ent.primes.div-or-coprime} (\textquotedblleft
+either $p\mid a$ or $p\perp a$\textquotedblright) works again.
 
 \item ....
 \end{itemize}
@@ -19207,6 +19208,86 @@ This contradiction shows that our assumption was false. Hence, $\sqrt{u}%
 \end{proof}
 \end{fineprint}
 
+\subsection{Solution to Exercise \ref{exe.ent.lcm.props1}}
+
+\begin{fineprint}
+\begin{proof}
+[Solution to Exercise \ref{exe.ent.lcm.props1}.]The lowest common multiple of
+any set of integers is a nonnegative integers (by Definition
+\ref{def.ent.lcm.lcm}). Thus, in particular, $\operatorname{lcm}\left(
+a,b\right)  $ and $\operatorname{lcm}\left(  b,a\right)  $ and
+$\operatorname{lcm}\left(  -a,b\right)  $ are nonnegative integers.
+
+\textbf{(a)} Proposition \ref{prop.ent.lcm.divides} \textbf{(c)} (applied to
+$b$ and $a$ instead of $a$ and $b$) yields $b\mid\operatorname{lcm}\left(
+b,a\right)  $ and $a\mid\operatorname{lcm}\left(  b,a\right)  $. Thus,
+$a\mid\operatorname{lcm}\left(  b,a\right)  $ and $b\mid\operatorname{lcm}%
+\left(  b,a\right)  $. Hence, Lemma \ref{lem.ent.lcm.uniprop} (applied to
+$m=\operatorname{lcm}\left(  b,a\right)  $) yields $\operatorname{lcm}\left(
+a,b\right)  \mid\operatorname{lcm}\left(  b,a\right)  $. The same argument
+(applied to $b$ and $a$ instead of $a$ and $b$) yields $\operatorname{lcm}%
+\left(  b,a\right)  \mid\operatorname{lcm}\left(  a,b\right)  $. Hence,
+Exercise \ref{exe.ent.div.abba} (applied to $\operatorname{lcm}\left(
+a,b\right)  $ and $\operatorname{lcm}\left(  b,a\right)  $ instead of $a$ and
+$b$) yields $\left\vert \operatorname{lcm}\left(  a,b\right)  \right\vert
+=\left\vert \operatorname{lcm}\left(  b,a\right)  \right\vert
+=\operatorname{lcm}\left(  b,a\right)  $ (since $\operatorname{lcm}\left(
+b,a\right)  $ is nonnegative). But $\operatorname{lcm}\left(  a,b\right)  $ is
+nonnegative; thus, $\left\vert \operatorname{lcm}\left(  a,b\right)
+\right\vert =\operatorname{lcm}\left(  a,b\right)  $. Hence,
+$\operatorname{lcm}\left(  a,b\right)  =\left\vert \operatorname{lcm}\left(
+a,b\right)  \right\vert =\operatorname{lcm}\left(  b,a\right)  $. This solves
+Exercise \ref{exe.ent.lcm.props1} \textbf{(a)}.
+
+\textbf{(b)} Proposition \ref{prop.ent.lcm.divides} \textbf{(c)} (applied to
+$-a$ instead of $a$) yields $-a\mid\operatorname{lcm}\left(  -a,b\right)  $
+and $b\mid\operatorname{lcm}\left(  -a,b\right)  $. But $a\mid-a$ (since
+$-a=a\cdot\left(  -1\right)  $). Thus, $a\mid-a\mid\operatorname{lcm}\left(
+-a,b\right)  $ and $b\mid\operatorname{lcm}\left(  -a,b\right)  $. Hence,
+Lemma \ref{lem.ent.lcm.uniprop} (applied to $m=\operatorname{lcm}\left(
+-a,b\right)  $) yields $\operatorname{lcm}\left(  a,b\right)  \mid
+\operatorname{lcm}\left(  -a,b\right)  $. The same argument (applied to $-a$
+instead of $a$) yields $\operatorname{lcm}\left(  -a,b\right)  \mid
+\operatorname{lcm}\left(  -\left(  -a\right)  ,b\right)  $. In view of
+$-\left(  -a\right)  =a$, this rewrites as $\operatorname{lcm}\left(
+-a,b\right)  \mid\operatorname{lcm}\left(  a,b\right)  $. Hence, Exercise
+\ref{exe.ent.div.abba} (applied to $\operatorname{lcm}\left(  a,b\right)  $
+and $\operatorname{lcm}\left(  -a,b\right)  $ instead of $a$ and $b$) yields
+$\left\vert \operatorname{lcm}\left(  a,b\right)  \right\vert =\left\vert
+\operatorname{lcm}\left(  -a,b\right)  \right\vert =\operatorname{lcm}\left(
+-a,b\right)  $ (since $\operatorname{lcm}\left(  -a,b\right)  $ is
+nonnegative). But $\operatorname{lcm}\left(  a,b\right)  $ is nonnegative;
+thus, $\left\vert \operatorname{lcm}\left(  a,b\right)  \right\vert
+=\operatorname{lcm}\left(  a,b\right)  $. Hence, $\operatorname{lcm}\left(
+a,b\right)  =\left\vert \operatorname{lcm}\left(  a,b\right)  \right\vert
+=\operatorname{lcm}\left(  -a,b\right)  $. This solves Exercise
+\ref{exe.ent.lcm.props1} \textbf{(b)}.
+
+\textbf{(c)} Exercise \ref{exe.ent.lcm.props1} \textbf{(a)} (applied to $-b$
+instead of $b$) yields $\operatorname{lcm}\left(  a,-b\right)
+=\operatorname{lcm}\left(  -b,a\right)  =\operatorname{lcm}\left(  b,a\right)
+$ (by Exercise \ref{exe.ent.lcm.props1} \textbf{(b)}, applied to $b$ and $a$
+instead of $a$ and $b$). But Exercise \ref{exe.ent.lcm.props1} \textbf{(a)}
+yields $\operatorname{lcm}\left(  a,b\right)  =\operatorname{lcm}\left(
+b,a\right)  =\operatorname{lcm}\left(  a,-b\right)  $ (since
+$\operatorname{lcm}\left(  a,-b\right)  =\operatorname{lcm}\left(  b,a\right)
+$). This solves Exercise \ref{exe.ent.lcm.props1} \textbf{(c)}.
+
+\textbf{(d)} Let $a,b\in\mathbb{Z}$ satisfy $a\mid b$. Then, $a\mid b$ and
+$b\mid b$. Hence, Lemma \ref{lem.ent.lcm.uniprop} (applied to $m=b$) yields
+$\operatorname{lcm}\left(  a,b\right)  \mid b$. But Proposition
+\ref{prop.ent.lcm.divides} \textbf{(c)} yields $a\mid\operatorname{lcm}\left(
+a,b\right)  $ and $b\mid\operatorname{lcm}\left(  a,b\right)  $. Hence,
+Exercise \ref{exe.ent.div.abba} (applied to $b$ and $\operatorname{lcm}\left(
+a,b\right)  $ instead of $a$ and $b$) yields $\left\vert b\right\vert
+=\left\vert \operatorname{lcm}\left(  a,b\right)  \right\vert
+=\operatorname{lcm}\left(  a,b\right)  $ (since $\operatorname{lcm}\left(
+a,b\right)  $ is nonnegative). In other words, $\operatorname{lcm}\left(
+a,b\right)  =\left\vert b\right\vert $. This solves Exercise
+\ref{exe.ent.lcm.props1} \textbf{(d)}.
+\end{proof}
+\end{fineprint}
+
 \subsection{Solution to Exercise \ref{exe.ent.lcm.lcmabc}}
 
 \begin{fineprint}
@@ -19384,86 +19465,6 @@ abc\right\vert $. Thus, $\operatorname{lcm}\left(  a,b,c\right)  \cdot
 \gcd\left(  bc,ca,ab\right)  =\gcd\left(  bc,ca,ab\right)  \cdot
 \operatorname{lcm}\left(  a,b,c\right)  =\left\vert abc\right\vert $. This
 solves Exercise \ref{exe.ent.lcm.lcmabc} \textbf{(b)}.
-\end{proof}
-\end{fineprint}
-
-\subsection{Solution to Exercise \ref{exe.ent.lcm.props1}}
-
-\begin{fineprint}
-\begin{proof}
-[Solution to Exercise \ref{exe.ent.lcm.props1}.]The lowest common multiple of
-any set of integers is a nonnegative integers (by Definition
-\ref{def.ent.lcm.lcm}). Thus, in particular, $\operatorname{lcm}\left(
-a,b\right)  $ and $\operatorname{lcm}\left(  b,a\right)  $ and
-$\operatorname{lcm}\left(  -a,b\right)  $ are nonnegative integers.
-
-\textbf{(a)} Proposition \ref{prop.ent.lcm.divides} \textbf{(c)} (applied to
-$b$ and $a$ instead of $a$ and $b$) yields $b\mid\operatorname{lcm}\left(
-b,a\right)  $ and $a\mid\operatorname{lcm}\left(  b,a\right)  $. Thus,
-$a\mid\operatorname{lcm}\left(  b,a\right)  $ and $b\mid\operatorname{lcm}%
-\left(  b,a\right)  $. Hence, Lemma \ref{lem.ent.lcm.uniprop} (applied to
-$m=\operatorname{lcm}\left(  b,a\right)  $) yields $\operatorname{lcm}\left(
-a,b\right)  \mid\operatorname{lcm}\left(  b,a\right)  $. The same argument
-(applied to $b$ and $a$ instead of $a$ and $b$) yields $\operatorname{lcm}%
-\left(  b,a\right)  \mid\operatorname{lcm}\left(  a,b\right)  $. Hence,
-Exercise \ref{exe.ent.div.abba} (applied to $\operatorname{lcm}\left(
-a,b\right)  $ and $\operatorname{lcm}\left(  b,a\right)  $ instead of $a$ and
-$b$) yields $\left\vert \operatorname{lcm}\left(  a,b\right)  \right\vert
-=\left\vert \operatorname{lcm}\left(  b,a\right)  \right\vert
-=\operatorname{lcm}\left(  b,a\right)  $ (since $\operatorname{lcm}\left(
-b,a\right)  $ is nonnegative). But $\operatorname{lcm}\left(  a,b\right)  $ is
-nonnegative; thus, $\left\vert \operatorname{lcm}\left(  a,b\right)
-\right\vert =\operatorname{lcm}\left(  a,b\right)  $. Hence,
-$\operatorname{lcm}\left(  a,b\right)  =\left\vert \operatorname{lcm}\left(
-a,b\right)  \right\vert =\operatorname{lcm}\left(  b,a\right)  $. This solves
-Exercise \ref{exe.ent.lcm.props1} \textbf{(a)}.
-
-\textbf{(b)} Proposition \ref{prop.ent.lcm.divides} \textbf{(c)} (applied to
-$-a$ instead of $a$) yields $-a\mid\operatorname{lcm}\left(  -a,b\right)  $
-and $b\mid\operatorname{lcm}\left(  -a,b\right)  $. But $a\mid-a$ (since
-$-a=a\cdot\left(  -1\right)  $). Thus, $a\mid-a\mid\operatorname{lcm}\left(
--a,b\right)  $ and $b\mid\operatorname{lcm}\left(  -a,b\right)  $. Hence,
-Lemma \ref{lem.ent.lcm.uniprop} (applied to $m=\operatorname{lcm}\left(
--a,b\right)  $) yields $\operatorname{lcm}\left(  a,b\right)  \mid
-\operatorname{lcm}\left(  -a,b\right)  $. The same argument (applied to $-a$
-instead of $a$) yields $\operatorname{lcm}\left(  -a,b\right)  \mid
-\operatorname{lcm}\left(  -\left(  -a\right)  ,b\right)  $. In view of
-$-\left(  -a\right)  =a$, this rewrites as $\operatorname{lcm}\left(
--a,b\right)  \mid\operatorname{lcm}\left(  a,b\right)  $. Hence, Exercise
-\ref{exe.ent.div.abba} (applied to $\operatorname{lcm}\left(  a,b\right)  $
-and $\operatorname{lcm}\left(  -a,b\right)  $ instead of $a$ and $b$) yields
-$\left\vert \operatorname{lcm}\left(  a,b\right)  \right\vert =\left\vert
-\operatorname{lcm}\left(  -a,b\right)  \right\vert =\operatorname{lcm}\left(
--a,b\right)  $ (since $\operatorname{lcm}\left(  -a,b\right)  $ is
-nonnegative). But $\operatorname{lcm}\left(  a,b\right)  $ is nonnegative;
-thus, $\left\vert \operatorname{lcm}\left(  a,b\right)  \right\vert
-=\operatorname{lcm}\left(  a,b\right)  $. Hence, $\operatorname{lcm}\left(
-a,b\right)  =\left\vert \operatorname{lcm}\left(  a,b\right)  \right\vert
-=\operatorname{lcm}\left(  -a,b\right)  $. This solves Exercise
-\ref{exe.ent.lcm.props1} \textbf{(b)}.
-
-\textbf{(c)} Exercise \ref{exe.ent.lcm.props1} \textbf{(a)} (applied to $-b$
-instead of $b$) yields $\operatorname{lcm}\left(  a,-b\right)
-=\operatorname{lcm}\left(  -b,a\right)  =\operatorname{lcm}\left(  b,a\right)
-$ (by Exercise \ref{exe.ent.lcm.props1} \textbf{(b)}, applied to $b$ and $a$
-instead of $a$ and $b$). But Exercise \ref{exe.ent.lcm.props1} \textbf{(a)}
-yields $\operatorname{lcm}\left(  a,b\right)  =\operatorname{lcm}\left(
-b,a\right)  =\operatorname{lcm}\left(  a,-b\right)  $ (since
-$\operatorname{lcm}\left(  a,-b\right)  =\operatorname{lcm}\left(  b,a\right)
-$). This solves Exercise \ref{exe.ent.lcm.props1} \textbf{(c)}.
-
-\textbf{(d)} Let $a,b\in\mathbb{Z}$ satisfy $a\mid b$. Then, $a\mid b$ and
-$b\mid b$. Hence, Lemma \ref{lem.ent.lcm.uniprop} (applied to $m=b$) yields
-$\operatorname{lcm}\left(  a,b\right)  \mid b$. But Proposition
-\ref{prop.ent.lcm.divides} \textbf{(c)} yields $a\mid\operatorname{lcm}\left(
-a,b\right)  $ and $b\mid\operatorname{lcm}\left(  a,b\right)  $. Hence,
-Exercise \ref{exe.ent.div.abba} (applied to $b$ and $\operatorname{lcm}\left(
-a,b\right)  $ instead of $a$ and $b$) yields $\left\vert b\right\vert
-=\left\vert \operatorname{lcm}\left(  a,b\right)  \right\vert
-=\operatorname{lcm}\left(  a,b\right)  $ (since $\operatorname{lcm}\left(
-a,b\right)  $ is nonnegative). In other words, $\operatorname{lcm}\left(
-a,b\right)  =\left\vert b\right\vert $. This solves Exercise
-\ref{exe.ent.lcm.props1} \textbf{(d)}.
 \end{proof}
 \end{fineprint}
 
@@ -20687,7 +20688,7 @@ Hence,%
 &  v_{p}\left(  n!\right)  -\underbrace{v_{p}\left(  k!\left(  n-k\right)
 !\right)  }_{=v_{p}\left(  k!\right)  +v_{p}\left(  n-k\right)  !}\\
 &  =v_{p}\left(  n!\right)  -\left(  v_{p}\left(  k!\right)  +v_{p}\left(
-n-k\right)  !\right)  \\
+n-k\right)  !\right) \\
 &  =\underbrace{v_{p}\left(  n!\right)  }_{\substack{=\sum_{i\geq1}%
 n//p^{i}\\\text{(by Exercise \ref{exe.binom.legendre} \textbf{(c)})}%
 }}-\underbrace{v_{p}\left(  k!\right)  }_{\substack{=\sum_{i\geq1}%
