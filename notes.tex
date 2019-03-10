@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Saturday, March 09, 2019 18:44:56}
+%TCIDATA{LastRevised=Saturday, March 09, 2019 19:45:51}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -1775,6 +1775,12 @@ b_{1}b_{2}\operatorname{mod}n_{1}n_{2}$ ?
 \label{exe.ent.mod.a+nd}Let $a,b,n\in\mathbb{Z}$. Prove that $a\equiv
 b\operatorname{mod}n$ if and only if there exists some $d\in\mathbb{Z}$ such
 that $b=a+nd$.
+\end{exercise}
+
+\begin{exercise}
+\label{exe.ent.mod.diff}Let $a,b,c,n\in\mathbb{Z}$. Prove that we have
+$a-b\equiv c\operatorname{mod}n$ if and only if $a\equiv b+c\operatorname{mod}%
+n$.
 \end{exercise}
 
 \subsection{\label{sect.ent.subst-chain}Chains of congruences}
@@ -13788,54 +13794,244 @@ laws of distributivity for numbers. Parts \textbf{(a)}, \textbf{(b)},
 \textbf{(c)}, \textbf{(i)}, \textbf{(j)} and \textbf{(k)} of Theorem
 \ref{thm.eqrel.Z/n.rules} furthermore are reminiscent of the axioms for a
 vector space (with the caveat that scaling by $r$ is only defined for integers
-$r$ here, so $\mathbb{Z}/n$ is not precisely a vector space).%
-\[%
-\begin{tabular}
-[c]{||l||}\hline\hline
-\textbf{You have reached the end of the finished part.}\\
-\textbf{TODO: Write on from here.}\\\hline\hline
-\end{tabular}
-\]
-
+$r$ here, so $\mathbb{Z}/n$ is not precisely a vector space).
 
 \begin{proof}
-[Proof of Theorem \ref{thm.eqrel.Z/n.rules}.]These properties (except for
-\textbf{(i)}) are \textquotedblleft inherited from $\mathbb{Z}$%
-\textquotedblright: Fix a representative for each residue class involved, and
-use the corresponding rules for integers. (In fact, the operations $+,-,\cdot$
-and scaling on $\mathbb{Z}/n$ are defined by picking a representative of each
-residue class and doing the analogous operation \textbf{with the
-representatives} (and then taking the residue class again). So all the above
-rules, except for \textbf{(i)}, follow from the corresponding rules for integers.)
+[Proof of Theorem \ref{thm.eqrel.Z/n.rules}.]Let us first prove Theorem
+\ref{thm.eqrel.Z/n.rules} \textbf{(f)}:
+
+\textbf{(f)} Let $\alpha,\beta,\gamma\in\mathbb{Z}/n$. Proposition
+\ref{prop.eqrel.Zn.ab} \textbf{(a)} shows that each element of $\mathbb{Z}/n$
+can be written in the form $\left[  s\right]  _{n}$ for some integer $s$.
+Thus, in particular, the element $\alpha$ can be written in this form. In
+other words, there exists an integer $a$ such that $\alpha=\left[  a\right]
+_{n}$. Similarly, there exists an integer $b$ such that $\beta=\left[
+b\right]  _{n}$. Similarly, there exists an integer $c$ such that
+$\gamma=\left[  c\right]  _{n}$. Consider these integers $a,b,c$.
+
+Now,%
+\begin{align}
+\underbrace{\alpha}_{=\left[  a\right]  _{n}}\cdot\left(  \underbrace{\beta
+}_{=\left[  b\right]  _{n}}\cdot\underbrace{\gamma}_{=\left[  c\right]  _{n}%
+}\right)    & =\left[  a\right]  _{n}\cdot\underbrace{\left(  \left[
+b\right]  _{n}\cdot\left[  c\right]  _{n}\right)  }_{\substack{=\left[  b\cdot
+c\right]  _{n}\\\text{(by Definition \ref{def.eqrel.Z/n.op} \textbf{(c)})}%
+}}=\left[  a\right]  _{n}\cdot\left[  b\cdot c\right]  _{n}\nonumber\\
+& =\left[  a\cdot\left(  b\cdot c\right)  \right]  _{n}%
+\label{pf.thm.eqrel.Z/n.rules.f.1}%
+\end{align}
+(by Definition \ref{def.eqrel.Z/n.op} \textbf{(c)}) and%
+\begin{align}
+\left(  \underbrace{\alpha}_{=\left[  a\right]  _{n}}\cdot\underbrace{\beta
+}_{=\left[  b\right]  _{n}}\right)  \cdot\underbrace{\gamma}_{=\left[
+c\right]  _{n}}  & =\underbrace{\left(  \left[  a\right]  _{n}\cdot\left[
+b\right]  _{n}\right)  }_{\substack{=\left[  a\cdot b\right]  _{n}\\\text{(by
+Definition \ref{def.eqrel.Z/n.op} \textbf{(c)})}}}\cdot\left[  c\right]
+_{n}=\left[  a\cdot b\right]  _{n}\cdot\left[  c\right]  _{n}\nonumber\\
+& =\left[  \left(  a\cdot b\right)  \cdot c\right]  _{n}%
+\label{pf.thm.eqrel.Z/n.rules.f.2}%
+\end{align}
+(by Definition \ref{def.eqrel.Z/n.op} \textbf{(c)}).
+
+But it is well-known that multiplication of integers is associative. Thus,
+$a\cdot\left(  b\cdot c\right)  =\left(  a\cdot b\right)  \cdot c$. Hence,
+$\left[  a\cdot\left(  b\cdot c\right)  \right]  _{n}=\left[  \left(  a\cdot
+b\right)  \cdot c\right]  _{n}$. In other words, the right hand sides of the
+equalities (\ref{pf.thm.eqrel.Z/n.rules.f.1}) and
+(\ref{pf.thm.eqrel.Z/n.rules.f.2}) are equal. Hence, the left hand sides of
+these equalities must also be equal. In other words, $\alpha\cdot\left(
+\beta\cdot\gamma\right)  =\left(  \alpha\cdot\beta\right)  \cdot\gamma$. This
+proves Theorem \ref{thm.eqrel.Z/n.rules} \textbf{(f)}.
+
+The idea of the above proof of Theorem \ref{thm.eqrel.Z/n.rules} \textbf{(f)}
+was simple: We fixed a representative for each residue class involved (namely,
+we fixed representatives $a,b,c$ for the residue classes $\alpha,\beta,\gamma
+$), and rewrote each of the two sides of the alleged equality (which, in our
+case, was $\alpha\cdot\left(  \beta\cdot\gamma\right)  =\left(  \alpha
+\cdot\beta\right)  \cdot\gamma$) in terms of these representatives (obtaining
+$\left[  a\cdot\left(  b\cdot c\right)  \right]  _{n}$ for the left hand side,
+and $\left[  \left(  a\cdot b\right)  \cdot c\right]  _{n}$ for the right hand
+side). Thus, the equality that we had to prove followed from the analogous
+equality for integers (in our case, $a\cdot\left(  b\cdot c\right)  =\left(
+a\cdot b\right)  \cdot c$), which was well-known. In short, we have realized
+that the equality $\alpha\cdot\left(  \beta\cdot\gamma\right)  =\left(
+\alpha\cdot\beta\right)  \cdot\gamma$ for $\alpha,\beta,\gamma\in\mathbb{Z}/n$
+is \textquotedblleft inherited from $\mathbb{Z}$\textquotedblright\ (in the
+sense that it follows straightforwardly from the corresponding property
+$a\cdot\left(  b\cdot c\right)  =\left(  a\cdot b\right)  \cdot c$ of integers
+$a,b,c\in\mathbb{Z}$). This strategy proves all the other parts of Theorem
+\ref{thm.eqrel.Z/n.rules} in the same way, except for part \textbf{(i)}%
+.\footnote{The reason why this works is that the operations $+,-,\cdot$ on
+$\mathbb{Z}/n$ as well as scaling by integers are defined by picking a
+representative of each residue class and doing the analogous operation
+\textbf{with the representatives} (and then taking the residue class again).}
+Part \textbf{(i)} does not lend itself to such a proof, since it claims not an
+equality but rather an equivalence between two equalities. So let us prove
+part \textbf{(i)} separately:
+
+\textbf{(i)} Let $\alpha,\beta,\gamma\in\mathbb{Z}/n$. Proposition
+\ref{prop.eqrel.Zn.ab} \textbf{(a)} shows that each element of $\mathbb{Z}/n$
+can be written in the form $\left[  s\right]  _{n}$ for some integer $s$.
+Thus, in particular, the element $\alpha$ can be written in this form. In
+other words, there exists an integer $a$ such that $\alpha=\left[  a\right]
+_{n}$. Similarly, there exists an integer $b$ such that $\beta=\left[
+b\right]  _{n}$. Similarly, there exists an integer $c$ such that
+$\gamma=\left[  c\right]  _{n}$. Consider these integers $a,b,c$.
+
+We have $\underbrace{\alpha}_{=\left[  a\right]  _{n}}-\underbrace{\beta
+}_{=\left[  b\right]  _{n}}=\left[  a\right]  _{n}-\left[  b\right]
+_{n}=\left[  a-b\right]  _{n}$ (by Definition \ref{def.eqrel.Z/n.op}
+\textbf{(b)}) and $\underbrace{\beta}_{=\left[  b\right]  _{n}}%
++\underbrace{\gamma}_{=\left[  c\right]  _{n}}=\left[  b\right]  _{n}+\left[
+c\right]  _{n}=\left[  b+c\right]  _{n}$ (by Definition \ref{def.eqrel.Z/n.op}
+\textbf{(a)}). Now, we have the following chain of logical equivalences:%
+\begin{align}
+\left(  \alpha-\beta=\gamma\right)  \   & \Longleftrightarrow\ \left(  \left[
+a-b\right]  _{n}=\left[  c\right]  _{n}\right)  \ \ \ \ \ \ \ \ \ \ \left(
+\text{since }\alpha-\beta=\left[  a-b\right]  _{n}\text{ and }\gamma=\left[
+c\right]  _{n}\right)  \nonumber\\
+& \Longleftrightarrow\ \left(  a-b\equiv c\operatorname{mod}n\right)
+\label{pf.thm.eqrel.Z/n.rules.i.1}%
+\end{align}
+(since Proposition \ref{prop.eqrel.Zn.ab} \textbf{(b)} (applied to $a-b$ and
+$c$ instead of $a$ and $b$) shows that we have $\left[  a-b\right]
+_{n}=\left[  c\right]  _{n}$ if and only if $a-b\equiv c\operatorname{mod}n$).
+Also, we have the following chain of logical equivalences:%
+\begin{align}
+\left(  \alpha=\beta+\gamma\right)  \   & \Longleftrightarrow\ \left(  \left[
+a\right]  _{n}=\left[  b+c\right]  _{n}\right)  \ \ \ \ \ \ \ \ \ \ \left(
+\text{since }\alpha=\left[  a\right]  _{n}\text{ and }\beta+\gamma=\left[
+b+c\right]  _{n}\right)  \nonumber\\
+& \Longleftrightarrow\ \left(  a\equiv b+c\operatorname{mod}n\right)
+\label{pf.thm.eqrel.Z/n.rules.i.2}%
+\end{align}
+(since Proposition \ref{prop.eqrel.Zn.ab} \textbf{(b)} (applied to $b+c$
+instead of $b$) shows that we have $\left[  a\right]  _{n}=\left[  b+c\right]
+_{n}$ if and only if $a\equiv b+c\operatorname{mod}n$). Finally, Exercise
+\ref{exe.ent.mod.diff} shows that we have $a-b\equiv c\operatorname{mod}n$ if
+and only if $a\equiv b+c\operatorname{mod}n$; thus, we have the equivalence
+$\left(  a-b\equiv c\operatorname{mod}n\right)  \ \Longleftrightarrow\ \left(
+a\equiv b+c\operatorname{mod}n\right)  $.
+
+Now, we have the following chain of logical equivalences:%
+\begin{align*}
+\left(  \alpha-\beta=\gamma\right)  \   & \Longleftrightarrow\ \left(
+a-b\equiv c\operatorname{mod}n\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by
+(\ref{pf.thm.eqrel.Z/n.rules.i.1})}\right)  \\
+& \Longleftrightarrow\ \left(  a\equiv b+c\operatorname{mod}n\right)
+\ \Longleftrightarrow\ \left(  \alpha=\beta+\gamma\right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.thm.eqrel.Z/n.rules.i.2}%
+)}\right)  .
+\end{align*}
+This proves Theorem \ref{thm.eqrel.Z/n.rules} \textbf{(i)}.
 \end{proof}
 
-\begin{remark}
-\textbf{(a)} Finite sums ($\sum_{i\in I}\alpha_{i}$) and finite products
-($\prod_{i\in I}\alpha_{i}$) of elements $\alpha_{i}\in\mathbb{Z}/n$ are
-well-defined and satisfy the same rules that finite sums and finite products
-of integers satisfy. (The proofs are identical to the analogous proofs for
-integers, but use Theorem \ref{thm.eqrel.Z/n.rules} instead of the usual rules
-of commutativity, associativity etc.) Thus, for example, $\alpha_{1}%
-+\alpha_{2}+\cdots+\alpha_{k}$ and $\alpha_{1}\alpha_{2}\cdots\alpha_{k}$ are
-well-defined whenever $\alpha_{1},\alpha_{2},\ldots,\alpha_{k}\in\mathbb{Z}/n$.
+Recall the concept of a finite sum of integers (i.e., a sum of the form
+$\sum_{i\in I}a_{i}$, where $I$ is a finite set and $a_{i}$ is an integer for
+each $i\in I$), and the analogous concept of a finite product of integers
+(i.e., a product of the form $\prod_{i\in I}a_{i}$). These concepts are
+defined recursively\footnote{See \cite[\S 1.4.1 and \S 1.4.3]{detnotes} for
+their definitions, and \cite[\S 2.14]{detnotes} for a proof that these are
+well-defined.} and satisfy various rules\footnote{such as $\sum_{i\in
+I}\left(  a_{i}+b_{i}\right)  =\sum_{i\in I}a_{i}+\sum_{i\in I}b_{i}$ (where
+$a_{i}$ and $b_{i}$ are two integers for each $i\in I$) or $\sum_{i\in I}%
+a_{i}=\sum_{i\in J}a_{i}+\sum_{i\in I\setminus J}a_{i}$ (where $J$ is a subset
+of $I$)}. See \cite[\S 1.4]{detnotes} for a comprehensive list of these rules
+and \cite[\S 2.14]{detnotes} for their proofs.
 
-\textbf{(b)} If $a_{1},a_{2},\ldots,a_{k}$ are $k$ integers, then
+\begin{definition}
+\label{def.eqrel.Z/n.sums}In the same vein, we define the concept of a finite
+sum of residue classes in $\mathbb{Z}/n$ (i.e., a sum of the form $\sum_{i\in
+I}\alpha_{i}$, where $I$ is a finite set and $\alpha_{i}\in\mathbb{Z}/n$ for
+each $i\in I$), and the analogous concept of a finite product of residue
+classes in $\mathbb{Z}/n$ (i.e., a product of the form $\prod_{i\in I}%
+\alpha_{i}$, where $I$ is a finite set and $\alpha_{i}\in\mathbb{Z}/n$ for
+each $i\in I$).
+
+More precisely, the concept of a finite sum $\sum_{i\in I}\alpha_{i}$ (with
+$I$ being a finite set, and with $\alpha_{i}\in\mathbb{Z}/n$ for each $i\in
+I$) is defined recursively as follows:
+
+\begin{itemize}
+\item If the set $I$ is empty (that is, $\left\vert I\right\vert =0$), then
+$\sum_{i\in I}\alpha_{i}$ is defined to be $\left[  0\right]  _{n}%
+\in\mathbb{Z}/n$ (and called an empty sum).
+
+\item Otherwise, we pick an arbitrary element $t\in I$, and set%
+\[
+\sum_{i\in I}\alpha_{i}=\alpha_{t}+\sum_{i\in I\setminus\left\{  t\right\}
+}\alpha_{i}.
+\]
+(The sum $\sum_{i\in I\setminus\left\{  t\right\}  }\alpha_{i}$ on the right
+hand side is a sum over a smaller set than $I$, whence we can assume it to
+already be defined in this recursive definition.)
+\end{itemize}
+
+This definition is well-defined (i.e., the choice of element $t$ does not
+influence the final value of the sum), by Proposition
+\ref{prop.eqrel.Z/n.sums.wd} \textbf{(a)} below.
+
+The concept of a finite product $\prod_{i\in I}\alpha_{i}$ is defined
+similarly, except that we use multiplication instead of addition (and we
+define the empty product to be $\left[  1\right]  _{n}$ instead of $\left[
+0\right]  _{n}$).
+\end{definition}
+
+We will use the usual shorthands for special kinds of finite sums and
+products. For example, if $I$ is an interval $\left\{  p,p+1,\ldots,q\right\}
+$ of integers (and if $\alpha_{i}\in\mathbb{Z}/n$ for each $i\in I$), then the
+sum $\sum_{i\in I}\alpha_{i}$ will also be denoted by $\sum_{i=p}^{q}%
+\alpha_{i}$ or $\alpha_{p}+\alpha_{p+1}+\cdots+\alpha_{q}$. Likewise for
+products. Thus, for example, $\alpha_{1}+\alpha_{2}+\cdots+\alpha_{k}$ and
+$\alpha_{1}\alpha_{2}\cdots\alpha_{k}$ are well-defined whenever $\alpha
+_{1},\alpha_{2},\ldots,\alpha_{k}\in\mathbb{Z}/n$.
+
+\begin{proposition}
+\label{prop.eqrel.Z/n.sums.wd}\textbf{(a)} Definition \ref{def.eqrel.Z/n.sums}
+is well-defined.
+
+\textbf{(b)} Finite sums ($\sum_{i\in I}\alpha_{i}$) and finite products
+($\prod_{i\in I}\alpha_{i}$) of elements $\alpha_{i}\in\mathbb{Z}/n$ satisfy
+the same rules that finite sums and finite products of integers satisfy.
+\end{proposition}
+
+\begin{remark}
+\textbf{(c)} If $a_{1},a_{2},\ldots,a_{k}$ are $k$ integers, then
 \begin{align*}
 \left[  a_{1}\right]  _{n}+\left[  a_{2}\right]  _{n}+\cdots+\left[
-a_{k}\right]  _{n}  &  =\left[  a_{1}+a_{2}+\cdots+a_{k}\right]
-_{n}\ \ \ \ \ \ \ \ \ \ \text{and}\\
+a_{k}\right]  _{n} &  =\left[  a_{1}+a_{2}+\cdots+a_{k}\right]  _{n}%
+\ \ \ \ \ \ \ \ \ \ \text{and}\\
 \left[  a_{1}\right]  _{n}\cdot\left[  a_{2}\right]  _{n}\cdot\cdots
-\cdot\left[  a_{k}\right]  _{n}  &  =\left[  a_{1}a_{2}\cdots a_{k}\right]
+\cdot\left[  a_{k}\right]  _{n} &  =\left[  a_{1}a_{2}\cdots a_{k}\right]
 _{n}.
 \end{align*}
-This can be proven by a straightforward induction on $k$.
+
 \end{remark}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.eqrel.Z/n.sums.wd}.] \textbf{(a)} In
+\cite[Theorem 2.118 \textbf{(a)}]{detnotes}, it is proven that finite sums of
+integers are well-defined. The same argument (but relying on Theorem
+\ref{thm.eqrel.Z/n.rules} instead of the usual rules of commutativity,
+associativity etc. for integers) shows that finite sums of elements
+$\alpha_{i}\in\mathbb{Z}/n$ are well-defined. The analogous fact for products
+is proven in the same way, except that we need to replace $\left[  0\right]
+_{n}$ by $\left[  1\right]  _{n}$ and properties of addition by corresponding
+properties of multiplication.
+
+\textbf{(b)} The proofs of the properties of finite sums and finite products
+of elements of $\mathbb{Z}/n$ are identical to the analogous proofs for
+integers, but (again) rely on Theorem \ref{thm.eqrel.Z/n.rules} instead of the
+usual rules of commutativity, associativity etc. for integers.
+
+\textbf{(c)} This can be proven by a straightforward induction on $k$.
+\end{proof}
 
 Also, the standard rules for exponents apply to residue classes:
 
 \begin{theorem}
-\textbf{(a)} We have $\alpha^{0}=\left[  1\right]  _{n}$ for any $\alpha
-\in\mathbb{Z}/n$.
+\label{thm.eqrel.Z/n.rules-exp}\textbf{(a)} We have $\alpha^{0}=\left[
+1\right]  _{n}$ for any $\alpha\in\mathbb{Z}/n$.
 
 \textbf{(b)} We have $\alpha^{1}=\alpha$ for any $\alpha\in\mathbb{Z}/n$.
 
@@ -13853,11 +14049,15 @@ $\alpha\in\mathbb{Z}/n$ and any $u,v\in\mathbb{N}$.
 \end{theorem}
 
 \begin{proof}
-These properties follow from the analogous properties of integers, in the same
-way as in the proof of Theorem \ref{thm.eqrel.Z/n.rules}.
+[Proof of Theorem \ref{thm.eqrel.Z/n.rules-exp}.] Each part of Theorem
+\ref{thm.eqrel.Z/n.rules-exp} follows from the analogous property of integers,
+in the same way as we derived Theorem \ref{thm.eqrel.Z/n.rules} \textbf{(f)}
+from the associativity of multiplication for integers. (Note that Proposition
+\ref{prop.eqrel.Z/n.sums.wd} \textbf{(c)} has to be used in proving Theorem
+\ref{thm.eqrel.Z/n.rules-exp} \textbf{(c)}.)
 \end{proof}
 
-Also, the binomial formula holds:
+Also, the binomial formula holds for residue classes:
 
 \begin{theorem}
 \label{thm.eqrel.Z/n.binf}Let $\alpha,\beta\in\mathbb{Z}/n$ and $m\in
@@ -13870,9 +14070,20 @@ Also, the binomial formula holds:
 \end{theorem}
 
 \begin{proof}
-This follows from Theorem \ref{thm.binom.binf}, in the same way as in the
-proof of Theorem \ref{thm.eqrel.Z/n.rules}.
-\end{proof}
+This follows from Theorem \ref{thm.binom.binf}, in the same way as we derived
+Theorem \ref{thm.eqrel.Z/n.rules} \textbf{(f)} from the associativity of
+multiplication for integers.
+\end{proof}%
+
+\[%
+\begin{tabular}
+[c]{||l||}\hline\hline
+\textbf{You have reached the end of the finished part.}\\
+\textbf{TODO: Write on from here.}\\\hline\hline
+\end{tabular}
+\
+\]
+
 
 \subsection{\label{sect.equiv.modinv}Modular inverses revisited}
 
@@ -17180,8 +17391,8 @@ obtain the logical equivalence $\left(  a\equiv b\operatorname{mod}n\right)
 \Longleftrightarrow\left(  b\equiv a\operatorname{mod}n\right)  $. Thus, we
 have the following chain of logical equivalences:%
 \begin{align*}
-&  \ \left(  a\equiv b\operatorname{mod}n\right) \\
-&  \Longleftrightarrow\ \left(  b\equiv a\operatorname{mod}n\right) \\
+\left(  a\equiv b\operatorname{mod}n\right)  \  &  \Longleftrightarrow
+\ \left(  b\equiv a\operatorname{mod}n\right) \\
 &  \Longleftrightarrow\ \left(  n\mid b-a\right)  \ \ \ \ \ \ \ \ \ \ \left(
 \text{by the definition of congruence}\right) \\
 &  \Longleftrightarrow\ \left(  \text{there exists an integer }d\text{ such
@@ -17195,6 +17406,43 @@ that }b=a+nd\right)
 other words, $a\equiv b\operatorname{mod}n$ if and only if there exists some
 $d\in\mathbb{Z}$ such that $b=a+nd$. This solves Exercise
 \ref{exe.ent.mod.a+nd}.
+\end{proof}
+\end{fineprint}
+
+\subsection{Solution to Exercise \ref{exe.ent.mod.diff}}
+
+\begin{fineprint}
+\begin{proof}
+[Solution to Exercise \ref{exe.ent.mod.diff}.]We have $a-b\equiv
+c\operatorname{mod}n$ if and only if $n\mid\left(  a-b\right)  -c$ (by the
+definition of congruence). Thus, we have the logical equivalence%
+\begin{equation}
+\left(  a-b\equiv c\operatorname{mod}n\right)  \ \Longleftrightarrow\ \left(
+n\mid\left(  a-b\right)  -c\right)  . \label{sol.ent.mod.diff.1}%
+\end{equation}
+
+
+On the other hand, we have $a\equiv b+c\operatorname{mod}n$ if and only if
+$n\mid a-\left(  b+c\right)  $ (by the definition of congruence). Thus, we
+have the logical equivalence%
+\begin{equation}
+\left(  a\equiv b+c\operatorname{mod}n\right)  \ \Longleftrightarrow\ \left(
+n\mid a-\left(  b+c\right)  \right)  . \label{sol.ent.mod.diff.2}%
+\end{equation}
+
+
+Now, we have the following chain of logical equivalences:%
+\begin{align*}
+\left(  a-b\equiv c\operatorname{mod}n\right)  \  &  \Longleftrightarrow
+\ \left(  n\mid\underbrace{\left(  a-b\right)  -c}_{=a-\left(  b+c\right)
+}\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{sol.ent.mod.diff.1}%
+)}\right) \\
+&  \Longleftrightarrow\ \left(  n\mid a-\left(  b+c\right)  \right)
+\ \Longleftrightarrow\ \left(  a\equiv b+c\operatorname{mod}n\right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{sol.ent.mod.diff.2})}\right)  .
+\end{align*}
+In other words, we have $a-b\equiv c\operatorname{mod}n$ if and only if
+$a\equiv b+c\operatorname{mod}n$. This solves Exercise \ref{exe.ent.mod.diff}.
 \end{proof}
 \end{fineprint}
 
@@ -19068,6 +19316,8 @@ solves Exercise \ref{exe.ent.lcm.lcmabc} \textbf{(b)}.
 \subsection{Solution to Exercise \ref{exe.ent.lcm.props1}}
 
 \begin{fineprint}
+
+
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.lcm.props1}.]The lowest common multiple of
 any set of integers is a nonnegative integers (by Definition
@@ -19503,6 +19753,8 @@ Proposition \ref{prop.ent.primes.gcd}.}
 \subsection{Solution to Exercise \ref{exe.ent.primes.gcd.1}}
 
 \begin{fineprint}
+
+
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.primes.gcd.1}.]\textbf{(a)} Forget that we
 fixed $p$. We thus must prove that
@@ -19687,8 +19939,6 @@ solves Exercise \ref{exe.ent.primes.gcd.1} \textbf{(b)}.
 \subsection{Solution to Exercise \ref{exe.ent.primes.aa-1}}
 
 \begin{fineprint}
-
-
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.primes.aa-1}.]We have $a^{2}\equiv
 1\operatorname{mod}p$. In other words, $p\mid a^{2}-1=\left(  a-1\right)
@@ -19713,8 +19963,6 @@ this rewrites as follows: $a\equiv1\operatorname{mod}p$ or $a\equiv
 \subsection{Solution to Exercise \ref{exe.ent.phi.pk}}
 
 \begin{fineprint}
-
-
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.phi.pk}.]Let $M$ be the set $\left\{
 1p,2p,\ldots,p^{k-1}p\right\}  =\left\{  cp\ \mid\ c\in\left\{  1,2,\ldots
@@ -19832,8 +20080,6 @@ This solves Exercise \ref{exe.ent.phi.pk}.
 \subsection{Solution to Exercise \ref{exe.ent.phi.even}}
 
 \begin{fineprint}
-
-
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.phi.even}.]The following solution is mostly
 a calque of the proof of Proposition \ref{prop.ent.phi.ghosts} we gave above,
