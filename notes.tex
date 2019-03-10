@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Sunday, March 10, 2019 13:59:37}
+%TCIDATA{LastRevised=Sunday, March 10, 2019 16:55:30}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -6729,6 +6729,11 @@ holds as well: If $p>1$ is an integer such that each $a\in\mathbb{Z}$
 satisfies either $p\mid a$ or $p\perp a$, then $p$ is a prime. This is easy to
 prove and left to the reader.
 
+\begin{exercise}
+\label{exe.ent.primes.dist=cop}Let $p$ and $q$ be two distinct primes. Prove
+that $p\perp q$.
+\end{exercise}
+
 \begin{theorem}
 \label{thm.ent.primes.pab}Let $p$ be a prime. Let $a,b\in\mathbb{Z}$ such that
 $p\mid ab$. Then, $p\mid a$ or $p\mid b$.
@@ -7729,26 +7734,12 @@ we obtain $v_{p}\left(  q\right)  =%
 \end{cases}
 $. Hence, Theorem \ref{thm.ent.prime.vp-ring} \textbf{(d)} is proven in Case 1.
 
-Let us now consider Case 2. In this case, we have $q\neq p$. Hence, $q\nmid
-p$\ \ \ \ \footnote{\textit{Proof.} Assume the contrary. Thus, $q\mid p$. In
-other words, $q$ is a divisor of $p$.
-\par
-But $p$ is a prime. According to the definition of a prime, this means that
-$p>1$ and that the only positive divisors of $p$ are $1$ and $p$.
-\par
-Also, $q$ is a prime; thus, $q>1$ (by the definition of a prime); hence,
-$q>1>0$. Thus, $q$ is a positive divisor of $p$. Hence, $q$ must be either $1$
-or $p$ (since the only positive divisors of $p$ are $1$ and $p$). Since $q$
-cannot be $1$ (because $q>1$), we thus conclude that $q$ must be $p$. In other
-words, $q=p$. This contradicts $q\neq p$. This contradiction shows that our
-assumption was false, qed.}.
-
-But Proposition \ref{prop.ent.primes.div-or-coprime} (applied to $q$ and $p$
-instead of $p$ and $a$) shows that either $q\mid p$ or $q\perp p$. Since
-$q\mid p$ cannot hold (because we have $q\nmid p$), we thus conclude that
-$q\perp p$. Also, $q=q\cdot p^{0}$ (since $p^{0}=1$). Thus, Lemma
-\ref{lem.ent.prime.vp-copr} \textbf{(b)} (applied to $n=q$, $i=0$ and $w=q$)
-yields $v_{p}\left(  q\right)  =0$. Comparing this with
+Let us now consider Case 2. In this case, we have $q\neq p$. Thus, the primes
+$q$ and $p$ are distinct. Hence, Exercise \ref{exe.ent.primes.dist=cop}
+(applied to $q$ and $p$ instead of $p$ and $q$) yields $q\perp p$. Also,
+$q=q\cdot p^{0}$ (since $p^{0}=1$). Thus, Lemma \ref{lem.ent.prime.vp-copr}
+\textbf{(b)} (applied to $n=q$, $i=0$ and $w=q$) yields $v_{p}\left(
+q\right)  =0$. Comparing this with
 \[%
 \begin{cases}
 1, & \text{if }q=p;\\
@@ -9117,7 +9108,8 @@ that $\phi\left(  p^{k}\right)  =\left(  p-1\right)  p^{k-1}$.
 $\phi\left(  mn\right)  =\phi\left(  m\right)  \cdot\phi\left(  n\right)  $.
 \end{theorem}
 
-We will prove Theorem \ref{thm.ent.phi.mult} later.
+We will prove Theorem \ref{thm.ent.phi.mult} later (in Section
+\ref{sect.ent.phi-fml-proof}).
 
 \begin{theorem}
 \label{thm.ent.phi.explicit}Let $n$ be a positive integer. Then,%
@@ -9129,9 +9121,8 @@ We will prove Theorem \ref{thm.ent.phi.mult} later.
 
 \end{theorem}
 
-We shall leave Theorem \ref{thm.ent.phi.explicit} unproven at this point: its
-simplest proof relies on some abstract algebraic concepts (rings and their
-direct products) that will be introduced later.
+Theorem \ref{thm.ent.phi.explicit} will be proven in Section
+\ref{sect.ent.phi-fml-proof}.
 
 \subsubsection{The totient sum theorem}
 
@@ -10484,6 +10475,594 @@ p-1\right)  .
 \]
 
 \end{exercise}
+
+\subsection{The Chinese Remainder Theorem as a bijection}
+
+\subsubsection{The bijection $K_{m,n}$}
+
+Here comes another of the many facts known as the \textquotedblleft Chinese
+Remainder Theorem\textquotedblright:
+
+\begin{theorem}
+\label{thm.ent.CRT-bij}Let $m$ and $n$ be two coprime positive integers. Then,
+the map%
+\begin{align*}
+K_{m,n}:\left\{  0,1,\ldots,mn-1\right\}   &  \rightarrow\left\{
+0,1,\ldots,m-1\right\}  \times\left\{  0,1,\ldots,n-1\right\}  ,\\
+a  &  \mapsto\left(  a\%m,a\%n\right)
+\end{align*}
+is well-defined and is a bijection.
+\end{theorem}
+
+\begin{example}
+\label{exa.ent.CRT-bij.exa1}\textbf{(a)} Theorem \ref{thm.ent.CRT-bij}
+(applied to $m=3$ and $n=2$) says that the map%
+\begin{align*}
+K_{3,2}:\left\{  0,1,2,3,4,5,6\right\}   &  \rightarrow\left\{  0,1,2\right\}
+\times\left\{  0,1\right\}  ,\\
+a  &  \mapsto\left(  a\%3,a\%2\right)
+\end{align*}
+is a bijection. This map sends%
+\[%
+\begin{array}
+[c]{cccccccc}%
+0, & 1, & 2, & 3, & 4, & 5 &  & \text{to}\\
+\left(  0,0\right)  , & \left(  1,1\right)  , & \left(  2,0\right)  , &
+\left(  0,1\right)  , & \left(  1,0\right)  , & \left(  2,1\right)  , &  &
+\end{array}
+\]
+respectively (since $0\%3=0$ and $0\%2=0$ and $1\%3=1$ and $1\%2=1$ and
+$2\%3=2$ and $2\%2=0$ and so on). This list of values shows that this map is
+bijective (since it takes on every possible value in $\left\{  0,1,2\right\}
+\times\left\{  0,1\right\}  $ exactly once). Theorem \ref{thm.ent.CRT-bij}
+says that this holds for arbitrary coprime $m$ and $n$.
+
+\textbf{(b)} Let us see how Theorem \ref{thm.ent.CRT-bij} fails when $m$ and
+$n$ are \textbf{not} coprime. For example, take $m=6$ and $n=4$. Then, the map%
+\begin{align*}
+K_{6,4}:\left\{  0,1,\ldots,23\right\}   &  \rightarrow\left\{
+0,1,2,3,4,5\right\}  \times\left\{  0,1,2,3\right\}  ,\\
+a  &  \mapsto\left(  a\%6,a\%4\right)
+\end{align*}
+is \textbf{not} a bijection. Indeed, it is neither injective (for example, it
+sends both $0$ and $12$ to the same pair $\left(  0,0\right)  $) nor
+surjective (for example, it never takes the value $\left(  1,2\right)  $).
+\end{example}
+
+\begin{proof}
+[Proof of Theorem \ref{thm.ent.CRT-bij}.]For every $a\in\left\{
+0,1,\ldots,mn-1\right\}  $, we have $\left(  a\%m,a\%n\right)  \in\left\{
+0,1,\ldots,m-1\right\}  \times\left\{  0,1,\ldots,n-1\right\}  $%
+\ \ \ \ \footnote{\textit{Proof.} Let $a\in\left\{  0,1,\ldots,mn-1\right\}
+$. We must prove that $\left(  a\%m,a\%n\right)  \in\left\{  0,1,\ldots
+,m-1\right\}  \times\left\{  0,1,\ldots,n-1\right\}  $.
+\par
+Corollary \ref{cor.ent.quo-rem.remmod} \textbf{(a)} (applied to $u=a$) yields
+that $a\%n\in\left\{  0,1,\ldots,n-1\right\}  $ and $a\%n\equiv
+a\operatorname{mod}n$. Thus, $a\%n\in\left\{  0,1,\ldots,n-1\right\}  $. The
+same argument (applied to $m$ instead of $n$) yields $a\%m\in\left\{
+0,1,\ldots,m-1\right\}  $. Combining this with $a\%n\in\left\{  0,1,\ldots
+,n-1\right\}  $, we obtain $\left(  a\%m,a\%n\right)  \in\left\{
+0,1,\ldots,m-1\right\}  \times\left\{  0,1,\ldots,n-1\right\}  $. Qed.}.
+Hence, the map $K_{m,n}$ is well-defined. It remains to prove that this map
+$K_{m,n}$ is a bijection. To that aim, we shall prove that $K_{m,n}$ is
+injective and surjective.
+
+[\textit{Proof that the map }$K_{m,n}$ \textit{is injective:} Let
+$a,b\in\left\{  0,1,\ldots,mn-1\right\}  $ be such that $K_{m,n}\left(
+a\right)  =K_{m,n}\left(  b\right)  $. We want to prove $a=b$.
+
+The definition of $K_{m,n}$ yields $K_{m,n}\left(  a\right)  =\left(
+a\%m,a\%n\right)  $ and $K_{m,n}\left(  b\right)  =\left(  b\%m,b\%n\right)
+$. Hence, the equality $K_{m,n}\left(  a\right)  =K_{m,n}\left(  b\right)  $
+(which is true by assumption) rewrites as $\left(  a\%m,a\%n\right)  =\left(
+b\%m,b\%n\right)  $. In other words, $a\%m=b\%m$ and $a\%n=b\%n$.
+
+Now, Exercise \ref{exe.ent.quo-rem.mod=rem} (applied to $u=a$ and $v=b$)
+yields that $a\equiv b\operatorname{mod}n$ if and only if $a\%n=b\%n$. Hence,
+$a\equiv b\operatorname{mod}n$ (since $a\%n=b\%n$). In other words, $n\mid
+a-b$. The same argument (but applied to $m$ instead of $n$) yields $m\mid a-b$.
+
+Now, we have $m\perp n$ (since $m$ and $n$ are coprime) and $m\mid a-b$ and
+$n\mid a-b$. Hence, Theorem \ref{thm.ent.coprime.combine} (applied to $m$, $n$
+and $a-b$ instead of $a$, $b$ and $c$) yields $mn\mid a-b$. In other words,
+$a\equiv b\operatorname{mod}mn$. Hence, Corollary \ref{cor.ent.quo-rem.remmod}
+\textbf{(c)} (applied to $mn$, $b$ and $a$ instead of $n$, $u$ and $c$) yields
+$a=b\%\left(  mn\right)  $ (since $a\in\left\{  0,1,\ldots,mn-1\right\}  $).
+
+On the other hand, $b\equiv b\operatorname{mod}mn$. Hence, Corollary
+\ref{cor.ent.quo-rem.remmod} \textbf{(c)} (applied to $mn$, $b$ and $b$
+instead of $n$, $u$ and $c$) yields $b=b\%\left(  mn\right)  $ (since
+$b\in\left\{  0,1,\ldots,mn-1\right\}  $). Comparing this with $a=b\%\left(
+mn\right)  $, we obtain $a=b$.
+
+Now, forget that we fixed $a$ and $b$. We thus have shown that if
+$a,b\in\left\{  0,1,\ldots,mn-1\right\}  $ are such that $K_{m,n}\left(
+a\right)  =K_{m,n}\left(  b\right)  $, then $a=b$. In other words, the map
+$K_{m,n}$ is injective.]
+
+[\textit{Proof that the map }$K_{m,n}$ \textit{is surjective:} Fix $\left(
+a,b\right)  \in\left\{  0,1,\ldots,m-1\right\}  \times\left\{  0,1,\ldots
+,n-1\right\}  $. We want to find a $c\in\left\{  0,1,\ldots,mn-1\right\}  $
+such that $K_{m,n}\left(  c\right)  =\left(  a,b\right)  $.
+
+We have $\left(  a,b\right)  \in\left\{  0,1,\ldots,m-1\right\}
+\times\left\{  0,1,\ldots,n-1\right\}  $. In other words, $a\in\left\{
+0,1,\ldots,m-1\right\}  $ and $b\in\left\{  0,1,\ldots,n-1\right\}  $. Theorem
+\ref{thm.ent.crt1} \textbf{(a)} shows that there exists an integer
+$x\in\mathbb{Z}$ such that%
+\[
+\left(  x\equiv a\operatorname{mod}m\text{ and }x\equiv b\operatorname{mod}%
+n\right)  .
+\]
+Consider such an $x$. We have $x\equiv a\operatorname{mod}m$, thus $a\equiv
+x\operatorname{mod}m$. From $x\equiv b\operatorname{mod}n$, we obtain $b\equiv
+x\operatorname{mod}n$.
+
+Let $y=x\%\left(  mn\right)  $. Then, Corollary \ref{cor.ent.quo-rem.remmod}
+\textbf{(a)} (applied to $mn$ and $x$ instead of $n$ and $u$) yields
+$x\%\left(  mn\right)  \in\left\{  0,1,\ldots,mn-1\right\}  $ and $x\%\left(
+mn\right)  \equiv x\operatorname{mod}mn$. Hence, $x\equiv x\%\left(
+mn\right)  =y\operatorname{mod}mn$ (since $y=x\%\left(  mn\right)  $).
+
+Since $m\mid mn$, we thus obtain $x\equiv y\operatorname{mod}m$ (by
+Proposition \ref{prop.ent.mod.basics} \textbf{(e)}, applied to $mn$, $x$, $y$
+and $m$ instead of $n$, $a$, $b$ and $m$). Thus, $a\equiv x\equiv
+y\operatorname{mod}m$. Hence, Corollary \ref{cor.ent.quo-rem.remmod}
+\textbf{(c)} (applied to $m$, $y$ and $a$ instead of $n$, $u$ and $c$) yields
+$a=y\%m$ (since $a\in\left\{  0,1,\ldots,m-1\right\}  $).
+
+Also, from $x\equiv y\operatorname{mod}mn$ and $n\mid mn$, we obtain $x\equiv
+y\operatorname{mod}n$ (by Proposition \ref{prop.ent.mod.basics} \textbf{(e)},
+applied to $mn$, $x$, $y$ and $n$ instead of $n$, $a$, $b$ and $m$). Thus,
+$b\equiv x\equiv y\operatorname{mod}n$. Hence, Corollary
+\ref{cor.ent.quo-rem.remmod} \textbf{(c)} (applied to $y$ and $b$ instead of
+$u$ and $c$) yields $b=y\%n$ (since $b\in\left\{  0,1,\ldots,n-1\right\}  $).
+
+From $a=y\%m$ and $b=y\%n$, we obtain $\left(  a,b\right)  =\left(
+y\%m,y\%n\right)  $.
+
+We have $y\in x\%\left(  mn\right)  \in\left\{  0,1,\ldots,mn-1\right\}  $;
+thus, the definition of the map $K_{m,n}$ yields $K_{m,n}\left(  y\right)
+=\left(  y\%m,y\%n\right)  =\left(  a,b\right)  $ (since $\left(  a,b\right)
+=\left(  y\%m,y\%n\right)  $). Thus, there exists a $c\in\left\{
+0,1,\ldots,mn-1\right\}  $ such that $K_{m,n}\left(  c\right)  =\left(
+a,b\right)  $ (namely, $c=y$).
+
+Now, forget that we fixed $\left(  a,b\right)  $. We thus have shown that for
+any $\left(  a,b\right)  \in\left\{  0,1,\ldots,m-1\right\}  \times\left\{
+0,1,\ldots,n-1\right\}  $, there exists a $c\in\left\{  0,1,\ldots
+,mn-1\right\}  $ such that $K_{m,n}\left(  c\right)  =\left(  a,b\right)  $.
+In other words, the map $K_{m,n}$ is surjective.]
+
+We have now proven that the map $K_{m,n}$ is both injective and surjective.
+Hence, this map $K_{m,n}$ is bijective, i.e., is a bijection. This proves
+Theorem \ref{thm.ent.CRT-bij}.
+
+[\textit{Remark:} We could have saved ourselves some of the work done in this
+proof by invoking the Pigeonhole Principle. Indeed, our goal was to show that
+the map $K_{m,n}$ is bijective. By the Pigeonhole Principle for Injections
+(Theorem \ref{thm.pigeon.inj}), it suffices to prove that it is injective,
+because $\left\{  0,1,\ldots,mn-1\right\}  $ and $\left\{  0,1,\ldots
+,m-1\right\}  \times\left\{  0,1,\ldots,n-1\right\}  $ are two finite sets of
+the same size. Alternatively, by the Pigeonhole Principle for Surjections
+(Theorem \ref{thm.pigeon.surj}), it would instead suffice to prove that the
+map $K_{mn,n}$ is surjective].
+\end{proof}
+
+\subsubsection{Coprime remainders}
+
+For the rest of this section, we shall use the following notation:
+
+\begin{definition}
+\label{def.ent.CRT-bij.Cn}Let $n$ be a positive integer. Then, let $C_{n}$ be
+the subset $\left\{  i\in\left\{  0,1,\ldots,n-1\right\}  \ \mid\ i\perp
+n\right\}  $ of $\left\{  0,1,\ldots,n-1\right\}  $.
+\end{definition}
+
+Now, we claim the following:
+
+\begin{proposition}
+\label{prop.ent.CRT-bij.Cn}Let $m$ and $n$ be two coprime positive integers.
+Consider the map $K_{m,n}$ defined in Theorem \ref{thm.ent.CRT-bij}. Then,%
+\[
+K_{m,n}\left(  C_{mn}\right)  =C_{m}\times C_{n}.
+\]
+(Here, $K_{m,n}\left(  C_{mn}\right)  $ denotes the image of the subset
+$C_{mn}$ of $\left\{  0,1,\ldots,mn-1\right\}  $ under the map $K_{m,n}$; that
+is, $K_{m,n}\left(  C_{mn}\right)  =\left\{  K_{m,n}\left(  x\right)
+\ \mid\ x\in C_{mn}\right\}  $.)
+\end{proposition}
+
+\begin{example}
+Theorem \ref{thm.ent.CRT-bij} (applied to $m=3$ and $n=5$) says that the map%
+\begin{align*}
+K_{3,5}:\left\{  0,1,\ldots,14\right\}   &  \rightarrow\left\{  0,1,2\right\}
+\times\left\{  0,1,2,3,4\right\}  ,\\
+a  &  \mapsto\left(  a\%3,a\%5\right)
+\end{align*}
+is a bijection. Proposition \ref{prop.ent.CRT-bij.Cn} (applied to $m=3$ and
+$n=5$) says that this map satisfies $K_{3,5}\left(  C_{15}\right)
+=C_{3}\times C_{5}$. In view of
+\begin{align*}
+C_{15}  &  =\left\{  i\in\left\{  0,1,\ldots,14\right\}  \ \mid\ i\perp
+15\right\}  =\left\{  1,2,4,7,8,11,13,14\right\}  ,\\
+C_{3}  &  =\left\{  i\in\left\{  0,1,2\right\}  \ \mid\ i\perp3\right\}
+=\left\{  1,2\right\}  ,\ \ \ \ \ \ \ \ \ \ \text{and}\\
+C_{5}  &  =\left\{  i\in\left\{  0,1,2,3,4\right\}  \ \mid\ i\perp5\right\}
+=\left\{  1,2,3,4\right\}  ,
+\end{align*}
+this rewrites as%
+\[
+K_{3,5}\left(  \left\{  1,2,4,7,8,11,13,14\right\}  \right)  =\left\{
+1,2\right\}  \times\left\{  1,2,3,4\right\}  .
+\]
+And indeed, this can easily be checked: The map $K_{3,5}$ sends%
+\[%
+\begin{array}
+[c]{cccccccccc}%
+1, & 2, & 4, & 7, & 8, & 11 & 13, & 14, &  & \text{to}\\
+\left(  1,1\right)  , & \left(  2,2\right)  , & \left(  1,4\right)  , &
+\left(  1,2\right)  , & \left(  2,3\right)  , & \left(  2,1\right)  , &
+\left(  1,3\right)  & \left(  2,4\right)  , &  &
+\end{array}
+\]
+respectively, which entails%
+\begin{align*}
+&  K_{3,5}\left(  \left\{  1,2,4,7,8,11,13,14\right\}  \right) \\
+&  =\left\{  \left(  1,1\right)  ,\left(  2,2\right)  ,\left(  1,4\right)
+,\left(  1,2\right)  ,\left(  2,3\right)  ,\left(  2,1\right)  ,\left(
+1,3\right)  ,\left(  2,4\right)  \right\}  =\left\{  1,2\right\}
+\times\left\{  1,2,3,4\right\}  .
+\end{align*}
+
+\end{example}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.ent.CRT-bij.Cn}.]Theorem \ref{thm.ent.CRT-bij}
+yields that the map $K_{m,n}$ is well-defined and is a bijection.
+
+The definition of $C_{n}$ yields%
+\[
+C_{n}=\left\{  i\in\left\{  0,1,\ldots,n-1\right\}  \ \mid\ i\perp n\right\}
+\subseteq\left\{  0,1,\ldots,n-1\right\}  .
+\]
+The definition of $C_{m}$ yields%
+\[
+C_{m}=\left\{  i\in\left\{  0,1,\ldots,m-1\right\}  \ \mid\ i\perp m\right\}
+\subseteq\left\{  0,1,\ldots,m-1\right\}  .
+\]
+The definition of $C_{mn}$ yields
+\[
+C_{mn}=\left\{  i\in\left\{  0,1,\ldots,mn-1\right\}  \ \mid\ i\perp
+mn\right\}  \subseteq\left\{  0,1,\ldots,mn-1\right\}  .
+\]
+Hence, $K_{m,n}\left(  C_{mn}\right)  $ is well-defined. Also, from
+$C_{m}\subseteq\left\{  0,1,\ldots,m-1\right\}  $ and $C_{n}\subseteq\left\{
+0,1,\ldots,n-1\right\}  $, we obtain
+\[
+C_{m}\times C_{n}\subseteq\left\{  0,1,\ldots,m-1\right\}  \times\left\{
+0,1,\ldots,n-1\right\}  .
+\]
+
+
+Now, we claim that%
+\begin{equation}
+K_{m,n}\left(  C_{mn}\right)  \subseteq C_{m}\times C_{n}\text{.}
+\label{pf.prop.ent.CRT-bij.Cn.1}%
+\end{equation}
+
+
+[\textit{Proof of (\ref{pf.prop.ent.CRT-bij.Cn.1}):} Let $z\in K_{m,n}\left(
+C_{mn}\right)  $. Thus, $z=K_{m,n}\left(  x\right)  $ for some $x\in C_{mn}$.
+Consider this $x$.
+
+We have $x\in C_{mn}=\left\{  i\in\left\{  0,1,\ldots,mn-1\right\}
+\ \mid\ i\perp mn\right\}  $. In other words, $x$ is an $i\in\left\{
+0,1,\ldots,mn-1\right\}  $ satisfying $i\perp mn$. In other words, $x$ is an
+element of $\left\{  0,1,\ldots,mn-1\right\}  $ and satisfies $x\perp mn$. In
+other words, $x\perp nm$ (since $mn=nm$).
+
+We have $x\mid x$ and $m\mid mn$. Hence, Exercise \ref{exe.ent.gcd.div}
+(applied to $a_{1}=x$, $a_{2}=m$, $b_{1}=x$ and $b_{2}=mn$) yields
+$\gcd\left(  x,m\right)  \mid\gcd\left(  x,mn\right)  =1$ (since $x\perp mn$).
+Since $\gcd\left(  x,m\right)  $ is a nonnegative integer\footnote{because any
+gcd is a nonnegative integer}, this entails $\gcd\left(  x,m\right)  =1$ (by
+Exercise \ref{exe.ent.div.g|1}, applied to $g=\gcd\left(  x,m\right)  $). In
+other words, $x\perp m$. But Corollary \ref{cor.ent.quo-rem.remmod}
+\textbf{(a)} (applied to $m$ and $x$ instead of $n$ and $u$) yields
+$x\%m\in\left\{  0,1,\ldots,m-1\right\}  $ and $x\%m\equiv x\operatorname{mod}%
+m$. From $x\%m\equiv x\operatorname{mod}m$, we obtain $x\equiv
+x\%m\operatorname{mod}m$. Hence, Exercise \ref{exe.ent.coprime.b==c} (applied
+to $x$, $x\%m$ and $m$ instead of $a$, $b$ and $c$) yields $x\%m\perp m$
+(since $x\perp m$). Hence, $x\%m$ is an $i\in\left\{  0,1,\ldots,m-1\right\}
+$ satisfying $i\perp m$ (since $x\%m\in\left\{  0,1,\ldots,m-1\right\}  $). In
+other words, $x\%m\in\left\{  i\in\left\{  0,1,\ldots,m-1\right\}
+\ \mid\ i\perp m\right\}  $. In other words, $x\%m\in C_{m}$ (since
+$C_{m}=\left\{  i\in\left\{  0,1,\ldots,m-1\right\}  \ \mid\ i\perp m\right\}
+$).
+
+The same argument (with the roles of $m$ and $n$ swapped) yields $x\%n\in
+C_{n}$ (since $x\perp nm$). Now,
+\begin{align*}
+z  &  =K_{m,n}\left(  x\right)  =\left(  x\%m,x\%n\right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of }K_{m,n}\right) \\
+&  \in C_{m}\times C_{n}\ \ \ \ \ \ \ \ \ \ \left(  \text{since }x\%m\in
+C_{m}\text{ and }x\%n\in C_{n}\right)  .
+\end{align*}
+
+
+Now, forget that we fixed $z$. We thus have proven that $z\in C_{m}\times
+C_{n}$ for each $z\in K_{m,n}\left(  C_{mn}\right)  $. In other words,
+$K_{m,n}\left(  C_{mn}\right)  \subseteq C_{m}\times C_{n}$. This proves
+(\ref{pf.prop.ent.CRT-bij.Cn.1}).]
+
+Next, we claim that%
+\begin{equation}
+C_{m}\times C_{n}\subseteq K_{m,n}\left(  C_{mn}\right)  .
+\label{pf.prop.ent.CRT-bij.Cn.2}%
+\end{equation}
+
+
+[\textit{Proof of (\ref{pf.prop.ent.CRT-bij.Cn.2}):} Let $y\in C_{m}\times
+C_{n}$. We shall prove that $y\in K_{m,n}\left(  C_{mn}\right)  $.
+
+We have $y\in C_{m}\times C_{n}\subseteq\left\{  0,1,\ldots,m-1\right\}
+\times\left\{  0,1,\ldots,n-1\right\}  =K_{m,n}\left(  \left\{  0,1,\ldots
+,mn-1\right\}  \right)  $ (since the map $K_{m,n}$ is a bijection). In other
+words, there exists some $x\in\left\{  0,1,\ldots,mn-1\right\}  $ such that
+$y=K_{m,n}\left(  x\right)  $. Consider this $x$. The definition of $K_{m,n}$
+yields $K_{m,n}\left(  x\right)  =\left(  x\%m,x\%n\right)  $. Hence,%
+\[
+\left(  x\%m,x\%n\right)  =K_{m,n}\left(  x\right)  =y\in C_{m}\times C_{n}.
+\]
+In other words, $x\%m\in C_{m}$ and $x\%n\in C_{n}$.
+
+We have $x\%m\in C_{m}=\left\{  i\in\left\{  0,1,\ldots,m-1\right\}
+\ \mid\ i\perp m\right\}  $. In other words, $x\%m$ is an $i\in\left\{
+0,1,\ldots,m-1\right\}  $ satisfying $i\perp m$. In other words, $x\%m$ is an
+element of $\left\{  0,1,\ldots,m-1\right\}  $ and satisfies $x\%m\perp m$.
+
+But Corollary \ref{cor.ent.quo-rem.remmod} \textbf{(a)} (applied to $m$ and
+$x$ instead of $n$ and $u$) yields $x\%m\in\left\{  0,1,\ldots,m-1\right\}  $
+and $x\%m\equiv x\operatorname{mod}m$. Hence, Exercise
+\ref{exe.ent.coprime.b==c} (applied to $x\%m$, $x$ and $m$ instead of $a$, $b$
+and $c$) yields $x\perp m$ (since $x\%m\perp m$). This yields $m\perp x$ (by
+Proposition \ref{prop.ent.coprime.perp-symm}). The same argument (applied to
+$n$ instead of $m$) yields $n\perp x$ (since $x\%n\in C_{n}$). Hence, Theorem
+\ref{thm.ent.coprime.ab-to-c} (applied to $m$, $n$ and $x$ instead of $a$, $b$
+and $c$) yields $mn\perp x$. This yields $x\perp mn$ (by Proposition
+\ref{prop.ent.coprime.perp-symm}). Thus, $x$ is an $i\in\left\{
+0,1,\ldots,mn-1\right\}  $ satisfying $i\perp mn$ (since $x\in\left\{
+0,1,\ldots,mn-1\right\}  $). In other words, $x\in\left\{  i\in\left\{
+0,1,\ldots,mn-1\right\}  \ \mid\ i\perp mn\right\}  $. In other words, $x\in
+C_{mn}$ (since $C_{mn}=\left\{  i\in\left\{  0,1,\ldots,mn-1\right\}
+\ \mid\ i\perp mn\right\}  $). Hence, $y=K_{m,n}\left(  \underbrace{x}_{\in
+C_{mn}}\right)  \in K_{m,n}\left(  C_{mn}\right)  $.
+
+Now, forget that we fixed $y$. We thus have shown that $y\in K_{m,n}\left(
+C_{mn}\right)  $ for each $y\in C_{m}\times C_{n}$. In other words,
+$C_{m}\times C_{n}\subseteq K_{m,n}\left(  C_{mn}\right)  $. This proves
+(\ref{pf.prop.ent.CRT-bij.Cn.2}).]
+
+Combining (\ref{pf.prop.ent.CRT-bij.Cn.1}) with
+(\ref{pf.prop.ent.CRT-bij.Cn.2}), we obtain $K_{m,n}\left(  C_{mn}\right)
+=C_{m}\times C_{n}$. This proves Proposition \ref{prop.ent.CRT-bij.Cn}.
+\end{proof}
+
+\subsubsection{\label{sect.ent.phi-fml-proof}Proving the formula for $\phi$}
+
+We now can prove Theorem \ref{thm.ent.phi.mult}:
+
+\begin{proof}
+[First proof of Theorem \ref{thm.ent.phi.mult}.]The definition of $C_{n}$
+yields
+\begin{equation}
+C_{n}=\left\{  i\in\left\{  0,1,\ldots,n-1\right\}  \ \mid\ i\perp n\right\}
+.\label{pf.thm.ent.phi.mult.Cn=}%
+\end{equation}
+Lemma \ref{lem.ent.euler.phi0} yields%
+\[
+\phi\left(  n\right)  =\left\vert \underbrace{\left\{  i\in\left\{
+0,1,\ldots,n-1\right\}  \ \mid\ i\perp n\right\}  }_{\substack{=C_{n}%
+\\\text{(by (\ref{pf.thm.ent.phi.mult.Cn=}))}}}\right\vert =\left\vert
+C_{n}\right\vert .
+\]
+The same argument (applied to $mn$ instead of $n$) yields $\phi\left(
+mn\right)  =\left\vert C_{mn}\right\vert $.
+
+We have shown that $\phi\left(  n\right)  =\left\vert C_{n}\right\vert $, so
+that $\left\vert C_{n}\right\vert =\phi\left(  n\right)  $. The same argument
+(applied to $m$ instead of $n$) yields $\left\vert C_{m}\right\vert
+=\phi\left(  m\right)  $.
+
+It is well-known that any two finite sets $A$ and $B$ satisfy $\left\vert
+A\times B\right\vert =\left\vert A\right\vert \cdot\left\vert B\right\vert
+$\ \ \ \ \footnote{This is the so-called \textit{product rule} in its simplest
+form (see, e.g., \cite[1.5]{Loehr-BC} or \cite[\S 15.2.1]{LeLeMe}).}. Applying
+this to $A=C_{m}$ and $B=C_{n}$, we obtain%
+\[
+\left\vert C_{m}\times C_{n}\right\vert =\underbrace{\left\vert C_{m}%
+\right\vert }_{=\phi\left(  m\right)  }\cdot\underbrace{\left\vert
+C_{n}\right\vert }_{=\phi\left(  n\right)  }=\phi\left(  m\right)  \cdot
+\phi\left(  n\right)  .
+\]
+
+
+Note that $C_{mn}$ is a subset of $\left\{  0,1,\ldots,mn-1\right\}  $ (since
+the definition of $C_{mn}$ yields $C_{mn}=\left\{  i\in\left\{  0,1,\ldots
+,mn-1\right\}  \ \mid\ i\perp mn\right\}  \subseteq\left\{  0,1,\ldots
+,mn-1\right\}  $).
+
+Now, consider the map $K_{m,n}$ defined in Theorem \ref{thm.ent.CRT-bij}.
+Then, Theorem \ref{thm.ent.CRT-bij} shows that this map $K_{m,n}$ is a
+bijection. Thus, in particular, $K_{m,n}$ is injective. Hence, $\left\vert
+K_{m,n}\left(  S\right)  \right\vert =\left\vert S\right\vert $ for each
+subset $S$ of $\left\{  0,1,\ldots,mn-1\right\}  $\ \ \ \ \footnote{This
+follows from the following general principle: If $f:X\rightarrow Y$ is an
+injective map between two finite sets $X$ and $Y$, then $\left\vert f\left(
+S\right)  \right\vert =\left\vert S\right\vert $ for each subset $S$ of $X$.}.
+Applying this to $S=C_{mn}$, we obtain $\left\vert K_{m,n}\left(
+C_{mn}\right)  \right\vert =\left\vert C_{mn}\right\vert $. Thus,%
+\[
+\left\vert C_{mn}\right\vert =\left\vert \underbrace{K_{m,n}\left(
+C_{mn}\right)  }_{\substack{=C_{m}\times C_{n}\\\text{(by Proposition
+\ref{prop.ent.CRT-bij.Cn})}}}\right\vert =\left\vert C_{m}\times
+C_{n}\right\vert =\phi\left(  m\right)  \cdot\phi\left(  n\right)  .
+\]
+Hence, $\phi\left(  mn\right)  =\left\vert C_{mn}\right\vert =\phi\left(
+m\right)  \cdot\phi\left(  n\right)  $. This proves Theorem
+\ref{thm.ent.phi.mult}.
+\end{proof}
+
+We now take aim at proving Theorem \ref{thm.ent.phi.explicit}. First, let us
+extend Theorem \ref{thm.ent.phi.mult} to products of $k$ mutually coprime integers:
+
+\begin{exercise}
+\label{exe.ent.phi.multk.1}Let $n_{1},n_{2},\ldots,n_{k}$ be mutually coprime
+positive integers. Prove that $\phi\left(  n_{1}n_{2}\cdots n_{k}\right)
+=\phi\left(  n_{1}\right)  \cdot\phi\left(  n_{2}\right)  \cdot\cdots\cdot
+\phi\left(  n_{k}\right)  $.
+\end{exercise}
+
+\begin{exercise}
+\label{exe.ent.phi.multk.2}Let $I$ be a finite set. For each $i\in I$, let
+$n_{i}$ be an integer. Assume that%
+\begin{equation}
+\text{every two distinct elements }i\text{ and }j\text{ of }I\text{ satisfy
+}n_{i}\perp n_{j}. \label{eq.exe.ent.phi.multk.2.ass}%
+\end{equation}
+Prove that
+\[
+\phi\left(  \prod_{i\in I}n_{i}\right)  =\prod_{i\in I}\phi\left(
+n_{i}\right)  .
+\]
+
+\end{exercise}
+
+We are finally ready to prove Theorem \ref{thm.ent.phi.explicit}:
+
+\begin{proof}
+[Proof of Theorem \ref{thm.ent.phi.explicit}.]If $p$ is a prime satisfying
+$p\nmid n$, then $v_{p}\left(  n\right)  =0$ (by Corollary
+\ref{cor.ent.prime.vp-0}) and therefore
+\begin{equation}
+p^{v_{p}\left(  n\right)  }=p^{0}=1. \label{pf.thm.ent.phi.explicit.=1}%
+\end{equation}
+
+
+If $p$ is a prime satisfying $p\mid n$, then $v_{p}\left(  n\right)  $ is a
+positive integer\footnote{\textit{Proof.} Let $p$ be a prime satisfying $p\mid
+n$. If we had $v_{p}\left(  n\right)  =0$, then we would have $p\nmid n$ (by
+Corollary \ref{cor.ent.prime.vp-0}), and this would contradict $p\mid n$.
+Hence, we cannot have $v_{p}\left(  n\right)  =0$. Thus, $v_{p}\left(
+n\right)  \neq0$. But $v_{p}\left(  n\right)  \in\mathbb{N}$ (since $n$ is
+nonzero). Thus, from $v_{p}\left(  n\right)  \neq0$, we conclude that
+$v_{p}\left(  n\right)  $ is a positive integer. Qed.} and therefore we have%
+\begin{equation}
+\phi\left(  p^{v_{p}\left(  n\right)  }\right)  =\left(  p-1\right)
+p^{v_{p}\left(  n\right)  -1} \label{pf.thm.ent.phi.explicit.=p-1}%
+\end{equation}
+(by Exercise \ref{exe.ent.phi.pk}, applied to $k=v_{p}\left(  n\right)  $).
+
+Corollary \ref{cor.ent.primes.can-fac} yields%
+\begin{align}
+n  &  =\prod_{p\text{ prime}}p^{v_{p}\left(  n\right)  }=\left(
+\prod_{\substack{p\text{ prime;}\\p\mid n}}p^{v_{p}\left(  n\right)  }\right)
+\cdot\left(  \prod_{\substack{p\text{ prime;}\\p\nmid n}}\underbrace{p^{v_{p}%
+\left(  n\right)  }}_{\substack{=1\\\text{(by
+(\ref{pf.thm.ent.phi.explicit.=1}))}}}\right) \nonumber\\
+&  \ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{since each prime }p\text{ satisfies either }p\mid n\text{ or }p\nmid n\\
+\text{(but not both at the same time)}%
+\end{array}
+\right) \nonumber\\
+&  =\left(  \prod_{\substack{p\text{ prime;}\\p\mid n}}p^{v_{p}\left(
+n\right)  }\right)  \cdot\underbrace{\left(  \prod_{\substack{p\text{
+prime;}\\p\nmid n}}1\right)  }_{=1}=\prod_{\substack{p\text{ prime;}\\p\mid
+n}}p^{v_{p}\left(  n\right)  }. \label{pf.thm.ent.phi.explicit.2}%
+\end{align}
+
+
+Let $P$ be the set of all primes $p$ satisfying $p\mid n$. This set $P$ is
+finite\footnote{\textit{Proof.} We shall show that $P\subseteq\left\{
+1,2,\ldots,n\right\}  $.
+\par
+Indeed, let $p\in P$. Thus, $p$ is a prime satisfying $p\mid n$ (by the
+definition of $P$). Hence, $p$ is positive (since $p$ is prime); thus,
+$p\neq0$. Thus, from $p\mid n$, we obtain $\left\vert p\right\vert
+\leq\left\vert n\right\vert $ (by Proposition \ref{prop.ent.div.1}
+\textbf{(b)}, applied to $a=p$ and $b=n$). In view of $\left\vert p\right\vert
+=p$ (since $p$ is positive) and $\left\vert n\right\vert =n$ (since $n$ is
+positive), this rewrites as $p\leq n$. Hence, $p\in\left\{  1,2,\ldots
+,n\right\}  $ (since $p$ is a positive integer).
+\par
+Now, forget that we fixed $p$. We thus have shown that $p\in\left\{
+1,2,\ldots,n\right\}  $ for each $p\in P$. In other words, $P\subseteq\left\{
+1,2,\ldots,n\right\}  $. Hence, the set $P$ is finite (since the set $\left\{
+1,2,\ldots,n\right\}  $ is finite).}. For each $i\in P$, the number
+$i^{v_{i}\left(  n\right)  }$ is an integer (since $v_{i}\left(  n\right)
+\in\mathbb{N}$ (since $n$ is nonzero)). Moreover, every two distinct elements
+$i$ and $j$ of $P$ satisfy $i^{v_{i}\left(  n\right)  }\perp j^{v_{j}\left(
+n\right)  }$\ \ \ \ \footnote{\textit{Proof.} Let $i$ and $j$ be two distinct
+elements of $P$. All elements of $P$ are primes (by the definition of $P$);
+thus, $i$ and $j$ are primes (since $i$ and $j$ are elements of $P$). Also,
+$i\neq j$ (since $i$ and $j$ are distinct). Hence, Exercise
+\ref{exe.ent.primes.dist=cop} (applied to $p=i$ and $q=j$) yields $i\perp j$.
+But $v_{i}\left(  n\right)  \in\mathbb{N}$ (since $n$ is nonzero) and
+$v_{j}\left(  n\right)  \in\mathbb{N}$ (for the same reason). Hence, Exercise
+\ref{exe.ent.coprime.powers} (applied to $i$, $j$, $v_{i}\left(  n\right)  $
+and $v_{j}\left(  n\right)  $ instead of $a$, $b$, $n$ and $m$) yields
+$i^{v_{i}\left(  n\right)  }\perp j^{v_{j}\left(  n\right)  }$. Qed.}. Hence,
+Exercise \ref{exe.ent.phi.multk.2} (applied to $I=P$ and $n_{i}=i^{v_{i}%
+\left(  n\right)  }$) yields
+\[
+\phi\left(  \prod_{i\in P}i^{v_{i}\left(  n\right)  }\right)  =\prod_{i\in
+P}\phi\left(  i^{v_{i}\left(  n\right)  }\right)  .
+\]
+Renaming the index $i$ as $p$ in both products, we can rewrite this equality
+as
+\begin{equation}
+\phi\left(  \prod_{p\in P}p^{v_{p}\left(  n\right)  }\right)  =\prod_{p\in
+P}\phi\left(  p^{v_{p}\left(  n\right)  }\right)  .
+\label{pf.thm.ent.phi.explicit.4}%
+\end{equation}
+But the product signs \textquotedblleft$\prod_{p\in P}$\textquotedblright\ in
+this equality can be replaced by \textquotedblleft$\prod_{\substack{p\text{
+prime;}\\p\mid n}}$\textquotedblright\ without changing their meaning (since
+$P$ is the set of all primes $p$ satisfying $p\mid n$). Hence, the equality
+(\ref{pf.thm.ent.phi.explicit.4}) rewrites as%
+\begin{equation}
+\phi\left(  \prod_{\substack{p\text{ prime;}\\p\mid n}}p^{v_{p}\left(
+n\right)  }\right)  =\prod_{\substack{p\text{ prime;}\\p\mid n}}\phi\left(
+p^{v_{p}\left(  n\right)  }\right)  . \label{pf.thm.ent.phi.explicit.5}%
+\end{equation}
+Now, applying the map $\phi$ to both sides of the equality
+(\ref{pf.thm.ent.phi.explicit.2}), we find%
+\begin{align*}
+\phi\left(  n\right)   &  =\phi\left(  \prod_{\substack{p\text{ prime;}\\p\mid
+n}}p^{v_{p}\left(  n\right)  }\right)  =\prod_{\substack{p\text{
+prime;}\\p\mid n}}\underbrace{\phi\left(  p^{v_{p}\left(  n\right)  }\right)
+}_{\substack{=\left(  p-1\right)  p^{v_{p}\left(  n\right)  -1}\\\text{(by
+(\ref{pf.thm.ent.phi.explicit.=p-1}))}}}\ \ \ \ \ \ \ \ \ \ \left(  \text{by
+(\ref{pf.thm.ent.phi.explicit.5})}\right) \\
+&  =\prod_{\substack{p\text{ prime;}\\p\mid n}}\underbrace{\left(  \left(
+p-1\right)  p^{v_{p}\left(  n\right)  -1}\right)  }_{\substack{=pp^{v_{p}%
+\left(  n\right)  -1}-p^{v_{p}\left(  n\right)  -1}\\=p^{v_{p}\left(
+n\right)  }-p^{v_{p}\left(  n\right)  -1}\\=p^{v_{p}\left(  n\right)
+}-p^{v_{p}\left(  n\right)  }/p\\=p^{v_{p}\left(  n\right)  }\left(
+1-\dfrac{1}{p}\right)  }}=\prod_{\substack{p\text{ prime;}\\p\mid n}}\left(
+p^{v_{p}\left(  n\right)  }\left(  1-\dfrac{1}{p}\right)  \right) \\
+&  =\underbrace{\left(  \prod_{\substack{p\text{ prime;}\\p\mid n}%
+}p^{v_{p}\left(  n\right)  }\right)  }_{\substack{=n\\\text{(by
+(\ref{pf.thm.ent.phi.explicit.2}))}}}\cdot\prod_{\substack{p\text{
+prime;}\\p\mid n}}\left(  1-\dfrac{1}{p}\right)  =n\cdot\prod
+_{\substack{p\text{ prime;}\\p\mid n}}\left(  1-\dfrac{1}{p}\right)  .
+\end{align*}
+This proves Theorem \ref{thm.ent.phi.explicit}.
+\end{proof}
 
 \begin{center}
 \textbf{2019-02-18 lecture}
@@ -14396,7 +14975,8 @@ _{p}$. In other words, $\left(  p-1\right)  !\equiv-1\operatorname{mod}p$.
 (Exercise: Tweak this argument to work for $p=2$.)
 \end{proof}
 
-\subsection{The Chinese Remainder Theorem reexamined}
+\subsection{The Chinese Remainder Theorem as a bijection between residue
+classes}
 
 \begin{definition}
 \label{def.eqrel.Zn.pind}Let $n$ be a positive integer. Let $d$ be a positive
@@ -14410,12 +14990,19 @@ divisor of $n$. Then, define the map%
 
 See Example \ref{exa.eqrel.Zn.pind.wd} \textbf{(a)} for how this map looks like.
 
+We can now state another version of the \textquotedblleft Chinese Remainder
+Theorem\textquotedblright, which claims the existence of a certain bijection.
+We have already seen such a version (Theorem \ref{thm.ent.CRT-bij}), but that
+one claimed a bijection between two sets of \textbf{remainders}, whereas the
+following version claims a bijection between two sets of \textbf{residue
+classes}. Other than that, the two versions are rather similar.
+
 \begin{theorem}
 \label{thm.eqrel.CRT2}(Chinese Remainder Theorem, bijective form)
 
 Let $m$ and $n$ be two coprime positive integers. Then, the map%
 \begin{align*}
-S_{m,n}  &  :\mathbb{Z}/\left(  mn\right)  \rightarrow\left(  \mathbb{Z}%
+S_{m,n}:\mathbb{Z}/\left(  mn\right)   &  \rightarrow\left(  \mathbb{Z}%
 /m\right)  \times\left(  \mathbb{Z}/n\right)  ,\\
 \alpha &  \mapsto\left(  \pi_{mn,m}\left(  \alpha\right)  ,\pi_{mn,n}\left(
 \alpha\right)  \right)
@@ -14487,6 +15074,10 @@ nor surjective (for example, it never takes the value $\left(  \left[
 1\right]  _{6},\left[  2\right]  _{4}\right)  $).
 \end{example}
 
+The following proof of Theorem \ref{thm.eqrel.CRT2} has the same structure as
+our proof of Theorem \ref{thm.ent.CRT-bij} above, but is shorter since residue
+classes are easier to deal with than remainders.
+
 \begin{proof}
 [Proof of Theorem \ref{thm.eqrel.CRT2}.]The maps $\pi_{mn,m}$ and $\pi_{mn,n}$
 are well-defined, since $m$ and $n$ are divisors of $mn$. Thus, the map%
@@ -14516,9 +15107,10 @@ s\right]  _{n}\right)  $.
 It thus remains to prove that $S_{m,n}$ is a bijection. To that aim, we shall
 prove that $S_{m,n}$ is injective and surjective.
 
-\textit{Proof that }$S_{m,n}$ \textit{is injective:} Let $\alpha,\beta
-\in\mathbb{Z}/\left(  mn\right)  $ be such that $S_{m,n}\left(  \alpha\right)
-=S_{m,n}\left(  \beta\right)  $. We want to prove $\alpha=\beta$.
+[\textit{Proof that the map }$S_{m,n}$ \textit{is injective:} Let
+$\alpha,\beta\in\mathbb{Z}/\left(  mn\right)  $ be such that $S_{m,n}\left(
+\alpha\right)  =S_{m,n}\left(  \beta\right)  $. We want to prove $\alpha
+=\beta$.
 
 Write $\alpha=\left[  a\right]  _{mn}$ and $\beta=\left[  b\right]  _{mn}$ for
 two integers $a$ and $b$. From $\alpha=\left[  a\right]  _{mn}$, we obtain
@@ -14535,13 +15127,15 @@ _{n}=\left[  b\right]  _{n}$.
 Now, $\left[  a\right]  _{m}=\left[  b\right]  _{m}$ means $a\equiv
 b\operatorname{mod}m$; in other words, $m\mid a-b$. Similarly, $n\mid a-b$.
 
-Since $m\perp n$, we can combine these two divisibilities to obtain $mn\mid
-a-b$. In other words, $a\equiv b\operatorname{mod}mn$. In other words,
-$\left[  a\right]  _{mn}=\left[  b\right]  _{mn}$. In other words,
-$\alpha=\beta$ (since $\alpha=\left[  a\right]  _{mn}$ and $\beta=\left[
-b\right]  _{mn}$). So we have shown that $S_{m,n}$ is injective.
+Now, we have $m\perp n$ (since $m$ and $n$ are coprime) and $m\mid a-b$ and
+$n\mid a-b$. Hence, Theorem \ref{thm.ent.coprime.combine} (applied to $m$, $n$
+and $a-b$ instead of $a$, $b$ and $c$) yields $mn\mid a-b$. In other words,
+$a\equiv b\operatorname{mod}mn$. In other words, $\left[  a\right]
+_{mn}=\left[  b\right]  _{mn}$. In other words, $\alpha=\beta$ (since
+$\alpha=\left[  a\right]  _{mn}$ and $\beta=\left[  b\right]  _{mn}$). So we
+have shown that $S_{m,n}$ is injective.]
 
-\textit{Proof that }$S_{m,n}$ \textit{is surjective:} Fix $\left(
+\textit{Proof that the map }$S_{m,n}$ \textit{is surjective:} Fix $\left(
 \alpha,\beta\right)  \in\left(  \mathbb{Z}/m\right)  \times\left(
 \mathbb{Z}/n\right)  $. We want to find a $\gamma\in\mathbb{Z}/\left(
 mn\right)  $ such that $S_{m,n}\left(  \gamma\right)  =\left(  \alpha
@@ -14555,7 +15149,7 @@ integer $x\in\mathbb{Z}$ such that%
 \left(  x\equiv a\operatorname{mod}m\text{ and }x\equiv b\operatorname{mod}%
 n\right)  .
 \]
-Fix such an $x$. We have $\left[  x\right]  _{m}=\left[  a\right]  _{m}$
+Consider such an $x$. We have $\left[  x\right]  _{m}=\left[  a\right]  _{m}$
 (since $x\equiv a\operatorname{mod}m$) and $\left[  x\right]  _{n}=\left[
 b\right]  _{n}$ (since $x\equiv b\operatorname{mod}n$). Now,
 (\ref{pf.thm.eqrel.CRT2.Ss=}) (applied to $s=x$) yields
@@ -14571,10 +15165,11 @@ $\gamma=\left[  x\right]  _{mn}$). This proves that $S_{m,n}$ is surjective.
 So, $S_{m,n}$ is bijective (being both injective and surjective). This proves
 the Theorem.
 
-(We could have saved ourselves some of the work by invoking the Pigeonhole
-Principle. Indeed, our goal was to show that $S_{m,n}$ is bijective. By the
-Pigeonhole Principle, it suffices to prove that it is an injection \textbf{or}
-that it is a surjection, since $\mathbb{Z}/\left(  mn\right)  $ and $\left(
+(As in the proof of Theorem \ref{thm.ent.CRT-bij}, we could have saved
+ourselves some of the work by invoking the Pigeonhole Principle. Indeed, our
+goal was to show that the map $S_{m,n}$ is bijective. By the Pigeonhole
+Principle, it suffices to prove that it is an injection \textbf{or} that it is
+a surjection, since $\mathbb{Z}/\left(  mn\right)  $ and $\left(
 \mathbb{Z}/m\right)  \times\left(  \mathbb{Z}/n\right)  $ are finite sets of
 the same size. But this argument would be harder to generalize to certain
 settings that we might later want to generalize the Theorem to.)
@@ -14584,14 +15179,15 @@ settings that we might later want to generalize the Theorem to.)
 \textbf{2019-02-27 lecture}
 \end{center}
 
-Recall Theorem \ref{thm.ent.phi.mult}: Let $m$ and $n$ be two coprime
-integers. Then, $\phi\left(  mn\right)  =\phi\left(  m\right)  \cdot
-\phi\left(  n\right)  $.
+We have already proven Theorem \ref{thm.ent.phi.mult} using Theorem
+\ref{thm.ent.CRT-bij}. Let us now reprove it using Theorem
+\ref{thm.eqrel.CRT2} instead (by a rather similar argument):
 
 \begin{proof}
-[Proof of Theorem \ref{thm.ent.phi.mult}.]We know that $\phi\left(  n\right)
-=\left\vert U_{n}\right\vert $. Similarly, $\phi\left(  m\right)  =\left\vert
-U_{m}\right\vert $ and $\phi\left(  mn\right)  =\left\vert U_{mn}\right\vert $.
+[Second proof of Theorem \ref{thm.ent.phi.mult}.]We know that $\phi\left(
+n\right)  =\left\vert U_{n}\right\vert $. Similarly, $\phi\left(  m\right)
+=\left\vert U_{m}\right\vert $ and $\phi\left(  mn\right)  =\left\vert
+U_{mn}\right\vert $.
 
 Now, let $S_{m,n}$ be the map%
 \begin{align*}
@@ -14724,61 +15320,6 @@ Therefore,%
 =\phi\left(  m\right)  \cdot\phi\left(  n\right)  .
 \]
 So Theorem \ref{thm.ent.phi.mult} is proven.
-\end{proof}
-
-\begin{corollary}
-\label{cor.ent.phi.multk}If $n_{1},n_{2},\ldots,n_{k}$ are mutually coprime
-positive integers, then $\phi\left(  n_{1}n_{2}\cdots n_{k}\right)
-=\phi\left(  n_{1}\right)  \cdot\phi\left(  n_{2}\right)  \cdot\cdots\cdot
-\phi\left(  n_{k}\right)  $.
-\end{corollary}
-
-\begin{proof}
-[Proof of Corollary \ref{cor.ent.phi.multk}.]Induction on $k$. The base case
-($k=0$) uses $\phi\left(  1\right)  =1$. The induction step relies on Theorem
-\ref{thm.ent.phi.mult} and the observation that $n_{1}n_{2}\cdots n_{k-1}\perp
-n_{k}$.
-\end{proof}
-
-\begin{proof}
-[Proof of Theorem \ref{thm.ent.phi.explicit}.]Corollary
-\ref{cor.ent.primes.can-fac} yields%
-\begin{align*}
-n  &  =\prod_{p\text{ prime}}p^{v_{p}\left(  n\right)  }=\left(
-\prod_{\substack{p\text{ prime;}\\p\mid n}}p^{v_{p}\left(  n\right)  }\right)
-\cdot\left(  \prod_{\substack{p\text{ prime;}\\p\nmid n}}\underbrace{p^{v_{p}%
-\left(  n\right)  }}_{=p^{0}=1}\right) \\
-&  =\prod_{\substack{p\text{ prime;}\\p\mid n}}p^{v_{p}\left(  n\right)  }.
-\end{align*}
-The factors $p^{v_{p}\left(  n\right)  }$ for different primes $p$ are
-mutually coprime (e.g., by Exercise \ref{exe.ent.coprime.powers}, since
-different primes are coprime). Thus, Corollary \ref{cor.ent.phi.multk} yields%
-\begin{align*}
-\phi\left(  \prod_{\substack{p\text{ prime;}\\p\mid n}}p^{v_{p}\left(
-n\right)  }\right)   &  =\prod_{\substack{p\text{ prime;}\\p\mid
-n}}\underbrace{\phi\left(  p^{v_{p}\left(  n\right)  }\right)  }%
-_{\substack{=\left(  p-1\right)  p^{v_{p}\left(  n\right)  -1}\\\text{(by
-Exercise \ref{exe.ent.phi.pk},}\\\text{since }v_{p}\left(  n\right)  \text{ is
-a positive integer)}}}\\
-&  =\prod_{\substack{p\text{ prime;}\\p\mid n}}\left(  \left(  p-1\right)
-p^{v_{p}\left(  n\right)  -1}\right)  .
-\end{align*}
-In view of $n=\prod_{\substack{p\text{ prime;}\\p\mid n}}p^{v_{p}\left(
-n\right)  }$, this rewrites as%
-\begin{align*}
-\phi\left(  n\right)   &  =\prod_{\substack{p\text{ prime;}\\p\mid
-n}}\underbrace{\left(  \left(  p-1\right)  p^{v_{p}\left(  n\right)
--1}\right)  }_{\substack{=p^{v_{p}\left(  n\right)  }-p^{v_{p}\left(
-n\right)  -1}\\=p^{v_{p}\left(  n\right)  }-p^{v_{p}\left(  n\right)
-}/p\\=p^{v_{p}\left(  n\right)  }\left(  1-\dfrac{1}{p}\right)  }%
-}=\prod_{\substack{p\text{ prime;}\\p\mid n}}\left(  p^{v_{p}\left(  n\right)
-}\left(  1-\dfrac{1}{p}\right)  \right) \\
-&  =\underbrace{\left(  \prod_{\substack{p\text{ prime;}\\p\mid n}%
-}p^{v_{p}\left(  n\right)  }\right)  }_{=n}\cdot\prod_{\substack{p\text{
-prime;}\\p\mid n}}\left(  1-\dfrac{1}{p}\right)  =n\cdot\prod
-_{\substack{p\text{ prime;}\\p\mid n}}\left(  1-\dfrac{1}{p}\right)  .
-\end{align*}
-This proves Theorem \ref{thm.ent.phi.explicit}.
 \end{proof}
 
 \subsection{A couple of applications of elementary number theory}
@@ -19557,6 +20098,31 @@ solves Exercise \ref{exe.ent.lcm.lcmabc} \textbf{(b)}.
 \end{proof}
 \end{fineprint}
 
+\subsection{Solution to Exercise \ref{exe.ent.primes.dist=cop}}
+
+\begin{fineprint}
+\begin{proof}
+[Solution to Exercise \ref{exe.ent.primes.dist=cop}.]We have $p\neq q$ (since
+$p$ and $q$ are distinct). Hence, $p\nmid q$\ \ \ \ \footnote{\textit{Proof.}
+Assume the contrary. Thus, $p\mid q$. In other words, $p$ is a divisor of $q$.
+\par
+But $q$ is a prime. According to the definition of a prime, this means that
+$q>1$ and that the only positive divisors of $q$ are $1$ and $q$.
+\par
+Also, $p$ is a prime; thus, $p>1$ (by the definition of a prime); hence,
+$p>1>0$. Thus, $p$ is positive. So we know that $p$ is a positive divisor of
+$q$. Hence, $p$ must be either $1$ or $q$ (since the only positive divisors of
+$q$ are $1$ and $q$). Since $p$ cannot be $1$ (because $p>1$), we thus
+conclude that $p$ must be $q$. In other words, $p=q$. This contradicts $p\neq
+q$. This contradiction shows that our assumption was false, qed.}.
+
+But Proposition \ref{prop.ent.primes.div-or-coprime} (applied to $a=q$) shows
+that either $p\mid q$ or $p\perp q$. Since $p\mid q$ cannot hold (because we
+have $p\nmid q$), we thus conclude that $p\perp q$. This solves Exercise
+\ref{exe.ent.primes.dist=cop}.
+\end{proof}
+\end{fineprint}
+
 \subsection{Solution to Exercise \ref{exe.ent.primes.pab-conv}}
 
 \begin{fineprint}
@@ -20590,6 +21156,182 @@ Exercise \ref{exe.ent.wilson.gauss}.
 \end{proof}
 \end{fineprint}
 
+\subsection{Solution to Exercise \ref{exe.ent.phi.multk.1}}
+
+\begin{fineprint}
+\begin{proof}
+[Solution to Exercise \ref{exe.ent.phi.multk.1}.]We assumed that the integers
+$n_{1},n_{2},\ldots,n_{k}$ are mutually coprime. In other words, we have%
+\begin{equation}
+n_{i}\perp n_{j}\text{ for all }i,j\in\left\{  1,2,\ldots,k\right\}  \text{
+satisfying }i\neq j. \label{pf.cor.ent.phi.multk.1.copr}%
+\end{equation}
+
+
+We claim that%
+\begin{equation}
+\phi\left(  n_{1}n_{2}\cdots n_{i}\right)  =\phi\left(  n_{1}\right)
+\cdot\phi\left(  n_{2}\right)  \cdot\cdots\cdot\phi\left(  n_{i}\right)
+\label{pf.cor.ent.phi.multk.1.goal}%
+\end{equation}
+for each $i\in\left\{  0,1,\ldots,k\right\}  $.
+
+[\textit{Proof of (\ref{pf.cor.ent.phi.multk.1.goal}):} We shall prove
+(\ref{pf.cor.ent.phi.multk.1.goal}) by induction on $i$:
+
+\textit{Induction base:} It is easy to see that $\phi\left(  1\right)
+=1$\ \ \ \ \footnote{\textit{Proof.} We have $1\mid1$. Hence, Proposition
+\ref{prop.ent.gcd.props1} \textbf{(i)} (applied to $1$ and $1$ instead of $a$
+and $b$) yields $\gcd\left(  1,1\right)  =\left\vert 1\right\vert =1$. Hence,
+$1\perp1$. Thus, $1$ is an $i\in\left\{  1,2,\ldots,1\right\}  $ satisfying
+$i\perp1$. In other words, $1$ is an element of the set $\left\{  i\in\left\{
+1,2,\ldots,1\right\}  \ \mid\ i\perp1\right\}  $. Since $1$ is the
+\textbf{only} element of this set (because every element of $\left\{
+i\in\left\{  1,2,\ldots,1\right\}  \ \mid\ i\perp1\right\}  $ must belong to
+the set $\left\{  1,2,\ldots,1\right\}  =\left\{  1\right\}  $ and thus must
+equal to $1$), we can thus conclude that $\left\{  i\in\left\{  1,2,\ldots
+,1\right\}  \ \mid\ i\perp1\right\}  =\left\{  1\right\}  $.
+\par
+But the equality (\ref{eq.def.ent.phi.phi.1}) (applied to $n=1$) yields%
+\[
+\phi\left(  1\right)  =\left\vert \underbrace{\left\{  i\in\left\{
+1,2,\ldots,1\right\}  \ \mid\ i\perp1\right\}  }_{=\left\{  1\right\}
+}\right\vert =\left\vert \left\{  1\right\}  \right\vert =1.
+\]
+}. But applying the map $\phi$ to the equality $n_{1}n_{2}\cdots n_{0}=\left(
+\text{empty product}\right)  =1$, we obtain
+\[
+\phi\left(  n_{1}n_{2}\cdots n_{0}\right)  =\phi\left(  1\right)  =1.
+\]
+Comparing this with $\phi\left(  n_{1}\right)  \cdot\phi\left(  n_{2}\right)
+\cdot\cdots\cdot\phi\left(  n_{0}\right)  =\left(  \text{empty product}%
+\right)  =0$, we obtain $\phi\left(  n_{1}n_{2}\cdots n_{0}\right)
+=\phi\left(  n_{1}\right)  \cdot\phi\left(  n_{2}\right)  \cdot\cdots\cdot
+\phi\left(  n_{0}\right)  $. In other words,
+(\ref{pf.cor.ent.phi.multk.1.goal}) holds for $i=0$. This completes the
+induction base.
+
+\textit{Induction step:} Let $j\in\left\{  0,1,\ldots,k\right\}  $ be
+positive. Assume that (\ref{pf.cor.ent.phi.multk.1.goal}) holds for $i=j-1$.
+We must prove that (\ref{pf.cor.ent.phi.multk.1.goal}) holds for $i=j$.
+
+For each $i\in\left\{  1,2,\ldots,j-1\right\}  $, we have $i\leq j-1<j$ and
+thus $i\neq j$ and therefore $n_{i}\perp n_{j}$ (by
+(\ref{pf.cor.ent.phi.multk.1.copr})). Hence, Exercise
+\ref{exe.ent.coprime.combinek} (applied to $j-1$, $n_{j}$ and $\left(
+n_{1},n_{2},\ldots,n_{j-1}\right)  $ instead of $k$, $c$ and $\left(
+a_{1},a_{2},\ldots,a_{k}\right)  $) yields $n_{1}n_{2}\cdots n_{j-1}\perp
+n_{j}$. In other words, the two positive integers $n_{1}n_{2}\cdots n_{j-1}$
+and $n_{j}$ are coprime. Therefore, Theorem \ref{thm.ent.phi.mult} yields%
+\[
+\phi\left(  \left(  n_{1}n_{2}\cdots n_{j-1}\right)  n_{j}\right)
+=\phi\left(  n_{1}n_{2}\cdots n_{j-1}\right)  \cdot\phi\left(  n_{j}\right)
+.
+\]
+
+
+But we have assumed that (\ref{pf.cor.ent.phi.multk.1.goal}) holds for
+$i=j-1$. In other words, we have%
+\begin{equation}
+\phi\left(  n_{1}n_{2}\cdots n_{j-1}\right)  =\phi\left(  n_{1}\right)
+\cdot\phi\left(  n_{2}\right)  \cdot\cdots\cdot\phi\left(  n_{j-1}\right)  .
+\label{pf.cor.ent.phi.multk.1.goal.pf.IH}%
+\end{equation}
+Now,%
+\begin{align*}
+\phi\left(  \underbrace{n_{1}n_{2}\cdots n_{j}}_{=\left(  n_{1}n_{2}\cdots
+n_{j-1}\right)  n_{j}}\right)   &  =\phi\left(  \left(  n_{1}n_{2}\cdots
+n_{j-1}\right)  n_{j}\right)  =\underbrace{\phi\left(  n_{1}n_{2}\cdots
+n_{j-1}\right)  }_{=\phi\left(  n_{1}\right)  \cdot\phi\left(  n_{2}\right)
+\cdot\cdots\cdot\phi\left(  n_{j-1}\right)  }\cdot\phi\left(  n_{j}\right) \\
+&  =\left(  \phi\left(  n_{1}\right)  \cdot\phi\left(  n_{2}\right)
+\cdot\cdots\cdot\phi\left(  n_{j-1}\right)  \right)  \cdot\phi\left(
+n_{j}\right) \\
+&  =\phi\left(  n_{1}\right)  \cdot\phi\left(  n_{2}\right)  \cdot\cdots
+\cdot\phi\left(  n_{j}\right)  .
+\end{align*}
+In other words, (\ref{pf.cor.ent.phi.multk.1.goal}) holds for $i=j$. This
+completes the induction step. Hence, the induction proof of
+(\ref{pf.cor.ent.phi.multk.1.goal}) is complete.]
+
+Now, (\ref{pf.cor.ent.phi.multk.1.goal}) (applied to $i=k$) yields
+$\phi\left(  n_{1}n_{2}\cdots n_{k}\right)  =\phi\left(  n_{1}\right)
+\cdot\phi\left(  n_{2}\right)  \cdot\cdots\cdot\phi\left(  n_{k}\right)  $.
+This solves Exercise \ref{exe.ent.phi.multk.1}.
+\end{proof}
+\end{fineprint}
+
+\subsection{Solution to Exercise \ref{exe.ent.phi.multk.2}}
+
+\begin{fineprint}
+\begin{proof}
+[Solution to Exercise \ref{exe.ent.phi.multk.2}.]Exercise
+\ref{exe.ent.phi.multk.1} and Exercise \ref{exe.ent.phi.multk.2} say the same
+thing: They say that applying the function $\phi$ to a product of finitely
+many mutually coprime positive integers yields the same result as applying
+$\phi$ to each of these integers separately and then taking the product. The
+difference between these two exercises is merely how the product is indexed.
+Thus, deriving Exercise \ref{exe.ent.phi.multk.2} from Exercise
+\ref{exe.ent.phi.multk.1} is merely a matter of bookkeeping (and this pretty
+much the same sort of bookkeeping that we used to derive Exercise
+\ref{exe.ent.coprime.ab-to-cI} from Exercise \ref{exe.ent.coprime.ab-to-ck}
+above). Let us do this bookkeeping:
+
+The set $I$ is finite; thus, we can define some $k\in\mathbb{N}$ by
+$k=\left\vert I\right\vert $. There exists a bijection $f:\left\{
+1,2,\ldots,k\right\}  \rightarrow I$ (since $k=\left\vert I\right\vert $).
+Pick such an $f$. Thus, $f\left(  1\right)  ,f\left(  2\right)  ,\ldots
+,f\left(  k\right)  $ are the $k$ elements of $I$; hence, $n_{f\left(
+1\right)  },n_{f\left(  2\right)  },\ldots,n_{f\left(  k\right)  }$ are $k$
+positive integers. Moreover, these $k$ integers $n_{f\left(  1\right)
+},n_{f\left(  2\right)  },\ldots,n_{f\left(  k\right)  }$ are mutually
+coprime\footnote{\textit{Proof.} Let $x$ and $y$ be two distinct elements of
+$\left\{  1,2,\ldots,k\right\}  $. We claim that $n_{f\left(  x\right)  }\perp
+n_{f\left(  y\right)  }$.
+\par
+Indeed, the map $f$ is a bijection, and thus is injective. But $x$ and $y$ are
+distinct; thus, $x\neq y$. Therefore, $f\left(  x\right)  \neq f\left(
+y\right)  $ (since $f$ is injective). Hence, $f\left(  x\right)  $ and
+$f\left(  y\right)  $ are two distinct elements of $I$. Thus,
+(\ref{eq.exe.ent.phi.multk.2.ass}) (applied to $i=f\left(  x\right)  $ and
+$j=f\left(  y\right)  $) yields $n_{f\left(  x\right)  }\perp n_{f\left(
+y\right)  }$.
+\par
+Now, forget that we fixed $x$ and $y$. We thus have proven that every two
+distinct elements $x$ and $y$ of $\left\{  1,2,\ldots,k\right\}  $ satisfy
+$n_{f\left(  x\right)  }\perp n_{f\left(  y\right)  }$. In other words, the
+$k$ integers $n_{f\left(  1\right)  },n_{f\left(  2\right)  },\ldots
+,n_{f\left(  k\right)  }$ are mutually coprime.}. Hence, Exercise
+\ref{exe.ent.phi.multk.1} (applied to $n_{f\left(  i\right)  }$ instead of
+$n_{i}$) yields $\phi\left(  n_{f\left(  1\right)  }n_{f\left(  2\right)
+}\cdots n_{f\left(  k\right)  }\right)  =\phi\left(  n_{f\left(  1\right)
+}\right)  \cdot\phi\left(  n_{f\left(  2\right)  }\right)  \cdot\cdots
+\cdot\phi\left(  n_{f\left(  k\right)  }\right)  $.
+
+The map $f:\left\{  1,2,\ldots,k\right\}  \rightarrow I$ is a bijection.
+Hence, we can substitute $f\left(  j\right)  $ for $i$ in the product
+$\prod_{i\in I}n_{i}$. We thus find%
+\[
+\prod_{i\in I}n_{i}=\prod_{j\in\left\{  1,2,\ldots,k\right\}  }n_{f\left(
+j\right)  }=\prod_{j=1}^{k}n_{f\left(  j\right)  }=n_{f\left(  1\right)
+}n_{f\left(  2\right)  }\cdots n_{f\left(  k\right)  }.
+\]
+Applying the map $\phi$ to both sides of this equality, we obtain%
+\begin{align*}
+\phi\left(  \prod_{i\in I}n_{i}\right)   &  =\phi\left(  n_{f\left(  1\right)
+}n_{f\left(  2\right)  }\cdots n_{f\left(  k\right)  }\right)  =\phi\left(
+n_{f\left(  1\right)  }\right)  \cdot\phi\left(  n_{f\left(  2\right)
+}\right)  \cdot\cdots\cdot\phi\left(  n_{f\left(  k\right)  }\right) \\
+&  =\prod_{j=1}^{k}\phi\left(  n_{f\left(  j\right)  }\right)  =\prod
+_{j\in\left\{  1,2,\ldots,k\right\}  }\phi\left(  n_{f\left(  j\right)
+}\right)  =\prod_{i\in I}\phi\left(  n_{i}\right)
+\end{align*}
+(here, we have substituted $i$ for $f\left(  j\right)  $ in the product, since
+the map $f:\left\{  1,2,\ldots,k\right\}  \rightarrow I$ is a bijection). This
+solves Exercise \ref{exe.ent.phi.multk.2}.
+\end{proof}
+\end{fineprint}
+
 \subsection{Solution to Exercise \ref{exe.binom.k!divprod}}
 
 \begin{fineprint}
@@ -21567,4 +22309,6 @@ translated 7th edition, Springer 1991.
 \bibitem[Waerde91b]{Waerden2}B.L. van der Waerden, \textit{Algebra, Volume
 II}, translated 5th edition, Springer 1991.
 \end{thebibliography}
+
+
 \end{document}
