@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Saturday, March 09, 2019 22:52:28}
+%TCIDATA{LastRevised=Saturday, March 09, 2019 23:16:03}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -6117,8 +6117,11 @@ straightforward changes; the main thrust of the argument remains unchanged.)
 \textbf{(c)} Prove that $\operatorname{lcm}\left(  a,-b\right)
 =\operatorname{lcm}\left(  a,b\right)  $.
 
-\textbf{(d)} If $a,b\in\mathbb{Z}$ satisfy $a\mid b$, then $\operatorname{lcm}%
-\left(  a,b\right)  =\left\vert b\right\vert $.
+\textbf{(d)} If $a\mid b$, then $\operatorname{lcm}\left(  a,b\right)
+=\left\vert b\right\vert $.
+
+\textbf{(e)} Let $s\in\mathbb{Z}$. Prove that $\operatorname{lcm}\left(
+sa,sb\right)  =\left\vert s\right\vert \operatorname{lcm}\left(  a,b\right)  $.
 \end{exercise}
 
 \begin{exercise}
@@ -19273,18 +19276,92 @@ b,a\right)  =\operatorname{lcm}\left(  a,-b\right)  $ (since
 $\operatorname{lcm}\left(  a,-b\right)  =\operatorname{lcm}\left(  b,a\right)
 $). This solves Exercise \ref{exe.ent.lcm.props1} \textbf{(c)}.
 
-\textbf{(d)} Let $a,b\in\mathbb{Z}$ satisfy $a\mid b$. Then, $a\mid b$ and
-$b\mid b$. Hence, Lemma \ref{lem.ent.lcm.uniprop} (applied to $m=b$) yields
-$\operatorname{lcm}\left(  a,b\right)  \mid b$. But Proposition
-\ref{prop.ent.lcm.divides} \textbf{(c)} yields $a\mid\operatorname{lcm}\left(
-a,b\right)  $ and $b\mid\operatorname{lcm}\left(  a,b\right)  $. Hence,
-Exercise \ref{exe.ent.div.abba} (applied to $b$ and $\operatorname{lcm}\left(
+\textbf{(d)} Assume that $a\mid b$. Thus, $a\mid b$ and $b\mid b$. Hence,
+Lemma \ref{lem.ent.lcm.uniprop} (applied to $m=b$) yields $\operatorname{lcm}%
+\left(  a,b\right)  \mid b$. But Proposition \ref{prop.ent.lcm.divides}
+\textbf{(c)} yields $a\mid\operatorname{lcm}\left(  a,b\right)  $ and
+$b\mid\operatorname{lcm}\left(  a,b\right)  $. Hence, Exercise
+\ref{exe.ent.div.abba} (applied to $b$ and $\operatorname{lcm}\left(
 a,b\right)  $ instead of $a$ and $b$) yields $\left\vert b\right\vert
 =\left\vert \operatorname{lcm}\left(  a,b\right)  \right\vert
 =\operatorname{lcm}\left(  a,b\right)  $ (since $\operatorname{lcm}\left(
 a,b\right)  $ is nonnegative). In other words, $\operatorname{lcm}\left(
 a,b\right)  =\left\vert b\right\vert $. This solves Exercise
 \ref{exe.ent.lcm.props1} \textbf{(d)}.
+
+\textbf{(e)} If $s=0$, then Exercise \ref{exe.ent.lcm.props1} \textbf{(e)}
+holds\footnote{\textit{Proof.} Assume that $s=0$. Thus, $\underbrace{s}%
+_{=0}a=0$. Hence, the integers $sa,sb$ are not all nonzero. Hence,
+$\operatorname{lcm}\left(  sa,sb\right)  =0$ (by Definition
+\ref{def.ent.lcm.lcm}). Comparing this with $\left\vert \underbrace{s}%
+_{=0}\right\vert \operatorname{lcm}\left(  a,b\right)  =\underbrace{\left\vert
+0\right\vert }_{=0}\operatorname{lcm}\left(  a,b\right)  =0$, we obtain
+$\operatorname{lcm}\left(  sa,sb\right)  =\left\vert s\right\vert
+\operatorname{lcm}\left(  a,b\right)  $. Hence, Exercise
+\ref{exe.ent.lcm.props1} \textbf{(e)} holds. Qed.}. Hence, for the rest of
+this solution, we WLOG assume that $s\neq0$.
+
+Recall that any lcm is a nonnegative integer. Thus, $\operatorname{lcm}\left(
+sa,sb\right)  $ is a nonnegative integer.
+
+Proposition \ref{prop.ent.lcm.divides} \textbf{(c)} (applied to $sa$ and $sb$
+instead of $a$ and $b$) yields $sa\mid\operatorname{lcm}\left(  sa,sb\right)
+$ and $sb\mid\operatorname{lcm}\left(  sa,sb\right)  $. Hence, $s\mid
+sa\mid\operatorname{lcm}\left(  sa,sb\right)  $. In other words, there exists
+some integer $d$ such that $\operatorname{lcm}\left(  sa,sb\right)  =sd$.
+Consider this $d$.
+
+Now, $as=sa\mid\operatorname{lcm}\left(  sa,sb\right)  =sd=ds$. But Exercise
+\ref{exe.ent.div.acbc} (applied to $a$, $d$ and $s$ instead of $a$, $b$ and
+$c$) yields that $a\mid d$ holds if and only if $as\mid ds$. Thus, we have
+$a\mid d$ (since $as\mid ds$).
+
+Also, $bs=sb\mid\operatorname{lcm}\left(  sa,sb\right)  =sd=ds$. But Exercise
+\ref{exe.ent.div.acbc} (applied to $b$, $d$ and $s$ instead of $a$, $b$ and
+$c$) yields that $b\mid d$ holds if and only if $bs\mid ds$. Thus, we have
+$b\mid d$ (since $bs\mid ds$).
+
+From $a\mid d$ and $b\mid d$, we obtain $\operatorname{lcm}\left(  a,b\right)
+\mid d$ (by Lemma \ref{lem.ent.lcm.uniprop}, applied to $m=d$). Hence,
+Proposition \ref{prop.ent.div.2} \textbf{(c)} (applied to $a_{1}=s$,
+$a_{2}=\operatorname{lcm}\left(  a,b\right)  $, $b_{1}=s$ and $b_{2}=d$)
+yields $s\operatorname{lcm}\left(  a,b\right)  \mid sd$ (since $s\mid s$). In
+view of $\operatorname{lcm}\left(  sa,sb\right)  =sd$, this rewrites as
+$s\operatorname{lcm}\left(  a,b\right)  \mid\operatorname{lcm}\left(
+sa,sb\right)  $.
+
+Proposition \ref{prop.ent.lcm.divides} \textbf{(c)} yields $a\mid
+\operatorname{lcm}\left(  a,b\right)  $ and $b\mid\operatorname{lcm}\left(
+a,b\right)  $. Hence, Proposition \ref{prop.ent.div.2} \textbf{(c)} (applied
+to $a_{1}=s$, $a_{2}=a$, $b_{1}=s$ and $b_{2}=\operatorname{lcm}\left(
+a,b\right)  $) yields $sa\mid s\operatorname{lcm}\left(  a,b\right)  $ (since
+$s\mid s$ and $a\mid\operatorname{lcm}\left(  a,b\right)  $). Similarly, we
+obtain $sb\mid s\operatorname{lcm}\left(  a,b\right)  $ (since $s\mid s$ and
+$b\mid\operatorname{lcm}\left(  a,b\right)  $). Hence, Lemma
+\ref{lem.ent.lcm.uniprop} (applied to $sa$, $sb$ and $s\operatorname{lcm}%
+\left(  a,b\right)  $ instead of $a$, $b$ and $m$) yields that
+$\operatorname{lcm}\left(  sa,sb\right)  \mid s\operatorname{lcm}\left(
+a,b\right)  $.
+
+Now, we know that $s\operatorname{lcm}\left(  a,b\right)  \mid
+\operatorname{lcm}\left(  sa,sb\right)  $ and $\operatorname{lcm}\left(
+sa,sb\right)  \mid s\operatorname{lcm}\left(  a,b\right)  $. Hence, Exercise
+\ref{exe.ent.div.abba} (applied to $s\operatorname{lcm}\left(  a,b\right)  $
+and $\operatorname{lcm}\left(  sa,sb\right)  $ instead of $a$ and $b$) yields
+$\left\vert s\operatorname{lcm}\left(  a,b\right)  \right\vert =\left\vert
+\operatorname{lcm}\left(  sa,sb\right)  \right\vert =\operatorname{lcm}\left(
+sa,sb\right)  $ (since $\operatorname{lcm}\left(  sa,sb\right)  $ is
+nonnegative). Hence,%
+\begin{align*}
+\operatorname{lcm}\left(  sa,sb\right)    & =\left\vert s\operatorname{lcm}%
+\left(  a,b\right)  \right\vert =\left\vert s\right\vert \cdot
+\underbrace{\left\vert \operatorname{lcm}\left(  a,b\right)  \right\vert
+}_{\substack{=\operatorname{lcm}\left(  a,b\right)  \\\text{(since
+}\operatorname{lcm}\left(  a,b\right)  \\\text{is nonnegative)}}%
+}\ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{eq.ent.div.abs(xy)})}\right)  \\
+& =\left\vert s\right\vert \operatorname{lcm}\left(  a,b\right)  .
+\end{align*}
+This solves Exercise \ref{exe.ent.lcm.props1} \textbf{(e)}.
 \end{proof}
 \end{fineprint}
 
