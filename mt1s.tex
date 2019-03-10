@@ -1,0 +1,458 @@
+% Like most advanced LaTeX files, this one begins with a lot of
+% boilerplate. You don't need to understand (or even read) most of it.
+% All you need to do is fill in your name, UMN ID, email address,
+% and the number of the pset. (Search for "METADATA" to find the place
+% for this.) Then, you can go straight to the "EXERCISE 1"
+% section and start writing your solutions.
+% The "VARIOUS USEFUL COMMANDS" section is probably worth taking a
+% look at at some point.
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+\documentclass[paper=a4, fontsize=12pt]{scrartcl} % A4 paper and 12pt font size
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm,amssymb} % Math packages
+\usepackage{mathrsfs}    % More math packages
+\usepackage{sectsty}  % Allows customizing section commands
+\allsectionsfont{\centering \normalfont\scshape} % Make all section titles centered, the default font and small caps %remove this to left align section tites
+\usepackage{hyperref} % Turns cross-references into hyperlinks,
+                      % and defines \url and \href commands.
+\usepackage{graphicx} % For embedding graphics files.
+\usepackage{framed}   % For the "leftbar" environment used below.
+\usepackage{ifthen}   % Used for the \powset command below.
+\usepackage{lastpage} % for counting the number of pages
+\usepackage[headsepline,footsepline,manualmark]{scrlayer-scrpage}
+\usepackage[height=10in,a4paper,hmargin={1in,0.8in}]{geometry}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{tikz}     % This is a powerful tool to draw vector
+                      % graphics inside LaTeX. In particular, you can
+                      % use it to draw graphs.
+\usepackage{verbatim} % For the "verbatim" environment, in which
+                      % special symbols can be used freely without
+                      % confusing the compiler. (And it's typeset in
+                      % a constant-width font.)
+                      % Useful, e.g., for quoting code (or ASCII art).
+
+%\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+
+\setlength\parindent{20pt} % Makes indentation for paragraphs longer.
+                           % This makes paragraphs stand out more.
+
+%----------------------------------------------------------------------------------------
+%	VARIOUS USEFUL COMMANDS
+%----------------------------------------------------------------------------------------
+% The commands below might be convenient. For example, you probably
+% prefer to write $\powset[2]{V}$ for the set of $2$-element subsets
+% of $V$, rather than writing $\mathcal{P}_2(V)$.
+% Notice that you can easily define your own commands like this.
+% Caveat: Some of these commands need to be properly "guarded" when
+% they occur in subscripts or superscripts. So you should not write
+% $K_\CC$, but rather $K_{\CC}$.
+\newcommand{\CC}{\mathbb{C}} % complex numbers
+\newcommand{\RR}{\mathbb{R}} % real numbers
+\newcommand{\QQ}{\mathbb{Q}} % rational numbers
+\newcommand{\NN}{\mathbb{N}} % nonnegative integers
+\newcommand{\PP}{\mathbb{P}} % positive integers
+\newcommand{\Z}[1]{\mathbb{Z}/#1\mathbb{Z}} % integers modulo k
+                                            % (syntax: "\Z{k}")
+\newcommand{\ZZ}{\mathbb{Z}} % integers
+\newcommand{\id}{\operatorname{id}} % identity map
+\newcommand{\lcm}{\operatorname{lcm}}
+% Lowest common multiple. For historical reasons, LaTeX has a \gcd
+% command built in, but not an \lcm command. The preceding line
+% rectifies that.
+\newcommand{\set}[1]{\left\{ #1 \right\}}
+% $\set{...}$ compiles to {...} (set-brackets).
+\newcommand{\abs}[1]{\left| #1 \right|}
+% $\abs{...}$ compiles to |...| (absolute value, or size of a set).
+\newcommand{\tup}[1]{\left( #1 \right)}
+% $\tup{...}$ compiles to (...) (parentheses, or tuple-brackets).
+\newcommand{\ive}[1]{\left[ #1 \right]}
+% $\ive{...}$ compiles to [...] (Iverson bracket, aka truth value; also, set of first n integers).
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+% $\floor{...}$ compiles to |_..._| (floor function).
+\newcommand{\underbrack}[2]{\underbrace{#1}_{\substack{#2}}}
+% $\underbrack{...1}{...2}$ yields
+% $\underbrace{...1}_{\substack{...2}}$. This is useful for doing
+% local rewriting transformations on mathematical expressions with
+% justifications. For example, try this out:
+% $ \underbrack{(a+b)^2}{= a^2 + 2ab + b^2 \\ \text{(by the binomial formula)}} $
+\newcommand{\powset}[2][]{\ifthenelse{\equal{#2}{}}{\mathcal{P}\left(#1\right)}{\mathcal{P}_{#1}\left(#2\right)}}
+% $\powset[k]{S}$ stands for the set of all $k$-element subsets of
+% $S$. The argument $k$ is optional, and if not provided, the result
+% is the whole powerset of $S$.
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command with 1 argument of height
+\newcommand{\nnn}{\nonumber\\} % Don't number this line in an "align" environment, and move on to the next line.
+
+%----------------------------------------------------------------------------------------
+%	MAKING SUMMATION SIGNS ALWAYS PUT THEIR BOUNDS ABOVE AND BELOW
+%	THE SIGN
+%----------------------------------------------------------------------------------------
+% The following are hacks to ensure that sums (such as
+% $\sum_{k=1}^n k$) always put their bounds (i.e., the $k=1$ and the
+% $n$) underneath and above the sign, as opposed to on its right.
+% Same for products (\prod), set unions (\bigcup) and set
+% intersections (\bigcap). Remove the 8 lines below if you do not want
+% this behavior.
+\let\sumnonlimits\sum
+\let\prodnonlimits\prod
+\let\cupnonlimits\bigcup
+\let\capnonlimits\bigcap
+\renewcommand{\sum}{\sumnonlimits\limits}
+\renewcommand{\prod}{\prodnonlimits\limits}
+\renewcommand{\bigcup}{\cupnonlimits\limits}
+\renewcommand{\bigcap}{\capnonlimits\limits}
+
+%----------------------------------------------------------------------------------------
+%	ENVIRONMENTS
+%----------------------------------------------------------------------------------------
+% The incantations below define how theorem environments
+% (\begin{theorem} ... \end{theorem}) and their likes will look like.
+\newtheoremstyle{plainsl}% <name>
+  {8pt plus 2pt minus 4pt}% <Space above>
+  {8pt plus 2pt minus 4pt}% <Space below>
+  {\slshape}% <Body font>
+  {0pt}% <Indent amount>
+  {\bfseries}% <Theorem head font>
+  {.}% <Punctuation after theorem head>
+  {5pt plus 1pt minus 1pt}% <Space after theorem headi>
+  {}% <Theorem head spec (can be left empty, meaning `normal')>
+
+% Environments which make the text inside them slanted:
+\theoremstyle{plainsl}
+  \newtheorem{theorem}{Theorem}[section]
+  \newtheorem{proposition}[theorem]{Proposition}
+  \newtheorem{lemma}[theorem]{Lemma}
+  \newtheorem{corollary}[theorem]{Corollary}
+  \newtheorem{conjecture}[theorem]{Conjecture}
+% Environments that don't:
+\theoremstyle{definition}
+  \newtheorem{definition}[theorem]{Definition}
+  \newtheorem{example}[theorem]{Example}
+  \newtheorem{exercise}[theorem]{Exercise}
+  \newtheorem{examples}[theorem]{Examples}
+  \newtheorem{algorithm}[theorem]{Algorithm}
+  \newtheorem{question}[theorem]{Question}
+ \theoremstyle{remark}
+  \newtheorem{remark}[theorem]{Remark}
+\newenvironment{statement}{\begin{quote}}{\end{quote}}
+\newenvironment{fineprint}{\begin{small}}{\end{small}}
+
+%----------------------------------------------------------------------------------------
+%	METADATA
+%----------------------------------------------------------------------------------------
+\newcommand{\myname}{Darij Grinberg} % ENTER YOUR NAME HERE
+\newcommand{\myid}{00000000} % ENTER YOUR UMN ID HERE
+\newcommand{\mymail}{dgrinber@umn.edu} % ENTER YOUR EMAIL HERE
+\newcommand{\psetnumber}{1} % ENTER THE NUMBER OF THIS PSET HERE
+
+%----------------------------------------------------------------------------------------
+%	HEADER AND FOOTER
+%----------------------------------------------------------------------------------------
+\ihead{Solutions to midterm \#\psetnumber} % Page header left
+\ohead{page \thepage\ of \pageref{LastPage}} % Page header right
+\ifoot{\myname, \myid} % left footer
+\ofoot{\mymail} % right footer
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+\title{	
+\normalfont \normalsize 
+\textsc{University of Minnesota, School of Mathematics} \\ [25pt] % Your university, school and/or department name(s)
+\horrule{0.5pt} \\[0.4cm] % Thin top horizontal rule
+\huge Math 4281: Introduction to Modern Algebra, \\
+Spring 2019:
+Midterm \psetnumber\\% The assignment title
+\horrule{2pt} \\[0.5cm] % Thick bottom horizontal rule
+}
+\author{\myname}
+
+\begin{document}
+
+\maketitle % Print the title
+
+\begin{center} % Delete this if you want to save space!
+{\large due date: \textbf{Wednesday, 6 March 2019} at the beginning of class, \\
+or before that through Canvas.
+
+\textbf{No collaboration allowed} -- this is a midterm.
+
+Please solve \textbf{at most 3 of the 6 exercises}!}
+\end{center}
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 1
+%----------------------------------------------------------------------------------------
+\horrule{0.3pt} \\[0.4cm]
+
+\section{Exercise 1: Gcds and lcms together}
+
+\subsection{Problem}
+
+Let $a, b, c$ be three integers.
+
+\begin{enumerate}
+
+\item[\textbf{(a)}]
+Prove that
+$\gcd\tup{a, \lcm\tup{b, c}}
+= \lcm\tup{\gcd\tup{a, b}, \gcd\tup{a, c}}$.
+
+\item[\textbf{(b)}]
+Prove that
+$\lcm\tup{a, \gcd\tup{b, c}}
+= \gcd\tup{\lcm\tup{a, b}, \lcm\tup{a, c}}$.
+
+\end{enumerate}
+
+\subsection{Solution}
+
+See
+\href{http://www-users.math.umn.edu/~dgrinber/19s/notes.pdf}{the class notes},
+where this is Exercise 2.11.2.
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 2
+%----------------------------------------------------------------------------------------
+\horrule{0.3pt} \\[0.4cm]
+
+\section{Exercise 2: $p$-adic valuations of rationals}
+
+\subsection{Problem}
+
+Fix a prime $p$.
+For each nonzero rational number $r$, define the
+\textit{extended $p$-adic valuation} $w_p\tup{r}$ as
+follows:
+We write $r$ in the form $r = a/b$
+for two nonzero integers $a$ and $b$, and set
+$w_p\tup{r} = v_p\tup{a} - v_p\tup{b}$.
+(It also makes sense to set $w_p\tup{0} = \infty$,
+but we shall not concern ourselves with this border case
+in this exercise.)
+
+\begin{enumerate}
+
+\item[\textbf{(a)}]
+Prove that this is well-defined -- i.e., that
+$w_p\tup{r}$ does not depend on the precise choice of
+$a$ and $b$ satisfying $r = a/b$.
+
+\item[\textbf{(b)}]
+Prove that $w_p\tup{n} = v_p\tup{n}$ for each nonzero
+integer $n$.
+
+\item[\textbf{(c)}]
+Prove that $w_p\tup{ab} = w_p\tup{a} + w_p\tup{b}$ for
+any two nonzero rational numbers $a$ and $b$.
+
+\item[\textbf{(d)}]
+Prove that $w_p\tup{a+b} \geq \min\set{w_p\tup{a}, w_p\tup{b}}$
+for any two nonzero rational numbers $a$ and $b$
+if $a+b \neq 0$.
+
+\end{enumerate}
+
+\subsection{Remark}
+
+The claim of part \textbf{(d)} has a curious (and, if you are a
+number theorist, important) consequence:
+Each prime $p$ can be used to define a ``distance function'' on $\QQ$
+that is very different from the usual distance function
+($\tup{a,b} \mapsto \abs{a-b}$):
+Namely, for any two rational numbers $a$ and $b$, we define
+the \textit{$p$-adic distance} $d_p\tup{a, b}$ between $a$ and $b$ by
+\[
+d_p\tup{a, b}
+= \begin{cases}
+     p^{w_p\tup{a-b}}, & \text{if $a-b \neq 0$}; \\
+     0,                & \text{if $a-b = 0$}.
+  \end{cases}
+\]
+For instance, $d_3\tup{5, 1/2} = 3^{w_3\tup{5 - 1/2}} = 3^2$,
+since $w_3\tup{5 - 1/2} = w_3\tup{9/2} = v_3\tup{9} - v_3\tup{2}
+= 2 - 0 = 2$.
+
+The $p$-adic distance deserves the name ``distance'', as it
+does satisfy the triangle inequality:
+\[
+d_p\tup{a, c} \leq d_p\tup{a, b} + d_p\tup{b, c}
+\qquad \text{for any $a, b, c \in \QQ$} .
+\]
+Actually, the following stronger inequality (called
+\textit{ultrametric triangle inequality}) holds:
+\[
+d_p\tup{a, c} \leq \max\set{d_p\tup{a, b}, d_p\tup{b, c}}
+\qquad \text{for any $a, b, c \in \QQ$} .
+\]
+Indeed, this follows easily from part \textbf{(d)} of the
+exercise (applied to $a-b$ and $b-c$ instead of $a$ and $b$).
+
+You might remember that the real numbers were defined as the
+completion of the rational numbers with respect to the usual
+distance (i.e., a real number is actually an equivalence class
+of Cauchy sequences defined with respect to the usual distance).
+Similarly one can consider the completion of the rational numbers
+with respect to the $p$-adic distance (i.e., again consider
+Cauchy sequences, but this time the distances are replaced by
+the $p$-adic distances).
+This leads to \href{https://en.wikipedia.org/wiki/P-adic_number}{the $p$-adic numbers}.
+See \cite{Gouvea97} for an elementary introduction to this
+subject.
+
+\subsection{Solution}
+
+See
+\href{http://www-users.math.umn.edu/~dgrinber/19s/notes.pdf}{the class notes},
+where this is Exercise 3.4.1.
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 3
+%----------------------------------------------------------------------------------------
+\horrule{0.3pt} \\[0.4cm]
+
+\section{Exercise 3: How often does a prime divide a factorial?}
+
+\subsection{Problem}
+
+In this exercise, we shall use
+\href{https://en.wikipedia.org/wiki/Iverson_bracket}{the \textit{Iverson bracket notation}}:
+If $\mathcal{A}$ is any statement, then $\ive{\mathcal{A}}$
+stands for the integer
+$\begin{cases}
+1, & \text{if $\mathcal{A}$ is true;} \\
+0, & \text{if $\mathcal{A}$ is false}
+\end{cases}$
+(which is also known as the \textit{truth value} of
+$\mathcal{A}$).
+For instance, $\ive{1+1 = 2} = 1$ and $\ive{1+1 = 1} = 0$.
+
+\begin{enumerate}
+
+\item[\textbf{(a)}]
+Prove that $n // k = \sum_{i=1}^n \ive{k \mid i}$
+for any $n \in \NN$ and any positive integer $k$.
+
+\item[\textbf{(b)}]
+Prove that $v_p \tup{n} = \sum_{i \geq 1} \ive{p^i \mid n}$
+for any prime $p$ and any nonzero integer $n$.
+Here, the sum $\sum_{i \geq 1} \ive{p^i \mid n}$ is
+a sum over all positive integers; but it is
+well-defined, since it has only finitely many nonzero
+addends.
+
+\item[\textbf{(c)}]
+Prove that
+$v_p \tup{n!} = \sum_{i \geq 1} n // p^i$ for any
+prime $p$ and any $n \in \NN$.
+
+\end{enumerate}
+
+\subsection{Solution}
+
+See
+\href{http://www-users.math.umn.edu/~dgrinber/19s/notes.pdf}{the class notes},
+where this is the first three parts of Exercise 2.16.2.
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 4
+%----------------------------------------------------------------------------------------
+\horrule{0.3pt} \\[0.4cm]
+
+\section{Exercise 4: Wilson with a twist}
+
+\subsection{Problem}
+
+Let $p$ be a prime.
+Prove that
+\[
+\tup{p-1}! \equiv p-1
+\mod 1 + 2 + \cdots + \tup{p-1} .
+\]
+
+\subsection{Solution}
+
+See
+\href{http://www-users.math.umn.edu/~dgrinber/19s/notes.pdf}{the class notes},
+where this is Exercise 2.15.3.
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 5
+%----------------------------------------------------------------------------------------
+\horrule{0.3pt} \\[0.4cm]
+
+\section{Exercise 5: gcds in exponents}
+
+\subsection{Problem}
+
+Let $a$ be an integer.
+Let $n, m \in \NN$.
+Prove that
+\[
+\gcd\tup{a^n - 1, a^m - 1}
+= \abs{a^{\gcd\tup{n, m}} - 1}.
+\]
+
+[\textbf{Hint:} Strong induction. First show that
+$a^n - 1 \equiv a^m - 1 \mod a^{n-m} - 1$ if $n \geq m$.]
+
+\subsection{Solution}
+
+See
+\href{http://www-users.math.umn.edu/~dgrinber/19s/notes.pdf}{the class notes},
+where this is Exercise 2.9.3 (with slightly changed notations).
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 6
+%----------------------------------------------------------------------------------------
+\horrule{0.3pt} \\[0.4cm]
+
+\section{Exercise 6: Remainder arithmetic}
+
+\subsection{Problem}
+
+Let $u$ and $v$ be two integers.
+Let $n$ be a positive integer.
+Prove that
+\[
+u \% n + v \% n - \tup{u+v} \% n \in \set{0, n} .
+\]
+
+\subsection{Solution}
+
+See
+\href{http://www-users.math.umn.edu/~dgrinber/19s/notes.pdf}{the class notes},
+where this is Exercise 2.6.3 \textbf{(a)}.
+
+\begin{thebibliography}{99999999}                                                                                         %
+
+% Feel free to add your sources -- or copy some from the source code
+% of the class notes ( http://www-users.math.umn.edu/~dgrinber/19s/notes.tex ).
+
+\bibitem[Gouvea97]{Gouvea97}Fernando Q. Gouvea,
+\textit{$p$-adic numbers: An introduction},
+2nd edition, Springer 1997.
+\url{https://www.springer.com/us/book/9783540629115} or
+\url{https://link.springer.com/book/10.1007/F978-3-642-59058-0} .
+
+\bibitem[GrKnPa94]{GKP}Ronald L. Graham, Donald E. Knuth, Oren Patashnik,
+\textit{Concrete Mathematics, Second Edition}, Addison-Wesley 1994.\\
+See \url{https://www-cs-faculty.stanford.edu/~knuth/gkp.html} for errata.
+
+\bibitem[Grinbe19]{detnotes}Darij Grinberg,
+\textit{Notes on the combinatorial fundamentals of algebra},
+10 January 2019. \\
+\url{http://www.cip.ifi.lmu.de/~grinberg/primes2015/sols.pdf}
+\\
+The numbering of theorems and formulas in this link might shift
+when the project gets updated; for a ``frozen'' version whose
+numbering is guaranteed to match that in the citations above, see
+\url{https://github.com/darijgr/detnotes/releases/tag/2019-01-10} .
+
+\end{thebibliography}
+
+\end{document}
+

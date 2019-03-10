@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Saturday, March 09, 2019 23:16:03}
+%TCIDATA{LastRevised=Saturday, March 09, 2019 23:24:48}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -8758,6 +8758,18 @@ be proven in the same way).
 \right\}  $.
 \end{exercise}
 
+\begin{exercise}
+\label{exe.ent.primes.gcd.distrib}Let $a,b,c$ be three integers.
+
+\textbf{(a)} Prove that $\gcd\left(  a,\operatorname{lcm}\left(  b,c\right)
+\right)  =\operatorname{lcm}\left(  \gcd\left(  a,b\right)  ,\gcd\left(
+a,c\right)  \right)  $.
+
+\textbf{(b)} Prove that $\operatorname{lcm}\left(  a,\gcd\left(  b,c\right)
+\right)  =\gcd\left(  \operatorname{lcm}\left(  a,b\right)
+,\operatorname{lcm}\left(  a,c\right)  \right)  $.
+\end{exercise}
+
 \subsubsection{Coprimality through prime factors}
 
 \begin{proposition}
@@ -14781,7 +14793,7 @@ Standard setup: Albert and Julia want to communicate secretly,
 \textbf{without} having to give each other keys in advance.
 
 Albert wants to send encrypted messages that only Julia can read, and receive
-encrypted messsages that only he can read. The channel of communication may
+encrypted messages that only he can read. The channel of communication may
 have eavesdroppers. How can we do that?
 
 \textbf{Setup:}
@@ -19353,13 +19365,13 @@ $\left\vert s\operatorname{lcm}\left(  a,b\right)  \right\vert =\left\vert
 sa,sb\right)  $ (since $\operatorname{lcm}\left(  sa,sb\right)  $ is
 nonnegative). Hence,%
 \begin{align*}
-\operatorname{lcm}\left(  sa,sb\right)    & =\left\vert s\operatorname{lcm}%
+\operatorname{lcm}\left(  sa,sb\right)   &  =\left\vert s\operatorname{lcm}%
 \left(  a,b\right)  \right\vert =\left\vert s\right\vert \cdot
 \underbrace{\left\vert \operatorname{lcm}\left(  a,b\right)  \right\vert
 }_{\substack{=\operatorname{lcm}\left(  a,b\right)  \\\text{(since
 }\operatorname{lcm}\left(  a,b\right)  \\\text{is nonnegative)}}%
-}\ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{eq.ent.div.abs(xy)})}\right)  \\
-& =\left\vert s\right\vert \operatorname{lcm}\left(  a,b\right)  .
+}\ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{eq.ent.div.abs(xy)})}\right) \\
+&  =\left\vert s\right\vert \operatorname{lcm}\left(  a,b\right)  .
 \end{align*}
 This solves Exercise \ref{exe.ent.lcm.props1} \textbf{(e)}.
 \end{proof}
@@ -20071,6 +20083,133 @@ n\right)  ,v_{p}\left(  m\right)  \right\}  $ for each prime $p$. Thus,
 We have now proven (\ref{sol.ent.primes.gcd.1.b.goal}) in each of the two
 Cases 1 and 2. Thus, (\ref{sol.ent.primes.gcd.1.b.goal}) always holds. This
 solves Exercise \ref{exe.ent.primes.gcd.1} \textbf{(b)}.
+\end{proof}
+\end{fineprint}
+
+\subsection{Solution to Exercise \ref{exe.ent.primes.gcd.distrib}}
+
+\begin{fineprint}
+\begin{proof}
+[Solution to Exercise \ref{exe.ent.primes.gcd.distrib}.]\textbf{(a)} Let us
+first show an auxiliary claim:
+
+\begin{statement}
+\textit{Claim 1:} Let $i,j,k\in\mathbb{N}\cup\left\{  \infty\right\}  $ be
+arbitrary. Then,%
+\[
+\min\left\{  i,\max\left\{  j,k\right\}  \right\}  =\max\left\{  \min\left\{
+i,j\right\}  ,\min\left\{  i,k\right\}  \right\}  .
+\]
+
+\end{statement}
+
+[\textit{Proof of Claim 1:} We have $j\leq k$ or $j\geq k$. Since $j$ and $k$
+play symmetric roles in Claim 1, we can always swap $j$ and $k$; thus, we can
+WLOG assume that $j\leq k$. Assume this. From $j\leq k$, we obtain
+$\max\left\{  j,k\right\}  =k$. Moreover, any element of a set must be $\geq$
+to the minimum of this set; hence, $i\geq\min\left\{  i,j\right\}  $ and
+$j\geq\min\left\{  i,j\right\}  $. The minimum $\min\left\{  i,k\right\}  $
+must be one of the two elements $i$ and $k$ (since the minimum of a set must
+always be an element of this set); but both of these elements $i$ and $k$ are
+$\geq\min\left\{  i,j\right\}  $ (because $i\geq\min\left\{  i,j\right\}  $
+and $k\geq j\geq\min\left\{  i,j\right\}  $). Hence, $\min\left\{
+i,k\right\}  $ must be $\geq\min\left\{  i,j\right\}  $. Hence, $\max\left\{
+\min\left\{  i,j\right\}  ,\min\left\{  i,k\right\}  \right\}  =\min\left\{
+i,k\right\}  $. Comparing this with $\min\left\{  i,\underbrace{\max\left\{
+j,k\right\}  }_{=k}\right\}  =\min\left\{  i,k\right\}  $, we obtain
+$\min\left\{  i,\max\left\{  j,k\right\}  \right\}  =\max\left\{  \min\left\{
+i,j\right\}  ,\min\left\{  i,k\right\}  \right\}  $. This proves Claim 1.]
+
+Now, fix a prime $p$. Then, Exercise \ref{exe.ent.primes.gcd.1} \textbf{(a)}
+(applied to $n=a$ and $m=\operatorname{lcm}\left(  b,c\right)  $) yields%
+\begin{align}
+v_{p}\left(  \gcd\left(  a,\operatorname{lcm}\left(  b,c\right)  \right)
+\right)   &  =\min\left\{  v_{p}\left(  a\right)  ,\underbrace{v_{p}\left(
+\operatorname{lcm}\left(  b,c\right)  \right)  }_{\substack{=\max\left\{
+v_{p}\left(  b\right)  ,v_{p}\left(  c\right)  \right\}  \\\text{(by Exercise
+\ref{exe.ent.primes.gcd.1} \textbf{(b)},}\\\text{applied to }n=b\text{ and
+}m=c\text{)}}}\right\} \nonumber\\
+&  =\min\left\{  v_{p}\left(  a\right)  ,\max\left\{  v_{p}\left(  b\right)
+,v_{p}\left(  c\right)  \right\}  \right\} \nonumber\\
+&  =\max\left\{  \min\left\{  v_{p}\left(  a\right)  ,v_{p}\left(  b\right)
+\right\}  ,\min\left\{  v_{p}\left(  a\right)  ,v_{p}\left(  c\right)
+\right\}  \right\}  \label{sol.ent.primes.gcd.distrib.1st.a.1}%
+\end{align}
+(by Claim 1, applied to $i=v_{p}\left(  a\right)  $, $j=v_{p}\left(  b\right)
+$ and $k=v_{p}\left(  c\right)  $). On the other hand, Exercise
+\ref{exe.ent.primes.gcd.1} \textbf{(b)} (applied to $n=\gcd\left(  a,b\right)
+$ and $m=\gcd\left(  a,c\right)  $) yields%
+\begin{align*}
+v_{p}\left(  \operatorname{lcm}\left(  \gcd\left(  a,b\right)  ,\gcd\left(
+a,c\right)  \right)  \right)   &  =\max\left\{  \underbrace{v_{p}\left(
+\gcd\left(  a,b\right)  \right)  }_{\substack{=\min\left\{  v_{p}\left(
+a\right)  ,v_{p}\left(  b\right)  \right\}  \\\text{(by Exercise
+\ref{exe.ent.primes.gcd.1} \textbf{(a)},}\\\text{applied to }n=a\text{ and
+}m=b\text{)}}},\underbrace{v_{p}\left(  \gcd\left(  a,c\right)  \right)
+}_{\substack{=\min\left\{  v_{p}\left(  a\right)  ,v_{p}\left(  c\right)
+\right\}  \\\text{(by Exercise \ref{exe.ent.primes.gcd.1} \textbf{(a)}%
+,}\\\text{applied to }n=a\text{ and }m=c\text{)}}}\right\} \\
+&  =\max\left\{  \min\left\{  v_{p}\left(  a\right)  ,v_{p}\left(  b\right)
+\right\}  ,\min\left\{  v_{p}\left(  a\right)  ,v_{p}\left(  c\right)
+\right\}  \right\}  .
+\end{align*}
+Comparing this with (\ref{sol.ent.primes.gcd.distrib.1st.a.1}), we obtain%
+\[
+v_{p}\left(  \gcd\left(  a,\operatorname{lcm}\left(  b,c\right)  \right)
+\right)  =v_{p}\left(  \operatorname{lcm}\left(  \gcd\left(  a,b\right)
+,\gcd\left(  a,c\right)  \right)  \right)  .
+\]
+
+
+Now, forget that we fixed $p$. We thus have proven that $v_{p}\left(
+\gcd\left(  a,\operatorname{lcm}\left(  b,c\right)  \right)  \right)
+=v_{p}\left(  \operatorname{lcm}\left(  \gcd\left(  a,b\right)  ,\gcd\left(
+a,c\right)  \right)  \right)  $ for every prime $p$. Thus, Exercise
+\ref{exe.ent.primes.vp=vp} (applied to $n=\gcd\left(  a,\operatorname{lcm}%
+\left(  b,c\right)  \right)  $ and $m=\operatorname{lcm}\left(  \gcd\left(
+a,b\right)  ,\gcd\left(  a,c\right)  \right)  $) yields that $\gcd\left(
+a,\operatorname{lcm}\left(  b,c\right)  \right)  =\operatorname{lcm}\left(
+\gcd\left(  a,b\right)  ,\gcd\left(  a,c\right)  \right)  $ (since
+$\gcd\left(  a,\operatorname{lcm}\left(  b,c\right)  \right)  $ and
+$\operatorname{lcm}\left(  \gcd\left(  a,b\right)  ,\gcd\left(  a,c\right)
+\right)  $ are nonnegative integers\footnote{because any gcd and any lcm is a
+nonnegative integer}). This solves Exercise \ref{exe.ent.primes.gcd.distrib}
+\textbf{(a)}.
+
+\textbf{(b)} Exercise \ref{exe.ent.primes.gcd.distrib} \textbf{(b)} can be
+above in the same way as we solved Exercise \ref{exe.ent.primes.gcd.distrib}
+\textbf{(a)} above, after making the obvious changes (i.e., all minima should
+be replaced by maxima and vice versa; all inequalities in the proof of Claim 1
+need to be flipped; all gcds should be replaced by lcms and vice versa). For
+example, instead of Claim 1, we now need the following claim (with an
+analogous proof):
+
+\begin{statement}
+\textit{Claim 2:} Let $i,j,k\in\mathbb{N}\cup\left\{  \infty\right\}  $ be
+arbitrary. Then,%
+\[
+\max\left\{  i,\min\left\{  j,k\right\}  \right\}  =\min\left\{  \max\left\{
+i,j\right\}  ,\max\left\{  i,k\right\}  \right\}  .
+\]
+
+\end{statement}
+
+[\textit{Remark:} The two parts of Exercise \ref{exe.ent.primes.gcd.distrib}
+can be regarded as \textquotedblleft distributivity laws\textquotedblright,
+but for the binary operations $\gcd$ and $\operatorname{lcm}$ (or
+$\operatorname{lcm}$ and $\gcd$, respectively) instead of $+$ and $\cdot$.
+
+See Bill Dubuque's post \url{https://math.stackexchange.com/a/147992/} for a
+different solution to Exercise \ref{exe.ent.primes.gcd.distrib} \textbf{(a)},
+which does not require considering primes. (Note that he uses the notations
+$\left(  x_{1},x_{2},\ldots,x_{k}\right)  $ and $\left[  x_{1},x_{2}%
+,\ldots,x_{k}\right]  $ for what we call $\gcd\left(  x_{1},x_{2},\ldots
+,x_{k}\right)  $ and $\operatorname{lcm}\left(  x_{1},x_{2},\ldots
+,x_{k}\right)  $.) It is not hard to derive one part of Exercise
+\ref{exe.ent.primes.gcd.distrib} from the other using Theorem
+\ref{thm.ent.lcm.gcd*lcm}, Exercise \ref{exe.ent.lcm.props1} \textbf{(e)},
+Corollary \ref{cor.ent.gcd.sa,sb} and Theorem \ref{thm.ent.gcd.uniprop-mul}
+\textbf{(d)} (applied to $k=3$).]
 \end{proof}
 \end{fineprint}
 
@@ -21037,7 +21176,7 @@ Hence, $\underbrace{v_{p}\left(  a\right)  }_{\in\mathbb{N}}-\underbrace{v_{p}%
 $v_{p}\left(  a\right)  -v_{p}\left(  b\right)  $ is a well-defined integer.
 This proves Claim 2.]
 
-It remains to prove Claim 3. Clearly, Claim 3 can be restated as folllows:
+It remains to prove Claim 3. Clearly, Claim 3 can be restated as follows:
 
 \begin{statement}
 \textit{Claim 4:} Let $\left(  a_{1},b_{1}\right)  $ and $\left(  a_{2}%
@@ -21239,7 +21378,7 @@ But it is easy to see that any three numbers $i,j,k\in\mathbb{N}$ satisfy%
 \label{sol.eqrel.quot.wp.d.min-}%
 \end{equation}
 \footnote{\textit{Proof of (\ref{sol.eqrel.quot.wp.d.min-}):} Let
-$i,j,k\in\mathbb{N}$ be three numbers. We must prove the equaltity
+$i,j,k\in\mathbb{N}$ be three numbers. We must prove the equality
 (\ref{sol.eqrel.quot.wp.d.min-}). We can WLOG assume that $i\leq j$ (since $i$
 and $j$ play symmetric roles in our claim, and thus swapping $i$ with $j$ will
 not change anything). Assume this. Hence, $\underbrace{i}_{\leq j}-k\leq j-k$,
