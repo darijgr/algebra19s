@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Saturday, March 09, 2019 23:24:48}
+%TCIDATA{LastRevised=Saturday, March 09, 2019 23:41:57}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -20644,9 +20644,13 @@ $q\leq-1$. Hence, $q>-1$. Therefore, $q\geq0$ (since $q\in\mathbb{Z}$). Also,
 $n=qk+\underbrace{r}_{\geq0}\geq qk$ and $n=qk+\underbrace{r}_{\leq
 k-1<k}<qk+k=\left(  q+1\right)  k$.
 
-We have $1<2<\cdots<q$. Since $k$ is positive, this yields $1k<2k<\cdots<qk$.
-Thus, the $q$ numbers $1k,2k,\ldots,qk$ are distinct; therefore, $\left\vert
-\left\{  1k,2k,\ldots,qk\right\}  \right\vert =q$.
+We have $1<2<\cdots<q$. Since $k$ is positive, we can multiply this chain of
+inequalities by $k$, and obtain $1k<2k<\cdots<qk$. Thus, the $q$ numbers
+$1k,2k,\ldots,qk$ are distinct; therefore,%
+\[
+\left\vert \left\{  1k,2k,\ldots,qk\right\}  \right\vert =q.
+\]
+
 
 We now shall show the following:
 
@@ -20785,18 +20789,18 @@ words, all but finitely many addends of the sum $\sum_{i\geq1}\left[
 p^{i}\mid n\right]  $ are zero. In other words, this sum has only finitely
 many nonzero addends. Hence, this sum is well-defined.
 
-Now, we can split this sum as follows:%
-\begin{align*}
-\sum_{i\geq1}\left[  p^{i}\mid n\right]   &  =\sum_{i=1}^{v_{p}\left(
-n\right)  }\underbrace{\left[  p^{i}\mid n\right]  }_{\substack{=1\\\text{(by
+Now, we can split this sum at $i=v_{p}\left(  n\right)  $ (since $v_{p}\left(
+n\right)  \geq0$), and thus obtain%
+\[
+\sum_{i\geq1}\left[  p^{i}\mid n\right]  =\sum_{i=1}^{v_{p}\left(  n\right)
+}\underbrace{\left[  p^{i}\mid n\right]  }_{\substack{=1\\\text{(by
 (\ref{sol.binom.legendre.b.0}))}}}+\sum_{i>v_{p}\left(  n\right)
 }\underbrace{\left[  p^{i}\mid n\right]  }_{\substack{=0\\\text{(by
-(\ref{sol.binom.legendre.b.1}))}}}\ \ \ \ \ \ \ \ \ \ \left(  \text{since
-}v_{p}\left(  n\right)  \geq0\right) \\
-&  =\sum_{i=1}^{v_{p}\left(  n\right)  }1+\underbrace{\sum_{i>v_{p}\left(
-n\right)  }0}_{=0}=\sum_{i=1}^{v_{p}\left(  n\right)  }1=v_{p}\left(
-n\right)  \cdot1=v_{p}\left(  n\right)  .
-\end{align*}
+(\ref{sol.binom.legendre.b.1}))}}}=\sum_{i=1}^{v_{p}\left(  n\right)
+}1+\underbrace{\sum_{i>v_{p}\left(  n\right)  }0}_{=0}=\sum_{i=1}%
+^{v_{p}\left(  n\right)  }1=v_{p}\left(  n\right)  \cdot1=v_{p}\left(
+n\right)  .
+\]
 In other words, $v_{p}\left(  n\right)  =\sum_{i\geq1}\left[  p^{i}\mid
 n\right]  $. This solves Exercise \ref{exe.binom.legendre} \textbf{(b)}.
 
@@ -20866,10 +20870,10 @@ for the rest of this proof, we WLOG assume that we don't have $k>n$. Hence,
 $k\leq n$. Therefore, $n\geq k$ and thus $n-k\in\mathbb{N}$. Hence, Theorem
 \ref{thm.binom.n!k!} yields%
 \begin{equation}
-\dbinom{n}{k}=\dfrac{n!}{k!\left(  n-k\right)  !}.
-\label{pf.cor.binom.N->N.frac}%
+\dbinom{n}{k}=\dfrac{n!}{k!\left(  n-k\right)  !}%
+.\label{pf.cor.binom.N->N.frac}%
 \end{equation}
-This yields that the number $\dbinom{n}{k}$ is positive (since the number
+This yields that the number $\dbinom{n}{k}$ is positive (since the numbers
 $n!$, $k!$ and $\left(  n-k\right)  !$ are all positive) and therefore
 nonnegative. It remains to prove that $\dbinom{n}{k}$ is an integer.
 
@@ -21218,7 +21222,7 @@ b_{1}\right)  +v_{p}\left(  b_{2}\right)  $ from both sides of the equality
 -v_{p}\left(  b_{1}\right)  =v_{p}\left(  a_{2}\right)  -v_{p}\left(
 b_{2}\right)  $. This proves Claim 4.]
 
-As we recall, Claim 4 is just a restatement of Claim 1. Hence, Claim 1 is
+As we recall, Claim 4 is just a restatement of Claim 3. Hence, Claim 3 is
 proven (since Claim 4 is proven). From Claims 1, 2 and 3, we conclude that
 $w_{p}\left(  r\right)  $ is well-defined. Thus, Exercise
 \ref{exe.eqrel.quot.wp} \textbf{(a)} is solved.
