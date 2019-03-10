@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Saturday, March 09, 2019 19:52:45}
+%TCIDATA{LastRevised=Saturday, March 09, 2019 22:38:14}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -211,6 +211,9 @@ summation signs ($\sum$) and polynomials (a vague notion of polynomials will
 suffice; we will give a precise definition when it becomes necessary). If not,
 several texts can be helpful in achieving such familiarity: e.g.,
 \cite[particularly Chapters 1--5]{LeLeMe}, \cite{Hammack}, \cite{Day}.
+
+I thank the students of the Math 4281 class for discovering and reporting
+errors in previous versions of these notes.
 
 \begin{center}
 \textbf{2019-01-23 lecture}
@@ -2724,7 +2727,8 @@ the pair $\left(  q,r\right)  $ is not unique.
 \end{remark}
 
 \begin{convention}
-The symbols $//$ and $\%$ will be granted higher precedence (in the sense of
+\label{conv.ent.quo-rem.prec}The symbols $//$ and $\%$ will be granted higher
+precedence (in the sense of
 \href{https://en.wikipedia.org/wiki/Order_of_operations}{operator precedence})
 than addition. This means that an expression of the form \textquotedblleft%
 $c+a//n+b$\textquotedblright\ will always be interpreted as \textquotedblleft%
@@ -2739,11 +2743,13 @@ $c+\left(  a//n\right)  +b$\textquotedblright, rather than as
 
 \begin{exercise}
 \label{exe.ent.quo-rem.u+v}Let $u$ and $v$ be two integers. Let $n$ be a
-positive integer. Prove that
-\[
-u\%n+v\%n-\left(  u+v\right)  \%n\in\left\{  0,n\right\}  .
-\]
+positive integer.
 
+\textbf{(a)} Prove that $u\%n+v\%n-\left(  u+v\right)  \%n\in\left\{
+0,n\right\}  $.
+
+\textbf{(b)} Prove that $\left(  u+v\right)  //n-u//n-v//n\in\left\{
+0,1\right\}  $.
 \end{exercise}
 
 \subsection{Even and odd numbers}
@@ -10937,6 +10943,49 @@ is an integer. Thus, Proposition \ref{prop.binom.Z->Z} is proven.
 $k$ consecutive integers is divisible by $k!$.
 \end{exercise}
 
+\begin{exercise}
+\label{exe.binom.legendre}In this exercise, we shall use
+\href{https://en.wikipedia.org/wiki/Iverson_bracket}{the \textit{Iverson
+bracket notation}}: If $\mathcal{A}$ is any statement, then $\left[
+\mathcal{A}\right]  $ stands for the integer $%
+\begin{cases}
+1, & \text{if $\mathcal{A}$ is true;}\\
+0, & \text{if $\mathcal{A}$ is false}%
+\end{cases}
+$ (which is also known as the \textit{truth value} of $\mathcal{A}$). For
+instance, $\left[  1+1=2\right]  =1$ and $\left[  1+1=1\right]  =0$.
+
+\textbf{(a)} Prove that $n//k=\sum_{i=1}^{n}\left[  k\mid i\right]  $ for any
+$n\in\mathbb{N}$ and any positive integer $k$.
+
+\textbf{(b)} Prove that $v_{p}\left(  n\right)  =\sum_{i\geq1}\left[
+p^{i}\mid n\right]  $ for any prime $p$ and any nonzero integer $n$. Here, the
+sum $\sum_{i\geq1}\left[  p^{i}\mid n\right]  $ is a sum over all positive
+integers; but it is well-defined, since it has only finitely many nonzero addends.
+
+\textbf{(c)} Prove that $v_{p}\left(  n!\right)  =\sum_{i\geq1}n//p^{i}$ for
+any prime $p$ and any $n\in\mathbb{N}$. (Here, the expression
+\textquotedblleft$\sum_{i\geq1}n//p^{i}$\textquotedblright\ should be
+understood as $\sum_{i\geq1}\left(  n//p^{i}\right)  $. Again, this sum
+$\sum_{i\geq1}\left(  n//p^{i}\right)  $ is well-defined, since it has only
+finitely many nonzero addends.)
+
+\textbf{(d)} Use part \textbf{(c)} to prove Corollary \ref{cor.binom.N->N} again.
+\end{exercise}
+
+The claim of Exercise \ref{exe.binom.legendre} \textbf{(c)} is usually
+rewritten in the form $v_{p}\left(  n!\right)  =\sum_{i\geq1}\left\lfloor
+\dfrac{n}{p^{i}}\right\rfloor $ (which is equivalent, because of Proposition
+\ref{prop.ent.floor.quorem}); in this form, it is
+\href{https://en.wikipedia.org/wiki/Legendre's_formula}{known as Legendre's
+formula or as de Polignac's formula} (see, e.g., \cite[Theorem 1.3.3]{floor}).
+It is often a helpful tool in proving divisibility properties of factorials
+and binomial coefficients. One application, for example, is to quickly compute
+how many zeroes the decimal expansion of $n!$ ends with. (Note that Exercise
+\ref{exe.binom.legendre} \textbf{(b)} can be rewritten as $v_{p}\left(
+n\right)  =\sum_{\substack{i\geq1;\\p^{i}\mid n}}1$; in this form it appears
+in \cite[Lemma 1.3.4]{floor}.)
+
 \subsubsection{Binomial formula and Vandermonde convolution}
 
 One of the staples of enumerative combinatorics are identities that involve
@@ -13549,9 +13598,9 @@ _{5}=\left[  5\right]  _{5}=\left[  0\right]  _{5}%
 2\%5+3\%5  &  =2+3=5\neq0\%5;
 \end{align*}
 \par
-Exercise \ref{exe.ent.quo-rem.u+v} addresses how $u\%n+v\%n$ differs from
-$\left(  u+v\right)  \%n$.}. Thus, it is important to distinguish between
-$i\%n$ and $\left[  i\right]  _{n}$.
+Exercise \ref{exe.ent.quo-rem.u+v} \textbf{(a)} addresses how $u\%n+v\%n$
+differs from $\left(  u+v\right)  \%n$.}. Thus, it is important to distinguish
+between $i\%n$ and $\left[  i\right]  _{n}$.
 
 \begin{remark}
 We can view the residue classes modulo $24$ (that is, the elements of
@@ -17603,7 +17652,7 @@ pair $\left(  q,r\right)  $ from Exercise \ref{exe.ent.quo-rem.minrem}
 
 \begin{fineprint}
 \begin{proof}
-[Solution to Exercise \ref{exe.ent.quo-rem.u+v}.]Corollary
+[Solution to Exercise \ref{exe.ent.quo-rem.u+v}.]\textbf{(a)} Corollary
 \ref{cor.ent.quo-rem.remmod} \textbf{(a)} yields that $u\%n\in\left\{
 0,1,\ldots,n-1\right\}  $ and $u\%n\equiv u\operatorname{mod}n$. From
 $u\%n\in\left\{  0,1,\ldots,n-1\right\}  $, we conclude that $u\%n$ is an
@@ -17651,7 +17700,50 @@ Combining $c\geq0$ with $c\leq1$, we obtain $c\in\left\{  0,1\right\}  $
 (since $c$ is an integer). In other words, we have $c=0$ or $c=1$. Hence, we
 have $nc=n\cdot0=0$ or $nc=n\cdot1=n$. In other words, $nc\in\left\{
 0,n\right\}  $. Now, recall that $u\%n+v\%n-\left(  u+v\right)  \%n=nc\in
-\left\{  0,n\right\}  $. This solves Exercise \ref{exe.ent.quo-rem.u+v}.
+\left\{  0,n\right\}  $. This solves Exercise \ref{exe.ent.quo-rem.u+v}
+\textbf{(a)}.
+
+\textbf{(b)} Exercise \ref{exe.ent.quo-rem.u+v} \textbf{(a)} yields
+$u\%n+v\%n-\left(  u+v\right)  \%n\in\left\{  0,n\right\}  $.
+
+The integer $n$ is positive and thus nonzero. Corollary
+\ref{cor.ent.quo-rem.remmod} \textbf{(d)} yields $u=\left(  u//n\right)
+n+\left(  u\%n\right)  $. Solving this equation for $u//n$, we find%
+\begin{equation}
+u//n=\dfrac{u-u\%n}{n} \label{sol.ent.quo-rem.u+v.b.1}%
+\end{equation}
+(since $n$ is nonzero). The same argument (applied to $v$ instead of $u$)
+yields%
+\begin{equation}
+v//n=\dfrac{v-v\%n}{n}. \label{sol.ent.quo-rem.u+v.b.2}%
+\end{equation}
+Finally, the same argument that we used to prove
+(\ref{sol.ent.quo-rem.u+v.b.1}) can be applied to $u+v$ instead of $u$, and
+thus we obtain%
+\begin{equation}
+\left(  u+v\right)  //n=\dfrac{\left(  u+v\right)  -\left(  u+v\right)
+\%n}{n}. \label{sol.ent.quo-rem.u+v.b.3}%
+\end{equation}
+Now,%
+\begin{align*}
+&  \underbrace{\left(  u+v\right)  //n}_{\substack{=\dfrac{\left(  u+v\right)
+-\left(  u+v\right)  \%n}{n}\\\text{(by (\ref{sol.ent.quo-rem.u+v.b.3}))}%
+}}-\underbrace{u//n}_{\substack{=\dfrac{u-u\%n}{n}\\\text{(by
+(\ref{sol.ent.quo-rem.u+v.b.1}))}}}-\underbrace{v//n}_{\substack{=\dfrac
+{v-v\%n}{n}\\\text{(by (\ref{sol.ent.quo-rem.u+v.b.2}))}}}\\
+&  =\dfrac{\left(  u+v\right)  -\left(  u+v\right)  \%n}{n}-\dfrac{u-u\%n}%
+{n}-\dfrac{v-v\%n}{n}\\
+&  =\dfrac{1}{n}\underbrace{\left(  \left(  \left(  u+v\right)  -\left(
+u+v\right)  \%n\right)  -\left(  u-u\%n\right)  -\left(  v-v\%n\right)
+\right)  }_{=u\%n+v\%n-\left(  u+v\right)  \%n}\\
+&  =\dfrac{1}{n}\left(  u\%n+v\%n-\left(  u+v\right)  \%n\right) \\
+&  \in\left\{  \dfrac{1}{n}0,\dfrac{1}{n}n\right\}
+\ \ \ \ \ \ \ \ \ \ \left(  \text{since }u\%n+v\%n-\left(  u+v\right)
+\%n\in\left\{  0,n\right\}  \right) \\
+&  =\left\{  0,1\right\}  \ \ \ \ \ \ \ \ \ \ \left(  \text{since }\dfrac
+{1}{n}0=0\text{ and }\dfrac{1}{n}n=1\right)  .
+\end{align*}
+This solves Exercise \ref{exe.ent.quo-rem.u+v} \textbf{(b)}.
 \end{proof}
 \end{fineprint}
 
@@ -18259,6 +18351,9 @@ always proven.]
 By proving Statement 3, we have shown that Exercise \ref{exe.ent.gcd.an-1}
 \textbf{(b)} holds whenever $a+b=n$. This completes the induction step. Thus,
 Exercise \ref{exe.ent.gcd.an-1} \textbf{(b)} is proven by strong induction.
+
+[See also \url{https://math.stackexchange.com/questions/7473/} for various
+solutions of Exercise \ref{exe.ent.gcd.an-1} \textbf{(b)}.]
 \end{proof}
 \end{fineprint}
 
@@ -20308,6 +20403,326 @@ $\left(  a+1\right)  \left(  a+2\right)  \cdots\left(  a+k\right)
 =k!\dbinom{a+k}{k}$. Since $\dbinom{a+k}{k}$ is an integer, this equality
 yields that $\left(  a+1\right)  \left(  a+2\right)  \cdots\left(  a+k\right)
 $ is divisible by $k!$. This solves Exercise \ref{exe.binom.k!divprod}.
+\end{proof}
+\end{fineprint}
+
+\subsection{Solution to Exercise \ref{exe.binom.legendre}}
+
+\begin{fineprint}
+\begin{proof}
+[Solution to Exercise \ref{exe.binom.legendre}.]\textbf{(a)} Let
+$n\in\mathbb{N}$. Let $k$ be a positive integer. Theorem
+\ref{thm.ent.quorem.full} (applied to $n$ and $k$ instead of $u$ and $n$)
+shows that there exists a unique pair $\left(  q,r\right)  \in\mathbb{Z}%
+\times\left\{  0,1,\ldots,k-1\right\}  $ such that $n=qk+r$. Consider this
+pair. Then, $n//k=q$ (by the definition of $n//k$). From $\left(  q,r\right)
+\in\mathbb{Z}\times\left\{  0,1,\ldots,k-1\right\}  $, we obtain
+$q\in\mathbb{Z}$ and $r\in\left\{  0,1,\ldots,k-1\right\}  $. From
+$r\in\left\{  0,1,\ldots,k-1\right\}  $, we obtain $r\geq0$ and $r\leq k-1$.
+From $n=qk+r$, we obtain $qk=\underbrace{n}_{\geq0}-r\geq-\underbrace{r}_{\leq
+k-1<k}>-k=\left(  -1\right)  k$. If we had $q\leq-1$, then we would have
+$\underbrace{q}_{\leq-1}k\leq\left(  -1\right)  k$ (since $k$ is positive),
+which would contradict $qk>\left(  -1\right)  k$. Thus, we cannot have
+$q\leq-1$. Hence, $q>-1$. Therefore, $q\geq0$ (since $q\in\mathbb{Z}$). Also,
+$n=qk+\underbrace{r}_{\geq0}\geq qk$ and $n=qk+\underbrace{r}_{\leq
+k-1<k}<qk+k=\left(  q+1\right)  k$.
+
+We have $1<2<\cdots<q$. Since $k$ is positive, this yields $1k<2k<\cdots<qk$.
+Thus, the $q$ numbers $1k,2k,\ldots,qk$ are distinct; therefore, $\left\vert
+\left\{  1k,2k,\ldots,qk\right\}  \right\vert =q$.
+
+We now shall show the following:
+
+\begin{statement}
+\textit{Claim 1:} We have
+\[
+\left\{  i\in\left\{  1,2,\ldots,n\right\}  \text{ satisfying }k\mid
+i\right\}  =\left\{  1k,2k,\ldots,qk\right\}  .
+\]
+(We are writing the word \textquotedblleft satisfying\textquotedblright\ out,
+since the \textquotedblleft$\mid$\textquotedblright\ symbol is already being
+used for divisibility here.)
+\end{statement}
+
+[\textit{Proof of Claim 1:} Let $j\in\left\{  i\in\left\{  1,2,\ldots
+,n\right\}  \text{ satisfying }k\mid i\right\}  $. We shall show that
+$j\in\left\{  1k,2k,\ldots,qk\right\}  $.
+
+Indeed, we have $j\in\left\{  i\in\left\{  1,2,\ldots,n\right\}  \text{
+satisfying }k\mid i\right\}  $. In other words, $j$ is an element of $\left\{
+1,2,\ldots,n\right\}  $ satisfying $k\mid j$. From $k\mid j$, we conclude that
+there exists an integer $c$ such that $j=kc$. Consider this $c$. From
+$j\in\left\{  1,2,\ldots,n\right\}  $, we obtain $j\geq1$ and $j\leq n$. Now,
+$ck=kc=j\leq n<\left(  q+1\right)  k$. We can divide this inequality by $k$
+(since $k$ is positive) and thus obtain $c<q+1$. Hence, $c\leq q$ (since $c$
+and $q$ are integers).
+
+Also, $ck=kc=j\geq1>0$. We can divide this inequality by $k$ (since $k$ is
+positive) and thus obtain $c>0$. Hence, $c\geq1$ (since $c$ is an integer).
+Combining this with $c\leq q$, we obtain $c\in\left\{  1,2,\ldots,q\right\}  $
+(since $c$ is an integer) and thus $ck\in\left\{  1k,2k,\ldots,qk\right\}  $.
+Hence, $j=kc=ck\in\left\{  1k,2k,\ldots,qk\right\}  $.
+
+Now, forget that we fixed $j$. We thus have proven that $j\in\left\{
+1k,2k,\ldots,qk\right\}  $ for each $j\in\left\{  i\in\left\{  1,2,\ldots
+,n\right\}  \text{ satisfying }k\mid i\right\}  $. In other words,%
+\begin{equation}
+\left\{  i\in\left\{  1,2,\ldots,n\right\}  \text{ satisfying }k\mid
+i\right\}  \subseteq\left\{  1k,2k,\ldots,qk\right\}  .
+\label{sol.binom.legendre.a.c1.pf.1}%
+\end{equation}
+
+
+On the other hand, let $h\in\left\{  1k,2k,\ldots,qk\right\}  $. We shall show
+that \newline$h\in\left\{  i\in\left\{  1,2,\ldots,n\right\}  \text{
+satisfying }k\mid i\right\}  $.
+
+Indeed, $h\in\left\{  1k,2k,\ldots,qk\right\}  $. In other words, $h=dk$ for
+some $d\in\left\{  1,2,\ldots,q\right\}  $. Consider this $d$. From
+$d\in\left\{  1,2,\ldots,q\right\}  $, we obtain $d\geq1$ and $d\leq q$. We
+can multiply the inequality $d\geq1$ by $k$ (since $k$ is positive) and thus
+obtain $dk\geq1k=k\geq1$ (since $k$ is a positive integer). Also, we can
+multiply the inequality $d\leq q$ by $k$ (since $k$ is positive) and thus
+obtain $dk\leq qk\leq n$ (since $n\geq qk$). Combining this with $dk\geq1$, we
+obtain $dk\in\left\{  1,2,\ldots,n\right\}  $ (since $dk$ is an integer). In
+other words, $h\in\left\{  1,2,\ldots,n\right\}  $ (since $h=dk$). Moreover,
+$k\mid h$ (since $h=dk=kd$). Hence, $h$ is an $i\in\left\{  1,2,\ldots
+,n\right\}  $ satisfying $k\mid i$ (since $h\in\left\{  1,2,\ldots,n\right\}
+$ and $k\mid h$). In other words, $h\in\left\{  i\in\left\{  1,2,\ldots
+,n\right\}  \text{ satisfying }k\mid i\right\}  $.
+
+Now, forget that we fixed $h$. We thus have proven that $h\in\left\{
+i\in\left\{  1,2,\ldots,n\right\}  \text{ satisfying }k\mid i\right\}  $ for
+each $h\in\left\{  1k,2k,\ldots,qk\right\}  $. In other words,%
+\[
+\left\{  1k,2k,\ldots,qk\right\}  \subseteq\left\{  i\in\left\{
+1,2,\ldots,n\right\}  \text{ satisfying }k\mid i\right\}  .
+\]
+Combining this with (\ref{sol.binom.legendre.a.c1.pf.1}), we obtain $\left\{
+i\in\left\{  1,2,\ldots,n\right\}  \text{ satisfying }k\mid i\right\}
+=\left\{  1k,2k,\ldots,qk\right\}  $. This proves Claim 1.]
+
+Now,
+\begin{align*}
+\sum_{i=1}^{n}\left[  k\mid i\right]   &  =\sum_{i\in\left\{  1,2,\ldots
+,n\right\}  }\left[  k\mid i\right]  =\sum_{\substack{i\in\left\{
+1,2,\ldots,n\right\}  ;\\k\mid i}}\underbrace{\left[  k\mid i\right]
+}_{\substack{=1\\\text{(since }k\mid i\text{)}}}+\sum_{\substack{i\in\left\{
+1,2,\ldots,n\right\}  ;\\\text{we don't have }k\mid i}}\underbrace{\left[
+k\mid i\right]  }_{\substack{=0\\\text{(since we don't have }k\mid i\text{)}%
+}}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{since each }i\in\left\{  1,2,\ldots
+,n\right\}  \text{ either satisfies }k\mid i\text{ or does not}\right) \\
+&  =\sum_{\substack{i\in\left\{  1,2,\ldots,n\right\}  ;\\k\mid i}%
+}1+\underbrace{\sum_{\substack{i\in\left\{  1,2,\ldots,n\right\}  ;\\\text{we
+don't have }k\mid i}}0}_{=0}=\sum_{\substack{i\in\left\{  1,2,\ldots
+,n\right\}  ;\\k\mid i}}1\\
+&  =\left(  \text{the number of all }i\in\left\{  1,2,\ldots,n\right\}  \text{
+satisfying }k\mid i\right)  \cdot1\\
+&  =\left(  \text{the number of all }i\in\left\{  1,2,\ldots,n\right\}  \text{
+satisfying }k\mid i\right) \\
+&  =\left\vert \left\{  i\in\left\{  1,2,\ldots,n\right\}  \text{ satisfying
+}k\mid i\right\}  \right\vert \\
+&  =\left\vert \left\{  1k,2k,\ldots,qk\right\}  \right\vert
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by Claim 1}\right) \\
+&  =q=n//k.
+\end{align*}
+In other words, $n//k=\sum_{i=1}^{n}\left[  k\mid i\right]  $. This solves
+Exercise \ref{exe.binom.legendre} \textbf{(a)}.
+
+\textbf{(b)} Let $p$ be a prime. Let $n$ be a nonzero integer.
+
+Then, $v_{p}\left(  n\right)  $ is the largest $m\in\mathbb{N}$ such that
+$p^{m}\mid n$ (by Definition \ref{def.ent.prime.vp} \textbf{(a)}). Hence,
+$v_{p}\left(  n\right)  \in\mathbb{N}$. Thus, $\left\{  1,2,\ldots
+,v_{p}\left(  n\right)  \right\}  $ is a finite set and has size $\left\vert
+\left\{  1,2,\ldots,v_{p}\left(  n\right)  \right\}  \right\vert =v_{p}\left(
+n\right)  $. Every $i\in\left\{  1,2,\ldots,v_{p}\left(  n\right)  \right\}  $
+satisfies%
+\begin{equation}
+\left[  p^{i}\mid n\right]  =1 \label{sol.binom.legendre.b.0}%
+\end{equation}
+\footnote{\textit{Proof.} Let $i\in\left\{  1,2,\ldots,v_{p}\left(  n\right)
+\right\}  $. Thus, $i$ is a positive integer satisfying $i\leq v_{p}\left(
+n\right)  $. Hence, $v_{p}\left(  n\right)  \geq i$. But Lemma
+\ref{lem.ent.prime.vp-def} shows that $p^{i}\mid n$ if and only if
+$v_{p}\left(  n\right)  \geq i$. Thus, we have $p^{i}\mid n$ (since we have
+$v_{p}\left(  n\right)  \geq i$). Therefore, $\left[  p^{i}\mid n\right]  =1$,
+qed.}. Moreover, every positive integer $i$ satisfying $i>v_{p}\left(
+n\right)  $ satisfies
+\begin{equation}
+\left[  p^{i}\mid n\right]  =0 \label{sol.binom.legendre.b.1}%
+\end{equation}
+\ \footnote{\textit{Proof.} Let $i$ be a positive integer satisfying
+$i>v_{p}\left(  n\right)  $. We must prove that $\left[  p^{i}\mid n\right]
+=0$.
+\par
+We have $i>v_{p}\left(  n\right)  $. Thus, we don't have $v_{p}\left(
+n\right)  \geq i$. But Lemma \ref{lem.ent.prime.vp-def} shows that $p^{i}\mid
+n$ if and only if $v_{p}\left(  n\right)  \geq i$. Hence, we don't have
+$p^{i}\mid n$ (since we don't have $v_{p}\left(  n\right)  \geq i$). Thus,
+$\left[  p^{i}\mid n\right]  =0$. Qed.}. Hence, all but finitely many positive
+integers $i$ satisfy $\left[  p^{i}\mid n\right]  =0$ (since all but finitely
+many positive integers $i$ satisfy $i>v_{p}\left(  n\right)  $). In other
+words, all but finitely many addends of the sum $\sum_{i\geq1}\left[
+p^{i}\mid n\right]  $ are zero. In other words, this sum has only finitely
+many nonzero addends. Hence, this sum is well-defined.
+
+Now, we can split this sum as follows:%
+\begin{align*}
+\sum_{i\geq1}\left[  p^{i}\mid n\right]   &  =\sum_{i=1}^{v_{p}\left(
+n\right)  }\underbrace{\left[  p^{i}\mid n\right]  }_{\substack{=1\\\text{(by
+(\ref{sol.binom.legendre.b.0}))}}}+\sum_{i>v_{p}\left(  n\right)
+}\underbrace{\left[  p^{i}\mid n\right]  }_{\substack{=0\\\text{(by
+(\ref{sol.binom.legendre.b.1}))}}}\ \ \ \ \ \ \ \ \ \ \left(  \text{since
+}v_{p}\left(  n\right)  \geq0\right) \\
+&  =\sum_{i=1}^{v_{p}\left(  n\right)  }1+\underbrace{\sum_{i>v_{p}\left(
+n\right)  }0}_{=0}=\sum_{i=1}^{v_{p}\left(  n\right)  }1=v_{p}\left(
+n\right)  \cdot1=v_{p}\left(  n\right)  .
+\end{align*}
+In other words, $v_{p}\left(  n\right)  =\sum_{i\geq1}\left[  p^{i}\mid
+n\right]  $. This solves Exercise \ref{exe.binom.legendre} \textbf{(b)}.
+
+\textbf{(c)} Let $p$ be a prime. Let $n\in\mathbb{N}$. For every positive
+integer $m$, we have%
+\begin{align}
+v_{p}\left(  m\right)   &  =\sum_{i\geq1}\left[  p^{i}\mid m\right]
+\ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{by Exercise \ref{exe.binom.legendre} \textbf{(b)},}\\
+\text{applied to }m\text{ instead of }n
+\end{array}
+\right) \nonumber\\
+&  =\sum_{j\geq1}\left[  p^{j}\mid m\right]  \label{sol.binom.legendre.c.vpm=}%
+\end{align}
+(here, we have renamed the summation index $i$ as $j$). Note that the sum
+$\sum_{j\geq1}\left[  p^{j}\mid m\right]  $ on the right hand side of this
+equality is well-defined, i.e., has only finitely many nonzero addends.
+
+Corollary \ref{cor.ent.prime.vp-ringk} (applied to $k=n$ and $a_{i}=i$) yields%
+\[
+v_{p}\left(  1\cdot2\cdot\cdots\cdot n\right)  =v_{p}\left(  1\right)
++v_{p}\left(  2\right)  +\cdots+v_{p}\left(  n\right)  =\sum_{m=1}^{n}%
+v_{p}\left(  m\right)  .
+\]
+In view of $1\cdot2\cdot\cdots\cdot n=n!$, this rewrites as
+\begin{equation}
+v_{p}\left(  n!\right)  =\sum_{m=1}^{n}\underbrace{v_{p}\left(  m\right)
+}_{\substack{=\sum_{j\geq1}\left[  p^{j}\mid m\right]  \\\text{(by
+(\ref{sol.binom.legendre.c.vpm=}))}}}=\sum_{m=1}^{n}\sum_{j\geq1}\left[
+p^{j}\mid m\right]  =\sum_{j\geq1}\sum_{m=1}^{n}\left[  p^{j}\mid m\right]  .
+\label{sol.binom.legendre.c.1}%
+\end{equation}
+(Here, we have interchanged the two summation signs \textquotedblleft%
+$\sum_{m=1}^{n}$\textquotedblright\ and \textquotedblleft$\sum_{j\geq1}%
+$\textquotedblright. This is legitimate, since the first summation is finite
+whereas the second summation has already been proven to be well-defined.) But
+each positive integer $j$ satisfies%
+\begin{align}
+n//p^{j}  &  =\sum_{i=1}^{n}\left[  p^{j}\mid i\right]
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by Exercise \ref{exe.binom.legendre}
+\textbf{(a)}, applied to }k=p^{j}\right) \nonumber\\
+&  =\sum_{m=1}^{n}\left[  p^{j}\mid m\right]
+\label{sol.binom.legendre.c.n//pj=}%
+\end{align}
+(here, we have renamed the summation index $i$ as $m$). Thus,
+(\ref{sol.binom.legendre.c.1}) becomes%
+\[
+v_{p}\left(  n!\right)  =\sum_{j\geq1}\underbrace{\sum_{m=1}^{n}\left[
+p^{j}\mid m\right]  }_{\substack{=n//p^{j}\\\text{(by
+(\ref{sol.binom.legendre.c.n//pj=}))}}}=\sum_{j\geq1}n//p^{j}=\sum_{i\geq
+1}n//p^{i}%
+\]
+(here, we have renamed the summation index $j$ as $i$). This solves Exercise
+\ref{exe.binom.legendre} \textbf{(c)}.
+
+\textbf{(d)} \textit{Second proof of Corollary \ref{cor.binom.N->N}.} We must
+prove that $\dbinom{n}{k}$ is a nonnegative integer. If $k\notin\mathbb{N}$,
+then this holds (because if $k\notin\mathbb{N}$, then Definition
+\ref{def.binom.binom} \textbf{(b)} yields $\dbinom{n}{k}=0$). Thus, for the
+rest of this proof, we WLOG assume that $k\in\mathbb{N}$.
+
+If $k>n$, then we have $\dbinom{n}{k}=0$ (by Theorem \ref{thm.binom.k>n0}).
+Hence, if $k>n$, then $\dbinom{n}{k}$ is clearly a nonnegative integer. Thus,
+for the rest of this proof, we WLOG assume that we don't have $k>n$. Hence,
+$k\leq n$. Therefore, $n\geq k$ and thus $n-k\in\mathbb{N}$. Hence, Theorem
+\ref{thm.binom.n!k!} yields%
+\begin{equation}
+\dbinom{n}{k}=\dfrac{n!}{k!\left(  n-k\right)  !}.
+\label{pf.cor.binom.N->N.frac}%
+\end{equation}
+This yields that the number $\dbinom{n}{k}$ is positive (since the number
+$n!$, $k!$ and $\left(  n-k\right)  !$ are all positive) and therefore
+nonnegative. It remains to prove that $\dbinom{n}{k}$ is an integer.
+
+Fix a prime $p$. We shall show that $v_{p}\left(  k!\left(  n-k\right)
+!\right)  \leq v_{p}\left(  n!\right)  $. (This will then yield $k!\left(
+n-k\right)  !\mid n!$, and this will in turn yield the integrality of
+$\dbinom{n}{k}$ by way of (\ref{pf.cor.binom.N->N.frac}).)
+
+Fix a positive integer $i$. Exercise \ref{exe.ent.quo-rem.u+v} \textbf{(b)}
+(applied to $k$, $n-k$ and $p^{i}$ instead of $u$, $v$ and $n$) yields
+$\left(  k+\left(  n-k\right)  \right)  //p^{i}-k//p^{i}-\left(  n-k\right)
+//p^{i}\in\left\{  0,1\right\}  \subseteq\mathbb{N}$. This rewrites as
+$n//p^{i}-k//p^{i}-\left(  n-k\right)  //p^{i}\in\mathbb{N}$ (since $k+\left(
+n-k\right)  =n$). Hence,
+\begin{equation}
+n//p^{i}-k//p^{i}-\left(  n-k\right)  //p^{i}\geq0.
+\label{pf.cor.binom.N->N.pi-ineq}%
+\end{equation}
+
+
+Now, forget that we fixed $i$. We thus have proven the inequality
+(\ref{pf.cor.binom.N->N.pi-ineq}) for each positive integer $i$.
+
+Theorem \ref{thm.ent.prime.vp-ring} \textbf{(a)} (applied to $a=k!$ and
+$b=\left(  n-k\right)  !$) yields%
+\[
+v_{p}\left(  k!\left(  n-k\right)  !\right)  =v_{p}\left(  k!\right)
++v_{p}\left(  n-k\right)  !.
+\]
+Hence,%
+\begin{align*}
+&  v_{p}\left(  n!\right)  -\underbrace{v_{p}\left(  k!\left(  n-k\right)
+!\right)  }_{=v_{p}\left(  k!\right)  +v_{p}\left(  n-k\right)  !}\\
+&  =v_{p}\left(  n!\right)  -\left(  v_{p}\left(  k!\right)  +v_{p}\left(
+n-k\right)  !\right)  \\
+&  =\underbrace{v_{p}\left(  n!\right)  }_{\substack{=\sum_{i\geq1}%
+n//p^{i}\\\text{(by Exercise \ref{exe.binom.legendre} \textbf{(c)})}%
+}}-\underbrace{v_{p}\left(  k!\right)  }_{\substack{=\sum_{i\geq1}%
+k//p^{i}\\\text{(by Exercise \ref{exe.binom.legendre} \textbf{(c)}%
+,}\\\text{applied to }k\text{ instead of }n\text{)}}}-\underbrace{v_{p}\left(
+n-k\right)  !}_{\substack{=\sum_{i\geq1}\left(  n-k\right)  //p^{i}\\\text{(by
+Exercise \ref{exe.binom.legendre} \textbf{(c)},}\\\text{applied to }n-k\text{
+instead of }n\text{)}}}\\
+&  =\sum_{i\geq1}n//p^{i}-\sum_{i\geq1}k//p^{i}-\sum_{i\geq1}\left(
+n-k\right)  //p^{i}=\sum_{i\geq1}\underbrace{\left(  n//p^{i}-k//p^{i}-\left(
+n-k\right)  //p^{i}\right)  }_{\substack{\geq0\\\text{(by
+(\ref{pf.cor.binom.N->N.pi-ineq}))}}}\\
+&  \geq\sum_{i\geq1}0=0.
+\end{align*}
+In other words,%
+\[
+v_{p}\left(  k!\left(  n-k\right)  !\right)  \leq v_{p}\left(  n!\right)  .
+\]
+
+
+Now, forget that we fixed $p$. We thus have proven that each prime $p$
+satisfies $v_{p}\left(  k!\left(  n-k\right)  !\right)  \leq v_{p}\left(
+n!\right)  $. But Proposition \ref{prop.ent.primes.n|m} (applied to $k!\left(
+n-k\right)  !$ and $n!$ instead of $n$ and $m$), we have $k!\left(
+n-k\right)  !\mid n!$ if and only if each prime $p$ satisfies $v_{p}\left(
+k!\left(  n-k\right)  !\right)  \leq v_{p}\left(  n!\right)  $. Thus, we have
+$k!\left(  n-k\right)  !\mid n!$ (since each prime $p$ satisfies $v_{p}\left(
+k!\left(  n-k\right)  !\right)  \leq v_{p}\left(  n!\right)  $). In other
+words, $\dfrac{n!}{k!\left(  n-k\right)  !}$ is an integer (since $k!\left(
+n-k\right)  !\neq0$). In view of (\ref{pf.cor.binom.N->N.frac}), this rewrites
+as follows: $\dbinom{n}{k}$ is an integer. Hence, $\dbinom{n}{k}$ is a
+nonnegative integer (since we already know that $\dbinom{n}{k}$ is
+nonnegative). Hence, Corollary \ref{cor.binom.N->N} is proven again.
+
+Thus, Exercise \ref{exe.binom.legendre} \textbf{(d)} is solved.
 \end{proof}
 \end{fineprint}
 
