@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Sunday, March 10, 2019 20:27:15}
+%TCIDATA{LastRevised=Monday, March 11, 2019 00:35:05}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -5179,13 +5179,13 @@ If $a,n\in\mathbb{Z}$, then an integer $a^{\prime}\in\mathbb{Z}$ satisfying
 $aa^{\prime}\equiv1\operatorname{mod}n$ is called a \textit{modular inverse}
 of $a$ modulo $n$. The word \textquotedblleft modular
 inverse\textquotedblright\ is chosen in analogy to the usual concept of an
-\textquotedblleft inverse\textquotedblright\ (which stands for an integer
-$a^{\prime}\in\mathbb{Z}$ satisfying $aa^{\prime}=1$; this exists if and only
-if $a$ equals $1$ or $-1$). Theorem \ref{thm.ent.coprime.modinv} \textbf{(b)}
-shows that such a modular inverse always exists when $a\perp n$; Theorem
-\ref{thm.ent.coprime.modinv} \textbf{(c)} is the converse of this statement
-(i.e., it says that if a modular inverse of $a$ modulo $n$ exists, then
-$a\perp n$).
+\textquotedblleft inverse\textquotedblright\ in $\mathbb{Z}$ (which stands for
+an integer $a^{\prime}\in\mathbb{Z}$ satisfying $aa^{\prime}=1$; this exists
+if and only if $a$ equals $1$ or $-1$). Theorem \ref{thm.ent.coprime.modinv}
+\textbf{(b)} shows that such a modular inverse always exists when $a\perp n$;
+Theorem \ref{thm.ent.coprime.modinv} \textbf{(c)} is the converse of this
+statement (i.e., it says that if a modular inverse of $a$ modulo $n$ exists,
+then $a\perp n$).
 
 \begin{proof}
 [Proof of Theorem \ref{thm.ent.coprime.modinv}.]\textbf{(a)} Theorem
@@ -13223,14 +13223,14 @@ $\pi_{\sim}$.
 \textit{representative} of this class.
 \end{definition}
 
-\subsection{$\mathbb{Z}/n$ (\textquotedblleft integers modulo $n$%
-\textquotedblright)}
+\subsection{\label{sect.eqrel.Z/n}$\mathbb{Z}/n$ (\textquotedblleft integers
+modulo $n$\textquotedblright)}
 
 We now come to one of the most important example of equivalence classes: the
 residue classes of integers modulo a given positive integer $n$.
 
 \begin{convention}
-For this section, we fix a positive integer $n$.
+For the whole Section \ref{sect.eqrel.Z/n}, we fix a positive integer $n$.
 \end{convention}
 
 \subsubsection{Definition of $\mathbb{Z}/n$}
@@ -14718,37 +14718,28 @@ Theorem \ref{thm.eqrel.Z/n.rules} \textbf{(f)} from the associativity of
 multiplication for integers.
 \end{proof}
 
-%
-
-\[%
-\begin{tabular}
-[c]{||l||}\hline\hline
-\textbf{You have reached the end of the finished part.}\\
-\textbf{TODO: Write on from here.}\\\hline\hline
-\end{tabular}
-\
-\]
-
-
 \subsection{\label{sect.equiv.modinv}Modular inverses revisited}
 
-The idea of this section is that working with residue classes turns modular
-inverses into actual inverses.
+\begin{convention}
+For the whole Section \ref{sect.equiv.modinv}, we fix a positive integer $n$.
+\end{convention}
 
-Recall: Integers other than $1$ and $-1$ have no actual inverses in
-$\mathbb{Z}$.
+In this section, we will see how modular inverses become actual inverses when
+we consider residue classes instead of numbers.
 
-But if $n$ is a positive integer, then any $a\perp n$ has a modular inverse
-with respect to $n$.
+Recall that if $a$ is an integer, then an \textit{inverse of }$a$\textit{ in
+}$\mathbb{Z}$ means an integer $a^{\prime}\in\mathbb{Z}$ satisfying
+$aa^{\prime}=1$. The only two integers that have an inverse in $\mathbb{Z}$
+are $1$ and $-1$. The integer $1$ has only one inverse (namely, itself). The
+integer $-1$ has only one inverse (namely, itself). Thus, \textquotedblleft
+inverse in $\mathbb{Z}$\textquotedblright\ is not a very interesting notion.
 
-Let us restate this in terms of residue classes.
-
-Again, we fix a positive integer $n$.
+Let us now define an analogous notion for $\mathbb{Z}/n$:
 
 \begin{definition}
-Let $\alpha\in\mathbb{Z}/n$. An \textit{inverse} of $\alpha$ means an
-$\alpha^{\prime}\in\mathbb{Z}/n$ such that $\alpha\cdot\alpha^{\prime}=\left[
-1\right]  _{n}$.
+\label{def.equiv.modinv.inverse}Let $\alpha\in\mathbb{Z}/n$. An
+\textit{inverse} of $\alpha$ means an $\alpha^{\prime}\in\mathbb{Z}/n$ such
+that $\alpha\cdot\alpha^{\prime}=\left[  1\right]  _{n}$.
 \end{definition}
 
 For example, $\left[  2\right]  _{5}$ is an inverse of $\left[  3\right]
@@ -14756,10 +14747,11 @@ _{5}$ for $n=5$, since $\left[  3\right]  _{5}\cdot\left[  2\right]
 _{5}=\left[  3\cdot2\right]  _{5}=\left[  6\right]  _{5}=\left[  1\right]
 _{5}$.
 
-Now, we can restate of the existence \& uniqueness of modular inverses as follows:
+It turns out that inverses of residue classes $\alpha\in\mathbb{Z}/n$ exist
+much more frequently than inverses of integers in $\mathbb{Z}$:
 
 \begin{proposition}
-Let $a\in\mathbb{Z}$.
+\label{prop.equiv.modinv.exiuni}Let $a\in\mathbb{Z}$.
 
 \textbf{(a)} If $\left[  a\right]  _{n}\in\mathbb{Z}/n$ has an inverse, then
 $a\perp n$.
@@ -14768,76 +14760,196 @@ $a\perp n$.
 unique inverse.
 \end{proposition}
 
+As we will see in the proof of this proposition, the inverse of a residue
+class $\left[  a\right]  _{n}$ is simply the residue class $\left[  a^{\prime
+}\right]  _{n}$ of a modular inverse $a^{\prime}$ of $a$ modulo $n$; thus, the
+existence part of Proposition \ref{prop.equiv.modinv.exiuni} \textbf{(b)}
+(i.e., the claim that $\left[  a\right]  _{n}$ has an inverse) is just Theorem
+\ref{thm.ent.coprime.modinv} \textbf{(b)} in disguise. However, before we
+start proving Proposition \ref{prop.equiv.modinv.exiuni}, let us state the
+uniqueness part (i.e., the claim that the inverse of $\left[  a\right]  _{n}$
+is unique) as a separate fact:
+
+\begin{proposition}
+\label{prop.equiv.modinv.uni}Let $\alpha\in\mathbb{Z}/n$. Then, $\alpha$ has
+at most one inverse.
+\end{proposition}
+
 \begin{proof}
-\textbf{(a)} Assume that $\left[  a\right]  _{n}\in\mathbb{Z}/n$ has an
-inverse. Write this inverse as $\left[  a^{\prime}\right]  _{n}$ for some
-$a^{\prime}\in\mathbb{Z}$. Then, $\left[  a\right]  _{n}\cdot\left[
-a^{\prime}\right]  _{n}=\left[  1\right]  _{n}$. But the definition of
-multiplication on $\mathbb{Z}/n$ yields $\left[  a\right]  _{n}\cdot\left[
-a^{\prime}\right]  _{n}=\left[  aa^{\prime}\right]  _{n}$, so that $\left[
-aa^{\prime}\right]  _{n}=\left[  a\right]  _{n}\cdot\left[  a^{\prime}\right]
-_{n}=\left[  1\right]  _{n}$. In other words, $aa^{\prime}\equiv
-1\operatorname{mod}n$. Thus, Theorem \ref{thm.ent.coprime.modinv} \textbf{(c)}
-yields $a\perp n$.
+[Proof of Proposition \ref{prop.equiv.modinv.uni}.] Let $\beta$ and $\gamma$
+be two inverses of $\alpha$. We shall show that $\beta=\gamma$.
+
+We have $\alpha\cdot\beta=\left[  1\right]  _{n}$ (since $\beta$ is an inverse
+of $\alpha$) and $\alpha\cdot\gamma=\left[  1\right]  _{n}$ (since $\gamma$ is
+an inverse of $\alpha$). Theorem \ref{thm.eqrel.Z/n.rules} \textbf{(e)}
+(applied to $\gamma$ and $\alpha$ instead of $\alpha$ and $\beta$) yields
+$\gamma\cdot\alpha=\alpha\cdot\gamma=\left[  1\right]  _{n}$.
+
+Theorem \ref{thm.eqrel.Z/n.rules} \textbf{(f)} (applied to $\gamma$, $\alpha$
+and $\beta$ instead of $\alpha$, $\beta$ and $\gamma$) shows that $\gamma
+\cdot\left(  \alpha\cdot\beta\right)  =\left(  \gamma\cdot\alpha\right)
+\cdot\beta$. Now, comparing
+\[
+\gamma\cdot\left(  \underbrace{\alpha\cdot\beta}_{=\left[  1\right]  _{n}%
+}\right)  =\gamma\cdot\left[  1\right]  _{n}=\gamma\ \ \ \ \ \ \ \ \ \ \left(
+\text{by Theorem \ref{thm.eqrel.Z/n.rules} \textbf{(d)}, applied to }%
+\gamma\text{ instead of }\alpha\right)
+\]
+with%
+\begin{align*}
+\gamma\cdot\left(  \alpha\cdot\beta\right)    & =\left(  \underbrace{\gamma
+\cdot\alpha}_{=\left[  1\right]  _{n}}\right)  \cdot\beta=\left[  1\right]
+_{n}\cdot\beta\\
+& =\beta\cdot\left[  1\right]  _{n}\ \ \ \ \ \ \ \ \ \ \ \left(  \text{by
+Theorem \ref{thm.eqrel.Z/n.rules} \textbf{(e)}, applied to }\left[  1\right]
+_{n}\text{ instead of }\alpha\right)  \\
+& =\beta\ \ \ \ \ \ \ \ \ \ \left(  \text{by Theorem \ref{thm.eqrel.Z/n.rules}
+\textbf{(d)}, applied to }\beta\text{ instead of }\alpha\right)  ,
+\end{align*}
+we obtain $\beta=\gamma$.
+
+Now, forget that we fixed $\beta$ and $\gamma$. We thus have proven that if
+$\beta$ and $\gamma$ are two inverses of $\alpha$, then $\beta=\gamma$. In
+other words, any two inverses of $\alpha$ must be equal. In other words,
+$\alpha$ has at most one inverse. This proves Proposition
+\ref{prop.equiv.modinv.uni}.
+\end{proof}
+
+Note that in the above proof of Proposition \ref{prop.equiv.modinv.uni}, we
+have never had to pick a representative of the residue class $\alpha$ (nor of
+any other class). This is because this proof is actually an instance of a much
+more general argument. And indeed, you might recall that a very similar
+argument is used to prove the classical facts that
+
+\begin{itemize}
+\item a map has at most one inverse;
+
+\item a matrix has at most one inverse.
+\end{itemize}
+
+\noindent To be more precise, the proofs of these two facts differ slightly
+from our proof of Proposition \ref{prop.equiv.modinv.uni}, because the
+definitions of an inverse of a map and of an inverse of a matrix differ from
+Definition \ref{def.equiv.modinv.inverse}. Indeed, in Definition
+\ref{def.equiv.modinv.inverse}, we have only required the inverse
+$\alpha^{\prime}$ of $\alpha\in\mathbb{Z}/n$ to satisfy the \textbf{single}
+equation $\alpha\cdot\alpha^{\prime}=\left[  1\right]  _{n}$, whereas an
+inverse $g$ of a map $f$ is required to satisfy the \textbf{two} equations
+$f\circ g=\operatorname*{id}$ and $g\circ f=\operatorname*{id}$ (and likewise,
+an inverse $B$ of a matrix $A$ is required to satisfy the \textbf{two}
+equations $AB=I$ and $BA=I$ for the appropriate identity matrices $I$). But
+this difference is not substantial: The multiplication of residue classes in
+$\mathbb{Z}/n$ is commutative (by Theorem \ref{thm.eqrel.Z/n.rules}
+\textbf{(e)}) (unlike the composition of maps or the multiplication of
+matrices); thus, the single equation $\alpha\cdot\alpha^{\prime}=\left[
+1\right]  _{n}$ automatically implies $\alpha^{\prime}\cdot\alpha=\left[
+1\right]  _{n}$. Hence, we could have as well required $\alpha^{\prime}$ to
+satisfy both equations $\alpha\cdot\alpha^{\prime}=\left[  1\right]  _{n}$ and
+$\alpha^{\prime}\cdot\alpha=\left[  1\right]  _{n}$ in Definition
+\ref{def.equiv.modinv.inverse}, and nothing would change.
+
+Let us now prove Proposition \ref{prop.equiv.modinv.exiuni}:
+
+\begin{proof}
+[Proof of Proposition \ref{prop.equiv.modinv.exiuni}.] \textbf{(a)} Assume
+that $\left[  a\right]  _{n}\in\mathbb{Z}/n$ has an inverse. Let $\beta$ be
+this inverse. Write the residue class $\beta\in\mathbb{Z}/n$ in the form
+$\left[  b\right]  _{n}$ for some integer $b$. Now, $\beta$ is an inverse of
+$\left[  a\right]  _{n}$. In other words, $\left[  a\right]  _{n}\cdot
+\beta=\left[  1\right]  _{n}$ (by the definition of \textquotedblleft
+inverse\textquotedblright). But $\left[  a\right]  _{n}\cdot\underbrace{\beta
+}_{=\left[  b\right]  _{n}}=\left[  a\right]  _{n}\cdot\left[  b\right]
+_{n}=\left[  a\cdot b\right]  _{n}$ (by the definition of multiplication on
+$\mathbb{Z}/n$). Comparing this with $\left[  a\right]  _{n}\cdot\beta=\left[
+1\right]  _{n}$, we obtain $\left[  a\cdot b\right]  _{n}=\left[  1\right]
+_{n}$. By Proposition \ref{prop.eqrel.Zn.ab} \textbf{(b)} (applied to $a\cdot
+b$ and $1$ instead of $a$ and $b$), this yields $a\cdot b\equiv
+1\operatorname{mod}n$. Hence, there exists an $a^{\prime}\in\mathbb{Z}$ such
+that $aa^{\prime}\equiv1\operatorname{mod}n$ (namely, $a^{\prime}=b$). Thus,
+Theorem \ref{thm.ent.coprime.modinv} \textbf{(c)} yields $a\perp n$. This
+proves Proposition \ref{prop.equiv.modinv.exiuni} \textbf{(a)}.
 
 \textbf{(b)} Assume that $a\perp n$. Hence, Theorem
 \ref{thm.ent.coprime.modinv} \textbf{(b)} yields that there exists an
 $a^{\prime}\in\mathbb{Z}$ such that $aa^{\prime}\equiv1\operatorname{mod}n$.
-Consider this $a^{\prime}$. We have $\left[  a\right]  _{n}\cdot\left[
-a^{\prime}\right]  _{n}=\left[  aa^{\prime}\right]  _{n}=\left[  1\right]
-_{n}$ (since $aa^{\prime}\equiv1\operatorname{mod}n$), and thus $\left[
-a^{\prime}\right]  _{n}$ is an inverse of $\left[  a\right]  _{n}$. So we have
-proven that $\left[  a\right]  _{n}$ has \textbf{at least }one inverse.
+Consider this $a^{\prime}$. From $aa^{\prime}\equiv1\operatorname{mod}n$, we
+obtain $\left[  aa^{\prime}\right]  _{n}=\left[  1\right]  _{n}$ (by
+Proposition \ref{prop.eqrel.Zn.ab} \textbf{(b)}, applied to $aa^{\prime}$ and
+$1$ instead of $a$ and $b$). But the definition of multiplication on
+$\mathbb{Z}/n$ yields $\left[  a\right]  _{n}\cdot\left[  a^{\prime}\right]
+_{n}=\left[  a\cdot a^{\prime}\right]  _{n}=\left[  aa^{\prime}\right]
+_{n}=\left[  1\right]  _{n}$. In other words, $\left[  a^{\prime}\right]
+_{n}$ is an inverse of $\left[  a\right]  _{n}$. Hence, $\left[  a\right]
+_{n}$ has \textbf{at least }one inverse (namely, $\left[  a^{\prime}\right]
+_{n}$).
 
-But it remains to prove that $\left[  a\right]  _{n}$ has \textbf{at most} one inverse.
+But Proposition \ref{prop.equiv.modinv.uni} (applied to $\alpha=\left[
+a\right]  _{n}$) shows that $\left[  a\right]  _{n}$ has \textbf{at most }one inverse.
 
-First, set $\alpha=\left[  a\right]  _{n}$. Thus, we must prove that $\alpha$
-has at most one inverse.
-
-To prove this, we fix two inverses $\beta$ and $\gamma$ of $\alpha$. We must
-show that $\beta=\gamma$.
-
-We have $\alpha\beta=\left[  1\right]  _{n}$ (since $\beta$ is an inverse of
-$\alpha$) and $\alpha\gamma=\left[  1\right]  _{n}$ (similarly). Theorem
-\ref{thm.eqrel.Z/n.rules} \textbf{(f)} shows that $\gamma\left(  \alpha
-\beta\right)  =\left(  \gamma\alpha\right)  \beta$. Now, comparing
-\[
-\gamma\left(  \underbrace{\alpha\beta}_{=\left[  1\right]  _{n}}\right)
-=\gamma\cdot\left[  1\right]  _{n}=\gamma\ \ \ \ \ \ \ \ \ \ \left(  \text{by
-Theorem \ref{thm.eqrel.Z/n.rules} \textbf{(d)}}\right)
-\]
-with%
-\[
-\gamma\left(  \alpha\beta\right)  =\left(  \underbrace{\gamma\alpha}%
-_{=\alpha\gamma=\left[  1\right]  _{n}}\right)  \beta=\left[  1\right]
-_{n}\beta=\beta\cdot\left[  1\right]  _{n}=\beta\ \ \ \ \ \ \ \ \ \ \left(
-\text{by Theorem \ref{thm.eqrel.Z/n.rules} \textbf{(d)}}\right)  ,
-\]
-we find $\beta=\gamma$, as desired.
-
-So $\left[  a\right]  _{n}$ has a unique inverse (since it has at least one
-inverse and at most one inverse).
+Thus, we conclude that $\left[  a\right]  _{n}$ has a unique inverse (since we
+already know that $\left[  a\right]  _{n}$ has \textbf{at least }one inverse
+and has \textbf{at most }one inverse). This proves Proposition
+\ref{prop.equiv.modinv.exiuni}.
 \end{proof}
 
-The proposition above lets us speak of \textquotedblleft the
-inverse\textquotedblright\ of a class $\alpha\in\mathbb{Z}/n$, provided that
-$\alpha$ has an inverse. Indeed, if $\alpha$ has an inverse, then
-$\alpha=\left[  a\right]  _{n}$ for some integer $a$ satisfying $a\perp n$ (by
-part \textbf{(a)} of the proposition), and thus $\alpha=\left[  a\right]
-_{n}\in\mathbb{Z}/n$ has a unique inverse (by part \textbf{(b)}).
+Proposition \ref{prop.equiv.modinv.uni} shows that if a residue class
+$\alpha\in\mathbb{Z}/n$ has an inverse, then $\alpha$ has \textbf{a unique}
+inverse. Thus, we can speak of \textquotedblleft\textit{the inverse}%
+\textquotedblright\ of a residue class $\alpha\in\mathbb{Z}/n$.
 
 \begin{corollary}
-Let $U_{n}$ be the set of all $\alpha\in\mathbb{Z}/n$ that have an inverse. Then:
+\label{cor.equiv.modinv.Unphi}Let $U_{n}$ be the set of all residue classes
+$\alpha\in\mathbb{Z}/n$ that have an inverse. Then:
 
-\textbf{(a)} For an integer $a$, we have $\left[  a\right]  _{n}\in U_{n}$ if
-and only if $a\perp n$.
+\textbf{(a)} For an integer $a$, we have the logical equivalence $\left(
+\left[  a\right]  _{n}\in U_{n}\right)  \Longleftrightarrow\left(  a\perp
+n\right)  $.
 
 \textbf{(b)} We have $\left\vert U_{n}\right\vert =\phi\left(  n\right)  $.
 \end{corollary}
 
 \begin{proof}
-\textbf{(a)} This is just saying: $\left[  a\right]  _{n}$ has an inverse if
-and only if $a\perp n$. But this follows from the proposition above.
+[Proof of Corollary \ref{cor.equiv.modinv.Unphi}.] \textbf{(a)} Let $a$ be an
+integer. Proposition \ref{prop.equiv.modinv.exiuni} \textbf{(a)} yields the
+logical implication
+\begin{equation}
+\left(  \left[  a\right]  _{n}\text{ has an inverse}\right)  \ \Longrightarrow
+\ \left(  a\perp n\right)  .\label{pf.cor.equiv.modinv.Unphi.a.1}%
+\end{equation}
+But Proposition \ref{prop.equiv.modinv.exiuni} \textbf{(b)} yields the logical
+implication
+\begin{equation}
+\left(  a\perp n\right)  \ \Longrightarrow\ \left(  \left[  a\right]
+_{n}\text{ has a unique inverse}\right)  \ \Longrightarrow\ \left(  \left[
+a\right]  _{n}\text{ has an inverse}\right)
+.\label{pf.cor.equiv.modinv.Unphi.a.2}%
+\end{equation}
+Combining the two implications (\ref{pf.cor.equiv.modinv.Unphi.a.1}) and
+(\ref{pf.cor.equiv.modinv.Unphi.a.2}), we obtain the equivalence%
+\begin{equation}
+\left(  \left[  a\right]  _{n}\text{ has an inverse}\right)
+\ \Longleftrightarrow\ \left(  a\perp n\right)
+.\label{pf.cor.equiv.modinv.Unphi.a.3}%
+\end{equation}
+But $U_{n}$ was defined as the set of all residue classes $\alpha\in
+\mathbb{Z}/n$ that have an inverse. Hence, we have the following chain of
+equivalences:%
+\[
+\left(  \left[  a\right]  _{n}\in U_{n}\right)  \ \Longleftrightarrow\ \left(
+\left[  a\right]  _{n}\text{ has an inverse}\right)  \ \Longleftrightarrow
+\ \left(  a\perp n\right)
+\]
+(by (\ref{pf.cor.equiv.modinv.Unphi.a.3})). This proves Corollary
+\ref{cor.equiv.modinv.Unphi} \textbf{(a)}.%
+
+\[%
+\begin{tabular}
+[c]{||l||}\hline\hline
+\textbf{You have reached the end of the finished part.}\\
+\textbf{TODO: Write on from here.}\\\hline\hline
+\end{tabular}
+\]
+
 
 \textbf{(b)} Recall that $\mathbb{Z}/n$ consists of the $n$ distinct elements
 $\left[  0\right]  _{n},\left[  1\right]  _{n},\ldots,\left[  n-1\right]
@@ -14850,11 +14962,12 @@ _{n},\left[  1\right]  _{n},\ldots,\left[  n-1\right]  _{n}$ are distinct).
 Hence,%
 \begin{align*}
 \left\vert U_{n}\right\vert  &  =\left(  \text{the number of }a\in\left\{
-0,1,\ldots,n-1\right\}  \text{ that satisfy }a\perp n\right) \\
+0,1,\ldots,n-1\right\}  \text{ that satisfy }a\perp n\right)  \\
 &  =\left\vert \left\{  i\in\left\{  0,1,\ldots,n-1\right\}  \ \mid\ i\perp
 n\right\}  \right\vert =\phi\left(  n\right)
 \end{align*}
-(by Lemma \ref{lem.ent.euler.phi0}).
+(by Lemma \ref{lem.ent.euler.phi0}). This proves Corollary
+\ref{cor.equiv.modinv.Unphi} \textbf{(b)}.
 \end{proof}
 
 We can now prove Theorem \ref{thm.ent.wilson} again -- or, rather, restate our
@@ -18114,7 +18227,7 @@ that do not satisfy $\pi\sim\kappa$. Prove that $\pi\perp\kappa$.
 \end{exercise}
 
 \begin{proof}
-[Solution sketch.] This is an analogue of Exercise
+[Solution sketch.]This is an analogue of Exercise
 \ref{exe.ent.primes.dist=cop}, and its solution goes accordingly.
 \end{proof}
 
