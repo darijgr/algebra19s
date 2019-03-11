@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, March 11, 2019 00:43:02}
+%TCIDATA{LastRevised=Monday, March 11, 2019 08:19:15}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -13529,7 +13529,7 @@ P=\operatorname*{id}$.]
 
 Combining $P\circ R=\operatorname*{id}$ and $R\circ P=\operatorname*{id}$, we
 conclude that the maps $P$ and $R$ are mutually inverse. Thus, the map $P$ is
-invertible, i.e., bijective. Thus, $P$ is surjective and injective. Since $P$
+invertible, i.e., bijective. Hence, $P$ is surjective and injective. Since $P$
 is injective, we see that $P$ must send the distinct elements $0,1,\ldots,n-1$
 of its domain to distinct elements. In other words, the $n$ elements $P\left(
 0\right)  ,P\left(  1\right)  ,\ldots,P\left(  n-1\right)  $ of $\mathbb{Z}/n$
@@ -14939,7 +14939,58 @@ equivalences:%
 \ \left(  a\perp n\right)
 \]
 (by (\ref{pf.cor.equiv.modinv.Unphi.a.3})). This proves Corollary
-\ref{cor.equiv.modinv.Unphi} \textbf{(a)}.%
+\ref{cor.equiv.modinv.Unphi} \textbf{(a)}.
+
+\textbf{(b)} Theorem \ref{thm.eqrel.Z/n.explicit} says that the set
+$\mathbb{Z}/n$ has exactly $n$ elements, namely \newline$\left[  0\right]
+_{n},\left[  1\right]  _{n},\ldots,\left[  n-1\right]  _{n}$ (and in
+particular, these $n$ elements are all distinct). Thus, the map%
+\begin{align*}
+P:\left\{  0,1,\ldots,n-1\right\}   &  \rightarrow\mathbb{Z}/n,\\
+s &  \mapsto\left[  s\right]  _{n}.
+\end{align*}
+is bijective\footnote{We also have explicitly proven this fact during our
+proof of Theorem \ref{thm.eqrel.Z/n.explicit}.}. Consider this map $P$. For
+each integer $a$, we have the logical equivalence%
+\begin{equation}
+\left(  \underbrace{P\left(  a\right)  }_{\substack{=\left[  a\right]
+_{n}\\\text{(by the definition of }P\text{)}}}\in U_{n}\right)
+\ \Longleftrightarrow\ \left(  \left[  a\right]  _{n}\in U_{n}\right)
+\ \Longleftrightarrow\ \left(  a\perp n\right)
+\label{pf.cor.equiv.modinv.Unphi.b.equiv}%
+\end{equation}
+(by Corollary \ref{cor.equiv.modinv.Unphi} \textbf{(a)}).
+
+But the map $P$ is bijective. Hence, we can substitute $P\left(  a\right)  $
+for $\alpha$ when counting the number of $\alpha\in U_{n}$. We thus obtain%
+\begin{align*}
+&  \left(  \text{the number of }\alpha\in U_{n}\right) \\
+&  =\left(  \text{the number of }a\in\left\{  0,1,\ldots,n-1\right\}  \text{
+such that }P\left(  a\right)  \in U_{n}\right) \\
+&  =\left(  \text{the number of }a\in\left\{  0,1,\ldots,n-1\right\}  \text{
+such that }a\perp n\right) \\
+&  \ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{because for each }a\in\left\{  0,1,\ldots,n\right\}  \text{, we have the
+logical}\\
+\text{equivalence }\left(  P\left(  a\right)  \in U_{n}\right)
+\ \Longleftrightarrow\ \left(  a\perp n\right)  \text{ (by
+(\ref{pf.cor.equiv.modinv.Unphi.b.equiv}))}%
+\end{array}
+\right) \\
+&  =\left\vert \left\{  a\in\left\{  0,1,\ldots,n-1\right\}  \ \mid\ a\perp
+n\right\}  \right\vert \\
+&  =\left\vert \left\{  i\in\left\{  0,1,\ldots,n-1\right\}  \ \mid\ i\perp
+n\right\}  \right\vert \ \ \ \ \ \ \ \ \ \ \left(  \text{here, we have renamed
+the index }a\text{ as }i\right) \\
+&  =\phi\left(  n\right)
+\end{align*}
+(by Lemma \ref{lem.ent.euler.phi0}). This proves Corollary
+\ref{cor.equiv.modinv.Unphi} \textbf{(b)}.
+\end{proof}
+
+%
 
 \[%
 \begin{tabular}
@@ -14947,27 +14998,9 @@ equivalences:%
 \textbf{You have reached the end of the finished part.}\\
 \textbf{TODO: Write on from here.}\\\hline\hline
 \end{tabular}
+\
 \]
 
-
-\textbf{(b)} Recall that $\mathbb{Z}/n$ consists of the $n$ distinct elements
-$\left[  0\right]  _{n},\left[  1\right]  _{n},\ldots,\left[  n-1\right]
-_{n}$. By part \textbf{(a)}, the ones among these $n$ elements that belong to
-$U_{n}$ are exactly the ones of the form $\left[  a\right]  _{n}$ with $a\perp
-n$. So $U_{n}$ consists of the elements $\left[  a\right]  _{n}$ for all
-$a\in\left\{  0,1,\ldots,n-1\right\}  $ that satisfy $a\perp n$, and
-furthermore these elements are all distinct (since $\left[  0\right]
-_{n},\left[  1\right]  _{n},\ldots,\left[  n-1\right]  _{n}$ are distinct).
-Hence,%
-\begin{align*}
-\left\vert U_{n}\right\vert  &  =\left(  \text{the number of }a\in\left\{
-0,1,\ldots,n-1\right\}  \text{ that satisfy }a\perp n\right) \\
-&  =\left\vert \left\{  i\in\left\{  0,1,\ldots,n-1\right\}  \ \mid\ i\perp
-n\right\}  \right\vert =\phi\left(  n\right)
-\end{align*}
-(by Lemma \ref{lem.ent.euler.phi0}). This proves Corollary
-\ref{cor.equiv.modinv.Unphi} \textbf{(b)}.
-\end{proof}
 
 We can now prove Theorem \ref{thm.ent.wilson} again -- or, rather, restate our
 previous proof of Theorem \ref{thm.ent.wilson} in more natural terms:
@@ -15999,7 +16032,7 @@ $\alpha$ has a unique inverse.
 \end{theorem}
 
 \begin{proof}
-[Proof of Theorem \ref{thm.CC.CC.inverse.unique}.] \textit{Existence of the
+[Proof of Theorem \ref{thm.CC.CC.inverse.unique}.]\textit{Existence of the
 inverse:} Write $\alpha$ as $\alpha=\left(  c,d\right)  $ for two real numbers
 $c$ and $d$. Then, $c^{2}+d^{2}>0$ (since $\left(  c,d\right)  =\alpha
 \neq0=\left(  0,0\right)  $). Now, set%
@@ -16009,9 +16042,9 @@ $c$ and $d$. Then, $c^{2}+d^{2}>0$ (since $\left(  c,d\right)  =\alpha
 Then,%
 \begin{align*}
 \alpha\beta &  =\left(  c,d\right)  \left(  \dfrac{c}{c^{2}+d^{2}},\dfrac
-{-d}{c^{2}+d^{2}}\right)  \\
+{-d}{c^{2}+d^{2}}\right) \\
 &  =\left(  c\cdot\dfrac{c}{c^{2}+d^{2}}-d\cdot\dfrac{-d}{c^{2}+d^{2}}%
-,c\cdot\dfrac{-d}{c^{2}+d^{2}}+d\cdot\dfrac{c}{c^{2}+d^{2}}\right)  \\
+,c\cdot\dfrac{-d}{c^{2}+d^{2}}+d\cdot\dfrac{c}{c^{2}+d^{2}}\right) \\
 &  =\left(  1,0\right)  =1_{\mathbb{C}}.
 \end{align*}
 So $\beta$ is an inverse of $\alpha$.
@@ -18219,8 +18252,14 @@ Strong induction on $\operatorname*{N}\left(  \nu\right)  $.
 \begin{definition}
 Let $\nu$ be a nonzero Gaussian integer. A \textit{Gaussian prime
 factorization} of $\nu$ means a tuple $\left(  \pi_{1},\pi_{2},\ldots,\pi
-_{k}\right)  $ of Gaussian primes such that $\nu=\pi_{1}\pi_{2}\cdots\pi_{k}$.
+_{k}\right)  $ of Gaussian primes such that $\nu\sim\pi_{1}\pi_{2}\cdots
+\pi_{k}$.
 \end{definition}
+
+Why did we require only $\nu\sim\pi_{1}\pi_{2}\cdots\pi_{k}$ and not $\nu
+=\pi_{1}\pi_{2}\cdots\pi_{k}$ ? Because we want $-1$ to have a Gaussian prime
+factorization, but there is no way to literally write $-1$ as a product of
+Gaussian primes.
 
 \begin{exercise}
 \label{exe.Z[i].prime.dist=cop}Let $\pi$ and $\kappa$ be two Gaussian primes
@@ -18281,7 +18320,7 @@ $\left(  \alpha_{1},\alpha_{2},\ldots,\alpha_{k}\right)  $ be a Gaussian prime
 factorization of $\nu$. Let $\pi$ be a Gaussian prime. Then,%
 \begin{align*}
 &  \left(  \text{the number of times a Gaussian integer unit-equivalent to
-}\pi\text{ }\right. \\
+}\pi\right. \\
 &  \ \ \ \ \ \ \ \ \ \ \left.  \text{appears in the tuple }\left(  \alpha
 _{1},\alpha_{2},\ldots,\alpha_{k}\right)  \right) \\
 &  =\left(  \text{the number of }i\in\left\{  1,2,\ldots,k\right\}  \text{
