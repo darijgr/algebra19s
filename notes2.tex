@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, March 11, 2019 09:56:10}
+%TCIDATA{LastRevised=Monday, March 11, 2019 12:05:10}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -17879,7 +17879,10 @@ impossible since $a$ and $b$ have to be integers. So $3$ is a Gaussian prime.
 So we know that $3$ is a Gaussian prime, but $2$ is not. Is there a way to
 tell which integers are Gaussian primes, without checking all Gaussian divisors?
 
-Let us first state a positive* criterion:
+$5$ is not a Gaussian prime, since $5=\left(  1+2i\right)  \left(
+1-2i\right)  $.
+
+Let us first state a positive criterion:
 
 \begin{lemma}
 Let $p$ be a prime such that $p\equiv3\operatorname{mod}4$. Then, $p$ is a
@@ -17894,74 +17897,63 @@ this $\varepsilon$.
 
 From $p=\delta\varepsilon$, we obtain $\operatorname*{N}\left(  p\right)
 =\operatorname*{N}\left(  \delta\varepsilon\right)  =\operatorname*{N}\left(
-\delta\right)  \cdot\operatorname*{N}\left(  \varepsilon\right)  $, so that
+\delta\right)  \cdot\operatorname*{N}\left(  \varepsilon\right)  $. Hence,
 $\operatorname*{N}\left(  \delta\right)  \cdot\operatorname*{N}\left(
 \varepsilon\right)  =\operatorname*{N}\left(  p\right)  =p^{2}+0^{2}=p^{2}$.
 Since $\operatorname*{N}\left(  \delta\right)  $ and $\operatorname*{N}\left(
-\varepsilon\right)  $ are nonnegative integers (and $p$ is prime), this leaves
-three options:
+\varepsilon\right)  $ are nonnegative integers and $p$ is prime, this leaves
+only three options:
 
 \begin{itemize}
-\item \textbf{either }$\operatorname*{N}\left(  \delta\right)  =1$ and
-$\operatorname*{N}\left(  \varepsilon\right)  =p^{2}$,
+\item \textbf{either} $\operatorname*{N}\left(  \delta\right)  =1$ and
+$\operatorname*{N}\left(  \varepsilon\right)  =p^{2}$;
 
 \item \textbf{or} $\operatorname*{N}\left(  \delta\right)  =p$ and
-$\operatorname*{N}\left(  \varepsilon\right)  =p$,
+$\operatorname*{N}\left(  \varepsilon\right)  =p$;
 
 \item \textbf{or} $\operatorname*{N}\left(  \delta\right)  =p^{2}$ and
 $\operatorname*{N}\left(  \varepsilon\right)  =1$.
 \end{itemize}
 
-The first option would lead to $\delta$ being a unit, which is forbidden.
+The first of these 3 options would cause $\delta$ to be a unit, which is forbidden.
 
-The third option would lead to $\varepsilon$ being a unit, and thus $\delta$
-being unit-equivalent to $p$ (since $p=\delta\varepsilon$), but this is also forbidden.
+The third of these 3 options would cause $\varepsilon$ to be a unit and thus
+$\delta$ to be unit-equivalent to $p$, which is also forbidden.
 
-So we must have the second option. Thus, $\operatorname*{N}\left(
-\delta\right)  =p$. Writing $\delta$ as $\delta=\left(  x,y\right)  $ for two
-integers $x$ and $y$, we have $\operatorname*{N}\left(  \delta\right)
-=x^{2}+y^{2}$, so that $x^{2}+y^{2}=\operatorname*{N}\left(  \delta\right)
-=p\equiv3\operatorname{mod}4$. But this contradicts Exercise
-\ref{exe.ent.even-odd-sumsq} \textbf{(c)}. This proves the lemma.
+Thus, the second option must be the case. So $\operatorname*{N}\left(
+\delta\right)  =p$. Write the Gaussian integer $\delta$ as $\delta=\left(
+x,y\right)  $. Thus, $\operatorname*{N}\left(  \delta\right)  =x^{2}+y^{2}$.
+Hence, $x^{2}+y^{2}=\operatorname*{N}\left(  \delta\right)  =p\equiv
+3\operatorname{mod}4$. This contradicts Exercise \ref{exe.ent.even-odd-sumsq}
+\textbf{(c)}.
 \end{proof}
 
-Thus, $3,7,11,19,\ldots$ are Gaussian primes.
-
-[* Aside: There are three classes of primes:
+There are three types of primes:
 
 \begin{itemize}
-\item Primes that are even: there is only one, namely $2$.
+\item \textit{Type 1:} the primes $p$ satisfying $p\equiv1\operatorname{mod}%
+4$; these are $5,13,17,29,\ldots$
 
-\item \bigskip Primes that are $\equiv1\operatorname{mod}4$: namely,
-$5,13,17,29,\ldots$.
+\item \textit{Type 2:} the even primes $p$, of which there is only one: $p=2$.
 
-\item Primes that are $\equiv3\operatorname{mod}4$: namely,
-$3,7,11,19,23,\ldots$.
+\item \textit{Type 3:} the primes $p$ satisfying $p\equiv3\operatorname{mod}%
+4$; these are $3,7,11,19,\ldots$
 \end{itemize}
 
-It is not hard to prove that there are infinitely many primes that are
-$\equiv1\operatorname{mod}4$ and infinitely many that are $\equiv
-3\operatorname{mod}4$. See also Chebyshev's bias.]
+So we have proven (by the Lemma) that Type-3 primes are Gaussian primes.
 
-We already know that $2$ is not a Gaussian prime, since $2=\left(  1+i\right)
-\left(  1-i\right)  $.
+$13=\left(  2+3i\right)  \left(  2-3i\right)  $ shows that $13$ is not a
+Gaussian prime. This suggests that Type-1 primes are not Gaussian primes.
 
-Likewise, $5$ is not a Gaussian prime, since $5=\left(  1+2i\right)  \left(
-1-2i\right)  $.
-
-Likewise, $13$ is not a Gaussian prime, since $13=\left(  2+3i\right)  \left(
-2-3i\right)  $.
-
-This suggests that primes $p$ satisfying $p=2$ or $p\equiv1\operatorname{mod}%
-4$ factor as%
+Moreover, this suggests that primes $p$ of Types 1 and 2 not only factor
+nontrivially, but actually factor as%
 \[
-p=\left(  x+yi\right)  \left(  x-yi\right)  \ \ \ \ \ \ \ \ \ \ \text{for some
+p=\left(  x+yi\right)  \left(  x-yi\right)  \ \ \ \ \ \ \ \ \ \ \text{for
 integers }x\text{ and }y.
 \]
-Of course, this equation rewrites as $p=x^{2}+y^{2}$. So we are back to asking
-our old question about which $n$'s are sums of two squares.
-
-Our main goal today is to answer this *question and prove the following:
+Of course, this equation rewrites as $p=x^{2}+y^{2}$. Thus, we are back to
+asking our old question about writing integers as sums of two perfect squares,
+but (so far) only for primes.
 
 \begin{theorem}
 Let $p$ be a prime such that either $p=2$ or $p\equiv1\operatorname{mod}4$.
@@ -17969,7 +17961,7 @@ Let $p$ be a prime such that either $p=2$ or $p\equiv1\operatorname{mod}4$.
 \textbf{(a)} There exist integers $x$ and $y$ such that $p=x^{2}+y^{2}$.
 
 \textbf{(b)} If $p\equiv1\operatorname{mod}4$, then there exist exactly $8$
-pairs $\left(  x,y\right)  $ of integers such that $p=x^{2}+y^{2}$. (For
+pairs $\left(  x,y\right)  $ of integers satisfying $p=x^{2}+y^{2}$. (For
 example, if $p=5$, then these $8$ pairs are%
 \begin{align*}
 & \left(  1,2\right)  ,\ \ \ \ \ \ \ \ \ \ \left(  2,1\right)
@@ -17982,91 +17974,76 @@ example, if $p=5$, then these $8$ pairs are%
 )
 
 \textbf{(c)} There exists a Gaussian prime $\pi$ such that $p=\pi\overline
-{\pi}$. (*Thus, in particular, $p$ itself is not a Gaussian prime.)
+{\pi}$.
+
+\textbf{(d)} The number $p$ itself is not a Gaussian prime.
 \end{theorem}
 
-* For example,%
-\begin{align*}
-17  & =1^{2}+4^{2}=\left(  1+4i\right)  \left(  1-4i\right)  =\left(
-1+4i\right)  \left(  \overline{1+4i}\right)  \\
-& =\left(  1-4i\right)  \left(  \overline{1-4i}\right)  =\left(  4+i\right)
-\left(  \overline{4+i}\right)  .
-\end{align*}
-
-
-Before we can prove this theorem, we have to build up the theory of Gaussian
-primes. We first state a Gaussian-integer analogue of Proposition 2.13.5:
+Before we can prove this, we have to build up the theory of Gaussian primes.
 
 \begin{proposition}
 Let $\pi$ be a Gaussian prime. Let $\alpha\in\mathbb{Z}\left[  i\right]  $.
 Then, either $\pi\mid\alpha$ or $\pi\perp\alpha$.
 \end{proposition}
 
-Next, an analogue to Theorem 2.13.6:
-
 \begin{theorem}
-Let $\pi$ be a *Gaussian prime. Let *$\alpha,\beta\in\mathbb{Z}\left[
-i\right]  $ be such that $\pi\mid\alpha\beta$. Then, $\pi\mid\alpha$ or
-$\pi\mid\beta$.
+Let $\pi$ be a Gaussian prime. Let $\alpha,\beta\mid\mathbb{Z}\left[
+i\right]  $ such that $\pi\mid\alpha\beta$. Then, $\pi\mid\alpha$ or $\pi
+\mid\beta$. 
 \end{theorem}
 
-Also, a few simple facts:
+The following lemma is a sufficient (but not necessary) condition for Gaussian primality:
 
 \begin{lemma}
 Let $\alpha$ be a Gaussian integer. If $\operatorname*{N}\left(
 \alpha\right)  $ is prime, then $\alpha$ is a Gaussian prime.
 \end{lemma}
 
-Note that the converse does not hold ($3$ is a Gaussian prime, but
-$\operatorname*{N}\left(  3\right)  =9$ is not prime).
-
 \begin{proof}
-[Proof of Lemma.] Assume that $\operatorname*{N}\left(  \alpha\right)  $ is
-prime. We must show that $\alpha$ is a Gaussian prime.
+Assume that $\operatorname*{N}\left(  \alpha\right)  $ is prime. We must prove
+that $\alpha$ is a Gaussian prime.
 
 Assume the contrary. Thus, $\alpha$ has a Gaussian divisor $\delta$ that is
-neither a unit nor unit-equivalent to $\alpha$ (*since $\alpha$ is nonzero and
-not a unit (because $\operatorname*{N}\left(  \alpha\right)  $ is prime and
-thus $>1$)). Consider this $\delta$. Write $\alpha=\delta\varepsilon$ with
-some Gaussian integer $\varepsilon$.
-
-From $\alpha=\delta\varepsilon$, we obtain $\operatorname*{N}\left(
-\alpha\right)  =\operatorname*{N}\left(  \delta\varepsilon\right)
+neither a unit nor unit-equivalent to $\alpha$. Consider this $\delta$, and
+consider the Gaussian integer $\varepsilon$ satisfying $\alpha=\delta
+\varepsilon$. Now, from $\alpha=\delta\varepsilon$, we get $\operatorname*{N}%
+\left(  \alpha\right)  =\operatorname*{N}\left(  \delta\varepsilon\right)
 =\operatorname*{N}\left(  \delta\right)  \cdot\operatorname*{N}\left(
 \varepsilon\right)  $, so that $\operatorname*{N}\left(  \delta\right)
 \cdot\operatorname*{N}\left(  \varepsilon\right)  =\operatorname*{N}\left(
-\alpha\right)  $. But since $\operatorname*{N}\left(  \alpha\right)  $ is
-prime and since $\operatorname*{N}\left(  \delta\right)  $ and
-$\operatorname*{N}\left(  \varepsilon\right)  $ are nonnegative integers, this
-leaves only two options:
+\alpha\right)  $. Since $\operatorname*{N}\left(  \alpha\right)  $ is prime,
+and since $\operatorname*{N}\left(  \delta\right)  $ and $\operatorname*{N}%
+\left(  \varepsilon\right)  $ are nonnegative integers, this leaves only two options:
 
 \begin{itemize}
-\item \textbf{either }$\operatorname*{N}\left(  \delta\right)  =1$ and
+\item \textbf{either} $\operatorname*{N}\left(  \delta\right)  =1$ and
 $\operatorname*{N}\left(  \varepsilon\right)  =\operatorname*{N}\left(
-\alpha\right)  $;
+\alpha\right)  $,
 
 \item \textbf{or} $\operatorname*{N}\left(  \delta\right)  =\operatorname*{N}%
 \left(  \alpha\right)  $ and $\operatorname*{N}\left(  \varepsilon\right)  =1$.
 \end{itemize}
 
-The first of these *two options would cause $\delta$ to be a unit, which is
-forbidden. The second option would leave $\delta$ unit-equivalent to $\alpha$,
-which is again forbidden. So we have a contradiction in both cases.
+The first option contradicts the assumption that $\delta$ is not a unit.
+
+The second option contradicts the assumption that $\delta$ is not
+unit-equivalent to $\alpha$.
 \end{proof}
 
-For example, the Lemma shows that $1+2i$ is a Gaussian prime.
+This lemma shows (e.g.) that $1+i$ and $1+2i$ are Gaussian primes (having
+norms $2$ and $5$).
 
 \begin{lemma}
 Let $\pi$ be a Gaussian prime. Then, $\overline{\pi}$ is a Gaussian prime.
 \end{lemma}
 
 \begin{proof}
-* Gaussian divisors $\delta$ of $\pi$ lead to Gaussian divisors $\overline
-{\delta}$ of $\overline{\pi}$.
+Every property of $\pi$ corresponds to the analogous property of
+$\overline{\pi}$. For example, if $\alpha\mid\beta$, then $\overline{\alpha
+}\mid\overline{\beta}$, and vice versa.
 \end{proof}
 
-Finally, we recall HW4 exercise \textquotedblleft Wilson strikes
-again\textquotedblright:
+Finally, we recall HW4 exercise 6:
 
 \begin{exercise}
 Let $p$ be an odd prime. Write $p$ in the form $p=2k+1$ for some
@@ -18075,43 +18052,38 @@ $k\in\mathbb{N}$. Prove that $k!^{2}\equiv-\left(  -1\right)  ^{k}%
 \end{exercise}
 
 \begin{proof}
-[Proof of Theorem.] \textbf{(a)} If $p=2$, then this is clear. So we WLOG
-assume that  $p\equiv1\operatorname{mod}4$. Thus, $p=2k+1$ for some
-\textbf{even} $k\in\mathbb{N}$. Consider this $k$.
+[Proof of Theorem.] \textbf{(d)} Assume the contrary. Thus, $p$ is a Gaussian prime.
 
-The exercise yields $k!^{2}\equiv-\left(  -1\right)  ^{k}\operatorname{mod}p$.
-Setting $u=k!$, this becomes%
+If $p=2$, then this contradicts $2=\left(  1+i\right)  \left(  1-i\right)  $.
+So we don't have $p=2$. Thus, $p\equiv1\operatorname{mod}4$. Hence, we can
+write $p$ as $p=2k+1$ for some \textbf{even} $k\in\mathbb{N}$. Thus, the
+Exercise we just quoted yields $k!^{2}\equiv-\left(  -1\right)  ^{k}%
+\operatorname{mod}p$. Setting $u=k!$, this becomes
 \[
 u^{2}\equiv-\underbrace{\left(  -1\right)  ^{k}}_{=1}=-1\operatorname{mod}p.
 \]
 In other words,%
 \[
-p\mid u^{2}-\left(  -1\right)  =u^{2}+1=\left(  u+i\right)  \left(
+p\mid u^{2}-\left(  -1\right)  =u^{2}-i^{2}=\left(  u+i\right)  \left(
 u-i\right)  .
 \]
-This is a divisibility in $\mathbb{Z}$, hence also in $\mathbb{Z}\left[
-i\right]  $.
+This is a divisibility in $\mathbb{Z}$, thus a divisibility in $\mathbb{Z}%
+\left[  i\right]  $. Since $p$ is a Gaussian prime, this yields that $p\mid
+u+i$ or $p\mid u-i$.
 
-Now, assume (for the sake of contradiction) that $p$ is a Gaussian prime. We
-have $p\mid\left(  u+i\right)  \left(  u-i\right)  $. Since $p$ is a Gaussian
-prime, this entails $p\mid u+i$ or $p\mid u-i$ (by one of the Theorems above).
-Note, however, that $p\mid u+i$ and $p\mid u-i$ are equivalent (because
-$p=\overline{p}$ and $u-i=\overline{u+i}$). Hence, we have $p\mid u+i$
-\textbf{and} $p\mid u-i$.
+However, the statements $p\mid u+i$ and $p\mid u-i$ are actually equivalent
+(by conjugation). Thus, both of them hold (since one of them hold). Thus,
+$p\mid u+i$ \textbf{and} $p\mid u-i$.
 
-From $p\mid u+i$, we conclude that there exists a Gaussian integer $\gamma$
-such that $u+i=p\gamma$. Consider this $\gamma$. Write $\gamma$ as
-$\gamma=\left(  a,b\right)  $ for some $a,b\in\mathbb{Z}$. Then,%
-\[
-\left(  u,1\right)  =u+i=p\underbrace{\gamma}_{=\left(  a,b\right)  }=p\left(
-a,b\right)  =\left(  pa,pb\right)  .
-\]
-So $u=pa$ and $1=pb$. But $1=pb$ is absurd.
+Now, $\dfrac{u+i}{p}=\dfrac{u}{p}+i\dfrac{1}{p}$ is not a Gaussian integer,
+since its imaginary part is $\dfrac{1}{p}\notin\mathbb{Z}$. Hence, $p\mid u+i$
+is absurd. Contradiction!
 
-This contradiction shows that $p$ is not a Gaussian prime. Hence, $p$ has a
-Gaussian divisor $\delta$ that is neither a unit nor unit-equivalent to $p$.
+\textbf{(a)} By part \textbf{(d)}, we know that $p$ is not a Gaussian prime.
+Since $\operatorname*{N}\left(  p\right)  =p^{2}>1$, this yields that $p$ has
+a Gaussian divisor $\delta$ that is neither a unit nor unit-equivalent to $p$.
 Consider this $\delta$. Thus, there exists a Gaussian integer $\varepsilon$
-such that $p=\delta\varepsilon$.
+such that $p=\delta\varepsilon$. Consider this $\varepsilon$.
 
 From $p=\delta\varepsilon$, we obtain $\operatorname*{N}\left(  p\right)
 =\operatorname*{N}\left(  \delta\varepsilon\right)  =\operatorname*{N}\left(
@@ -18119,50 +18091,44 @@ From $p=\delta\varepsilon$, we obtain $\operatorname*{N}\left(  p\right)
 $\operatorname*{N}\left(  \delta\right)  \cdot\operatorname*{N}\left(
 \varepsilon\right)  =\operatorname*{N}\left(  p\right)  =p^{2}+0^{2}=p^{2}$.
 Since $\operatorname*{N}\left(  \delta\right)  $ and $\operatorname*{N}\left(
-\varepsilon\right)  $ are nonnegative integers and $p^{2}$ is prime, this
-leaves only three options:
+\varepsilon\right)  $ are nonnegative integers and $p$ is prime, this leaves
+only three options:
 
 \begin{itemize}
-\item \textbf{either }$\operatorname*{N}\left(  \delta\right)  =1$ and
-$\operatorname*{N}\left(  \varepsilon\right)  =p^{2}$,
+\item \textbf{either} $\operatorname*{N}\left(  \delta\right)  =1$ and
+$\operatorname*{N}\left(  \varepsilon\right)  =p^{2}$;
 
 \item \textbf{or} $\operatorname*{N}\left(  \delta\right)  =p$ and
-$\operatorname*{N}\left(  \varepsilon\right)  =p$,
+$\operatorname*{N}\left(  \varepsilon\right)  =p$;
 
 \item \textbf{or} $\operatorname*{N}\left(  \delta\right)  =p^{2}$ and
 $\operatorname*{N}\left(  \varepsilon\right)  =1$.
 \end{itemize}
 
-The first option would lead to $\delta$ being a unit, which is forbidden.
+The first of these 3 options would cause $\delta$ to be a unit, which is forbidden.
 
-The third option would lead to $\varepsilon$ being a unit, and thus $\delta$
-being unit-equivalent to $p$ (since $p=\delta\varepsilon$), but this is also forbidden.
+The third of these 3 options would cause $\varepsilon$ to be a unit and thus
+$\delta$ to be unit-equivalent to $p$, which is also forbidden.
 
-So we must have the second option. Thus, $\operatorname*{N}\left(
-\delta\right)  =p$. Writing $\delta$ as $\delta=\left(  x,y\right)  $ for two
-integers $x$ and $y$, we have $\operatorname*{N}\left(  \delta\right)
-=x^{2}+y^{2}$. Thus, $p=\operatorname*{N}\left(  \delta\right)  =x^{2}+y^{2}$.
-This proves part \textbf{(a)} of the Theorem.
+Thus, the second option must be the case. So $\operatorname*{N}\left(
+\delta\right)  =p$. Write the Gaussian integer $\delta$ as $\delta=\left(
+x,y\right)  $. Thus, $\operatorname*{N}\left(  \delta\right)  =x^{2}+y^{2}$.
+Hence, $x^{2}+y^{2}=\operatorname*{N}\left(  \delta\right)  =p$. This proves
+part \textbf{(a)}.
 
 \textbf{(c)} Part \textbf{(a)} yields that there exist integers $x$ and $y$
-such that $p=x^{2}+y^{2}$. Consider these $x$ and $y$. Let $\pi$ be the
-Gaussian integer $x+iy$. Then,%
-\[
-\pi\overline{\pi}=\left(  x+iy\right)  \left(  x-iy\right)  =x^{2}+y^{2}=p.
-\]
-So we have $p=\pi\overline{\pi}$. It remains to prove that $\pi$ is a Gaussian prime.
-
-The norm of $\pi$ is $\operatorname*{N}\left(  \pi\right)  =\pi\overline{\pi
-}=p$, which is prime. Thus, $\pi$ is a Gaussian prime (by the Lemma). This
-proves part \textbf{(c)}.
+such that $p=x^{2}+y^{2}$. Consider these $x$ and $y$, and let $\pi$ be the
+Gaussian integer $x+yi$. Then, $\operatorname*{N}\left(  \pi\right)
+=x^{2}+y^{2}=p$ is prime, so that $\pi$ is a Gaussian prime (by Lemma). Also,
+$\pi\overline{\pi}=\operatorname*{N}\left(  \pi\right)  =p$. Thus,
+\textbf{(c)} is proven.
 
 \textbf{(b)} Assume that $p\equiv1\operatorname{mod}4$. We must prove that
 there exist exactly $8$ pairs $\left(  x,y\right)  $ of integers such that
 $p=x^{2}+y^{2}$.
 
-One such pair is provided by part \textbf{(a)}. Let us call it $\left(
-a,b\right)  $. To get the other $7$, we just swap its entries and negate some
-of them. Thus, we have $8$ pairs%
+Part \textbf{(a)} provides one such pair. Let us call it $\left(  a,b\right)
+$. To get $7$ further pairs, we just swap entries and change signs:%
 \begin{align*}
 & \left(  a,b\right)  ,\ \ \ \ \ \ \ \ \ \ \left(  b,a\right)
 ,\ \ \ \ \ \ \ \ \ \ \left(  a,-b\right)  ,\ \ \ \ \ \ \ \ \ \ \left(
@@ -18171,64 +18137,78 @@ of them. Thus, we have $8$ pairs%
 ,\ \ \ \ \ \ \ \ \ \ \left(  -a,-b\right)  ,\ \ \ \ \ \ \ \ \ \ \left(
 -b,-a\right)  .
 \end{align*}
-Now it remains to prove that there no other pairs $\left(  x,y\right)  $ of
-integers such that $p=x^{2}+y^{2}$.
 
-In other words, we have to prove that if $\left(  x,y\right)  $ is a pair of
-integers such that $p=x^{2}+y^{2}$, then $\left(  x,y\right)  $ is one of the
-above $8$ pairs.
 
-So let us fix a pair $\left(  x,y\right)  $ of integers such that
-$p=x^{2}+y^{2}$. We must prove that $\left(  x,y\right)  $ is one of the above
-$8$ pairs. In other words, we must prove that $\left(  x,y\right)  $ equals
-$\left(  a,b\right)  $ up to order and *signs. This is equivalent to proving
-that%
+Now we have $8$ pairs, and they are all distinct (since $p$ is not twice a
+square, nor a square). It remains to prove that there are no other such pairs
+$\left(  x,y\right)  $.
+
+In other words, we must prove that every pair $\left(  x,y\right)  $ of
+integers such that $p=x^{2}+y^{2}$ is one of the $8$ pairs listed above.
+
+Let $\left(  x,y\right)  $ be a pair of integers such that $p=x^{2}+y^{2}$. We
+must prove that $\left(  x,y\right)  $ is one of the $8$ pairs listed above.
+In other words, we must prove that $\left(  x,y\right)  $ equals $\left(
+a,b\right)  $ up to order and signs. Equivalently, we must prove that%
 \[
 x+yi\sim a+bi\ \ \ \ \ \ \ \ \ \ \text{or}\ \ \ \ \ \ \ \ \ \ x-yi\sim a+bi.
 \]
 
 
-Set $\pi=x+yi$ and $\alpha=a+bi$. As in the proof of part \textbf{(c)} above,
-we can prove that $\pi$ is a Gaussian prime. Similarly, $\alpha$ is a Gaussian prime.
+Set $\pi=x+yi$ and $\alpha=a+bi$. Then, $\pi$ and $\alpha$ are Gaussian
+integers with norms $\operatorname*{N}\left(  \pi\right)  =x^{2}+y^{2}=p$ and
+$\operatorname*{N}\left(  \alpha\right)  =a^{2}+b^{2}=p$. These norms are
+prime, so $\pi$ and $\alpha$ are Gaussian primes (by Lemma).
 
 Now,%
-\begin{align*}
-\alpha & =a+bi\mid\left(  a+bi\right)  \left(  a-bi\right)  =a^{2}+b^{2}=p\\
-& =x^{2}+y^{2}=\underbrace{\left(  x+yi\right)  }_{=\pi}\underbrace{\left(
-x-yi\right)  }_{=\overline{\pi}}=\pi\overline{\pi}.
-\end{align*}
-Thus, $\alpha\mid\pi$ or $\alpha\mid\overline{\pi}$ (by a Theorem above, since
-$\alpha$ is a Gaussian prime). So we are in one of the following two * Cases:
+\[
+\alpha=a+bi\mid\left(  a+bi\right)  \left(  a-bi\right)  =a^{2}+b^{2}%
+=p=\operatorname*{N}\left(  \pi\right)  =\pi\overline{\pi}.
+\]
+Since $\alpha$ is a Gaussian prime, this entails that $\alpha\mid\pi$ or
+$\alpha\mid\overline{\pi}$. So we are in one of two Cases:
 
-\textit{Case 1:} We have $\alpha\mid\pi$.
+\textit{Case 1:} $\alpha\mid\pi$.
 
-\textit{Case 2:} We have $\alpha\mid\overline{\pi}$.
+\textit{Case 2:} $\alpha\mid\overline{\pi}$.
 
-In Case 1, we have $\alpha\mid\pi$. In other words, we have $\pi=\alpha\xi$
-for some Gaussian integer $\xi$. Thus, $\operatorname*{N}\left(  \pi\right)
+Let us first consider Case 1. In this case, we have $\alpha\mid\pi$. Thus,
+$\pi=\alpha\xi$ for some Gaussian integer $\xi$. Consider this $\xi$. From
+$\pi=\alpha\xi$, we get $\operatorname*{N}\left(  \pi\right)
 =\operatorname*{N}\left(  \alpha\xi\right)  =\operatorname*{N}\left(
-\alpha\right)  \operatorname*{N}\left(  \xi\right)  $. Since both
-$\operatorname*{N}\left(  \pi\right)  $ and $\operatorname*{N}\left(
-\alpha\right)  $ are $p$, *this rewrites as $p=p\operatorname*{N}\left(
-\xi\right)  $. Thus, $\operatorname*{N}\left(  \xi\right)  =1$, and thus $\xi$
-is a unit. Therefore, $\pi=\alpha\xi$ yields $\pi\sim\alpha$. In other words,
-$x+yi\sim a+bi$.
+\alpha\right)  \cdot\operatorname*{N}\left(  \xi\right)  $. Since
+$\operatorname*{N}\left(  \pi\right)  =p$ and $\operatorname*{N}\left(
+\alpha\right)  =p$, this rewrites as $p=p\cdot\operatorname*{N}\left(
+\xi\right)  $. Thus, $\operatorname*{N}\left(  \xi\right)  =1$, which means
+that $\xi$ is a unit. Hence, $\pi=\alpha\xi$ shows that $\pi\sim\alpha$. In
+other words, $x+yi\sim a+bi$. So we are done in Case 1.
 
-In Case 2, we similarly obtain $x-yi\sim a+bi$.
+Case 2 is analogous, with $\overline{\pi}$ being used instead of $\pi$. In
+this case, you get $x-yi\sim a+bi$.
 
-It is left to the reader to check that the $8$ pairs are distinct.
+So we are done in both Cases, and \textbf{(b)} is proven.
 \end{proof}
 
----------------------------
+So we know now that each prime $p$ of Type 1 or Type 2 is a sum of two perfect
+squares, but no prime $p$ of Type 3 is. What about non-prime numbers?
 
-* So for a prime $p$, we know that $p$ is a sum of two perfect squares if and
-only if either $p=2$ or $p\equiv1\operatorname{mod}4$.
+$21\equiv1\operatorname{mod}4$, but $21$ is not a sum of two perfect squares.
 
-Does this hold for non-primes as well?
+-----------
 
-For $n=21$, we have $n\equiv1\operatorname{mod}4$, but $n$ is not a sum of two
-perfect squares.
+\begin{theorem}
+Let $p$ be a prime such that either $p=2$ or $p\equiv1\operatorname{mod}4$.
 
-Next time: When is $n$ a sum of two perfect squares for arbitrary (not just
-prime) $n$ ? And in how many ways?
+\textbf{(a)} There exist integers $x$ and $y$ such that $p=x^{2}+y^{2}$.
+
+\textbf{(b)} If $p\equiv1\operatorname{mod}4$, then there exist exactly $8$
+pairs $\left(  x,y\right)  $ of integers satisfying $p=x^{2}+y^{2}$.
+
+\textbf{(c)} There exists a Gaussian prime $\pi$ such that $p=\pi\overline
+{\pi}$.
+
+\textbf{(d)} The number $p$ itself is not a Gaussian prime.
+\end{theorem}
+
+
 \end{document}

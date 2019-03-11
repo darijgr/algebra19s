@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, March 11, 2019 10:20:16}
+%TCIDATA{LastRevised=Monday, March 11, 2019 12:24:29}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -16293,6 +16293,18 @@ complex numbers. This answers the question of how you could have come up with
 this identity (although Brahmagupta must have found it in a different way,
 since complex numbers were not known to him).
 
+\begin{corollary}
+\label{cor.CC.norm.pow}Let $\alpha\in\mathbb{C}$ and $k\in\mathbb{N}$. Then,
+$\operatorname*{N}\left(  \alpha^{k}\right)  =\left(  \operatorname*{N}\left(
+\alpha\right)  \right)  ^{k}$.
+\end{corollary}
+
+\begin{proof}
+[Proof of Corollary \ref{cor.CC.norm.pow}.] Induction on $k$, using
+Proposition \ref{prop.CC.conj.hom} \textbf{(d)} and the fact that
+$\operatorname*{N}\left(  1\right)  =1$.
+\end{proof}
+
 \begin{definition}
 \label{def.CC.ReIm}Let $\alpha=\left(  a,b\right)  =a+bi$ be a complex number.
 
@@ -16352,7 +16364,7 @@ c & d\\
 \begin{array}
 [c]{cc}%
 ac-bd & ad+bc\\
--\left(  ad+bc\right)  & ac-bd
+-\left(  ad+bc\right)   & ac-bd
 \end{array}
 \right)  .
 \]
@@ -17818,7 +17830,7 @@ the Greek letter corresponding to the Roman \textquotedblleft$p$%
 The Gaussian primes are \textbf{not} a superset of the primes. For example:
 
 \begin{example}
-The Gaussian integer $2$ is not a Gaussian prime.
+\label{exa.Z[i].gauss.2notprime}The Gaussian integer $2$ is not a Gaussian prime.
 \end{example}
 
 \begin{proof}
@@ -17827,7 +17839,8 @@ $1-i$ have norms $2$, which means that they are neither units themselves
 (since units would have norm $1$) nor unit-equivalent to $2$ (since $2$ has
 norm $4$, but unit-equivalent Gaussian integers have equal norms). Thus, $1+i$
 is a Gaussian divisor of $2$ that is neither a unit nor is unit-equivalent to
-$\pi$. Hence, $2$ is not a Gaussian prime.
+$2$. Hence, $2$ is not a Gaussian prime (by the definition of
+\textquotedblleft Gaussian prime\textquotedblright).
 \end{proof}
 
 So don't forget the word \textquotedblleft Gaussian\textquotedblright\ when
@@ -17989,9 +18002,9 @@ example, if $p=5$, then these $8$ pairs are $\left(  1,2\right)  $, $\left(
 
 For example, the Type-1 prime $17$ satisfies%
 \begin{align*}
-17  & =1^{2}+4^{2}=\left(  1+4i\right)  \left(  1-4i\right)  =\left(
-1+4i\right)  \left(  \overline{1+4i}\right)  \\
-& =\left(  1-4i\right)  \left(  \overline{1-4i}\right)  =\left(  4+i\right)
+17  &  =1^{2}+4^{2}=\left(  1+4i\right)  \left(  1-4i\right)  =\left(
+1+4i\right)  \left(  \overline{1+4i}\right) \\
+&  =\left(  1-4i\right)  \left(  \overline{1-4i}\right)  =\left(  4+i\right)
 \left(  \overline{4+i}\right)  .
 \end{align*}
 
@@ -18082,12 +18095,20 @@ was wrong. Lemma \ref{lem.Z[i].prime.Nprime} is proven.
 \end{lemma}
 
 \begin{proof}
-Easy: If $\delta$ is a Gaussian divisor of $\pi$, then $\overline{\delta}$ is
-a Gaussian divisor of $\overline{\pi}$, and vice versa.
+Easy: Conjugation reflects everything across the x-axis, without changing any
+properties. For example: If $\delta$ is a Gaussian divisor of $\pi$, then
+$\overline{\delta}$ is a Gaussian divisor of $\overline{\pi}$, and vice versa.
+If $\delta$ is not a unit, then $\overline{\delta}$ is not a unit, and vice
+versa. If $\delta$ is not unit-equivalent to $\pi$, then $\overline{\delta}$
+is not unit-equivalent to $\overline{\pi}$, and vice versa. If $\pi$ is
+nonzero and not a unit, then $\overline{\pi}$ is nonzero and not a unit, and
+vice versa. Thus, if you compare what it means for $\pi$ to be a Gaussian
+prime with what it means for $\overline{\pi}$ to be a Gaussian prime, then you
+will see that it means the same thing.
 \end{proof}
 
-Finally, we need an elementary fact (HW4, \textquotedblleft Wilson strikes
-again\textquotedblright):
+Finally, we need an elementary fact (HW4 Exercise 6, \textquotedblleft Wilson
+strikes again\textquotedblright):
 
 \begin{exercise}
 \label{exe.ent.wilson-k!sq}Let $p$ be an odd prime. Write $p$ in the form
@@ -18098,40 +18119,47 @@ $p=2k+1$ for some $k\in\mathbb{N}$. Prove that $k!^{2}\equiv-\left(
 Now, we can prove Theorem \ref{thm.Z[i].gauss.prime.1mod4} quite easily:
 
 \begin{proof}
-[Proof of Theorem \ref{thm.Z[i].gauss.prime.1mod4}.]\textbf{(a)} If $p=2$,
-then this is clear (just pick $x=1$ and $y=1$). Thus, for the rest of this
-proof, we WLOG assume that $p\neq2$. Hence, $p\equiv1\operatorname{mod}4$ (by
-assumption). Therefore, $p=2k+1$ for some \textbf{even} $k\in\mathbb{N}$.
-Consider this $k$.
+[Proof of Theorem \ref{thm.Z[i].gauss.prime.1mod4}.]\textbf{(d)} Assume the
+contrary. Thus, $p$ is a Gaussian prime. But $2$ is not a Gaussian prime (by
+Example \ref{exa.Z[i].gauss.2notprime}). Hence, $p\neq2$. Thus, $p\equiv
+1\operatorname{mod}4$ (since we assumed that either $p=2$ or $p\equiv
+1\operatorname{mod}4$). Therefore, $p=2k+1$ for some \textbf{even}
+$k\in\mathbb{N}$. Consider this $k$.
 
 Exercise \ref{exe.ent.wilson-k!sq} yields $k!^{2}\equiv-\underbrace{\left(
 -1\right)  ^{k}}_{\substack{=1\\\text{(since }k\text{ is even)}}%
 }=-1\operatorname{mod}p$. Set $u=k!$; thus, this becomes $u^{2}\equiv
 -1\operatorname{mod}p$. In other words,
 \[
-p\mid u^{2}-\left(  -1\right)  =u^{2}+1=\left(  u+i\right)  \left(
+p\mid u^{2}-\left(  -1\right)  =u^{2}-i^{2}=\left(  u+i\right)  \left(
 u-i\right)  .
 \]
 This is a divisibility in $\mathbb{Z}$, thus also a divisibility in
 $\mathbb{Z}\left[  i\right]  $.
 
-Now, assume (for the sake of contradiction) that $p$ is a Gaussian prime.
-Then, Theorem \ref{thm.Z[i].prime.pab} (applied to $\pi=p$, $a=u+i$ and
-$b=u-i$) yields that $p\mid u+i$ or $p\mid u-i$. But if $p\mid u-i$, then
-$p\mid u+i$ holds as well (since Exercise \ref{exe.Z[i].div.conj} shows that
-$p\mid u-i$ implies $\overline{p}\mid\overline{u-i}=u+i$, which means
-$p=\overline{p}\mid u+i$). Hence, we have $p\mid u+i$ in both cases.
+Hence, Theorem \ref{thm.Z[i].prime.pab} (applied to $\pi=p$, $\alpha=u+i$ and
+$\beta=u-i$) yields that $p\mid u+i$ or $p\mid u-i$ (since $p$ is a Gaussian
+prime). But if $p\mid u-i$, then $p\mid u+i$ holds as well (since Exercise
+\ref{exe.Z[i].div.conj} shows that $p\mid u-i$ implies $\overline{p}%
+\mid\overline{u-i}=u+i$, which means $p=\overline{p}\mid u+i$). Hence, we have
+$p\mid u+i$ in both cases.
 
 This means that there exists a Gaussian integer $\gamma$ such that
 $u+i=p\gamma$. Consider this $\gamma$. Write $\gamma$ as $\gamma=\left(
 a,b\right)  $ with $a,b\in\mathbb{Z}$. Then, $\left(  u,1\right)
 =u+i=p\underbrace{\gamma}_{=\left(  a,b\right)  }=p\left(  a,b\right)
-=\left(  pa,pb\right)  $. Thus, $u=pa$ and $1=pb$. But $1=pb$ is absurd (since
-$p$ is prime and $b\in\mathbb{Z}$). This contradiction shows that our
-assumption was wrong. Hence, $p$ is not a Gaussian prime. Thus, $p$ has a
-Gaussian divisor $\delta$ that is neither a unit nor unit-equivalent to $p$.
-Consider this $\delta$. Thus, there exists a Gaussian integer $\varepsilon$
-such that $p=\delta\varepsilon$. Consider this $\varepsilon$.
+=\left(  pa,pb\right)  $. Thus, $u=pa$ and $1=pb$. But $1=pb$ leads to
+$p\mid1$ in $\mathbb{Z}$ (since $b\in\mathbb{Z}$), which is absurd (since $p$
+is prime). This contradiction shows that our assumption was wrong. Thus,
+Theorem \ref{thm.Z[i].gauss.prime.1mod4} \textbf{(d)} is proven.
+
+\textbf{(a)} We have $\operatorname*{N}\left(  p\right)  =p^{2}+0^{2}=p^{2}>1$
+(since $p>1$). Thus, $p$ is nonzero and not a unit. But Theorem
+\ref{thm.Z[i].gauss.prime.1mod4} \textbf{(d)} shows that $p$ is not a Gaussian
+prime. Since $p$ is nonzero and not a unit, this shows that $p$ has a Gaussian
+divisor $\delta$ that is neither a unit nor unit-equivalent to $p$. Consider
+this $\delta$. Thus, there exists a Gaussian integer $\varepsilon$ such that
+$p=\delta\varepsilon$. Consider this $\varepsilon$.
 
 From $p=\delta\varepsilon$, we obtain $\operatorname*{N}\left(  p\right)
 =\operatorname*{N}\left(  \delta\varepsilon\right)  =\operatorname*{N}\left(
@@ -18208,22 +18236,22 @@ above $8$ pairs. In other words, we must prove that $\left(  x,y\right)  $
 equals $\left(  a,b\right)  $ up to order and signs. This is equivalent to
 proving that $x+yi\sim a+bi$ or $x-yi\sim a+bi$.
 
-Set $\pi=x+yi$ and $\alpha=a+bi$. In our above proof of Theorem
-\ref{thm.Z[i].gauss.prime.1mod4} \textbf{(c)}, we have shown that $\pi$ is a
-Gaussian prime. Similarly, $\alpha$ is a Gaussian prime.
+Set $\pi=x+yi$ and $\alpha=a+bi$. Then, $\pi$ and $\alpha$ are Gaussian
+integers having norms $\operatorname*{N}\left(  \pi\right)  =x^{2}+y^{2}=p$
+and $\operatorname*{N}\left(  \alpha\right)  =a^{2}+b^{2}=p$ (by the
+definition of $\left(  a,b\right)  $). Thus, $\operatorname*{N}\left(
+\alpha\right)  =p$ is prime. Hence, Lemma \ref{lem.Z[i].prime.Nprime} shows
+that $\pi$ is a Gaussian prime. Similarly, $\alpha$ is a Gaussian prime.
 
 We must prove that $x+yi\sim a+bi$ or $x-yi\sim a+bi$. In other words, we must
 prove that $\pi\sim\alpha$ or $\overline{\pi}\sim\alpha$ (since $x+yi=\pi$ and
 $x-yi=\overline{\pi}$ and $a+bi=\alpha$).
 
 Now,
-\begin{align*}
-\alpha &  =a+bi\mid\left(  a+bi\right)  \left(  a-bi\right)  =a^{2}%
-+b^{2}=p\ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of }\left(
-a,b\right)  \right)  \\
-&  =x^{2}+y^{2}=\underbrace{\left(  x+yi\right)  }_{=\pi}\underbrace{\left(
-x-yi\right)  }_{=\overline{\pi}}=\pi\overline{\pi}.
-\end{align*}
+\[
+\alpha=a+bi\mid\left(  a+bi\right)  \left(  a-bi\right)  =a^{2}+b^{2}%
+=p=\operatorname*{N}\left(  \pi\right)  =\pi\overline{\pi}.
+\]
 Since $\alpha$ is a Gaussian prime, this yields that $\alpha\mid\pi$ or
 $\alpha\mid\overline{\pi}$ (by Theorem \ref{thm.Z[i].prime.pab}). Thus, we are
 in one of the following two Cases:
@@ -18252,8 +18280,6 @@ In Case 2, we similarly obtain $x-yi\sim a+bi$ (since $\operatorname*{N}%
 Hence, in both Cases, we have proven that $x+yi\sim a+bi$ or $x-yi\sim a+bi$.
 This completes our proof of Theorem \ref{thm.Z[i].gauss.prime.1mod4}
 \textbf{(b)}.
-
-\textbf{(d)} This follows easily from part \textbf{(c)} (exercise).
 \end{proof}
 
 We have thus answered Question \ref{quest.intro.sum-of-2sq.2} \textbf{(b)} in
@@ -18331,6 +18357,31 @@ that do not satisfy $\pi\sim\kappa$. Prove that $\pi\perp\kappa$.
 , and its solution goes accordingly.
 \end{proof}
 
+\begin{lemma}
+\label{lem.Z[i].prime.vp-wd}Let $\pi$ be a Gaussian prime. Let $\alpha$ be a
+nonzero Gaussian integer. Then, there exists a largest $m\in\mathbb{N}$ such
+that $\pi^{m}\mid\alpha$.
+\end{lemma}
+
+\begin{proof}
+[Proof of Lemma \ref{lem.Z[i].prime.vp-wd}.]This is an analogue of Lemma
+\ref{lem.ent.prime.vp-wd} for Gaussian integers (with $\pi$ and $\alpha$
+playing the roles of $p$ and $n$), and the proof also proceeds similarly. Here
+are the main differences: Instead of $p>1$, we now have $\operatorname*{N}%
+\left(  \pi\right)  >1$ (which is because $\pi$ is nonzero and not a unit).
+Again, let $W$ be the set of all $m\in\mathbb{N}$ satisfying $\pi^{m}%
+\mid\alpha$. Then, $W$ is a nonempty set of integers (this is proven as in the
+proof of Lemma \ref{lem.ent.prime.vp-wd}). Let $u=\operatorname*{N}\left(
+\alpha\right)  $. Thus, $u\in\mathbb{N}$. It is easy to see that
+$\operatorname*{N}\left(  \pi^{k}\right)  >k$ for each $k\in\mathbb{N}$
+(indeed, Corollary \ref{cor.CC.norm.pow} yields $\operatorname*{N}\left(
+\pi^{k}\right)  =\left(  \operatorname*{N}\left(  \pi\right)  \right)  ^{k}$,
+but the proof of $\left(  \operatorname*{N}\left(  \pi\right)  \right)
+^{k}>k$ is analogous to the proof of $p^{k}>k$ in our above proof of Lemma
+\ref{lem.ent.prime.vp-wd}). From this point, we proceed similarly as in the
+proof of Lemma \ref{lem.ent.prime.vp-wd}.
+\end{proof}
+
 Similarly to Definition \ref{def.ent.prime.vp}, we can define $\pi$-adic valuations:
 
 \begin{definition}
@@ -18338,12 +18389,9 @@ Similarly to Definition \ref{def.ent.prime.vp}, we can define $\pi$-adic valuati
 
 \textbf{(a)} Let $\alpha$ be a nonzero Gaussian integer. Then, $v_{\pi}\left(
 \alpha\right)  $ shall denote the largest $m\in\mathbb{N}$ such that $\pi
-^{m}\mid\alpha$. This is well-defined (by an analogue of Lemma
-\ref{lem.ent.prime.vp-wd}, whose proof proceeds by observing that
-$\operatorname*{N}\left(  \pi^{m}\right)  >\operatorname*{N}\left(
-\alpha\right)  $ whenever $m>\operatorname*{N}\left(  \alpha\right)  $). This
-nonnegative integer $v_{\pi}\left(  \alpha\right)  $ will be called the $\pi
-$\textit{-valuation} (or the $\pi$\textit{-adic valuation}) of $\alpha$.
+^{m}\mid\alpha$. This is well-defined (by Lemma \ref{lem.Z[i].prime.vp-wd}).
+This nonnegative integer $v_{\pi}\left(  \alpha\right)  $ will be called the
+$\pi$\textit{-valuation} (or the $\pi$\textit{-adic valuation}) of $\alpha$.
 
 \textbf{(b)} We extend this definition of $v_{\pi}\left(  \alpha\right)  $ to
 the case of $\alpha=0$ as follows: Set $v_{\pi}\left(  0\right)  =\infty$.
@@ -18432,6 +18480,8 @@ TODO: More...
 
 \begin{itemize}
 \item actually prove the formula \cite[\S 8.3, Corollary 19]{Dummit-Foote}.
+
+\item characterize Gaussian primes.
 
 \item ....
 \end{itemize}
