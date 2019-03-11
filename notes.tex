@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Sunday, March 10, 2019 16:55:30}
+%TCIDATA{LastRevised=Sunday, March 10, 2019 20:27:15}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -6473,9 +6473,9 @@ x_{2}\operatorname{mod}m_{1}m_{2}\cdots m_{k}$. This proves Theorem
 \subsubsection{Definition and the Sieve of Eratosthenes}
 
 \begin{definition}
-Let $p$ be an integer greater than $1$. We say that $p$ is \textit{prime} if
-the only positive divisors of $p$ are $1$ and $p$. A prime integer is often
-just called \textit{a prime}.
+\label{def.ent.primes}Let $p$ be an integer greater than $1$. We say that $p$
+is \textit{prime} if the only positive divisors of $p$ are $1$ and $p$. A
+prime integer is often just called \textit{a prime}.
 \end{definition}
 
 Note that we required $p$ to be greater than $1$ here. Thus, $1$ does not
@@ -10859,7 +10859,7 @@ We now can prove Theorem \ref{thm.ent.phi.mult}:
 yields
 \begin{equation}
 C_{n}=\left\{  i\in\left\{  0,1,\ldots,n-1\right\}  \ \mid\ i\perp n\right\}
-.\label{pf.thm.ent.phi.mult.Cn=}%
+. \label{pf.thm.ent.phi.mult.Cn=}%
 \end{equation}
 Lemma \ref{lem.ent.euler.phi0} yields%
 \[
@@ -14925,10 +14925,9 @@ _{11}\cdot\cdots\cdot\left[  10\right]  _{11}\\
 _{11}\right)  }_{=\left[  1\right]  _{11}}\cdot\underbrace{\left(  \left[
 3\right]  _{11}\cdot\left[  4\right]  _{11}\right)  }_{=\left[  1\right]
 _{11}}\cdot\underbrace{\left(  \left[  5\right]  _{11}\cdot\left[  9\right]
-_{11}\right)  }_{=\left[  1\right]  _{11}}\\
-&  \ \ \ \ \ \ \ \ \ \ \cdot\underbrace{\left(  \left[  7\right]  _{11}%
-\cdot\left[  8\right]  _{11}\right)  }_{=\left[  1\right]  _{11}}\cdot\left[
-1\right]  _{11}\cdot\left[  10\right]  _{11}\\
+_{11}\right)  }_{=\left[  1\right]  _{11}}\cdot\underbrace{\left(  \left[
+7\right]  _{11}\cdot\left[  8\right]  _{11}\right)  }_{=\left[  1\right]
+_{11}}\cdot\left[  1\right]  _{11}\cdot\left[  10\right]  _{11}\\
 &  =\left[  10\right]  _{11}=\left[  -1\right]  _{11},
 \end{align*}
 so $10!\equiv-1\operatorname{mod}11$.
@@ -14943,19 +14942,32 @@ classes that are their own inverses (indeed, for $\left[  p-1\right]  _{p}$,
 it is true because $\left[  p-1\right]  _{p}=\left[  -1\right]  _{p}=-\left[
 1\right]  _{p}$).
 
-Are there any other such classes? Let us see.
+Conversely, we claim that every class $\alpha\in U_{p}$ that is its own
+inverse must be either $\left[  1\right]  _{p}$ or $\left[  p-1\right]  _{p}$.
 
-Let $\left[  a\right]  _{p}$ be a class that is its own inverse. Thus,
-$\left[  a\right]  _{p}\cdot\left[  a\right]  _{p}=\left[  1\right]  _{p}$.
+[\textit{Proof:} Let $\alpha\in U_{p}$ be a class that is its own inverse. We
+must prove that $\alpha$ is either $\left[  1\right]  _{p}$ or $\left[
+p-1\right]  _{p}$.
 
-In other words, $aa\equiv1\operatorname{mod}p$. Thus, $a^{2}\equiv
-1\operatorname{mod}p$. Hence, Exercise \ref{exe.ent.primes.aa-1} shows that
-$a\equiv1\operatorname{mod}p$ or $a\equiv-1\operatorname{mod}p$. In other
-words, $\left[  a\right]  _{p}=\left[  1\right]  _{p}$ or $\left[  a\right]
-_{p}=\left[  -1\right]  _{p}$.
+Write $\alpha$ in the form $\alpha=\left[  a\right]  _{p}$ for some integer
+$a$. We have $\alpha\cdot\alpha=\left[  1\right]  _{p}$ (since $\alpha$ is its
+own inverse). In view of $\underbrace{\alpha}_{=\left[  a\right]  _{p}}%
+\cdot\underbrace{\alpha}_{=\left[  a\right]  _{p}}=\left[  a\right]  _{p}%
+\cdot\left[  a\right]  _{p}=\left[  aa\right]  _{p}=\left[  a^{2}\right]
+_{p}$, this rewrites as $\left[  a^{2}\right]  _{p}=\left[  1\right]  _{p}$.
+In other words, $a^{2}\equiv1\operatorname{mod}p$. Hence, Exercise
+\ref{exe.ent.primes.aa-1} shows that $a\equiv1\operatorname{mod}p$ or
+$a\equiv-1\operatorname{mod}p$. In other words, $\left[  a\right]
+_{p}=\left[  1\right]  _{p}$ or $\left[  a\right]  _{p}=\left[  -1\right]
+_{p}$. In other words, $\left[  a\right]  _{p}=\left[  1\right]  _{p}$ or
+$\left[  a\right]  _{p}=\left[  p-1\right]  _{p}$ (since $\left[  -1\right]
+_{p}=\left[  p-1\right]  _{p}$). In other words, $\left[  a\right]  _{p}$ is
+either $\left[  1\right]  _{p}$ or $\left[  p-1\right]  _{p}$. In other words,
+$\alpha$ is either $\left[  1\right]  _{p}$ or $\left[  p-1\right]  _{p}$
+(since $\alpha=\left[  a\right]  _{p}$). Qed.]
 
-So any class that is its own inverse must be either $\left[  1\right]  _{p}$
-or $\left[  -1\right]  _{p}=\left[  p-1\right]  _{p}$.
+So we have shown that any class that is its own inverse must be either
+$\left[  1\right]  _{p}$ or $\left[  p-1\right]  _{p}$.
 
 So we conclude that the only classes that are their own inverses are $\left[
 1\right]  _{p}$ and $\left[  p-1\right]  _{p}$.
@@ -16630,7 +16642,8 @@ i\right]  $. Similarly, $\dfrac{\alpha}{\beta}\in\mathbb{Z}\left[  i\right]
 $. Thus, $\dfrac{\beta}{\alpha}$ and $\dfrac{\alpha}{\beta}$ are mutually
 inverse Gaussian integers. So $\dfrac{\beta}{\alpha}$ is invertible, i.e., is
 a unit. But $\beta=\alpha\cdot\dfrac{\beta}{\alpha}$, so $\beta\sim\alpha$
-(since $\dfrac{\beta}{\alpha}$ is a unit), and thus $\alpha\sim\beta$.
+(since $\dfrac{\beta}{\alpha}$ is a unit), and thus $\alpha\sim\beta$. This
+solves Exercise \ref{exe.Z[i].div.abba}.
 \end{proof}
 
 Note that the conclusion \textquotedblleft$\alpha\sim\beta$\textquotedblright%
@@ -16980,63 +16993,80 @@ satisfy%
 \right)  \label{eq.def.Z[i].Div.cond}%
 \end{equation}
 (in other words, that divide all of the Gaussian integers $\beta_{1},\beta
-_{2},\ldots,\beta_{k}$). We let $\operatorname*{Div}\left(  \beta_{1}%
-,\beta_{2},\ldots,\beta_{k}\right)  $ denote the set of these common Gaussian divisors.
+_{2},\ldots,\beta_{k}$). We let $\operatorname*{Div}\nolimits_{\mathbb{Z}%
+\left[  i\right]  }\left(  \beta_{1},\beta_{2},\ldots,\beta_{k}\right)  $
+denote the set of these common Gaussian divisors.
 \end{definition}
 
-The notation $\operatorname*{Div}\left(  \beta_{1},\beta_{2},\ldots,\beta
-_{k}\right)  $ is actually ambiguous, because when $\beta_{1},\beta_{2}%
-,\ldots,\beta_{k}$ are integers, it may mean both the set of common divisors
-and the set of common Gaussian divisors of $\beta_{1},\beta_{2},\ldots
-,\beta_{k}$. We hope that it will not cause \textbf{us} ambiguities in what follows.
+The reason why I chose the notation $\operatorname*{Div}\nolimits_{\mathbb{Z}%
+\left[  i\right]  }\left(  \beta_{1},\beta_{2},\ldots,\beta_{k}\right)  $
+rather than the simpler notation $\operatorname*{Div}\left(  \beta_{1}%
+,\beta_{2},\ldots,\beta_{k}\right)  $ is that the latter would be ambiguous.
+In fact, when $\beta_{1},\beta_{2},\ldots,\beta_{k}$ are integers, the set
+$\operatorname*{Div}\left(  \beta_{1},\beta_{2},\ldots,\beta_{k}\right)  $ of
+common divisors of $\beta_{1},\beta_{2},\ldots,\beta_{k}$ is \textbf{not} the
+set $\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
+\beta_{1},\beta_{2},\ldots,\beta_{k}\right)  $ of common Gaussian divisors of
+$\beta_{1},\beta_{2},\ldots,\beta_{k}$. (For example, the former set does not
+contain $i$, while the latter does.)
 
-We cannot directly define $\gcd\left(  \beta_{1},\beta_{2},\ldots,\beta
-_{k}\right)  $ to be the greatest element of $\operatorname*{Div}\left(
-\beta_{1},\beta_{2},\ldots,\beta_{k}\right)  $, since \textquotedblleft
-greatest\textquotedblright\ does not make sense for complex numbers. (Even if
-we wanted \textquotedblleft greatest in norm\textquotedblright, it would not
-a-priori be obvious that there are no ties, i.e., that such a greatest common
-Gaussian divisor is unique.)
+We cannot directly define a \textquotedblleft greatest common Gaussian divisor
+of $\beta_{1},\beta_{2},\ldots,\beta_{k}$\textquotedblright\ to be the
+greatest element of $\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]
+}\left(  \beta_{1},\beta_{2},\ldots,\beta_{k}\right)  $, since
+\textquotedblleft greatest\textquotedblright\ does not make sense for complex
+numbers. (Even if we wanted \textquotedblleft greatest in
+norm\textquotedblright, it would not a-priori be obvious that there are no
+ties, i.e., that such a greatest common Gaussian divisor is unique.)
 
-However, it turns out that $\gcd\left(  \beta_{1},\beta_{2},\ldots,\beta
-_{k}\right)  $ actually can be defined reasonably (although only up to
-multiplication by units). Before we can do so, let us state some basic
-properties of common Gaussian divisors:
+However, it turns out that a \textquotedblleft greatest common Gaussian
+divisor\textquotedblright\ $\gcd\nolimits_{\mathbb{Z}\left[  i\right]
+}\left(  \beta_{1},\beta_{2},\ldots,\beta_{k}\right)  $ actually can be
+defined reasonably (although only up to multiplication by units). Before we
+can do so, let us state some basic properties of common Gaussian divisors:
 
 \begin{proposition}
 \label{prop.Z[i].gauss.divrules}\textbf{(a)} We have $\operatorname*{Div}%
-\left(  \alpha,0\right)  =\operatorname*{Div}\left(  \alpha\right)  $ for all
-$\alpha\in\mathbb{Z}\left[  i\right]  $.
+\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  \alpha,0\right)
+=\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
+\alpha\right)  $ for all $\alpha\in\mathbb{Z}\left[  i\right]  $.
 
-\textbf{(b)} We have $\operatorname*{Div}\left(  \alpha,\beta\right)
-=\operatorname*{Div}\left(  \beta,\alpha\right)  $ for all $\alpha,\beta
-\in\mathbb{Z}\left[  i\right]  $.
+\textbf{(b)} We have $\operatorname*{Div}\nolimits_{\mathbb{Z}\left[
+i\right]  }\left(  \alpha,\beta\right)  =\operatorname*{Div}%
+\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  \beta,\alpha\right)  $ for all
+$\alpha,\beta\in\mathbb{Z}\left[  i\right]  $.
 
-\textbf{(c)} We have $\operatorname*{Div}\left(  \alpha,\eta\alpha
-+\beta\right)  =\operatorname*{Div}\left(  \alpha,\beta\right)  $ for all
+\textbf{(c)} We have $\operatorname*{Div}\nolimits_{\mathbb{Z}\left[
+i\right]  }\left(  \alpha,\eta\alpha+\beta\right)  =\operatorname*{Div}%
+\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  \alpha,\beta\right)  $ for all
 $\alpha,\beta,\eta\in\mathbb{Z}\left[  i\right]  $.
 
 \textbf{(d)} If $\alpha,\beta,\gamma\in\mathbb{Z}\left[  i\right]  $ satisfy
-$\beta\equiv\gamma\operatorname{mod}\alpha$, then $\operatorname*{Div}\left(
-\alpha,\beta\right)  =\operatorname*{Div}\left(  \alpha,\gamma\right)  $.
+$\beta\equiv\gamma\operatorname{mod}\alpha$, then $\operatorname*{Div}%
+\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  \alpha,\beta\right)
+=\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
+\alpha,\gamma\right)  $.
 
-\textbf{(g)} We have $\operatorname*{Div}\left(  \eta\alpha,\beta\right)
-=\operatorname*{Div}\left(  \alpha,\beta\right)  $ for all $\alpha,\beta
-\in\mathbb{Z}\left[  i\right]  $ for every unit $\eta\in\mathbb{Z}\left[
-i\right]  $.
+\textbf{(g)} We have $\operatorname*{Div}\nolimits_{\mathbb{Z}\left[
+i\right]  }\left(  \eta\alpha,\beta\right)  =\operatorname*{Div}%
+\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  \alpha,\beta\right)  $ for all
+$\alpha,\beta\in\mathbb{Z}\left[  i\right]  $ for every unit $\eta
+\in\mathbb{Z}\left[  i\right]  $.
 
-\textbf{(h)} We have $\operatorname*{Div}\left(  \alpha,\eta\beta\right)
-=\operatorname*{Div}\left(  \alpha,\beta\right)  $ for all $\alpha,\beta
-\in\mathbb{Z}\left[  i\right]  $ for every unit $\eta\in\mathbb{Z}\left[
-i\right]  $.
+\textbf{(h)} We have $\operatorname*{Div}\nolimits_{\mathbb{Z}\left[
+i\right]  }\left(  \alpha,\eta\beta\right)  =\operatorname*{Div}%
+\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  \alpha,\beta\right)  $ for all
+$\alpha,\beta\in\mathbb{Z}\left[  i\right]  $ for every unit $\eta
+\in\mathbb{Z}\left[  i\right]  $.
 
 \textbf{(i)} If $\alpha,\beta\in\mathbb{Z}\left[  i\right]  $ satisfy
-$\alpha\mid\beta$, then $\operatorname*{Div}\left(  \alpha,\beta\right)
-=\operatorname*{Div}\left(  \alpha\right)  $.
+$\alpha\mid\beta$, then $\operatorname*{Div}\nolimits_{\mathbb{Z}\left[
+i\right]  }\left(  \alpha,\beta\right)  =\operatorname*{Div}%
+\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  \alpha\right)  $.
 
 \textbf{(j)} The common Gaussian divisors of the empty list of Gaussian
-integers are $\operatorname*{Div}\left(  {}\right)  =\mathbb{Z}\left[
-i\right]  $.
+integers are $\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]
+}\left(  {}\right)  =\mathbb{Z}\left[  i\right]  $.
 \end{proposition}
 
 \begin{proof}
@@ -17061,55 +17091,67 @@ The rest is proven just as for integers, except that we don't make the final
 step from $\operatorname*{Div}$ to $\gcd$.
 \end{proof}
 
-Now, we can compute $\operatorname*{Div}\left(  \alpha,\beta\right)  $ for
-Gaussian integers $\alpha$ and $\beta$ by a version of the \textquotedblleft
-Euclidean algorithm\textquotedblright\ that we used to compute $\gcd\left(
-a,b\right)  $ for integers $a$ and $b$. For example, we can compute
-$\operatorname*{Div}\left(  32+9i,4+11i\right)  $ as follows:\footnote{This is
+Now, we can compute $\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]
+}\left(  \alpha,\beta\right)  $ for Gaussian integers $\alpha$ and $\beta$ by
+a version of the \textquotedblleft Euclidean algorithm\textquotedblright\ that
+we used to compute $\gcd\left(  a,b\right)  $ for integers $a$ and $b$. For
+example, we can compute $\operatorname*{Div}\nolimits_{\mathbb{Z}\left[
+i\right]  }\left(  32+9i,4+11i\right)  $ as follows:\footnote{This is
 \cite[Example 4.4]{Conrad-Gauss}.}%
 \begin{align*}
-&  \operatorname*{Div}\left(  32+9i,4+11i\right) \\
-&  =\operatorname*{Div}\left(  4+11i,\underbrace{32+9i}_{=\left(  2-2i\right)
-\left(  4+11i\right)  +\left(  2-5i\right)  }\right)
-\ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition
+&  \operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
+32+9i,4+11i\right) \\
+&  =\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
+4+11i,\underbrace{32+9i}_{=\left(  2-2i\right)  \left(  4+11i\right)  +\left(
+2-5i\right)  }\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition
 \ref{prop.Z[i].gauss.divrules} \textbf{(b)}}\right) \\
-&  =\operatorname*{Div}\left(  4+11i,\left(  2-2i\right)  \left(
-4+11i\right)  +\left(  2-5i\right)  \right) \\
-&  =\operatorname*{Div}\left(  4+11i,2-5i\right)  \ \ \ \ \ \ \ \ \ \ \left(
-\text{by Proposition \ref{prop.Z[i].gauss.divrules} \textbf{(c)}}\right) \\
-&  =\operatorname*{Div}\left(  2-5i,\underbrace{4+11i}_{=\left(  -2+i\right)
-\left(  2-5i\right)  +\left(  3-i\right)  }\right)
-\ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition
+&  =\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
+4+11i,\left(  2-2i\right)  \left(  4+11i\right)  +\left(  2-5i\right)  \right)
+\\
+&  =\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
+4+11i,2-5i\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition
+\ref{prop.Z[i].gauss.divrules} \textbf{(c)}}\right) \\
+&  =\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
+2-5i,\underbrace{4+11i}_{=\left(  -2+i\right)  \left(  2-5i\right)  +\left(
+3-i\right)  }\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition
 \ref{prop.Z[i].gauss.divrules} \textbf{(b)}}\right) \\
-&  =\operatorname*{Div}\left(  2-5i,\left(  -2+i\right)  \left(  2-5i\right)
-+\left(  3-i\right)  \right) \\
-&  =\operatorname*{Div}\left(  2-5i,3-i\right)  \ \ \ \ \ \ \ \ \ \ \left(
-\text{by Proposition \ref{prop.Z[i].gauss.divrules} \textbf{(c)}}\right) \\
-&  =\operatorname*{Div}\left(  3-i,\underbrace{2-5i}_{=\left(  1-i\right)
-\left(  3-i\right)  -i}\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by
-Proposition \ref{prop.Z[i].gauss.divrules} \textbf{(b)}}\right)
+&  =\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
+2-5i,\left(  -2+i\right)  \left(  2-5i\right)  +\left(  3-i\right)  \right) \\
+&  =\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
+2-5i,3-i\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition
+\ref{prop.Z[i].gauss.divrules} \textbf{(c)}}\right) \\
+&  =\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
+3-i,\underbrace{2-5i}_{=\left(  1-i\right)  \left(  3-i\right)  -i}\right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition
+\ref{prop.Z[i].gauss.divrules} \textbf{(b)}}\right)
 \end{align*}%
 \begin{align*}
-&  =\operatorname*{Div}\left(  3-i,\left(  1-i\right)  \left(  3-i\right)
--i\right) \\
-&  =\operatorname*{Div}\left(  3-i,-i\right)  \ \ \ \ \ \ \ \ \ \ \left(
-\text{by Proposition \ref{prop.Z[i].gauss.divrules} \textbf{(c)}}\right) \\
-&  =\operatorname*{Div}\left(  -i,\underbrace{3-i}_{=\left(  1+3i\right)
-\left(  -i\right)  +0}\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by
-Proposition \ref{prop.Z[i].gauss.divrules} \textbf{(b)}}\right) \\
-&  =\operatorname*{Div}\left(  -i,\left(  1+3i\right)  \left(  -i\right)
-+0\right) \\
-&  =\operatorname*{Div}\left(  -i,0\right)  \ \ \ \ \ \ \ \ \ \ \left(
-\text{by Proposition \ref{prop.Z[i].gauss.divrules} \textbf{(c)}}\right) \\
-&  =\operatorname*{Div}\left(  -i\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by
-Proposition \ref{prop.Z[i].gauss.divrules} \textbf{(a)}}\right) \\
+&  =\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
+3-i,\left(  1-i\right)  \left(  3-i\right)  -i\right) \\
+&  =\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
+3-i,-i\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition
+\ref{prop.Z[i].gauss.divrules} \textbf{(c)}}\right) \\
+&  =\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
+-i,\underbrace{3-i}_{=\left(  1+3i\right)  \left(  -i\right)  +0}\right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition
+\ref{prop.Z[i].gauss.divrules} \textbf{(b)}}\right) \\
+&  =\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
+-i,\left(  1+3i\right)  \left(  -i\right)  +0\right) \\
+&  =\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
+-i,0\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition
+\ref{prop.Z[i].gauss.divrules} \textbf{(c)}}\right) \\
+&  =\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
+-i\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition
+\ref{prop.Z[i].gauss.divrules} \textbf{(a)}}\right) \\
 &  =\left\{  1,i,-1,-i\right\}  .
 \end{align*}
 In the same way, for \textbf{any} two Gaussian integers $\alpha$ and $\beta$
-we obtain a Gaussian integer $\gamma$ such that $\operatorname*{Div}\left(
-\alpha,\beta\right)  =\operatorname*{Div}\left(  \gamma\right)  $. This
-resulting $\gamma$ will actually be unique up to multiplication by units
-(i.e., its unit-equivalence class will be unique). Better yet, we have the following:
+we can find a Gaussian integer $\gamma$ such that $\operatorname*{Div}%
+\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  \alpha,\beta\right)
+=\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
+\gamma\right)  $. This resulting $\gamma$ will actually be unique up to
+multiplication by units (i.e., its unit-equivalence class will be unique).
+Better yet, we have the following:
 
 \begin{theorem}
 \label{thm.Z[i].gauss.bezout}(Bezout's theorem for Gaussian integers:)
@@ -17123,8 +17165,9 @@ combination of }$\alpha$ \textbf{and }$\beta$ means a Gaussian integer of the
 form $\lambda\alpha+\mu\beta$ with $\lambda,\mu\in\mathbb{Z}\left[  i\right]
 $.)
 
-\textbf{(b)} It satisfies $\operatorname*{Div}\left(  \alpha,\beta\right)
-=\operatorname*{Div}\left(  \gamma\right)  $.
+\textbf{(b)} It satisfies $\operatorname*{Div}\nolimits_{\mathbb{Z}\left[
+i\right]  }\left(  \alpha,\beta\right)  =\operatorname*{Div}%
+\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  \gamma\right)  $.
 
 \textbf{(c)} The unit-equivalence class of $\gamma$ is uniquely determined.
 \end{theorem}
@@ -17156,15 +17199,17 @@ $\operatorname*{N}\left(  \rho\right)  <\operatorname*{N}\left(  \beta\right)
 $, which is the only inequality you need.)
 
 Actually, here are some more details of the proof. For any $\alpha,\beta
-\in\mathbb{Z}\left[  i\right]  $, we let $\operatorname*{Lin}\left(
-\alpha,\beta\right)  $ be the set of all $\mathbb{Z}\left[  i\right]  $-linear
-combinations of $\alpha$ and $\beta$. (This will be called the $\mathbb{Z}%
-\left[  i\right]  $\textit{-linear span of }$\alpha$ \textit{and }$\beta$
-later on, in analogy to spans in classical linear algebra.) Now, the claim of
-Theorem \ref{thm.Z[i].gauss.bezout} \textbf{(a)} can be restated as follows:%
+\in\mathbb{Z}\left[  i\right]  $, we let $\operatorname*{Lin}%
+\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  \alpha,\beta\right)  $ be the
+set of all $\mathbb{Z}\left[  i\right]  $-linear combinations of $\alpha$ and
+$\beta$. (This will be called the $\mathbb{Z}\left[  i\right]  $%
+\textit{-linear span of }$\alpha$ \textit{and }$\beta$ later on, in analogy to
+spans in classical linear algebra.) Now, the claim of Theorem
+\ref{thm.Z[i].gauss.bezout} \textbf{(a)} can be restated as follows:%
 \[
-\operatorname*{Div}\left(  \alpha,\beta\right)  \cap\operatorname*{Lin}\left(
-\alpha,\beta\right)  \neq\varnothing.
+\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
+\alpha,\beta\right)  \cap\operatorname*{Lin}\nolimits_{\mathbb{Z}\left[
+i\right]  }\left(  \alpha,\beta\right)  \neq\varnothing.
 \]
 
 
@@ -17180,46 +17225,55 @@ satisfying $\operatorname*{N}\left(  \alpha\right)  +\operatorname*{N}\left(
 
 So let $\alpha,\beta\in\mathbb{Z}\left[  i\right]  $ be such that
 $\operatorname*{N}\left(  \alpha\right)  +\operatorname*{N}\left(
-\beta\right)  =n$. We must prove $\operatorname*{Div}\left(  \alpha
-,\beta\right)  \cap\operatorname*{Lin}\left(  \alpha,\beta\right)
+\beta\right)  =n$. We must prove $\operatorname*{Div}\nolimits_{\mathbb{Z}%
+\left[  i\right]  }\left(  \alpha,\beta\right)  \cap\operatorname*{Lin}%
+\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  \alpha,\beta\right)
 \neq\varnothing$. We can WLOG assume $\operatorname*{N}\left(  \beta\right)
 \geq\operatorname*{N}\left(  \alpha\right)  $, since otherwise we can swap
 $\alpha$ with $\beta$ without changing any of the sets $\operatorname*{Div}%
-\left(  \alpha,\beta\right)  $ and $\operatorname*{Lin}\left(  \alpha
-,\beta\right)  $. Assume this. Furthermore, we WLOG assume that $\alpha\neq0$
-(since otherwise, the set $\operatorname*{Div}\left(  \alpha,\beta\right)
-\cap\operatorname*{Lin}\left(  \alpha,\beta\right)  =\operatorname*{Div}%
-\left(  0,\beta\right)  \cap\operatorname*{Lin}\left(  0,\beta\right)  $
-clearly contains $\beta$ and thus is $\neq\varnothing$). Hence,
-$\operatorname*{N}\left(  \alpha\right)  >0$. Now, Theorem
-\ref{thm.Z[i].gauss.quorem} (applied to $\beta$ and $\alpha$ instead of
-$\alpha$ and $\beta$) yields that there exist Gaussian integers $\gamma$ and
-$\rho$ such that $\beta=\gamma\alpha+\rho$ and $\operatorname*{N}\left(
-\rho\right)  \leq\operatorname*{N}\left(  \alpha\right)  /2$. Consider these
-$\gamma$ and $\rho$.
+\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  \alpha,\beta\right)  $ and
+$\operatorname*{Lin}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
+\alpha,\beta\right)  $. Assume this. Furthermore, we WLOG assume that
+$\alpha\neq0$ (since otherwise, the set $\operatorname*{Div}%
+\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  \alpha,\beta\right)
+\cap\operatorname*{Lin}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
+\alpha,\beta\right)  =\operatorname*{Div}\nolimits_{\mathbb{Z}\left[
+i\right]  }\left(  0,\beta\right)  \cap\operatorname*{Lin}%
+\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  0,\beta\right)  $ clearly
+contains $\beta$ and thus is $\neq\varnothing$). Hence, $\operatorname*{N}%
+\left(  \alpha\right)  >0$. Now, Theorem \ref{thm.Z[i].gauss.quorem} (applied
+to $\beta$ and $\alpha$ instead of $\alpha$ and $\beta$) yields that there
+exist Gaussian integers $\gamma$ and $\rho$ such that $\beta=\gamma\alpha
++\rho$ and $\operatorname*{N}\left(  \rho\right)  \leq\operatorname*{N}\left(
+\alpha\right)  /2$. Consider these $\gamma$ and $\rho$.
 
 The Gaussian integers $\beta$ and $\rho$ satisfy $\beta\equiv\rho
 \operatorname{mod}\alpha$ (since $\beta=\gamma\alpha+\rho$). Hence,
 Proposition \ref{prop.Z[i].gauss.divrules} \textbf{(d)} yields
-$\operatorname*{Div}\left(  \alpha,\beta\right)  =\operatorname*{Div}\left(
-\alpha,\rho\right)  $. Also, it is easy to see that $\operatorname*{Lin}%
-\left(  \alpha,\beta\right)  =\operatorname*{Lin}\left(  \alpha,\rho\right)  $
-(since every $\lambda,\mu\in\mathbb{Z}\left[  i\right]  $ satisfy%
+$\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
+\alpha,\beta\right)  =\operatorname*{Div}\nolimits_{\mathbb{Z}\left[
+i\right]  }\left(  \alpha,\rho\right)  $. Also, it is easy to see that
+$\operatorname*{Lin}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
+\alpha,\beta\right)  =\operatorname*{Lin}\nolimits_{\mathbb{Z}\left[
+i\right]  }\left(  \alpha,\rho\right)  $ (since every $\lambda,\mu
+\in\mathbb{Z}\left[  i\right]  $ satisfy%
 \begin{align*}
 \lambda\alpha+\mu\underbrace{\beta}_{=\gamma\alpha+\rho}  &  =\lambda
 \alpha+\mu\left(  \gamma\alpha+\rho\right)  =\left(  \lambda+\mu\gamma\right)
-\alpha+\mu\rho\in\operatorname*{Lin}\left(  \alpha,\rho\right)
-\ \ \ \ \ \ \ \ \ \ \text{and}\\
+\alpha+\mu\rho\in\operatorname*{Lin}\nolimits_{\mathbb{Z}\left[  i\right]
+}\left(  \alpha,\rho\right)  \ \ \ \ \ \ \ \ \ \ \text{and}\\
 \lambda\alpha+\mu\underbrace{\rho}_{=\beta-\gamma\alpha}  &  =\lambda
 \alpha+\mu\left(  \beta-\gamma\alpha\right)  =\left(  \lambda-\mu
-\gamma\right)  \alpha+\mu\beta\in\operatorname*{Lin}\left(  \alpha
-,\beta\right)
+\gamma\right)  \alpha+\mu\beta\in\operatorname*{Lin}\nolimits_{\mathbb{Z}%
+\left[  i\right]  }\left(  \alpha,\beta\right)
 \end{align*}
-). Hence, proving $\operatorname*{Div}\left(  \alpha,\beta\right)
-\cap\operatorname*{Lin}\left(  \alpha,\beta\right)  \neq\varnothing$ boils
-down to proving $\operatorname*{Div}\left(  \alpha,\rho\right)  \cap
-\operatorname*{Lin}\left(  \alpha,\rho\right)  \neq\varnothing$. But this
-follows from the induction hypothesis, since%
+). Hence, proving $\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]
+}\left(  \alpha,\beta\right)  \cap\operatorname*{Lin}\nolimits_{\mathbb{Z}%
+\left[  i\right]  }\left(  \alpha,\beta\right)  \neq\varnothing$ boils down to
+proving $\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
+\alpha,\rho\right)  \cap\operatorname*{Lin}\nolimits_{\mathbb{Z}\left[
+i\right]  }\left(  \alpha,\rho\right)  \neq\varnothing$. But this follows from
+the induction hypothesis, since%
 \[
 \operatorname*{N}\left(  \alpha\right)  +\underbrace{\operatorname*{N}\left(
 \rho\right)  }_{\leq\operatorname*{N}\left(  \alpha\right)
@@ -17233,151 +17287,221 @@ This completes the induction step. Thus, the nonemptiness (and thus Theorem
 \textbf{(b)} $\subseteq:$ Since $\gamma$ is a $\mathbb{Z}\left[  i\right]
 $-linear combination of $\alpha$ and $\beta$, every common Gaussian divisor of
 $\alpha$ and $\beta$ must also divide $\gamma$. Thus, $\operatorname*{Div}%
-\left(  \alpha,\beta\right)  \subseteq\operatorname*{Div}\left(
+\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  \alpha,\beta\right)
+\subseteq\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
 \gamma\right)  $.
 
 $\supseteq:$ Since $\gamma$ is a common Gaussian divisor of $\alpha$ and
 $\beta$, every Gaussian divisor of $\gamma$ must be a common Gaussian divisor
-of $\alpha$ and $\beta$. Thus, $\operatorname*{Div}\left(  \alpha
-,\beta\right)  \supseteq\operatorname*{Div}\left(  \gamma\right)  $.
+of $\alpha$ and $\beta$. Thus, $\operatorname*{Div}\nolimits_{\mathbb{Z}%
+\left[  i\right]  }\left(  \alpha,\beta\right)  \supseteq\operatorname*{Div}%
+\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  \gamma\right)  $.
 
 \textbf{(c)} Let $\gamma_{1}$ and $\gamma_{2}$ be two such $\gamma$'s. We must
 prove that $\gamma_{1}\sim\gamma_{2}$.
 
-We have $\operatorname*{Div}\left(  \alpha,\beta\right)  =\operatorname*{Div}%
-\left(  \gamma_{1}\right)  $ and $\operatorname*{Div}\left(  \alpha
-,\beta\right)  =\operatorname*{Div}\left(  \gamma_{2}\right)  $, so that
-$\operatorname*{Div}\left(  \gamma_{1}\right)  =\operatorname*{Div}\left(
-\gamma_{2}\right)  $. Now, $\gamma_{1}\in\operatorname*{Div}\left(  \gamma
-_{1}\right)  =\operatorname*{Div}\left(  \gamma_{2}\right)  $, thus
-$\gamma_{1}\mid\gamma_{2}$. Similarly, $\gamma_{2}\mid\gamma_{1}$. Combining
-these, we obtain $\gamma_{1}\sim\gamma_{2}$.
+We have $\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
+\alpha,\beta\right)  =\operatorname*{Div}\nolimits_{\mathbb{Z}\left[
+i\right]  }\left(  \gamma_{1}\right)  $ and $\operatorname*{Div}%
+\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  \alpha,\beta\right)
+=\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  \gamma
+_{2}\right)  $, so that $\operatorname*{Div}\nolimits_{\mathbb{Z}\left[
+i\right]  }\left(  \gamma_{1}\right)  =\operatorname*{Div}%
+\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  \gamma_{2}\right)  $. Now,
+$\gamma_{1}\in\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]
+}\left(  \gamma_{1}\right)  =\operatorname*{Div}\nolimits_{\mathbb{Z}\left[
+i\right]  }\left(  \gamma_{2}\right)  $, thus $\gamma_{1}\mid\gamma_{2}$.
+Similarly, $\gamma_{2}\mid\gamma_{1}$. Combining these, we obtain $\gamma
+_{1}\sim\gamma_{2}$ (by Exercise \ref{exe.Z[i].div.abba}).
 \end{proof}
 
 \begin{definition}
-The \textit{greatest common Gaussian divisor} (or, short, \textit{gcd}) of two
-Gaussian integers $\alpha$ and $\beta$ is defined to be the $\gamma$ from
-Theorem \ref{thm.Z[i].gauss.bezout} \textbf{(a)}. It is called $\gcd\left(
-\alpha,\beta\right)  $.
+\label{def.Z[i].gauss.gcd}The \textit{greatest common Gaussian divisor} (or,
+short, \textit{gcd}) of two Gaussian integers $\alpha$ and $\beta$ is defined
+to be the $\gamma$ from Theorem \ref{thm.Z[i].gauss.bezout} \textbf{(a)}. It
+is called $\gcd\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  \alpha
+,\beta\right)  $.
 
 So it is a common Gaussian divisor of $\alpha$ and $\beta$ and also a
 $\mathbb{Z}\left[  i\right]  $-linear combination of $\alpha$ and $\beta$ and
-satisfies $\operatorname*{Div}\left(  \gcd\left(  \alpha,\beta\right)
-\right)  =\operatorname*{Div}\left(  \alpha,\beta\right)  $.
+satisfies
+\begin{equation}
+\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
+\gcd\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  \alpha,\beta\right)
+\right)  =\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
+\alpha,\beta\right)  . \label{eq.def.Z[i].gauss.gcd.Div=Div}%
+\end{equation}
+
 
 However, it is only well-defined up to unit-equivalence. Thus, if you have
-$\gamma_{1}=\gcd\left(  \alpha,\beta\right)  $ and $\gamma_{2}=\gcd\left(
-\alpha,\beta\right)  $, then you cannot conclude that $\gamma_{1}=\gamma_{2}$
-(you can only conclude $\gamma_{1}\sim\gamma_{2}$). So, strictly speaking, we
-should have defined $\gcd\left(  \alpha,\beta\right)  $ as a unit-equivalence
-class, not as a concrete Gaussian integer. But we will allow ourselves this
-abuse of notation. We shall not write equality signs like the one in
-\textquotedblleft$\gamma_{1}=\gcd\left(  \alpha,\beta\right)  $%
-\textquotedblright, however; we instead prefer \textquotedblleft$\gamma
-_{1}\sim\gcd\left(  \alpha,\beta\right)  $\textquotedblright. Generally,
-whenever you see $\gcd\left(  \alpha,\beta\right)  $ in a statement, you
-should be understanding the statement to hold for \textbf{every} possible
-choice of $\gcd\left(  \alpha,\beta\right)  $.
+$\gamma_{1}=\gcd\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  \alpha
+,\beta\right)  $ and $\gamma_{2}=\gcd\nolimits_{\mathbb{Z}\left[  i\right]
+}\left(  \alpha,\beta\right)  $, then you cannot conclude that $\gamma
+_{1}=\gamma_{2}$ (you can only conclude $\gamma_{1}\sim\gamma_{2}$). So,
+strictly speaking, we should have defined $\gcd\nolimits_{\mathbb{Z}\left[
+i\right]  }\left(  \alpha,\beta\right)  $ as a unit-equivalence class, not as
+a concrete Gaussian integer. But we will allow ourselves this abuse of
+notation. We shall not write equality signs like the one in \textquotedblleft%
+$\gamma_{1}=\gcd\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  \alpha
+,\beta\right)  $\textquotedblright, however; we instead prefer
+\textquotedblleft$\gamma_{1}\sim\gcd\nolimits_{\mathbb{Z}\left[  i\right]
+}\left(  \alpha,\beta\right)  $\textquotedblright. Generally, whenever you see
+$\gcd\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  \alpha,\beta\right)  $ in
+a statement, you should be understanding the statement to hold for
+\textbf{every} possible choice of $\gcd\nolimits_{\mathbb{Z}\left[  i\right]
+}\left(  \alpha,\beta\right)  $.
 \end{definition}
 
 \begin{proposition}
-Let $\alpha$ and $\beta$ be two Gaussian integers, not both equal to $0$.
-Then, the possible values of $\gcd\left(  \alpha,\beta\right)  $ (that is,
-strictly speaking, all four elements of the unit-equivalence class
-$\gcd\left(  \alpha,\beta\right)  $) are exactly the elements of
-$\operatorname*{Div}\left(  \alpha,\beta\right)  $ having the largest norm.
+\label{prop.Z[i].gauss.gcd=gcd}Let $a$ and $b$ be two integers. Then,%
+\[
+\gcd\left(  a,b\right)  \sim\gcd\nolimits_{\mathbb{Z}\left[  i\right]
+}\left(  a,b\right)  .
+\]
+(Of course, the $\gcd$ on the left hand side is the gcd of the two integers
+$a$ and $b$ as defined in Definition \ref{def.ent.gcd.gcd}, whereas the
+$\gcd\nolimits_{\mathbb{Z}\left[  i\right]  }$ on the right hand side is the
+greatest common Gaussian divisor of the Gaussian integers $a$ and $b$.)
 \end{proposition}
 
 \begin{proof}
-First of all, $\gcd\left(  \alpha,\beta\right)  $ is a Gaussian divisor of
-$\alpha$ and $\beta$, and thus is $\neq0$ (since $\alpha$ and $\beta$ are not
-both equal to $0$). Thus, there are exactly four possible values of
-$\gcd\left(  \alpha,\beta\right)  $. We must show that these values are
-exactly the elements of $\operatorname*{Div}\left(  \alpha,\beta\right)  $
-having the largest norm.
+The integer $\gcd\left(  a,b\right)  $ is a common divisor of $a$ and $b$ and
+also is a $\mathbb{Z}$-linear combination of $a$ and $b$ (by Bezout).
+Therefore, it is also a common Gaussian divisor of the Gaussian integers $a$
+and $b$ and also is a $\mathbb{Z}\left[  i\right]  $-linear combination of $a$
+and $b$. But this yields that it is $\gcd\nolimits_{\mathbb{Z}\left[
+i\right]  }\left(  a,b\right)  $ (due to the definition of $\gcd
+\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  a,b\right)  $).
+\end{proof}
+
+This proposition allows us to write \textquotedblleft$\gcd$\textquotedblright%
+\ for both concepts of gcd without having to disambiguate the meaning. (We
+shall not do so, however.)
+
+\begin{proposition}
+\label{prop.Z[i].gauss.gcd-as-max}Let $\alpha$ and $\beta$ be two Gaussian
+integers, not both equal to $0$. Then, the possible values of $\gcd
+\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  \alpha,\beta\right)  $ (that
+is, strictly speaking, all four elements of the unit-equivalence class
+$\gcd\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  \alpha,\beta\right)  $)
+are exactly the elements of $\operatorname*{Div}\nolimits_{\mathbb{Z}\left[
+i\right]  }\left(  \alpha,\beta\right)  $ having the largest norm.
+\end{proposition}
+
+\begin{proof}
+First of all, $\gcd\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
+\alpha,\beta\right)  $ is a common Gaussian divisor of $\alpha$ and $\beta$,
+and thus is $\neq0$ (since $\alpha$ and $\beta$ are not both equal to $0$).
+Thus, there are exactly four Gaussian integers unit-equivalent to
+$\gcd\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  \alpha,\beta\right)  $.
+In other words, there are exactly four possible values of $\gcd
+\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  \alpha,\beta\right)  $. We
+must show that these values are exactly the elements of $\operatorname*{Div}%
+\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  \alpha,\beta\right)  $ having
+the largest norm.
 
 In other words, we must show the following two claims:
 
 \begin{statement}
-\textit{Claim 1:} We have $\operatorname*{N}\left(  \gcd\left(  \alpha
-,\beta\right)  \right)  >\operatorname*{N}\left(  \gamma\right)  $ for each
-$\gamma\in\operatorname*{Div}\left(  \alpha,\beta\right)  $ that does not
-satisfy $\gamma\sim\gcd\left(  \alpha,\beta\right)  $.
+\textit{Claim 1:} We have $\operatorname*{N}\left(  \gcd\nolimits_{\mathbb{Z}%
+\left[  i\right]  }\left(  \alpha,\beta\right)  \right)  >\operatorname*{N}%
+\left(  \gamma\right)  $ for each $\gamma\in\operatorname*{Div}%
+\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  \alpha,\beta\right)  $ that
+does not satisfy $\gamma\sim\gcd\nolimits_{\mathbb{Z}\left[  i\right]
+}\left(  \alpha,\beta\right)  $.
 \end{statement}
 
 \begin{statement}
-\textit{Claim 2:} We have $\operatorname*{N}\left(  \gcd\left(  \alpha
-,\beta\right)  \right)  =\operatorname*{N}\left(  \gamma\right)  $ for each
-$\gamma\in\operatorname*{Div}\left(  \alpha,\beta\right)  $ that does satisfy
-$\gamma\sim\gcd\left(  \alpha,\beta\right)  $.
+\textit{Claim 2:} We have $\operatorname*{N}\left(  \gcd\nolimits_{\mathbb{Z}%
+\left[  i\right]  }\left(  \alpha,\beta\right)  \right)  =\operatorname*{N}%
+\left(  \gamma\right)  $ for each $\gamma\in\operatorname*{Div}%
+\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  \alpha,\beta\right)  $ that
+does satisfy $\gamma\sim\gcd\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
+\alpha,\beta\right)  $.
 \end{statement}
 
 Claim 2 is obvious, since any two unit-equivalent Gaussian integers have the
 same norm (by Proposition \ref{prop.Z[i].gauss.uniteq.norm=norm}).
 
-[\textit{Proof of Claim 1:} Let $\gamma\in\operatorname*{Div}\left(
-\alpha,\beta\right)  $ do not satisfy $\gamma\sim\gcd\left(  \alpha
-,\beta\right)  $. Now, $\gamma\in\operatorname*{Div}\left(  \alpha
-,\beta\right)  =\operatorname*{Div}\left(  \gcd\left(  \alpha,\beta\right)
-\right)  $ (since $\operatorname*{Div}\left(  \gcd\left(  \alpha,\beta\right)
-\right)  =\operatorname*{Div}\left(  \alpha,\beta\right)  $). Hence,
-$\gamma\mid\gcd\left(  \alpha,\beta\right)  $.
+[\textit{Proof of Claim 1:} Let $\gamma\in\operatorname*{Div}%
+\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  \alpha,\beta\right)  $ do not
+satisfy $\gamma\sim\gcd\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
+\alpha,\beta\right)  $. Now, $\gamma\in\operatorname*{Div}%
+\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  \alpha,\beta\right)
+=\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
+\gcd\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  \alpha,\beta\right)
+\right)  $ (by (\ref{eq.def.Z[i].gauss.gcd.Div=Div})). Hence, $\gamma\mid
+\gcd\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  \alpha,\beta\right)  $.
 
-Let us set $\delta=\gcd\left(  \alpha,\beta\right)  $. So $\gamma\mid\delta$.
-We have $\delta\neq0$ (because $\alpha$ and $\beta$ are not both zero) and
-thus $\gamma\neq0$ (since $\gamma\mid\delta$). Thus, $\gamma\mid\delta$ yields
-that $\dfrac{\delta}{\gamma}$ is a Gaussian integer, which is furthermore
-nonzero (since $\delta\neq0$). If this Gaussian integer $\dfrac{\delta}%
-{\gamma}$ was a unit, then we would have $\gamma\sim\delta=\gcd\left(
-\alpha,\beta\right)  $, which would contradict the assumption that $\gamma$
-does not satisfy $\gamma\sim\gcd\left(  \alpha,\beta\right)  $. So
-$\dfrac{\delta}{\gamma}$ is a nonzero Gaussian integer that is not a unit.
-Hence, $\operatorname*{N}\left(  \dfrac{\delta}{\gamma}\right)  >1$ (because
-Proposition \ref{prop.Z[i].gauss.norm1} yields that every nonzero Gaussian
-integer that is not a unit must have norm $>1$). Now,%
+Let us set $\delta=\gcd\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
+\alpha,\beta\right)  $. So $\gamma\mid\delta$. We have $\delta\neq0$ (because
+$\alpha$ and $\beta$ are not both zero) and thus $\gamma\neq0$ (since
+$\gamma\mid\delta$). Thus, $\gamma\mid\delta$ yields that $\dfrac{\delta
+}{\gamma}$ is a Gaussian integer, which is furthermore nonzero (since
+$\delta\neq0$). If this Gaussian integer $\dfrac{\delta}{\gamma}$ was a unit,
+then we would have $\gamma\sim\delta=\gcd\nolimits_{\mathbb{Z}\left[
+i\right]  }\left(  \alpha,\beta\right)  $, which would contradict the
+assumption that $\gamma$ does not satisfy $\gamma\sim\gcd\nolimits_{\mathbb{Z}%
+\left[  i\right]  }\left(  \alpha,\beta\right)  $. So $\dfrac{\delta}{\gamma}$
+is a nonzero Gaussian integer that is not a unit. Hence, $\operatorname*{N}%
+\left(  \dfrac{\delta}{\gamma}\right)  >1$ (because Proposition
+\ref{prop.Z[i].gauss.norm1} yields that every nonzero Gaussian integer that is
+not a unit must have norm $>1$). Now,%
 \[
 \operatorname*{N}\left(  \delta\right)  =\underbrace{\operatorname*{N}\left(
 \dfrac{\delta}{\gamma}\right)  }_{>1}\cdot\operatorname*{N}\left(
 \gamma\right)  >\operatorname*{N}\left(  \gamma\right)  .
 \]
-In other words, $\operatorname*{N}\left(  \gcd\left(  \alpha,\beta\right)
-\right)  >\operatorname*{N}\left(  \gamma\right)  $. This proves Claim 1.]
+In other words, $\operatorname*{N}\left(  \gcd\nolimits_{\mathbb{Z}\left[
+i\right]  }\left(  \alpha,\beta\right)  \right)  >\operatorname*{N}\left(
+\gamma\right)  $. This proves Claim 1.]
 \end{proof}
 
-This proposition shows that $\gcd\left(  \alpha,\beta\right)  $ is uniquely
-determined by the set $\operatorname*{Div}\left(  \alpha,\beta\right)  $.
-(Yes, you have to consider the case $\alpha=\beta=0$ separately in proving
-this.) Hence, Proposition \ref{prop.Z[i].gauss.divrules} yields:
+Proposition \ref{prop.Z[i].gauss.gcd-as-max} shows that $\gcd
+\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  \alpha,\beta\right)  $ is
+uniquely determined by the set $\operatorname*{Div}\nolimits_{\mathbb{Z}%
+\left[  i\right]  }\left(  \alpha,\beta\right)  $. (Yes, you have to consider
+the case $\alpha=\beta=0$ separately in proving this.) Hence, Proposition
+\ref{prop.Z[i].gauss.divrules} yields:
 
 \begin{proposition}
-\textbf{(a)} We have $\gcd\left(  \alpha,0\right)  \sim\gcd\left(
-\alpha\right)  $ for all $\alpha\in\mathbb{Z}\left[  i\right]  $.
+\label{prop.Z[i].gauss.gcdrules}\textbf{(a)} We have $\gcd
+\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  \alpha,0\right)  \sim
+\gcd\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  \alpha\right)  $ for all
+$\alpha\in\mathbb{Z}\left[  i\right]  $.
 
-\textbf{(b)} We have $\gcd\left(  \alpha,\beta\right)  \sim\gcd\left(
+\textbf{(b)} We have $\gcd\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
+\alpha,\beta\right)  \sim\gcd\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
 \beta,\alpha\right)  $ for all $\alpha,\beta\in\mathbb{Z}\left[  i\right]  $.
 
-\textbf{(c)} We have $\gcd\left(  \alpha,\eta\alpha+\beta\right)  \sim
-\gcd\left(  \alpha,\beta\right)  $ for all $\alpha,\beta,\eta\in
-\mathbb{Z}\left[  i\right]  $.
+\textbf{(c)} We have $\gcd\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
+\alpha,\eta\alpha+\beta\right)  \sim\gcd\nolimits_{\mathbb{Z}\left[  i\right]
+}\left(  \alpha,\beta\right)  $ for all $\alpha,\beta,\eta\in\mathbb{Z}\left[
+i\right]  $.
 
 \textbf{(d)} If $\alpha,\beta,\gamma\in\mathbb{Z}\left[  i\right]  $ satisfy
-$\beta\equiv\gamma\operatorname{mod}\alpha$, then $\gcd\left(  \alpha
-,\beta\right)  \sim\gcd\left(  \alpha,\gamma\right)  $.
+$\beta\equiv\gamma\operatorname{mod}\alpha$, then $\gcd\nolimits_{\mathbb{Z}%
+\left[  i\right]  }\left(  \alpha,\beta\right)  \sim\gcd\nolimits_{\mathbb{Z}%
+\left[  i\right]  }\left(  \alpha,\gamma\right)  $.
 
-\textbf{(g)} We have $\gcd\left(  \eta\alpha,\beta\right)  \sim\gcd\left(
-\alpha,\beta\right)  $ for all $\alpha,\beta\in\mathbb{Z}\left[  i\right]  $
-for every unit $\eta\in\mathbb{Z}\left[  i\right]  $.
+\textbf{(g)} We have $\gcd\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
+\eta\alpha,\beta\right)  \sim\gcd\nolimits_{\mathbb{Z}\left[  i\right]
+}\left(  \alpha,\beta\right)  $ for all $\alpha,\beta\in\mathbb{Z}\left[
+i\right]  $ for every unit $\eta\in\mathbb{Z}\left[  i\right]  $.
 
-\textbf{(h)} We have $\gcd\left(  \alpha,\eta\beta\right)  \sim\gcd\left(
-\alpha,\beta\right)  $ for all $\alpha,\beta\in\mathbb{Z}\left[  i\right]  $
-for every unit $\eta\in\mathbb{Z}\left[  i\right]  $.
+\textbf{(h)} We have $\gcd\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
+\alpha,\eta\beta\right)  \sim\gcd\nolimits_{\mathbb{Z}\left[  i\right]
+}\left(  \alpha,\beta\right)  $ for all $\alpha,\beta\in\mathbb{Z}\left[
+i\right]  $ for every unit $\eta\in\mathbb{Z}\left[  i\right]  $.
 
 \textbf{(i)} If $\alpha,\beta\in\mathbb{Z}\left[  i\right]  $ satisfy
-$\alpha\mid\beta$, then $\gcd\left(  \alpha,\beta\right)  \sim\gcd\left(
+$\alpha\mid\beta$, then $\gcd\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
+\alpha,\beta\right)  \sim\gcd\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
 \alpha\right)  $.
 
 \textbf{(j)} The greatest common Gaussian divisor of the empty list of
-Gaussian integers is $\gcd\left(  {}\right)  =0$.
+Gaussian integers is $\gcd\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
+{}\right)  =0$.
 \end{proposition}
 
 Theorem \ref{thm.ent.gcd.uniprop} still holds for Gaussian integers.
@@ -17391,7 +17515,8 @@ Corollary \ref{cor.ent.gcd.sa,sb} has to be modified as follows:
 \begin{corollary}
 Let $\sigma,\alpha,\beta\in\mathbb{Z}\left[  i\right]  $. Then,
 \[
-\gcd\left(  \sigma\alpha,\sigma\beta\right)  \sim\sigma\gcd\left(
+\gcd\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  \sigma\alpha,\sigma
+\beta\right)  \sim\sigma\gcd\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
 \alpha,\beta\right)  .
 \]
 
@@ -17400,48 +17525,29 @@ Let $\sigma,\alpha,\beta\in\mathbb{Z}\left[  i\right]  $. Then,
 Exercise \ref{exe.ent.gcd.div} still holds for Gaussian integers.
 
 Exercise \ref{exe.ent.gcd.abs} becomes the claim that if $\alpha_{1}\sim
-\alpha_{2}$ and $\beta_{1}\sim\beta_{2}$, then $\gcd\left(  \alpha_{1}%
-,\beta_{1}\right)  \sim\gcd\left(  \alpha_{2},\beta_{2}\right)  $. The
-solution does not carry over, but you can easily prove this new claim by hand.
+\alpha_{2}$ and $\beta_{1}\sim\beta_{2}$, then $\gcd\nolimits_{\mathbb{Z}%
+\left[  i\right]  }\left(  \alpha_{1},\beta_{1}\right)  \sim\gcd
+\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  \alpha_{2},\beta_{2}\right)
+$. The solution does not carry over, but you can easily prove this new claim
+by hand.
 
 Greatest common Gaussian divisors of $k$ Gaussian integers can also be defined.
-
-\begin{proposition}
-\label{prop.Z[i].gauss.gcd=gcd}Let $a$ and $b$ be two integers. Then,%
-\[
-\gcd\nolimits_{\mathbb{Z}}\left(  a,b\right)  \sim\gcd\nolimits_{\mathbb{Z}%
-\left[  i\right]  }\left(  a,b\right)  .
-\]
-Here, $\gcd\nolimits_{\mathbb{Z}}$ means \textquotedblleft the gcd of two
-integers as defined in Definition \ref{def.ent.gcd.gcd}\textquotedblright,
-whereas $\gcd\nolimits_{\mathbb{Z}\left[  i\right]  }$ means \textquotedblleft
-the greatest common Gaussian divisor of Gaussian integers\textquotedblright.
-\end{proposition}
-
-\begin{proof}
-The integer $\gcd\nolimits_{\mathbb{Z}}\left(  a,b\right)  $ is a common
-divisor of $a$ and $b$ and also is a $\mathbb{Z}$-linear combination of $a$
-and $b$ (by Bezout). Therefore, it is also a common Gaussian divisor of the
-Gaussian integers $a$ and $b$ and also is a $\mathbb{Z}\left[  i\right]
-$-linear combination of $a$ and $b$. But this yields that it is $\gcd
-\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  a,b\right)  $ (due to the
-definition of $\gcd\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  a,b\right)
-$).
-\end{proof}
-
-This proposition allows us to write \textquotedblleft$\gcd$\textquotedblright%
-\ for both concepts of gcd without having to disambiguate the meaning.
 
 The next definition is an analogue of Definition \ref{def.ent.coprime.coprime}:
 
 \begin{definition}
-Let $\alpha$ and $\beta$ be two Gaussian integers. We say that $\alpha$ is
-\textbf{coprime} to $\beta$ if and only if $\gcd\left(  \alpha,\beta\right)
-\sim1$ (that is, $\gcd\left(  \alpha,\beta\right)  $ is a unit).
+\label{def.Z[i].gauss.coprime}Let $\alpha$ and $\beta$ be two Gaussian
+integers. We say that $\alpha$ is \textbf{coprime} to $\beta$ if and only if
+$\gcd\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  \alpha,\beta\right)
+\sim1$ (that is, $\gcd\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
+\alpha,\beta\right)  $ is a unit).
 \end{definition}
 
 Thus, any two coprime integers are also two coprime Gaussian integers (because
-of Proposition \ref{prop.Z[i].gauss.gcd=gcd}).
+of Proposition \ref{prop.Z[i].gauss.gcd=gcd}). This is why we can afford
+speaking of \textquotedblleft coprime Gaussian integers\textquotedblright\ and
+not just \textquotedblleft Gaussian-coprime Gaussian
+integers\textquotedblright.
 
 Everything we said about coprimality of integers still holds for Gaussian
 integers. In particular, Proposition \ref{prop.ent.coprime.perp-symm}, Theorem
@@ -17451,7 +17557,8 @@ hold if all integers are replaced by Gaussian integers (with the caveat that
 the gcd is no longer unique, so for example \textquotedblleft$ab\equiv
 \gcd\left(  a,n\right)  \operatorname{mod}n$\textquotedblright\ must be
 interpreted as \textquotedblleft$ab$ is congruent to \textbf{some} of the
-possible values of $\gcd\left(  a,n\right)  $ modulo $n$\textquotedblright.
+possible values of $\gcd\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
+a,n\right)  $ modulo $n$\textquotedblright.
 
 \begin{noncompile}
 Let us generalize Theorem \ref{thm.Z[i].gauss.bezout} to $k$ Gaussian integers:
@@ -17470,8 +17577,10 @@ $\lambda_{1}\alpha_{1}+\lambda_{2}\alpha_{2}+\cdots+\lambda_{k}\alpha_{k}$
 with $\lambda_{1},\lambda_{2},\ldots,\lambda_{k}\in\mathbb{Z}\left[  i\right]
 $.)
 
-\textbf{(b)} It satisfies $\operatorname*{Div}\left(  \alpha_{1},\alpha
-_{2},\ldots,\alpha_{k}\right)  =\operatorname*{Div}\left(  \gamma\right)  $.
+\textbf{(b)} It satisfies $\operatorname*{Div}\nolimits_{\mathbb{Z}\left[
+i\right]  }\left(  \alpha_{1},\alpha_{2},\ldots,\alpha_{k}\right)
+=\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
+\gamma\right)  $.
 
 \textbf{(c)} The unit-equivalence class of $\gamma$ is uniquely determined.
 \end{theorem}
@@ -17481,8 +17590,9 @@ _{2},\ldots,\alpha_{k}\right)  =\operatorname*{Div}\left(  \gamma\right)  $.
 \ref{thm.ent.gcd.uniprop-mul}. The details are left to the reader.
 \end{proof}
 
-Again, the $\gamma$ from this theorem is called $\gcd\left(  \alpha_{1}%
-,\alpha_{2},\ldots,\alpha_{k}\right)  $ and is unique up to unit-equivalence.
+Again, the $\gamma$ from this theorem is called $\gcd\nolimits_{\mathbb{Z}%
+\left[  i\right]  }\left(  \alpha_{1},\alpha_{2},\ldots,\alpha_{k}\right)  $
+and is unique up to unit-equivalence.
 
 Theorem \ref{thm.ent.gcd.uniprop-mul} generalizes as follows:
 
@@ -17493,24 +17603,28 @@ Let $\beta_{1},\beta_{2},\ldots,\beta_{k}$ be integers.
 following logical equivalence:%
 \[
 \left(  \mu\mid\beta_{i}\text{ for all }i\in\left\{  1,2,\ldots,k\right\}
-\right)  \ \Longleftrightarrow\ \left(  \mu\mid\gcd\left(  \beta_{1},\beta
-_{2},\ldots,\beta_{k}\right)  \right)  .
+\right)  \ \Longleftrightarrow\ \left(  \mu\mid\gcd\nolimits_{\mathbb{Z}%
+\left[  i\right]  }\left(  \beta_{1},\beta_{2},\ldots,\beta_{k}\right)
+\right)  .
 \]
 
 
 \textbf{(b)} The common Gaussian divisors of $\beta_{1},\beta_{2},\ldots
-,\beta_{k}$ are precisely the Gaussian divisors of $\gcd\left(  \beta
-_{1},\beta_{2},\ldots,\beta_{k}\right)  $.
+,\beta_{k}$ are precisely the Gaussian divisors of $\gcd\nolimits_{\mathbb{Z}%
+\left[  i\right]  }\left(  \beta_{1},\beta_{2},\ldots,\beta_{k}\right)  $.
 
-\textbf{(c)} We have $\operatorname*{Div}\left(  \beta_{1},\beta_{2}%
-,\ldots,\beta_{k}\right)  =\operatorname*{Div}\left(  \gcd\left(  \beta
-_{1},\beta_{2},\ldots,\beta_{k}\right)  \right)  $.
+\textbf{(c)} We have $\operatorname*{Div}\nolimits_{\mathbb{Z}\left[
+i\right]  }\left(  \beta_{1},\beta_{2},\ldots,\beta_{k}\right)
+=\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
+\gcd\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  \beta_{1},\beta_{2}%
+,\ldots,\beta_{k}\right)  \right)  $.
 
 \textbf{(d)} If $k>0$, then%
 \[
-\gcd\left(  \beta_{1},\beta_{2},\ldots,\beta_{k}\right)  \sim\gcd\left(
-\gcd\left(  \beta_{1},\beta_{2},\ldots,\beta_{k-1}\right)  ,\beta_{k}\right)
-.
+\gcd\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  \beta_{1},\beta_{2}%
+,\ldots,\beta_{k}\right)  \sim\gcd\nolimits_{\mathbb{Z}\left[  i\right]
+}\left(  \gcd\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  \beta_{1}%
+,\beta_{2},\ldots,\beta_{k-1}\right)  ,\beta_{k}\right)  .
 \]
 
 \end{theorem}
@@ -17524,12 +17638,14 @@ $\mathbb{Q}\left[  i\right]  $) as complex numbers $a+bi$ with $a,b\in
 \mathbb{Q}$. These are exactly the quotients of Gaussian integers.
 
 Lowest common multiples of Gaussian integers still exist, but their definition
-has to be modified. For example, we can define $\operatorname{lcm}\left(
-\alpha,\beta\right)  $ as the (unique up to unit-equivalence) Gaussian integer
-$\gamma$ such that the common multiples of $\alpha$ and $\beta$ are the
-multiples of $\gamma$. (We would have to prove that it actually is unique and
-exists.) Theorem \ref{thm.ent.lcm.gcd*lcm} still holds, in the sense that
-$\gcd\left(  \alpha,\beta\right)  \cdot\operatorname{lcm}\left(  \alpha
+has to be modified. For example, we can define $\operatorname{lcm}%
+_{\mathbb{Z}\left[  i\right]  }\left(  \alpha,\beta\right)  $ as the (unique
+up to unit-equivalence) Gaussian integer $\gamma$ such that the Gaussian
+common multiples of $\alpha$ and $\beta$ are the Gaussian multiples of
+$\gamma$. (We would have to prove that it actually is unique and exists.)
+Theorem \ref{thm.ent.lcm.gcd*lcm} still holds, in the sense that
+$\gcd\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  \alpha,\beta\right)
+\cdot\operatorname{lcm}_{\mathbb{Z}\left[  i\right]  }\left(  \alpha
 ,\beta\right)  \sim\alpha\beta$. Many other properties of lowest common
 multiplies extend to Gaussian integers.
 
@@ -17539,10 +17655,12 @@ Gaussian integers.
 
 \subsubsection{Gaussian primes}
 
+The next definition is an analogue of Definition \ref{def.ent.primes}:
+
 \begin{definition}
-Let $\pi$ be a nonzero Gaussian integer that is not a unit. We say that $\pi$
-is a \textbf{Gaussian prime} if each Gaussian divisor of $\pi$ is either a
-unit or unit-equivalent to $\pi$.
+\label{def.Z[i].gauss.prime}Let $\pi$ be a nonzero Gaussian integer that is
+not a unit. We say that $\pi$ is a \textbf{Gaussian prime} if each Gaussian
+divisor of $\pi$ is either a unit or unit-equivalent to $\pi$.
 \end{definition}
 
 The letter \textquotedblleft$\pi$\textquotedblright\ in this definition is
@@ -17571,6 +17689,11 @@ you mean it!
 Let us search for Gaussian primes. So we know that $2$ is not a Gaussian
 prime. What about $3$?
 
+\begin{example}
+The Gaussian integer $3$ is a Gaussian prime.
+\end{example}
+
+\begin{proof}
 If we had $3=\left(  a+bi\right)  \left(  c+di\right)  $ with neither $a+bi$
 nor $c+di$ being a unit, then we would get%
 \[
@@ -17600,31 +17723,490 @@ The first and third of these options are impossible, since neither $a+bi$ nor
 $c+di$ should be a unit, but non-units cannot have norm $1$. So the second
 option must be true. Thus, $a^{2}+b^{2}=3$ and $c^{2}+d^{2}=3$. But this is
 impossible since $a$ and $b$ have to be integers. So $3$ is a Gaussian prime.
+\end{proof}
 
 \begin{center}
 \textbf{2019-03-11 lecture}
 \end{center}
 
-TODO:
+So we know that $3$ is a Gaussian prime, but $2$ is not. Is there a way to
+tell which integers are Gaussian primes, without checking all Gaussian divisors?
+
+Let us first state a negative criterion:
+
+\begin{lemma}
+\label{lem.Z[i].gauss.prime.3mod4}Let $p$ be a prime such that $p\equiv
+3\operatorname{mod}4$. Then, $p$ is a Gaussian prime.
+\end{lemma}
+
+\begin{proof}
+Assume the contrary. Thus, $p$ has a Gaussian divisor $\delta$ that is neither
+a unit nor unit-equivalent to $p$. Consider this $\delta$. Thus, there exists
+a Gaussian integer $\varepsilon$ such that $p=\delta\varepsilon$. Consider
+this $\varepsilon$.
+
+From $p=\delta\varepsilon$, we obtain $\operatorname*{N}\left(  p\right)
+=\operatorname*{N}\left(  \delta\varepsilon\right)  =\operatorname*{N}\left(
+\delta\right)  \cdot\operatorname*{N}\left(  \varepsilon\right)  $. Hence,
+$\operatorname*{N}\left(  \delta\right)  \cdot\operatorname*{N}\left(
+\varepsilon\right)  =\operatorname*{N}\left(  p\right)  =p^{2}+0^{2}=p^{2}$.
+Since $\operatorname*{N}\left(  \delta\right)  $ and $\operatorname*{N}\left(
+\varepsilon\right)  $ are nonnegative integers (and $p$ is prime), this leaves
+only three options:
 
 \begin{itemize}
-\item If $\operatorname*{N}\left(  \alpha\right)  $ prime, then $\alpha$
+\item \textbf{either} $\operatorname*{N}\left(  \delta\right)  =1$ and
+$\operatorname*{N}\left(  \varepsilon\right)  =p^{2}$,
+
+\item \textbf{or }$\operatorname*{N}\left(  \delta\right)  =p$ and
+$\operatorname*{N}\left(  \varepsilon\right)  =p$,
+
+\item \textbf{or }$\operatorname*{N}\left(  \delta\right)  =p^{2}$ and
+$\operatorname*{N}\left(  \varepsilon\right)  =1$.
+\end{itemize}
+
+The first of these three options would cause $\delta$ to be a unit, which is
+impossible (by the definition of $\delta$).
+
+The third of these three options would cause $\delta$ to be unit-equivalent to
+$p$ (since $\varepsilon$ would be a unit, and $p=\delta\varepsilon$), which is
+impossible (by the definition of $\delta$).
+
+Thus, the second of these three options must hold. In other words,
+$\operatorname*{N}\left(  \delta\right)  =p$ and $\operatorname*{N}\left(
+\varepsilon\right)  =p$. Now, write the Gaussian integer $\delta$ as
+$\delta=\left(  a,b\right)  $ with integers $a,b$. Then, $\operatorname*{N}%
+\left(  \delta\right)  =a^{2}+b^{2}$, so that $a^{2}+b^{2}=\operatorname*{N}%
+\left(  \delta\right)  =p\equiv3\operatorname{mod}4$. This contradicts
+Exercise \ref{exe.ent.even-odd-sumsq} \textbf{(c)}. Thus, Lemma
+\ref{lem.Z[i].gauss.prime.3mod4} is proven.
+\end{proof}
+
+Lemma \ref{lem.Z[i].gauss.prime.3mod4} provides us a lot of Gaussian primes:
+$3,7,11,19,\ldots$. What about the other primes -- are they Gaussian primes?
+We already know that $2$ is not, since $2=\left(  1+i\right)  \left(
+1-i\right)  $. Likewise, $5$ is not, since $5=\left(  1+2i\right)  \left(
+1-2i\right)  $. Likewise, $13$ is not, since $13=\left(  2+3i\right)  \left(
+2-3i\right)  $.
+
+This may suggest that primes $p$ satisfying $p=2$ or $p\equiv
+1\operatorname{mod}4$ not only factor nontrivially, but actually factor as%
+\[
+p=\left(  x+yi\right)  \left(  x-yi\right)  \ \ \ \ \ \ \ \ \ \ \text{for some
+integers }x\text{ and }y.
+\]
+Of course, this equation rewrites as $p=x^{2}+y^{2}$. Thus, we are back to
+asking Question~\ref{quest.intro.sum-of-2sq.1}, at least for primes.
+
+One of our goals today is to answer this theorem, and actually prove a bit more:
+
+\begin{theorem}
+\label{thm.Z[i].gauss.prime.1mod4}Let $p$ be a prime such that either $p=2$ or
+$p\equiv1\operatorname{mod}4$.
+
+\textbf{(a)} There exist integers $x$ and $y$ such that $p=x^{2}+y^{2}$.
+
+\textbf{(b)} If $p\equiv1\operatorname{mod}4$, then there exist exactly $8$
+pairs $\left(  x,y\right)  $ of integers such that $p=x^{2}+y^{2}$. (For
+example, if $p=5$, then these $8$ pairs are $\left(  1,2\right)  $, $\left(
+2,1\right)  $, $\left(  1,-2\right)  $, $\left(  -2,1\right)  $, $\left(
+-1,2\right)  $, $\left(  2,-1\right)  $, $\left(  -1,-2\right)  $ and $\left(
+-2,-1\right)  $.)
+
+\textbf{(c)} There exists a Gaussian prime $\pi$ such that $p=\pi\overline
+{\pi}$.
+\end{theorem}
+
+Before we can prove this theorem, we will have to build up the theory of
+Gaussian primes a bit more. We first state the Gaussian-integer analogue of
+Proposition \ref{prop.ent.primes.div-or-coprime}:
+
+\begin{proposition}
+\label{prop.Z[i].primes.div-or-coprime}Let $\pi$ be a Gaussian prime. Let
+$\alpha\in\mathbb{Z}\left[  i\right]  $. Then, either $\pi\mid\alpha$ or
+$\pi\perp\alpha$.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.Z[i].primes.div-or-coprime}.]Analogous to our
+(current!) proof of Proposition \ref{prop.ent.primes.div-or-coprime} above.
+\end{proof}
+
+Next, we state the analogue to Theorem \ref{thm.ent.primes.pab}:
+
+\begin{theorem}
+\label{thm.Z[i].primes.pab}Let $\pi$ be a prime. Let $\alpha,\beta
+\in\mathbb{Z}$ such that $\pi\mid\alpha\beta$. Then, $\pi\mid\alpha$ or
+$\pi\mid\beta$.
+\end{theorem}
+
+\begin{proof}
+[Proof of Theorem \ref{thm.Z[i].primes.pab}.]Analogous to our proof of Theorem
+\ref{thm.ent.primes.pab} above.
+\end{proof}
+
+We also need the following simple facts:
+
+\begin{lemma}
+\label{lem.Z[i].primes.Nprime}Let $\alpha$ be a Gaussian integer. If
+$\operatorname*{N}\left(  \alpha\right)  $ is prime, then $\alpha$ is a
 Gaussian prime.
+\end{lemma}
 
-\item Thus, $1+i$ is a Gaussian prime.
+This shows, for example, that $1+i$ and $1+2i$ are Gaussian primes. Of course,
+the converse of Lemma \ref{lem.Z[i].primes.Nprime} does not hold (e.g., $3$ is
+a Gaussian prime, but $\operatorname*{N}\left(  3\right)  =9$ is not prime).
 
-\item But no converse! $3$ is a Gaussian prime. To see this, use
-\textquotedblleft If $\alpha\mid\beta$, then $\operatorname*{N}\left(
-\alpha\right)  \mid\operatorname*{N}\left(  \beta\right)  $\textquotedblright.
+\begin{proof}
+[Proof of Lemma \ref{lem.Z[i].primes.Nprime}.]Assume that $\operatorname*{N}%
+\left(  \alpha\right)  $ is prime. We must prove that $\alpha$ is a Gaussian prime.
 
-\item $5=\left(  1+2i\right)  \left(  1-2i\right)  $ not Gaussian prime.
+Assume the contrary. Thus, $\alpha$ has a Gaussian divisor $\delta$ that is
+neither a unit nor unit-equivalent to $\alpha$. Consider this $\delta$. Thus,
+there exists a Gaussian integer $\varepsilon$ such that $\alpha=\delta
+\varepsilon$. Consider this $\varepsilon$.
 
-\item $7$ is a Gaussian prime again.
+From $\alpha=\delta\varepsilon$, we obtain $\operatorname*{N}\left(
+\alpha\right)  =\operatorname*{N}\left(  \delta\varepsilon\right)
+=\operatorname*{N}\left(  \delta\right)  \cdot\operatorname*{N}\left(
+\varepsilon\right)  $. Hence, $\operatorname*{N}\left(  \delta\right)
+\cdot\operatorname*{N}\left(  \varepsilon\right)  =\operatorname*{N}\left(
+\alpha\right)  $. Since $\operatorname*{N}\left(  \delta\right)  $ and
+$\operatorname*{N}\left(  \varepsilon\right)  $ are nonnegative integers and
+$\operatorname*{N}\left(  \alpha\right)  $ is prime, this leaves only two options:
 
-\item What is the pattern?
+\begin{itemize}
+\item \textbf{either} $\operatorname*{N}\left(  \delta\right)  =1$ and
+$\operatorname*{N}\left(  \varepsilon\right)  =\operatorname*{N}\left(
+\alpha\right)  $,
 
-\item Proposition \ref{prop.ent.primes.div-or-coprime} (\textquotedblleft
-either $p\mid a$ or $p\perp a$\textquotedblright) works again.
+\item \textbf{or }$\operatorname*{N}\left(  \delta\right)  =\operatorname*{N}%
+\left(  \alpha\right)  $ and $\operatorname*{N}\left(  \varepsilon\right)  =1$.
+\end{itemize}
+
+The first of these three options would cause $\delta$ to be a unit, which is
+impossible (by the definition of $\delta$). Thus, the second option must be
+true. In other words, we have $\operatorname*{N}\left(  \delta\right)
+=\operatorname*{N}\left(  \alpha\right)  $ and $\operatorname*{N}\left(
+\varepsilon\right)  =1$. But $\operatorname*{N}\left(  \varepsilon\right)  =1$
+shows that $\varepsilon$ is a unit, and thus $\alpha\sim\delta$ (since
+$\alpha=\delta\varepsilon$). This contradicts the assumption that $\delta$ is
+not unit-equivalent to $\alpha$. This contradiction proves that our assumption
+was wrong. Lemma \ref{lem.Z[i].primes.Nprime} is proven.
+\end{proof}
+
+\begin{lemma}
+\label{lem.Z[i].primes.conj}Let $\pi$ be a Gaussian prime. Then,
+$\overline{\pi}$ is a Gaussian prime, too.
+\end{lemma}
+
+\begin{proof}
+Easy.
+\end{proof}
+
+Finally, we need an elementary fact (HW4, \textquotedblleft Wilson strikes
+again\textquotedblright):
+
+\begin{exercise}
+\label{exe.ent.wilson-k!sq}Let $p$ be an odd prime. Write $p$ in the form
+$p=2k+1$ for some $k\in\mathbb{N}$. Prove that $k!^{2}\equiv-\left(
+-1\right)  ^{k}\operatorname{mod}p$.
+\end{exercise}
+
+Now, we can prove Theorem \ref{thm.Z[i].gauss.prime.1mod4} quite easily:
+
+\begin{proof}
+[Proof of Theorem \ref{thm.Z[i].gauss.prime.1mod4}.]\textbf{(a)} If $p=2$,
+then this is clear (just pick $x=1$ and $y=1$). Thus, for the rest of this
+proof, we WLOG assume that $p\neq2$. Hence, $p\equiv1\operatorname{mod}4$ (by
+assumption). Therefore, $p=2k+1$ for some \textbf{even} $k\in\mathbb{N}$.
+Consider this $k$.
+
+Exercise \ref{exe.ent.wilson-k!sq} yields $k!^{2}\equiv-\underbrace{\left(
+-1\right)  ^{k}}_{\substack{=1\\\text{(since }k\text{ is even)}}%
+}=-1\operatorname{mod}p$. Set $u=k!$; thus, this becomes $u^{2}\equiv
+-1\operatorname{mod}p$. In other words,
+\[
+p\mid u^{2}-\left(  -1\right)  =u^{2}+1=\left(  u+i\right)  \left(
+u-i\right)  .
+\]
+This is a divisibility in $\mathbb{Z}$, thus also a divisibility in
+$\mathbb{Z}\left[  i\right]  $.
+
+Now, assume (for the sake of contradiction) that $p$ is a Gaussian prime.
+Then, Theorem \ref{thm.Z[i].primes.pab} (applied to $\pi=p$, $a=u+i$ and
+$b=u-i$) yields that $p\mid u+i$ or $p\mid u-i$. But if $p\mid u-i$, then
+$p\mid u+i$ holds as well (since Exercise \ref{exe.Z[i].div.conj} shows that
+$p\mid u-i$ implies $\overline{p}\mid\overline{u-i}=u+i$, which means
+$p=\overline{p}\mid u+i$). Hence, we have $p\mid u+i$ in both cases.
+
+This means that there exists a Gaussian integer $\gamma$ such that
+$u+i=p\gamma$. Consider this $\gamma$. Write $\gamma$ as $\gamma=\left(
+a,b\right)  $ with $a,b\in\mathbb{Z}$. Then, $\left(  u,1\right)
+=u+i=p\underbrace{\gamma}_{=\left(  a,b\right)  }=p\left(  a,b\right)
+=\left(  pa,pb\right)  $. Thus, $u=pa$ and $1=pb$. But $1=pb$ is absurd (since
+$p$ is prime and $b\in\mathbb{Z}$). This contradiction shows that our
+assumption was wrong. Hence, $p$ is not a Gaussian prime. Thus, $p$ has a
+Gaussian divisor $\delta$ that is neither a unit nor unit-equivalent to $p$.
+Consider this $\delta$. Thus, there exists a Gaussian integer $\varepsilon$
+such that $p=\delta\varepsilon$. Consider this $\varepsilon$.
+
+From $p=\delta\varepsilon$, we obtain $\operatorname*{N}\left(  p\right)
+=\operatorname*{N}\left(  \delta\varepsilon\right)  =\operatorname*{N}\left(
+\delta\right)  \cdot\operatorname*{N}\left(  \varepsilon\right)  $. Hence,
+$\operatorname*{N}\left(  \delta\right)  \cdot\operatorname*{N}\left(
+\varepsilon\right)  =\operatorname*{N}\left(  p\right)  =p^{2}+0^{2}=p^{2}$.
+Since $\operatorname*{N}\left(  \delta\right)  $ and $\operatorname*{N}\left(
+\varepsilon\right)  $ are nonnegative integers (and $p$ is prime), this leaves
+only three options:
+
+\begin{itemize}
+\item \textbf{either} $\operatorname*{N}\left(  \delta\right)  =1$ and
+$\operatorname*{N}\left(  \varepsilon\right)  =p^{2}$,
+
+\item \textbf{or }$\operatorname*{N}\left(  \delta\right)  =p$ and
+$\operatorname*{N}\left(  \varepsilon\right)  =p$,
+
+\item \textbf{or }$\operatorname*{N}\left(  \delta\right)  =p^{2}$ and
+$\operatorname*{N}\left(  \varepsilon\right)  =1$.
+\end{itemize}
+
+The first of these three options would cause $\delta$ to be a unit, which is
+impossible (by the definition of $\delta$).
+
+The third of these three options would cause $\delta$ to be unit-equivalent to
+$p$ (since $\varepsilon$ would be a unit, and $p=\delta\varepsilon$), which is
+impossible (by the definition of $\delta$).
+
+Thus, the second of these three options must hold. In other words,
+$\operatorname*{N}\left(  \delta\right)  =p$ and $\operatorname*{N}\left(
+\varepsilon\right)  =p$. Now, write the Gaussian integer $\delta$ as
+$\delta=\left(  a,b\right)  $ with integers $a,b$. Then, $\operatorname*{N}%
+\left(  \delta\right)  =a^{2}+b^{2}$, so that $a^{2}+b^{2}=\operatorname*{N}%
+\left(  \delta\right)  =p$. Hence, there exist integers $x$ and $y$ such that
+$p=x^{2}+y^{2}$ (namely, $x=a$ and $y=b$). This proves Theorem
+\ref{thm.Z[i].gauss.prime.1mod4} \textbf{(a)}.
+
+\textbf{(c)} Theorem \ref{thm.Z[i].gauss.prime.1mod4} \textbf{(a)} shows that
+there exist integers $x$ and $y$ such that $p=x^{2}+y^{2}$. Consider these $x$
+and $y$. Let $\pi$ be the Gaussian integer $x+iy$. Then, $\pi\overline{\pi
+}=\left(  x+iy\right)  \left(  \overline{x+iy}\right)  =x^{2}+y^{2}=p$. Thus,
+$p=\pi\overline{\pi}$. It remains to prove that $\pi$ is a Gaussian prime.
+
+The norm of $\pi$ is $\operatorname*{N}\left(  \pi\right)  =x^{2}+y^{2}=p$,
+which is prime. Hence, Lemma \ref{lem.Z[i].primes.Nprime} (applied to
+$\alpha=\pi$) shows that $\pi$ is a Gaussian prime. This completes the proof
+of Theorem \ref{thm.Z[i].gauss.prime.1mod4} \textbf{(c)}.
+
+\textbf{(b)} Assume that $p\equiv1\operatorname{mod}4$. We must prove that
+there exist exactly $8$ pairs $\left(  x,y\right)  $ of integers such that
+$p=x^{2}+y^{2}$.
+
+One such pair is provided by Theorem \ref{thm.Z[i].gauss.prime.1mod4}
+\textbf{(a)}. Let us call it $\left(  a,b\right)  $. To get the other $7$, we
+notice that it must satisfy $a\neq0$ (since $p$ is not a perfect square) and
+$b\neq0$ (for the same reason) and $a\neq b$ (since $p$ is not $2n^{2}$ for
+any $n\in\mathbb{Z}$), and thus it leads to $7$ other pairs%
+\begin{align*}
+&  \left(  b,a\right)  ,\ \ \ \ \ \ \ \ \ \ \left(  a,-b\right)
+,\ \ \ \ \ \ \ \ \ \ \left(  -b,a\right)  ,\ \ \ \ \ \ \ \ \ \ \left(
+-a,b\right)  ,\\
+&  \left(  b,-a\right)  ,\ \ \ \ \ \ \ \ \ \ \left(  -a,-b\right)
+,\ \ \ \ \ \ \ \ \ \ \left(  -b,-a\right)  ,
+\end{align*}
+which are all distinct. It thus remains to prove that these altogether $8$
+pairs are the \textbf{only} pairs $\left(  x,y\right)  $ of integers such that
+$p=x^{2}+y^{2}$.
+
+In other words, we need to prove that if $\left(  x,y\right)  $ is a pair of
+integers such that $p=x^{2}+y^{2}$, then $\left(  x,y\right)  $ is one of the
+above $8$ pairs. So let us fix a pair $\left(  x,y\right)  $ of integers such
+that $p=x^{2}+y^{2}$. We must prove that $\left(  x,y\right)  $ is one of the
+above $8$ pairs. In other words, we must prove that $\left(  x,y\right)  $
+equals $\left(  a,b\right)  $ up to order and sign. This is equivalent to
+proving that $x+yi\sim a+bi$ or $x-yi\sim a+bi$.
+
+Set $\pi=x+yi$ and $\alpha=a+bi$. In our above proof of Theorem
+\ref{thm.Z[i].gauss.prime.1mod4} \textbf{(c)}, we have shown that $\pi$ is a
+Gaussian prime. Similarly, $\alpha$ is a Gaussian prime.
+
+We must prove that $x+yi\sim a+bi$ or $x-yi\sim a+bi$. In other words, we must
+prove that $\pi\sim\alpha$ or $\overline{\pi}\sim\alpha$ (since $x+yi=\pi$ and
+$x-yi=\overline{\pi}$ and $a+bi=\alpha$).
+
+Now,
+\begin{align*}
+\alpha &  =a+bi\mid\left(  a+bi\right)  \left(  a-bi\right)  =a^{2}%
++b^{2}=p\ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of }\left(
+a,b\right)  \right) \\
+&  =x^{2}+y^{2}=\underbrace{\left(  x+yi\right)  }_{=\pi}\underbrace{\left(
+x-yi\right)  }_{=\overline{\pi}}=\pi\overline{\pi}.
+\end{align*}
+Since $\alpha$ is a Gaussian prime, this yields that $\alpha\mid\pi$ or
+$\alpha\mid\overline{\pi}$ (by Theorem \ref{thm.Z[i].primes.pab}). We WLOG
+assume that $\alpha\mid\pi$, since otherwise we can achieve this by replacing
+$y$ by $-y$ (this clearly does not invalidate $p=x^{2}+y^{2}$, not does it
+change out claim that $x+yi\sim a+bi$ or $x-yi\sim a+bi$).
+
+So $\alpha\mid\pi$. In other words, there exists a Gaussian integer $\xi$ such
+that $\pi=\alpha\xi$. Consider this $\xi$. We have $\pi=\alpha\xi$, thus
+$\operatorname*{N}\left(  \pi\right)  =\operatorname*{N}\left(  \alpha
+\xi\right)  =\operatorname*{N}\left(  \alpha\right)  \operatorname*{N}\left(
+\xi\right)  $. But $\operatorname*{N}\left(  \pi\right)  =x^{2}+y^{2}%
+=p=a^{2}+b^{2}=\operatorname*{N}\left(  \alpha\right)  $, so that
+$\operatorname*{N}\left(  \alpha\right)  =\operatorname*{N}\left(  \pi\right)
+=\operatorname*{N}\left(  \alpha\right)  \operatorname*{N}\left(  \xi\right)
+$. Cancelling $\operatorname*{N}\left(  \alpha\right)  $ (which is clearly
+nonzero) from this equality, we obtain $1=\operatorname*{N}\left(  \xi\right)
+$. Thus, $\xi$ is a unit (by Proposition \ref{prop.Z[i].gauss.norm1}
+\textbf{(b)}), and therefore $\pi=\alpha\xi$ leads to $\pi\sim\alpha$. Hence,
+we have proven that $\pi\sim\alpha$ or $\overline{\pi}\sim\alpha$. This
+completes our proof of Theorem \ref{thm.Z[i].gauss.prime.1mod4} \textbf{(b)}.
+\end{proof}
+
+We have thus answered Question \ref{quest.intro.sum-of-2sq.2} \textbf{(b)} in
+the case when $n$ is a prime. What about arbitrary $n$?
+
+It turns out that the answer will come from the analogue of prime
+factorization in $\mathbb{Z}\left[  i\right]  $. We begin with the following definition:
+
+\begin{definition}
+Let $\nu$ be a Gaussian integer. A \textit{Gaussian prime factor} of $\nu$
+means a Gaussian prime $\pi$ such that $\pi\mid\nu$. Some say
+\textquotedblleft prime divisor\textquotedblright\ instead of
+\textquotedblleft prime factor\textquotedblright.
+\end{definition}
+
+\begin{proposition}
+\label{prop.Z[i].primes.ex-pri-div}Let $\nu$ be a nonzero Gaussian integer
+that is not a unit. Then, there exists at least one Gaussian prime $\pi$ such
+that $\pi\mid\nu$.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.Z[i].primes.ex-pri-div}.]This is an analogue
+of Proposition \ref{prop.ent.primes.ex-pri-div}, and can be proven in the same
+way. Just replace $d$ (the smallest positive divisor of $n$) by $\delta$ (a
+Gaussian divisor of $\nu$ that is not a unit and has the smallest norm among
+all such divisors).
+\end{proof}
+
+\begin{proposition}
+\label{prop.Z[i].primes.fac-ex}Let $\nu$ be a nonzero Gaussian integer. Then,
+$\nu$ can be written as a product of finitely many Gaussian primes.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.Z[i].primes.fac-ex}.]This is an analogue of
+Proposition \ref{prop.ent.primes.fac-ex}, and can be proven in the same way:
+Strong induction on $\operatorname*{N}\left(  \nu\right)  $.
+\end{proof}
+
+\begin{definition}
+Let $\nu$ be a nonzero Gaussian integer. A \textit{Gaussian prime
+factorization} of $\nu$ means a tuple $\left(  \pi_{1},\pi_{2},\ldots,\pi
+_{k}\right)  $ of Gaussian primes such that $\nu=\pi_{1}\pi_{2}\cdots\pi_{k}$.
+\end{definition}
+
+\begin{exercise}
+\label{exe.Z[i].primes.dist=cop}Let $\pi$ and $\kappa$ be two Gaussian primes
+that do not satisfy $\pi\sim\kappa$. Prove that $\pi\perp\kappa$.
+\end{exercise}
+
+\begin{proof}
+[Solution sketch.] This is an analogue of Exercise
+\ref{exe.ent.primes.dist=cop}, and its solution goes accordingly.
+\end{proof}
+
+Similarly to Definition \ref{def.ent.prime.vp}, we can define $\pi$-adic valuations:
+
+\begin{definition}
+\label{def.Z[i].prime.vp}Let $\pi$ be a Gaussian prime.
+
+\textbf{(a)} Let $\alpha$ be a nonzero Gaussian integer. Then, $v_{\pi}\left(
+\alpha\right)  $ shall denote the largest $m\in\mathbb{N}$ such that $\pi
+^{m}\mid\alpha$. This is well-defined (by an analogue of Lemma
+\ref{lem.ent.prime.vp-wd}, whose proof proceeds by observing that
+$\operatorname*{N}\left(  \pi^{m}\right)  >\operatorname*{N}\left(
+\alpha\right)  $ whenever $m>\operatorname*{N}\left(  \alpha\right)  $). This
+nonnegative integer $v_{\pi}\left(  \alpha\right)  $ will be called the $\pi
+$\textit{-valuation} (or the $\pi$\textit{-adic valuation}) of $\alpha$.
+
+\textbf{(b)} We extend this definition of $v_{\pi}\left(  \alpha\right)  $ to
+the case of $\alpha=0$ as follows: Set $v_{\pi}\left(  0\right)  =\infty$.
+\end{definition}
+
+\begin{theorem}
+\label{thm.Z[i].prime.vp-ring}Let $\pi$ be a Gaussian prime.
+
+\textbf{(a)} We have $v_{\pi}\left(  \alpha\beta\right)  =v_{\pi}\left(
+\alpha\right)  +v_{\pi}\left(  \beta\right)  $ for any two Gaussian integers
+$\alpha$ and $\beta$.
+
+\textbf{(b)} We have $v_{\pi}\left(  \alpha+\beta\right)  \geq\min\left\{
+v_{\pi}\left(  \alpha\right)  ,v_{\pi}\left(  \beta\right)  \right\}  $ for
+any two Gaussian integers $\alpha$ and $\beta$.
+
+\textbf{(c)} We have $v_{\pi}\left(  1\right)  =0$.
+
+\textbf{(d)} We have $v_{\pi}\left(  \kappa\right)  =%
+\begin{cases}
+1, & \text{if }\kappa=\pi;\\
+0, & \text{if }\kappa\neq\pi
+\end{cases}
+$ for any Gaussian prime $\kappa$.
+\end{theorem}
+
+\begin{proof}
+This is an analogue of Theorem \ref{thm.ent.prime.vp-ring}, and is proven similarly.
+\end{proof}
+
+\begin{proposition}
+\label{prop.Z[i].prime.mult-in-pf}Let $\nu$ be a nonzero Gaussian integer. Let
+$\left(  \alpha_{1},\alpha_{2},\ldots,\alpha_{k}\right)  $ be a Gaussian prime
+factorization of $\nu$. Let $\pi$ be a Gaussian prime. Then,%
+\begin{align*}
+&  \left(  \text{the number of times a Gaussian integer unit-equivalent to
+}\pi\text{ }\right. \\
+&  \ \ \ \ \ \ \ \ \ \ \left.  \text{appears in the tuple }\left(  \alpha
+_{1},\alpha_{2},\ldots,\alpha_{k}\right)  \right) \\
+&  =\left(  \text{the number of }i\in\left\{  1,2,\ldots,k\right\}  \text{
+such that }\alpha_{i}\sim\pi\right) \\
+&  =v_{\pi}\left(  \nu\right)  .
+\end{align*}
+
+\end{proposition}
+
+\begin{proof}
+This is an analogue of Proposition \ref{prop.ent.prime.mult-in-pf}, and is
+proven similarly.
+\end{proof}
+
+\begin{theorem}
+\label{thm.Z[i].primes.fac-uni}Let $\nu$ be a nonzero Gaussian integer.
+
+\textbf{(a)} There exists a Gaussian prime factorization of $\nu$.
+
+\textbf{(b)} Any two such factorizations differ only by reordering their
+entries and replacing them by unit multiples. More precisely: If $\left(
+\alpha_{1},\alpha_{2},\ldots,\alpha_{k}\right)  $ and $\left(  \beta_{1}%
+,\beta_{2},\ldots,\beta_{\ell}\right)  $ are two Gaussian prime factorizations
+of $\nu$, then $\left(  \left[  \alpha_{1}\right]  _{\sim},\left[  \alpha
+_{2}\right]  _{\sim},\ldots,\left[  \alpha_{k}\right]  _{\sim}\right)  $ is a
+permutation of $\left(  \left[  \beta_{1}\right]  _{\sim},\left[  \beta
+_{2}\right]  _{\sim},\ldots,\left[  \beta_{\ell}\right]  _{\sim}\right)  $.
+\end{theorem}
+
+\begin{proof}
+This is an analogue of Theorem \ref{thm.ent.primes.fac-uni}, and is proven similarly.
+\end{proof}
+
+TODO: More...
+
+\begin{itemize}
+\item \textquotedblleft hidden unit-eq\textquotedblright\ (KCd example.)
+
+\item actually prove the formula.
 
 \item ....
 \end{itemize}
