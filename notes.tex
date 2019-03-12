@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, March 11, 2019 12:24:29}
+%TCIDATA{LastRevised=Monday, March 11, 2019 19:36:59}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -1579,7 +1579,6 @@ n;\label{eq.prop.ent.mod.basics.d.2}\\
 a_{1}a_{2}  &  \equiv b_{1}b_{2}\operatorname{mod}n.
 \label{eq.prop.ent.mod.basics.d.3}%
 \end{align}
-
 
 \textbf{(e)} Let $m\in\mathbb{Z}$ be such that $m\mid n$. If $a,b\in
 \mathbb{Z}$ satisfy $a\equiv b\operatorname{mod}n$, then $a\equiv
@@ -10496,7 +10495,7 @@ is well-defined and is a bijection.
 \label{exa.ent.CRT-bij.exa1}\textbf{(a)} Theorem \ref{thm.ent.CRT-bij}
 (applied to $m=3$ and $n=2$) says that the map%
 \begin{align*}
-K_{3,2}:\left\{  0,1,2,3,4,5,6\right\}   &  \rightarrow\left\{  0,1,2\right\}
+K_{3,2}:\left\{  0,1,2,3,4,5\right\}   &  \rightarrow\left\{  0,1,2\right\}
 \times\left\{  0,1\right\}  ,\\
 a  &  \mapsto\left(  a\%3,a\%2\right)
 \end{align*}
@@ -14634,9 +14633,7 @@ is well-defined.
 \textbf{(b)} Finite sums ($\sum_{i\in I}\alpha_{i}$) and finite products
 ($\prod_{i\in I}\alpha_{i}$) of elements $\alpha_{i}\in\mathbb{Z}/n$ satisfy
 the same rules that finite sums and finite products of integers satisfy.
-\end{proposition}
 
-\begin{remark}
 \textbf{(c)} If $a_{1},a_{2},\ldots,a_{k}$ are $k$ integers, then
 \begin{align*}
 \left[  a_{1}\right]  _{n}+\left[  a_{2}\right]  _{n}+\cdots+\left[
@@ -14647,7 +14644,7 @@ _{n}\ \ \ \ \ \ \ \ \ \ \text{and}\\
 _{n}.
 \end{align*}
 
-\end{remark}
+\end{proposition}
 
 \begin{proof}
 [Proof of Proposition \ref{prop.eqrel.Z/n.sums.wd}.]\textbf{(a)} In
@@ -14891,11 +14888,6 @@ and has \textbf{at most }one inverse). This proves Proposition
 \ref{prop.equiv.modinv.exiuni}.
 \end{proof}
 
-Proposition \ref{prop.equiv.modinv.uni} shows that if a residue class
-$\alpha\in\mathbb{Z}/n$ has an inverse, then $\alpha$ has \textbf{a unique}
-inverse. Thus, we can speak of \textquotedblleft\textit{the inverse}%
-\textquotedblright\ of a residue class $\alpha\in\mathbb{Z}/n$.
-
 \begin{corollary}
 \label{cor.equiv.modinv.Unphi}Let $U_{n}$ be the set of all residue classes
 $\alpha\in\mathbb{Z}/n$ that have an inverse. Then:
@@ -14990,6 +14982,31 @@ the index }a\text{ as }i\right) \\
 \ref{cor.equiv.modinv.Unphi} \textbf{(b)}.
 \end{proof}
 
+\begin{definition}
+Let $\alpha\in\mathbb{Z}/n$ be a residue class that has an inverse. Then,
+Proposition \ref{prop.equiv.modinv.uni} shows that $\alpha$ has \textbf{a
+unique} inverse. This inverse can thus be called \textquotedblleft%
+\textbf{the}\textit{ inverse}\textquotedblright\ of $\alpha$; it will be
+denoted by $\alpha^{-1}$.
+\end{definition}
+
+For example, $\left(  \left[  3\right]  _{5}\right)  ^{-1}=\left[  2\right]
+_{5}$ for $n=5$, since $\left[  2\right]  _{5}$ is an inverse (and thus
+\textbf{the} inverse) of $\left[  3\right]  _{5}$.
+
+Let us state a couple properties of inverses in $\mathbb{Z}/n$:
+
+\begin{exercise}
+\label{exe.equiv.modinv.ab}\textbf{(a)} Let $\alpha\in\mathbb{Z}/n$ be a
+residue class that has an inverse. Prove that its inverse $\alpha^{-1}$ has an
+inverse as well, and this inverse is $\left(  \alpha^{-1}\right)  ^{-1}%
+=\alpha$.
+
+\textbf{(b)} Let $\alpha,\beta\in\mathbb{Z}/n$ be two residue classes that
+have inverses. Prove that their product $\alpha\beta$ has an inverse as well,
+and this inverse is $\left(  \alpha\beta\right)  ^{-1}=\alpha^{-1}\beta^{-1}$.
+\end{exercise}
+
 %
 
 \[%
@@ -15002,8 +15019,9 @@ the index }a\text{ as }i\right) \\
 \]
 
 
-We can now prove Theorem \ref{thm.ent.wilson} again -- or, rather, restate our
-previous proof of Theorem \ref{thm.ent.wilson} in more natural terms:
+The concept of inverses in $\mathbb{Z}/n$ lets us prove Theorem
+\ref{thm.ent.wilson} again -- or, rather, restate our previous proof of
+Theorem \ref{thm.ent.wilson} in more natural terms:
 
 \begin{proof}
 [Second proof of Theorem \ref{thm.ent.wilson}.]If $p=2$, then the claim of
@@ -16300,9 +16318,9 @@ $\operatorname*{N}\left(  \alpha^{k}\right)  =\left(  \operatorname*{N}\left(
 \end{corollary}
 
 \begin{proof}
-[Proof of Corollary \ref{cor.CC.norm.pow}.] Induction on $k$, using
-Proposition \ref{prop.CC.conj.hom} \textbf{(d)} and the fact that
-$\operatorname*{N}\left(  1\right)  =1$.
+[Proof of Corollary \ref{cor.CC.norm.pow}.]Induction on $k$, using Proposition
+\ref{prop.CC.conj.hom} \textbf{(d)} and the fact that $\operatorname*{N}%
+\left(  1\right)  =1$.
 \end{proof}
 
 \begin{definition}
@@ -16364,7 +16382,7 @@ c & d\\
 \begin{array}
 [c]{cc}%
 ac-bd & ad+bc\\
--\left(  ad+bc\right)   & ac-bd
+-\left(  ad+bc\right)  & ac-bd
 \end{array}
 \right)  .
 \]
@@ -23023,6 +23041,84 @@ v_{2}\right)  \right) \\
 &  =\min\left\{  w_{p}\left(  a\right)  ,w_{p}\left(  b\right)  \right\}  .
 \end{align*}
 This solves Exercise \ref{exe.eqrel.quot.wp} \textbf{(d)}.
+\end{proof}
+\end{fineprint}
+
+\subsection{Solution to Exercise \ref{exe.equiv.modinv.ab}}
+
+\begin{fineprint}
+\begin{proof}
+[Solution to Exercise \ref{exe.equiv.modinv.ab}.]\textbf{(a)} The inverse
+$\alpha^{-1}$ of $\alpha$ exists (since $\alpha$ has an inverse). We have
+$\alpha\cdot\alpha^{-1}=\left[  1\right]  _{n}$ (since $\alpha^{-1}$ is an
+inverse of $\alpha$). But Theorem \ref{thm.eqrel.Z/n.rules} \textbf{(e)}
+(applied to $\alpha^{-1}$ and $\alpha$ instead of $\alpha$ and $\beta$) yields
+$\alpha^{-1}\cdot\alpha=\alpha\cdot\alpha^{-1}=\left[  1\right]  _{n}$. In
+other words, $\alpha$ is an inverse of $\alpha^{-1}$. Thus, $\alpha^{-1}$ has
+an inverse (namely, $\alpha$). Therefore, we can speak of \textquotedblleft
+the inverse of $\alpha^{-1}$\textquotedblright. Moreover, $\left(  \alpha
+^{-1}\right)  ^{-1}=\left(  \text{the inverse of }\alpha^{-1}\right)  =\alpha$
+(since $\alpha$ is an inverse of $\alpha^{-1}$). This solves Exercise
+\ref{exe.equiv.modinv.ab} \textbf{(a)}.
+
+\textbf{(b)} The inverse $\alpha^{-1}$ of $\alpha$ exists (since $\alpha$ has
+an inverse). We have $\alpha\cdot\alpha^{-1}=\left[  1\right]  _{n}$ (since
+$\alpha^{-1}$ is an inverse of $\alpha$). The inverse $\beta^{-1}$ of $\beta$
+exists (since $\beta$ has an inverse). We have $\beta\cdot\beta^{-1}=\left[
+1\right]  _{n}$ (since $\beta^{-1}$ is an inverse of $\beta$). Theorem
+\ref{thm.eqrel.Z/n.rules} \textbf{(e)} yields $\alpha\cdot\beta=\beta
+\cdot\alpha$. In other words, $\alpha\beta=\beta\alpha$.
+
+Theorem \ref{thm.eqrel.Z/n.rules} \textbf{(f)} (applied to $\beta$, $\alpha$
+and $\alpha^{-1}$) yields $\beta\cdot\left(  \alpha\cdot\alpha^{-1}\right)
+=\left(  \beta\cdot\alpha\right)  \cdot\alpha^{-1}=\left(  \beta\alpha\right)
+\cdot\alpha^{-1}$, so that%
+\[
+\left(  \beta\alpha\right)  \cdot\alpha^{-1}=\beta\cdot\underbrace{\left(
+\alpha\cdot\alpha^{-1}\right)  }_{=\left[  1\right]  _{n}}=\beta\cdot\left[
+1\right]  _{n}=\beta
+\]
+(by Theorem \ref{thm.eqrel.Z/n.rules} \textbf{(d)}).
+
+Now, Theorem \ref{thm.eqrel.Z/n.rules} \textbf{(f)} (applied to $\alpha\beta$,
+$\alpha^{-1}$ and $\beta^{-1}$ instead of $\alpha$, $\beta$ and $\gamma$)
+yields%
+\[
+\left(  \alpha\beta\right)  \cdot\left(  \alpha^{-1}\beta^{-1}\right)
+=\left(  \underbrace{\left(  \alpha\beta\right)  }_{=\beta\alpha}\cdot
+\alpha^{-1}\right)  \cdot\beta^{-1}=\underbrace{\left(  \left(  \beta
+\alpha\right)  \cdot\alpha^{-1}\right)  }_{=\beta}\cdot\beta^{-1}=\beta
+\cdot\beta^{-1}=\left[  1\right]  _{n}.
+\]
+In other words, $\alpha^{-1}\beta^{-1}$ is an inverse of $\alpha\beta$. Thus,
+$\alpha\beta$ has an inverse (namely, $\alpha^{-1}\beta^{-1}$). Therefore, we
+can speak of \textquotedblleft the inverse of $\alpha\beta$\textquotedblright.
+Moreover, $\left(  \alpha\beta\right)  ^{-1}=\left(  \text{the inverse of
+}\alpha\beta\right)  =\alpha^{-1}\beta^{-1}$ (since $\alpha^{-1}\beta^{-1}$ is
+an inverse of $\alpha\beta$). This solves Exercise \ref{exe.equiv.modinv.ab}
+\textbf{(b)}.
+
+[\textit{Remark:} In the above solution, we have avoided writing products of
+the form $\alpha_{1}\alpha_{2}\cdots\alpha_{k}$ with more than $2$ factors
+without explicitly placing parentheses. This was done for the purpose of
+making each single use of associativity explicit. Had we instead written such
+products without parenthesization, our solution would have become much
+simpler; namely, we could simply argue that%
+\[
+\left(  \alpha\beta\right)  \cdot\left(  \alpha^{-1}\beta^{-1}\right)
+=\underbrace{\alpha\beta}_{=\beta\alpha}\alpha^{-1}\beta^{-1}=\beta
+\underbrace{\alpha\alpha^{-1}}_{=\left[  1\right]  _{n}}\beta^{-1}%
+=\underbrace{\beta\left[  1\right]  _{n}}_{\substack{=\beta\\\text{(by Theorem
+\ref{thm.eqrel.Z/n.rules} \textbf{(d)})}}}\beta^{-1}=\beta\beta^{-1}=\left[
+1\right]  _{n}.
+\]
+Computations of this kind are perfectly legitimate, because Proposition
+\ref{prop.eqrel.Z/n.sums.wd} shows that products of the form $\alpha_{1}%
+\alpha_{2}\cdots\alpha_{k}$ are well-defined and satisfy the standard rules
+(which include the one saying that $\alpha_{1}\alpha_{2}\cdots\alpha
+_{k}=\left(  \alpha_{1}\alpha_{2}\cdots\alpha_{i}\right)  \left(  \alpha
+_{i+1}\alpha_{i+2}\cdots\alpha_{k}\right)  $ for each $i\in\left\{
+0,1,\ldots,k\right\}  $).]
 \end{proof}
 \end{fineprint}
 
