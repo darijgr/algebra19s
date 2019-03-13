@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Wednesday, March 13, 2019 10:22:45}
+%TCIDATA{LastRevised=Wednesday, March 13, 2019 10:28:25}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -18463,18 +18463,18 @@ $\left(  \alpha_{1},\alpha_{2},\ldots,\alpha_{k}\right)  $ be a Gaussian prime
 factorization of $\nu$. Let $\pi$ be a Gaussian prime. Then,%
 \begin{align*}
 &  \left(  \text{the number of times a Gaussian integer unit-equivalent to
-}\pi\right.  \\
+}\pi\right. \\
 &  \ \ \ \ \ \ \ \ \ \ \left.  \text{appears in the tuple }\left(  \alpha
-_{1},\alpha_{2},\ldots,\alpha_{k}\right)  \right)  \\
+_{1},\alpha_{2},\ldots,\alpha_{k}\right)  \right) \\
 &  =\left(  \text{the number of times }\left[  \pi\right]  _{\sim}\text{
 appears in the tuple }\left(  \left[  \alpha_{1}\right]  _{\sim},\left[
 \alpha_{2}\right]  _{\sim},\ldots,\left[  \alpha_{k}\right]  _{\sim}\right)
-\right)  \\
+\right) \\
 &  =\left(  \text{the number of }i\in\left\{  1,2,\ldots,k\right\}  \text{
-such that }\alpha_{i}\sim\pi\right)  \\
+such that }\alpha_{i}\sim\pi\right) \\
 &  =\left(  \text{the number of }i\in\left\{  1,2,\ldots,k\right\}  \text{
 such that }\left[  \alpha_{i}\right]  _{\sim}=\left[  \pi\right]  _{\sim
-}\right)  \\
+}\right) \\
 &  =v_{\pi}\left(  \nu\right)  .
 \end{align*}
 
@@ -18573,6 +18573,194 @@ In analogy to Proposition \ref{prop.ent.prime.n|m}, we have the following:
 Then, $\alpha\mid\beta$ if and only if each Gaussian prime $\pi$ satisfies
 $v_{\pi}\left(  \alpha\right)  \leq v_{\pi}\left(  \beta\right)  $.
 \end{proposition}
+
+As a warm-up, let's prove a neat little fact about integers:
+
+\begin{proposition}
+Let $n\in\mathbb{Z}$ be nonzero. Then,%
+\[
+\left(  \text{the number of positive divisors of }n\right)  =\prod_{p\text{
+prime}}\left(  v_{p}\left(  n\right)  +1\right)
+\]
+and%
+\[
+\left(  \text{the number of divisors of }n\right)  =2\prod_{p\text{ prime}%
+}\left(  v_{p}\left(  n\right)  +1\right)  .
+\]
+(Note that the product $\prod_{p\text{ prime}}\left(  v_{p}\left(  n\right)
++1\right)  $ is well-defined, since all but finitely many of its factors are
+$1$.)
+\end{proposition}
+
+\begin{proof}
+The two equations we want to prove are equivalent, because%
+\begin{align*}
+&  \left(  \text{the number of divisors of }n\right) \\
+&  =2\left(  \text{the number of positive divisors of }n\right)
+\end{align*}
+(because each positive divisor $d$ of $n$ gives rise to two divisors $d$ and
+$-d$ of $n$). So it remains to prove the first equation.
+
+Write the canonical factorization of $n$ as%
+\[
+n=p_{1}^{a_{1}}p_{2}^{a_{2}}\cdots p_{u}^{a_{u}},
+\]
+where $p_{1},p_{2},\ldots,p_{u}$ are distinct primes and $a_{1},a_{2}%
+,\ldots,a_{u}\in\mathbb{N}$. (This version of the canonical factorization is
+obtained from the standard version $n=\prod_{p\text{ prime}}p^{v_{p}\left(
+n\right)  }$ by throwing away factors that are equal to $1$.) From
+$n=p_{1}^{a_{1}}p_{2}^{a_{2}}\cdots p_{u}^{a_{u}}$, we conclude that%
+\[
+\left(  \underbrace{p_{1},p_{1},\ldots,p_{1}}_{a_{1}\text{ times}%
+},\underbrace{p_{2},p_{2},\ldots,p_{2}}_{a_{2}\text{ times}},\ldots
+,\underbrace{p_{u},p_{u},\ldots,p_{u}}_{a_{u}\text{ times}}\right)
+\]
+is a prime factorization of $n$. Hence, Proposition
+\ref{prop.ent.prime.mult-in-pf} shows that%
+\[
+v_{p_{i}}\left(  n\right)  =a_{i}\ \ \ \ \ \ \ \ \ \ \text{for each }%
+i\in\left\{  1,2,\ldots,u\right\}
+\]
+(since $p_{i}$ appears exactly $a_{i}$ times in this prime factorization) and
+also that%
+\[
+v_{p}\left(  n\right)  =0\ \ \ \ \ \ \ \ \ \ \text{for each prime }%
+p\notin\left\{  p_{1},p_{2},\ldots,p_{u}\right\}
+\]
+(since $p$ appears exactly $0$ times in this prime factorization). Now,%
+\begin{align*}
+&  \prod_{p\text{ prime}}\left(  v_{p}\left(  n\right)  +1\right)  \\
+&  =\left(  \prod_{\substack{p\text{ prime;}\\p\in\left\{  p_{1},p_{2}%
+,\ldots,p_{u}\right\}  }}\left(  v_{p}\left(  n\right)  +1\right)  \right)
+\left(  \prod_{\substack{p\text{ prime;}\\p\notin\left\{  p_{1},p_{2}%
+,\ldots,p_{u}\right\}  }}\left(  \underbrace{v_{p}\left(  n\right)  }%
+_{=0}+1\right)  \right)  \\
+&  =\left(  \prod_{\substack{p\text{ prime;}\\p\in\left\{  p_{1},p_{2}%
+,\ldots,p_{u}\right\}  }}\left(  v_{p}\left(  n\right)  +1\right)  \right)
+\underbrace{\left(  \prod_{\substack{p\text{ prime;}\\p\notin\left\{
+p_{1},p_{2},\ldots,p_{u}\right\}  }}\left(  0+1\right)  \right)  }_{=1}\\
+&  =\prod_{\substack{p\text{ prime;}\\p\in\left\{  p_{1},p_{2},\ldots
+,p_{u}\right\}  }}\left(  v_{p}\left(  n\right)  +1\right)  =\prod_{i=1}%
+^{u}\left(  \underbrace{v_{p_{i}}\left(  n\right)  }_{=a_{i}}+1\right)
+=\prod_{i=1}^{u}\left(  a_{i}+1\right)  .
+\end{align*}
+Hence, it remains to prove
+\[
+\left(  \text{the number of positive divisors of }n\right)  =\prod_{i=1}%
+^{u}\left(  a_{i}+1\right)  .
+\]
+
+
+Recall: $n=p_{1}^{a_{1}}p_{2}^{a_{2}}\cdots p_{u}^{a_{u}}$.
+
+I claim that each positive divisor of $n$ has the form $p_{1}^{b_{1}}%
+p_{2}^{b_{2}}\cdots p_{u}^{b_{u}}$ with $b_{i}\in\left\{  0,1,\ldots
+,a_{i}\right\}  $.
+
+To wit: If $d$ is a positive divisor of $n$, then $v_{p}\left(  d\right)  \leq
+v_{p}\left(  n\right)  $, so the canonical factorization of $d$ can only use
+the primes $p_{1},p_{2},\ldots,p_{u}$, and thus has the form $p_{1}^{b_{1}%
+}p_{2}^{b_{2}}\cdots p_{u}^{b_{u}}$ for some $b_{i}\in\mathbb{N}$;
+furthermore, these $b_{i}$ are $\leq a_{i}$ because $v_{p}\left(  d\right)
+\leq v_{p}\left(  n\right)  $.
+
+Conversely, every integer of the form $p_{1}^{b_{1}}p_{2}^{b_{2}}\cdots
+p_{u}^{b_{u}}$ with $b_{i}\in\left\{  0,1,\ldots,a_{i}\right\}  $ is a
+positive divisor of $n$.
+
+Finally, each positive divisor of $n$ can be written in this form
+\textbf{uniquely} (i.e., for only one choice of $\left(  b_{1},b_{2}%
+,\ldots,b_{u}\right)  $). Indeed, if $d$ is a positive divisor of $n$ and we
+write $d$ as $d=p_{1}^{b_{1}}p_{2}^{b_{2}}\cdots p_{u}^{b_{u}}$, then
+$b_{i}=v_{p_{i}}\left(  d\right)  $ for all $i$.
+
+Thus, the map%
+\begin{align*}
+\left\{  0,1,\ldots,a_{1}\right\}  \times\left\{  0,1,\ldots,a_{2}\right\}
+\times\cdots\times\left\{  0,1,\ldots,a_{u}\right\}   &  \rightarrow\left\{
+\text{positive divisors of }n\right\}  ,\\
+\left(  b_{1},b_{2},\ldots,b_{u}\right)   &  \mapsto p_{1}^{b_{1}}p_{2}%
+^{b_{2}}\cdots p_{u}^{b_{u}}%
+\end{align*}
+is a bijection. Hence,%
+\begin{align*}
+&  \left\vert \left\{  \text{positive divisors of }n\right\}  \right\vert \\
+&  =\left\vert \left\{  0,1,\ldots,a_{1}\right\}  \times\left\{
+0,1,\ldots,a_{2}\right\}  \times\cdots\times\left\{  0,1,\ldots,a_{u}\right\}
+\right\vert \\
+&  =\left\vert \left\{  0,1,\ldots,a_{1}\right\}  \right\vert \cdot\left\vert
+\left\{  0,1,\ldots,a_{2}\right\}  \right\vert \cdot\cdots\cdot\left\vert
+\left\{  0,1,\ldots,a_{u}\right\}  \right\vert \\
+&  =\left(  a_{1}+1\right)  \cdot\left(  a_{2}+1\right)  \cdot\cdots
+\cdot\left(  a_{u}+1\right)  =\prod_{i=1}^{u}\left(  a_{i}+1\right)  .
+\end{align*}
+This proves the Proposition.
+\end{proof}
+
+\begin{remark}
+Proposition \ref{prop.ent.phi.ghosts} can also be derived from this Proposition.
+\end{remark}
+
+\begin{proposition}
+Let $\alpha\in\mathbb{Z}\left[  i\right]  $ be a nonzero Gaussian integer.
+Then,%
+\begin{align*}
+&  \left(  \text{the number of unit-equivalence classes of Gaussian divisors
+of }\alpha\right) \\
+&  =\prod_{\pi\in\operatorname*{GP}}\left(  v_{\pi}\left(  \alpha\right)
++1\right)
+\end{align*}
+and%
+\[
+\left(  \text{the number of Gaussian divisors of }\alpha\right)  =4\prod
+_{\pi\in\operatorname*{GP}}\left(  v_{\pi}\left(  \alpha\right)  +1\right)  .
+\]
+(Here, the product $\prod_{\pi\in\operatorname*{GP}}\left(  v_{\pi}\left(
+\alpha\right)  +1\right)  $ is well-defined, since all but finitely many of
+its factors are $1$.)
+\end{proposition}
+
+\begin{proof}
+Same as before, but you have to be more careful with unit-equivalence.
+\end{proof}
+
+\begin{theorem}
+Let $n$ be a positive integer.
+
+\textbf{(a)} If there is at least one prime $p\equiv3\operatorname{mod}4$ such
+that $v_{p}\left(  n\right)  $ is odd, then there are \textbf{no} integers $x$
+and $y$ such that $n=x^{2}+y^{2}$.
+
+\textbf{(b)} Assume that for each prime $p\equiv3\operatorname{mod}4$, the
+number $v_{p}\left(  n\right)  $ is even. Then,%
+\begin{align*}
+&  \left(  \text{the number of pairs }\left(  x,y\right)  \in\mathbb{Z}%
+^{2}\text{ such that }n=x^{2}+y^{2}\right) \\
+&  =4\cdot\prod_{\substack{p\text{ prime;}\\p\equiv1\operatorname{mod}%
+4}}\left(  v_{p}\left(  n\right)  +1\right)  .
+\end{align*}
+
+\end{theorem}
+
+\begin{example}
+\textbf{(a)} Let $n=35$. Then, there are \textbf{no} integers $x$ and $y$ such
+that $n=x^{2}+y^{2}$. In fact, the prime $7\equiv3\operatorname{mod}4$
+satisfies $v_{7}\left(  n\right)  =1$.
+
+\textbf{(b)} Let $n=45$. Then, for each prime $p\equiv3\operatorname{mod}4$,
+the number $v_{p}\left(  n\right)  $ is even. Indeed, $n=45=\allowbreak
+3^{2}\cdot5$, so $v_{3}\left(  n\right)  =2$ is even and $v_{p}\left(
+n\right)  =0$ for all other primes $p$ of Type 3. Hence, part \textbf{(b)} of
+the Theorem yields%
+\begin{align*}
+&  \left(  \text{the number of pairs }\left(  x,y\right)  \in\mathbb{Z}%
+^{2}\text{ such that }n=x^{2}+y^{2}\right)  \\
+&  =4\cdot\underbrace{\prod_{\substack{p\text{ prime;}\\p\equiv
+1\operatorname{mod}4}}\left(  v_{p}\left(  n\right)  +1\right)  }%
+_{\substack{=v_{5}\left(  n\right)  +1\\=1+1=2}}=4\cdot2=8.
+\end{align*}
+
+\end{example}
 
 TODO: More...
 
