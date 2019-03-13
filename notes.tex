@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Wednesday, March 13, 2019 10:28:25}
+%TCIDATA{LastRevised=Wednesday, March 13, 2019 12:26:05}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -18326,8 +18326,10 @@ generalize to arbitrary $n$.
 \end{center}
 
 It turns out that the right answer for arbitrary $n$ will come from the
-analogue of prime factorization in $\mathbb{Z}\left[  i\right]  $. We begin
-with the following definition:
+analogue of prime factorization in $\mathbb{Z}\left[  i\right]  $.
+
+\begin{noncompile}
+We begin with the following definition:
 
 \begin{definition}
 Let $\nu$ be a Gaussian integer. A \textit{Gaussian prime factor} of $\nu$
@@ -18335,6 +18337,7 @@ means a Gaussian prime $\pi$ such that $\pi\mid\nu$. Some say
 \textquotedblleft prime divisor\textquotedblright\ instead of
 \textquotedblleft prime factor\textquotedblright.
 \end{definition}
+\end{noncompile}
 
 \begin{proposition}
 \label{prop.Z[i].prime.ex-pri-div}Let $\nu$ be a nonzero Gaussian integer that
@@ -18533,8 +18536,6 @@ Gaussian primes of the form $x+yi$ with $x\in\left\{  1,2,3,\ldots\right\}  $
 and $y\in\left\{  0,1,2,\ldots\right\}  $.
 \end{definition}
 
-\#\# Show GP picture. (Bressoud/Wagon p. 320) \#\#
-
 The following is easy to see:
 
 \begin{lemma}
@@ -18577,7 +18578,7 @@ $v_{\pi}\left(  \alpha\right)  \leq v_{\pi}\left(  \beta\right)  $.
 As a warm-up, let's prove a neat little fact about integers:
 
 \begin{proposition}
-Let $n\in\mathbb{Z}$ be nonzero. Then,%
+\label{prop.ent.count-divs}Let $n\in\mathbb{Z}$ be nonzero. Then,%
 \[
 \left(  \text{the number of positive divisors of }n\right)  =\prod_{p\text{
 prime}}\left(  v_{p}\left(  n\right)  +1\right)
@@ -18593,113 +18594,177 @@ $1$.)
 \end{proposition}
 
 \begin{proof}
-The two equations we want to prove are equivalent, because%
-\begin{align*}
-&  \left(  \text{the number of divisors of }n\right) \\
-&  =2\left(  \text{the number of positive divisors of }n\right)
-\end{align*}
-(because each positive divisor $d$ of $n$ gives rise to two divisors $d$ and
-$-d$ of $n$). So it remains to prove the first equation.
+[Proof of Proposition \ref{prop.ent.count-divs}.] Let us first prove the first equation.
 
-Write the canonical factorization of $n$ as%
-\[
-n=p_{1}^{a_{1}}p_{2}^{a_{2}}\cdots p_{u}^{a_{u}},
-\]
-where $p_{1},p_{2},\ldots,p_{u}$ are distinct primes and $a_{1},a_{2}%
-,\ldots,a_{u}\in\mathbb{N}$. (This version of the canonical factorization is
-obtained from the standard version $n=\prod_{p\text{ prime}}p^{v_{p}\left(
-n\right)  }$ by throwing away factors that are equal to $1$.) From
-$n=p_{1}^{a_{1}}p_{2}^{a_{2}}\cdots p_{u}^{a_{u}}$, we conclude that%
-\[
-\left(  \underbrace{p_{1},p_{1},\ldots,p_{1}}_{a_{1}\text{ times}%
-},\underbrace{p_{2},p_{2},\ldots,p_{2}}_{a_{2}\text{ times}},\ldots
-,\underbrace{p_{u},p_{u},\ldots,p_{u}}_{a_{u}\text{ times}}\right)
-\]
-is a prime factorization of $n$. Hence, Proposition
-\ref{prop.ent.prime.mult-in-pf} shows that%
-\[
-v_{p_{i}}\left(  n\right)  =a_{i}\ \ \ \ \ \ \ \ \ \ \text{for each }%
-i\in\left\{  1,2,\ldots,u\right\}
-\]
-(since $p_{i}$ appears exactly $a_{i}$ times in this prime factorization) and
-also that%
-\[
-v_{p}\left(  n\right)  =0\ \ \ \ \ \ \ \ \ \ \text{for each prime }%
+WLOG assume that $n>0$ (since otherwise, we can simply replace $n$ by
+$\left\vert n\right\vert $). Then, the canonical factorization of $n$ is
+$n=\prod_{p\text{ prime}}p^{v_{p}\left(  n\right)  }$. Let $\left(
+p_{1},p_{2},\ldots,p_{u}\right)  $ be a list of all primes $p$ satisfying
+$v_{p}\left(  n\right)  >0$ (that is, all primes $p$ that divide $n$) with no
+repetitions. Then, $p_{1},p_{2},\ldots,p_{u}$ are distinct primes, and we have%
+\begin{equation}
+v_{p}\left(  n\right)  =0\ \ \ \ \ \ \ \ \ \ \text{for all primes }%
 p\notin\left\{  p_{1},p_{2},\ldots,p_{u}\right\}
-\]
-(since $p$ appears exactly $0$ times in this prime factorization). Now,%
+.\label{pf.prop.ent.count-divs.vpn=0}%
+\end{equation}
+Also, set%
+\begin{equation}
+a_{i}=v_{p_{i}}\left(  n\right)  \ \ \ \ \ \ \ \ \ \ \text{for each }%
+i\in\left\{  1,2,\ldots,u\right\}  .\label{pf.prop.ent.count-divs.ai=}%
+\end{equation}
+Note that $a_{i}\in\mathbb{N}$ for each $i\in\left\{  1,2,\ldots,u\right\}  $.
+Now,%
+\begin{align*}
+n  & =\prod_{p\text{ prime}}p^{v_{p}\left(  n\right)  }=\left(  \prod
+_{\substack{p\text{ prime;}\\p\in\left\{  p_{1},p_{2},\ldots,p_{u}\right\}
+}}p^{v_{p}\left(  n\right)  }\right)  \left(  \prod_{\substack{p\text{
+prime;}\\p\notin\left\{  p_{1},p_{2},\ldots,p_{u}\right\}  }%
+}\underbrace{p^{v_{p}\left(  n\right)  }}_{\substack{=p^{0}\\\text{(by
+(\ref{pf.prop.ent.count-divs.vpn=0}))}}}\right)  \\
+& =\left(  \prod_{\substack{p\text{ prime;}\\p\in\left\{  p_{1},p_{2}%
+,\ldots,p_{u}\right\}  }}p^{v_{p}\left(  n\right)  }\right)  \left(
+\prod_{\substack{p\text{ prime;}\\p\notin\left\{  p_{1},p_{2},\ldots
+,p_{u}\right\}  }}\underbrace{p^{0}}_{=1}\right)  =\prod_{\substack{p\text{
+prime;}\\p\in\left\{  p_{1},p_{2},\ldots,p_{u}\right\}  }}p^{v_{p}\left(
+n\right)  }\\
+& =\prod_{i=1}^{u}\underbrace{p_{i}^{v_{p_{i}}\left(  n\right)  }%
+}_{\substack{=p_{i}^{a_{i}}\\\text{(by (\ref{pf.prop.ent.count-divs.ai=}))}%
+}}=\prod_{i=1}^{u}p_{i}^{a_{i}}=p_{1}^{a_{1}}p_{2}^{a_{2}}\cdots p_{u}^{a_{u}%
+}.
+\end{align*}
+Also,%
 \begin{align*}
 &  \prod_{p\text{ prime}}\left(  v_{p}\left(  n\right)  +1\right)  \\
 &  =\left(  \prod_{\substack{p\text{ prime;}\\p\in\left\{  p_{1},p_{2}%
 ,\ldots,p_{u}\right\}  }}\left(  v_{p}\left(  n\right)  +1\right)  \right)
 \left(  \prod_{\substack{p\text{ prime;}\\p\notin\left\{  p_{1},p_{2}%
-,\ldots,p_{u}\right\}  }}\left(  \underbrace{v_{p}\left(  n\right)  }%
-_{=0}+1\right)  \right)  \\
+,\ldots,p_{u}\right\}  }}\left(  \underbrace{v_{p}\left(  n\right)
+}_{\substack{=0\\\text{(by (\ref{pf.prop.ent.count-divs.vpn=0}))}}}+1\right)
+\right)  \\
 &  =\left(  \prod_{\substack{p\text{ prime;}\\p\in\left\{  p_{1},p_{2}%
 ,\ldots,p_{u}\right\}  }}\left(  v_{p}\left(  n\right)  +1\right)  \right)
 \underbrace{\left(  \prod_{\substack{p\text{ prime;}\\p\notin\left\{
 p_{1},p_{2},\ldots,p_{u}\right\}  }}\left(  0+1\right)  \right)  }_{=1}\\
 &  =\prod_{\substack{p\text{ prime;}\\p\in\left\{  p_{1},p_{2},\ldots
 ,p_{u}\right\}  }}\left(  v_{p}\left(  n\right)  +1\right)  =\prod_{i=1}%
-^{u}\left(  \underbrace{v_{p_{i}}\left(  n\right)  }_{=a_{i}}+1\right)
-=\prod_{i=1}^{u}\left(  a_{i}+1\right)  .
-\end{align*}
-Hence, it remains to prove
-\[
-\left(  \text{the number of positive divisors of }n\right)  =\prod_{i=1}%
+^{u}\left(  \underbrace{v_{p_{i}}\left(  n\right)  }_{\substack{=a_{i}%
+\\\text{(by (\ref{pf.prop.ent.count-divs.ai=}))}}}+1\right)  =\prod_{i=1}%
 ^{u}\left(  a_{i}+1\right)  .
-\]
-
-
-Recall: $n=p_{1}^{a_{1}}p_{2}^{a_{2}}\cdots p_{u}^{a_{u}}$.
-
-I claim that each positive divisor of $n$ has the form $p_{1}^{b_{1}}%
-p_{2}^{b_{2}}\cdots p_{u}^{b_{u}}$ with $b_{i}\in\left\{  0,1,\ldots
-,a_{i}\right\}  $.
-
-To wit: If $d$ is a positive divisor of $n$, then $v_{p}\left(  d\right)  \leq
-v_{p}\left(  n\right)  $, so the canonical factorization of $d$ can only use
-the primes $p_{1},p_{2},\ldots,p_{u}$, and thus has the form $p_{1}^{b_{1}%
-}p_{2}^{b_{2}}\cdots p_{u}^{b_{u}}$ for some $b_{i}\in\mathbb{N}$;
-furthermore, these $b_{i}$ are $\leq a_{i}$ because $v_{p}\left(  d\right)
-\leq v_{p}\left(  n\right)  $.
-
-Conversely, every integer of the form $p_{1}^{b_{1}}p_{2}^{b_{2}}\cdots
-p_{u}^{b_{u}}$ with $b_{i}\in\left\{  0,1,\ldots,a_{i}\right\}  $ is a
-positive divisor of $n$.
-
-Finally, each positive divisor of $n$ can be written in this form
-\textbf{uniquely} (i.e., for only one choice of $\left(  b_{1},b_{2}%
-,\ldots,b_{u}\right)  $). Indeed, if $d$ is a positive divisor of $n$ and we
-write $d$ as $d=p_{1}^{b_{1}}p_{2}^{b_{2}}\cdots p_{u}^{b_{u}}$, then
-$b_{i}=v_{p_{i}}\left(  d\right)  $ for all $i$.
-
-Thus, the map%
-\begin{align*}
-\left\{  0,1,\ldots,a_{1}\right\}  \times\left\{  0,1,\ldots,a_{2}\right\}
-\times\cdots\times\left\{  0,1,\ldots,a_{u}\right\}   &  \rightarrow\left\{
-\text{positive divisors of }n\right\}  ,\\
-\left(  b_{1},b_{2},\ldots,b_{u}\right)   &  \mapsto p_{1}^{b_{1}}p_{2}%
-^{b_{2}}\cdots p_{u}^{b_{u}}%
 \end{align*}
-is a bijection. Hence,%
+
+
+Now, let $T$ be the set
 \begin{align*}
-&  \left\vert \left\{  \text{positive divisors of }n\right\}  \right\vert \\
-&  =\left\vert \left\{  0,1,\ldots,a_{1}\right\}  \times\left\{
-0,1,\ldots,a_{2}\right\}  \times\cdots\times\left\{  0,1,\ldots,a_{u}\right\}
-\right\vert \\
+T &  =\left\{  0,1,\ldots,a_{1}\right\}  \times\left\{  0,1,\ldots
+,a_{2}\right\}  \times\cdots\times\left\{  0,1,\ldots,a_{u}\right\}  \\
+&  =\left\{  \left(  b_{1},b_{2},\ldots,b_{u}\right)  \ \mid\text{ }b_{i}%
+\in\left\{  0,1,\ldots,a_{u}\right\}  \text{ for each }i\right\}  \\
+&  =\left\{  \left(  b_{1},b_{2},\ldots,b_{u}\right)  \in\mathbb{N}^{u}%
+\ \mid\ b_{i}\leq a_{i}\text{ for each }i\right\}  .
+\end{align*}
+Then,
+\begin{align*}
+\left\vert T\right\vert  &  =\left\vert \left\{  0,1,\ldots,a_{1}\right\}
+\times\left\{  0,1,\ldots,a_{2}\right\}  \times\cdots\times\left\{
+0,1,\ldots,a_{u}\right\}  \right\vert \\
 &  =\left\vert \left\{  0,1,\ldots,a_{1}\right\}  \right\vert \cdot\left\vert
 \left\{  0,1,\ldots,a_{2}\right\}  \right\vert \cdot\cdots\cdot\left\vert
 \left\{  0,1,\ldots,a_{u}\right\}  \right\vert \\
 &  =\left(  a_{1}+1\right)  \cdot\left(  a_{2}+1\right)  \cdot\cdots
-\cdot\left(  a_{u}+1\right)  =\prod_{i=1}^{u}\left(  a_{i}+1\right)  .
+\cdot\left(  a_{u}+1\right)  =\prod_{i=1}^{u}\left(  a_{i}+1\right)  \\
+&  =\prod_{p\text{ primes}}\left(  v_{p}\left(  n\right)  +1\right)  .
 \end{align*}
-This proves the Proposition.
+
+
+Now, I claim that the map%
+\begin{align*}
+\Lambda:T &  \rightarrow\left\{  \text{positive divisors of }n\right\}  ,\\
+\left(  b_{1},b_{2},\ldots,b_{u}\right)   &  \mapsto p_{1}^{b_{1}}p_{2}%
+^{b_{2}}\cdots p_{u}^{b_{u}}%
+\end{align*}
+is well-defined and a bijection.
+
+[\textit{Proof:} \textit{Well-definedness:} Let $\left(  b_{1},b_{2}%
+,\ldots,b_{u}\right)  \in T$. Thus, $b_{i}\leq a_{i}$ for all $i$. Therefore,
+$p_{i}^{b_{i}}\mid p_{i}^{a_{i}}$ for all $i$. Hence, $p_{1}^{b_{1}}%
+p_{2}^{b_{2}}\cdots p_{u}^{b_{u}}\mid p_{1}^{a_{1}}p_{2}^{a_{2}}\cdots
+p_{u}^{a_{u}}=n$. Thus, $p_{1}^{b_{1}}p_{2}^{b_{2}}\cdots p_{u}^{b_{u}}$ is a
+positive divisor of $n$. So the map $\Lambda$ is well-defined.
+
+\textit{Injectivity:} To recover a tuple $\left(  b_{1},b_{2},\ldots
+,b_{u}\right)  \in T$ from its image $\Lambda\left(  \left(  b_{1}%
+,b_{2},\ldots,b_{u}\right)  \right)  =p_{1}^{b_{1}}p_{2}^{b_{2}}\cdots
+p_{u}^{b_{u}}$, we observe that $b_{i}=v_{p_{i}}\left(  p_{1}^{b_{1}}%
+p_{2}^{b_{2}}\cdots p_{u}^{b_{u}}\right)  $ for each $i$.
+
+\textit{Surjectivity:} Let $d$ be a positive divisor of $n$. We must prove
+that there exists a tuple $\left(  b_{1},b_{2},\ldots,b_{u}\right)  \in T$
+such that $p_{1}^{b_{1}}p_{2}^{b_{2}}\cdots p_{u}^{b_{u}}=d$.
+
+Since $d$ is positive, $d$ has a canonical factorization $d=\prod_{p\text{
+prime}}p^{v_{p}\left(  d\right)  }$. We can throw away all the factors
+corresponding to primes $p\notin\left\{  p_{1},p_{2},\ldots,p_{u}\right\}  $,
+since these primes satisfy
+\begin{align*}
+v_{p}\left(  d\right)   &  \leq v_{p}\left(  n\right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{since }d\mid n\right)  \\
+&  =0\ \ \ \ \ \ \ \ \ \ \left(  \text{since }p\notin\left\{  p_{1}%
+,p_{2},\ldots,p_{u}\right\}  \right)
+\end{align*}
+and therefore $v_{p}\left(  d\right)  =0$. So we get
+\[
+d=p_{1}^{v_{p_{1}}\left(  d\right)  }p_{2}^{v_{p_{2}}\left(  d\right)  }\cdots
+p_{u}^{v_{p_{u}}\left(  d\right)  }.
+\]
+Moreover, each $i$ satisfies $v_{p_{i}}\left(  d\right)  \leq v_{p_{i}}\left(
+n\right)  =a_{i}$. Hence, $\left(  v_{p_{1}}\left(  d\right)  ,v_{p_{2}%
+}\left(  d\right)  ,\ldots,v_{p_{u}}\left(  d\right)  \right)  \in T$. The
+image of this tuple under our map is $p_{1}^{v_{p_{1}}\left(  d\right)  }%
+p_{2}^{v_{p_{2}}\left(  d\right)  }\cdots p_{u}^{v_{p_{u}}\left(  d\right)
+}=d$. So $d$ is an image under our map $\Lambda$. This proves surjectivity.]
+
+Now, our map $\Lambda$ is well-defined, injective and surjective. Hence, it is
+a bijection. Thus,
+\[
+\left\vert T\right\vert =\left\vert \left\{  \text{positive divisors of
+}n\right\}  \right\vert =\left(  \text{the number of positive divisors of
+}n\right)  .
+\]
+Therefore,%
+\begin{align*}
+&  \left(  \text{the number of positive divisors of }n\right)  \\
+&  =\left\vert T\right\vert =\prod_{p\text{ primes}}\left(  v_{p}\left(
+n\right)  +1\right)  .
+\end{align*}
+This proves the first equality of Proposition \ref{prop.ent.count-divs}.
+
+Next, we recall that if $d$ is a divisor of $n$, then $-d$ is a divisor of $n$
+as well. Hence, there is a bijection between the positive divisors of $n$ and
+the negative divisors of $n$. Thus,%
+\begin{align*}
+& \left(  \text{the number of negative divisors of }n\right)  \\
+& =\left(  \text{the number of positive divisors of }n\right)  .
+\end{align*}
+Therefore,%
+\begin{align*}
+& \left(  \text{the number of divisors of }n\right)  \\
+& =\underbrace{\left(  \text{the number of negative divisors of }n\right)
+}_{=\left(  \text{the number of positive divisors of }n\right)  }+\left(
+\text{the number of positive divisors of }n\right)  \\
+& =\left(  \text{the number of positive divisors of }n\right)  +\left(
+\text{the number of positive divisors of }n\right)  \\
+& =2\cdot\left(  \text{the number of positive divisors of }n\right)  .
+\end{align*}
+Hence, the second equality of Proposition \ref{prop.ent.count-divs} follows
+from the first.
 \end{proof}
 
 \begin{remark}
-Proposition \ref{prop.ent.phi.ghosts} can also be derived from this Proposition.
+Proposition \ref{prop.ent.count-divs} can be used to re-prove Proposition
+\ref{prop.ent.phi.ghosts}.
 \end{remark}
+
+Here is an analogue of Proposition \ref{prop.ent.count-divs} for Gaussian integers:
 
 \begin{proposition}
 Let $\alpha\in\mathbb{Z}\left[  i\right]  $ be a nonzero Gaussian integer.
@@ -18707,40 +18772,46 @@ Then,%
 \begin{align*}
 &  \left(  \text{the number of unit-equivalence classes of Gaussian divisors
 of }\alpha\right) \\
-&  =\prod_{\pi\in\operatorname*{GP}}\left(  v_{\pi}\left(  \alpha\right)
+=  &  \prod_{\pi\in\operatorname*{GP}}\left(  v_{\pi}\left(  \alpha\right)
 +1\right)
 \end{align*}
 and%
 \[
-\left(  \text{the number of Gaussian divisors of }\alpha\right)  =4\prod
-_{\pi\in\operatorname*{GP}}\left(  v_{\pi}\left(  \alpha\right)  +1\right)  .
+\left(  \text{the number of Gaussian divisors of }\alpha\right)  =4\cdot
+\prod_{\pi\in\operatorname*{GP}}\left(  v_{\pi}\left(  \alpha\right)
++1\right)  .
 \]
-(Here, the product $\prod_{\pi\in\operatorname*{GP}}\left(  v_{\pi}\left(
+Note that the product $\prod_{\pi\text{ primes}}\left(  v_{\pi}\left(
 \alpha\right)  +1\right)  $ is well-defined, since all but finitely many of
-its factors are $1$.)
+its factors are $1$.
 \end{proposition}
 
 \begin{proof}
-Same as before, but you have to be more careful with unit-equivalence.
+Same proof as for the previous proposition, but you have to be more careful
+with unit-equivalence.
 \end{proof}
 
 \begin{theorem}
 Let $n$ be a positive integer.
 
 \textbf{(a)} If there is at least one prime $p\equiv3\operatorname{mod}4$ such
-that $v_{p}\left(  n\right)  $ is odd, then there are \textbf{no} integers $x$
-and $y$ such that $n=x^{2}+y^{2}$.
+that $v_{p}\left(  n\right)  $ is odd, then there is \textbf{no} pair $\left(
+x,y\right)  \in\mathbb{Z}^{2}$ such that $n=x^{2}+y^{2}$.
 
 \textbf{(b)} Assume that for each prime $p\equiv3\operatorname{mod}4$, the
 number $v_{p}\left(  n\right)  $ is even. Then,%
 \begin{align*}
 &  \left(  \text{the number of pairs }\left(  x,y\right)  \in\mathbb{Z}%
-^{2}\text{ such that }n=x^{2}+y^{2}\right) \\
+^{2}\text{ such that }n=x^{2}+y^{2}\right)  \\
 &  =4\cdot\prod_{\substack{p\text{ prime;}\\p\equiv1\operatorname{mod}%
 4}}\left(  v_{p}\left(  n\right)  +1\right)  .
 \end{align*}
 
 \end{theorem}
+
+\begin{center}
+\textbf{2019-03-15 lecture}
+\end{center}
 
 \begin{example}
 \textbf{(a)} Let $n=35$. Then, there are \textbf{no} integers $x$ and $y$ such

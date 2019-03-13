@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Wednesday, March 13, 2019 09:55:17}
+%TCIDATA{LastRevised=Wednesday, March 13, 2019 12:06:04}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -18329,24 +18329,20 @@ It turns out that the right answer for arbitrary $n$ will come from the
 analogue of prime factorization in $\mathbb{Z}\left[  i\right]  $. We begin
 with the following definition:
 
-\begin{definition}
-Let $\nu$ be a Gaussian integer. A \textbf{Gaussian prime factor} (or
-\textbf{Gaussian prime divisor}) of $\nu$ means a Gaussian prime $\pi$ such
-that $\pi\mid\nu$.
-\end{definition}
-
 \begin{proposition}
 Let $\nu$ be a nonzero Gaussian integer that is not a unit. Then, there exists
 at least one Gaussian prime $\pi$ such that $\pi\mid\nu$.
 \end{proposition}
 
+This is an analogue of Proposition 2.13.8.
+
 \begin{proposition}
 Let $\nu$ be a nonzero Gaussian integer. Then, $\nu$ is unit-equivalent to a
-product of finitely many Gaussian primes.
+certain product of finitely many Gaussian primes.
 \end{proposition}
 
-Note: $-1$ is not a product of finitely many Gaussian primes, but it is
-unit-equivalent to such a product (namely, to the empty product, which is $1$).
+Note that $-1$ is not a product of finitely many Gaussian primes. But it is
+unit-equivalent to the empty product.
 
 \begin{definition}
 Let $\nu$ be a nonzero Gaussian integer. A \textbf{Gaussian prime
@@ -18393,30 +18389,40 @@ any two Gaussian integers $\alpha$ and $\beta$.
 \textbf{(d)} We have $v_{\pi}\left(  \kappa\right)  =%
 \begin{cases}
 1, & \text{if }\kappa\sim\pi;\\
-0, & \text{if }\kappa\not \sim \pi
+0, & \text{otherwise}%
 \end{cases}
 $ for any Gaussian prime $\kappa$.
 \end{theorem}
+
+\begin{exercise}
+Let $\pi$ be a Gaussian prime. Let $\alpha,\beta\in\mathbb{Z}\left[  i\right]
+$ be unit-equivalent. Then, $v_{\pi}\left(  \alpha\right)  =v_{\pi}\left(
+\beta\right)  $.
+\end{exercise}
 
 \begin{proposition}
 Let $\nu$ be a nonzero Gaussian integer. Let $\left(  \alpha_{1},\alpha
 _{2},\ldots,\alpha_{k}\right)  $ be a Gaussian prime factorization of $\nu$.
 Let $\pi$ be a Gaussian prime. Then,%
 \begin{align*}
-&  \left(
+& \left(
 \begin{array}
 [c]{c}%
-\text{the number of times a Gaussian integer unit-equivalent}\\
-\text{to }\pi\text{ appears in the tuple }\left(  \alpha_{1},\alpha_{2}%
-,\ldots,\alpha_{k}\right)
+\text{the number of times a number unit-equivalent to }\pi\\
+\text{appears in the tuple }\left(  \alpha_{1},\alpha_{2},\ldots,\alpha
+_{k}\right)
 \end{array}
-\right) \\
-&  =\left(  \text{the number of }i\in\left\{  1,2,\ldots,k\right\}  \text{
-such that }\left[  \alpha_{i}\right]  _{\sim}=\left[  \pi\right]  _{\sim
-}\right) \\
-&  =\left(  \text{the number of }i\in\left\{  1,2,\ldots,k\right\}  \text{
-such that }\alpha_{i}\sim\pi\right) \\
-&  =\underbrace{v_{\pi}}_{\text{vee-pie}}\left(  \underbrace{\nu}_{\text{nu}%
+\right)  \\
+& =\left(  \text{the number of times }\left[  \pi\right]  _{\sim}\text{
+appears in the tuple }\left(  \left[  \alpha_{1}\right]  _{\sim},\left[
+\alpha_{2}\right]  _{\sim},\ldots,\left[  \alpha_{k}\right]  _{\sim}\right)
+\right)  \\
+& =\left(  \text{the number of }i\in\left\{  1,2,\ldots,k\right\}  \text{ such
+that }\alpha_{i}\sim\pi\right)  \\
+& =\left(  \text{the number of }i\in\left\{  1,2,\ldots,k\right\}  \text{ such
+that }\left[  \alpha_{i}\right]  _{\sim}=\left[  \pi\right]  _{\sim}\right)
+\\
+& =\underbrace{v_{\pi}}_{\text{vee-pie}}\left(  \underbrace{\nu}_{\text{nu}%
 }\right)  .
 \end{align*}
 
@@ -18438,26 +18444,25 @@ _{2}\right]  _{\sim},\ldots,\left[  \beta_{\ell}\right]  _{\sim}\right)  $.
 \end{theorem}
 
 \begin{example}
-We have
+We have%
 \[
 5=\left(  1+2i\right)  \left(  1-2i\right)  =\left(  2+i\right)  \left(
 2-i\right)  .
 \]
 Thus, both $\left(  1+2i,1-2i\right)  $ and $\left(  2+i,2-i\right)  $ are
-Gaussian prime factorizations of $5$. Note that $1+2i\sim2-i$ and
-$1-2i\sim2+i$.
+Gaussian prime factorizations of $5$. You can get the second from the first as
+follows:%
+\begin{align*}
+2+i  & =\left(  1-2i\right)  i;\\
+2-i  & =\left(  1+2i\right)  \left(  -i\right)  .
+\end{align*}
+
 \end{example}
 
-\begin{exercise}
-Let $\pi$ be a Gaussian prime. Let $\alpha,\beta\in\mathbb{Z}\left[  i\right]
-$ be such that $\alpha\sim\beta$. Then, $v_{\pi}\left(  \alpha\right)
-=v_{\pi}\left(  \beta\right)  $.
-\end{exercise}
-
 \begin{definition}
-For the rest of this section, let $\operatorname*{GP}$ be the set of all
-Gaussian primes of the form $x+yi$ with $x\in\left\{  1,2,3,\ldots\right\}  $
-and $y\in\left\{  0,1,2,\ldots\right\}  $.
+Let $\operatorname*{GP}$ be the set of all Gaussian primes of the form $x+yi$
+with $x\in\left\{  1,2,3,\ldots\right\}  $ and $y\in\left\{  0,1,2,\ldots
+\right\}  $.
 \end{definition}
 
 \begin{lemma}
@@ -18465,8 +18470,8 @@ Let $\pi$ be a Gaussian prime. Then, there exists \textbf{exactly one}
 $\sigma\in\operatorname*{GP}$ such that $\pi\sim\sigma$.
 \end{lemma}
 
-So the set $\operatorname*{GP}$ contains exactly one element of each
-unit-equivalence class of Gaussian primes.
+Thus, the set $\operatorname*{GP}$ contains exactly one element of each
+unit-equivalence class of Gaussian primes. 
 
 \begin{corollary}
 Let $\alpha$ be a nonzero Gaussian integer. Then,%
@@ -18475,6 +18480,9 @@ Let $\alpha$ be a nonzero Gaussian integer. Then,%
 }.
 \]
 
+
+Here, the infinite product $\prod_{\pi\in\operatorname*{GP}}\pi^{v_{\pi
+}\left(  \alpha\right)  }$ is well-defined.
 \end{corollary}
 
 \begin{proposition}
@@ -18483,142 +18491,172 @@ only if each Gaussian prime $\pi$ satisfies $v_{\pi}\left(  \alpha\right)
 \leq v_{\pi}\left(  \beta\right)  $.
 \end{proposition}
 
-As a warm-up, let's prove a neat little fact about integers:
+As a warm-up, let's count divisors of integers:
 
 \begin{proposition}
 Let $n\in\mathbb{Z}$ be nonzero. Then,%
 \[
 \left(  \text{the number of positive divisors of }n\right)  =\prod_{p\text{
-prime}}\left(  v_{p}\left(  n\right)  +1\right)
+primes}}\left(  v_{p}\left(  n\right)  +1\right)
 \]
 and%
 \[
-\left(  \text{the number of divisors of }n\right)  =2\prod_{p\text{ prime}%
-}\left(  v_{p}\left(  n\right)  +1\right)  .
+\left(  \text{the number of divisors of }n\right)  =2\cdot\prod_{p\text{
+primes}}\left(  v_{p}\left(  n\right)  +1\right)  .
 \]
-(Note that the product $\prod_{p\text{ prime}}\left(  v_{p}\left(  n\right)
+Note that the product $\prod_{p\text{ primes}}\left(  v_{p}\left(  n\right)
 +1\right)  $ is well-defined, since all but finitely many of its factors are
-$1$.)
+$1$.
 \end{proposition}
 
 \begin{proof}
-The two equations we want to prove are equivalent, because%
+The two equalities we want to prove are equivalent, because%
 \begin{align*}
-&  \left(  \text{the number of divisors of }n\right) \\
-&  =2\left(  \text{the number of positive divisors of }n\right)
+& 2\left(  \text{the number of positive divisors of }n\right)  \\
+& =\left(  \text{the number of divisors of }n\right)
 \end{align*}
-(because each positive divisor $d$ of $n$ gives rise to two divisors $d$ and
-$-d$ of $n$). So it remains to prove the first equation.
+(since there is a bijection between the positive divisors of $n$ and the
+negative divisors of $n$). So it remains to prove the first equation.
 
-Write the canonical factorization of $n$ as%
+WLOG $n>0$. Write the canonical factorization of $n$ as
 \[
-n=p_{1}^{a_{1}}p_{2}^{a_{2}}\cdots p_{u}^{a_{u}},
+n=\prod_{p\text{ prime}}p^{v_{p}\left(  n\right)  }=p_{1}^{a_{1}}p_{2}^{a_{2}%
+}\cdots p_{u}^{a_{u}}%
 \]
-where $p_{1},p_{2},\ldots,p_{u}$ are distinct primes and $a_{1},a_{2}%
-,\ldots,a_{u}\in\mathbb{N}$. Then,%
+with distinct primes $p_{1},p_{2},\ldots,p_{u}$ and nonnegative integers
+$a_{1},a_{2},\ldots,a_{u}$. Note that $a_{i}=v_{p_{i}}\left(  n\right)  $ for
+each $i$, and also note that $v_{p}\left(  n\right)  =0$ for every prime
+$p\notin\left\{  p_{1},p_{2},\ldots,p_{u}\right\}  $.
+
+Now, let $T$ be the set
 \begin{align*}
-&  \prod_{p\text{ prime}}\left(  v_{p}\left(  n\right)  +1\right) \\
-&  =\left(  \prod_{\substack{p\text{ prime;}\\p\in\left\{  p_{1},p_{2}%
-,\ldots,p_{u}\right\}  }}\left(  v_{p}\left(  n\right)  +1\right)  \right)
-\left(  \prod_{\substack{p\text{ prime;}\\p\notin\left\{  p_{1},p_{2}%
-,\ldots,p_{u}\right\}  }}\left(  \underbrace{v_{p}\left(  n\right)  }%
-_{=0}+1\right)  \right) \\
-&  =\left(  \prod_{\substack{p\text{ prime;}\\p\in\left\{  p_{1},p_{2}%
-,\ldots,p_{u}\right\}  }}\left(  v_{p}\left(  n\right)  +1\right)  \right)
-\underbrace{\left(  \prod_{\substack{p\text{ prime;}\\p\notin\left\{
-p_{1},p_{2},\ldots,p_{u}\right\}  }}\left(  0+1\right)  \right)  }_{=1}\\
-&  =\prod_{\substack{p\text{ prime;}\\p\in\left\{  p_{1},p_{2},\ldots
-,p_{u}\right\}  }}\left(  v_{p}\left(  n\right)  +1\right)  =\prod_{i=1}%
-^{u}\left(  \underbrace{v_{p_{i}}\left(  n\right)  }_{=a_{i}}+1\right)
-=\prod_{i=1}^{u}\left(  a_{i}+1\right)  .
+T  & =\left\{  0,1,\ldots,a_{1}\right\}  \times\left\{  0,1,\ldots
+,a_{2}\right\}  \times\cdots\times\left\{  0,1,\ldots,a_{u}\right\}  \\
+& =\left\{  \left(  b_{1},b_{2},\ldots,b_{u}\right)  \ \mid\ \text{each }%
+b_{i}\in\left\{  0,1,\ldots,a_{u}\right\}  \right\}  \\
+& =\left\{  \left(  b_{1},b_{2},\ldots,b_{u}\right)  \in\mathbb{N}^{u}%
+\ \mid\ \text{each }b_{i}\leq a_{i}\right\}  .
 \end{align*}
-Hence, it remains to prove
-\[
-\left(  \text{the number of positive divisors of }n\right)  =\prod_{i=1}%
-^{u}\left(  a_{i}+1\right)  .
-\]
-
-
-Recall: $n=p_{1}^{a_{1}}p_{2}^{a_{2}}\cdots p_{u}^{a_{u}}$.
-
-I claim that each positive divisor of $n$ has the form $p_{1}^{b_{1}}%
-p_{2}^{b_{2}}\cdots p_{u}^{b_{u}}$ with $b_{i}\in\left\{  0,1,\ldots
-,a_{i}\right\}  $.
-
-To wit: If $d$ is a positive divisor of $n$, then $v_{p}\left(  d\right)  \leq
-v_{p}\left(  n\right)  $, so the canonical factorization of $d$ can only use
-the primes $p_{1},p_{2},\ldots,p_{u}$, and thus has the form $p_{1}^{b_{1}%
-}p_{2}^{b_{2}}\cdots p_{u}^{b_{u}}$ for some $b_{i}\in\mathbb{N}$;
-furthermore, these $b_{i}$ are $\leq a_{i}$ because $v_{p}\left(  d\right)
-\leq v_{p}\left(  n\right)  $.
-
-Conversely, every integer of the form $p_{1}^{b_{1}}p_{2}^{b_{2}}\cdots
-p_{u}^{b_{u}}$ with $b_{i}\in\left\{  0,1,\ldots,a_{i}\right\}  $ is a
-positive divisor of $n$.
-
-Finally, each positive divisor of $n$ can be written in this form
-\textbf{uniquely} (i.e., for only one choice of $\left(  b_{1},b_{2}%
-,\ldots,b_{u}\right)  $). Indeed, if $d$ is a positive divisor of $n$ and we
-write $d$ as $d=p_{1}^{b_{1}}p_{2}^{b_{2}}\cdots p_{u}^{b_{u}}$, then
-$b_{i}=v_{p_{i}}\left(  d\right)  $ for all $i$.
-
-Thus, the map%
+Note that
 \begin{align*}
-\left\{  0,1,\ldots,a_{1}\right\}  \times\left\{  0,1,\ldots,a_{2}\right\}
-\times\cdots\times\left\{  0,1,\ldots,a_{u}\right\}   &  \rightarrow\left\{
-\text{positive divisors of }n\right\}  ,\\
-\left(  b_{1},b_{2},\ldots,b_{u}\right)   &  \mapsto p_{1}^{b_{1}}p_{2}%
-^{b_{2}}\cdots p_{u}^{b_{u}}%
-\end{align*}
-is a bijection. Hence,%
-\begin{align*}
-&  \left\vert \left\{  \text{positive divisors of }n\right\}  \right\vert \\
-&  =\left\vert \left\{  0,1,\ldots,a_{1}\right\}  \times\left\{
-0,1,\ldots,a_{2}\right\}  \times\cdots\times\left\{  0,1,\ldots,a_{u}\right\}
-\right\vert \\
-&  =\left\vert \left\{  0,1,\ldots,a_{1}\right\}  \right\vert \cdot\left\vert
+\left\vert T\right\vert  & =\left\vert \left\{  0,1,\ldots,a_{1}\right\}
+\times\left\{  0,1,\ldots,a_{2}\right\}  \times\cdots\times\left\{
+0,1,\ldots,a_{u}\right\}  \right\vert \\
+& =\left\vert \left\{  0,1,\ldots,a_{1}\right\}  \right\vert \cdot\left\vert
 \left\{  0,1,\ldots,a_{2}\right\}  \right\vert \cdot\cdots\cdot\left\vert
 \left\{  0,1,\ldots,a_{u}\right\}  \right\vert \\
-&  =\left(  a_{1}+1\right)  \cdot\left(  a_{2}+1\right)  \cdot\cdots
-\cdot\left(  a_{u}+1\right)  =\prod_{i=1}^{u}\left(  a_{i}+1\right)  .
+& =\left(  a_{1}+1\right)  \cdot\left(  a_{2}+1\right)  \cdot\cdots
+\cdot\left(  a_{u}+1\right)  =\prod_{i=1}^{u}\left(  \underbrace{a_{i}%
+}_{=v_{p_{i}}\left(  n\right)  }+1\right)  \\
+& =\prod_{i=1}^{u}\left(  v_{p_{i}}\left(  n\right)  +1\right)  =\prod
+_{p\in\left\{  p_{1},p_{2},\ldots,p_{u}\right\}  }\left(  v_{p}\left(
+n\right)  +1\right)  \\
+& =\prod_{p\text{ primes}}\left(  v_{p}\left(  n\right)  +1\right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{since }v_{p}\left(  n\right)  =0\text{ for
+every }p\notin\left\{  p_{1},p_{2},\ldots,p_{u}\right\}  \right)  .
 \end{align*}
-This proves the Proposition.
+
+
+I claim that the map%
+\begin{align*}
+T  & \rightarrow\left\{  \text{positive divisors of }n\right\}  ,\\
+\left(  b_{1},b_{2},\ldots,b_{u}\right)    & \mapsto p_{1}^{b_{1}}p_{2}%
+^{b_{2}}\cdots p_{u}^{b_{u}}%
+\end{align*}
+is well-defined and a bijection. We shall now prove this.
+
+\textit{Well-definedness:} Let $\left(  b_{1},b_{2},\ldots,b_{u}\right)  \in
+T$. Thus, $b_{i}\leq a_{i}$ for all $i$. Therefore, $p_{i}^{b_{i}}\mid
+p_{i}^{a_{i}}$ for all $i$. Hence, $p_{1}^{b_{1}}p_{2}^{b_{2}}\cdots
+p_{u}^{b_{u}}\mid p_{1}^{a_{1}}p_{2}^{a_{2}}\cdots p_{u}^{a_{u}}=n$. Thus,
+$p_{1}^{b_{1}}p_{2}^{b_{2}}\cdots p_{u}^{b_{u}}$ is a positive divisor of $n$.
+So the map is well-defined.
+
+\textit{Injectivity:} To recover a tuple $\left(  b_{1},b_{2},\ldots
+,b_{u}\right)  \in T$ from its image $p_{1}^{b_{1}}p_{2}^{b_{2}}\cdots
+p_{u}^{b_{u}}$, we observe that $b_{i}=v_{p_{i}}\left(  p_{1}^{b_{1}}%
+p_{2}^{b_{2}}\cdots p_{u}^{b_{u}}\right)  $ for each $i$.
+
+\textit{Surjectivity:} Let $d$ be a positive divisor of $n$. We must prove
+that there exists a tuple $\left(  b_{1},b_{2},\ldots,b_{u}\right)  \in T$
+such that $p_{1}^{b_{1}}p_{2}^{b_{2}}\cdots p_{u}^{b_{u}}=d$.
+
+Since $d$ is positive, $d$ has a canonical factorization $d=\prod_{p\text{
+prime}}p^{v_{p}\left(  d\right)  }$. We can throw away all the factors
+corresponding to primes $p\notin\left\{  p_{1},p_{2},\ldots,p_{u}\right\}  $,
+since these primes satisfy
+\begin{align*}
+v_{p}\left(  d\right)    & \leq v_{p}\left(  n\right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{since }d\mid n\right)  \\
+& =0\ \ \ \ \ \ \ \ \ \ \left(  \text{since }p\notin\left\{  p_{1}%
+,p_{2},\ldots,p_{u}\right\}  \right)
+\end{align*}
+and therefore $v_{p}\left(  d\right)  =0$. So we get
+\[
+d=p_{1}^{v_{p_{1}}\left(  d\right)  }p_{2}^{v_{p_{2}}\left(  d\right)  }\cdots
+p_{u}^{v_{p_{u}}\left(  d\right)  }.
+\]
+Moreover, each $i$ satisfies $v_{p_{i}}\left(  d\right)  \leq v_{p_{i}}\left(
+n\right)  =a_{i}$. Hence, $\left(  v_{p_{1}}\left(  d\right)  ,v_{p_{2}%
+}\left(  d\right)  ,\ldots,v_{p_{u}}\left(  d\right)  \right)  \in T$. The
+image of this tuple under our map is $p_{1}^{v_{p_{1}}\left(  d\right)  }%
+p_{2}^{v_{p_{2}}\left(  d\right)  }\cdots p_{u}^{v_{p_{u}}\left(  d\right)
+}=d$. So $d$ is an image under our map. This proves surjectivity.
+
+Now, our map is well-defined, injective and surjective. Hence, it is a
+bijection. Thus,
+\[
+\left\vert T\right\vert =\left\vert \left\{  \text{positive divisors of
+}n\right\}  \right\vert =\left(  \text{the number of positive divisors of
+}n\right)  .
+\]
+Therefore,%
+\begin{align*}
+& \left(  \text{the number of positive divisors of }n\right)  \\
+& =\left\vert T\right\vert =\prod_{p\text{ primes}}\left(  v_{p}\left(
+n\right)  +1\right)  .
+\end{align*}
+This proves the first equality of the proposition. As we said, the second one
+follows from it.
 \end{proof}
 
 \begin{remark}
-The \textquotedblleft ghosts flipping lights\textquotedblright\ puzzle can
-also be derived from this Proposition.
+This proposition can be used to re-prove Proposition \ref{prop.ent.phi.ghosts}.
 \end{remark}
+
+Here is an analogue of the preceding proposition for Gaussian integers:
 
 \begin{proposition}
 Let $\alpha\in\mathbb{Z}\left[  i\right]  $ be a nonzero Gaussian integer.
 Then,%
 \begin{align*}
-&  \left(  \text{the number of unit-equivalence classes of Gaussian divisors
-of }\alpha\right) \\
-&  =\prod_{\pi\in\operatorname*{GP}}\left(  v_{\pi}\left(  \alpha\right)
+& \left(  \text{the number of unit-equivalence classes of Gaussian divisors of
+}\alpha\right)  \\
+=  & \prod_{\pi\in\operatorname*{GP}}\left(  v_{\pi}\left(  \alpha\right)
 +1\right)
 \end{align*}
 and%
 \[
-\left(  \text{the number of Gaussian divisors of }\alpha\right)  =4\prod
-_{\pi\in\operatorname*{GP}}\left(  v_{\pi}\left(  \alpha\right)  +1\right)  .
+\left(  \text{the number of Gaussian divisors of }\alpha\right)  =4\cdot
+\prod_{\pi\in\operatorname*{GP}}\left(  v_{\pi}\left(  \alpha\right)
++1\right)  .
 \]
-(Here, the product $\prod_{\pi\in\operatorname*{GP}}\left(  v_{\pi}\left(
+Note that the product $\prod_{\pi\text{ primes}}\left(  v_{\pi}\left(
 \alpha\right)  +1\right)  $ is well-defined, since all but finitely many of
-its factors are $1$.)
+its factors are $1$.
 \end{proposition}
 
 \begin{proof}
-Same as before, but you have to be more careful with unit-equivalence.
+Same proof as for the previous proposition, but you have to be more careful
+with unit-equivalence.
 \end{proof}
 
 \begin{theorem}
 Let $n$ be a positive integer.
 
 \textbf{(a)} If there is at least one prime $p\equiv3\operatorname{mod}4$ such
-that $v_{p}\left(  n\right)  $ is odd, then there are \textbf{no} integers $x$
-and $y$ such that $n=x^{2}+y^{2}$.
+that $v_{p}\left(  n\right)  $ is odd, then there is \textbf{no} pair $\left(
+x,y\right)  \in\mathbb{Z}^{2}$ such that $n=x^{2}+y^{2}$.
 
 \textbf{(b)} Assume that for each prime $p\equiv3\operatorname{mod}4$, the
 number $v_{p}\left(  n\right)  $ is even. Then,%
@@ -18631,25 +18669,7 @@ number $v_{p}\left(  n\right)  $ is even. Then,%
 
 \end{theorem}
 
-\begin{example}
-\textbf{(a)} Let $n=35$. Then, there are \textbf{no} integers $x$ and $y$ such
-that $n=x^{2}+y^{2}$. In fact, the prime $7\equiv3\operatorname{mod}4$
-satisfies $v_{7}\left(  n\right)  =1$.
 
-\textbf{(b)} Let $n=45$. Then, for each prime $p\equiv3\operatorname{mod}4$,
-the number $v_{p}\left(  n\right)  $ is even. Indeed, $n=45=\allowbreak
-3^{2}\cdot5$, so $v_{3}\left(  n\right)  =2$ is even and $v_{p}\left(
-n\right)  =0$ for all other primes $p$ of Type 3. Hence, part \textbf{(b)} of
-the Theorem yields%
-\begin{align*}
-& \left(  \text{the number of pairs }\left(  x,y\right)  \in\mathbb{Z}%
-^{2}\text{ such that }n=x^{2}+y^{2}\right)  \\
-& =4\cdot\underbrace{\prod_{\substack{p\text{ prime;}\\p\equiv
-1\operatorname{mod}4}}\left(  v_{p}\left(  n\right)  +1\right)  }%
-_{\substack{=v_{5}\left(  n\right)  +1\\=1+1=2}}=4\cdot2=8.
-\end{align*}
-
-\end{example}
 
 
 \end{document}
