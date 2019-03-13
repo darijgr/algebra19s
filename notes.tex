@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Tuesday, March 12, 2019 22:20:46}
+%TCIDATA{LastRevised=Wednesday, March 13, 2019 01:45:57}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -13156,16 +13156,16 @@ groups acting on sets).
 For example, the necklaces of length $3$ over the set $A=\left\{  1,2\right\}
 $ are%
 \begin{align*}
-\left[  \left(  1,1,1\right)  \right]  _{\underset{\operatorname*{cyc}}{\sim}}
-&  =\left\{  \left(  1,1,1\right)  \right\}  ,\\
-\left[  \left(  1,1,2\right)  \right]  _{\underset{\operatorname*{cyc}}{\sim}}
-&  =\left\{  \left(  1,1,2\right)  ,\left(  1,2,1\right)  ,\left(
+\left[  \left(  1,1,1\right)  \right]  _{\underset{\operatorname*{cyc}}{\sim
+}}  &  =\left\{  \left(  1,1,1\right)  \right\}  ,\\
+\left[  \left(  1,1,2\right)  \right]  _{\underset{\operatorname*{cyc}}{\sim
+}}  &  =\left\{  \left(  1,1,2\right)  ,\left(  1,2,1\right)  ,\left(
 2,1,1\right)  \right\}  ,\\
-\left[  \left(  1,2,2\right)  \right]  _{\underset{\operatorname*{cyc}}{\sim}}
-&  =\left\{  \left(  1,2,2\right)  ,\left(  2,2,1\right)  ,\left(
+\left[  \left(  1,2,2\right)  \right]  _{\underset{\operatorname*{cyc}}{\sim
+}}  &  =\left\{  \left(  1,2,2\right)  ,\left(  2,2,1\right)  ,\left(
 2,1,2\right)  \right\}  ,\\
-\left[  \left(  2,2,2\right)  \right]  _{\underset{\operatorname*{cyc}}{\sim}}
-&  =\left\{  \left(  2,2,2\right)  \right\}  .
+\left[  \left(  2,2,2\right)  \right]  _{\underset{\operatorname*{cyc}}{\sim
+}}  &  =\left\{  \left(  2,2,2\right)  \right\}  .
 \end{align*}
 This may suggest that a necklace $\left[  \left(  a_{1},a_{2},\ldots
 ,a_{k}\right)  \right]  _{\underset{\operatorname*{cyc}}{\sim}}$ is uniquely
@@ -13174,10 +13174,10 @@ determined by how often each element appears in the tuple $\left(  a_{1}%
 if $A=\left\{  1,2,3\right\}  $, then%
 \begin{align*}
 \left[  \left(  1,2,3\right)  \right]  _{\underset{\operatorname*{cyc}}{\sim
-}}  & =\left\{  \left(  1,2,3\right)  ,\left(  2,3,1\right)  ,\left(
+}}  &  =\left\{  \left(  1,2,3\right)  ,\left(  2,3,1\right)  ,\left(
 3,1,2\right)  \right\}  \ \ \ \ \ \ \ \ \ \ \text{and}\\
 \left[  \left(  1,3,2\right)  \right]  _{\underset{\operatorname*{cyc}}{\sim
-}}  & =\left\{  \left(  1,3,2\right)  ,\left(  3,2,1\right)  ,\left(
+}}  &  =\left\{  \left(  1,3,2\right)  ,\left(  3,2,1\right)  ,\left(
 2,1,3\right)  \right\}
 \end{align*}
 are two different necklaces of length $3$ over the set $A=\left\{
@@ -18423,6 +18423,12 @@ $\pi$\textit{-valuation} (or the $\pi$\textit{-adic valuation}) of $\alpha$.
 the case of $\alpha=0$ as follows: Set $v_{\pi}\left(  0\right)  =\infty$.
 \end{definition}
 
+Definition \ref{def.Z[i].prime.vp} does not conflict with Definition
+\ref{def.ent.prime.vp}. Indeed, if a prime $p$ happens to also be a Gaussian
+prime, and if $n$ is an integer, then both definitions yield the same value of
+$v_{p}\left(  n\right)  $ (since $p^{m}\mid a$ means the same thing whether we
+treat $p$ and $a$ as integers or as Gaussian integers).
+
 \begin{theorem}
 \label{thm.Z[i].prime.vp-ring}Let $\pi$ be a Gaussian prime.
 
@@ -18454,11 +18460,11 @@ $\left(  \alpha_{1},\alpha_{2},\ldots,\alpha_{k}\right)  $ be a Gaussian prime
 factorization of $\nu$. Let $\pi$ be a Gaussian prime. Then,%
 \begin{align*}
 &  \left(  \text{the number of times a Gaussian integer unit-equivalent to
-}\pi\right. \\
+}\pi\right.  \\
 &  \ \ \ \ \ \ \ \ \ \ \left.  \text{appears in the tuple }\left(  \alpha
-_{1},\alpha_{2},\ldots,\alpha_{k}\right)  \right) \\
+_{1},\alpha_{2},\ldots,\alpha_{k}\right)  \right)  \\
 &  =\left(  \text{the number of }i\in\left\{  1,2,\ldots,k\right\}  \text{
-such that }\alpha_{i}\sim\pi\right) \\
+such that }\alpha_{i}\sim\pi\right)  \\
 &  =v_{\pi}\left(  \nu\right)  .
 \end{align*}
 
@@ -18502,10 +18508,131 @@ by the unit $-i$. This perfectly agrees with Theorem
 \ref{thm.Z[i].prime.fac-uni}.
 \end{example}
 
+In analogy to Exercise \ref{exe.ent.prime.vp-abs} (and with the same proof),
+we have:
+
+\begin{exercise}
+\label{exe.Z[i].prime.vp-abs}Let $\pi$ be a Gaussian prime. Let $\alpha
+,\beta\in\mathbb{Z}\left[  i\right]  $ be such that $\alpha\sim\beta$. Then,
+$v_{\pi}\left(  \alpha\right)  =v_{\pi}\left(  \beta\right)  $.
+\end{exercise}
+
+\begin{definition}
+For the rest of this section, let $\operatorname*{GP}$ be the set of all
+Gaussian primes of the form $x+yi$ with $x\in\left\{  1,2,3,\ldots\right\}  $
+and $y\in\left\{  0,1,2,\ldots\right\}  $.
+\end{definition}
+
+\#\# Show GP picture. (Bressoud/Wagon p. 320) \#\#
+
+The following is easy to see:
+
+\begin{lemma}
+\label{lem.Z[i].prime.GP-reps}Let $\pi$ be a Gaussian prime. Then, there
+exists \textbf{exactly one} $\sigma\in\operatorname*{GP}$ such that $\pi
+\sim\sigma$.
+\end{lemma}
+
+In other words, each Gaussian prime is unit-equivalent to exactly one
+$\sigma\in\operatorname*{GP}$. Thus, the set $\operatorname*{GP}$ contains
+exactly one element of each unit-equivalence class of Gaussian primes. (Thus,
+$\operatorname*{GP}$ is what is called a \textquotedblleft system of distinct
+representatives\textquotedblright\ for the unit-equivalence classes of all
+Gaussian primes.)
+
+In analogy to Corollary \ref{cor.ent.prime.can-facZ}, we have:
+
+\begin{corollary}
+\label{cor.Z[i].prime.can-facZ}Let $\alpha$ be a nonzero Gaussian integer.
+Then,
+\[
+\alpha\sim\prod_{\pi\in\operatorname*{GP}}\pi^{v_{\pi}\left(  \alpha\right)
+}.
+\]
+
+
+Here, the infinite product $\prod_{p\text{ prime}}p^{v_{p}\left(  n\right)  }$
+is well-defined (according to the Gaussian-integer analogue of Lemma
+\ref{lem.ent.prime.vpn=0} \textbf{(b)}).
+\end{corollary}
+
+In analogy to Proposition \ref{prop.ent.prime.n|m}, we have the following:
+
+\begin{proposition}
+\label{prop.Z[i].prime.n|m}Let $\alpha$ and $\beta$ be Gaussian integers.
+Then, $\alpha\mid\beta$ if and only if each Gaussian prime $\pi$ satisfies
+$v_{\pi}\left(  \alpha\right)  \leq v_{\pi}\left(  \beta\right)  $.
+\end{proposition}
+
 TODO: More...
 
 \begin{itemize}
-\item actually prove the formula \cite[\S 8.3, Corollary 19]{Dummit-Foote}.
+\item If $n\in\mathbb{Z}$ is nonzero, then
+\[
+\left(  \text{the number of positive divisors of }n\right)  =\prod_{p\text{
+prime}}\left(  v_{p}\left(  n\right)  +1\right)
+\]
+and
+\[
+\left(  \text{the number of divisors of }n\right)  =2\prod_{p\text{ prime}%
+}\left(  v_{p}\left(  n\right)  +1\right)  .
+\]
+
+
+\textit{Proof:} Consider the set $\prod_{p\text{ prime}}\left\{
+0,1,\ldots,v_{p}\left(  n\right)  \right\}  $. This is the set of all families
+$\left(  a_{p}\right)  _{p\text{ prime}}$ indexed by all the primes such that
+$a_{p}\in\left\{  0,1,\ldots,v_{p}\left(  n\right)  \right\}  $ for each prime
+$p$. (You can regard these families as sequences $\left(  a_{2},a_{3}%
+,a_{5},a_{7},a_{11},\ldots\right)  $.)
+
+Consider the bijection%
+\begin{align*}
+M:\prod_{p\text{ prime}}\left\{  0,1,\ldots,v_{p}\left(  n\right)  \right\}
+& \rightarrow\left\{  \text{positive divisors of }n\right\}  ,\\
+\left(  a_{p}\right)  _{p\text{ prime}}  & \mapsto\prod_{p\text{ prime}%
+}p^{a_{p}}%
+\end{align*}
+with inverse map%
+\begin{align*}
+\left\{  \text{positive divisors of }n\right\}    & \rightarrow\prod_{p\text{
+prime}}\left\{  0,1,\ldots,v_{p}\left(  n\right)  \right\}  ,\\
+d  & \mapsto\left(  v_{p}\left(  d\right)  \right)  _{p\text{ prime}}.
+\end{align*}
+
+
+\item Similarly, if $\alpha\in\mathbb{Z}\left[  i\right]  $ is nonzero, then
+\begin{align*}
+& \left(  \text{the number of unit-equivalence classes of Gaussian divisors of
+}\alpha\right)  \\
+& =\prod_{\pi\in\operatorname*{GP}}\left(  v_{\pi}\left(  \alpha\right)
++1\right)
+\end{align*}
+and
+\[
+\left(  \text{the number of Gaussian divisors of }\alpha\right)  =4\prod
+_{\pi\in\operatorname*{GP}}\left(  v_{\pi}\left(  \alpha\right)  +1\right)  .
+\]
+
+
+\item Prove the formula \cite[\S 8.3, Corollary 19]{Dummit-Foote} which says:
+If $n$ is a positive integer, then%
+\begin{align*}
+& \left(  \text{the number of pairs }\left(  x,y\right)  \in\mathbb{Z}%
+^{2}\text{ such that }n=x^{2}+y^{2}\right)  \\
+& =\left(  \text{the number of }\delta\in\mathbb{Z}\left[  i\right]  \text{
+such that }n=\delta\overline{\delta}\right)  \\
+& =%
+\begin{cases}
+4\prod_{\substack{p\text{ prime;}\\p\equiv1\operatorname{mod}4}}\left(
+v_{p}\left(  n\right)  +1\right)  , & \text{if all primes }p\equiv
+3\operatorname{mod}4\text{ satisfy }v_{p}\left(  n\right)  \equiv
+0\operatorname{mod}2;\\
+0, & \text{if some prime }p\equiv3\operatorname{mod}4\text{ satisfies }%
+v_{p}\left(  n\right)  \equiv1\operatorname{mod}2.
+\end{cases}
+\end{align*}
+
 
 \item characterize Gaussian primes.
 
