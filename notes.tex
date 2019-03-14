@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Wednesday, March 13, 2019 16:53:03}
+%TCIDATA{LastRevised=Wednesday, March 13, 2019 22:26:05}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -5107,6 +5107,14 @@ shall say that \textquotedblleft$a$ and $b$ \textit{are coprime}%
 $b$ is coprime to $a$).
 \end{definition}
 
+\begin{exercise}
+\label{exe.ent.coprime.01}Let $a\in\mathbb{Z}$. Prove the following:
+
+\textbf{(a)} We have $1\perp a$.
+
+\textbf{(b)} We have $0\perp a$ if and only if $\left\vert a\right\vert =1$.
+\end{exercise}
+
 \subsubsection{Properties of coprime integers}
 
 We can now state multiple theorems about coprime numbers. The first one states
@@ -7675,12 +7683,11 @@ $v_{p}\left(  a+b\right)  \geq m=\min\left\{  v_{p}\left(  a\right)
 ,v_{p}\left(  b\right)  \right\}  $. This proves Theorem
 \ref{thm.ent.prime.vp-ring} \textbf{(b)}.
 
-\textbf{(c)} We have $1\mid p$. Thus, Proposition \ref{prop.ent.gcd.props1}
-\textbf{(i)} (applied to $1$ and $p$ instead of $a$ and $b$) yields
-$\gcd\left(  1,p\right)  =\left\vert 1\right\vert =1$. In other words, $1\perp
-p$. Also, $1=1\cdot p^{0}$. Thus, Lemma \ref{lem.ent.prime.vp-copr}
-\textbf{(b)} (applied to $n=1$, $i=0$ and $w=1$) yields $v_{p}\left(
-1\right)  =0$. This proves Theorem \ref{thm.ent.prime.vp-ring} \textbf{(c)}.
+\textbf{(c)} Exercise \ref{exe.ent.coprime.01} \textbf{(a)} (applied to $a=p$)
+yields $1\perp p$. Also, $1=1\cdot p^{0}$. Thus, Lemma
+\ref{lem.ent.prime.vp-copr} \textbf{(b)} (applied to $n=1$, $i=0$ and $w=1$)
+yields $v_{p}\left(  1\right)  =0$. This proves Theorem
+\ref{thm.ent.prime.vp-ring} \textbf{(c)}.
 
 \textbf{(d)} Let $q$ be a prime. We must prove that $v_{p}\left(  q\right)  =%
 \begin{cases}
@@ -7695,8 +7702,8 @@ We are in one of the following two cases:
 
 \textit{Case 2:} We have $q\neq p$.
 
-Let us first consider Case 1. In this case, we have $q=p$. But $1\perp p$ (as
-we just saw when proving Theorem \ref{thm.ent.prime.vp-ring} \textbf{(c)}).
+Let us first consider Case 1. In this case, we have $q=p$. But Exercise
+\ref{exe.ent.coprime.01} \textbf{(a)} (applied to $a=p$) yields $1\perp p$.
 Also, $p=1\cdot p^{1}$. Thus, Lemma \ref{lem.ent.prime.vp-copr} \textbf{(b)}
 (applied to $n=p$, $i=1$ and $w=1$) yields $v_{p}\left(  p\right)  =1$. From
 $q=p$, we obtain $v_{p}\left(  q\right)  =v_{p}\left(  p\right)  =1$.
@@ -15009,18 +15016,33 @@ and this inverse is $\left(  \alpha\beta\right)  ^{-1}=\alpha^{-1}\beta^{-1}$.
 
 
 The concept of inverses in $\mathbb{Z}/n$ lets us prove Theorem
-\ref{thm.ent.wilson} again -- or, rather, restate our previous proof of
-Theorem \ref{thm.ent.wilson} in more natural terms:
+\ref{thm.ent.wilson} (Wilson's theorem) again -- or, rather, restate our
+previous proof of Theorem \ref{thm.ent.wilson} in more natural terms:
 
 \begin{proof}
-[Second proof of Theorem \ref{thm.ent.wilson}.]If $p=2$, then the claim of
-Theorem \ref{thm.ent.wilson} is easy to check. Thus, we WLOG assume that
-$p\neq2$ for the rest of this proof. Hence, $p>2$ (since $p$ is prime, and
-thus $p>1$). Thus, $p-1\neq1$. Thus, $p-1\not \equiv 1\operatorname{mod}p$. In
-other words, the two residue classes $\left[  1\right]  _{p}$ and $\left[
+[Second proof of Theorem \ref{thm.ent.wilson} (sketched).]Theorem
+\ref{thm.eqrel.Z/n.explicit} (applied to $n=p$) shows that the set
+$\mathbb{Z}/p$ has exactly $p$ elements, namely $\left[  0\right]
+_{p},\left[  1\right]  _{p},\ldots,\left[  p-1\right]  _{p}$. In particular,
+these elements $\left[  0\right]  _{p},\left[  1\right]  _{p},\ldots,\left[
 p-1\right]  _{p}$ are distinct.
 
-Recall%
+If $p=2$, then the claim of Theorem \ref{thm.ent.wilson} is easy to check (as
+we have done in our First proof above). Thus, we WLOG assume that $p\neq2$ for
+the rest of this proof. Thus, $p-1\neq1$; in other words, the numbers $1$ and
+$p-1$ are distinct. But $p$ is a prime; thus, $p>1$, so that the elements $1$
+and $p-1$ belong to the set $\left\{  0,1,\ldots,p-1\right\}  $. Thus, the two
+residue classes $\left[  1\right]  _{p}$ and $\left[  p-1\right]  _{p}$ are
+distinct\footnote{\textit{Proof.} Recall that the elements $\left[  0\right]
+_{p},\left[  1\right]  _{p},\ldots,\left[  p-1\right]  _{p}$ are distinct. In
+other words, if $i$ and $j$ are two distinct elements of $\left\{
+0,1,\ldots,p-1\right\}  $, then $\left[  i\right]  _{p}\neq\left[  j\right]
+_{p}$. We can apply this to $i=1$ and $j=p-1$, since $1$ and $p-1$ are
+distinct. Thus, we obtain $\left[  1\right]  _{p}\neq\left[  p-1\right]  _{p}%
+$. In other words, the two residue classes $\left[  1\right]  _{p}$ and
+$\left[  p-1\right]  _{p}$ are distinct.}.
+
+Recall that%
 \[
 \left(  p-1\right)  !=1\cdot2\cdot\cdots\cdot\left(  p-1\right)  .
 \]
@@ -15028,115 +15050,177 @@ Thus,%
 \[
 \left[  \left(  p-1\right)  !\right]  _{p}=\left[  1\cdot2\cdot\cdots
 \cdot\left(  p-1\right)  \right]  _{p}=\left[  1\right]  _{p}\cdot\left[
-2\right]  _{p}\cdot\cdots\cdot\left[  p-1\right]  _{p}.
+2\right]  _{p}\cdot\cdots\cdot\left[  p-1\right]  _{p}%
 \]
+(by Proposition \ref{prop.eqrel.Z/n.sums.wd} \textbf{(c)}).
 
-
-The $p-1$ residue classes $\left[  1\right]  _{p},\left[  2\right]
-_{p},\ldots,\left[  p-1\right]  _{p}$ are precisely the $p-1$ residue classes
-in $\mathbb{Z}/p$ that have inverses (since $1,2,\ldots,p-1$ are coprime to
-$p$, while the remaining class $\left[  0\right]  _{p}$ does not have $0$
-coprime to $p$). Their inverses must also be among these $p-1$ residue classes
-(since an inverse always has an inverse: $\left(  \alpha^{-1}\right)
-^{-1}=\alpha$). So there is an involution on the set $\left\{  \left[
-1\right]  _{p},\left[  2\right]  _{p},\ldots,\left[  p-1\right]  _{p}\right\}
-$ that sends each class to its inverse (again since $\left(  \alpha
-^{-1}\right)  ^{-1}=\alpha$). We can use it to try to pair up each class with
-its inverse.
-
-\textit{Example:} If $p=11$, then we have the $10$ classes%
-\[
-\left[  1\right]  _{11},\left[  2\right]  _{11},\left[  3\right]
-_{11},\left[  4\right]  _{11},\left[  5\right]  _{11},\left[  6\right]
-_{11},\left[  7\right]  _{11},\left[  8\right]  _{11},\left[  9\right]
-_{11},\left[  10\right]  _{11}.
-\]
-
-
-We pair $\left[  2\right]  _{11}$ up with $\left[  6\right]  _{11}$, since
-$2\cdot6=12\equiv1\operatorname{mod}11$.
-
-We pair $\left[  3\right]  _{11}$ up with $\left[  4\right]  _{11}$.
-
-We pair $\left[  5\right]  _{11}$ up with $\left[  9\right]  _{11}$.
-
-We pair $\left[  7\right]  _{11}$ up with $\left[  8\right]  _{11}$.
-
-Also, the two classes $\left[  1\right]  _{11}$ and $\left[  10\right]  _{11}$
-each \textquotedblleft pair with itself\textquotedblright, so they are not
-actually paired.
-
-The two classes $\left[  1\right]  _{11}$ and $\left[  10\right]  _{11}$ each
-\textquotedblleft pair with itself\textquotedblright, so they are not actually paired.
-
-So%
+Let $U_{p}$ be the set of all residue classes $\alpha\in\mathbb{Z}/p$ that
+have an inverse. Then, $\left[  0\right]  _{p}\notin U_{p}$%
+\ \ \ \ \footnote{\textit{Proof.} We have $p>1$; thus, we don't have
+$\left\vert p\right\vert =1$. But Exercise \ref{exe.ent.coprime.01}
+\textbf{(b)} (applied to $a=p$) shows that we have $0\perp p$ if and only if
+$\left\vert p\right\vert =1$. Thus, we don't have $0\perp p$ (since we don't
+have $\left\vert p\right\vert =1$).
+\par
+Corollary \ref{cor.equiv.modinv.Unphi} \textbf{(a)} (applied to $n=p$ and
+$a=0$) shows that we have the logical equivalence $\left(  \left[  0\right]
+_{p}\in U_{p}\right)  \Longleftrightarrow\left(  0\perp p\right)  $. Since we
+don't have $0\perp p$, we thus conclude that we don't have $\left[  0\right]
+_{p}\in U_{p}$. In other words, we have $\left[  0\right]  _{p}\notin U_{p}$%
+.}. On the other hand, the $p-1$ residue classes $\left[  1\right]
+_{p},\left[  2\right]  _{p},\ldots,\left[  p-1\right]  _{p}$ all belong to
+$U_{p}$\ \ \ \ \footnote{\textit{Proof.} We must show that $\left[  i\right]
+_{p}\in U_{p}$ for each $i\in\left\{  1,2,\ldots,p-1\right\}  $.
+\par
+So let $i\in\left\{  1,2,\ldots,p-1\right\}  $. Then, Proposition
+\ref{prop.ent.prime.each-i-coprime} shows that $i$ is coprime to $p$. In other
+words, $i\perp p$.
+\par
+But Corollary \ref{cor.equiv.modinv.Unphi} \textbf{(a)} (applied to $n=p$ and
+$a=i$) yields the equivalence $\left(  \left[  i\right]  _{p}\in U_{p}\right)
+\Longleftrightarrow\left(  i\perp p\right)  $. Hence, we have $\left[
+i\right]  _{p}\in U_{p}$ (since $i\perp p$). Qed.}. Combining these two
+sentences, we conclude that the $p-1$ residue classes $\left[  1\right]
+_{p},\left[  2\right]  _{p},\ldots,\left[  p-1\right]  _{p}$ are precisely the
+elements of $U_{p}$ (since the set $\mathbb{Z}/p$ has exactly $p$ elements,
+namely $\left[  0\right]  _{p},\left[  1\right]  _{p},\ldots,\left[
+p-1\right]  _{p}$). Thus, these $p-1$ residue classes have inverses (because
+belonging to $U_{p}$ means having an inverse), and their inverses in turn have
+inverses (by Exercise \ref{exe.equiv.modinv.ab} \textbf{(a)}) and thus belong
+to $U_{p}$ (because belonging to $U_{p}$ means having an inverse). Thus, the
+map%
 \begin{align*}
-\left[  10!\right]  _{11}  &  =\left[  1\right]  _{11}\cdot\left[  2\right]
-_{11}\cdot\cdots\cdot\left[  10\right]  _{11}\\
-&  =\underbrace{\left(  \left[  2\right]  _{11}\cdot\left[  6\right]
-_{11}\right)  }_{=\left[  1\right]  _{11}}\cdot\underbrace{\left(  \left[
-3\right]  _{11}\cdot\left[  4\right]  _{11}\right)  }_{=\left[  1\right]
-_{11}}\cdot\underbrace{\left(  \left[  5\right]  _{11}\cdot\left[  9\right]
-_{11}\right)  }_{=\left[  1\right]  _{11}}\cdot\underbrace{\left(  \left[
-7\right]  _{11}\cdot\left[  8\right]  _{11}\right)  }_{=\left[  1\right]
-_{11}}\cdot\left[  1\right]  _{11}\cdot\left[  10\right]  _{11}\\
-&  =\left[  10\right]  _{11}=\left[  -1\right]  _{11},
+J:U_{p}  & \rightarrow U_{p},\\
+\alpha & \mapsto\alpha^{-1}%
 \end{align*}
-so $10!\equiv-1\operatorname{mod}11$.
+(sending each of the $p-1$ residue classes $\left[  1\right]  _{p},\left[
+2\right]  _{p},\ldots,\left[  p-1\right]  _{p}$ to its inverse) is
+well-defined. Moreover, each $\alpha\in U_{p}$ satisfies $\left(  \alpha
+^{-1}\right)  ^{-1}=\alpha$; in other words, each $\alpha\in U_{p}$ satisfies
+$J\left(  J\left(  \alpha\right)  \right)  =\alpha$. In other words, $J\circ
+J=\operatorname*{id}$. Hence, the map $J$ is inverse to itself. In particular,
+this shows that $J$ is invertible, i.e., bijective.
 
-Back to the general case: We can still pair each class $\alpha\in U_{p}$ (the
-notation $U_{p}$ is from the corollary above) with its inverse. The only
-classes that remain unpaired are the ones that are their own inverses. Which
-ones are they?
+\begin{fineprint}
+(Note that this map $J$ is similar to the map $J$ constructed back in our
+first proof of Theorem \ref{thm.ent.wilson} above, but unlike the latter, it
+acts on residue classes, not on actual numbers.)
+\end{fineprint}
 
-Clearly, $\left[  1\right]  _{p}$ and $\left[  p-1\right]  _{p}$ are two
-classes that are their own inverses (indeed, for $\left[  p-1\right]  _{p}$,
-it is true because $\left[  p-1\right]  _{p}=\left[  -1\right]  _{p}=-\left[
-1\right]  _{p}$).
-
-Conversely, we claim that every class $\alpha\in U_{p}$ that is its own
-inverse must be either $\left[  1\right]  _{p}$ or $\left[  p-1\right]  _{p}$.
-
-[\textit{Proof:} Let $\alpha\in U_{p}$ be a class that is its own inverse. We
-must prove that $\alpha$ is either $\left[  1\right]  _{p}$ or $\left[
-p-1\right]  _{p}$.
-
-Write $\alpha$ in the form $\alpha=\left[  a\right]  _{p}$ for some integer
-$a$. We have $\alpha\cdot\alpha=\left[  1\right]  _{p}$ (since $\alpha$ is its
-own inverse). In view of $\underbrace{\alpha}_{=\left[  a\right]  _{p}}%
-\cdot\underbrace{\alpha}_{=\left[  a\right]  _{p}}=\left[  a\right]  _{p}%
-\cdot\left[  a\right]  _{p}=\left[  aa\right]  _{p}=\left[  a^{2}\right]
-_{p}$, this rewrites as $\left[  a^{2}\right]  _{p}=\left[  1\right]  _{p}$.
-In other words, $a^{2}\equiv1\operatorname{mod}p$. Hence, Exercise
-\ref{exe.ent.prime.aa-1} shows that $a\equiv1\operatorname{mod}p$ or
-$a\equiv-1\operatorname{mod}p$. In other words, $\left[  a\right]
-_{p}=\left[  1\right]  _{p}$ or $\left[  a\right]  _{p}=\left[  -1\right]
-_{p}$. In other words, $\left[  a\right]  _{p}=\left[  1\right]  _{p}$ or
-$\left[  a\right]  _{p}=\left[  p-1\right]  _{p}$ (since $\left[  -1\right]
-_{p}=\left[  p-1\right]  _{p}$). In other words, $\left[  a\right]  _{p}$ is
-either $\left[  1\right]  _{p}$ or $\left[  p-1\right]  _{p}$. In other words,
-$\alpha$ is either $\left[  1\right]  _{p}$ or $\left[  p-1\right]  _{p}$
-(since $\alpha=\left[  a\right]  _{p}$). Qed.]
-
-So we have shown that any class that is its own inverse must be either
-$\left[  1\right]  _{p}$ or $\left[  p-1\right]  _{p}$.
-
-So we conclude that the only classes that are their own inverses are $\left[
-1\right]  _{p}$ and $\left[  p-1\right]  _{p}$.
-
-Thus, in the product $\left[  1\right]  _{p}\cdot\left[  2\right]  _{p}%
-\cdot\cdots\cdot\left[  p-1\right]  _{p}$, all factors are paired up except
-for $\left[  1\right]  _{p}$ and $\left[  p-1\right]  _{p}$. Since paired
-factors neutralize each other, we thus conclude that the value of this product
-is%
-\[
-\left[  1\right]  _{p}\cdot\left[  p-1\right]  _{p}=\left[  p-1\right]
-_{p}=\left[  -1\right]  _{p}.
+Now, we shall complete the proof using the same \textquotedblleft
+pairing\textquotedblright\ that we used in our first proof of Theorem
+\ref{thm.ent.wilson}, except that we will now be pairing up residue classes
+rather than numbers. Namely, we will use the map $J$ to establish a pairing
+between the factors of the product $\left[  1\right]  _{p}\cdot\left[
+2\right]  _{p}\cdot\cdots\cdot\left[  p-1\right]  _{p}$ (pairing up each
+factor $\alpha$ with the factor $J\left(  \alpha\right)  =\alpha^{-1}$), which
+will pair up almost all of them -- more precisely, all of them except for the
+very first and very last factors (since these two factors would have to pair
+up with themselves)\footnote{The reason \textbf{why} it is precisely these two
+factors that will not be paired up is the following:
+\par
+Clearly, the factors $\left[  a\right]  _{p}$ that cannot be paired up are
+exactly the factors $\left[  a\right]  _{p}$ that satisfy $J\left(  \left[
+a\right]  _{p}\right)  =\left[  a\right]  _{p}$ -- i.e., the ones that are
+their own inverses. So we must prove that a residue class $\left[  a\right]
+_{p}$ with $a\in\left\{  1,2,\ldots,p-1\right\}  $ is its own inverse if and
+only if $a$ is either $1$ or $p-1$. But this follows from the following chain
+of equivalences:%
+\begin{align*}
+& \ \left(  \text{the residue class }\left[  a\right]  _{p}\text{ is its own
+inverse}\right)  \\
+& \Longleftrightarrow\ \left(  \left[  a\right]  _{p}\cdot\left[  a\right]
+_{p}=\left[  1\right]  _{p}\right)  \ \Longleftrightarrow\ \left(  \left[
+a^{2}\right]  _{p}=\left[  1\right]  _{p}\right)  \ \ \ \ \ \ \ \ \ \ \left(
+\text{since }\left[  a\right]  _{p}\cdot\left[  a\right]  _{p}=\left[  a\cdot
+a\right]  _{p}=\left[  a^{2}\right]  _{p}\right)  \\
+& \Longleftrightarrow\ \left(  a^{2}\equiv1\operatorname{mod}p\right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition \ref{prop.eqrel.Z/n.ab}
+\textbf{(b)}}\right)  \\
+& \Longleftrightarrow\ \left(  a\equiv1\operatorname{mod}p\text{ or }%
+a\equiv-1\operatorname{mod}p\right)  \\
+& \ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{indeed, Exercise \ref{exe.ent.prime.aa-1} yields the}\\
+\text{implication }\left(  a^{2}\equiv1\operatorname{mod}p\right)
+\ \Longrightarrow\ \left(  a\equiv1\operatorname{mod}p\text{ or }%
+a\equiv-1\operatorname{mod}p\right)  \text{;}\\
+\text{but the converse implication is easy to check}%
+\end{array}
+\right)  \\
+& \Longleftrightarrow\ \left(  \left[  a\right]  _{p}=\left[  1\right]
+_{p}\text{ or }\left[  a\right]  _{p}=\left[  -1\right]  _{p}\right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition \ref{prop.eqrel.Z/n.ab}
+\textbf{(b)}}\right)  \\
+& \Longleftrightarrow\ \left(  \left[  a\right]  _{p}=\left[  1\right]
+_{p}\text{ or }\left[  a\right]  _{p}=\left[  p-1\right]  _{p}\right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{since }\left[  -1\right]  _{p}=\left[
+p-1\right]  _{p}\text{ (because }-1\equiv p-1\operatorname{mod}p\text{)}%
+\right)  \\
+& \Longleftrightarrow\ \left(  a=1\text{ or }a=p-1\right)
+\end{align*}
+(since the elements $\left[  0\right]  _{p},\left[  1\right]  _{p}%
+,\ldots,\left[  p-1\right]  _{p}$ are distinct).}. For example, if $p=11$,
+then we have the following table of values of $J$:%
+\[%
+\begin{tabular}
+[c]{|c||c|c|c|c|c|c|c|c|c|c||}\hline
+$a$ & $\left[  1\right]  _{11}$ & $\left[  2\right]  _{11}$ & $\left[
+3\right]  _{11}$ & $\left[  4\right]  _{11}$ & $\left[  5\right]  _{11}$ &
+$\left[  6\right]  _{11}$ & $\left[  7\right]  _{11}$ & $\left[  8\right]
+_{11}$ & $\left[  9\right]  _{11}$ & $\left[  10\right]  _{11}$\\\hline
+$J\left(  a\right)  $ & $\left[  1\right]  _{11}$ & $\left[  6\right]  _{11}$
+& $\left[  4\right]  _{11}$ & $\left[  3\right]  _{11}$ & $\left[  9\right]
+_{11}$ & $\left[  2\right]  _{11}$ & $\left[  8\right]  _{11}$ & $\left[
+7\right]  _{11}$ & $\left[  5\right]  _{11}$ & $\left[  10\right]  _{11}%
+$\\\hline
+\end{tabular}
+\
 \]
-This yields $\left[  \left(  p-1\right)  !\right]  _{p}=\left[  -1\right]
-_{p}$. In other words, $\left(  p-1\right)  !\equiv-1\operatorname{mod}p$.
-
-(Exercise: Tweak this argument to work for $p=2$.)
+(since, for example, $J\left(  \left[  2\right]  _{11}\right)  =\left(
+\left[  2\right]  _{11}\right)  ^{-1}=\left[  6\right]  _{11}$), and thus we
+pair up the factors of the product $\left[  1\right]  _{p}\cdot\left[
+2\right]  _{p}\cdot\cdots\cdot\left[  p-1\right]  _{p}$ as follows:%
+\begin{align*}
+&  \left[  1\right]  _{p}\cdot\left[  2\right]  _{p}\cdot\cdots\cdot\left[
+p-1\right]  _{p}\\
+&  =\left[  1\right]  _{11}\cdot\left[  2\right]  _{11}\cdot\left[  3\right]
+_{11}\cdot\left[  4\right]  _{11}\cdot\left[  5\right]  _{11}\cdot\left[
+6\right]  _{11}\cdot\left[  7\right]  _{11}\cdot\left[  8\right]  _{11}%
+\cdot\left[  9\right]  _{11}\cdot\left[  10\right]  _{11}\\
+&  =\left[  1\right]  _{11}\cdot\left(  \left[  2\right]  _{11}\cdot\left[
+6\right]  _{11}\right)  \cdot\left(  \left[  3\right]  _{11}\cdot\left[
+4\right]  _{11}\right)  \cdot\left(  \left[  5\right]  _{11}\cdot\left[
+9\right]  _{11}\right)  \cdot\left(  \left[  7\right]  _{11}\cdot\left[
+8\right]  _{11}\right)  \cdot\left[  10\right]  _{11}.
+\end{align*}
+By the definition of the map $J$, each pair has the form $\left(
+\alpha,J\left(  \alpha\right)  \right)  =\left(  \alpha,\alpha^{-1}\right)  $
+for some $\alpha\in U_{p}$, and thus the product of any two different factors
+paired up with each other is $\left[  1\right]  _{p}$ (since $\alpha
+\alpha^{-1}=\left[  1\right]  _{p}$). For example, if $p=11$, then we have%
+\begin{align*}
+&  \left[  1\right]  _{p}\cdot\left[  2\right]  _{p}\cdot\cdots\cdot\left[
+p-1\right]  _{p}\\
+&  =\left[  1\right]  _{11}\cdot\underbrace{\left(  \left[  2\right]
+_{11}\cdot\left[  6\right]  _{11}\right)  }_{=\left[  1\right]  _{11}}%
+\cdot\underbrace{\left(  \left[  3\right]  _{11}\cdot\left[  4\right]
+_{11}\right)  }_{=\left[  1\right]  _{11}}\cdot\underbrace{\left(  \left[
+5\right]  _{11}\cdot\left[  9\right]  _{11}\right)  }_{=\left[  1\right]
+_{11}}\cdot\underbrace{\left(  \left[  7\right]  _{11}\cdot\left[  8\right]
+_{11}\right)  }_{=\left[  1\right]  _{11}}\cdot\left[  10\right]  _{11}\\
+&  =\left[  1\right]  _{11}\cdot\left[  10\right]  _{11}.
+\end{align*}
+Thus, any two different factors paired up with each other \textquotedblleft
+neutralize\textquotedblright\ each other when being multiplied. Hence, the
+product of all the $p-1$ factors will reduce to the product of the two factors
+that have not been paired up, which will be $\left[  1\right]  _{p}%
+\cdot\left[  p-1\right]  _{p}=\left[  p-1\right]  _{p}$. Since this product
+was $\left[  \left(  p-1\right)  !\right]  _{p}$, we thus obtain $\left[
+\left(  p-1\right)  !\right]  _{p}=\left[  p-1\right]  _{p}$. In other words,
+$\left(  p-1\right)  !\equiv p-1\equiv-1\operatorname{mod}p$. Hence, Theorem
+\ref{thm.ent.wilson} is proven again.
 \end{proof}
 
 \subsection{The Chinese Remainder Theorem as a bijection between residue
@@ -20386,6 +20470,36 @@ a_{1},a_{2},\ldots,a_{k}\right)  $. This solves Exercise \ref{exe.ent.gcd.sak}.
 \end{proof}
 \end{fineprint}
 
+\subsection{Solution to Exercise \ref{exe.ent.coprime.01}}
+
+\begin{fineprint}
+\begin{proof}
+[Solution to Exercise \ref{exe.ent.coprime.01}.] \textbf{(a)} We have $1\mid
+a$ (since $a=1\cdot a$). Thus, Proposition \ref{prop.ent.gcd.props1}
+\textbf{(i)} (applied to $1$ and $a$ instead of $a$ and $b$) yields
+$\gcd\left(  1,a\right)  =\left\vert 1\right\vert =1$. In other words, $1\perp
+a$ (by the definition of \textquotedblleft coprime\textquotedblright). This
+solves Exercise \ref{exe.ent.coprime.01} \textbf{(a)}.
+
+\textbf{(b)} Proposition \ref{prop.ent.gcd.props1} \textbf{(a)} yields
+$\gcd\left(  a,0\right)  =\gcd\left(  a\right)  =\left\vert a\right\vert $.
+But Proposition \ref{prop.ent.gcd.props1} \textbf{(b)} (applied to $b=0$)
+yields $\gcd\left(  a,0\right)  =\gcd\left(  0,a\right)  $. Hence,
+$\gcd\left(  0,a\right)  =\gcd\left(  a,0\right)  =\left\vert a\right\vert $.
+Now, we have the following chain of logical equivalences:%
+\begin{align*}
+\left(  0\perp a\right)  \   & \Longleftrightarrow\ \left(  \gcd\left(
+0,a\right)  =1\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of
+\textquotedblleft coprime\textquotedblright}\right)  \\
+& \Longleftrightarrow\ \left(  \left\vert a\right\vert =1\right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{since }\gcd\left(  0,a\right)  =\left\vert
+a\right\vert \right)  .
+\end{align*}
+In other words, we have $0\perp a$ if and only if $\left\vert a\right\vert
+=1$. This solves Exercise \ref{exe.ent.coprime.01} \textbf{(b)}.
+\end{proof}
+\end{fineprint}
+
 \subsection{Solution to Exercise \ref{exe.ent.coprime.ab-to-ck}}
 
 \begin{fineprint}
@@ -20400,12 +20514,9 @@ a_{1}a_{2}\cdots a_{i}\perp c\ \ \ \ \ \ \ \ \ \ \text{for each }i\in\left\{
 \textit{Proof of (\ref{sol.ent.coprime.ab-to-ck.goal}):} We shall prove
 (\ref{sol.ent.coprime.ab-to-ck.goal}) by induction on $i$:
 
-\textit{Induction base:} Proposition \ref{prop.ent.gcd.props1} \textbf{(f)}
-(applied to $a=1$ and $b=c$) yields $\gcd\left(  1,c\right)  \mid1$ and thus
-$\gcd\left(  1,c\right)  =1$ (by Exercise \ref{exe.ent.div.g|1}, since
-$\gcd\left(  1,c\right)  $ is a nonnegative integer). In other words, $1$ is
-coprime to $c$. In other words, $1\perp c$. Now, $a_{1}a_{2}\cdots
-a_{0}=\left(  \text{empty product}\right)  =1\perp c$. Hence,
+\textit{Induction base:} Exercise \ref{exe.ent.coprime.01} \textbf{(a)}
+(applied to $a=c$) yields $1\perp c$. Now, $a_{1}a_{2}\cdots a_{0}=\left(
+\text{empty product}\right)  =1\perp c$. Hence,
 (\ref{sol.ent.coprime.ab-to-ck.goal}) holds for $i=0$. This completes the
 induction base.
 
@@ -21515,7 +21626,7 @@ solves Exercise \ref{exe.ent.prime.vp-abs}.
 
 \begin{fineprint}
 \begin{proof}
-[Solution to Exercise \ref{exe.ent.prime.vp-lem}.] This exercise can easily be
+[Solution to Exercise \ref{exe.ent.prime.vp-lem}.]This exercise can easily be
 solved by induction on $k$; but here is a more artful proof:
 
 Let $k\in\mathbb{N}$. We have $p\geq2$ (since $p$ is an integer and satisfies
@@ -21530,12 +21641,12 @@ obtain%
 \]
 Thus,%
 \begin{align*}
-p^{k}-1 &  =\left(  p-1\right)  \underbrace{\left(  p^{k-1}+p^{k-2}%
+p^{k}-1  &  =\left(  p-1\right)  \underbrace{\left(  p^{k-1}+p^{k-2}%
 \cdot1+p^{k-3}\cdot1^{2}+\cdots+p\cdot1^{k-2}+1^{k-1}\right)  }_{=\sum
 _{i=0}^{k-1}p^{i}1^{k-i}}\\
 &  =\underbrace{\left(  p-1\right)  }_{\geq1}\sum_{i=0}^{k-1}p^{i}1^{k-i}%
 \geq1\sum_{i=0}^{k-1}p^{i}1^{k-i}\ \ \ \ \ \ \ \ \ \ \left(  \text{since }%
-\sum_{i=0}^{k-1}p^{i}1^{k-i}\text{ is clearly }\geq0\right)  \\
+\sum_{i=0}^{k-1}p^{i}1^{k-i}\text{ is clearly }\geq0\right) \\
 &  =\sum_{i=0}^{k-1}\underbrace{p^{i}1^{k-i}}_{\substack{=p^{i}\geq
 1^{i}\\\text{(since }p\geq1\text{)}}}=\sum_{i=0}^{k-1}\underbrace{1^{i}}%
 _{=1}=\sum_{i=0}^{k-1}1=k.
