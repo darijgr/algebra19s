@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Wednesday, March 13, 2019 22:28:35}
+%TCIDATA{LastRevised=Wednesday, March 13, 2019 22:55:46}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -9941,6 +9941,17 @@ and 2. Hence, Theorem \ref{thm.ent.fermat} \textbf{(b)} always holds.
 \end{fineprint}
 \end{proof}
 
+The next exercise shows an amusing (and useful) corollary of Fermat's Little
+Theorem: a situation in which congruent exponents lead to congruent powers
+(albeit under rather specific conditions, and with the congruent powers being
+congruent modulo a different number than the exponents):
+
+\begin{exercise}
+\label{exe.ent.fermat.uv}Let $p$ be a prime. Let $a\in\mathbb{Z}$ be such that
+$p\nmid a$. Let $u,v\in\mathbb{N}$ satisfy $u\equiv v\operatorname{mod}p-1$.
+Then, $a^{u}\equiv a^{v}\operatorname{mod}p$.
+\end{exercise}
+
 \subsubsection{The Pigeonhole Principles}
 
 In our above proof of Theorem \ref{thm.ent.euler}, we have proven that the map
@@ -15662,7 +15673,8 @@ Thus, $y^{d}=x^{ed}=x$, so Albert recovers the message.
 \begin{proof}
 [Proof of Lemma \ref{lem.ent.rsa.rsa-lem}.]We need to show that $pq\mid
 a^{N}-a$. Since $p\perp q$, it suffices to prove that $p\mid a^{N}-a$ and
-$q\mid a^{N}-a$.
+$q\mid a^{N}-a$ (because then, Theorem \ref{thm.ent.coprime.combine} will
+yield $pq\mid a^{N}-a$).
 
 Let us prove that $p\mid a^{N}-a$ first. Two cases are possible:
 
@@ -15672,25 +15684,14 @@ Let us prove that $p\mid a^{N}-a$ first. Two cases are possible:
 
 In Case 1, it is easy to see that $p\mid a^{N}-a$.
 
-Now, consider Case 2. In this case, we have $p\nmid a$. Hence, Fermat's little
-theorem yields $a^{p-1}\equiv1\operatorname{mod}p$. Thus, $a^{c\left(
-p-1\right)  }=\left(  \underbrace{a^{p-1}}_{\equiv1\operatorname{mod}%
-p}\right)  ^{c}\equiv1^{c}=1\operatorname{mod}p$ for each $c\in\mathbb{N}$.
-
-Now, $N\equiv1\operatorname{mod}\left(  p-1\right)  \left(  q-1\right)  $. In
-other words, $\left(  p-1\right)  \left(  q-1\right)  \mid N-1$. Hence,
-$p-1\mid\left(  p-1\right)  \left(  q-1\right)  \mid N-1$. In other words,
-$N-1=c\left(  p-1\right)  $ for some integer $c$. Consider this $c$. From
-$N-1=c\left(  p-1\right)  $, we conclude that $c$ is nonnegative (since $N-1$
-is nonnegative and $p-1$ is positive). In other words, $c\in\mathbb{N}$. So we
-have $a^{c\left(  p-1\right)  }\equiv1\operatorname{mod}p$. But
-\begin{align*}
-a^{N}  &  =aa^{N-1}=a\underbrace{a^{c\left(  p-1\right)  }}_{\equiv
-1\operatorname{mod}p}\ \ \ \ \ \ \ \ \ \ \left(  \text{since }N-1=c\left(
-p-1\right)  \right) \\
-&  \equiv a1=a\operatorname{mod}p.
-\end{align*}
-In other words, $p\mid a^{N}-a$.
+Now, consider Case 2. In this case, we have $p\nmid a$. But we have
+$p-1\mid\left(  p-1\right)  \left(  q-1\right)  $ and $N\equiv
+1\operatorname{mod}\left(  p-1\right)  \left(  q-1\right)  $; hence,
+Proposition \ref{prop.ent.mod.basics} \textbf{(e)} (applied to $\left(
+p-1\right)  \left(  q-1\right)  $, $p-1$, $N$ and $1$ instead of $n$, $m$, $a$
+and $b$) yields $N\equiv1\operatorname{mod}p-1$. Hence, Exercise
+\ref{exe.ent.fermat.uv} (applied to $u=N$ and $v=1$) yields $a^{N}\equiv
+a^{1}=a\operatorname{mod}p$. In other words, $p\mid a^{N}-a$.
 
 So we have proven $p\mid a^{N}-a$ in both Cases. Similarly, we can prove
 $q\mid a^{N}-a$. Thus, Lemma \ref{lem.ent.rsa.rsa-lem} is proven.
@@ -22480,7 +22481,7 @@ C\right\vert \\
 \text{since each element of }C\text{ is either small or medium or large}\\
 \text{(and there is no overlap between these three classes of elements)}%
 \end{array}
-\right) \\
+\right)  \\
 &  =\left\vert \left\{  \text{large elements of }C\right\}  \right\vert
 +\left\vert \left\{  \text{large elements of }C\right\}  \right\vert \\
 &  =2\cdot\left\vert \left\{  \text{large elements of }C\right\}  \right\vert
@@ -22489,6 +22490,38 @@ C\right\vert \\
 Thus, $2\mid\phi\left(  n\right)  $ (since $\left\vert \left\{  \text{large
 elements of }C\right\}  \right\vert $ is an integer). In other words,
 $\phi\left(  n\right)  $ is even. This solves Exercise \ref{exe.ent.phi.even}.
+\end{proof}
+\end{fineprint}
+
+\subsection{Solution to Exercise \ref{exe.ent.fermat.uv}}
+
+\begin{fineprint}
+\begin{proof}
+[Solution to Exercise \ref{exe.ent.fermat.uv}.] From $u\equiv
+v\operatorname{mod}p-1$, we obtain $v\equiv u\operatorname{mod}p-1$. Likewise,
+the congruence $a^{u}\equiv a^{v}\operatorname{mod}p$, which we need to prove,
+is clearly equivalent to $a^{v}\equiv a^{u}\operatorname{mod}p$. Hence, the
+numbers $u$ and $v$ play symmetric roles in Exercise \ref{exe.ent.fermat.uv}.
+Thus, we can WLOG assume that $u\leq v$ (since otherwise, we can simply swap
+$u$ with $v$). Assume this.
+
+We have $v\equiv u\operatorname{mod}p-1$. In other words, $p-1\mid v-u$. Thus,
+there exists an integer $c$ such that $v-u=\left(  p-1\right)  c$. Consider
+this $c$. Thus, $\left(  p-1\right)  c=v-\underbrace{u}_{\leq v}\geq v-v=0$.
+But $p>1$ (since $p$ is a prime), thus $p-1>0$. Hence, we can divide the
+inequality $\left(  p-1\right)  c\geq0$ by $p-1$, and obtain $c\geq0$. Hence,
+$c\in\mathbb{N}$.
+
+Now, Theorem \ref{thm.ent.fermat} \textbf{(a)} yields $a^{p-1}\equiv
+1\operatorname{mod}p$. We can take this congruence to the $c$-th power (since
+$c\in\mathbb{N}$), and obtain $\left(  a^{p-1}\right)  ^{c}\equiv
+1^{c}=1\operatorname{mod}p$. But $\left(  a^{p-1}\right)  ^{c}=a^{\left(
+p-1\right)  c}=a^{v-u}$ (since $\left(  p-1\right)  c=v-u$). Hence,
+$a^{v-u}=\left(  a^{p-1}\right)  ^{c}\equiv1\operatorname{mod}p$. Multiplying
+this congruence by the obvious congruence $a^{u}\equiv a^{u}\operatorname{mod}%
+p$, we obtain $a^{v-u}a^{u}\equiv1a^{u}=a^{u}\operatorname{mod}p$. Hence,
+$a^{u}\equiv a^{v-u}a^{u}=a^{\left(  v-u\right)  +u}=a^{v}\operatorname{mod}%
+p$. This solves Exercise \ref{exe.ent.fermat.uv}.
 \end{proof}
 \end{fineprint}
 
