@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Friday, March 15, 2019 10:00:45}
+%TCIDATA{LastRevised=Friday, March 15, 2019 12:06:32}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -18977,73 +18977,84 @@ that there is at least one prime $p\equiv3\operatorname{mod}4$ such that
 $v_{p}\left(  n\right)  $ is odd. We must prove that there is \textbf{no} pair
 $\left(  x,y\right)  \in\mathbb{Z}^{2}$ such that $n=x^{2}+y^{2}$.
 
-Indeed, let $\left(  x,y\right)  \in\mathbb{Z}^{2}$ be such that
-$n=x^{2}+y^{2}$. We hunt for a contradiction.
+Indeed, let $\left(  x,y\right)  \in\mathbb{Z}^{2}$ such that $n=x^{2}+y^{2}$.
+We hunt for a contradiction.
 
-Let $\alpha$ be the Gaussian integer $x+yi$. Then, $\alpha\overline{\alpha
+Let $\alpha$ be the Gaussian integer $x+yi$. Thus, $\alpha\overline{\alpha
 }=x^{2}+y^{2}=n$.
 
 We have assumed that there is at least one prime $p\equiv3\operatorname{mod}4$
 such that $v_{p}\left(  n\right)  $ is odd. Consider this $p$. Note that $p$
 is a Gaussian prime (by Lemma 4.2.38).
 
-Conjugation is a symmetry; thus, $v_{\overline{p}}\left(  \overline{\alpha
-}\right)  =v_{p}\left(  \alpha\right)  $. Since $\overline{p}=p$, this becomes
-$v_{p}\left(  \overline{\alpha}\right)  =v_{p}\left(  \alpha\right)  $. But%
+Since conjugation is a symmetry, we have $v_{\overline{p}}\left(
+\overline{\alpha}\right)  =v_{p}\left(  \alpha\right)  $. In view of
+$\overline{p}=p$, this becomes $v_{p}\left(  \overline{\alpha}\right)
+=v_{p}\left(  \alpha\right)  $. But%
 \[
 v_{p}\left(  \underbrace{n}_{=\alpha\overline{\alpha}}\right)  =v_{p}\left(
 \alpha\overline{\alpha}\right)  =v_{p}\left(  \alpha\right)
 +\underbrace{v_{p}\left(  \overline{\alpha}\right)  }_{=v_{p}\left(
 \alpha\right)  }=v_{p}\left(  \alpha\right)  +v_{p}\left(  \alpha\right)
-=2v_{p}\left(  \alpha\right)  ,
+=2v_{p}\left(  \alpha\right)  .
 \]
-so that $v_{p}\left(  n\right)  $ is even. This contradicts the assumption
-that $v_{p}\left(  n\right)  $ is odd.
+So $v_{p}\left(  n\right)  $ is even. This contradicts the assumption that
+$v_{p}\left(  n\right)  $ is odd. This proves part \textbf{(a)}.
 
-\textbf{(b)} Write the canonical factorization of $n$ as%
-\begin{equation}
+\textbf{(b)} We have%
+\begin{align*}
+& \left(  \text{the number of pairs }\left(  x,y\right)  \in\mathbb{Z}%
+^{2}\text{ such that }n=x^{2}+y^{2}\right)  \\
+& =\left(  \text{the number of }\alpha\in\mathbb{Z}\left[  i\right]  \text{
+such that }n=\alpha\overline{\alpha}\right)  .
+\end{align*}
+
+
+Write the canonical factorization of $n$ as%
+\[
 n=2^{c}\cdot p_{1}^{a_{1}}p_{2}^{a_{2}}\cdots p_{k}^{a_{k}}\cdot q_{1}^{b_{1}%
-}q_{2}^{b_{2}}\cdots q_{\ell}^{b_{\ell}},\label{canfac}%
-\end{equation}
-where all exponents $c,a_{i},b_{j}$ are $\in\mathbb{N}$, and where
-$p_{1},p_{2},\ldots,p_{k}$ are primes of Type 1, and where $q_{1},q_{2}%
-,\ldots,q_{\ell}$ are primes of Type 3. (Note that $c=0$ if $n$ is odd.)
+}q_{2}^{b_{2}}\cdots q_{\ell}^{b_{\ell}},
+\]
+where all the exponents $c,a_{h},b_{j}$ are $\in\mathbb{N}$, and where
+$p_{1},p_{2},\ldots,p_{k}$ are distinct primes of Type 1, and where
+$q_{1},q_{2},\ldots,q_{\ell}$ are distinct primes of Type 3. Note that $c=0$
+if $n$ is odd.
 
 We have assumed that for each prime $p\equiv3\operatorname{mod}4$, the number
 $v_{p}\left(  n\right)  $ is even. In other words, for each prime $p$ of Type
-3, the number $v_{p}\left(  n\right)  $ is even. In other words, $b_{1}%
-,b_{2},\ldots,b_{\ell}$ are even (since the primes $p$ of Type 3 that divide
-$n$ are all among the $q_{1},q_{2},\ldots,q_{\ell}$, and so they satisfy
-$v_{p}\left(  q_{i}\right)  =b_{i}$).
+3, the number $v_{p}\left(  n\right)  $ is even. Thus, $b_{1},b_{2}%
+,\ldots,b_{\ell}$ are even (since the $q_{j}$ are primes of Type 3, and thus
+the corresponding exponents $b_{j}=v_{q_{j}}\left(  n\right)  $ are even).
+Hence, $b_{j}/2\in\mathbb{N}$ for each $j$.
 
-Each $q_{j}$ is a prime of Type 3, and thus is a Gaussian prime (by Lemma
-4.2.38). Each $p_{i}$ is a prime of Type 1, and thus can be written in the
-form $p_{i}=\pi_{i}\overline{\pi_{i}}$ for some Gaussian prime $\pi_{i}$ (by
-Theorem 4.2.39 \textbf{(c)}). Consider this $\pi_{i}$.
-
-Finally, let $\rho$ be the Gaussian prime $1+i$; thus, $2=\rho\overline{\rho}%
-$. Note that $\rho\sim\overline{\rho}$, since $\overline{\rho}=\left(
--i\right)  \rho$. Now, (\ref{canfac}) becomes%
-\[
-n=\rho^{c}\overline{\rho}^{c}\cdot\left(  \prod_{h=1}^{k}\pi_{h}^{a_{h}%
+Each $q_{j}$ is a prime of Type 3, and thus a Gaussian prime (by Lemma
+4.2.38). Each $p_{h}$ is a prime of Type 1, and thus can be written in the
+form $p_{h}=\pi_{h}\overline{\pi_{h}}$ for some Gaussian prime $\pi_{h}$ (by
+Theorem 4.2.39 \textbf{(c)}). Finally, let $\rho$ be the Gaussian prime $1+i$;
+thus, $2=\rho\overline{\rho}$. But note that $\rho\sim\overline{\rho}$ (since
+$\overline{\rho}=\left(  -i\right)  \rho$). Now, the above factorization of
+$n$ becomes%
+\begin{align*}
+n  & =2^{c}\cdot\left(  \prod_{h=1}^{k}p_{h}^{a_{h}}\right)  \cdot
+q_{1}^{b_{1}}q_{2}^{b_{2}}\cdots q_{\ell}^{b_{\ell}}\\
+& =\rho^{c}\overline{\rho}^{c}\cdot\left(  \prod_{h=1}^{k}\pi_{h}^{a_{h}%
 }\overline{\pi_{h}}^{a_{h}}\right)  \cdot q_{1}^{b_{1}}q_{2}^{b_{2}}\cdots
-q_{\ell}^{b_{\ell}},
-\]
-and this is a decomposition of $n$ as a product of Gaussian primes, albeit
-$\rho$ and $\overline{\rho}$ are unit-equivalent.
+q_{\ell}^{b_{\ell}}.
+\end{align*}
+This is a decomposition of $n$ as a product of Gaussian primes (albeit $\rho$
+and $\overline{\rho}$ are unit-equivalent).
 
-The Gaussian primes $\rho,\pi_{h},\overline{\pi_{h}},q_{j}$ are pairwise
-non-unit-equivalent (i.e., no two of them are unit-equivalent). (Proof:
-Compare norms. The only of these Gaussian primes that have equal norms are
-$\pi_{h}$ and $\overline{\pi_{h}}$. So we merely need to rule out $\pi_{h}%
-\sim\overline{\pi_{h}}$. But it is easy to see that a Gaussian integer $\zeta$
-satisfying $\zeta\sim\overline{\zeta}$ must be an integer multiple of either
-of $1,i,1+i,1-i$. Neither of these is true for $\pi_{h}$ (exercise), so we
+No two of the Gaussian primes $\rho,\pi_{h},\overline{\pi_{h}},q_{j}$ are
+unit-equivalent. (\textit{Proof:} Compare their norms (since unit-equivalent
+Gaussian integers have equal norms). So we merely need to rule out $\pi
+_{h}\sim\overline{\pi_{h}}$. But it is easy to see that a Gaussian integer
+$\zeta$ satisfying $\zeta\sim\overline{\zeta}$ must be an integer multiple of
+one of $1,i,1+i,1-i$. Neither is true for $\zeta=\pi_{h}$ (exercise), so we
 cannot have $\pi_{h}\sim\overline{\pi_{h}}$.)
 
-Now, we have a map%
+Define a map%
 \begin{align*}
-F:\left\{  1,i,-1,i\right\}  \times\prod_{h=1}^{k}\left\{  0,1,\ldots
+F:\left\{  1,i,-1,-i\right\}  \times\prod_{h=1}^{k}\left\{  0,1,\ldots
 ,a_{h}\right\}    & \rightarrow\left\{  \alpha\in\mathbb{Z}\left[  i\right]
 \ \mid\ n=\alpha\overline{\alpha}\right\}  ,\\
 \left(  \gamma,\left(  d_{1},d_{2},\ldots,d_{k}\right)  \right)    &
@@ -19051,13 +19062,14 @@ F:\left\{  1,i,-1,i\right\}  \times\prod_{h=1}^{k}\left\{  0,1,\ldots
 \overline{\pi_{h}}^{a_{h}-d_{h}}\right)  \cdot q_{1}^{b_{1}/2}q_{2}^{b_{2}%
 /2}\cdots q_{\ell}^{b_{\ell}/2}.
 \end{align*}
-It is easy to see that $F$ is well-defined.
+This map $F$ is a bijection.
 
-Claim: $F$ is bijective.
+[\textit{Proof:}
 
-[\textit{Proof:} To see that $F$ is injective, we must find a way to
+\textit{Injectivity:} To prove that $F$ is injective, we must find a way to
 reconstruct $\left(  \gamma,\left(  d_{1},d_{2},\ldots,d_{k}\right)  \right)
-$ from
+\in\left\{  1,i,-1,-i\right\}  \times\prod_{h=1}^{k}\left\{  0,1,\ldots
+,a_{h}\right\}  $ from
 \[
 \alpha:=\gamma\cdot\rho^{c}\cdot\left(  \prod_{h=1}^{k}\pi_{h}^{d_{h}%
 }\overline{\pi_{h}}^{a_{h}-d_{h}}\right)  \cdot q_{1}^{b_{1}/2}q_{2}^{b_{2}%
@@ -19065,46 +19077,16 @@ $ from
 \]
 
 
-Well: $d_{h}=v_{\pi_{h}}\left(  \alpha\right)  $, so you get $\left(
-d_{1},d_{2},\ldots,d_{k}\right)  $ reconstructed. Once you have that, you can
-reconstruct $\gamma$ by%
-\[
-\gamma=\dfrac{\alpha}{\rho^{c}\cdot\left(  \prod_{h=1}^{k}\pi_{h}^{d_{h}%
-}\overline{\pi_{h}}^{a_{h}-d_{h}}\right)  \cdot q_{1}^{b_{1}/2}q_{2}^{b_{2}%
-/2}\cdots q_{\ell}^{b_{\ell}/2}}.
-\]
-So $F$ is injective.
+To do so, we notice that $d_{h}=v_{\pi_{h}}\left(  \alpha\right)  $. Then,
+$\gamma$ can be found by solving the equation. So $F$ is injective.
 
-To see that $F$ is surjective, we must prove that each $\alpha\in
-\mathbb{Z}\left[  i\right]  $ satisfying $n=\alpha\overline{\alpha}$ has the
-form
-\[
-\alpha=\gamma\cdot\rho^{c}\cdot\left(  \prod_{h=1}^{k}\pi_{h}^{d_{h}}%
-\overline{\pi_{h}}^{a_{h}-d_{h}}\right)  \cdot q_{1}^{b_{1}/2}q_{2}^{b_{2}%
-/2}\cdots q_{\ell}^{b_{\ell}/2}%
-\]
-for some $\left(  \gamma,\left(  d_{1},d_{2},\ldots,d_{k}\right)  \right)  $.
-To prove this, use canonical factorization of $\alpha$ inside $\mathbb{Z}%
-\left[  i\right]  $ and argue that
+\textit{Surjectivity:} This is what we just discussed. So $F$ is surjective.
 
-\begin{itemize}
-\item $v_{\rho}\left(  \alpha\right)  =\dfrac{1}{2}v_{\rho}\left(
-\alpha\overline{\alpha}\right)  =v_{2}\left(  n\right)  =c$;
+Thus, $F$ is bijective.]
 
-\item $v_{\pi_{h}}\left(  \alpha\right)  +v_{\overline{\pi_{h}}}\left(
-\alpha\right)  =v_{p_{h}}\left(  n\right)  =a_{h}$;
-
-\item $v_{q_{j}}\left(  \alpha\right)  =\dfrac{1}{2}v_{q_{j}}\left(  n\right)
-=b_{j}/2$.
-\end{itemize}
-
-This shows that $F$ is surjective fairly quickly.
-
-Now, $F$ is injective and surjective, hence bijective.]
-
-So $F$ is a bijection. Thus,%
+Hence,%
 \begin{align*}
-& \left\vert \left\{  1,i,-1,i\right\}  \times\prod_{h=1}^{k}\left\{
+& \left\vert \left\{  1,i,-1,-i\right\}  \times\prod_{h=1}^{k}\left\{
 0,1,\ldots,a_{h}\right\}  \right\vert \\
 & =\left\vert \left\{  \alpha\in\mathbb{Z}\left[  i\right]  \ \mid
 \ n=\alpha\overline{\alpha}\right\}  \right\vert \\
@@ -19117,13 +19099,13 @@ so that%
 \begin{align*}
 & \left(  \text{the number of pairs }\left(  x,y\right)  \in\mathbb{Z}%
 ^{2}\text{ such that }n=x^{2}+y^{2}\right)  \\
-& =\left\vert \left\{  1,i,-1,i\right\}  \times\prod_{h=1}^{k}\left\{
+& =\left\vert \left\{  1,i,-1,-i\right\}  \times\prod_{h=1}^{k}\left\{
 0,1,\ldots,a_{h}\right\}  \right\vert \\
 & =4\cdot\prod_{h=1}^{k}\left(  a_{h}+1\right)  =4\cdot\prod
 _{\substack{p\text{ prime;}\\p\equiv1\operatorname{mod}4}}\left(  v_{p}\left(
 n\right)  +1\right)  .
 \end{align*}
-Done.
+This proves part \textbf{(b)} of the theorem.
 \end{proof}
 
 \subsubsection{What are the Gaussian primes?}
@@ -19131,117 +19113,106 @@ Done.
 We have so far seen the following Gaussian primes:
 
 \begin{itemize}
-\item $1+i$ is a Gaussian prime.
-
 \item Each prime of Type 3 is a Gaussian prime.
 
+\item $1+i$ is a Gaussian prime.
+
 \item For each prime $p$ of Type 1, we have a Gaussian prime $\pi$ such that
-$p=\pi\overline{\pi}$.
+$p=\pi\overline{\pi}$, and then $\overline{\pi}$ is also a Gaussian prime.
 \end{itemize}
 
 \begin{theorem}
-These are the only Gaussian primes up to unit-equivalence. In other words,
-each Gaussian prime is unit-equivalent to one of these.
+Each Gaussian prime is unit-equivalent to one of these.
 \end{theorem}
 
 \begin{proof}
 HW5.
 \end{proof}
 
-\subsection{Analogues of Gaussian integers}
+\subsection{Analogues and variants}
 
-So we know when and how often an integer $n$ can be written as $x^{2}+y^{2}$
-with $x,y\in\mathbb{Z}$ ?
+We have seen when a prime $p$ can be written as $x^{2}+y^{2}$ with
+$x,y\in\mathbb{Z}$.
 
 \begin{itemize}
-\item When can a prime $p$ can be written as $x^{2}+2y^{2}$ with
-$x,y\in\mathbb{Z}$ ?
+\item When can a prime $p$ be written as $x^{2}+2y^{2}$ with $x,y\in
+\mathbb{Z}$ ?
 
-Let
+The set
 \[
 \mathbb{Z}\left[  \sqrt{-2}\right]  =\mathbb{Z}\left[  \sqrt{2}i\right]
 \]
-be the set of all complex numbers of the form $a+b\sqrt{2}i$ with
-$a,b\in\mathbb{Z}$. We can also regard $\mathbb{Z}\left[  \sqrt{-2}\right]  $
-as the set of all pairs $\left(  a,b\right)  \in\mathbb{Z}^{2}$ with addition
-and subtraction defined entrywise, but multiplication defined by%
+is defined as the set of all complex numbers $a+b\sqrt{2}i$ with
+$a,b\in\mathbb{Z}$. It is perhaps better regarded as its own variant of
+Gaussian integers, which I will call the \textquotedblleft$2$-Gaussian
+integers\textquotedblright; these are pairs $\left(  a,b\right)  \in
+\mathbb{Z}^{2}$ with entrywise addition and subtraction and with
+multiplication given by%
 \[
 \left(  a,b\right)  \left(  c,d\right)  =\left(  ac-2bd,ad+bc\right)  .
 \]
-We can then write such pairs $\left(  a,b\right)  $ as $a+b\sqrt{2}i$, where
-$\sqrt{2}i$ is simply a symbol for the pair $\left(  0,1\right)  $. We shall
-refer to such pairs $\left(  a,b\right)  $ as $2$\textbf{-Gaussian integers}.
-Each $2$-Gaussian integer $\left(  a,b\right)  $ has a norm $a^{2}+2b^{2}$.
-Many properties of complex numbers and Gaussian integers still hold for them.
-Most importantly, division with remainder still works; instead of
+Such a pair $\left(  a,b\right)  $ can be viewed as the complex number
+$a+b\sqrt{2}i$.
+
+The norm of a $2$-Gaussian integer $\left(  a,b\right)  $ is $a^{2}+2b^{2}$.
+Most of the theory of Gaussian integers applies verbatim to $2$-Gaussian
+integers. In particular, division with remainder still works, but instead of
 $\operatorname*{N}\left(  \rho\right)  \leq\operatorname*{N}\left(
 \beta\right)  /2$ we now get $\operatorname*{N}\left(  \rho\right)
-\leq3\operatorname*{N}\left(  \beta\right)  /4$, which still means
-$\operatorname*{N}\left(  \rho\right)  <\operatorname*{N}\left(  \beta\right)
-$. So the theory of Gaussian primes still works. As a result, we can show that
-a prime $p$ can be written as $x^{2}+2y^{2}$ if and only if there is an
-integer $u$ such that $u^{2}\equiv-2\operatorname{mod}p$.
+\leq3\operatorname*{N}\left(  \beta\right)  /4$.
 
-When is there such a $u$? This is a harder question. The answer is
-\textquotedblleft when $p=2$ or $p\equiv1\operatorname{mod}8$ or
-$p\equiv3\operatorname{mod}8$\textquotedblright. The proof relies on quadratic
-reciprocity, which I hope we will see at the end of this course.
+Hence, $2$-Gaussian integers behave just as well as Gaussian integers; in
+particular, they have unique factorizations into \textquotedblleft$2$-Gaussian
+primes\textquotedblright.
+
+This can be used to show that a prime $p$ can be written as $x^{2}+2y^{2}$ if
+and only if there is an integer $u$ satisfying $u^{2}\equiv
+-2\operatorname{mod}p$. It can be shown that such an integer $u$ exists if and
+only if $p=2$ or $p\equiv1,3\operatorname{mod}8$. The proof uses
+\textit{quadratic reciprocity}.
 
 \item When can a prime $p$ be written as $x^{2}+3y^{2}$ with $x,y\in
 \mathbb{Z}$ ?
 
-The logical continuation of the pattern would make us expect \textquotedblleft
-when $p=3$ or $p\equiv1\operatorname{mod}3$\textquotedblright. And this is
-indeed true. This time, the proof is more complicated. The \textquotedblleft%
-$3$-Gaussian integers\textquotedblright\ $\mathbb{Z}\left[  \sqrt{-3}\right]
-$ no longer have unique factorization into \textquotedblleft
-primes\textquotedblright, because division with remainder no longer works
-(instead of $\operatorname*{N}\left(  \rho\right)  \leq\operatorname*{N}%
-\left(  \beta\right)  /2$ we now get $\operatorname*{N}\left(  \rho\right)
-\leq\operatorname*{N}\left(  \beta\right)  $). So we have to work in a
-different \textquotedblleft ring\textquotedblright\ -- the so-called
-\textbf{Eisenstein integers}, which are the complex numbers of the form
-$a+b\omega$ with $a,b\in\mathbb{Z}$ and $\omega=\dfrac{-1+i\sqrt{3}}{2}$.
-Division with remainder does work for those.
+One would hope that the answer is \textquotedblleft when $p=3$ or
+$p\equiv1\operatorname{mod}3$\textquotedblright. The proof is more difficult.
+The problem is: The \textquotedblleft$3$-Gaussian integers\textquotedblright%
+\ no longer have division with remainder, since $\operatorname*{N}\left(
+\rho\right)  \leq\operatorname*{N}\left(  \beta\right)  /2$ turns into
+$\operatorname*{N}\left(  \rho\right)  \leq\operatorname*{N}\left(
+\beta\right)  $. Nevertheless the answer one would hope for is still correct,
+and can be proven by a modified argument. Instead of the $3$-Gaussian
+integers, we would have to use the \textbf{Eisenstein integers} $a+b\omega$
+for $a,b\in\mathbb{Z}$ and $\omega=\dfrac{-1+i\sqrt{3}}{2}$. Division with
+remainder works for them. Note that $\operatorname*{N}\left(  a+b\omega
+\right)  =a^{2}-ab+b^{2}$, so some more work is needed to turn them into
+$x^{2}+3y^{2}$ solutions, but it's doable.
 
 \item When can a prime $p$ be written as $x^{2}+4y^{2}$ with $x,y\in
 \mathbb{Z}$ ?
 
-This is equivalent to writing $p$ as $x^{2}+y^{2}$ with $x,y\in\mathbb{Z}$ and
-$y$ even. (since $4y^{2}=\left(  2y\right)  ^{2}$)
+Hint: $4y^{2}=\left(  2y\right)  ^{2}$, so we are looking for a way of writing
+$p$ as $x^{2}+y^{2}$ with $y$ even.
 
-Claim: We can write $p$ in this way if and only if $p\equiv1\operatorname{mod}%
-4$.
-
-Proof: LTTR.
+I claim that the answer is \textquotedblleft when $p\equiv1\operatorname{mod}%
+4$\textquotedblright.
 
 \item When can a prime $p$ be written as $x^{2}+5y^{2}$ with $x,y\in
 \mathbb{Z}$ ?
 
-The pattern we saw for $x^{2}+y^{2}$, $x^{2}+2y^{2}$ and $x^{2}+3y^{2}$ would
-suggest \textquotedblleft when $p=2$ or $p=5$ or $p\equiv
-1,3,7,9\operatorname{mod}20$\textquotedblright\ (because that's when there is
-an integer $u$ such that $u^{2}\equiv-5\operatorname{mod}p$). However, this is
-false. The true answer is \textquotedblleft when $p=2$ or $p=5$ or
-$p\equiv1,9\operatorname{mod}20$\textquotedblright. The reason is that there
-is no division with remainder in $\mathbb{Z}\left[  \sqrt{-5}\right]  $, and
-we cannot help it with tricks like using $\omega$.
+Again, we could hope that it can if and only if there is an integer $u$
+satisfying $u^{2}\equiv-5\operatorname{mod}p$. This is equivalent to saying
+that $p=2$ or $p=5$ or $p\equiv1,3,7,9\operatorname{mod}20$. However, the true
+answer is \textquotedblleft$p=2$ or $p=5$ or $p\equiv1,9\operatorname{mod}%
+20$\textquotedblright.
 
-\item We can also ask when a prime $p$ can be written as $x^{2}-ny^{2}$. This
-has to do with $\mathbb{Z}\left[  \sqrt{n}\right]  $. Note that $\mathbb{Z}%
-\left[  \sqrt{n}\right]  $ can no longer be represented as a lattice in the
-plane. It can be shown that $\mathbb{Z}\left[  \sqrt{n}\right]  $ has $\infty$
-many units (this was done on HW4 for $n=5$).
+\item David Cox, \textit{Primes of the form }$x^{2}+ny^{2}$.
 
-\item When can $n$ be written as $x^{2}+y^{2}+z^{2}$ ? Legendre's three-square theorem.
+\item We can also ask when a prime $p$ can be written as $x^{2}-ny^{2}$.
 
-\item When can $n$ be written as $x^{2}+y^{2}+z^{2}+w^{2}$ ? Lagrange's
-four-square theorem. Moreover, the number of quadruples $\left(
-x,y,z,w\right)  \in\mathbb{Z}^{4}$ satisfying $n=x^{2}+y^{2}+z^{2}+w^{2}$ is
-\[
-8\sum_{\substack{d\mid n;\\4\nmid d}}d.
-\]
+\item When can $n\in\mathbb{N}$ be written as a sum of three squares? 
 
+\item When can $n\in\mathbb{N}$ be written as a sum of four squares? 
 \end{itemize}
 
 
