@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Thursday, March 14, 2019 19:48:09}
+%TCIDATA{LastRevised=Friday, March 15, 2019 08:31:36}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -18930,7 +18930,7 @@ Now, we can finally answer Question \ref{quest.intro.sum-of-2sq.2}
 \textbf{(b)} (following \cite[\S 8.3, Corollary 19]{Dummit-Foote}):
 
 \begin{theorem}
-Let $n$ be a positive integer.
+\label{thm.Z[i].count-xx+yy}Let $n$ be a positive integer.
 
 \textbf{(a)} If there is at least one prime $p\equiv3\operatorname{mod}4$ such
 that $v_{p}\left(  n\right)  $ is odd, then there is \textbf{no} pair $\left(
@@ -18971,10 +18971,197 @@ _{\substack{=v_{5}\left(  n\right)  +1\\=1+1=2}}=4\cdot2=8.
 
 \end{example}
 
+\begin{proof}
+[Proof of Theorem \ref{thm.Z[i].count-xx+yy} (sketched).]\textbf{(a)} Assume
+that there is at least one prime $p\equiv3\operatorname{mod}4$ such that
+$v_{p}\left(  n\right)  $ is odd. We must prove that there is \textbf{no} pair
+$\left(  x,y\right)  \in\mathbb{Z}^{2}$ such that $n=x^{2}+y^{2}$.
+
+Indeed, let $\left(  x,y\right)  \in\mathbb{Z}^{2}$ be a pair such that
+$n=x^{2}+y^{2}$. We must derive a contradiction.
+
+Let $\alpha$ be the Gaussian integer $x+yi$. Thus, $\alpha\overline{\alpha
+}=x^{2}+y^{2}=n$.
+
+We have assumed that there is at least one prime $p\equiv3\operatorname{mod}4$
+such that $v_{p}\left(  n\right)  $ is odd. Consider this $p$. Note that $p$
+is a Gaussian prime (by Lemma \ref{lem.Z[i].gauss.prime.3mod4}).
+
+Since conjugation is a symmetry, we have $v_{\overline{p}}\left(
+\overline{\alpha}\right)  =v_{p}\left(  \alpha\right)  $. In view of
+$\overline{p}=p$, this rewrites as $v_{p}\left(  \overline{\alpha}\right)
+=v_{p}\left(  \alpha\right)  $. But
+\[
+v_{p}\left(  \underbrace{n}_{=\alpha\overline{\alpha}}\right)  =v_{p}\left(
+\alpha\overline{\alpha}\right)  =v_{p}\left(  \alpha\right)
++\underbrace{v_{p}\left(  \overline{\alpha}\right)  }_{=v_{p}\left(
+\alpha\right)  }=v_{p}\left(  \alpha\right)  +v_{p}\left(  \alpha\right)
+=2v_{p}\left(  \alpha\right)  .
+\]
+Thus, $v_{p}\left(  n\right)  $ is even. This contradicts the fact that
+$v_{p}\left(  n\right)  $ is odd. Thus, we have found a contradiction for each
+pair $\left(  x,y\right)  \in\mathbb{Z}^{2}$ such that $n=x^{2}+y^{2}$. Hence,
+there exists no such pair. This proves Theorem \ref{thm.Z[i].count-xx+yy}
+\textbf{(a)}.
+
+\textbf{(b)} Write the canonical factorization of $n$ as
+\begin{equation}
+n=2^{c}\cdot p_{1}^{a_{1}}p_{2}^{a_{2}}\cdots p_{k}^{a_{k}}\cdot q_{1}^{b_{1}%
+}q_{2}^{b_{2}}\cdots q_{\ell}^{b_{\ell}},
+\label{pf.thm.Z[i].count-xx+yy.b.n=1}%
+\end{equation}
+where all the exponents $c,d_{i},e_{j}$ are $\in\mathbb{N}$, and where
+$p_{1},p_{2},\ldots,p_{k}$ are primes of Type 1, and where $q_{1},q_{2}%
+,\ldots,q_{\ell}$ are primes of Type 3. Note that $c=0$ if $n$ is odd.
+
+We have assumed that for each prime $p\equiv3\operatorname{mod}4$, the number
+$v_{p}\left(  n\right)  $ is even. In other words, $b_{1},b_{2},\ldots
+,b_{\ell}$ are even (since $q_{1},q_{2},\ldots,q_{\ell}$ are primes of Type 3,
+i.e., they satisfy $q_{j}\equiv3\operatorname{mod}4$, and thus the
+corresponding exponents $b_{j}=v_{q_{j}}\left(  n\right)  $ must be even).
+Hence, $b_{j}/2\in\mathbb{N}$ for each $j$.
+
+Each $q_{j}$ is a prime of Type 3, and thus is a Gaussian prime (by Lemma
+\ref{lem.Z[i].gauss.prime.3mod4}). Meanwhile, each $p_{i}$ is a prime of Type
+1, and thus can be written in the form $p_{i}=\pi_{i}\overline{\pi_{i}}$ for
+some Gaussian prime $\pi_{i}$ (by Theorem \ref{thm.Z[i].gauss.prime.1mod4}
+\textbf{(c)}). Consider these $\pi_{i}$. Finally, let $\rho$ be the Gaussian
+prime $1+i$; thus $2=\rho\overline{\rho}$. But note that $\rho\sim
+\overline{\rho}$ (indeed, $\overline{\rho}=1-i=\left(  -i\right)
+\underbrace{\left(  1+i\right)  }_{=\rho}=\left(  -i\right)  \rho$). Now,
+(\ref{pf.thm.Z[i].count-xx+yy.b.n=1}) becomes%
+\[
+n=\rho^{c}\overline{\rho}^{c}\cdot\pi_{1}^{a_{1}}\overline{\pi_{1}}^{a_{1}}%
+\pi_{2}^{a_{2}}\overline{\pi_{2}}^{a_{2}}\cdots\pi_{k}^{a_{k}}\overline
+{\pi_{k}}^{a_{k}}\cdot q_{1}^{b_{1}}q_{2}^{b_{2}}\cdots q_{\ell}^{b_{\ell}},
+\]
+and this is a decomposition of $n$ as a product of powers of Gaussian primes
+(albeit $\rho$ and $\overline{\rho}$ are unit-equivalent).
+
+The primes $\rho,\pi_{i},\overline{\pi_{i}},q_{j}$ are pairwise
+non-unit-equivalent (i.e., no two of them are unit-equivalent). (Proof: Easy
+comparison of norms, except that $\operatorname*{N}\left(  \pi_{i}\right)
+=\operatorname*{N}\left(  \overline{\pi_{i}}\right)  $, so that ruling out
+$\pi_{i}\sim\overline{\pi_{i}}$ requires an explicit look at the real and
+imaginary parts.)
+
+Now, we have a map%
+\begin{align*}
+F:\left\{  1,i,-1,-i\right\}  \times\prod_{h=1}^{k}\left\{  0,1,\ldots
+,a_{h}\right\}   &  \rightarrow\left\{  \alpha\in\mathbb{Z}\left[  i\right]
+\ \mid\ n=\alpha\overline{\alpha}\right\}  ,\\
+\left(  \eta,\left(  d_{1},d_{2},\ldots,d_{k}\right)  \right)   &  \mapsto
+\eta\cdot\rho^{c}\cdot\left(  \prod_{h=1}^{k}\pi_{h}^{d_{h}}\overline{\pi_{h}%
+}^{a_{h}-d_{h}}\right)  q_{1}^{b_{1}/2}q_{2}^{b_{2}/2}\cdots q_{\ell}%
+^{b_{\ell}/2}.
+\end{align*}
+It is easy to check that it is well-defined. We claim that this map $F$ is a bijection.
+
+[\textit{Proof:} Check injectivity and surjectivity, for example.]
+\end{proof}
+
 TODO: More...
 
 \begin{itemize}
-\item characterize Gaussian primes.
+\item characterize Gaussian primes: Any Gaussian prime is unit-equivalent
+either to $1+i$, or to a Gaussian prime $\pi$ with $\pi\overline{\pi}$ being a
+prime of Type 1, or to a prime of Type 3. (Proof: It divides its norm, which
+is a positive integer. Thus, it divides a prime factor of this positive
+integer, which is a prime. Now...)
+
+\item Let us now see when a prime $p$ can be written as $x^{2}+2y^{2}$ with
+$x,y\in\mathbb{Z}$.
+
+The set
+\[
+\mathbb{Z}\left[  \sqrt{-2}\right]  =\mathbb{Z}\left[  \sqrt{2}i\right]
+\]
+can be viewed as the set of all complex numbers of the form $a+b\sqrt{2}i$
+with $a,b\in\mathbb{Z}$. It is perhaps easier to regard it as its own variant
+of complex numbers: the \textquotedblleft$2$-Gaussian
+integers\textquotedblright. These numbers can be defined as pairs $\left(
+a,b\right)  \in\mathbb{Z}^{2}$ with addition and subtraction defined entrywise
+and multiplication defined by%
+\[
+\left(  a,b\right)  \left(  c,d\right)  =\left(  ac-2bd,ad+bc\right)  .
+\]
+You then write such pairs $\left(  a,b\right)  $ as $a+b\sqrt{2}i$, where
+$\sqrt{2}i$ is simply a symbol for the $2$-Gaussian integer $\left(
+0,1\right)  $. Each $2$-Gaussian integer $\left(  a,b\right)  $ has a norm,
+defined by $\operatorname*{N}\left(  \left(  a,b\right)  \right)
+=a^{2}+2b^{2}$. Various other properties of complex numbers still apply here.
+Most importantly, division with remainder still works for $2$-Gaussian
+integers (like it does for Gaussian integers, i.e., non-uniquely), and the
+proof uses the same argument, but this time $\operatorname*{N}\left(
+\rho\right)  \leq3\operatorname*{N}\left(  \beta\right)  /4$ instead of
+$\leq\operatorname*{N}\left(  \beta\right)  /2$. Hence, $2$-Gaussian integers
+behave likewise as far as unique factorization into \textquotedblleft
+primes\textquotedblright\ is concerned. Thus, we can show that a prime $p$ can
+be written as $x^{2}+2y^{2}$ if and only if there is an integer $u$ satisfying
+$u^{2}\equiv-2\operatorname{mod}p$. When is there such a $u$? This is a harder
+question, since we don't have our exercise anymore. The answer is
+\textquotedblleft when $p=2$ or $p\equiv1\operatorname{mod}8$ or
+$p\equiv3\operatorname{mod}8$\textquotedblright. The proof requires something
+called \textquotedblleft quadratic reciprocity\textquotedblright\ which we
+\textbf{may} see later.
+
+\item When can a prime $p$ be written as $x^{2}+3y^{2}$ with $x,y\in
+\mathbb{Z}$ ?
+
+The logical continuation of the above pattern would be \textquotedblleft when
+$p=3$ or $p\equiv1\operatorname{mod}3$\textquotedblright, since that's the
+cases when there is an integer $u$ satisfying $u^{2}\equiv-3\operatorname{mod}%
+p$. And that is indeed true, but the proof is more complicated. Indeed, the
+\textquotedblleft$3$-Gaussian integers\textquotedblright\ no longer have
+division with remainder, as $\operatorname*{N}\left(  \rho\right)
+\leq\operatorname*{N}\left(  \beta\right)  /2$ turns into $\operatorname*{N}%
+\left(  \rho\right)  \leq\operatorname*{N}\left(  \beta\right)  $ which is not
+a strict inequality. Nevertheless we can prove our guess with more complicated
+reasoning, if we instead of $\mathbb{Z}\left[  \sqrt{-3}\right]  $ use the
+\textbf{Eisenstein integers} $\mathbb{Z}\left[  \omega\right]  $ for
+$\omega=\dfrac{-1+i\sqrt{3}}{2}$. These are best understood as pairs $\left(
+a,b\right)  \in\mathbb{Z}^{2}$ with addition and subtraction defined entrywise
+and multiplication defined by%
+\[
+\left(  a,b\right)  \left(  c,d\right)  =\left(  ac-bd,ad+bc-bd\right)  .
+\]
+Their norm is $\operatorname*{N}\left(  \left(  a,b\right)  \right)
+=a^{2}-ab+b^{2}$. They form a triangular lattice, not a rectangular one, and
+they do have division with remainder.
+
+\item When can a prime $p$ be written as $x^{2}+4y^{2}$ with $x,y\in
+\mathbb{Z}$ ? (This is easy!)
+
+\item When can a prime $p$ be written as $x^{2}+5y^{2}$ with $x,y\in
+\mathbb{Z}$ ?
+
+Our guess, by following the above pattern, would be \textquotedblleft when
+$p=2$ or $p=5$ or $p\equiv1,3,7,9\operatorname{mod}20$\textquotedblright,
+since that's when there is an integer $u$ satisfying $u^{2}\equiv
+-5\operatorname{mod}p$. But this is not true anymore. The right answer is
+\textquotedblleft when $p=2$ or $p=5$ or $p\equiv1,9\operatorname{mod}%
+20$\textquotedblright. And unsurprisingly, $\mathbb{Z}\left[  \sqrt
+{-5}\right]  $ does not have division with remainder.
+
+\item Cox, \textit{Primes of the form }$x^{2}+ny^{2}$, Springer, 2nd edition
+2013. The answer becomes more complicated with $n$ getting large.
+
+\item We can also ask when a prime $p$ can be written as $x^{2}-ny^{2}$. There
+is $\mathbb{Z}\left[  \sqrt{n}\right]  $ for this, which behaves much
+differently, since $\sqrt{n}$ is real. For example, as you saw on HW4, there
+are infinitely many units in $\mathbb{Z}\left[  \sqrt{5}\right]  $; that's
+true for each $\mathbb{Z}\left[  \sqrt{n}\right]  $ with $n>1$.
+
+\item When can $n\in\mathbb{N}$ be written as a sum of three squares?
+Legendre's three-squares theorem: iff $n$ is not of the form $n=4^{a}\left(
+8b+7\right)  $ for integers $a,b$. Very hard to prove (\cite{Uspensky-Heaslet}
+might have the only elementary proof).
+
+\item When can $n\in\mathbb{N}$ be written as a sum of four squares?
+Lagrange's four-squares theorem: always! This is easier to show, and there is
+even a formula for the number of representations: it is $8\sum
+_{\substack{d\mid n;\\4\nmid d}}d$. The existence part can be proven using
+\textquotedblleft Hurwitz integers\textquotedblright, which are certain quaternions.
 
 \item ....
 \end{itemize}
@@ -23393,8 +23580,8 @@ Now, from $v_{p}\left(  a_{1}b_{2}\right)  =v_{p}\left(  a_{1}\right)
 \begin{equation}
 v_{p}\left(  a_{1}\right)  +v_{p}\left(  b_{2}\right)  =v_{p}\left(
 \underbrace{a_{1}b_{2}}_{=a_{2}b_{1}}\right)  =v_{p}\left(  a_{2}b_{1}\right)
-=v_{p}\left(  a_{2}\right)  +v_{p}\left(  b_{1}\right)
-.\label{sol.eqrel.quot.wp.a.3}%
+=v_{p}\left(  a_{2}\right)  +v_{p}\left(  b_{1}\right)  .
+\label{sol.eqrel.quot.wp.a.3}%
 \end{equation}
 But $b_{1}$ is a nonzero integer (since $\left(  a_{1},b_{1}\right)  $ is a
 pair of nonzero integers); thus, $v_{p}\left(  b_{1}\right)  \in\mathbb{N}$
@@ -23451,7 +23638,7 @@ is nonzero. Thus, (\ref{sol.eqrel.quot.wp.a.cons}) (applied to $a$, $n_{1}$
 and $d_{1}$ instead of $r$, $a$ and $b$) yields
 \begin{equation}
 w_{p}\left(  a\right)  =v_{p}\left(  n_{1}\right)  -v_{p}\left(  d_{1}\right)
-.\label{sol.eqrel.quot.wp.c.wpa=}%
+. \label{sol.eqrel.quot.wp.c.wpa=}%
 \end{equation}
 
 
@@ -23464,7 +23651,7 @@ is nonzero. Thus, (\ref{sol.eqrel.quot.wp.a.cons}) (applied to $b$, $n_{2}$
 and $d_{2}$ instead of $r$, $a$ and $b$) yields
 \begin{equation}
 w_{p}\left(  b\right)  =v_{p}\left(  n_{2}\right)  -v_{p}\left(  d_{2}\right)
-.\label{sol.eqrel.quot.wp.c.wpb=}%
+. \label{sol.eqrel.quot.wp.c.wpb=}%
 \end{equation}
 
 
@@ -23487,7 +23674,7 @@ d_{1}\right)  +v_{p}\left(  d_{2}\right)  \\\text{(by Theorem
 \ref{thm.ent.prime.vp-ring} \textbf{(a),}}\\\text{applied to }d_{1}\text{ and
 }d_{2}\text{ instead of }a\text{ and }b\text{)}}}\\
 &  =\left(  v_{p}\left(  n_{1}\right)  +v_{p}\left(  n_{2}\right)  \right)
--\left(  v_{p}\left(  d_{1}\right)  +v_{p}\left(  d_{2}\right)  \right)  \\
+-\left(  v_{p}\left(  d_{1}\right)  +v_{p}\left(  d_{2}\right)  \right) \\
 &  =\underbrace{\left(  v_{p}\left(  n_{1}\right)  -v_{p}\left(  d_{1}\right)
 \right)  }_{\substack{=w_{p}\left(  a\right)  \\\text{(by
 (\ref{sol.eqrel.quot.wp.c.wpa=}))}}}+\underbrace{\left(  v_{p}\left(
@@ -23512,7 +23699,7 @@ in the same way as in our solution to Exercise \ref{exe.eqrel.quot.wp}
 and $d_{1}$ instead of $r$, $a$ and $b$) yields
 \begin{equation}
 w_{p}\left(  a\right)  =v_{p}\left(  n_{1}\right)  -v_{p}\left(  d_{1}\right)
-.\label{sol.eqrel.quot.wp.d.wpa=}%
+. \label{sol.eqrel.quot.wp.d.wpa=}%
 \end{equation}
 
 
@@ -23524,7 +23711,7 @@ in the same way as in our solution to Exercise \ref{exe.eqrel.quot.wp}
 and $d_{2}$ instead of $r$, $a$ and $b$) yields
 \begin{equation}
 w_{p}\left(  b\right)  =v_{p}\left(  n_{2}\right)  -v_{p}\left(  d_{2}\right)
-.\label{sol.eqrel.quot.wp.d.wpb=}%
+. \label{sol.eqrel.quot.wp.d.wpb=}%
 \end{equation}
 
 
@@ -23558,11 +23745,11 @@ to }n_{1}\text{ and }d_{2}\\\text{instead of }a\text{ and }b\text{)}%
 n_{2}\right)  +v_{p}\left(  d_{1}\right)  \\\text{(by Theorem
 \ref{thm.ent.prime.vp-ring} \textbf{(a),}}\\\text{applied to }n_{2}\text{ and
 }d_{1}\\\text{instead of }a\text{ and }b\text{)}}}\right\}  -\left(
-v_{p}\left(  d_{1}\right)  +v_{p}\left(  d_{2}\right)  \right)  \nonumber\\
+v_{p}\left(  d_{1}\right)  +v_{p}\left(  d_{2}\right)  \right) \nonumber\\
 &  =\min\left\{  v_{p}\left(  n_{1}\right)  +v_{p}\left(  d_{2}\right)
 ,v_{p}\left(  n_{2}\right)  +v_{p}\left(  d_{1}\right)  \right\}  -\left(
-v_{p}\left(  d_{1}\right)  +v_{p}\left(  d_{2}\right)  \right)
-.\label{sol.eqrel.quot.wp.d.6}%
+v_{p}\left(  d_{1}\right)  +v_{p}\left(  d_{2}\right)  \right)  .
+\label{sol.eqrel.quot.wp.d.6}%
 \end{align}
 
 
@@ -23591,7 +23778,7 @@ $) yields%
 \begin{align*}
 &  \min\left\{  v_{p}\left(  n_{1}\right)  +v_{p}\left(  d_{2}\right)
 ,v_{p}\left(  n_{2}\right)  +v_{p}\left(  d_{1}\right)  \right\}  -\left(
-v_{p}\left(  d_{1}\right)  +v_{p}\left(  d_{2}\right)  \right)  \\
+v_{p}\left(  d_{1}\right)  +v_{p}\left(  d_{2}\right)  \right) \\
 &  =\min\left\{  \underbrace{v_{p}\left(  n_{1}\right)  +v_{p}\left(
 d_{2}\right)  -\left(  v_{p}\left(  d_{1}\right)  +v_{p}\left(  d_{2}\right)
 \right)  }_{\substack{=v_{p}\left(  n_{1}\right)  -v_{p}\left(  d_{1}\right)
@@ -23600,7 +23787,7 @@ d_{2}\right)  -\left(  v_{p}\left(  d_{1}\right)  +v_{p}\left(  d_{2}\right)
 v_{p}\left(  d_{1}\right)  +v_{p}\left(  d_{2}\right)  \right)  }%
 _{\substack{=v_{p}\left(  n_{2}\right)  -v_{p}\left(  d_{2}\right)
 =w_{p}\left(  b\right)  \\\text{(by (\ref{sol.eqrel.quot.wp.d.wpb=}))}%
-}}\right\}  \\
+}}\right\} \\
 &  =\min\left\{  w_{p}\left(  a\right)  ,w_{p}\left(  b\right)  \right\}  .
 \end{align*}
 Thus, (\ref{sol.eqrel.quot.wp.d.6}) becomes%
@@ -23608,7 +23795,7 @@ Thus, (\ref{sol.eqrel.quot.wp.d.6}) becomes%
 w_{p}\left(  a+b\right)   &  \geq\min\left\{  v_{p}\left(  n_{1}\right)
 +v_{p}\left(  d_{2}\right)  ,v_{p}\left(  n_{2}\right)  +v_{p}\left(
 d_{1}\right)  \right\}  -\left(  v_{p}\left(  d_{1}\right)  +v_{p}\left(
-v_{2}\right)  \right)  \\
+v_{2}\right)  \right) \\
 &  =\min\left\{  w_{p}\left(  a\right)  ,w_{p}\left(  b\right)  \right\}  .
 \end{align*}
 This solves Exercise \ref{exe.eqrel.quot.wp} \textbf{(d)}.
