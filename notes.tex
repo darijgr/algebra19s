@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Friday, March 15, 2019 13:58:04}
+%TCIDATA{LastRevised=Friday, March 15, 2019 23:29:40}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -2820,6 +2820,9 @@ be written as a sum of two perfect squares.
 
 \subsection{The floor function}
 
+We shall now briefly introduce the floor function (following \cite{floor}), as
+it is closely connected to division with remainder.
+
 \begin{definition}
 \label{def.ent.floor}Let $x$ be a real number. Then, $\left\lfloor
 x\right\rfloor $ is defined to be the unique integer $n$ satisfying $n\leq
@@ -2871,7 +2874,7 @@ removed\textquotedblright. This impression is highly imprecise. For one, it is
 completely broken for negative $x$ (for example, $\left\lfloor
 -2.3\right\rfloor $ is $-3$, not $-2$). But more importantly, the operation of
 \textquotedblleft removing the digits behind the comma\textquotedblright\ from
-a number is not well-defined; the periodic decimal representations
+a number is not well-defined; in fact, the periodic decimal representations
 $0.999\ldots$ and $1.000\ldots$ belong to the same real number ($1$), but
 removing their digits behind the comma leaves us with different integers.
 
@@ -2893,6 +2896,9 @@ $a//b$.
 neat exercise. A full proof can be found in \cite[proof of Proposition
 1.1.3]{floor}.
 \end{proof}
+
+See \cite{floor} and \cite[\S 4.1]{NiZuMo91} for further properties of the
+floor function.
 
 \subsection{Common divisors, the Euclidean algorithm and the Bezout theorem}
 
@@ -15356,11 +15362,11 @@ S_{m,n}\left(  \left[  s\right]  _{mn}\right)   &  =\left(  \underbrace{\pi
 _{mn,m}\left(  \left[  s\right]  _{mn}\right)  }_{\substack{=\left[  s\right]
 _{m}\\\text{(by the definition of }\pi_{mn,m}\text{)}}},\underbrace{\pi
 _{mn,n}\left(  \left[  s\right]  _{mn}\right)  }_{\substack{=\left[  s\right]
-_{n}\\\text{(by the definition of }\pi_{mn,n}\text{)}}}\right)
-\ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of }S_{m,n}\right)
+_{n}\\\text{(by the definition of }\pi_{mn,n}\text{)}}}\right)  \nonumber\\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of }S_{m,n}\right)
 \nonumber\\
-&  =\left(  \left[  s\right]  _{m},\left[  s\right]  _{n}\right)  .
-\label{pf.thm.eqrel.CRT2.Ss=}%
+&  =\left(  \left[  s\right]  _{m},\left[  s\right]  _{n}\right)
+.\label{pf.thm.eqrel.CRT2.Ss=}%
 \end{align}
 In other words, the map $S_{m,n}$ sends each $\left[  s\right]  _{mn}$ (with
 $s\in\mathbb{Z}$) to the pair $\left(  \left[  s\right]  _{m},\left[
@@ -15446,10 +15452,10 @@ We have already proven Theorem \ref{thm.ent.phi.mult} using Theorem
 \ref{thm.eqrel.CRT2} instead (by a rather similar argument):
 
 \begin{proof}
-[Second proof of Theorem \ref{thm.ent.phi.mult}.]We know that $\phi\left(
-n\right)  =\left\vert U_{n}\right\vert $. Similarly, $\phi\left(  m\right)
-=\left\vert U_{m}\right\vert $ and $\phi\left(  mn\right)  =\left\vert
-U_{mn}\right\vert $.
+[Second proof of Theorem \ref{thm.ent.phi.mult}.]Corollary
+\ref{cor.equiv.modinv.Unphi} \textbf{(b)} yields $\phi\left(  n\right)
+=\left\vert U_{n}\right\vert $. Similarly, $\phi\left(  m\right)  =\left\vert
+U_{m}\right\vert $ and $\phi\left(  mn\right)  =\left\vert U_{mn}\right\vert $.
 
 Now, let $S_{m,n}$ be the map%
 \begin{align*}
@@ -19045,7 +19051,7 @@ $v_{3}\left(  n\right)  =2$ is even and $v_{p}\left(  n\right)  =0$ for all
 other primes $p$ of Type 3. Hence, part \textbf{(b)} of the Theorem yields%
 \begin{align*}
 &  \left(  \text{the number of pairs }\left(  x,y\right)  \in\mathbb{Z}%
-^{2}\text{ such that }n=x^{2}+y^{2}\right)  \\
+^{2}\text{ such that }n=x^{2}+y^{2}\right) \\
 &  =4\cdot\underbrace{\prod_{\substack{p\text{ prime;}\\p\equiv
 1\operatorname{mod}4}}\left(  v_{p}\left(  n\right)  +1\right)  }%
 _{\substack{=v_{5}\left(  n\right)  +1\\=1+1=2}}=4\cdot2=8.
@@ -19134,14 +19140,15 @@ But note that $\rho\sim\overline{\rho}$ (indeed, $\overline{\rho}=1-i=\left(
 -i\right)  \underbrace{\left(  1+i\right)  }_{=\rho}=\left(  -i\right)  \rho
 $). Now, (\ref{pf.thm.Z[i].count-xx+yy.b.n=1}) becomes%
 \begin{align}
-n &  =\underbrace{2^{c}}_{\substack{=\rho^{c}\overline{\rho}^{c}\\\text{(since
-}2=\rho\overline{\rho}\text{)}}}\cdot\left(  \prod_{h=1}^{k}\underbrace{p_{h}%
-^{a_{h}}}_{\substack{=\pi_{h}^{a_{h}}\overline{\pi_{h}}^{a_{h}}\\\text{(since
-}p_{h}=\pi_{h}\overline{\pi_{h}}\text{)}}}\right)  \cdot q_{1}^{b_{1}}%
-q_{2}^{b_{2}}\cdots q_{\ell}^{b_{\ell}}\nonumber\\
+n  &  =\underbrace{2^{c}}_{\substack{=\rho^{c}\overline{\rho}^{c}%
+\\\text{(since }2=\rho\overline{\rho}\text{)}}}\cdot\left(  \prod_{h=1}%
+^{k}\underbrace{p_{h}^{a_{h}}}_{\substack{=\pi_{h}^{a_{h}}\overline{\pi_{h}%
+}^{a_{h}}\\\text{(since }p_{h}=\pi_{h}\overline{\pi_{h}}\text{)}}}\right)
+\cdot q_{1}^{b_{1}}q_{2}^{b_{2}}\cdots q_{\ell}^{b_{\ell}}\nonumber\\
 &  =\rho^{c}\overline{\rho}^{c}\cdot\left(  \prod_{h=1}^{k}\left(  \pi
 _{h}^{a_{h}}\overline{\pi_{h}}^{a_{h}}\right)  \right)  \cdot q_{1}^{b_{1}%
-}q_{2}^{b_{2}}\cdots q_{\ell}^{b_{\ell}},\label{pf.thm.Z[i].count-xx+yy.b.n=2}%
+}q_{2}^{b_{2}}\cdots q_{\ell}^{b_{\ell}},
+\label{pf.thm.Z[i].count-xx+yy.b.n=2}%
 \end{align}
 and this is a decomposition of $n$ as a product of powers of Gaussian primes
 (albeit $\rho$ and $\overline{\rho}$ are unit-equivalent).
@@ -19427,8 +19434,9 @@ is \textquotedblleft when $p=2$ or $p=5$ or $p\equiv1,9\operatorname{mod}%
 \item We can also ask when a prime $p$ can be written as $x^{2}-ny^{2}$. There
 is $\mathbb{Z}\left[  \sqrt{n}\right]  $ for this, which behaves much
 differently, since $\sqrt{n}$ is real. For example, as you saw on HW4, there
-are infinitely many units in $\mathbb{Z}\left[  \sqrt{5}\right]  $; that's
-true for each $\mathbb{Z}\left[  \sqrt{n}\right]  $ with $n>1$.
+are infinitely many units in $\mathbb{Z}\left[  \sqrt{2}\right]  $; that's
+true for each $\mathbb{Z}\left[  \sqrt{n}\right]  $ with $n>1$ and $n$ not
+being a perfect square.
 
 \item When can $n\in\mathbb{N}$ be written as a sum of three squares?
 Legendre's three-squares theorem: iff $n$ is not of the form $n=4^{a}\left(
@@ -23556,22 +23564,23 @@ Theorem \ref{thm.ent.prime.vp-ring} \textbf{(a)} (applied to $a=k!$ and
 $b=\left(  n-k\right)  !$) yields%
 \[
 v_{p}\left(  k!\left(  n-k\right)  !\right)  =v_{p}\left(  k!\right)
-+v_{p}\left(  n-k\right)  !.
++v_{p}\left(  \left(  n-k\right)  !\right)  .
 \]
 Hence,%
 \begin{align*}
 &  v_{p}\left(  n!\right)  -\underbrace{v_{p}\left(  k!\left(  n-k\right)
-!\right)  }_{=v_{p}\left(  k!\right)  +v_{p}\left(  n-k\right)  !}\\
+!\right)  }_{=v_{p}\left(  k!\right)  +v_{p}\left(  \left(  n-k\right)
+!\right)  }\\
 &  =v_{p}\left(  n!\right)  -\left(  v_{p}\left(  k!\right)  +v_{p}\left(
-n-k\right)  !\right) \\
+\left(  n-k\right)  !\right)  \right)  \\
 &  =\underbrace{v_{p}\left(  n!\right)  }_{\substack{=\sum_{i\geq1}%
 n//p^{i}\\\text{(by Exercise \ref{exe.binom.legendre} \textbf{(c)})}%
 }}-\underbrace{v_{p}\left(  k!\right)  }_{\substack{=\sum_{i\geq1}%
 k//p^{i}\\\text{(by Exercise \ref{exe.binom.legendre} \textbf{(c)}%
 ,}\\\text{applied to }k\text{ instead of }n\text{)}}}-\underbrace{v_{p}\left(
-n-k\right)  !}_{\substack{=\sum_{i\geq1}\left(  n-k\right)  //p^{i}\\\text{(by
-Exercise \ref{exe.binom.legendre} \textbf{(c)},}\\\text{applied to }n-k\text{
-instead of }n\text{)}}}\\
+\left(  n-k\right)  !\right)  }_{\substack{=\sum_{i\geq1}\left(  n-k\right)
+//p^{i}\\\text{(by Exercise \ref{exe.binom.legendre} \textbf{(c)}%
+,}\\\text{applied to }n-k\text{ instead of }n\text{)}}}\\
 &  =\sum_{i\geq1}n//p^{i}-\sum_{i\geq1}k//p^{i}-\sum_{i\geq1}\left(
 n-k\right)  //p^{i}=\sum_{i\geq1}\underbrace{\left(  n//p^{i}-k//p^{i}-\left(
 n-k\right)  //p^{i}\right)  }_{\substack{\geq0\\\text{(by
