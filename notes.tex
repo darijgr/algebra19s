@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Tuesday, March 19, 2019 01:11:27}
+%TCIDATA{LastRevised=Tuesday, March 19, 2019 01:46:16}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -10514,6 +10514,15 @@ p-1\right)  .
 
 \end{exercise}
 
+\begin{exercise}
+\label{exe.ent.wilson.-1qr}Let $p$ be an odd prime. Write $p$ in the form
+$p=2k+1$ for some $k\in\mathbb{N}$. Prove that $k!^{2}\equiv-\left(
+-1\right)  ^{k}\operatorname{mod}p$.
+
+[\textbf{Hint:} Each $j\in\mathbb{Z}$ satisfies $j\left(  p-j\right)
+\equiv-j^{2}\operatorname{mod}p$.]
+\end{exercise}
+
 \subsection{The Chinese Remainder Theorem as a bijection}
 
 \subsubsection{The bijection $K_{m,n}$}
@@ -16883,8 +16892,7 @@ c\right)  }\\
 
 \end{proof}
 
-The next proposition is a (partial) analogue of Proposition
-\ref{prop.ent.div.1}:
+The next proposition is a (partial) analogue of Proposition \ref{prop.ent.div.1}:
 
 \begin{proposition}
 \label{prop.Z[i].gauss.div.1}Let $\alpha$ and $\beta$ be two Gaussian integers.
@@ -18273,15 +18281,6 @@ prime with what it means for $\overline{\pi}$ to be a Gaussian prime, then you
 will see that it means the same thing.
 \end{proof}
 
-Finally, we need an elementary fact (HW4 Exercise 6, \textquotedblleft Wilson
-strikes again\textquotedblright):
-
-\begin{exercise}
-\label{exe.ent.wilson-k!sq}Let $p$ be an odd prime. Write $p$ in the form
-$p=2k+1$ for some $k\in\mathbb{N}$. Prove that $k!^{2}\equiv-\left(
--1\right)  ^{k}\operatorname{mod}p$.
-\end{exercise}
-
 Now, we can prove Theorem \ref{thm.Z[i].gauss.prime.1mod4} quite easily:
 
 \begin{proof}
@@ -18292,7 +18291,7 @@ Example \ref{exa.Z[i].gauss.2notprime}). Hence, $p\neq2$. Thus, $p\equiv
 1\operatorname{mod}4$). Therefore, $p=2k+1$ for some \textbf{even}
 $k\in\mathbb{N}$. Consider this $k$.
 
-Exercise \ref{exe.ent.wilson-k!sq} yields $k!^{2}\equiv-\underbrace{\left(
+Exercise \ref{exe.ent.wilson.-1qr} yields $k!^{2}\equiv-\underbrace{\left(
 -1\right)  ^{k}}_{\substack{=1\\\text{(since }k\text{ is even)}}%
 }=-1\operatorname{mod}p$. Set $u=k!$; thus, this becomes $u^{2}\equiv
 -1\operatorname{mod}p$. In other words,
@@ -19048,25 +19047,6 @@ and
 _{\pi\in\operatorname*{GP}}\left(  v_{\pi}\left(  \alpha\right)  +1\right)  .
 \]
 
-
-Prove the formula \cite[\S 8.3, Corollary 19]{Dummit-Foote} which says: If $n$
-is a positive integer, then%
-\begin{align*}
-&  \left(  \text{the number of pairs }\left(  x,y\right)  \in\mathbb{Z}%
-^{2}\text{ such that }n=x^{2}+y^{2}\right) \\
-&  =\left(  \text{the number of }\delta\in\mathbb{Z}\left[  i\right]  \text{
-such that }n=\delta\overline{\delta}\right) \\
-&  =%
-\begin{cases}
-4\prod_{\substack{p\text{ prime;}\\p\equiv1\operatorname{mod}4}}\left(
-v_{p}\left(  n\right)  +1\right)  , & \text{if all primes }p\equiv
-3\operatorname{mod}4\text{ satisfy }v_{p}\left(  n\right)  \equiv
-0\operatorname{mod}2;\\
-0, & \text{if some prime }p\equiv3\operatorname{mod}4\text{ satisfies }%
-v_{p}\left(  n\right)  \equiv1\operatorname{mod}2.
-\end{cases}
-\end{align*}
-
 \end{noncompile}
 
 Now, we can finally answer Question \ref{quest.intro.sum-of-2sq.2}
@@ -19090,19 +19070,41 @@ number $v_{p}\left(  n\right)  $ is even. Then,%
 
 \end{theorem}
 
+\begin{noncompile}
+In other words: If $n$ is a positive integer, then%
+\begin{align*}
+&  \left(  \text{the number of pairs }\left(  x,y\right)  \in\mathbb{Z}%
+^{2}\text{ such that }n=x^{2}+y^{2}\right) \\
+&  =\left(  \text{the number of }\delta\in\mathbb{Z}\left[  i\right]  \text{
+such that }n=\delta\overline{\delta}\right) \\
+&  =%
+\begin{cases}
+4\prod_{\substack{p\text{ prime;}\\p\equiv1\operatorname{mod}4}}\left(
+v_{p}\left(  n\right)  +1\right)  , & \text{if all primes }p\equiv
+3\operatorname{mod}4\text{ satisfy }v_{p}\left(  n\right)  \equiv
+0\operatorname{mod}2;\\
+0, & \text{if some prime }p\equiv3\operatorname{mod}4\text{ satisfies }%
+v_{p}\left(  n\right)  \equiv1\operatorname{mod}2.
+\end{cases}
+\end{align*}
+
+\end{noncompile}
+
 \begin{center}
 \textbf{2019-03-15 lecture}
 \end{center}
 
 \begin{example}
-\textbf{(a)} Let $n=35$. Then, there are \textbf{no} integers $x$ and $y$ such
-that $n=x^{2}+y^{2}$. In fact, the prime $7\equiv3\operatorname{mod}4$
-satisfies $v_{7}\left(  n\right)  =1$.
+\textbf{(a)} Let $n=35$. Then, Theorem \ref{thm.Z[i].count-xx+yy} \textbf{(a)}
+yields that there are \textbf{no} integers $x$ and $y$ such that
+$n=x^{2}+y^{2}$. In fact, the prime $7\equiv3\operatorname{mod}4$ satisfies
+$v_{7}\left(  n\right)  =1$.
 
 \textbf{(b)} Let $n=45$. Then, for each prime $p\equiv3\operatorname{mod}4$,
 the number $v_{p}\left(  n\right)  $ is even. Indeed, $n=45=3^{2}\cdot5$, so
 $v_{3}\left(  n\right)  =2$ is even and $v_{p}\left(  n\right)  =0$ for all
-other primes $p$ of Type 3. Hence, part \textbf{(b)} of the Theorem yields%
+other primes $p$ of Type 3. Hence, Theorem \ref{thm.Z[i].count-xx+yy}
+\textbf{(b)} yields%
 \begin{align*}
 &  \left(  \text{the number of pairs }\left(  x,y\right)  \in\mathbb{Z}%
 ^{2}\text{ such that }n=x^{2}+y^{2}\right) \\
@@ -19235,16 +19237,19 @@ We claim that this map $F$ is a bijection.
 reconstruct $\left(  \gamma,\left(  d_{1},d_{2},\ldots,d_{k}\right)  \right)
 \in\left\{  1,i,-1,-i\right\}  \times\prod_{h=1}^{k}\left\{  0,1,\ldots
 ,a_{h}\right\}  $ from
-\[
-\alpha:=\gamma\cdot\rho^{c}\cdot\left(  \prod_{h=1}^{k}\pi_{h}^{d_{h}%
-}\overline{\pi_{h}}^{a_{h}-d_{h}}\right)  \cdot q_{1}^{b_{1}/2}q_{2}^{b_{2}%
+\begin{align*}
+\alpha:  &  =F\left(  \left(  \gamma,\left(  d_{1},d_{2},\ldots,d_{k}\right)
+\right)  \right) \\
+&  =\gamma\cdot\rho^{c}\cdot\left(  \prod_{h=1}^{k}\pi_{h}^{d_{h}}%
+\overline{\pi_{h}}^{a_{h}-d_{h}}\right)  \cdot q_{1}^{b_{1}/2}q_{2}^{b_{2}%
 /2}\cdots q_{\ell}^{b_{\ell}/2}.
-\]
+\end{align*}
 
 
-Well: $d_{h}=v_{\pi_{h}}\left(  \alpha\right)  $, so you get $\left(
-d_{1},d_{2},\ldots,d_{k}\right)  $ reconstructed. Once you have that, you can
-reconstruct $\gamma$ by%
+But this is easy: You first reconstruct the $k$-tuple $\left(  d_{1}%
+,d_{2},\ldots,d_{k}\right)  $ by observing that $d_{h}=v_{\pi_{h}}\left(
+\alpha\right)  $ for each $h$. Once you have that, you can reconstruct
+$\gamma$ by%
 \[
 \gamma=\dfrac{\alpha}{\rho^{c}\cdot\left(  \prod_{h=1}^{k}\pi_{h}^{d_{h}%
 }\overline{\pi_{h}}^{a_{h}-d_{h}}\right)  \cdot q_{1}^{b_{1}/2}q_{2}^{b_{2}%
@@ -19282,15 +19287,16 @@ for some $c^{\prime},d_{h}^{\prime},e_{h}^{\prime},b_{j}^{\prime}\in
 }^{b_{\ell}^{\prime}}}\\
 &  =\underbrace{\gamma\overline{\gamma}}_{\substack{=\operatorname*{N}\left(
 \gamma\right)  =1\\\text{(since }\gamma\text{ is a unit)}}}\cdot
-\underbrace{\rho^{c^{\prime}}\overline{\rho}^{c^{\prime}}}_{=\left(
-\rho\overline{\rho}\right)  ^{c^{\prime}}=2^{c^{\prime}}}\cdot\left(
-\prod_{h=1}^{k}\pi_{h}^{d_{h}^{\prime}}\overline{\pi_{h}}^{e_{h}^{\prime}%
-}\overline{\pi_{h}^{d_{h}^{\prime}}\overline{\pi_{h}}^{e_{h}^{\prime}}%
-}\right)  \cdot q_{1}^{b_{1}^{\prime}}q_{2}^{b_{2}^{\prime}}\cdots q_{\ell
-}^{b_{\ell}^{\prime}}\cdot\underbrace{\overline{q_{1}^{b_{1}^{\prime}}%
-q_{2}^{b_{2}^{\prime}}\cdots q_{\ell}^{b_{\ell}^{\prime}}}}_{\substack{=q_{1}%
-^{b_{1}^{\prime}}q_{2}^{b_{2}^{\prime}}\cdots q_{\ell}^{b_{\ell}^{\prime}%
-}\\\text{(since }q_{1},q_{2},\ldots,q_{\ell}\\\text{are reals)}}}\\
+\underbrace{\rho^{c^{\prime}}\overline{\rho}^{c^{\prime}}}_{\substack{=\left(
+\rho\overline{\rho}\right)  ^{c^{\prime}}=2^{c^{\prime}}\\\text{(since }%
+\rho\overline{\rho}=2\text{)}}}\cdot\left(  \prod_{h=1}^{k}\pi_{h}%
+^{d_{h}^{\prime}}\overline{\pi_{h}}^{e_{h}^{\prime}}\overline{\pi_{h}%
+^{d_{h}^{\prime}}\overline{\pi_{h}}^{e_{h}^{\prime}}}\right)  \cdot
+q_{1}^{b_{1}^{\prime}}q_{2}^{b_{2}^{\prime}}\cdots q_{\ell}^{b_{\ell}^{\prime
+}}\cdot\underbrace{\overline{q_{1}^{b_{1}^{\prime}}q_{2}^{b_{2}^{\prime}%
+}\cdots q_{\ell}^{b_{\ell}^{\prime}}}}_{\substack{=q_{1}^{b_{1}^{\prime}}%
+q_{2}^{b_{2}^{\prime}}\cdots q_{\ell}^{b_{\ell}^{\prime}}\\\text{(since }%
+q_{1},q_{2},\ldots,q_{\ell}\\\text{are reals)}}}\\
 &  =2^{c^{\prime}}\cdot\left(  \prod_{h=1}^{k}\underbrace{\pi_{h}%
 ^{d_{h}^{\prime}}\overline{\pi_{h}}^{e_{h}^{\prime}}\overline{\pi_{h}%
 ^{d_{h}^{\prime}}\overline{\pi_{h}}^{e_{h}^{\prime}}}}_{=\left(  \pi
@@ -23231,15 +23237,16 @@ contradiction shows that our assumption was wrong, qed.}. Hence,%
 i\in\left\{  1,2,\ldots,n\right\}  \ \mid\ i\perp n\right\}  $. Thus, $j$ is
 an element $i$ of $\left\{  1,2,\ldots,n\right\}  $ satisfying $i\perp n$. In
 other words, $j$ is an element of $\left\{  1,2,\ldots,n\right\}  $ and
-satisfies $j\perp n$. If we had $j=n$, then we would have $n=j\perp n$, which
-would contradict the fact that we do not have $n\perp n$. Thus, we cannot have
-$j=n$. In other words, we have $j\neq n$. Combining $j\in\left\{
-1,2,\ldots,n\right\}  $ with $j\neq n$, we obtain $j\in\left\{  1,2,\ldots
-,n\right\}  \setminus\left\{  n\right\}  =\left\{  1,2,\ldots,n-1\right\}  $.
-Hence, $j$ is an element of $\left\{  1,2,\ldots,n-1\right\}  $ and satisfies
-$j\perp n$. In other words, $j$ is an element $i$ of $\left\{  1,2,\ldots
-,n-1\right\}  $ satisfying $i\perp n$. In other words, $j\in\left\{
-i\in\left\{  1,2,\ldots,n-1\right\}  \ \mid\ i\perp n\right\}  $.
+satisfies $j\perp n$. We have $j\perp n$. If we had $j=n$, then this would
+rewrite as $n\perp n$, which would contradict the fact that we do not have
+$n\perp n$. Thus, we cannot have $j=n$. In other words, we have $j\neq n$.
+Combining $j\in\left\{  1,2,\ldots,n\right\}  $ with $j\neq n$, we obtain
+$j\in\left\{  1,2,\ldots,n\right\}  \setminus\left\{  n\right\}  =\left\{
+1,2,\ldots,n-1\right\}  $. Hence, $j$ is an element of $\left\{
+1,2,\ldots,n-1\right\}  $ and satisfies $j\perp n$. In other words, $j$ is an
+element $i$ of $\left\{  1,2,\ldots,n-1\right\}  $ satisfying $i\perp n$. In
+other words, $j\in\left\{  i\in\left\{  1,2,\ldots,n-1\right\}  \ \mid\ i\perp
+n\right\}  $.
 \par
 Now, forget that we fixed $j$. We thus have proven that $j\in\left\{
 i\in\left\{  1,2,\ldots,n-1\right\}  \ \mid\ i\perp n\right\}  $ for each
@@ -23276,7 +23283,7 @@ On the other hand, for each $k\in\mathbb{Z}$, we have the logical equivalence%
 (because Exercise \ref{exe.ent.coprime.b-a} (applied to $a=k$ and $b=n$) shows
 that $n-k\perp n$ holds if and only if $k\perp n$). Now,
 \begin{align*}
-2\cdot\sum_{\substack{i\in\left\{  1,2,\ldots,n\right\}  ;\\i\perp n}}i &
+2\cdot\sum_{\substack{i\in\left\{  1,2,\ldots,n\right\}  ;\\i\perp n}}i  &
 =2\cdot\underbrace{\sum_{\substack{k\in\left\{  1,2,\ldots,n\right\}
 ;\\k\perp n}}}_{\substack{=\sum_{k\in\left\{  i\in\left\{  1,2,\ldots
 ,n\right\}  \ \mid\ i\perp n\right\}  }\\=\sum_{k\in\left\{  i\in\left\{
@@ -23287,19 +23294,20 @@ that $n-k\perp n$ holds if and only if $k\perp n$). Now,
 \text{here, we have renamed the}\\
 \text{summation index }i\text{ as }k
 \end{array}
-\right)  \\
+\right) \\
 &  =2\cdot\underbrace{\sum_{k\in\left\{  i\in\left\{  1,2,\ldots,n-1\right\}
 \ \mid\ i\perp n\right\}  }}_{=\sum_{\substack{k\in\left\{  1,2,\ldots
-,n-1\right\}  ;\\k\perp n}}}k=\sum_{\substack{k\in\left\{  1,2,\ldots
-,n-1\right\}  ;\\k\perp n}}k+\sum_{\substack{k\in\left\{  1,2,\ldots
-,n-1\right\}  ;\\k\perp n}}k\\
+,n-1\right\}  ;\\k\perp n}}}k=2\cdot\sum_{\substack{k\in\left\{
+1,2,\ldots,n-1\right\}  ;\\k\perp n}}\\
+&  =\sum_{\substack{k\in\left\{  1,2,\ldots,n-1\right\}  ;\\k\perp n}%
+}k+\sum_{\substack{k\in\left\{  1,2,\ldots,n-1\right\}  ;\\k\perp n}}k\\
 &  =\sum_{\substack{k\in\left\{  1,2,\ldots,n-1\right\}  ;\\k\perp
 n}}k+\underbrace{\sum_{\substack{k\in\left\{  1,2,\ldots,n-1\right\}
 ;\\n-k\perp n}}}_{\substack{=\sum_{\substack{k\in\left\{  1,2,\ldots
 ,n-1\right\}  ;\\k\perp n}}\\\text{(by the equivalence
-(\ref{sol.ent.phi.gauss.2}))}}}\left(  n-k\right)  \\
+(\ref{sol.ent.phi.gauss.2}))}}}\left(  n-k\right) \\
 &  \ \ \ \ \ \ \ \ \ \ \left(  \text{here, we have substituted }n-k\text{ for
-}k\text{ in the second sum}\right)  \\
+}k\text{ in the second sum}\right) \\
 &  =\sum_{\substack{k\in\left\{  1,2,\ldots,n-1\right\}  ;\\k\perp n}%
 }k+\sum_{\substack{k\in\left\{  1,2,\ldots,n-1\right\}  ;\\k\perp n}}\left(
 n-k\right)  =\sum_{\substack{k\in\left\{  1,2,\ldots,n-1\right\}  ;\\k\perp
@@ -23312,7 +23320,7 @@ n}}n\ \ \ \ \ \ \ \ \ \ \left(
 \text{here, we have renamed the}\\
 \text{summation index }k\text{ as }i
 \end{array}
-\right)  \\
+\right) \\
 &  =\underbrace{\left\vert \left\{  i\in\left\{  1,2,\ldots,n-1\right\}
 \ \mid\ i\perp n\right\}  \right\vert }_{\substack{=\phi\left(  n\right)
 \\\text{(by (\ref{sol.ent.phi.gauss.phin=}))}}}\cdot n=\phi\left(  n\right)
@@ -23434,6 +23442,93 @@ p-1\right)  !-\left(  p-1\right)
 (by (\ref{sol.ent.wilson.gauss.at})). In other words, $\left(  p-1\right)
 !\equiv p-1\operatorname{mod}1+2+\cdots+\left(  p-1\right)  $. This solves
 Exercise \ref{exe.ent.wilson.gauss}.
+\end{proof}
+\end{fineprint}
+
+\subsection{Solution to Exercise \ref{exe.ent.wilson.-1qr}}
+
+\begin{fineprint}
+\begin{proof}
+[Solution to Exercise \ref{exe.ent.wilson.-1qr}.]From $p=2k+1$, we obtain
+$p-1=2k$. But Theorem \ref{thm.ent.wilson} yields $\left(  p-1\right)
+!\equiv-1\operatorname{mod}p$. In view of $p-1=2k$, this rewrites as $\left(
+2k\right)  !\equiv-1\operatorname{mod}p$.
+
+But the definition of $\left(  2k\right)  !$ yields%
+\begin{equation}
+\left(  2k\right)  !=1\cdot2\cdot\cdots\cdot\left(  2k\right)  =\prod
+_{j=1}^{2k}j=\left(  \prod_{j=1}^{k}j\right)  \cdot\left(  \prod_{j=k+1}%
+^{2k}j\right)  \label{sol.ent.wilson.-1qr.1}%
+\end{equation}
+(here, we have split the product at $j=k$, because $0\leq k\leq2k$). But
+$\prod_{j=1}^{k}j=1\cdot2\cdot\cdots\cdot k=k!$ (by the definition of $k!$).
+Furthermore
+\begin{align*}
+\prod_{j=k+1}^{2k}j  &  =\prod_{j=p-2k}^{p-\left(  k+1\right)  }\left(
+p-j\right)  \ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{here, we have substituted }p-j\\
+\text{for }j\text{ in the product}%
+\end{array}
+\right) \\
+&  =\prod_{j=1}^{k}\underbrace{\left(  p-j\right)  }_{\equiv
+-j\operatorname{mod}p}\ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{since }\underbrace{p}_{=2k+1}-2k=\left(  2k+1\right)  -2k=1\\
+\text{and }\underbrace{p}_{=2k+1}-\left(  k+1\right)  =\left(  2k+1\right)
+-\left(  k+1\right)  =k
+\end{array}
+\right) \\
+&  \equiv\prod_{j=1}^{k}\left(  -j\right)  \operatorname{mod}p.
+\end{align*}
+(Here, the last congruence sign is a consequence of
+(\ref{eq.exe.ent.mod.k-sum.b})\footnote{In more detail: We have $p-s\equiv
+-s\operatorname{mod}p$ for each $s\in\left\{  1,2,\ldots,k\right\}  $. Hence,
+(\ref{eq.exe.ent.mod.k-sum.b}) (applied to $n=p$, $S=\left\{  1,2,\ldots
+,k\right\}  $, $a_{s}=p-s$ and $b_{s}=-s$) yields $\prod_{s\in\left\{
+1,2,\ldots,k\right\}  }\left(  p-s\right)  \equiv\prod_{s\in\left\{
+1,2,\ldots,k\right\}  }\left(  -s\right)  \operatorname{mod}p$. If we rename
+the summation index $s$ as $j$ on both sides of this congruence, then we
+obtain $\prod_{j\in\left\{  1,2,\ldots,k\right\}  }\left(  p-j\right)
+\equiv\prod_{j\in\left\{  1,2,\ldots,k\right\}  }\left(  -j\right)
+\operatorname{mod}p$. This rewrites as $\prod_{j=1}^{k}\left(  p-j\right)
+\equiv\prod_{j=1}^{k}\left(  -j\right)  \operatorname{mod}p$ (since the
+product sign $\prod_{j\in\left\{  1,2,\ldots,k\right\}  }$ is equivalent to
+the product sign $\prod_{j=1}^{k}$).}.) Thus,%
+\[
+\prod_{j=k+1}^{2k}j\equiv\prod_{j=1}^{k}\left(  -j\right)  =\left(  -1\right)
+^{k}\underbrace{\prod_{j=1}^{k}j}_{=k!}=\left(  -1\right)  ^{k}\cdot
+k!\operatorname{mod}p.
+\]
+Hence, (\ref{sol.ent.wilson.-1qr.1}) becomes%
+\[
+\left(  2k\right)  !=\underbrace{\left(  \prod_{j=1}^{k}j\right)  }_{=k!}%
+\cdot\underbrace{\left(  \prod_{j=k+1}^{2k}j\right)  }_{\equiv\left(
+-1\right)  ^{k}\cdot k!\operatorname{mod}p}\equiv k!\cdot\left(  -1\right)
+^{k}\cdot k!=k!^{2}\cdot\left(  -1\right)  ^{k}\operatorname{mod}p.
+\]
+Therefore,%
+\[
+k!^{2}\cdot\left(  -1\right)  ^{k}\equiv\left(  2k\right)  !\equiv
+-1\operatorname{mod}p.
+\]
+Multiplying this congruence by the obvious congruence $\left(  -1\right)
+^{k}\equiv\left(  -1\right)  ^{k}\operatorname{mod}p$, we find%
+\[
+k!^{2}\cdot\left(  -1\right)  ^{k}\cdot\left(  -1\right)  ^{k}\equiv\left(
+-1\right)  \cdot\left(  -1\right)  ^{k}=-\left(  -1\right)  ^{k}%
+\operatorname{mod}p.
+\]
+In view of%
+\[
+k!^{2}\cdot\underbrace{\left(  -1\right)  ^{k}\cdot\left(  -1\right)  ^{k}%
+}_{\substack{=\left(  -1\right)  ^{k+k}=1\\\text{(since }k+k=2k\text{ is
+even)}}}=k!^{2},
+\]
+this rewrites as $k!^{2}\equiv-\left(  -1\right)  ^{k}\operatorname{mod}p$.
+This solves Exercise \ref{exe.ent.wilson.-1qr}.
 \end{proof}
 \end{fineprint}
 
