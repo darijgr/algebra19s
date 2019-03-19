@@ -7775,6 +7775,24 @@ details to the reader, who has seen this sort of proof several times already.
 that $v_{p}\left(  \left\vert n\right\vert \right)  =v_{p}\left(  n\right)  $.
 \end{exercise}
 
+\begin{exercise}
+\label{exe.ent.prime.vp-pow}Let $p$ be a prime. Let $a\in\mathbb{Z}$ and
+$k\in\mathbb{N}$. Prove that $v_{p}\left(  a^{k}\right)  =kv_{p}\left(
+a\right)  $.
+\end{exercise}
+
+\begin{exercise}
+\label{exe.ent.prime.p1a1puau}Let $p_{1},p_{2},\ldots,p_{u}$ be finitely many
+distinct primes. Let $a_{1},a_{2},\ldots,a_{u}$ be nonnegative integers.
+
+\textbf{(a)} Prove that $v_{p_{i}}\left(  p_{1}^{a_{1}}p_{2}^{a_{2}}\cdots
+p_{u}^{a_{u}}\right)  =a_{i}$ for each $i\in\left\{  1,2,\ldots,u\right\}  $.
+
+\textbf{(b)} Prove that $v_{p}\left(  p_{1}^{a_{1}}p_{2}^{a_{2}}\cdots
+p_{u}^{a_{u}}\right)  =0$ for each prime $p$ satisfying $p\notin\left\{
+p_{1},p_{2},\ldots,p_{u}\right\}  $.
+\end{exercise}
+
 \subsubsection{Prime factorization II}
 
 \begin{proposition}
@@ -22131,6 +22149,145 @@ _{i=0}^{k-1}p^{i}1^{k-i}}\\
 _{=1}=\sum_{i=0}^{k-1}1=k.
 \end{align*}
 Hence, $p^{k}\geq k+1>k$. This solves Exercise \ref{exe.ent.prime.vp-lem}.
+\end{proof}
+\end{fineprint}
+
+\subsection{Solution to Exercise \ref{exe.ent.prime.vp-pow}}
+
+\begin{fineprint}
+\begin{proof}
+[Solution to Exercise \ref{exe.ent.prime.vp-pow}.]Corollary
+\ref{cor.ent.prime.vp-ringk} (applied to $a_{i}=a$) yields%
+\[
+v_{p}\left(  \underbrace{aa\cdots a}_{k\text{ times}}\right)
+=\underbrace{v_{p}\left(  a\right)  +v_{p}\left(  a\right)  +\cdots
++v_{p}\left(  a\right)  }_{k\text{ times}}=kv_{p}\left(  a\right)  .
+\]
+In view of $\underbrace{aa\cdots a}_{k\text{ times}}=a^{k}$, this rewrites as
+$v_{p}\left(  a^{k}\right)  =kv_{p}\left(  a\right)  $. This solves Exercise
+\ref{exe.ent.prime.vp-pow}.
+\end{proof}
+\end{fineprint}
+
+\subsection{Solution to Exercise \ref{exe.ent.prime.p1a1puau}}
+
+\begin{fineprint}
+\begin{proof}
+[Solution to Exercise \ref{exe.ent.prime.p1a1puau}.]For each $i\in\left\{
+1,2,\ldots,u\right\}  $, the number $p_{i}^{a_{i}}$ is a well-defined positive
+integer (since $p_{i}$ is a prime, and since $a_{i}$ is a nonnegative
+integer). Thus, $p_{1}^{a_{1}}p_{2}^{a_{2}}\cdots p_{u}^{a_{u}}$ is a product
+of positive integers, and therefore itself a positive integer.
+
+Now, let $p$ be a prime. Note that $p_{1}^{a_{1}},p_{2}^{a_{2}},\ldots
+,p_{u}^{a_{u}}$ are $u$ integers. Hence, Corollary
+\ref{cor.ent.prime.vp-ringk} (applied to $u$ and $p_{j}^{a_{j}}$ instead of
+$k$ and $a_{j}$) yields%
+\begin{align}
+v_{p}\left(  p_{1}^{a_{1}}p_{2}^{a_{2}}\cdots p_{u}^{a_{u}}\right)   &
+=v_{p}\left(  p_{1}^{a_{1}}\right)  +v_{p}\left(  p_{2}^{a_{2}}\right)
++\cdots+v_{p}\left(  p_{u}^{a_{u}}\right) \nonumber\\
+&  =\sum_{j=1}^{u}\underbrace{v_{p}\left(  p_{j}^{a_{j}}\right)
+}_{\substack{=a_{j}v_{p}\left(  p_{j}\right)  \\\text{(by Exercise
+\ref{exe.ent.prime.vp-pow},}\\\text{applied to }a=p_{j}\text{ and }%
+k=a_{j}\text{)}}}=\underbrace{\sum_{j=1}^{u}}_{=\sum_{j\in\left\{
+1,2,\ldots,u\right\}  }}a_{j}\underbrace{v_{p}\left(  p_{j}\right)
+}_{\substack{=%
+\begin{cases}
+1, & \text{if }p_{j}=p;\\
+0, & \text{if }p_{j}\neq p
+\end{cases}
+\\\text{(by Theorem \ref{thm.ent.prime.vp-ring} \textbf{(d)},}\\\text{applied
+to }q=p_{j}\text{)}}}\nonumber\\
+&  =\sum_{j\in\left\{  1,2,\ldots,u\right\}  }a_{j}%
+\begin{cases}
+1, & \text{if }p_{j}=p;\\
+0, & \text{if }p_{j}\neq p
+\end{cases}
+. \label{sol.ent.prime.p1a1puau.1}%
+\end{align}
+
+
+Now, forget that we fixed $p$. We thus have proven the equality
+(\ref{sol.ent.prime.p1a1puau.1}) for each prime $p$.
+
+\textbf{(a)} Let $i\in\left\{  1,2,\ldots,u\right\}  $. Then, $p_{i}$ is a
+prime. Hence, (\ref{sol.ent.prime.p1a1puau.1}) (applied to $p=p_{i}$) yields%
+\begin{align}
+v_{p}\left(  p_{1}^{a_{1}}p_{2}^{a_{2}}\cdots p_{u}^{a_{u}}\right)   &
+=\sum_{j\in\left\{  1,2,\ldots,u\right\}  }a_{j}%
+\begin{cases}
+1, & \text{if }p_{j}=p_{i};\\
+0, & \text{if }p_{j}\neq p_{i}%
+\end{cases}
+\nonumber\\
+&  =a_{i}%
+\begin{cases}
+1, & \text{if }p_{i}=p;\\
+0, & \text{if }p_{i}\neq p
+\end{cases}
++\sum_{\substack{j\in\left\{  1,2,\ldots,u\right\}  ;\\j\neq i}}a_{j}%
+\begin{cases}
+1, & \text{if }p_{j}=p_{i};\\
+0, & \text{if }p_{j}\neq p_{i}%
+\end{cases}
+\label{sol.ent.prime.p1a1puau.a.1}%
+\end{align}
+(here, we have split off the addend for $j=i$ from the sum). But if
+$j\in\left\{  1,2,\ldots,u\right\}  $ satisfies $j\neq i$, then it must
+satisfy $p_{j}\neq p_{i}$ (since the primes $p_{1},p_{2},\ldots,p_{u}$ are
+distinct) and therefore%
+\begin{equation}%
+\begin{cases}
+1, & \text{if }p_{j}=p_{i};\\
+0, & \text{if }p_{j}\neq p_{i}%
+\end{cases}
+=0. \label{sol.ent.prime.p1a1puau.a.2}%
+\end{equation}
+Hence, (\ref{sol.ent.prime.p1a1puau.a.1}) becomes%
+\begin{align*}
+&  v_{p}\left(  p_{1}^{a_{1}}p_{2}^{a_{2}}\cdots p_{u}^{a_{u}}\right) \\
+&  =a_{i}\underbrace{%
+\begin{cases}
+1, & \text{if }p_{i}=p;\\
+0, & \text{if }p_{i}\neq p
+\end{cases}
+}_{\substack{=1\\\text{(since }p_{i}=p\text{)}}}+\sum_{\substack{j\in\left\{
+1,2,\ldots,u\right\}  ;\\j\neq i}}a_{j}\underbrace{%
+\begin{cases}
+1, & \text{if }p_{j}=p_{i};\\
+0, & \text{if }p_{j}\neq p_{i}%
+\end{cases}
+}_{\substack{=0\\\text{(by (\ref{sol.ent.prime.p1a1puau.a.2}))}}}\\
+&  =a_{i}1+\underbrace{\sum_{\substack{j\in\left\{  1,2,\ldots,u\right\}
+;\\j\neq i}}a_{j}0}_{=0}=a_{i}1=a_{i}.
+\end{align*}
+This solves Exercise \ref{exe.ent.prime.p1a1puau} \textbf{(a)}.
+
+\textbf{(b)} Let $p$ be a prime satisfying $p\notin\left\{  p_{1},p_{2}%
+,\ldots,p_{u}\right\}  $. Then, for each $j\in\left\{  1,2,\ldots,u\right\}
+$, we have $p_{j}\neq p$ (since otherwise, we would have $p_{j}=p$ and
+therefore $p=p_{j}\in\left\{  p_{1},p_{2},\ldots,p_{u}\right\}  $, which would
+contradict $p\notin\left\{  p_{1},p_{2},\ldots,p_{u}\right\}  $) and therefore%
+\begin{equation}%
+\begin{cases}
+1, & \text{if }p_{j}=p;\\
+0, & \text{if }p_{j}\neq p
+\end{cases}
+=0. \label{sol.ent.prime.p1a1puau.b.2}%
+\end{equation}
+Hence, (\ref{sol.ent.prime.p1a1puau.1}) becomes%
+\[
+v_{p}\left(  p_{1}^{a_{1}}p_{2}^{a_{2}}\cdots p_{u}^{a_{u}}\right)
+=\sum_{j\in\left\{  1,2,\ldots,u\right\}  }a_{j}\underbrace{%
+\begin{cases}
+1, & \text{if }p_{j}=p;\\
+0, & \text{if }p_{j}\neq p
+\end{cases}
+}_{\substack{=0\\\text{(by (\ref{sol.ent.prime.p1a1puau.b.2}))}}}=\sum
+_{j\in\left\{  1,2,\ldots,u\right\}  }a_{j}0=0.
+\]
+This solves Exercise \ref{exe.ent.prime.p1a1puau} \textbf{(b)}.
 \end{proof}
 \end{fineprint}
 
