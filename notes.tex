@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Friday, March 15, 2019 23:29:40}
+%TCIDATA{LastRevised=Tuesday, March 19, 2019 00:38:55}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -909,8 +909,7 @@ to well-known facts like $\alpha+\beta=\beta+\alpha$ and $\alpha+\left(
 \beta+\gamma\right)  =\left(  \alpha+\beta\right)  +\gamma$ for numbers
 $\alpha,\beta,\gamma$ (which is why we are giving them the same names). This
 similarity is not coincidental. Just as for addition or multiplication of
-numbers, these laws lead to a notion of \textquotedblleft
-XOR-products\textquotedblright:
+numbers, these laws lead to a notion of \textquotedblleft XOR-products\textquotedblright:
 
 \begin{proposition}
 \label{prop.intro.xor.prodm}Let $m$ be a positive integer. Let $\mathbf{a}%
@@ -12652,7 +12651,8 @@ which rewrites as $a\underset{f}{\equiv}c$.)
 
 We will soon learn that \textbf{every} equivalence relation on a set $S$ is
 actually of the form $\underset{f}{\equiv}$ for some set $T$ and some map
-$f:S\rightarrow T$. (TODO: Exact reference.)
+$f:S\rightarrow T$. (Namely, this is proven in Exercise
+\ref{exe.eqrel.eqrel.=f} below.)
 
 \begin{example}
 \label{exa.eqrel.eqrel.eqrel-continents}Let $S$ be the set of all points on
@@ -13253,6 +13253,27 @@ $\pi_{\sim}$.
 \textbf{(c)} An element of an equivalence class of $\sim$ is also called a
 \textit{representative} of this class.
 \end{definition}
+
+\begin{exercise}
+\label{exe.eqrel.eqrel.=f}Let $S$ be a set.
+
+Recall that if $T$ is a further set, and if $f:S\rightarrow T$ is a map, then
+an equivalence relation $\underset{f}{\equiv}$ is defined on the set $S$. (See
+Example \ref{exa.eqrel.eqrel.eqrelf} for its definition.)
+
+Now, let $\sim$ be \textbf{any} equivalence relation on $S$. Prove that $\sim$
+has the form $\underset{f}{\equiv}$ for a properly chosen set $T$ and a
+properly chosen $f:S\rightarrow T$.
+
+More precisely, prove that $\sim$ equals $\underset{f}{\equiv}$, where $T$ is
+the quotient set $S/\sim$ and where $f:S\rightarrow T$ is the canonical
+projection $\pi_{\sim}:S\rightarrow S/\sim$.
+
+[\textbf{Hint:} To prove that two relations $R_{1}$ and $R_{2}$ on $S$ are
+equal, you need to check that every pair $\left(  a,b\right)  $ of elements of
+$S$ satisfies the equivalence $\left(  aR_{1}b\right)  \iff\left(
+aR_{2}b\right)  $.]
+\end{exercise}
 
 \subsection{\label{sect.eqrel.Z/n}$\mathbb{Z}/n$ (\textquotedblleft integers
 modulo $n$\textquotedblright)}
@@ -15380,11 +15401,11 @@ S_{m,n}\left(  \left[  s\right]  _{mn}\right)   &  =\left(  \underbrace{\pi
 _{mn,m}\left(  \left[  s\right]  _{mn}\right)  }_{\substack{=\left[  s\right]
 _{m}\\\text{(by the definition of }\pi_{mn,m}\text{)}}},\underbrace{\pi
 _{mn,n}\left(  \left[  s\right]  _{mn}\right)  }_{\substack{=\left[  s\right]
-_{n}\\\text{(by the definition of }\pi_{mn,n}\text{)}}}\right)  \nonumber\\
+_{n}\\\text{(by the definition of }\pi_{mn,n}\text{)}}}\right) \nonumber\\
 &  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of }S_{m,n}\right)
 \nonumber\\
-&  =\left(  \left[  s\right]  _{m},\left[  s\right]  _{n}\right)
-.\label{pf.thm.eqrel.CRT2.Ss=}%
+&  =\left(  \left[  s\right]  _{m},\left[  s\right]  _{n}\right)  .
+\label{pf.thm.eqrel.CRT2.Ss=}%
 \end{align}
 In other words, the map $S_{m,n}$ sends each $\left[  s\right]  _{mn}$ (with
 $s\in\mathbb{Z}$) to the pair $\left(  \left[  s\right]  _{m},\left[
@@ -23729,7 +23750,7 @@ Hence,%
 !\right)  }_{=v_{p}\left(  k!\right)  +v_{p}\left(  \left(  n-k\right)
 !\right)  }\\
 &  =v_{p}\left(  n!\right)  -\left(  v_{p}\left(  k!\right)  +v_{p}\left(
-\left(  n-k\right)  !\right)  \right)  \\
+\left(  n-k\right)  !\right)  \right) \\
 &  =\underbrace{v_{p}\left(  n!\right)  }_{\substack{=\sum_{i\geq1}%
 n//p^{i}\\\text{(by Exercise \ref{exe.binom.legendre} \textbf{(c)})}%
 }}-\underbrace{v_{p}\left(  k!\right)  }_{\substack{=\sum_{i\geq1}%
@@ -23946,6 +23967,66 @@ We now know that the relation $\underset{\operatorname*{perm}}{\sim}$ is
 reflexive, symmetric and transitive. In other words,
 $\underset{\operatorname*{perm}}{\sim}$ is an equivalence relation. This
 solves Exercise \ref{exe.eqrel.eqcl.perm.eq}.
+\end{proof}
+\end{fineprint}
+
+\subsection{Solution to Exercise \ref{exe.eqrel.eqrel.=f}}
+
+\begin{fineprint}
+\begin{proof}
+[Solution to Exercise \ref{exe.eqrel.eqrel.=f}.] Let $T$ be the quotient set
+$S/\sim$, and let $f:S\rightarrow T$ be the canonical projection $\pi_{\sim
+}:S\rightarrow S/\sim$. We shall prove that the relation $\sim$ equals the
+relation $\underset{f}{\equiv}$.
+
+Let $a\in S$ and $b\in S$. Recall that $f$ is the map $\pi_{\sim}$. Thus,
+$f=\pi_{\sim}$, so that $f\left(  a\right)  =\pi_{\sim}\left(  a\right)
+=\left[  a\right]  _{\sim}$ (by the definition of $\pi_{\sim}$). The same
+argument (applied to $b$ instead of $a$) yields $f\left(  b\right)  =\left[
+b\right]  _{\sim}$.
+
+Theorem \ref{thm.eqrel.eqcl.disj} \textbf{(e)} (applied to $x=a$ and $y=b$)
+shows that we have $a\sim b$ if and only if $\left[  a\right]  _{\sim}=\left[
+b\right]  _{\sim}$. In other words, we have the logical equivalence%
+\begin{equation}
+\left(  a\sim b\right)  \ \Longleftrightarrow\ \left(  \left[  a\right]
+_{\sim}=\left[  b\right]  _{\sim}\right)  .\label{sol.eqrel.eqrel.=f.2}%
+\end{equation}
+
+
+We have the following chain of logical equivalences:%
+\begin{align}
+\left(  a\underset{f}{\equiv}b\right)  \   & \Longleftrightarrow\ \left(
+\underbrace{f\left(  a\right)  }_{=\left[  a\right]  _{\sim}}%
+=\underbrace{f\left(  b\right)  }_{=\left[  b\right]  _{\sim}}\right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of the relation
+}\underset{f}{\equiv}\right)  \nonumber\\
+& \Longleftrightarrow\ \left(  \left[  a\right]  _{\sim}=\left[  b\right]
+_{\sim}\right)  \ \Longleftrightarrow\ \left(  a\sim b\right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{sol.eqrel.eqrel.=f.2})}\right)
+.\label{sol.eqrel.eqrel.=f.4}%
+\end{align}
+
+
+Now, forget that we fixed $a$ and $b$. We thus have proven the equivalence
+(\ref{sol.eqrel.eqrel.=f.4}) for all $a\in S$ and $b\in S$. Now, recall that
+we have defined a relation on the set $S$ to be a subset of $S\times S$
+(namely, the subset of all pairs $\left(  a,b\right)  \in S\times S$
+satisfying this relation). Hence, the relation $\sim$ is actually the subset%
+\[
+\left\{  \left(  a,b\right)  \in S\times S\ \mid\ a\sim b\right\}
+\]
+of $S\times S$, whereas the relation $\underset{f}{\equiv}$ is actually the
+subset%
+\[
+\left\{  \left(  a,b\right)  \in S\times S\ \mid\ a\underset{f}{\equiv
+}b\right\}
+\]
+of $S\times S$. But these two subsets are clearly identical, because we have
+shown the equivalence (\ref{sol.eqrel.eqrel.=f.4}) for all $a\in S$ and $b\in
+S$. In other words, the two relations $\sim$ and $\underset{f}{\equiv}$ are
+identical. In other words, the relation $\sim$ equals the relation
+$\underset{f}{\equiv}$. This solves Exercise \ref{exe.eqrel.eqrel.=f}.
 \end{proof}
 \end{fineprint}
 
