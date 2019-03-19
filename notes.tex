@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Tuesday, March 19, 2019 00:38:55}
+%TCIDATA{LastRevised=Tuesday, March 19, 2019 01:11:27}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -909,7 +909,8 @@ to well-known facts like $\alpha+\beta=\beta+\alpha$ and $\alpha+\left(
 \beta+\gamma\right)  =\left(  \alpha+\beta\right)  +\gamma$ for numbers
 $\alpha,\beta,\gamma$ (which is why we are giving them the same names). This
 similarity is not coincidental. Just as for addition or multiplication of
-numbers, these laws lead to a notion of \textquotedblleft XOR-products\textquotedblright:
+numbers, these laws lead to a notion of \textquotedblleft
+XOR-products\textquotedblright:
 
 \begin{proposition}
 \label{prop.intro.xor.prodm}Let $m$ be a positive integer. Let $\mathbf{a}%
@@ -5364,6 +5365,11 @@ that $\prod_{i\in I}b_{i}\perp c$.
 b\operatorname{mod}c$. Prove that if $a\perp c$, then $b\perp c$.
 \end{exercise}
 
+\begin{exercise}
+\label{exe.ent.coprime.b-a}Let $a,b\in\mathbb{Z}$. Prove that $b-a\perp b$
+holds if and only if $a\perp b$.
+\end{exercise}
+
 \subsubsection{An application to sums of powers}
 
 Let us show an application of Theorem \ref{thm.ent.coprime.combine}. First, we
@@ -9549,6 +9555,15 @@ This proves Theorem \ref{thm.ent.phi.sum-div}.
 \begin{exercise}
 \label{exe.ent.phi.even}Let $n\in\mathbb{N}$ satisfy $n>2$. Prove that
 $\phi\left(  n\right)  $ is even.
+\end{exercise}
+
+\begin{exercise}
+\label{exe.ent.phi.gauss}Let $n\in\mathbb{N}$ satisfy $n>1$. Prove that
+\[
+\sum_{\substack{i\in\left\{  1,2,\ldots,n\right\}  ;\\i\perp n}}i=n\phi\left(
+n\right)  /2.
+\]
+
 \end{exercise}
 
 \begin{center}
@@ -21221,6 +21236,50 @@ This solves Exercise \ref{exe.ent.coprime.b==c}.
 \end{proof}
 \end{fineprint}
 
+\subsection{Solution to Exercise \ref{exe.ent.coprime.b-a}}
+
+\begin{fineprint}
+\begin{proof}
+[Solution to Exercise \ref{exe.ent.coprime.b-a}.]Proposition
+\ref{prop.ent.gcd.props1} \textbf{(b)} (applied to $b-a$ instead of $a$)
+yields%
+\begin{align*}
+\gcd\left(  b-a,b\right)   &  =\gcd\left(  b,\underbrace{b-a}_{=1b+\left(
+-a\right)  }\right)  =\gcd\left(  b,1b+\left(  -a\right)  \right) \\
+&  =\gcd\left(  b,-a\right)  \ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{by Proposition \ref{prop.ent.gcd.props1} \textbf{(a)},}\\
+\text{applied to }b\text{, }-a\text{ and }1\text{ instead of }a\text{,
+}b\text{ and }u
+\end{array}
+\right) \\
+&  =\gcd\left(  b,a\right)  \ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{by Proposition \ref{prop.ent.gcd.props1} \textbf{(h)},}\\
+\text{applied to }b\text{ and }a\text{ instead of }a\text{ and }b
+\end{array}
+\right) \\
+&  =\gcd\left(  a,b\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition
+\ref{prop.ent.gcd.props1} \textbf{(b)}}\right)  .
+\end{align*}
+Now, we have the following chain of logical equivalences:%
+\begin{align*}
+\left(  b-a\perp b\right)  \  &  \Longleftrightarrow\ \left(  \underbrace{\gcd
+\left(  b-a,b\right)  }_{=\gcd\left(  a,b\right)  }=1\right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of \textquotedblleft
+coprime\textquotedblright}\right) \\
+&  \Longleftrightarrow\ \left(  \gcd\left(  a,b\right)  =1\right)
+\ \Longleftrightarrow\ \left(  a\perp b\right)  \ \ \ \ \ \ \ \ \ \ \left(
+\text{by the definition of \textquotedblleft coprime\textquotedblright%
+}\right)  .
+\end{align*}
+In other words, $b-a\perp b$ holds if and only if $a\perp b$. This solves
+Exercise \ref{exe.ent.coprime.b-a}.
+\end{proof}
+\end{fineprint}
+
 \subsection{Solution to Exercise \ref{exe.ent.coprime.1+2+...+n}}
 
 \begin{fineprint}
@@ -23148,6 +23207,132 @@ $\phi\left(  n\right)  $ is even. This solves Exercise \ref{exe.ent.phi.even}.
 \end{proof}
 \end{fineprint}
 
+\subsection{Solution to Exercise \ref{exe.ent.phi.gauss}}
+
+\begin{fineprint}
+Our below solution to Exercise \ref{exe.ent.phi.gauss} imitates the proof of
+Proposition \ref{prop.ent.1+2+...+n}.
+
+\begin{proof}
+[Solution to Exercise \ref{exe.ent.phi.gauss}.]We do not have $n\perp
+n$\ \ \ \ \footnote{\textit{Proof.} Assume the contrary. Thus, $n\perp n$. In
+other words, $\gcd\left(  n,n\right)  =1$. But Proposition
+\ref{prop.ent.gcd.props1} \textbf{(i)} (applied to $a=n$ and $b=n$) yields
+$\gcd\left(  n,n\right)  =\left\vert n\right\vert $ (since $n\mid n$). Hence,
+$\gcd\left(  n,n\right)  =\left\vert n\right\vert =n$ (since $n>1>0$).
+Therefore, $n=\gcd\left(  n,n\right)  =1$. This contradicts $n>1$. This
+contradiction shows that our assumption was wrong, qed.}. Hence,%
+\begin{equation}
+\left\{  i\in\left\{  1,2,\ldots,n\right\}  \ \mid\ i\perp n\right\}
+=\left\{  i\in\left\{  1,2,\ldots,n-1\right\}  \ \mid\ i\perp n\right\}
+\label{sol.ent.phi.gauss.1}%
+\end{equation}
+\footnote{\textit{Proof of (\ref{sol.ent.phi.gauss.1}):} Let $j\in\left\{
+i\in\left\{  1,2,\ldots,n\right\}  \ \mid\ i\perp n\right\}  $. Thus, $j$ is
+an element $i$ of $\left\{  1,2,\ldots,n\right\}  $ satisfying $i\perp n$. In
+other words, $j$ is an element of $\left\{  1,2,\ldots,n\right\}  $ and
+satisfies $j\perp n$. If we had $j=n$, then we would have $n=j\perp n$, which
+would contradict the fact that we do not have $n\perp n$. Thus, we cannot have
+$j=n$. In other words, we have $j\neq n$. Combining $j\in\left\{
+1,2,\ldots,n\right\}  $ with $j\neq n$, we obtain $j\in\left\{  1,2,\ldots
+,n\right\}  \setminus\left\{  n\right\}  =\left\{  1,2,\ldots,n-1\right\}  $.
+Hence, $j$ is an element of $\left\{  1,2,\ldots,n-1\right\}  $ and satisfies
+$j\perp n$. In other words, $j$ is an element $i$ of $\left\{  1,2,\ldots
+,n-1\right\}  $ satisfying $i\perp n$. In other words, $j\in\left\{
+i\in\left\{  1,2,\ldots,n-1\right\}  \ \mid\ i\perp n\right\}  $.
+\par
+Now, forget that we fixed $j$. We thus have proven that $j\in\left\{
+i\in\left\{  1,2,\ldots,n-1\right\}  \ \mid\ i\perp n\right\}  $ for each
+$j\in\left\{  i\in\left\{  1,2,\ldots,n\right\}  \ \mid\ i\perp n\right\}  $.
+In other words,%
+\[
+\left\{  i\in\left\{  1,2,\ldots,n\right\}  \ \mid\ i\perp n\right\}
+\subseteq\left\{  i\in\left\{  1,2,\ldots,n-1\right\}  \ \mid\ i\perp
+n\right\}  .
+\]
+Combining this with%
+\[
+\left\{  i\in\underbrace{\left\{  1,2,\ldots,n-1\right\}  }_{\subseteq\left\{
+1,2,\ldots,n\right\}  }\ \mid\ i\perp n\right\}  \subseteq\left\{
+i\in\left\{  1,2,\ldots,n\right\}  \ \mid\ i\perp n\right\}  ,
+\]
+we obtain $\left\{  i\in\left\{  1,2,\ldots,n\right\}  \ \mid\ i\perp
+n\right\}  =\left\{  i\in\left\{  1,2,\ldots,n-1\right\}  \ \mid\ i\perp
+n\right\}  $. This proves (\ref{sol.ent.phi.gauss.1}).}. Now,
+(\ref{eq.def.ent.phi.phi.1}) yields%
+\begin{align}
+\phi\left(  n\right)   &  =\left\vert \left\{  i\in\left\{  1,2,\ldots
+,n\right\}  \ \mid\ i\perp n\right\}  \right\vert \nonumber\\
+&  =\left\vert \left\{  i\in\left\{  1,2,\ldots,n-1\right\}  \ \mid\ i\perp
+n\right\}  \right\vert \label{sol.ent.phi.gauss.phin=}%
+\end{align}
+(by (\ref{sol.ent.phi.gauss.1})).
+
+On the other hand, for each $k\in\mathbb{Z}$, we have the logical equivalence%
+\begin{equation}
+\left(  n-k\perp n\right)  \ \Longleftrightarrow\ \left(  k\perp n\right)
+\label{sol.ent.phi.gauss.2}%
+\end{equation}
+(because Exercise \ref{exe.ent.coprime.b-a} (applied to $a=k$ and $b=n$) shows
+that $n-k\perp n$ holds if and only if $k\perp n$). Now,
+\begin{align*}
+2\cdot\sum_{\substack{i\in\left\{  1,2,\ldots,n\right\}  ;\\i\perp n}}i &
+=2\cdot\underbrace{\sum_{\substack{k\in\left\{  1,2,\ldots,n\right\}
+;\\k\perp n}}}_{\substack{=\sum_{k\in\left\{  i\in\left\{  1,2,\ldots
+,n\right\}  \ \mid\ i\perp n\right\}  }\\=\sum_{k\in\left\{  i\in\left\{
+1,2,\ldots,n-1\right\}  \ \mid\ i\perp n\right\}  }\\\text{(by
+(\ref{sol.ent.phi.gauss.1}))}}}k\ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{here, we have renamed the}\\
+\text{summation index }i\text{ as }k
+\end{array}
+\right)  \\
+&  =2\cdot\underbrace{\sum_{k\in\left\{  i\in\left\{  1,2,\ldots,n-1\right\}
+\ \mid\ i\perp n\right\}  }}_{=\sum_{\substack{k\in\left\{  1,2,\ldots
+,n-1\right\}  ;\\k\perp n}}}k=\sum_{\substack{k\in\left\{  1,2,\ldots
+,n-1\right\}  ;\\k\perp n}}k+\sum_{\substack{k\in\left\{  1,2,\ldots
+,n-1\right\}  ;\\k\perp n}}k\\
+&  =\sum_{\substack{k\in\left\{  1,2,\ldots,n-1\right\}  ;\\k\perp
+n}}k+\underbrace{\sum_{\substack{k\in\left\{  1,2,\ldots,n-1\right\}
+;\\n-k\perp n}}}_{\substack{=\sum_{\substack{k\in\left\{  1,2,\ldots
+,n-1\right\}  ;\\k\perp n}}\\\text{(by the equivalence
+(\ref{sol.ent.phi.gauss.2}))}}}\left(  n-k\right)  \\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{here, we have substituted }n-k\text{ for
+}k\text{ in the second sum}\right)  \\
+&  =\sum_{\substack{k\in\left\{  1,2,\ldots,n-1\right\}  ;\\k\perp n}%
+}k+\sum_{\substack{k\in\left\{  1,2,\ldots,n-1\right\}  ;\\k\perp n}}\left(
+n-k\right)  =\sum_{\substack{k\in\left\{  1,2,\ldots,n-1\right\}  ;\\k\perp
+n}}\underbrace{\left(  k+\left(  n-k\right)  \right)  }_{=n}\\
+&  =\sum_{\substack{k\in\left\{  1,2,\ldots,n-1\right\}  ;\\k\perp n}%
+}n=\sum_{\substack{i\in\left\{  1,2,\ldots,n-1\right\}  ;\\i\perp
+n}}n\ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{here, we have renamed the}\\
+\text{summation index }k\text{ as }i
+\end{array}
+\right)  \\
+&  =\underbrace{\left\vert \left\{  i\in\left\{  1,2,\ldots,n-1\right\}
+\ \mid\ i\perp n\right\}  \right\vert }_{\substack{=\phi\left(  n\right)
+\\\text{(by (\ref{sol.ent.phi.gauss.phin=}))}}}\cdot n=\phi\left(  n\right)
+\cdot n=n\phi\left(  n\right)  .
+\end{align*}
+Dividing this equality by $2$, we obtain%
+\[
+\sum_{\substack{i\in\left\{  1,2,\ldots,n\right\}  ;\\i\perp n}}i=n\phi\left(
+n\right)  /2.
+\]
+This solves Exercise \ref{exe.ent.phi.gauss}.
+
+[\textit{Remark:} Alternatively, instead of doubling the sum we wanted to
+compute, we could have paired its addends up with each other: every $i$ gets
+paired with the respective $n-i$. But this is slightly messy, since $\dfrac
+{n}{2}$ can happen to be a term of the sum (this happens when $n=2$), which
+necessitates a separate argument.]
+\end{proof}
+\end{fineprint}
+
 \subsection{Solution to Exercise \ref{exe.ent.fermat.uv}}
 
 \begin{fineprint}
@@ -23974,7 +24159,7 @@ solves Exercise \ref{exe.eqrel.eqcl.perm.eq}.
 
 \begin{fineprint}
 \begin{proof}
-[Solution to Exercise \ref{exe.eqrel.eqrel.=f}.] Let $T$ be the quotient set
+[Solution to Exercise \ref{exe.eqrel.eqrel.=f}.]Let $T$ be the quotient set
 $S/\sim$, and let $f:S\rightarrow T$ be the canonical projection $\pi_{\sim
 }:S\rightarrow S/\sim$. We shall prove that the relation $\sim$ equals the
 relation $\underset{f}{\equiv}$.
@@ -23990,21 +24175,21 @@ shows that we have $a\sim b$ if and only if $\left[  a\right]  _{\sim}=\left[
 b\right]  _{\sim}$. In other words, we have the logical equivalence%
 \begin{equation}
 \left(  a\sim b\right)  \ \Longleftrightarrow\ \left(  \left[  a\right]
-_{\sim}=\left[  b\right]  _{\sim}\right)  .\label{sol.eqrel.eqrel.=f.2}%
+_{\sim}=\left[  b\right]  _{\sim}\right)  . \label{sol.eqrel.eqrel.=f.2}%
 \end{equation}
 
 
 We have the following chain of logical equivalences:%
 \begin{align}
-\left(  a\underset{f}{\equiv}b\right)  \   & \Longleftrightarrow\ \left(
+\left(  a\underset{f}{\equiv}b\right)  \  &  \Longleftrightarrow\ \left(
 \underbrace{f\left(  a\right)  }_{=\left[  a\right]  _{\sim}}%
 =\underbrace{f\left(  b\right)  }_{=\left[  b\right]  _{\sim}}\right)
 \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of the relation
-}\underset{f}{\equiv}\right)  \nonumber\\
-& \Longleftrightarrow\ \left(  \left[  a\right]  _{\sim}=\left[  b\right]
+}\underset{f}{\equiv}\right) \nonumber\\
+&  \Longleftrightarrow\ \left(  \left[  a\right]  _{\sim}=\left[  b\right]
 _{\sim}\right)  \ \Longleftrightarrow\ \left(  a\sim b\right)
-\ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{sol.eqrel.eqrel.=f.2})}\right)
-.\label{sol.eqrel.eqrel.=f.4}%
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{sol.eqrel.eqrel.=f.2})}\right)  .
+\label{sol.eqrel.eqrel.=f.4}%
 \end{align}
 
 
