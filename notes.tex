@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Wednesday, March 20, 2019 15:00:16}
+%TCIDATA{LastRevised=Thursday, March 21, 2019 15:22:27}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -1484,6 +1484,11 @@ that $a\leq b$. Prove that $n^{a}\mid n^{b}$.
 \begin{exercise}
 \label{exe.ent.div.g|1}Let $g$ be a nonnegative integer such that $g\mid1$.
 Prove that $g=1$.
+\end{exercise}
+
+\begin{exercise}
+\label{exe.ent.div.powers-ab}Let $a,b\in\mathbb{Z}$ be such that $a\mid b$.
+Let $k\in\mathbb{N}$. Prove that $a^{k}\mid b^{k}$.
 \end{exercise}
 
 \subsection{Congruence modulo $n$}
@@ -9134,8 +9139,9 @@ that $\phi\left(  p^{k}\right)  =\left(  p-1\right)  p^{k-1}$.
 \end{exercise}
 
 \begin{theorem}
-\label{thm.ent.phi.mult}Let $m$ and $n$ be two coprime integers. Then,
-$\phi\left(  mn\right)  =\phi\left(  m\right)  \cdot\phi\left(  n\right)  $.
+\label{thm.ent.phi.mult}Let $m$ and $n$ be two coprime positive integers.
+Then, $\phi\left(  mn\right)  =\phi\left(  m\right)  \cdot\phi\left(
+n\right)  $.
 \end{theorem}
 
 We will prove Theorem \ref{thm.ent.phi.mult} later (in Section
@@ -9153,6 +9159,25 @@ We will prove Theorem \ref{thm.ent.phi.mult} later (in Section
 
 Theorem \ref{thm.ent.phi.explicit} will be proven in Section
 \ref{sect.ent.phi-fml-proof}.
+
+\begin{exercise}
+\label{exe.ent.phi.d-phid}Let $n$ be a positive integer.
+
+\textbf{(a)} Prove that%
+\[
+n-\phi\left(  n\right)  =\left\vert \left\{  i\in\left\{  1,2,\ldots
+,n\right\}  \ \mid\ \text{we don't have }i\perp n\right\}  \right\vert .
+\]
+
+
+\textbf{(b)} We have $n-\phi\left(  n\right)  \geq0$.
+
+\textbf{(c)} Let $d$ be a positive divisor of $n$. Prove that $d-\phi\left(
+d\right)  \leq n-\phi\left(  n\right)  $.
+
+\textbf{(d)} Let $d$ be a positive divisor of $n$ such that $d\neq n$. Prove
+that $d-\phi\left(  d\right)  <n-\phi\left(  n\right)  $.
+\end{exercise}
 
 \subsubsection{The totient sum theorem}
 
@@ -11123,6 +11148,20 @@ _{\substack{p\text{ prime;}\\p\mid n}}\left(  1-\dfrac{1}{p}\right)  .
 \end{align*}
 This proves Theorem \ref{thm.ent.phi.explicit}.
 \end{proof}
+
+Theorem \ref{thm.ent.euler} generalizes Theorem \ref{thm.ent.fermat}
+\textbf{(a)}. Likewise, the following exercise generalizes Theorem
+\ref{thm.ent.fermat} \textbf{(b)}:
+
+\begin{exercise}
+\label{exe.ent.euler.non-coprime}Let $a$ be an integer, and let $n$ be a
+positive integer. Prove that $a^{n}\equiv a^{n-\phi\left(  n\right)
+}\operatorname{mod}n$.
+
+[\textbf{Hint:} Use Exercises \ref{exe.ent.prime.modpvp} and
+\ref{exe.ent.phi.d-phid} and Theorems \ref{thm.ent.euler} and
+\ref{thm.ent.phi.mult}.]
+\end{exercise}
 
 \begin{center}
 \textbf{2019-02-18 lecture}
@@ -20256,6 +20295,21 @@ assumption was wrong. Hence, Exercise \ref{exe.ent.div.g|1} is solved.
 \end{proof}
 \end{fineprint}
 
+\subsection{Solution to Exercise \ref{exe.ent.div.powers-ab}}
+
+\begin{fineprint}
+\begin{proof}
+[Solution to Exercise \ref{exe.ent.div.powers-ab}.]We have $a\mid b$. In other
+words, there exists an integer $d$ such that $b=ad$ (by Definition
+\ref{def.ent.div.div}). Consider this $d$. Clearly, $d^{k}$ is an integer
+(since $d$ is an integer and $k\in\mathbb{N}$). From $b=ad$, we obtain
+$b^{k}=\left(  ad\right)  ^{k}=a^{k}d^{k}$. Hence, there exists an integer $c$
+such that $b^{k}=a^{k}c$ (namely, $c=d^{k}$). In other words, $a^{k}\mid
+b^{k}$ (by Definition \ref{def.ent.div.div}). This solves Exercise
+\ref{exe.ent.div.powers-ab}.
+\end{proof}
+\end{fineprint}
+
 \subsection{Solution to Exercise \ref{exe.ent.mod.a+b=a-b}}
 
 \begin{fineprint}
@@ -22818,12 +22872,12 @@ obtain%
 \]
 Thus,%
 \begin{align*}
-p^{k}-1 &  =\left(  p-1\right)  \underbrace{\left(  p^{k-1}+p^{k-2}%
+p^{k}-1  &  =\left(  p-1\right)  \underbrace{\left(  p^{k-1}+p^{k-2}%
 \cdot1+p^{k-3}\cdot1^{2}+\cdots+p\cdot1^{k-2}+1^{k-1}\right)  }_{=\sum
 _{i=0}^{k-1}p^{i}1^{k-i}}\\
 &  =\underbrace{\left(  p-1\right)  }_{\geq1}\sum_{i=0}^{k-1}p^{i}1^{k-i}%
 \geq1\sum_{i=0}^{k-1}p^{i}1^{k-i}\ \ \ \ \ \ \ \ \ \ \left(  \text{since }%
-\sum_{i=0}^{k-1}p^{i}1^{k-i}\text{ is clearly }\geq0\right)  \\
+\sum_{i=0}^{k-1}p^{i}1^{k-i}\text{ is clearly }\geq0\right) \\
 &  =\sum_{i=0}^{k-1}\underbrace{p^{i}1^{k-i}}_{\substack{=p^{i}\geq
 1^{i}\\\text{(since }p\geq1\text{)}}}=\sum_{i=0}^{k-1}\underbrace{1^{i}}%
 _{=1}=\sum_{i=0}^{k-1}1=k.
@@ -22979,7 +23033,7 @@ contradict $p\notin\left\{  p_{1},p_{2},\ldots,p_{u}\right\}  $) and therefore%
 1, & \text{if }p_{j}=p;\\
 0, & \text{if }p_{j}\neq p
 \end{cases}
-=0.\label{sol.ent.prime.p1a1puau.b.2}%
+=0. \label{sol.ent.prime.p1a1puau.b.2}%
 \end{equation}
 Hence, (\ref{sol.ent.prime.p1a1puau.1}) becomes%
 \[
@@ -23803,6 +23857,193 @@ This solves Exercise \ref{exe.ent.phi.pk}.
 \end{proof}
 \end{fineprint}
 
+\subsection{Solution to Exercise \ref{exe.ent.phi.d-phid}}
+
+\begin{fineprint}
+\begin{proof}
+[Solution to Exercise \ref{exe.ent.phi.d-phid}.]\textbf{(a)} If $I$ is any
+set, and if we are given a statement $\mathcal{A}\left(  i\right)  $ for each
+$i\in I$, then%
+\begin{equation}
+\left\{  i\in I\ \mid\ \text{we don't have }\mathcal{A}\left(  i\right)
+\right\}  =I\setminus\left\{  i\in I\ \mid\ \mathcal{A}\left(  i\right)
+\right\}  . \label{sol.ent.phi.d-phid.set-comp}%
+\end{equation}
+(This is one of the basic rules of sets and logic.)
+
+Now,%
+\begin{align*}
+&  \left\vert \underbrace{\left\{  i\in\left\{  1,2,\ldots,n\right\}
+\ \mid\ \text{we don't have }i\perp n\right\}  }_{\substack{=\left\{
+1,2,\ldots,n\right\}  \setminus\left\{  i\in\left\{  1,2,\ldots,n\right\}
+\ \mid\ i\perp n\right\}  \\\text{(by (\ref{sol.ent.phi.d-phid.set-comp}),
+applied to }I=\left\{  1,2,\ldots,n\right\}  \text{ and }\mathcal{A}\left(
+i\right)  =\left(  i\perp n\right)  \text{)}}}\right\vert \\
+&  =\left\vert \left\{  1,2,\ldots,n\right\}  \setminus\left\{  i\in\left\{
+1,2,\ldots,n\right\}  \ \mid\ i\perp n\right\}  \right\vert \\
+&  =\underbrace{\left\vert \left\{  1,2,\ldots,n\right\}  \right\vert }%
+_{=n}-\underbrace{\left\vert \left\{  i\in\left\{  1,2,\ldots,n\right\}
+\ \mid\ i\perp n\right\}  \right\vert }_{\substack{=\phi\left(  n\right)
+\\\text{(by (\ref{eq.def.ent.phi.phi.1}))}}}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{since }\left\{  i\in\left\{
+1,2,\ldots,n\right\}  \ \mid\ i\perp n\right\}  \subseteq\left\{
+1,2,\ldots,n\right\}  \right)  \\
+&  =n-\phi\left(  n\right)  .
+\end{align*}
+This solves Exercise \ref{exe.ent.phi.d-phid} \textbf{(a)}.
+
+\textbf{(b)} Exercise \ref{exe.ent.phi.d-phid} \textbf{(a)} yields%
+\[
+n-\phi\left(  n\right)  =\left\vert \left\{  i\in\left\{  1,2,\ldots
+,n\right\}  \ \mid\ \text{we don't have }i\perp n\right\}  \right\vert \geq0
+\]
+(since $\left\vert X\right\vert \geq0$ for any finite set $X$). This solves
+Exercise \ref{exe.ent.phi.d-phid} \textbf{(b)}.
+
+\textbf{(c)} We have $d\mid n$ and $n\neq0$ (since $n$ is positive). Thus,
+Proposition \ref{prop.ent.div.1} \textbf{(a)} (applied to $a=d$ and $b=n$)
+yields $\left\vert d\right\vert \leq\left\vert n\right\vert =n$ (since $n$ is
+positive). But $\left\vert d\right\vert =d$ (since $d$ is positive). Hence,
+$d=\left\vert d\right\vert \leq n$.
+
+It is easy to see that%
+\begin{align}
+&  \left\{  i\in\left\{  1,2,\ldots,d\right\}  \ \mid\ \text{we don't have
+}i\perp d\right\} \nonumber\\
+&  \subseteq\left\{  i\in\left\{  1,2,\ldots,n\right\}  \ \mid\ \text{we don't
+have }i\perp n\right\}  . \label{sol.ent.phi.d-phid.b.subset}%
+\end{align}
+
+
+[\textit{Proof of (\ref{sol.ent.phi.d-phid.b.subset}):} Let $j\in\left\{
+i\in\left\{  1,2,\ldots,d\right\}  \ \mid\ \text{we don't have }i\perp
+d\right\}  $. Thus, $j$ is an $i\in\left\{  1,2,\ldots,d\right\}  $ such that
+we don't have $i\perp d$. In other words, $j$ is an element of $\left\{
+1,2,\ldots,d\right\}  $ and has the property that we don't have $j\perp d$.
+
+Now, recall that $j$ is an element of $\left\{  1,2,\ldots,d\right\}  $.
+Hence, $j\in\left\{  1,2,\ldots,d\right\}  \subseteq\left\{  1,2,\ldots
+,n\right\}  $ (since $d\leq n$). In other words, $j$ is an element of
+$\left\{  1,2,\ldots,n\right\}  $.
+
+Also, we don't have $j\perp d$. Hence, we don't have $j\perp n$%
+\ \ \ \ \footnote{\textit{Proof:} Assume the contrary. Thus, $j\perp n$. In
+other words, $\gcd\left(  j,n\right)  =1$. But $j\mid j$ and $d\mid n$. Hence,
+Exercise \ref{exe.ent.gcd.div} (applied to $j$, $d$, $j$ and $n$ instead of
+$a_{1}$, $a_{2}$, $b_{1}$ and $b_{2}$) yields $\gcd\left(  j,d\right)
+\mid\gcd\left(  j,n\right)  =1$. But $\gcd\left(  j,d\right)  $ is a
+nonnegative integer (since the gcd of any list of integers is a nonnegative
+integer). Hence, Exercise \ref{exe.ent.div.g|1} (applied to $g=\gcd\left(
+j,d\right)  $) yields $\gcd\left(  j,d\right)  =1$ (since $\gcd\left(
+j,d\right)  \mid1$). In other words, $j\perp d$. This contradicts the fact
+that we don't have $j\perp d$. This contradiction shows that our assumption
+was wrong, qed.}. Now, we know that $j$ is an element of $\left\{
+1,2,\ldots,n\right\}  $ and has the property that we don't have $j\perp n$. In
+other words, $j$ is an $i\in\left\{  1,2,\ldots,n\right\}  $ such that we
+don't have $i\perp n$. In other words, $j\in\left\{  i\in\left\{
+1,2,\ldots,n\right\}  \ \mid\ \text{we don't have }i\perp n\right\}  $.
+
+Now, forget that we fixed $j$. We thus have proven that \newline$j\in\left\{
+i\in\left\{  1,2,\ldots,n\right\}  \ \mid\ \text{we don't have }i\perp
+n\right\}  $ for each \newline$j\in\left\{  i\in\left\{  1,2,\ldots,d\right\}
+\ \mid\ \text{we don't have }i\perp d\right\}  $. In other words,
+\begin{equation}
+\left\{  i\in\left\{  1,2,\ldots,d\right\}  \ \mid\ \text{we don't have
+}i\perp d\right\}  \subseteq\left\{  i\in\left\{  1,2,\ldots,n\right\}
+\ \mid\ \text{we don't have }i\perp n\right\}  .\nonumber
+\end{equation}
+This proves (\ref{sol.ent.phi.d-phid.b.subset}).]
+
+Now, Exercise \ref{exe.ent.phi.d-phid} \textbf{(a)} (applied to $d$ instead of
+$n$) yields%
+\begin{align*}
+d-\phi\left(  d\right)   &  =\left\vert \underbrace{\left\{  i\in\left\{
+1,2,\ldots,d\right\}  \ \mid\ \text{we don't have }i\perp d\right\}
+}_{\substack{\subseteq\left\{  i\in\left\{  1,2,\ldots,n\right\}
+\ \mid\ \text{we don't have }i\perp n\right\}  \\\text{(by
+(\ref{sol.ent.phi.d-phid.b.subset}))}}}\right\vert \\
+&  \leq\left\vert \left\{  i\in\left\{  1,2,\ldots,n\right\}  \ \mid\ \text{we
+don't have }i\perp n\right\}  \right\vert =n-\phi\left(  n\right)
+\end{align*}
+(by Exercise \ref{exe.ent.phi.d-phid} \textbf{(a)}). Thus, Exercise
+\ref{exe.ent.phi.d-phid} \textbf{(c)} is solved.
+
+\textbf{(d)} In our solution to Exercise \ref{exe.ent.phi.d-phid} \textbf{(c)}
+above, we have shown that $d\leq n$. Combining this with $d\neq n$, we obtain
+$d<n$. Thus, $n>d$. Also, $d\geq1$ (since $d$ is a positive integer). Hence,
+$n>d\geq1$.
+
+Define two finite sets%
+\begin{align*}
+D  &  =\left\{  i\in\left\{  1,2,\ldots,d\right\}  \ \mid\ \text{we don't have
+}i\perp d\right\}  \ \ \ \ \ \ \ \ \ \ \text{and}\\
+N  &  =\left\{  i\in\left\{  1,2,\ldots,n\right\}  \ \mid\ \text{we don't have
+}i\perp n\right\}  .
+\end{align*}
+
+
+In our solution to Exercise \ref{exe.ent.phi.d-phid} \textbf{(c)} above, we
+have proven (\ref{sol.ent.phi.d-phid.b.subset}). Thus,%
+\begin{align*}
+D  &  =\left\{  i\in\left\{  1,2,\ldots,d\right\}  \ \mid\ \text{we don't have
+}i\perp d\right\} \\
+&  \subseteq\left\{  i\in\left\{  1,2,\ldots,n\right\}  \ \mid\ \text{we don't
+have }i\perp n\right\}  \ \ \ \ \ \ \ \ \ \ \left(  \text{by
+(\ref{sol.ent.phi.d-phid.b.subset})}\right) \\
+&  =N.
+\end{align*}
+
+
+Now, we have $n\in N$.
+
+[\textit{Proof:} We have $n\in\left\{  1,2,\ldots,n\right\}  $ (since $n\geq
+1$), but we don't have $n\perp n$\ \ \ \ \footnote{\textit{Proof.} Assume the
+contrary. Thus, $n\perp n$. In other words, $\gcd\left(  n,n\right)  =1$. But
+Proposition \ref{prop.ent.gcd.props1} \textbf{(i)} (applied to $a=n$ and
+$b=n$) yields $\gcd\left(  n,n\right)  =\left\vert n\right\vert $ (since
+$n\mid n$). Hence, $\gcd\left(  n,n\right)  =\left\vert n\right\vert =n$
+(since $n>1>0$). Therefore, $n=\gcd\left(  n,n\right)  =1$. This contradicts
+$n>1$. This contradiction shows that our assumption was wrong, qed.}. Thus,
+$n$ is an element of $\left\{  1,2,\ldots,n\right\}  $ such that we don't have
+$n\perp n$. In other words, $n$ is an $i\in\left\{  1,2,\ldots,n\right\}  $
+such that we don't have $i\perp n$. Hence,%
+\[
+n\in\left\{  i\in\left\{  1,2,\ldots,n\right\}  \ \mid\ \text{we don't have
+}i\perp n\right\}  .
+\]
+This rewrites as $n\in N$ (since $N=\left\{  i\in\left\{  1,2,\ldots
+,n\right\}  \ \mid\ \text{we don't have }i\perp n\right\}  $). Qed.]
+
+Now, we claim that $D\neq N$.
+
+[\textit{Proof:} Assume the contrary. Thus, $D=N$. Hence, $N=D$. Now,%
+\begin{align*}
+n  &  \in N=D=\left\{  i\in\left\{  1,2,\ldots,d\right\}  \ \mid\ \text{we
+don't have }i\perp d\right\} \\
+&  \subseteq\left\{  1,2,\ldots,d\right\}  ,
+\end{align*}
+so that $n\leq d$. This contradicts $d<n$. This contradiction shows that our
+assumption was false. Hence, $D\neq N$ is proven.]
+
+Now, $D$ is a subset of $N$ (since $D\subseteq N$), and hence is a proper
+subset of $N$ (since $D\neq N$). Hence, $\left\vert D\right\vert <\left\vert
+N\right\vert $ (because if $X$ is a proper subset of a finite set $Y$, then
+$\left\vert X\right\vert <\left\vert Y\right\vert $). But Exercise
+\ref{exe.ent.phi.d-phid} \textbf{(a)} (applied to $d$ instead of $n$) yields%
+\begin{align*}
+d-\phi\left(  d\right)   &  =\left\vert \underbrace{\left\{  i\in\left\{
+1,2,\ldots,d\right\}  \ \mid\ \text{we don't have }i\perp d\right\}  }%
+_{=D}\right\vert =\left\vert D\right\vert \\
+&  <\left\vert \underbrace{N}_{=\left\{  i\in\left\{  1,2,\ldots,n\right\}
+\ \mid\ \text{we don't have }i\perp n\right\}  }\right\vert \\
+&  =\left\vert \left\{  i\in\left\{  1,2,\ldots,n\right\}  \ \mid\ \text{we
+don't have }i\perp n\right\}  \right\vert =n-\phi\left(  n\right)
+\end{align*}
+(by Exercise \ref{exe.ent.phi.d-phid} \textbf{(a)}). Thus, Exercise
+\ref{exe.ent.phi.d-phid} \textbf{(d)} is solved.
+\end{proof}
+\end{fineprint}
+
 \subsection{Solution to Exercise \ref{exe.ent.phi.even}}
 
 \begin{fineprint}
@@ -24456,6 +24697,312 @@ _{j\in\left\{  1,2,\ldots,k\right\}  }\phi\left(  n_{f\left(  j\right)
 (here, we have substituted $i$ for $f\left(  j\right)  $ in the product, since
 the map $f:\left\{  1,2,\ldots,k\right\}  \rightarrow I$ is a bijection). This
 solves Exercise \ref{exe.ent.phi.multk.2}.
+\end{proof}
+\end{fineprint}
+
+\subsection{Solution to Exercise \ref{exe.ent.euler.non-coprime}}
+
+\begin{fineprint}
+\begin{proof}
+[Solution to Exercise \ref{exe.ent.euler.non-coprime}.]The integer $n$ is
+positive and thus nonzero. Hence, $v_{p}\left(  n\right)  \in\mathbb{N}$ for
+each prime $p$.
+
+We shall next prove that%
+\begin{equation}
+a^{n}\equiv a^{n-\phi\left(  n\right)  }\operatorname{mod}p^{v_{p}\left(
+n\right)  }\ \ \ \ \ \ \ \ \ \ \text{for every prime }p.
+\label{sol.ent.euler.non-coprime.goal}%
+\end{equation}
+Once this congruence is proven, the claim of Exercise
+\ref{exe.ent.euler.non-coprime} will easily follow using Exercise
+\ref{exe.ent.prime.modpvp}.
+
+[\textit{Proof of (\ref{sol.ent.euler.non-coprime.goal}):} Let $p$ be a prime.
+Then, $p>1$. Hence, $p\neq1$, and the integer $p$ is positive. Also, Lemma
+\ref{lem.ent.prime.vp-copr} \textbf{(a)} shows that there exists a nonzero
+integer $u$ such that $u\perp p$ and $n=up^{v_{p}\left(  n\right)  }$.
+Consider this $u$.
+
+We have $v_{p}\left(  n\right)  \in\mathbb{N}$ (since $n$ is nonzero). Thus,
+we can define $r\in\mathbb{N}$ by $r=v_{p}\left(  n\right)  $. Consider this
+$r$. Note that $p^{r}$ is nonzero (since $p$ is positive and thus nonzero).
+
+We have $n=up^{v_{p}\left(  n\right)  }=up^{r}$ (since $v_{p}\left(  n\right)
+=r$). Solving this equation for $u$, we obtain $u=n/p^{r}$ (since $p^{r}$ is
+nonzero). Thus, $u$ is positive (since both $n$ and $p$ are positive).
+
+Now, we claim that
+\begin{equation}
+up^{i}-\phi\left(  up^{i}\right)  \geq i\ \ \ \ \ \ \ \ \ \ \text{for each
+}i\in\mathbb{N}. \label{sol.ent.euler.non-coprime.ineq.pf.1}%
+\end{equation}
+
+
+Let us give three proofs of this inequality:
+
+\begin{itemize}
+\item {}[\textit{First proof of (\ref{sol.ent.euler.non-coprime.ineq.pf.1}):}
+We shall prove (\ref{sol.ent.euler.non-coprime.ineq.pf.1}) by induction on $i$:
+
+\textit{Induction base:} Exercise \ref{exe.ent.phi.d-phid} \textbf{(b)}
+(applied to $u$ instead of $n$) yields $u-\phi\left(  u\right)  \geq0$. Now,
+$u\underbrace{p^{0}}_{=1}-\phi\left(  u\underbrace{p^{0}}_{=1}\right)
+=u-\phi\left(  u\right)  \geq0$. In other words,
+(\ref{sol.ent.euler.non-coprime.ineq.pf.1}) holds for $i=0$. This completes
+the induction base.
+
+\textit{Induction step:} Let $j$ be a positive integer. Assume that
+(\ref{sol.ent.euler.non-coprime.ineq.pf.1}) holds for $i=j-1$. We must prove
+that (\ref{sol.ent.euler.non-coprime.ineq.pf.1}) holds for $i=j$.
+
+We have assumed that (\ref{sol.ent.euler.non-coprime.ineq.pf.1}) holds for
+$i=j-1$. In other words, we have $up^{j-1}-\phi\left(  up^{j-1}\right)  \geq
+j-1$.
+
+We have $j-1\in\mathbb{N}$ (since $j$ is a positive integer); hence, $p^{j-1}$
+is an integer. Thus, $up^{j-1}$ is an integer. Clearly, $up^{j-1}\mid up^{j}$
+(since $up^{j}=up^{j-1}p$); thus, $up^{j-1}$ is a divisor of $up^{j}$. Also,
+$up^{j-1}$ is positive\footnote{since $u$ and $p$ are positive} and satisfies
+$up^{j-1}\neq up^{j}$ (since $\dfrac{up^{j}}{up^{j-1}}=p\neq1$). Hence,
+Exercise \ref{exe.ent.phi.d-phid} \textbf{(d)} (applied to $up^{j-1}$ and
+$up^{j}$ instead of $d$ and $n$) yields $up^{j-1}-\phi\left(  up^{j-1}\right)
+<up^{j}-\phi\left(  up^{j}\right)  $. Hence,
+\[
+up^{j}-\phi\left(  up^{j}\right)  >up^{j-1}-\phi\left(  up^{j-1}\right)  \geq
+j-1.
+\]
+Since $up^{j}-\phi\left(  up^{j}\right)  $ and $j-1$ are integers, this leads
+to%
+\[
+up^{j}-\phi\left(  up^{j}\right)  \geq\left(  j-1\right)  +1=j.
+\]
+In other words, (\ref{sol.ent.euler.non-coprime.ineq.pf.1}) holds for $i=j$.
+This completes the induction step. Hence,
+(\ref{sol.ent.euler.non-coprime.ineq.pf.1}) is proven by induction.]
+
+\item {}[\textit{Second proof of (\ref{sol.ent.euler.non-coprime.ineq})
+(sketched):} Let $j\in\mathbb{N}$. We shall show that $up^{j}-\phi\left(
+up^{j}\right)  \geq j$.
+
+Recall that $u$ is a positive integer. Hence, $u\geq1$ and thus
+$\underbrace{u}_{\geq1}p^{j}\geq p^{j}$ (since $p^{j}$ is a positive integer);
+in other words, $p^{j}\leq up^{j}$. Also, from $p>1$, we obtain $p^{1}%
+<p^{2}<\cdots<p^{j}$. Hence, the $j$ integers $p^{1},p^{2},\ldots,p^{j}$ are distinct.
+
+On the other hand, it is easy to see that%
+\[
+\left\{  p^{1},p^{2},\ldots,p^{j}\right\}  \subseteq\left\{  i\in\left\{
+1,2,\ldots,up^{j}\right\}  \ \mid\ \text{we don't have }i\perp up^{j}\right\}
+\]
+\footnote{\textit{Proof.} Let $s\in\left\{  1,2,\ldots,j\right\}  $. Thus,
+$s\geq1$ and $s\leq j$. From $s\geq1$, we conclude that $p^{s}$ is a positive
+integer. Moreover, from $s\geq1$, we obtain $p^{s}\geq p^{1}$ (since $p>1$),
+thus $p^{s}\geq p^{1}=p>1$. From $s\leq j$, we obtain $p^{s}\leq p^{j}$ (since
+$p>1$) and thus $p^{s}\leq p^{j}\leq up^{j}$. Thus, $p^{s}\in\left\{
+1,2,\ldots,up^{j}\right\}  $ (since $p^{s}$ is a positive integer).
+Furthermore, from $s\leq j$, we obtain $p^{s}\mid p^{j}$ (by Exercise
+\ref{exe.ent.div.powers}, applied to $p$, $s$ and $j$ instead of $n$, $a$ and
+$b$). Thus, $p^{s}\mid p^{j}\mid up^{j}$ (since $u$ is an integer). Hence,
+Proposition \ref{prop.ent.gcd.props1} \textbf{(i)} (applied to $p^{s}$ and
+$up^{j}$ instead of $a$ and $b$) yields $\gcd\left(  p^{s},up^{j}\right)
+=\left\vert p^{s}\right\vert =p^{s}$ (since $p^{s}$ is positive). But $p>1$,
+so that $p^{s}>1$ and thus $p^{s}\neq1$. Hence, $\gcd\left(  p^{s}%
+,up^{j}\right)  =p^{s}\neq1$. In other words, we don't have $p^{s}\perp
+up^{j}$.
+\par
+So we have shown that $p^{s}$ is an element of $\left\{  1,2,\ldots
+,up^{j}\right\}  $ (since $p^{s}\in\left\{  1,2,\ldots,up^{j}\right\}  $) with
+the property that we don't have $p^{s}\perp up^{j}$. In other words, $p^{s}$
+is an $i\in\left\{  1,2,\ldots,up^{j}\right\}  $ such that we don't have
+$i\perp up^{j}$. In other words,%
+\[
+p^{s}\in\left\{  i\in\left\{  1,2,\ldots,up^{j}\right\}  \ \mid\ \text{we
+don't have }i\perp up^{j}\right\}  .
+\]
+\par
+Now, forget that we fixed $s$. We thus have proven that%
+\[
+p^{s}\in\left\{  i\in\left\{  1,2,\ldots,up^{j}\right\}  \ \mid\ \text{we
+don't have }i\perp up^{j}\right\}
+\]
+for each $s\in\left\{  1,2,\ldots,j\right\}  $. In other words,%
+\[
+\left\{  p^{1},p^{2},\ldots,p^{j}\right\}  \subseteq\left\{  i\in\left\{
+1,2,\ldots,up^{j}\right\}  \ \mid\ \text{we don't have }i\perp up^{j}\right\}
+,
+\]
+qed.}. Hence,%
+\begin{equation}
+\left\vert \left\{  p^{1},p^{2},\ldots,p^{j}\right\}  \right\vert
+\leq\left\vert \left\{  i\in\left\{  1,2,\ldots,up^{j}\right\}  \ \mid
+\ \text{we don't have }i\perp up^{j}\right\}  \right\vert
+.\label{sol.ent.euler.non-coprime.ineq.pf.2nd.2}%
+\end{equation}
+
+
+But Exercise \ref{exe.ent.phi.d-phid} \textbf{(a)} (applied to $up^{j}$
+instead of $n$) yields%
+\begin{align*}
+up^{j}-\phi\left(  up^{j}\right)   &  =\left\vert \left\{  i\in\left\{
+1,2,\ldots,up^{j}\right\}  \ \mid\ \text{we don't have }i\perp up^{j}\right\}
+\right\vert \\
+&  \geq\left\vert \left\{  p^{1},p^{2},\ldots,p^{j}\right\}  \right\vert
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by
+(\ref{sol.ent.euler.non-coprime.ineq.pf.2nd.2})}\right)  \\
+&  =j\ \ \ \ \ \ \ \ \ \ \left(  \text{since the }j\text{ integers }%
+p^{1},p^{2},\ldots,p^{j}\text{ are distinct}\right)  .
+\end{align*}
+
+
+Now, forget that we fixed $j$. We thus have proven that $up^{j}-\phi\left(
+up^{j}\right)  \geq j$ for each $j\in\mathbb{N}$. Renaming $j$ as $i$ in this
+statement, we conclude that $up^{i}-\phi\left(  up^{i}\right)  \geq i$ for
+each $i\in\mathbb{N}$. Thus, (\ref{sol.ent.euler.non-coprime.ineq}) is proven.]
+
+\item {}[\textit{Third proof of (\ref{sol.ent.euler.non-coprime.ineq}):} The
+following proof is a typical estimation argument (the kind you see in analysis).
+
+Fix $i\in\mathbb{N}$. We must prove that $up^{i}-\phi\left(  up^{i}\right)
+\geq i$. This is obvious in the case when $i=0$ (because Exercise
+\ref{exe.ent.phi.d-phid} \textbf{(b)} (applied to $up^{0}$ instead of $n$)
+yields $up^{0}-\phi\left(  up^{0}\right)  \geq0$). Hence, for the rest of this
+proof, we WLOG assume that $i\neq0$. Hence, $i$ is a positive integer (since
+$i\in\mathbb{N}$). Therefore, Exercise \ref{exe.ent.phi.pk} (applied to $k=i$)
+yields $\phi\left(  p^{i}\right)  =\left(  p-1\right)  p^{i-1}$. Hence,%
+\begin{equation}
+\underbrace{p^{i}}_{=pp^{i-1}}-\underbrace{\phi\left(  p^{i}\right)
+}_{=\left(  p-1\right)  p^{i-1}}=pp^{i-1}-\left(  p-1\right)  p^{i-1}%
+=p^{i-1}.\label{sol.ent.euler.non-coprime.ineq.3rd.1}%
+\end{equation}
+
+
+Also, $i-1\in\mathbb{N}$ (since $i$ is a positive integer). Hence, Exercise
+\ref{exe.ent.prime.vp-lem} (applied to $k=i-1$) yields $p^{i-1}>i-1$. Since
+$p^{i-1}$ and $i-1$ are integers (because $i-1\in\mathbb{N}$), this leads to
+$p^{i-1}\geq\left(  i-1\right)  +1=i$.
+
+Note that $u$ is a positive integer. Thus, $u\geq1$. Exercise
+\ref{exe.ent.phi.d-phid} \textbf{(b)} (applied to $u$ instead of $n$) yields
+$u-\phi\left(  u\right)  \geq0$. In other words, $\phi\left(  u\right)  \leq
+u$.
+
+But $u\perp p$. Hence, Exercise \ref{exe.ent.coprime.powers} (applied to $u$,
+$p$, $1$ and $i$ instead of $a$, $b$, $n$ and $m$) yields $u^{1}\perp p^{i}$
+(since $i\in\mathbb{N}$). In other words, $u\perp p^{i}$ (since $u^{1}=u$). In
+other words, the integers $u$ and $p^{i}$ are coprime. Thus, Theorem
+\ref{thm.ent.phi.mult} (applied to $u$ and $p^{i}$ instead of $m$ and $n$)
+yield $\phi\left(  up^{i}\right)  =\phi\left(  u\right)  \cdot\phi\left(
+p^{i}\right)  $ (since $u$ and $p^{i}$ are positive integers). Thus,%
+\[
+\phi\left(  up^{i}\right)  =\underbrace{\phi\left(  u\right)  }_{\leq u}%
+\cdot\phi\left(  p^{i}\right)  \leq u\cdot\phi\left(  p^{i}\right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{since }\phi\left(  p^{i}\right)
+\geq0\right)  .
+\]
+Hence,%
+\begin{align*}
+up^{i}-\underbrace{\phi\left(  up^{i}\right)  }_{\leq u\cdot\phi\left(
+p^{i}\right)  }  & \geq up^{i}-u\cdot\phi\left(  p^{i}\right)  =u\cdot
+\underbrace{\left(  p^{i}-\phi\left(  p^{i}\right)  \right)  }%
+_{\substack{=p^{i-1}\\\text{(by (\ref{sol.ent.euler.non-coprime.ineq.3rd.1}%
+))}}}=\underbrace{u}_{\geq1}p^{i-1}\\
+& \geq1p^{i-1}\ \ \ \ \ \ \ \ \ \ \left(  \text{since }p^{i-1}\geq0\right)
+\\
+& \geq p^{i-1}\geq i.
+\end{align*}
+Thus, (\ref{sol.ent.euler.non-coprime.ineq}) is proven again.]
+\end{itemize}
+
+Now, we can apply (\ref{sol.ent.euler.non-coprime.ineq.pf.1}) to $i=r$ (since
+$r\in\mathbb{N}$). We thus obtain $up^{r}-\phi\left(  up^{r}\right)  \geq r$.
+Hence,
+\begin{equation}
+\underbrace{n}_{=up^{r}}-\phi\left(  \underbrace{n}_{=up^{r}}\right)
+=up^{r}-\phi\left(  up^{r}\right)  \geq r.
+\label{sol.ent.euler.non-coprime.ineq}%
+\end{equation}
+
+
+Now, we are in one of the following two cases:
+
+\textit{Case 1:} We have $p\mid a$.
+
+\textit{Case 2:} We don't have $p\mid a$.
+
+Let us first consider Case 1. In this case, $p\mid a$. Now,
+(\ref{sol.ent.euler.non-coprime.ineq}) yields $n-\phi\left(  n\right)  \geq
+r\geq0$ (since $r\in\mathbb{N}$). Hence, $n-\phi\left(  n\right)
+\in\mathbb{N}$ and $r\in\mathbb{N}$. From $n-\phi\left(  n\right)  \geq r$, we
+also obtain $r\leq n-\phi\left(  n\right)  $. Hence, Exercise
+\ref{exe.ent.div.powers} (applied to $p$, $r$ and $n-\phi\left(  n\right)  $
+instead of $n$, $a$ and $b$) yields $p^{r}\mid p^{n-\phi\left(  n\right)  }$.
+But $p\mid a$. Hence, Exercise \ref{exe.ent.div.powers-ab} (applied to $p$,
+$a$ and $n-\phi\left(  n\right)  $ instead of $a$, $b$ and $k$) yields
+$p^{n-\phi\left(  n\right)  }\mid a^{n-\phi\left(  n\right)  }$ (since
+$n-\phi\left(  n\right)  \in\mathbb{N}$). Hence, $p^{r}\mid p^{n-\phi\left(
+n\right)  }\mid a^{n-\phi\left(  n\right)  }$; in other words, $a^{n-\phi
+\left(  n\right)  }\equiv0\operatorname{mod}p^{r}$. Now,%
+\begin{align*}
+a^{n}  &  =a^{\phi\left(  n\right)  +\left(  n-\phi\left(  n\right)  \right)
+}=a^{\phi\left(  n\right)  }\underbrace{a^{n-\phi\left(  n\right)  }}%
+_{\equiv0\operatorname{mod}p^{r}}\ \ \ \ \ \ \ \ \ \ \left(  \text{since
+}n-\phi\left(  n\right)  \in\mathbb{N}\right) \\
+&  \equiv0\equiv a^{n-\phi\left(  n\right)  }\operatorname{mod}p^{r}%
+\ \ \ \ \ \ \ \ \ \ \left(  \text{since }a^{n-\phi\left(  n\right)  }%
+\equiv0\operatorname{mod}p^{r}\right)  .
+\end{align*}
+This rewrites as $a^{n}\equiv a^{n-\phi\left(  n\right)  }\operatorname{mod}%
+p^{v_{p}\left(  n\right)  }$ (since $r=v_{p}\left(  n\right)  $). Hence,
+(\ref{sol.ent.euler.non-coprime.goal}) is proven in Case 1.
+
+Let us now consider Case 2. In this case, we don't have $p\mid a$. But
+Proposition \ref{prop.ent.prime.div-or-coprime} yields that either $p\mid a$
+or $p\perp a$. Hence, $p\perp a$ (since we don't have $p\mid a$). Due to
+Proposition \ref{prop.ent.coprime.perp-symm}, this leads to $a\perp p$. Thus,
+Exercise \ref{exe.ent.coprime.powers} (applied to $p$, $1$ and $r$ instead of
+$b$, $n$ and $m$) yields $a^{1}\perp p^{r}$ (since $r\in\mathbb{N}$). In other
+words, $a\perp p^{r}$ (since $a^{1}=a$). In other words, $a$ is coprime to
+$p^{r}$. Hence, Theorem \ref{thm.ent.euler} (applied to $p^{r}$ instead of
+$n$) yields $a^{\phi\left(  p^{r}\right)  }\equiv1\operatorname{mod}p^{r}$.
+
+But $u\perp p$. Hence, Exercise \ref{exe.ent.coprime.powers} (applied to $u$,
+$p$, $1$ and $r$ instead of $a$, $b$, $n$ and $m$) yields $u^{1}\perp p^{r}$
+(since $r\in\mathbb{N}$). In other words, $u\perp p^{r}$ (since $u^{1}=u$). In
+other words, the integers $u$ and $p^{r}$ are coprime. Thus, Theorem
+\ref{thm.ent.phi.mult} (applied to $u$ and $p^{r}$ instead of $m$ and $n$)
+yield $\phi\left(  up^{r}\right)  =\phi\left(  u\right)  \cdot\phi\left(
+p^{r}\right)  $ (since $u$ and $p^{r}$ are positive integers). Now, applying
+the map $\phi$ to both sides of the equality $n=up^{r}$, we obtain
+$\phi\left(  n\right)  =\phi\left(  up^{r}\right)  =\phi\left(  u\right)
+\cdot\phi\left(  p^{r}\right)  =\phi\left(  p^{r}\right)  \cdot\phi\left(
+u\right)  $. Hence,%
+\[
+a^{\phi\left(  n\right)  }=a^{\phi\left(  p^{r}\right)  \cdot\phi\left(
+u\right)  }=\left(  \underbrace{a^{\phi\left(  p^{r}\right)  }}_{\equiv
+1\operatorname{mod}p^{r}}\right)  ^{\phi\left(  u\right)  }\equiv
+1^{\phi\left(  u\right)  }=1\operatorname{mod}p^{r}.
+\]
+Hence,%
+\begin{align*}
+a^{n}  &  =a^{\phi\left(  n\right)  +\left(  n-\phi\left(  n\right)  \right)
+}=\underbrace{a^{\phi\left(  n\right)  }}_{\equiv1\operatorname{mod}p^{r}%
+}a^{n-\phi\left(  n\right)  }\ \ \ \ \ \ \ \ \ \ \left(  \text{since }%
+n-\phi\left(  n\right)  \in\mathbb{N}\right) \\
+&  \equiv a^{n-\phi\left(  n\right)  }\operatorname{mod}p^{r}.
+\end{align*}
+This rewrites as $a^{n}\equiv a^{n-\phi\left(  n\right)  }\operatorname{mod}%
+p^{v_{p}\left(  n\right)  }$ (since $r=v_{p}\left(  n\right)  $). Therefore,
+(\ref{sol.ent.euler.non-coprime.goal}) is proven in Case 2.
+
+We have thus shown (\ref{sol.ent.euler.non-coprime.goal}) in both Cases 1 and
+2. These cases cover all possibilities, and so
+(\ref{sol.ent.euler.non-coprime.goal}) is always proven.]
+
+Hence, Exercise \ref{exe.ent.prime.modpvp} (applied to $a^{n}$ and
+$a^{n-\phi\left(  n\right)  }$ instead of $a$ and $b$) yields $a^{n}\equiv
+a^{n-\phi\left(  n\right)  }\operatorname{mod}n$. This solves Exercise
+\ref{exe.ent.euler.non-coprime}.
 \end{proof}
 \end{fineprint}
 
