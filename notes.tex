@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Friday, March 22, 2019 09:08:33}
+%TCIDATA{LastRevised=Saturday, March 23, 2019 16:03:43}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -10424,7 +10424,7 @@ J=\operatorname{id}$, so that $\left(  J\circ J\right)  \left(  a\right)
 =\operatorname{id}{a}=a<J\left(  a\right)  $. In view of $\left(  J\circ
 J\right)  \left(  a\right)  =J\left(  J\left(  a\right)  \right)  $, this
 rewrites as $J\left(  J\left(  a\right)  \right)  <J\left(  a\right)  $. In
-other words, $J\left(  a\right)  > J\left(  J\left(  a\right)  \right) $. In
+other words, $J\left(  a\right)  > J\left(  J\left(  a\right)  \right)  $. In
 other words, the element $J\left(  a\right)  $ of $A$ is large (by the
 definition of \textquotedblleft large\textquotedblright). Qed.}. Hence, the
 map%
@@ -15187,7 +15187,7 @@ on the integer $a$. So we have to prove the following:
 \begin{statement}
 \textit{Claim 1:} Let $a_{1}$ and $a_{2}$ be two integers such that $\left[
 a_{1}\right]  _{n}=\left[  a_{2}\right]  _{n}$. Then, $\left[  ra_{1}\right]
-_{n}=\left[  ra_{2}\right]  $.
+_{n}=\left[  ra_{2}\right]  _{n}$.
 \end{statement}
 
 [\textit{Proof of Claim 1:} Proposition \ref{prop.eqrel.Z/n.ab} \textbf{(b)}
@@ -15226,9 +15226,9 @@ ra\right]  _{n}\ \ \ \ \ \ \ \ \ \ \left(  \text{by Definition
 with%
 \begin{align*}
 \left[  r\right]  _{n}\cdot\underbrace{\alpha}_{=\left[  a\right]  _{n}}  &
-=\left[  r\right]  _{n}\cdot\left[  \alpha_{n}\right]  =\left[  r\cdot
-a\right]  _{n}\ \ \ \ \ \ \ \ \ \ \left(  \text{by Definition
-\ref{def.eqrel.Z/n.op} \textbf{(c)}}\right) \\
+=\left[  r\right]  _{n}\cdot\left[  a\right]  _{n}=\left[  r\cdot a\right]
+_{n}\ \ \ \ \ \ \ \ \ \ \left(  \text{by Definition \ref{def.eqrel.Z/n.op}
+\textbf{(c)}}\right) \\
 &  =\left[  ra\right]  _{n},
 \end{align*}
 we obtain $r\alpha=\left[  r\right]  _{n}\cdot\alpha$. This proves Proposition
@@ -15282,7 +15282,7 @@ $k$\textit{-th power} of $\alpha$.
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.eqrel.Z/n.scaling.wd}.]This proof is analogous
+[Proof of Proposition \ref{prop.eqrel.Z/n.kpower.wd}.]This proof is analogous
 to the above proof of Proposition \ref{prop.eqrel.Z/n.scaling.wd}
 \textbf{(a)}; but instead of multiplying the two congruences $r\equiv
 r\operatorname{mod}n$ and $a_{1}\equiv a_{2}\operatorname{mod}n$, we now need
@@ -20169,9 +20169,29 @@ _{\substack{d\mid n;\\4\nmid d}}d$. The existence part can be proven using
 \textquotedblleft Hurwitz integers\textquotedblright, which are certain quaternions.
 \end{itemize}
 
+\begin{center}
+\textbf{2019-03-25 lecture}
+\end{center}
+
+\section{Rings and fields I: definitions and examples}
+
+\subsection{Rings}
+
 TODO:
 
 \begin{itemize}
+\item Try to find commonalities.
+
+\item Define rings, following [detnotes].
+
+\item Define commutative rings.
+
+\item Examples, following [detnotes].
+
+\item Extra examples like $\mathbb{Z}\left[  i\right]  $.
+
+\item Sums and products, following [detnotes].
+
 \item ...
 \end{itemize}
 
@@ -24276,7 +24296,7 @@ On the other hand, for each $k\in\mathbb{Z}$, we have the logical equivalence%
 (because Exercise \ref{exe.ent.coprime.b-a} (applied to $a=k$ and $b=n$) shows
 that $n-k\perp n$ holds if and only if $k\perp n$). Now,
 \begin{align*}
-2\cdot\sum_{\substack{i\in\left\{  1,2,\ldots,n\right\}  ;\\i\perp n}}i &
+2\cdot\sum_{\substack{i\in\left\{  1,2,\ldots,n\right\}  ;\\i\perp n}}i  &
 =2\cdot\underbrace{\sum_{\substack{k\in\left\{  1,2,\ldots,n\right\}
 ;\\k\perp n}}}_{\substack{=\sum_{k\in\left\{  i\in\left\{  1,2,\ldots
 ,n\right\}  \ \mid\ i\perp n\right\}  }\\=\sum_{k\in\left\{  i\in\left\{
@@ -24287,7 +24307,7 @@ that $n-k\perp n$ holds if and only if $k\perp n$). Now,
 \text{here, we have renamed the}\\
 \text{summation index }i\text{ as }k
 \end{array}
-\right)  \\
+\right) \\
 &  =2\cdot\underbrace{\sum_{k\in\left\{  i\in\left\{  1,2,\ldots,n-1\right\}
 \ \mid\ i\perp n\right\}  }}_{=\sum_{\substack{k\in\left\{  1,2,\ldots
 ,n-1\right\}  ;\\k\perp n}}}k=2\cdot\sum_{\substack{k\in\left\{
@@ -24298,9 +24318,9 @@ that $n-k\perp n$ holds if and only if $k\perp n$). Now,
 n}}k+\underbrace{\sum_{\substack{k\in\left\{  1,2,\ldots,n-1\right\}
 ;\\n-k\perp n}}}_{\substack{=\sum_{\substack{k\in\left\{  1,2,\ldots
 ,n-1\right\}  ;\\k\perp n}}\\\text{(by the equivalence
-(\ref{sol.ent.phi.gauss.2}))}}}\left(  n-k\right)  \\
+(\ref{sol.ent.phi.gauss.2}))}}}\left(  n-k\right) \\
 &  \ \ \ \ \ \ \ \ \ \ \left(  \text{here, we have substituted }n-k\text{ for
-}k\text{ in the second sum}\right)  \\
+}k\text{ in the second sum}\right) \\
 &  =\sum_{\substack{k\in\left\{  1,2,\ldots,n-1\right\}  ;\\k\perp n}%
 }k+\sum_{\substack{k\in\left\{  1,2,\ldots,n-1\right\}  ;\\k\perp n}}\left(
 n-k\right)  =\sum_{\substack{k\in\left\{  1,2,\ldots,n-1\right\}  ;\\k\perp
@@ -24313,7 +24333,7 @@ n}}n\ \ \ \ \ \ \ \ \ \ \left(
 \text{here, we have renamed the}\\
 \text{summation index }k\text{ as }i
 \end{array}
-\right)  \\
+\right) \\
 &  =\underbrace{\left\vert \left\{  i\in\left\{  1,2,\ldots,n-1\right\}
 \ \mid\ i\perp n\right\}  \right\vert }_{\substack{=\phi\left(  n\right)
 \\\text{(by (\ref{sol.ent.phi.gauss.phin=}))}}}\cdot n=\phi\left(  n\right)
