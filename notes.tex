@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, March 25, 2019 01:23:05}
+%TCIDATA{LastRevised=Monday, March 25, 2019 01:42:56}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -16462,8 +16462,8 @@ obtain $U_{m}\times U_{n}\subseteq\left(  \mathbb{Z}/m\right)  \times\left(
 
 Now, we claim that%
 \begin{equation}
-S_{m,n}\left(  U_{mn}\right)  \subseteq U_{m}\times U_{n}%
-.\label{pf.thm.ent.phi.mult.2nd.1}%
+S_{m,n}\left(  U_{mn}\right)  \subseteq U_{m}\times U_{n}.
+\label{pf.thm.ent.phi.mult.2nd.1}%
 \end{equation}
 
 
@@ -16496,11 +16496,11 @@ $\pi_{mn,m}\left(  \alpha\right)  \in U_{m}$ (since $U_{m}$ was defined as the
 set of all residue classes in $\mathbb{Z}/m$ that have an inverse). Similarly,
 $\pi_{mn,n}\left(  \alpha\right)  \in U_{n}$. Now,
 \begin{align*}
-\zeta & =S_{m,n}\left(  \alpha\right)  =\left(  \underbrace{\pi_{mn,m}\left(
+\zeta &  =S_{m,n}\left(  \alpha\right)  =\left(  \underbrace{\pi_{mn,m}\left(
 \alpha\right)  }_{\in U_{m}},\underbrace{\pi_{mn,n}\left(  \alpha\right)
 }_{\in U_{n}}\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of
-}S_{m,n}\right)  \\
-& \in U_{m}\times U_{n}.
+}S_{m,n}\right) \\
+&  \in U_{m}\times U_{n}.
 \end{align*}
 
 
@@ -16511,8 +16511,8 @@ proves (\ref{pf.thm.ent.phi.mult.2nd.1}).]
 
 Next, we claim that%
 \begin{equation}
-U_{m}\times U_{n}\subseteq S_{m,n}\left(  U_{mn}\right)
-.\label{pf.thm.ent.phi.mult.2nd.2}%
+U_{m}\times U_{n}\subseteq S_{m,n}\left(  U_{mn}\right)  .
+\label{pf.thm.ent.phi.mult.2nd.2}%
 \end{equation}
 
 
@@ -16564,7 +16564,7 @@ Indeed,
 \begin{align*}
 \pi_{mn,m}\left(  \alpha\beta\right)   &  =\pi_{mn,m}\left(  \alpha\right)
 \cdot\underbrace{\pi_{mn,m}\left(  \beta\right)  }_{=\gamma}%
-\ \ \ \ \ \ \ \ \ \ \left(  \text{by Claim 1}\right)  \\
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by Claim 1}\right) \\
 &  =\pi_{mn,m}\left(  \alpha\right)  \cdot\gamma=\left[  1\right]
 _{m}\ \ \ \ \ \ \ \ \ \ \left(  \text{since }\gamma\text{ is an inverse of
 }\pi_{mn,m}\left(  \alpha\right)  \right)
@@ -16597,8 +16597,8 @@ proves (\ref{pf.thm.ent.phi.mult.2nd.2}).
 Combining (\ref{pf.thm.ent.phi.mult.2nd.1}) with
 (\ref{pf.thm.ent.phi.mult.2nd.2}), we obtain
 \begin{equation}
-S_{m,n}\left(  U_{mn}\right)  =U_{m}\times U_{n}%
-.\label{pf.thm.ent.phi.mult.2nd.1+2}%
+S_{m,n}\left(  U_{mn}\right)  =U_{m}\times U_{n}.
+\label{pf.thm.ent.phi.mult.2nd.1+2}%
 \end{equation}
 
 
@@ -16801,53 +16801,85 @@ e.g., for factoring integer polynomials.
 \textbf{2019-03-01 lecture}
 \end{center}
 
-\subsection{Primitive roots (preview?)}
+\subsection{\label{sect.eqrel.primroot1}Primitive roots: an introduction}
+
+\subsubsection{\label{subsect.eqrel.primroot1.def}Definition and examples}
+
+Let us finally discuss a sort of residue classes that come very useful when
+they exist: the \textit{primitive roots} (modulo a positive integer $n$). We
+are not yet able to ascertain when they exist and when they don't (this will
+require some more abstract algebra); but we can already see some examples of
+them.sidue classes of integers modulo a given positive integer $n$.
+
+\begin{convention}
+For the whole Subsection \ref{subsect.eqrel.primroot1.def}, we fix a positive
+integer $n$.
+\end{convention}
 
 \begin{definition}
-Let $n$ be a positive integer. An invertible residue class $\alpha
-\in\mathbb{Z}/n$ is said to be a \textbf{primitive root} modulo $n$ if every
-invertible residue class $\beta\in\mathbb{Z}/n$ is a power of $\alpha$.
+\label{def.eqrel.primroot1.def.primroot}Let $\alpha\in\mathbb{Z}/n$ be a
+residue class.
 
-(\textquotedblleft Invertible\textquotedblright\ means \textquotedblleft has
-an inverse\textquotedblright. \textquotedblleft Power of $\alpha
-$\textquotedblright\ means $\alpha^{m}$ for some $m\in\mathbb{N}$.)
+\textbf{(a)} We say that $\alpha$ is \textit{invertible} if $\alpha$ has an inverse.
+
+\textbf{(b)} A \textit{power of }$\alpha$ means a residue class of the form
+$\alpha^{m}$ for some $m\in\mathbb{N}$.
+
+\textbf{(c)} Assume that $\alpha$ is invertible. Then, $\alpha$ is said to be
+a \textit{primitive root modulo }$n$ if every invertible residue class
+$\beta\in\mathbb{Z}/n$ is a power of $\alpha$.
 \end{definition}
 
 \begin{example}
-Let $n=9$. The invertible residue classes in $\mathbb{Z}/9$ are $\left[
-1\right]  _{9},\left[  2\right]  _{9},\left[  4\right]  _{9},\left[  5\right]
-_{9},\left[  7\right]  _{9},\left[  8\right]  _{9}$.
+\label{exa.eqrel.primroot1.def.primroot9}Let $n=9$. The invertible residue
+classes in $\mathbb{Z}/9$ are $\left[  1\right]  _{9},\left[  2\right]
+_{9},\left[  4\right]  _{9},\left[  5\right]  _{9},\left[  7\right]
+_{9},\left[  8\right]  _{9}$.
 
-Clearly, $\left[  1\right]  _{9}$ is not a primitive root modulo $9$, since
-all its powers equal $\left[  1\right]  _{9}$.
+Clearly, the residue class $\left[  1\right]  _{9}$ is not a primitive root
+modulo $9$, since all its powers equal $\left[  1\right]  _{9}$.
 
 The powers of $\left[  2\right]  _{9}$ are
 \begin{align*}
-\left(  \left[  2\right]  _{9}\right)  ^{0}  &  =\left[  1\right]  _{9},\\
-\left(  \left[  2\right]  _{9}\right)  ^{1}  &  =\left[  2\right]  _{9},\\
-\left(  \left[  2\right]  _{9}\right)  ^{2}  &  =\left[  4\right]  _{9},\\
-\left(  \left[  2\right]  _{9}\right)  ^{3}  &  =\left[  8\right]  _{9},\\
-\left(  \left[  2\right]  _{9}\right)  ^{4}  &  =\left[  16\right]
+\left(  \left[  2\right]  _{9}\right)  ^{0} &  =\left[  1\right]  _{9},\\
+\left(  \left[  2\right]  _{9}\right)  ^{1} &  =\left[  2\right]  _{9},\\
+\left(  \left[  2\right]  _{9}\right)  ^{2} &  =\left[  4\right]  _{9},\\
+\left(  \left[  2\right]  _{9}\right)  ^{3} &  =\left[  8\right]  _{9},\\
+\left(  \left[  2\right]  _{9}\right)  ^{4} &  =\left[  16\right]
 _{9}=\left[  7\right]  _{9},\\
-\left(  \left[  2\right]  _{9}\right)  ^{5}  &  =\left[  2\cdot7\right]
+\left(  \left[  2\right]  _{9}\right)  ^{5} &  =\left[  2\cdot7\right]
 _{9}=\left[  14\right]  _{9}=\left[  5\right]  _{9},\\
 &  \ldots.
 \end{align*}
-So all six invertible classes are covered. Thus, $\left[  2\right]  _{9}$ is a
-primitive root modulo $9$.
+Thus, they cover all the six invertible residue classes $\left[  1\right]
+_{9},\left[  2\right]  _{9},\left[  4\right]  _{9},\left[  5\right]
+_{9},\left[  7\right]  _{9},\left[  8\right]  _{9}$. Hence, $\left[  2\right]
+_{9}$ is a primitive root modulo $9$.
+
+It is easy to see that $\left[  5\right]  _{9}$ also is a primitive root
+modulo $9$, and these two primitive roots are the only ones.
 \end{example}
 
-Note that Euler's theorem (Theorem \ref{thm.ent.euler}) yields that if $\beta$
-is an invertible residue class in $\mathbb{Z}/n$, then $\beta^{\phi\left(
-n\right)  }=\left[  1\right]  _{n}$. So such a $\beta$ has at most
-$\phi\left(  n\right)  $ distinct powers. When $\beta$ has \textbf{exactly}
-$\phi\left(  n\right)  $ distinct powers, it is a primitive root.
+Note that Corollary \ref{cor.equiv.modinv.Unphi} \textbf{(b)} shows that there
+are exactly $\phi\left(  n\right)  $ invertible residue classes in
+$\mathbb{Z}/n$. It is easy to see that any power of an invertible residue
+class is again invertible.
+
+Euler's theorem (Theorem \ref{thm.ent.euler}) yields that if $\alpha
+\in\mathbb{Z}/n$ is an invertible residue class, then $\alpha^{\phi\left(
+n\right)  }=\left[  1\right]  _{n}$ (because Corollary
+\ref{cor.equiv.modinv.Unphi} \textbf{(a)} shows that $\alpha$ can be written
+in the form $\alpha=\left[  a\right]  _{n}$ for some integer $a$ satisfying
+$a\perp n$). Thus, it is easy to see that an invertible residue class
+$\alpha\in\mathbb{Z}/n$ has at most $\phi\left(  n\right)  $ distinct powers.
+When an invertible residue class $\alpha$ has \textbf{exactly} $\phi\left(
+n\right)  $ distinct powers, it is a primitive root (since there are exactly
+$\phi\left(  n\right)  $ invertible residue classes in $\mathbb{Z}/n$).
 
 \begin{example}
-What are the primitive roots modulo $8$ ?
-
-The invertible residue classes in $\mathbb{Z}/8$ are $\left[  1\right]
-_{8},\left[  3\right]  _{8},\left[  5\right]  _{8},\left[  7\right]  _{8}$.
+\label{exa.eqrel.primroot1.def.primroot8}Let $n=8$. The invertible residue
+classes in $\mathbb{Z}/8$ are $\left[  1\right]  _{8},\left[  3\right]
+_{8},\left[  5\right]  _{8},\left[  7\right]  _{8}$.
 
 Again, $\left[  1\right]  _{8}$ is certainly not a primitive root.
 
@@ -16865,13 +16897,18 @@ $\left[  3\right]  _{8}$). So $\left[  3\right]  _{8}$ is not a primitive root.
 The same behavior prevents $\left[  5\right]  _{8}$ and $\left[  7\right]
 _{8}$ from being primitive roots.
 
-So there are no primitive roots modulo $8$.
+Thus, we see that there are no primitive roots modulo $8$.
 \end{example}
 
-\begin{theorem}
-(Gauss) Let $n$ be a positive integer.
+Examples \ref{exa.eqrel.primroot1.def.primroot8} and
+\ref{exa.eqrel.primroot1.def.primroot9} suggest the following questions: For
+what $n$ does a primitive root modulo $n$ exist, and when it does, how many of
+them are there? The following theorem -- a result proven in 1801 by Gauss --
+answers both of these questions:
 
-\textbf{(a)} A primitive root modulo $n$ exists if and only if $n$ is
+\begin{theorem}
+\label{thm.eqrel.primroot.gauss}\textbf{(a)} A primitive root modulo $n$
+exists if and only if $n$ is
 
 \begin{itemize}
 \item either $1$,
@@ -16890,9 +16927,9 @@ primes $\neq2$),
 $\phi\left(  \phi\left(  n\right)  \right)  $ many of them.
 \end{theorem}
 
-This would be fairly difficult to prove at this point, but will be doable with
-some abstract algebra (at least in the case $n=p$). See \cite[Chapter
-4]{Gallier-RSA}.
+This theorem would be fairly difficult to prove at this point, but will be
+doable with some abstract algebra (at least in the case $n=p$). See
+\cite[Chapter 4]{Gallier-RSA} for a proof.
 
 \section{Complex numbers and Gaussian integers}
 
