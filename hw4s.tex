@@ -1,0 +1,1140 @@
+% The LaTeX below is mostly computer-generated (for reasons of speed); don't expect it to be very readable. Sorry.
+
+\documentclass[paper=a4, fontsize=12pt]{scrartcl}%
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{amsmath,amsfonts,amsthm,amssymb}
+\usepackage{mathrsfs}
+\usepackage{sectsty}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{framed}
+\usepackage{ifthen}
+\usepackage{lastpage}
+\usepackage[headsepline,footsepline,manualmark]{scrlayer-scrpage}
+\usepackage[height=10in,a4paper,hmargin={1in,0.8in}]{geometry}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{tikz}
+\usepackage{verbatim}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}%
+\setcounter{MaxMatrixCols}{30}
+%TCIDATA{OutputFilter=latex2.dll}
+%TCIDATA{Version=5.50.0.2960}
+%TCIDATA{LastRevised=Sunday, March 24, 2019 19:24:41}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{BibliographyScheme=Manual}
+%BeginMSIPreambleData
+\providecommand{\U}[1]{\protect\rule{.1in}{.1in}}
+%EndMSIPreambleData
+\allsectionsfont{\centering \normalfont\scshape}
+\setlength\parindent{20pt}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\DD}{{\mathbb{D}}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\Z}[1]{\mathbb{Z}/#1\mathbb{Z}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\lcm}{\operatorname{lcm}}
+\newcommand{\set}[1]{\left\{ #1 \right\}}
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\tup}[1]{\left( #1 \right)}
+\newcommand{\ive}[1]{\left[ #1 \right]}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\underbrack}[2]{\underbrace{#1}_{\substack{#2}}}
+\newcommand{\powset}[2][]{\ifthenelse{\equal{#2}{}}{\mathcal{P}\left(#1\right)}{\mathcal{P}_{#1}\left(#2\right)}}
+\newcommand{\mapeq}[1]{\underset{#1}{\equiv}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}}
+\newcommand{\nnn}{\nonumber\\}
+\let\sumnonlimits\sum
+\let\prodnonlimits\prod
+\let\cupnonlimits\bigcup
+\let\capnonlimits\bigcap
+\renewcommand{\sum}{\sumnonlimits\limits}
+\renewcommand{\prod}{\prodnonlimits\limits}
+\renewcommand{\bigcup}{\cupnonlimits\limits}
+\renewcommand{\bigcap}{\capnonlimits\limits}
+\newtheoremstyle{plainsl}
+{8pt plus 2pt minus 4pt}
+{8pt plus 2pt minus 4pt}
+{\slshape}
+{0pt}
+{\bfseries}
+{.}
+{5pt plus 1pt minus 1pt}
+{}
+\theoremstyle{plainsl}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{examples}[theorem]{Examples}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{question}[theorem]{Question}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newenvironment{statement}{\begin{quote}}{\end{quote}}
+\newenvironment{fineprint}{\begin{small}}{\end{small}}
+\newcommand{\myname}{Darij Grinberg}
+\newcommand{\myid}{00000000}
+\newcommand{\mymail}{dgrinber@umn.edu}
+\newcommand{\psetnumber}{4}
+\ihead{Solutions to homework set \#\psetnumber}
+\ohead{page \thepage\ of \pageref{LastPage}}
+\ifoot{\myname, \myid}
+\ofoot{\mymail}
+\begin{document}
+
+\title{ \normalfont {\normalsize \textsc{University of Minnesota, School of
+Mathematics} }\\[25pt] \rule{\linewidth}{0.5pt} \\[0.4cm] {\huge Math 4281: Introduction to Modern Algebra, }\\Spring 2019: Homework 4\\\rule{\linewidth}{2pt} \\[0.5cm] }
+\author{Darij Grinberg}
+\maketitle
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 1
+%----------------------------------------------------------------------------------------
+\rule{0pt}{0.3pt} \\[0.4cm]
+
+\section{Exercise 1: Equivalence relations always come from maps}
+
+\subsection{Problem}
+
+Let $S$ be a set.
+
+Recall that if $T$ is a further set, and if $f:S\rightarrow T$ is a map, then
+$\underset{f}{\equiv}$ denotes the relation on $S$ defined by
+\[
+\left(  a\underset{f}{\equiv}b\right)  \iff\left(  f\left(  a\right)
+=f\left(  b\right)  \right)  .
+\]
+This is an equivalence relation, called \textquotedblleft equality upon
+applying $f$\textquotedblright\ or \textquotedblleft equality under
+$f$\textquotedblright.
+
+Now, let $\sim$ be \textbf{any} equivalence relation on $S$. Prove that $\sim$
+has the form $\underset{f}{\equiv}$ for a properly chosen set $T$ and a
+properly chosen $f : S \to T$.
+
+More precisely, prove that $\sim$ equals $\underset{f}{\equiv}$, where $T$ is
+the quotient set $S / \sim$ and where $f : S \to T$ is the projection map
+$\pi_{\sim}: S \to S / \sim$.
+
+[\textbf{Hint:} To prove that two relations $R_{1}$ and $R_{2}$ on $S$ are
+equal, you need to check that every pair $\left(  a, b \right)  $ of elements
+of $S$ satisfies the equivalence $\left(  a R_{1} b \right)  \iff\left(  a
+R_{2} b \right)  $.]
+
+\subsection{Solution}
+
+See \href{http://www-users.math.umn.edu/~dgrinber/19s/notes.pdf}{the class
+notes}, where this is Exercise 3.3.3. (The numbering may shift; it is one of
+the exercises in the ``Equivalence classes'' section.)
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 2
+%----------------------------------------------------------------------------------------
+\rule{\linewidth}{0.3pt} \\[0.4cm]
+
+\section{Exercise 2: Totient-related sum}
+
+\subsection{Problem}
+
+Let $n > 1$ be an integer. Prove that
+\[
+\sum_{\substack{i \in\left\{  1, 2, \ldots, n \right\}  ; \\i \perp n}} i = n
+\phi\left(  n \right)  / 2 .
+\]
+
+
+\subsection{Solution}
+
+See \href{http://www-users.math.umn.edu/~dgrinber/19s/notes.pdf}{the class
+notes}, where this is Exercise 2.14.5. (The numbering may shift; it is one of
+the exercises in the \textquotedblleft Euler's totient function ($\phi
+$-function)\textquotedblright\ section.)
+
+%This exercise is also more or less clearly
+%equivalent to §2.3, problem 40 in Niven/Zuckerman/Montgomery
+%(see kim-NT/sol3.pdf §13).
+
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 3
+%----------------------------------------------------------------------------------------
+\rule{\linewidth}{0.3pt} \\[0.4cm]
+
+\section{Exercise 3: Dual numbers}
+
+\subsection{Problem}
+
+Recall that complex numbers were defined as pairs $\left(  a, b \right)  $ of
+real numbers, with entrywise addition and subtraction and a certain
+weird-looking multiplication.
+
+Let me define a different kind of ``numbers'': the \textit{dual numbers}. (The
+word ``numbers'' may appear a bit inappropriate for them, but it is not
+exactly a trademark...)
+
+We define a \textit{dual number} to be a pair $\left(  a, b \right)  $ of two
+real numbers $a$ and $b$.
+
+We let ${\mathbb{D}}$ be the set of all dual numbers.
+
+For each real number $r$, we denote the dual number $\left(  r, 0 \right)  $
+by $r_{\mathbb{D}}$.
+
+We let $\varepsilon$ denote the dual number $\left(  0, 1 \right)  $.
+
+Define three binary operations $+$, $-$ and $\cdot$ on ${\mathbb{D}}$ by
+setting
+\begin{align}
+\left(  a, b \right)  + \left(  c, d \right)   &  = \left(  a+c, b+d \right)
+,\\
+\left(  a, b \right)  - \left(  c, d \right)   &  = \left(  a-c, b-d \right)
+,\\
+\left(  a, b \right)  \cdot\left(  c, d \right)   &  = \left(  ac, ad+bc
+\right)
+\end{align}
+for all $\left(  a, b \right)  \in{\mathbb{D}}$ and $\left(  c, d \right)
+\in{\mathbb{D}}$.
+
+(Note that the only difference to complex numbers is the definition of $\cdot
+$, which is lacking a $-bd$ term.)
+
+Again, we are following standard PEMDAS
+rules\footnote{\url{https://en.wikipedia.org/wiki/Order_of_operations}} for
+the order of operations, and we abbreviate $\alpha\cdot\beta$ as $\alpha\beta$.
+
+\begin{enumerate}
+\item[\textbf{(a)}] Prove that $\alpha\cdot\left(  \beta\cdot\gamma\right)  =
+\left(  \alpha\cdot\beta\right)  \cdot\gamma$ for any $\alpha, \beta,
+\gamma\in{\mathbb{D}}$.
+\end{enumerate}
+
+You can use the following properties of dual numbers without proof (they are
+all essentially obvious):
+
+\begin{itemize}
+\item We have $\alpha+ \beta= \beta+ \alpha$ for any $\alpha, \beta
+\in{\mathbb{D}}$.
+
+\item We have $\alpha+ \left(  \beta+ \gamma\right)  = \left(  \alpha+
+\beta\right)  + \gamma$ for any $\alpha, \beta, \gamma\in{\mathbb{D}}$.
+
+\item We have $\alpha+ 0_{\mathbb{D}} = \alpha$ for any $\alpha\in{\mathbb{D}%
+}$.
+
+\item We have $\alpha\cdot1_{\mathbb{D}} = \alpha$ for any $\alpha
+\in{\mathbb{D}}$.
+
+\item We have $\alpha\cdot\beta= \beta\cdot\alpha$ for any $\alpha, \beta
+\in{\mathbb{D}}$.
+
+\item We have $\alpha\cdot\left(  \beta+ \gamma\right)  = \alpha\beta+
+\alpha\gamma$ and $\left(  \alpha+ \beta\right)  \cdot\gamma= \alpha\gamma+
+\beta\gamma$ for any $\alpha, \beta, \gamma\in{\mathbb{D}}$.
+
+\item We have $\alpha\cdot0_{\mathbb{D}} = 0_{\mathbb{D}}$ for any $\alpha
+\in{\mathbb{D}}$.
+
+\item If $\alpha, \beta, \gamma\in{\mathbb{D}}$, then we have the equivalence
+$\left(  \alpha- \beta= \gamma\right)  \iff\left(  \alpha= \beta+
+\gamma\right)  $.
+\end{itemize}
+
+We shall identify each real number $r$ with the dual number $r_{\mathbb{D}} =
+\left(  r, 0 \right)  $.
+
+\begin{enumerate}
+\item[\textbf{(b)}] Prove that $a + b\varepsilon= \left(  a, b \right)  $ for
+any $a, b \in\mathbb{R}$.
+\end{enumerate}
+
+An \textit{inverse} of a dual number $\alpha\in{\mathbb{D}}$ means a dual
+number $\beta$ such that $\alpha\beta= 1_{\mathbb{D}}$. This inverse is
+unique, and is called $\alpha^{-1}$.
+
+\begin{enumerate}
+\item[\textbf{(c)}] Prove that a dual number $\alpha= a + b\varepsilon$ (with
+$a, b \in\mathbb{R}$) has an inverse if and only if $a \neq0$.
+
+\item[\textbf{(d)}] If $a, b \in\mathbb{R}$ satisfy $a \neq0$, prove that the
+inverse of the dual number $a + b\varepsilon$ is $\dfrac{1}{a} - \dfrac
+{b}{a^{2}} \varepsilon$.
+\end{enumerate}
+
+We define finite sums and products of dual numbers in the usual way (i.e.,
+just as finite sums and products of real numbers were defined). Here, an empty
+sum of dual numbers is always understood to be $0_{\mathbb{D}}$, whereas an
+empty product of dual numbers is always understood to be $1_{\mathbb{D}}$.
+
+If $\alpha$ is a dual number and $k\in\mathbb{N}$, then the $k$\textit{-th
+power of }$\alpha$ is defined to be the dual number $\underbrace{\alpha
+\alpha\cdots\alpha}_{k\text{ factors}}$. This $k$-th power is denoted by
+$\alpha^{k}$. Thus, in particular, $\alpha^{0}=\underbrace{\alpha\alpha
+\cdots\alpha}_{0\text{ factors}}=\left(  \text{empty product}\right)
+=1_{{\mathbb{D}}}$.
+
+\begin{enumerate}
+\item[\textbf{(e)}] Let $P\left(  x \right)  = a_{k} x^{k} + a_{k-1} x^{k-1} +
+\cdots+ a_{0}$ be a polynomial with real coefficients. Prove that
+\[
+P \left(  a + b \varepsilon\right)  = P\left(  a \right)  + b P^{\prime
+}\left(  a \right)  \varepsilon\qquad\text{for any } a, b \in\mathbb{R} .
+\]
+Here, $P^{\prime}$ denotes the derivative of $P$, which is defined by
+\[
+P^{\prime}\left(  x \right)  = k a_{k} x^{k-1} + \left(  k-1 \right)  a_{k-1}
+x^{k-2} + \cdots+ 1 a_{1} x^{0} .
+\]
+
+\end{enumerate}
+
+\subsection{Remark}
+
+The dual number $\varepsilon$ is one of the simplest ``rigorous
+infinitesimals'' that appear in mathematics. Part \textbf{(e)} of the exercise
+shows that we can literally write $P \left(  a + \varepsilon\right)  =
+P\left(  a \right)  + P^{\prime}\left(  a \right)  \varepsilon$ when $P$ is a
+polynomial, without having to compute any limits. It is tempting to ``solve''
+this equation for $P^{\prime}\left(  a \right)  $, thus obtaining something
+like $P^{\prime}\left(  a \right)  = \dfrac{P \left(  a + \varepsilon\right)
+- P\left(  a \right)  }{\varepsilon}$. However, this needs to be taken with a
+grain of salt, since $\varepsilon$ has no inverse and the fraction $\dfrac{P
+\left(  a + \varepsilon\right)  - P\left(  a \right)  }{\varepsilon}$ is not
+uniquely determined. There are other, subtler ways to put infinitesimals on a
+firm algebraic footing, but dual numbers are already useful in some situations.
+
+Note that dual numbers have \textit{zero-divisors}: i.e., there exist nonzero
+dual numbers $a$ and $b$ such that $ab = 0$. The simplest example is probably
+$\varepsilon^{2} = 0$ (despite $\varepsilon\neq0$).
+
+\subsection{Solution}
+
+\textbf{(a)} Let $\alpha,\beta,\gamma\in{\mathbb{D}}$. We must prove that
+$\alpha\cdot\left(  \beta\cdot\gamma\right)  =\left(  \alpha\cdot\beta\right)
+\cdot\gamma$.
+
+We have $\alpha\in\mathbb{D}$; in other words, $\alpha$ is a dual number.
+Thus, $\alpha$ is a pair $\left(  a,b\right)  $ of two real numbers $a$ and $b
+$. Consider these $a$ and $b$.
+
+We have $\beta\in\mathbb{D}$; in other words, $\beta$ is a dual number. Thus,
+$\beta$ is a pair $\left(  c,d\right)  $ of two real numbers $c$ and $d$.
+Consider these $c$ and $d$.
+
+We have $\gamma\in\mathbb{D}$; in other words, $\gamma$ is a dual number.
+Thus, $\gamma$ is a pair $\left(  e,f\right)  $ of two real numbers $e$ and $f
+$. Consider these $e$ and $f$.
+
+Comparing the equalities
+\begin{align*}
+\underbrace{\alpha}_{=\left(  a,b\right)  }\cdot\left(  \underbrace{\beta
+}_{=\left(  c,d\right)  }\cdot\underbrace{\gamma}_{=\left(  e,f\right)
+}\right)   &  =\left(  a,b\right)  \cdot\underbrace{\left(  \left(
+c,d\right)  \cdot\left(  e,f\right)  \right)  }_{\substack{=\left(
+ce,cf+de\right)  \\\text{(by the definition of} \\\text{the operation }%
+\cdot\text{ on }\mathbb{D}\text{)}}}=\left(  a,b\right)  \cdot\left(
+ce,cf+de\right) \\
+&  =\left(  \underbrace{a\left(  ce\right)  }_{=ace},\underbrace{a\left(
+cf+de\right)  +b\left(  ce\right)  }_{=acf+ade+bce}\right) \\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of the operation }%
+\cdot\text{ on }\mathbb{D}\right) \\
+&  =\left(  ace,acf+ade+bce\right)
+\end{align*}
+and%
+\begin{align*}
+\left(  \underbrace{\alpha}_{=\left(  a,b\right)  }\cdot\underbrace{\beta
+}_{=\left(  c,d\right)  }\right)  \cdot\underbrace{\gamma}_{=\left(
+e,f\right)  }  &  =\underbrace{\left(  \left(  a,b\right)  \cdot\left(
+c,d\right)  \right)  } _{\substack{=\left(  ac,ad+bc\right)  \\\text{(by the
+definition of} \\\text{the operation }\cdot\text{ on }\mathbb{D}\text{)}%
+}}\cdot\left(  e,f\right)  =\left(  ac,ad+bc\right)  \cdot\left(  e,f\right)
+\\
+&  =\left(  \underbrace{\left(  ac\right)  e}_{=ace},\underbrace{\left(
+ac\right)  f+\left(  ad+bc\right)  e}_{=acf+ade+bce}\right) \\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of the operation }%
+\cdot\text{ on }\mathbb{D}\right) \\
+&  =\left(  ace,acf+ade+bce\right)  ,
+\end{align*}
+we obtain $\alpha\cdot\left(  \beta\cdot\gamma\right)  =\left(  \alpha
+\cdot\beta\right)  \cdot\gamma$. This solves part \textbf{(a)} of the
+exercise.\\[0.4cm]
+
+\textbf{(b)} Let $a,b\in\mathbb{R}$. Then, the definition of $a_{\mathbb{D}} $
+yields $a_{\mathbb{D}}=\left(  a,0\right)  $, whereas the definition of
+$b_{\mathbb{D}}$ yields $b_{\mathbb{D}}=\left(  b,0\right)  $. The definition
+of $\varepsilon$ yields $\varepsilon=\left(  0,1\right)  $. Thus,%
+\begin{align*}
+\underbrace{a_{\mathbb{D}}}_{=\left(  a,0\right)  }+\underbrace{b_{\mathbb{D}%
+}}_{=\left(  b,0\right)  }\underbrace{\varepsilon}_{=\left(  0,1\right)  }  &
+=\left(  a,0\right)  +\underbrace{\left(  b,0\right)  \cdot\left(  0,1\right)
+} _{\substack{=\left(  b\cdot0,b\cdot1+0\cdot0\right)  \\\text{(by the
+definition of} \\\text{the operation }\cdot\text{ on }\mathbb{D}\text{)}%
+}}=\left(  a,0\right)  +\left(  \underbrace{b\cdot0}_{=0},\underbrace{b\cdot
+1+0\cdot0}_{=b}\right) \\
+&  =\left(  a,0\right)  +\left(  0,b\right)  =\left(  \underbrace{a+0}%
+_{=a},\underbrace{0+b}_{=b}\right)  \ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{by the definition of}\\
+\text{the operation }+\text{ on }\mathbb{D}%
+\end{array}
+\right) \\
+&  =\left(  a,b\right)  .
+\end{align*}
+Since we identify the real numbers $a$ and $b$ with the dual numbers
+$a_{\mathbb{D}}$ and $b_{\mathbb{D}}$, we can rewrite this equality as
+$a+b\varepsilon=\left(  a,b\right)  $. This solves part \textbf{(b)} of the
+exercise.\\[0.4cm]
+
+\textbf{(c)} Let $\alpha=a+b\varepsilon$ be a dual number with $a,b\in
+\mathbb{R}$. We must prove that $\alpha$ has an inverse if and only if
+$a\neq0$.
+
+In other words, we must prove the logical equivalence%
+\begin{equation}
+\left(  \alpha\text{ has an inverse}\right)  \ \Longleftrightarrow\ \left(
+a\neq0\right)  . \label{sol.dualnums.basics.c.goal}%
+\end{equation}
+
+
+We shall prove the \textquotedblleft$\Longleftarrow$\textquotedblright\ and
+\textquotedblleft$\Longrightarrow$\textquotedblright\ parts of this
+equivalence separately:
+
+[\textit{Proof of the \textquotedblleft}$\Longleftarrow$%
+\textit{\textquotedblright\ direction of (\ref{sol.dualnums.basics.c.goal}):}
+Assume that $a\neq0$. We must prove that $\alpha$ has an inverse.
+
+The real numbers $\dfrac{1}{a}$ and $\dfrac{b}{a^{2}}$ are well-defined (since
+$a\neq0$). Hence, the dual number $\left(  \dfrac{1}{a},-\dfrac{b}{a^{2}%
+}\right)  $ is well-defined.
+
+Part \textbf{(b)} of this exercise yields $a+b\varepsilon=\left(  a,b\right)
+$. Hence, $\alpha=a+b\varepsilon=\left(  a,b\right)  $. Thus,%
+\begin{align*}
+\underbrace{\alpha}_{=\left(  a,b\right)  }\cdot\left(  \dfrac{1}{a}%
+,-\dfrac{b}{a^{2}}\right)   &  =\left(  a,b\right)  \cdot\left(  \dfrac{1}%
+{a},-\dfrac{b}{a^{2}}\right)  =\left(  \underbrace{a\cdot\dfrac{1}{a}}%
+_{=1},\underbrace{a\cdot\left(  -\dfrac{b}{a^{2}}\right)  +b\cdot\dfrac{1}{a}%
+}_{=0}\right) \\
+&  =\left(  1,0\right)  =1_{\mathbb{D}}\ \ \ \ \ \ \ \ \ \ \left(  \text{since
+the definition of }1_{\mathbb{D}}\text{ yields }1_{\mathbb{D}}=\left(
+1,0\right)  \right)  .
+\end{align*}
+In other words, the dual number $\left(  \dfrac{1}{a},-\dfrac{b}{a^{2}%
+}\right)  $ is an inverse of $\alpha$ (by the definition of \textquotedblleft
+inverse\textquotedblright). Hence, the dual number $\alpha$ has an inverse
+(namely, $\left(  \dfrac{1}{a},-\dfrac{b}{a^{2}}\right)  $). This proves the
+\textquotedblleft$\Longleftarrow$\textquotedblright\ direction of
+(\ref{sol.dualnums.basics.c.goal}).]
+
+[\textit{Proof of the \textquotedblleft}$\Longrightarrow$%
+\textit{\textquotedblright\ direction of (\ref{sol.dualnums.basics.c.goal}):}
+Assume that $\alpha$ has an inverse. We must prove that $a\neq0$.
+
+We have assumed that $\alpha$ has an inverse. Let $\beta$ be such an inverse.
+Thus, $\beta$ is an inverse of $\alpha$. In other words, $\beta$ is a dual
+number such that $\alpha\beta=1_{\mathbb{D}}$ (by the definition of
+\textquotedblleft inverse\textquotedblright).
+
+Part \textbf{(b)} of this exercise yields $a+b\varepsilon=\left(  a,b\right)
+$. Hence, $\alpha=a+b\varepsilon=\left(  a,b\right)  $.
+
+But $\beta$ is a dual number. Thus, $\beta$ is a pair $\left(  c,d\right)  $
+of two real numbers $c$ and $d$. Consider these $c$ and $d$.
+
+We have $\alpha\beta=1_{\mathbb{D}}=\left(  1,0\right)  $ (by the definition
+of $1_{\mathbb{D}}$). Thus,
+\[
+\left(  1,0\right)  =\underbrace{\alpha}_{=\left(  a,b\right)  }%
+\underbrace{\beta}_{=\left(  c,d\right)  }=\left(  a,b\right)  \cdot\left(
+c,d\right)  =\left(  ac,ad+bc\right)  \ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{by the definition of the}\\
+\text{operation }\cdot\text{ on }\mathbb{D}%
+\end{array}
+\right)  .
+\]
+
+
+Thus, $1=ac$ and $0=ad+bc$. From $1=ac$, we conclude that $ac=1\neq0$ and
+therefore $a\neq0$. This proves the \textquotedblleft$\Longrightarrow
+$\textquotedblright\ direction of (\ref{sol.dualnums.basics.c.goal}).]
+
+We thus have proven both directions of the equivalence
+(\ref{sol.dualnums.basics.c.goal}). Thus, (\ref{sol.dualnums.basics.c.goal})
+is proven, and part \textbf{(c)} of the exercise is solved.\\[0.4cm]
+
+\textbf{(d)} Let $a,b\in\mathbb{R}$ satisfy $a\neq0$. We must prove that the
+inverse of the dual number $a+b\varepsilon$ is $\dfrac{1}{a}-\dfrac{b}{a^{2}%
+}\varepsilon$.
+
+The real numbers $\dfrac{1}{a}$ and $\dfrac{b}{a^{2}}$ are well-defined (since
+$a\neq0$). Hence, the dual number $\left(  \dfrac{1}{a},-\dfrac{b}{a^{2}%
+}\right)  $ is well-defined. Part \textbf{(b)} of this exercise (applied to
+$\dfrac{1}{a}$ and $-\dfrac{b}{a^{2}}$ instead of $a$ and $b$) yields
+$\dfrac{1}{a}+\left(  -\dfrac{b}{a^{2}}\right)  \varepsilon=\left(  \dfrac
+{1}{a},-\dfrac{b}{a^{2}}\right)  $.
+
+Part \textbf{(b)} of this exercise yields $a+b\varepsilon=\left(  a,b\right)
+$. Hence,%
+\begin{align*}
+&  \underbrace{\left(  a+b\varepsilon\right)  }_{=\left(  a,b\right)  }%
+\cdot\underbrace{\left(  \dfrac{1}{a}-\dfrac{b}{a^{2}}\varepsilon\right)
+}_{=\dfrac{1}{a}+\left(  -\dfrac{b}{a^{2}}\right)  \varepsilon=\left(
+\dfrac{1}{a},-\dfrac{b}{a^{2}}\right)  }\\
+&  =\left(  a,b\right)  \cdot\left(  \dfrac{1}{a},-\dfrac{b}{a^{2}}\right)
+=\left(  \underbrace{a\cdot\dfrac{1}{a}}_{=1},\underbrace{a\cdot\left(
+-\dfrac{b}{a^{2}}\right)  +b\cdot\dfrac{1}{a}}_{=0}\right) \\
+&  =\left(  1,0\right)  =1_{\mathbb{D}}\ \ \ \ \ \ \ \ \ \ \left(  \text{since
+the definition of }1_{\mathbb{D}}\text{ yields }1_{\mathbb{D}}=\left(
+1,0\right)  \right)  .
+\end{align*}
+In other words, the dual number $\dfrac{1}{a}-\dfrac{b}{a^{2}}\varepsilon$ is
+an inverse of $a+b\varepsilon$ (by the definition of \textquotedblleft
+inverse\textquotedblright). Hence, the dual number $a+b\varepsilon$ has a
+unique inverse (because any dual number that has an inverse must have a unique
+inverse), and this inverse is $\dfrac{1}{a}-\dfrac{b}{a^{2}}\varepsilon$. This
+solves part \textbf{(d)} of the exercise.\\[0.4cm]
+
+\textbf{(e)} We will use two auxiliary claims:
+
+\begin{statement}
+\textit{Claim 1:} Let $J$ be a finite set. For each $j\in J$, let $a_{j}$ and
+$b_{j}$ be two real numbers. Then,%
+\[
+\sum_{j\in J}\left(  a_{j},b_{j}\right)  =\left(  \sum_{j\in J}a_{j}%
+,\sum_{j\in J}b_{j}\right)
+\]
+(as dual numbers). (Here, the \textquotedblleft$\sum_{j\in J}$%
+\textquotedblright\ sign on the left hand side stands for a sum of finitely
+many dual numbers; this is defined just as we defined sums of finitely many
+integers or real numbers or complex numbers.)
+\end{statement}
+
+[\textit{Proof of Claim 1:} This claim can be proven by a straightforward
+induction on $\left\vert J\right\vert $, using the definition of the operation
+$+$ on $\mathbb{D}$. (We leave the details to the reader.).]
+
+\begin{statement}
+\textit{Claim 2:} Let $a,b\in\mathbb{R}$. Then,%
+\[
+\left(  a,b\right)  ^{k}=\left(  a^{k},ka^{k-1}b\right)
+\ \ \ \ \ \ \ \ \ \ \text{for every }k\in\mathbb{N}.
+\]
+(Here, we agree to understand the expression \textquotedblleft$ka^{k-1}%
+$\textquotedblright\ to mean $0$ when $k=0$, even if its sub-expression
+\textquotedblleft$a^{k-1}$\textquotedblright\ may be meaningless\footnote{The
+sub-expression \textquotedblleft$a^{k-1}$\textquotedblright\ is indeed
+meaningless when $a=0$ and $k=0$.}.)
+\end{statement}
+
+[\textit{First proof of Claim 2:} We shall prove Claim 2 by induction on $k$:
+
+\textit{Induction base:} We have $\left(  a,b\right)  ^{0}=1_{\mathbb{D}%
+}=\left(  1,0\right)  $ (by the definition of $1_{\mathbb{D}}$). Comparing
+this with $\left(  \underbrace{a^{0}}_{=1},\underbrace{0a^{0-1}b}_{=0}\right)
+=\left(  1,0\right)  $, we obtain $\left(  a,b\right)  ^{0}=\left(
+a^{0},0a^{0-1}b\right)  $. In other words, Claim 2 holds for $k=0$. This
+completes the induction base.
+
+\textit{Induction step:} Let $m\in\mathbb{N}$. Assume that Claim 2 holds for
+$k=m$. We must prove that Claim 2 holds for $k=m+1$.
+
+We have assumed that Claim 2 holds for $k=m$. In other words, we have $\left(
+a,b\right)  ^{m}=\left(  a^{m},ma^{m-1}b\right)  $. Now,%
+\[
+\left(  a,b\right)  ^{m+1}=\left(  a,b\right)  \cdot\underbrace{\left(
+a,b\right)  ^{m}}_{=\left(  a^{m},ma^{m-1}b\right)  }=\left(  a,b\right)
+\cdot\left(  a^{m},ma^{m-1}b\right)  =\left(  aa^{m},ama^{m-1}b+ba^{m}\right)
+\]
+(by the definition of the operation $\cdot$ on $\mathbb{D}$). But we have
+$ama^{m-1}b=m\underbrace{aa^{m-1}}_{=a^{m}}b=ma^{m}b$. (Strictly speaking,
+this computation is only justified when $m\neq0$, because we agreed to give
+the expression \textquotedblleft$ka^{k-1}$\textquotedblright\ special
+treatment when $k=0$. But it is clear that the equality $ama^{m-1}b=ma^{m}b$
+also holds when $m=0$.) Thus,%
+\begin{align*}
+\left(  a,b\right)  ^{m+1}  &  =\left(  \underbrace{aa^{m}}_{=a^{m+1}%
+},\underbrace{ama^{m-1}b}_{=ma^{m}b}+\underbrace{ba^{m}}_{=a^{m}b}\right)
+=\left(  a^{m+1},\underbrace{ma^{m}b+a^{m}b}_{\substack{=\left(  m+1\right)
+a^{m}b=\left(  m+1\right)  a^{\left(  m+1\right)  -1}b\\\text{(since
+}m=\left(  m+1\right)  -1\text{)}}}\right) \\
+&  =\left(  a^{m+1},\left(  m+1\right)  a^{\left(  m+1\right)  -1}b\right)  .
+\end{align*}
+In other words, Claim 2 holds for $k=m+1$. This completes the induction step.
+Thus, Claim 2 is proven by induction.]
+
+The proof we just gave for Claim 2 was straightforward and completely
+elementary; for the sake of instructivity, let us next outline a different
+proof of Claim 2, which relies on the binomial formula. First, we recall that
+the binomial formula (see, e.g., Theorem 2.17.13 in
+\href{http://www-users.math.umn.edu/~dgrinber/19s/notes.pdf}{the class notes})
+says that any real numbers $x$ and $y$ and any $n\in\mathbb{N}$ satisfy%
+\begin{equation}
+\left(  x+y\right)  ^{n}=\sum_{k=0}^{n}\dbinom{n}{k}x^{k}y^{n-k}.
+\label{sol.dualnums.basics.e.binomf}%
+\end{equation}
+We can replace \textquotedblleft real numbers\textquotedblright\ by
+\textquotedblleft dual numbers\textquotedblright\ in this statement (i.e., we
+can let $x$ and $y$ be dual numbers instead of being real numbers) without
+sacrificing its correctness; indeed, the very same argument that proves
+(\ref{sol.dualnums.basics.e.binomf}) for arbitrary real numbers $x$ and $y$
+(by induction on $n$) will also prove (\ref{sol.dualnums.basics.e.binomf}) for
+dual numbers $x$ and $y$. This is because the basic rules of addition,
+multiplication and taking powers that hold for real numbers all hold for dual
+numbers as well\footnote{For example, part \textbf{(a)} of this exercise shows
+that the associativity of multiplication holds for dual numbers; likewise, all
+the other basic rules can be proven.}. So we know that
+(\ref{sol.dualnums.basics.e.binomf}) holds whenever $x$ and $y$ are dual
+numbers. In other words, any dual numbers $x$ and $y$ and any $n\in\mathbb{N}$
+satisfy%
+\begin{equation}
+\left(  x+y\right)  ^{n}=\sum_{k=0}^{n}\dbinom{n}{k}x^{k}y^{n-k}=\sum
+_{m=0}^{n}\dbinom{n}{m}x^{m}y^{n-m} \label{sol.dualnums.basics.e.binomf2}%
+\end{equation}
+(here, we have renamed the summation index $k$ as $m$).
+
+Let us also observe that $\varepsilon^{2}=0$. (Indeed,
+\begin{align*}
+\varepsilon^{2}  &  =\underbrace{\varepsilon}_{=\left(  0,1\right)  }%
+\cdot\underbrace{\varepsilon}_{=\left(  0,1\right)  }=\left(  0,1\right)
+\cdot\left(  0,1\right)  =\left(  \underbrace{0\cdot0}_{=0},\underbrace{0\cdot
+1+1\cdot0}_{=0}\right) \\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of the operation }%
+\cdot\text{ on }\mathbb{D}\right) \\
+&  =\left(  0,0\right)  =0.
+\end{align*}
+)
+
+We are now ready to give our second proof of Claim 2:
+
+[\textit{Second proof of Claim 2 (sketched):} It is easy to see that Claim 2
+holds for $k=0$. Thus, for the rest of this proof, we WLOG assume that
+$k\neq0$. Hence, $k\geq1$ (since $k\in\mathbb{N}$).
+
+Part \textbf{(b)} of this exercise yields $a+b\varepsilon=\left(  a,b\right)
+$. Hence, $\left(  a,b\right)  =a+b\varepsilon$. Thus,%
+\begin{align*}
+\left(  a,b\right)  ^{k}  &  =\left(  a+b\varepsilon\right)  ^{k}=\sum
+_{m=0}^{k}\dbinom{k}{m}a^{m}\left(  b\varepsilon\right)  ^{k-m}%
+\ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{by (\ref{sol.dualnums.basics.e.binomf2}), applied}\\
+\text{to }x=a\text{ and }y=b\varepsilon
+\end{array}
+\right) \\
+&  =\sum_{m=0}^{k-2}\dbinom{k}{m}a^{m}\underbrace{\left(  b\varepsilon\right)
+^{k-m}}_{=b^{k-m}\varepsilon^{k-m}}+\underbrace{\dbinom{k}{k-1}}%
+_{\substack{=k\\\text{(this is easy}\\\text{to check)}}}a^{k-1}%
+\underbrace{\left(  b\varepsilon\right)  ^{k-\left(  k-1\right)  }}_{=\left(
+b\varepsilon\right)  ^{1}=b\varepsilon}+\underbrace{\dbinom{k}{k}%
+}_{\substack{=1\\\text{(this is easy}\\\text{to check)}}}a^{k}%
+\underbrace{\left(  b\varepsilon\right)  ^{k-k}}_{=\left(  b\varepsilon
+\right)  ^{0}=1}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{here, we have split off the addends for }m=k-1\\
+\text{and for }m=k\text{ from the sum (which is allowed,}\\
+\text{because }k\geq1\text{ shows that both of these addends exist)}%
+\end{array}
+\right) \\
+&  =\sum_{m=0}^{k-2}\dbinom{k}{m}a^{m}b^{k-m}\underbrace{\varepsilon^{k-m}%
+}_{\substack{=\varepsilon^{2}\varepsilon^{\left(  k-m\right)  -2}%
+\\\text{(since }k-m\geq2\\\text{(because }m\leq k-2\text{))}}}+ka^{k-1}%
+b\varepsilon+a^{k}\\
+&  =\sum_{m=0}^{k-2}\dbinom{k}{m}a^{m}b^{k-m}\underbrace{\varepsilon^{2}}%
+_{=0}\varepsilon^{\left(  k-m\right)  -2}+ka^{k-1}b\varepsilon+a^{k}%
+=ka^{k-1}b\varepsilon+a^{k}\\
+&  =a^{k}+ka^{k-1}b\varepsilon=\left(  a^{k},ka^{k-1}b\right)
+\end{align*}
+(by part \textbf{(b)} of the exercise, applied to $a^{k}$ and $ka^{k-1}b$
+instead of $a$ and $b$). Thus, Claim 2 is proven again.]
+
+We can now finally solve part \textbf{(e)} of the exercise:
+
+We have $P\left(  x\right)  =a_{k}x^{k}+a_{k-1}x^{k-1}+\cdots+a_{0}=\sum
+_{j=0}^{k}a_{j}x^{j}$. Substituting $a$ for $x$ in this equation, we find%
+\begin{equation}
+P\left(  a\right)  =\sum_{j=0}^{k}a_{j}a^{j}.
+\label{sol.dualnums.basics.e.Pa=}%
+\end{equation}
+
+
+Moreover, $P^{\prime}\left(  x\right)  =ka_{k}x^{k-1}+\left(  k-1\right)
+a_{k-1}x^{k-2}+\cdots+1a_{1}x^{0}=\sum_{j=1}^{k}ja_{j}x^{j-1}=\sum_{j=1}%
+^{k}a_{j}jx^{j-1}$. Substituting $a$ for $x$ in this equation, we find%
+\begin{equation}
+P^{\prime}\left(  a\right)  =\sum_{j=1}^{k}a_{j}ja^{j-1}.
+\label{sol.dualnums.basics.e.P'a=}%
+\end{equation}
+
+
+Substitute the dual number $\left(  a,b\right)  $ for $x$ in the equation
+$P\left(  x\right)  =\sum_{j=0}^{k}a_{j}x^{j}$. We thus obtain\footnote{Here,
+we agree to understand the expression \textquotedblleft$ja^{j-1}%
+$\textquotedblright\ to mean $0$ when $j=0$, even if its sub-expression
+\textquotedblleft$a^{j-1}$\textquotedblright\ may be meaningless. This is the
+same convention that we followed in Claim 2.}%
+\begin{align*}
+P\left(  \left(  a,b\right)  \right)   &  =\sum_{j=0}^{k}\underbrace{a_{j}%
+}_{\substack{=\left(  a_{j}\right)  _{\mathbb{D}}=\left(  a_{j},0\right)
+\\\text{(by the definition}\\\text{of }\left(  a_{j}\right)  _{\mathbb{D}%
+}\text{)}}}\underbrace{\left(  a,b\right)  ^{j}}_{\substack{=\left(
+a^{j},ja^{j-1}b\right)  \\\text{(by Claim 2,}\\\text{applied to }j\text{
+instead of }k\text{)}}}=\sum_{j=0}^{k}\underbrace{\left(  a_{j},0\right)
+\cdot\left(  a^{j},ja^{j-1}b\right)  }_{\substack{=\left(  a_{j}a^{j}%
+,a_{j}ja^{j-1}b+0a^{j}\right)  \\\text{(by the definition}\\\text{of the
+operation }\cdot\text{ on }\mathbb{D}\text{)}}}\\
+&  =\sum_{j=0}^{k}\left(  a_{j}a^{j},\underbrace{a_{j}ja^{j-1}b+0a^{j}%
+}_{=a_{j}ja^{j-1}b}\right)  =\sum_{j=0}^{k}\left(  a_{j}a^{j},ja_{j}%
+a^{j-1}b\right)  =\left(  \sum_{j=0}^{k}a_{j}a^{j},\sum_{j=0}^{k}a_{j}%
+ja^{j-1}b\right) \\
+&  \ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{by Claim 1, applied to }\left\{  0,1,\ldots,k\right\}  \text{, }%
+a_{j}a^{j}\text{ and }a_{j}ja^{j-1}b\\
+\text{instead of }J\text{, }a_{j}\text{ and }b_{j}\text{ (since the
+\textquotedblleft}\sum_{j=0}^{k}\text{\textquotedblright\ sign means
+\textquotedblleft}\sum_{j\in\left\{  0,1,\ldots,k\right\}  }%
+\text{\textquotedblright)}%
+\end{array}
+\right) \\
+&  =\left(  \underbrace{\sum_{j=0}^{k}a_{j}a^{j}}_{\substack{=P\left(
+a\right)  \\\text{(by (\ref{sol.dualnums.basics.e.Pa=}))}}},\underbrace{\sum
+_{j=1}^{k}a_{j}ja^{j-1}}_{\substack{=P^{\prime}\left(  a\right)  \\\text{(by
+(\ref{sol.dualnums.basics.e.P'a=}))}}}b\right) \\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{since }\sum_{j=0}^{k}a_{j}ja^{j-1}%
+b=a_{0}\underbrace{0a^{0-1}}_{=0}b+\sum_{j=1}^{k}a_{j}ja^{j-1}b=\sum_{j=1}%
+^{k}a_{j}ja^{j-1}b\right) \\
+&  =\left(  P\left(  a\right)  ,\underbrace{P^{\prime}\left(  a\right)
+b}_{=bP^{\prime}\left(  a\right)  }\right)  =\left(  P\left(  a\right)
+,bP^{\prime}\left(  a\right)  \right)  .
+\end{align*}
+But part \textbf{(b)} of this exercise (applied to $P\left(  a\right)  $ and
+$bP^{\prime}\left(  a\right)  $ instead of $a$ and $b$) yields
+\begin{equation}
+P\left(  a\right)  +bP^{\prime}\left(  a\right)  \varepsilon=\left(  P\left(
+a\right)  ,bP^{\prime}\left(  a\right)  \right)  .
+\label{sol.dualnums.basics.e.ur}%
+\end{equation}
+
+
+But part \textbf{(b)} of this exercise yields $a+b\varepsilon=\left(
+a,b\right)  $. Hence,%
+\[
+P\left(  \underbrace{a+b\varepsilon}_{=\left(  a,b\right)  }\right)  =P\left(
+\left(  a,b\right)  \right)  =\left(  P\left(  a\right)  ,bP^{\prime}\left(
+a\right)  \right)  =P\left(  a\right)  +bP^{\prime}\left(  a\right)
+\varepsilon
+\]
+(by (\ref{sol.dualnums.basics.e.ur})). This solves part \textbf{(e)} of the problem.
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 4
+%----------------------------------------------------------------------------------------
+\rule{\linewidth}{0.3pt} \\[0.4cm]
+
+\section{Exercise 4: $\mathbb{Z}\left[  \sqrt2 \right]  $}
+
+\subsection{Problem}
+
+Let $\mathbb{Z}\left[  \sqrt2 \right]  $ denote the set of all reals of the
+form $a + b \sqrt2$ with $a, b \in\mathbb{Z}$. We shall call such reals
+\textit{$\sqrt2$-integers}.
+
+\begin{enumerate}
+\item[\textbf{(a)}] Prove that any $\alpha, \beta\in\mathbb{Z}\left[  \sqrt2
+\right]  $ satisfy $\alpha+ \beta\in\mathbb{Z}\left[  \sqrt2 \right]  $ and
+$\alpha- \beta\in\mathbb{Z}\left[  \sqrt2 \right]  $ and $\alpha\beta
+\in\mathbb{Z}\left[  \sqrt2 \right]  $.
+
+\item[\textbf{(b)}] Prove that every element of $\mathbb{Z}\left[  \sqrt2
+\right]  $ can be written as $a + b \sqrt2$ for a \textbf{unique} pair
+$\left(  a, b \right)  $ of integers. (In other words, if four integers $a, b,
+c, d$ satisfy $a + b \sqrt2 = c + d \sqrt2$, then $a = c$ and $b = d$.)
+\end{enumerate}
+
+For any $\alpha\in\mathbb{Z}\left[  \sqrt{2}\right]  $, define the $\sqrt{2}%
+$\textit{-norm} $N_{2}\left(  \alpha\right)  $ of $\alpha$ by $N_{2}\left(
+\alpha\right)  =a^{2}-2b^{2}$, where $\alpha$ is written in the form
+$\alpha=a+b\sqrt{2}$ with $a,b\in\mathbb{Z}$. This is well-defined by part
+\textbf{(b)} of this exercise.
+
+\begin{enumerate}
+\item[\textbf{(c)}] Prove that $N_{2}\left(  \alpha\beta\right)  =
+N_{2}\left(  \alpha\right)  N_{2}\left(  \beta\right)  $ for all $\alpha,
+\beta\in\mathbb{Z}\left[  \sqrt2 \right]  $.
+\end{enumerate}
+
+Let $\left(  p_{0}, p_{1}, p_{2}, \ldots\right)  $ be the sequence of
+nonnegative integers defined recursively by
+\[
+p_{0} = 0, \qquad p_{1} = 1, \qquad\text{and } \qquad p_{n} = 2p_{n-1} +
+p_{n-2} \text{ for all } n \geq2.
+\]
+(Thus, $p_{2} = 2$ and $p_{3} = 5$ and $p_{4} = 12$ and so on.)
+
+\begin{enumerate}
+\item[\textbf{(d)}] Prove that $p_{n+1} p_{n-1} - p_{n}^{2} = \left(  -1
+\right)  ^{n} $ for each $n \geq1$.
+
+\item[\textbf{(e)}] Prove that $\left(  p_{n-1} + p_{n} + p_{n} \sqrt2
+\right)  \cdot\left(  p_{n-1} + p_{n} - p_{n} \sqrt2 \right)  = \left(  -1
+\right)  ^{n}$ for each $n \geq1$.
+\end{enumerate}
+
+[\textbf{Hint:} For \textbf{(d)}, use induction.]
+
+\subsection{Remark}
+
+The set $\mathbb{Z}\left[  \sqrt2 \right]  $ of $\sqrt2$-integers is rather
+similar to the set $\mathbb{Z}\left[  i \right]  $ of Gaussian integers: the
+former has elements of the form $a + b\sqrt2$ with $a, b \in\mathbb{Z}$, while
+the latter has elements of the form $a + b\sqrt{-1}$ with $a, b \in\mathbb{Z}%
+$. The $\sqrt2$-norm on $\mathbb{Z}\left[  \sqrt2 \right]  $ is an analogue of
+the (usual) norm on $\mathbb{Z}\left[  i \right]  $. However, visually
+speaking, the latter set is ``spread out'' in the Euclidean plane, while the
+former is ``concentrated'' on the real line (and actually everywhere dense on
+it -- i.e., every little interval on the real line has a $\sqrt2$-integer
+inside it). The difference has algebraic consequences; in particular, there
+are only four units ($1, -1, i, -i$) in $\mathbb{Z}\left[  i \right]  $,
+whereas $\mathbb{Z}\left[  \sqrt2 \right]  $ has infinitely many units
+(namely, part \textbf{(e)} of the exercise shows that $p_{n-1} + p_{n} + p_{n}
+\sqrt2$ is a unit for each $n \geq1$).
+
+\subsection{Solution}
+
+\textbf{(a)} Let $\alpha,\beta\in\mathbb{Z}\left[  \sqrt{2}\right]  $. We must
+prove that $\alpha+\beta\in\mathbb{Z}\left[  \sqrt{2}\right]  $ and
+$\alpha-\beta\in\mathbb{Z}\left[  \sqrt{2}\right]  $ and $\alpha\beta
+\in\mathbb{Z}\left[  \sqrt{2}\right]  $.
+
+We have $\alpha\in\mathbb{Z}\left[  \sqrt{2}\right]  $. In other words,
+$\alpha$ is a real of the form $a+b\sqrt{2}$ with $a,b\in\mathbb{Z}$ (by the
+definition of $\mathbb{Z}\left[  \sqrt{2}\right]  $). In other words, there
+exist two integers $x_{1},x_{2}\in\mathbb{Z}$ such that $\alpha=x_{1}%
++x_{2}\sqrt{2}$. Similarly, there exist two integers $y_{1},y_{2}\in
+\mathbb{Z}$ such that $\beta=y_{1}+y_{2}\sqrt{2}$. Consider these four
+integers $x_{1},x_{2},y_{1},y_{2}$.
+
+We have%
+\[
+\underbrace{\alpha}_{=x_{1}+x_{2}\sqrt{2}}+\underbrace{\beta}_{=y_{1}%
++y_{2}\sqrt{2}}=\left(  x_{1}+x_{2}\sqrt{2}\right)  +\left(  y_{1}+y_{2}%
+\sqrt{2}\right)  =\left(  x_{1}+y_{1}\right)  +\left(  x_{2}+y_{2}\right)
+\sqrt{2}.
+\]
+Hence, $\alpha+\beta$ is a real of the form $a+b\sqrt{2}$ with $a,b\in
+\mathbb{Z}$ (namely, with $a=x_{1}+y_{1}$ and $b=x_{2}+y_{2}$). In other
+words, $\alpha+\beta\in\mathbb{Z}\left[  \sqrt{2}\right]  $ (by the definition
+of $\mathbb{Z}\left[  \sqrt{2}\right]  $).
+
+We have%
+\[
+\underbrace{\alpha}_{=x_{1}+x_{2}\sqrt{2}}-\underbrace{\beta}_{=y_{1}%
++y_{2}\sqrt{2}}=\left(  x_{1}+x_{2}\sqrt{2}\right)  -\left(  y_{1}+y_{2}%
+\sqrt{2}\right)  =\left(  x_{1}-y_{1}\right)  +\left(  x_{2}-y_{2}\right)
+\sqrt{2}.
+\]
+Hence, $\alpha-\beta$ is a real of the form $a+b\sqrt{2}$ with $a,b\in
+\mathbb{Z}$ (namely, with $a=x_{1}-y_{1}$ and $b=x_{2}-y_{2}$). In other
+words, $\alpha-\beta\in\mathbb{Z}\left[  \sqrt{2}\right]  $ (by the definition
+of $\mathbb{Z}\left[  \sqrt{2}\right]  $).
+
+We have%
+\begin{align}
+\underbrace{\alpha}_{=x_{1}+x_{2}\sqrt{2}}\underbrace{\beta}_{=y_{1}%
++y_{2}\sqrt{2}}  &  =\left(  x_{1}+x_{2}\sqrt{2}\right)  \left(  y_{1}%
++y_{2}\sqrt{2}\right)  =x_{1}y_{1}+x_{1}y_{2}\sqrt{2}+x_{2}\sqrt{2}y_{1}%
++x_{2}\sqrt{2}y_{2}\sqrt{2}\nonumber\\
+&  =x_{1}y_{1}+x_{1}y_{2}\sqrt{2}+x_{2}\underbrace{\sqrt{2}y_{1}}_{=y_{1}%
+\sqrt{2}}+x_{2}\underbrace{\sqrt{2}y_{2}}_{=y_{2}\sqrt{2}}\sqrt{2}\nonumber\\
+&  =x_{1}y_{1}+x_{1}y_{2}\sqrt{2}+x_{2}y_{1}\sqrt{2}+x_{2}y_{2}%
+\underbrace{\sqrt{2}\sqrt{2}}_{=\left(  \sqrt{2}\right)  ^{2}=2}\nonumber\\
+&  =x_{1}y_{1}+x_{1}y_{2}\sqrt{2}+x_{2}y_{1}\sqrt{2}+x_{2}y_{2}2\nonumber\\
+&  =\left(  x_{1}y_{1}+2x_{2}y_{2}\right)  +\left(  x_{1}y_{2}+x_{2}%
+y_{1}\right)  \sqrt{2}. \label{sol.Zsqrt2.basics.a.ab}%
+\end{align}
+Hence, $\alpha\beta$ is a real of the form $a+b\sqrt{2}$ with $a,b\in
+\mathbb{Z}$ (namely, with $a=x_{1}y_{1}+2x_{2}y_{2}$ and $b=x_{1}y_{2}%
++x_{2}y_{1}$). In other words, $\alpha\beta\in\mathbb{Z}\left[  \sqrt
+{2}\right]  $ (by the definition of $\mathbb{Z}\left[  \sqrt{2}\right]  $).
+
+We have now shown that $\alpha+\beta\in\mathbb{Z}\left[  \sqrt{2}\right]  $
+and $\alpha-\beta\in\mathbb{Z}\left[  \sqrt{2}\right]  $ and $\alpha\beta
+\in\mathbb{Z}\left[  \sqrt{2}\right]  $. This solves part \textbf{(a)} of the
+exercise.\\[0.4cm]
+
+\textbf{(b)} Let $\alpha$ be an element of $\mathbb{Z}\left[  \sqrt{2}\right]
+$. We must prove that $\alpha$ can be written as $a+b\sqrt{2}$ for a
+\textbf{unique} pair $\left(  a,b\right)  $ of integers.
+
+Clearly, $\alpha$ can be written as $a+b\sqrt{2}$ for \textbf{at least one}
+pair $\left(  a,b\right)  $ of integers (because this is what it means for
+$\alpha$ to belong to $\mathbb{Z}\left[  \sqrt{2}\right]  $). Thus, it remains
+to prove that $\alpha$ can be written as $a+b\sqrt{2}$ for \textbf{at most
+one} pair $\left(  a,b\right)  $ of integers. In other words, we must prove
+that if $\left(  a_{1},b_{1}\right)  $ and $\left(  a_{2},b_{2}\right)  $ are
+two pairs $\left(  a,b\right)  $ of integers such that $\alpha=a+b\sqrt{2}$,
+then $\left(  a_{1},b_{1}\right)  =\left(  a_{2},b_{2}\right)  $.
+
+Let us prove this. Let $\left(  a_{1},b_{1}\right)  $ and $\left(  a_{2}%
+,b_{2}\right)  $ be two pairs $\left(  a,b\right)  $ of integers such that
+$\alpha=a+b\sqrt{2}$. We must show that $\left(  a_{1},b_{1}\right)  =\left(
+a_{2},b_{2}\right)  $.
+
+Assume the contrary. Thus, $\left(  a_{1},b_{1}\right)  \neq\left(
+a_{2},b_{2}\right)  $.
+
+It is easy to check that $2$ is not a perfect square. (We can show something
+more general: Any integer that is congruent to $2$ or $3$ modulo $4$ is not a
+perfect square. Indeed, Exercise 2.7.2 in
+\href{http://www-users.math.umn.edu/~dgrinber/19s/notes.pdf}{the class notes}
+shows that each integer $u$ satisfies either $u^{2}\equiv0\operatorname{mod}4$
+(if $u$ is even) or $u^{2}\equiv1\operatorname{mod}4$ (if $u$ is odd). In
+other words, each perfect square is congruent to either $0$ or $1$ modulo $4$.
+Thus, any integer that is congruent to $2$ or $3$ modulo $4$ is not a perfect square.)
+
+Exercise 2.10.15 in
+\href{http://www-users.math.umn.edu/~dgrinber/19s/notes.pdf}{the class notes}
+shows that if a positive integer $u$ is not a perfect square, then $\sqrt{u}$
+is irrational. Applying this to $u=2$, we conclude that $\sqrt{2}$ is
+irrational (since $2$ is not a perfect square).
+
+But $\left(  a_{1},b_{1}\right)  $ is a pair $\left(  a,b\right)  $ of
+integers such that $\alpha=a+b\sqrt{2}$. In other words, $\left(  a_{1}%
+,b_{1}\right)  $ is a pair of integers and satisfies $\alpha=a_{1}+b_{1}%
+\sqrt{2}$. Similarly, $\left(  a_{2},b_{2}\right)  $ is a pair of integers and
+satisfies $\alpha=a_{2}+b_{2}\sqrt{2}$. Hence, $a_{2}+b_{2}\sqrt{2}%
+=\alpha=a_{1}+b_{1}\sqrt{2}$, so that%
+\begin{equation}
+a_{2}-a_{1}=b_{1}\sqrt{2}-b_{2}\sqrt{2}=\left(  b_{1}-b_{2}\right)  \sqrt{2}.
+\label{sol.Zsqrt2.basics.b.2}%
+\end{equation}
+If we had $b_{1}=b_{2}$, then this would yield $a_{2}-a_{1}%
+=\underbrace{\left(  b_{1}-b_{2}\right)  }_{\substack{=0\\\text{(since }%
+b_{1}=b_{2}\text{)}}}\sqrt{2}=0$, which would lead to $a_{1}=a_{2}$ and
+therefore $\left(  \underbrace{a_{1}}_{=a_{2}},\underbrace{b_{1}}_{=b_{2}%
+}\right)  =\left(  a_{2},b_{2}\right)  $; but this would contradict $\left(
+a_{1},b_{1}\right)  \neq\left(  a_{2},b_{2}\right)  $. Hence, we cannot have
+$b_{1}=b_{2}$. Thus, we have $b_{1}\neq b_{2}$. In other words, $b_{1}%
+-b_{2}\neq0$. Hence, we can divide both sides of the equality
+(\ref{sol.Zsqrt2.basics.b.2}) by $b_{1}-b_{2}$. We thus obtain $\dfrac
+{a_{2}-a_{1}}{b_{1}-b_{2}}=\sqrt{2}$. Hence, the number $\dfrac{a_{2}-a_{1}%
+}{b_{1}-b_{2}}$ is irrational (since $\sqrt{2}$ is irrational). But this
+contradicts the fact that $\dfrac{a_{2}-a_{1}}{b_{1}-b_{2}}$ is rational
+(which is clear, since $a_{1},a_{2},b_{1},b_{2}$ are integers). This
+contradiction shows that our assumption was wrong. Hence, $\left(  a_{1}%
+,b_{1}\right)  =\left(  a_{2},b_{2}\right)  $ is proven. This completes our
+solution of part \textbf{(b)} of the exercise.\\[0.4cm]
+
+\textbf{(c)} Let $\alpha,\beta\in\mathbb{Z}\left[  \sqrt{2}\right]  $. We must
+prove that $\alpha+\beta\in\mathbb{Z}\left[  \sqrt{2}\right]  $ and
+$\alpha-\beta\in\mathbb{Z}\left[  \sqrt{2}\right]  $ and $\alpha\beta
+\in\mathbb{Z}\left[  \sqrt{2}\right]  $.
+
+We have $\alpha\in\mathbb{Z}\left[  \sqrt{2}\right]  $. In other words,
+$\alpha$ is a real of the form $a+b\sqrt{2}$ with $a,b\in\mathbb{Z}$ (by the
+definition of $\mathbb{Z}\left[  \sqrt{2}\right]  $). In other words, there
+exist two integers $x_{1},x_{2}\in\mathbb{Z}$ such that $\alpha=x_{1}%
++x_{2}\sqrt{2}$. Similarly, there exist two integers $y_{1},y_{2}\in
+\mathbb{Z}$ such that $\beta=y_{1}+y_{2}\sqrt{2}$. Consider these four
+integers $x_{1},x_{2},y_{1},y_{2}$.
+
+We have $\alpha=x_{1}+x_{2}\sqrt{2}$ with $x_{1},x_{2}\in\mathbb{Z}$. Thus,
+the definition of $N_{2}\left(  \alpha\right)  $ yields $N_{2}\left(
+\alpha\right)  =x_{1}^{2}-2x_{2}^{2}$. Similarly, $N_{2}\left(  \beta\right)
+=y_{1}^{2}-2y_{2}^{2}$. But (\ref{sol.Zsqrt2.basics.a.ab}) shows that%
+\[
+\alpha\beta=\left(  x_{1}y_{1}+2x_{2}y_{2}\right)  +\left(  x_{1}y_{2}%
++x_{2}y_{1}\right)  \sqrt{2}\ \ \ \ \ \ \ \ \ \ \text{with }x_{1}y_{1}%
++2x_{2}y_{2},x_{1}y_{2}+x_{2}y_{1}\in\mathbb{Z}.
+\]
+Hence, the definition of $N_{2}\left(  \alpha\beta\right)  $ yields%
+\[
+N_{2}\left(  \alpha\beta\right)  =\left(  x_{1}y_{1}+2x_{2}y_{2}\right)
+^{2}-2\left(  x_{1}y_{2}+x_{2}y_{1}\right)  ^{2}=x_{1}^{2}y_{1}^{2}-2x_{1}%
+^{2}y_{2}^{2}-2x_{2}^{2}y_{1}^{2}+4x_{2}^{2}y_{2}^{2}%
+\]
+(after some straightforward computation). Comparing this with%
+\[
+\underbrace{N_{2}\left(  \alpha\right)  }_{=x_{1}^{2}-2x_{2}^{2}%
+}\underbrace{N_{2}\left(  \beta\right)  }_{=y_{1}^{2}-2y_{2}^{2}}=\left(
+x_{1}^{2}-2x_{2}^{2}\right)  \left(  y_{1}^{2}-2y_{2}^{2}\right)  =x_{1}%
+^{2}y_{1}^{2}-2x_{1}^{2}y_{2}^{2}-2x_{2}^{2}y_{1}^{2}+4x_{2}^{2}y_{2}^{2},
+\]
+we obtain $N_{2}\left(  \alpha\beta\right)  =N_{2}\left(  \alpha\right)
+N_{2}\left(  \beta\right)  $. This solves part \textbf{(c)} of the exercise.
+
+[\textit{Remark:} An alternative solution to part \textbf{(c)} relies on the
+concept of a $\sqrt{2}$-conjugate of an $\alpha\in\mathbb{Z}\left[  \sqrt
+{2}\right]  $. Namely, the $\sqrt{2}$\textit{-conjugate} of an $\alpha
+\in\mathbb{Z}\left[  \sqrt{2}\right]  $ is defined to be the number
+$a-b\sqrt{2}$, where $\alpha$ is written in the form $\alpha=a+b\sqrt{2}$ with
+$a,b\in\mathbb{Z}$. We denote this $\sqrt{2}$-conjugate by $\overline{\alpha}%
+$, but keep in mind that this notation clashes with the notation
+$\overline{\alpha}$ for complex numbers $\alpha$. (Fortunately, we will not
+talk about complex numbers in this solution, so this clash does not matter.)
+It is easy to see that $N_{2}\left(  \alpha\right)  =\alpha\overline{\alpha}$
+for each $\alpha\in\mathbb{Z}\left[  \sqrt{2}\right]  $, and it is also easy
+to see that $\overline{\alpha\cdot\beta}=\overline{\alpha}\cdot\overline
+{\beta}$ for any $\alpha,\beta\in\mathbb{Z}\left[  \sqrt{2}\right]  $. Armed
+with these two equalities, we can now observe that any $\alpha,\beta
+\in\mathbb{Z}\left[  \sqrt{2}\right]  $ satisfy%
+\[
+N_{2}\left(  \alpha\beta\right)  =\alpha\beta\cdot\underbrace{\overline
+{\alpha\beta}}_{=\overline{\alpha\cdot\beta}=\overline{\alpha}\cdot
+\overline{\beta}}=\alpha\beta\cdot\overline{\alpha}\cdot\overline{\beta
+}=\underbrace{\alpha\overline{\alpha}}_{=N_{2}\left(  \alpha\right)
+}\underbrace{\beta\overline{\beta}}_{=N_{2}\left(  \beta\right)  }%
+=N_{2}\left(  \alpha\right)  N_{2}\left(  \beta\right)  .
+\]
+\newline This solves part \textbf{(c)} of the exercise again.]\\[0.4cm]
+
+\textbf{(d)} We shall solve part \textbf{(d)} of the exercise by induction on
+$n$:
+
+\textit{Induction base:} We have $p_{2}\underbrace{p_{0}}_{=0}-p_{1}^{2}%
+=p_{2}0-p_{1}^{2}=-p_{1}^{2}=-1^{2}$ (since $p_{1}=1$). Thus, $p_{2}%
+p_{0}-p_{1}^{2}=-1^{2}=-1=\left(  -1\right)  ^{1}$. In other words, part
+\textbf{(d)} of the exercise holds for $n=1$. This completes the induction base.
+
+\textit{Induction step:} Let $m\geq1$ be an integer. Assume that part
+\textbf{(d)} of the exercise holds for $n=m$. We must prove that part
+\textbf{(d)} of the exercise holds for $n=m+1$.
+
+We have assumed that part \textbf{(d)} of the exercise holds for $n=m$. In
+other words, $p_{m+1}p_{m-1}-p_{m}^{2}=\left(  -1\right)  ^{m}$.
+
+The recursive definition of the sequence $\left(  p_{0},p_{1},p_{2}%
+,\ldots\right)  $ yields $p_{m+2}=2p_{m+1}+p_{m}$ and $p_{m+1}=2p_{m}+p_{m-1}%
+$. From $p_{m+1}=2p_{m}+p_{m-1}$, we obtain $2p_{m}-\underbrace{p_{m+1}%
+}_{=2p_{m}+p_{m-1}}=2p_{m}-\left(  2p_{m}+p_{m-1}\right)  =-p_{m-1}$. Now,%
+\begin{align*}
+\underbrace{p_{m+2}}_{=2p_{m+1}+p_{m}}p_{m}-p_{m+1}^{2}  &  =\left(
+2p_{m+1}+p_{m}\right)  p_{m}-p_{m+1}^{2}=2p_{m+1}p_{m}+p_{m}^{2}-p_{m+1}^{2}\\
+&  =p_{m+1}\underbrace{\left(  2p_{m}-p_{m+1}\right)  }_{=-p_{m-1}}+p_{m}%
+^{2}=p_{m+1}\left(  -p_{m-1}\right)  +p_{m}^{2}\\
+&  =-\underbrace{\left(  p_{m+1}p_{m-1}-p_{m}^{2}\right)  }_{=\left(
+-1\right)  ^{m}}=-\left(  -1\right)  ^{m}=\left(  -1\right)  ^{m+1}.
+\end{align*}
+In other words, part \textbf{(d)} of the exercise holds for $n=m+1$. This
+completes the induction step. Thus, part \textbf{(d)} of the exercise is
+proven by induction.\\[0.4cm]
+
+\textbf{(e)} Let $n\geq1$. The recursive definition of the sequence $\left(
+p_{0},p_{1},p_{2},\ldots\right)  $ yields $p_{n+1}=2p_{n}+p_{n-1}$.
+
+Recall the classical identity $\left(  a+b\right)  \left(  a-b\right)
+=a^{2}-b^{2}$, which holds for any reals $a$ and $b$. Applying this to
+$a=p_{n-1}+p_{n}$ and $b=p_{n}\sqrt{2}$, we obtain%
+\begin{align*}
+&  \left(  p_{n-1}+p_{n}+p_{n}\sqrt{2}\right)  \left(  p_{n-1}+p_{n}%
+-p_{n}\sqrt{2}\right) \\
+&  =\underbrace{\left(  p_{n-1}+p_{n}\right)  ^{2}}_{=p_{n-1}^{2}%
++2p_{n-1}p_{n}+p_{n}^{2}}-\underbrace{\left(  p_{n}\sqrt{2}\right)  ^{2}%
+}_{=p_{n}^{2}\cdot2=2p_{n}^{2}}=p_{n-1}^{2}+2p_{n-1}p_{n}+p_{n}^{2}-2p_{n}%
+^{2}=2p_{n-1}p_{n}+p_{n-1}^{2}-p_{n}^{2}\\
+&  =p_{n-1}\underbrace{\left(  2p_{n}+p_{n-1}\right)  }_{=p_{n+1}}-p_{n}%
+^{2}=p_{n-1}p_{n+1}-p_{n}^{2}=p_{n+1}p_{n-1}-p_{n}^{2}=\left(  -1\right)  ^{n}%
+\end{align*}
+(by part \textbf{(d)} of the exercise). This solves part \textbf{(e)} of the exercise.
+
+\subsection{Remark}
+
+Let $r$ be any nonnegative real number.
+
+Part \textbf{(a)} of this exercise remains valid if we replace each appearance
+of \textquotedblleft$2$\textquotedblright\ by \textquotedblleft$r$%
+\textquotedblright. (We could even allow $r$ to be negative, if we also
+replace \textquotedblleft reals\textquotedblright\ by \textquotedblleft
+complex numbers\textquotedblright.)
+
+Parts \textbf{(b)} and \textbf{(c)} of this exercise remain valid if we
+replace each appearance of \textquotedblleft$2$\textquotedblright\ by
+\textquotedblleft$r$\textquotedblright, provided that $r$ is a positive
+integer that is not a perfect square. (Of course, the $\sqrt{2}$-norm
+$N_{2}\left(  \alpha\right)  $ needs to be replaced by the $\sqrt{r}$-norm
+$N_{r}\left(  \alpha\right)  $, defined by setting $N_{r}\left(
+\alpha\right)  =a^{2}-rb^{2}$ for $\alpha=a+b\sqrt{r}$.)
+
+All three parts \textbf{(a)}, \textbf{(b)} and \textbf{(c)} of this exercise
+remain valid if we replace integers by rational numbers throughout (i.e., we
+consider the set of reals of the form $a+b\sqrt{2}$ with $a,b\in\mathbb{Q}$
+instead of $a,b\in\mathbb{Z}$).
+
+Part \textbf{(d)} of this exercise remains valid if we replace each appearance
+of \textquotedblleft$2$\textquotedblright\ by \textquotedblleft$r$%
+\textquotedblright. (Again, we could even allow $r$ to be negative.) Note that
+if we set $r=1$, then the sequence $\left(  p_{0},p_{1},p_{2},\ldots\right)  $
+becomes the famous
+\href{https://en.wikipedia.org/wiki/Fibonacci_number}{Fibonacci sequence}
+$\left(  0,1,1,2,3,5,8,13,21,34,\ldots\right)  $.
+
+Part \textbf{(e)}, on the other hand, hinges on the specific properties of
+$\sqrt{2}$.
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 5
+%----------------------------------------------------------------------------------------
+\rule{\linewidth}{0.3pt} \\[0.4cm]
+
+\section{Exercise 5: Euler's theorem for non-coprime integers}
+
+\subsection{Problem}
+
+Let $a$ be an integer, and let $n$ be a positive integer. Prove that $a^{n}
+\equiv a^{n - \phi\left(  n \right)  } \mod n$.
+
+\subsection{Solution}
+
+See \href{http://www-users.math.umn.edu/~dgrinber/19s/notes.pdf}{the class
+notes}, where this is Exercise 2.16.3. (The numbering may shift; it is one of
+the exercises in the ``The Chinese Remainder Theorem as a bijection'' section.)
+
+%This exercise is also
+%§2.3, problem 44 in Niven/Zuckerman/Montgomery
+%(see kim-NT/sol3.pdf §14).
+
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 6
+%----------------------------------------------------------------------------------------
+\rule{\linewidth}{0.3pt} \\[0.4cm]
+
+\section{Exercise 6: Wilson strikes again}
+
+\subsection{Problem}
+
+Let $p$ be an odd prime. Write $p$ in the form $p = 2k+1$ for some $k
+\in\mathbb{N}$. Prove that $k!^{2} \equiv- \left(  -1 \right)  ^{k} \mod p$.
+
+[\textbf{Hint:} Each $j \in\mathbb{Z}$ satisfies $j \left(  p-j \right)
+\equiv-j^{2} \mod p$.]
+
+\subsection{Solution}
+
+See \href{http://www-users.math.umn.edu/~dgrinber/19s/notes.pdf}{the class
+notes}, where this is Exercise 2.15.5. (The numbering may shift; it is one of
+the exercises in the ``Fermat, Euler, Wilson'' section.)
+
+
+\end{document}

@@ -1,0 +1,605 @@
+% Like most advanced LaTeX files, this one begins with a lot of
+% boilerplate. You don't need to understand (or even read) most of it.
+% All you need to do is fill in your name, UMN ID, email address,
+% and the number of the pset. (Search for "METADATA" to find the place
+% for this.) Then, you can go straight to the "EXERCISE 1"
+% section and start writing your solutions.
+% The "VARIOUS USEFUL COMMANDS" section is probably worth taking a
+% look at at some point.
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+\documentclass[paper=a4, fontsize=12pt]{scrartcl} % A4 paper and 12pt font size
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm,amssymb} % Math packages
+\usepackage{mathrsfs}    % More math packages
+\usepackage{sectsty}  % Allows customizing section commands
+\allsectionsfont{\centering \normalfont\scshape} % Make all section titles centered, the default font and small caps %remove this to left align section tites
+\usepackage{hyperref} % Turns cross-references into hyperlinks,
+                      % and defines \url and \href commands.
+\usepackage{graphicx} % For embedding graphics files.
+\usepackage{framed}   % For the "leftbar" environment used below.
+\usepackage{ifthen}   % Used for the \powset command below.
+\usepackage{lastpage} % for counting the number of pages
+\usepackage[headsepline,footsepline,manualmark]{scrlayer-scrpage}
+\usepackage[height=10in,a4paper,hmargin={1in,0.8in}]{geometry}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{tikz}     % This is a powerful tool to draw vector
+                      % graphics inside LaTeX. In particular, you can
+                      % use it to draw graphs.
+\usepackage{verbatim} % For the "verbatim" environment, in which
+                      % special symbols can be used freely without
+                      % confusing the compiler. (And it's typeset in
+                      % a constant-width font.)
+                      % Useful, e.g., for quoting code (or ASCII art).
+
+%\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+
+\setlength\parindent{20pt} % Makes indentation for paragraphs longer.
+                           % This makes paragraphs stand out more.
+
+%----------------------------------------------------------------------------------------
+%	VARIOUS USEFUL COMMANDS
+%----------------------------------------------------------------------------------------
+% The commands below might be convenient. For example, you probably
+% prefer to write $\powset[2]{V}$ for the set of $2$-element subsets
+% of $V$, rather than writing $\mathcal{P}_2(V)$.
+% Notice that you can easily define your own commands like this.
+% Caveat: Some of these commands need to be properly "guarded" when
+% they occur in subscripts or superscripts. So you should not write
+% $K_\CC$, but rather $K_{\CC}$.
+\newcommand{\CC}{\mathbb{C}} % complex numbers
+\newcommand{\RR}{\mathbb{R}} % real numbers
+\newcommand{\QQ}{\mathbb{Q}} % rational numbers
+\newcommand{\NN}{\mathbb{N}} % nonnegative integers
+\newcommand{\DD}{{\mathbb{D}}} % dual numbers
+\newcommand{\PP}{\mathbb{P}} % positive integers
+\newcommand{\Z}[1]{\mathbb{Z}/#1\mathbb{Z}} % integers modulo k
+                                            % (syntax: "\Z{k}")
+\newcommand{\ZZ}{\mathbb{Z}} % integers
+\newcommand{\id}{\operatorname{id}} % identity map
+\newcommand{\lcm}{\operatorname{lcm}}
+% Lowest common multiple. For historical reasons, LaTeX has a \gcd
+% command built in, but not an \lcm command. The preceding line
+% rectifies that.
+\newcommand{\set}[1]{\left\{ #1 \right\}}
+% $\set{...}$ compiles to {...} (set-brackets).
+\newcommand{\abs}[1]{\left| #1 \right|}
+% $\abs{...}$ compiles to |...| (absolute value, or size of a set).
+\newcommand{\tup}[1]{\left( #1 \right)}
+% $\tup{...}$ compiles to (...) (parentheses, or tuple-brackets).
+\newcommand{\ive}[1]{\left[ #1 \right]}
+% $\ive{...}$ compiles to [...] (Iverson bracket, aka truth value; also, set of first n integers).
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+% $\floor{...}$ compiles to |_..._| (floor function).
+\newcommand{\underbrack}[2]{\underbrace{#1}_{\substack{#2}}}
+% $\underbrack{...1}{...2}$ yields
+% $\underbrace{...1}_{\substack{...2}}$. This is useful for doing
+% local rewriting transformations on mathematical expressions with
+% justifications. For example, try this out:
+% $ \underbrack{(a+b)^2}{= a^2 + 2ab + b^2 \\ \text{(by the binomial formula)}} $
+\newcommand{\powset}[2][]{\ifthenelse{\equal{#2}{}}{\mathcal{P}\left(#1\right)}{\mathcal{P}_{#1}\left(#2\right)}}
+% $\powset[k]{S}$ stands for the set of all $k$-element subsets of
+% $S$. The argument $k$ is optional, and if not provided, the result
+% is the whole powerset of $S$.
+\newcommand{\mapeq}[1]{\underset{#1}{\equiv}}
+% $\mapeq{f}$ yields $\underset{f}{\equiv}$.
+% This is the "equality upon applying $f$" relation.
+\newcommand{\eps}{\varepsilon}
+% Just a shorthand for a commonly-used symbol.
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command with 1 argument of height
+\newcommand{\nnn}{\nonumber\\} % Don't number this line in an "align" environment, and move on to the next line.
+
+%----------------------------------------------------------------------------------------
+%	MAKING SUMMATION SIGNS ALWAYS PUT THEIR BOUNDS ABOVE AND BELOW
+%	THE SIGN
+%----------------------------------------------------------------------------------------
+% The following are hacks to ensure that sums (such as
+% $\sum_{k=1}^n k$) always put their bounds (i.e., the $k=1$ and the
+% $n$) underneath and above the sign, as opposed to on its right.
+% Same for products (\prod), set unions (\bigcup) and set
+% intersections (\bigcap). Remove the 8 lines below if you do not want
+% this behavior.
+\let\sumnonlimits\sum
+\let\prodnonlimits\prod
+\let\cupnonlimits\bigcup
+\let\capnonlimits\bigcap
+\renewcommand{\sum}{\sumnonlimits\limits}
+\renewcommand{\prod}{\prodnonlimits\limits}
+\renewcommand{\bigcup}{\cupnonlimits\limits}
+\renewcommand{\bigcap}{\capnonlimits\limits}
+
+%----------------------------------------------------------------------------------------
+%	ENVIRONMENTS
+%----------------------------------------------------------------------------------------
+% The incantations below define how theorem environments
+% (\begin{theorem} ... \end{theorem}) and their likes will look like.
+\newtheoremstyle{plainsl}% <name>
+  {8pt plus 2pt minus 4pt}% <Space above>
+  {8pt plus 2pt minus 4pt}% <Space below>
+  {\slshape}% <Body font>
+  {0pt}% <Indent amount>
+  {\bfseries}% <Theorem head font>
+  {.}% <Punctuation after theorem head>
+  {5pt plus 1pt minus 1pt}% <Space after theorem headi>
+  {}% <Theorem head spec (can be left empty, meaning `normal')>
+
+% Environments which make the text inside them slanted:
+\theoremstyle{plainsl}
+  \newtheorem{theorem}{Theorem}[section]
+  \newtheorem{proposition}[theorem]{Proposition}
+  \newtheorem{lemma}[theorem]{Lemma}
+  \newtheorem{corollary}[theorem]{Corollary}
+  \newtheorem{conjecture}[theorem]{Conjecture}
+% Environments that don't:
+\theoremstyle{definition}
+  \newtheorem{definition}[theorem]{Definition}
+  \newtheorem{example}[theorem]{Example}
+  \newtheorem{exercise}[theorem]{Exercise}
+  \newtheorem{examples}[theorem]{Examples}
+  \newtheorem{algorithm}[theorem]{Algorithm}
+  \newtheorem{question}[theorem]{Question}
+ \theoremstyle{remark}
+  \newtheorem{remark}[theorem]{Remark}
+\newenvironment{statement}{\begin{quote}}{\end{quote}}
+\newenvironment{fineprint}{\begin{small}}{\end{small}}
+
+%----------------------------------------------------------------------------------------
+%	METADATA
+%----------------------------------------------------------------------------------------
+\newcommand{\myname}{Darij Grinberg} % ENTER YOUR NAME HERE
+\newcommand{\myid}{00000000} % ENTER YOUR UMN ID HERE
+\newcommand{\mymail}{dgrinber@umn.edu} % ENTER YOUR EMAIL HERE
+\newcommand{\psetnumber}{4} % ENTER THE NUMBER OF THIS PSET HERE
+
+%----------------------------------------------------------------------------------------
+%	HEADER AND FOOTER
+%----------------------------------------------------------------------------------------
+\ihead{Solutions to homework set \#\psetnumber} % Page header left
+\ohead{page \thepage\ of \pageref{LastPage}} % Page header right
+\ifoot{\myname, \myid} % left footer
+\ofoot{\mymail} % right footer
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+\title{	
+\normalfont \normalsize 
+\textsc{University of Minnesota, School of Mathematics} \\ [25pt] % Your university, school and/or department name(s)
+\horrule{0.5pt} \\[0.4cm] % Thin top horizontal rule
+\huge Math 4281: Introduction to Modern Algebra, \\
+Spring 2019:
+Homework \psetnumber\\% The assignment title
+\horrule{2pt} \\[0.5cm] % Thick bottom horizontal rule
+}
+\author{\myname}
+
+\begin{document}
+
+\maketitle % Print the title
+
+\begin{center} % Delete this if you want to save space!
+{\large due date: \textbf{Wednesday, 13 March 2019} at the beginning of class, \\
+or before that by email or canvas.
+
+Please solve \textbf{at most 3 of the 6 exercises}!}
+\end{center}
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 1
+%----------------------------------------------------------------------------------------
+\horrule{0.3pt} \\[0.4cm]
+
+\section{Exercise 1: Equivalence relations always come from maps}
+
+\subsection{Problem}
+
+Let $S$ be a set.
+
+Recall that if $T$ is a further set, and if $f : S \to T$
+is a map, then $\mapeq{f}$
+% The "\mapeq" command is not standard LaTeX.
+% It is a macro I've defined in the header of this file.
+% "\mapeq{f}" expands to "\underset{f}{\equiv}", which is
+% a congruence sign with an "f" under it.
+denotes the relation on $S$ defined by
+\[
+\tup{ a \mapeq{f} b }
+\iff % This is the "if and only if" sign.
+\tup{ f\tup{a} = f\tup{b} }.
+\]
+This is an equivalence relation, called ``equality upon
+applying $f$'' or ``equality under $f$''.
+
+Now, let $\sim$ be \textbf{any} equivalence relation on $S$.
+Prove that $\sim$ has the form $\mapeq{f}$ for a properly
+chosen set $T$ and a properly chosen $f : S \to T$.
+
+More precisely, prove that $\sim$ equals $\mapeq{f}$,
+where $T$ is the quotient set $S / \sim$ and where
+$f : S \to T$ is the projection map
+$\pi_\sim : S \to S / \sim$.
+
+[\textbf{Hint:} To prove that two relations $R_1$ and $R_2$
+on $S$ are equal, you need to check that every pair
+$\tup{a, b}$ of elements of $S$ satisfies the equivalence
+$\tup{a R_1 b} \iff \tup{a R_2 b}$.]
+
+\subsection{Solution}
+
+[...]
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 2
+%----------------------------------------------------------------------------------------
+\horrule{0.3pt} \\[0.4cm]
+
+\section{Exercise 2: Totient-related sum}
+
+\subsection{Problem}
+
+Let $n > 1$ be an integer. Prove that
+\[
+\sum_{\substack{i \in \set{1, 2, \ldots, n}; \\ i \perp n}} i
+= n \phi\tup{n} / 2 .
+\]
+
+\subsection{Solution}
+
+[...]
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 3
+%----------------------------------------------------------------------------------------
+\horrule{0.3pt} \\[0.4cm]
+
+\section{Exercise 3: Dual numbers}
+
+\subsection{Problem}
+
+Recall that complex numbers were defined as pairs
+$\tup{a, b}$ of real numbers, with entrywise addition
+and subtraction and a certain weird-looking
+multiplication.
+
+Let me define a different kind of ``numbers'': the
+\textit{dual numbers}.
+(The word ``numbers'' may appear a bit inappropriate
+for them, but it is not exactly a trademark...)
+
+We define a \textit{dual number} to be a pair
+$\tup{a, b}$ of two real numbers $a$ and $b$.
+
+We let $\DD$ % a macro for $\mathbb{D}$
+be the set of all dual numbers.
+
+For each real number $r$, we denote the dual number
+$\tup{r, 0}$ by $r_\DD$.
+
+We let $\eps$ denote the dual number $\tup{0, 1}$.
+
+Define three binary operations $+$, $-$ and $\cdot$
+on $\DD$ by setting
+\begin{align}
+\tup{a, b} + \tup{c, d} &= \tup{a+c, b+d}, \\
+\tup{a, b} - \tup{c, d} &= \tup{a-c, b-d}, \\
+\tup{a, b} \cdot \tup{c, d} &= \tup{ac, ad+bc}
+\end{align}
+for all $\tup{a, b} \in \DD$ and $\tup{c, d} \in \DD$.
+
+(Note that the only difference to complex numbers
+is the definition of $\cdot$, which is lacking
+a $-bd$ term.)
+
+Again, we are following standard PEMDAS rules\footnote{
+\url{https://en.wikipedia.org/wiki/Order_of_operations}} for
+the order of operations, and we abbreviate $\alpha \cdot \beta$
+as $\alpha \beta$.
+
+\begin{enumerate}
+
+\item[\textbf{(a)}]
+Prove that
+$\alpha \cdot \tup{\beta \cdot \gamma}
+= \tup{\alpha \cdot \beta} \cdot \gamma$
+for any $\alpha, \beta, \gamma \in \DD$.
+
+\end{enumerate}
+
+You can use the following properties of dual numbers
+without proof (they are all essentially obvious):
+
+\begin{itemize}
+
+\item We have $\alpha + \beta = \beta + \alpha$
+for any $\alpha, \beta \in \DD$.
+
+\item We have $\alpha + \tup{\beta + \gamma}
+= \tup{\alpha + \beta} + \gamma$
+for any $\alpha, \beta, \gamma \in \DD$.
+
+\item We have $\alpha + 0_\DD = \alpha$
+for any $\alpha \in \DD$.
+
+\item We have $\alpha \cdot 1_\DD = \alpha$
+for any $\alpha \in \DD$.
+
+\item We have $\alpha \cdot \beta = \beta \cdot \alpha$
+for any $\alpha, \beta \in \DD$.
+
+\item We have $\alpha \cdot \tup{\beta + \gamma}
+= \alpha \beta + \alpha \gamma$
+and $\tup{\alpha + \beta} \cdot \gamma
+= \alpha \gamma + \beta \gamma$
+for any $\alpha, \beta, \gamma \in \DD$.
+
+\item We have $\alpha \cdot 0_\DD = 0_\DD$
+for any $\alpha \in \DD$.
+
+\item If $\alpha, \beta, \gamma \in \DD$,
+then we have the equivalence
+$\tup{\alpha - \beta = \gamma}
+\iff \tup{\alpha = \beta + \gamma}$.
+\end{itemize}
+
+We shall identify each real number $r$ with the dual
+number $r_\DD = \tup{r, 0}$.
+
+\begin{enumerate}
+
+\item[\textbf{(b)}]
+Prove that $a + b\eps = \tup{a, b}$
+for any $a, b \in \RR$.
+
+\end{enumerate}
+
+An \textit{inverse} of a dual number
+$\alpha \in \DD$ means a dual number $\beta$ such
+that $\alpha \beta = 1_\DD$.
+This inverse is unique, and is called $\alpha^{-1}$.
+
+\begin{enumerate}
+
+\item[\textbf{(c)}]
+Prove that a dual number $\alpha = a + b\eps$
+(with $a, b \in \RR$) has an inverse if and only
+if $a \neq 0$.
+
+\item[\textbf{(d)}]
+If $a, b \in \RR$ satisfy $a \neq 0$, prove
+that the inverse of the dual number $a + b\eps$
+is $\dfrac{1}{a} - \dfrac{b}{a^2} \eps$.
+
+\end{enumerate}
+
+We define finite sums and products of dual numbers
+in the usual way (i.e., just as finite sums and products
+of real numbers were defined).
+Here, an empty sum of dual numbers is always understood
+to be $0_\DD$, whereas an empty product of dual numbers
+is always understood to be $1_\DD$.
+
+If $\alpha$ is a dual number and $k \in \NN$, then
+the \textit{$k$-th power of $\alpha$} is defined to be the
+dual number
+$\underbrace{\alpha \alpha \cdots \alpha}_{k \text{ factors}}$.
+This $k$-th power is denoted by $\alpha^k$.
+Thus, in particular,
+$\alpha^0 =
+ \underbrace{\alpha \alpha \cdots \alpha}_{0 \text{ factors}}
+= \tup{\text{empty product}} = 1_\DD$.
+
+\begin{enumerate}
+
+\item[\textbf{(e)}]
+Let $P\tup{x} = a_k x^k + a_{k-1} x^{k-1} + \cdots + a_0$
+be a polynomial with real coefficients.
+Prove that
+\[
+P \tup{a + b \eps}
+= P\tup{a} + b P^\prime\tup{a} \eps
+\qquad \text{for any } a, b \in \RR .
+\]
+Here, $P^\prime$ denotes the derivative of $P$, which
+is defined by
+\[
+P^\prime\tup{x}
+= k a_k x^{k-1} + \tup{k-1} a_{k-1} x^{k-2} + \cdots + 1 a_1 x^0 .
+\]
+
+\end{enumerate}
+
+\subsection{Remark}
+
+The dual number $\eps$ is one of the simplest
+``rigorous infinitesimals'' that appear in mathematics.
+Part \textbf{(e)} of the exercise shows that we can
+literally write
+$P \tup{a + \eps}
+= P\tup{a} + P^\prime\tup{a} \eps$
+when $P$ is a polynomial,
+without having to compute any limits.
+It is tempting to ``solve'' this equation for
+$P^\prime\tup{a}$, thus obtaining something like
+$P^\prime\tup{a} = \dfrac{P \tup{a + \eps} - P\tup{a}}{\eps}$.
+However, this needs to be taken with a grain of salt,
+since $\eps$ has no inverse and the fraction
+$\dfrac{P \tup{a + \eps} - P\tup{a}}{\eps}$
+is not uniquely determined.
+There are other, subtler ways to put infinitesimals
+on a firm algebraic footing, but dual numbers are already
+useful in some situations.
+
+Note that dual numbers have \textit{zero-divisors}:
+i.e., there exist nonzero dual numbers $a$ and $b$ such
+that $ab = 0$. The simplest example is probably
+$\eps^2 = 0$ (despite $\eps \neq 0$).
+
+\subsection{Solution}
+
+[...]
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 4
+%----------------------------------------------------------------------------------------
+\horrule{0.3pt} \\[0.4cm]
+
+\section{Exercise 4: $\ZZ\ive{\sqrt2}$}
+
+\subsection{Problem}
+
+Let $\ZZ\ive{\sqrt2}$ denote the set of all reals of the
+form $a + b \sqrt2$ with $a, b \in \ZZ$.
+We shall call such reals \textit{$\sqrt2$-integers}.
+
+\begin{enumerate}
+
+\item[\textbf{(a)}]
+Prove that any $\alpha, \beta \in \ZZ\ive{\sqrt2}$ satisfy
+$\alpha + \beta \in \ZZ\ive{\sqrt2}$ and
+$\alpha - \beta \in \ZZ\ive{\sqrt2}$ and
+$\alpha \beta \in \ZZ\ive{\sqrt2}$.
+
+\item[\textbf{(b)}]
+Prove that every element of $\ZZ\ive{\sqrt2}$ can be
+written as $a + b \sqrt2$ for a \textbf{unique} pair
+$\tup{a, b}$ of integers.
+(In other words, if four integers $a, b, c, d$
+satisfy $a + b \sqrt2 = c + d \sqrt2$, then $a = c$
+and $b = d$.)
+
+\end{enumerate}
+
+For any $\alpha\in \ZZ\ive{\sqrt2}$, define the
+\textit{$\sqrt2$-norm} $N_2\tup{\alpha}$ of $\alpha$ by
+$N_2\tup{\alpha} = a^2 - 2b^2$,
+where $\alpha$ is written in the form $\alpha = a + b \sqrt2$
+with $a, b \in \ZZ$.
+This is well-defined by part \textbf{(b)} of this
+exercise.
+
+\begin{enumerate}
+
+\item[\textbf{(c)}]
+Prove that
+$N_2\tup{\alpha \beta} = N_2\tup{\alpha} N_2\tup{\beta}$
+for all $\alpha, \beta \in \ZZ\ive{\sqrt2}$.
+
+\end{enumerate}
+
+Let $\tup{p_0, p_1, p_2, \ldots}$ be the sequence of
+nonnegative integers defined recursively by
+\[
+p_0 = 0, \qquad
+p_1 = 1, \qquad
+\text{and } \qquad
+p_n = 2p_{n-1} + p_{n-2} \text{ for all } n \geq 2.
+\]
+(Thus, $p_2 = 2$ and $p_3 = 5$ and $p_4 = 12$ and so on.)
+
+\begin{enumerate}
+
+\item[\textbf{(d)}]
+Prove that $p_{n+1} p_{n-1} - p_n^2 = \tup{-1}^n$
+for each $n \geq 1$.
+
+\item[\textbf{(e)}]
+Prove that
+$\tup{p_{n-1} + p_n + p_n \sqrt2} \cdot \tup{p_{n-1} + p_n - p_n \sqrt2} = \tup{-1}^n$
+for each $n \geq 1$.
+
+\end{enumerate}
+
+[\textbf{Hint:} For \textbf{(d)}, use induction.]
+
+\subsection{Remark}
+
+The set $\ZZ\ive{\sqrt2}$ of $\sqrt2$-integers
+is rather similar to the set
+$\ZZ\ive{i}$ of Gaussian integers: the former has elements
+of the form $a + b\sqrt2$ with $a, b \in \ZZ$,
+while the latter has elements of the form
+$a + b\sqrt{-1}$ with $a, b \in \ZZ$.
+The $\sqrt2$-norm on $\ZZ\ive{\sqrt2}$ is an analogue of
+the (usual) norm on $\ZZ\ive{i}$.
+However, visually speaking, the latter set is ``spread
+out'' in the Euclidean plane, while the former is
+``concentrated'' on the real line (and actually everywhere
+dense on it -- i.e., every little interval on the real
+line has a $\sqrt2$-integer inside it).
+The difference has algebraic consequences; in particular,
+there are only four units ($1, -1, i, -i$) in $\ZZ\ive{i}$,
+whereas $\ZZ\ive{\sqrt2}$ has infinitely many units
+(namely, part \textbf{(e)} of the exercise shows that
+$p_{n-1} + p_n + p_n \sqrt2$ is a unit for each $n \geq 1$).
+
+\subsection{Solution}
+
+[...]
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 5
+%----------------------------------------------------------------------------------------
+\horrule{0.3pt} \\[0.4cm]
+
+\section{Exercise 5: Euler's theorem for non-coprime integers}
+
+\subsection{Problem}
+
+Let $a$ be an integer, and let $n$ be a positive integer.
+Prove that
+$a^n \equiv a^{n - \phi\tup{n}} \mod n$.
+
+\subsection{Solution}
+
+[...]
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 6
+%----------------------------------------------------------------------------------------
+\horrule{0.3pt} \\[0.4cm]
+
+\section{Exercise 6: Wilson strikes again}
+
+\subsection{Problem}
+
+Let $p$ be an odd prime.
+Write $p$ in the form $p = 2k+1$ for some $k \in \NN$.
+Prove that $k!^2 \equiv - \tup{-1}^k \mod p$.
+
+[\textbf{Hint:} Each $j \in \ZZ$ satisfies $j \tup{p-j} \equiv -j^2 \mod p$.]
+
+\subsection{Solution}
+
+[...]
+
+\begin{thebibliography}{99999999}                                                                                         %
+
+% Feel free to add your sources -- or copy some from the source code
+% of the class notes ( http://www-users.math.umn.edu/~dgrinber/19s/notes.tex ).
+
+% This is the bibliography: The list of papers/books/articles/blogs/...
+% cited. The syntax is: "\bibitem[name]{tag}Reference",
+% where "name" is the name that will appear in the compiled
+% bibliography, and "tag" is the tag by which you will refer to
+% the source in the TeX file. For example, the following source
+% has name "Grinbe19" (so you will see it referenced as
+% "[Grinbe19]" in the compiled PDF) and tag "detnotes" (so you
+% can cite it by writing "\cite{detnotes}").
+
+\bibitem[Grinbe19]{detnotes}Darij Grinberg,
+\textit{Notes on the combinatorial fundamentals of algebra},
+10 January 2019. \\
+\url{http://www.cip.ifi.lmu.de/~grinberg/primes2015/sols.pdf}
+\\
+The numbering of theorems and formulas in this link might shift
+when the project gets updated; for a ``frozen'' version whose
+numbering is guaranteed to match that in the citations above, see
+\url{https://github.com/darijgr/detnotes/releases/tag/2019-01-10} .
+
+\end{thebibliography}
+
+\end{document}
+

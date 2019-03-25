@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Saturday, March 23, 2019 16:03:43}
+%TCIDATA{LastRevised=Sunday, March 24, 2019 15:51:21}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -218,6 +218,9 @@ I thank the students of the Math 4281 class for discovering and reporting
 errors in previous versions of these notes. Some of the discussion of variants
 of Gaussian integers is due to Keith Conrad; the discussion of Gaussian
 integers itself owes much to his \cite{Conrad-Gauss}.
+
+These notes include some excerpts from \cite{floor} and slightly rewritten
+sections of \cite{detnotes}.
 
 \begin{center}
 \textbf{2019-01-23 lecture}
@@ -17768,9 +17771,9 @@ a\right\vert $ and $\left\vert b\right\vert $ here, since the absolute values
 $\left\vert \alpha\right\vert $ and $\left\vert \beta\right\vert $ of Gaussian
 integers are often irrational and thus it makes no sense to talk of their divisibility.
 
-Note that the converse of Proposition \ref{prop.Z[i].gauss.div.1} does not
-hold. (That is, $\operatorname*{N}\left(  \alpha\right)  \mid\operatorname*{N}%
-\left(  \beta\right)  $ does not yield $\alpha\mid\beta$.)
+Note that the converse of Proposition \ref{prop.Z[i].gauss.div.1} \textbf{(a)}
+does not hold. (That is, $\operatorname*{N}\left(  \alpha\right)
+\mid\operatorname*{N}\left(  \beta\right)  $ does not yield $\alpha\mid\beta$.)
 
 \begin{proof}
 [Proof of Proposition \ref{prop.Z[i].gauss.div.1}.]\textbf{(a)} Assume that
@@ -18348,11 +18351,12 @@ combination of }$\alpha$ \textbf{and }$\beta$ means a Gaussian integer of the
 form $\lambda\alpha+\mu\beta$ with $\lambda,\mu\in\mathbb{Z}\left[  i\right]
 $.)
 
-\textbf{(b)} It satisfies $\operatorname*{Div}\nolimits_{\mathbb{Z}\left[
-i\right]  }\left(  \alpha,\beta\right)  =\operatorname*{Div}%
-\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  \gamma\right)  $.
+\textbf{(b)} Any such $\gamma$ satisfies $\operatorname*{Div}%
+\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  \alpha,\beta\right)
+=\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
+\gamma\right)  $.
 
-\textbf{(c)} The unit-equivalence class of $\gamma$ is uniquely determined.
+\textbf{(c)} The unit-equivalence class of this $\gamma$ is uniquely determined.
 \end{theorem}
 
 This theorem is, in a sense, a generalization of Theorem
@@ -18389,22 +18393,25 @@ $\beta$. (This will be called the $\mathbb{Z}\left[  i\right]  $%
 \textit{-linear span of }$\alpha$ \textit{and }$\beta$ later on, in analogy to
 spans in classical linear algebra.) Now, the claim of Theorem
 \ref{thm.Z[i].gauss.bezout} \textbf{(a)} can be restated as follows:%
-\[
+\begin{equation}
 \operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
 \alpha,\beta\right)  \cap\operatorname*{Lin}\nolimits_{\mathbb{Z}\left[
-i\right]  }\left(  \alpha,\beta\right)  \neq\varnothing.
-\]
+i\right]  }\left(  \alpha,\beta\right)  \neq\varnothing
+.\label{pf.thm.Z[i].gauss.bezout.a.nem}%
+\end{equation}
 
 
-We shall prove this nonemptiness by strong induction on $\operatorname*{N}%
-\left(  \alpha\right)  +\operatorname*{N}\left(  \beta\right)  $.
+We shall prove (\ref{pf.thm.Z[i].gauss.bezout.a.nem}) by strong induction on
+$\operatorname*{N}\left(  \alpha\right)  +\operatorname*{N}\left(
+\beta\right)  $.
 
-So we fix $n\in\mathbb{N}$, and assume as the induction hypothesis that the
-nonemptiness holds for all $\alpha,\beta\in\mathbb{Z}\left[  i\right]  $
-satisfying $\operatorname*{N}\left(  \alpha\right)  +\operatorname*{N}\left(
-\beta\right)  <n$. We must now prove it for all $\alpha,\beta\in
-\mathbb{Z}\left[  i\right]  $ satisfying $\operatorname*{N}\left(
-\alpha\right)  +\operatorname*{N}\left(  \beta\right)  =n$.
+So we fix $n\in\mathbb{N}$, and assume as the induction hypothesis that
+(\ref{pf.thm.Z[i].gauss.bezout.a.nem}) holds for all $\alpha,\beta
+\in\mathbb{Z}\left[  i\right]  $ satisfying $\operatorname*{N}\left(
+\alpha\right)  +\operatorname*{N}\left(  \beta\right)  <n$. We must now prove
+(\ref{pf.thm.Z[i].gauss.bezout.a.nem}) for all $\alpha,\beta\in\mathbb{Z}%
+\left[  i\right]  $ satisfying $\operatorname*{N}\left(  \alpha\right)
++\operatorname*{N}\left(  \beta\right)  =n$.
 
 So let $\alpha,\beta\in\mathbb{Z}\left[  i\right]  $ be such that
 $\operatorname*{N}\left(  \alpha\right)  +\operatorname*{N}\left(
@@ -18428,7 +18435,8 @@ contains $\beta$ and thus is $\neq\varnothing$). Hence, $\operatorname*{N}%
 to $\beta$ and $\alpha$ instead of $\alpha$ and $\beta$) yields that there
 exist Gaussian integers $\gamma$ and $\rho$ such that $\beta=\gamma\alpha
 +\rho$ and $\operatorname*{N}\left(  \rho\right)  \leq\operatorname*{N}\left(
-\alpha\right)  /2$. Consider these $\gamma$ and $\rho$.
+\alpha\right)  /2$. Consider these $\gamma$ and $\rho$. From $\beta
+=\gamma\alpha+\rho$, we obtain $\rho=\beta-\gamma\alpha$.
 
 The Gaussian integers $\beta$ and $\rho$ satisfy $\beta\equiv\rho
 \operatorname{mod}\alpha$ (since $\beta=\gamma\alpha+\rho$). Hence,
@@ -18441,14 +18449,14 @@ $\operatorname*{Lin}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
 i\right]  }\left(  \alpha,\rho\right)  $ (since every $\lambda,\mu
 \in\mathbb{Z}\left[  i\right]  $ satisfy%
 \begin{align*}
-\lambda\alpha+\mu\underbrace{\beta}_{=\gamma\alpha+\rho}  &  =\lambda
-\alpha+\mu\left(  \gamma\alpha+\rho\right)  =\left(  \lambda+\mu\gamma\right)
+\lambda\alpha+\mu\underbrace{\beta}_{=\gamma\alpha+\rho} &  =\lambda\alpha
++\mu\left(  \gamma\alpha+\rho\right)  =\left(  \lambda+\mu\gamma\right)
 \alpha+\mu\rho\in\operatorname*{Lin}\nolimits_{\mathbb{Z}\left[  i\right]
 }\left(  \alpha,\rho\right)  \ \ \ \ \ \ \ \ \ \ \text{and}\\
-\lambda\alpha+\mu\underbrace{\rho}_{=\beta-\gamma\alpha}  &  =\lambda
-\alpha+\mu\left(  \beta-\gamma\alpha\right)  =\left(  \lambda-\mu
-\gamma\right)  \alpha+\mu\beta\in\operatorname*{Lin}\nolimits_{\mathbb{Z}%
-\left[  i\right]  }\left(  \alpha,\beta\right)
+\lambda\alpha+\mu\underbrace{\rho}_{=\beta-\gamma\alpha} &  =\lambda\alpha
++\mu\left(  \beta-\gamma\alpha\right)  =\left(  \lambda-\mu\gamma\right)
+\alpha+\mu\beta\in\operatorname*{Lin}\nolimits_{\mathbb{Z}\left[  i\right]
+}\left(  \alpha,\beta\right)
 \end{align*}
 ). Hence, proving $\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]
 }\left(  \alpha,\beta\right)  \cap\operatorname*{Lin}\nolimits_{\mathbb{Z}%
@@ -18464,12 +18472,20 @@ the induction hypothesis, since%
 \beta\right)  }<\operatorname*{N}\left(  \alpha\right)  +\operatorname*{N}%
 \left(  \beta\right)  =n.
 \]
-This completes the induction step. Thus, the nonemptiness (and thus Theorem
-\ref{thm.Z[i].gauss.bezout} \textbf{(a)}) follows by induction.
+This completes the induction step. Hence,
+(\ref{pf.thm.Z[i].gauss.bezout.a.nem}) (and thus Theorem
+\ref{thm.Z[i].gauss.bezout} \textbf{(a)}) follows by strong induction.
 
-\textbf{(b)} $\subseteq:$ Since $\gamma$ is a $\mathbb{Z}\left[  i\right]
-$-linear combination of $\alpha$ and $\beta$, every common Gaussian divisor of
-$\alpha$ and $\beta$ must also divide $\gamma$. Thus, $\operatorname*{Div}%
+\textbf{(b)} We shall prove $\operatorname*{Div}\nolimits_{\mathbb{Z}\left[
+i\right]  }\left(  \alpha,\beta\right)  \subseteq\operatorname*{Div}%
+\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  \gamma\right)  $ and
+$\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
+\alpha,\beta\right)  \supseteq\operatorname*{Div}\nolimits_{\mathbb{Z}\left[
+i\right]  }\left(  \gamma\right)  $ separately:
+
+$\subseteq:$ Since $\gamma$ is a $\mathbb{Z}\left[  i\right]  $-linear
+combination of $\alpha$ and $\beta$, every common Gaussian divisor of $\alpha$
+and $\beta$ must also divide $\gamma$. Thus, $\operatorname*{Div}%
 \nolimits_{\mathbb{Z}\left[  i\right]  }\left(  \alpha,\beta\right)
 \subseteq\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
 \gamma\right)  $.
@@ -18495,7 +18511,8 @@ $\gamma_{1}\in\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]
 }\left(  \gamma_{1}\right)  =\operatorname*{Div}\nolimits_{\mathbb{Z}\left[
 i\right]  }\left(  \gamma_{2}\right)  $, thus $\gamma_{1}\mid\gamma_{2}$.
 Similarly, $\gamma_{2}\mid\gamma_{1}$. Combining these, we obtain $\gamma
-_{1}\sim\gamma_{2}$ (by Exercise \ref{exe.Z[i].div.abba}).
+_{1}\sim\gamma_{2}$ (by Exercise \ref{exe.Z[i].div.abba}). This proves Theorem
+\ref{thm.Z[i].gauss.bezout} \textbf{(c)}.
 \end{proof}
 
 \begin{definition}
@@ -18526,7 +18543,7 @@ i\right]  }\left(  \alpha,\beta\right)  $ as a unit-equivalence class, not as
 a concrete Gaussian integer. But we will allow ourselves this abuse of
 notation. We shall not write equality signs like the one in \textquotedblleft%
 $\gamma_{1}=\gcd\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  \alpha
-,\beta\right)  $\textquotedblright, however; we instead prefer
+,\beta\right)  $\textquotedblright, however; we instead prefer to write
 \textquotedblleft$\gamma_{1}\sim\gcd\nolimits_{\mathbb{Z}\left[  i\right]
 }\left(  \alpha,\beta\right)  $\textquotedblright. Generally, whenever you see
 $\gcd\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  \alpha,\beta\right)  $ in
@@ -18969,8 +18986,8 @@ Exercise \ref{exe.ent.even-odd-sumsq} \textbf{(c)}. Thus, Lemma
 It is clear that no prime is divisible by $4$. Thus, there are three types of primes:
 
 \begin{itemize}
-\item \textit{Type 1:} \bigskip Primes that are $\equiv1\operatorname{mod}4$:
-these are $5,13,17,29,\ldots$.
+\item \textit{Type 1:} Primes that are $\equiv1\operatorname{mod}4$: these are
+$5,13,17,29,\ldots$.
 
 \item \textit{Type 2:} Primes that are even: there is only one of these,
 namely $2$.
@@ -19354,9 +19371,9 @@ always get a contradiction. Thus, the proof of Theorem
 We have thus answered Question \ref{quest.intro.sum-of-2sq.2} \textbf{(b)} in
 the case when $n$ is a prime: We have shown that $p$ is a sum of two perfect
 squares if and only if either $p=2$ or $p\equiv1\operatorname{mod}4$; and we
-have shown that the number of pairs $\left(  x,y\right)  $ satisfying
-$p=x^{2}+y^{2}$ is $8$ when $p\equiv1\operatorname{mod}4$ and is $4$ when
-$p=2$ (the latter claim is easy to check).
+have shown that the number of pairs $\left(  x,y\right)  \in\mathbb{Z}^{2}$
+satisfying $p=x^{2}+y^{2}$ is $8$ when $p\equiv1\operatorname{mod}4$ and is
+$4$ when $p=2$ (the latter claim is easy to check).
 
 What about the case of arbitrary $n$?
 
@@ -19488,7 +19505,9 @@ $\alpha$ and $\beta$.
 v_{\pi}\left(  \alpha\right)  ,v_{\pi}\left(  \beta\right)  \right\}  $ for
 any two Gaussian integers $\alpha$ and $\beta$.
 
-\textbf{(c)} We have $v_{\pi}\left(  1\right)  =0$.
+\textbf{(c)} We have $v_{\pi}\left(  1\right)  =0$. More generally, $v_{\pi
+}\left(  \alpha\right)  =0$ for any unit $\alpha\in\mathbb{Z}\left[  i\right]
+$.
 
 \textbf{(d)} We have $v_{\pi}\left(  \kappa\right)  =%
 \begin{cases}
