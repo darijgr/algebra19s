@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, March 25, 2019 09:56:51}
+%TCIDATA{LastRevised=Monday, March 25, 2019 12:05:24}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -20527,33 +20527,31 @@ the above chapters:
 
 \item $\mathbb{C}$ (the complex numbers);
 
-\item $\mathbb{D}$ (the dual numbers -- see HW4);
+\item $\mathbb{D}$ (the dual numbers);
 
 \item $\mathbb{Z}\left[  \sqrt{2}\right]  =\left\{  a+b\sqrt{2}\ \mid
-\ a,b\in\mathbb{Z}\right\}  $ (see HW4);
+\ a,b\in\mathbb{Z}\right\}  $;
 
-\item $\mathbb{Z}\left[  \omega\right]  =\left\{  a+b\omega\ \mid
-\ a,b\in\mathbb{Z}\right\}  $ (the Eisenstein integers);
+\item $\mathbb{Z}\left[  \omega\right]  $;
 
-\item $\mathbb{Z}\left[  \sqrt{-3}\right]  $ (see HW5).
+\item $\mathbb{Z}\left[  \sqrt{-3}\right]  $.
 \end{itemize}
 
-It may be a stretch to call the elements of some of these \textquotedblleft
-numbers\textquotedblright, but the word \textquotedblleft
-number\textquotedblright\ is not formally limited to well-behaved things, and
-these sets have a lot in common: we can add, subtract and multiply their
-elements; these operations satisfy the usual rules (e.g., associativity of
-multiplication, distributivity, etc.); these sets contain something like a $0$
-(that is, an element $\mathbf{0}$ such that $a+\mathbf{0}=a$ and
-$a\cdot\mathbf{0}=\mathbf{0}$) and something like a $1$ (that is, an element
-$\mathbf{1}$ such that $a\cdot\mathbf{1}=a$). It turns out that fairly few of
+It may sound like a stretch to call the elements of some of these sets
+\textquotedblleft numbers\textquotedblright, but it is not taboo. These sets
+have a lot in common: we can add, subtract and multiply their elements; these
+operations satisfy the usual rules (e.g., associativity of multiplication);
+these sets contain something like a $0$ (that is, an element $\mathbf{0}$ that
+satisfies $a+\mathbf{0}=a$ and $a\cdot\mathbf{0}=\mathbf{0}\cdot a=\mathbf{0}$
+for all $a$) and something like a $1$ (that is, an element $\mathbf{1}$ that
+satisfies $a\cdot\mathbf{1}=a$ for all $a$). It turns out that fairly few of
 these rules are sufficient to make \textquotedblleft all the other
-rules\textquotedblright\ follow from them. Thus, we define a \textbf{ring} to
-be (roughly speaking) a set with operations $+$ and $\cdot$ and elements $0$
-and $1$ that satisfies these few rules. In details:
+rules\textquotedblright\ follow. Thus, we define a \textbf{ring} to be
+(roughly speaking) a set with operations $+$ and $\cdot$ and elements $0$ and
+$1$ that satisfies these few rules. In details:
 
 \begin{definition}
-\textbf{(a)} A\textbf{ ring} means a set $\mathbb{K}$ endowed with
+\textbf{(a)} A \textbf{ring} means a set $\mathbb{K}$ endowed with
 
 \begin{itemize}
 \item two binary operations called \textquotedblleft\textbf{addition}%
@@ -20575,34 +20573,42 @@ later see why) such that the following axioms are satisfied:
 b+_{\mathbb{K}}c\right)  =\left(  a+_{\mathbb{K}}b\right)  +_{\mathbb{K}}c$
 for all $a,b,c\in\mathbb{K}$.
 
-\item \textbf{Neutrality of }$0$\textbf{:} We have $a+_{\mathbb{K}%
-}0_{\mathbb{K}}=0_{\mathbb{K}}+_{\mathbb{K}}a=a$ for all $a\in\mathbb{K}$.
+\item \textbf{Neutrality of zero:} We have $a+_{\mathbb{K}}0_{\mathbb{K}%
+}=0_{\mathbb{K}}+_{\mathbb{K}}a=a$ for all $a\in\mathbb{K}$.
 
 \item \textbf{Existence of additive inverses:} For any $a\in\mathbb{K}$, there
 exists an element $a^{\prime}\in\mathbb{K}$ such that $a+_{\mathbb{K}%
-}a^{\prime}=a^{\prime}+_{\mathbb{K}}a=0_{\mathbb{K}}$.
+}a^{\prime}=a^{\prime}+_{\mathbb{K}}a=0_{\mathbb{K}}$. (It is not
+\textbf{immediately} obvious, but will be shown later, that such an
+$a^{\prime}$ is unique. Thus, $a^{\prime}$ is called the \textbf{additive
+inverse} of $a$, and is denoted by $-a$.)
 
 \item \textbf{Distributivity:} We have%
-\begin{align*}
-a\left(  b+_{\mathbb{K}}c\right)    & =ab+_{\mathbb{K}}%
-ac\ \ \ \ \ \ \ \ \ \ \text{and}\\
-\left(  a+_{\mathbb{K}}b\right)  c  & =ac+_{\mathbb{K}}bc
-\end{align*}
-for all $a,b,c\in\mathbb{K}$. Here and in the following, we use $xy$ as an
-abbreviation for $x\cdot_{\mathbb{K}}y$. Also, we are using PEMDAS rules for
-order of operations; thus, for example, \textquotedblleft$ab+_{\mathbb{K}}%
-ac$\textquotedblright\ should be understood as \textquotedblleft$\left(
-ab\right)  +_{\mathbb{K}}\left(  ac\right)  $\textquotedblright.
+\[
+a\left(  b+_{\mathbb{K}}c\right)  =ab+_{\mathbb{K}}%
+ac\ \ \ \ \ \ \ \ \ \ \text{and}\ \ \ \ \ \ \ \ \ \ \left(  a+b\right)
+_{\mathbb{K}}c=ac+_{\mathbb{K}}bc
+\]
+for all $a,b,c\in\mathbb{K}$. Here and in the following, we use
+\textquotedblleft$xy$\textquotedblright\ as an abbreviation for
+\textquotedblleft$x\cdot_{\mathbb{K}}y$\textquotedblright. Also, we are using
+PEMDAS rules for order of operations; thus, for example, \textquotedblleft%
+$ab+_{\mathbb{K}}ac$\textquotedblright\ must be understood as
+\textquotedblleft$\left(  ab\right)  +_{\mathbb{K}}\left(  ac\right)
+$\textquotedblright.
 
 \item \textbf{Associativity of multiplication:} We have $a\left(  bc\right)
 =\left(  ab\right)  c$ for all $a,b,c\in\mathbb{K}$.
 
-\item \textbf{Neutrality of }$1$\textbf{:} We have $a1_{\mathbb{K}%
-}=1_{\mathbb{K}}a=a$ for all $a\in\mathbb{K}$.
+\item \textbf{Neutrality of one:} We have $a1_{\mathbb{K}}=1_{\mathbb{K}}a=a$
+for all $a\in\mathbb{K}$.
 
 \item \textbf{Annihilation:} We have $a0_{\mathbb{K}}=0_{\mathbb{K}%
 }a=0_{\mathbb{K}}$ for all $a\in\mathbb{K}$.
 \end{itemize}
+
+(We do not require the existence of multiplicative inverses; nor do we require
+commutativity of multiplication yet.)
 
 \textbf{(b)} A ring $\mathbb{K}$ (with operations $+_{\mathbb{K}}$ and
 $\cdot_{\mathbb{K}}$) is called \textbf{commutative} if it satisfies the
@@ -20618,75 +20624,63 @@ Note a few things:
 
 \begin{itemize}
 \item We shall abbreviate $+_{\mathbb{K}}$, $\cdot_{\mathbb{K}}$,
-$0_{\mathbb{K}}$ and $1_{\mathbb{K}}$ as $+$, $\cdot$, $0$ and $1$ when no
-confusion with the \textquotedblleft usual\textquotedblright\ notions of
-addition, subtraction, zero and one can arise.
+$0_{\mathbb{K}}$ and $1_{\mathbb{K}}$ as $+$, $\cdot$, $0$ and $1$ unless
+there is a chance of confusion with the \textquotedblleft
+usual\textquotedblright\ notions of addition, multiplication, zero and one.
 
 \item We have not required our rings to be endowed with a \textquotedblleft
-subtraction\textquotedblright\ operation. Nevertheless, each ring will have a
-subtraction operation: namely, to compute $a-b$, we just compute $a+b^{\prime
-}$, where $b^{\prime}$ is the element of $\mathbb{K}$ satisfying $b+b^{\prime
-}=0$ (this exists by the existence of additive inverses). We will later see
-that this is well-defined.
+subtraction\textquotedblright\ operation. Nevertheless, each ring $\mathbb{K}$
+will automatically have a subtraction operation: Namely, for any
+$a,b\in\mathbb{K}$, we can define $a-b$ to be $a+b^{\prime}$, where
+$b^{\prime}$ is the additive inverse of $b$. (We will later see that this
+operation is well-defined and satisfies the usual rules.)
 
 \item We have required commutativity of addition to hold for all rings, but
 commutativity of multiplication only to hold for commutative rings.
 
-\item Some of the above axioms are redundant, i.e., they follow from other
-axioms. We don't mind this, as long as these axioms are natural and easy to
-check in real examples.
+\item Some of the above axioms are redundant (e.g., Annihilation can be
+derived from the other axioms), but we don't mind this, as long as the axioms
+are natural and easy to check in practice.
 
 \item By our definition, a ring consists of a set $\mathbb{K}$, two operations
 $+$ and $\cdot$ and two elements $0$ and $1$. Thus, strictly speaking, a ring
-is a $5$-tuple $\left(  \mathbb{K},+,\cdot,0,1\right)  $. In reality, we will
-often just speak of the \textquotedblleft ring $\mathbb{K}$\textquotedblright,
-mentioning only the set and not the other four pieces of data. This is okay as
-long as the latter four pieces of data are clear from the context. For
-example, when we say \textquotedblleft the ring $\mathbb{Z}$\textquotedblright%
-, it is clear that we mean the ring $\left(  \mathbb{Z},+,\cdot,0,1\right)  $
-with the usual addition and multiplication operations and the usual numbers
-$0$ and $1$. Similarly when we say \textquotedblleft the ring $\mathbb{R}%
-$\textquotedblright\ or \textquotedblleft the ring $\mathbb{C}$%
-\textquotedblright\ or \textquotedblleft the ring $\mathbb{Z}\left[  i\right]
-$\textquotedblright. Basically, whenever a set $S$ is equipped with two
-operations that are called $+$ and $\cdot$ and two elements that are called
-$0$ and $1$ (even if these elements are not precisely the numbers $0$ and
-$1$), we automatically understand \textquotedblleft the ring $S$%
-\textquotedblright\ to be the ring $\left(  S,+,\cdot,0,1\right)  $ using
-these operations and elements. If we want to make a different ring out of the
-set $S$, then we have to say this explicitly.
+is a $5$-tuple $\left(  \mathbb{K},+,\cdot,0,1\right)  $. However, in real
+life, we will often speak of \textquotedblleft the ring $\mathbb{K}%
+$\textquotedblright\ (so we will mention only the set and not the other four
+pieces of data) and assume that the reader can figure out the rest of the
+$5$-tuple. This is okay as long as the rest of the $5$-tuple can be inferred
+from the context. For example, when we say \textquotedblleft the ring
+$\mathbb{Z}$\textquotedblright, it is clear that we mean the ring $\left(
+\mathbb{Z},+,\cdot,0,1\right)  $ with the usual addition, multiplication,
+number $0$ and number $1$. Similarly we can say \textquotedblleft the ring
+$\mathbb{R}$\textquotedblright\ or \textquotedblleft the ring $\mathbb{C}%
+$\textquotedblright, expecting no confusion.
 
-\item Some authors do not require the element $1$ as part of what it means to
-be a ring. Their concept of a ring is (IMHO) less immediately useful.
+\item Some authors do not require the element $1$ as part of the definition of
+a ring. But we do. (What we call \textquotedblleft rings\textquotedblright%
+\ they call \textquotedblleft unital rings\textquotedblright.)
 \end{itemize}
 
-Now, I claim that many of the \textquotedblleft number
-systems\textquotedblright\ seen above, and several others, are examples of
-rings. To wit:
+Now, I claim that many of the \textquotedblleft numbers
+systems\textquotedblright\ seen above, and several others, are rings. To wit:
 
 \begin{itemize}
 \item The sets $\mathbb{Z}$, $\mathbb{Q}$, $\mathbb{R}$ and $\mathbb{C}$
 (endowed with the usual addition, multiplication, $0$ and $1$) are commutative
-rings. In each case, the element $a^{\prime}$ in the \textquotedblleft
-existence of additive inverses\textquotedblright\ axiom is $-a$.
+rings. In each case, the additive inverse of an element $a$ is what we all
+know as $-a$.
 
-\item The set $\mathbb{N}$ (again endowed with the usual addition,
-multiplication, $0$ and $1$) is not a ring. Indeed, the \textquotedblleft
-existence of additive inverses\textquotedblright\ axiom fails for $a=1$,
-because there is no $1^{\prime}\in\mathbb{N}$ such that $1+1^{\prime
-}=1^{\prime}+1=0$.
+\item The set $\mathbb{N}$ (again endowed with the usual...) is \textbf{not} a
+ring. Indeed, its element $1$ has no additive inverse (in $\mathbb{N}$).
 
 \item The sets $\mathbb{C}$, $\mathbb{Z}\left[  i\right]  $, $\mathbb{D}$,
-$\mathbb{Z}\left[  \sqrt{2}\right]  $, $\mathbb{Z}\left[  \omega\right]  $,
-$\mathbb{Z}\left[  \sqrt{-3}\right]  $ are commutative rings. All of the
-axioms are easy to check, and some of them we have checked. In each case, the
-element $a^{\prime}$ in the \textquotedblleft existence of additive
-inverses\textquotedblright\ axiom is $-a$.
+$\mathbb{Z}\left[  \sqrt{2}\right]  $, $\mathbb{Z}\left[  \omega\right]  $ and
+$\mathbb{Z}\left[  \sqrt{-3}\right]  $ are commutative rings.
 
 \item If you have seen polynomials: The set $\mathbb{Z}\left[  x\right]  $ of
 all polynomials in a single variable $x$ with integer coefficients is a
-commutative ring. Similarly for other kinds of coefficients, and several
-variables. But we will come back later to actually define these things.
+commutative ring. We will come back later to this, once we have formally
+defined polynomials.
 
 \item We can define a commutative ring $\mathbb{Z}^{\prime}$ as follows:
 
@@ -20699,29 +20693,30 @@ Now, let $\mathbb{Z}^{\prime}$ be the \textbf{set} $\mathbb{Z}$, endowed with
 the usual addition $+$ and the unusual multiplication $\widetilde{\times}$ and
 the elements $0_{\mathbb{Z}^{\prime}}=0$ and $1_{\mathbb{Z}^{\prime}}=-1$.
 
-Is this $\mathbb{Z}^{\prime}$ a commutative ring?
+Is this $\mathbb{Z}^{\prime}$ a commutative ring? Let us check the axioms:
 
 \begin{itemize}
-\item The first four axioms are just about addition and $0$, and therefore
-still hold for $\mathbb{Z}^{\prime}$ (because $\mathbb{Z}^{\prime}$ has the
-same addition and $0$ as $\mathbb{Z}$).
+\item The first four axioms only involve addition and $0$, and therefore still
+hold for $\mathbb{Z}^{\prime}$ (since $\mathbb{Z}^{\prime}$ has the same
+addition and $0$ as $\mathbb{Z}$).
 
 \item Distributivity for $\mathbb{Z}^{\prime}$: We must check that%
 \begin{align*}
 a\widetilde{\times}\left(  b+c\right)    & =a\widetilde{\times}%
 b+a\widetilde{\times}c\ \ \ \ \ \ \ \ \ \ \text{and}\\
 \left(  a+b\right)  \widetilde{\times}c  & =a\widetilde{\times}%
-c+b\widetilde{\times}c
+c+b\widetilde{\times}c\ \ \ \ \ \ \ \ \ \ \text{for all }a,b,c\in
+\mathbb{Z}^{\prime}.
 \end{align*}
-for all $a,b,c\in\mathbb{Z}^{\prime}$. (Note that we cannot omit the
-\textquotedblleft multiplication sign\textquotedblright\ $\widetilde{\times}$
-here and simply write \textquotedblleft$a\left(  b+c\right)  $%
-\textquotedblright\ for \textquotedblleft$a\widetilde{\times}\left(
-b+c\right)  $\textquotedblright, because \textquotedblleft$a\left(
-b+c\right)  $\textquotedblright\ already means something different. Note also
-that \textquotedblleft$a,b,c\in\mathbb{Z}^{\prime}$\textquotedblright\ means
-the same thing as \textquotedblleft$a,b,c\in\mathbb{Z}$\textquotedblright,
-because $\mathbb{Z}^{\prime}=\mathbb{Z}$ as sets.)
+(Note that we cannot omit the \textquotedblleft multiplication
+sign\textquotedblright\ $\widetilde{\times}$ here and simply write
+\textquotedblleft$a\left(  b+c\right)  $\textquotedblright\ for
+\textquotedblleft$a\widetilde{\times}\left(  b+c\right)  $\textquotedblright,
+since \textquotedblleft$a\left(  b+c\right)  $\textquotedblright\ already
+means something different. Note also that \textquotedblleft$a,b,c\in
+\mathbb{Z}^{\prime}$\textquotedblright\ means the same thing as
+\textquotedblleft$a,b,c\in\mathbb{Z}$\textquotedblright, since $\mathbb{Z}%
+^{\prime}=\mathbb{Z}$ as sets.)
 
 So let $a,b,c\in\mathbb{Z}^{\prime}$. In order to verify $a\widetilde{\times
 }\left(  b+c\right)  =a\widetilde{\times}b+a\widetilde{\times}c$, we compare%
@@ -20733,7 +20728,7 @@ with%
 a\widetilde{\times}b+a\widetilde{\times}c=\left(  -ab\right)  +\left(
 -ac\right)  =-ab-ac.
 \]
-Similarly we can check $\left(  a+b\right)  \widetilde{\times}%
+Similarly we can verify $\left(  a+b\right)  \widetilde{\times}%
 c=a\widetilde{\times}c+b\widetilde{\times}c$.
 
 \item Associativity of multiplication: We must check that%
@@ -20742,7 +20737,9 @@ a\widetilde{\times}\left(  b\widetilde{\times}c\right)  =\left(
 a\widetilde{\times}b\right)  \widetilde{\times}c\ \ \ \ \ \ \ \ \ \ \text{for
 all }a,b,c\in\mathbb{Z}^{\prime}.
 \]
-Again, this is straightforward: Let $a,b,c\in\mathbb{Z}^{\prime}$. Compare%
+
+
+So let $a,b,c\in\mathbb{Z}^{\prime}$. Then, comparing%
 \begin{align*}
 a\widetilde{\times}\underbrace{\left(  b\widetilde{\times}c\right)  }_{=-bc}
 & =a\widetilde{\times}\left(  -bc\right)  =-a\left(  -bc\right)
@@ -20750,118 +20747,94 @@ a\widetilde{\times}\underbrace{\left(  b\widetilde{\times}c\right)  }_{=-bc}
 \underbrace{\left(  a\widetilde{\times}b\right)  }_{=-ab}\widetilde{\times}c
 & =\left(  -ab\right)  \widetilde{\times}c=-\left(  -ab\right)  c=abc,
 \end{align*}
-and you are done.
+we get $a\widetilde{\times}\left(  b\widetilde{\times}c\right)  =\left(
+a\widetilde{\times}b\right)  \widetilde{\times}c$.
 
-\item Neutrality of $1$ in $\mathbb{Z}^{\prime}$: We must check that%
+\item Neutrality of one: We must check that%
 \[
 a\widetilde{\times}1_{\mathbb{Z}^{\prime}}=1_{\mathbb{Z}^{\prime}%
 }\widetilde{\times}a=a\ \ \ \ \ \ \ \ \ \ \text{for all }a\in\mathbb{Z}%
 ^{\prime}.
 \]
-
-
-This, too, is straightforward: If $a\in\mathbb{Z}^{\prime}$, then
-$a\widetilde{\times}\underbrace{1_{\mathbb{Z}^{\prime}}}_{=-1}%
-=a\widetilde{\times}\left(  -1\right)  =-a\left(  -1\right)  =a$ and similarly
-$1_{\mathbb{Z}^{\prime}}\widetilde{\times}a=a$.
+This is straightforward, too: If $a\in\mathbb{Z}^{\prime}$, then%
+\[
+a\widetilde{\times}1_{\mathbb{Z}^{\prime}}=-a\underbrace{1_{\mathbb{Z}%
+^{\prime}}}_{=-1}=-a\left(  -1\right)  =a.
+\]
+Similarly for the other equality.
 
 \item Annihilation and commutativity of multiplication are just as easy to check.
 \end{itemize}
 
-So $\mathbb{Z}^{\prime}$ is a ring.
-
-(Note that $\left(  \mathbb{Z},+,\widetilde{\times},0,1\right)  $ is not a ring.)
+Thus, $\mathbb{Z}^{\prime}$ is a ring.
 
 However, $\mathbb{Z}^{\prime}$ is not a \textbf{new} ring. It is just
 $\mathbb{Z}$ with its elements renamed. Namely, if I rename each integer $a$
-as $-a$, I get $\mathbb{Z}^{\prime}$. What does this mean? Formally speaking:
-The bijection%
+as $-a$, the operations of $\mathbb{Z}$ turn into the operations of
+$\mathbb{Z}^{\prime}$. Formally speaking, this means that the bijection%
 \[
 \varphi:\mathbb{Z}\rightarrow\mathbb{Z}^{\prime},\ \ \ \ \ \ \ \ \ \ a\mapsto
 -a
 \]
 satisfies%
 \begin{align*}
-\varphi\left(  a+b\right)    & =a+b\ \ \ \ \ \ \ \ \ \ \text{for all }%
-a,b\in\mathbb{Z};\\
-\varphi\left(  ab\right)    & =a\widetilde{\times}%
-b\ \ \ \ \ \ \ \ \ \ \text{for all }a,b\in\mathbb{Z};\\
+\varphi\left(  a+b\right)    & =\varphi\left(  a\right)  +\varphi\left(
+b\right)  \ \ \ \ \ \ \ \ \ \ \text{for all }a,b\in\mathbb{Z};\\
+\varphi\left(  ab\right)    & =\varphi\left(  a\right)  \widetilde{\times
+}\varphi\left(  b\right)  \ \ \ \ \ \ \ \ \ \ \text{for all }a,b\in
+\mathbb{Z};\\
 \varphi\left(  0\right)    & =0;\\
 \varphi\left(  1\right)    & =-1=1_{\mathbb{Z}^{\prime}}.
 \end{align*}
-Thus, we can view $\varphi$ as a way of relabelling the integers, and then the
+Thus, we can view $\varphi$ as a way of relabelling the integers so that the
 data $+,\cdot,0,1$ of $\mathbb{Z}$ become the data $+,\widetilde{\times
-},0,1_{\mathbb{Z}^{\prime}}$ of $\mathbb{Z}^{\prime}$. We will later get to
-call bijections like $\varphi$ \textbf{ring isomorphisms}.
+},0,1_{\mathbb{Z}^{\prime}}$ of $\mathbb{Z}^{\prime}$. We will later call
+bijections like $\varphi$ \textbf{ring isomorphisms}.
 
-\item The set $\mathbb{Q}^{\mathbb{Q}}$ of all the maps from $\mathbb{Q}$ to
+\item Recall: If $A$ and $B$ are two sets, then
+\[
+B^{A}:=\left\{  \text{maps }A\rightarrow B\right\}  .
+\]
+(This notation is not random; it harkens back to the fact that $\left\vert
+B^{A}\right\vert =\left\vert B\right\vert ^{\left\vert A\right\vert }$.)
+
+The set $\mathbb{Q}^{\mathbb{Q}}$ of all the maps from $\mathbb{Q}$ to
 $\mathbb{Q}$ is a commutative ring, where
 
 \begin{itemize}
-\item addition and multiplication are defined pointwise (i.e.,
+\item addition and multiplication are defined pointwise: i.e., if
+$f,g\in\mathbb{Q}^{\mathbb{Q}}$ are two maps, then the maps $f+g$ and $f\cdot
+g$ are defined by%
 \begin{align*}
 \left(  f+g\right)  \left(  x\right)    & =f\left(  x\right)  +g\left(
-x\right)  ,\ \ \ \ \ \ \ \ \ \ \text{and}\\
+x\right)  \ \ \ \ \ \ \ \ \ \ \text{and}\\
 \left(  f\cdot g\right)  \left(  x\right)    & =f\left(  x\right)  \cdot
-g\left(  x\right)  \ \ \ \ \ \ \ \ \ \ \text{for all }x\in\mathbb{Q}%
+g\left(  x\right)  \ \ \ \ \ \ \ \ \ \ \text{for all }x\in\mathbb{Q};
 \end{align*}
-), and
 
-\item $0$ means the function that is constantly $0$, and
 
-\item $1$ means the function that is constantly $1$.
+\item $0$ means the \textquotedblleft constant $0$ function\textquotedblright%
+\ (i.e., the map $\mathbb{Q}\rightarrow\mathbb{Q},\ x\mapsto0$);
+
+\item $1$ means the \textquotedblleft constant $1$ function\textquotedblright%
+\ (i.e., the map $\mathbb{Q}\rightarrow\mathbb{Q},\ x\mapsto1$).
 \end{itemize}
 
 All the axioms are easy to check.
 
 Similarly for $\mathbb{Q}^{\mathbb{C}}$ or $\mathbb{Q}^{\mathbb{N}}$ or
-$\mathbb{R}^{\mathbb{R}}$ (the set of \textquotedblleft
-functions\textquotedblright\ you know from calculus), but \textbf{not} for
-$\mathbb{N}^{\mathbb{Q}}$. The problem with $\mathbb{N}^{\mathbb{Q}}$ is that
-\textquotedblleft existence of additive inverses\textquotedblright\ is not
-satisfied, since $-a\notin\mathbb{N}$ for positive $a\in\mathbb{N}$.
+$\mathbb{R}^{\mathbb{R}}$ or $\mathbb{R}^{S}$ for any set $S$. But not for
+$\mathbb{N}^{\mathbb{Q}}$, since most maps from $\mathbb{Q}$ to $\mathbb{N}$
+don't have additive inverses.
 
-\item Recall that%
+Recall that%
 \[
 \mathbb{Z}\left[  \sqrt{2}\right]  =\left\{  a+b\sqrt{2}\ \mid\ a,b\in
 \mathbb{Z}\right\}  \text{ is a ring.}%
 \]
-But the set $\left\{  a+b\sqrt[3]{2}\ \mid\ a,b\in\mathbb{Z}\right\}  $ (with
-the usual addition and multiplication) is \textbf{not} a ring. The reason is
-that multiplication is not a binary operation on this set, since it is
-possible that two numbers $\alpha$ and $\beta$ lie in this set but their
-product $\alpha\beta$ does not. For example, $1+\sqrt[3]{2}$ lies in this set,
-but%
-\[
-\left(  1+\sqrt[3]{2}\right)  \left(  1+\sqrt[3]{2}\right)  =1+2\sqrt[3]%
-{2}+\sqrt[3]{4}%
-\]
-does not.
-
-\item The set of $2\times2$-matrices with rational entries (endowed with
-matrix addition as $+$, matrix multiplication as $\cdot$, the zero matrix
-$\left(
-\begin{array}
-[c]{cc}%
-0 & 0\\
-0 & 0
-\end{array}
-\right)  $ as $0$, and $\left(
-\begin{array}
-[c]{cc}%
-1 & 0\\
-0 & 1
-\end{array}
-\right)  $ as $1$) is a ring, but \textbf{not} a commutative ring. Indeed, the
-ring axioms are true (this is known from linear algebra), but commutativity of
-multiplication is not (the product $AB$ of two $2\times2$-matrices $A$ and $B$
-is not always equal to $BA$).
-
-\item If you like the empty set, you will enjoy the \textbf{zero ring}. This
-is the one-element set $\left\{  0\right\}  $, endowed with the only possible
-addition, the only possible multiplication, the only possible $0$ and the only
-possible $1$ (which you should not call $1$, because it equals $0$). This is a
-commutative ring. 
+But the set $\left\{  a+b\sqrt[3]{2}\ \mid\ a,b\in\mathbb{Z}\right\}  $ is not
+a ring. The problem here is that multiplication is not a binary operation on
+this set, since $\sqrt[3]{2}\cdot\sqrt[3]{2}$ does not belong to this set.
 \end{itemize}
 
 
