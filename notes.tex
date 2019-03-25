@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Sunday, March 24, 2019 15:51:21}
+%TCIDATA{LastRevised=Monday, March 25, 2019 01:23:05}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -14847,9 +14847,9 @@ _{2}\text{, respectively}%
 (since $\left[  2\right]  _{2}=\left[  0\right]  _{2}$ and $\left[  3\right]
 _{2}=\left[  1\right]  _{2}$ and $\left[  4\right]  _{2}=\left[  0\right]
 _{2}$ and $\left[  5\right]  _{2}=\left[  1\right]  _{2}$). More generally,
-for arbitrary $n$ and $d$, the map $\pi_{n,d}$ sends the $n$ residue classes
-$\left[  0\right]  _{n},\left[  1\right]  _{n},\ldots,\left[  n-1\right]
-_{n}$ to
+for arbitrary $n$ and $d$ satisfying $d\mid n$, the map $\pi_{n,d}$ sends the
+$n$ residue classes $\left[  0\right]  _{n},\left[  1\right]  _{n}%
+,\ldots,\left[  n-1\right]  _{n}$ to
 \[
 \left[  0\right]  _{d},\left[  1\right]  _{d},\ldots,\left[  d-1\right]
 _{d},\left[  0\right]  _{d},\left[  1\right]  _{d},\ldots,\left[  d-1\right]
@@ -16186,9 +16186,8 @@ following version claims a bijection between two sets of \textbf{residue
 classes}. Other than that, the two versions are rather similar.
 
 \begin{theorem}
-\label{thm.eqrel.CRT2}(Chinese Remainder Theorem, bijective form)
-
-Let $m$ and $n$ be two coprime positive integers. Then, the map%
+\label{thm.eqrel.CRT2}Let $m$ and $n$ be two coprime positive integers. Then,
+the map%
 \begin{align*}
 S_{m,n}:\mathbb{Z}/\left(  mn\right)   &  \rightarrow\left(  \mathbb{Z}%
 /m\right)  \times\left(  \mathbb{Z}/n\right)  ,\\
@@ -16268,7 +16267,8 @@ classes are easier to deal with than remainders.
 
 \begin{proof}
 [Proof of Theorem \ref{thm.eqrel.CRT2}.]The maps $\pi_{mn,m}$ and $\pi_{mn,n}$
-are well-defined, since $m$ and $n$ are divisors of $mn$. Thus, the map%
+are well-defined, since $m$ and $n$ are positive divisors of $mn$. Thus, the
+map%
 \begin{align*}
 S_{m,n}:\mathbb{Z}/\left(  mn\right)   &  \rightarrow\left(  \mathbb{Z}%
 /m\right)  \times\left(  \mathbb{Z}/n\right)  ,\\
@@ -16300,39 +16300,50 @@ $\alpha,\beta\in\mathbb{Z}/\left(  mn\right)  $ be such that $S_{m,n}\left(
 \alpha\right)  =S_{m,n}\left(  \beta\right)  $. We want to prove $\alpha
 =\beta$.
 
-Write $\alpha=\left[  a\right]  _{mn}$ and $\beta=\left[  b\right]  _{mn}$ for
-two integers $a$ and $b$. From $\alpha=\left[  a\right]  _{mn}$, we obtain
-$S_{m,n}\left(  \alpha\right)  =S_{m,n}\left(  \left[  a\right]  _{mn}\right)
+Write the residue classes $\alpha$ and $\beta$ in the forms $\alpha=\left[
+a\right]  _{mn}$ and $\beta=\left[  b\right]  _{mn}$ for two integers $a$ and
+$b$. (This is possible, because of Proposition \ref{prop.eqrel.Z/n.ab}
+\textbf{(a)}.) From $\alpha=\left[  a\right]  _{mn}$, we obtain $S_{m,n}%
+\left(  \alpha\right)  =S_{m,n}\left(  \left[  a\right]  _{mn}\right)
 =\left(  \left[  a\right]  _{m},\left[  a\right]  _{n}\right)  $ (by
 (\ref{pf.thm.eqrel.CRT2.Ss=}), applied to $s=a$). Similarly, $S_{m,n}\left(
 \beta\right)  =\left(  \left[  b\right]  _{m},\left[  b\right]  _{n}\right)
-$. Thus, $S_{m,n}\left(  \alpha\right)  =S_{m,n}\left(  \beta\right)  $
-rewrites as $\left(  \left[  a\right]  _{m},\left[  a\right]  _{n}\right)
-=\left(  \left[  b\right]  _{m},\left[  b\right]  _{n}\right)  $. In other
-words, $\left[  a\right]  _{m}=\left[  b\right]  _{m}$ and $\left[  a\right]
-_{n}=\left[  b\right]  _{n}$.
+$. Thus, the equality $S_{m,n}\left(  \alpha\right)  =S_{m,n}\left(
+\beta\right)  $ (which we have assumed to hold) rewrites as $\left(  \left[
+a\right]  _{m},\left[  a\right]  _{n}\right)  =\left(  \left[  b\right]
+_{m},\left[  b\right]  _{n}\right)  $. In other words, $\left[  a\right]
+_{m}=\left[  b\right]  _{m}$ and $\left[  a\right]  _{n}=\left[  b\right]
+_{n}$.
 
-Now, $\left[  a\right]  _{m}=\left[  b\right]  _{m}$ means $a\equiv
-b\operatorname{mod}m$; in other words, $m\mid a-b$. Similarly, $n\mid a-b$.
+Now, we have $\left[  a\right]  _{m}=\left[  b\right]  _{m}$; equivalently,
+$a\equiv b\operatorname{mod}m$ (by Proposition \ref{prop.eqrel.Z/n.ab}
+\textbf{(b)}); in other words, $m\mid a-b$. Similarly, $n\mid a-b$.
 
 Now, we have $m\perp n$ (since $m$ and $n$ are coprime) and $m\mid a-b$ and
 $n\mid a-b$. Hence, Theorem \ref{thm.ent.coprime.combine} (applied to $m$, $n$
 and $a-b$ instead of $a$, $b$ and $c$) yields $mn\mid a-b$. In other words,
 $a\equiv b\operatorname{mod}mn$. In other words, $\left[  a\right]
-_{mn}=\left[  b\right]  _{mn}$. In other words, $\alpha=\beta$ (since
-$\alpha=\left[  a\right]  _{mn}$ and $\beta=\left[  b\right]  _{mn}$). So we
-have shown that $S_{m,n}$ is injective.]
+_{mn}=\left[  b\right]  _{mn}$ (by Proposition \ref{prop.eqrel.Z/n.ab}
+\textbf{(b)}). In other words, $\alpha=\beta$ (since $\alpha=\left[  a\right]
+_{mn}$ and $\beta=\left[  b\right]  _{mn}$).
 
-\textit{Proof that the map }$S_{m,n}$ \textit{is surjective:} Fix $\left(
+Now, forget that we fixed $\alpha$ and $\beta$. We thus have shown that if
+$\alpha,\beta\in\mathbb{Z}/\left(  mn\right)  $ are such that $S_{m,n}\left(
+\alpha\right)  =S_{m,n}\left(  \beta\right)  $, then $\alpha=\beta$. In other
+words, the map $S_{m,n}$ is injective.]
+
+[\textit{Proof that the map }$S_{m,n}$ \textit{is surjective:} Fix $\left(
 \alpha,\beta\right)  \in\left(  \mathbb{Z}/m\right)  \times\left(
 \mathbb{Z}/n\right)  $. We want to find a $\gamma\in\mathbb{Z}/\left(
 mn\right)  $ such that $S_{m,n}\left(  \gamma\right)  =\left(  \alpha
 ,\beta\right)  $.
 
-Write $\alpha$ as $\alpha=\left[  a\right]  _{m}$ for some integer $a$ (since
-$\alpha\in\mathbb{Z}/m$). Similarly, write $\beta$ as $\beta=\left[  b\right]
-_{n}$. Theorem \ref{thm.ent.crt1} \textbf{(a)} shows that there exists an
-integer $x\in\mathbb{Z}$ such that%
+We have $\alpha\in\mathbb{Z}/m$. Thus, we can write the residue class $\alpha$
+as $\alpha=\left[  a\right]  _{m}$ for some integer $a$ (because of
+Proposition \ref{prop.eqrel.Z/n.ab} \textbf{(a)}). Similarly, we can write the
+residue class $\beta$ as $\beta=\left[  b\right]  _{n}$ for some integer $b$.
+Consider these two integers $a$ and $b$. Theorem \ref{thm.ent.crt1}
+\textbf{(a)} shows that there exists an integer $x\in\mathbb{Z}$ such that%
 \[
 \left(  x\equiv a\operatorname{mod}m\text{ and }x\equiv b\operatorname{mod}%
 n\right)  .
@@ -16348,19 +16359,26 @@ _{n}}_{=\left[  b\right]  _{n}=\beta}\right)  =\left(  \alpha,\beta\right)  .
 \]
 Thus, there exists a $\gamma\in\mathbb{Z}/\left(  mn\right)  $ such that
 $S_{m,n}\left(  \gamma\right)  =\left(  \alpha,\beta\right)  $ (namely,
-$\gamma=\left[  x\right]  _{mn}$). This proves that $S_{m,n}$ is surjective.
+$\gamma=\left[  x\right]  _{mn}$).
 
-So, $S_{m,n}$ is bijective (being both injective and surjective). This proves
-the Theorem.
+Now, forget that we fixed $\left(  \alpha,\beta\right)  $. We thus have shown
+that for any $\left(  \alpha,\beta\right)  \in\left(  \mathbb{Z}/m\right)
+\times\left(  \mathbb{Z}/n\right)  $, there exists a $\gamma\in\mathbb{Z}%
+/\left(  mn\right)  $ such that $S_{m,n}\left(  \gamma\right)  =\left(
+\alpha,\beta\right)  $. In other words, the map $S_{m,n}$ is surjective.]
 
-(As in the proof of Theorem \ref{thm.ent.CRT-bij}, we could have saved
-ourselves some of the work by invoking the Pigeonhole Principle. Indeed, our
-goal was to show that the map $S_{m,n}$ is bijective. By the Pigeonhole
-Principle, it suffices to prove that it is an injection \textbf{or} that it is
-a surjection, since $\mathbb{Z}/\left(  mn\right)  $ and $\left(
+We have now proven that the map $S_{m,n}$ is both injective and surjective.
+Hence, this map $S_{m,n}$ is bijective, i.e., is a bijection. This completes
+the proof of Theorem \ref{thm.eqrel.CRT2}.
+
+[\textit{Remark:} As in the proof of Theorem \ref{thm.ent.CRT-bij}, we could
+have saved ourselves some of the work by invoking the Pigeonhole Principle.
+Indeed, our goal was to show that the map $S_{m,n}$ is bijective. By the
+Pigeonhole Principle, it suffices to prove that it is injective \textbf{or}
+that it is surjective, since $\mathbb{Z}/\left(  mn\right)  $ and $\left(
 \mathbb{Z}/m\right)  \times\left(  \mathbb{Z}/n\right)  $ are finite sets of
-the same size. But this argument would be harder to generalize to certain
-settings that we might later want to generalize the Theorem to.)
+the same size. But such a proof would be harder to generalize to certain
+settings that we might later want to generalize Theorem \ref{thm.eqrel.CRT2} to.]
 \end{proof}
 
 \begin{center}
@@ -16369,145 +16387,253 @@ settings that we might later want to generalize the Theorem to.)
 
 We have already proven Theorem \ref{thm.ent.phi.mult} using Theorem
 \ref{thm.ent.CRT-bij}. Let us now reprove it using Theorem
-\ref{thm.eqrel.CRT2} instead (by a rather similar argument):
+\ref{thm.eqrel.CRT2} instead (by a rather similar argument, but using residue
+classes instead of remainders):
 
 \begin{proof}
-[Second proof of Theorem \ref{thm.ent.phi.mult}.]Corollary
+[Second proof of Theorem \ref{thm.ent.phi.mult}.]For every positive integer
+$g$, we let $U_{g}$ be the set of all residue classes $\alpha\in\mathbb{Z}/g$
+that have an inverse. Then, $U_{n}$ is exactly the set that was called $U_{n}$
+in Corollary \ref{cor.equiv.modinv.Unphi}. Hence, Corollary
 \ref{cor.equiv.modinv.Unphi} \textbf{(b)} yields $\phi\left(  n\right)
 =\left\vert U_{n}\right\vert $. Similarly, $\phi\left(  m\right)  =\left\vert
 U_{m}\right\vert $ and $\phi\left(  mn\right)  =\left\vert U_{mn}\right\vert $.
 
-Now, let $S_{m,n}$ be the map%
+Theorem \ref{thm.eqrel.CRT2} says that the map%
 \begin{align*}
-\mathbb{Z}/\left(  mn\right)   &  \rightarrow\left(  \mathbb{Z}/m\right)
-\times\left(  \mathbb{Z}/n\right)  ,\\
+S_{m,n}:\mathbb{Z}/\left(  mn\right)   &  \rightarrow\left(  \mathbb{Z}%
+/m\right)  \times\left(  \mathbb{Z}/n\right)  ,\\
 \alpha &  \mapsto\left(  \pi_{mn,m}\left(  \alpha\right)  ,\pi_{mn,n}\left(
 \alpha\right)  \right)  .
 \end{align*}
-Then, $S_{m,n}$ is a bijection (by Theorem \ref{thm.eqrel.CRT2}).
+is well-defined and is a bijection. Consider this map $S_{m,n}$. This map
+$S_{m,n}$ is a bijection, i.e., is injective and surjective. Moreover, the
+definition of $S_{m,n}$ yields%
+\[
+S_{m,n}\left(  \left[  1\right]  _{mn}\right)  =\left(  \underbrace{\pi
+_{mn,m}\left(  \left[  1\right]  _{m}\right)  }_{\substack{=\left[  1\right]
+_{m}\\\text{(by the definition of }\pi_{mn,m}\text{)}}},\underbrace{\pi
+_{mn,n}\left(  \left[  1\right]  _{n}\right)  }_{\substack{=\left[  1\right]
+_{n}\\\text{(by the definition of }\pi_{mn,n}\text{)}}}\right)  =\left(
+\left[  1\right]  _{m},\left[  1\right]  _{n}\right)  ,
+\]
+
+
+Let us first prove a trivial fact:
 
 \begin{statement}
-\textit{Claim 0:} We have $\pi_{mn,m}\left(  \alpha\beta\right)  =\pi
-_{mn,m}\left(  \alpha\right)  \cdot\pi_{mn,m}\left(  \beta\right)  $ for all
-$\alpha,\beta\in\mathbb{Z}/\left(  mn\right)  $.
+\textit{Claim 1:} Let $\alpha,\beta\in\mathbb{Z}/\left(  mn\right)  $. Then,
+$\pi_{mn,m}\left(  \alpha\beta\right)  =\pi_{mn,m}\left(  \alpha\right)
+\cdot\pi_{mn,m}\left(  \beta\right)  $.
 \end{statement}
 
-[\textit{Proof:} Write $\alpha$ and $\beta$ as $\alpha=\left[  a\right]
-_{mn}$ and $\beta=\left[  b\right]  _{mn}$ for some integers $a$ and $b$.
-Then, the claim rewrites as $\left[  ab\right]  _{m}=\left[  a\right]
-_{m}\cdot\left[  b\right]  _{m}$. But this follows from the definition of
-multiplication on $\mathbb{Z}/m$.]
+[\textit{Proof:} Write the residue classes $\alpha$ and $\beta$ as
+$\alpha=\left[  a\right]  _{mn}$ and $\beta=\left[  b\right]  _{mn}$ for some
+integers $a$ and $b$. (This can be done because of Proposition
+\ref{prop.eqrel.Z/n.ab} \textbf{(a)}.) Now, $\underbrace{\alpha}_{=\left[
+a\right]  _{mn}}\cdot\underbrace{\beta}_{=\left[  b\right]  _{mn}}=\left[
+a\right]  _{mn}\cdot\left[  b\right]  _{mn}=\left[  ab\right]  _{mn}$ (by the
+definition of multiplication on $\mathbb{Z}/\left(  mn\right)  $). Hence,
+\[
+\pi_{mn,m}\left(  \underbrace{\alpha\beta}_{=\left[  ab\right]  _{mn}}\right)
+=\pi_{mn,m}\left(  \left[  ab\right]  _{mn}\right)  =\left[  ab\right]
+_{m}\ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of }\pi_{mn,m}\right)
+.
+\]
 
-Note that $U_{m}\times U_{n}\subseteq\left(  \mathbb{Z}/m\right)
-\times\left(  \mathbb{Z}/n\right)  $.
 
-\begin{statement}
-\textit{Claim 1:} Let $\alpha\in\mathbb{Z}/\left(  mn\right)  $. If $\alpha\in
-U_{mn}$, then $S_{m,n}\left(  \alpha\right)  \in U_{m}\times U_{n}$.
-\end{statement}
+On the other hand, from $\alpha=\left[  a\right]  _{mn}$, we obtain
+$\pi_{mn,m}\left(  \alpha\right)  =\pi_{mn,m}\left(  \left[  a\right]
+_{mn}\right)  =\left[  a\right]  _{m}$ (by the definition of $\pi_{mn,m}$).
+Similarly, $\pi_{mn,m}\left(  \beta\right)  =\left[  b\right]  _{m}$. Hence,%
+\[
+\underbrace{\pi_{mn,m}\left(  \alpha\right)  }_{=\left[  a\right]  _{m}}%
+\cdot\underbrace{\pi_{mn,m}\left(  \beta\right)  }_{=\left[  b\right]  _{m}%
+}=\left[  a\right]  _{m}\cdot\left[  b\right]  _{m}=\left[  ab\right]  _{m}%
+\]
+(by the definition of multiplication on $\mathbb{Z}/m$). Comparing this with
+$\pi_{mn,m}\left(  \alpha\beta\right)  =\left[  ab\right]  _{m}$, we obtain
+$\pi_{mn,m}\left(  \alpha\right)  \cdot\pi_{mn,m}\left(  \beta\right)  $. This
+proves Claim 1.]
 
-[\textit{Proof:} Assume that $\alpha\in U_{mn}$. Thus, $\alpha$ has an inverse
-$\beta\in\mathbb{Z}/\left(  mn\right)  $. Consider this $\beta$. Hence,
-$\alpha\beta=\left[  1\right]  _{mn}$.
+Also, from $U_{m}\subseteq\mathbb{Z}/m$ and $U_{n}\subseteq\mathbb{Z}/n$, we
+obtain $U_{m}\times U_{n}\subseteq\left(  \mathbb{Z}/m\right)  \times\left(
+\mathbb{Z}/n\right)  $.
 
-Now, Claim 0 yields $\pi_{mn,m}\left(  \alpha\beta\right)  =\pi_{mn,m}\left(
-\alpha\right)  \cdot\pi_{mn,m}\left(  \beta\right)  $, so%
+Now, we claim that%
+\begin{equation}
+S_{m,n}\left(  U_{mn}\right)  \subseteq U_{m}\times U_{n}%
+.\label{pf.thm.ent.phi.mult.2nd.1}%
+\end{equation}
+
+
+[\textit{Proof of (\ref{pf.thm.ent.phi.mult.2nd.1}):} Let $\zeta\in
+S_{m,n}\left(  U_{mn}\right)  $. Thus, $\zeta=S_{m,n}\left(  \alpha\right)  $
+for some $\alpha\in U_{mn}$. Consider this $\alpha$.
+
+We have $\alpha\in U_{mn}$. In other words, $\alpha$ is a residue class in
+$\mathbb{Z}/\left(  mn\right)  $ that has an inverse (since $U_{mn}$ was
+defined as the set of all residue classes in $\mathbb{Z}/\left(  mn\right)  $
+that have an inverse). Thus, $\alpha$ is a residue class in $\mathbb{Z}%
+/\left(  mn\right)  $ and has an inverse $\beta\in\mathbb{Z}/\left(
+mn\right)  $. Consider this $\beta$. We know that $\beta$ is an inverse of
+$\alpha$; in other words, $\alpha\beta=\left[  1\right]  _{mn}$ (by the
+definition of \textquotedblleft inverse\textquotedblright).
+
+Now, Claim 1 yields $\pi_{mn,m}\left(  \alpha\beta\right)  =\pi_{mn,m}\left(
+\alpha\right)  \cdot\pi_{mn,m}\left(  \beta\right)  $, and thus%
 \[
 \pi_{mn,m}\left(  \alpha\right)  \cdot\pi_{mn,m}\left(  \beta\right)
 =\pi_{mn,m}\left(  \underbrace{\alpha\beta}_{=\left[  1\right]  _{mn}}\right)
-=\pi_{mn,m}\left(  \left[  1\right]  _{mn}\right)  =\left[  1\right]  _{m}.
+=\pi_{mn,m}\left(  \left[  1\right]  _{mn}\right)  =\left[  1\right]  _{m}%
 \]
-Thus, $\pi_{mn,m}\left(  \beta\right)  $ is an inverse of $\pi_{mn,m}\left(
-\alpha\right)  $ in $\mathbb{Z}/m$. Therefore, $\pi_{mn,m}\left(
-\alpha\right)  \in U_{m}$. Similarly, $\pi_{mn,n}\left(  \alpha\right)  \in
-U_{n}$. Now, the definition of $S_{m,n}$ yields%
-\[
-S_{m,n}\left(  \alpha\right)  =\left(  \underbrace{\pi_{mn,m}\left(
+(by the definition of $\pi_{mn,m}$). Thus, $\pi_{mn,m}\left(  \beta\right)  $
+is an inverse of $\pi_{mn,m}\left(  \alpha\right)  $ in $\mathbb{Z}/m$ (by the
+definition of \textquotedblleft inverse\textquotedblright). Hence, $\pi
+_{mn,m}\left(  \alpha\right)  $ is a residue class in $\mathbb{Z}/m$ that has
+an inverse (namely, $\pi_{mn,m}\left(  \beta\right)  $). In other words,
+$\pi_{mn,m}\left(  \alpha\right)  \in U_{m}$ (since $U_{m}$ was defined as the
+set of all residue classes in $\mathbb{Z}/m$ that have an inverse). Similarly,
+$\pi_{mn,n}\left(  \alpha\right)  \in U_{n}$. Now,
+\begin{align*}
+\zeta & =S_{m,n}\left(  \alpha\right)  =\left(  \underbrace{\pi_{mn,m}\left(
 \alpha\right)  }_{\in U_{m}},\underbrace{\pi_{mn,n}\left(  \alpha\right)
-}_{\in U_{n}}\right)  \in U_{m}\times U_{n}.
+}_{\in U_{n}}\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of
+}S_{m,n}\right)  \\
+& \in U_{m}\times U_{n}.
+\end{align*}
+
+
+Now, forget that we fixed $\zeta$. We thus have proven that $\zeta\in
+U_{m}\times U_{n}$ for each $\zeta\in S_{m,n}\left(  U_{mn}\right)  $. In
+other words, $S_{m,n}\left(  U_{mn}\right)  \subseteq U_{m}\times U_{n}$. This
+proves (\ref{pf.thm.ent.phi.mult.2nd.1}).]
+
+Next, we claim that%
+\begin{equation}
+U_{m}\times U_{n}\subseteq S_{m,n}\left(  U_{mn}\right)
+.\label{pf.thm.ent.phi.mult.2nd.2}%
+\end{equation}
+
+
+[\textit{Proof of (\ref{pf.thm.ent.phi.mult.2nd.2}):} Let $\theta\in
+U_{m}\times U_{n}$. We shall prove that $\theta\in S_{m,n}\left(
+U_{mn}\right)  $.
+
+We have $\theta\in U_{m}\times U_{n}\subseteq\left(  \mathbb{Z}/m\right)
+\times\left(  \mathbb{Z}/n\right)  =S_{m,n}\left(  \mathbb{Z}/\left(
+mn\right)  \right)  $ (since the map $S_{m,n}$ is a bijection). In other
+words, there exists some $\alpha\in\mathbb{Z}/\left(  mn\right)  $ such that
+$\theta=S_{m,n}\left(  \alpha\right)  $. Consider this $\alpha$. The
+definition of $S_{m,n}$ yields $S_{m,n}\left(  \alpha\right)  =\left(
+\pi_{mn,m}\left(  \alpha\right)  ,\pi_{mn,n}\left(  \alpha\right)  \right)  $.
+Hence,%
+\[
+\left(  \pi_{mn,m}\left(  \alpha\right)  ,\pi_{mn,n}\left(  \alpha\right)
+\right)  =S_{m,n}\left(  \alpha\right)  =\theta\in U_{m}\times U_{n}.
 \]
-Thus, Claim 1 is proven.]
+In other words, $\pi_{mn,m}\left(  \alpha\right)  \in U_{m}$ and $\pi
+_{mn,n}\left(  \alpha\right)  \in U_{n}$.
 
-Conversely:
-
-\begin{statement}
-\textit{Claim 2:} Let $\alpha\in\mathbb{Z}/\left(  mn\right)  $. If
-$S_{m,n}\left(  \alpha\right)  \in U_{m}\times U_{n}$, then $\alpha\in U_{mn}$.
-\end{statement}
-
-[\textit{Proof:} Assume that $S_{m,n}\left(  \alpha\right)  \in U_{m}\times
-U_{n}$. Since $S_{m,n}\left(  \alpha\right)  =\left(  \pi_{mn,m}\left(
-\alpha\right)  ,\pi_{mn,n}\left(  \alpha\right)  \right)  $, this rewrites as
-$\left(  \pi_{mn,m}\left(  \alpha\right)  ,\pi_{mn,n}\left(  \alpha\right)
-\right)  \in U_{m}\times U_{n}$. In other words, $\pi_{mn,m}\left(
-\alpha\right)  \in U_{m}$ and $\pi_{mn,n}\left(  \alpha\right)  \in U_{n}$.
-
-In other words, $\pi_{mn,m}\left(  \alpha\right)  $ has an inverse $\gamma
-\in\mathbb{Z}/m$, while $\pi_{mn,n}\left(  \alpha\right)  $ has an inverse
-$\delta\in\mathbb{Z}/n$. Consider these $\gamma$ and $\delta$.
+We have $\pi_{mn,m}\left(  \alpha\right)  \in U_{m}$. In other words,
+$\pi_{mn,m}\left(  \alpha\right)  $ is a residue class in $\mathbb{Z}/m$ that
+has an inverse (since $U_{m}$ was defined as the set of all residue classes in
+$\mathbb{Z}/m$ that have an inverse). In other words, $\pi_{mn,m}\left(
+\alpha\right)  $ is a residue class in $\mathbb{Z}/m$ and has an inverse
+$\gamma\in\mathbb{Z}/m$. Likewise, $\pi_{mn,n}\left(  \alpha\right)  $ is a
+residue class in $\mathbb{Z}/n$ and has an inverse $\delta\in\mathbb{Z}/n$.
+Consider these $\gamma$ and $\delta$.
 
 We have $\left(  \gamma,\delta\right)  \in\left(  \mathbb{Z}/m\right)
-\times\left(  \mathbb{Z}/n\right)  $. Since $S_{m,n}$ is bijective, we can
-thus find a $\beta\in\mathbb{Z}/\left(  mn\right)  $ such that $S_{m,n}\left(
-\beta\right)  =\left(  \gamma,\delta\right)  $. Consider this $\beta$. We have%
+\times\left(  \mathbb{Z}/n\right)  $. Since the map $S_{m,n}$ is surjective,
+we can thus find a $\beta\in\mathbb{Z}/\left(  mn\right)  $ such that
+$S_{m,n}\left(  \beta\right)  =\left(  \gamma,\delta\right)  $. Consider this
+$\beta$. We have%
 \[
 \left(  \gamma,\delta\right)  =S_{m,n}\left(  \beta\right)  =\left(
-\pi_{mn,m}\left(  \beta\right)  ,\pi_{mn,n}\left(  \beta\right)  \right)  .
+\pi_{mn,m}\left(  \beta\right)  ,\pi_{mn,n}\left(  \beta\right)  \right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of }S_{m,n}\right)  .
 \]
 In other words, $\gamma=\pi_{mn,m}\left(  \beta\right)  $ and $\delta
 =\pi_{mn,n}\left(  \beta\right)  $.
 
 Now, we want to prove that $\beta$ is an inverse of $\alpha$ (in
-$\mathbb{Z}/\left(  mn\right)  $). This means proving that $\alpha
-\beta=\left[  1\right]  _{mn}$. Since $S_{m,n}$ is bijective, this is
-tantamount to proving that $S_{m,n}\left(  \alpha\beta\right)  =S_{m,n}\left(
-\left[  1\right]  _{mn}\right)  $. In other words, we need to show that%
-\[
-\left(  \pi_{mn,m}\left(  \alpha\beta\right)  ,\pi_{mn,n}\left(  \alpha
-\beta\right)  \right)  =\left(  \pi_{mn,m}\left(  \left[  1\right]
-_{mn}\right)  ,\pi_{mn,n}\left(  \left[  1\right]  _{mn}\right)  \right)
-\]
-(because of how $S_{m,n}$ is defined). In other words, we need to show that
-\[
-\pi_{mn,m}\left(  \alpha\beta\right)  =\pi_{mn,m}\left(  \left[  1\right]
-_{mn}\right)  \ \ \ \ \ \ \ \ \ \ \text{and}\ \ \ \ \ \ \ \ \ \ \pi
-_{mn,n}\left(  \alpha\beta\right)  =\pi_{mn,n}\left(  \left[  1\right]
-_{mn}\right)  .
-\]
-But this is true, since
+$\mathbb{Z}/\left(  mn\right)  $).
+
+Indeed,
 \begin{align*}
 \pi_{mn,m}\left(  \alpha\beta\right)   &  =\pi_{mn,m}\left(  \alpha\right)
 \cdot\underbrace{\pi_{mn,m}\left(  \beta\right)  }_{=\gamma}%
-\ \ \ \ \ \ \ \ \ \ \left(  \text{by Claim 0}\right) \\
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by Claim 1}\right)  \\
 &  =\pi_{mn,m}\left(  \alpha\right)  \cdot\gamma=\left[  1\right]
 _{m}\ \ \ \ \ \ \ \ \ \ \left(  \text{since }\gamma\text{ is an inverse of
-}\pi_{mn,m}\left(  \alpha\right)  \right) \\
-&  =\pi_{mn,m}\left(  \left[  1\right]  _{mn}\right)
+}\pi_{mn,m}\left(  \alpha\right)  \right)
 \end{align*}
-and similarly $\pi_{mn,n}\left(  \alpha\beta\right)  =\pi_{mn,n}\left(
-\left[  1\right]  _{mn}\right)  $. So Claim 2 is proven.]
+and similarly $\pi_{mn,n}\left(  \alpha\beta\right)  =\left[  1\right]  _{n}$.
+Now, the definition of $S_{m,n}$ yields%
+\[
+S_{m,n}\left(  \alpha\beta\right)  =\left(  \underbrace{\pi_{mn,m}\left(
+\alpha\beta\right)  }_{=\left[  1\right]  _{m}},\underbrace{\pi_{mn,n}\left(
+\alpha\beta\right)  }_{=\left[  1\right]  _{n}}\right)  =\left(  \left[
+1\right]  _{m},\left[  1\right]  _{n}\right)  .
+\]
+Comparing this with $S_{m,n}\left(  \left[  1\right]  _{mn}\right)  =\left(
+\left[  1\right]  _{m},\left[  1\right]  _{n}\right)  $, we obtain
+$S_{m,n}\left(  \alpha\beta\right)  =S_{m,n}\left(  \left[  1\right]
+_{mn}\right)  $. Since the map $S_{m,n}$ is injective, we thus conclude that
+$\alpha\beta=\left[  1\right]  _{mn}$. In other words, $\beta$ is an invese of
+$\alpha$ (by the definition of \textquotedblleft inverse\textquotedblright).
+Hence, $\alpha$ is a residue class in $\mathbb{Z}/\left(  mn\right)  $ that
+has an inverse (namely, $\beta$). In other words, $\alpha\in U_{mn}$ (since
+$U_{mn}$ was defined as the set of all residue classes in $\mathbb{Z}/\left(
+mn\right)  $ that have an inverse). Now, $\theta=S_{m,n}\left(
+\underbrace{\alpha}_{\in U_{mn}}\right)  \in S_{m,n}\left(  U_{mn}\right)  $.
 
-Combining Claim 1 with Claim 2, we obtain the equivalence%
-\[
-\left(  \alpha\in U_{mn}\right)  \Longleftrightarrow\left(  S_{m,n}\left(
-\alpha\right)  \in U_{m}\times U_{n}\right)
-\]
-for each $\alpha\in\mathbb{Z}/\left(  mn\right)  $.
+Now, forget that we fixed $\theta$. We thus have shown that $\theta\in
+S_{m,n}\left(  U_{mn}\right)  $ for each $\theta\in U_{m}\times U_{n}$. In
+other words, $U_{m}\times U_{n}\subseteq S_{m,n}\left(  U_{mn}\right)  $. This
+proves (\ref{pf.thm.ent.phi.mult.2nd.2}).
 
-Thus, $U_{m}\times U_{n}$ is the image of the set $U_{mn}$ under the bijection
-$S_{m,n}$. So%
+Combining (\ref{pf.thm.ent.phi.mult.2nd.1}) with
+(\ref{pf.thm.ent.phi.mult.2nd.2}), we obtain
+\begin{equation}
+S_{m,n}\left(  U_{mn}\right)  =U_{m}\times U_{n}%
+.\label{pf.thm.ent.phi.mult.2nd.1+2}%
+\end{equation}
+
+
+It is well-known that any two finite sets $A$ and $B$ satisfy $\left\vert
+A\times B\right\vert =\left\vert A\right\vert \cdot\left\vert B\right\vert
+$\ \ \ \ \footnote{This is the so-called \textit{product rule} in its simplest
+form (see, e.g., \cite[1.5]{Loehr-BC} or \cite[\S 15.2.1]{LeLeMe}).}. Applying
+this to $A=U_{m}$ and $B=U_{n}$, we obtain%
 \[
-\left\vert U_{m}\times U_{n}\right\vert =\left\vert U_{mn}\right\vert
-=\phi\left(  mn\right)  .
+\left\vert U_{m}\times U_{n}\right\vert =\underbrace{\left\vert U_{m}%
+\right\vert }_{=\phi\left(  m\right)  }\cdot\underbrace{\left\vert
+U_{n}\right\vert }_{=\phi\left(  n\right)  }=\phi\left(  m\right)  \cdot
+\phi\left(  n\right)  .
 \]
-Therefore,%
+
+
+Note that $U_{mn}$ is a subset of $\mathbb{Z}/\left(  mn\right)  $ (by its definition).
+
+Recall that the map $S_{m,n}$ is injective. Hence, $\left\vert S_{m,n}\left(
+T\right)  \right\vert =\left\vert T\right\vert $ for each subset $T$ of
+$\mathbb{Z}/\left(  mn\right)  $\ \ \ \ \footnote{This follows from the
+following general principle: If $f:X\rightarrow Y$ is an injective map between
+two finite sets $X$ and $Y$, then $\left\vert f\left(  T\right)  \right\vert
+=\left\vert T\right\vert $ for each subset $T$ of $X$.}. Applying this to
+$T=U_{mn}$, we obtain $\left\vert S_{m,n}\left(  U_{mn}\right)  \right\vert
+=\left\vert U_{mn}\right\vert $. Thus,%
 \[
-\phi\left(  mn\right)  =\left\vert U_{m}\times U_{n}\right\vert
-=\underbrace{\left\vert U_{m}\right\vert }_{=\phi\left(  m\right)  }%
-\cdot\underbrace{\left\vert U_{n}\right\vert }_{=\phi\left(  n\right)  }%
-=\phi\left(  m\right)  \cdot\phi\left(  n\right)  .
+\left\vert U_{mn}\right\vert =\left\vert \underbrace{S_{m,n}\left(
+U_{mn}\right)  }_{\substack{=U_{m}\times U_{n}\\\text{(by
+(\ref{pf.thm.ent.phi.mult.2nd.1+2}))}}}\right\vert =\left\vert U_{m}\times
+U_{n}\right\vert =\phi\left(  m\right)  \cdot\phi\left(  n\right)  .
 \]
-So Theorem \ref{thm.ent.phi.mult} is proven.
+Hence, $\phi\left(  mn\right)  =\left\vert U_{mn}\right\vert =\phi\left(
+m\right)  \cdot\phi\left(  n\right)  $. So Theorem \ref{thm.ent.phi.mult} is
+proven again.
 \end{proof}
 
 \subsection{A couple of applications of elementary number theory}
@@ -18396,8 +18522,8 @@ spans in classical linear algebra.) Now, the claim of Theorem
 \begin{equation}
 \operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
 \alpha,\beta\right)  \cap\operatorname*{Lin}\nolimits_{\mathbb{Z}\left[
-i\right]  }\left(  \alpha,\beta\right)  \neq\varnothing
-.\label{pf.thm.Z[i].gauss.bezout.a.nem}%
+i\right]  }\left(  \alpha,\beta\right)  \neq\varnothing.
+\label{pf.thm.Z[i].gauss.bezout.a.nem}%
 \end{equation}
 
 
@@ -18449,14 +18575,14 @@ $\operatorname*{Lin}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
 i\right]  }\left(  \alpha,\rho\right)  $ (since every $\lambda,\mu
 \in\mathbb{Z}\left[  i\right]  $ satisfy%
 \begin{align*}
-\lambda\alpha+\mu\underbrace{\beta}_{=\gamma\alpha+\rho} &  =\lambda\alpha
-+\mu\left(  \gamma\alpha+\rho\right)  =\left(  \lambda+\mu\gamma\right)
+\lambda\alpha+\mu\underbrace{\beta}_{=\gamma\alpha+\rho}  &  =\lambda
+\alpha+\mu\left(  \gamma\alpha+\rho\right)  =\left(  \lambda+\mu\gamma\right)
 \alpha+\mu\rho\in\operatorname*{Lin}\nolimits_{\mathbb{Z}\left[  i\right]
 }\left(  \alpha,\rho\right)  \ \ \ \ \ \ \ \ \ \ \text{and}\\
-\lambda\alpha+\mu\underbrace{\rho}_{=\beta-\gamma\alpha} &  =\lambda\alpha
-+\mu\left(  \beta-\gamma\alpha\right)  =\left(  \lambda-\mu\gamma\right)
-\alpha+\mu\beta\in\operatorname*{Lin}\nolimits_{\mathbb{Z}\left[  i\right]
-}\left(  \alpha,\beta\right)
+\lambda\alpha+\mu\underbrace{\rho}_{=\beta-\gamma\alpha}  &  =\lambda
+\alpha+\mu\left(  \beta-\gamma\alpha\right)  =\left(  \lambda-\mu
+\gamma\right)  \alpha+\mu\beta\in\operatorname*{Lin}\nolimits_{\mathbb{Z}%
+\left[  i\right]  }\left(  \alpha,\beta\right)
 \end{align*}
 ). Hence, proving $\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]
 }\left(  \alpha,\beta\right)  \cap\operatorname*{Lin}\nolimits_{\mathbb{Z}%
