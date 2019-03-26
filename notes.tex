@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Tuesday, March 26, 2019 01:10:05}
+%TCIDATA{LastRevised=Tuesday, March 26, 2019 01:12:55}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -12555,7 +12555,6 @@ p_{1}^{b_{1}}p_{2}^{b_{2}}\cdots p_{u}^{b_{u}}\in\left\{  \text{positive
 divisors of }n\right\}  . \label{pf.lem.ent.divs-bijs.wd}%
 \end{equation}
 
-
 \begin{fineprint}
 [\textit{Proof of (\ref{pf.lem.ent.divs-bijs.wd}):} Let $\left(  b_{1}%
 ,b_{2},\ldots,b_{u}\right)  \in T$. We must prove
@@ -16008,18 +16007,6 @@ have inverses. Prove that their product $\alpha\beta$ has an inverse as well,
 and this inverse is $\left(  \alpha\beta\right)  ^{-1}=\alpha^{-1}\beta^{-1}$.
 \end{exercise}
 
-%
-
-\[%
-\begin{tabular}
-[c]{||l||}\hline\hline
-\textbf{You have reached the end of the finished part.}\\
-\textbf{TODO: Write on from here.}\\\hline\hline
-\end{tabular}
-\
-\]
-
-
 The concept of inverses in $\mathbb{Z}/n$ lets us prove Theorem
 \ref{thm.ent.wilson} (Wilson's theorem) again -- or, rather, restate our
 previous proof of Theorem \ref{thm.ent.wilson} in more natural terms:
@@ -16244,13 +16231,9 @@ Hence, Theorem \ref{thm.ent.wilson} is proven again.
 \begin{fineprint}
 Once again, if you like your proofs rigorous and formal, you may be wondering
 how this \textquotedblleft pairing up\textquotedblright\ argument can be
-formalized. Let me show two ways of doing so:
-
-\textit{First formalization of the proof of
-(\ref{pf.thm.ent.wilson.2nd.main-arg}):} This first formalization proceeds
-similarly to how we formalized our first proof of Theorem \ref{thm.ent.wilson}
-above, but with a minor complication. We want to call an element $\alpha$ of
-$U_{p}$
+formalized. Here is one way to do so: We proceed similarly to how we
+formalized our first proof of Theorem \ref{thm.ent.wilson} above, but with a
+minor complication. We want to call an element $\alpha$ of $U_{p}$
 
 \begin{itemize}
 \item \textit{small} if $\alpha<J\left(  \alpha\right)  $;
@@ -16307,6 +16290,10 @@ $\left(  p-1\right)  !\equiv-1\operatorname{mod}p$ (by an application of
 Proposition \ref{prop.eqrel.Z/n.ab} \textbf{(b)}), and thus the proof of
 Theorem \ref{thm.ent.wilson} is complete.
 
+\begin{noncompile}
+(The following is an unfinished stub of a second formalization of the proof of
+(\ref{pf.thm.ent.wilson.2nd.main-arg}).)
+
 \textit{Second formalization of the proof of
 (\ref{pf.thm.ent.wilson.2nd.main-arg}):} Let us show another way to formalize
 the \textquotedblleft pairing up\textquotedblright\ argument, which avoids a
@@ -16317,7 +16304,7 @@ constructions we shall perform later when studying group actions.
 We define a binary relation $\sim$ on the set $U_{p}$ by%
 \begin{align*}
 \left(  \alpha\sim\beta\right)  \  &  \Longleftrightarrow\ \left(
-\alpha=\beta\text{ or }\alpha\beta=\left[  1\right]  _{p}\right)  \\
+\alpha=\beta\text{ or }\alpha\beta=\left[  1\right]  _{p}\right) \\
 \  &  \Longleftrightarrow\ \left(  \text{the residue classes }\alpha\text{ and
 }\beta\text{ are equal or mutually inverse}\right)  .
 \end{align*}
@@ -16358,8 +16345,8 @@ U_{p}$. Thus, the product $\prod_{\alpha\in U_{p}}\alpha$ can be split up as
 follows:%
 \begin{equation}
 \prod_{\alpha\in U_{p}}\alpha=\prod_{C\in U_{p}/\sim}\prod_{\substack{\alpha
-\in U_{p};\\\left[  \alpha\right]  _{\sim}=C}}\alpha
-.\label{pf.thm.ent.wilson.2nd.main-arg.f2.1}%
+\in U_{p};\\\left[  \alpha\right]  _{\sim}=C}}\alpha.
+\label{pf.thm.ent.wilson.2nd.main-arg.f2.1}%
 \end{equation}
 (What we have done here is simply breaking up the product into smaller
 sub-products, each of which covers one specific equivalence class of $\sim$.
@@ -16413,18 +16400,18 @@ If $\alpha\in U_{p}$, then we have the following chain of logical
 equivalences:%
 \begin{align*}
 \left(  \left[  \alpha\right]  _{\sim}=\underbrace{C}_{=\left[  \beta\right]
-_{\sim}}\right)  \   & \Longleftrightarrow\ \left(  \left[  \alpha\right]
+_{\sim}}\right)  \  &  \Longleftrightarrow\ \left(  \left[  \alpha\right]
 _{\sim}=\left[  \beta\right]  _{\sim}\right)  \ \Longleftrightarrow\ \left(
-\alpha\sim\beta\right)  \\
-& \ \ \ \ \ \ \ \ \ \ \left(  \text{by Theorem \ref{thm.eqrel.eqcl.disj}
+\alpha\sim\beta\right) \\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Theorem \ref{thm.eqrel.eqcl.disj}
 \textbf{(e)}, applied to }S=U_{p}\text{, }x=\alpha\text{ and }y=\beta\right)
 \\
-& \Longleftrightarrow\ \left(  \alpha\in\underbrace{\left[  \beta\right]
-_{\sim}}_{=C}\right)  \\
-& \ \ \ \ \ \ \ \ \ \ \left(  \text{by Theorem \ref{thm.eqrel.eqcl.disj}
+&  \Longleftrightarrow\ \left(  \alpha\in\underbrace{\left[  \beta\right]
+_{\sim}}_{=C}\right) \\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Theorem \ref{thm.eqrel.eqcl.disj}
 \textbf{(c)}, applied to }S=U_{p}\text{, }x=\alpha\text{ and }y=\beta\right)
 \\
-& \Longleftrightarrow\ \left(  \alpha\in C\right)  .
+&  \Longleftrightarrow\ \left(  \alpha\in C\right)  .
 \end{align*}
 Hence, we have the following equality between product signs:\footnote{An
 equality between two product signs should be interpreted as saying that
@@ -16444,8 +16431,8 @@ Thus,%
 \text{namely }\beta\text{ and }\beta^{-1}\text{ (and these two elements}\\
 \text{are distinct)}%
 \end{array}
-\right)  \\
-& =\left[  1\right]  _{p}.
+\right) \\
+&  =\left[  1\right]  _{p}.
 \end{align*}
 This proves Claim 1.]
 
@@ -16502,35 +16489,35 @@ $. Consider this $b$.
 
 Now, we have the following chain of logical equivalences:%
 \begin{align*}
-\left(  \left\vert C\right\vert =1\right)  \   & \Longleftrightarrow\ \left(
+\left(  \left\vert C\right\vert =1\right)  \  &  \Longleftrightarrow\ \left(
 \underbrace{\left\vert C\right\vert -1}_{=\left\vert C\setminus\left\{
 \beta\right\}  \right\vert }=0\right)  \ \Longleftrightarrow\ \left(
 \left\vert C\setminus\left\{  \beta\right\}  \right\vert =0\right)
 \ \Longleftrightarrow\ \left(  \underbrace{C\setminus\left\{  \beta\right\}
 }_{=\left\{  \beta^{-1}\right\}  \setminus\left\{  \beta\right\}
-}=\varnothing\right)  \\
-& \Longleftrightarrow\ \left(  \left\{  \beta^{-1}\right\}  \setminus\left\{
+}=\varnothing\right) \\
+&  \Longleftrightarrow\ \left(  \left\{  \beta^{-1}\right\}  \setminus\left\{
 \beta\right\}  =\varnothing\right)  \ \Longleftrightarrow\ \left(  \left\{
 \beta^{-1}\right\}  \subseteq\left\{  \beta\right\}  \right)
 \ \Longleftrightarrow\ \left(  \beta^{-1}\in\left\{  \beta\right\}  \right)
-\ \Longleftrightarrow\ \left(  \beta^{-1}=\beta\right)  \\
-& \Longleftrightarrow\ \left(  \beta\text{ is an inverse of }\beta\right)
+\ \Longleftrightarrow\ \left(  \beta^{-1}=\beta\right) \\
+&  \Longleftrightarrow\ \left(  \beta\text{ is an inverse of }\beta\right)
 \ \ \ \ \ \ \ \ \ \ \left(  \text{since the only inverse of }\beta\text{ is
-}\beta^{-1}\right)  \\
-& \Longleftrightarrow\ \left(  \beta\beta=\left[  1\right]  _{p}\right)
+}\beta^{-1}\right) \\
+&  \Longleftrightarrow\ \left(  \beta\beta=\left[  1\right]  _{p}\right)
 \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of \textquotedblleft
-inverse\textquotedblright}\right)  \\
-& \Longleftrightarrow\ \left(  \left[  b^{2}\right]  _{p}=\left[  1\right]
+inverse\textquotedblright}\right) \\
+&  \Longleftrightarrow\ \left(  \left[  b^{2}\right]  _{p}=\left[  1\right]
 _{p}\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{since }\underbrace{\beta
 }_{=\left[  b\right]  _{p}}\underbrace{\beta}_{=\left[  b\right]  _{p}%
 }=\left[  b\right]  _{p}\left[  b\right]  _{p}=\left[  b^{2}\right]
-_{p}\right)  \\
-& \Longleftrightarrow\ \left(  b^{2}\equiv1\operatorname{mod}p\right)
+_{p}\right) \\
+&  \Longleftrightarrow\ \left(  b^{2}\equiv1\operatorname{mod}p\right)
 \ \ \ \ \ \ \ \ \ \ \left(  \text{by an application of Proposition
-\ref{prop.eqrel.Z/n.ab} \textbf{(b)}}\right)  \\
-& \Longleftrightarrow\ \left(  b\equiv1\operatorname{mod}p\text{ or }%
-b\equiv-1\operatorname{mod}p\right)  \\
-& \ \ \ \ \ \ \ \ \ \ \left(
+\ref{prop.eqrel.Z/n.ab} \textbf{(b)}}\right) \\
+&  \Longleftrightarrow\ \left(  b\equiv1\operatorname{mod}p\text{ or }%
+b\equiv-1\operatorname{mod}p\right) \\
+&  \ \ \ \ \ \ \ \ \ \ \left(
 \begin{array}
 [c]{c}%
 \text{indeed, Exercise \ref{exe.ent.prime.aa-1} (applied to }a=b\text{) yields
@@ -16540,14 +16527,14 @@ the}\\
 b\equiv-1\operatorname{mod}p\right)  \text{;}\\
 \text{but the converse implication is easy to check}%
 \end{array}
-\right)  \\
-& \Longleftrightarrow\ \left(  \underbrace{\left[  b\right]  _{p}}_{=\beta
+\right) \\
+&  \Longleftrightarrow\ \left(  \underbrace{\left[  b\right]  _{p}}_{=\beta
 }=\left[  1\right]  _{p}\text{ or }\underbrace{\left[  b\right]  _{p}}%
 _{=\beta}=\left[  -1\right]  _{p}\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by
-Proposition \ref{prop.eqrel.Z/n.ab} \textbf{(b)}}\right)  \\
-& \Longleftrightarrow\ \left(  \beta=\left[  1\right]  _{p}\text{ or }%
-\beta=\left[  -1\right]  _{p}\right)  \\
-& \Longleftrightarrow\ \left(  \beta=\left[  1\right]  _{p}\text{ or }%
+Proposition \ref{prop.eqrel.Z/n.ab} \textbf{(b)}}\right) \\
+&  \Longleftrightarrow\ \left(  \beta=\left[  1\right]  _{p}\text{ or }%
+\beta=\left[  -1\right]  _{p}\right) \\
+&  \Longleftrightarrow\ \left(  \beta=\left[  1\right]  _{p}\text{ or }%
 \beta=\left[  p-1\right]  _{p}\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{since
 }\left[  -1\right]  _{p}=\left[  p-1\right]  _{p}\text{ (because }-1\equiv
 p-1\operatorname{mod}p\text{)}\right)  .
@@ -16559,25 +16546,9 @@ $\left\vert C\right\vert =1$ are precisely the two classes $\left[  \left[
 1\right]  _{p}\right]  _{\sim}=\left\{  \left[  1\right]  _{p}\right\}  $ and
 $\left[  \left[  p-1\right]  _{p}\right]  _{\sim}=\left\{  \left[  p-1\right]
 _{p}\right\}  $. This proves Claim 2.]
-\end{fineprint}
 
-We argue in several steps:
-
-\begin{itemize}
-\item First, we shall show that if $\beta\in$
-
-\item $\left[  \left[  p-1\right]  _{p}\right]  _{\sim}=\left\{  \left[
-p-1\right]  _{p}\right\}  $ is an equivalence class $C\in U_{p}/\sim$ such
-that $\left\vert C\right\vert =1$.
-
-Indeed, Proposition \ref{prop.eqrel.eqcl.aina} (applied to $S=U_{p}$ and
-$a=\left[  p-1\right]  _{p}$) yields $\beta\in\left[  \beta\right]  _{\sim}=C$
-\end{itemize}
-\end{proof}
-
-\begin{proof}
-\begin{fineprint}
 TODO: Finish!
+\end{noncompile}
 \end{fineprint}
 \end{proof}
 
@@ -17054,7 +17025,17 @@ m\right)  \cdot\phi\left(  n\right)  $. So Theorem \ref{thm.ent.phi.mult} is
 proven again.
 \end{proof}
 
-\subsection{A couple of applications of elementary number theory}
+\subsection{A couple of applications of elementary number theory}%
+
+\[%
+\begin{tabular}
+[c]{||l||}\hline\hline
+\textbf{You have reached the end of the finished part.}\\
+\textbf{TODO: Write on from here.}\\\hline\hline
+\end{tabular}
+\ \
+\]
+
 
 \subsubsection{The RSA cryptosystem}
 
