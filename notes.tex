@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, March 25, 2019 17:35:54}
+%TCIDATA{LastRevised=Tuesday, March 26, 2019 01:10:05}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -3258,8 +3258,8 @@ proving it right away. However, such a proof would require some annoying case
 distinctions due to the special treatment that the \textquotedblleft%
 $b_{1},b_{2},\ldots,b_{k}$ are all $0$\textquotedblright\ case required in
 Definition \ref{def.ent.gcd.gcd}. Fortunately, we can circumnavigate these
-annoyances by stating a simple rule how the gcd of $k$ integers $b_{1}%
-,b_{2},\ldots,b_{k}$ can be computed from their set of common divisors
+annoyances by stating a simple rule for how the gcd of $k$ integers
+$b_{1},b_{2},\ldots,b_{k}$ can be computed from their set of common divisors
 (including the case when $b_{1},b_{2},\ldots,b_{k}$ are all $0$):
 
 \begin{lemma}
@@ -3398,7 +3398,7 @@ then%
 \end{lemma}
 
 \begin{proof}
-[Proof of Lemma \ref{lem.ent.gcd.through-Div}.]Assume that
+[Proof of Lemma \ref{lem.ent.gcd.through-Divc}.]Assume that
 $\operatorname*{Div}\left(  b_{1},b_{2},\ldots,b_{k}\right)
 =\operatorname*{Div}\left(  c_{1},c_{2},\ldots,c_{\ell}\right)  $. Lemma
 \ref{lem.ent.gcd.through-Div} yields%
@@ -3436,7 +3436,7 @@ instead of $b_{1},b_{2},\ldots,b_{k}$) yields%
 \]
 Comparing these two equalities, we obtain $\gcd\left(  b_{1},b_{2}%
 ,\ldots,b_{k}\right)  =\gcd\left(  c_{1},c_{2},\ldots,c_{\ell}\right)  $. This
-proves Lemma \ref{lem.ent.gcd.through-Div}.
+proves Lemma \ref{lem.ent.gcd.through-Divc}.
 \end{proof}
 
 \begin{proof}
@@ -3490,7 +3490,7 @@ $ if and only if it belongs to $\operatorname*{Div}\left(  a\right)  $. Thus,
 $\operatorname*{Div}\left(  a,0\right)  =\operatorname*{Div}\left(  a\right)
 $ (since both $\operatorname*{Div}\left(  a,0\right)  $ and
 $\operatorname*{Div}\left(  a\right)  $ are sets of integers). Thus, Lemma
-\ref{lem.ent.gcd.through-Div} (applied to $\left(  a,0\right)  $ and $\left(
+\ref{lem.ent.gcd.through-Divc} (applied to $\left(  a,0\right)  $ and $\left(
 a\right)  $ instead of $\left(  b_{1},b_{2},\ldots,b_{k}\right)  $ and
 $\left(  c_{1},c_{2},\ldots,c_{\ell}\right)  $) yields $\gcd\left(
 a,0\right)  =\gcd\left(  a\right)  $.
@@ -3557,7 +3557,7 @@ $ if and only if it belongs to $\operatorname*{Div}\left(  b,a\right)  $.
 Thus, $\operatorname*{Div}\left(  a,b\right)  =\operatorname*{Div}\left(
 b,a\right)  $ (since both $\operatorname*{Div}\left(  a,b\right)  $ and
 $\operatorname*{Div}\left(  b,a\right)  $ are sets of integers). Thus, Lemma
-\ref{lem.ent.gcd.through-Div} (applied to $\left(  a,b\right)  $ and $\left(
+\ref{lem.ent.gcd.through-Divc} (applied to $\left(  a,b\right)  $ and $\left(
 b,a\right)  $ instead of $\left(  b_{1},b_{2},\ldots,b_{k}\right)  $ and
 $\left(  c_{1},c_{2},\ldots,c_{\ell}\right)  $) yields $\gcd\left(
 a,b\right)  =\gcd\left(  b,a\right)  $. This proves Proposition
@@ -3600,7 +3600,7 @@ a,b\right)  $ (since our situation is symmetric with respect to $b$ and $c$).
 Combining this with $\operatorname*{Div}\left(  a,b\right)  \subseteq
 \operatorname*{Div}\left(  a,c\right)  $, we obtain $\operatorname*{Div}%
 \left(  a,b\right)  =\operatorname*{Div}\left(  a,c\right)  $. Thus, Lemma
-\ref{lem.ent.gcd.through-Div} (applied to $\left(  a,b\right)  $ and $\left(
+\ref{lem.ent.gcd.through-Divc} (applied to $\left(  a,b\right)  $ and $\left(
 a,c\right)  $ instead of $\left(  b_{1},b_{2},\ldots,b_{k}\right)  $ and
 $\left(  c_{1},c_{2},\ldots,c_{\ell}\right)  $) yields $\gcd\left(
 a,b\right)  =\gcd\left(  a,c\right)  $. This proves Proposition
@@ -3668,9 +3668,9 @@ rewrites as $\operatorname*{Div}\left(  -a,b\right)  \subseteq
 $\operatorname*{Div}\left(  a,b\right)  \subseteq\operatorname*{Div}\left(
 -a,b\right)  $, we obtain $\operatorname*{Div}\left(  -a,b\right)
 =\operatorname*{Div}\left(  a,b\right)  $. Thus, Lemma
-\ref{lem.ent.gcd.through-Div} (applied to $\left(  -a,b\right)  $ and $\left(
-a,b\right)  $ instead of $\left(  b_{1},b_{2},\ldots,b_{k}\right)  $ and
-$\left(  c_{1},c_{2},\ldots,c_{\ell}\right)  $) yields $\gcd\left(
+\ref{lem.ent.gcd.through-Divc} (applied to $\left(  -a,b\right)  $ and
+$\left(  a,b\right)  $ instead of $\left(  b_{1},b_{2},\ldots,b_{k}\right)  $
+and $\left(  c_{1},c_{2},\ldots,c_{\ell}\right)  $) yields $\gcd\left(
 -a,b\right)  =\gcd\left(  a,b\right)  $. This proves Proposition
 \ref{prop.ent.gcd.props1} \textbf{(g)}.
 
@@ -10219,29 +10219,27 @@ a map from $A$ to $A$). Thus, (\ref{pf.lem.ent.wilson.modi.b.aJa}) (applied to
 $J\left(  a\right)  $ instead of $a$) yields $J\left(  a\right)  J\left(
 J\left(  a\right)  \right)  \equiv1\operatorname{mod}p$. Also, from $J\left(
 a\right)  \in A$, we obtain $J\left(  J\left(  a\right)  \right)  \in A$
-(since $J$ is a map from $A$ to $A$). On the other hand,%
-\begin{align*}
-J\left(  a\right)  a  &  =aJ\left(  a\right)  \equiv
-1\ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.lem.ent.wilson.modi.b.aJa}%
-)}\right) \\
-&  \equiv J\left(  a\right)  J\left(  J\left(  a\right)  \right)
-\operatorname{mod}p\ \ \ \ \ \ \ \ \ \ \left(  \text{since }J\left(  a\right)
-J\left(  J\left(  a\right)  \right)  \equiv1\operatorname{mod}p\right)  .
-\end{align*}
+(since $J$ is a map from $A$ to $A$). On the other hand,
+(\ref{pf.lem.ent.wilson.modi.b.aJa}) yields $aJ\left(  a\right)
+\equiv1\operatorname{mod}p$. Thus, $1\equiv aJ\left(  a\right)
+\operatorname{mod}p$. Now,%
+\[
+J\left(  a\right)  J\left(  J\left(  a\right)  \right)  \equiv1\equiv
+aJ\left(  a\right)  =J\left(  a\right)  a\operatorname{mod}p.
+\]
 But $J\left(  a\right)  \in A=\left\{  1,2,\ldots,p-1\right\}  $. Hence,
 Proposition \ref{prop.ent.prime.each-i-coprime} (applied to $i=J\left(
 a\right)  $) shows that $J\left(  a\right)  $ is coprime to $p$. In other
 words, $J\left(  a\right)  \perp p$. Hence, Lemma \ref{lem.ent.coprime.cancel}
-(applied to $J\left(  a\right)  $, $a$, $J\left(  J\left(  a\right)  \right)
-$ and $p$ instead of $a$, $b$, $c$ and $n$) yields $a\equiv J\left(  J\left(
-a\right)  \right)  \operatorname{mod}p$ (since $J\left(  a\right)  a\equiv
-J\left(  a\right)  J\left(  J\left(  a\right)  \right)  \operatorname{mod}p$).
-Thus, $J\left(  J\left(  a\right)  \right)  \equiv a\operatorname{mod}p$.
-Therefore, Lemma \ref{lem.ent.wilson.modi} \textbf{(a)} (applied to
-$a_{1}=J\left(  J\left(  a\right)  \right)  $ and $a_{2}=a$) yields $J\left(
-J\left(  a\right)  \right)  =a$. Thus, $\left(  J\circ J\right)  \left(
-a\right)  =J\left(  J\left(  a\right)  \right)  =a=\operatorname*{id}\left(
-a\right)  $.
+(applied to $J\left(  a\right)  $, $J\left(  J\left(  a\right)  \right)  $,
+$a$ and $p$ instead of $a$, $b$, $c$ and $n$) yields $J\left(  J\left(
+a\right)  \right)  \equiv a\operatorname{mod}p$ (since $J\left(  a\right)
+J\left(  J\left(  a\right)  \right)  \equiv J\left(  a\right)
+a\operatorname{mod}p$). Therefore, Lemma \ref{lem.ent.wilson.modi}
+\textbf{(a)} (applied to $a_{1}=J\left(  J\left(  a\right)  \right)  $ and
+$a_{2}=a$) yields $J\left(  J\left(  a\right)  \right)  =a$. Thus, $\left(
+J\circ J\right)  \left(  a\right)  =J\left(  J\left(  a\right)  \right)
+=a=\operatorname*{id}\left(  a\right)  $.
 
 Now, forget that we fixed $a$. We thus have proven that $\left(  J\circ
 J\right)  \left(  a\right)  =\operatorname*{id}\left(  a\right)  $ for each
@@ -10406,14 +10404,13 @@ This contradiction shows that our assumption was false. Hence, $a = 1$ or $a =
 p-1$.
 
 Now, forget that we fixed $a$. We thus have proven that every medium element
-$a$ of $A$ satisfies $a=1$ or $a=p-1$. In other words, ever medium element of
-$A$ is either $1$ and $p-1$. Since we know that $1$ and $p-1$ actually are
+$a$ of $A$ satisfies $a=1$ or $a=p-1$. In other words, every medium element of
+$A$ is either $1$ or $p-1$. Since we know that $1$ and $p-1$ actually are
 medium elements of $A$, we thus conclude that the medium elements of $A$ are
 precisely $1$ and $p-1$.]
 
 So we have shown that the medium elements of $A$ are precisely $1$ and $p-1$.
-Since these two elements are actually distinct (because $p-1\neq1$), we thus
-obtain%
+Since these two elements are distinct (because $p-1\neq1$), we thus obtain%
 \begin{equation}
 \prod_{\substack{a\in A;\\a\text{ is medium}}}a=1\cdot\left(  p-1\right)
 =p-1\equiv-1\operatorname{mod}p. \label{pf.thm.ent.wilson.prodmed}%
@@ -10527,11 +10524,11 @@ s\right)  \right)   &  =\prod_{a\in\left\{  \text{small elements of
 this rewrites as $\prod_{\substack{a\in A;\\a\text{ is small}}}\left(
 aJ\left(  a\right)  \right)  \equiv1\operatorname{mod}p$.}. Hence,
 (\ref{pf.thm.ent.wilson.6}) rewrites as%
-\[
+\begin{equation}
 \left(  p-1\right)  !\equiv-\underbrace{\prod_{\substack{a\in A;\\a\text{ is
 small}}}\left(  aJ\left(  a\right)  \right)  }_{\equiv1\operatorname{mod}%
-p}\equiv-1\operatorname{mod}p.
-\]
+p}\equiv-1\operatorname{mod}p. \label{pf.thm.ent.wilson.8}%
+\end{equation}
 This proves Theorem \ref{thm.ent.wilson}.
 \end{fineprint}
 \end{proof}
@@ -13741,10 +13738,11 @@ of $S$ by%
 \label{eq.def.eqrel.eqcl.eqcl.a.eq}%
 \end{equation}
 This subset $\left[  a\right]  _{\sim}$ is called the \textit{equivalence
-class} of $a$.
+class} of $a$, or the $\sim$\textit{-equivalence class} of $a$.
 
 \textbf{(b)} The \textit{equivalence classes} of $\sim$ are defined to be the
-sets $\left[  a\right]  _{\sim}$ for $a\in S$.
+sets $\left[  a\right]  _{\sim}$ for $a\in S$. They are also known as the
+$\sim$\textit{-equivalence classes}.
 \end{definition}
 
 \begin{example}
@@ -14260,7 +14258,7 @@ Thus, we have the logical equivalence
 \begin{equation}
 \left(  a\underset{n}{\equiv}b\right)  \ \Longleftrightarrow\ \left(  \left[
 a\right]  _{\underset{n}{\equiv}}=\left[  b\right]  _{\underset{n}{\equiv}%
-}\right)  \label{pf.prop.eqrel.Z/n.ab.1}%
+}\right)  . \label{pf.prop.eqrel.Z/n.ab.1}%
 \end{equation}
 
 
@@ -14271,9 +14269,9 @@ chain of logical equivalences:
 \begin{align*}
 \left(  \left[  a\right]  _{n}=\left[  b\right]  _{n}\right)  \  &
 \Longleftrightarrow\ \left(  \left[  a\right]  _{\underset{n}{\equiv}}=\left[
-b\right]  _{\underset{n}{\equiv}}\right) \\
-&  \Longleftrightarrow\ \left(  a\underset{n}{\equiv}b\right)
-\ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.prop.eqrel.Z/n.ab.1})}\right) \\
+b\right]  _{\underset{n}{\equiv}}\right)  \ \Longleftrightarrow\ \left(
+a\underset{n}{\equiv}b\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by
+(\ref{pf.prop.eqrel.Z/n.ab.1})}\right) \\
 &  \Longleftrightarrow\ \left(  a\equiv b\operatorname{mod}n\right)
 \end{align*}
 (by the definition of the relation $\underset{n}{\equiv}$). In other words, we
@@ -16114,17 +16112,27 @@ first proof of Theorem \ref{thm.ent.wilson} above, but unlike the latter, it
 acts on residue classes, not on actual numbers.)
 \end{fineprint}
 
+Note that
+\[
+\left[  1\right]  _{p}\cdot\left[  2\right]  _{p}\cdot\cdots\cdot\left[
+p-1\right]  _{p}=\prod_{\alpha\in U_{p}}\alpha,
+\]
+since the $p-1$ residue classes $\left[  1\right]  _{p},\left[  2\right]
+_{p},\ldots,\left[  p-1\right]  _{p}$ are precisely the elements of $U_{p}$
+(and are distinct).
+
 Now, we shall complete the proof using the same \textquotedblleft
 pairing\textquotedblright\ that we used in our first proof of Theorem
 \ref{thm.ent.wilson}, except that we will now be pairing up residue classes
 rather than numbers. Namely, we will use the map $J$ to establish a pairing
 between the factors of the product $\left[  1\right]  _{p}\cdot\left[
-2\right]  _{p}\cdot\cdots\cdot\left[  p-1\right]  _{p}$ (pairing up each
-factor $\alpha$ with the factor $J\left(  \alpha\right)  =\alpha^{-1}$), which
-will pair up almost all of them -- more precisely, all of them except for the
-very first and very last factors (since these two factors would have to pair
-up with themselves)\footnote{The reason \textbf{why} it is precisely these two
-factors that will not be paired up is the following:
+2\right]  _{p}\cdot\cdots\cdot\left[  p-1\right]  _{p}=\prod_{\alpha\in U_{p}%
+}\alpha$ (pairing up each factor $\alpha$ with the factor $J\left(
+\alpha\right)  =\alpha^{-1}$), which will pair up almost all of them -- more
+precisely, all of them except for the very first and very last factors (since
+these two factors would have to pair up with themselves)\footnote{The reason
+\textbf{why} it is precisely these two factors that will not be paired up is
+the following:
 \par
 Clearly, the factors $\left[  a\right]  _{p}$ that cannot be paired up are
 exactly the factors $\left[  a\right]  _{p}$ that satisfy $J\left(  \left[
@@ -16173,35 +16181,36 @@ then we have the following table of values of $J$:%
 \[%
 \begin{tabular}
 [c]{|c||c|c|c|c|c|c|c|c|c|c||}\hline
-$a$ & $\left[  1\right]  _{11}$ & $\left[  2\right]  _{11}$ & $\left[
+$\alpha$ & $\left[  1\right]  _{11}$ & $\left[  2\right]  _{11}$ & $\left[
 3\right]  _{11}$ & $\left[  4\right]  _{11}$ & $\left[  5\right]  _{11}$ &
 $\left[  6\right]  _{11}$ & $\left[  7\right]  _{11}$ & $\left[  8\right]
 _{11}$ & $\left[  9\right]  _{11}$ & $\left[  10\right]  _{11}$\\\hline
-$J\left(  a\right)  $ & $\left[  1\right]  _{11}$ & $\left[  6\right]  _{11}$
-& $\left[  4\right]  _{11}$ & $\left[  3\right]  _{11}$ & $\left[  9\right]
-_{11}$ & $\left[  2\right]  _{11}$ & $\left[  8\right]  _{11}$ & $\left[
-7\right]  _{11}$ & $\left[  5\right]  _{11}$ & $\left[  10\right]  _{11}%
-$\\\hline
+$J\left(  \alpha\right)  $ & $\left[  1\right]  _{11}$ & $\left[  6\right]
+_{11}$ & $\left[  4\right]  _{11}$ & $\left[  3\right]  _{11}$ & $\left[
+9\right]  _{11}$ & $\left[  2\right]  _{11}$ & $\left[  8\right]  _{11}$ &
+$\left[  7\right]  _{11}$ & $\left[  5\right]  _{11}$ & $\left[  10\right]
+_{11}$\\\hline
 \end{tabular}
-\ \
 \]
 (since, for example, $J\left(  \left[  2\right]  _{11}\right)  =\left(
 \left[  2\right]  _{11}\right)  ^{-1}=\left[  6\right]  _{11}$), and thus we
 pair up the factors of the product $\left[  1\right]  _{p}\cdot\left[
 2\right]  _{p}\cdot\cdots\cdot\left[  p-1\right]  _{p}$ as follows:%
-\begin{align*}
+\begin{align}
 &  \left[  1\right]  _{p}\cdot\left[  2\right]  _{p}\cdot\cdots\cdot\left[
-p-1\right]  _{p}\\
+p-1\right]  _{p}\nonumber\\
 &  =\left[  1\right]  _{11}\cdot\left[  2\right]  _{11}\cdot\left[  3\right]
 _{11}\cdot\left[  4\right]  _{11}\cdot\left[  5\right]  _{11}\cdot\left[
 6\right]  _{11}\cdot\left[  7\right]  _{11}\cdot\left[  8\right]  _{11}%
-\cdot\left[  9\right]  _{11}\cdot\left[  10\right]  _{11}\\
+\cdot\left[  9\right]  _{11}\cdot\left[  10\right]  _{11}\nonumber\\
 &  =\left[  1\right]  _{11}\cdot\left(  \left[  2\right]  _{11}\cdot\left[
 6\right]  _{11}\right)  \cdot\left(  \left[  3\right]  _{11}\cdot\left[
-4\right]  _{11}\right)  \cdot\left(  \left[  5\right]  _{11}\cdot\left[
+4\right]  _{11}\right) \nonumber\\
+&  \ \ \ \ \ \ \ \ \ \ \cdot\left(  \left[  5\right]  _{11}\cdot\left[
 9\right]  _{11}\right)  \cdot\left(  \left[  7\right]  _{11}\cdot\left[
 8\right]  _{11}\right)  \cdot\left[  10\right]  _{11}.
-\end{align*}
+\label{pf.thm.ent.wilson.2nd.11-1}%
+\end{align}
 By the definition of the map $J$, each pair has the form $\left(
 \alpha,J\left(  \alpha\right)  \right)  =\left(  \alpha,\alpha^{-1}\right)  $
 for some $\alpha\in U_{p}$, and thus the product of any two different factors
@@ -16251,11 +16260,11 @@ $U_{p}$
 \item \textit{large} if $\alpha>J\left(  \alpha\right)  $.
 \end{itemize}
 
-However, in order for this definition to make sense, we need to define two
-relations $<$ and $>$ on the set $\mathbb{Z}/p$; otherwise, it is not clear
-what \textquotedblleft$\alpha<J\left(  \alpha\right)  $\textquotedblright\ and
-\textquotedblleft$\alpha>J\left(  \alpha\right)  $\textquotedblright\ should
-mean. Fortunately, this is easy: For example, we can
+\noindent However, in order for this definition to make sense, we need to
+define two relations $<$ and $>$ on the set $\mathbb{Z}/p$; otherwise, it is
+not clear what \textquotedblleft$\alpha<J\left(  \alpha\right)  $%
+\textquotedblright\ and \textquotedblleft$\alpha>J\left(  \alpha\right)
+$\textquotedblright\ should mean. Fortunately, this is easy: For example, we can
 
 \begin{itemize}
 \item consider the bijection $R:\mathbb{Z}/p\rightarrow\left\{  0,1,\ldots
@@ -16279,24 +16288,296 @@ any }\alpha,\beta\in\mathbb{Z}/p.
 
 \end{itemize}
 
-The two relations we have just defined have the property that each
+\noindent The two relations we have just defined have the property that each
 $\alpha,\beta\in\mathbb{Z}/p$ satisfy either $\alpha<\beta$ or $\alpha=\beta$
 or $\alpha>\beta$ but never two or more of these three statements
 simultaneously (indeed, this follows easily from the fact that $R$ is a
 bijection). Thus, each element of $U_{p}$ is either small or medium or large
-(and there is no overlap between these three classes of elements). Hence, we
-can make the same argument that we made in our first proof of Theorem
-\ref{thm.ent.wilson} here, except that we use residue classes in $U_{p}$
-instead of elements of $A$. (We could have just as well used any other
-bijection from $\mathbb{Z}/p$ to $\left\{  0,1,\ldots,p-1\right\}  $ instead
-of $R$ here.)
+(and there is no overlap between these three classes of elements). Hence, the
+argument that we used to prove (\ref{pf.thm.ent.wilson.8}) in our first proof
+of Theorem \ref{thm.ent.wilson}\footnote{viz., by splitting up the product
+into a product over small elements, a product over medium elements, and a
+product over large elements} can be adapted in order to prove $\left[  \left(
+p-1\right)  !\right]  _{p}=\left[  -1\right]  _{p}$, except that we have to
+use residue classes in $U_{p}$ instead of elements of $A$. (We could have just
+as well used any other bijection from $\mathbb{Z}/p$ to $\left\{
+0,1,\ldots,p-1\right\}  $ instead of $R$ here.) Of course, $\left[  \left(
+p-1\right)  !\right]  _{p}=\left[  -1\right]  _{p}$ immediately yields
+$\left(  p-1\right)  !\equiv-1\operatorname{mod}p$ (by an application of
+Proposition \ref{prop.eqrel.Z/n.ab} \textbf{(b)}), and thus the proof of
+Theorem \ref{thm.ent.wilson} is complete.
 
 \textit{Second formalization of the proof of
 (\ref{pf.thm.ent.wilson.2nd.main-arg}):} Let us show another way to formalize
 the \textquotedblleft pairing up\textquotedblright\ argument, which avoids a
-choice of order relations $<$ and $>$ on $\mathbb{Z}/p$.
+choice of order relations $<$ and $>$ on $\mathbb{Z}/p$ and even avoids using
+the map $J$ (at least explicitly). This second formalization foreshadows some
+constructions we shall perform later when studying group actions.
 
-TODO: Do this.
+We define a binary relation $\sim$ on the set $U_{p}$ by%
+\begin{align*}
+\left(  \alpha\sim\beta\right)  \  &  \Longleftrightarrow\ \left(
+\alpha=\beta\text{ or }\alpha\beta=\left[  1\right]  _{p}\right)  \\
+\  &  \Longleftrightarrow\ \left(  \text{the residue classes }\alpha\text{ and
+}\beta\text{ are equal or mutually inverse}\right)  .
+\end{align*}
+(Note that this relation $\sim$ is defined on a set of equivalence classes of
+another relation. This may appear somewhat incestous, but is completely legitimate.)
+
+It is easy to see that this relation $\sim$ is reflexive (since $\alpha
+=\alpha$ for any $\alpha\in U_{p}$) and symmetric (since $\alpha\beta
+=\beta\alpha$ for any two residue classes $\alpha$ and $\beta$) and
+transitive\footnote{\textit{Proof.} Let $\alpha,\beta,\gamma\in U_{p}$ be such
+that $\alpha\sim\beta$ and $\beta\sim\gamma$. We must prove that $\alpha
+\sim\gamma$.
+\par
+If $\alpha=\beta$, then this follows trivially from $\beta\sim\gamma$. Hence,
+for the rest of this proof, we WLOG assume that $\alpha\neq\beta$. But from
+$\alpha\sim\beta$, we conclude that either $\alpha=\beta$ or $\alpha
+\beta=\left[  1\right]  _{p}$ (by the definition of the relation $\sim$).
+Thus, $\alpha\beta=\left[  1\right]  _{p}$ (since $\alpha\neq\beta$). Hence,
+$\beta\alpha=\alpha\beta=\left[  1\right]  _{p}$. In other words, $\alpha$ is
+an inverse of $\beta$.
+\par
+We must prove that $\alpha\sim\gamma$. If $\beta=\gamma$, then this follows
+trivially from $\alpha\sim\beta$. Hence, for the rest of this proof, we WLOG
+assume that $\beta\neq\gamma$. But from $\beta\sim\gamma$, we conclude that
+either $\beta=\gamma$ or $\beta\gamma=\left[  1\right]  _{p}$ (by the
+definition of the relation $\sim$). Thus, $\beta\gamma=\left[  1\right]  _{p}$
+(since $\beta\neq\gamma$). In other words, $\gamma$ is an inverse of $\beta$.
+\par
+Proposition \ref{prop.equiv.modinv.uni} (applied to $\beta$ instead of
+$\alpha$) shows that $\beta\in\mathbb{Z}/n$ has at most one inverse. Since
+both $\alpha$ and $\gamma$ are inverses of $\beta$, we thus obtain
+$\alpha=\gamma$. Hence, $\alpha\sim\gamma$ (since the relation $\sim$ is
+reflexive). Qed.}. Hence, $\sim$ is an equivalence relation. Consider its
+equivalence classes (which, of course, are sets whose elements are equivalence
+classes of integers). These classes belong to the set $U_{p}/\sim$. Each
+$\alpha\in U_{p}$ has its residue class $\left[  \alpha\right]  _{\sim}\in
+U_{p}$. Thus, the product $\prod_{\alpha\in U_{p}}\alpha$ can be split up as
+follows:%
+\begin{equation}
+\prod_{\alpha\in U_{p}}\alpha=\prod_{C\in U_{p}/\sim}\prod_{\substack{\alpha
+\in U_{p};\\\left[  \alpha\right]  _{\sim}=C}}\alpha
+.\label{pf.thm.ent.wilson.2nd.main-arg.f2.1}%
+\end{equation}
+(What we have done here is simply breaking up the product into smaller
+sub-products, each of which covers one specific equivalence class of $\sim$.
+This is the general version of the splitting that we did in
+(\ref{pf.thm.ent.wilson.2nd.11-1}) in the case $p=11$.)
+
+Now, we shall discuss the sub-products $\prod_{\alpha\in C}\alpha$ on the
+right hand side of (\ref{pf.thm.ent.wilson.2nd.main-arg.f2.1}). First, let us
+take a closer look at the equivalence classes, starting with the ones whose
+size is $\neq1$:
+
+\begin{statement}
+\textit{Claim 1:} Let $C\in U_{p}/\sim$ be an equivalence class such that
+$\left\vert C\right\vert \neq1$. Then, $\prod_{\substack{\alpha\in
+U_{p};\\\left[  \alpha\right]  _{\sim}=C}}\alpha=\left[  1\right]  _{p}$.
+\end{statement}
+
+[\textit{Proof of Claim 1:} We know that $C\in U_{p}/\sim$. In other words,
+$C$ is an equivalence class of the relation $\sim$. In other words, $C=\left[
+\beta\right]  _{\sim}$ for some $\beta\in U_{p}$. Consider this $\beta$.
+Proposition \ref{prop.eqrel.eqcl.aina} (applied to $S=U_{p}$ and $a=\beta$)
+yields $\beta\in\left[  \beta\right]  _{\sim}=C$. Hence, $\left\vert
+C\setminus\left\{  \beta\right\}  \right\vert =\left\vert C\right\vert
+-1\neq0$ (since $\left\vert C\right\vert \neq1$), so that $C\setminus\left\{
+\beta\right\}  \neq\varnothing$.
+
+On the other hand, the residue class $\beta$ is an element of $U_{p}$, and
+thus has an inverse $\beta^{-1}$ (by the definition of $U_{p}$). Each element
+of $C\setminus\left\{  \beta\right\}  $ must equal this inverse $\beta^{-1}%
+$\ \ \ \ \footnote{\textit{Proof.} Let $\gamma$ be an element of
+$C\setminus\left\{  \beta\right\}  $. We must show that $\gamma=\beta^{-1}$.
+\par
+We have $\gamma\in C\setminus\left\{  \beta\right\}  $. In other words,
+$\gamma\in C$ and $\gamma\neq\beta$. From $\gamma\in C=\left[  \beta\right]
+_{\sim}$, we obtain $\gamma\sim\beta$ (because Theorem
+\ref{thm.eqrel.eqcl.disj} \textbf{(c)} (applied to $S=U_{p}$, $x=\gamma$ and
+$y=\beta$) shows that we have $\gamma\sim\beta$ if and only if $\gamma
+\in\left[  \beta\right]  _{\sim}$). In other words, $\gamma=\beta$ or
+$\gamma\beta=1$ (by the definition of $\sim$). Since $\gamma\neq\beta$, we
+thus obtain $\gamma\beta=1$. Hence, $\beta\gamma=\gamma\beta=1$, so that
+$\gamma$ is an inverse of $\beta$. In other words, $\gamma=\beta^{-1}$ (since
+$\beta^{-1}$ is the only inverse of $\beta$). Qed.}. Thus, $C\setminus\left\{
+\beta\right\}  \subseteq\left\{  \beta^{-1}\right\}  $. Hence, the set
+$C\setminus\left\{  \beta\right\}  $ is either $\varnothing$ or $\left\{
+\beta^{-1}\right\}  $. Since $C\setminus\left\{  \beta\right\}  \neq
+\varnothing$, we thus obtain $C\setminus\left\{  \beta\right\}  =\left\{
+\beta^{-1}\right\}  $. Hence, the set $C$ has exactly two elements, namely
+$\beta$ and $\beta^{-1}$ (and these two elements are distinct).
+
+If $\alpha\in U_{p}$, then we have the following chain of logical
+equivalences:%
+\begin{align*}
+\left(  \left[  \alpha\right]  _{\sim}=\underbrace{C}_{=\left[  \beta\right]
+_{\sim}}\right)  \   & \Longleftrightarrow\ \left(  \left[  \alpha\right]
+_{\sim}=\left[  \beta\right]  _{\sim}\right)  \ \Longleftrightarrow\ \left(
+\alpha\sim\beta\right)  \\
+& \ \ \ \ \ \ \ \ \ \ \left(  \text{by Theorem \ref{thm.eqrel.eqcl.disj}
+\textbf{(e)}, applied to }S=U_{p}\text{, }x=\alpha\text{ and }y=\beta\right)
+\\
+& \Longleftrightarrow\ \left(  \alpha\in\underbrace{\left[  \beta\right]
+_{\sim}}_{=C}\right)  \\
+& \ \ \ \ \ \ \ \ \ \ \left(  \text{by Theorem \ref{thm.eqrel.eqcl.disj}
+\textbf{(c)}, applied to }S=U_{p}\text{, }x=\alpha\text{ and }y=\beta\right)
+\\
+& \Longleftrightarrow\ \left(  \alpha\in C\right)  .
+\end{align*}
+Hence, we have the following equality between product signs:\footnote{An
+equality between two product signs should be interpreted as saying that
+whatever we put after these product signs, the results will be equal.}%
+\[
+\prod_{\substack{\alpha\in U_{p};\\\left[  \alpha\right]  _{\sim}=C}%
+}=\prod_{\substack{\alpha\in U_{p};\\\alpha\in C}}=\prod_{\alpha\in
+C}\ \ \ \ \ \ \ \ \ \ \left(  \text{since }C\subseteq U_{p}\right)  .
+\]
+Thus,%
+\begin{align*}
+\prod_{\substack{\alpha\in U_{p};\\\left[  \alpha\right]  _{\sim}=C}}\alpha &
+=\prod_{\alpha\in C}\alpha=\beta\beta^{-1}\ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{since the set }C\text{ has exactly two elements,}\\
+\text{namely }\beta\text{ and }\beta^{-1}\text{ (and these two elements}\\
+\text{are distinct)}%
+\end{array}
+\right)  \\
+& =\left[  1\right]  _{p}.
+\end{align*}
+This proves Claim 1.]
+
+Next, we classify the equivalence classes of size $1$ (which correspond to the
+unpaired factors in the computation (\ref{pf.thm.ent.wilson.2nd.11-1})):
+
+\begin{statement}
+\textit{Claim 2:} Let $\alpha\in U_{p}$. Then, $\left\vert \left[
+\alpha\right]  _{\sim}\right\vert =1$ holds if and only if $\alpha$ is either
+$\left[  1\right]  _{p}$ or $\left[  p-1\right]  _{p}$.
+\end{statement}
+
+[\textit{Proof of Claim 2:} Let $C\in U_{p}/\sim$ be an equivalence class. Our
+plan is to understand when $\left\vert C\right\vert =1$ holds.
+
+We know that $C$ is an equivalence class of the relation $\sim$. In other
+words, $C=\left[  \beta\right]  _{\sim}$ for some $\beta\in U_{p}$. Consider
+this $\beta$. Just as in the proof of Claim 1, we can show that $\beta\in C$
+and $\left\vert C\setminus\left\{  \beta\right\}  \right\vert =\left\vert
+C\right\vert -1$ and $C\setminus\left\{  \beta\right\}  \subseteq\left\{
+\beta^{-1}\right\}  $.
+
+Moreover, $\beta^{-1}\beta=\left[  1\right]  _{p}$ and therefore $\beta
+^{-1}\sim\beta$ (by the definition of the relation $\sim$). Hence, $\beta
+^{-1}\in\left[  \beta\right]  _{\sim}$ (because Theorem
+\ref{thm.eqrel.eqcl.disj} \textbf{(c)} (applied to $S=U_{p}$, $x=\beta^{-1}$
+and $y=\beta$) shows that we have $\beta^{-1}\sim\beta$ if and only if
+$\beta^{-1}\in\left[  \beta\right]  _{\sim}$). Thus, $\beta^{-1}\in\left[
+\beta\right]  _{\sim}=C$. From this and $C\setminus\left\{  \beta\right\}
+\subseteq\left\{  \beta^{-1}\right\}  $, we can easily obtain $C\setminus
+\left\{  \beta\right\}  =\left\{  \beta^{-1}\right\}  \setminus\left\{
+\beta\right\}  $\ \ \ \ \footnote{\textit{Proof.} We have $\beta^{-1}\in C$,
+thus $\left\{  \beta^{-1}\right\}  \subseteq C$, so that $\underbrace{\left\{
+\beta^{-1}\right\}  }_{\subseteq C}\setminus\left\{  \beta\right\}  \subseteq
+C\setminus\left\{  \beta\right\}  $. But from $C\setminus\left\{
+\beta\right\}  \subseteq\left\{  \beta^{-1}\right\}  $, we obtain
+$\underbrace{\left(  C\setminus\left\{  \beta\right\}  \right)  }%
+_{\subseteq\left\{  \beta^{-1}\right\}  }\setminus\left\{  \beta\right\}
+\subseteq\left\{  \beta^{-1}\right\}  \setminus\left\{  \beta\right\}  $. In
+view of $\left(  C\setminus\left\{  \beta\right\}  \right)  \setminus\left\{
+\beta\right\}  =C\setminus\left\{  \beta\right\}  $, this rewrites as
+$C\setminus\left\{  \beta\right\}  \subseteq\left\{  \beta^{-1}\right\}
+\setminus\left\{  \beta\right\}  $. Combining this with $\left\{  \beta
+^{-1}\right\}  \setminus\left\{  \beta\right\}  \subseteq C\setminus\left\{
+\beta\right\}  $, we find $C\setminus\left\{  \beta\right\}  =\left\{
+\beta^{-1}\right\}  \setminus\left\{  \beta\right\}  $.}.
+
+We have $\beta\in U_{p}=\left\{  \left[  1\right]  _{p},\left[  2\right]
+_{p},\ldots,\left[  p-1\right]  _{p}\right\}  $ (since the $p-1$ residue
+classes $\left[  1\right]  _{p},\left[  2\right]  _{p},\ldots,\left[
+p-1\right]  _{p}$ are precisely the elements of $U_{p}$). In other words,
+$\beta=\left[  b\right]  _{p}$ for some $b\in\left\{  1,2,\ldots,p-1\right\}
+$. Consider this $b$.
+
+Now, we have the following chain of logical equivalences:%
+\begin{align*}
+\left(  \left\vert C\right\vert =1\right)  \   & \Longleftrightarrow\ \left(
+\underbrace{\left\vert C\right\vert -1}_{=\left\vert C\setminus\left\{
+\beta\right\}  \right\vert }=0\right)  \ \Longleftrightarrow\ \left(
+\left\vert C\setminus\left\{  \beta\right\}  \right\vert =0\right)
+\ \Longleftrightarrow\ \left(  \underbrace{C\setminus\left\{  \beta\right\}
+}_{=\left\{  \beta^{-1}\right\}  \setminus\left\{  \beta\right\}
+}=\varnothing\right)  \\
+& \Longleftrightarrow\ \left(  \left\{  \beta^{-1}\right\}  \setminus\left\{
+\beta\right\}  =\varnothing\right)  \ \Longleftrightarrow\ \left(  \left\{
+\beta^{-1}\right\}  \subseteq\left\{  \beta\right\}  \right)
+\ \Longleftrightarrow\ \left(  \beta^{-1}\in\left\{  \beta\right\}  \right)
+\ \Longleftrightarrow\ \left(  \beta^{-1}=\beta\right)  \\
+& \Longleftrightarrow\ \left(  \beta\text{ is an inverse of }\beta\right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{since the only inverse of }\beta\text{ is
+}\beta^{-1}\right)  \\
+& \Longleftrightarrow\ \left(  \beta\beta=\left[  1\right]  _{p}\right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of \textquotedblleft
+inverse\textquotedblright}\right)  \\
+& \Longleftrightarrow\ \left(  \left[  b^{2}\right]  _{p}=\left[  1\right]
+_{p}\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{since }\underbrace{\beta
+}_{=\left[  b\right]  _{p}}\underbrace{\beta}_{=\left[  b\right]  _{p}%
+}=\left[  b\right]  _{p}\left[  b\right]  _{p}=\left[  b^{2}\right]
+_{p}\right)  \\
+& \Longleftrightarrow\ \left(  b^{2}\equiv1\operatorname{mod}p\right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by an application of Proposition
+\ref{prop.eqrel.Z/n.ab} \textbf{(b)}}\right)  \\
+& \Longleftrightarrow\ \left(  b\equiv1\operatorname{mod}p\text{ or }%
+b\equiv-1\operatorname{mod}p\right)  \\
+& \ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{indeed, Exercise \ref{exe.ent.prime.aa-1} (applied to }a=b\text{) yields
+the}\\
+\text{implication }\left(  b^{2}\equiv1\operatorname{mod}p\right)
+\ \Longrightarrow\ \left(  b\equiv1\operatorname{mod}p\text{ or }%
+b\equiv-1\operatorname{mod}p\right)  \text{;}\\
+\text{but the converse implication is easy to check}%
+\end{array}
+\right)  \\
+& \Longleftrightarrow\ \left(  \underbrace{\left[  b\right]  _{p}}_{=\beta
+}=\left[  1\right]  _{p}\text{ or }\underbrace{\left[  b\right]  _{p}}%
+_{=\beta}=\left[  -1\right]  _{p}\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by
+Proposition \ref{prop.eqrel.Z/n.ab} \textbf{(b)}}\right)  \\
+& \Longleftrightarrow\ \left(  \beta=\left[  1\right]  _{p}\text{ or }%
+\beta=\left[  -1\right]  _{p}\right)  \\
+& \Longleftrightarrow\ \left(  \beta=\left[  1\right]  _{p}\text{ or }%
+\beta=\left[  p-1\right]  _{p}\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{since
+}\left[  -1\right]  _{p}=\left[  p-1\right]  _{p}\text{ (because }-1\equiv
+p-1\operatorname{mod}p\text{)}\right)  .
+\end{align*}
+Thus, $\left\vert C\right\vert =1$ holds if and only if $\beta$ is either
+$\left[  1\right]  _{p}$ or $\left[  p-1\right]  _{p}$. From this, we can
+easily conclude that the equivalence classes $C\in U_{p}/\sim$ such that
+$\left\vert C\right\vert =1$ are precisely the two classes $\left[  \left[
+1\right]  _{p}\right]  _{\sim}=\left\{  \left[  1\right]  _{p}\right\}  $ and
+$\left[  \left[  p-1\right]  _{p}\right]  _{\sim}=\left\{  \left[  p-1\right]
+_{p}\right\}  $. This proves Claim 2.]
+\end{fineprint}
+
+We argue in several steps:
+
+\begin{itemize}
+\item First, we shall show that if $\beta\in$
+
+\item $\left[  \left[  p-1\right]  _{p}\right]  _{\sim}=\left\{  \left[
+p-1\right]  _{p}\right\}  $ is an equivalence class $C\in U_{p}/\sim$ such
+that $\left\vert C\right\vert =1$.
+
+Indeed, Proposition \ref{prop.eqrel.eqcl.aina} (applied to $S=U_{p}$ and
+$a=\left[  p-1\right]  _{p}$) yields $\beta\in\left[  \beta\right]  _{\sim}=C$
+\end{itemize}
+\end{proof}
+
+\begin{proof}
+\begin{fineprint}
+TODO: Finish!
 \end{fineprint}
 \end{proof}
 
