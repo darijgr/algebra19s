@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Wednesday, March 27, 2019 09:55:35}
+%TCIDATA{LastRevised=Wednesday, March 27, 2019 12:06:26}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -21386,24 +21386,17 @@ $\left(
 1 & 0\\
 0 & 1
 \end{array}
-\right)  $ as $1$) is a ring, but \textbf{not} a commutative ring. Indeed, the
-ring axioms are true (this is known from linear algebra), but commutativity of
-multiplication is not (the product $AB$ of two $2\times2$-matrices $A$ and $B$
-is not always equal to $BA$).
+\right)  $ as $1$) is a ring, but \textbf{not} a commutative ring ($AB\neq BA$
+in general).
 
-\item If you like the empty set, you will enjoy the \textit{zero ring}. This
-is the one-element set $\left\{  0\right\}  $, endowed with the only possible
-addition (given by $0+0=0$), the only possible multiplication (given by
-$0\cdot0=0$), the only possible zero (namely, $0$) and the only possible unity
-(also $0$). This is a commutative ring, and is known as the \textit{zero
-ring}. Resist the temptation of denoting its unity by $1$, as this will
-quickly lead to painful confusion.
+\item Consider the one-element set $\left\{  0\right\}  $, endowed with the
+only possible addition ($0+0=0$), the only possible multiplication
+($0\cdot0=0$), the only possible zero ($0$) and the only possible unity ($0$).
+This is a commutative ring, known as the \textbf{zero ring}.
 
-(Some authors choose to forbid this ring, usually for no good reasons.)
-
-\item If $n$ is a positive integer, then $\mathbb{Z}/n$ is a ring (with the
-operations $+$ and $\cdot$ that we defined, with the zero $\left[  0\right]
-_{n}$ and the unity $\left[  1\right]  _{n}$). Note that this ring has $n$ elements.
+\item If $n$ is a positive integer, then $\mathbb{Z}/n$ is a commutative ring
+(with the operations $+$ and $\cdot$ that we defined, with the zero $\left[
+0\right]  _{n}$ and the unity $\left[  1\right]  _{n}$). This ring has $n$ elements.
 
 \item In set theory, the \textbf{symmetric difference} $A\bigtriangleup B$ of
 two sets $A$ and $B$ is defined to be the set%
@@ -21413,9 +21406,9 @@ B\right)  \cup\left(  B\setminus A\right)  .
 \]
 
 
-Now, let $S$ be any set. Let $\mathcal{P}\left(  S\right)  $ denote the power
-set of $S$ (that is, the set of all subsets of $S$). Then, it is easy to check
-that the following properties hold:%
+Now, let $S$ be a set. Let $\mathcal{P}\left(  S\right)  $ denote the power
+set of $S$ (that is, the set of all subsets of $S$). Then, the following
+holds:%
 \begin{align*}
 A\bigtriangleup B  & =B\bigtriangleup A\ \ \ \ \ \ \ \ \ \ \text{for any sets
 }A\text{ and }B;\\
@@ -21425,13 +21418,13 @@ B\bigtriangleup C\right)  \ \ \ \ \ \ \ \ \ \ \text{for any sets }A,B,C;\\
 \left(  A\cap B\right)  \cap C  & =A\cap\left(  B\cap C\right)
 \ \ \ \ \ \ \ \ \ \ \text{for any sets }A,B,C;\\
 A\bigtriangleup\varnothing & =\varnothing\bigtriangleup
-A=A\ \ \ \ \ \ \ \ \ \ \text{for any set }A;\\
-A\cap S  & =S\cap A=A\ \ \ \ \ \ \ \ \ \ \text{for any set }A;
+A=A\ \ \ \ \ \ \ \ \ \ \text{for any set }A\text{;}\\
+A\cap S  & =S\cap A=A\ \ \ \ \ \ \ \ \ \ \text{for any subset }A\subseteq S;\\
+A\bigtriangleup A  & =\varnothing\ \ \ \ \ \ \ \ \ \ \text{for any set }A;\\
+A\cap\varnothing & =\varnothing\cap A=\varnothing\ \ \ \ \ \ \ \ \ \ \text{for
+any set }A\text{;}%
 \end{align*}%
 \begin{align*}
-A\bigtriangleup A  & =\varnothing\ \ \ \ \ \ \ \ \ \ \text{for any set }A;\\
-\varnothing\cap A  & =A\cap\varnothing=\varnothing
-\ \ \ \ \ \ \ \ \ \ \text{for any set }A;\\
 A\cap\left(  B\bigtriangleup C\right)    & =\left(  A\cap B\right)
 \bigtriangleup\left(  A\cap C\right)  \ \ \ \ \ \ \ \ \ \ \text{for any sets
 }A,B,C;\\
@@ -21439,39 +21432,42 @@ A\cap\left(  B\bigtriangleup C\right)    & =\left(  A\cap B\right)
 \bigtriangleup\left(  B\cap C\right)  \ \ \ \ \ \ \ \ \ \ \text{for any sets
 }A,B,C.
 \end{align*}
-Therefore, $\mathcal{P}\left(  S\right)  $, endowed with the addition
+Thus, the set $\mathcal{P}\left(  S\right)  $, endowed with the addition
 $\bigtriangleup$, the multiplication $\cap$, the zero $\varnothing$ and the
-unity $S$ is a commutative ring. Furthermore, the additive inverse of any
-$A\in\mathcal{P}\left(  S\right)  $ is $A$ itself. Moreover, each
-$A\in\mathcal{P}\left(  S\right)  $ satisfies $A\cap A=A$, which means (in
-ring language) that its square is itself. Thus, $\mathcal{P}\left(  S\right)
-$ is what is called a \textbf{Boolean ring}.
+unity $S$ is a commutative ring.
 
-\item How comes we cannot divide by $0$?
+The additive inverse of any $A\in\mathcal{P}\left(  S\right)  $ is $A$ itself
+(since $A\bigtriangleup A=\varnothing$).
 
-Let us make the question precise. Of course, we cannot find an integer $a$
-that satisfies $0\cdot a=1$, or a real, or a complex number, etc. But could we
-perhaps find such a number $a$ in some larger \textquotedblleft number
+Also, any $A\in\mathcal{P}\left(  S\right)  $ satisfies $A\cap A=A$, which
+means $A\cdot A=A$ in ring language. This makes $\mathcal{P}\left(  S\right)
+$ into what is called a \textbf{Boolean ring}.
+
+\item How comes we cannot divide by $0$ ?
+
+Let us make this question precise. Of course, we cannot find an
+integer/real/complex number $a$ such that $0\cdot a=1$. But could we perhaps
+find such a number $a$ in a larger \textquotedblleft number
 system\textquotedblright?
 
-The answer, of course, depends on what \textquotedblleft number
-system\textquotedblright\ means for you. If it means a ring, then we cannot
-find such an $a$ in any ring.
-
-Indeed, assume that we can. In other words, assume that there is a ring
+Let us assume that \textquotedblleft number system\textquotedblright\ means
+\textquotedblleft ring\textquotedblright. So assume that we can find a ring
 $\mathbb{K}$ that contains the usual set $\mathbb{Z}$ of integers as well as a
-new element $\infty$ such that $0\cdot\infty=1$. Then, Annihilation yields
-$0\cdot\infty=0$, so that $0=0\cdot\infty=1$, which is absurd. So such a ring
-$\mathbb{K}$ cannot exist. Thus, we cannot divide by $0$.
+new element $\infty$ such that $0\cdot\infty=1$. And of course, assume that
+the numbers $0$ and $1$ are really the zero and the unity of this ring
+$\mathbb{K}$. Then, the Annihilation axiom yields $0\cdot\infty=0$, so
+$0=0\cdot\infty=1$, which is absurd. Thus, our ring $\mathbb{K}$ cannot exist.
+In other words, we cannot divide by $0$, even if we extend our number system
+(as long as we want a ring).
 
 \item Here is an \textquotedblleft almost-ring\textquotedblright\ beloved to
-combinatorialists: the \textbf{max-plus semiring }$\mathbb{T}$ (also known as
-the \textbf{tropical semiring}).
+combinatorialists: the \textbf{max-plus semiring} $\mathbb{T}$ (also known as
+the \textbf{tropical semiring}):
 
 We introduce a new symbol $-\infty$, and we set $\mathbb{T}=\mathbb{Z}%
 \cup\left\{  -\infty\right\}  $ as sets. But we do \textbf{not}
 \textquotedblleft inherit\textquotedblright\ the addition and multiplication
-from $\mathbb{Z}$. Instead, let us define two new \textquotedblleft
+from $\mathbb{Z}$. Instead, we define two new \textquotedblleft
 addition\textquotedblright\ and \textquotedblleft
 multiplication\textquotedblright\ operations $+_{\mathbb{T}}$ and
 $\cdot_{\mathbb{T}}$ (not to be mistaken for the original addition $+$ and
@@ -21486,44 +21482,38 @@ where we set%
 \max\left\{  -\infty,n\right\}    & =\max\left\{  n,-\infty\right\}
 =n\ \ \ \ \ \ \ \ \ \ \text{and}\\
 \left(  -\infty\right)  +n  & =n+\left(  -\infty\right)  =-\infty
-\ \ \ \ \ \ \ \ \ \ \text{for any }n\in\mathbb{T}.
+\ \ \ \ \ \ \ \ \ \ \text{for any }n\in\mathbb{Z}\cup\left\{  -\infty\right\}
+.
 \end{align*}
-
-
-This set $\mathbb{T}$ endowed with the \textquotedblleft
+This set $\mathbb{T}$, endowed with the \textquotedblleft
 addition\textquotedblright\ $+_{\mathbb{T}}$, \textquotedblleft
 multiplication\textquotedblright\ $\cdot_{\mathbb{T}}$, \textquotedblleft
 zero\textquotedblright\ $-\infty$ and \textquotedblleft
-unity\textquotedblright\ $0$ satisfies all but one of the ring axioms. The
-only one that it does not satisfy is the existence of additive inverses. Such
-a structure is called a \textbf{semiring}. For example, the distributivity
-axiom for $\mathbb{T}$ boils down to%
+unity\textquotedblright\ $0$ satisfies all but one of the ring axioms (for
+example, distributivity means%
 \begin{align*}
 a+\max\left\{  b,c\right\}    & =\max\left\{  a+b,a+c\right\}
 \ \ \ \ \ \ \ \ \ \ \text{and}\\
-\max\left\{  a,b\right\}  +c  & =\max\left\{  a+c,b+c\right\}  .
+\max\left\{  a,b\right\}  +c  & =\max\left\{  a+c,b+c\right\}
 \end{align*}
+). What is missing is the existence of additive inverses. Such a structure is
+called a \textbf{semiring}.
 
-
-\item Consider the set
+\item Consider the set%
 \[
-2\mathbb{Z}=\left\{  2a\ \mid\ a\in\mathbb{Z}\right\}  =\left\{
-\ldots,-4,-2,0,2,4,\ldots\right\}  .
+2\mathbb{Z}:=\left\{  2a\mid a\in\mathbb{Z}\right\}  =\left\{  \ldots
+,-4,-2,0,2,4,\ldots\right\}  .
 \]
-Endowing this set with the usual addition and multiplication (and $0$), we
-obtain a ring with its unity missing (i.e., a structure that is like a ring
-but has no unity). There is no way to find a unity for it, because (for
-example) $2$ is not a product of any two elements of $2\mathbb{Z}$.
+Endow this set with the usual $+$ and $\cdot$ and $0$. This is almost a ring,
+except that it has no unity. This is called a \textbf{nonunital ring}.
 \end{itemize}
 
-What can you do when you have a ring?
+What can we do when we have a ring?
 
 \begin{convention}
 For the rest of this section, we fix a ring $\mathbb{K}$, and we denote its
 addition, multiplication, zero and unity by $+$, $\cdot$, $0$ and $1$.
 \end{convention}
-
-One thing you can do is subtraction. This relies on the following fact:
 
 \begin{theorem}
 Let $a\in\mathbb{K}$. Then, $a$ has exactly one additive inverse.
@@ -21531,15 +21521,19 @@ Let $a\in\mathbb{K}$. Then, $a$ has exactly one additive inverse.
 
 \begin{proof}
 By the ring axioms, $a$ has \textbf{at least one} additive inverse. We must
-thus only show that this inverse is unique.
+therefore only show that it has at most one.
 
-This can be done by the same argument that we used previously to prove that a
-residue class in $\mathbb{Z}/n$ has at most one inverse, but now we need to
-replace $\mathbb{Z}/n$, multiplication and $\left[  1\right]  _{n}$ by
-$\mathbb{K}$, addition and $0$.
+This can be done in the same way as we proved Proposition 3.5.4, but we have
+to replace $\cdot$ and $1$ by $+$ and $0$.
 
-In detail: Let $b$ and $c$ be two additive inverses of $a$. Then, $a+b=0$ and
-$c+a=0$. Hence,%
+In detail: Let $b$ and $c$ be two additive inverses of $a$. We must prove
+$b=c$.
+
+Since $b$ is an inverse of $a$, we have $a+b=0$.
+
+Since $c$ is an inverse of $a$, we have $c+a=0$.
+
+The associativity of $+$ yields%
 \[
 \left(  c+a\right)  +b=c+\underbrace{\left(  a+b\right)  }_{=0}=c+0=c.
 \]
@@ -21547,17 +21541,17 @@ Comparing this with%
 \[
 \underbrace{\left(  c+a\right)  }_{=0}+b=0+b=b,
 \]
-we obtain $b=c$, so our two additive inverses are equal. This shows that the
-additive inverse is unique.
+we obtain $b=c$, as we desired.
 \end{proof}
 
 \begin{definition}
 \textbf{(a)} If $a\in\mathbb{K}$, then the additive inverse of $a$ will be
-called $-a$.
+called $-a$. (This is well-defined, since the preceding Theorem shows that
+this additive inverse is unique.)
 
-\textbf{(b)} If $a\in\mathbb{K}$ and $b\in\mathbb{K}$, then we define the
-\textbf{difference} $a-b$ to be $a+\left(  -b\right)  $. This new operation
-$-$ is called \textquotedblleft\textbf{subtraction}\textquotedblright.
+\textbf{(b)} If $a,b\in\mathbb{K}$, then we define the \textbf{difference}
+$a-b$ to be $a+\left(  -b\right)  \in\mathbb{K}$. This new operation $-$ is
+called \textbf{subtraction}.
 \end{definition}
 
 \begin{proposition}
@@ -21569,65 +21563,63 @@ subtraction undoes addition.)
 \textbf{(b)} We have $a-b-c=a-\left(  b+c\right)  $.
 
 \textbf{(c)} We have $0-a=-a$.
+
+\textbf{(d)} We have $-\left(  a+b\right)  =\left(  -a\right)  +\left(
+-b\right)  $.
+
+\textbf{(e)} We have $-\left(  -a\right)  =a$.
 \end{proposition}
 
 \begin{proof}
-All of this is pretty straightforward. For example:
+All of these are proven in the same way as for integers.
 
 \textbf{(a)} $\Longrightarrow:$ Assume $a-b=c$. Thus, $c=a-b=a+\left(
--b\right)  $ (by definition). Adding $b$ on both sides of this equation, we
-get%
+-b\right)  $. Adding $b$ on both sides of this equality, we get%
 \[
 c+b=\left(  a+\left(  -b\right)  \right)  +b=a+\underbrace{\left(  \left(
--b\right)  +b\right)  }_{\substack{=0\\\text{(since }-b\text{ is
-the}\\\text{additive inverse of }b\text{)}}}=a+0=a,
+-b\right)  +b\right)  }_{=0}=a+0=a.
 \]
-so $a=c+b=b+c$.
+Hence, $a=c+b=b+c$.
 
-$\Longleftarrow:$ Assume $a=b+c$. Adding $-b$ to both sides of this equation,
-we get%
-\begin{align*}
-a+\left(  -b\right)    & =\underbrace{\left(  b+c\right)  }_{=c+b}+\left(
--b\right)  =\left(  c+b\right)  +\left(  -b\right)  \\
-& =c+\underbrace{\left(  b+\left(  -b\right)  \right)  }%
-_{\substack{=0\\\text{(since }-b\text{ is the}\\\text{additive inverse of
-}b\text{)}}}=c+0=c,
-\end{align*}
-so that $c=a+\left(  -b\right)  =a-b$. Thus, \textbf{(a)} is proven.
+$\Longleftarrow:$ Assume that $a=b+c$. Adding $-b$ to both sides of this
+equation, we get%
+\[
+a+\left(  -b\right)  =\underbrace{\left(  b+c\right)  }_{=c+b}+\left(
+-b\right)  =\left(  c+b\right)  +\left(  -b\right)  =c+\underbrace{\left(
+b+\left(  -b\right)  \right)  }_{=0}=c+0=c.
+\]
+Thus, $c=a+\left(  -b\right)  =a-b$. In other words, $a-b=c$.
 
-\textbf{(b)}, \textbf{(c)} LTTR.
+\textbf{(b)}--\textbf{(e)} LTTR.
 \end{proof}
 
-Furthermore, we don't need to parenthesize expressions like $a+b+c$ or $abc$. Indeed:
+Furthermore, we don't need to parenthesize expressions like $a+b+c$ and $abc$. Indeed:
 
 \begin{theorem}
 Finite sums of elements of $\mathbb{K}$ can be defined in the same way as
-finite sums of usual (i.e., real or rational) numbers (with the empty sum
-defined to be $0$). That is, if $S$ is a finite set, and if $a_{s}%
-\in\mathbb{K}$ for each $s\in S$, then $\sum\limits_{s\in S}a_{s}$ is
-well-defined and satisfies the usual rules, such as%
+finite sums of usual numbers (with the empty sum defined as $0$). That is, if
+$S$ is a finite set, and if $a_{s}\in\mathbb{K}$ for each $s\in S$, then
+$\sum\limits_{s\in S}a_{s}$ is well-defined and satisfies the usual rules such
+as%
 \[
 \sum\limits_{s\in S}\left(  a_{s}+b_{s}\right)  =\sum\limits_{s\in S}%
 a_{s}+\sum\limits_{s\in S}b_{s}.
 \]
 
 
-Thus, in particular, sums like $\sum_{i=p}^{q}a_{i}$ or $a_{1}+a_{2}%
-+\cdots+a_{k}$ are well-defined. We don't need to put parentheses in order to
-make them non-ambiguous.
+Thus, in particular, sums like $\sum\limits_{i=p}^{q}a_{i}$ or $a_{1}%
++a_{2}+\cdots+a_{k}$ are well-defined. We don't need to specify the order of
+summation to make them non-ambiguous.
 \end{theorem}
 
-What about finite products? Is $\prod_{s\in S}a_{s}$ well-defined? Not always,
-but only for commutative rings. Indeed, a product like $\prod_{s\in S}a_{s}$
-has no pre-defined order of multiplication (in general), so for it to be
-well-defined, it would have to be independent of the order; but this would
-require the commutativity of multiplication.
+The situation with finite products is less clear-cut. In general,
+$\prod\limits_{s\in S}a_{s}$ is not well-defined, since multiplication in a
+ring is not always commutative.
 
 \begin{theorem}
 \textbf{(a)} Finite products of elements of $\mathbb{K}$ can be defined in the
-same way as finite products of usual (i.e., real or rational) numbers (with
-the empty product defined to be $1$) \textbf{as long as the ring }$\mathbb{K}$
-\textbf{is commutative}.
+same way as finite products of usual numbers (with the empty product defined
+as $1$) \textbf{as long as the ring }$\mathbb{K}$ \textbf{is commutative}.
 
 \textbf{(b)} For general (not necessarily commutative) rings $\mathbb{K}$, we
 can still define products with a pre-determined order, such as $a_{1}%
@@ -21641,23 +21633,27 @@ a_{1}a_{2}\cdots a_{k}=\left(  a_{1}a_{2}\cdots a_{k-1}\right)  a_{k}.
 \]
 
 
-\begin{theo}
 These products still satisfy reasonable rules, such as%
 \[
 a_{1}a_{2}\cdots a_{k}=\left(  a_{1}a_{2}\cdots a_{i}\right)  \left(
-a_{i+1}a_{i+2}\cdots a_{k}\right)  \ \ \ \ \ \ \ \ \ \ \text{for }i\in\left\{
-0,1,\ldots,k\right\}  .
+a_{i+1}a_{i+2}\cdots a_{k}\right)  \ \ \ \ \ \ \ \ \ \ \text{for all }%
+i\in\left\{  0,1,\ldots,k\right\}  .
 \]
-(This is called the \textbf{general associativity theorem}, and will be proven
-on HW0.)
-\end{theo}
+
 \end{theorem}
 
-What else can we do with our ring $\mathbb{K}$ ?
+Part \textbf{(b)} of this Theorem is known as the \textbf{general
+associativity law}. For example,
+\[
+\left(  a\left(  \left(  bc\right)  d\right)  \right)  e=\left(  \left(
+ab\right)  c\right)  \left(  de\right)  ,
+\]
+which you can check by hand:%
+\[
+\left(  a\left(  \left(  bc\right)  d\right)  \right)  e=..........=\left(
+\left(  ab\right)  c\right)  \left(  de\right)  .
+\]
 
-By definition, we know how to multiply two elements of $\mathbb{K}$. But there
-is also a natural way to multiply an element of $\mathbb{K}$ with an integer.
-This is defined as follows:
 
 \begin{definition}
 Let $a\in\mathbb{K}$ and $n\in\mathbb{Z}$. Then, we define an element $na$ of
@@ -21666,76 +21662,15 @@ $\mathbb{K}$ by%
 na=%
 \begin{cases}
 \underbrace{a+a+\cdots+a}_{n\text{ times}}, & \text{if }n\geq0;\\
--\left(  \underbrace{a+a+\cdots+a}_{-n\text{ times}}\right)  , & \text{if }n<0
+-\left(  \underbrace{a+a+\cdots+a}_{-n\text{ times}}\right)  , & \text{if
+}n<0.
 \end{cases}
-.
 \]
 This has nothing to do with the multiplication $\cdot$ of $\mathbb{K}$, since
-$n$ is not (generally) an element of $\mathbb{K}$. However, when $\mathbb{K}$
-is one of the usual rings of numbers (like $\mathbb{Z}$, $\mathbb{Q}$,
-$\mathbb{R}$, $\mathbb{C}$), then this kind of multiplication coincides with
-the multiplication $\cdot$ of $\mathbb{K}$ (that is, $na$ means the same thing).
+$n$ is usually not an element of $\mathbb{K}$. But if $\mathbb{K}$ is
+$\mathbb{Z}$ or $\mathbb{Q}$ or $\mathbb{R}$ or $\mathbb{C}$, this does
+coincide with the usual product of numbers.
 \end{definition}
-
-We can also define powers:
-
-\begin{definition}
-Let $a\in\mathbb{K}$ and $n\in\mathbb{N}$. Then, we define an element $a^{n}$
-of $\mathbb{K}$ by%
-\[
-a^{n}=\underbrace{a\cdot a\cdot\cdots\cdot a}_{n\text{ times}}.
-\]
-
-\end{definition}
-
-Standard rules for addition, subtraction, multiplication and taking powers
-hold in every ring:
-
-\begin{proposition}
-\textbf{(a)} We have%
-\begin{align*}
--\left(  a+b\right)    & =\left(  -a\right)  +\left(  -b\right)
-\ \ \ \ \ \ \ \ \ \ \text{for all }a,b\in\mathbb{K};\\
--\left(  -a\right)    & =a\ \ \ \ \ \ \ \ \ \ \text{for all }a\in\mathbb{K};\\
--\left(  ab\right)    & =\left(  -a\right)  b=a\left(  -b\right)
-\ \ \ \ \ \ \ \ \ \ \text{for all }a,b\in\mathbb{K};\\
--\left(  na\right)    & =\left(  -n\right)  a=n\left(  -a\right)
-\ \ \ \ \ \ \ \ \ \ \text{for }a\in\mathbb{K}\text{ and }n\in\mathbb{Z}%
-\text{;}\\
-\left(  nm\right)  a  & =n\left(  ma\right)  \ \ \ \ \ \ \ \ \ \ \text{for
-}a\in\mathbb{K}\text{ and }n,m\in\mathbb{Z};\\
-0^{n}  & =%
-\begin{cases}
-0, & \text{if }n>0\\
-1, & \text{if }n=0
-\end{cases}
-\ \ \ \ \ \ \ \ \ \ \text{for }n\in\mathbb{N}\\
-& \ \ \ \ \ \ \ \ \ \ \left(  \text{here, the }0\text{ in }0^{n}\text{ means
-the zero of }\mathbb{K}\right)  ;\\
-a^{n+m}  & =a^{n}a^{m}\ \ \ \ \ \ \ \ \ \ \text{for }a\in\mathbb{K}\text{ and
-}n,m\in\mathbb{N};\\
-\left(  a^{n}\right)  ^{m}  & =a^{nm}\ \ \ \ \ \ \ \ \ \ \text{for }%
-a\in\mathbb{K}\text{ and }n,m\in\mathbb{N}.
-\end{align*}
-
-
-\textbf{(b)} For any $a,b\in\mathbb{K}$, we have
-\begin{align*}
-\left(  a+b\right)  ^{2}  & =\left(  a+b\right)  \left(  a+b\right)  =a\left(
-a+b\right)  +b\left(  a+b\right)  \\
-& =aa+ab+ba+bb=a^{2}+ab+ba+b^{2}.
-\end{align*}
-This further equals $a^{2}+2ab+b^{2}$ if $\mathbb{K}$ is commutative.
-
-\textbf{(c)} If $\mathbb{K}$ is commutative, then%
-\begin{align*}
-\left(  ab\right)  ^{n}  & =a^{n}b^{n}\ \ \ \ \ \ \ \ \ \ \text{for all
-}a,b\in\mathbb{K}\text{ and }n\in\mathbb{N};\\
-\left(  a+b\right)  ^{n}  & =\sum_{k=0}^{n}\dbinom{n}{k}a^{k}b^{n-k}%
-\ \ \ \ \ \ \ \ \ \ \text{for all }a,b\in\mathbb{K}\text{ and }n\in\mathbb{N}.
-\end{align*}
-
-\end{proposition}
 
 
 \end{document}
