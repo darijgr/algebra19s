@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Wednesday, March 27, 2019 14:31:17}
+%TCIDATA{LastRevised=Wednesday, March 27, 2019 14:35:01}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -21612,9 +21612,9 @@ get%
 \[
 c+b=\left(  a+\left(  -b\right)  \right)  +b=a+\underbrace{\left(  \left(
 -b\right)  +b\right)  }_{\substack{=0\\\text{(since }-b\text{ is
-the}\\\text{additive inverse of }b\text{)}}}=a+0=a,
+the}\\\text{additive inverse of }b\text{)}}}=a+0=a
 \]
-so $a=c+b=b+c$.
+(by the neutrality of zero), so that $a=c+b=b+c$.
 
 $\Longleftarrow:$ Assume $a=b+c$. Adding $-b$ to both sides of this equation,
 we get%
@@ -21622,11 +21622,49 @@ we get%
 a+\left(  -b\right)  =\underbrace{\left(  b+c\right)  }_{=c+b}+\left(
 -b\right)  =\left(  c+b\right)  +\left(  -b\right)  =c+\underbrace{\left(
 b+\left(  -b\right)  \right)  }_{\substack{=0\\\text{(since }-b\text{ is
-the}\\\text{additive inverse of }b\text{)}}}=c+0=c,
+the}\\\text{additive inverse of }b\text{)}}}=c+0=c
 \]
-so that $c=a+\left(  -b\right)  =a-b$. Thus, \textbf{(a)} is proven.
+(by the neutrality of zero), so that $c=a+\left(  -b\right)  =a-b$. Thus,
+\textbf{(a)} is proven.
 
-\textbf{(b)}, ..., \textbf{(g)} LTTR.
+\textbf{(b)} We need to prove that $\left(  -a\right)  +\left(  -b\right)
+=-\left(  a+b\right)  $. In other words, we need to prove that $\left(
+-a\right)  +\left(  -b\right)  $ is the additive inverse of $a+b$ (because
+that's what $-\left(  a+b\right)  $ is). In other words, we need to prove
+that
+\[
+\left(  a+b\right)  +\left(  \left(  -a\right)  +\left(  -b\right)  \right)
+=\left(  \left(  -a\right)  +\left(  -b\right)  \right)  +\left(  a+b\right)
+=0.
+\]
+
+
+Associativity of addition yields%
+\begin{align*}
+\left(  a+b\right)  +\left(  \left(  -a\right)  +\left(  -b\right)  \right)
+& =a+\left(  b+\underbrace{\left(  \left(  -a\right)  +\left(  -b\right)
+\right)  }_{=\left(  -b\right)  +\left(  -a\right)  }\right)
+=a+\underbrace{\left(  b+\left(  \left(  -b\right)  +\left(  -a\right)
+\right)  \right)  }_{\substack{=\left(  b+\left(  -b\right)  \right)  +\left(
+-a\right)  \\\text{(by associativity}\\\text{of addition)}}}\\
+& =a+\left(  \underbrace{\left(  b+\left(  -b\right)  \right)  }%
+_{\substack{=0\\\text{(since }-b\text{ is the}\\\text{additive inverse of
+}b\text{)}}}+\left(  -a\right)  \right)  =a+\underbrace{\left(  0+\left(
+-a\right)  \right)  }_{=-a}\\
+& =a+\left(  -a\right)  =0
+\end{align*}
+(since $-a$ is the additive inverse of $a$). Also, $\left(  a+b\right)
++\left(  \left(  -a\right)  +\left(  -b\right)  \right)  =\left(  \left(
+-a\right)  +\left(  -b\right)  \right)  +\left(  a+b\right)  $ (by
+commutativity of addition). Combining these two equalities, we obtain%
+\[
+\left(  a+b\right)  +\left(  \left(  -a\right)  +\left(  -b\right)  \right)
+=\left(  \left(  -a\right)  +\left(  -b\right)  \right)  +\left(  a+b\right)
+=0.
+\]
+This completes the proof of part \textbf{(b)}.
+
+\textbf{(c)} ..., \textbf{(g)} LTTR.
 \end{proof}
 
 Furthermore, we don't need to parenthesize expressions like $a+b+c$ or $abc$. Indeed:
@@ -21682,7 +21720,10 @@ i\in\left\{  0,1,\ldots,k\right\}  .
 \end{theorem}
 
 Part \textbf{(b)} of this theorem is called the \textit{general associativity
-theorem}, and will be proven on HW0.
+theorem}, and will be proven on HW0. (For now, you can find proofs in various
+texts on algebra, or at
+\url{https://groupprops.subwiki.org/wiki/Associative_implies_generalized_associative}
+.)
 
 What else can we do with our ring $\mathbb{K}$ ?
 
