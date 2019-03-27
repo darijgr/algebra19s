@@ -21406,6 +21406,9 @@ quickly lead to painful confusion.
 \item If $n$ is a positive integer, then $\mathbb{Z}/n$ is a ring (with the
 operations $+$ and $\cdot$ that we defined, with the zero $\left[  0\right]
 _{n}$ and the unity $\left[  1\right]  _{n}$). This ring has $n$ elements.
+(When $n$ is prime, it can be shown that $\mathbb{Z}/n$ is the only ring
+with exactly $n$ elements, up to relabeling its elements.
+In general, however, there can be several rings with $n$ elements.)
 
 \item In set theory, the
 \textit{\href{https://en.wikipedia.org/wiki/Symmetric_difference}{\textit{symmetric
@@ -21432,7 +21435,7 @@ B\bigtriangleup C\right)  \ \ \ \ \ \ \ \ \ \ \text{for any sets }A,B,C;\\
 \ \ \ \ \ \ \ \ \ \ \text{for any sets }A,B,C;\\
 A\bigtriangleup\varnothing &  =\varnothing\bigtriangleup
 A=A\ \ \ \ \ \ \ \ \ \ \text{for any set }A;\\
-A\cap S &  =S\cap A=A\ \ \ \ \ \ \ \ \ \ \text{for any set }A;\\
+A\cap S &  =S\cap A=A\ \ \ \ \ \ \ \ \ \ \text{for any subset }A\text{ of }S;\\
 A\bigtriangleup A &  =\varnothing\ \ \ \ \ \ \ \ \ \ \text{for any set }A;\\
 \varnothing\cap A &  =A\cap\varnothing=\varnothing
 \ \ \ \ \ \ \ \ \ \ \text{for any set }A;\\
@@ -21470,7 +21473,8 @@ new element $\infty$ such that $0\cdot\infty=1$. And assume (this is a very
 reasonable assumption) that the numbers $0$ and $1$ are indeed the zero and
 the unity of this ring. Then, the Annihilation axiom yields $0\cdot\infty=0$,
 so that $0=0\cdot\infty=1$, which is absurd. So such a ring $\mathbb{K}$
-cannot exist. Thus, we cannot divide by $0$.
+cannot exist. Thus, we cannot divide by $0$, even if we extend our
+``number system''.
 
 \item Here is an \textquotedblleft almost-ring\textquotedblright\ beloved to
 combinatorialists: the \textit{max-plus semiring}\textbf{ }$\mathbb{T}$ (also
@@ -21519,7 +21523,8 @@ Such a structure is called a \textit{semiring}.
 \item Consider the set
 \[
 2\mathbb{Z}:=\left\{  2a\ \mid\ a\in\mathbb{Z}\right\}  =\left\{
-\ldots,-4,-2,0,2,4,\ldots\right\}  .
+\ldots,-4,-2,0,2,4,\ldots\right\} 
+= \left\{\text{all even integers}\right\} .
 \]
 Endowing this set with the usual addition and multiplication (and $0$), we
 obtain a structure that is like a ring but has no unity. This is called a
@@ -21542,7 +21547,7 @@ Let $a\in\mathbb{K}$. Then, $a$ has exactly one additive inverse.
 
 \begin{proof}
 By the ring axioms, $a$ has \textbf{at least one} additive inverse. We must
-thus only show that this additive inverse is unique.
+thus only show that $a$ has \textbf{at most one} additive inverse.
 
 This can be done by the same argument that we used previously to prove that a
 residue class in $\mathbb{Z}/n$ has at most one inverse (in the proof of
@@ -21550,14 +21555,18 @@ Proposition \ref{prop.equiv.modinv.uni}), but now we need to replace
 $\mathbb{Z}/n$, multiplication and $\left[  1\right]  _{n}$ by $\mathbb{K}$,
 addition and $0$, respectively.
 
-In detail: Let $b$ and $c$ be two additive inverses of $a$. Then, $a+b=0$ and
-$c+a=0$. Hence, the associativity of multiplication yields%
+In detail: Let $b$ and $c$ be two additive inverses of $a$. We must prove
+that $b = c$.
+We have $a+b=0$ (since $b$ is an additive inverse of $a$) and
+$c+a=0$ (since $c$ is an additive inverse of $a$).
+Hence, the associativity of addition yields%
 \[
-\left(  c+a\right)  +b=c+\underbrace{\left(  a+b\right)  }_{=0}=c+0=c.
+\left(  c+a\right)  +b=c+\underbrace{\left(  a+b\right)  }_{=0}=c+0=c
 \]
-Comparing this with%
+(by the neutrality of zero). Comparing this with%
 \[
-\underbrace{\left(  c+a\right)  }_{=0}+b=0+b=b,
+\underbrace{\left(  c+a\right)  }_{=0}+b=0+b=b
+\qquad \left(\text{by the neutrality of zero}\right) ,
 \]
 we obtain $b=c$, so our two additive inverses are equal. This shows that the
 additive inverse is unique.
@@ -21565,27 +21574,36 @@ additive inverse is unique.
 
 \begin{definition}
 \textbf{(a)} If $a\in\mathbb{K}$, then the additive inverse of $a$ will be
-called $-a$. (This is well-defined, since the preceding Proposition shows that
+called $-a$. (This is well-defined, since the preceding Theorem shows that
 this additive inverse is unique.)
 
 \textbf{(b)} If $a\in\mathbb{K}$ and $b\in\mathbb{K}$, then we define the
-\textit{difference} $a-b$ to be $a+\left(  -b\right)  $. This new operation
-$-$ is called \textquotedblleft\textit{subtraction}\textquotedblright.
+\textit{difference} $a-b$ to be the element $a+\left(  -b\right)  $
+of $\mathbb{K}$. This new binary operation
+$-$ on $\mathbb{K}$ is called \textquotedblleft\textit{subtraction}\textquotedblright.
 \end{definition}
 
 \begin{proposition}
 Let $a,b,c\in\mathbb{K}$.
 
-\textbf{(a)} We have $a-b=c$ if and only if $a=b+c$. (In other words,
-subtraction undoes addition.)
+\textbf{(a)} We have $a-b=c$ if and only if $a=b+c$. (Roughly speaking,
+this means that subtraction undoes addition.)
 
-\textbf{(b)} We have $a-b-c=a-\left(  b+c\right)  $.
+\textbf{(b)} We have $-\left(a+b\right) = \left(-a\right) + \left(-b\right)$.
 
-\textbf{(c)} We have $0-a=-a$.
+\textbf{(c)} We have $-0 = 0$.
+
+\textbf{(d)} We have $0 - a = -a$.
+
+\textbf{(e)} We have $-\left(-a\right) = a$.
+
+\textbf{(f)} We have $-\left(ab\right) = \left(-a\right) b = a \left(-b\right)$.
+
+\textbf{(g)} We have $a-b-c=a-\left(  b+c\right)  $.
 \end{proposition}
 
 \begin{proof}
-All of this is pretty straightforward. For example:
+All of this is fairly straightforward to prove. For example:
 
 \textbf{(a)} $\Longrightarrow:$ Assume $a-b=c$. Thus, $c=a-b=a+\left(
 -b\right)  $ (by definition). Adding $b$ on both sides of this equation, we
@@ -21607,7 +21625,7 @@ the}\\\text{additive inverse of }b\text{)}}}=c+0=c,
 \]
 so that $c=a+\left(  -b\right)  =a-b$. Thus, \textbf{(a)} is proven.
 
-\textbf{(b)}, \textbf{(c)} LTTR.
+\textbf{(b)}, ..., \textbf{(g)} LTTR.
 \end{proof}
 
 Furthermore, we don't need to parenthesize expressions like $a+b+c$ or $abc$. Indeed:
@@ -21653,17 +21671,16 @@ a_{1}a_{2}\cdots a_{k}=\left(  a_{1}a_{2}\cdots a_{k-1}\right)  a_{k}.
 \]
 
 
-\begin{theo}
 These products still satisfy reasonable rules, such as%
 \[
 a_{1}a_{2}\cdots a_{k}=\left(  a_{1}a_{2}\cdots a_{i}\right)  \left(
-a_{i+1}a_{i+2}\cdots a_{k}\right)  \ \ \ \ \ \ \ \ \ \ \text{for }i\in\left\{
+a_{i+1}a_{i+2}\cdots a_{k}\right)  \ \ \ \ \ \ \ \ \ \ \text{for all }i\in\left\{
 0,1,\ldots,k\right\}  .
 \]
-(This is called the \textit{general associativity theorem}, and will be proven
-on HW0.)
-\end{theo}
 \end{theorem}
+
+Part \textbf{(b)} of this theorem  is called the \textit{general associativity theorem}, and will be proven
+on HW0.
 
 What else can we do with our ring $\mathbb{K}$ ?
 
@@ -21689,6 +21706,10 @@ $\mathbb{R}$, $\mathbb{C}$), then this kind of multiplication coincides with
 the multiplication $\cdot$ of $\mathbb{K}$ (that is, $na$ means the same thing).
 \end{definition}
 
+\begin{center}
+\textbf{2019-03-29 lecture}
+\end{center}
+
 We can also define powers:
 
 \begin{definition}
@@ -21706,11 +21727,6 @@ hold in every ring:
 \begin{proposition}
 \textbf{(a)} We have%
 \begin{align*}
--\left(  a+b\right)   &  =\left(  -a\right)  +\left(  -b\right)
-\ \ \ \ \ \ \ \ \ \ \text{for all }a,b\in\mathbb{K};\\
--\left(  -a\right)   &  =a\ \ \ \ \ \ \ \ \ \ \text{for all }a\in\mathbb{K};\\
--\left(  ab\right)   &  =\left(  -a\right)  b=a\left(  -b\right)
-\ \ \ \ \ \ \ \ \ \ \text{for all }a,b\in\mathbb{K};\\
 -\left(  na\right)   &  =\left(  -n\right)  a=n\left(  -a\right)
 \ \ \ \ \ \ \ \ \ \ \text{for }a\in\mathbb{K}\text{ and }n\in\mathbb{Z}%
 \text{;}\\
@@ -21749,10 +21765,6 @@ This further equals $a^{2}+2ab+b^{2}$ if $\mathbb{K}$ is commutative.
 \end{align*}
 
 \end{proposition}
-
-\begin{center}
-\textbf{2019-03-29 lecture}
-\end{center}
 
 TODO:
 
