@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Tuesday, March 26, 2019 01:12:55}
+%TCIDATA{LastRevised=Wednesday, March 27, 2019 01:48:20}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -17246,45 +17246,40 @@ cryptosystem, and the real-life considerations needed to prevent
 \textquotedblleft leakage\textquotedblright\ of sensitive data such as the
 decryption key $d$, are a subject in its own, which we shall not discuss here.
 
-Albert's method for recovering Julia's message relies on the following fact:%
-\[%
-\begin{tabular}
-[c]{||l||}\hline\hline
-\textbf{You have reached the end of the finished part.}\\
-\textbf{TODO: Write on from here.}\\\hline\hline
-\end{tabular}
-\
-\]
-
+Albert's method for recovering Julia's message relies on the following fact
+(which we shall prove a bit later):
 
 \begin{lemma}
-\label{lem.ent.rsa.rsa-lem}Let $p$ and $q$ be two distinct primes. Let
-$a\in\mathbb{Z}$. Let $N$ be a positive integer such that $N\equiv
-1\operatorname{mod}\left(  p-1\right)  \left(  q-1\right)  $. Then,%
-\[
-a^{N}\equiv a\operatorname{mod}pq.
-\]
+\label{lem.ent.rsa.rsa-lem}Let $p$ and $q$ be two distinct primes. Let $N$ be
+a positive integer such that $N\equiv1\operatorname{mod}\left(  p-1\right)
+\left(  q-1\right)  $. Then:
 
+\textbf{(a)} Each $a\in\mathbb{Z}$ satisfies $a^{N}\equiv a\operatorname{mod}%
+pq$.
+
+\textbf{(b)} Each $\alpha\in\mathbb{Z}/\left(  pq\right)  $ satisfies
+$\alpha^{N}=\alpha$.
 \end{lemma}
 
-This lemma can be restated as saying that $\alpha^{N}=\alpha$ for each
-$\alpha\in\mathbb{Z}/\left(  pq\right)  $ (when $p$, $q$ and $N$ are as in the
-lemma). Now, when Albert receives $\beta=\alpha^{e}$ from Julia, we have%
+Now, when Albert receives $\beta=\alpha^{e}$ from Julia, we have%
 \[
 \beta^{d}=\left(  \alpha^{e}\right)  ^{d}=\alpha^{ed}.
 \]
 But $d$ was a modular inverse of $e$ modulo $\ell$; thus, $ed\equiv
 1\operatorname{mod}\ell$. Since $\ell=\left(  p-1\right)  \left(  q-1\right)
-$, Lemma \ref{lem.ent.rsa.rsa-lem} (applied to $N=ed$) yields $\alpha
-^{ed}=\alpha$. Thus, $\beta^{d}=\alpha^{ed}=\alpha$. Thus, the residue class
-$\gamma=\beta^{d}$ that Albert computes is exactly Julia's $\alpha$; hence,
-Albert correctly recovers the message.
+$, we thus have $ed\equiv1\operatorname{mod}\left(  p-1\right)  \left(
+q-1\right)  $. Hence, Lemma \ref{lem.ent.rsa.rsa-lem} \textbf{(b)} (applied to
+$N=ed$) yields $\alpha^{ed}=\alpha$ (since $\alpha\in\mathbb{Z}/\underbrace{m}%
+_{=pq}=\mathbb{Z}/\left(  pq\right)  $). Thus, $\beta^{d}=\alpha^{ed}=\alpha$.
+Thus, the residue class $\gamma=\beta^{d}$ that Albert computes is exactly
+Julia's $\alpha$; hence, Albert correctly recovers the message.
 
 \begin{proof}
-[Proof of Lemma \ref{lem.ent.rsa.rsa-lem}.]We need to show that $pq\mid
-a^{N}-a$. Since $p\perp q$, it suffices to prove that $p\mid a^{N}-a$ and
-$q\mid a^{N}-a$ (because then, Theorem \ref{thm.ent.coprime.combine} will
-yield $pq\mid a^{N}-a$).
+[Proof of Lemma \ref{lem.ent.rsa.rsa-lem} (sketched).]\textbf{(a)} Let
+$a\in\mathbb{Z}$. We need to show that $a^{N}\equiv a\operatorname{mod}pq$. In
+other words, we need to show that $pq\mid a^{N}-a$. Since $p\perp q$, it
+suffices to prove that $p\mid a^{N}-a$ and $q\mid a^{N}-a$ (because then,
+Theorem \ref{thm.ent.coprime.combine} will yield $pq\mid a^{N}-a$).
 
 Let us prove that $p\mid a^{N}-a$ first. Two cases are possible:
 
@@ -17292,22 +17287,49 @@ Let us prove that $p\mid a^{N}-a$ first. Two cases are possible:
 
 \textit{Case 2:} We have $p\nmid a$.
 
-In Case 1, it is easy to see that $p\mid a^{N}-a$.
+Let us first consider Case 1. In this case, we have $p\mid a$. Thus,
+$a\equiv0\operatorname{mod}p$. Hence, $a^{N}\equiv0^{N}=0\operatorname{mod}p$
+(since $N$ is positive). Thus, $\underbrace{a^{N}}_{\equiv0\operatorname{mod}%
+p}-\underbrace{a}_{\equiv0\operatorname{mod}p}\equiv0-0=0\operatorname{mod}p$,
+so that $p\mid a^{N}-a$. Thus, we have proven $p\mid a^{N}-a$ in Case 1.
 
-Now, consider Case 2. In this case, we have $p\nmid a$. But we have
+Now, let us consider Case 2. In this case, we have $p\nmid a$. But we have
 $p-1\mid\left(  p-1\right)  \left(  q-1\right)  $ and $N\equiv
 1\operatorname{mod}\left(  p-1\right)  \left(  q-1\right)  $; hence,
 Proposition \ref{prop.ent.mod.basics} \textbf{(e)} (applied to $\left(
 p-1\right)  \left(  q-1\right)  $, $p-1$, $N$ and $1$ instead of $n$, $m$, $a$
 and $b$) yields $N\equiv1\operatorname{mod}p-1$. Hence, Exercise
 \ref{exe.ent.fermat.uv} (applied to $u=N$ and $v=1$) yields $a^{N}\equiv
-a^{1}=a\operatorname{mod}p$. In other words, $p\mid a^{N}-a$.
+a^{1}=a\operatorname{mod}p$. In other words, $p\mid a^{N}-a$. Thus, we have
+proven $p\mid a^{N}-a$ in Case 2.
 
-So we have proven $p\mid a^{N}-a$ in both Cases. Similarly, we can prove
-$q\mid a^{N}-a$. Thus, Lemma \ref{lem.ent.rsa.rsa-lem} is proven.
+So we have proven $p\mid a^{N}-a$ in both Cases. Hence, $p\mid a^{N}-a$ always
+holds. Similarly, we can prove $q\mid a^{N}-a$. This completes our proof of
+Lemma \ref{lem.ent.rsa.rsa-lem} \textbf{(a)}.
+
+\textbf{(b)} Let $\alpha\in\mathbb{Z}/\left(  pq\right)  $. Then, we can write
+$\alpha$ in the form $\alpha=\left[  a\right]  _{pq}$ for some $a\in
+\mathbb{Z}$ (by Proposition \ref{prop.eqrel.Z/n.ab} \textbf{(a)}). Consider
+this $a$. From $\alpha=\left[  a\right]  _{pq}$, we obtain $\alpha^{N}=\left(
+\left[  a\right]  _{pq}\right)  ^{N}=\left[  a^{N}\right]  _{pq}=\left[
+a\right]  _{pq}$ (since Lemma \ref{lem.ent.rsa.rsa-lem} \textbf{(a)} yields
+$a^{N}\equiv a\operatorname{mod}pq$). Hence, $\alpha^{N}=\left[  a\right]
+_{pq}=\alpha$. This proves Lemma \ref{lem.ent.rsa.rsa-lem} \textbf{(b)}.
 \end{proof}
 
 \subsubsection{Computing using the Chinese Remainder Theorem}
+
+Next, let us briefly discuss a simple yet unexpected application of the
+Chinese Remainder Theorem.%
+
+\[%
+\begin{tabular}
+[c]{||l||}\hline\hline
+\textbf{You have reached the end of the finished part.}\\
+\textbf{TODO: Write on from here.}\\\hline\hline
+\end{tabular}
+\]
+
 
 Assume that you have an expression $a$ that is made of integers, addition,
 subtraction and multiplication. For example, say%
@@ -17317,8 +17339,8 @@ a=400\cdot405\cdot409\cdot413-401\cdot404\cdot408\cdot414.
 
 
 Assume that computing $a$ directly is too hard, because the intermediate
-results will be forbiddingly huge, but you know (e.g., from some estimates)
-that the final result will be a fairly small numbers. Let's say (for
+results will be forbiddingly huge number, but you know (e.g., from some
+estimates) that the final result will be a fairly small number. Let's say (for
 simplicity) that you know that $0\leq a<500\ 000$.
 
 How can you use this information to compute $a$ quickly?
@@ -17331,9 +17353,9 @@ huge anymore) and similarly $\left[  a\right]  _{3}$ and $\left[  a\right]
 _{5}$ and $\left[  a\right]  _{7}$ etc. (here we are using $n=2,3,5,7$, but we
 don't have to use primes -- we just need a bunch of coprime integers).
 
-The Chinese Remainder Theorem (plus an actual algorithm that computes $\left(
-S_{m,n}\right)  ^{-1}$) lets us \textquotedblleft patch\textquotedblright%
-\ these results together:
+The Chinese Remainder Theorem (plus an actual algorithm that computes the map
+$\left(  S_{m,n}\right)  ^{-1}$ from Theorem \ref{thm.eqrel.CRT2}) lets us
+\textquotedblleft patch\textquotedblright\ these results together:
 
 \begin{itemize}
 \item From $\left[  a\right]  _{2}$ and $\left[  a\right]  _{3}$, you can get
@@ -17350,8 +17372,9 @@ and so on, until you get $\left[  a\right]  _{N}$ for some $N>500\ 000$. But
 then you know $a\%N$. This means that you know $a$, because $0\leq
 a<500\ 000<N$ shows that $a\%N=a$.
 
-This technique has been used a lot. I think computer algebra software uses it,
-e.g., for factoring integer polynomials.
+This technique has been used a lot (for an example, see \cite[pp.
+1031--1033]{Vogan07}). I think computer algebra software uses a slightly more
+complicated version of this technique, e.g., for factoring integer polynomials.
 
 \begin{center}
 \textbf{2019-03-01 lecture}
@@ -17757,11 +17780,12 @@ By Convention \ref{conv.CC.RRtoCC.embed}, we identify the real numbers $a$ and
 $b$ with the complex numbers $a_{\mathbb{C}}=\left(  a,0\right)  $ and
 $b_{\mathbb{C}}=\left(  b,0\right)  $, respectively. Thus,%
 \begin{align*}
-\underbrace{a}_{=\left(  a,0\right)  }+\underbrace{b}_{=\left(  b,0\right)
-}\underbrace{i}_{=\left(  0,1\right)  }  &  =\left(  a,0\right)
+\underbrace{a}_{\substack{=a_{\mathbb{C}}\\=\left(  a,0\right)  }%
+}+\underbrace{b}_{\substack{=b_{\mathbb{C}}\\=\left(  b,0\right)
+}}\underbrace{i}_{=\left(  0,1\right)  } &  =\left(  a,0\right)
 +\underbrace{\left(  b,0\right)  \left(  0,1\right)  }_{=\left(
 b\cdot0-0\cdot1,b\cdot1+0\cdot0\right)  =\left(  0,b\right)  }=\left(
-a,0\right)  +\left(  0,b\right) \\
+a,0\right)  +\left(  0,b\right)  \\
 &  =\left(  a+0,0+b\right)  =\left(  a,b\right)  .
 \end{align*}
 
@@ -17773,7 +17797,16 @@ a,0\right)  +\left(  0,b\right) \\
 \end{proposition}
 
 \begin{proof}
-Straightforward verification.
+This is straightforward: Let $a\in\mathbb{R}$ and $\left(  b,c\right)
+\in\mathbb{C}$. By Convention \ref{conv.CC.RRtoCC.embed}, we identify the real
+number $a$ with the complex number $a_{\mathbb{C}}=\left(  a,0\right)  $.
+Hence,%
+\[
+\underbrace{a}_{\substack{=a_{\mathbb{C}}\\=\left(  a,0\right)  }}\left(
+b,c\right)  =\left(  a,0\right)  \cdot\left(  b,c\right)  =\left(
+ab-0c,ac+0b\right)  =\left(  ab,ac\right)  .
+\]
+
 \end{proof}
 
 \begin{definition}
@@ -17860,8 +17893,8 @@ $\textquotedblright\ direction.
 Caution: Fractional powers (like $\alpha^{1/2}$) are not really well-defined.
 
 \begin{proposition}
-\textbf{(a)} Complex numbers satisfy the usual rules for exponents apply:
-e.g., we have%
+\textbf{(a)} Complex numbers satisfy the usual rules for exponents: e.g., we
+have%
 \[
 \left(  \alpha\beta\right)  ^{n}=\alpha^{n}\beta^{n}%
 ,\ \ \ \ \ \ \ \ \ \ \alpha^{n+m}=\alpha^{n}\alpha^{m}%
@@ -17933,27 +17966,30 @@ $r\in\mathbb{R}$).
 \end{proposition}
 
 \begin{proof}
-\textbf{(a)} Write $\alpha$ as $\alpha=\left(  a,b\right)  $. Then,
-$\overline{\alpha}=\left(  a,-b\right)  $. Thus,%
+Write $\alpha$ as $\alpha=\left(  a,b\right)  $. Then, $\overline{\alpha
+}=\left(  a,-b\right)  $ (by the definition of $\overline{\alpha}$) and
+$\operatorname*{N}\left(  \alpha\right)  =a^{2}+b^{2}$ (by the definition of
+$\operatorname*{N}\left(  \alpha\right)  $).
+
+\textbf{(a)} Multiplying the equalities $\alpha=\left(  a,b\right)  $ and
+$\overline{\alpha}=\left(  a,-b\right)  $, we obtain%
 \begin{align*}
-\alpha\overline{\alpha}  &  =\left(  a,b\right)  \left(  a,-b\right)  =\left(
-aa-b\left(  -b\right)  ,a\left(  -b\right)  +ba\right) \\
+\alpha\overline{\alpha} &  =\left(  a,b\right)  \left(  a,-b\right)  =\left(
+aa-b\left(  -b\right)  ,a\left(  -b\right)  +ba\right)  \\
 &  =\left(  \underbrace{a^{2}+b^{2}}_{=\operatorname*{N}\left(  \alpha\right)
 },0\right)  =\left(  \operatorname*{N}\left(  \alpha\right)  ,0\right)
 =\left(  \operatorname*{N}\left(  \alpha\right)  \right)  _{\mathbb{C}}.
 \end{align*}
 This proves Proposition \ref{prop.CC.norm.conj} \textbf{(a)}.
 
-\textbf{(b)} Write $\alpha$ as $\alpha=\left(  a,b\right)  $. Then,
-$\overline{\alpha}=\left(  a,-b\right)  $. Thus, the definition of
-$\operatorname*{N}\left(  \overline{\alpha}\right)  $ yields
+\textbf{(b)} Recall that $\overline{\alpha}=\left(  a,-b\right)  $. Thus, the
+definition of $\operatorname*{N}\left(  \overline{\alpha}\right)  $ yields
 $\operatorname*{N}\left(  \overline{\alpha}\right)  =a^{2}+\left(  -b\right)
-^{2}=a^{2}+b^{2}=\operatorname*{N}\left(  \alpha\right)  $ (since this is how
-$\operatorname*{N}\left(  \alpha\right)  $ was defined).
+^{2}=a^{2}+b^{2}=\operatorname*{N}\left(  \alpha\right)  $.
 \end{proof}
 
-A good reference for the basic properties of complex numbers is
-\cite{LaNaSc16}.
+Good references for the basic properties of complex numbers are
+\cite{LaNaSc16} and \cite[\S 3.9--\S 3.12]{Swanso18}.
 
 \begin{center}
 \textbf{2019-03-04 lecture}
@@ -17987,10 +18023,8 @@ $a,b\in\mathbb{R}$.
 Write $\beta$ as $\beta=\left(  c,d\right)  $ for $c,d\in\mathbb{R}$.
 
 Thus, $\alpha\cdot\beta=\left(  a,b\right)  \left(  c,d\right)  =\left(
-ac-bd,ad+bc\right)  $.
-
-Hence, $\overline{\alpha\cdot\beta}=\left(  ac-bd,-\left(  ad+bc\right)
-\right)  $.
+ac-bd,ad+bc\right)  $. Hence, $\overline{\alpha\cdot\beta}=\left(
+ac-bd,-\left(  ad+bc\right)  \right)  $.
 
 On the other hand, $\overline{\alpha}=\left(  a,-b\right)  $ (since
 $\alpha=\left(  a,b\right)  $) and $\overline{\beta}=\left(  c,-d\right)  $
@@ -18002,35 +18036,36 @@ ac-bd,-\left(  ad+bc\right)  \right)  .
 \]
 Comparing this with $\overline{\alpha\cdot\beta}=\left(  ac-bd,-\left(
 ad+bc\right)  \right)  $, we obtain $\overline{\alpha\cdot\beta}%
-=\overline{\alpha}\cdot\overline{\beta}$. This proves part \textbf{(c)}.
+=\overline{\alpha}\cdot\overline{\beta}$. This proves Proposition
+\ref{prop.CC.conj.hom} \textbf{(c)}.
 
 \textbf{(a)} and \textbf{(b)} are similar but easier.
 
-\textbf{(d)} The proposition above (from last time) yields $\operatorname*{N}%
-\left(  \alpha\right)  =\alpha\overline{\alpha}$. Similarly,
+\textbf{(d)} Proposition \ref{prop.CC.norm.conj} \textbf{(a)} yields
+$\operatorname*{N}\left(  \alpha\right)  =\alpha\overline{\alpha}$. Similarly,
 $\operatorname*{N}\left(  \beta\right)  =\beta\overline{\beta}$ and
 $\operatorname*{N}\left(  \alpha\beta\right)  =\alpha\beta\overline
 {\alpha\beta}$. Hence,%
 \[
 \operatorname*{N}\left(  \alpha\beta\right)  =\alpha\beta\underbrace{\overline
 {\alpha\beta}}_{\substack{=\overline{\alpha\cdot\beta}=\overline{\alpha}%
-\cdot\overline{\beta}\\\text{(by part \textbf{(c)})}}}=\alpha\beta
-\overline{\alpha}\cdot\overline{\beta}=\underbrace{\left(  \alpha
-\overline{\alpha}\right)  }_{=\operatorname*{N}\left(  \alpha\right)  }%
-\cdot\underbrace{\left(  \beta\overline{\beta}\right)  }_{=\operatorname*{N}%
-\left(  \beta\right)  }=\operatorname*{N}\left(  \alpha\right)  \cdot
-\operatorname*{N}\left(  \beta\right)  .
+\cdot\overline{\beta}\\\text{(by Proposition \ref{prop.CC.conj.hom}
+\textbf{(c)})}}}=\alpha\beta\overline{\alpha}\cdot\overline{\beta
+}=\underbrace{\left(  \alpha\overline{\alpha}\right)  }_{=\operatorname*{N}%
+\left(  \alpha\right)  }\cdot\underbrace{\left(  \beta\overline{\beta}\right)
+}_{=\operatorname*{N}\left(  \beta\right)  }=\operatorname*{N}\left(
+\alpha\right)  \cdot\operatorname*{N}\left(  \beta\right)  .
 \]
-This proves part \textbf{(d)}.
+This proves Proposition \ref{prop.CC.conj.hom} \textbf{(d)}.
 
-\textbf{(e)} Assume that $\beta\neq0$. Part \textbf{(d)} (applied to
-$\dfrac{\alpha}{\beta}$ instead of $\alpha$) yields $\operatorname*{N}\left(
-\dfrac{\alpha}{\beta}\cdot\beta\right)  =\operatorname*{N}\left(
-\dfrac{\alpha}{\beta}\right)  \cdot\operatorname*{N}\left(  \beta\right)  $.
-In view of $\dfrac{\alpha}{\beta}\cdot\beta=\alpha$, this rewrites as
-$\operatorname*{N}\left(  \alpha\right)  =\operatorname*{N}\left(
-\dfrac{\alpha}{\beta}\right)  \cdot\operatorname*{N}\left(  \beta\right)  $.
-From this, part \textbf{(e)} follows.
+\textbf{(e)} Assume that $\beta\neq0$. Proposition \ref{prop.CC.conj.hom}
+\textbf{(d)} (applied to $\dfrac{\alpha}{\beta}$ instead of $\alpha$) yields
+$\operatorname*{N}\left(  \dfrac{\alpha}{\beta}\cdot\beta\right)
+=\operatorname*{N}\left(  \dfrac{\alpha}{\beta}\right)  \cdot\operatorname*{N}%
+\left(  \beta\right)  $. In view of $\dfrac{\alpha}{\beta}\cdot\beta=\alpha$,
+this rewrites as $\operatorname*{N}\left(  \alpha\right)  =\operatorname*{N}%
+\left(  \dfrac{\alpha}{\beta}\right)  \cdot\operatorname*{N}\left(
+\beta\right)  $. From this, Proposition \ref{prop.CC.conj.hom} \textbf{(e)} follows.
 \end{proof}
 
 Remember the Brahmagupta--Fibonacci identity
@@ -18046,10 +18081,10 @@ for $a,b,c,d\in\mathbb{R}$. This identity is equivalent to the identity%
 \]
 for the complex numbers $\alpha=\left(  a,b\right)  =a+bi$ and $\beta=\left(
 c,d\right)  =c+di$. Thus, the identity (\ref{eq.intro.sum-of-2sq.sum*sum}) is
-just part \textbf{(d)} of the above proposition, restated without the use of
-complex numbers. This answers the question of how you could have come up with
-this identity (although Brahmagupta must have found it in a different way,
-since complex numbers were not known to him).
+just Proposition \ref{prop.CC.conj.hom} \textbf{(d)}, restated without the use
+of complex numbers. This answers the question of how you could have come up
+with this identity (although Brahmagupta must have found it in a different
+way, since complex numbers were not known to him).
 
 \begin{corollary}
 \label{cor.CC.norm.pow}Let $\alpha\in\mathbb{C}$ and $k\in\mathbb{N}$. Then:
@@ -18336,25 +18371,28 @@ $\beta=\alpha^{-1}$) yields $\operatorname*{N}\left(  \alpha\alpha
 ^{-1}\right)  =\operatorname*{N}\left(  \alpha\right)  \cdot\operatorname*{N}%
 \left(  \alpha^{-1}\right)  $. Hence, $\operatorname*{N}\left(  \alpha\right)
 \cdot\operatorname*{N}\left(  \alpha^{-1}\right)  =\operatorname*{N}\left(
-\alpha\alpha^{-1}\right)  =1$. But the previous proposition yields
-$\operatorname*{N}\left(  \alpha\right)  ,\operatorname*{N}\left(  \alpha
-^{-1}\right)  \in\mathbb{N}$. Hence, $\operatorname*{N}\left(  \alpha\right)
-\cdot\operatorname*{N}\left(  \alpha^{-1}\right)  =1$ yields
-$\operatorname*{N}\left(  \alpha\right)  =\operatorname*{N}\left(  \alpha
-^{-1}\right)  =1$.
+\alpha\alpha^{-1}\right)  =1$. But Proposition \ref{prop.Z[i].gauss.Norm-N}
+yields $\operatorname*{N}\left(  \alpha\right)  ,\operatorname*{N}\left(
+\alpha^{-1}\right)  \in\mathbb{N}$. Hence, $\operatorname*{N}\left(
+\alpha\right)  \cdot\operatorname*{N}\left(  \alpha^{-1}\right)  =1$ yields
+$\operatorname*{N}\left(  \alpha\right)  \mid1$ and thus $\operatorname*{N}%
+\left(  \alpha\right)  =1$ (since $\operatorname*{N}\left(  \alpha\right)
+\in\mathbb{N}$).
 
-But write $\alpha$ as $\alpha=\left(  a,b\right)  $ with $a,b\in\mathbb{Z}$.
-Then, $a^{2}+b^{2}=\operatorname*{N}\left(  \alpha\right)  =1$. This entails
+But let us write $\alpha$ as $\alpha=\left(  a,b\right)  $ with $a,b\in
+\mathbb{Z}$. Then, $\operatorname*{N}\left(  \alpha\right)  =a^{2}+b^{2}$, so
+that $a^{2}+b^{2}=\operatorname*{N}\left(  \alpha\right)  =1$. This entails
 that $\left(  a,b\right)  $ is either $\left(  1,0\right)  $ or $\left(
 -1,0\right)  $ or $\left(  0,1\right)  $ or $\left(  0,-1\right)  $ (since
 $a^{2}+b^{2}=1$ leads to $a^{2}\leq1$ and thus $a\in\left\{  0,1,-1\right\}  $
 and similarly $b\in\left\{  0,1,-1\right\}  $, and we can check all these
 cases by hand). In other words, $\alpha$ is either $1$ or $-1$ or $i$ or $-i$.
-This proves the proposition.
+This proves Proposition \ref{prop.Z[i].gauss.units}.
 \end{proof}
 
-As a consequence of this proposition, if we are given two Gaussian integers
-$\alpha$ and $\beta$, we can easily check whether $\alpha\sim\beta$ holds.
+As a consequence of Proposition \ref{prop.Z[i].gauss.units}, if we are given
+two Gaussian integers $\alpha$ and $\beta$, we can easily check whether
+$\alpha\sim\beta$ holds.
 
 \begin{proposition}
 \label{prop.Z[i].gauss.norm1}Let $\alpha$ be a Gaussian integer.
@@ -18370,10 +18408,10 @@ if $\alpha$ is a unit.
 Write $\alpha$ as $\alpha=\left(  a,b\right)  =a+bi$ for $a,b\in\mathbb{Z}$.
 Then, $\operatorname*{N}\left(  \alpha\right)  =a^{2}+b^{2}$.
 
-\textbf{(a)} We have $\operatorname*{N}\left(  \alpha\right)  =0$ if only if
-$a^{2}+b^{2}=0$ (since $\operatorname*{N}\left(  \alpha\right)  =a^{2}+b^{2}%
-$), which can only happen when both $a$ and $b$ equal $0$, which means that
-$\alpha=0$.
+\textbf{(a)} We have $\operatorname*{N}\left(  \alpha\right)  =0$ if and only
+if $a^{2}+b^{2}=0$ (since $\operatorname*{N}\left(  \alpha\right)
+=a^{2}+b^{2}$), which can only happen when both $a$ and $b$ equal $0$, which
+means that $\alpha=0$.
 
 \textbf{(b)} We have $\operatorname*{N}\left(  \alpha\right)  =a^{2}+b^{2}$.
 Thus, $\operatorname*{N}\left(  \alpha\right)  =1$ if and only if one of $a$
@@ -18413,9 +18451,10 @@ We have $\alpha=\gamma\beta$ for some unit $\gamma\in\mathbb{Z}\left[
 i\right]  $ (since $\alpha\sim\beta$). Consider this $\gamma$. Since $\gamma$
 is a unit, we have $\operatorname*{N}\left(  \gamma\right)  =1$ (by
 Proposition \ref{prop.Z[i].gauss.norm1} \textbf{(b)}). Thus,
-$\operatorname*{N}\left(  \alpha\right)  =\underbrace{\operatorname*{N}\left(
-\gamma\right)  }_{=1}\operatorname*{N}\left(  \beta\right)  =\operatorname*{N}%
-\left(  \beta\right)  $.
+$\operatorname*{N}\left(  \underbrace{\alpha}_{=\gamma\beta}\right)
+=\operatorname*{N}\left(  \gamma\beta\right)  =\underbrace{\operatorname*{N}%
+\left(  \gamma\right)  }_{=1}\operatorname*{N}\left(  \beta\right)
+=\operatorname*{N}\left(  \beta\right)  $.
 \end{proof}
 
 \subsubsection{Divisibility and congruence}
@@ -20996,7 +21035,7 @@ respectively, and
 by $0_{\mathbb{K}}$ and $1_{\mathbb{K}}$, respectively
 \end{itemize}
 
-such that the following axioms are satisfied:
+\noindent such that the following axioms are satisfied:
 
 \begin{itemize}
 \item \textbf{Commutativity of addition:} We have $a+_{\mathbb{K}%
@@ -21012,14 +21051,14 @@ for all $a,b,c\in\mathbb{K}$.
 \item \textbf{Existence of additive inverses:} For any $a\in\mathbb{K}$, there
 exists an element $a^{\prime}\in\mathbb{K}$ such that $a+_{\mathbb{K}%
 }a^{\prime}=a^{\prime}+_{\mathbb{K}}a=0_{\mathbb{K}}$. (It is not
-
 \textbf{immediately} obvious, but will be shown later, that such an
 $a^{\prime}$ is unique. Thus, $a^{\prime}$ is called the \textit{additive
 inverse} of $a$, and is denoted by $-a$.)
 
 \item \textbf{Associativity of multiplication:} We have $a\left(  bc\right)
 =\left(  ab\right)  c$ for all $a,b,c\in\mathbb{K}$. Here and in the
-following, we use ``$xy$'' as an abbreviation for ``$x\cdot_{\mathbb{K}}y$''.
+following, we use \textquotedblleft$xy$\textquotedblright\ as an abbreviation
+for \textquotedblleft$x\cdot_{\mathbb{K}}y$\textquotedblright.
 
 \item \textbf{Neutrality of one:} We have $a1_{\mathbb{K}}=1_{\mathbb{K}}a=a$
 for all $a\in\mathbb{K}$.
@@ -21031,7 +21070,7 @@ for all $a\in\mathbb{K}$.
 \begin{align*}
 a\left(  b+_{\mathbb{K}}c\right)   &  =ab+_{\mathbb{K}}%
 ac\ \ \ \ \ \ \ \ \ \ \text{and}\\
-\left(  a+_{\mathbb{K}}b\right)  c  &  =ac+_{\mathbb{K}}bc
+\left(  a+_{\mathbb{K}}b\right)  c &  =ac+_{\mathbb{K}}bc
 \end{align*}
 for all $a,b,c\in\mathbb{K}$. Here and in the following, we are using the
 PEMDAS convention for order of operations; thus, for example,
@@ -21040,15 +21079,13 @@ PEMDAS convention for order of operations; thus, for example,
 $\textquotedblright.
 \end{itemize}
 
-These eight axioms will be called the \textit{ring axioms}.
+\noindent These eight axioms will be called the \textit{ring axioms}.
 
-(Note that we do not require the existence of a ``subtraction'' operation
-$-_{\mathbb{K}}$. But we will later construct such an operation out of the
-existing operations and axioms; it is thus unnecessary to require it.
-
-We also do not require the existence of multiplicative inverses; nor do we require
-
-commutativity of multiplication yet.)
+(Note that we do not require the existence of a \textquotedblleft
+subtraction\textquotedblright\ operation $-_{\mathbb{K}}$. But we will later
+construct such an operation out of the existing operations and axioms; it is
+thus unnecessary to require it. We also do not require the existence of
+multiplicative inverses; nor do we require commutativity of multiplication yet.)
 
 \textbf{(b)} A ring $\mathbb{K}$ (with operations $+_{\mathbb{K}}$ and
 $\cdot_{\mathbb{K}}$) is called \textit{commutative} if it satisfies the
@@ -21072,13 +21109,10 @@ it is not.)
 
 \item We have not required our rings to be endowed with a \textquotedblleft
 subtraction\textquotedblright\ operation. Nevertheless, each ring $\mathbb{K}$
-automatically has a subtraction operation: Namely, for any
-
-$a,b\in\mathbb{K}$, we can define $a-b$ to be $a+b^{\prime}$, where
-
-$b^{\prime}$ is the additive inverse of $b$. (We will later see that this
-
-operation is well-defined and satisfies the rules you would expect.)
+automatically has a subtraction operation: Namely, for any $a,b\in\mathbb{K}$,
+we can define $a-b$ to be $a+b^{\prime}$, where $b^{\prime}$ is the additive
+inverse of $b$. (We will later see that this operation is well-defined and
+satisfies the rules you would expect.)
 
 \item Some of the above axioms are redundant, i.e., they follow from other
 axioms. (For example, Annihilation follows from the other axioms.) We don't
@@ -21087,14 +21121,15 @@ mind this, as long as these axioms are natural and easy to check in real example
 \item We have required commutativity of addition to hold for all rings, but
 commutativity of multiplication only to hold for commutative rings. You may
 wonder what happens if we also omit the commutativity of addition. The answer
-is ``nothing new'': Commutativity of addition follows from the other axioms!
-(Proving this is a fun, although inconsequential, puzzle.)
+is \textquotedblleft nothing new\textquotedblright: Commutativity of addition
+follows from the other axioms! (Proving this is a fun, although
+inconsequential, puzzle.)
 
 \item By our definition, a ring consists of a set $\mathbb{K}$, two operations
 $+$ and $\cdot$ and two elements $0$ and $1$. Thus, strictly speaking, a ring
 is a $5$-tuple $\left(  \mathbb{K},+,\cdot,0,1\right)  $. In reality, we will
 often just speak of the \textquotedblleft ring $\mathbb{K}$\textquotedblright%
-(so we will mention only the set and not the other four pieces of data) and
+\ (so we will mention only the set and not the other four pieces of data) and
 assume that the reader can figure out the rest of the $5$-tuple. This is okay
 as long as the rest of the $5$-tuple can be inferred from the context. For
 example, when we say \textquotedblleft the ring $\mathbb{Z}$\textquotedblright%
@@ -21115,9 +21150,11 @@ ring out of the set $S$, then we have to say this explicitly.
 be a ring. But we do. Be careful when reading the literature, as the truth or
 falsehood of many results depends on whether the $1$ is included in the
 definition of a ring or not. (When authors do not require the element $1$ in
-the definition of a ring, they reserve the notion of a ``unital ring'' for a
-ring that does come equipped with a $1$ that satisfies the ``Neutrality of
-one'' axiom; i.e., they call ``unital ring'' what we call ``ring''.)
+the definition of a ring, they reserve the notion of a \textquotedblleft
+unital ring\textquotedblright\ for a ring that does come equipped with a $1$
+that satisfies the \textquotedblleft Neutrality of one\textquotedblright%
+\ axiom; i.e., they call \textquotedblleft unital ring\textquotedblright\ what
+we call \textquotedblleft ring\textquotedblright.)
 \end{itemize}
 
 Many of the \textquotedblleft number systems\textquotedblright\ seen above,
@@ -21214,7 +21251,7 @@ $1_{\mathbb{Z}^{\prime}}\widetilde{\times}a=a$.
 \begin{align*}
 a\widetilde{\times}\left(  b+c\right)   &  =a\widetilde{\times}%
 b+a\widetilde{\times}c\ \ \ \ \ \ \ \ \ \ \text{and}\\
-\left(  a+b\right)  \widetilde{\times}c  &  =a\widetilde{\times}%
+\left(  a+b\right)  \widetilde{\times}c &  =a\widetilde{\times}%
 c+b\widetilde{\times}c
 \end{align*}
 for all $a,b,c\in\mathbb{Z}^{\prime}$.
@@ -21348,9 +21385,13 @@ is not always equal to $BA$).
 
 \item If you like the empty set, you will enjoy the \textit{zero ring}. This
 is the one-element set $\left\{  0\right\}  $, endowed with the only possible
-addition, the only possible multiplication, the only possible $0$ and the only
-possible $1$ (which you should not call $1$, because it equals $0$). This is a
-commutative ring, and is known as the \textit{zero ring}.
+addition (given by $0+0=0$), the only possible multiplication (given by
+$0\cdot0=0$), the only possible zero (namely, $0$) and the only possible one
+(also $0$). This is a commutative ring, and is known as the \textit{zero
+ring}. Resist the temptation of denoting its one by $1$, as this will quickly
+lead to painful confusion.
+
+\item 
 \end{itemize}
 
 TODO:
@@ -23730,12 +23771,12 @@ a_{1}z,a_{2}z,\ldots,a_{k}z\right)  $ instead of $k$, $\left(  b_{1}%
 }\right)  $) yields%
 \begin{align*}
 &  \gcd\left(  a_{1}x,a_{2}x,\ldots,a_{k}x,a_{1}y,a_{2}y,\ldots,a_{k}%
-y,a_{1}z,a_{2}z,\ldots,a_{k}z\right)  \\
+y,a_{1}z,a_{2}z,\ldots,a_{k}z\right) \\
 &  =\gcd\left(  \underbrace{\gcd\left(  a_{1}x,a_{2}x,\ldots,a_{k}%
 x,a_{1}y,a_{2}y,\ldots,a_{k}y\right)  }_{\substack{=h\gcd\left(  x,y\right)
 \\\text{(by (\ref{sol.ent.coprime.gcdgcd1k3.IH}))}}},\underbrace{\gcd\left(
 a_{1}z,a_{2}z,\ldots,a_{k}z\right)  }_{\substack{=h\left\vert z\right\vert
-\\\text{(by (\ref{sol.ent.coprime.gcdgcd1k3.hz}))}}}\right)  \\
+\\\text{(by (\ref{sol.ent.coprime.gcdgcd1k3.hz}))}}}\right) \\
 &  =\gcd\left(  h\gcd\left(  x,y\right)  ,h\left\vert z\right\vert \right)
 =\underbrace{\left\vert h\right\vert }_{\substack{=h\\=\gcd\left(  a_{1}%
 ,a_{2},\ldots,a_{k}\right)  }}\underbrace{\gcd\left(  \gcd\left(  x,y\right)
@@ -23743,7 +23784,7 @@ a_{1}z,a_{2}z,\ldots,a_{k}z\right)  }_{\substack{=h\left\vert z\right\vert
 \\\text{(by (\ref{sol.ent.coprime.gcdgcd1k3.0}))}}}\\
 &  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Corollary \ref{cor.ent.gcd.sa,sb}
 (applied to }h\text{, }\gcd\left(  x,y\right)  \text{ and }\left\vert
-z\right\vert \text{ instead of }s\text{, }a\text{ and }b\text{)}\right)  \\
+z\right\vert \text{ instead of }s\text{, }a\text{ and }b\text{)}\right) \\
 &  =\gcd\left(  a_{1},a_{2},\ldots,a_{k}\right)  \cdot\gcd\left(
 x,y,z\right)  .
 \end{align*}
@@ -26259,12 +26300,11 @@ p^{i}\right)  $ (since $u$ and $p^{i}$ are positive integers). Thus,%
 Hence,%
 \begin{align*}
 up^{i}-\underbrace{\phi\left(  up^{i}\right)  }_{\leq u\cdot\phi\left(
-p^{i}\right)  } &  \geq up^{i}-u\cdot\phi\left(  p^{i}\right)  =u\cdot
+p^{i}\right)  }  &  \geq up^{i}-u\cdot\phi\left(  p^{i}\right)  =u\cdot
 \underbrace{\left(  p^{i}-\phi\left(  p^{i}\right)  \right)  }%
 _{\substack{=p^{i-1}\\\text{(by (\ref{sol.ent.euler.non-coprime.ineq.3rd.1}%
 ))}}}=\underbrace{u}_{\geq1}p^{i-1}\\
-&  \geq1p^{i-1}\ \ \ \ \ \ \ \ \ \ \left(  \text{since }p^{i-1}\geq0\right)
-\\
+&  \geq1p^{i-1}\ \ \ \ \ \ \ \ \ \ \left(  \text{since }p^{i-1}\geq0\right) \\
 &  \geq p^{i-1}\geq i.
 \end{align*}
 Thus, (\ref{sol.ent.euler.non-coprime.ineq.pf.1}) is proven again.]
@@ -27479,6 +27519,11 @@ with construction of the number systems, 21 August 2018.\newline\url{http://peop
 
 \bibitem[UspHea39]{Uspensky-Heaslet}J. V. Uspensky, M. A. Heaslet,
 \textit{Elementary Number Theory}, McGraw-Hill 1939.
+
+\bibitem[Vogan07]{Vogan07}%
+\href{https://www.ams.org/notices/200709/tx070901122p.pdf}{David Vogan,
+\textit{The Character Table for }$E_{8}$, Notices of the American Mathematical
+Society 2007/09}.
 
 \bibitem[Waerde91a]{Waerden1}B.L. van der Waerden, \textit{Algebra, Volume I},
 translated 7th edition, Springer 1991.
