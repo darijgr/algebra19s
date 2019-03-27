@@ -653,7 +653,8 @@ methods properly works here; do we have to come up with new ad-hoc tricks?
 
 Adi Shamir is one of the founders of modern mathematical cryptography (famous
 in particular for \href{https://en.wikipedia.org/wiki/RSA_(cryptosystem)}{the
-RSA cryptosystem}, see later).
+RSA cryptosystem}, which we will discuss in Subsection
+\ref{subsect.equiv.apps.RSA}).
 
 Shamir's Secret Sharing Scheme is a way in which a secret $\mathbf{a}$ (a
 piece of data -- e.g., nuclear launch codes) can be distributed among $n$
@@ -5576,6 +5577,8 @@ order to prove this, it suffices to prove $n\mid2\left(  1^{d}+2^{d}%
 $, because $n\perp n+1$.]
 \end{exercise}
 
+\subsubsection{More properties of gcds and coprimality}
+
 The following is a random collection of further exercises on gcds.
 
 \begin{exercise}
@@ -5642,6 +5645,35 @@ anymore as the two cases $k=1$ and $k=2$ that we handled in Exercise
 \ref{exe.ent.coprime.sqrtu+sqrtv}. Proofs of the general version can be found
 in \cite{Boreic08} (actually, a stronger statement is proven there, although
 it takes some work to derive ours from it).
+
+Let us generalize Exercise \ref{exe.ent.coprime.gcdgcd1} a bit:
+
+\begin{exercise}
+\label{exe.ent.coprime.gcdgcd1k}Let $x,y\in\mathbb{Z}$, and let $a_{1}%
+,a_{2},\ldots,a_{k}$ be finitely many integers. Prove that
+\[
+\gcd\left(  a_{1},a_{2},\ldots,a_{k}\right)  \cdot\gcd\left(  x,y\right)
+=\gcd\left(  a_{1}x,a_{2}x,\ldots,a_{k}x,a_{1}y,a_{2}y,\ldots,a_{k}y\right)
+.
+\]
+
+\end{exercise}
+
+We can extend this exercise further to several integers instead of $x$ and
+$y$, but this extension would be notationally awkward, so we only state it for
+the case of three integers:
+
+\begin{exercise}
+\label{exe.ent.coprime.gcdgcd1k3}Let $x,y,z\in\mathbb{Z}$, and let
+$a_{1},a_{2},\ldots,a_{k}$ be finitely many integers. Prove that
+\begin{align*}
+&  \gcd\left(  a_{1},a_{2},\ldots,a_{k}\right)  \cdot\gcd\left(  x,y,z\right)
+\\
+&  =\gcd\left(  a_{1}x,a_{2}x,\ldots,a_{k}x,a_{1}y,a_{2}y,\ldots,a_{k}%
+y,a_{1}z,a_{2}z,\ldots,a_{k}z\right)  .
+\end{align*}
+
+\end{exercise}
 
 \begin{center}
 \textbf{2019-02-08 lecture}
@@ -12555,6 +12587,7 @@ p_{1}^{b_{1}}p_{2}^{b_{2}}\cdots p_{u}^{b_{u}}\in\left\{  \text{positive
 divisors of }n\right\}  . \label{pf.lem.ent.divs-bijs.wd}%
 \end{equation}
 
+
 \begin{fineprint}
 [\textit{Proof of (\ref{pf.lem.ent.divs-bijs.wd}):} Let $\left(  b_{1}%
 ,b_{2},\ldots,b_{u}\right)  \in T$. We must prove
@@ -14560,6 +14593,10 @@ shown that there exists \textbf{at most one} such $a$). This proves
 Proposition \ref{prop.eqrel.Z/n.PR} \textbf{(b)}.
 \end{proof}
 
+Proposition \ref{prop.eqrel.Z/n.PR} \textbf{(b)} can be restated as follows:
+Each residue class $\alpha\in\mathbb{Z}/n$ has a unique representative in the
+set $\left\{  0,1,\ldots,n-1\right\}  $.
+
 \subsubsection{Making choices that don't matter: The universal property of
 quotient sets}
 
@@ -16547,7 +16584,7 @@ $\left\vert C\right\vert =1$ are precisely the two classes $\left[  \left[
 $\left[  \left[  p-1\right]  _{p}\right]  _{\sim}=\left\{  \left[  p-1\right]
 _{p}\right\}  $. This proves Claim 2.]
 
-TODO: Finish!
+Finish this!
 \end{noncompile}
 \end{fineprint}
 \end{proof}
@@ -16970,9 +17007,9 @@ Comparing this with $S_{m,n}\left(  \left[  1\right]  _{mn}\right)  =\left(
 \left[  1\right]  _{m},\left[  1\right]  _{n}\right)  $, we obtain
 $S_{m,n}\left(  \alpha\beta\right)  =S_{m,n}\left(  \left[  1\right]
 _{mn}\right)  $. Since the map $S_{m,n}$ is injective, we thus conclude that
-$\alpha\beta=\left[  1\right]  _{mn}$. In other words, $\beta$ is an inverse of
-$\alpha$ (by the definition of \textquotedblleft inverse\textquotedblright).
-Hence, $\alpha$ is a residue class in $\mathbb{Z}/\left(  mn\right)  $ that
+$\alpha\beta=\left[  1\right]  _{mn}$. In other words, $\beta$ is an inverse
+of $\alpha$ (by the definition of \textquotedblleft inverse\textquotedblright%
+). Hence, $\alpha$ is a residue class in $\mathbb{Z}/\left(  mn\right)  $ that
 has an inverse (namely, $\beta$). In other words, $\alpha\in U_{mn}$ (since
 $U_{mn}$ was defined as the set of all residue classes in $\mathbb{Z}/\left(
 mn\right)  $ that have an inverse). Now, $\theta=S_{m,n}\left(
@@ -17025,82 +17062,200 @@ m\right)  \cdot\phi\left(  n\right)  $. So Theorem \ref{thm.ent.phi.mult} is
 proven again.
 \end{proof}
 
-\subsection{A couple of applications of elementary number theory}%
+\subsection{\label{sect.equiv.apps}A couple of applications of elementary
+number theory}
 
-\[%
-\begin{tabular}
-[c]{||l||}\hline\hline
-\textbf{You have reached the end of the finished part.}\\
-\textbf{TODO: Write on from here.}\\\hline\hline
-\end{tabular}
-\ \
-\]
+In the following short section, we shall see two practical applications of the
+above number-theoretical studies. The first is a method for encrypting
+information (the RSA cryptosystem); the second is a trick by which
+computations with large integers can be split up into more manageable pieces
+(and distributed across several computers, or parallelized across several
+cores). We shall be brief, since applications are not a focus of these notes;
+for further details, see \cite{Gallier-RSA} and the MathOverflow answer
+\url{https://mathoverflow.net/a/10022/} . If you are interested in further
+applications, you may also want to consult the other answers to
+\url{https://mathoverflow.net/questions/10014} (for a list of uses of the
+Chinese Remainder Theorem -- mostly, but not entirely, inside mathematics), as
+well as \cite[Appendix to Chapter VII]{Uspensky-Heaslet} (for applications of
+modular arithmetic to calendar computations), and
+\href{https://en.wikipedia.org/wiki/Universal_hashing}{the Wikipedia page on
+\textquotedblleft Universal hashing\textquotedblright} (for an application of
+residue classes modulo primes).
 
+\subsubsection{\label{subsect.equiv.apps.RSA}The RSA cryptosystem}
 
-\subsubsection{The RSA cryptosystem}
+Let us present \href{https://en.wikipedia.org/wiki/RSA_(cryptosystem)}{the
+\textit{RSA cryptosystem}}. This is one of the first modern methods for
+encrypting data. (The name \textquotedblleft RSA\textquotedblright\ stands for
+the initials of its three authors: Rivest, Shamir and Adleman.)
 
-This is one of the first modern algorithms for encrypting data.
-
-(RSA = Rivest, Shamir and Adleman.)
-
-Standard setup: Albert and Julia want to communicate secretly,
-\textbf{without} having to give each other keys in advance.
+This cryptosystem addresses a fairly standard situation: Albert and Julia want
+to communicate secretly (i.e., Albert wants to send messages to Julia, and
+Julia to Albert), \textbf{without} having to give each other keys in advance.
 
 Albert wants to send encrypted messages that only Julia can read, and receive
 encrypted messages that only he can read. The channel of communication may
-have eavesdroppers. How can we do that?
+have eavesdroppers.\footnote{We assume that Albert and Julia are merely trying
+to keep the \textbf{content} of their messages secret from the eavesdroppers;
+the eavesdroppers can still see \textbf{that they are sending each other
+something}. If Albert and Julia want to keep even this fact secret, they need
+a different branch of science -- \textit{steganography}, not cryptography.
+(For reasons that become obvious after a bit of thought, steganography is much
+less of an exact science than cryptography, and has a lot to do with real-life
+situations.)} How can they do that?
 
 \textbf{Setup:}
 
 \begin{itemize}
 \item Albert generates two distinct large and sufficiently random primes $p$
 and $q$. (This involves a lot of technicalities like actually finding large
-primes. See \cite{Gallier-RSA} if you are interested.)
+primes. See Keith Conrad's note \textit{The Solovay-Strassen test}
+\cite{Conrad*} for an algorithm for generating large primes\footnote{More
+precisely, the Solovay-Strassen test is an algorithm for checking (not with
+100\% surety, but with high probability, which suffices in practice) whether a
+given integer is prime. To make this into an algorithm for generating large
+primes, you can simply keep randomly picking large numbers until you hit one
+that is prime. This doesn't take \textbf{too} long, because
+\href{https://en.wikipedia.org/wiki/Prime_number_theorem}{the prime number
+theorem} says that (very roughly speaking!) the probability for a $k$-digit
+number to be prime is $\approx1/k$. (A precise statement of this result would
+require us to introduce notions that have nothing to do with algebra; it is
+commonly done in courses on \textit{analytic number theory}. Needless to say,
+it is perfectly possible to profit from this result in practice without
+proving it.)}, and \cite{Gallier-RSA} for a more comprehensive treatment. As
+to what \textquotedblleft large\textquotedblright\ means, we refer to
+\href{https://en.wikipedia.org/wiki/Key_size}{the Wikipedia article on
+\textquotedblleft key size\textquotedblright}.)
 
-\item Albert computes $m=pq$. This number (called the \textit{modulus}) he
-makes public. (Note that it is hard to factor a number into primes. Thus, the
-public will not know $p$ and $q$.)
+\item Albert computes the positive integer $m=pq$. This number $m$ (called the
+\textit{modulus}) he makes public. (Note that to factor a number into a
+product of primes is computationally a lot harder than to multiply a bunch of
+primes\footnote{See
+\href{https://en.wikipedia.org/wiki/Integer_factorization}{the Wikipedia page
+on \textquotedblleft Integer factorization\textquotedblright} for details on
+what this means. Note that this is not a proven theorem; any day, someone
+could come with a quick algorithm for factoring integers into products of
+primes. You would hear about it in the news, though.}. Thus, eavesdroppers
+will not (likely) be able to reconstruct the primes $p$ and $q$ from their
+(public) product $m$.
 
-\item Albert computes $\ell=\left(  p-1\right)  \left(  q-1\right)  $, but
-keeps this number private.
+\item Albert computes the positive integer $\ell=\left(  p-1\right)  \left(
+q-1\right)  $, but keeps this number private.
 
 \item Albert randomly picks an $e\in\left\{  2,3,\ldots,\ell-1\right\}  $ such
-that $e\perp\ell$. This number $e$ will be called the \textit{encryption key},
-and Albert keeps it private.
+that $e\perp\ell$. (Again, we omit the details of how to pick such an $e$
+randomly\footnote{The rough idea is \textquotedblleft pick $e\in\left\{
+2,3,\ldots,\ell-1\right\}  $ randomly; check (using the Euclidean algorithm)
+whether $e\perp\ell$; if not, then pick another $e$, and keep repeating this
+until you hit an $e$ such that $e\perp\ell$\textquotedblright. In theory, you
+could be unlucky and keep picking bad $e$'s forever; but in reality, you will
+soon hit an $e$ that satisfies $e\perp\ell$.}.) This number $e$ will be called
+the \textit{encryption key}, and Albert keeps it private.
 
 \item Albert computes a positive modular inverse $d$ of $e$ modulo $\ell$
 (that is, a positive integer $d$ such that $ed\equiv1\operatorname{mod}\ell$).
-This number will be called the \textit{decryption key}.
+This number $d$ exists by Theorem \ref{thm.ent.coprime.modinv} \textbf{(b)};
+it will be called the \textit{decryption key}.
 
 \item Albert publishes the pair $\left(  e,m\right)  $ as his \textit{public
 key}.
+
+\item We assume that the messages that Albert and Julia want to send to each
+other are elements of $\left\{  0,1,\ldots,m-1\right\}  $. This assumption is
+perfectly reasonable, because these messages originally exist in \textbf{some}
+digital form (e.g., as bitstrings), and it is easy to translate them from this
+form into elements of $\left\{  0,1,\ldots,m-1\right\}  $ by some universally
+agreed rule (e.g., if a bitstring $\left(  a_{1},a_{2},\ldots,a_{k}\right)  $
+is short enough, then the integer $a_{1}2^{k-1}+a_{2}2^{k-2}+\cdots
++a_{k}2^{k-k}$ will belong to $\left\{  0,1,\ldots,m-1\right\}  $, and thus we
+can translate this bitstring into this latter integer; otherwise, we break it
+up into shorter chunks and send those as separate messages).
 \end{itemize}
 
 \textbf{Encrypting a message:}
 
-If Julia wants to send a message $x\in\mathbb{Z}/m$ to Albert:
+If Julia wants to send a message $a\in\left\{  0,1,\ldots,m-1\right\}  $ to
+Albert, then she does the following:
 
 \begin{itemize}
-\item She computes $x^{e}$ in $\mathbb{Z}/m$. (This is realistically
-computable by \textit{binary exponentiation}: We can compute $a^{n}$ for
-$a\in\mathbb{Z}/m$ and $n\in\mathbb{N}$ recursively via the formulas
-$a^{2k}=\left(  a^{k}\right)  ^{2}$ and $a^{2k+1}=\left(  a^{k}\right)  ^{2}a$.)
+\item She computes the residue class $\alpha:=\left[  a\right]  _{m}%
+\in\mathbb{Z}/m$.
 
-\item She sends $x^{e}$ to Albert.
+\item She computes $\alpha^{e}$ in $\mathbb{Z}/m$. (This can be computed
+quickly using \textit{binary exponentiation}: If $\beta\in\mathbb{Z}/m$, then
+all powers of $\beta$ can be computed recursively via the formulas $\beta
+^{2k}=\left(  \beta^{k}\right)  ^{2}$ and $\beta^{2k+1}=\left(  \beta
+^{k}\right)  ^{2}\beta$.)
+
+\item She sends the residue class $\alpha^{e}$ (or, more precisely, its unique
+representative in the set $\left\{  0,1,\ldots,m-1\right\}  $%
+\ \ \ \ \footnote{This unique representative exists by Proposition
+\ref{prop.eqrel.Z/n.PR} \textbf{(b)} (and can be computed by picking an
+arbitrary representative $b$ first, and then taking its remainder $b\%m$).})
+to Albert.
 \end{itemize}
 
 \textbf{Decrypting a message:}
 
-Albert receives $y=x^{e}$ and recovers $x$ as follows:
+Albert receives the residue class $\beta=\alpha^{e}$ (or, more precisely, a
+representative thereof, which he can easily turn into the residue class), and
+recovers the original message $a$ as follows:
 
 \begin{itemize}
-\item He sets $x=y^{d}$. (This follows from Lemma \ref{lem.ent.rsa.rsa-lem} below.)
+\item He sets $\gamma=\beta^{d}$. This $\gamma$ is the same $\alpha$ that
+Julia computed, as we shall see below.
+
+\item He recovers the original message $a\in\left\{  0,1,\ldots,m-1\right\}  $
+as the unique representative of the residue class $\gamma=\alpha$ in $\left\{
+0,1,\ldots,m-1\right\}  $ (since Julia defined $\alpha$ as the residue class
+of $a$).
 \end{itemize}
 
-This way, Julia can send a message to Albert that no one can intercept (unless
-they know $d$, or have algorithms that no one knows so far).
+This way, Julia can send a message to Albert that no eavesdropper can read --
+unless said eavesdropper knows $d$, or possesses an algorithm hitherto unknown
+to the world, or has an incredibly fast computer, or Albert's randomly picked
+numbers were not random enough\footnote{Computers cannot generate
+\textquotedblleft truly\textquotedblright\ random numbers (whatever this would
+even mean!); thus, you have to get by with number generators which try their
+best at being unpredictable. Lots of creativity has gone into finding ways to
+\href{https://en.wikipedia.org/wiki/Random_number_generation}{come up with
+numbers that are \textquotedblleft as random as possible\textquotedblright}.
+Software alone is, per se, deterministic and thus can at most come up with
+numbers that \textquotedblleft look random\textquotedblright%
+\ (\href{https://en.wikipedia.org/wiki/Pseudorandom_number_generator}{\textquotedblleft
+pseudorandom number generators\textquotedblright}). Nondeterministic input
+must come from the outside world. This is why certain programs that generate
+keys ask you to move your mouse around the screen -- they are, in fact, using
+your mouse movements as a source of randomness. Better randomness comes from
+\href{https://en.wikipedia.org/wiki/Hardware_random_number_generator}{hardware
+random number generators}, such as Geiger counters or
+\href{https://www.popularmechanics.com/technology/security/news/a28921/lava-lamp-security-cloudflare/}{lava
+lamps}.
+\par
+What happens if your randomly picked prime numbers are not random enough? In
+the worst case, you never find two distinct primes to begin with. In slightly
+worse case, your distinct primes all belong to a small and predictable set,
+and an eavesdropper can easily find them simply by checking all possibilities.
+In less obvious cases, different keys you generate for different purposes will
+occasionally have some primes in common, in which case an easy application of
+the Chinese Remainder Theorem will allow an eavesdropper to reconstruct them
+and decrypt your messages. See \url{https://factorable.net} for a study of RSA
+keys in the wild, which found a lot of common primes.}, or one of myriad other
+practical mistakes has been made. The proper implementation of the RSA
+cryptosystem, and the real-life considerations needed to prevent
+\textquotedblleft leakage\textquotedblright\ of sensitive data such as the
+decryption key $d$, are a subject in its own, which we shall not discuss here.
 
-We are using the following fact:
+Albert's method for recovering Julia's message relies on the following fact:%
+\[%
+\begin{tabular}
+[c]{||l||}\hline\hline
+\textbf{You have reached the end of the finished part.}\\
+\textbf{TODO: Write on from here.}\\\hline\hline
+\end{tabular}
+\
+\]
+
 
 \begin{lemma}
 \label{lem.ent.rsa.rsa-lem}Let $p$ and $q$ be two distinct primes. Let
@@ -17112,16 +17267,18 @@ a^{N}\equiv a\operatorname{mod}pq.
 
 \end{lemma}
 
-This lemma can be restated as saying that $x^{N}=x$ for each $x\in
-\mathbb{Z}/\left(  pq\right)  $ (when $p$, $q$ and $N$ are as in the lemma).
-Now, when Albert receives $y=x^{e}$ from Julia, we have%
+This lemma can be restated as saying that $\alpha^{N}=\alpha$ for each
+$\alpha\in\mathbb{Z}/\left(  pq\right)  $ (when $p$, $q$ and $N$ are as in the
+lemma). Now, when Albert receives $\beta=\alpha^{e}$ from Julia, we have%
 \[
-y^{d}=\left(  x^{e}\right)  ^{d}=x^{ed}.
+\beta^{d}=\left(  \alpha^{e}\right)  ^{d}=\alpha^{ed}.
 \]
 But $d$ was a modular inverse of $e$ modulo $\ell$; thus, $ed\equiv
 1\operatorname{mod}\ell$. Since $\ell=\left(  p-1\right)  \left(  q-1\right)
-$, Lemma \ref{lem.ent.rsa.rsa-lem} (applied to $N=ed$) yields $x^{ed}=x$.
-Thus, $y^{d}=x^{ed}=x$, so Albert recovers the message.
+$, Lemma \ref{lem.ent.rsa.rsa-lem} (applied to $N=ed$) yields $\alpha
+^{ed}=\alpha$. Thus, $\beta^{d}=\alpha^{ed}=\alpha$. Thus, the residue class
+$\gamma=\beta^{d}$ that Albert computes is exactly Julia's $\alpha$; hence,
+Albert correctly recovers the message.
 
 \begin{proof}
 [Proof of Lemma \ref{lem.ent.rsa.rsa-lem}.]We need to show that $pq\mid
@@ -20762,7 +20919,14 @@ Legendre's three-squares theorem: iff $n$ is not of the form $n=4^{a}\left(
 XIII]{Uspensky-Heaslet} might have the only elementary proof).
 
 \item When can $n\in\mathbb{N}$ be written as a sum of four squares?
-Lagrange's four-squares theorem: always! This is easier to show, and there is
+Lagrange's four-squares theorem: always!\footnote{An application (fortunately,
+no longer relevant):
+\par
+\textquotedblleft\texttt{Warning: Due to a known bug, the default Linux
+document viewer evince prints N*N copies of a PDF file when N copies
+requested. As a workaround, use Adobe Reader acroread for printing multiple
+copies of PDF documents, or use the fact that every natural number is a sum of
+at most four squares.}\textquotedblright} This is easier to show, and there is
 even a formula for the number of representations: it is $8\sum
 _{\substack{d\mid n;\\4\nmid d}}d$. The existence part can be proven using
 \textquotedblleft Hurwitz integers\textquotedblright, which are certain quaternions.
@@ -23422,12 +23586,177 @@ This contradiction shows that our assumption was false. Hence, $\sqrt{u}%
 \end{proof}
 \end{fineprint}
 
+\subsection{Solution to Exercise \ref{exe.ent.coprime.gcdgcd1k}}
+
+\begin{fineprint}
+\begin{proof}
+[Solution to Exercise \ref{exe.ent.coprime.gcdgcd1k}.]A gcd of a list of
+integers is always a nonnegative integer (by the definition of a gcd). Hence,
+in particular, $\gcd\left(  a_{1},a_{2},\ldots,a_{k}\right)  $ is a
+nonnegative integer. Thus, we can define a nonnegative integer $h$ by
+$h=\gcd\left(  a_{1},a_{2},\ldots,a_{k}\right)  $. Consider this $h$. We have
+$\left\vert h\right\vert =h$ (since $h$ is nonnegative).
+
+Theorem \ref{thm.ent.gcd.split} (applied to $\left(  a_{1}x,a_{2}%
+x,\ldots,a_{k}x\right)  $, $k$ and $\left(  a_{1}y,a_{2}y,\ldots
+,a_{k}y\right)  $ instead of $\left(  b_{1},b_{2},\ldots,b_{k}\right)  $,
+$\ell$ and $\left(  c_{1},c_{2},\ldots,c_{\ell}\right)  $) yields%
+\begin{align}
+&  \gcd\left(  a_{1}x,a_{2}x,\ldots,a_{k}x,a_{1}y,a_{2}y,\ldots,a_{k}y\right)
+\nonumber\\
+&  =\gcd\left(  \gcd\left(  a_{1}x,a_{2}x,\ldots,a_{k}x\right)  ,\gcd\left(
+a_{1}y,a_{2}y,\ldots,a_{k}y\right)  \right)  .
+\label{sol.ent.coprime.gcdgcd1k.1}%
+\end{align}
+
+
+But $\left(  a_{1}x,a_{2}x,\ldots,a_{k}x\right)  =\left(  xa_{1},xa_{2}%
+,\ldots,xa_{k}\right)  $ (since $a_{i}x=xa_{i}$ for each $i\in\left\{
+1,2,\ldots,k\right\}  $) and thus%
+\begin{align*}
+\gcd\left(  a_{1}x,a_{2}x,\ldots,a_{k}x\right)   &  =\gcd\left(  xa_{1}%
+,xa_{2},\ldots,xa_{k}\right)  =\left\vert x\right\vert \gcd\left(  a_{1}%
+,a_{2},\ldots,a_{k}\right) \\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Exercise \ref{exe.ent.gcd.sak},
+applied to }s=x\right)  .
+\end{align*}
+Comparing this with%
+\begin{align*}
+\left\vert xh\right\vert  &  =\left\vert x\right\vert \cdot
+\underbrace{\left\vert h\right\vert }_{=h}\ \ \ \ \ \ \ \ \ \ \left(  \text{by
+(\ref{eq.ent.div.abs(xy)}) (applied to }h\text{ instead of }y\text{)}\right)
+\\
+&  =\left\vert x\right\vert \cdot\underbrace{h}_{=\gcd\left(  a_{1}%
+,a_{2},\ldots,a_{k}\right)  }=\left\vert x\right\vert \gcd\left(  a_{1}%
+,a_{2},\ldots,a_{k}\right)  ,
+\end{align*}
+we obtain
+\[
+\gcd\left(  a_{1}x,a_{2}x,\ldots,a_{k}x\right)  =\left\vert xh\right\vert .
+\]
+The same argument (applied to $y$ instead of $x$) yields%
+\[
+\gcd\left(  a_{1}y,a_{2}y,\ldots,a_{k}y\right)  =\left\vert yh\right\vert .
+\]
+Thus, (\ref{sol.ent.coprime.gcdgcd1k.1}) becomes%
+\begin{align*}
+&  \gcd\left(  a_{1}x,a_{2}x,\ldots,a_{k}x,a_{1}y,a_{2}y,\ldots,a_{k}y\right)
+\\
+&  =\gcd\left(  \underbrace{\gcd\left(  a_{1}x,a_{2}x,\ldots,a_{k}x\right)
+}_{=\left\vert xh\right\vert },\underbrace{\gcd\left(  a_{1}y,a_{2}%
+y,\ldots,a_{k}y\right)  }_{=\left\vert yh\right\vert }\right)  =\gcd\left(
+\left\vert xh\right\vert ,\left\vert yh\right\vert \right) \\
+&  =\gcd\left(  \underbrace{xh}_{=hx},\underbrace{yh}_{=hy}\right)
+\ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{by Exercise \ref{exe.ent.gcd.abs} \textbf{(c)} (applied to }xh\text{ and
+}yh\\
+\text{instead of }a\text{ and }b\text{)}%
+\end{array}
+\right) \\
+&  =\gcd\left(  hx,hy\right)  =\underbrace{\left\vert h\right\vert }_{=h}%
+\gcd\left(  x,y\right)  \ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{by Corollary \ref{cor.ent.gcd.sa,sb} (applied to }h\text{, }x\text{ and
+}y\\
+\text{instead of }s\text{, }a\text{ and }b\text{)}%
+\end{array}
+\right) \\
+&  =\underbrace{h}_{=\gcd\left(  a_{1},a_{2},\ldots,a_{k}\right)  }\gcd\left(
+x,y\right)  =\gcd\left(  a_{1},a_{2},\ldots,a_{k}\right)  \cdot\gcd\left(
+x,y\right)  .
+\end{align*}
+This solves Exercise \ref{exe.ent.coprime.gcdgcd1k}.
+\end{proof}
+\end{fineprint}
+
+\subsection{Solution to Exercise \ref{exe.ent.coprime.gcdgcd1k3}}
+
+\begin{fineprint}
+\begin{proof}
+[Solution to Exercise \ref{exe.ent.coprime.gcdgcd1k3}.]Theorem
+\ref{thm.ent.gcd.uniprop-mul} \textbf{(d)} (applied to $3$ and $\left(
+x,y,z\right)  $ instead of $k$ and $\left(  b_{1},b_{2},\ldots,b_{k}\right)
+$) yields $\gcd\left(  x,y,z\right)  =\gcd\left(  \gcd\left(  x,y\right)
+,z\right)  $. But Exercise \ref{exe.ent.gcd.abs} \textbf{(a)} (applied to
+$\gcd\left(  x,y\right)  $ and $z$ instead of $a$ and $b$) yields $\gcd\left(
+\gcd\left(  x,y\right)  ,\left\vert z\right\vert \right)  =\gcd\left(
+\gcd\left(  x,y\right)  ,z\right)  $. Comparing these two equalities, we
+obtain%
+\begin{equation}
+\gcd\left(  \gcd\left(  x,y\right)  ,\left\vert z\right\vert \right)
+=\gcd\left(  x,y,z\right)  . \label{sol.ent.coprime.gcdgcd1k3.0}%
+\end{equation}
+
+
+A gcd of a list of integers is always a nonnegative integer (by the definition
+of a gcd). Hence, in particular, $\gcd\left(  a_{1},a_{2},\ldots,a_{k}\right)
+$ is a nonnegative integer. Thus, we can define a nonnegative integer $h$ by
+$h=\gcd\left(  a_{1},a_{2},\ldots,a_{k}\right)  $. Consider this $h$. We have
+$\left\vert h\right\vert =h$ (since $h$ is nonnegative).
+
+Multiplying both sides of the equality $h=\gcd\left(  a_{1},a_{2},\ldots
+,a_{k}\right)  $ by $\gcd\left(  x,y\right)  $, we obtain%
+\begin{align}
+h\gcd\left(  x,y\right)   &  =\gcd\left(  a_{1},a_{2},\ldots,a_{k}\right)
+\cdot\gcd\left(  x,y\right) \nonumber\\
+&  =\gcd\left(  a_{1}x,a_{2}x,\ldots,a_{k}x,a_{1}y,a_{2}y,\ldots
+,a_{k}y\right)  \label{sol.ent.coprime.gcdgcd1k3.IH}%
+\end{align}
+(by Exercise \ref{exe.ent.coprime.gcdgcd1k}).
+
+But $\left(  a_{1}z,a_{2}z,\ldots,a_{k}z\right)  =\left(  za_{1},za_{2}%
+,\ldots,za_{k}\right)  $ (since $a_{i}z=za_{i}$ for each $i\in\left\{
+1,2,\ldots,k\right\}  $) and thus%
+\[
+\gcd\left(  a_{1}z,a_{2}z,\ldots,a_{k}z\right)  =\gcd\left(  za_{1}%
+,za_{2},\ldots,za_{k}\right)  =\left\vert z\right\vert \gcd\left(  a_{1}%
+,a_{2},\ldots,a_{k}\right)
+\]
+(by Exercise \ref{exe.ent.gcd.sak}, applied to $s=z$). Thus,%
+\begin{equation}
+\gcd\left(  a_{1}z,a_{2}z,\ldots,a_{k}z\right)  =\left\vert z\right\vert
+\underbrace{\gcd\left(  a_{1},a_{2},\ldots,a_{k}\right)  }_{=h}=\left\vert
+z\right\vert h=h\left\vert z\right\vert . \label{sol.ent.coprime.gcdgcd1k3.hz}%
+\end{equation}
+
+
+Theorem \ref{thm.ent.gcd.split} (applied to $2k$, $\left(  a_{1}%
+x,a_{2}x,\ldots,a_{k}x,a_{1}y,a_{2}y,\ldots,a_{k}y\right)  $, $k$ and $\left(
+a_{1}z,a_{2}z,\ldots,a_{k}z\right)  $ instead of $k$, $\left(  b_{1}%
+,b_{2},\ldots,b_{k}\right)  $, $\ell$ and $\left(  c_{1},c_{2},\ldots,c_{\ell
+}\right)  $) yields%
+\begin{align*}
+&  \gcd\left(  a_{1}x,a_{2}x,\ldots,a_{k}x,a_{1}y,a_{2}y,\ldots,a_{k}%
+y,a_{1}z,a_{2}z,\ldots,a_{k}z\right)  \\
+&  =\gcd\left(  \underbrace{\gcd\left(  a_{1}x,a_{2}x,\ldots,a_{k}%
+x,a_{1}y,a_{2}y,\ldots,a_{k}y\right)  }_{\substack{=h\gcd\left(  x,y\right)
+\\\text{(by (\ref{sol.ent.coprime.gcdgcd1k3.IH}))}}},\underbrace{\gcd\left(
+a_{1}z,a_{2}z,\ldots,a_{k}z\right)  }_{\substack{=h\left\vert z\right\vert
+\\\text{(by (\ref{sol.ent.coprime.gcdgcd1k3.hz}))}}}\right)  \\
+&  =\gcd\left(  h\gcd\left(  x,y\right)  ,h\left\vert z\right\vert \right)
+=\underbrace{\left\vert h\right\vert }_{\substack{=h\\=\gcd\left(  a_{1}%
+,a_{2},\ldots,a_{k}\right)  }}\underbrace{\gcd\left(  \gcd\left(  x,y\right)
+,\left\vert z\right\vert \right)  }_{\substack{=\gcd\left(  x,y,z\right)
+\\\text{(by (\ref{sol.ent.coprime.gcdgcd1k3.0}))}}}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Corollary \ref{cor.ent.gcd.sa,sb}
+(applied to }h\text{, }\gcd\left(  x,y\right)  \text{ and }\left\vert
+z\right\vert \text{ instead of }s\text{, }a\text{ and }b\text{)}\right)  \\
+&  =\gcd\left(  a_{1},a_{2},\ldots,a_{k}\right)  \cdot\gcd\left(
+x,y,z\right)  .
+\end{align*}
+This solves Exercise \ref{exe.ent.coprime.gcdgcd1k3}.
+\end{proof}
+\end{fineprint}
+
 \subsection{Solution to Exercise \ref{exe.ent.lcm.props1}}
 
 \begin{fineprint}
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.lcm.props1}.]The lowest common multiple of
-any set of integers is a nonnegative integers (by Definition
+any set of integers is a nonnegative integer (by Definition
 \ref{def.ent.lcm.lcm}). Thus, in particular, $\operatorname{lcm}\left(
 a,b\right)  $ and $\operatorname{lcm}\left(  b,a\right)  $ and
 $\operatorname{lcm}\left(  -a,b\right)  $ are nonnegative integers.
@@ -23592,8 +23921,8 @@ $\gcd\left(  a,b,c\right)  \cdot\operatorname{lcm}\left(  x,y,z\right)
 Once we have proven Claim 1, we will immediately obtain Exercise
 \ref{exe.ent.lcm.lcmabc} \textbf{(a)} by applying Claim 1 to $x=bc$, $y=ca$,
 $z=ab$ and $N=abc$; and we will obtain Exercise \ref{exe.ent.lcm.lcmabc}
-\textbf{(b)} easily in a similar way (see below for the details). Thus, let us
-focus on proving Claim 1.
+\textbf{(b)} in a similar way (see below for the details). Thus, let us focus
+on proving Claim 1.
 
 \textit{Proof of Claim 1:} If the integers $x,y,z$ are not all nonzero, then
 Claim 1 holds\footnote{\textit{Proof.} Assume that the integers $x,y,z$ are
@@ -25808,7 +26137,7 @@ In other words, (\ref{sol.ent.euler.non-coprime.ineq.pf.1}) holds for $i=j$.
 This completes the induction step. Hence,
 (\ref{sol.ent.euler.non-coprime.ineq.pf.1}) is proven by induction.]
 
-\item {}[\textit{Second proof of (\ref{sol.ent.euler.non-coprime.ineq})
+\item {}[\textit{Second proof of (\ref{sol.ent.euler.non-coprime.ineq.pf.1})
 (sketched):} Let $j\in\mathbb{N}$. We shall show that $up^{j}-\phi\left(
 up^{j}\right)  \geq j$.
 
@@ -25885,10 +26214,10 @@ p^{1},p^{2},\ldots,p^{j}\text{ are distinct}\right)  .
 Now, forget that we fixed $j$. We thus have proven that $up^{j}-\phi\left(
 up^{j}\right)  \geq j$ for each $j\in\mathbb{N}$. Renaming $j$ as $i$ in this
 statement, we conclude that $up^{i}-\phi\left(  up^{i}\right)  \geq i$ for
-each $i\in\mathbb{N}$. Thus, (\ref{sol.ent.euler.non-coprime.ineq}) is proven.]
+each $i\in\mathbb{N}$. Thus, (\ref{sol.ent.euler.non-coprime.ineq.pf.1}) is proven.]
 
-\item {}[\textit{Third proof of (\ref{sol.ent.euler.non-coprime.ineq}):} The
-following proof is a typical estimation argument (the kind you see in analysis).
+\item {}[\textit{Third proof of (\ref{sol.ent.euler.non-coprime.ineq.pf.1}):}
+The following proof is a typical estimation argument (the kind you see in analysis).
 
 Fix $i\in\mathbb{N}$. We must prove that $up^{i}-\phi\left(  up^{i}\right)
 \geq i$. This is obvious in the case when $i=0$ (because Exercise
@@ -25930,14 +26259,15 @@ p^{i}\right)  $ (since $u$ and $p^{i}$ are positive integers). Thus,%
 Hence,%
 \begin{align*}
 up^{i}-\underbrace{\phi\left(  up^{i}\right)  }_{\leq u\cdot\phi\left(
-p^{i}\right)  }  &  \geq up^{i}-u\cdot\phi\left(  p^{i}\right)  =u\cdot
+p^{i}\right)  } &  \geq up^{i}-u\cdot\phi\left(  p^{i}\right)  =u\cdot
 \underbrace{\left(  p^{i}-\phi\left(  p^{i}\right)  \right)  }%
 _{\substack{=p^{i-1}\\\text{(by (\ref{sol.ent.euler.non-coprime.ineq.3rd.1}%
 ))}}}=\underbrace{u}_{\geq1}p^{i-1}\\
-&  \geq1p^{i-1}\ \ \ \ \ \ \ \ \ \ \left(  \text{since }p^{i-1}\geq0\right) \\
+&  \geq1p^{i-1}\ \ \ \ \ \ \ \ \ \ \left(  \text{since }p^{i-1}\geq0\right)
+\\
 &  \geq p^{i-1}\geq i.
 \end{align*}
-Thus, (\ref{sol.ent.euler.non-coprime.ineq}) is proven again.]
+Thus, (\ref{sol.ent.euler.non-coprime.ineq.pf.1}) is proven again.]
 \end{itemize}
 
 Now, we can apply (\ref{sol.ent.euler.non-coprime.ineq.pf.1}) to $i=r$ (since
