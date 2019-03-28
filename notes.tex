@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Wednesday, March 27, 2019 23:49:14}
+%TCIDATA{LastRevised=Thursday, March 28, 2019 00:30:29}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -17331,23 +17331,15 @@ _{pq}=\alpha$. This proves Lemma \ref{lem.ent.rsa.rsa-lem} \textbf{(b)}.
 
 \subsubsection{Computing using the Chinese Remainder Theorem}
 
-Next, let us briefly discuss a simple yet unexpected application of the
-Chinese Remainder Theorem.%
-
-\[%
-\begin{tabular}
-[c]{||l||}\hline\hline
-\textbf{You have reached the end of the finished part.}\\
-\textbf{TODO: Write on from here.}\\\hline\hline
-\end{tabular}
-\]
-
+Next, let us outline a simple yet unexpected application of the Chinese
+Remainder Theorem.
 
 Assume that you have an expression $a$ that is made of integers, addition,
 subtraction and multiplication. For example, say%
-\[
-a=400\cdot405\cdot409\cdot413-401\cdot404\cdot408\cdot414.
-\]
+\begin{equation}
+a=400\cdot405\cdot409\cdot413-401\cdot404\cdot408\cdot
+414.\label{eq.eqrel.app.crt.1}%
+\end{equation}
 
 
 Assume that computing $a$ directly is too hard, because the intermediate
@@ -17357,36 +17349,107 @@ simplicity) that you know that $0\leq a<500\ 000$.
 
 How can you use this information to compute $a$ quickly?
 
-One trick is to compute the residue classes $\left[  a\right]  _{n}$ for
-several coprime integers $n$. For example, we can compute $\left[  a\right]
-_{2}$ (by doing the whole computation in $\mathbb{Z}/2$ instead of
-$\mathbb{Z}$; now the intermediate results will certainly not be forbiddingly
-huge anymore) and similarly $\left[  a\right]  _{3}$ and $\left[  a\right]
-_{5}$ and $\left[  a\right]  _{7}$ etc. (here we are using $n=2,3,5,7$, but we
-don't have to use primes -- we just need a bunch of coprime integers).
+One simple trick is to work with residue classes modulo $500\ 000$ instead of
+working with integer. Thus, instead of computing the number $a$ directly
+through the equality (\ref{eq.eqrel.app.crt.1}), we can instead compute its
+residue class%
+\begin{align*}
+\left[  a\right]  _{500\ 000}  & =\left[  400\cdot405\cdot409\cdot
+413-401\cdot404\cdot408\cdot414\right]  _{500\ 000}\\
+& =\left[  400\right]  _{500\ 000}\cdot\left[  405\right]  _{500\ 000}%
+\cdot\left[  409\right]  _{500\ 000}\cdot\left[  413\right]  _{500\ 000}\\
+& \ \ \ \ \ \ \ \ \ \ -\left[  401\right]  _{500\ 000}\cdot\left[  404\right]
+_{500\ 000}\cdot\left[  408\right]  _{500\ 000}\cdot\left[  414\right]
+_{500\ 000}%
+\end{align*}
+(which is an easier task, because we can always reduce our intermediate
+results using the fact that every integer $a$ satisfies $\left[  a\right]
+_{500\ 000}=\left[  a\ \%\ 500\ 000\right]  _{500\ 000}$), and then recover
+$a$ by observing that $a$ must be the unique representative of its residue
+class $\left[  a\right]  _{500\ 000}$ that belongs to $\left\{  0,1,\ldots
+,499\ 999\right\}  $ (since $0\leq a<500\ 000$). This is actually how integer
+arithmetic works in most low-level programming languages; for example, the
+most popular integer type of the C++ language is \textquotedblleft%
+\texttt{int}\textquotedblright, which stands not for integers but rather for
+residue classes modulo $2^{64}$ (when working on a 64-bit system). (This is
+where integer overflow comes from.)
 
-The Chinese Remainder Theorem (plus an actual algorithm that computes the map
-$\left(  S_{m,n}\right)  ^{-1}$ from Theorem \ref{thm.eqrel.CRT2}) lets us
-\textquotedblleft patch\textquotedblright\ these results together:
+Computing $\left[  a\right]  _{500\ 000}$ instead of computing $a$ is already
+an improvement, but in practice, the \textquotedblleft$500\ 000$%
+\textquotedblright\ might actually be a significantly bigger number. Assume,
+for example, that instead of $0\leq a<500\ 000$, you merely know that $0\leq
+a<N$ for some fixed number $N$ which is small enough that computing in
+$\mathbb{Z}/N$ is possible, but large enough that doing the \textbf{whole}
+computation of $\left[  a\right]  _{N}$ in $\mathbb{Z}/N$ is unviable. What
+can we do then?
+
+One thing we can do is to compute the residue classes $\left[  a\right]  _{n}$
+for several coprime \textquotedblleft small\textquotedblright\ integers $n$.
+For example, we can compute $\left[  a\right]  _{2}$ (by performing the whole
+computation of $a$ using residue classes modulo $2$ instead of integers) and
+similarly $\left[  a\right]  _{3}$ and $\left[  a\right]  _{5}$ and $\left[
+a\right]  _{7}$ etc.. (We are using prime numbers for $n$ here, which has
+certain advantages, but is not strictly necessary; all we need is that the
+values of $n$ we are using are coprime.\footnote{Note that the computations of
+$\left[  a\right]  _{n}$ for different values of $n$ are independent of each
+other, which comes handy if you have several processors.})
+
+The Chinese Remainder Theorem (in the form of Theorem \ref{thm.eqrel.CRT2})
+shows that if $m$ and $n$ are two coprime positive integers, then the map
+$S_{m,n}$ from Theorem \ref{thm.eqrel.CRT2} (sending each $\left[  s\right]
+_{mn}$ to the pair $\left(  \left[  s\right]  _{m},\left[  s\right]
+_{n}\right)  $) is a bijection. In our proof of Theorem \ref{thm.eqrel.CRT2}
+(when proving the surjectivity of $S_{m,n}$), we gave an explicit way of
+constructing preimages under this map $S_{m,n}$ (using Bezout's theorem, which
+has a fast algorithm underlying it --
+\href{https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm}{the Extended
+Euclidean algorithm}). Thus, we have an explicit way of recovering the residue
+class $\left[  s\right]  _{mn}$ from the pair $\left(  \left[  s\right]
+_{m},\left[  s\right]  _{n}\right)  $ whenever $s$ is an (unknown) integer
+(and $m$ and $n$ are two coprime positive integers). We shall now refer to
+this way as the \textquotedblleft patching procedure\textquotedblright\ (since
+it lets us \textquotedblleft patch\textquotedblright\ two residue classes
+$\left[  s\right]  _{m}$ and $\left[  s\right]  _{n}$ together to a residue
+class $\left[  s\right]  _{mn}$).
+
+Now, having computed a bunch of residue classes $\left[  a\right]
+_{2},\left[  a\right]  _{3},\left[  a\right]  _{5},\left[  a\right]  _{7}$ of
+our unknown integer $a$ modulo coprime small integers, we can
+\textquotedblleft patch\textquotedblright\ these classes together:
 
 \begin{itemize}
-\item From $\left[  a\right]  _{2}$ and $\left[  a\right]  _{3}$, you can get
-$\left[  a\right]  _{6}$.
+\item From $\left[  a\right]  _{2}$ and $\left[  a\right]  _{3}$, we get
+$\left[  a\right]  _{2\cdot3}$ by the \textquotedblleft patching
+procedure\textquotedblright.
 
-\item From $\left[  a\right]  _{6}$ and $\left[  a\right]  _{5}$, you can get
-$\left[  a\right]  _{30}$.
+\item From $\left[  a\right]  _{2\cdot3}$ and $\left[  a\right]  _{5}$, we get
+$\left[  a\right]  _{2\cdot3\cdot5}$ by the \textquotedblleft patching
+procedure\textquotedblright.
 
-\item From $\left[  a\right]  _{30}$ and $\left[  a\right]  _{7}$, you can get
-$\left[  a\right]  _{210}$.
+\item From $\left[  a\right]  _{2\cdot3\cdot5}$ and $\left[  a\right]  _{7}$,
+we get $\left[  a\right]  _{2\cdot3\cdot5\cdot7}$ by the \textquotedblleft
+patching procedure\textquotedblright.
+
+\item and so on.
 \end{itemize}
 
-\noindent and so on, until you get $\left[  a\right]  _{N}$ for some
-$N>500\ 000$. But then you know $a\%N$. This means that you know $a$, because
-$0\leq a<500\ 000<N$ shows that $a\%N=a$.
+\noindent We keep \textquotedblleft patching\textquotedblright\ until the
+product $2\cdot3\cdot5\cdot7\cdot\cdots$ becomes larger than our $N$ (which
+will happen fairly soon, since this product grows super-exponentially with the
+number of \textquotedblleft patching\textquotedblright\ steps). At that point,
+we have found the residue class $\left[  a\right]  _{m}$ of our unknown
+integer $a$ modulo some integer $m>N$. Since $0\leq a<N<m$, we can thus
+recover $a$ itself (as the unique representative of the class $\left[
+a\right]  _{m}$ that lies in the set $\left\{  0,1,\ldots,m-1\right\}  $).
 
 This technique has been used a lot (for an example, see \cite[pp.
-1031--1033]{Vogan07}). I think computer algebra software uses a slightly more
-complicated version of this technique, e.g., for factoring integer polynomials.
+1031--1033]{Vogan07}).
+
+\begin{noncompile}
+I think computer algebra software uses a slightly more complicated version of
+this technique, e.g., for factoring integer polynomials. (Not sure -- maybe
+they're just using one prime.)
+\end{noncompile}
 
 \begin{center}
 \textbf{2019-03-01 lecture}
@@ -17544,18 +17607,40 @@ doable with some abstract algebra (at least in the case $n=p$). See
 
 \subsection{Complex numbers}
 
-First, let me recall the idea behind complex numbers unrigorously. Let us
-extend the real numbers by a mystical \textquotedblleft$\sqrt{-1}%
-$\textquotedblright. So let us just pretend that $-1$ has a square root that
-behaves (in some ways) like a normal number would. Denote this square root by
-$i$. So $i$ is some sort of weird new number such that $i^{2}=-1$.
+We now leave (at least for the time being) the study of integers and proceed
+to consider a much larger \textquotedblleft number system\textquotedblright:
+the \textit{complex numbers}.
 
-Now, we get a bunch of new numbers from $i$ by applying addition, subtraction
-and multiplication. They all have the form $a+bi+ci^{2}+di^{3}+\cdots$ (that
-is, polynomials in $i$) for some reals $a,b,c,d,\ldots$. However, this form
-can be reduced to the form $a^{\prime}+b^{\prime}i$ because $i^{2}=-1$,
-$i^{3}=i\underbrace{i^{2}}_{=-1}=-i$ and so on. So all our new numbers have
-the form $a+bi$ for two reals $a$ and $b$.
+Before we define these numbers rigorously, let me sketch the idea behind their
+construction. Please suspend your disbelief about the not-quite-kosher
+reasoning that will follow; we will return to rigorous mathematics in
+Definition \ref{def.CC.CC} below.
+
+We know that the number $-1$ (like any other negative number) has no square
+root in $\mathbb{R}$ (because the square of any real number is $\geq0$). But
+let us pretend that it does have a square root -- but this square root is not
+a real number, but a mythical \textquotedblleft new\textquotedblright\ number.
+In other words, let us pretend that $-1$ has a square root that behaves (in
+some ways) like a usual number would. Let us denote this square root by $i$.
+So $i$ is some sort of weird new number such that $i^{2}=-1$.%
+
+\[%
+\begin{tabular}
+[c]{||l||}\hline\hline
+\textbf{You have reached the end of the finished part.}\\
+\textbf{TODO: Write on from here.}\\\hline\hline
+\end{tabular}
+\
+\]
+
+
+So we have extended the set $\mathbb{R}$ of real numbers by a new number $i$.
+But with $i$, we also get a bunch of new numbers from $i$ by applying
+addition, subtraction and multiplication. They all have the form
+$a+bi+ci^{2}+di^{3}+\cdots$ (that is, polynomials in $i$) for some reals
+$a,b,c,d,\ldots$. However, this form can be reduced to the form $a^{\prime
+}+b^{\prime}i$ because $i^{2}=-1$, $i^{3}=i\underbrace{i^{2}}_{=-1}=-i$ and so
+on. So all our new numbers have the form $a+bi$ for two reals $a$ and $b$.
 
 If we pretend that the standard rules of arithmetic still hold for our new
 numbers, then we can easily see how to compute the sum, difference, product
@@ -19510,6 +19595,7 @@ Let $\sigma,\alpha,\beta\in\mathbb{Z}\left[  i\right]  $. Then,
 \beta\right)  \sim\sigma\gcd\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
 \alpha,\beta\right)  .
 \]
+
 \end{corollary}
 
 Exercise \ref{exe.ent.gcd.div} still holds for Gaussian integers.
@@ -24254,7 +24340,7 @@ But comparing
 &  \left\{  \underbrace{bca}_{=abc},\underbrace{baa}_{=a^{2}b}%
 ,\underbrace{cca}_{=c^{2}a},\underbrace{caa}_{=a^{2}c},\underbrace{bcb}%
 _{=b^{2}c},\underbrace{bab}_{=b^{2}a},\underbrace{ccb}_{=c^{2}b}%
-,\underbrace{cab}_{=abc}\right\}  \\
+,\underbrace{cab}_{=abc}\right\} \\
 &  =\left\{  abc,a^{2}b,c^{2}a,a^{2}c,b^{2}c,b^{2}a,c^{2}b,abc\right\}
 =\left\{  abc,b^{2}c,c^{2}b,c^{2}a,a^{2}c,a^{2}b,b^{2}a\right\}
 \end{align*}
@@ -24263,7 +24349,7 @@ with%
 &  \left\{  abc,\underbrace{bbc}_{=b^{2}c},\underbrace{cbc}_{=c^{2}%
 b},\underbrace{aca}_{=a^{2}c},\underbrace{bca}_{=abc},\underbrace{cca}%
 _{=c^{2}a},\underbrace{aab}_{=a^{2}b},\underbrace{bab}_{=b^{2}a}%
-,\underbrace{cab}_{=abc}\right\}  \\
+,\underbrace{cab}_{=abc}\right\} \\
 &  =\left\{  abc,b^{2}c,c^{2}b,a^{2}c,abc,c^{2}a,a^{2}b,b^{2}a,abc\right\}
 =\left\{  abc,b^{2}c,c^{2}b,c^{2}a,a^{2}c,a^{2}b,b^{2}a\right\}  ,
 \end{align*}
