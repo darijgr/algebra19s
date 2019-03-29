@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Friday, March 29, 2019 10:20:14}
+%TCIDATA{LastRevised=Friday, March 29, 2019 10:46:52}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -22045,7 +22045,11 @@ of the usual rings of numbers (like $\mathbb{Z}$, $\mathbb{Q}$, $\mathbb{R}$,
 $\mathbb{C}$), then this kind of multiplication coincides with the
 multiplication $\cdot$ of $\mathbb{K}$ (that is, $na$ means the same thing).
 Indeed, Definition \ref{def.rings.na} clearly generalizes the definition of
-$na$ for rational numbers $a$.
+$na$ for rational numbers $a$. Furthermore, when $\mathbb{K}=\mathbb{Z}/n$ for
+some positive integer $n$, Definition \ref{def.rings.na} agrees with
+Definition \ref{def.eqrel.Z/n.scaling} (in the sense that both definitions
+yield the same result for $r\alpha$ when $r\in\mathbb{Z}$ and $\alpha
+\in\mathbb{Z}/n$). (This is easy to prove by induction.)
 
 \begin{center}
 \textbf{2019-03-29 lecture}
@@ -22063,7 +22067,11 @@ a^{n}=\underbrace{a\cdot a\cdot\cdots\cdot a}_{n\text{ times}}.
 \end{definition}
 
 This definition clearly generalizes the definition of $a^{n}$ for rational
-numbers $a$.
+numbers $a$. Furthermore, when $\mathbb{K}=\mathbb{Z}/n$ for some positive
+integer $n$, Definition \ref{def.rings.pow} agrees with Definition
+\ref{def.eqrel.Z/n.kpower} (in the sense that both definitions yield the same
+result for $\alpha^{k}$ when $\alpha\in\mathbb{Z}/n$ and $k\in\mathbb{N}$).
+(This follows from Theorem \ref{thm.eqrel.Z/n.rules-exp} \textbf{(c)}.)
 
 Standard rules for addition, subtraction, multiplication and taking powers
 hold in every ring:
@@ -22071,24 +22079,24 @@ hold in every ring:
 \begin{proposition}
 \label{prop.rings.pow.rules}\textbf{(a)} We have%
 \begin{align}
-\left(  n+m\right)  a &  =na+ma\ \ \ \ \ \ \ \ \ \ \text{for all }%
-a\in\mathbb{K}\text{ and }n,m\in\mathbb{Z};\label{eq.prop.rings.pow.rules.d1}%
+\left(  n+m\right)  a  &  =na+ma\ \ \ \ \ \ \ \ \ \ \text{for all }%
+a\in\mathbb{K}\text{ and }n,m\in\mathbb{Z}; \label{eq.prop.rings.pow.rules.d1}%
 \\
 n\left(  a+b\right)   &  =na+nb\ \ \ \ \ \ \ \ \ \ \text{for all }%
-a,b\in\mathbb{K}\text{ and }n\in\mathbb{Z};\label{eq.prop.rings.pow.rules.d2}%
+a,b\in\mathbb{K}\text{ and }n\in\mathbb{Z}; \label{eq.prop.rings.pow.rules.d2}%
 \\
 -\left(  na\right)   &  =\left(  -n\right)  a=n\left(  -a\right)
 \ \ \ \ \ \ \ \ \ \ \text{for all }a\in\mathbb{K}\text{ and }n\in
 \mathbb{Z};\label{eq.prop.rings.pow.rules.d3}\\
-\left(  nm\right)  a &  =n\left(  ma\right)  \ \ \ \ \ \ \ \ \ \ \text{for all
-}a\in\mathbb{K}\text{ and }n,m\in\mathbb{Z};\label{eq.prop.rings.pow.rules.2}%
-\\
+\left(  nm\right)  a  &  =n\left(  ma\right)  \ \ \ \ \ \ \ \ \ \ \text{for
+all }a\in\mathbb{K}\text{ and }n,m\in\mathbb{Z};
+\label{eq.prop.rings.pow.rules.2}\\
 n\left(  ab\right)   &  =\left(  na\right)  b=a\left(  nb\right)
 \ \ \ \ \ \ \ \ \ \ \text{for all }a,b\in\mathbb{K}\text{ and }n\in
 \mathbb{Z};\label{eq.prop.rings.pow.rules.3}\\
--a &  =\left(  -1\right)  a\ \ \ \ \ \ \ \ \ \ \text{for all }a\in
+-a  &  =\left(  -1\right)  a\ \ \ \ \ \ \ \ \ \ \text{for all }a\in
 \mathbb{K};\label{eq.prop.rings.pow.rules.4}\\
-0^{n} &  =%
+0^{n}  &  =%
 \begin{cases}
 0, & \text{if }n>0\\
 1, & \text{if }n=0
@@ -22098,10 +22106,10 @@ n\left(  ab\right)   &  =\left(  na\right)  b=a\left(  nb\right)
 &  \ \ \ \ \ \ \ \ \ \ \left(  \text{here, the \textquotedblleft%
 }0\text{\textquotedblright\ in \textquotedblleft}0^{n}\text{\textquotedblright%
 \ means the zero of }\mathbb{K}\right)  ;\nonumber\\
-a^{n+m} &  =a^{n}a^{m}\ \ \ \ \ \ \ \ \ \ \text{for all }a\in\mathbb{K}\text{
+a^{n+m}  &  =a^{n}a^{m}\ \ \ \ \ \ \ \ \ \ \text{for all }a\in\mathbb{K}\text{
 and }n,m\in\mathbb{N};\label{eq.prop.rings.pow.rules.7}\\
-\left(  a^{n}\right)  ^{m} &  =a^{nm}\ \ \ \ \ \ \ \ \ \ \text{for all }%
-a\in\mathbb{K}\text{ and }n,m\in\mathbb{N}.\label{eq.prop.rings.pow.rules.8}%
+\left(  a^{n}\right)  ^{m}  &  =a^{nm}\ \ \ \ \ \ \ \ \ \ \text{for all }%
+a\in\mathbb{K}\text{ and }n,m\in\mathbb{N}. \label{eq.prop.rings.pow.rules.8}%
 \end{align}
 In particular:
 
@@ -22131,12 +22139,12 @@ This further equals $a^{2}+2ab+b^{2}$ if $\mathbb{K}$ is commutative.
 \textbf{(c)} Let $a,b\in\mathbb{K}$ satisfy $ab=ba$. (This holds automatically
 when $\mathbb{K}$ is commutative.) Then:%
 \begin{align*}
-ab^{n} &  =b^{n}a\ \ \ \ \ \ \ \ \ \ \text{for all }n\in\mathbb{N};\\
-a^{i}b^{j} &  =b^{j}a^{i}\ \ \ \ \ \ \ \ \ \ \text{for all }i,j\in
+ab^{n}  &  =b^{n}a\ \ \ \ \ \ \ \ \ \ \text{for all }n\in\mathbb{N};\\
+a^{i}b^{j}  &  =b^{j}a^{i}\ \ \ \ \ \ \ \ \ \ \text{for all }i,j\in
 \mathbb{N};\\
-\left(  ab\right)  ^{n} &  =a^{n}b^{n}\ \ \ \ \ \ \ \ \ \ \text{for all }%
+\left(  ab\right)  ^{n}  &  =a^{n}b^{n}\ \ \ \ \ \ \ \ \ \ \text{for all }%
 n\in\mathbb{N};\\
-\left(  a+b\right)  ^{n} &  =\sum_{k=0}^{n}\dbinom{n}{k}a^{k}b^{n-k}%
+\left(  a+b\right)  ^{n}  &  =\sum_{k=0}^{n}\dbinom{n}{k}a^{k}b^{n-k}%
 \ \ \ \ \ \ \ \ \ \ \text{for all }n\in\mathbb{N}.
 \end{align*}
 
@@ -22420,9 +22428,9 @@ commutative ring together.
 
 We have%
 \begin{align*}
-& \left(  1+2i+3ij\right)  \left(  2-3j\right)  \\
-& =2+4i+6ij-3j-6ij-9i\underbrace{j^{2}}_{=-1}\\
-& =2+4i-3j+9i=2+13i-3j.
+&  \left(  1+2i+3ij\right)  \left(  2-3j\right) \\
+&  =2+4i+6ij-3j-6ij-9i\underbrace{j^{2}}_{=-1}\\
+&  =2+4i-3j+9i=2+13i-3j.
 \end{align*}
 Similarly, any other of these new numbers can be written in the form
 $a+bi+cj+dij$ for reals $a,b,c,d$.
@@ -22431,11 +22439,11 @@ Thus, we can rigorously define our new numbers as $4$-tuples $\left(
 a,b,c,d\right)  $ of real numbers, with entrywise addition and subtraction,
 and with multiplication given by%
 \begin{align*}
-& \left(  x_{1},x_{2},x_{3},x_{4}\right)  \cdot\left(  y_{1},y_{2},y_{3}%
-,y_{4}\right)  \\
-& =\left(  x_{1}y_{1}-x_{2}y_{2}-x_{3}y_{3}-x_{4}y_{4},x_{1}y_{2}+x_{2}%
-y_{1}+x_{3}y_{4}-x_{4}y_{3},\right.  \\
-& \ \ \ \ \ \ \ \ \ \ \left.  x_{1}y_{3}-x_{2}y_{4}+x_{3}y_{1}+x_{4}%
+&  \left(  x_{1},x_{2},x_{3},x_{4}\right)  \cdot\left(  y_{1},y_{2}%
+,y_{3},y_{4}\right) \\
+&  =\left(  x_{1}y_{1}-x_{2}y_{2}-x_{3}y_{3}-x_{4}y_{4},x_{1}y_{2}+x_{2}%
+y_{1}+x_{3}y_{4}-x_{4}y_{3},\right. \\
+&  \ \ \ \ \ \ \ \ \ \ \left.  x_{1}y_{3}-x_{2}y_{4}+x_{3}y_{1}+x_{4}%
 y_{2},x_{1}y_{4}+x_{2}y_{3}-x_{3}y_{2}+x_{4}y_{1}\right)  .
 \end{align*}
 
@@ -26307,18 +26315,18 @@ yields%
 \operatorname{lcm}\left(  b,c\right)  \right)   &  =\underbrace{\left\vert
 \gcd\left(  b,c\right)  \right\vert }_{\substack{=\gcd\left(  b,c\right)
 \\\text{(since }\gcd\left(  b,c\right)  >0\text{)}}}\gcd\left(
-a,\operatorname{lcm}\left(  b,c\right)  \right) \\
+a,\operatorname{lcm}\left(  b,c\right)  \right)  \\
 &  =\gcd\left(  b,c\right)  \gcd\left(  a,\operatorname{lcm}\left(
 b,c\right)  \right)  .
 \end{align*}
 Hence,%
 \begin{align}
 &  \gcd\left(  b,c\right)  \gcd\left(  a,\operatorname{lcm}\left(  b,c\right)
-\right) \nonumber\\
+\right)  \nonumber\\
 &  =\gcd\left(  \underbrace{\gcd\left(  b,c\right)  a}_{=a\gcd\left(
 b,c\right)  },\underbrace{\gcd\left(  b,c\right)  \operatorname{lcm}\left(
 b,c\right)  }_{=\gcd\left(  b,c\right)  \cdot\operatorname{lcm}\left(
-b,c\right)  =\left\vert bc\right\vert }\right) \nonumber\\
+b,c\right)  =\left\vert bc\right\vert }\right)  \nonumber\\
 &  =\gcd\left(  a\gcd\left(  b,c\right)  ,\left\vert bc\right\vert \right)
 =\gcd\left(  a\gcd\left(  b,c\right)  ,bc\right)
 \label{sol.ent.prime.gcd.distrib.2nd.a.4}%
@@ -26624,10 +26632,6 @@ this equality by $g$ (since $g\neq0$); thus we obtain%
 \end{equation}
 
 
-But Theorem \ref{thm.ent.lcm.gcd*lcm} (applied to $b$ and $c$ instead of $a$
-and $b$) yields $\gcd\left(  b,c\right)  \cdot\operatorname{lcm}\left(
-b,c\right)  =\left\vert bc\right\vert $.
-
 Proposition \ref{prop.ent.gcd.props1} \textbf{(b)} (applied to $\gcd\left(
 b,c\right)  $ instead of $b$) yields \newline$\gcd\left(  a,\gcd\left(
 b,c\right)  \right)  =\gcd\left(  \gcd\left(  b,c\right)  ,a\right)  $. But
@@ -26636,8 +26640,8 @@ $\left(  b,c\right)  $ instead of $k$ and $\left(  b_{1},b_{2},\ldots
 ,b_{k}\right)  $) yields $\gcd\left(  b,c,a\right)  =\gcd\left(  \gcd\left(
 b,c\right)  ,a\right)  $. Comparing these two equalities, we obtain
 \begin{equation}
-\gcd\left(  a,\gcd\left(  b,c\right)  \right)  =\gcd\left(  b,c,a\right)  .
-\label{sol.ent.prime.gcd.distrib.2nd.b.8}%
+\gcd\left(  a,\gcd\left(  b,c\right)  \right)  =\gcd\left(  b,c,a\right)
+.\label{sol.ent.prime.gcd.distrib.2nd.b.8}%
 \end{equation}
 
 
@@ -27901,12 +27905,13 @@ p^{i}\right)  $ (since $u$ and $p^{i}$ are positive integers). Thus,%
 Hence,%
 \begin{align*}
 up^{i}-\underbrace{\phi\left(  up^{i}\right)  }_{\leq u\cdot\phi\left(
-p^{i}\right)  }  &  \geq up^{i}-u\cdot\phi\left(  p^{i}\right)  =u\cdot
+p^{i}\right)  } &  \geq up^{i}-u\cdot\phi\left(  p^{i}\right)  =u\cdot
 \underbrace{\left(  p^{i}-\phi\left(  p^{i}\right)  \right)  }%
 _{\substack{=p^{i-1}\\\text{(by (\ref{sol.ent.euler.non-coprime.ineq.3rd.1}%
 ))}}}=\underbrace{u}_{\geq1}p^{i-1}\\
-&  \geq1p^{i-1}\ \ \ \ \ \ \ \ \ \ \left(  \text{since }p^{i-1}\geq0\right) \\
-&  \geq p^{i-1}\geq i.
+&  \geq1p^{i-1}\ \ \ \ \ \ \ \ \ \ \left(  \text{since }p^{i-1}\geq0\right)
+\\
+&  =p^{i-1}\geq i.
 \end{align*}
 Thus, (\ref{sol.ent.euler.non-coprime.ineq.pf.1}) is proven again.]
 \end{itemize}
