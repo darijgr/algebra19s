@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Friday, March 29, 2019 00:40:21}
+%TCIDATA{LastRevised=Friday, March 29, 2019 01:14:30}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -17464,8 +17464,7 @@ they're just using one prime.)
 Let us finally discuss a kind of residue classes that come very useful when
 they exist: the \textit{primitive roots} (modulo a positive integer $n$). We
 are not yet able to ascertain when they exist and when they don't (this will
-require some more abstract algebra); but we can already see some examples of
-them:
+require some more abstract algebra); but we can already see some examples of them:
 
 \begin{convention}
 For the whole Subsection \ref{subsect.eqrel.primroot1.def}, we fix a positive
@@ -17611,7 +17610,8 @@ doable with some abstract algebra (at least in the case $n=p$). See
 
 We now leave (at least for the time being) the study of integers and proceed
 to consider a much larger \textquotedblleft number system\textquotedblright:
-the \textit{complex numbers}.
+\href{https://en.wikipedia.org/wiki/Complex_number}{the \textit{complex
+numbers}}.
 
 Before we define these numbers rigorously, let me sketch the idea behind their
 construction. Please suspend your disbelief about the not-quite-kosher
@@ -17620,121 +17620,153 @@ Definition \ref{def.CC.CC} below.
 
 We know that the number $-1$ (like any other negative number) has no square
 root in $\mathbb{R}$ (because the square of any real number is $\geq0$). But
-let us pretend that it does have a square root -- but this square root is not
-a real number, but a mythical \textquotedblleft new\textquotedblright\ number.
-In other words, let us pretend that $-1$ has a square root that behaves (in
-some ways) like a usual number would. Let us denote this square root by $i$.
-So $i$ is some sort of weird new number such that $i^{2}=-1$.%
-
-\[%
-\begin{tabular}
-[c]{||l||}\hline\hline
-\textbf{You have reached the end of the finished part.}\\
-\textbf{TODO: Write on from here.}\\\hline\hline
-\end{tabular}
-\
-\]
-
+let us audaciously pretend that it does have a square root somewhere else. In
+other words, let us pretend that there exists a mythical \textquotedblleft
+number\textquotedblright\ $i$ such that $i^{2}=-1$. Of course, such a
+\textquotedblleft number\textquotedblright\ $i$ will not be a real number, but
+let us assume (without real justification, for now) that it behaves like a
+usual number would (to some extent). In particular, let us assume that it can
+be added, subtracted and multiplied like the numbers that we know and love.
 
 So we have extended the set $\mathbb{R}$ of real numbers by a new number $i$.
-But with $i$, we also get a bunch of new numbers from $i$ by applying
-addition, subtraction and multiplication. They all have the form
-$a+bi+ci^{2}+di^{3}+\cdots$ (that is, polynomials in $i$) for some reals
-$a,b,c,d,\ldots$. However, this form can be reduced to the form $a^{\prime
-}+b^{\prime}i$ because $i^{2}=-1$, $i^{3}=i\underbrace{i^{2}}_{=-1}=-i$ and so
-on. So all our new numbers have the form $a+bi$ for two reals $a$ and $b$.
+Now, by applying addition, subtraction and multiplication to this new number
+(and our old numbers), we get a bunch of further new numbers -- namely, all
+numbers of the form $a_{0}+a_{1}i+a_{2}i^{2}+\cdots+a_{k}i^{k}$, where
+$k\in\mathbb{N}$ and where $a_{0},a_{1},\ldots,a_{k}$ are real numbers. (These
+can be described as the polynomials in $i$ with real coefficients.) However,
+some of these numbers will be equal; in fact, any number of this form can be
+reduced to a number of the form $a+bi$ (with $a,b\in\mathbb{R}$),
+because\footnote{Of course, we are assuming that the standard rules -- such as
+associativity of multiplication -- apply to our \textquotedblleft
+new\textquotedblright\ numbers.}
+\begin{align*}
+i^{2}  & =-1,\ \ \ \ \ \ \ \ \ \ i^{3}=i\underbrace{i^{2}}_{=-1}%
+=-i,\ \ \ \ \ \ \ \ \ \ i^{4}=i\underbrace{i^{3}}_{=-i}=-\underbrace{i^{2}%
+}_{=-1}=-\left(  -1\right)  =1,\\
+i^{5}  & =i\underbrace{i^{4}}_{=1}=i,\ \ \ \ \ \ \ \ \ \ \text{etc..}%
+\end{align*}
+For example, the number $3+5i+9i^{2}+7i^{3}$ equals $3+5i+9\left(  -1\right)
++7\left(  -i\right)  =\left(  3-9\right)  +\left(  5-7\right)  i=-6-2i$.
 
-If we pretend that the standard rules of arithmetic still hold for our new
-numbers, then we can easily see how to compute the sum, difference, product
-and quotient of two numbers written in this form, and how to represent the
-result again in this form: Namely,%
+So all our new numbers have the form $a+bi$ for two reals $a$ and $b$. We call
+them \textquotedblleft complex numbers\textquotedblright. (As we have said, we
+will give a rigorous definition later.) Since we are assuming that the
+standard rules of arithmetic still hold for our new numbers, we can easily
+find formulas for computing the sum, the difference, the product and the
+quotient of two complex numbers written in the form $a+bi$: Namely, for any
+two complex numbers $a+bi$ and $c+di$ (with $a,b,c,d\in\mathbb{R}$), we have%
 \begin{align*}
 \left(  a+bi\right)  +\left(  c+di\right)   &  =\left(  a+c\right)  +\left(
-b+d\right)  i,\\
+b+d\right)  i;\\
 \left(  a+bi\right)  -\left(  c+di\right)   &  =\left(  a-c\right)  +\left(
-b-d\right)  i,\\
+b-d\right)  i;\\
 \left(  a+bi\right)  \left(  c+di\right)   &  =ac+adi+bci+bd\underbrace{i^{2}%
-}_{=-1}\\
-&  =ac+adi+bci-bd\\
-&  =\left(  ac-bd\right)  +\left(  ad+bc\right)  i,\\
-\dfrac{a+bi}{c+di}  &  =\dfrac{\left(  a+bi\right)  \left(  c-di\right)
-}{\left(  c+di\right)  \left(  c-di\right)  }=\dfrac{\left(  ac+bd\right)
-+\left(  bc-ad\right)  i}{c^{2}+d^{2}}\\
-&  \ \ \ \ \ \ \ \ \ \ \left(  \text{if }c,d\text{ are not both }0\right)  .
+}_{=-1}=ac+adi+bci-bd\\
+&  =\left(  ac-bd\right)  +\left(  ad+bc\right)  i;\\
+\dfrac{a+bi}{c+di} &  =\dfrac{\left(  a+bi\right)  \left(  c-di\right)
+}{\left(  c+di\right)  \left(  c-di\right)  }=\dfrac{ac-adi+bci+bdi^{2}%
+}{cc-cdi+dci-ddi^{2}}=\dfrac{ac-adi+bci+bd\left(  -1\right)  }%
+{cc-cdi+dci-dd\left(  -1\right)  }\\
+&  =\dfrac{\left(  ac+bd\right)  +\left(  bc-ad\right)  i}{c^{2}+d^{2}%
+}\ \ \ \ \ \ \ \ \ \ \left(  \text{if }c,d\text{ are not both }0\right)  .
 \end{align*}
 (Note that the latter formula is an analogue of the standard procedure for
-rationalizing denominators:%
+rationalizing denominators that involve square roots:%
 \[
-\dfrac{a+\sqrt{2}}{c+d\sqrt{2}}=\dfrac{\left(  a+b\sqrt{2}\right)  \left(
+\dfrac{a+b\sqrt{2}}{c+d\sqrt{2}}=\dfrac{\left(  a+b\sqrt{2}\right)  \left(
 c-d\sqrt{2}\right)  }{\left(  c+d\sqrt{2}\right)  \left(  c-d\sqrt{2}\right)
 }=\dfrac{\left(  ac-2bd\right)  +\left(  bc-ad\right)  \sqrt{2}}{c^{2}-2d^{2}%
 },
 \]
-except that now our square root is $\sqrt{-1}=i$.)
+except that the square root that we are trying to exorcise from the
+denominator is not $\sqrt{2}$ but $\sqrt{-1}=i$ now.)
 
-However, not everything works. Inequalities do not make sense for these new
-numbers. Indeed, if they would make sense, then we would have:
+However, not all features of real numbers carry over to complex numbers:
+Inequalities do not make sense for complex numbers. Indeed, if they would make
+sense, then we would get a contradiction as follows:
 
 \begin{itemize}
-\item if $i\geq0$, then $i^{2}\geq0$, contradicting $i^{2}=-1<0$.
+\item If $i\geq0$, then $i^{2}\geq0$, contradicting $i^{2}=-1<0$.
 
-\item if $i<0$, then $i^{2}=\left(  -i\right)  ^{2}>0$, contradicting
-$i^{2}=-1<0$.
+\item If $i<0$, then $i^{2}=\left(  -i\right)  ^{2}>0$ (since $i<0$ yields
+$-i>0$), contradicting $i^{2}=-1<0$.
 \end{itemize}
 
-So our weird new numbers have the operations $+,-,\cdot,/$ but not the
-relations $<,\leq,>,\geq$.
+Here, we have assumed two things about our relations: First, we have assumed
+that $i$ is either $\geq0$ or $<0$; and second, we have assumed that the
+square of a nonnegative complex number is nonnegative. Sure, we could avoid
+the contradiction by forfeiting one of these assumptions; but then, the $\geq$
+and $<$ relations would not be worth their names any more.
 
-But why does this all work? Why don't we run into contradictions just using
-the operations $+,-,\cdot$ alone?
+So we appear to be able to extend the four operations $+,-,\cdot,/$ to our
+weird new numbers, but not the relations $<,\leq,>,\geq$ (at least not in any
+meaningful way). But how can we be sure that the four operations $+,-,\cdot,/$
+don't already lead to some contradictions?
 
-So let us forget this motivation and instead give a formal definition of
-complex numbers:
+To answer this question, let us forget our daring postulation of the existence
+of $i$, and instead give a formal definition of complex numbers:
 
 \begin{definition}
-\label{def.CC.CC}A \textit{complex number} is a pair $\left(  a,b\right)  $ of
-two real numbers.
+\label{def.CC.CC}\textbf{(a)} A \textit{complex number} is defined as a pair
+$\left(  a,b\right)  $ of two real numbers.
 
-We let $\mathbb{C}$ be the set of all complex numbers.
+\textbf{(b)} We let $\mathbb{C}$ be the set of all complex numbers.
 
-For each real number $r$, we denote the complex number $\left(  r,0\right)  $
-by $r_{\mathbb{C}}$.
+\textbf{(c)} For each real number $r$, we denote the complex number $\left(
+r,0\right)  $ by $r_{\mathbb{C}}$.
 
-We let $i$ be the complex number $\left(  0,1\right)  $. When the notation $i$
-is ambiguous, I will be using $i_{\mathbb{C}}$ instead. (Some authors call it
-$j$ or $\iota$ or just $\sqrt{-1}$.)
+\textbf{(d)} We let $i$ be the complex number $\left(  0,1\right)  $. When the
+notation \textquotedblleft$i$\textquotedblright\ is ambiguous, I will be
+calling it \textquotedblleft$i_{\mathbb{C}}$\textquotedblright\ instead. (Some
+authors call it $j$ or $\iota$ or $\sqrt{-1}$.)
 
-Define three binary operations $+,-,\cdot$ on $\mathbb{C}$ by setting%
+\textbf{(e)} We define three binary operations $+$, $-$ and $\cdot$ on
+$\mathbb{C}$ by setting%
 \begin{align*}
 \left(  a,b\right)  +\left(  c,d\right)   &  =\left(  a+c,b+d\right)  ,\\
-\left(  a,b\right)  -\left(  c,d\right)   &  =\left(  a-c,b-d\right)  ,\\
+\left(  a,b\right)  -\left(  c,d\right)   &  =\left(  a-c,b-d\right)
+,\ \ \ \ \ \ \ \ \ \ \text{and}\\
 \left(  a,b\right)  \cdot\left(  c,d\right)   &  =\left(  ac-bd,ad+bc\right)
 \end{align*}
 for all $\left(  a,b\right)  \in\mathbb{C}$ and $\left(  c,d\right)
-\in\mathbb{C}$. We also write $\left(  a,b\right)  \left(  c,d\right)  $ for
-$\left(  a,b\right)  \cdot\left(  c,d\right)  $.
+\in\mathbb{C}$.
+
+\textbf{(f)} If $\alpha$ and $\beta$ are two complex numbers, then we write
+$\alpha\beta$ for $\alpha\cdot\beta$.
 \end{definition}
 
-For example,%
+For example, the definition of the operation $\cdot$ on $\mathbb{C}$ yields%
 \[
-ii=\left(  0,1\right)  \left(  0,1\right)  =\left(  0\cdot0-1\cdot
-1,0\cdot1+1\cdot0\right)  =\left(  -1,0\right)  =\left(  -1\right)
-_{\mathbb{C}}.
+\underbrace{i}_{=\left(  0,1\right)  }\underbrace{i}_{=\left(  0,1\right)
+}=\left(  0,1\right)  \left(  0,1\right)  =\left(  \underbrace{0\cdot
+0-1\cdot1}_{=-1},\underbrace{0\cdot1+1\cdot0}_{=0}\right)  =\left(
+-1,0\right)  =\left(  -1\right)  _{\mathbb{C}}.
 \]
-So $i$ \textquotedblleft acts as a square root of $-1$\textquotedblright. But
-we also have $\left(  -i\right)  \left(  -i\right)  =\left(  -1\right)
-_{\mathbb{C}}$, so $-i$ fits the same bill.
+We will later equate the complex number $\left(  -1\right)  _{\mathbb{C}}$
+with the real number $-1$; thus, this equation will simplify to $ii=-1$. So
+$i$ \textquotedblleft behaves like a square root of $-1$\textquotedblright.
+But we also have $\left(  -i\right)  \left(  -i\right)  =\left(  -1\right)
+_{\mathbb{C}}$, so $-i$ fits the same bill. Thus, we didn't have to postulate
+the existence of a mythical number $i$ satisfying $i^{2}=1$; we simply found
+such a number in the set $\mathbb{C}$.
 
-We are leaving division undefined so far, because we will later get it more or
-less for free.
+We are leaving division of complex numbers undefined so far, because we will
+later get it more or less for free.
 
 We shall follow \href{https://en.wikipedia.org/wiki/Order_of_operations}{the
 usual \textquotedblleft PEMDAS\textquotedblright\ rules for the order of
-operations} when interpreting expressions involving the operations $+,-,\cdot$
-on $\mathbb{C}$. Thus, for example, $\alpha+\beta\cdot\gamma$ means
+operations} when interpreting expressions involving the operations $+$, $-$
+and $\cdot$ on $\mathbb{C}$. Thus, for example, the expression
+\textquotedblleft$\alpha+\beta\cdot\gamma$\textquotedblright\ shall mean
 $\alpha+\left(  \beta\cdot\gamma\right)  $ and not $\left(  \alpha
-+\beta\right)  \cdot\gamma$; likewise, $\alpha\beta^{k}+\gamma$ means $\left(
-\alpha\left(  \beta^{k}\right)  \right)  +\gamma$ and not any other interpretation.
++\beta\right)  \cdot\gamma$.
+
+So we have defined complex numbers as pairs of real numbers, and we have
+defined three operations on them which we called $+$, $-$ and $\cdot$. But do
+these operations really deserve these names? Do they still behave as nicely as
+the corresponding operations on real numbers? Do they, in particular, satisfy
+the standard rules of arithmetic such as commutativity, associativity and
+distributivity? The next theorem shows that they indeed do:
 
 \begin{theorem}
 \label{thm.CC.CC.rules}The following rules for addition, subtraction and
@@ -17769,11 +17801,20 @@ $\alpha\in\mathbb{C}$.
 \textbf{(i)} If $\alpha,\beta,\gamma\in\mathbb{C}$, then we have the
 equivalence $\left(  \alpha-\beta=\gamma\right)  \Longleftrightarrow\left(
 \alpha=\beta+\gamma\right)  $.
-\end{theorem}
+\end{theorem}%
+
+\[%
+\begin{tabular}
+[c]{||l||}\hline\hline
+\textbf{You have reached the end of the finished part.}\\
+\textbf{TODO: Write on from here.}\\\hline\hline
+\end{tabular}
+\]
+
 
 \begin{proof}
-[Proof of Theorem \ref{thm.CC.CC.rules}.]All parts are straightforward. I will
-only prove \textbf{(f)}, since it is the hardest part.
+[Proof of Theorem \ref{thm.CC.CC.rules}.]All parts of this theorem are
+straightforward. I will only prove \textbf{(f)}, since it is the hardest part.
 
 \textbf{(f)} Let $\alpha,\beta,\gamma\in\mathbb{C}$. Write $\alpha
 ,\beta,\gamma$ as $\alpha=\left(  a,a^{\prime}\right)  $ and $\beta=\left(
@@ -17784,10 +17825,10 @@ b,b^{\prime}\right)  $ and $\gamma=\left(  c,c^{\prime}\right)  $. Thus,%
 c,c^{\prime}\right)  \right)  }_{=\left(  bc-b^{\prime}c^{\prime},bc^{\prime
 }+b^{\prime}c\right)  }\\
 &  =\left(  a,a^{\prime}\right)  \cdot\left(  bc-b^{\prime}c^{\prime
-},bc^{\prime}+b^{\prime}c\right) \\
+},bc^{\prime}+b^{\prime}c\right)  \\
 &  =\left(  a\left(  bc-b^{\prime}c^{\prime}\right)  -a^{\prime}\left(
 bc^{\prime}+b^{\prime}c\right)  ,a\left(  bc^{\prime}+b^{\prime}c\right)
-+a^{\prime}\left(  bc-b^{\prime}c^{\prime}\right)  \right) \\
++a^{\prime}\left(  bc-b^{\prime}c^{\prime}\right)  \right)  \\
 &  =\left(  abc-ab^{\prime}c^{\prime}-a^{\prime}bc^{\prime}-a^{\prime
 }b^{\prime}c,abc^{\prime}+ab^{\prime}c+a^{\prime}bc-a^{\prime}b^{\prime
 }c^{\prime}\right)
@@ -17797,12 +17838,12 @@ bc^{\prime}+b^{\prime}c\right)  ,a\left(  bc^{\prime}+b^{\prime}c\right)
 \left(  \alpha\cdot\beta\right)  \cdot\gamma &  =\underbrace{\left(  \left(
 a,a^{\prime}\right)  \cdot\left(  b,b^{\prime}\right)  \right)  }_{=\left(
 ab-a^{\prime}b^{\prime},ab^{\prime}+a^{\prime}b\right)  }\cdot\left(
-c,c^{\prime}\right) \\
+c,c^{\prime}\right)  \\
 &  =\left(  ab-a^{\prime}b^{\prime},ab^{\prime}+a^{\prime}b\right)
-\cdot\left(  c,c^{\prime}\right) \\
+\cdot\left(  c,c^{\prime}\right)  \\
 &  =\left(  \left(  ab-a^{\prime}b^{\prime}\right)  c-\left(  ab^{\prime
 }+a^{\prime}b\right)  c^{\prime},\left(  ab-a^{\prime}b^{\prime}\right)
-c^{\prime}+\left(  ab^{\prime}+a^{\prime}b\right)  c\right) \\
+c^{\prime}+\left(  ab^{\prime}+a^{\prime}b\right)  c\right)  \\
 &  =\left(  abc-ab^{\prime}c^{\prime}-a^{\prime}bc^{\prime}-a^{\prime
 }b^{\prime}c,abc^{\prime}+ab^{\prime}c+a^{\prime}bc-a^{\prime}b^{\prime
 }c^{\prime}\right)  .
@@ -17826,11 +17867,11 @@ whenever $\alpha_{1},\alpha_{2},\ldots,\alpha_{k}\in\mathbb{C}$.
 \begin{theorem}
 \label{thm.CC.RRtoCC.hom}For any real numbers $a$ and $b$, we have%
 \begin{align*}
-\left(  a+b\right)  _{\mathbb{C}}  &  =a_{\mathbb{C}}+b_{\mathbb{C}%
+\left(  a+b\right)  _{\mathbb{C}} &  =a_{\mathbb{C}}+b_{\mathbb{C}%
 }\ \ \ \ \ \ \ \ \ \ \text{and}\\
-\left(  a-b\right)  _{\mathbb{C}}  &  =a_{\mathbb{C}}-b_{\mathbb{C}%
+\left(  a-b\right)  _{\mathbb{C}} &  =a_{\mathbb{C}}-b_{\mathbb{C}%
 }\ \ \ \ \ \ \ \ \ \ \text{and}\\
-\left(  ab\right)  _{\mathbb{C}}  &  =a_{\mathbb{C}}b_{\mathbb{C}}.
+\left(  ab\right)  _{\mathbb{C}} &  =a_{\mathbb{C}}b_{\mathbb{C}}.
 \end{align*}
 
 \end{theorem}
@@ -17840,8 +17881,8 @@ whenever $\alpha_{1},\alpha_{2},\ldots,\alpha_{k}\in\mathbb{C}$.
 third equality follows from%
 \begin{align*}
 \underbrace{a_{\mathbb{C}}}_{=\left(  a,0\right)  }\underbrace{b_{\mathbb{C}}%
-}_{=\left(  b,0\right)  }  &  =\left(  a,0\right)  \left(  b,0\right)
-=\left(  ab-0\cdot0,a\cdot0+0\cdot b\right) \\
+}_{=\left(  b,0\right)  } &  =\left(  a,0\right)  \left(  b,0\right)  =\left(
+ab-0\cdot0,a\cdot0+0\cdot b\right)  \\
 &  =\left(  ab,0\right)  =\left(  ab\right)  _{\mathbb{C}}.
 \end{align*}
 
@@ -17851,10 +17892,10 @@ third equality follows from%
 \label{rmk.CC.RRtoCC.homk}If $a_{1},a_{2},\ldots,a_{k}$ are $k$ reals, then
 \begin{align*}
 \left(  a_{1}\right)  _{\mathbb{C}}+\left(  a_{2}\right)  _{\mathbb{C}}%
-+\cdots+\left(  a_{k}\right)  _{\mathbb{C}}  &  =\left(  a_{1}+a_{2}%
++\cdots+\left(  a_{k}\right)  _{\mathbb{C}} &  =\left(  a_{1}+a_{2}%
 +\cdots+a_{k}\right)  _{\mathbb{C}}\ \ \ \ \ \ \ \ \ \ \text{and}\\
 \left(  a_{1}\right)  _{\mathbb{C}}\cdot\left(  a_{2}\right)  _{\mathbb{C}%
-}\cdot\cdots\cdot\left(  a_{k}\right)  _{\mathbb{C}}  &  =\left(  a_{1}%
+}\cdot\cdots\cdot\left(  a_{k}\right)  _{\mathbb{C}} &  =\left(  a_{1}%
 a_{2}\cdots a_{k}\right)  _{\mathbb{C}}.
 \end{align*}
 This can be proven by a straightforward induction on $k$.
@@ -18003,6 +18044,11 @@ $\textquotedblright\ direction.
 \end{definition}
 
 Caution: Fractional powers (like $\alpha^{1/2}$) are not really well-defined.
+
+We shall use PEMDAS rules for the order of operations when powers are
+involved. For example, the expression \textquotedblleft$\alpha\beta^{k}%
++\gamma$\textquotedblright\ means $\left(  \alpha\left(  \beta^{k}\right)
+\right)  +\gamma$ and not any other interpretation.
 
 \begin{proposition}
 \textbf{(a)} Complex numbers satisfy the usual rules for exponents: e.g., we
@@ -26194,8 +26240,8 @@ $\left(  b,c\right)  $ instead of $k$ and $\left(  b_{1},b_{2},\ldots
 ,b_{k}\right)  $) yields $\gcd\left(  b,c,a\right)  =\gcd\left(  \gcd\left(
 b,c\right)  ,a\right)  $. Comparing these two equalities, we obtain
 \begin{equation}
-\gcd\left(  a,\gcd\left(  b,c\right)  \right)  =\gcd\left(  b,c,a\right)
-.\label{sol.ent.prime.gcd.distrib.2nd.b.8}%
+\gcd\left(  a,\gcd\left(  b,c\right)  \right)  =\gcd\left(  b,c,a\right)  .
+\label{sol.ent.prime.gcd.distrib.2nd.b.8}%
 \end{equation}
 
 
