@@ -4794,9 +4794,6 @@ For future reference, let us restate Theorem \ref{thm.ent.gcd.uniprop-mul}
 
 \begin{corollary}
 \label{cor.ent.gcd.uniprop-mula}Let $b_{1},b_{2},\ldots,b_{k}$ be integers.
-\end{corollary}
-
-\begin{theorem}
 For each $m\in\mathbb{Z}$, we have the following logical equivalence:%
 \[
 \left(  m\mid b_{1}\text{ and }m\mid b_{2}\text{ and }\cdots\text{ and }m\mid
@@ -4804,7 +4801,7 @@ b_{k}\right)  \ \Longleftrightarrow\ \left(  m\mid\gcd\left(  b_{1}%
 ,b_{2},\ldots,b_{k}\right)  \right)  .
 \]
 
-\end{theorem}
+\end{corollary}
 
 \begin{proof}
 [Proof of Corollary \ref{cor.ent.gcd.uniprop-mula}.]Let $m\in\mathbb{Z}$.
@@ -8843,6 +8840,11 @@ a,c\right)  \right)  $.
 \right)  =\gcd\left(  \operatorname{lcm}\left(  a,b\right)
 ,\operatorname{lcm}\left(  a,c\right)  \right)  $.
 \end{exercise}
+
+The two parts of Exercise \ref{exe.ent.prime.gcd.distrib} can be regarded as
+\textquotedblleft distributivity laws\textquotedblright, but for the binary
+operations $\gcd$ and $\operatorname{lcm}$ (or $\operatorname{lcm}$ and $\gcd
+$, respectively) instead of $+$ and $\cdot$.
 
 \subsubsection{Coprimality through prime factors}
 
@@ -21294,10 +21296,11 @@ there is no $1^{\prime}\in\mathbb{N}$ such that $1+1^{\prime}=1^{\prime}+1=0$).
 
 \item The sets $\mathbb{C}$, $\mathbb{Z}\left[  i\right]  $, $\mathbb{D}$,
 $\mathbb{Z}\left[  \sqrt{2}\right]  $, $\mathbb{Z}\left[  \omega\right]  $ and
-$\mathbb{Z}\left[  \sqrt{-3}\right]  $ are commutative rings. All of the
-axioms are easy to check, and some of them we have checked. In each case, the
-element $a^{\prime}$ in the \textquotedblleft existence of additive
-inverses\textquotedblright\ axiom is $-a$.
+$\mathbb{Z}\left[  \sqrt{-3}\right]  $ (from the previous chapter and from the
+homework sets) are commutative rings. All of the axioms are easy to check, and
+some of them we have checked. In each case, the element $a^{\prime}$ in the
+\textquotedblleft existence of additive inverses\textquotedblright\ axiom is
+$-a$.
 
 \item If you have seen polynomials: The set $\mathbb{Z}\left[  x\right]  $ of
 all polynomials in a single variable $x$ with integer coefficients is a
@@ -21837,10 +21840,9 @@ If $a,b\in\mathbb{K}$, then the expression \textquotedblleft$-ab$%
 as \textquotedblleft$\left(  -a\right)  b$\textquotedblright\ or as
 \textquotedblleft$-\left(  ab\right)  $\textquotedblright. But Proposition
 \ref{prop.rings.inv-add.rules} \textbf{(f)} shows that these two readings
-yield the same result; therefore, you need not fear this ambiguity. 
+yield the same result; therefore, you need not fear this ambiguity.
 
-Proposition \ref{prop.rings.inv-add.rules} \textbf{(e)} shows that an
-expression 
+Proposition \ref{prop.rings.inv-add.rules} \textbf{(e)} shows that an expression
 
 Furthermore, we don't need to parenthesize expressions like $a+b+c$ or $abc$. Indeed:
 
@@ -21875,7 +21877,8 @@ real or rational) numbers (with the empty product defined to be $1$)
 
 \textbf{(b)} For general (not necessarily commutative) rings $\mathbb{K}$, we
 can still define products with a pre-determined order, such as $a_{1}%
-a_{2}\cdots a_{k}$. These products can be defined recursively as follows:%
+a_{2}\cdots a_{k}$ (where $a_{1},a_{2},\ldots,a_{k}\in\mathbb{K}$). These
+products can be defined recursively as follows:%
 \[
 a_{1}a_{2}\cdots a_{k}=1\ \ \ \ \ \ \ \ \ \ \text{if }k=0;
 \]
@@ -21898,7 +21901,19 @@ Theorem \ref{thm.rings.prod.wd} \textbf{(b)} is called the \textit{general
 associativity theorem}, and will be proven on HW0. (For now, you can find
 proofs in various texts on algebra, or at
 \url{https://groupprops.subwiki.org/wiki/Associative_implies_generalized_associative}
-.)
+.) Note that Theorem \ref{thm.rings.prod.wd} \textbf{(b)} entails that if we
+have $k$ elements $a_{1},a_{2},\ldots,a_{k}$ of a ring $\mathbb{K}$, then any
+two ways of parenthesizing the product $a_{1}a_{2}\cdots a_{k}$ yield the same
+result. For example, for $k=4$, we have%
+\[
+\left(  \left(  a_{1}a_{2}\right)  a_{3}\right)  a_{4}=\left(  a_{1}\left(
+a_{2}a_{3}\right)  \right)  a_{4}=\left(  a_{1}a_{2}\right)  \left(
+a_{3}a_{4}\right)  =a_{1}\left(  \left(  a_{2}a_{3}\right)  a_{4}\right)
+=a_{1}\left(  a_{2}\left(  a_{3}a_{4}\right)  \right)  .
+\]
+(It is not hard to prove this particular chain of identities by multiplying
+the associativity of multiplication in the appropriate places; but for higher
+values of $k$, such a manual approach becomes more and more cumbersome.)
 
 What else can we do with our ring $\mathbb{K}$ ?
 
