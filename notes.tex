@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Thursday, March 28, 2019 00:47:57}
+%TCIDATA{LastRevised=Thursday, March 28, 2019 21:06:45}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -12984,16 +12984,16 @@ $v_{p}\left(  n\right)  =0$. This proves (\ref{pf.prop.ent.count-divs.vpn=0}).]
 If $p$ is a prime such that $p\notin\left\{  p_{1},p_{2},\ldots,p_{u}\right\}
 $, then%
 \begin{align}
-p^{v_{p}\left(  n\right)  } &  =p^{0}\ \ \ \ \ \ \ \ \ \ \left(  \text{since
+p^{v_{p}\left(  n\right)  }  &  =p^{0}\ \ \ \ \ \ \ \ \ \ \left(  \text{since
 (\ref{pf.prop.ent.count-divs.vpn=0}) yields }v_{p}\left(  n\right)  =0\right)
 \nonumber\\
-&  =1\label{pf.prop.ent.count-divs.pvpn=1}%
+&  =1 \label{pf.prop.ent.count-divs.pvpn=1}%
 \end{align}
 and%
 \begin{equation}
 \underbrace{v_{p}\left(  n\right)  }_{\substack{=0\\\text{(by
-(\ref{pf.prop.ent.count-divs.vpn=0}))}}%
-}+1=1.\label{pf.prop.ent.count-divs.vpn+1=1}%
+(\ref{pf.prop.ent.count-divs.vpn=0}))}}}+1=1.
+\label{pf.prop.ent.count-divs.vpn+1=1}%
 \end{equation}
 
 
@@ -13163,13 +13163,13 @@ $n$ (since $-d$ is negative). Qed.}. Hence, we can define a map%
 \begin{align*}
 A:\left\{  \text{positive divisors of }n\right\}   &  \rightarrow\left\{
 \text{negative divisors of }n\right\}  ,\\
-d &  \mapsto-d.
+d  &  \mapsto-d.
 \end{align*}
 For similar reasons, we can define a map%
 \begin{align*}
 B:\left\{  \text{negative divisors of }n\right\}   &  \rightarrow\left\{
 \text{positive divisors of }n\right\}  ,\\
-d &  \mapsto-d.
+d  &  \mapsto-d.
 \end{align*}
 Consider these two maps $A$ and $B$. Clearly, $A\circ B=\operatorname*{id}$
 (since each negative divisor $d$ of $n$ satisfies $\left(  A\circ B\right)
@@ -17861,8 +17861,21 @@ This can be proven by a straightforward induction on $k$.
 \begin{convention}
 \label{conv.CC.RRtoCC.embed}From now on, for each real number $r$, we shall
 identify the real number $r$ with the complex number $r_{\mathbb{C}}=\left(
-r,0\right)  $. This is legitimate, due to the previous theorem.
+r,0\right)  $.
 \end{convention}
+
+Convention \ref{conv.CC.RRtoCC.embed} is legitimate, due to Theorem
+\ref{thm.CC.RRtoCC.hom}.\footnote{Why is this so important? Well, let us
+assume for a moment that Theorem \ref{thm.CC.RRtoCC.hom} was false;
+specifically, let us assume that there are two real numbers $a$ and $b$ such
+that $\left(  ab\right)  _{\mathbb{C}}\neq a_{\mathbb{C}}b_{\mathbb{C}}$.
+Consider these $a$ and $b$. Now, Convention \ref{conv.CC.RRtoCC.embed} lets us
+identify the real numbers $a$, $b$ and $ab$ with the complex numbers
+$a_{\mathbb{C}}$, $b_{\mathbb{C}}$ and $\left(  ab\right)  _{\mathbb{C}}$.
+Thus, $ab=\left(  ab\right)  _{\mathbb{C}}\neq\underbrace{a_{\mathbb{C}}}%
+_{=a}\underbrace{b_{\mathbb{C}}}_{=b}=ab$, which is nonsense. To make sure
+that Convention \ref{conv.CC.RRtoCC.embed} cannot spawn such absurdities, we
+had to prove Theorem \ref{thm.CC.RRtoCC.hom}.}
 
 Thus, the complex numbers extend the real numbers: $\mathbb{R}\subseteq
 \mathbb{C}$.
@@ -21125,7 +21138,8 @@ operation\textquotedblright\ (Definition \ref{def.intro.binop}). In
 particular, a binary operation on a set $S$ must have all its values in $S$.}
 
 \begin{definition}
-\textbf{(a)} A \textit{ring} means a set $\mathbb{K}$ endowed with
+\label{def.rings.ring}\textbf{(a)} A \textit{ring} means a set $\mathbb{K}$
+endowed with
 
 \begin{itemize}
 \item two binary operations called \textquotedblleft\textit{addition}%
@@ -21632,14 +21646,16 @@ example) $2$ is not a product of any two elements of $2\mathbb{Z}$.
 What can you do when you have a ring?
 
 \begin{convention}
-For the rest of this section, we fix a ring $\mathbb{K}$, and we denote its
-addition, multiplication, zero and unity by $+$, $\cdot$, $0$ and $1$.
+\label{conv.rings.K}For the rest of this section, we fix a ring $\mathbb{K}$,
+and we denote its addition, multiplication, zero and unity by $+$, $\cdot$,
+$0$ and $1$.
 \end{convention}
 
 One thing you can do is subtraction. This relies on the following fact:
 
 \begin{theorem}
-Let $a\in\mathbb{K}$. Then, $a$ has exactly one additive inverse.
+\label{thm.rings.inv-add.uni}Let $a\in\mathbb{K}$. Then, $a$ has exactly one
+additive inverse.
 \end{theorem}
 
 \begin{proof}
@@ -21669,9 +21685,9 @@ additive inverse is unique.
 \end{proof}
 
 \begin{definition}
-\textbf{(a)} If $a\in\mathbb{K}$, then the additive inverse of $a$ will be
-called $-a$. (This is well-defined, since the preceding Theorem shows that
-this additive inverse is unique.)
+\label{def.rings.inv-add}\textbf{(a)} If $a\in\mathbb{K}$, then the additive
+inverse of $a$ will be called $-a$. (This is well-defined, since the preceding
+Theorem shows that this additive inverse is unique.)
 
 \textbf{(b)} If $a\in\mathbb{K}$ and $b\in\mathbb{K}$, then we define the
 \textit{difference} $a-b$ to be the element $a+\left(  -b\right)  $ of
@@ -21680,7 +21696,7 @@ $\mathbb{K}$. This new binary operation $-$ on $\mathbb{K}$ is called
 \end{definition}
 
 \begin{proposition}
-Let $a,b,c\in\mathbb{K}$.
+\label{prop.rings.inv-add.rules}Let $a,b,c\in\mathbb{K}$.
 
 \textbf{(a)} We have $a-b=c$ if and only if $a=b+c$. (Roughly speaking, this
 means that subtraction undoes addition.)
@@ -21697,11 +21713,14 @@ means that subtraction undoes addition.)
 \textbf{(f)} We have $-\left(  ab\right)  = \left(  -a\right)  b = a \left(
 -b\right)  $.
 
-\textbf{(g)} We have $a-b-c=a-\left(  b+c\right)  $.
+\textbf{(g)} We have $a-b-c=a-\left(  b+c\right)  $. (Here and in the
+following, \textquotedblleft$a-b-c$\textquotedblright\ should be read as
+\textquotedblleft$\left(  a-b\right)  -c$\textquotedblright.)
 \end{proposition}
 
 \begin{proof}
-All of this is fairly straightforward to prove. For example:
+[Proof of Proposition \ref{prop.rings.inv-add.rules}.] All of this is fairly
+straightforward to prove:
 
 \textbf{(a)} $\Longrightarrow:$ Assume $a-b=c$. Thus, $c=a-b=a+\left(
 -b\right)  $ (by definition). Adding $b$ on both sides of this equation, we
@@ -21722,7 +21741,7 @@ b+\left(  -b\right)  \right)  }_{\substack{=0\\\text{(since }-b\text{ is
 the}\\\text{additive inverse of }b\text{)}}}=c+0=c
 \]
 (by the neutrality of zero), so that $c=a+\left(  -b\right)  =a-b$. Thus,
-\textbf{(a)} is proven.
+Proposition \ref{prop.rings.inv-add.rules} \textbf{(a)} is proven.
 
 \textbf{(b)} We need to prove that $\left(  -a\right)  +\left(  -b\right)
 =-\left(  a+b\right)  $. In other words, we need to prove that $\left(
@@ -21759,18 +21778,77 @@ commutativity of addition). Combining these two equalities, we obtain%
 =\left(  \left(  -a\right)  +\left(  -b\right)  \right)  +\left(  a+b\right)
 =0.
 \]
-This completes the proof of part \textbf{(b)}.
+This completes the proof of Proposition \ref{prop.rings.inv-add.rules}
+\textbf{(b)}.
 
-\textbf{(c)} ..., \textbf{(g)} LTTR.
+\textbf{(c)} We have $0+0=0$ (by the neutrality of $0$). But this shows
+precisely that $0$ is an additive inverse of $0$. In other words, $0=-0$. This
+proves Proposition \ref{prop.rings.inv-add.rules} \textbf{(c)}.
+
+\textbf{(d)} The definition of subtraction yields $0-a=0+\left(  -a\right)
+=-a$ (by the neutrality of $0$). This proves Proposition
+\ref{prop.rings.inv-add.rules} \textbf{(d)}.
+
+\textbf{(e)} Since $-a$ is an additive inverse of $a$, we have $\left(
+-a\right)  +a=0$ and $a+\left(  -a\right)  =0$. But the same two equations say
+that $a$ is an additive inverse of $-a$. In other words, $a=-\left(
+-a\right)  $. This proves Proposition \ref{prop.rings.inv-add.rules}
+\textbf{(e)}.
+
+\textbf{(f)} We have $\left(  -a\right)  +a=0$ (since $-a$ is an additive
+inverse of $a$). But distributivity yields $\left(  -a\right)
+b+ab=\underbrace{\left(  \left(  -a\right)  +a\right)  }_{=0}b=0b=0$ (by
+annihilation). Likewise, $ab+\left(  -a\right)  b=0$. Hence, $\left(
+-a\right)  b$ is an additive inverse of $ab$. In other words, $\left(
+-a\right)  b=-\left(  ab\right)  $.
+
+We have $b+\left(  -b\right)  =0$ (since $-b$ is an additive inverse of $b$).
+But distributivity yields $ab+a\left(  -b\right)  =a\underbrace{\left(
+b+\left(  -b\right)  \right)  }_{=0}=a0=0$ (by annihilation). Likewise,
+$a\left(  -b\right)  +ab=0$. Hence, $a\left(  -b\right)  $ is an additive
+inverse of $ab$. In other words, $a\left(  -b\right)  =-\left(  ab\right)  $.
+Combining this with $\left(  -a\right)  b=-\left(  ab\right)  $, we obtain
+$-\left(  ab\right)  =\left(  -a\right)  b=a\left(  -b\right)  $. This proves
+Proposition \ref{prop.rings.inv-add.rules} \textbf{(f)}.
+
+\textbf{(g)} The definition of subtraction yields%
+\[
+a-b-c=\underbrace{\left(  a-b\right)  }_{\substack{=a+\left(  -b\right)
+\\\text{(by the definition of}\\\text{subtraction)}}}+\left(  -c\right)
+=\left(  a+\left(  -b\right)  \right)  +\left(  -c\right)  =a+\left(  \left(
+-b\right)  +\left(  -c\right)  \right)
+\]
+(by associativity of addition). But Proposition \ref{prop.rings.inv-add.rules}
+\textbf{(b)} (applied to $b$ and $c$ instead of $a$ and $b$) yields $-\left(
+b+c\right)  =\left(  -b\right)  +\left(  -c\right)  $. The definition of
+subtraction yields%
+\[
+a-\left(  b+c\right)  =a+\underbrace{\left(  -\left(  b+c\right)  \right)
+}_{=\left(  -b\right)  +\left(  -c\right)  }=a+\left(  \left(  -b\right)
++\left(  -c\right)  \right)  .
+\]
+Comparing this with $a-b-c=a+\left(  \left(  -b\right)  +\left(  -c\right)
+\right)  $, we obtain $a-b-c=a-\left(  b+c\right)  $. This proves Proposition
+\ref{prop.rings.inv-add.rules} \textbf{(g)}.
 \end{proof}
+
+If $a,b\in\mathbb{K}$, then the expression \textquotedblleft$-ab$%
+\textquotedblright\ can be considered ambiguous, since it can be read either
+as \textquotedblleft$\left(  -a\right)  b$\textquotedblright\ or as
+\textquotedblleft$-\left(  ab\right)  $\textquotedblright. But Proposition
+\ref{prop.rings.inv-add.rules} \textbf{(f)} shows that these two readings
+yield the same result; therefore, you need not fear this ambiguity. 
+
+Proposition \ref{prop.rings.inv-add.rules} \textbf{(e)} shows that an
+expression 
 
 Furthermore, we don't need to parenthesize expressions like $a+b+c$ or $abc$. Indeed:
 
 \begin{theorem}
-Finite sums of elements of $\mathbb{K}$ can be defined in the same way as
-finite sums of usual (i.e., real or rational) numbers (with the empty sum
-defined to be $0$). That is, if $S$ is a finite set, and if $a_{s}%
-\in\mathbb{K}$ for each $s\in S$, then $\sum\limits_{s\in S}a_{s}$ is
+\label{thm.rings.sum.wd}Finite sums of elements of $\mathbb{K}$ can be defined
+in the same way as finite sums of usual (i.e., real or rational) numbers (with
+the empty sum defined to be $0$). That is, if $S$ is a finite set, and if
+$a_{s}\in\mathbb{K}$ for each $s\in S$, then $\sum\limits_{s\in S}a_{s}$ is
 well-defined and satisfies the usual rules, such as%
 \[
 \sum\limits_{s\in S}\left(  a_{s}+b_{s}\right)  =\sum\limits_{s\in S}%
@@ -21790,10 +21868,10 @@ well-defined, it would have to be independent of the order; but this would
 require the commutativity of multiplication.
 
 \begin{theorem}
-\textbf{(a)} Finite products of elements of $\mathbb{K}$ can be defined in the
-same way as finite products of usual (i.e., real or rational) numbers (with
-the empty product defined to be $1$) \textbf{as long as the ring }$\mathbb{K}$
-\textbf{is commutative}.
+\label{thm.rings.prod.wd}\textbf{(a)} Finite products of elements of
+$\mathbb{K}$ can be defined in the same way as finite products of usual (i.e.,
+real or rational) numbers (with the empty product defined to be $1$)
+\textbf{as long as the ring }$\mathbb{K}$ \textbf{is commutative}.
 
 \textbf{(b)} For general (not necessarily commutative) rings $\mathbb{K}$, we
 can still define products with a pre-determined order, such as $a_{1}%
@@ -21816,9 +21894,9 @@ i\in\left\{  0,1,\ldots,k\right\}  .
 
 \end{theorem}
 
-Part \textbf{(b)} of this theorem is called the \textit{general associativity
-theorem}, and will be proven on HW0. (For now, you can find proofs in various
-texts on algebra, or at
+Theorem \ref{thm.rings.prod.wd} \textbf{(b)} is called the \textit{general
+associativity theorem}, and will be proven on HW0. (For now, you can find
+proofs in various texts on algebra, or at
 \url{https://groupprops.subwiki.org/wiki/Associative_implies_generalized_associative}
 .)
 
@@ -21829,8 +21907,8 @@ is also a natural way to multiply an element of $\mathbb{K}$ with an integer.
 This is defined as follows:
 
 \begin{definition}
-Let $a\in\mathbb{K}$ and $n\in\mathbb{Z}$. Then, we define an element $na$ of
-$\mathbb{K}$ by%
+\label{def.rings.na}Let $a\in\mathbb{K}$ and $n\in\mathbb{Z}$. Then, we define
+an element $na$ of $\mathbb{K}$ by%
 \[
 na=%
 \begin{cases}
@@ -21850,11 +21928,11 @@ the multiplication $\cdot$ of $\mathbb{K}$ (that is, $na$ means the same thing).
 \textbf{2019-03-29 lecture}
 \end{center}
 
-We can also define powers:
+We can also define powers of elements of a commutative ring:
 
 \begin{definition}
-Let $a\in\mathbb{K}$ and $n\in\mathbb{N}$. Then, we define an element $a^{n}$
-of $\mathbb{K}$ by%
+\label{def.rings.pow}Let $a\in\mathbb{K}$ and $n\in\mathbb{N}$. Then, we
+define an element $a^{n}$ of $\mathbb{K}$ by%
 \[
 a^{n}=\underbrace{a\cdot a\cdot\cdots\cdot a}_{n\text{ times}}.
 \]
@@ -21865,14 +21943,14 @@ Standard rules for addition, subtraction, multiplication and taking powers
 hold in every ring:
 
 \begin{proposition}
-\textbf{(a)} We have%
+\label{prop.rings.pow.rules}\textbf{(a)} We have%
 \begin{align*}
 -\left(  na\right)   &  =\left(  -n\right)  a=n\left(  -a\right)
 \ \ \ \ \ \ \ \ \ \ \text{for }a\in\mathbb{K}\text{ and }n\in\mathbb{Z}%
 \text{;}\\
-\left(  nm\right)  a  &  =n\left(  ma\right)  \ \ \ \ \ \ \ \ \ \ \text{for
+\left(  nm\right)  a &  =n\left(  ma\right)  \ \ \ \ \ \ \ \ \ \ \text{for
 }a\in\mathbb{K}\text{ and }n,m\in\mathbb{Z};\\
-0^{n}  &  =%
+0^{n} &  =%
 \begin{cases}
 0, & \text{if }n>0\\
 1, & \text{if }n=0
@@ -21881,9 +21959,9 @@ hold in every ring:
 &  \ \ \ \ \ \ \ \ \ \ \left(  \text{here, the \textquotedblleft%
 }0\text{\textquotedblright\ in \textquotedblleft}0^{n}\text{\textquotedblright%
 \ means the zero of }\mathbb{K}\right)  ;\\
-a^{n+m}  &  =a^{n}a^{m}\ \ \ \ \ \ \ \ \ \ \text{for }a\in\mathbb{K}\text{ and
+a^{n+m} &  =a^{n}a^{m}\ \ \ \ \ \ \ \ \ \ \text{for }a\in\mathbb{K}\text{ and
 }n,m\in\mathbb{N};\\
-\left(  a^{n}\right)  ^{m}  &  =a^{nm}\ \ \ \ \ \ \ \ \ \ \text{for }%
+\left(  a^{n}\right)  ^{m} &  =a^{nm}\ \ \ \ \ \ \ \ \ \ \text{for }%
 a\in\mathbb{K}\text{ and }n,m\in\mathbb{N}.
 \end{align*}
 
@@ -21909,6 +21987,8 @@ This further equals $a^{2}+2ab+b^{2}$ if $\mathbb{K}$ is commutative.
 TODO:
 
 \begin{itemize}
+\item $nab$ and $nma$ non-ambiguous.
+
 \item Try to find commonalities. Mention in particular the uniqueness of inverses.
 
 \item Direct products.
