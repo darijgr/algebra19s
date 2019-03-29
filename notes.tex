@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Friday, March 29, 2019 02:06:00}
+%TCIDATA{LastRevised=Friday, March 29, 2019 08:19:06}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -21955,7 +21955,8 @@ the order of summation in order to make them non-ambiguous.
 \end{theorem}
 
 \begin{proof}
-This is proven just as for numbers.
+This is proven just as for numbers. (See \cite[\S 2.14 and \S 1.4]{detnotes}
+for how it is proven for numbers.)
 \end{proof}
 
 What about finite products? Is $\prod_{s\in S}a_{s}$ well-defined? Not always,
@@ -21993,7 +21994,8 @@ i\in\left\{  0,1,\ldots,k\right\}  .
 \end{theorem}
 
 \begin{proof}
-\textbf{(a)} This is proven just as for numbers.
+\textbf{(a)} This is proven just as for numbers. (See \cite[\S 2.14 and
+\S 1.4]{detnotes} for how it is proven for numbers.)
 
 \textbf{(b)} This will be proven on HW0. (For now, you can find proofs in
 various texts on algebra, or at
@@ -22152,7 +22154,7 @@ $aa^{\prime}=a^{\prime}a=1$.
 \end{definition}
 
 Of course, multiplicative inverses don't always exist. In $\mathbb{Q}$, $0$
-has none. In $\mathbb{Z}$, $2$ has none. But at least we have uniqueness:
+has none. In $\mathbb{Z}$, $2$ has none. But when they do, they are unique:
 
 \begin{theorem}
 \label{thm.rings.inv-mul.uni}Let $a\in\mathbb{K}$. Then, $a$ has at most one
@@ -22220,7 +22222,7 @@ invertible as well, and its inverse is $\left(  ab\right)  ^{-1}=b^{-1}a^{-1}%
 $. (Mind the order of multiplication: it is $b^{-1}a^{-1}$, not $a^{-1}b^{-1}$.)
 
 \textbf{(c)} Assume that $\mathbb{K}$ is commutative. Let $a,b,c,d\in
-\mathbb{K}$ be such that $b$ and $c$ are invertible. Then,
+\mathbb{K}$ be such that $b$ and $d$ are invertible. Then,
 \[
 a/b+c/d=\left(  ad+bc\right)  /\left(  bd\right)
 \ \ \ \ \ \ \ \ \ \ \text{and}\ \ \ \ \ \ \ \ \ \ \left(  a/b\right)  \left(
@@ -22251,19 +22253,22 @@ commutative skew field.
 \end{definition}
 
 The condition \textquotedblleft$0\neq1$ in $\mathbb{K}$\textquotedblright\ is
-technical. It is easy to see that if a ring $\mathbb{K}$ satisfies $0=1$, then
-it has only one element (to wit: any $a\in\mathbb{K}$ must satisfy
-$a=\underbrace{1}_{=0}\cdot a=0\cdot a=0$), which entails that $\mathbb{K}$ is
-the zero ring (up to relabeling of its element $0$). We do not want the zero
-ring to count as a skew field; thus we require $0\neq1$ in $\mathbb{K}$.
+technical. It is easy to see that if a ring $\mathbb{K}$ satisfies $0=1$ in
+$\mathbb{K}$, then it has only one element (to wit: any $a\in\mathbb{K}$ must
+satisfy $a=\underbrace{1}_{=0}\cdot a=0\cdot a=0$), which entails that
+$\mathbb{K}$ is the zero ring (up to relabeling of its element $0$). We do not
+want the zero ring to count as a skew field; thus we require $0\neq1$ in
+$\mathbb{K}$.
+
+Some authors call skew fields \textit{division rings}.
 
 \begin{example}
 \textbf{(a)} The rings $\mathbb{Q}$, $\mathbb{R}$ and $\mathbb{C}$ are fields.
 
 \textbf{(b)} The rings $\mathbb{Z}$, $\mathbb{Z}\left[  i\right]  $ and
 $\mathbb{Z}\left[  \sqrt{2}\right]  $ are not fields. However, $\mathbb{Z}%
-\left[  i\right]  $ would be a field if we had used $\mathbb{Q}$ instead of
-$\mathbb{Z}$.
+\left[  i\right]  $ and $\mathbb{Z}\left[  \sqrt{2}\right]  $ would become
+fields if we had used $\mathbb{Q}$ instead of $\mathbb{Z}$.
 
 \textbf{(c)} The polynomial ring $\mathbb{Z}\left[  x\right]  $ is not a
 field. There is a way to get a field out of it, similarly to how $\mathbb{Q}$
@@ -22271,8 +22276,7 @@ is obtained from $\mathbb{Z}$ (more on that later perhaps).
 
 \textbf{(d)} The ring $\mathbb{Q}^{\mathbb{Q}}$ is not a field. Indeed, a
 function can be $0$ at some point and $\neq0$ at another. Then, it is not
-invertible (since it is $0$ at some point) but yet nonzero (since it is
-$\neq0$ at another).
+invertible (since it is $0$ at some point) yet nonzero (since it is $\neq0$ at another).
 \end{example}
 
 What about $\mathbb{Z}/n$ ?
@@ -22307,9 +22311,9 @@ i^{2}=a,\ \ \ \ \ \ \ \ \ \ j^{2}=b,\ \ \ \ \ \ \ \ \ \ ij=-ji.
 \]%
 \begin{align*}
 &  \left(  x_{1},x_{2},x_{3},x_{4}\right)  \cdot\left(  y_{1},y_{2}%
-,y_{3},y_{4}\right)  \\
+,y_{3},y_{4}\right) \\
 &  =\left(  x_{1}y_{1}+ax_{2}y_{2}+bx_{3}y_{3}-abx_{4}y_{4},x_{1}y_{2}%
-+x_{2}y_{1}-bx_{3}y_{4}+bx_{4}y_{3}\right.  \\
++x_{2}y_{1}-bx_{3}y_{4}+bx_{4}y_{3}\right. \\
 &  \ \ \ \ \ \ \ \ \ \ \left.  +x_{1}y_{3}+ax_{2}y_{4}+x_{3}y_{1}-ax_{4}%
 y_{2},x_{1}y_{4}+x_{2}y_{3}-x_{3}y_{2}+x_{4}y_{1}\right)  .
 \end{align*}
@@ -27751,14 +27755,16 @@ $p^{i-1}\geq\left(  i-1\right)  +1=i$.
 Note that $u$ is a positive integer. Thus, $u\geq1$. Exercise
 \ref{exe.ent.phi.d-phid} \textbf{(b)} (applied to $u$ instead of $n$) yields
 $u-\phi\left(  u\right)  \geq0$. In other words, $\phi\left(  u\right)  \leq
-u$.
+u$. Furthermore, $p^{i}$ is a positive integer; thus, $\phi\left(
+p^{i}\right)  \geq0$ (because clearly, $\phi\left(  m\right)  =0$ for every
+positive integer $m$).
 
 But $u\perp p$. Hence, Exercise \ref{exe.ent.coprime.powers} (applied to $u$,
 $p$, $1$ and $i$ instead of $a$, $b$, $n$ and $m$) yields $u^{1}\perp p^{i}$
 (since $i\in\mathbb{N}$). In other words, $u\perp p^{i}$ (since $u^{1}=u$). In
 other words, the integers $u$ and $p^{i}$ are coprime. Thus, Theorem
 \ref{thm.ent.phi.mult} (applied to $u$ and $p^{i}$ instead of $m$ and $n$)
-yield $\phi\left(  up^{i}\right)  =\phi\left(  u\right)  \cdot\phi\left(
+yields $\phi\left(  up^{i}\right)  =\phi\left(  u\right)  \cdot\phi\left(
 p^{i}\right)  $ (since $u$ and $p^{i}$ are positive integers). Thus,%
 \[
 \phi\left(  up^{i}\right)  =\underbrace{\phi\left(  u\right)  }_{\leq u}%
@@ -27769,11 +27775,12 @@ p^{i}\right)  $ (since $u$ and $p^{i}$ are positive integers). Thus,%
 Hence,%
 \begin{align*}
 up^{i}-\underbrace{\phi\left(  up^{i}\right)  }_{\leq u\cdot\phi\left(
-p^{i}\right)  }  &  \geq up^{i}-u\cdot\phi\left(  p^{i}\right)  =u\cdot
+p^{i}\right)  } &  \geq up^{i}-u\cdot\phi\left(  p^{i}\right)  =u\cdot
 \underbrace{\left(  p^{i}-\phi\left(  p^{i}\right)  \right)  }%
 _{\substack{=p^{i-1}\\\text{(by (\ref{sol.ent.euler.non-coprime.ineq.3rd.1}%
 ))}}}=\underbrace{u}_{\geq1}p^{i-1}\\
-&  \geq1p^{i-1}\ \ \ \ \ \ \ \ \ \ \left(  \text{since }p^{i-1}\geq0\right) \\
+&  \geq1p^{i-1}\ \ \ \ \ \ \ \ \ \ \left(  \text{since }p^{i-1}\geq0\right)
+\\
 &  \geq p^{i-1}\geq i.
 \end{align*}
 Thus, (\ref{sol.ent.euler.non-coprime.ineq.pf.1}) is proven again.]
@@ -29003,4 +29010,6 @@ translated 7th edition, Springer 1991.
 \bibitem[Waerde91b]{Waerden2}B.L. van der Waerden, \textit{Algebra, Volume
 II}, translated 5th edition, Springer 1991.
 \end{thebibliography}
+
+
 \end{document}
