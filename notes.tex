@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Friday, March 29, 2019 16:01:06}
+%TCIDATA{LastRevised=Friday, March 29, 2019 19:45:39}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -17608,6 +17608,8 @@ doable with some abstract algebra (at least in the case $n=p$). See
 
 \subsection{Complex numbers}
 
+\subsubsection{An informal introduction}
+
 We now leave (at least for the time being) the study of integers and proceed
 to consider a much larger \textquotedblleft number system\textquotedblright:
 \href{https://en.wikipedia.org/wiki/Complex_number}{the \textit{complex
@@ -17663,13 +17665,13 @@ b-d\right)  i;\label{eq.CC.motivate.-}\\
 \left(  a+bi\right)  \left(  c+di\right)   &  =ac+adi+bci+bd\underbrace{i^{2}%
 }_{=-1}=ac+adi+bci-bd\nonumber\\
 &  =\left(  ac-bd\right)  +\left(  ad+bc\right)  i;\label{eq.CC.motivate.*}\\
-\dfrac{a+bi}{c+di} &  =\dfrac{\left(  a+bi\right)  \left(  c-di\right)
+\dfrac{a+bi}{c+di}  &  =\dfrac{\left(  a+bi\right)  \left(  c-di\right)
 }{\left(  c+di\right)  \left(  c-di\right)  }=\dfrac{ac-adi+bci+bdi^{2}%
 }{cc-cdi+dci-ddi^{2}}=\dfrac{ac-adi+bci+bd\left(  -1\right)  }%
 {cc-cdi+dci-dd\left(  -1\right)  }\nonumber\\
 &  =\dfrac{\left(  ac+bd\right)  +\left(  bc-ad\right)  i}{c^{2}+d^{2}%
-}\ \ \ \ \ \ \ \ \ \ \left(  \text{if }c,d\text{ are not both }0\right)
-.\label{eq.CC.motivate./}%
+}\ \ \ \ \ \ \ \ \ \ \left(  \text{if }c,d\text{ are not both }0\right)  .
+\label{eq.CC.motivate./}%
 \end{align}
 (Note that the latter formula is an analogue of the standard procedure for
 rationalizing denominators that involve square roots:%
@@ -17707,6 +17709,8 @@ don't already lead to some contradictions?
 To answer this question, let us forget our daring postulation of the existence
 of $i$, and instead give a formal definition of complex numbers:
 
+\subsubsection{Rigorous definition of the complex numbers}
+
 \begin{definition}
 \label{def.CC.CC}\textbf{(a)} A \textit{complex number} is defined as a pair
 $\left(  a,b\right)  $ of two real numbers.
@@ -17743,13 +17747,20 @@ For example, the definition of the operation $\cdot$ on $\mathbb{C}$ yields%
 0-1\cdot1}_{=-1},\underbrace{0\cdot1+1\cdot0}_{=0}\right)  =\left(
 -1,0\right)  =\left(  -1\right)  _{\mathbb{C}}.
 \]
-We will later equate the complex number $\left(  -1\right)  _{\mathbb{C}}$
-with the real number $-1$; thus, this equation will simplify to $ii=-1$. So
-$i$ \textquotedblleft behaves like a square root of $-1$\textquotedblright.
-But we also have $\left(  -i\right)  \left(  -i\right)  =\left(  -1\right)
-_{\mathbb{C}}$, so $-i$ fits the same bill. Thus, we didn't have to postulate
-the existence of a mythical number $i$ satisfying $i^{2}=1$; we simply found
-such a number in the set $\mathbb{C}$.
+We will later\footnote{in Convention \ref{conv.CC.RRtoCC.embed}} equate the
+complex number $\left(  -1\right)  _{\mathbb{C}}$ with the real number $-1$;
+thus, this equation will simplify to $ii=-1$. So $i$ \textquotedblleft behaves
+like a square root of $-1$\textquotedblright. But we also have $\left(
+-i\right)  \left(  -i\right)  =\left(  -1\right)  _{\mathbb{C}}$, so $-i$ fits
+the same bill. Thus, we didn't have to postulate the existence of a mythical
+number $i$ satisfying $i^{2}=1$; we simply found such a number in the set
+$\mathbb{C}$.
+
+The definitions of the operations $+$, $-$ and $\cdot$ in Definition
+\ref{def.CC.CC} are not chosen by accident. We shall later identify each
+complex number $\left(  a,b\right)  $ with $a+bi$; then, these definitions
+will become exactly the equalities (\ref{eq.CC.motivate.+}),
+(\ref{eq.CC.motivate.-}) and (\ref{eq.CC.motivate.*}) that we derived unrigorously.
 
 We are leaving division of complex numbers undefined so far, because we will
 later get it more or less for free.
@@ -17761,6 +17772,8 @@ and $\cdot$ on $\mathbb{C}$. Thus, for example, the expression
 \textquotedblleft$\alpha+\beta\cdot\gamma$\textquotedblright\ shall mean
 $\alpha+\left(  \beta\cdot\gamma\right)  $ and not $\left(  \alpha
 +\beta\right)  \cdot\gamma$.
+
+\subsubsection{Rules for $+$, $-$ and $\cdot$}
 
 So we have defined complex numbers as pairs of real numbers, and we have
 defined three operations on them which we called $+$, $-$ and $\cdot$. But do
@@ -17875,19 +17888,19 @@ logical equivalences:%
 \begin{align*}
 &  \ \left(  \underbrace{\alpha}_{=\left(  a,a^{\prime}\right)  }%
 -\underbrace{\beta}_{=\left(  b,b^{\prime}\right)  }=\underbrace{\gamma
-}_{=\left(  c,c^{\prime}\right)  }\right)  \\
+}_{=\left(  c,c^{\prime}\right)  }\right) \\
 &  \Longleftrightarrow\ \left(  \underbrace{\left(  a,a^{\prime}\right)
 -\left(  b,b^{\prime}\right)  }_{\substack{=\left(  a-b,a^{\prime}-b^{\prime
 }\right)  \\\text{(by the definition of the}\\\text{operation }-\text{ on
-}\mathbb{C}\text{)}}}=\left(  c,c^{\prime}\right)  \right)  \\
+}\mathbb{C}\text{)}}}=\left(  c,c^{\prime}\right)  \right) \\
 &  \Longleftrightarrow\ \left(  \left(  a-b,a^{\prime}-b^{\prime}\right)
 =\left(  c,c^{\prime}\right)  \right)  \ \Longleftrightarrow\ \left(
 \underbrace{a-b=c}_{\Longleftrightarrow\ \left(  a=b+c\right)  }\text{ and
 }\underbrace{a^{\prime}-b^{\prime}=c^{\prime}}_{\Longleftrightarrow\ \left(
-a^{\prime}=b^{\prime}+c^{\prime}\right)  }\right)  \\
+a^{\prime}=b^{\prime}+c^{\prime}\right)  }\right) \\
 &  \Longleftrightarrow\ \left(  a=b+c\text{ and }a^{\prime}=b^{\prime
 }+c^{\prime}\right)  \ \Longleftrightarrow\ \left(  \left(  a,a^{\prime
-}\right)  =\left(  b+c,b^{\prime}+c^{\prime}\right)  \right)  \\
+}\right)  =\left(  b+c,b^{\prime}+c^{\prime}\right)  \right) \\
 &  \Longleftrightarrow\ \left(  \underbrace{\left(  a,a^{\prime}\right)
 }_{=\alpha}=\underbrace{\left(  b,b^{\prime}\right)  }_{=\beta}%
 +\underbrace{\left(  c,c^{\prime}\right)  }_{=\gamma}\right)
@@ -17895,11 +17908,11 @@ a^{\prime}=b^{\prime}+c^{\prime}\right)  }\right)  \\
 \begin{array}
 [c]{c}%
 \text{since }\left(  b+c,b^{\prime}+c^{\prime}\right)  =\left(  b,b^{\prime
-}\right)  +\left(  c,c^{\prime}\right)  \\
+}\right)  +\left(  c,c^{\prime}\right) \\
 \text{(by the definition of the}\\
 \text{operation }+\text{ on }\mathbb{C}\text{)}%
 \end{array}
-\right)  \\
+\right) \\
 &  \Longleftrightarrow\ \left(  \alpha=\beta+\gamma\right)  .
 \end{align*}
 This proves Theorem \ref{thm.CC.CC.rules} \textbf{(i)}.
@@ -17907,6 +17920,8 @@ This proves Theorem \ref{thm.CC.CC.rules} \textbf{(i)}.
 All the other parts of Theorem \ref{thm.CC.CC.rules} can be proven by direct
 computations, just as we proved Theorem \ref{thm.CC.CC.rules} \textbf{(f)}.
 \end{proof}
+
+\subsubsection{Finite sums and finite products}
 
 Recall the concept of a finite sum of real numbers (i.e., a sum of the form
 $\sum_{i\in I}a_{i}$, where $I$ is a finite set and $a_{i}$ is a real number
@@ -17957,6 +17972,8 @@ of elements of $\mathbb{C}$ are identical to the analogous proofs for real
 numbers, but (again) rely on Theorem \ref{thm.CC.CC.rules} instead of the
 usual rules of commutativity, associativity etc. for real numbers.
 \end{proof}
+
+\subsubsection{Embedding $\mathbb{R}$ into $\mathbb{C}$}
 
 \begin{theorem}
 \label{thm.CC.RRtoCC.hom}For any real numbers $a$ and $b$, we have%
@@ -18067,16 +18084,16 @@ $b_{\mathbb{C}}=\left(  b,0\right)  $, respectively. Thus, $a=a_{\mathbb{C}%
 }=\left(  a,0\right)  $ and $b=b_{\mathbb{C}}=\left(  b,0\right)  $. Hence,%
 \begin{align*}
 \underbrace{a}_{=\left(  a,0\right)  }+\underbrace{b}_{=\left(  b,0\right)
-}\underbrace{i}_{=\left(  0,1\right)  } &  =\left(  a,0\right)
+}\underbrace{i}_{=\left(  0,1\right)  }  &  =\left(  a,0\right)
 +\underbrace{\left(  b,0\right)  \left(  0,1\right)  }_{\substack{=\left(
 b\cdot0-0\cdot1,b\cdot1+0\cdot0\right)  \\\text{(by the definition
 of}\\\text{the operation }\cdot\text{ on }\mathbb{C}\text{)}}}=\left(
 a,0\right)  +\left(  \underbrace{b\cdot0-0\cdot1}_{=0},\underbrace{b\cdot
-1+0\cdot0}_{=b}\right)  \\
+1+0\cdot0}_{=b}\right) \\
 &  =\left(  a,0\right)  +\left(  0,b\right)  =\left(  \underbrace{a+0}%
-_{=a},\underbrace{0+b}_{=b}\right)  \\
+_{=a},\underbrace{0+b}_{=b}\right) \\
 &  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of the operation
-}+\text{ on }\mathbb{C}\right)  \\
+}+\text{ on }\mathbb{C}\right) \\
 &  =\left(  a,b\right)  .
 \end{align*}
 This proves Proposition \ref{prop.CC.RRtoCC.a+bi}.
@@ -18101,15 +18118,17 @@ This is straightforward: Let $a\in\mathbb{R}$ and $\left(  b,c\right)
 number $a$ with the complex number $a_{\mathbb{C}}=\left(  a,0\right)  $.
 Hence, $a=a_{\mathbb{C}}=\left(  a,0\right)  $. Now,%
 \begin{align*}
-\underbrace{a}_{=\left(  a,0\right)  }\left(  b,c\right)    & =\left(
+\underbrace{a}_{=\left(  a,0\right)  }\left(  b,c\right)   &  =\left(
 a,0\right)  \cdot\left(  b,c\right)  =\left(  \underbrace{ab-0c}%
 _{=ab},\underbrace{ac+0b}_{=ac}\right)  \\
-& \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of the operation }%
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of the operation }%
 \cdot\text{ on }\mathbb{C}\right)  \\
-& =\left(  ab,ac\right)  .
+&  =\left(  ab,ac\right)  .
 \end{align*}
 This proves Proposition \ref{prop.CC.CC.a(b,c)}.
 \end{proof}
+
+\subsubsection{Inverses and division of complex numbers}
 
 \begin{definition}
 A complex number $\alpha$ is said to be \textit{nonzero} if and only if it is
@@ -18120,22 +18139,12 @@ In other words, a complex number $\alpha$ is nonzero if and only if it is
 distinct from $0$ (since we are identifying the real number $0$ with
 $0_{\mathbb{C}}$). Equivalently, a complex number $\alpha=\left(  a,b\right)
 $ is nonzero if and only if $\left(  a,b\right)  \neq\left(  0,0\right)  $ as
-pairs (i.e., if and only if at least one of the real numbers $a$ and $b$ are nonzero).%
-
-\[%
-\begin{tabular}
-[c]{||l||}\hline\hline
-\textbf{You have reached the end of the finished part.}\\
-\textbf{TODO: Write on from here.}\\\hline\hline
-\end{tabular}
-\ \
-\]
-
+pairs (i.e., if and only if at least one of the real numbers $a$ and $b$ are nonzero).
 
 We have so far been adding, subtracting and multiplying complex numbers, but
-never dividing it (except briefly, before we formally defined them). We could
-define division in the same way as we defined addition, subtraction and
-multiplication -- namely, by giving an explicit formula for $\dfrac{\left(
+never dividing them (except briefly, before we formally defined them). We
+could define division in the same way as we defined addition, subtraction and
+multiplication -- namely, by an explicit formula for $\dfrac{\left(
 a,b\right)  }{\left(  c,d\right)  }$ whenever $\left(  c,d\right)  $ is
 nonzero\footnote{This formula would be
 \[
@@ -18143,14 +18152,20 @@ nonzero\footnote{This formula would be
 {c^{2}+d^{2}},\dfrac{bc-ad}{c^{2}+d^{2}}\right)  .
 \]
 }. However, it is more instructive to proceed differently, and construct the
-division from the multiplication that was already defined. The first step is
-to define an \textit{inverse} of a complex number:
+division from the multiplication that was already defined. After all, if our
+division is to deserve its name, it should undo multiplication; and this
+determines it uniquely. We will not define division right away; instead, we
+start out by defining an \textit{inverse} of a complex number:
 
 \begin{definition}
-\label{def.CC.CC.inverse.inverse}An \textit{inverse} of a complex number
-$\alpha$ is a complex number $\beta$ such that $\alpha\beta=1$. (Recall that
-$1=1_{\mathbb{C}}$ by the convention that we just made.)
+\label{def.CC.CC.inverse.inverse}Let $\alpha$ be a complex number. An
+\textit{inverse} of $\alpha$ means a complex number $\beta$ such that
+$\alpha\beta=1$. (Recall that $1=1_{\mathbb{C}}$ by Convention
+\ref{conv.CC.RRtoCC.embed}.)
 \end{definition}
+
+The complex number $0$ has no inverse (because $0\beta$ will never equal $1$).
+But it turns out that all the other complex numbers have one:
 
 \begin{theorem}
 \label{thm.CC.CC.inverse.unique}Let $\alpha$ be a nonzero complex number.
@@ -18158,28 +18173,67 @@ Then, $\alpha$ has a unique inverse.
 \end{theorem}
 
 \begin{proof}
-[Proof of Theorem \ref{thm.CC.CC.inverse.unique}.]\textit{Existence of the
-inverse:} Write $\alpha$ as $\alpha=\left(  c,d\right)  $ for two real numbers
-$c$ and $d$. Then, $\left(  c,d\right)  =\alpha\neq0$ (since $\alpha$ is
-nonzero). Thus, $c^{2}+d^{2}>0$ (since $c$ and $d$ are real numbers, and thus
-$c^{2}$ and $d^{2}$ are $\geq0$). Now, set%
+[Proof of Theorem \ref{thm.CC.CC.inverse.unique}.]We shall separately prove
+the existence and the uniqueness of an inverse of $\alpha$.
+
+\textit{Proof of the existence of the inverse:} Write the complex number
+$\alpha$ as $\alpha=\left(  c,d\right)  $ for two real numbers $c$ and $d$.
+Then, $\left(  c,d\right)  =\alpha\neq0$ (since $\alpha$ is nonzero). Thus,
+$\left(  c,d\right)  \neq0=\left(  0,0\right)  $. In other words, at least one
+of the two real numbers $c$ and $d$ is nonzero. Hence, at least one of the two
+real numbers $c^{2}$ and $d^{2}$ is positive\footnote{since the square of a
+nonzero real number is always positive}. The other among these two numbers
+must, of course, be nonnegative\footnote{since the square of a real number is
+always nonnegative}. Hence, $c^{2}+d^{2}$ is the sum of a positive real number
+with a nonnegative real number. Therefore, $c^{2}+d^{2}$ itself is positive.
+Thus, $c^{2}+d^{2}$ is a nonzero real number; hence, we can divide by
+$c^{2}+d^{2}$. In particular, we can define a complex number $\beta$ by%
 \[
 \beta=\left(  \dfrac{c}{c^{2}+d^{2}},\dfrac{-d}{c^{2}+d^{2}}\right)  .
 \]
-Then,%
+Consider this $\beta$. Multiplying the equalities $\alpha=\left(  c,d\right)
+$ and $\beta=\left(  \dfrac{c}{c^{2}+d^{2}},\dfrac{-d}{c^{2}+d^{2}}\right)  $,
+we find
 \begin{align*}
 \alpha\beta &  =\left(  c,d\right)  \left(  \dfrac{c}{c^{2}+d^{2}},\dfrac
 {-d}{c^{2}+d^{2}}\right)  \\
-&  =\left(  c\cdot\dfrac{c}{c^{2}+d^{2}}-d\cdot\dfrac{-d}{c^{2}+d^{2}}%
-,c\cdot\dfrac{-d}{c^{2}+d^{2}}+d\cdot\dfrac{c}{c^{2}+d^{2}}\right)  \\
+&  =\left(  \underbrace{c\cdot\dfrac{c}{c^{2}+d^{2}}-d\cdot\dfrac{-d}%
+{c^{2}+d^{2}}}_{=1},\underbrace{c\cdot\dfrac{-d}{c^{2}+d^{2}}+d\cdot\dfrac
+{c}{c^{2}+d^{2}}}_{=0}\right)  \\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of the operation }%
+\cdot\text{ on }\mathbb{C}\right)  \\
 &  =\left(  1,0\right)  =1_{\mathbb{C}}.
 \end{align*}
-So $\beta$ is an inverse of $\alpha$.
+Thus, $\beta$ is an inverse of $\alpha$ (by the definition of an inverse of
+$\alpha$). Hence, $\alpha$ has \textbf{at least one} inverse (namely, $\beta$).
 
-\textit{Uniqueness of the inverse:} We proved the uniqueness of an inverse of
-an invertible element in $\mathbb{Z}/n$ (see Proposition
-\ref{prop.equiv.modinv.uni}). The same argument applies to complex numbers.
-\end{proof}
+\textit{Proof of the uniqueness of the inverse:} We must prove that $\alpha$
+has at most one inverse. This is exactly the statement of Proposition
+\ref{prop.equiv.modinv.uni}, except that our $\alpha$ is an element of
+$\mathbb{C}$ rather than of $\mathbb{Z}/n$. But the same argument that we used
+to prove Proposition \ref{prop.equiv.modinv.uni} can be applied to $\alpha
+\in\mathbb{C}$ instead of $\alpha\in\mathbb{Z}/n$\ \ \ \ \footnote{Of course,
+we need to make some obvious modifications, such as replacing every appearance
+of \textquotedblleft$\left[  1\right]  _{n}$\textquotedblright\ by
+\textquotedblleft$1$\textquotedblright, and replacing every reference to
+Theorem \ref{thm.eqrel.Z/n.rules} with a reference to Theorem
+\ref{thm.CC.CC.rules}.}. Hence, we obtain that $\alpha$ has \textbf{at most
+one} inverse.
+
+We have now shown that $\alpha$ has at least one inverse, and we have shown
+that $\alpha$ has at most one inverse. Combining these two results, we
+conclude that $\alpha$ has a unique inverse. This proves Theorem
+\ref{thm.CC.CC.inverse.unique}.
+\end{proof}%
+
+\[%
+\begin{tabular}
+[c]{||l||}\hline\hline
+\textbf{You have reached the end of the finished part.}\\
+\textbf{TODO: Write on from here.}\\\hline\hline
+\end{tabular}
+\]
+
 
 \begin{definition}
 \label{def.CC.CC.inverse.notations}\textbf{(a)} The inverse of a nonzero
@@ -18187,7 +18241,9 @@ complex number $\beta$ is called $\beta^{-1}$.
 
 \textbf{(b)} Let $\alpha$ and $\beta$ be two complex numbers such that
 $\beta\neq0$. Then, the quotient $\dfrac{\alpha}{\beta}$ (also known as
-$\alpha/\beta$) is defined as $\alpha\cdot\beta^{-1}$.
+$\alpha/\beta$) is defined as $\alpha\cdot\beta^{-1}$. The operation that
+transforms a pair $\left(  \alpha,\beta\right)  $ of two complex numbers (with
+$\beta$ nonzero) into $\alpha/\beta$ is called \textit{division}.
 \end{definition}
 
 It is easy to see that division undoes multiplication:
@@ -18203,11 +18259,12 @@ It is easy to see that division undoes multiplication:
 \end{proposition}
 
 \begin{proof}
-$\Longrightarrow:$ Assume that $\gamma=\dfrac{\alpha}{\beta}$. Thus,
-$\gamma=\dfrac{\alpha}{\beta}=\alpha\beta^{-1}$. Multiplying both sides with
-$\beta$, we obtain $\gamma\beta=\alpha\underbrace{\beta^{-1}\beta}_{=1}%
-=\alpha$. Hence, $\alpha=\gamma\beta=\beta\gamma$. This proves the
-\textquotedblleft$\Longrightarrow$\textquotedblright\ direction.
+[Proof of Proposition \ref{prop.CC.CC.inverse.undo}.] $\Longrightarrow:$
+Assume that $\gamma=\dfrac{\alpha}{\beta}$. Thus, $\gamma=\dfrac{\alpha}%
+{\beta}=\alpha\beta^{-1}$. Multiplying both sides with $\beta$, we obtain
+$\gamma\beta=\alpha\underbrace{\beta^{-1}\beta}_{=1}=\alpha$. Hence,
+$\alpha=\gamma\beta=\beta\gamma$. This proves the \textquotedblleft%
+$\Longrightarrow$\textquotedblright\ direction.
 
 $\Longleftarrow:$ Assume that $\alpha=\beta\gamma$. Multiplying both sides
 with $\beta^{-1}$, we obtain $\beta^{-1}\alpha=\underbrace{\beta^{-1}\beta
@@ -18215,6 +18272,8 @@ with $\beta^{-1}$, we obtain $\beta^{-1}\alpha=\underbrace{\beta^{-1}\beta
 =\dfrac{\alpha}{\beta}$. This proves the \textquotedblleft$\Longleftarrow
 $\textquotedblright\ direction.
 \end{proof}
+
+\subsubsection{Powers of complex numbers}
 
 \begin{definition}
 \label{def.CC.CC.power}Let $\alpha\in\mathbb{C}$.
@@ -18233,18 +18292,26 @@ involved. For example, the expression \textquotedblleft$\alpha\beta^{k}%
 +\gamma$\textquotedblright\ means $\left(  \alpha\left(  \beta^{k}\right)
 \right)  +\gamma$ and not any other interpretation.
 
+Definition \ref{def.CC.CC.power} yields%
+\[
+i^{2}=ii=\left(  -1\right)  _{\mathbb{C}}=-1.
+\]
+
+
 \begin{proposition}
-\textbf{(a)} Complex numbers satisfy the usual rules for exponents: e.g., we
-have%
+\label{prop.CC.CC.power-rules}\textbf{(a)} Complex numbers satisfy the usual
+rules for exponents: e.g., we have%
 \[
 \left(  \alpha\beta\right)  ^{n}=\alpha^{n}\beta^{n}%
 ,\ \ \ \ \ \ \ \ \ \ \alpha^{n+m}=\alpha^{n}\alpha^{m}%
 ,\ \ \ \ \ \ \ \ \ \ \left(  \alpha^{n}\right)  ^{m}=\alpha^{nm}%
 \]
-for all $\alpha,\beta\in\mathbb{C}$ and $n,m\in\mathbb{N}$. These equalities
-also hold for arbitrary $n,m\in\mathbb{Z}$ when $\alpha$ and $\beta$ are nonzero.
+for all $\alpha,\beta\in\mathbb{C}$ and $n,m\in\mathbb{N}$.
 
-\textbf{(b)} Complex numbers satisfy the binomial formula: That is, if
+\textbf{(b)} These equalities also hold for arbitrary $n,m\in\mathbb{Z}$ when
+$\alpha$ and $\beta$ are nonzero.
+
+\textbf{(c)} Complex numbers satisfy the binomial formula: That is, if
 $\alpha,\beta\in\mathbb{C}$, then%
 \[
 \left(  \alpha+\beta\right)  ^{n}=\sum_{k=0}^{n}\dbinom{n}{k}\alpha^{k}%
@@ -18257,7 +18324,7 @@ $\alpha,\beta\in\mathbb{C}$, then%
 The same arguments as for real (or rational) numbers apply here.
 \end{proof}
 
-Also, $i^{2}=ii=-1$.
+\subsubsection{Norms and conjugates}
 
 \begin{definition}
 \label{def.CC.norm.norm-abs}Let $\alpha=\left(  a,b\right)  $ be a complex number.
@@ -18445,6 +18512,9 @@ $\overline{1}=1$.
 \textbf{(d)} and the fact that $\operatorname*{N}\left(  1\right)  =1$.
 \end{proof}
 
+\subsubsection{$\operatorname*{Re}$, $\operatorname*{Im}$ and the $2\times
+2$-matrix representation}
+
 \begin{definition}
 \label{def.CC.ReIm}Let $\alpha=\left(  a,b\right)  =a+bi$ be a complex number.
 
@@ -18527,6 +18597,8 @@ identifying each complex number $\alpha$ with the matrix $\mu\left(
 complex numbers becomes a particular case of matrix multiplication. (We could
 have saved ourselves the trouble of proving the associativity of
 multiplication for complex numbers if we had taken this viewpoint.)
+
+\subsubsection{The fundamental theorem of algebra}
 
 Finally, let me mention without proof the so-called \textit{Fundamental
 Theorem of Algebra}:
