@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Saturday, March 30, 2019 21:38:11}
+%TCIDATA{LastRevised=Sunday, March 31, 2019 00:40:57}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -12601,7 +12601,6 @@ p_{1}^{b_{1}}p_{2}^{b_{2}}\cdots p_{u}^{b_{u}}\in\left\{  \text{positive
 divisors of }n\right\}  . \label{pf.lem.ent.divs-bijs.wd}%
 \end{equation}
 
-
 \begin{fineprint}
 [\textit{Proof of (\ref{pf.lem.ent.divs-bijs.wd}):} Let $\left(  b_{1}%
 ,b_{2},\ldots,b_{u}\right)  \in T$. We must prove
@@ -15225,6 +15224,9 @@ $\beta$.
 \textbf{(c)} If $\alpha$ and $\beta$ are two elements of $\mathbb{Z}/n$, then
 we shall refer to $\alpha\cdot\beta$ (also known as $\alpha\beta$) as the
 \textit{product} of $\alpha$ and $\beta$.
+
+\textbf{(d)} If $\alpha$ is an element of $\mathbb{Z}/n$, then the difference
+$\left[  0\right]  _{n}-\alpha$ shall be denoted by $-\alpha$.
 \end{definition}
 
 Caution: While the remainder $i\%n$ and the residue class $\left[  i\right]
@@ -15436,8 +15438,8 @@ We shall now study some properties of the many \textquotedblleft
 arithmetical\textquotedblright\ operations we have defined on $\mathbb{Z}/n$.
 
 \begin{theorem}
-\label{thm.eqrel.Z/n.rules}The following rules for addition, subtraction and
-multiplication in $\mathbb{Z}/n$ hold:
+\label{thm.eqrel.Z/n.rules}The following rules for addition, subtraction,
+multiplication and scaling in $\mathbb{Z}/n$ hold:
 
 \textbf{(a)} We have $\alpha+\beta=\beta+\alpha$ for any $\alpha,\beta
 \in\mathbb{Z}/n$.
@@ -15472,8 +15474,40 @@ equivalence $\left(  \alpha-\beta=\gamma\right)  \Longleftrightarrow\left(
 \textbf{(j)} We have $r\left(  \alpha+\beta\right)  =r\alpha+r\beta$ for any
 $r\in\mathbb{Z}$ and $\alpha,\beta\in\mathbb{Z}/n$.
 
-\textbf{(k)} We have $r\left(  s\alpha\right)  =\left(  rs\right)  \alpha$ for
+\textbf{(k)} We have $\left(  r+s\right)  \alpha=r\alpha+s\alpha$ for any
+$r,s\in\mathbb{Z}$ and $\alpha\in\mathbb{Z}/n$.
+
+\textbf{(l)} We have $r\left(  s\alpha\right)  =\left(  rs\right)  \alpha$ for
 any $r,s\in\mathbb{Z}$ and $\alpha\in\mathbb{Z}/n$.
+
+\textbf{(m)} We have $r\left(  \alpha\beta\right)  =\left(  r\alpha\right)
+\beta=\alpha\left(  r\beta\right)  $ for any $r\in\mathbb{Z}$ and
+$\alpha,\beta\in\mathbb{Z}/n$.
+
+\textbf{(n)} We have $-\left(  r\alpha\right)  =\left(  -r\right)
+\alpha=r\left(  -\alpha\right)  $ for any $r\in\mathbb{Z}$ and $\alpha
+\in\mathbb{Z}/n$.
+
+\textbf{(o)} We have $1\alpha=\alpha$ for any $r\in\mathbb{Z}$.
+
+\textbf{(p)} We have $\left(  -1\right)  \alpha=-\alpha$ for any
+$r\in\mathbb{Z}$.
+
+\textbf{(q)} We have $-\left(  \alpha+\beta\right)  =\left(  -\alpha\right)
++\left(  -\beta\right)  $ for any $\alpha,\beta\in\mathbb{Z}/n$.
+
+\textbf{(r)} We have $-\left[  0\right]  _{n}=\left[  0\right]  _{n}$.
+
+\textbf{(s)} We have $-\left(  -\alpha\right)  =\alpha$ for any $\alpha
+\in\mathbb{Z}/n$.
+
+\textbf{(t)} We have $-\left(  \alpha\beta\right)  =\left(  -\alpha\right)
+\beta=\alpha\left(  -\beta\right)  $ for any $\alpha,\beta\in\mathbb{Z}/n$.
+
+\textbf{(u)} We have $\alpha-\beta-\gamma=\alpha-\left(  \beta+\gamma\right)
+$ for any $\alpha,\beta,\gamma\in\mathbb{Z}/n$. (Here and in the following,
+\textquotedblleft$\alpha-\beta-\gamma$\textquotedblright\ should be read as
+\textquotedblleft$\left(  \alpha-\beta\right)  -\gamma$\textquotedblright.)
 \end{theorem}
 
 These properties should all look familiar, as they mirror the classical
@@ -15482,10 +15516,10 @@ numbers (with the caveat that the residue classes $\left[  0\right]  _{n}$ and
 $\left[  1\right]  _{n}$ take on the roles of the numbers $0$ and $1$). For
 example, Theorem \ref{thm.eqrel.Z/n.rules} \textbf{(g)} corresponds to the
 laws of distributivity for numbers. Parts \textbf{(a)}, \textbf{(b)},
-\textbf{(c)}, \textbf{(i)}, \textbf{(j)} and \textbf{(k)} of Theorem
-\ref{thm.eqrel.Z/n.rules} furthermore are reminiscent of the axioms for a
-vector space (with the caveat that scaling by $r$ is only defined for integers
-$r$ here, so $\mathbb{Z}/n$ is not precisely a vector space).
+\textbf{(c)}, \textbf{(i)}, \textbf{(j)}, \textbf{(k)} and \textbf{(l)} of
+Theorem \ref{thm.eqrel.Z/n.rules} furthermore are reminiscent of the axioms
+for a vector space (with the caveat that scaling by $r$ is only defined for
+integers $r$ here, so $\mathbb{Z}/n$ is not precisely a vector space).
 
 \begin{proof}
 [Proof of Theorem \ref{thm.eqrel.Z/n.rules}.]Let us first prove Theorem
@@ -17738,6 +17772,9 @@ for all $\left(  a,b\right)  \in\mathbb{C}$ and $\left(  c,d\right)
 
 \textbf{(f)} If $\alpha$ and $\beta$ are two complex numbers, then we write
 $\alpha\beta$ for $\alpha\cdot\beta$.
+
+\textbf{(g)} If $\alpha$ is a complex number, then the complex number
+$0_{\mathbb{C}}-\alpha$ shall be denoted by $-\alpha$.
 \end{definition}
 
 For example, the definition of the operation $\cdot$ on $\mathbb{C}$ yields%
@@ -17815,6 +17852,22 @@ $\alpha\in\mathbb{C}$.
 \textbf{(i)} If $\alpha,\beta,\gamma\in\mathbb{C}$, then we have the
 equivalence $\left(  \alpha-\beta=\gamma\right)  \Longleftrightarrow\left(
 \alpha=\beta+\gamma\right)  $.
+
+\textbf{(j)} We have $-\left(  \alpha+\beta\right)  =\left(  -\alpha\right)
++\left(  -\beta\right)  $ for any $\alpha,\beta\in\mathbb{C}$.
+
+\textbf{(k)} We have $-0_{\mathbb{C}}=0_{\mathbb{C}}$.
+
+\textbf{(l)} We have $-\left(  -\alpha\right)  =\alpha$ for any $\alpha
+\in\mathbb{C}$.
+
+\textbf{(m)} We have $-\left(  \alpha\beta\right)  =\left(  -\alpha\right)
+\beta=\alpha\left(  -\beta\right)  $ for any $\alpha,\beta\in\mathbb{C}$.
+
+\textbf{(n)} We have $\alpha-\beta-\gamma=\alpha-\left(  \beta+\gamma\right)
+$ for any $\alpha,\beta,\gamma\in\mathbb{C}$. (Here and in the following,
+\textquotedblleft$\alpha-\beta-\gamma$\textquotedblright\ should be read as
+\textquotedblleft$\left(  \alpha-\beta\right)  -\gamma$\textquotedblright.)
 \end{theorem}
 
 \begin{proof}
@@ -18895,7 +18948,7 @@ if $\alpha$ is a unit.
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.Z[i].gauss.norm1}.] Write $\alpha$ as
+[Proof of Proposition \ref{prop.Z[i].gauss.norm1}.]Write $\alpha$ as
 $\alpha=\left(  a,b\right)  =a+bi$ for $a,b\in\mathbb{Z}$. Then,
 $\operatorname*{N}\left(  \alpha\right)  =a^{2}+b^{2}$.
 
@@ -22413,24 +22466,25 @@ hold in every ring:
 \begin{proposition}
 \label{prop.rings.pow.rules}\textbf{(a)} We have%
 \begin{align}
-\left(  n+m\right)  a  &  =na+ma\ \ \ \ \ \ \ \ \ \ \text{for all }%
-a\in\mathbb{K}\text{ and }n,m\in\mathbb{Z}; \label{eq.prop.rings.pow.rules.d1}%
+\left(  n+m\right)  a &  =na+ma\ \ \ \ \ \ \ \ \ \ \text{for all }%
+a\in\mathbb{K}\text{ and }n,m\in\mathbb{Z};\label{eq.prop.rings.pow.rules.d1}%
 \\
 n\left(  a+b\right)   &  =na+nb\ \ \ \ \ \ \ \ \ \ \text{for all }%
-a,b\in\mathbb{K}\text{ and }n\in\mathbb{Z}; \label{eq.prop.rings.pow.rules.d2}%
+a,b\in\mathbb{K}\text{ and }n\in\mathbb{Z};\label{eq.prop.rings.pow.rules.d2}%
 \\
 -\left(  na\right)   &  =\left(  -n\right)  a=n\left(  -a\right)
 \ \ \ \ \ \ \ \ \ \ \text{for all }a\in\mathbb{K}\text{ and }n\in
 \mathbb{Z};\label{eq.prop.rings.pow.rules.d3}\\
-\left(  nm\right)  a  &  =n\left(  ma\right)  \ \ \ \ \ \ \ \ \ \ \text{for
-all }a\in\mathbb{K}\text{ and }n,m\in\mathbb{Z}%
-;\label{eq.prop.rings.pow.rules.2}\\
+\left(  nm\right)  a &  =n\left(  ma\right)  \ \ \ \ \ \ \ \ \ \ \text{for all
+}a\in\mathbb{K}\text{ and }n,m\in\mathbb{Z};\label{eq.prop.rings.pow.rules.2}%
+\\
 n\left(  ab\right)   &  =\left(  na\right)  b=a\left(  nb\right)
 \ \ \ \ \ \ \ \ \ \ \text{for all }a,b\in\mathbb{K}\text{ and }n\in
 \mathbb{Z};\label{eq.prop.rings.pow.rules.3}\\
--a  &  =\left(  -1\right)  a\ \ \ \ \ \ \ \ \ \ \text{for all }a\in
+1a &  =a\ \ \ \ \ \ \ \ \ \ \text{for all }a\in\mathbb{K};\\
+\left(  -1\right)  a &  =-a\ \ \ \ \ \ \ \ \ \ \text{for all }a\in
 \mathbb{K};\label{eq.prop.rings.pow.rules.4}\\
-0^{n}  &  =%
+0^{n} &  =%
 \begin{cases}
 0, & \text{if }n>0\\
 1, & \text{if }n=0
@@ -22440,11 +22494,11 @@ n\left(  ab\right)   &  =\left(  na\right)  b=a\left(  nb\right)
 &  \ \ \ \ \ \ \ \ \ \ \left(  \text{here, the \textquotedblleft%
 }0\text{\textquotedblright\ in \textquotedblleft}0^{n}\text{\textquotedblright%
 \ means the zero of }\mathbb{K}\right)  ;\nonumber\\
-a^{n+m}  &  =a^{n}a^{m}\ \ \ \ \ \ \ \ \ \ \text{for all }a\in\mathbb{K}\text{
+a^{n+m} &  =a^{n}a^{m}\ \ \ \ \ \ \ \ \ \ \text{for all }a\in\mathbb{K}\text{
 and }n,m\in\mathbb{N};\label{eq.prop.rings.pow.rules.7}\\
-\left(  a^{n}\right)  ^{m}  &  =a^{nm}\ \ \ \ \ \ \ \ \ \ \text{for all }%
+\left(  a^{n}\right)  ^{m} &  =a^{nm}\ \ \ \ \ \ \ \ \ \ \text{for all }%
 a\in\mathbb{K}\text{ and }n,m\in\mathbb{N};\label{eq.prop.rings.pow.rules.8}\\
-a^{0}  &  =1\ \ \ \ \ \ \ \ \ \ \text{for all }a\in\mathbb{K}.
+a^{0} &  =1\ \ \ \ \ \ \ \ \ \ \text{for all }a\in\mathbb{K}.
 \end{align}
 In particular:
 
@@ -24540,18 +24594,18 @@ b_{i}\perp c\ \ \ \ \ \ \ \ \ \ \text{for each }i\in I.
 
 
 The set $I$ is finite; thus, we can define some $k\in\mathbb{N}$ by
-$k=\left\vert I\right\vert $. There exists a bijection $f:\left\{
-1,2,\ldots,k\right\}  \rightarrow I$ (since $k=\left\vert I\right\vert $).
-Pick such an $f$. Thus, $f\left(  1\right)  ,f\left(  2\right)  ,\ldots
-,f\left(  k\right)  $ are the $k$ elements of $I$; hence, $b_{f\left(
-1\right)  },b_{f\left(  2\right)  },\ldots,b_{f\left(  k\right)  }$ are $k$
-integers. Moreover, each $j\in\left\{  1,2,\ldots,k\right\}  $ satisfies
-$b_{f\left(  j\right)  }\perp c$ (by (\ref{sol.ent.coprime.ab-to-cI.copri}),
-applied to $i=f\left(  j\right)  $). Renaming the index $j$ as $i$ in this
-statement, we obtain: Each $i\in\left\{  1,2,\ldots,k\right\}  $ satisfies
-$b_{f\left(  i\right)  }\perp c$. Hence, Exercise
-\ref{exe.ent.coprime.ab-to-ck} (applied to $a_{i}=b_{f\left(  i\right)  }$)
-shows that
+$k=\left\vert I\right\vert $. Consider this $k$. There exists a bijection
+$f:\left\{  1,2,\ldots,k\right\}  \rightarrow I$ (since $k=\left\vert
+I\right\vert $). Pick such an $f$. Thus, $f\left(  1\right)  ,f\left(
+2\right)  ,\ldots,f\left(  k\right)  $ are the $k$ elements of $I$; hence,
+$b_{f\left(  1\right)  },b_{f\left(  2\right)  },\ldots,b_{f\left(  k\right)
+}$ are $k$ integers. Moreover, each $j\in\left\{  1,2,\ldots,k\right\}  $
+satisfies $b_{f\left(  j\right)  }\perp c$ (by
+(\ref{sol.ent.coprime.ab-to-cI.copri}), applied to $i=f\left(  j\right)  $).
+Renaming the index $j$ as $i$ in this statement, we obtain: Each $i\in\left\{
+1,2,\ldots,k\right\}  $ satisfies $b_{f\left(  i\right)  }\perp c$. Hence,
+Exercise \ref{exe.ent.coprime.ab-to-ck} (applied to $a_{i}=b_{f\left(
+i\right)  }$) shows that
 \begin{equation}
 b_{f\left(  1\right)  }b_{f\left(  2\right)  }\cdots b_{f\left(  k\right)
 }\perp c. \label{sol.ent.coprime.ab-to-cI.copri3}%
@@ -24854,7 +24908,7 @@ $\left(  b_{1},b_{2},\ldots,b_{k}\right)  $, $\ell$ and $\left(  c_{1}%
 \]
 (by Proposition \ref{prop.ent.gcd.props1} \textbf{(f)}, applied to
 $\gcd\left(  a\right)  $ and $1$ instead of $a$ and $b$). This rewrites as
-$g\mid1$.
+$g\mid1$ (since $g=\gcd\left(  a,b,c\right)  $).
 
 But $g=\gcd\left(  a,b,c\right)  $ is a nonnegative integer (since any gcd is
 a nonnegative integer). Hence, Exercise \ref{exe.ent.div.g|1} yields $g=1$
@@ -27873,13 +27927,14 @@ p-j\right)  \ \ \ \ \ \ \ \ \ \ \left(
 ,k\right\}  $, $a_{s}=p-s$ and $b_{s}=-s$) yields $\prod_{s\in\left\{
 1,2,\ldots,k\right\}  }\left(  p-s\right)  \equiv\prod_{s\in\left\{
 1,2,\ldots,k\right\}  }\left(  -s\right)  \operatorname{mod}p$. If we rename
-the summation index $s$ as $j$ on both sides of this congruence, then we
-obtain $\prod_{j\in\left\{  1,2,\ldots,k\right\}  }\left(  p-j\right)
-\equiv\prod_{j\in\left\{  1,2,\ldots,k\right\}  }\left(  -j\right)
-\operatorname{mod}p$. This rewrites as $\prod_{j=1}^{k}\left(  p-j\right)
-\equiv\prod_{j=1}^{k}\left(  -j\right)  \operatorname{mod}p$ (since the
-product sign $\prod_{j\in\left\{  1,2,\ldots,k\right\}  }$ is equivalent to
-the product sign $\prod_{j=1}^{k}$).}.) Thus,%
+the index $s$ (of the product sign \textquotedblleft$\prod_{s\in\left\{
+1,2,\ldots,k\right\}  }$\textquotedblright) as $j$ on both sides of this
+congruence, then we obtain $\prod_{j\in\left\{  1,2,\ldots,k\right\}  }\left(
+p-j\right)  \equiv\prod_{j\in\left\{  1,2,\ldots,k\right\}  }\left(
+-j\right)  \operatorname{mod}p$. This rewrites as $\prod_{j=1}^{k}\left(
+p-j\right)  \equiv\prod_{j=1}^{k}\left(  -j\right)  \operatorname{mod}p$
+(since the product sign $\prod_{j\in\left\{  1,2,\ldots,k\right\}  }$ is
+equivalent to the product sign $\prod_{j=1}^{k}$).}.) Thus,%
 \[
 \prod_{j=k+1}^{2k}j\equiv\prod_{j=1}^{k}\left(  -j\right)  =\left(  -1\right)
 ^{k}\underbrace{\prod_{j=1}^{k}j}_{=k!}=\left(  -1\right)  ^{k}\cdot
@@ -28031,22 +28086,22 @@ many mutually coprime positive integers yields the same result as applying
 $\phi$ to each of these integers separately and then taking the product. The
 difference between these two exercises is merely how the product is indexed.
 Thus, deriving Exercise \ref{exe.ent.phi.multk.2} from Exercise
-\ref{exe.ent.phi.multk.1} is merely a matter of bookkeeping (and this pretty
-much the same sort of bookkeeping that we used to derive Exercise
+\ref{exe.ent.phi.multk.1} is merely a matter of bookkeeping (and this is
+pretty much the same sort of bookkeeping that we used to derive Exercise
 \ref{exe.ent.coprime.ab-to-cI} from Exercise \ref{exe.ent.coprime.ab-to-ck}
 above). Let us do this bookkeeping:
 
 The set $I$ is finite; thus, we can define some $k\in\mathbb{N}$ by
-$k=\left\vert I\right\vert $. There exists a bijection $f:\left\{
-1,2,\ldots,k\right\}  \rightarrow I$ (since $k=\left\vert I\right\vert $).
-Pick such an $f$. Thus, $f\left(  1\right)  ,f\left(  2\right)  ,\ldots
-,f\left(  k\right)  $ are the $k$ elements of $I$; hence, $n_{f\left(
-1\right)  },n_{f\left(  2\right)  },\ldots,n_{f\left(  k\right)  }$ are $k$
-positive integers. Moreover, these $k$ integers $n_{f\left(  1\right)
-},n_{f\left(  2\right)  },\ldots,n_{f\left(  k\right)  }$ are mutually
-coprime\footnote{\textit{Proof.} Let $x$ and $y$ be two distinct elements of
-$\left\{  1,2,\ldots,k\right\}  $. We claim that $n_{f\left(  x\right)  }\perp
-n_{f\left(  y\right)  }$.
+$k=\left\vert I\right\vert $. Consider this $k$. There exists a bijection
+$f:\left\{  1,2,\ldots,k\right\}  \rightarrow I$ (since $k=\left\vert
+I\right\vert $). Pick such an $f$. Thus, $f\left(  1\right)  ,f\left(
+2\right)  ,\ldots,f\left(  k\right)  $ are the $k$ elements of $I$; hence,
+$n_{f\left(  1\right)  },n_{f\left(  2\right)  },\ldots,n_{f\left(  k\right)
+}$ are $k$ positive integers. Moreover, these $k$ integers $n_{f\left(
+1\right)  },n_{f\left(  2\right)  },\ldots,n_{f\left(  k\right)  }$ are
+mutually coprime\footnote{\textit{Proof.} Let $x$ and $y$ be two distinct
+elements of $\left\{  1,2,\ldots,k\right\}  $. We claim that $n_{f\left(
+x\right)  }\perp n_{f\left(  y\right)  }$.
 \par
 Indeed, the map $f$ is a bijection, and thus is injective. But $x$ and $y$ are
 distinct; thus, $x\neq y$. Therefore, $f\left(  x\right)  \neq f\left(
