@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Saturday, March 30, 2019 21:14:42}
+%TCIDATA{LastRevised=Saturday, March 30, 2019 21:38:11}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -6741,7 +6741,8 @@ $\gcd\left(  i,p\right)  \leq i\leq p-1<p$ and therefore $\gcd\left(
 i,p\right)  \neq p$.
 
 We know that $p$ is prime. In other words, the only positive divisors of $p$
-are $1$ and $p$ (by the definition of \textquotedblleft prime\textquotedblright).
+are $1$ and $p$ (by the definition of \textquotedblleft
+prime\textquotedblright).
 
 The integer $\gcd\left(  i,p\right)  $ is a positive divisor of $p$ (since
 $\gcd\left(  i,p\right)  $ is positive and satisfies $\gcd\left(  i,p\right)
@@ -18225,7 +18226,126 @@ conclude that $\alpha$ has a unique inverse. This proves Theorem
 \ref{thm.CC.CC.inverse.unique}.
 \end{proof}
 
-%
+\begin{definition}
+\label{def.CC.CC.inverse.notations}\textbf{(a)} Let $\beta$ be a nonzero
+complex number. Theorem \ref{thm.CC.CC.inverse.unique} shows that $\beta$ has
+a unique inverse. This inverse is called $\beta^{-1}$, and will be referred to
+as \textit{the inverse} of $\beta$.
+
+\textbf{(b)} Let $\alpha$ and $\beta$ be two complex numbers such that
+$\beta\neq0$. Then, the quotient $\dfrac{\alpha}{\beta}$ is defined to be the
+complex number $\alpha\cdot\beta^{-1}$. It is sometimes also denoted by
+$\alpha/\beta$.
+
+\textbf{(c)} The operation that transforms a pair $\left(  \alpha
+,\beta\right)  $ of two complex numbers (with $\beta$ nonzero) into
+$\alpha/\beta$ is called \textit{division}.
+\end{definition}
+
+It is easy to see that division undoes multiplication:
+
+\begin{proposition}
+\label{prop.CC.CC.inverse.undo}Let $\alpha,\beta,\gamma$ be three complex
+numbers with $\beta\neq0$. Then, we have the equivalence%
+\[
+\left(  \gamma=\dfrac{\alpha}{\beta}\right)  \ \Longleftrightarrow\ \left(
+\alpha=\beta\gamma\right)  .
+\]
+
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.CC.CC.inverse.undo}.]We have $\beta\neq0$.
+Thus, $\beta$ has a well-defined inverse $\beta^{-1}$. The definition of this
+inverse yields $\beta\beta^{-1}=1$; now, Theorem \ref{thm.CC.CC.rules}
+\textbf{(e)} yields $\beta^{-1}\beta=\beta\beta^{-1}=1$. Also, Theorem
+\ref{thm.CC.CC.rules} \textbf{(e)} yields $\gamma\beta=\beta\gamma$ and
+$\beta^{-1}\alpha=\alpha\beta^{-1}$. The definition of $\dfrac{\alpha}{\beta}$
+yields $\dfrac{\alpha}{\beta}=\alpha\cdot\beta^{-1}=\alpha\beta^{-1}$.
+
+We have to prove the equivalence $\left(  \gamma=\dfrac{\alpha}{\beta}\right)
+\ \Longleftrightarrow\ \left(  \alpha=\beta\gamma\right)  $. Let us prove the
+\textquotedblleft$\Longrightarrow$\textquotedblright\ and \textquotedblleft%
+$\Longleftarrow$\textquotedblright\ directions of this equivalence separately:
+
+$\Longrightarrow:$ Assume that $\gamma=\dfrac{\alpha}{\beta}$. We shall show
+that $\alpha=\beta\gamma$.
+
+We have $\gamma=\dfrac{\alpha}{\beta}=\alpha\beta^{-1}$. Multiplying both
+sides of this equality with $\beta$, we obtain
+\[
+\gamma\beta=\alpha\underbrace{\beta^{-1}\beta}_{=1}=\alpha\cdot1=\alpha.
+\]
+Hence, $\alpha=\gamma\beta=\beta\gamma$. This proves the \textquotedblleft%
+$\Longrightarrow$\textquotedblright\ direction of the equivalence $\left(
+\gamma=\dfrac{\alpha}{\beta}\right)  \ \Longleftrightarrow\ \left(
+\alpha=\beta\gamma\right)  $.
+
+$\Longleftarrow:$ Assume that $\alpha=\beta\gamma$. We shall show that
+$\gamma=\dfrac{\alpha}{\beta}$.
+
+We have $\beta^{-1}\underbrace{\alpha}_{=\beta\gamma}=\underbrace{\beta
+^{-1}\beta}_{=1}\gamma=1\gamma=\gamma1=\gamma$, so that $\gamma=\beta
+^{-1}\alpha=\alpha\beta^{-1}=\dfrac{\alpha}{\beta}$. This proves the
+\textquotedblleft$\Longleftarrow$\textquotedblright\ direction of the
+equivalence $\left(  \gamma=\dfrac{\alpha}{\beta}\right)
+\ \Longleftrightarrow\ \left(  \alpha=\beta\gamma\right)  $.
+
+Thus, the equivalence $\left(  \gamma=\dfrac{\alpha}{\beta}\right)
+\ \Longleftrightarrow\ \left(  \alpha=\beta\gamma\right)  $ holds (since we
+have proven both of its directions). That is, we have proven Proposition
+\ref{prop.CC.CC.inverse.undo}.
+\end{proof}
+
+\subsubsection{Powers of complex numbers}
+
+Let us now define powers of complex numbers, where the exponent is an integer.
+
+\begin{definition}
+\label{def.CC.CC.power}Let $\alpha\in\mathbb{C}$.
+
+\textbf{(a)} For any $n\in\mathbb{N}$, we define a complex number $\alpha^{n}$
+by setting $\alpha^{n}=\underbrace{\alpha\alpha\cdots\alpha}_{n\text{ times}}$.
+
+\textbf{(b)} For any negative $n\in\mathbb{Z}$, we define a complex number
+$\alpha^{n}$ by $\alpha^{n}=\left(  \alpha^{-1}\right)  ^{-n}$ whenever
+$\alpha\neq0$. (This is well-defined, because when $n$ is negative, $-n$ is
+positive, and thus $\left(  \alpha^{-1}\right)  ^{-n}$ is already defined by
+Definition \ref{def.CC.CC.power} \textbf{(a)}.)
+
+If $\alpha=0$, then we leave $\alpha^{n}$ undefined when $n$ is negative.
+\end{definition}
+
+Definition \ref{def.CC.CC.power} \textbf{(a)} yields%
+\[
+i^{2}=ii=\left(  -1\right)  _{\mathbb{C}}=-1.
+\]
+Moreover, Definition \ref{def.CC.CC.power} \textbf{(a)} yields
+\[
+\alpha^{0}=\underbrace{\alpha\alpha\cdots\alpha}_{0\text{ times}}=\left(
+\text{empty product}\right)  =1
+\]
+for each $\alpha\in\mathbb{C}$.
+
+For another example, Definition \ref{def.CC.CC.power} \textbf{(a)} yields%
+\[
+\left(  1+i\right)  ^{2}=\left(  1+i\right)  \left(  1+i\right)
+=1+i+i+\underbrace{ii}_{=-1}=1+i+i+\left(  -1\right)  =i+i=2i
+\]
+and%
+\[
+\left(  1+i\right)  ^{4}=\underbrace{\left(  1+i\right)  \left(  1+i\right)
+}_{=2i}\underbrace{\left(  1+i\right)  \left(  1+i\right)  }_{=2i}%
+=2i\cdot2i=4\underbrace{ii}_{=-1}=4\left(  -1\right)  =-4.
+\]
+
+
+We shall use the PEMDAS convention for the order of operations when powers are
+involved. For example, the expression \textquotedblleft$\alpha\beta^{k}%
++\gamma$\textquotedblright\ means $\left(  \alpha\left(  \beta^{k}\right)
+\right)  +\gamma$ rather than (say) $\left(  \alpha\beta\right)  ^{k}+\gamma$.
+
+Powers of complex numbers behave reasonably well:%
 
 \[%
 \begin{tabular}
@@ -18233,75 +18353,13 @@ conclude that $\alpha$ has a unique inverse. This proves Theorem
 \textbf{You have reached the end of the finished part.}\\
 \textbf{TODO: Write on from here.}\\\hline\hline
 \end{tabular}
-\]
-
-
-\begin{definition}
-\label{def.CC.CC.inverse.notations}\textbf{(a)} The inverse of a nonzero
-complex number $\beta$ is called $\beta^{-1}$.
-
-\textbf{(b)} Let $\alpha$ and $\beta$ be two complex numbers such that
-$\beta\neq0$. Then, the quotient $\dfrac{\alpha}{\beta}$ (also known as
-$\alpha/\beta$) is defined as $\alpha\cdot\beta^{-1}$. The operation that
-transforms a pair $\left(  \alpha,\beta\right)  $ of two complex numbers (with
-$\beta$ nonzero) into $\alpha/\beta$ is called \textit{division}.
-\end{definition}
-
-It is easy to see that division undoes multiplication:
-
-\begin{proposition}
-\label{prop.CC.CC.inverse.undo}Given three complex numbers $\alpha
-,\beta,\gamma$ with $\beta\neq0$. Then, we have the equivalence%
-\[
-\left(  \gamma=\dfrac{\alpha}{\beta}\right)  \Longleftrightarrow\left(
-\alpha=\beta\gamma\right)  .
-\]
-
-\end{proposition}
-
-\begin{proof}
-[Proof of Proposition \ref{prop.CC.CC.inverse.undo}.]$\Longrightarrow:$ Assume
-that $\gamma=\dfrac{\alpha}{\beta}$. Thus, $\gamma=\dfrac{\alpha}{\beta
-}=\alpha\beta^{-1}$. Multiplying both sides with $\beta$, we obtain
-$\gamma\beta=\alpha\underbrace{\beta^{-1}\beta}_{=1}=\alpha$. Hence,
-$\alpha=\gamma\beta=\beta\gamma$. This proves the \textquotedblleft%
-$\Longrightarrow$\textquotedblright\ direction.
-
-$\Longleftarrow:$ Assume that $\alpha=\beta\gamma$. Multiplying both sides
-with $\beta^{-1}$, we obtain $\beta^{-1}\alpha=\underbrace{\beta^{-1}\beta
-}_{=1}\gamma=\gamma$, so that $\gamma=\beta^{-1}\alpha=\alpha\beta^{-1}%
-=\dfrac{\alpha}{\beta}$. This proves the \textquotedblleft$\Longleftarrow
-$\textquotedblright\ direction.
-\end{proof}
-
-\subsubsection{Powers of complex numbers}
-
-\begin{definition}
-\label{def.CC.CC.power}Let $\alpha\in\mathbb{C}$.
-
-\textbf{(a)} For any $n\in\mathbb{N}$, we set $\alpha^{n}=\underbrace{\alpha
-\alpha\cdots\alpha}_{n\text{ times}}$.
-
-\textbf{(b)} For any negative $n\in\mathbb{Z}$, we set $\alpha^{n}=\left(
-\alpha^{-1}\right)  ^{-n}$ whenever $\alpha\neq0$.
-\end{definition}
-
-Caution: Fractional powers (like $\alpha^{1/2}$) are not really well-defined.
-
-We shall use PEMDAS rules for the order of operations when powers are
-involved. For example, the expression \textquotedblleft$\alpha\beta^{k}%
-+\gamma$\textquotedblright\ means $\left(  \alpha\left(  \beta^{k}\right)
-\right)  +\gamma$ and not any other interpretation.
-
-Definition \ref{def.CC.CC.power} yields%
-\[
-i^{2}=ii=\left(  -1\right)  _{\mathbb{C}}=-1.
+\
 \]
 
 
 \begin{proposition}
 \label{prop.CC.CC.power-rules}\textbf{(a)} Complex numbers satisfy the usual
-rules for exponents: e.g., we have%
+rules for exponents: We have%
 \[
 \left(  \alpha\beta\right)  ^{n}=\alpha^{n}\beta^{n}%
 ,\ \ \ \ \ \ \ \ \ \ \alpha^{n+m}=\alpha^{n}\alpha^{m}%
@@ -18325,7 +18383,25 @@ $\alpha,\beta\in\mathbb{C}$, then%
 The same arguments as for real (or rational) numbers apply here.
 \end{proof}
 
+It may be tempting to try to extend Definition \ref{def.CC.CC.power} further
+by defining fractional powers (such as $\alpha^{1/2}$). There is a way to do
+so, but such a definition would be of questionable use and somewhat fragile
+(in the sense that it would fail to satisfy the rules of exponents). For
+example, if you wanted to define $\left(  -1\right)  ^{1/2}$, then the only
+reasonable choices would be $i$ and $-i$ (since these are the only two complex
+numbers whose squares are $-1$); but with either option, the equality $\left(
+\alpha\beta\right)  ^{1/2}=\alpha^{1/2}\beta^{1/2}$ would fail if we took
+$\alpha=-1$ and $\beta=-1$. Thus, we prefer to leave powers of the form
+$\alpha^{n}$ for $n\notin\mathbb{Z}$ undefined.
+
 \subsubsection{Norms and conjugates}
+
+\begin{teachingnote}
+Introduce the Argand diagram here at the latest. We will use the ideas that
+conjugation = reflection in x-axis and that absolute value = distance from
+origin. Also, \textquotedblleft first quadrant\textquotedblright\ is used
+further below.
+\end{teachingnote}
 
 \begin{definition}
 \label{def.CC.norm.norm-abs}Let $\alpha=\left(  a,b\right)  $ be a complex number.
