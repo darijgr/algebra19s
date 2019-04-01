@@ -3809,7 +3809,9 @@ so this is just a restatement of Theorem \ref{thm.ent.gcd.bezout}.
 The following proof of Bezout's theorem is not quite the fastest, nor does it
 generalize to polynomial rings over fields. Maybe replace it by another, which
 uses division with remainder and induction on $\left\vert a\right\vert
-+\left\vert b\right\vert $ (so no need to split into three steps).
++\left\vert b\right\vert $ (so no need to split into three steps). This is
+also needed because I refer to the Extended Euclidean algorithm in the
+computational parts, but I never explain how it works.
 \end{teachingnote}
 
 Theorem \ref{thm.ent.gcd.bezout} is known as \textit{Bezout's theorem} (or
@@ -15448,11 +15450,11 @@ multiplication and scaling in $\mathbb{Z}/n$ hold:
 \textbf{(b)} We have $\alpha+\left(  \beta+\gamma\right)  =\left(
 \alpha+\beta\right)  +\gamma$ for any $\alpha,\beta,\gamma\in\mathbb{Z}/n$.
 
-\textbf{(c)} We have $\alpha+\left[  0\right]  _{n}=\alpha$ for any $\alpha
-\in\mathbb{Z}/n$.
+\textbf{(c)} We have $\alpha+\left[  0\right]  _{n}=\left[  0\right]
+_{n}+\alpha=\alpha$ for any $\alpha\in\mathbb{Z}/n$.
 
-\textbf{(d)} We have $\alpha\cdot\left[  1\right]  _{n}=\alpha$ for any
-$\alpha\in\mathbb{Z}/n$.
+\textbf{(d)} We have $\alpha\cdot\left[  1\right]  _{n}=\left[  1\right]
+_{n}\cdot\alpha=\alpha$ for any $\alpha\in\mathbb{Z}/n$.
 
 \textbf{(e)} We have $\alpha\cdot\beta=\beta\cdot\alpha$ for any $\alpha
 ,\beta\in\mathbb{Z}/n$.
@@ -15466,7 +15468,7 @@ $\alpha\in\mathbb{Z}/n$.
 \gamma+\beta\gamma$ for any $\alpha,\beta,\gamma\in\mathbb{Z}/n$.
 
 \textbf{(h)} We have $\alpha\cdot\left[  0\right]  _{n}=\left[  0\right]
-_{n}$ for any $\alpha\in\mathbb{Z}/n$.
+_{n}\cdot\alpha=\left[  0\right]  _{n}$ for any $\alpha\in\mathbb{Z}/n$.
 
 \textbf{(i)} If $\alpha,\beta,\gamma\in\mathbb{Z}/n$, then we have the
 equivalence $\left(  \alpha-\beta=\gamma\right)  \Longleftrightarrow\left(
@@ -15866,28 +15868,26 @@ an inverse of $\alpha$). Theorem \ref{thm.eqrel.Z/n.rules} \textbf{(e)}
 (applied to $\gamma$ and $\alpha$ instead of $\alpha$ and $\beta$) yields
 $\gamma\cdot\alpha=\alpha\cdot\gamma=\left[  1\right]  _{n}$.
 
+Theorem \ref{thm.eqrel.Z/n.rules} \textbf{(d)} (applied to $\gamma$ instead of
+$\alpha$) yields $\gamma\cdot\left[  1\right]  _{n}=\left[  1\right]
+_{n}\cdot\gamma=\gamma$. Also, Theorem \ref{thm.eqrel.Z/n.rules} \textbf{(d)}
+(applied to $\beta$ instead of $\alpha$) yields $\beta\cdot\left[  1\right]
+_{n}=\left[  1\right]  _{n}\cdot\beta=\beta$.
+
 Theorem \ref{thm.eqrel.Z/n.rules} \textbf{(f)} (applied to $\gamma$, $\alpha$
 and $\beta$ instead of $\alpha$, $\beta$ and $\gamma$) shows that $\gamma
 \cdot\left(  \alpha\cdot\beta\right)  =\left(  \gamma\cdot\alpha\right)
 \cdot\beta$. Now, comparing
 \[
 \gamma\cdot\left(  \underbrace{\alpha\cdot\beta}_{=\left[  1\right]  _{n}%
-}\right)  =\gamma\cdot\left[  1\right]  _{n}=\gamma\ \ \ \ \ \ \ \ \ \ \left(
-\text{by Theorem \ref{thm.eqrel.Z/n.rules} \textbf{(d)}, applied to }%
-\gamma\text{ instead of }\alpha\right)
+}\right)  =\gamma\cdot\left[  1\right]  _{n}=\gamma
 \]
 with%
-\begin{align*}
-\gamma\cdot\left(  \alpha\cdot\beta\right)   &  =\left(  \underbrace{\gamma
+\[
+\gamma\cdot\left(  \alpha\cdot\beta\right)  =\left(  \underbrace{\gamma
 \cdot\alpha}_{=\left[  1\right]  _{n}}\right)  \cdot\beta=\left[  1\right]
-_{n}\cdot\beta\\
-&  =\beta\cdot\left[  1\right]  _{n}\ \ \ \ \ \ \ \ \ \ \ \left(  \text{by
-Theorem \ref{thm.eqrel.Z/n.rules} \textbf{(e)}, applied to }\left[  1\right]
-_{n}\text{ instead of }\alpha\right) \\
-&  =\beta\ \ \ \ \ \ \ \ \ \ \left(  \text{by Theorem
-\ref{thm.eqrel.Z/n.rules} \textbf{(d)}, applied to }\beta\text{ instead of
-}\alpha\right)  ,
-\end{align*}
+_{n}\cdot\beta=\beta,
+\]
 we obtain $\beta=\gamma$.
 
 Now, forget that we fixed $\beta$ and $\gamma$. We thus have proven that if
@@ -17830,11 +17830,11 @@ multiplication in $\mathbb{C}$ hold:
 \textbf{(b)} We have $\alpha+\left(  \beta+\gamma\right)  =\left(
 \alpha+\beta\right)  +\gamma$ for any $\alpha,\beta,\gamma\in\mathbb{C}$.
 
-\textbf{(c)} We have $\alpha+0_{\mathbb{C}}=\alpha$ for any $\alpha
-\in\mathbb{C}$.
+\textbf{(c)} We have $\alpha+0_{\mathbb{C}}=0_{\mathbb{C}}+\alpha=\alpha$ for
+any $\alpha\in\mathbb{C}$.
 
-\textbf{(d)} We have $\alpha\cdot1_{\mathbb{C}}=\alpha$ for any $\alpha
-\in\mathbb{C}$.
+\textbf{(d)} We have $\alpha\cdot1_{\mathbb{C}}=1_{\mathbb{C}}\cdot
+\alpha=\alpha$ for any $\alpha\in\mathbb{C}$.
 
 \textbf{(e)} We have $\alpha\cdot\beta=\beta\cdot\alpha$ for any $\alpha
 ,\beta\in\mathbb{C}$.
@@ -17847,8 +17847,8 @@ multiplication in $\mathbb{C}$ hold:
 \beta+\alpha\gamma$ and $\left(  \alpha+\beta\right)  \cdot\gamma=\alpha
 \gamma+\beta\gamma$ for any $\alpha,\beta,\gamma\in\mathbb{C}$.
 
-\textbf{(h)} We have $\alpha\cdot0_{\mathbb{C}}=0_{\mathbb{C}}$ for any
-$\alpha\in\mathbb{C}$.
+\textbf{(h)} We have $\alpha\cdot0_{\mathbb{C}}=0_{\mathbb{C}}\cdot
+\alpha=0_{\mathbb{C}}$ for any $\alpha\in\mathbb{C}$.
 
 \textbf{(i)} If $\alpha,\beta,\gamma\in\mathbb{C}$, then we have the
 equivalence $\left(  \alpha-\beta=\gamma\right)  \Longleftrightarrow\left(
@@ -17892,15 +17892,15 @@ c,c^{\prime}\right)  \right)  }_{\substack{=\left(  bc-b^{\prime}c^{\prime
 },bc^{\prime}+b^{\prime}c\right)  \\\text{(by the definition of}\\\text{the
 operation }\cdot\text{ on }\mathbb{C}\text{)}}}\\
 &  =\left(  a,a^{\prime}\right)  \cdot\left(  bc-b^{\prime}c^{\prime
-},bc^{\prime}+b^{\prime}c\right) \\
+},bc^{\prime}+b^{\prime}c\right)  \\
 &  =\left(  \underbrace{a\left(  bc-b^{\prime}c^{\prime}\right)  -a^{\prime
 }\left(  bc^{\prime}+b^{\prime}c\right)  }_{=abc-ab^{\prime}c^{\prime
 }-a^{\prime}bc^{\prime}-a^{\prime}b^{\prime}c},\underbrace{a\left(
 bc^{\prime}+b^{\prime}c\right)  +a^{\prime}\left(  bc-b^{\prime}c^{\prime
 }\right)  }_{=abc^{\prime}+ab^{\prime}c+a^{\prime}bc-a^{\prime}b^{\prime
-}c^{\prime}}\right) \\
+}c^{\prime}}\right)  \\
 &  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of the operation }%
-\cdot\text{ on }\mathbb{C}\right) \\
+\cdot\text{ on }\mathbb{C}\right)  \\
 &  =\left(  abc-ab^{\prime}c^{\prime}-a^{\prime}bc^{\prime}-a^{\prime
 }b^{\prime}c,abc^{\prime}+ab^{\prime}c+a^{\prime}bc-a^{\prime}b^{\prime
 }c^{\prime}\right)
@@ -17911,17 +17911,17 @@ bc^{\prime}+b^{\prime}c\right)  +a^{\prime}\left(  bc-b^{\prime}c^{\prime
 a,a^{\prime}\right)  \cdot\left(  b,b^{\prime}\right)  \right)  }%
 _{\substack{=\left(  ab-a^{\prime}b^{\prime},ab^{\prime}+a^{\prime}b\right)
 \\\text{(by the definition of}\\\text{the operation }\cdot\text{ on
-}\mathbb{C}\text{)}}}\cdot\left(  c,c^{\prime}\right) \\
+}\mathbb{C}\text{)}}}\cdot\left(  c,c^{\prime}\right)  \\
 &  =\left(  ab-a^{\prime}b^{\prime},ab^{\prime}+a^{\prime}b\right)
-\cdot\left(  c,c^{\prime}\right) \\
+\cdot\left(  c,c^{\prime}\right)  \\
 &  =\left(  \underbrace{\left(  ab-a^{\prime}b^{\prime}\right)  c-\left(
 ab^{\prime}+a^{\prime}b\right)  c^{\prime}}_{=abc-ab^{\prime}c^{\prime
 }-a^{\prime}bc^{\prime}-a^{\prime}b^{\prime}c},\underbrace{\left(
 ab-a^{\prime}b^{\prime}\right)  c^{\prime}+\left(  ab^{\prime}+a^{\prime
 }b\right)  c}_{=abc^{\prime}+ab^{\prime}c+a^{\prime}bc-a^{\prime}b^{\prime
-}c^{\prime}}\right) \\
+}c^{\prime}}\right)  \\
 &  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of the operation }%
-\cdot\text{ on }\mathbb{C}\right) \\
+\cdot\text{ on }\mathbb{C}\right)  \\
 &  =\left(  abc-ab^{\prime}c^{\prime}-a^{\prime}bc^{\prime}-a^{\prime
 }b^{\prime}c,abc^{\prime}+ab^{\prime}c+a^{\prime}bc-a^{\prime}b^{\prime
 }c^{\prime}\right)  .
@@ -17942,19 +17942,19 @@ logical equivalences:%
 \begin{align*}
 &  \ \left(  \underbrace{\alpha}_{=\left(  a,a^{\prime}\right)  }%
 -\underbrace{\beta}_{=\left(  b,b^{\prime}\right)  }=\underbrace{\gamma
-}_{=\left(  c,c^{\prime}\right)  }\right) \\
+}_{=\left(  c,c^{\prime}\right)  }\right)  \\
 &  \Longleftrightarrow\ \left(  \underbrace{\left(  a,a^{\prime}\right)
 -\left(  b,b^{\prime}\right)  }_{\substack{=\left(  a-b,a^{\prime}-b^{\prime
 }\right)  \\\text{(by the definition of the}\\\text{operation }-\text{ on
-}\mathbb{C}\text{)}}}=\left(  c,c^{\prime}\right)  \right) \\
+}\mathbb{C}\text{)}}}=\left(  c,c^{\prime}\right)  \right)  \\
 &  \Longleftrightarrow\ \left(  \left(  a-b,a^{\prime}-b^{\prime}\right)
 =\left(  c,c^{\prime}\right)  \right)  \ \Longleftrightarrow\ \left(
 \underbrace{a-b=c}_{\Longleftrightarrow\ \left(  a=b+c\right)  }\text{ and
 }\underbrace{a^{\prime}-b^{\prime}=c^{\prime}}_{\Longleftrightarrow\ \left(
-a^{\prime}=b^{\prime}+c^{\prime}\right)  }\right) \\
+a^{\prime}=b^{\prime}+c^{\prime}\right)  }\right)  \\
 &  \Longleftrightarrow\ \left(  a=b+c\text{ and }a^{\prime}=b^{\prime
 }+c^{\prime}\right)  \ \Longleftrightarrow\ \left(  \left(  a,a^{\prime
-}\right)  =\left(  b+c,b^{\prime}+c^{\prime}\right)  \right) \\
+}\right)  =\left(  b+c,b^{\prime}+c^{\prime}\right)  \right)  \\
 &  \Longleftrightarrow\ \left(  \underbrace{\left(  a,a^{\prime}\right)
 }_{=\alpha}=\underbrace{\left(  b,b^{\prime}\right)  }_{=\beta}%
 +\underbrace{\left(  c,c^{\prime}\right)  }_{=\gamma}\right)
@@ -17962,11 +17962,11 @@ a^{\prime}=b^{\prime}+c^{\prime}\right)  }\right) \\
 \begin{array}
 [c]{c}%
 \text{since }\left(  b+c,b^{\prime}+c^{\prime}\right)  =\left(  b,b^{\prime
-}\right)  +\left(  c,c^{\prime}\right) \\
+}\right)  +\left(  c,c^{\prime}\right)  \\
 \text{(by the definition of the}\\
 \text{operation }+\text{ on }\mathbb{C}\text{)}%
 \end{array}
-\right) \\
+\right)  \\
 &  \Longleftrightarrow\ \left(  \alpha=\beta+\gamma\right)  .
 \end{align*}
 This proves Theorem \ref{thm.CC.CC.rules} \textbf{(i)}.
@@ -18462,8 +18462,9 @@ further below.
 
 \textbf{(a)} The \textit{norm} of $\alpha$ is defined to be the real number
 $a^{2}+b^{2}\in\mathbb{R}$. This norm is called $\operatorname*{N}\left(
-\alpha\right)  $. Note that $\operatorname*{N}\left(  \alpha\right)  \geq0$,
-and equality holds only when $\alpha=0$.
+\alpha\right)  $. Note that $\operatorname*{N}\left(  \alpha\right)  \geq0$
+(since $a^{2}$ and $b^{2}$ are squares of real numbers and thus $\geq0$), and
+equality holds only when $\alpha=0$.
 
 \textbf{(b)} The \textit{absolute value} (or \textit{modulus} or
 \textit{length}) of $\alpha$ is defined to be $\sqrt{\operatorname*{N}\left(
