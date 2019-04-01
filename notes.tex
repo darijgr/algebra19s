@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, April 01, 2019 10:09:22}
+%TCIDATA{LastRevised=Monday, April 01, 2019 10:18:20}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -22729,23 +22729,24 @@ Let us see what the multiplicative inverse of a function $f\in\mathbb{Q}%
 ^{\mathbb{Q}}$ is. If $f,g\in\mathbb{Q}^{\mathbb{Q}}$ are two functions, then
 we have the following chain of equivalences:%
 \begin{align*}
-&  \ \left(  g\text{ is the multiplicative inverse of }f\right) \\
-&  \Longleftrightarrow\ \left(  fg=gf=1_{\mathbb{Q}^{\mathbb{Q}}}\right) \\
+&  \ \left(  g\text{ is the multiplicative inverse of }f\right)  \\
+&  \Longleftrightarrow\ \left(  fg=gf=1_{\mathbb{Q}^{\mathbb{Q}}}\right)  \\
 &  \Longleftrightarrow\ \left(  \left(  fg\right)  \left(  x\right)  =\left(
 gf\right)  \left(  x\right)  =1_{\mathbb{Q}^{\mathbb{Q}}}\left(  x\right)
-\text{ for all }x\in\mathbb{Q}\right) \\
+\text{ for all }x\in\mathbb{Q}\right)  \\
 &  \Longleftrightarrow\ \left(  f\left(  x\right)  \cdot g\left(  x\right)
 =g\left(  x\right)  \cdot f\left(  x\right)  =1\text{ for all }x\in
-\mathbb{Q}\right) \\
+\mathbb{Q}\right)  \\
 &  \ \ \ \ \ \ \ \ \ \ \left(
 \begin{array}
 [c]{c}%
 \text{since each }x\in\mathbb{Q}\text{ satisfies }\left(  fg\right)  \left(
-x\right)  =f\left(  x\right)  \cdot g\left(  x\right)  \text{ and }\left(
-gf\right)  \left(  x\right)  =g\left(  x\right)  \cdot f\left(  x\right) \\
+x\right)  =f\left(  x\right)  \cdot g\left(  x\right)  \\
+\text{and }\left(  gf\right)  \left(  x\right)  =g\left(  x\right)  \cdot
+f\left(  x\right)  \\
 \text{and }1_{\mathbb{Q}^{\mathbb{Q}}}\left(  x\right)  =1
 \end{array}
-\right) \\
+\right)  \\
 &  \Longleftrightarrow\ \left(  g\left(  x\right)  =\dfrac{1}{f\left(
 x\right)  }\text{ for all }x\in\mathbb{Q}\right)  .
 \end{align*}
@@ -22864,17 +22865,26 @@ Now, for an example of a skew field that is not a field.
 Informally, we have obtained $\mathbb{C}$ from $\mathbb{R}$ by throwing in a
 new number $i$ that satisfies $i^{2}=-1$. Let us now throw yet another new
 \textquotedblleft number\textquotedblright\ $j$ such that $j^{2}=-1$ and
-$ij=-ji$. Try to calculate with it. Of course, $i$ and $j$ cannot belong to a
-commutative ring together.
+$ji=-ij$. Now try to calculate with it. Of course, $i$ and $j$ cannot belong
+to a commutative ring together.
 
 We have%
 \begin{align*}
-&  \left(  1+2i+3ij\right)  \left(  2-3j\right) \\
-&  =2+4i+6ij-3j-6ij-9i\underbrace{j^{2}}_{=-1}\\
+i\cdot ij  & =\underbrace{ii}_{=i^{2}=-1}j=\left(  -1\right)
+j=-j\ \ \ \ \ \ \ \ \ \ \text{and}\\
+j\cdot ij  & =\underbrace{ji}_{=-ij}j=-i\underbrace{jj}_{=j^{2}=-1}=-i\left(
+-1\right)  =i\ \ \ \ \ \ \ \ \ \ \text{and}\\
+ij\cdot ij  & =i\underbrace{ji}_{=-ij}j=-\underbrace{ii}_{=i^{2}%
+=-1}\underbrace{jj}_{=j^{2}=-1}=-\left(  -1\right)  \left(  -1\right)  =-1
+\end{align*}
+and (using the distributivity laws)%
+\begin{align*}
+\left(  1+2i+3ij\right)  \left(  2-3j\right)   &
+=2+4i+6ij-3j-6ij-9i\underbrace{j^{2}}_{=-1}\\
 &  =2+4i-3j+9i=2+13i-3j.
 \end{align*}
-Similarly, any other of these new numbers can be written in the form
-$a+bi+cj+dij$ for reals $a,b,c,d$.
+Similarly, any of these new \textquotedblleft numbers\textquotedblright\ can
+be written in the form $a+bi+cj+dij$ for reals $a,b,c,d$.
 
 Thus, we can rigorously define our new numbers as $4$-tuples $\left(
 a,b,c,d\right)  $ of real numbers, with entrywise addition and subtraction,
@@ -22890,7 +22900,38 @@ y_{2},x_{1}y_{4}+x_{2}y_{3}-x_{3}y_{2}+x_{4}y_{1}\right)  .
 
 
 These new numbers are \href{https://en.wikipedia.org/wiki/Quaternion}{the
-\textit{quaternions}}.
+\textit{quaternions}}. It turns out that they form a skew field, albeit not a
+field (since commutativity is lacking). They have several properties that make
+them useful in physics and space geometry. For one, they encode both the
+scalar product and the cross product of two vectors in $\mathbb{R}^{3}$:
+Namely, if $\mathbf{a}=\left(
+\begin{array}
+[c]{c}%
+a_{1}\\
+a_{2}\\
+a_{3}%
+\end{array}
+\right)  \in\mathbb{R}^{3}$ and $\mathbf{b}=\left(
+\begin{array}
+[c]{c}%
+b_{1}\\
+b_{2}\\
+b_{3}%
+\end{array}
+\right)  \in\mathbb{R}^{3}$ are two vectors, then the quaternion%
+\begin{align*}
+& \left(  0,a_{1},a_{2},a_{3}\right)  \cdot\left(  0,b_{1},b_{2},b_{3}\right)
+\\
+& =\left(  \underbrace{-a_{1}b_{1}-a_{2}b_{2}-a_{3}b_{3}}%
+_{\substack{=-\mathbf{a}\cdot\mathbf{b}\\\text{(where }\cdot\text{ stands
+for}\\\text{the scalar product)}}},\underbrace{a_{2}b_{3}-a_{3}b_{2}%
+,a_{3}b_{1}-a_{1}b_{3},a_{1}b_{2}-a_{2}b_{1}}_{\substack{\text{the three
+coordinates}\\\text{of the cross product }\mathbf{a}\times\mathbf{b}}}\right)
+.
+\end{align*}
+Also,
+\href{https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation}{the
+quaternions can be used to encode rotations in 3-dimensional space}.
 \end{example}
 
 \subsection{Hunting for finite fields I}
