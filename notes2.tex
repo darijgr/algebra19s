@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, April 01, 2019 10:06:06}
+%TCIDATA{LastRevised=Monday, April 01, 2019 12:05:16}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -18433,210 +18433,9 @@ $\alpha,\beta\in\mathbb{C}$, then%
 
 \end{proposition}
 
-Proposition \ref{prop.CC.CC.power-rules} can be proven in the same way as the
-corresponding claims are proven for real (or rational) numbers:
-
-\begin{exercise}
-\label{exe.CC.CC.power-rules}Prove Proposition \ref{prop.CC.CC.power-rules}.
-\end{exercise}
-
-XBEGIN (fp)
-
-\subsection{Solution to Exercise \ref{exe.CC.CC.power-rules}}
-
 \begin{proof}
-[Solution to Exercise \ref{exe.CC.CC.power-rules}.]\textbf{(a)} We organize
-our solution as a series of claims:
-
-\begin{statement}
-\textit{Claim 1:} We have $\alpha^{n+1}=\alpha\alpha^{n}$ for all $\alpha
-\in\mathbb{C}$ and $n\in\mathbb{N}$.
-\end{statement}
-
-[\textit{Proof of Claim 1:} Let $\alpha\in\mathbb{C}$ and $n\in\mathbb{N}$.
-The definition of $\alpha^{n}$ yields $\alpha^{n}=\underbrace{\alpha
-\alpha\cdots\alpha}_{n\text{ times}}$. The definition of $\alpha^{n+1}$
-yields
-\[
-\alpha^{n+1}=\underbrace{\alpha\alpha\cdots\alpha}_{n+1\text{ times}}%
-=\alpha\cdot\underbrace{\alpha\alpha\cdots\alpha}_{n\text{ times}}.
-\]
-Comparing this with%
-\[
-\alpha\underbrace{\alpha^{n}}_{=\underbrace{\alpha\alpha\cdots\alpha}_{n\text{
-times}}}=\alpha\cdot\underbrace{\alpha\alpha\cdots\alpha}_{n\text{ times}},
-\]
-we obtain $\alpha^{n+1}=\alpha\alpha^{n}$. This proves Claim 1.]
-
-\begin{statement}
-\textit{Claim 2:} We have $\alpha^{n+m}=\alpha^{n}\alpha^{m}$ for all
-$\alpha\in\mathbb{C}$ and $n,m\in\mathbb{N}$.
-\end{statement}
-
-[\textit{First proof of Claim 2:} Let $\alpha\in\mathbb{C}$ and $n,m\in
-\mathbb{N}$. Definition \ref{def.CC.CC.power} \textbf{(a)} yields $\alpha
-^{n}=\underbrace{\alpha\alpha\cdots\alpha}_{n\text{ times}}$ and $\alpha
-^{m}=\underbrace{\alpha\alpha\cdots\alpha}_{m\text{ times}}$. Multiplying
-these two equalities, we obtain%
-\[
-\alpha^{n}\alpha^{m}=\underbrace{\alpha\alpha\cdots\alpha}_{n\text{ times}%
-}\cdot\underbrace{\alpha\alpha\cdots\alpha}_{m\text{ times}}%
-=\underbrace{\alpha\alpha\cdots\alpha}_{n+m\text{ times}}.
-\]
-Comparing this with%
-\[
-\alpha^{n+m}=\underbrace{\alpha\alpha\cdots\alpha}_{n+m\text{ times}%
-}\ \ \ \ \ \ \ \ \ \ \left(  \text{by Definition \ref{def.CC.CC.power}
-\textbf{(a)}}\right)  ,
-\]
-we obtain $\alpha^{n+m}=\alpha^{n}\alpha^{m}$. This proves Claim 2.]
-
-[\textit{Second proof of Claim 2:} We shall prove Claim 2 by induction on $n$:
-
-\textit{Induction base:} If $\alpha\in\mathbb{C}$ and $m\in\mathbb{N}$, then
-$\underbrace{\alpha^{0}}_{=1}\alpha^{m}=1\cdot\alpha^{m}=\alpha^{m}%
-=\alpha^{0+m}$ (since $m=0+m$). In other words, we have $\alpha^{0+m}%
-=\alpha^{0}\alpha^{m}$ for all $\alpha\in\mathbb{C}$ and $m\in\mathbb{N}$. In
-other words, Claim 2 holds for $n=0$. This completes the induction base.
-
-\textit{Induction step:} Let $k\in\mathbb{N}$. Assume that Claim 2 holds for
-$n=k$. We must prove that Claim 2 holds for $n=k+1$.
-
-Let $\alpha\in\mathbb{C}$ and $m\in\mathbb{N}$. We have assumed that Claim 2
-holds for $n=k$. Hence, we can apply Claim 2 to $n=k$. We thus obtain
-$\alpha^{k+m}=\alpha^{k}\alpha^{m}$.
-
-Claim 1 (applied to $n=k$) yields $\alpha^{k+1}=\alpha\alpha^{k}$. Also, Claim
-1 (applied to $n=k+m$) yields $\alpha^{\left(  k+m\right)  +1}=\alpha
-\alpha^{k+m}$.
-
-But $\left(  k+1\right)  +m=\left(  k+m\right)  +1$ and hence%
-\begin{align*}
-\alpha^{\left(  k+1\right)  +m}  &  =\alpha^{\left(  k+m\right)  +1}%
-=\alpha\underbrace{\alpha^{k+m}}_{=\alpha^{k}\alpha^{m}}=\alpha\left(
-\alpha^{k}\alpha^{m}\right)  =\underbrace{\left(  \alpha\alpha^{k}\right)
-}_{=\alpha^{k+1}}\alpha^{m}\ \ \ \ \ \ \ \ \ \ \left(  \text{by Theorem
-\ref{thm.CC.CC.rules} \textbf{(f)}}\right) \\
-&  =\alpha^{k+1}\alpha^{m}.
-\end{align*}
-
-
-Now, forget that we fixed $\alpha$ and $m$. We thus have shown that
-$\alpha^{\left(  k+1\right)  +m}=\alpha^{k+1}\alpha^{m}$ for all $\alpha
-\in\mathbb{C}$ and $m\in\mathbb{N}$. In other words, Claim 2 holds for
-$n=k+1$. This completes the induction step. Thus, Claim 2 is proven by induction.]
-
-\begin{statement}
-\textit{Claim 3:} We have $\left(  \alpha\beta\right)  ^{n}=\alpha^{n}%
-\beta^{n}$ for all $\alpha,\beta\in\mathbb{C}$ and $n\in\mathbb{N}$.
-\end{statement}
-
-[\textit{Proof of Claim 3:} We shall prove Claim 3 by induction on $n$:
-
-\textit{Induction base:} Let $\alpha,\beta\in\mathbb{C}$. Then, $\left(
-\alpha\beta\right)  ^{0}=1$. Comparing this with $\underbrace{\alpha^{0}}%
-_{=1}\underbrace{\beta^{0}}_{=1}=1\cdot1=1$, we obtain $\left(  \alpha
-\beta\right)  ^{0}=\alpha^{0}\beta^{0}$.
-
-Forget that we fixed $\alpha,\beta$. We thus have shown that $\left(
-\alpha\beta\right)  ^{0}=\alpha^{0}\beta^{0}$ for all $\alpha,\beta
-\in\mathbb{C}$. In other words, Claim 3 holds for $n=0$. This completes the
-induction base.
-
-\textit{Induction step:} Let $k\in\mathbb{N}$. Assume that Claim 3 holds for
-$n=k$. We must prove that Claim 3 holds for $n=k+1$.
-
-Let $\alpha,\beta\in\mathbb{C}$. We have assumed that Claim 3 holds for $n=k$.
-Hence, $\left(  \alpha\beta\right)  ^{k}=\alpha^{k}\beta^{k}$. But Claim 1
-(applied to $n=k$) yields $\alpha^{k+1}=\alpha\alpha^{k}$. Similarly,
-$\beta^{k+1}=\beta\beta^{k}$. Multiplying these two equalities together, we
-obtain%
-\begin{equation}
-\alpha^{k+1}\beta^{k+1}=\left(  \alpha\alpha^{k}\right)  \left(  \beta
-\beta^{k}\right)  =\left(  \left(  \alpha\alpha^{k}\right)  \beta\right)
-\beta^{k} \label{sol.CC.CC.power-rules.a.c3.pf.1}%
-\end{equation}
-(by Theorem \ref{thm.CC.CC.rules} \textbf{(f)}). But Claim 1 (applied to
-$\alpha\beta$ and $k$ instead of $\alpha$ and $n$) yields%
-\begin{align*}
-\left(  \alpha\beta\right)  ^{k+1}  &  =\left(  \alpha\beta\right)
-\underbrace{\left(  \alpha\beta\right)  ^{k}}_{=\alpha^{k}\beta^{k}}=\left(
-\alpha\beta\right)  \left(  \alpha^{k}\beta^{k}\right) \\
-&  =\alpha\underbrace{\left(  \beta\left(  \alpha^{k}\beta^{k}\right)
-\right)  }_{=\left(  \beta\alpha^{k}\right)  \beta^{k}}%
-\ \ \ \ \ \ \ \ \ \ \left(
-\begin{array}
-[c]{c}%
-\text{since Theorem \ref{thm.CC.CC.rules} \textbf{(f)}}\\
-\text{yields }\alpha\left(  \beta\left(  \alpha^{k}\beta^{k}\right)  \right)
-=\left(  \alpha\beta\right)  \left(  \alpha^{k}\beta^{k}\right)
-\end{array}
-\right) \\
-&  =\alpha\left(  \left(  \beta\alpha^{k}\right)  \beta^{k}\right)  =\left(
-\alpha\underbrace{\left(  \beta\alpha^{k}\right)  }_{\substack{=\alpha
-^{k}\beta\\\text{(by Theorem \ref{thm.CC.CC.rules} \textbf{(e)})}}}\right)
-\beta^{k}\ \ \ \ \ \ \ \ \ \ \left(  \text{by Theorem \ref{thm.CC.CC.rules}
-\textbf{(f)}}\right) \\
-&  =\underbrace{\left(  \alpha\left(  \alpha^{k}\beta\right)  \right)
-}_{\substack{=\left(  \alpha\alpha^{k}\right)  \beta\\\text{(by Theorem
-\ref{thm.CC.CC.rules} \textbf{(f)})}}}\beta^{k}=\left(  \left(  \alpha
-\alpha^{k}\right)  \beta\right)  \beta^{k}.
-\end{align*}
-Comparing this with (\ref{sol.CC.CC.power-rules.a.c3.pf.1}), we obtain
-$\left(  \alpha\beta\right)  ^{k+1}=\alpha^{k+1}\beta^{k+1}$.
-
-Now, forget that we fixed $\alpha,\beta$. We thus have shown that $\left(
-\alpha\beta\right)  ^{k+1}=\alpha^{k+1}\beta^{k+1}$ for all $\alpha,\beta
-\in\mathbb{C}$. In other words, Claim 3 holds for $n=k+1$. Thus, Claim 3 is
-proven by induction.]
-
-\begin{statement}
-\textit{Claim 4:} We have $\left(  \alpha^{n}\right)  ^{m}=\alpha^{nm}$ for
-all $\alpha\in\mathbb{C}$ and $n,m\in\mathbb{N}$.
-\end{statement}
-
-[\textit{Proof of Claim 4:} We shall prove Claim 4 by induction on $m$:
-
-\textit{Induction base:} For all $\alpha\in\mathbb{C}$ and $n\in\mathbb{N}$,
-we have $\left(  \alpha^{n}\right)  ^{0}=1=\alpha^{0}=\alpha^{n\cdot0}$ (since
-$0=n\cdot0$). In other words, Claim 4 holds for $m=0$. This completes the
-induction base.
-
-\textit{Induction step:} Let $k\in\mathbb{N}$. Assume that Claim 4 holds for
-$m=k$. We must prove that Claim 4 holds for $m=k+1$.
-
-Let $\alpha\in\mathbb{C}$ and $n\in\mathbb{N}$. Then, $\left(  \alpha
-^{n}\right)  ^{k}=\alpha^{nk}$ (since Claim 4 holds for $m=k$). Now, Claim 1
-(applied to $\alpha^{n}$ and $k$ instead of $\alpha$ and $n$) yields%
-\[
-\left(  \alpha^{n}\right)  ^{k+1}=\alpha^{n}\underbrace{\left(  \alpha
-^{n}\right)  ^{k}}_{=\alpha^{nk}}=\alpha^{n}\alpha^{nk}.
-\]
-Comparing this with%
-\begin{align*}
-\alpha^{n\left(  k+1\right)  }  &  =\alpha^{n+nk}\ \ \ \ \ \ \ \ \ \ \left(
-\text{since }n\left(  k+1\right)  =n+nk\right) \\
-&  =\alpha^{n}\alpha^{nk}\ \ \ \ \ \ \ \ \ \ \left(  \text{by Claim 2, applied
-to }m=nk\right)  ,
-\end{align*}
-we obtain $\left(  \alpha^{n}\right)  ^{k+1}=\alpha^{n\left(  k+1\right)  }$.
-
-Now, forget that we fixed $\alpha$ and $n$. We thus have shown that $\left(
-\alpha^{n}\right)  ^{k+1}=\alpha^{n\left(  k+1\right)  }$ for all $\alpha
-\in\mathbb{C}$ and $n\in\mathbb{N}$. In other words, Claim 4 holds for
-$m=k+1$. Hence, Claim 4 is proven by induction.]
-
-Now, Exercise \ref{exe.CC.CC.power-rules} \textbf{(a)} follows immediately by
-combining Claims 2, 3, and 4.
-
-\textbf{(b)} Again, we organize our solution as a series of claims:
-
-\begin{statement}
-\textit{Claim 5:}
-\end{statement}
+The same arguments as for real (or rational) numbers apply here.
 \end{proof}
-
-XEND
 
 It may be tempting to try to extend Definition \ref{def.CC.CC.power} further
 by defining fractional powers (such as $\alpha^{1/2}$). There is a way to do
@@ -22876,6 +22675,7 @@ a/b+c/d=\left(  ad+bc\right)  /\left(  bd\right)
 \ \ \ \ \ \ \ \ \ \ \text{and}\ \ \ \ \ \ \ \ \ \ \left(  a/b\right)  \left(
 c/d\right)  =\left(  ac\right)  /\left(  bd\right)  .
 \]
+
 \end{exercise}
 
 Some rings have many invertible elements (such as $\mathbb{Q}$, where each
@@ -23059,220 +22859,267 @@ Are there any further finite fields?
 \textbf{2019-04-01 lecture}
 \end{center}
 
-Note that we already have found infinitely many finite fields, and in
-particular, for each $N$, we have found a finite field of size larger than $N$
-(since we can find a prime larger than $N$). Thus, Shamir's Secret Sharing
-Scheme can be fixed: We simply replace \textquotedblleft uniformly random
-rational numbers\textquotedblright\ (which aren't a thing) by uniformly random
-elements of $\mathbb{Z}/p$, where $p$ is a fixed prime $>N$. Then, the Scheme
-works as long as we correctly define what polynomials with coefficients in
-$\mathbb{Z}/p$ are (see later).
+Now, for an example of a skew field that is not a field.
+
+\begin{example}
+Informally, we have obtained $\mathbb{C}$ from $\mathbb{R}$ by throwing in a
+new number $i$ that satisfies $i^{2}=-1$.
+
+Let us now throw in yet another new \textquotedblleft number\textquotedblright%
+\ $j$ such that $j^{2}=-1$ and $ji=-ij$. Let us try to calculate with these
+numbers. Commutativity cannot hold, but we assume that the ring axioms hold.%
+\begin{align*}
+i\cdot ij  & =\underbrace{i^{2}}_{=-1}j=-j;\\
+i\cdot\underbrace{ji}_{=-ij}  & =-\underbrace{i^{2}}_{=-1}j=-\left(
+-1\right)  j=j;\\
+ij\cdot ij  & =i\underbrace{ji}_{=-ij}j=-\underbrace{ii}_{=i^{2}%
+=-1}\underbrace{jj}_{=j^{2}=-1}=-\left(  -1\right)  \left(  -1\right)  =-1
+\end{align*}
+and
+\begin{align*}
+& \left(  1+2i+j\right)  \left(  3-j\right)  \\
+& =3+6i+3j-j-2ij-\underbrace{jj}_{=-1}\\
+& =4+6i+2j-2ij.
+\end{align*}
+Similarly, any of these new \textquotedblleft numbers\textquotedblright\ can
+be written in the form $a+bi+cj+dij$ for reals $a,b,c,d$. A priori, it is not
+clear whether they can be \textbf{uniquely} written in this form. It may even
+be plausible that some \textquotedblleft number\textquotedblright\ simplifies
+both to $0$ and to $1$, which turns our new \textquotedblleft number
+system\textquotedblright\ into the zero ring.
+
+So, to make sure we are on safe ground, we can again define these new
+\textquotedblleft numbers\textquotedblright\ (called \textbf{quaternions})
+rigorously as $4$-tuples $\left(  a,b,c,d\right)  $ of real numbers. Addition
+and subtraction are defined entrywise, and multiplication is defined by%
+\[
+\left(  x_{1},x_{2},x_{3},x_{4}\right)  \cdot\left(  y_{1},y_{2},y_{3}%
+,y_{4}\right)  =\left(
+\begin{array}
+[c]{c}%
+x_{1}y_{1}-x_{2}y_{2}-x_{3}y_{3}-x_{4}y_{4}\\
+x_{1}y_{2}+x_{2}y_{1}+x_{3}y_{4}-x_{4}y_{3}\\
+x_{1}y_{3}-x_{2}y_{4}+x_{3}y_{1}+x_{4}y_{2}\\
+x_{1}y_{4}+x_{2}y_{3}-x_{3}y_{2}+x_{4}y_{1}%
+\end{array}
+\right)  ^{T}.
+\]
+It is not hard to check that this is a ring. This ring is a skew field, but
+not a field.
+
+If $\mathbf{a}=\left(
+\begin{array}
+[c]{c}%
+a_{1}\\
+a_{2}\\
+a_{3}%
+\end{array}
+\right)  $ and $\mathbf{b}=\left(
+\begin{array}
+[c]{c}%
+b_{1}\\
+b_{2}\\
+b_{3}%
+\end{array}
+\right)  $ are two vectors in $\mathbb{R}^{3}$, then%
+\begin{align*}
+& \left(  0,a_{1},a_{2},a_{3}\right)  \cdot\left(  0,b_{1},b_{2},b_{3}\right)
+\\
+& =\left(  \underbrace{-a_{1}b_{1}-a_{2}b_{2}-a_{3}b_{3}}%
+_{\substack{=-\mathbf{a}\cdot\mathbf{b}\\\text{(dot product)}}%
+},\underbrace{a_{2}b_{3}-a_{3}b_{2},a_{3}b_{1}-a_{1}b_{3},a_{1}b_{2}%
+-a_{2}b_{1}}_{=\mathbf{a}\times\mathbf{b}}\right)  .
+\end{align*}
+
+\end{example}
 
 \subsection{Hunting for finite fields I}
 
-We have found a field of size $p$ for each prime $p$. Are there fields of
-other sizes?
+We have found finite fields of arbitrarily large size: Indeed, for any
+positive integer $N$, we can find a prime $p>N$, and then $\mathbb{Z}/p$ is a
+finite field of size $p>N$. This fixes the randomness problem with Shamir's
+Secret Sharing Scheme.
 
-\textbf{Idea:} We got $\mathbb{C}$ out of $\mathbb{R}$ by \textquotedblleft
-adjoining\textquotedblright\ a square root of $-1$.
+Nevertheless, it turns out quite useful to look for other finite fields. We
+have found a finite field of size $p$ for any prime $p$. What about size
+$p^{2}$?
 
-Let's try to do this with $\mathbb{Z}/p$ instead of $\mathbb{R}$.
+\textbf{First idea:} Consider the Cartesian product $\left(  \mathbb{Z}%
+/p\right)  \times\left(  \mathbb{Z}/p\right)  $. Define addition, subtraction
+and multiplication elementwise (so, e.g., $\left(  a,b\right)  \left(
+c,d\right)  =\left(  ac,bd\right)  $). This will yield a commutative ring with
+zero $\left(  \left[  0\right]  _{p},\left[  0\right]  _{p}\right)  $ and
+unity $\left(  \left[  1\right]  _{p},\left[  1\right]  _{p}\right)  $.
 
-So let us fix a prime $p$, and let $\mathbb{F}$ be the field $\mathbb{Z}/p$.
+The element $\left(  \left[  0\right]  _{p},\left[  1\right]  _{p}\right)  $
+of this ring is nonzero (because it is not $\left(  \left[  0\right]
+_{p},\left[  0\right]  _{p}\right)  $) but has no inverse (since multiplying
+it by anything will never make its first entry anything other than $\left[
+0\right]  _{p}$). So this ring is not a field.
 
-Let $0$ and $1$ stand for $0_{\mathbb{F}}=\left[  0\right]  _{p}$ and
-$1_{\mathbb{F}}=\left[  1\right]  _{p}$.
+\textbf{Second idea:} We got $\mathbb{C}$ from $\mathbb{R}$ by adjoining a
+square root of $-1$.
+
+Try the same with $\mathbb{Z}/p$ instead of $\mathbb{R}$.
+
+So let us fix a prime $p$, and consider the field $\mathbb{Z}/p$.
+
+Let $0$ and $1$ stand for $0_{\mathbb{Z}/p}=\left[  0\right]  _{p}$ and
+$1_{\mathbb{Z}/p}=\left[  1\right]  _{p}$.
 
 Now, let $\mathbb{F}^{\prime}$ be the result of \textquotedblleft
-adjoining\textquotedblright\ a square root of $-1$ to $\mathbb{F}$.
-
-More formally, we repeat Definition \ref{def.CC.CC} with $\mathbb{C}$ replaced
-by $\mathbb{Z}/p$:
+adjoining\textquotedblright\ a square root of $-1$ to $\mathbb{Z}/p$.
+Rigorously, this means the following:
 
 \begin{definition}
-\textbf{(a)} A \textit{complex residue class modulo }$p$ is defined as a pair
-$\left(  a,b\right)  $ of two residue classes in $\mathbb{Z}/p$.
+\textbf{(a)} We let $\mathbb{F}^{\prime}$ be the set of all pairs $\left(
+a,b\right)  $ of two residue classes in $\mathbb{Z}/p$.
 
-\textbf{(b)} We let $\mathbb{F}^{\prime}$ be the set of all complex residue
-classes modulo $p$.
+\textbf{(b)} For each $r\in\mathbb{Z}/p$, we let $r_{\mathbb{F}^{\prime}}$ be
+the element $\left(  r,0\right)  \in\mathbb{F}^{\prime}$.
 
-\textbf{(c)} For each $r\in\mathbb{Z}/p$, we denote the complex residue class
-$\left(  r,0\right)  $ by $r_{\mathbb{F}^{\prime}}$.
-
-\textbf{(d)} We let $i$ be the complex residue class $\left(  0,1\right)  $.
-
-\textbf{(e)} We define three binary operations $+$, $-$ and $\cdot$ on
-$\mathbb{F}^{\prime}$ by setting%
+\textbf{(c)} We define three binary operations $+,-,\cdot$ on $\mathbb{F}%
+^{\prime}$ by setting%
 \begin{align*}
-\left(  a,b\right)  +\left(  c,d\right)   &  =\left(  a+c,b+d\right)  ,\\
-\left(  a,b\right)  -\left(  c,d\right)   &  =\left(  a-c,b-d\right)
+\left(  a,b\right)  +\left(  c,d\right)    & =\left(  a+c,b+d\right)
 ,\ \ \ \ \ \ \ \ \ \ \text{and}\\
-\left(  a,b\right)  \cdot\left(  c,d\right)   &  =\left(  ac-bd,ad+bc\right)
+\left(  a,b\right)  -\left(  c,d\right)    & =\left(  a-c,b-d\right)
+,\ \ \ \ \ \ \ \ \ \ \text{and}\\
+\left(  a,b\right)  \cdot\left(  c,d\right)    & =\left(  ac-bd,ad+bc\right)
 \end{align*}
 for all $\left(  a,b\right)  \in\mathbb{F}^{\prime}$ and $\left(  c,d\right)
 \in\mathbb{F}^{\prime}$.
 
-\textbf{(f)} If $\alpha$ and $\beta$ are two complex residue classes, then we
-write $\alpha\beta$ for $\alpha\cdot\beta$.
+\textbf{(d)} We write $\alpha\beta$ for $\alpha\cdot\beta$.
 \end{definition}
 
 \begin{proposition}
-This $\mathbb{F}^{\prime}$ (with the operations $+,\cdot$ and the elements
-$0_{\mathbb{F}^{\prime}}$ and $1_{\mathbb{F}^{\prime}}$) is a commutative ring.
+This $\mathbb{F}^{\prime}$ (with the operations $+$ and $\cdot$ and the
+elements $0_{\mathbb{F}^{\prime}}$ and $1_{\mathbb{F}^{\prime}}$) is a
+commutative ring.
 \end{proposition}
 
 \begin{proof}
-Same as we did for $\mathbb{C}$ in the proof of Theorem \ref{thm.CC.CC.rules}.
+Same argument as for $\mathbb{C}$.
 \end{proof}
 
-Thus, $\mathbb{F}^{\prime}$ is a ring with $p^{2}$ elements.
-
-But when is $\mathbb{F}^{\prime}$ is a field?
+Thus, $\mathbb{F}^{\prime}$ is a commutative ring with $p^{2}$ elements. When
+is $\mathbb{F}^{\prime}$ a field?
 
 For $\mathbb{F}^{\prime}$ to be a field, every nonzero $\xi\in\mathbb{F}%
 ^{\prime}$ needs to have a multiplicative inverse.
 
-So let $\xi=x+yi$ (with $x,y\in\mathbb{F}=\mathbb{Z}/p$) be nonzero. Thus,
-$\left(  x,y\right)  \neq\left(  0,0\right)  $.
-
-How to find $\xi^{-1}$ ? Try rationalizing the denominator:%
+So let $\xi=\left(  x,y\right)  \in\mathbb{F}^{\prime}$ be nonzero. Thus,
+$\left(  x,y\right)  \neq\left(  0,0\right)  $. How to find $\xi^{-1}$ ?
+Inspired by complex numbers (and rationalizing denominators), we can write $i$
+for $\left(  0,1\right)  $ and compute%
 \[
-\dfrac{1}{\xi}=\dfrac{1}{x+yi}=\dfrac{x-yi}{\left(  x+yi\right)  \left(
-x-yi\right)  }=\dfrac{x-yi}{x^{2}+y^{2}}.
+\dfrac{1}{\xi}=\dfrac{1}{\left(  x,y\right)  }=\dfrac{1}{x+yi}=\dfrac
+{x-yi}{\left(  x+yi\right)  \left(  x-yi\right)  }=\dfrac{x-yi}{x^{2}+y^{2}}.
 \]
 We need $x^{2}+y^{2}\neq0$ in $\mathbb{F}$ for this to work.
 
 This works if the following condition holds:
 
 \begin{statement}
-\textit{Condition 1:} For every pair $\left(  x,y\right)  \in\left(
-\mathbb{Z}/p\right)  \times\left(  \mathbb{Z}/p\right)  $ satisfying $\left(
+\textit{Condition 1:} For every $x,y\in\mathbb{Z}/p$ such that $\left(
 x,y\right)  \neq\left(  0,0\right)  $, we have $x^{2}+y^{2}\neq0$ in
-$\mathbb{F}=\mathbb{Z}/p$.
+$\mathbb{F}_{p}$.
 \end{statement}
 
-Thus, $\mathbb{F}^{\prime}$ is a field if Condition 1 holds. Conversely, if
-$\mathbb{F}^{\prime}$ is a field, then Condition 1 holds (because if $\left(
-x,y\right)  \in\left(  \mathbb{Z}/p\right)  \times\left(  \mathbb{Z}/p\right)
-$ satisfies $\left(  x,y\right)  \neq\left(  0,0\right)  $, then $\left(
-x,y\right)  \left(  x,-y\right)  =\left(  x^{2}+y^{2},0\right)  $ would have
-to be $\neq\left(  0,0\right)  $ in order for $\mathbb{F}^{\prime}$ to be a
-field). So $\mathbb{F}^{\prime}$ is a field if and only if Condition 1 holds.
+Thus, $\mathbb{F}^{\prime}$ is a field if Condition 1 holds. It is not hard to
+check that the converse is true as well.
 
 Let me restate Condition 1 in terms of integers by replacing the residue
-classes $x$ and $y$ with their representatives $a$ and $b$:
+classes $x,y$ by their representatives $a,b$:
 
 \begin{statement}
-\textit{Condition 2:} For every pair $\left(  a,b\right)  \in\mathbb{Z}%
-\times\mathbb{Z}$ such that \textbf{not both} $a$ and $b$ are divisible by
-$p$, the sum $a^{2}+b^{2}$ is not divisible by $p$.
+\textit{Condition 2:} For every $a,b\in\mathbb{Z}$ such that $\left(  p\nmid
+a\text{ or }p\nmid b\right)  $, the sum $a^{2}+b^{2}$ is not divisible by $p$.
 \end{statement}
 
 \begin{example}
-\textbf{(a)} If $p=2$, then Condition 2 fails for $\left(  a,b\right)
-=\left(  1,1\right)  $. So $\mathbb{F}^{\prime}$ is not a field for $p=2$.
+\textbf{(a)} If $p=2$, then Condition 2 fails (for $a=1$ and $b=1$).
 
-\textbf{(b)} If $p=3$, then Condition 2 holds. So $\mathbb{F}^{\prime}$ is a
-field for $p=3$. Thus we have found a field with $3^{2}=9$ elements.
+\textbf{(b)} If $p=3$, then Condition 2 holds. So you get a field with
+$3^{2}=9$ elements.
 
-\textbf{(c)} If $p=5$, then Condition 2 fails for $\left(  a,b\right)
-=\left(  1,2\right)  $. So $\mathbb{F}^{\prime}$ is not a field for $p=5$.
+\textbf{(c)} If $p=5$, then Condition 2 fails (for $a=2$ and $b=1$).
 \end{example}
-
-This suggests that Condition 2 holds if and only if $p\equiv
-3\operatorname{mod}4$.
 
 \begin{proposition}
 A prime $p$ satisfies Condition 2 if and only if $p\equiv3\operatorname{mod}4$.
 \end{proposition}
 
 \begin{proof}
-$\Longrightarrow:$ Assume that $p$ satisfies Condition 2. Assume (for
-contradiction) that $p\not \equiv 3\operatorname{mod}4$. So $p$ is a prime of
-Type 1 or 2. Thus, $p=x^{2}+y^{2}$ for two integers $x,y$ (by Theorem
-\ref{thm.Z[i].gauss.prime.1mod4} \textbf{(a)}). Now, $\left(  x,y\right)  $ is
-a pair in $\mathbb{Z}\times\mathbb{Z}$ such that \textbf{not both} $x$ and $y$
-are divisible by $p$ (why not?), but the sum $x^{2}+y^{2}=p$ is divisible by
-$p$. So Condition 2 fails for $\left(  a,b\right)  =\left(  x,y\right)  $.
+$\Longrightarrow:$ LTTR.
 
-$\Longleftarrow:$ Assume that $p\equiv3\operatorname{mod}4$. Thus, $\left(
-p-1\right)  /2$ is odd.
+$\Longleftarrow:$ Assume that $p\equiv3\operatorname{mod}4$.
 
-Let $\left(  a,b\right)  \in\mathbb{Z}\times\mathbb{Z}$ be a pair such that
-\textbf{not both} $a$ and $b$ are divisible by $p$. We must prove that the sum
-$a^{2}+b^{2}$ is not divisible by $p$.
+We must prove that Condition 2 holds. In other words, we must prove that if
+$a,b\in\mathbb{Z}$ are such that $\left(  p\nmid a\text{ or }p\nmid b\right)
+$, then the sum $a^{2}+b^{2}$ is not divisible by $p$.
 
 Assume the contrary. Thus, $a^{2}+b^{2}\equiv0\operatorname{mod}p$.
 
-If \textbf{one} of $a$ and $b$ would be divisible by $p$, then $a^{2}%
-+b^{2}\equiv0\operatorname{mod}p$ would yield that \textbf{both} $a$ and $b$
-are divisible by $p$ (for example: if $a$ is divisible by $p$, then
-$a^{2}+b^{2}\equiv0\operatorname{mod}p$ would yield $b^{2}\equiv
-0\operatorname{mod}p$, thus $p\mid b^{2}$, thus $p\mid b$); but this would
-contradict our assumption. Thus, \textbf{none} of $a$ and $b$ is divisible by
-$p$. Hence, Fermat's little theorem yields $a^{p-1}\equiv1\operatorname{mod}p$
-and $b^{p-1}\equiv1\operatorname{mod}p$.
+If we had $p\mid a$, then $a^{2}+b^{2}\equiv0\operatorname{mod}p$ would entail
+$p\mid b^{2}$, thus $p\mid b$; but this would contradict $\left(  p\nmid
+a\text{ or }p\nmid b\right)  $. Hence, $p\nmid a$. Similarly, $p\nmid b$.
 
-From $a^{2}+b^{2}\equiv0\operatorname{mod}p$, we get $a^{2}\equiv
--b^{2}\operatorname{mod}p$. Take this congruence to the $\left(  p-1\right)
-/2$-th power. You get%
-\[
-\left(  a^{2}\right)  ^{\left(  p-1\right)  /2}\equiv\left(  -b^{2}\right)
-^{\left(  p-1\right)  /2}=\underbrace{\left(  -1\right)  ^{\left(  p-1\right)
-/2}}_{\substack{=-1\\\text{(since }\left(  p-1\right)  /2\text{ is odd)}%
-}}\underbrace{\left(  b^{2}\right)  ^{\left(  p-1\right)  /2}}%
-_{\substack{=b^{p-1}\\\equiv1\operatorname{mod}p}}\equiv-1\operatorname{mod}%
-p.
-\]
-Hence,%
-\[
--1\equiv\left(  a^{2}\right)  ^{\left(  p-1\right)  /2}=a^{p-1}\equiv
-1\operatorname{mod}p.
-\]
-Hence, $p\mid\left(  -1\right)  -1=-2$, so $p=2$. This contradicts
-$p\equiv3\operatorname{mod}4$.
+Hence, Fermat's Little Theorem yields $a^{p-1}\equiv1\operatorname{mod}p$ and
+$b^{p-1}\equiv1\operatorname{mod}p$.
+
+On the other hand, $a^{2}+b^{2}\equiv0\operatorname{mod}p$. In other words,
+$a^{2}\equiv-b^{2}\operatorname{mod}p$. Taking this congruence to the $\left(
+p-1\right)  /2$-th power, we obtain%
+\begin{align*}
+\left(  a^{2}\right)  ^{\left(  p-1\right)  /2}  & \equiv\left(
+-b^{2}\right)  ^{\left(  p-1\right)  /2}\operatorname{mod}%
+p,\ \ \ \ \ \ \ \ \ \ \text{i.e.}\\
+a^{p-1}  & \equiv\left(  -1\right)  ^{\left(  p-1\right)  /2}b^{p-1}%
+\operatorname{mod}p,\ \ \ \ \ \ \ \ \ \ \text{i.e.}\\
+1  & \equiv\left(  -1\right)  ^{\left(  p-1\right)  /2}\operatorname{mod}%
+p\ \ \ \ \ \ \ \ \ \ \left(  \text{since }a^{p-1}\equiv1\operatorname{mod}%
+p\text{ and }b^{p-1}\equiv1\operatorname{mod}p\right)  .
+\end{align*}
+But $p\equiv3\operatorname{mod}4$, so $\left(  p-1\right)  /2$ is odd. Thus,
+$\left(  -1\right)  ^{\left(  p-1\right)  /2}=-1$. So the previous congruence
+becomes $1\equiv-1\operatorname{mod}p$. Hence, $p\mid1-\left(  -1\right)  =2$,
+so $p=2$, contradicting $p\equiv3\operatorname{mod}4$. Done!
 \end{proof}
 
-Thus, we have found a field $\mathbb{F}^{\prime}$ with $p^{2}$ elements for
-any prime $p$ of Type 3. What about the other primes?
-
-We can try to vary the construction above, but adjoining not $\sqrt{-1}$ but
-$\sqrt{\text{something that is not a square}}$.
+So we have found a field of size $p^{2}$ whenever $p$ is a prime of Type 3.
+What about other primes? Maybe we get luckier if we adjoin not $\sqrt{-1}$ but
+$\sqrt{\text{another residue class}}$.
 
 \begin{definition}
-Let $\mathbb{K}$ be a commutative ring. A \textbf{square} (in $\mathbb{K}$)
-means an element of the form $a^{2}$ for some $a\in\mathbb{K}$.
+Let $\mathbb{K}$ be a ring. A \textbf{square} (in $\mathbb{K}$) means an
+element of the form $a^{2}$ for some $a\in\mathbb{K}$.
 \end{definition}
 
 \begin{definition}
-Fix a prime $p$, and an element $\eta\in\mathbb{Z}/p$.
+Fix a prime $p$ and an element $\eta\in\mathbb{Z}/p$.
 
-\textbf{(a)} A $\eta$\textit{-complex residue class modulo }$p$ is defined as
-a pair $\left(  a,b\right)  $ of two residue classes in $\mathbb{Z}/p$.
+\textbf{(a)} We let $\mathbb{F}_{\eta}^{\prime}$ be the set of all pairs
+$\left(  a,b\right)  $ of two residue classes in $\mathbb{Z}/p$.
 
-\textbf{(b)} We let $\mathbb{F}_{\eta}^{\prime}$ be the set of all $\eta
-$-complex residue classes modulo $p$.
+\textbf{(b)} For each $r\in\mathbb{Z}/p$, we let $r_{\mathbb{F}_{\eta}%
+^{\prime}}$ be the element $\left(  r,0\right)  \in\mathbb{F}^{\prime}$.
 
-\textbf{(c)} For each $r\in\mathbb{Z}/p$, we denote the $\eta$-complex residue
-class $\left(  r,0\right)  $ by $r_{\mathbb{F}^{\prime}}$.
-
-\textbf{(d)} We let $i$ be the $\eta$-complex residue class $\left(
-0,1\right)  $.
-
-\textbf{(e)} We define three binary operations $+$, $-$ and $\cdot$ on
-$\mathbb{F}_{\eta}^{\prime}$ by setting%
+\textbf{(c)} We define three binary operations $+,-,\cdot$ on $\mathbb{F}%
+_{\eta}^{\prime}$ by setting%
 \begin{align*}
-\left(  a,b\right)  +\left(  c,d\right)   &  =\left(  a+c,b+d\right)  ,\\
-\left(  a,b\right)  -\left(  c,d\right)   &  =\left(  a-c,b-d\right)
+\left(  a,b\right)  +\left(  c,d\right)    & =\left(  a+c,b+d\right)
 ,\ \ \ \ \ \ \ \ \ \ \text{and}\\
-\left(  a,b\right)  \cdot\left(  c,d\right)   &  =\left(  ac+\eta
+\left(  a,b\right)  -\left(  c,d\right)    & =\left(  a-c,b-d\right)
+,\ \ \ \ \ \ \ \ \ \ \text{and}\\
+\left(  a,b\right)  \cdot\left(  c,d\right)    & =\left(  ac+\eta
 bd,ad+bc\right)
 \end{align*}
 for all $\left(  a,b\right)  \in\mathbb{F}_{\eta}^{\prime}$ and $\left(
 c,d\right)  \in\mathbb{F}_{\eta}^{\prime}$.
 
-\textbf{(f)} If $\alpha$ and $\beta$ are two $\eta$-complex residue classes,
-then we write $\alpha\beta$ for $\alpha\cdot\beta$.
+\textbf{(d)} We write $\alpha\beta$ for $\alpha\cdot\beta$.
 \end{definition}
 
 \begin{theorem}
@@ -23291,58 +23138,25 @@ a square, \textbf{unless} $p=2$.
 \textbf{(b)} Assume that $\eta$ is not a square in $\mathbb{Z}/p$. We need to
 prove that each nonzero $\xi\in\mathbb{F}_{p}^{\prime}$ is invertible.
 
-So let $\xi\in\mathbb{F}_{p}^{\prime}$ be nonzero, and write $\xi$ as
-$\xi=\left(  x,y\right)  $ with $x,y\in\mathbb{Z}/p$. We must show that $\xi$
-is invertible.
+So let $\xi\in\mathbb{F}_{p}^{\prime}$ be nonzero. Write $\xi$ as $\xi=\left(
+x,y\right)  $ with $x,y\in\mathbb{Z}/p$. We must show that $\xi$ is invertible.
 
 We have $\left(  x,y\right)  \left(  x,-y\right)  =\left(  x^{2}-\eta
-y^{2},0\right)  $. If $x^{2}-\eta y^{2}$ is nonzero, then this allows me to
-construct the inverse of $\left(  x,y\right)  $ as $\dfrac{1}{x^{2}-\eta
-y^{2}}\left(  x,-y\right)  $. So we need to prove that $x^{2}-\eta y^{2}$ is nonzero.
+y^{2},0\right)  $. Hence, if $x^{2}-\eta y^{2}\neq0$, then this shows that
+$\left(  \dfrac{x}{x^{2}-\eta y^{2}},\dfrac{-y}{x^{2}-\eta y^{2}}\right)  $ is
+an inverse of $\left(  x,y\right)  =\xi$, and thus $\xi$ is invertible.
 
-Assume the contrary. Thus, $x^{2}-\eta y^{2}=0$. If $y$ is nonzero, then this
-can be rewritten as $\dfrac{x^{2}}{y^{2}}-\eta=0$, whence $\eta=\dfrac{x^{2}%
-}{y^{2}}=\left(  \dfrac{x}{y}\right)  ^{2}$, which contradicts the fact that
-$\eta$ is not a square. So $y$ cannot be nonzero. Thus, $y=0$. Hence,
-$x^{2}-\eta y^{2}=0$ rewrites as $x^{2}=0$. Since $\xi=\left(
-x,\underbrace{y}_{=0}\right)  =\left(  x,0\right)  $, so that $x$ is nonzero
-(since $\xi$ is nonzero). Hence, multiplying $x^{2}=0$ by $x^{-1}$, we obtain
-$x=0$, which contradicts $x$ being nonzero. So our assumption was wrong. Part
-\textbf{(b)} is proven.
+So we need to prove that $x^{2}-\eta y^{2}\neq0$. Indeed, assume the contrary.
+Thus, $x^{2}-\eta y^{2}=0$, so that $x^{2}=\eta y^{2}$.
 
-\textbf{(c)} Assume that $p\neq2$. Thus, $p>2$.
+If $y\neq0$, then we can solve this for $\eta$, and obtain $\eta=\dfrac{x^{2}%
+}{y^{2}}=\left(  \dfrac{x}{y}\right)  ^{2}$, contradicting the assumption that
+$\eta$ is not a square. So $y=0$. Thus, $x^{2}=\eta\underbrace{y^{2}}_{=0^{2}%
+}=0$, so $x=0$ (again since $\mathbb{Z}/p$ is a field). So both $x$ and $y$
+are $0$. This contradicts the fact that $\xi=\left(  x,y\right)  $ is nonzero. Done!
 
-Consider the map%
-\[
-\mathbb{Z}/p\rightarrow\mathbb{Z}/p,\ \ \ \ \ \ \ \ \ \ \alpha\mapsto
-\alpha^{2}.
-\]
-This map is \textbf{not} injective (since it sends the two distinct residue
-classes $\left[  1\right]  _{p}$ and $\left[  p-1\right]  _{p}$ both to
-$\left[  1\right]  _{p}$). Hence, it cannot be surjective either (since
-otherwise, the Pigeonhole Principle for Surjections would entail that it is
-bijective, hence injective). In other words, there exists some $\eta
-\in\mathbb{Z}/p$ that is not in its image. In other words, there exists an
-element $\eta\in\mathbb{Z}/p$ that is not a square.
+
 \end{proof}
-
-What about fields of size $4$ ?
-
-We cannot get them by adjoining a square root to $\mathbb{Z}/2$. So let us
-instead try to adjoin an element $j$ such that $j^{2}=j+1$. So we define
-$\mathbb{F}^{\prime}$ as the set of pairs $\left(  a,b\right)  \in\left(
-\mathbb{Z}/2\right)  \times\left(  \mathbb{Z}/2\right)  $, and we define
-$+,-,\cdot$ on $\mathbb{F}^{\prime}$ by%
-\begin{align*}
-\left(  a,b\right)  +\left(  c,d\right)   &  =\left(  a+c,b+d\right)  ,\\
-\left(  a,b\right)  -\left(  c,d\right)   &  =\left(  a-c,b-d\right)
-,\ \ \ \ \ \ \ \ \ \ \text{and}\\
-\left(  a,b\right)  \cdot\left(  c,d\right)   &  =\left(
-ac+bd,ad+bc+bd\right)  .
-\end{align*}
-This is going to be a field with $4$ elements.
-
-Thus, for each prime $p$, we have found a field with $p^{2}$ elements.
 
 
 \end{document}

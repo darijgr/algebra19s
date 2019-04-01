@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, April 01, 2019 10:18:20}
+%TCIDATA{LastRevised=Monday, April 01, 2019 12:16:51}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -22729,24 +22729,24 @@ Let us see what the multiplicative inverse of a function $f\in\mathbb{Q}%
 ^{\mathbb{Q}}$ is. If $f,g\in\mathbb{Q}^{\mathbb{Q}}$ are two functions, then
 we have the following chain of equivalences:%
 \begin{align*}
-&  \ \left(  g\text{ is the multiplicative inverse of }f\right)  \\
-&  \Longleftrightarrow\ \left(  fg=gf=1_{\mathbb{Q}^{\mathbb{Q}}}\right)  \\
+&  \ \left(  g\text{ is the multiplicative inverse of }f\right) \\
+&  \Longleftrightarrow\ \left(  fg=gf=1_{\mathbb{Q}^{\mathbb{Q}}}\right) \\
 &  \Longleftrightarrow\ \left(  \left(  fg\right)  \left(  x\right)  =\left(
 gf\right)  \left(  x\right)  =1_{\mathbb{Q}^{\mathbb{Q}}}\left(  x\right)
-\text{ for all }x\in\mathbb{Q}\right)  \\
+\text{ for all }x\in\mathbb{Q}\right) \\
 &  \Longleftrightarrow\ \left(  f\left(  x\right)  \cdot g\left(  x\right)
 =g\left(  x\right)  \cdot f\left(  x\right)  =1\text{ for all }x\in
-\mathbb{Q}\right)  \\
+\mathbb{Q}\right) \\
 &  \ \ \ \ \ \ \ \ \ \ \left(
 \begin{array}
 [c]{c}%
 \text{since each }x\in\mathbb{Q}\text{ satisfies }\left(  fg\right)  \left(
-x\right)  =f\left(  x\right)  \cdot g\left(  x\right)  \\
+x\right)  =f\left(  x\right)  \cdot g\left(  x\right) \\
 \text{and }\left(  gf\right)  \left(  x\right)  =g\left(  x\right)  \cdot
-f\left(  x\right)  \\
+f\left(  x\right) \\
 \text{and }1_{\mathbb{Q}^{\mathbb{Q}}}\left(  x\right)  =1
 \end{array}
-\right)  \\
+\right) \\
 &  \Longleftrightarrow\ \left(  g\left(  x\right)  =\dfrac{1}{f\left(
 x\right)  }\text{ for all }x\in\mathbb{Q}\right)  .
 \end{align*}
@@ -22849,7 +22849,7 @@ So we have found an infinite family of finite fields:%
 /5,\ \ \ \ \ \ \ \ \ \ \mathbb{Z}/7,\ \ \ \ \ \ \ \ \ \ \mathbb{Z}%
 /11,\ \ \ \ \ \ \ \ \ \ \ldots
 \]
-
+(A ring is said to be \textit{finite} if it has only finitely many elements.)
 
 \begin{question}
 Are there any further finite fields?
@@ -22863,18 +22863,20 @@ Now, for an example of a skew field that is not a field.
 
 \begin{example}
 Informally, we have obtained $\mathbb{C}$ from $\mathbb{R}$ by throwing in a
-new number $i$ that satisfies $i^{2}=-1$. Let us now throw yet another new
-\textquotedblleft number\textquotedblright\ $j$ such that $j^{2}=-1$ and
-$ji=-ij$. Now try to calculate with it. Of course, $i$ and $j$ cannot belong
-to a commutative ring together.
+new number $i$ that satisfies $i^{2}=-1$. In order for $i$ not to feel alone,
+let us introduce yet another new \textquotedblleft number\textquotedblright%
+\ $j$ such that $j^{2}=-1$ and $ji=-ij$. Now we try to calculate with these
+$i$ and $j$. Of course, $i$ and $j$ cannot belong to a commutative ring
+together, but let us assume that they (and the further numbers we obtain from
+them) at least satisfy the ring axioms.
 
 We have%
 \begin{align*}
-i\cdot ij  & =\underbrace{ii}_{=i^{2}=-1}j=\left(  -1\right)
+i\cdot ij &  =\underbrace{ii}_{=i^{2}=-1}j=\left(  -1\right)
 j=-j\ \ \ \ \ \ \ \ \ \ \text{and}\\
-j\cdot ij  & =\underbrace{ji}_{=-ij}j=-i\underbrace{jj}_{=j^{2}=-1}=-i\left(
+j\cdot ij &  =\underbrace{ji}_{=-ij}j=-i\underbrace{jj}_{=j^{2}=-1}=-i\left(
 -1\right)  =i\ \ \ \ \ \ \ \ \ \ \text{and}\\
-ij\cdot ij  & =i\underbrace{ji}_{=-ij}j=-\underbrace{ii}_{=i^{2}%
+ij\cdot ij &  =i\underbrace{ji}_{=-ij}j=-\underbrace{ii}_{=i^{2}%
 =-1}\underbrace{jj}_{=j^{2}=-1}=-\left(  -1\right)  \left(  -1\right)  =-1
 \end{align*}
 and (using the distributivity laws)%
@@ -22886,14 +22888,26 @@ and (using the distributivity laws)%
 Similarly, any of these new \textquotedblleft numbers\textquotedblright\ can
 be written in the form $a+bi+cj+dij$ for reals $a,b,c,d$.
 
-Thus, we can rigorously define our new numbers as $4$-tuples $\left(
-a,b,c,d\right)  $ of real numbers, with entrywise addition and subtraction,
-and with multiplication given by%
+Blithely introducing new \textquotedblleft numbers\textquotedblright\ like
+this can be risky. It could happen that (just as with defining $\infty$ to be
+$\dfrac{1}{0}$) our new numbers would lead to contradictions. For example,
+what if we have some expression that involves $i$ and $j$ and that can be
+simplified to $0$ in one way and simplified to $1$ in another; would that mean
+that $0=1$ ? No; it would simply mean that the new \textquotedblleft
+numbers\textquotedblright\ we have introduced do not actually exist. (Or,
+speaking more abstractly: that the new numbers are just the zero ring in a
+complicated disguise.)
+
+So it makes sense to look for a rigorous definition of our new numbers. There
+is a direct (though rather painful) way of doing this: We can rigorously
+define our new numbers as $4$-tuples $\left(  a,b,c,d\right)  $ of real
+numbers, with addition and subtraction defined entrywise, and with
+multiplication given by%
 \begin{align*}
 &  \left(  x_{1},x_{2},x_{3},x_{4}\right)  \cdot\left(  y_{1},y_{2}%
-,y_{3},y_{4}\right) \\
+,y_{3},y_{4}\right)  \\
 &  =\left(  x_{1}y_{1}-x_{2}y_{2}-x_{3}y_{3}-x_{4}y_{4},x_{1}y_{2}+x_{2}%
-y_{1}+x_{3}y_{4}-x_{4}y_{3},\right. \\
+y_{1}+x_{3}y_{4}-x_{4}y_{3},\right.  \\
 &  \ \ \ \ \ \ \ \ \ \ \left.  x_{1}y_{3}-x_{2}y_{4}+x_{3}y_{1}+x_{4}%
 y_{2},x_{1}y_{4}+x_{2}y_{3}-x_{3}y_{2}+x_{4}y_{1}\right)  .
 \end{align*}
@@ -22920,9 +22934,9 @@ b_{3}%
 \end{array}
 \right)  \in\mathbb{R}^{3}$ are two vectors, then the quaternion%
 \begin{align*}
-& \left(  0,a_{1},a_{2},a_{3}\right)  \cdot\left(  0,b_{1},b_{2},b_{3}\right)
+&  \left(  0,a_{1},a_{2},a_{3}\right)  \cdot\left(  0,b_{1},b_{2},b_{3}\right)
 \\
-& =\left(  \underbrace{-a_{1}b_{1}-a_{2}b_{2}-a_{3}b_{3}}%
+&  =\left(  \underbrace{-a_{1}b_{1}-a_{2}b_{2}-a_{3}b_{3}}%
 _{\substack{=-\mathbf{a}\cdot\mathbf{b}\\\text{(where }\cdot\text{ stands
 for}\\\text{the scalar product)}}},\underbrace{a_{2}b_{3}-a_{3}b_{2}%
 ,a_{3}b_{1}-a_{1}b_{3},a_{1}b_{2}-a_{2}b_{1}}_{\substack{\text{the three
@@ -22995,8 +23009,9 @@ write $\alpha\beta$ for $\alpha\cdot\beta$.
 \end{definition}
 
 \begin{proposition}
-This $\mathbb{F}^{\prime}$ (with the operations $+,\cdot$ and the elements
-$0_{\mathbb{F}^{\prime}}$ and $1_{\mathbb{F}^{\prime}}$) is a commutative ring.
+This $\mathbb{F}^{\prime}$ (with the operations $+$ and $\cdot$ and the
+elements $0_{\mathbb{F}^{\prime}}$ and $1_{\mathbb{F}^{\prime}}$) is a
+commutative ring.
 \end{proposition}
 
 \begin{proof}
@@ -23114,12 +23129,12 @@ $p\equiv3\operatorname{mod}4$.
 Thus, we have found a field $\mathbb{F}^{\prime}$ with $p^{2}$ elements for
 any prime $p$ of Type 3. What about the other primes?
 
-We can try to vary the construction above, but adjoining not $\sqrt{-1}$ but
-$\sqrt{\text{something that is not a square}}$.
+We can try to vary the construction above: Instead of adjoining a square root
+of $-1$, we adjoin a square root of some other element $\eta\in\mathbb{Z}/p$.
 
 \begin{definition}
-Let $\mathbb{K}$ be a commutative ring. A \textit{square} (in $\mathbb{K}$)
-means an element of the form $a^{2}$ for some $a\in\mathbb{K}$.
+Let $\mathbb{K}$ be a ring. A \textit{square} (in $\mathbb{K}$) means an
+element of the form $a^{2}$ for some $a\in\mathbb{K}$.
 \end{definition}
 
 \begin{definition}
@@ -23187,7 +23202,13 @@ x,\underbrace{y}_{=0}\right)  =\left(  x,0\right)  $, so that $x$ is nonzero
 (since $\xi$ is nonzero). Hence, multiplying $x^{2}=0$ by $x^{-1}$, we obtain
 $x=0$, which contradicts $x$ being nonzero. So our assumption was wrong. Part
 \textbf{(b)} is proven.
+\end{proof}
 
+\begin{center}
+\textbf{2019-04-03 lecture}
+\end{center}
+
+\begin{proof}
 \textbf{(c)} Assume that $p\neq2$. Thus, $p>2$.
 
 Consider the map%
@@ -23221,10 +23242,6 @@ ac+bd,ad+bc+bd\right)  .
 This is going to be a field with $4$ elements.
 
 Thus, for each prime $p$, we have found a field with $p^{2}$ elements.
-
-\begin{center}
-\textbf{2019-04-03 lecture}
-\end{center}
 
 TODO:
 
