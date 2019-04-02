@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, April 01, 2019 12:16:51}
+%TCIDATA{LastRevised=Tuesday, April 02, 2019 20:24:46}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -217,8 +217,9 @@ several texts can be helpful in achieving such familiarity: e.g.,
 
 I thank the students of the Math 4281 class for discovering and reporting
 errors in previous versions of these notes. Some of the discussion of variants
-of Gaussian integers is due to Keith Conrad; the discussion of Gaussian
-integers itself owes much to his \cite{Conrad-Gauss}.
+of Gaussian integers (and the occasional correction) is due to Keith Conrad;
+the discussion of Gaussian integers itself owes much to his
+\cite{Conrad-Gauss}.
 
 These notes include some excerpts from \cite{floor} and slightly rewritten
 sections of \cite{detnotes}.
@@ -1275,7 +1276,7 @@ I apologize in advance for the next proposition, in which vertical bars stand
 both for the \textquotedblleft divides\textquotedblright\ relation and for the
 absolute value of a number. Unfortunately, both of these uses are standard
 notation. Confusion is possible, but hopefully will not happen
-much\footnote{Unfortunately, the use of vertical bars for absolute values
+often\footnote{Unfortunately, the use of vertical bars for absolute values
 alone suffices to generate confusion! Just think of the meaning of
 \textquotedblleft$\left\vert a\right\vert b\left\vert c\right\vert
 $\textquotedblright\ when $a$, $b$ and $c$ are three numbers. Does it stand
@@ -18219,8 +18220,9 @@ $\alpha\beta=1$. (Recall that $1=1_{\mathbb{C}}$ by Convention
 \ref{conv.CC.RRtoCC.embed}.)
 \end{definition}
 
-The complex number $0$ has no inverse (because $0\beta$ will never equal $1$).
-But it turns out that all the other complex numbers have one:
+The complex number $0$ has no inverse (because $0\beta$ will never equal $1$,
+no matter what $\beta$ is). But it turns out that all the other complex
+numbers have one:
 
 \begin{theorem}
 \label{thm.CC.CC.inverse.unique}Let $\alpha$ be a nonzero complex number.
@@ -18352,37 +18354,65 @@ have proven both of its directions). That is, we have proven Proposition
 \ref{prop.CC.CC.inverse.undo}.
 \end{proof}
 
+Inverses also have the following properties:
+
+\begin{proposition}
+\label{prop.CC.CC.inverse.ab}\textbf{(a)} Let $\alpha\in\mathbb{C}$ be a
+complex number that has an inverse (i.e., is nonzero). Then, its inverse
+$\alpha^{-1}$ has an inverse as well, and this inverse is $\left(  \alpha
+^{-1}\right)  ^{-1}=\alpha$.
+
+\textbf{(b)} Let $\alpha,\beta\in\mathbb{C}$ be two complex numbers that have
+inverses (i.e., are nonzero). Then, their product $\alpha\beta$ has an inverse
+as well, and this inverse is $\left(  \alpha\beta\right)  ^{-1}=\alpha
+^{-1}\beta^{-1}$.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.CC.CC.inverse.ab}.]This proof is completely
+analogous to the solution to Exercise \ref{exe.equiv.modinv.ab}. (Just replace
+$\mathbb{Z}/n$ by $\mathbb{C}$.)
+\end{proof}
+
+\begin{corollary}
+\label{cor.CC.CC.intdom}Let $\alpha,\beta\in\mathbb{C}$ be two nonzero complex
+numbers. Then, the complex number $\alpha\beta$ is nonzero as well.
+\end{corollary}
+
+\begin{proof}
+[Proof of Corollary \ref{cor.CC.CC.intdom} (sketched).] The complex numbers
+$\alpha$ and $\beta$ are nonzero, and thus have inverses (by Theorem
+\ref{thm.CC.CC.inverse.unique}). Hence, Theorem \ref{thm.CC.CC.inverse.unique}
+\textbf{(b)} shows that their product $\alpha\beta$ has an inverse as well.
+Thus, $\alpha\beta\neq0$ (since $0$ has no inverse). This proves Corollary
+\ref{cor.CC.CC.intdom}.
+\end{proof}
+
 \subsubsection{Powers of complex numbers}
 
-Let us now define powers of complex numbers, where the exponent is an integer.
+Let us now define powers of complex numbers, where the exponent is a
+nonnegative integer.
 
 \begin{definition}
-\label{def.CC.CC.power}Let $\alpha\in\mathbb{C}$.
-
-\textbf{(a)} For any $n\in\mathbb{N}$, we define a complex number $\alpha^{n}$
-by setting $\alpha^{n}=\underbrace{\alpha\alpha\cdots\alpha}_{n\text{ times}}$.
-
-\textbf{(b)} For any negative $n\in\mathbb{Z}$, we define a complex number
-$\alpha^{n}$ by $\alpha^{n}=\left(  \alpha^{-1}\right)  ^{-n}$ whenever
-$\alpha\neq0$. (This is well-defined, because when $n$ is negative, $-n$ is
-positive, and thus $\left(  \alpha^{-1}\right)  ^{-n}$ is already defined by
-Definition \ref{def.CC.CC.power} \textbf{(a)}.)
-
-If $\alpha=0$, then we leave $\alpha^{n}$ undefined when $n$ is negative.
+\label{def.CC.CC.power}Let $\alpha\in\mathbb{C}$ and $n\in\mathbb{N}$. We
+define a complex number $\alpha^{n}$ (called the $n$\textit{-th power of
+}$\alpha$) by setting $\alpha^{n}=\underbrace{\alpha\alpha\cdots\alpha
+}_{n\text{ times}}$.
 \end{definition}
 
-Definition \ref{def.CC.CC.power} \textbf{(a)} yields%
+Definition \ref{def.CC.CC.power} yields%
 \[
 i^{2}=ii=\left(  -1\right)  _{\mathbb{C}}=-1.
 \]
-Moreover, Definition \ref{def.CC.CC.power} \textbf{(a)} yields
-\[
-\alpha^{0}=\underbrace{\alpha\alpha\cdots\alpha}_{0\text{ times}}=\left(
-\text{empty product}\right)  =1
-\]
+Moreover, Definition \ref{def.CC.CC.power} yields
+\begin{align*}
+\alpha^{0}  & =\underbrace{\alpha\alpha\cdots\alpha}_{0\text{ times}}=\left(
+\text{empty product}\right)  =1\ \ \ \ \ \ \ \ \ \ \text{and}\\
+\alpha^{1}  & =\underbrace{\alpha\alpha\cdots\alpha}_{1\text{ times}}=\alpha
+\end{align*}
 for each $\alpha\in\mathbb{C}$.
 
-For another example, Definition \ref{def.CC.CC.power} \textbf{(a)} yields%
+For another example, Definition \ref{def.CC.CC.power} yields%
 \[
 \left(  1+i\right)  ^{2}=\left(  1+i\right)  \left(  1+i\right)
 =1+i+i+\underbrace{ii}_{=-1}=1+i+i+\left(  -1\right)  =i+i=2i
@@ -18400,7 +18430,99 @@ involved. For example, the expression \textquotedblleft$\alpha\beta^{k}%
 +\gamma$\textquotedblright\ means $\left(  \alpha\left(  \beta^{k}\right)
 \right)  +\gamma$ rather than (say) $\left(  \alpha\beta\right)  ^{k}+\gamma$.
 
-Powers of complex numbers behave reasonably well:%
+Recall that any nonzero complex number $\alpha$ has an inverse $\alpha^{-1}$
+(by Definition \ref{def.CC.CC.inverse.notations} \textbf{(a)}). This allows us
+to extend our definition of $\alpha^{n}$ to \textbf{negative} $n$ as well:
+
+\begin{definition}
+\label{def.CC.CC.power-}Let $\alpha\in\mathbb{C}$ be nonzero. For any negative
+$n\in\mathbb{Z}$, we define a complex number $\alpha^{n}$ (called the
+$n$\textit{-th power of }$\alpha$) by $\alpha^{n}=\left(  \alpha^{-1}\right)
+^{-n}$. (This is well-defined, since $\left(  \alpha^{-1}\right)  ^{-n}$ is
+already defined by Definition \ref{def.CC.CC.power} (because $n$ is negative
+and thus $-n\in\mathbb{N}$).)
+\end{definition}
+
+The attentive reader will have noticed that Definition \ref{def.CC.CC.power-}
+redefines $\alpha^{-1}$ when $\alpha$ is nonzero (indeed, $-1$ is a negative
+integer, and thus can be substituted for $n$ in Definition
+\ref{def.CC.CC.power-}). Fortunately, this new definition of $\alpha^{-1}$
+does not clash with the original definition (Definition
+\ref{def.CC.CC.inverse.notations} \textbf{(a)}), because if we set $n=-1$ in
+Definition \ref{def.CC.CC.power-}, then we get $\alpha^{-1}=\left(
+\alpha^{-1}\right)  ^{1}=\alpha^{-1}$ (where the \textquotedblleft$\alpha
+^{-1}$\textquotedblright\ on the left hand side is the new meaning defined in
+Definition \ref{def.CC.CC.power-}, whereas the \textquotedblleft$\alpha^{-1}%
+$\textquotedblright\ on the right hand side is the old meaning defined in
+Definition \ref{def.CC.CC.inverse.notations} \textbf{(a)}.
+
+If $\alpha=0$ and if $n\in\mathbb{Z}$ is negative, then we leave $\alpha^{n}$ undefined.
+
+Powers of complex numbers satisfy the usual rules for exponents:
+
+\begin{proposition}
+\label{prop.CC.CC.power-rules}\textbf{(a)} We have $\alpha^{n+1}=\alpha
+\alpha^{n}$ for all $\alpha\in\mathbb{C}$ and $n\in\mathbb{N}$.
+
+\textbf{(b)} We have $\alpha^{n+m}=\alpha^{n}\alpha^{m}$ for all $\alpha
+\in\mathbb{C}$ and $n,m\in\mathbb{N}$.
+
+\textbf{(c)} We have $\left(  \alpha\beta\right)  ^{n}=\alpha^{n}\beta^{n}$
+for all $\alpha,\beta\in\mathbb{C}$ and $n\in\mathbb{N}$.
+
+\textbf{(d)} We have $\left(  \alpha^{n}\right)  ^{m}=\alpha^{nm}$ for all
+$\alpha\in\mathbb{C}$ and $n,m\in\mathbb{N}$.
+
+\textbf{(e)} We have $1^{n}=1$ for all $n\in\mathbb{N}$.
+
+\textbf{(f)} We have $\alpha^{n+1}=\alpha\alpha^{n}$ for all nonzero
+$\alpha\in\mathbb{C}$ and all $n\in\mathbb{Z}$.
+
+\textbf{(g)} We have $\alpha^{-n}=\left(  \alpha^{-1}\right)  ^{n}$ for all
+nonzero $\alpha\in\mathbb{C}$ and all $n\in\mathbb{Z}$.
+
+\textbf{(h)} We have $\alpha^{n+m}=\alpha^{n}\alpha^{m}$ for all nonzero
+$\alpha\in\mathbb{C}$ and all $n,m\in\mathbb{Z}$.
+
+\textbf{(i)} We have $\left(  \alpha\beta\right)  ^{n}=\alpha^{n}\beta^{n}$
+for all nonzero $\alpha,\beta\in\mathbb{C}$ and all $n\in\mathbb{Z}$.
+
+\textbf{(j)} We have $1^{n}=1$ for all $n\in\mathbb{Z}$.
+
+\textbf{(k)} We have $\left(  \alpha^{n}\right)  ^{-1}=\alpha^{-n}$ for all
+nonzero $\alpha\in\mathbb{C}$ and all $n\in\mathbb{Z}$. (In particular,
+$\alpha^{n}$ is nonzero, so that $\left(  \alpha^{n}\right)  ^{-1}$ is well-defined.)
+
+\textbf{(l)} We have $\left(  \alpha^{n}\right)  ^{m}=\alpha^{nm}$ for all
+nonzero $\alpha\in\mathbb{C}$ and all $n,m\in\mathbb{Z}$. (In particular,
+$\alpha^{n}$ is nonzero, so that $\left(  \alpha^{n}\right)  ^{-1}$ is well-defined.)
+
+\textbf{(m)} Complex numbers satisfy the binomial formula: That is, if
+$\alpha,\beta\in\mathbb{C}$, then%
+\[
+\left(  \alpha+\beta\right)  ^{n}=\sum_{k=0}^{n}\dbinom{n}{k}\alpha^{k}%
+\beta^{n-k}\ \ \ \ \ \ \ \ \ \ \text{for }n\in\mathbb{N}\text{.}%
+\]
+
+\end{proposition}
+
+Proposition \ref{prop.CC.CC.power-rules} can be proven in the same way as the
+corresponding claims are proven for real (or rational) numbers:
+
+\begin{exercise}
+\label{exe.CC.CC.power-rules}Prove Proposition \ref{prop.CC.CC.power-rules}.
+\end{exercise}
+
+It may be tempting to try to extend Definition \ref{def.CC.CC.power-} further
+by defining fractional powers (such as $\alpha^{1/2}$). There is a way to do
+so, but such a definition would be of questionable use and somewhat fragile
+(in the sense that it would fail to satisfy the rules of exponents). For
+example, if you wanted to define $\left(  -1\right)  ^{1/2}$, then the only
+reasonable choices would be $i$ and $-i$ (since these are the only two complex
+numbers whose squares are $-1$); but with either option, the equality $\left(
+\alpha\beta\right)  ^{1/2}=\alpha^{1/2}\beta^{1/2}$ would fail if we took
+$\alpha=-1$ and $\beta=-1$. Thus, we prefer to leave powers of the form
+$\alpha^{n}$ for $n\notin\mathbb{Z}$ undefined.%
 
 \[%
 \begin{tabular}
@@ -18411,43 +18533,6 @@ Powers of complex numbers behave reasonably well:%
 \
 \]
 
-
-\begin{proposition}
-\label{prop.CC.CC.power-rules}\textbf{(a)} Complex numbers satisfy the usual
-rules for exponents: We have%
-\[
-\left(  \alpha\beta\right)  ^{n}=\alpha^{n}\beta^{n}%
-,\ \ \ \ \ \ \ \ \ \ \alpha^{n+m}=\alpha^{n}\alpha^{m}%
-,\ \ \ \ \ \ \ \ \ \ \left(  \alpha^{n}\right)  ^{m}=\alpha^{nm}%
-\]
-for all $\alpha,\beta\in\mathbb{C}$ and $n,m\in\mathbb{N}$.
-
-\textbf{(b)} These equalities also hold for arbitrary $n,m\in\mathbb{Z}$ when
-$\alpha$ and $\beta$ are nonzero.
-
-\textbf{(c)} Complex numbers satisfy the binomial formula: That is, if
-$\alpha,\beta\in\mathbb{C}$, then%
-\[
-\left(  \alpha+\beta\right)  ^{n}=\sum_{k=0}^{n}\dbinom{n}{k}\alpha^{k}%
-\beta^{n-k}\ \ \ \ \ \ \ \ \ \ \text{for }n\in\mathbb{N}\text{.}%
-\]
-
-\end{proposition}
-
-\begin{proof}
-The same arguments as for real (or rational) numbers apply here.
-\end{proof}
-
-It may be tempting to try to extend Definition \ref{def.CC.CC.power} further
-by defining fractional powers (such as $\alpha^{1/2}$). There is a way to do
-so, but such a definition would be of questionable use and somewhat fragile
-(in the sense that it would fail to satisfy the rules of exponents). For
-example, if you wanted to define $\left(  -1\right)  ^{1/2}$, then the only
-reasonable choices would be $i$ and $-i$ (since these are the only two complex
-numbers whose squares are $-1$); but with either option, the equality $\left(
-\alpha\beta\right)  ^{1/2}=\alpha^{1/2}\beta^{1/2}$ would fail if we took
-$\alpha=-1$ and $\beta=-1$. Thus, we prefer to leave powers of the form
-$\alpha^{n}$ for $n\notin\mathbb{Z}$ undefined.
 
 \subsubsection{Norms and conjugates}
 
@@ -22475,25 +22560,28 @@ hold in every ring:
 \begin{proposition}
 \label{prop.rings.pow.rules}\textbf{(a)} We have%
 \begin{align}
-\left(  n+m\right)  a  &  =na+ma\ \ \ \ \ \ \ \ \ \ \text{for all }%
-a\in\mathbb{K}\text{ and }n,m\in\mathbb{Z}; \label{eq.prop.rings.pow.rules.d1}%
+\left(  n+m\right)  a &  =na+ma\ \ \ \ \ \ \ \ \ \ \text{for all }%
+a\in\mathbb{K}\text{ and }n,m\in\mathbb{Z};\label{eq.prop.rings.pow.rules.d1}%
 \\
 n\left(  a+b\right)   &  =na+nb\ \ \ \ \ \ \ \ \ \ \text{for all }%
-a,b\in\mathbb{K}\text{ and }n\in\mathbb{Z}; \label{eq.prop.rings.pow.rules.d2}%
+a,b\in\mathbb{K}\text{ and }n\in\mathbb{Z};\label{eq.prop.rings.pow.rules.d2}%
 \\
 -\left(  na\right)   &  =\left(  -n\right)  a=n\left(  -a\right)
 \ \ \ \ \ \ \ \ \ \ \text{for all }a\in\mathbb{K}\text{ and }n\in
 \mathbb{Z};\label{eq.prop.rings.pow.rules.d3}\\
-\left(  nm\right)  a  &  =n\left(  ma\right)  \ \ \ \ \ \ \ \ \ \ \text{for
-all }a\in\mathbb{K}\text{ and }n,m\in\mathbb{Z}%
-;\label{eq.prop.rings.pow.rules.2}\\
+\left(  nm\right)  a &  =n\left(  ma\right)  \ \ \ \ \ \ \ \ \ \ \text{for all
+}a\in\mathbb{K}\text{ and }n,m\in\mathbb{Z};\label{eq.prop.rings.pow.rules.2}%
+\\
 n\left(  ab\right)   &  =\left(  na\right)  b=a\left(  nb\right)
 \ \ \ \ \ \ \ \ \ \ \text{for all }a,b\in\mathbb{K}\text{ and }n\in
 \mathbb{Z};\label{eq.prop.rings.pow.rules.3}\\
-1a  &  =a\ \ \ \ \ \ \ \ \ \ \text{for all }a\in\mathbb{K};\\
-\left(  -1\right)  a  &  =-a\ \ \ \ \ \ \ \ \ \ \text{for all }a\in
+1a &  =a\ \ \ \ \ \ \ \ \ \ \text{for all }a\in\mathbb{K};\\
+\left(  -1\right)  a &  =-a\ \ \ \ \ \ \ \ \ \ \text{for all }a\in
 \mathbb{K};\label{eq.prop.rings.pow.rules.4}\\
-0^{n}  &  =%
+1^{n} &  =1\ \ \ \ \ \ \ \ \ \ \text{for all }n\in\mathbb{N}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{here, the \textquotedblleft%
+}1\text{\textquotedblright\ means the unity of }\mathbb{K}\right)  ;\\
+0^{n} &  =%
 \begin{cases}
 0, & \text{if }n>0\\
 1, & \text{if }n=0
@@ -22503,11 +22591,11 @@ n\left(  ab\right)   &  =\left(  na\right)  b=a\left(  nb\right)
 &  \ \ \ \ \ \ \ \ \ \ \left(  \text{here, the \textquotedblleft%
 }0\text{\textquotedblright\ in \textquotedblleft}0^{n}\text{\textquotedblright%
 \ means the zero of }\mathbb{K}\right)  ;\nonumber\\
-a^{n+m}  &  =a^{n}a^{m}\ \ \ \ \ \ \ \ \ \ \text{for all }a\in\mathbb{K}\text{
+a^{n+m} &  =a^{n}a^{m}\ \ \ \ \ \ \ \ \ \ \text{for all }a\in\mathbb{K}\text{
 and }n,m\in\mathbb{N};\label{eq.prop.rings.pow.rules.7}\\
-\left(  a^{n}\right)  ^{m}  &  =a^{nm}\ \ \ \ \ \ \ \ \ \ \text{for all }%
+\left(  a^{n}\right)  ^{m} &  =a^{nm}\ \ \ \ \ \ \ \ \ \ \text{for all }%
 a\in\mathbb{K}\text{ and }n,m\in\mathbb{N};\label{eq.prop.rings.pow.rules.8}\\
-a^{0}  &  =1\ \ \ \ \ \ \ \ \ \ \text{for all }a\in\mathbb{K}.
+a^{0} &  =1\ \ \ \ \ \ \ \ \ \ \text{for all }a\in\mathbb{K}.
 \end{align}
 In particular:
 
@@ -29789,6 +29877,590 @@ Computations of this kind are perfectly legitimate, because Proposition
 _{k}=\left(  \alpha_{1}\alpha_{2}\cdots\alpha_{i}\right)  \left(  \alpha
 _{i+1}\alpha_{i+2}\cdots\alpha_{k}\right)  $ for each $i\in\left\{
 0,1,\ldots,k\right\}  $).]
+\end{proof}
+\end{fineprint}
+
+\subsection{Solution to Exercise \ref{exe.CC.CC.power-rules}}
+
+\begin{fineprint}
+\begin{proof}
+[Proof of Proposition \ref{prop.CC.CC.power-rules}.]\textbf{(a)} Let
+$\alpha\in\mathbb{C}$ and $n\in\mathbb{N}$. The definition of $\alpha^{n}$
+yields $\alpha^{n}=\underbrace{\alpha\alpha\cdots\alpha}_{n\text{ times}}$.
+The definition of $\alpha^{n+1}$ yields
+\[
+\alpha^{n+1}=\underbrace{\alpha\alpha\cdots\alpha}_{n+1\text{ times}}%
+=\alpha\cdot\underbrace{\alpha\alpha\cdots\alpha}_{n\text{ times}}.
+\]
+Comparing this with%
+\[
+\alpha\underbrace{\alpha^{n}}_{=\underbrace{\alpha\alpha\cdots\alpha}_{n\text{
+times}}}=\alpha\cdot\underbrace{\alpha\alpha\cdots\alpha}_{n\text{ times}},
+\]
+we obtain $\alpha^{n+1}=\alpha\alpha^{n}$. This proves Proposition
+\ref{prop.CC.CC.power-rules} \textbf{(a)}.
+
+\textbf{(b)} \textit{First proof of Proposition \ref{prop.CC.CC.power-rules}
+\textbf{(b)}:} Let $\alpha\in\mathbb{C}$ and $n,m\in\mathbb{N}$. Definition
+\ref{def.CC.CC.power} \textbf{(a)} yields $\alpha^{n}=\underbrace{\alpha
+\alpha\cdots\alpha}_{n\text{ times}}$ and $\alpha^{m}=\underbrace{\alpha
+\alpha\cdots\alpha}_{m\text{ times}}$. Multiplying these two equalities, we
+obtain%
+\[
+\alpha^{n}\alpha^{m}=\underbrace{\alpha\alpha\cdots\alpha}_{n\text{ times}%
+}\cdot\underbrace{\alpha\alpha\cdots\alpha}_{m\text{ times}}%
+=\underbrace{\alpha\alpha\cdots\alpha}_{n+m\text{ times}}.
+\]
+Comparing this with%
+\[
+\alpha^{n+m}=\underbrace{\alpha\alpha\cdots\alpha}_{n+m\text{ times}%
+}\ \ \ \ \ \ \ \ \ \ \left(  \text{by Definition \ref{def.CC.CC.power}
+\textbf{(a)}}\right)  ,
+\]
+we obtain $\alpha^{n+m}=\alpha^{n}\alpha^{m}$. This proves Proposition
+\ref{prop.CC.CC.power-rules} \textbf{(b)}.
+
+\textit{Second proof of Proposition \ref{prop.CC.CC.power-rules}
+\textbf{(b)}:} We shall prove Proposition \ref{prop.CC.CC.power-rules}
+\textbf{(b)} by induction on $n$:
+
+\textit{Induction base:} If $\alpha\in\mathbb{C}$ and $m\in\mathbb{N}$, then
+$\underbrace{\alpha^{0}}_{=1}\alpha^{m}=1\cdot\alpha^{m}=\alpha^{m}%
+=\alpha^{0+m}$ (since $m=0+m$). In other words, we have $\alpha^{0+m}%
+=\alpha^{0}\alpha^{m}$ for all $\alpha\in\mathbb{C}$ and $m\in\mathbb{N}$. In
+other words, Proposition \ref{prop.CC.CC.power-rules} \textbf{(b)} holds for
+$n=0$. This completes the induction base.
+
+\textit{Induction step:} Let $k\in\mathbb{N}$. Assume that Proposition
+\ref{prop.CC.CC.power-rules} \textbf{(b)} holds for $n=k$. We must prove that
+Proposition \ref{prop.CC.CC.power-rules} \textbf{(b)} holds for $n=k+1$.
+
+Let $\alpha\in\mathbb{C}$ and $m\in\mathbb{N}$. We have assumed that
+Proposition \ref{prop.CC.CC.power-rules} \textbf{(b)} holds for $n=k$. Hence,
+we can apply Proposition \ref{prop.CC.CC.power-rules} \textbf{(b)} to $n=k$.
+We thus obtain $\alpha^{k+m}=\alpha^{k}\alpha^{m}$.
+
+Proposition \ref{prop.CC.CC.power-rules} \textbf{(a)} (applied to $n=k$)
+yields $\alpha^{k+1}=\alpha\alpha^{k}$. Also, Proposition
+\ref{prop.CC.CC.power-rules} \textbf{(a)} (applied to $n=k+m$) yields
+$\alpha^{\left(  k+m\right)  +1}=\alpha\alpha^{k+m}$.
+
+But $\left(  k+1\right)  +m=\left(  k+m\right)  +1$ and hence%
+\begin{align*}
+\alpha^{\left(  k+1\right)  +m}  &  =\alpha^{\left(  k+m\right)  +1}%
+=\alpha\underbrace{\alpha^{k+m}}_{=\alpha^{k}\alpha^{m}}=\alpha\left(
+\alpha^{k}\alpha^{m}\right)  =\underbrace{\left(  \alpha\alpha^{k}\right)
+}_{=\alpha^{k+1}}\alpha^{m}\ \ \ \ \ \ \ \ \ \ \left(  \text{by Theorem
+\ref{thm.CC.CC.rules} \textbf{(f)}}\right) \\
+&  =\alpha^{k+1}\alpha^{m}.
+\end{align*}
+
+
+Now, forget that we fixed $\alpha$ and $m$. We thus have shown that
+$\alpha^{\left(  k+1\right)  +m}=\alpha^{k+1}\alpha^{m}$ for all $\alpha
+\in\mathbb{C}$ and $m\in\mathbb{N}$. In other words, Proposition
+\ref{prop.CC.CC.power-rules} \textbf{(b)} holds for $n=k+1$. This completes
+the induction step. Thus, Proposition \ref{prop.CC.CC.power-rules}
+\textbf{(b)} is proven by induction.
+
+\textbf{(c)} We shall prove Proposition \ref{prop.CC.CC.power-rules}
+\textbf{(c)} by induction on $n$:
+
+\textit{Induction base:} Let $\alpha,\beta\in\mathbb{C}$. Then, $\left(
+\alpha\beta\right)  ^{0}=1=\alpha^{0}\beta^{0}$ (since $\underbrace{\alpha
+^{0}}_{=1}\underbrace{\beta^{0}}_{=1}=1\cdot1=1$).
+
+Forget that we fixed $\alpha,\beta$. We thus have shown that $\left(
+\alpha\beta\right)  ^{0}=\alpha^{0}\beta^{0}$ for all $\alpha,\beta
+\in\mathbb{C}$. In other words, Proposition \ref{prop.CC.CC.power-rules}
+\textbf{(c)} holds for $n=0$. This completes the induction base.
+
+\textit{Induction step:} Let $k\in\mathbb{N}$. Assume that Proposition
+\ref{prop.CC.CC.power-rules} \textbf{(c)} holds for $n=k$. We must prove that
+Proposition \ref{prop.CC.CC.power-rules} \textbf{(c)} holds for $n=k+1$.
+
+Let $\alpha,\beta\in\mathbb{C}$. We have assumed that Proposition
+\ref{prop.CC.CC.power-rules} \textbf{(c)} holds for $n=k$. Hence, $\left(
+\alpha\beta\right)  ^{k}=\alpha^{k}\beta^{k}$. But Proposition
+\ref{prop.CC.CC.power-rules} \textbf{(a)} (applied to $n=k$) yields
+$\alpha^{k+1}=\alpha\alpha^{k}$. Similarly, $\beta^{k+1}=\beta\beta^{k}$.
+Multiplying these two equalities together, we obtain%
+\begin{equation}
+\alpha^{k+1}\beta^{k+1}=\left(  \alpha\alpha^{k}\right)  \left(  \beta
+\beta^{k}\right)  =\left(  \left(  \alpha\alpha^{k}\right)  \beta\right)
+\beta^{k}\label{sol.CC.CC.power-rules.a.c3.pf.1}%
+\end{equation}
+(by Theorem \ref{thm.CC.CC.rules} \textbf{(f)}). But Proposition
+\ref{prop.CC.CC.power-rules} \textbf{(a)} (applied to $\alpha\beta$ and $k$
+instead of $\alpha$ and $n$) yields\footnote{The following computation could
+be much shorter if I used unparenthesized products (i.e., if I wrote
+\textquotedblleft$\alpha\beta\alpha^{k}\beta^{k}$\textquotedblright\ instead
+of explicitly invoking the associativity of multiplication to move between
+various ways of parenthesizing this product). I am avoiding unparenthesized
+products here for the purpose of illustrating how to live without them; in the
+future I will simply use them wherever they can help.}%
+\begin{align*}
+\left(  \alpha\beta\right)  ^{k+1} &  =\left(  \alpha\beta\right)
+\underbrace{\left(  \alpha\beta\right)  ^{k}}_{=\alpha^{k}\beta^{k}}=\left(
+\alpha\beta\right)  \left(  \alpha^{k}\beta^{k}\right)  \\
+&  =\alpha\underbrace{\left(  \beta\left(  \alpha^{k}\beta^{k}\right)
+\right)  }_{=\left(  \beta\alpha^{k}\right)  \beta^{k}}%
+\ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{since Theorem \ref{thm.CC.CC.rules} \textbf{(f)}}\\
+\text{yields }\alpha\left(  \beta\left(  \alpha^{k}\beta^{k}\right)  \right)
+=\left(  \alpha\beta\right)  \left(  \alpha^{k}\beta^{k}\right)
+\end{array}
+\right)  \\
+&  =\alpha\left(  \left(  \beta\alpha^{k}\right)  \beta^{k}\right)  =\left(
+\alpha\underbrace{\left(  \beta\alpha^{k}\right)  }_{\substack{=\alpha
+^{k}\beta\\\text{(by Theorem \ref{thm.CC.CC.rules} \textbf{(e)})}}}\right)
+\beta^{k}\ \ \ \ \ \ \ \ \ \ \left(  \text{by Theorem \ref{thm.CC.CC.rules}
+\textbf{(f)}}\right)  \\
+&  =\underbrace{\left(  \alpha\left(  \alpha^{k}\beta\right)  \right)
+}_{\substack{=\left(  \alpha\alpha^{k}\right)  \beta\\\text{(by Theorem
+\ref{thm.CC.CC.rules} \textbf{(f)})}}}\beta^{k}=\left(  \left(  \alpha
+\alpha^{k}\right)  \beta\right)  \beta^{k}.
+\end{align*}
+Comparing this with (\ref{sol.CC.CC.power-rules.a.c3.pf.1}), we obtain
+$\left(  \alpha\beta\right)  ^{k+1}=\alpha^{k+1}\beta^{k+1}$.
+
+Now, forget that we fixed $\alpha,\beta$. We thus have shown that $\left(
+\alpha\beta\right)  ^{k+1}=\alpha^{k+1}\beta^{k+1}$ for all $\alpha,\beta
+\in\mathbb{C}$. In other words, Proposition \ref{prop.CC.CC.power-rules}
+\textbf{(c)} holds for $n=k+1$. Thus, Proposition \ref{prop.CC.CC.power-rules}
+\textbf{(c)} is proven by induction.
+
+\textbf{(d)} We shall prove Proposition \ref{prop.CC.CC.power-rules}
+\textbf{(d)} by induction on $m$:
+
+\textit{Induction base:} For all $\alpha\in\mathbb{C}$ and $n\in\mathbb{N}$,
+we have $\left(  \alpha^{n}\right)  ^{0}=1=\alpha^{0}=\alpha^{n\cdot0}$ (since
+$0=n\cdot0$). In other words, Proposition \ref{prop.CC.CC.power-rules}
+\textbf{(d)} holds for $m=0$. This completes the induction base.
+
+\textit{Induction step:} Let $k\in\mathbb{N}$. Assume that Proposition
+\ref{prop.CC.CC.power-rules} \textbf{(d)} holds for $m=k$. We must prove that
+Proposition \ref{prop.CC.CC.power-rules} \textbf{(d)} holds for $m=k+1$.
+
+Let $\alpha\in\mathbb{C}$ and $n\in\mathbb{N}$. Then, $\left(  \alpha
+^{n}\right)  ^{k}=\alpha^{nk}$ (since Proposition \ref{prop.CC.CC.power-rules}
+\textbf{(d)} holds for $m=k$). Now, Proposition \ref{prop.CC.CC.power-rules}
+\textbf{(a)} (applied to $\alpha^{n}$ and $k$ instead of $\alpha$ and $n$)
+yields%
+\[
+\left(  \alpha^{n}\right)  ^{k+1}=\alpha^{n}\underbrace{\left(  \alpha
+^{n}\right)  ^{k}}_{=\alpha^{nk}}=\alpha^{n}\alpha^{nk}.
+\]
+Comparing this with%
+\begin{align*}
+\alpha^{n\left(  k+1\right)  } &  =\alpha^{n+nk}\ \ \ \ \ \ \ \ \ \ \left(
+\text{since }n\left(  k+1\right)  =n+nk\right)  \\
+&  =\alpha^{n}\alpha^{nk}\ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition
+\ref{prop.CC.CC.power-rules} \textbf{(b)}, applied to }m=nk\right)  ,
+\end{align*}
+we obtain $\left(  \alpha^{n}\right)  ^{k+1}=\alpha^{n\left(  k+1\right)  }$.
+
+Now, forget that we fixed $\alpha$ and $n$. We thus have shown that $\left(
+\alpha^{n}\right)  ^{k+1}=\alpha^{n\left(  k+1\right)  }$ for all $\alpha
+\in\mathbb{C}$ and $n\in\mathbb{N}$. In other words, Proposition
+\ref{prop.CC.CC.power-rules} \textbf{(d)} holds for $m=k+1$. Hence,
+Proposition \ref{prop.CC.CC.power-rules} \textbf{(d)} is proven by induction.
+
+\textbf{(e)} We shall prove Proposition \ref{prop.CC.CC.power-rules}
+\textbf{(e)} by induction on $n$:
+
+\textit{Induction base:} Proposition \ref{prop.CC.CC.power-rules} \textbf{(e)}
+holds for $n=0$ (since $1^{0}=1$). This completes the induction base.
+
+\textit{Induction step:} Let $k\in\mathbb{N}$. Assume that Proposition
+\ref{prop.CC.CC.power-rules} \textbf{(e)} holds for $n=k$. We must prove that
+Proposition \ref{prop.CC.CC.power-rules} \textbf{(e)} holds for $n=k+1$.
+
+We have assumed that Proposition \ref{prop.CC.CC.power-rules} \textbf{(e)}
+holds for $n=k$. In other words, $1^{k}=1$. Now, Proposition
+\ref{prop.CC.CC.power-rules} \textbf{(a)} (applied to $\alpha=1$ and $n=k$)
+yields $1^{k+1}=1\cdot\underbrace{1^{k}}_{=1}=1\cdot1=1$. In other words,
+Proposition \ref{prop.CC.CC.power-rules} \textbf{(e)} holds for $n=k+1$. This
+completes the induction step. Hence, Proposition \ref{prop.CC.CC.power-rules}
+\textbf{(e)} is proven by induction.
+
+\textbf{(f)} Let $\alpha\in\mathbb{C}$ be nonzero. Let $n\in\mathbb{Z}$. We
+must prove that $\alpha^{n+1}=\alpha\alpha^{n}$.
+
+Recall that $\alpha^{-1}$ is the inverse of $\alpha$; hence, $\alpha
+\alpha^{-1}=1$ (by the definition of \textquotedblleft
+inverse\textquotedblright).
+
+We are in one of the following three cases:
+
+\textit{Case 1:} We have $n>-1$.
+
+\textit{Case 2:} We have $n=-1$.
+
+\textit{Case 3:} We have $n<-1$.
+
+Let us first consider Case 1. In this case, we have $n>-1$. Thus, $n\geq0$
+(since $n$ is an integer), so that $n\in\mathbb{N}$. Hence, Proposition
+\ref{prop.CC.CC.power-rules} \textbf{(a)} yields $\alpha^{n+1}=\alpha
+\alpha^{n}$. Thus, $\alpha^{n+1}=\alpha\alpha^{n}$ is proven in Case 1.
+
+Let us next consider Case 2. In this case, we have $n=-1$. Thus, $n+1=0$, so
+that $\alpha^{n+1}=\alpha^{0}=1$. On the other hand, from $n=-1$, we obtain
+$\alpha\alpha^{n}=\alpha\alpha^{-1}=1$. Comparing this with $\alpha^{n+1}=1$,
+we find $\alpha^{n+1}=\alpha\alpha^{n}$. Hence, $\alpha^{n+1}=\alpha\alpha
+^{n}$ is proven in Case 2.
+
+Let us finally consider Case 3. In this case, we have $n<-1$. Hence, $n+1<0$.
+Therefore, Definition \ref{def.CC.CC.power-} (applied to $n+1$ instead of $n$)
+yields
+\begin{equation}
+\alpha^{n+1}=\left(  \alpha^{-1}\right)  ^{-\left(  n+1\right)  }%
+.\label{pf.prop.CC.CC.power-rules.e.3}%
+\end{equation}
+
+
+On the other hand, $n+1<0$, hence $-\left(  n+1\right)  >0$ and thus $-\left(
+n+1\right)  \in\mathbb{N}$. Hence, Proposition \ref{prop.CC.CC.power-rules}
+\textbf{(a)} (applied to $\alpha^{-1}$ and $-\left(  n+1\right)  $ instead of
+$\alpha$ and $n$) yields $\left(  \alpha^{-1}\right)  ^{-\left(  n+1\right)
++1}=\alpha^{-1}\left(  \alpha^{-1}\right)  ^{-\left(  n+1\right)  }$. On the
+other hand, $n<-1<0$. Hence, Definition \ref{def.CC.CC.power-} yields
+\begin{align*}
+\alpha^{n}  & =\left(  \alpha^{-1}\right)  ^{-n}=\left(  \alpha^{-1}\right)
+^{-\left(  n+1\right)  +1}\ \ \ \ \ \ \ \ \ \ \left(  \text{since }-n=-\left(
+n+1\right)  +1\right)  \\
+& =\alpha^{-1}\underbrace{\left(  \alpha^{-1}\right)  ^{-\left(  n+1\right)
+}}_{\substack{=\alpha^{n+1}\\\text{(by (\ref{pf.prop.CC.CC.power-rules.e.3}%
+))}}}=\alpha^{-1}\alpha^{n+1}.
+\end{align*}
+Thus,%
+\[
+\alpha\underbrace{\alpha^{n}}_{=\alpha^{-1}\alpha^{n+1}}=\underbrace{\alpha
+\alpha^{-1}}_{=1}\alpha^{n+1}=\alpha^{n+1}.
+\]
+In other words, $\alpha^{n+1}=\alpha\alpha^{n}$. Hence, $\alpha^{n+1}%
+=\alpha\alpha^{n}$ is proven in Case 3.
+
+We have now proven $\alpha^{n+1}=\alpha\alpha^{n}$ in all three Cases 1, 2 and
+3. Thus, $\alpha^{n+1}=\alpha\alpha^{n}$ always holds. This proves Proposition
+\ref{prop.CC.CC.power-rules} \textbf{(f)}.
+
+\textbf{(g)} Let $\alpha\in\mathbb{C}$ be nonzero. Let $n\in\mathbb{Z}$. We
+must prove that $\alpha^{-n}=\left(  \alpha^{-1}\right)  ^{n}$.
+
+We are in one of the following three Cases:
+
+\textit{Case 1:} We have $n>0$.
+
+\textit{Case 2:} We have $n=0$.
+
+\textit{Case 3:} We have $n<0$.
+
+Let us first consider Case 1. In this case, we have $n>0$. Hence, $-n<0$. In
+other words, $-n$ is negative. Hence, Definition \ref{def.CC.CC.power-}
+(applied to $-n$ instead of $n$) yields $\alpha^{-n}=\left(  \alpha
+^{-1}\right)  ^{-\left(  -n\right)  }=\left(  \alpha^{-1}\right)  ^{n}$ (since
+$-\left(  -n\right)  =n$). Hence, $\alpha^{-n}=\left(  \alpha^{-1}\right)
+^{n}$ is proven in Case 1.
+
+Let us next consider Case 2. In this case, we have $n=0$. Hence, $\alpha
+^{-n}=\alpha^{-0}=\alpha^{0}=1$ and $\left(  \alpha^{-1}\right)  ^{n}=\left(
+\alpha^{-1}\right)  ^{0}=1$. Comparing these two equalities, we obtain
+$\alpha^{-n}=\left(  \alpha^{-1}\right)  ^{n}$. Hence, $\alpha^{-n}=\left(
+\alpha^{-1}\right)  ^{n}$ is proven in Case 2.
+
+Let us next consider Case 3. In this case, we have $n<0$. In other words, $n$
+is negative.
+
+Recall that $\alpha^{-1}$ is the inverse of $\alpha$; hence, $\alpha
+\alpha^{-1}=1$ (by the definition of \textquotedblleft
+inverse\textquotedblright). Hence, $\alpha^{-1}\neq0$ (since otherwise, we
+would have $\alpha^{-1}=0$ and thus $1=\alpha\underbrace{\alpha^{-1}}_{=0}=0$,
+which would be absurd). Hence, Definition \ref{def.CC.CC.power-} (applied to
+$\alpha^{-1}$ instead of $\alpha$) yields $\left(  \alpha^{-1}\right)
+^{n}=\left(  \left(  \alpha^{-1}\right)  ^{-1}\right)  ^{-n}$ (since $n$ is negative).
+
+But Proposition \ref{prop.CC.CC.inverse.ab} \textbf{(a)} yields $\left(
+\alpha^{-1}\right)  ^{-1}=\alpha$. Thus, $\left(  \alpha^{-1}\right)
+^{n}=\left(  \underbrace{\left(  \alpha^{-1}\right)  ^{-1}}_{=\alpha}\right)
+^{-n}=\alpha^{-n}$, so that $\alpha^{-n}=\left(  \alpha^{-1}\right)  ^{n}$.
+Hence, $\alpha^{-n}=\left(  \alpha^{-1}\right)  ^{n}$ is proven in Case 3.
+
+We have now proven that $\alpha^{-n}=\left(  \alpha^{-1}\right)  ^{n}$ in all
+three Cases 1, 2 and 3. Thus, $\alpha^{-n}=\left(  \alpha^{-1}\right)  ^{n}$
+always holds. This completes the proof of Proposition
+\ref{prop.CC.CC.power-rules} \textbf{(g)}.
+
+\textbf{(h)} We must prove that $\alpha^{n+m}=\alpha^{n}\alpha^{m}$ for all
+nonzero $\alpha\in\mathbb{C}$ and all $n,m\in\mathbb{Z}$. We shall first prove
+the following less general result:
+
+\begin{statement}
+\textit{Claim 1:} We have $\alpha^{n+m}=\alpha^{n}\alpha^{m}$ for  all nonzero
+$\alpha\in\mathbb{C}$ and all $n\in\mathbb{N}$ and $m\in\mathbb{Z}$.
+\end{statement}
+
+[\textit{Proof of Claim 1:} The following proof is very similar to our Second
+proof of Proposition \ref{prop.CC.CC.power-rules} \textbf{(b)} above.
+
+We shall prove Claim 1 by induction on $n$:
+
+\textit{Induction base:} If $\alpha\in\mathbb{C}$ is nonzero, and if
+$m\in\mathbb{Z}$, then $\underbrace{\alpha^{0}}_{=1}\alpha^{m}=1\cdot
+\alpha^{m}=\alpha^{m}=\alpha^{0+m}$ (since $m=0+m$). In other words, we have
+$\alpha^{0+m}=\alpha^{0}\alpha^{m}$ for  all nonzero $\alpha\in\mathbb{C}$ and
+all $m\in\mathbb{Z}$. In other words, Claim 1 holds for $n=0$. This completes
+the induction base.
+
+\textit{Induction step:} Let $k\in\mathbb{N}$. Assume that Claim 1 holds for
+$n=k$. We must prove that Claim 1 holds for $n=k+1$.
+
+Let $\alpha\in\mathbb{C}$ be nonzero, and let $m\in\mathbb{Z}$. We have
+assumed that Claim 1 holds for $n=k$. Hence, we can apply Claim 1 to $n=k$. We
+thus obtain $\alpha^{k+m}=\alpha^{k}\alpha^{m}$.
+
+Proposition \ref{prop.CC.CC.power-rules} \textbf{(f)} (applied to $n=k$)
+yields $\alpha^{k+1}=\alpha\alpha^{k}$. Also, Proposition
+\ref{prop.CC.CC.power-rules} \textbf{(f)} (applied to $n=k+m$) yields
+$\alpha^{\left(  k+m\right)  +1}=\alpha\alpha^{k+m}$.
+
+But $\left(  k+1\right)  +m=\left(  k+m\right)  +1$ and hence%
+\[
+\alpha^{\left(  k+1\right)  +m}=\alpha^{\left(  k+m\right)  +1}=\alpha
+\underbrace{\alpha^{k+m}}_{=\alpha^{k}\alpha^{m}}=\underbrace{\alpha\alpha
+^{k}}_{=\alpha^{k+1}}\alpha^{m}=\alpha^{k+1}\alpha^{m}.
+\]
+
+
+Now, forget that we fixed $m$. We thus have shown that $\alpha^{\left(
+k+1\right)  +m}=\alpha^{k+1}\alpha^{m}$ for  all nonzero $\alpha\in\mathbb{C}$
+and all $m\in\mathbb{Z}$. In other words, Claim 1 holds for $n=k+1$. This
+completes the induction step. Thus, Claim 1 is proven by induction.]
+
+Now, let us prove Proposition \ref{prop.CC.CC.power-rules} \textbf{(h)} in
+full generality: Fix a nonzero $\alpha\in\mathbb{C}$. Fix $n,m\in\mathbb{Z}$.
+We must prove that $\alpha^{n+m}=\alpha^{n}\alpha^{m}$. If $n\in\mathbb{N}$,
+then this follows from Claim 1. Hence, for the rest of this proof, we WLOG
+assume that we don't have $n\in\mathbb{N}$. Combining this with $n\in
+\mathbb{Z}$, we obtain $n\in\mathbb{Z}\setminus\mathbb{N}=\left\{
+-1,-2,-3,\ldots\right\}  $. In other words, $n$ is negative. Hence, $-n$ is
+positive. Thus, $-n\in\mathbb{N}$.
+
+Recall that $\alpha^{-1}$ is the inverse of $\alpha$; hence, $\alpha
+\alpha^{-1}=1$ (by the definition of \textquotedblleft
+inverse\textquotedblright). Hence, $\alpha^{-1}\neq0$ (since otherwise, we
+would have $\alpha^{-1}=0$ and thus $1=\alpha\underbrace{\alpha^{-1}}_{=0}=0$,
+which would be absurd). Hence, Claim 1 (applied to $\alpha^{-1}$, $-n$ and
+$-m$ instead of $\alpha$, $n$ and $m$) yields%
+\begin{equation}
+\left(  \alpha^{-1}\right)  ^{\left(  -n\right)  +\left(  -m\right)  }=\left(
+\alpha^{-1}\right)  ^{-n}\left(  \alpha^{-1}\right)  ^{-m}%
+\label{pf.prop.CC.CC.power-rules.h.5}%
+\end{equation}
+(since $-n\in\mathbb{N}$).
+
+Definition \ref{def.CC.CC.power-} yields $\alpha^{n}=\left(  \alpha
+^{-1}\right)  ^{-n}$ (since $n$ is negative). Proposition
+\ref{prop.CC.CC.power-rules} \textbf{(g)} (applied to $-m$ instead of $n$)
+yields $\alpha^{-\left(  -m\right)  }=\left(  \alpha^{-1}\right)  ^{-m}$. In
+view of $-\left(  -m\right)  =m$, this rewrites $\alpha^{m}=\left(
+\alpha^{-1}\right)  ^{-m}$. The same argument (applied to $n+m$ instead of
+$m$) yields $\alpha^{n+m}=\left(  \alpha^{-1}\right)  ^{-\left(  n+m\right)
+}$. Hence,%
+\begin{align*}
+\alpha^{n+m}  & =\left(  \alpha^{-1}\right)  ^{-\left(  n+m\right)  }=\left(
+\alpha^{-1}\right)  ^{\left(  -n\right)  +\left(  -m\right)  }%
+\ \ \ \ \ \ \ \ \ \ \left(  \text{since }-\left(  n+m\right)  =\left(
+-n\right)  +\left(  -m\right)  \right)  \\
+& =\left(  \alpha^{-1}\right)  ^{-n}\left(  \alpha^{-1}\right)  ^{-m}%
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.prop.CC.CC.power-rules.h.5}%
+)}\right)  .
+\end{align*}
+Comparing this with%
+\[
+\underbrace{\alpha^{n}}_{=\left(  \alpha^{-1}\right)  ^{-n}}\underbrace{\alpha
+^{m}}_{=\left(  \alpha^{-1}\right)  ^{-m}}=\left(  \alpha^{-1}\right)
+^{-n}\left(  \alpha^{-1}\right)  ^{-m},
+\]
+we obtain $\alpha^{n+m}=\alpha^{n}\alpha^{m}$. This completes our proof of
+Proposition \ref{prop.CC.CC.power-rules} \textbf{(h)}.
+
+\textbf{(i)} Let $\alpha,\beta\in\mathbb{C}$ be nonzero. Let $n\in\mathbb{Z}$.
+We must prove that $\left(  \alpha\beta\right)  ^{n}=\alpha^{n}\beta^{n}$.
+
+If $n\in\mathbb{N}$, then this follows from Proposition
+\ref{prop.CC.CC.power-rules} \textbf{(c)}. Hence, for the rest of this proof,
+we WLOG assume that we don't have $n\in\mathbb{N}$. Combining this with
+$n\in\mathbb{Z}$, we obtain $n\in\mathbb{Z}\setminus\mathbb{N}=\left\{
+-1,-2,-3,\ldots\right\}  $. In other words, $n$ is negative. Hence, $-n$ is
+positive. Thus, $-n\in\mathbb{N}$. Hence, Proposition
+\ref{prop.CC.CC.power-rules} \textbf{(c)} (applied to $-n$, $\alpha^{-1}$ and
+$\beta^{-1}$ instead of $n$, $\alpha$ and $\beta$) yields $\left(  \alpha
+^{-1}\beta^{-1}\right)  ^{-n}=\left(  \alpha^{-1}\right)  ^{-n}\left(
+\beta^{-1}\right)  ^{-n}$.
+
+Proposition \ref{prop.CC.CC.inverse.ab} \textbf{(b)} yields that $\left(
+\alpha\beta\right)  ^{-1}=\alpha^{-1}\beta^{-1}$. Also, Corollary
+\ref{cor.CC.CC.intdom} shows that $\alpha\beta$ is nonzero. Recall also that
+$n$ is negative. Thus, Definition \ref{def.CC.CC.power-} (applied to
+$\alpha\beta$ instead of $\alpha$) yields%
+\begin{equation}
+\left(  \alpha\beta\right)  ^{n}=\left(  \underbrace{\left(  \alpha
+\beta\right)  ^{-1}}_{=\alpha^{-1}\beta^{-1}}\right)  ^{-n}=\left(
+\alpha^{-1}\beta^{-1}\right)  ^{-n}=\left(  \alpha^{-1}\right)  ^{-n}\left(
+\beta^{-1}\right)  ^{-n}.\label{pf.prop.CC.CC.power-rules.2}%
+\end{equation}
+
+
+On the other hand, Definition \ref{def.CC.CC.power-} yields $\alpha
+^{n}=\left(  \alpha^{-1}\right)  ^{n}$ (since $n$ is negative). Similarly,
+$\beta^{n}=\left(  \beta^{-1}\right)  ^{n}$. Multiplying these two equalities,
+we obtain $\alpha^{n}\beta^{n}=\left(  \alpha^{-1}\right)  ^{-n}\left(
+\beta^{-1}\right)  ^{-n}$. Comparing this with
+(\ref{pf.prop.CC.CC.power-rules.2}), we find $\left(  \alpha\beta\right)
+^{n}=\alpha^{n}\beta^{n}$. This completes our proof of Proposition
+\ref{prop.CC.CC.power-rules} \textbf{(i)}.
+
+\textbf{(j)} Let $n\in\mathbb{Z}$. We must prove that $1^{n}=1$. If
+$n\in\mathbb{N}$, then this follows from Proposition
+\ref{prop.CC.CC.power-rules} \textbf{(e)}. Hence, for the rest of this proof,
+we WLOG assume that we don't have $n\in\mathbb{N}$. Combining this with
+$n\in\mathbb{Z}$, we obtain $n\in\mathbb{Z}\setminus\mathbb{N}=\left\{
+-1,-2,-3,\ldots\right\}  $. In other words, $n$ is negative. Hence, $-n$ is
+positive. Thus, $-n\in\mathbb{N}$. Hence, Proposition
+\ref{prop.CC.CC.power-rules} \textbf{(e)} (applied to $-n$ instead of $n$)
+yields $1^{-n}=1$.
+
+Also, $1\cdot1=1$. Hence, $1$ is an inverse of $1$ (by the definition of
+\textquotedblleft inverse\textquotedblright). Thus, the inverse of $1$ is $1$.
+In other words, $1^{-1}$.
+
+But $n$ is negative. Thus, Definition \ref{def.CC.CC.power-} (applied to
+$\alpha=1$) yields $1^{n}=\left(  \underbrace{1^{-1}}_{=1}\right)
+^{-n}=1^{-n}=1$. Hence, Proposition \ref{prop.CC.CC.power-rules} \textbf{(j)}
+is proven.
+
+\textbf{(k)} Let $\alpha\in\mathbb{C}$ be nonzero. Let $n\in\mathbb{Z}$.
+
+Recall that $\alpha^{-1}$ is the inverse of $\alpha$; hence, $\alpha
+\alpha^{-1}=1$ (by the definition of \textquotedblleft
+inverse\textquotedblright). Proposition \ref{prop.CC.CC.power-rules}
+\textbf{(i)} (applied to $\alpha^{-1}$ instead of $\beta$) yields $\left(
+\alpha\alpha^{-1}\right)  ^{n}=\alpha^{n}\left(  \alpha^{-1}\right)  ^{n}$.
+Hence, $\alpha^{n}\left(  \alpha^{-1}\right)  ^{n}=\left(  \underbrace{\alpha
+\alpha^{-1}}_{=1}\right)  ^{n}=1^{n}=1$ (by Proposition
+\ref{prop.CC.CC.power-rules} \textbf{(j)}). If we had $\alpha^{n}=0$, then we
+would have $\underbrace{\alpha^{n}}_{=0}\left(  \alpha^{-1}\right)  ^{n}=0$,
+which would contradict $\alpha^{n}\left(  \alpha^{-1}\right)  ^{n}=1\neq0$.
+Hence, we cannot have $\alpha^{n}=0$. In other words, $\alpha^{n}\neq0$. Thus,
+$\alpha^{n}$ is nonzero. Hence, the inverse $\left(  \alpha^{n}\right)  ^{-1}$
+of $\alpha^{n}$ is well-defined.
+
+Moreover, the equality  $\alpha^{n}\left(  \alpha^{-1}\right)  ^{n}=1$ shows
+that $\left(  \alpha^{-1}\right)  ^{n}$ is an inverse of $\alpha^{n}$ (by the
+definition of \textquotedblleft inverse\textquotedblright). In other words,
+the inverse of $\alpha^{n}$ is $\left(  \alpha^{-1}\right)  ^{n}$. In other
+words, $\left(  \alpha^{n}\right)  ^{-1}=\left(  \alpha^{-1}\right)  ^{n}$.
+But Proposition \ref{prop.CC.CC.power-rules} \textbf{(g)} yields $\alpha
+^{-n}=\left(  \alpha^{-1}\right)  ^{n}$. Comparing these two equalities, we
+obtain $\left(  \alpha^{n}\right)  ^{-1}=\alpha^{-n}$. Thus, Proposition
+\ref{prop.CC.CC.power-rules} \textbf{(k)} is proven.
+
+\textbf{(l)} We must prove that $\left(  \alpha^{n}\right)  ^{m}=\alpha^{nm}$
+for all nonzero $\alpha\in\mathbb{C}$ and all $n,m\in\mathbb{Z}$.
+
+We shall first prove this in lesser generality:
+
+\begin{statement}
+\textit{Claim 2:} We have $\left(  \alpha^{n}\right)  ^{m}=\alpha^{nm}$ for
+all nonzero $\alpha\in\mathbb{C}$ and all $n\in\mathbb{Z}$ and $m\in
+\mathbb{N}$.
+\end{statement}
+
+[\textit{Proof of Claim 2:} The following proof is very similar to our proof
+of Proposition \ref{prop.CC.CC.power-rules} \textbf{(d)} above.
+
+We shall prove Claim 2 by induction on $m$:
+
+\textit{Induction base:} For all $\alpha\in\mathbb{C}$ and $n\in\mathbb{Z}$,
+we have $\left(  \alpha^{n}\right)  ^{0}=1=\alpha^{0}=\alpha^{n\cdot0}$ (since
+$0=n\cdot0$). In other words, Claim 2 holds for $m=0$. This completes the
+induction base.
+
+\textit{Induction step:} Let $k\in\mathbb{N}$. Assume that Claim 2 holds for
+$m=k$. We must prove that Claim 2 holds for $m=k+1$.
+
+Let $\alpha\in\mathbb{C}$ and $n\in\mathbb{Z}$. Then, $\left(  \alpha
+^{n}\right)  ^{k}=\alpha^{nk}$ (since Claim 2 holds for $m=k$). Now,
+Proposition \ref{prop.CC.CC.power-rules} \textbf{(a)} (applied to $\alpha^{n}$
+and $k$ instead of $\alpha$ and $n$) yields%
+\[
+\left(  \alpha^{n}\right)  ^{k+1}=\alpha^{n}\underbrace{\left(  \alpha
+^{n}\right)  ^{k}}_{=\alpha^{nk}}=\alpha^{n}\alpha^{nk}.
+\]
+Comparing this with%
+\begin{align*}
+\alpha^{n\left(  k+1\right)  } &  =\alpha^{n+nk}\ \ \ \ \ \ \ \ \ \ \left(
+\text{since }n\left(  k+1\right)  =n+nk\right)  \\
+&  =\alpha^{n}\alpha^{nk}\ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition
+\ref{prop.CC.CC.power-rules} \textbf{(h)}, applied to }m=nk\right)  ,
+\end{align*}
+we obtain $\left(  \alpha^{n}\right)  ^{k+1}=\alpha^{n\left(  k+1\right)  }$.
+
+Now, forget that we fixed $\alpha$ and $n$. We thus have shown that $\left(
+\alpha^{n}\right)  ^{k+1}=\alpha^{n\left(  k+1\right)  }$ for all $\alpha
+\in\mathbb{C}$ and $n\in\mathbb{Z}$. In other words, Claim 2 holds for
+$m=k+1$. Hence, Claim 2 is proven by induction.]
+
+Now, let us prove Proposition \ref{prop.CC.CC.power-rules} \textbf{(l)} in
+full generality: Fix a nonzero $\alpha\in\mathbb{C}$. Fix $n,m\in\mathbb{Z}$.
+We must prove that $\left(  \alpha^{n}\right)  ^{m}=\alpha^{nm}$. If
+$m\in\mathbb{N}$, then this follows from Claim 2. Hence, for the rest of this
+proof, we WLOG assume that we don't have $m\in\mathbb{N}$. Combining this with
+$m\in\mathbb{Z}$, we obtain $m\in\mathbb{Z}\setminus\mathbb{N}=\left\{
+-1,-2,-3,\ldots\right\}  $. In other words, $m$ is negative. Hence, $-m$ is
+positive. Thus, $-m\in\mathbb{N}$. Hence, Claim 2 (applied to $-m$ instead of
+$m$) yields
+\[
+\left(  \alpha^{n}\right)  ^{-m}=\alpha^{n\left(  -m\right)  }=\alpha
+^{-nm}\ \ \ \ \ \ \ \ \ \ \left(  \text{since }n\left(  -m\right)
+=-nm\right)  .
+\]
+But Proposition \ref{prop.CC.CC.power-rules} \textbf{(k)} yields that $\left(
+\alpha^{n}\right)  ^{-1}=\alpha^{-n}$. In particular, $\left(  \alpha
+^{n}\right)  ^{-1}$ is well-defined, so that $\alpha^{n}$ is invertible, and
+thus $\alpha^{n}$ is nonzero. Hence, Proposition \ref{prop.CC.CC.power-rules}
+\textbf{(k)} (applied to $\alpha^{n}$ and $-m$ instead of $\alpha$ and $n$)
+yields%
+\[
+\left(  \left(  \alpha^{n}\right)  ^{-m}\right)  ^{-1}=\left(  \alpha
+^{n}\right)  ^{-\left(  -m\right)  }=\left(  \alpha^{n}\right)  ^{m}%
+\ \ \ \ \ \ \ \ \ \ \left(  \text{since }-\left(  -m\right)  =m\right)  .
+\]
+Thus,%
+\[
+\left(  \alpha^{n}\right)  ^{m}=\left(  \underbrace{\left(  \alpha^{n}\right)
+^{-m}}_{=\alpha^{-nm}}\right)  ^{-1}=\left(  \alpha^{-nm}\right)  ^{-1}.
+\]
+But Proposition \ref{prop.CC.CC.power-rules} \textbf{(k)} (applied to $-nm$
+instead of $n$) yields%
+\[
+\left(  \alpha^{-nm}\right)  ^{-1}=\alpha^{-\left(  -nm\right)  }=\alpha
+^{nm}\ \ \ \ \ \ \ \ \ \ \left(  \text{since }-\left(  -nm\right)  =nm\right)
+.
+\]
+Hence, $\left(  \alpha^{n}\right)  ^{m}=\left(  \alpha^{-nm}\right)
+^{-1}=\alpha^{nm}$. This completes the proof of Proposition
+\ref{prop.CC.CC.power-rules} \textbf{(l)}.
+
+\textbf{(m)} This is proven in the same way as the usual binomial formula
+(i.e., Theorem \ref{thm.binom.binf}) is proven. (The only difference is that
+we our now calling our two numbers $\alpha$ and $\beta$ rather than $x$ and
+$y$, and that we now need to use Theorem \ref{thm.CC.CC.rules} and Proposition
+\ref{prop.CC.CC.power-rules} \textbf{(a)} instead of the analogous rules for
+real numbers.)
 \end{proof}
 \end{fineprint}
 
