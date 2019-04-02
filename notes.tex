@@ -14263,7 +14263,7 @@ n\right)  $ or $\mathbb{Z}/n\mathbb{Z}$ or $\mathbb{Z}_{n}$. Be careful with
 the notation $\mathbb{Z}_{n}$, since it has a different meaning, too.)
 \end{definition}
 
-\subsubsection{How $\mathbb{Z}/n$ looks like}
+\subsubsection{What $\mathbb{Z}/n$ looks like}
 
 Let us now state and rigorously prove what we have just observed on the
 example of $n=5$:
@@ -16651,7 +16651,7 @@ divisor of $n$. Then, define the map%
 (This is well-defined, according to Proposition \ref{prop.eqrel.Z/n.pind.wd}.)
 \end{definition}
 
-See Example \ref{exa.eqrel.Z/n.pind.wd} \textbf{(a)} for how this map looks like.
+See Example \ref{exa.eqrel.Z/n.pind.wd} \textbf{(a)} for what this map looks like.
 
 We can now state another version of the \textquotedblleft Chinese Remainder
 Theorem\textquotedblright, which claims the existence of a certain bijection.
@@ -17282,18 +17282,19 @@ random number generators}, such as Geiger counters or
 lamps}.
 \par
 What happens if your randomly picked prime numbers are not random enough? In
-the worst case, you never find two distinct primes to begin with. In slightly
-worse case, your distinct primes all belong to a small and predictable set,
-and an eavesdropper can easily find them simply by checking all possibilities.
-In less obvious cases, different keys you generate for different purposes will
-occasionally have some primes in common, in which case an easy application of
-the Chinese Remainder Theorem will allow an eavesdropper to reconstruct them
-and decrypt your messages. See \url{https://factorable.net} for a study of RSA
-keys in the wild, which found a lot of common primes.}, or one of myriad other
-practical mistakes has been made. The proper implementation of the RSA
-cryptosystem, and the real-life considerations needed to prevent
-\textquotedblleft leakage\textquotedblright\ of sensitive data such as the
-decryption key $d$, are a subject in its own, which we shall not discuss here.
+the worst case, you never find two distinct primes to begin with. In a more
+realistic case, your distinct primes will all belong to a small and
+predictable set, and an eavesdropper can easily find them simply by checking
+all possibilities. In less obvious cases, different keys you generate for
+different purposes will occasionally have some primes in common, in which case
+an easy application of the Chinese Remainder Theorem will allow an
+eavesdropper to reconstruct them and decrypt your messages. See
+\url{https://factorable.net} for a study of RSA keys in the wild, which found
+a lot of common primes.}, or one of myriad other practical mistakes has been
+made. The proper implementation of the RSA cryptosystem, and the real-life
+considerations needed to prevent \textquotedblleft leakage\textquotedblright%
+\ of sensitive data such as the decryption key $d$, are a subject in its own,
+which we shall not discuss here.
 
 Albert's method for recovering Julia's message relies on the following fact
 (which we shall prove a bit later):
@@ -21477,12 +21478,12 @@ division with remainder, as $\operatorname*{N}\left(  \rho\right)
 \leq\operatorname*{N}\left(  \beta\right)  /2$ turns into $\operatorname*{N}%
 \left(  \rho\right)  \leq\operatorname*{N}\left(  \beta\right)  $ which is not
 a strict inequality. Nevertheless we can prove our guess with more complicated
-reasoning, if we instead of $\mathbb{Z}\left[  \sqrt{-3}\right]  $ use
-\href{https://en.wikipedia.org/wiki/Eisenstein_integer}{the \textit{Eisenstein
-integers}} $a+b\omega$ with $a,b\in\mathbb{Z}$ and $\omega=\dfrac{-1+i\sqrt
-{3}}{2}$. These are best understood as pairs $\left(  a,b\right)
-\in\mathbb{Z}^{2}$ with addition and subtraction defined entrywise and
-multiplication defined by%
+reasoning: We need to use not $\mathbb{Z}\left[  \sqrt{-3}\right]  $ but
+rather \href{https://en.wikipedia.org/wiki/Eisenstein_integer}{the
+\textit{Eisenstein integers}} $a+b\omega$ with $a,b\in\mathbb{Z}$ and
+$\omega=\dfrac{-1+i\sqrt{3}}{2}$. These are best understood as pairs $\left(
+a,b\right)  \in\mathbb{Z}^{2}$ with addition and subtraction defined entrywise
+and multiplication defined by%
 \[
 \left(  a,b\right)  \left(  c,d\right)  =\left(  ac-bd,ad+bc-bd\right)  .
 \]
@@ -21512,15 +21513,21 @@ is \textquotedblleft when $p=2$ or $p=5$ or $p\equiv1,9\operatorname{mod}%
 20$\textquotedblright. And unsurprisingly, $\mathbb{Z}\left[  \sqrt
 {-5}\right]  $ does not have division with remainder.
 
-\item See: David Cox, \textit{Primes of the form }$x^{2}+ny^{2}$, Springer,
-2nd edition 2013. The answer becomes more complicated with $n$ getting large.
+\item More generally, you can fix $n\in\mathbb{N}$ and ask when a prime can be
+written in the form $x^{2}+ny^{2}$. There is a whole book \cite{Cox13} devoted
+to this question! The answer becomes more complicated with $n$ getting large,
+and touches on a surprising number of different fields of mathematics
+(geometry, complex analysis, elliptic functions and elliptic curves).
 
-\item We can also ask when a prime $p$ can be written as $x^{2}-ny^{2}$. There
-is $\mathbb{Z}\left[  \sqrt{n}\right]  $ for this, which behaves much
-differently, since $\sqrt{n}$ is real. For example, as you saw on HW4, there
-are infinitely many units in $\mathbb{Z}\left[  \sqrt{2}\right]  $; that's
-true for each $\mathbb{Z}\left[  \sqrt{n}\right]  $ with $n>1$ and $n$ not
-being a perfect square.
+\item We can also ask when a prime $p$ can be written as $x^{2}-ny^{2}$. The
+appropriate analogue of $\mathbb{Z}\left[  i\right]  $ tailored to this
+question is $\mathbb{Z}\left[  \sqrt{n}\right]  $, which however behaves much
+differently, since $\sqrt{n}$ is real. For example, as you saw on
+\href{http://www-users.math.umn.edu/~dgrinber/19s/hw4s.pdf}{homework set \#4}
+(in the Remark after Exercise 4), there are infinitely many units in
+$\mathbb{Z}\left[  \sqrt{2}\right]  $; the same is true for each
+$\mathbb{Z}\left[  \sqrt{n}\right]  $ with $n>1$ and $n$ not being a perfect
+square (but this is much harder to prove).
 
 \item When can $n\in\mathbb{N}$ be written as a sum of three squares?
 Legendre's three-squares theorem: iff $n$ is not of the form $n=4^{a}\left(
@@ -22872,11 +22879,11 @@ them) at least satisfy the ring axioms.
 
 We have%
 \begin{align*}
-i\cdot ij &  =\underbrace{ii}_{=i^{2}=-1}j=\left(  -1\right)
+i\cdot ij  &  =\underbrace{ii}_{=i^{2}=-1}j=\left(  -1\right)
 j=-j\ \ \ \ \ \ \ \ \ \ \text{and}\\
-j\cdot ij &  =\underbrace{ji}_{=-ij}j=-i\underbrace{jj}_{=j^{2}=-1}=-i\left(
+j\cdot ij  &  =\underbrace{ji}_{=-ij}j=-i\underbrace{jj}_{=j^{2}=-1}=-i\left(
 -1\right)  =i\ \ \ \ \ \ \ \ \ \ \text{and}\\
-ij\cdot ij &  =i\underbrace{ji}_{=-ij}j=-\underbrace{ii}_{=i^{2}%
+ij\cdot ij  &  =i\underbrace{ji}_{=-ij}j=-\underbrace{ii}_{=i^{2}%
 =-1}\underbrace{jj}_{=j^{2}=-1}=-\left(  -1\right)  \left(  -1\right)  =-1
 \end{align*}
 and (using the distributivity laws)%
@@ -22905,9 +22912,9 @@ numbers, with addition and subtraction defined entrywise, and with
 multiplication given by%
 \begin{align*}
 &  \left(  x_{1},x_{2},x_{3},x_{4}\right)  \cdot\left(  y_{1},y_{2}%
-,y_{3},y_{4}\right)  \\
+,y_{3},y_{4}\right) \\
 &  =\left(  x_{1}y_{1}-x_{2}y_{2}-x_{3}y_{3}-x_{4}y_{4},x_{1}y_{2}+x_{2}%
-y_{1}+x_{3}y_{4}-x_{4}y_{3},\right.  \\
+y_{1}+x_{3}y_{4}-x_{4}y_{3},\right. \\
 &  \ \ \ \ \ \ \ \ \ \ \left.  x_{1}y_{3}-x_{2}y_{4}+x_{3}y_{1}+x_{4}%
 y_{2},x_{1}y_{4}+x_{2}y_{3}-x_{3}y_{2}+x_{4}y_{1}\right)  .
 \end{align*}
@@ -29820,6 +29827,9 @@ induction}.\newline\url{https://kconrad.math.uconn.edu/blurbs/proofs/induction.p
 \bibitem[ConradW]{Conrad-Well}Keith Conrad, \textit{Well-defined
 functions}.\newline\url{https://kconrad.math.uconn.edu/blurbs/proofs/welldefined.pdf}
 
+\bibitem[Cox13]{Cox13}David A. Cox, \textit{Primes of the form }$x^{2}+ny^{2}%
+$, Wiley, 2nd edition 2013.
+
 \bibitem[daSilv12]{daSilv12}%
 \href{https://math.stackexchange.com/users/10704/}{Patrick Da Silva},
 \textit{\href{https://math.stackexchange.com/questions/108296/polynomial-in-mathbbqx-sending-integers-to-integers}{\textit{Polynomial
@@ -29862,7 +29872,7 @@ numbering is guaranteed to match that in the citations above, see
 \url{https://github.com/darijgr/detnotes/releases/tag/2019-01-10} .
 
 \bibitem[Grinbe16]{floor}Darij Grinberg, \textit{18.781 (Spring 2016): Floor
-and arithmetic functions}, 19 June 2016.\newline\url{http://www.cip.ifi.lmu.de/~grinberg/floor.pdf}
+and arithmetic functions}, 2 April 2019.\newline\url{http://www.cip.ifi.lmu.de/~grinberg/floor.pdf}
 
 \bibitem[Grinbe17]{lucas}Darij Grinberg, \textit{The Lucas and Babbage
 congruences}, 10 January 2019.\newline\url{http://www.cip.ifi.lmu.de/~grinberg/lucascong.pdf}
