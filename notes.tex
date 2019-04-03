@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Tuesday, April 02, 2019 22:17:27}
+%TCIDATA{LastRevised=Tuesday, April 02, 2019 22:41:33}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -15298,7 +15298,8 @@ _{4}\text{\textquotedblright}=\left[  6/2\right]  _{4}=\left[  3\right]  _{4}%
 and%
 \[
 \text{\textquotedblleft}\left[  2\right]  _{4}/\left[  2\right]
-_{4}\text{\textquotedblright}=\left[  2/2\right]  _{4}=\left[  1\right]  _{4},
+_{4}\text{\textquotedblright}=\left[  2/2\right]  _{4}=\left[  1\right]
+_{4},
 \]
 but this is impossible (since $\left[  6\right]  _{4}=\left[  2\right]  _{4}$
 but $\left[  3\right]  _{4}\neq\left[  1\right]  _{4}$).
@@ -23301,12 +23302,28 @@ Let us take some first steps towards addressing Question
 \ref{quest.finfield.nonprime}. We have found a field of size $p$ for each
 prime $p$. Are there fields of other sizes?
 
-\textbf{Idea:} We got $\mathbb{C}$ out of $\mathbb{R}$ by \textquotedblleft
-adjoining\textquotedblright\ a square root of $-1$. (In abstract algebra, the
-verb \textquotedblleft adjoin\textquotedblright\ means \textquotedblleft
-insert\textquotedblright\ or \textquotedblleft add\textquotedblright\ -- not
-in the sense of the addition operation $+$, but in the sense of throwing in
-something new into an existing collection.)
+\textbf{First idea:} Let us try to get such a field by \textquotedblleft
+duplicating\textquotedblright\ the known field $\mathbb{Z}/p$. Thus, we fix a
+prime $p$, and consider the Cartesian product $\left(  \mathbb{Z}/p\right)
+\times\left(  \mathbb{Z}/p\right)  $. Define addition, subtraction and
+multiplication on this Cartesian product elementwise (so, e.g., $\left(
+a,b\right)  \left(  c,d\right)  =\left(  ac,bd\right)  $). This will yield a
+commutative ring with zero $\left(  \left[  0\right]  _{p},\left[  0\right]
+_{p}\right)  $ and unity $\left(  \left[  1\right]  _{p},\left[  1\right]
+_{p}\right)  $.
+
+However, the element $\left(  \left[  0\right]  _{p},\left[  1\right]
+_{p}\right)  $ of this ring is nonzero (because it is not $\left(  \left[
+0\right]  _{p},\left[  0\right]  _{p}\right)  $) but has no inverse (since
+multiplying it by anything will never make its first entry anything other than
+$\left[  0\right]  _{p}$). So this ring is not a field.
+
+\textbf{Second idea:} We got $\mathbb{C}$ out of $\mathbb{R}$ by
+\textquotedblleft adjoining\textquotedblright\ a square root of $-1$. (In
+abstract algebra, the verb \textquotedblleft adjoin\textquotedblright\ means
+\textquotedblleft insert\textquotedblright\ or \textquotedblleft
+add\textquotedblright\ -- not in the sense of the addition operation $+$, but
+in the sense of throwing in something new into an existing collection.)
 
 Let's try to do this with $\mathbb{Z}/p$ instead of $\mathbb{R}$.
 
@@ -23335,10 +23352,10 @@ $r\in\mathbb{K}$ with $r_{\mathbb{K}^{\prime}}=\left(  r,0\right)
 \in\mathbb{K}^{\prime}$, so that $\mathbb{K}$ becomes a subset of
 $\mathbb{K}^{\prime}$.
 
-\textbf{(d)} We let $i$ be the pair $\left(  0,1\right)  \in\mathbb{K}%
+\textbf{(c)} We let $i$ be the pair $\left(  0,1\right)  \in\mathbb{K}%
 ^{\prime}$.
 
-\textbf{(e)} We define three binary operations $+$, $-$ and $\cdot$ on
+\textbf{(d)} We define three binary operations $+$, $-$ and $\cdot$ on
 $\mathbb{K}^{\prime}$ by setting%
 \begin{align*}
 \left(  a,b\right)  +\left(  c,d\right)   &  =\left(  a+c,b+d\right)  ,\\
@@ -23349,11 +23366,11 @@ $\mathbb{K}^{\prime}$ by setting%
 for all $\left(  a,b\right)  \in\mathbb{K}^{\prime}$ and $\left(  c,d\right)
 \in\mathbb{K}^{\prime}$.
 
-\textbf{(f)} If $\alpha,\beta\in\mathbb{K}^{\prime}$, then we write
+\textbf{(e)} If $\alpha,\beta\in\mathbb{K}^{\prime}$, then we write
 $\alpha\beta$ for $\alpha\cdot\beta$.
 \end{definition}
 
-You will, of course, recognize this definition to be exactly Definition
+You will, of course, recognize this definition to be a calque of Definition
 \ref{def.CC.CC} with $\mathbb{C}$ replaced by $\mathbb{K}$. The elements of
 $\mathbb{K}^{\prime}$ are like complex numbers, but built upon $\mathbb{K}$
 instead of $\mathbb{R}$.
@@ -23377,8 +23394,8 @@ $\mathbb{K}^{\prime}$ equipped with the operations $+$ and $\cdot$ and the
 elements $0_{\mathbb{K}^{\prime}}$ and $1_{\mathbb{K}^{\prime}}$).
 \end{convention}
 
-Thus, if $\mathbb{K}=\mathbb{Z}/p$, then $\mathbb{K}^{\prime}$ is a ring with
-$p^{2}$ elements.
+Thus, if $\mathbb{K}=\mathbb{Z}/p$, then $\mathbb{K}^{\prime}$ is a
+commutative ring with $p^{2}$ elements.
 
 \begin{question}
 When is $\mathbb{K}^{\prime}$ is a field?
@@ -23407,14 +23424,21 @@ We know what it must satisfy: The condition is that every nonzero $\xi
 \in\mathbb{K}^{\prime}$ has a multiplicative inverse. We just need to see when
 this condition holds.
 
-So let $\xi=x+yi$ (with $x,y\in\mathbb{K}$) be nonzero. Thus, $\left(
-x,y\right)  \neq\left(  0,0\right)  $.
+So let $\xi=\left(  x,y\right)  \in\mathbb{K}^{\prime}$ (with $x,y\in
+\mathbb{K}$) be nonzero. Thus, $\left(  x,y\right)  \neq\left(  0,0\right)  $.
 
-How to find $\xi^{-1}$ ? Try rationalizing the denominator:%
+How to find $\xi^{-1}$ ? Notice that $\xi=\left(  x,y\right)  =x+yi$ (this is
+proven just as for complex numbers). Thus, you can try to compute $\xi^{-1}$
+by rationalizing the denominator (just as we learned to divide complex
+numbers):%
 \[
 \dfrac{1}{\xi}=\dfrac{1}{x+yi}=\dfrac{x-yi}{\left(  x+yi\right)  \left(
-x-yi\right)  }=\dfrac{x-yi}{x^{2}+y^{2}}.
+x-yi\right)  }=\dfrac{x-yi}{x^{2}+y^{2}}%
 \]
+(since $\left(  x+yi\right)  \left(  x-yi\right)  =\left(  x,y\right)  \left(
+x,-y\right)  =\left(  x^{2}+y^{2},0\right)  $, as you can easily see using the
+definition of $\cdot$ on $\mathbb{K}^{\prime}$).
+
 We need $x^{2}+y^{2}\neq0$ in $\mathbb{K}$ for this to work. In other words,
 we need the following condition to hold:
 
@@ -23485,24 +23509,28 @@ $p$. So Condition 2 fails for $\left(  a,b\right)  =\left(  x,y\right)  $.
 $\Longleftarrow:$ Assume that a prime $p$ satisfies $p\equiv
 3\operatorname{mod}4$. Thus, $\left(  p-1\right)  /2$ is odd.
 
+We must prove that Condition 2 holds. In other words, we must prove that for
+every pair $\left(  a,b\right)  \in\mathbb{Z}\times\mathbb{Z}$ such that
+\textbf{not both} $a$ and $b$ are divisible by $p$, the sum $a^{2}+b^{2}$ is
+not divisible by $p$.
+
 Let $\left(  a,b\right)  \in\mathbb{Z}\times\mathbb{Z}$ be a pair such that
 \textbf{not both} $a$ and $b$ are divisible by $p$. We must prove that the sum
 $a^{2}+b^{2}$ is not divisible by $p$.
 
 Assume the contrary. Thus, $a^{2}+b^{2}\equiv0\operatorname{mod}p$.
 
-If \textbf{one} of $a$ and $b$ would be divisible by $p$, then $a^{2}%
-+b^{2}\equiv0\operatorname{mod}p$ would yield that \textbf{both} $a$ and $b$
-are divisible by $p$ (for example: if $a$ is divisible by $p$, then
-$a^{2}+b^{2}\equiv0\operatorname{mod}p$ would yield $b^{2}\equiv
-0\operatorname{mod}p$, thus $p\mid b^{2}$, thus $p\mid b$); but this would
-contradict our assumption. Thus, \textbf{none} of $a$ and $b$ is divisible by
-$p$. Hence, Fermat's little theorem yields $a^{p-1}\equiv1\operatorname{mod}p$
-and $b^{p-1}\equiv1\operatorname{mod}p$.
+If we had $p\mid a$, then we would have $a\equiv0\operatorname{mod}p$ and thus
+$a^{2}+b^{2}\equiv0^{2}+b^{2}=b^{2}\operatorname{mod}p$, so that $b^{2}\equiv
+a^{2}+b^{2}\equiv0\operatorname{mod}p$ and thus $p\mid b^{2}$ and therefore
+$p\mid b$; but this would contradict our assumption that \textbf{not both} $a$
+and $b$ are divisible by $p$. Hence, we cannot have $p\mid a$. Thus, we have
+$p\nmid a$. Hence, Fermat's little theorem yields $a^{p-1}\equiv
+1\operatorname{mod}p$. Similarly, $b^{p-1}\equiv1\operatorname{mod}p$.
 
 From $a^{2}+b^{2}\equiv0\operatorname{mod}p$, we get $a^{2}\equiv
--b^{2}\operatorname{mod}p$. Take this congruence to the $\left(  p-1\right)
-/2$-th power. You get%
+-b^{2}\operatorname{mod}p$. Taking this congruence to the $\left(  p-1\right)
+/2$-th power, we find%
 \[
 \left(  a^{2}\right)  ^{\left(  p-1\right)  /2}\equiv\left(  -b^{2}\right)
 ^{\left(  p-1\right)  /2}=\underbrace{\left(  -1\right)  ^{\left(  p-1\right)
@@ -23515,8 +23543,9 @@ Hence,%
 -1\equiv\left(  a^{2}\right)  ^{\left(  p-1\right)  /2}=a^{p-1}\equiv
 1\operatorname{mod}p.
 \]
-Hence, $p\mid\left(  -1\right)  -1=-2$, so $p=2$. This contradicts
-$p\equiv3\operatorname{mod}4$.
+Hence, $p\mid\left(  -1\right)  -1=-2\mid2$, so $p=2$. This contradicts
+$p\equiv3\operatorname{mod}4$. This contradiction shows that our assumption
+false; thus, Condition 2 holds.
 \end{proof}
 
 Thus, if we set $\mathbb{K}=\mathbb{Z}/p$ where $p$ is a prime of Type 3, then
@@ -23547,10 +23576,10 @@ $. We identify $r\in\mathbb{K}$ with $r_{\mathbb{K}_{\eta}^{\prime}}=\left(
 r,0\right)  \in\mathbb{K}_{\eta}^{\prime}$, so that $\mathbb{K}$ becomes a
 subset of $\mathbb{K}_{\eta}^{\prime}$.
 
-\textbf{(d)} We let $i_{\eta}$ be the pair $\left(  0,1\right)  \in
+\textbf{(c)} We let $i_{\eta}$ be the pair $\left(  0,1\right)  \in
 \mathbb{K}_{\eta}^{\prime}$.
 
-\textbf{(e)} We define three binary operations $+$, $-$ and $\cdot$ on
+\textbf{(d)} We define three binary operations $+$, $-$ and $\cdot$ on
 $\mathbb{K}_{\eta}^{\prime}$ by setting%
 \begin{align*}
 \left(  a,b\right)  +\left(  c,d\right)   &  =\left(  a+c,b+d\right)  ,\\
@@ -23562,7 +23591,7 @@ bd,ad+bc\right)
 for all $\left(  a,b\right)  \in\mathbb{K}_{\eta}^{\prime}$ and $\left(
 c,d\right)  \in\mathbb{K}_{\eta}^{\prime}$.
 
-\textbf{(f)} If $\alpha,\beta\in\mathbb{K}_{\eta}^{\prime}$, then we write
+\textbf{(e)} If $\alpha,\beta\in\mathbb{K}_{\eta}^{\prime}$, then we write
 $\alpha\beta$ for $\alpha\cdot\beta$.
 \end{definition}
 
@@ -23594,20 +23623,22 @@ So let $\xi\in\mathbb{K}_{\eta}^{\prime}$ be nonzero, and write $\xi$ as
 $\xi=\left(  x,y\right)  $ with $x,y\in\mathbb{K}$. We must show that $\xi$ is invertible.
 
 We have $\left(  x,y\right)  \left(  x,-y\right)  =\left(  x^{2}-\eta
-y^{2},0\right)  $. If $x^{2}-\eta y^{2}$ is nonzero, then this allows us to
-construct the inverse of $\left(  x,y\right)  $ as $\dfrac{1}{x^{2}-\eta
-y^{2}}\left(  x,-y\right)  $. So we need to prove that $x^{2}-\eta y^{2}$ is nonzero.
+y^{2},0\right)  $ (by the definition of the operation $\cdot$ on
+$\mathbb{K}_{\eta}^{\prime}$). If $x^{2}-\eta y^{2}$ is nonzero, then this
+shows quickly that $\left(  \dfrac{x}{x^{2}-\eta y^{2}},\dfrac{-y}{x^{2}-\eta
+y^{2}}\right)  $ is an inverse of $\left(  x,y\right)  =\xi$, and thus $\xi$
+is invertible. So we need to prove that $x^{2}-\eta y^{2}$ is nonzero.
 
-Assume the contrary. Thus, $x^{2}-\eta y^{2}=0$. If $y$ is nonzero, then this
-can be rewritten as $\dfrac{x^{2}}{y^{2}}-\eta=0$, whence $\eta=\dfrac{x^{2}%
-}{y^{2}}=\left(  \dfrac{x}{y}\right)  ^{2}$, which contradicts the fact that
-$\eta$ is not a square. So $y$ cannot be nonzero. Thus, $y=0$. Hence,
-$x^{2}-\eta y^{2}=0$ rewrites as $x^{2}=0$. Since $\xi=\left(
-x,\underbrace{y}_{=0}\right)  =\left(  x,0\right)  $, we know that $x$ is
-nonzero (since $\xi$ is nonzero). Hence, $x$ has a multiplicative inverse
-(since $\mathbb{K}$ is a field). Hence, multiplying $x^{2}=0$ by $x^{-1}$, we
-obtain $x=0$, which contradicts $x$ being nonzero. So our assumption was
-wrong. Part \textbf{(b)} is proven.
+Assume the contrary. Thus, $x^{2}-\eta y^{2}=0$, so that $x^{2}=\eta y^{2}$.
+If $y$ is nonzero, then this can be rewritten as $\dfrac{x^{2}}{y^{2}}=\eta$,
+whence $\eta=\dfrac{x^{2}}{y^{2}}=\left(  \dfrac{x}{y}\right)  ^{2}$, which
+contradicts the fact that $\eta$ is not a square. So $y$ cannot be nonzero.
+Thus, $y=0$. Hence, $x^{2}=\eta\underbrace{y^{2}}_{=0^{2}}=0$. Since
+$\xi=\left(  x,\underbrace{y}_{=0}\right)  =\left(  x,0\right)  $, we know
+that $x$ is nonzero (since $\xi$ is nonzero). Hence, $x$ has a multiplicative
+inverse (since $\mathbb{K}$ is a field). Hence, multiplying $x^{2}=0$ by
+$x^{-1}$, we obtain $x=0$, which contradicts $x$ being nonzero. So our
+assumption was wrong. Part \textbf{(b)} is proven.
 \end{proof}
 
 \begin{center}
@@ -23639,9 +23670,9 @@ is a field with $p^{2}$ elements.
 
 What about fields of size $4$ ?
 
-We cannot get them by adjoining a square root to $\mathbb{Z}/2$. So let us
-instead try to adjoin an element $j$ such that $j^{2}=j+1$. So we define
-$\mathbb{K}^{\prime\prime}$ as the set of pairs $\left(  a,b\right)
+We cannot get such a field by adjoining a square root to $\mathbb{Z}/2$. So
+let us instead try to adjoin an element $j$ such that $j^{2}=j+1$. So we
+define $\mathbb{K}^{\prime\prime}$ as the set of pairs $\left(  a,b\right)
 \in\left(  \mathbb{Z}/2\right)  \times\left(  \mathbb{Z}/2\right)  $, and we
 define $+,-,\cdot$ on $\mathbb{K}^{\prime\prime}$ by%
 \begin{align*}
@@ -23654,6 +23685,32 @@ ac+bd,ad+bc+bd\right)  .
 You can check that this is a field with $4$ elements.
 
 Thus, for each prime $p$, we have found a field with $p^{2}$ elements.
+
+For the sake of completeness, let me mention a \textbf{third idea} for
+constructing fields of size $p^{2}$: Recall that our field $\mathbb{Z}/p$ of
+size $p$ consisted of residue classes of integers modulo $p$. What happens if
+we take the residue classes of Gaussian integers modulo a Gaussian prime $\pi$ ?
+
+I will not go into details, but here is a summary:
+
+\begin{itemize}
+\item The result is always a field of size $\operatorname*{N}\left(
+\pi\right)  $.
+
+\item If $\pi$ is not unit-equivalent to an integer, then this is a field that
+we already know (namely, $\mathbb{Z}/p$ for $p=\operatorname*{N}\left(
+\pi\right)  $) with its elements relabelled.
+
+\item If $\pi$ is unit-equivalent to an integer, then $\pi$ is unit-equivalent
+to a prime $p$ of Type 3, and the field of residue classes modulo $\pi$ will
+be a field with $p^{2}$ elements. Namely, it will be the field $\mathbb{K}%
+^{\prime}$ we constructed above (for $\mathbb{K}=\mathbb{Z}/p$), with its
+elements relabelled.
+\end{itemize}
+
+So this approach only gets us fields of size $p^{2}$ when $p$ is a prime of
+Type 3; it is thus inferior to the second idea above. Nevertheless, it
+illustrates a general idea: that residue classes make sense not only for integers.
 
 TODO:
 
