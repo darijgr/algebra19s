@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Tuesday, April 02, 2019 20:24:46}
+%TCIDATA{LastRevised=Tuesday, April 02, 2019 22:17:27}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -648,7 +648,8 @@ methods properly works here; do we have to come up with new ad-hoc tricks?
 \textbf{2019-01-25 lecture}
 \end{center}
 
-\subsection{Motivation: Shamir's Secret Sharing Scheme}
+\subsection{\label{sect.intro.shamir}Motivation: Shamir's Secret Sharing
+Scheme}
 
 \subsubsection{The problem}
 
@@ -1098,7 +1099,7 @@ $\mathbf{a}$ (by (\ref{eq.intro.shamir.k=2.2})). On the other hand, each
 single person has no insight about $\mathbf{a}$ (this is proven similarly to
 the $k=n$ case). So again, the problem is solved in this case.
 
-\subsubsection{The $k=3$ case}
+\subsubsection{\label{subsect.intro.shamir.k=3}The $k=3$ case}
 
 Now, let us come to the case when $k=3$. Now I think the usefulness of the
 $\operatorname*{XOR}$ approach has come to its end: at least I don't know how
@@ -1874,9 +1875,9 @@ $n$, and consider congruences modulo $n$. We claim that these can be chained
 just as equalities:
 
 \begin{definition}
-If $a_{1},a_{2},\ldots,a_{k}$ are $k$ integers, then the statement
-\textquotedblleft$a_{1}\equiv a_{2}\equiv\cdots\equiv a_{k}\operatorname{mod}%
-n$\textquotedblright\ shall mean that
+\label{def.mod.chain}If $a_{1},a_{2},\ldots,a_{k}$ are $k$ integers, then the
+statement \textquotedblleft$a_{1}\equiv a_{2}\equiv\cdots\equiv a_{k}%
+\operatorname{mod}n$\textquotedblright\ shall mean that
 \[
 a_{i}\equiv a_{i+1}\operatorname{mod}n\text{ holds for each }i\in\left\{
 1,2,\ldots,k-1\right\}  .
@@ -2026,8 +2027,8 @@ The \textit{principle of substitutivity for equalities} says the following:
 \textit{Principle of substitutivity for equalities (PSE):} If two objects $x$
 and $x^{\prime}$ are equal, and if we have any expression $A$ that involves
 the object $x$, then we can replace this $x$ (or, more precisely, any
-arbitrary appearance of $x$ in $A$) in $A$ by $x^{\prime}$; the resulting
-expression $A^{\prime}$ will be equal to $A$.
+arbitrary appearance of $x$ in $A$) in $A$ by $x^{\prime}$; the value of the
+resulting expression $A^{\prime}$ will equal the value of $A$.
 \end{statement}
 
 Here are two examples of how this principle can be used:
@@ -2035,9 +2036,9 @@ Here are two examples of how this principle can be used:
 \begin{itemize}
 \item If $a,b,c,d,e,c^{\prime}$ are numbers such that $c=c^{\prime}$, then the
 PSE says that we can replace $c$ by $c^{\prime}$ in the expression $a\left(
-b-\left(  c+d\right)  e\right)  $, and the resulting expression $a\left(
-b-\left(  c^{\prime}+d\right)  e\right)  $ will be equal to $a\left(
-b-\left(  c+d\right)  e\right)  $; that is, we have%
+b-\left(  c+d\right)  e\right)  $, and the value of the resulting expression
+$a\left(  b-\left(  c^{\prime}+d\right)  e\right)  $ will equal the value of
+$a\left(  b-\left(  c+d\right)  e\right)  $; that is, we have%
 \begin{equation}
 a\left(  b-\left(  c+d\right)  e\right)  =a\left(  b-\left(  c^{\prime
 }+d\right)  e\right)  . \label{eq.mod.substitutivity-nums.1}%
@@ -2068,8 +2069,9 @@ and $x^{\prime}$ are congruent to each other modulo $n$ (that is, $x\equiv
 x^{\prime}\operatorname{mod}n$), and if we have any expression $A$ that
 involves only integers, addition, subtraction and multiplication, and involves
 the object $x$, then we can replace this $x$ (or, more precisely, any
-arbitrary appearance of $x$ in $A$) in $A$ by $x^{\prime}$; the resulting
-expression $A^{\prime}$ will be congruent to $A$ modulo $n$.
+arbitrary appearance of $x$ in $A$) in $A$ by $x^{\prime}$; the value of the
+resulting expression $A^{\prime}$ will be congruent to the value of $A$ modulo
+$n$.
 \end{statement}
 
 This principle is less general than the PSE, since it only applies to
@@ -2082,9 +2084,9 @@ of our above examples (\ref{eq.mod.substitutivity-nums.1}) and
 \item If $a,b,c,d,e,c^{\prime}$ are integers such that $c\equiv c^{\prime
 }\operatorname{mod}n$, then the PSC says that we can replace $c$ by
 $c^{\prime}$ in the expression $a\left(  b-\left(  c+d\right)  e\right)  $,
-and the resulting expression $a\left(  b-\left(  c^{\prime}+d\right)
-e\right)  $ will be congruent to $a\left(  b-\left(  c+d\right)  e\right)  $
-modulo $n$; that is, we have%
+and the value of the resulting expression $a\left(  b-\left(  c^{\prime
+}+d\right)  e\right)  $ will be congruent to the value of $a\left(  b-\left(
+c+d\right)  e\right)  $ modulo $n$; that is, we have%
 \begin{equation}
 a\left(  b-\left(  c+d\right)  e\right)  \equiv a\left(  b-\left(  c^{\prime
 }+d\right)  e\right)  \operatorname{mod}n.
@@ -2184,11 +2186,11 @@ expression by another integer $x^{\prime}$ that is congruent to $x$ modulo
 $n$. Applying this principle many times, we thus conclude that we can also
 replace \textbf{several} integers at the same time (because we can get to the
 same result by performing these replacements one at a time, and Proposition
-\ref{prop.mod.chain} shows that the final result will be congruent to the
-original result). For example, if seven integers $a,a^{\prime},b,b^{\prime
-},c,c^{\prime},n$ satisfy $a\equiv a^{\prime}\operatorname{mod}n$ and $b\equiv
-b^{\prime}\operatorname{mod}n$ and $c\equiv c^{\prime}\operatorname{mod}n$,
-then%
+\ref{prop.mod.chain} shows that the value of the final result will be
+congruent to the value of the original result). For example, if seven integers
+$a,a^{\prime},b,b^{\prime},c,c^{\prime},n$ satisfy $a\equiv a^{\prime
+}\operatorname{mod}n$ and $b\equiv b^{\prime}\operatorname{mod}n$ and $c\equiv
+c^{\prime}\operatorname{mod}n$, then%
 \begin{equation}
 bc+ca+ab\equiv b^{\prime}c^{\prime}+c^{\prime}a^{\prime}+a^{\prime}b^{\prime
 }\operatorname{mod}n, \label{eq.mod.substitutivity-congs.3}%
@@ -14211,7 +14213,7 @@ We now come to one of the most important example of equivalence classes: the
 residue classes of integers modulo a given positive integer $n$.
 
 \begin{convention}
-For the whole Section \ref{sect.eqrel.Z/n}, we fix a positive integer $n$.
+For the whole Section \ref{sect.eqrel.Z/n}, we fix an integer $n$.
 \end{convention}
 
 \subsubsection{Definition of $\mathbb{Z}/n$}
@@ -14256,7 +14258,7 @@ us introduce a few notations:
 residue class $\left[  i\right]  _{\underset{n}{\equiv}}$ by $\left[
 i\right]  _{n}$. (Some authors denote this residue class by $\overline{i}_{n}$
 or $i\operatorname{mod}n$. Be careful with the notation $i\operatorname{mod}%
-n$, since other authors use it for the integer $i\%n$.)
+n$, since other authors use it for the integer $i\%n$ when $n$ is positive.)
 
 \textbf{(b)} The set $\mathbb{Z}/\underset{n}{\equiv}$ of residue classes
 modulo $n$ is called $\mathbb{Z}/n$. (Some authors call it $\mathbb{Z}/\left(
@@ -14270,10 +14272,12 @@ Let us now state and rigorously prove what we have just observed on the
 example of $n=5$:
 
 \begin{theorem}
-\label{thm.eqrel.Z/n.explicit}The set $\mathbb{Z}/n$ has exactly $n$ elements,
-namely $\left[  0\right]  _{n},\left[  1\right]  _{n},\ldots,\left[
-n-1\right]  _{n}$. (In particular, these elements $\left[  0\right]
-_{n},\left[  1\right]  _{n},\ldots,\left[  n-1\right]  _{n}$ are distinct.)
+\label{thm.eqrel.Z/n.explicit}Assume that the integer $n$ is positive.
+
+The set $\mathbb{Z}/n$ has exactly $n$ elements, namely $\left[  0\right]
+_{n},\left[  1\right]  _{n},\ldots,\left[  n-1\right]  _{n}$. (In particular,
+these elements $\left[  0\right]  _{n},\left[  1\right]  _{n},\ldots,\left[
+n-1\right]  _{n}$ are distinct.)
 \end{theorem}
 
 Before we prove this, let us make a simple observation:
@@ -14548,7 +14552,9 @@ Let us summarize some of the facts we have shown in the above proof as a
 separate proposition:
 
 \begin{proposition}
-\label{prop.eqrel.Z/n.PR}\textbf{(a)} The two maps%
+\label{prop.eqrel.Z/n.PR}Let $n$ be a positive integer.
+
+\textbf{(a)} The two maps%
 \begin{align*}
 P:\left\{  0,1,\ldots,n-1\right\}   &  \rightarrow\mathbb{Z}/n,\\
 s  &  \mapsto\left[  s\right]  _{n}%
@@ -14926,12 +14932,12 @@ property of the quotient set}.
 \subsubsection{Projecting from $\mathbb{Z}/n$ to $\mathbb{Z}/d$}
 
 As another example of a map from a quotient set, let us define certain maps
-from $\mathbb{Z}/n$ to $\mathbb{Z}/d$ that exist whenever two positive
-integers $n$ and $d$ satisfy $d\mid n$:
+from $\mathbb{Z}/n$ to $\mathbb{Z}/d$ that exist whenever two integers $n$ and
+$d$ satisfy $d\mid n$:
 
 \begin{proposition}
-\label{prop.eqrel.Z/n.pind.wd}Let $n$ be a positive integer. Let $d$ be a
-positive divisor of $n$. Then, there is a map%
+\label{prop.eqrel.Z/n.pind.wd}Let $n$ be an integer. Let $d$ be a divisor of
+$n$. Then, there is a map%
 \begin{align*}
 \pi_{n,d}:\mathbb{Z}/n  &  \rightarrow\mathbb{Z}/d,\\
 \left[  s\right]  _{n}  &  \mapsto\left[  s\right]  _{d}.
@@ -14965,9 +14971,9 @@ _{2}\text{, respectively}%
 (since $\left[  2\right]  _{2}=\left[  0\right]  _{2}$ and $\left[  3\right]
 _{2}=\left[  1\right]  _{2}$ and $\left[  4\right]  _{2}=\left[  0\right]
 _{2}$ and $\left[  5\right]  _{2}=\left[  1\right]  _{2}$). More generally,
-for arbitrary $n$ and $d$ satisfying $d\mid n$, the map $\pi_{n,d}$ sends the
-$n$ residue classes $\left[  0\right]  _{n},\left[  1\right]  _{n}%
-,\ldots,\left[  n-1\right]  _{n}$ to
+for arbitrary positive integers $n$ and $d$ satisfying $d\mid n$, the map
+$\pi_{n,d}$ sends the $n$ residue classes $\left[  0\right]  _{n},\left[
+1\right]  _{n},\ldots,\left[  n-1\right]  _{n}$ to
 \[
 \left[  0\right]  _{d},\left[  1\right]  _{d},\ldots,\left[  d-1\right]
 _{d},\left[  0\right]  _{d},\left[  1\right]  _{d},\ldots,\left[  d-1\right]
@@ -15163,7 +15169,8 @@ a_{1}+b_{1}\right]  _{n}=\left[  a_{2}+b_{2}\right]  _{n}$ (since $a_{1}%
 Claim 1 shows that in Definition \ref{def.eqrel.Z/n.op} \textbf{(a)}, the
 residue class $\left[  a+b\right]  _{n}$ depends only on the two classes
 $\left[  a\right]  _{n}$ and $\left[  b\right]  _{n}$, but not on the integers
-$a$ and $b$. Thus, the binary operation $+$ is indeed well-defined.
+$a$ and $b$. Thus, the binary operation $+$ in Definition
+\ref{def.eqrel.Z/n.op} \textbf{(a)} is indeed well-defined.
 
 \textbf{(b)} The binary operation $-$ in Definition \ref{def.eqrel.Z/n.op}
 \textbf{(b)} is well-defined. This can be proven in the same way as we just
@@ -15184,6 +15191,94 @@ Definition \ref{def.eqrel.Z/n.op} are well-defined. This proves Theorem
 \ref{thm.eqrel.Z/n.op.wd}.
 \end{proof}
 
+Recall that $\mathbb{Z}/n$ is a finite set (of size $n$) whenever $n$ is a
+positive integer. Hence, for each given positive integer $n$, we can tabulate
+all the values of the operations $+$, $-$ and $\cdot$; the resulting tables
+are called \textit{addition tables}, \textit{subtraction tables} and
+\textit{multiplication tables} (like in high school, except that we are
+working with residue classes now).
+
+\begin{example}
+\textbf{(a)} If $n=3$, then the addition, subtraction and multiplication
+tables for $\mathbb{Z}/n=\mathbb{Z}/3$ are
+\[%
+\begin{tabular}
+[c]{|c|ccc|}\hline
+$+$ & $\left[  0\right]  _{3}$ & $\left[  1\right]  _{3}$ & $\left[  2\right]
+_{3}$\\\hline
+$\left[  0\right]  _{3}$ & $\left[  0\right]  _{3}$ & $\left[  1\right]  _{3}$
+& $\left[  2\right]  _{3}$\\
+$\left[  1\right]  _{3}$ & $\left[  1\right]  _{3}$ & $\left[  2\right]  _{3}$
+& $\left[  0\right]  _{3}$\\
+$\left[  2\right]  _{3}$ & $\left[  2\right]  _{3}$ & $\left[  0\right]  _{3}$
+& $\left[  1\right]  _{3}$\\\hline
+\end{tabular}
+,\ \ \ \ \ \ \ \ \ \
+\begin{tabular}
+[c]{|c|ccc|}\hline
+$-$ & $\left[  0\right]  _{3}$ & $\left[  1\right]  _{3}$ & $\left[  2\right]
+_{3}$\\\hline
+$\left[  0\right]  _{3}$ & $\left[  0\right]  _{3}$ & $\left[  2\right]  _{3}$
+& $\left[  1\right]  _{3}$\\
+$\left[  1\right]  _{3}$ & $\left[  1\right]  _{3}$ & $\left[  0\right]  _{3}$
+& $\left[  2\right]  _{3}$\\
+$\left[  2\right]  _{3}$ & $\left[  2\right]  _{3}$ & $\left[  1\right]  _{3}$
+& $\left[  0\right]  _{3}$\\\hline
+\end{tabular}
+,\ \ \ \ \ \ \ \ \ \
+\begin{tabular}
+[c]{|c|ccc|}\hline
+$\cdot$ & $\left[  0\right]  _{3}$ & $\left[  1\right]  _{3}$ & $\left[
+2\right]  _{3}$\\\hline
+$\left[  0\right]  _{3}$ & $\left[  0\right]  _{3}$ & $\left[  0\right]  _{3}$
+& $\left[  0\right]  _{3}$\\
+$\left[  1\right]  _{3}$ & $\left[  0\right]  _{3}$ & $\left[  1\right]  _{3}$
+& $\left[  2\right]  _{3}$\\
+$\left[  2\right]  _{3}$ & $\left[  0\right]  _{3}$ & $\left[  2\right]  _{3}$
+& $\left[  1\right]  _{3}$\\\hline
+\end{tabular}
+.
+\]
+(Here, the entry in the row corresponding to $\alpha$ and the column
+corresponding to $\beta$ is $\alpha+\beta$, $\alpha-\beta$ and $\alpha
+\cdot\beta$, respectively.)
+
+\textbf{(b)} If $n=2$, then the addition, subtraction and multiplication
+tables for $\mathbb{Z}/n=\mathbb{Z}/2$ are
+\[%
+\begin{tabular}
+[c]{|c|cc|}\hline
+$+$ & $\left[  0\right]  _{2}$ & $\left[  1\right]  _{2}$\\\hline
+$\left[  0\right]  _{2}$ & $\left[  0\right]  _{2}$ & $\left[  1\right]  _{2}%
+$\\
+$\left[  1\right]  _{2}$ & $\left[  1\right]  _{2}$ & $\left[  0\right]  _{2}%
+$\\\hline
+\end{tabular}
+,\ \ \ \ \ \ \ \ \ \
+\begin{tabular}
+[c]{|c|cc|}\hline
+$-$ & $\left[  0\right]  _{2}$ & $\left[  1\right]  _{2}$\\\hline
+$\left[  0\right]  _{2}$ & $\left[  0\right]  _{2}$ & $\left[  1\right]  _{2}%
+$\\
+$\left[  1\right]  _{2}$ & $\left[  1\right]  _{2}$ & $\left[  0\right]  _{2}%
+$\\\hline
+\end{tabular}
+,\ \ \ \ \ \ \ \ \ \
+\begin{tabular}
+[c]{|c|cc|}\hline
+$\cdot$ & $\left[  0\right]  _{2}$ & $\left[  1\right]  _{2}$\\\hline
+$\left[  0\right]  _{2}$ & $\left[  0\right]  _{2}$ & $\left[  0\right]  _{2}%
+$\\
+$\left[  1\right]  _{2}$ & $\left[  0\right]  _{2}$ & $\left[  1\right]  _{2}%
+$\\\hline
+\end{tabular}
+.
+\]
+(In particular, the addition table is the same as the multiplication table,
+because any $\alpha,\beta\in\mathbb{Z}/2$ satisfy $\alpha+\beta=\alpha-\beta$.
+This follows from Exercise \ref{exe.ent.mod.a+b=a-b}.)
+\end{example}
+
 \begin{remark}
 We \textbf{cannot} define a division operation on $\mathbb{Z}/n$ by setting%
 \[
@@ -15203,8 +15298,7 @@ _{4}\text{\textquotedblright}=\left[  6/2\right]  _{4}=\left[  3\right]  _{4}%
 and%
 \[
 \text{\textquotedblleft}\left[  2\right]  _{4}/\left[  2\right]
-_{4}\text{\textquotedblright}=\left[  2/2\right]  _{4}=\left[  1\right]
-_{4},
+_{4}\text{\textquotedblright}=\left[  2/2\right]  _{4}=\left[  1\right]  _{4},
 \]
 but this is impossible (since $\left[  6\right]  _{4}=\left[  2\right]  _{4}$
 but $\left[  3\right]  _{4}\neq\left[  1\right]  _{4}$).
@@ -15234,11 +15328,11 @@ $\left[  0\right]  _{n}-\alpha$ shall be denoted by $-\alpha$.
 \end{definition}
 
 Caution: While the remainder $i\%n$ and the residue class $\left[  i\right]
-_{n}$ encode the same information about an integer $i$ (for fixed $n$), they
-are not the same thing! For example, any two integers $u$ and $v$ satisfy
-$\left[  u\right]  _{n}+\left[  v\right]  _{n}=\left[  u+v\right]  _{n}$ but
-don't always satisfy $u\%n+v\%n=\left(  u+v\right)  \%n$\ \ \ \ \footnote{Here
-is a specific example:%
+_{n}$ encode the same information about an integer $i$ (for a fixed positive
+integer $n$), they are not the same thing! For example, any two integers $u$
+and $v$ satisfy $\left[  u\right]  _{n}+\left[  v\right]  _{n}=\left[
+u+v\right]  _{n}$ but don't always satisfy $u\%n+v\%n=\left(  u+v\right)
+\%n$\ \ \ \ \footnote{Here is a specific example:%
 \begin{align*}
 \left[  2\right]  _{5}+\left[  3\right]  _{5}  &  =\left[  2+3\right]
 _{5}=\left[  5\right]  _{5}=\left[  0\right]  _{5}%
@@ -15520,10 +15614,10 @@ numbers (with the caveat that the residue classes $\left[  0\right]  _{n}$ and
 $\left[  1\right]  _{n}$ take on the roles of the numbers $0$ and $1$). For
 example, Theorem \ref{thm.eqrel.Z/n.rules} \textbf{(g)} corresponds to the
 laws of distributivity for numbers. Parts \textbf{(a)}, \textbf{(b)},
-\textbf{(c)}, \textbf{(i)}, \textbf{(j)}, \textbf{(k)} and \textbf{(l)} of
-Theorem \ref{thm.eqrel.Z/n.rules} furthermore are reminiscent of the axioms
-for a vector space (with the caveat that scaling by $r$ is only defined for
-integers $r$ here, so $\mathbb{Z}/n$ is not precisely a vector space).
+\textbf{(c)}, \textbf{(i)}, \textbf{(j)}, \textbf{(k)}, \textbf{(l)} and
+\textbf{(o)} of Theorem \ref{thm.eqrel.Z/n.rules} furthermore are reminiscent
+of the axioms for a vector space (with the caveat that scaling by $r$ is only
+defined for integers $r$ here, so $\mathbb{Z}/n$ is not precisely a vector space).
 
 \begin{proof}
 [Proof of Theorem \ref{thm.eqrel.Z/n.rules}.]Let us first prove Theorem
@@ -17112,6 +17206,113 @@ m\right)  \cdot\phi\left(  n\right)  $. So Theorem \ref{thm.ent.phi.mult} is
 proven again.
 \end{proof}
 
+\subsection{Substitutivity and chains of congruences revisited}
+
+Proposition \ref{prop.eqrel.Z/n.ab} \textbf{(b)} can be stated as follows:
+Given an integer $n$, two integers $a$ and $b$ are congruent to each other
+modulo $n$ if and only if their residue classes $\left[  a\right]  _{n}$ and
+$\left[  b\right]  _{n}$ are equal. This lets us see congruences modulo $n$ in
+a new light (namely, as equalities). In particular, some previous results
+about congruences now become trivial. For example, we can obtain a very short
+proof of Proposition \ref{prop.mod.chain} using residue classes:
+
+\begin{proof}
+[Proof of Proposition \ref{prop.mod.chain}.]We have the chain of congruences
+$a_{1}\equiv a_{2}\equiv\cdots\equiv a_{k}\operatorname{mod}n$. In other
+words,%
+\[
+a_{i}\equiv a_{i+1}\operatorname{mod}n\text{ holds for each }i\in\left\{
+1,2,\ldots,k-1\right\}
+\]
+(by Definition \ref{def.mod.chain}). Thus, for each $i\in\left\{
+1,2,\ldots,k-1\right\}  $, we have $a_{i}\equiv a_{i+1}\operatorname{mod}n$
+and therefore $\left[  a_{i}\right]  _{n}=\left[  a_{i+1}\right]  _{n}$ (by
+Proposition \ref{prop.eqrel.Z/n.ab} \textbf{(b)}, applied to $a=a_{i}$ and
+$b=a_{i+1}$). In other words, we have the chain of equalities $\left[
+a_{1}\right]  _{n}=\left[  a_{2}\right]  _{n}=\cdots=\left[  a_{k}\right]
+_{n}$. From this chain, we immediately obtain $\left[  a_{u}\right]
+_{n}=\left[  a_{v}\right]  _{n}$ (by Proposition \ref{prop.mod.chain-eq},
+applied to $\left[  a_{i}\right]  _{n}$ instead of $a_{i}$). Hence,
+Proposition \ref{prop.eqrel.Z/n.ab} \textbf{(b)} (applied to $a=a_{u}$ and
+$b=a_{v}$) shows that $a_{u}\equiv a_{v}\operatorname{mod}n$. This proves
+Proposition \ref{prop.mod.chain}.
+\end{proof}
+
+We can also prove the Principle of substitutivity of congruences (which we
+informally stated in Section \ref{sect.ent.subst-mod}, and abbreviated as
+\textquotedblleft PSC\textquotedblright):
+
+\begin{proof}
+[Proof of the PSC (informal).]We have $x\equiv x^{\prime}\operatorname{mod}n$.
+Hence, Proposition \ref{prop.eqrel.Z/n.ab} \textbf{(b)} (applied to $a=x$ and
+$b=x^{\prime}$) yields $\left[  x\right]  _{n}=\left[  x^{\prime}\right]
+_{n}$.
+
+Now, let $\alpha$ be the expression $A$, except that each integer appearing in
+it has been replaced by its residue class modulo $n$. (For example, if $A$ is
+the expression \textquotedblleft$3-2\cdot7+6$\textquotedblright, then $\alpha$
+will be \textquotedblleft$\left[  3\right]  _{n}-\left[  2\right]  _{n}%
+\cdot\left[  7\right]  _{n}+\left[  6\right]  _{n}$\textquotedblright.)
+
+Likewise, let $\alpha^{\prime}$ be the expression $A^{\prime}$, except that
+each integer appearing in it has been replaced by its residue class modulo $n$.
+
+The expression $A^{\prime}$ differs from $A$ only in that some appearance of
+$x$ in it has been replaced by $x^{\prime}$. Thus, the expression
+$\alpha^{\prime}$ differs from $\alpha$ only in that some appearance of
+$\left[  x\right]  _{n}$ in it has been replaced by $\left[  x^{\prime
+}\right]  _{n}$. This replacement does not change the value of the expression,
+since $\left[  x\right]  _{n}=\left[  x^{\prime}\right]  _{n}$. Thus,
+\[
+\left(  \text{the value of }\alpha^{\prime}\right)  =\left(  \text{the value
+of }\alpha\right)  .
+\]
+
+
+We have defined $\alpha$ to be the expression $A$, except that each integer
+appearing in it has been replaced by its residue class modulo $n$. Thus, the
+value of $\alpha$ is the residue class of the value of $A$ modulo $n$. (For
+example, if $A$ is \textquotedblleft$3-2\cdot7+6$\textquotedblright, then
+$\alpha$ will be \textquotedblleft$\left[  3\right]  _{n}-\left[  2\right]
+_{n}\cdot\left[  7\right]  _{n}+\left[  6\right]  _{n}$\textquotedblright, and
+thus%
+\begin{align*}
+\left(  \text{the value of }\alpha\right)   &  =\left[  3\right]
+_{n}-\underbrace{\left[  2\right]  _{n}\cdot\left[  7\right]  _{n}%
+}_{\substack{=\left[  2\cdot7\right]  _{n}\\\text{(by Definition
+\ref{def.eqrel.Z/n.op} \textbf{(c)})}}}+\left[  6\right]  _{n}%
+=\underbrace{\left[  3\right]  _{n}-\left[  2\cdot7\right]  _{n}%
+}_{\substack{=\left[  3-2\cdot7\right]  _{n}\\\text{(by Definition
+\ref{def.eqrel.Z/n.op} \textbf{(b)})}}}+\left[  6\right]  _{n}\\
+&  =\left[  3-2\cdot7\right]  _{n}+\left[  6\right]  _{n}=\left[
+3-2\cdot7+6\right]  _{n}\ \ \ \ \ \ \ \ \ \ \left(  \text{by Definition
+\ref{def.eqrel.Z/n.op} \textbf{(a)}}\right)  ,
+\end{align*}
+which is precisely the residue class of the value of $A$ modulo $n$.) In other
+words, we have%
+\[
+\left(  \text{the value of }\alpha\right)  =\left[  \text{the value of
+}A\right]  _{n}.
+\]
+Similarly,%
+\[
+\left(  \text{the value of }\alpha^{\prime}\right)  =\left[  \text{the value
+of }A^{\prime}\right]  _{n}.
+\]
+Hence,%
+\[
+\left[  \text{the value of }A^{\prime}\right]  _{n}=\left(  \text{the value of
+}\alpha^{\prime}\right)  =\left(  \text{the value of }\alpha\right)  =\left[
+\text{the value of }A\right]  _{n}.
+\]
+Hence, Proposition \ref{prop.eqrel.Z/n.ab} \textbf{(b)} (applied to $a=\left(
+\text{the value of }A^{\prime}\right)  $ and $b=\left(  \text{the value of
+}A\right)  $) yields $\left(  \text{the value of }A^{\prime}\right)
+\equiv\left(  \text{the value of }A\right)  \operatorname{mod}n$. In other
+words, the value of the expression $A^{\prime}$ is congruent to the value of
+$A$ modulo $n$. This proves the PSC.
+\end{proof}
+
 \subsection{\label{sect.equiv.apps}A couple of applications of elementary
 number theory}
 
@@ -18380,7 +18581,7 @@ numbers. Then, the complex number $\alpha\beta$ is nonzero as well.
 \end{corollary}
 
 \begin{proof}
-[Proof of Corollary \ref{cor.CC.CC.intdom} (sketched).] The complex numbers
+[Proof of Corollary \ref{cor.CC.CC.intdom} (sketched).]The complex numbers
 $\alpha$ and $\beta$ are nonzero, and thus have inverses (by Theorem
 \ref{thm.CC.CC.inverse.unique}). Hence, Theorem \ref{thm.CC.CC.inverse.unique}
 \textbf{(b)} shows that their product $\alpha\beta$ has an inverse as well.
@@ -18406,9 +18607,9 @@ i^{2}=ii=\left(  -1\right)  _{\mathbb{C}}=-1.
 \]
 Moreover, Definition \ref{def.CC.CC.power} yields
 \begin{align*}
-\alpha^{0}  & =\underbrace{\alpha\alpha\cdots\alpha}_{0\text{ times}}=\left(
+\alpha^{0}  &  =\underbrace{\alpha\alpha\cdots\alpha}_{0\text{ times}}=\left(
 \text{empty product}\right)  =1\ \ \ \ \ \ \ \ \ \ \text{and}\\
-\alpha^{1}  & =\underbrace{\alpha\alpha\cdots\alpha}_{1\text{ times}}=\alpha
+\alpha^{1}  &  =\underbrace{\alpha\alpha\cdots\alpha}_{1\text{ times}}=\alpha
 \end{align*}
 for each $\alpha\in\mathbb{C}$.
 
@@ -22560,28 +22761,29 @@ hold in every ring:
 \begin{proposition}
 \label{prop.rings.pow.rules}\textbf{(a)} We have%
 \begin{align}
-\left(  n+m\right)  a &  =na+ma\ \ \ \ \ \ \ \ \ \ \text{for all }%
-a\in\mathbb{K}\text{ and }n,m\in\mathbb{Z};\label{eq.prop.rings.pow.rules.d1}%
+\left(  n+m\right)  a  &  =na+ma\ \ \ \ \ \ \ \ \ \ \text{for all }%
+a\in\mathbb{K}\text{ and }n,m\in\mathbb{Z}; \label{eq.prop.rings.pow.rules.d1}%
 \\
 n\left(  a+b\right)   &  =na+nb\ \ \ \ \ \ \ \ \ \ \text{for all }%
-a,b\in\mathbb{K}\text{ and }n\in\mathbb{Z};\label{eq.prop.rings.pow.rules.d2}%
+a,b\in\mathbb{K}\text{ and }n\in\mathbb{Z}; \label{eq.prop.rings.pow.rules.d2}%
 \\
 -\left(  na\right)   &  =\left(  -n\right)  a=n\left(  -a\right)
 \ \ \ \ \ \ \ \ \ \ \text{for all }a\in\mathbb{K}\text{ and }n\in
 \mathbb{Z};\label{eq.prop.rings.pow.rules.d3}\\
-\left(  nm\right)  a &  =n\left(  ma\right)  \ \ \ \ \ \ \ \ \ \ \text{for all
-}a\in\mathbb{K}\text{ and }n,m\in\mathbb{Z};\label{eq.prop.rings.pow.rules.2}%
-\\
+\left(  nm\right)  a  &  =n\left(  ma\right)  \ \ \ \ \ \ \ \ \ \ \text{for
+all }a\in\mathbb{K}\text{ and }n,m\in\mathbb{Z}%
+;\label{eq.prop.rings.pow.rules.2}\\
 n\left(  ab\right)   &  =\left(  na\right)  b=a\left(  nb\right)
 \ \ \ \ \ \ \ \ \ \ \text{for all }a,b\in\mathbb{K}\text{ and }n\in
 \mathbb{Z};\label{eq.prop.rings.pow.rules.3}\\
-1a &  =a\ \ \ \ \ \ \ \ \ \ \text{for all }a\in\mathbb{K};\\
-\left(  -1\right)  a &  =-a\ \ \ \ \ \ \ \ \ \ \text{for all }a\in
+1a  &  =a\ \ \ \ \ \ \ \ \ \ \text{for all }a\in\mathbb{K};\\
+\left(  -1\right)  a  &  =-a\ \ \ \ \ \ \ \ \ \ \text{for all }a\in
 \mathbb{K};\label{eq.prop.rings.pow.rules.4}\\
-1^{n} &  =1\ \ \ \ \ \ \ \ \ \ \text{for all }n\in\mathbb{N}\\
+1^{n}  &  =1\ \ \ \ \ \ \ \ \ \ \text{for all }n\in\mathbb{N}\\
 &  \ \ \ \ \ \ \ \ \ \ \left(  \text{here, the \textquotedblleft%
-}1\text{\textquotedblright\ means the unity of }\mathbb{K}\right)  ;\\
-0^{n} &  =%
+}1\text{\textquotedblright\ means the unity of }\mathbb{K}\right)
+;\nonumber\\
+0^{n}  &  =%
 \begin{cases}
 0, & \text{if }n>0\\
 1, & \text{if }n=0
@@ -22591,11 +22793,11 @@ n\left(  ab\right)   &  =\left(  na\right)  b=a\left(  nb\right)
 &  \ \ \ \ \ \ \ \ \ \ \left(  \text{here, the \textquotedblleft%
 }0\text{\textquotedblright\ in \textquotedblleft}0^{n}\text{\textquotedblright%
 \ means the zero of }\mathbb{K}\right)  ;\nonumber\\
-a^{n+m} &  =a^{n}a^{m}\ \ \ \ \ \ \ \ \ \ \text{for all }a\in\mathbb{K}\text{
+a^{n+m}  &  =a^{n}a^{m}\ \ \ \ \ \ \ \ \ \ \text{for all }a\in\mathbb{K}\text{
 and }n,m\in\mathbb{N};\label{eq.prop.rings.pow.rules.7}\\
-\left(  a^{n}\right)  ^{m} &  =a^{nm}\ \ \ \ \ \ \ \ \ \ \text{for all }%
+\left(  a^{n}\right)  ^{m}  &  =a^{nm}\ \ \ \ \ \ \ \ \ \ \text{for all }%
 a\in\mathbb{K}\text{ and }n,m\in\mathbb{N};\label{eq.prop.rings.pow.rules.8}\\
-a^{0} &  =1\ \ \ \ \ \ \ \ \ \ \text{for all }a\in\mathbb{K}.
+a^{0}  &  =1\ \ \ \ \ \ \ \ \ \ \text{for all }a\in\mathbb{K}.
 \end{align}
 In particular:
 
@@ -22652,6 +22854,8 @@ of $n,m,n+m$.
 \textbf{(b)} Expand using distributivity.
 
 \textbf{(c)} Induction.
+
+\textbf{(d)} Analogous to the proof for rationals.
 \end{proof}
 
 \subsection{Multiplicative inverses and fields}
@@ -22810,7 +23014,7 @@ Some authors call skew fields \textit{division rings}.
 \textbf{(b)} The rings $\mathbb{Z}$, $\mathbb{Z}\left[  i\right]  $ and
 $\mathbb{Z}\left[  \sqrt{2}\right]  $ are not fields. However, $\mathbb{Z}%
 \left[  i\right]  $ and $\mathbb{Z}\left[  \sqrt{2}\right]  $ would become
-fields if we had used $\mathbb{Q}$ instead of $\mathbb{Z}$.
+fields if we had used $\mathbb{Q}$ instead of $\mathbb{Z}$ in their definitions.
 
 \textbf{(c)} The polynomial ring $\mathbb{Z}\left[  x\right]  $ is not a
 field. There is a way to get a field out of it, similarly to how $\mathbb{Q}$
@@ -22818,7 +23022,7 @@ is obtained from $\mathbb{Z}$ (more on that later perhaps).
 
 \textbf{(d)} Recall the commutative ring $\mathbb{Q}^{\mathbb{Q}}$; the
 elements of this ring are functions from $\mathbb{Q}$ to $\mathbb{Q}$, and the
-operations $+$ and $\cdot$ are given pointwise. Is this ring a field?
+operations $+$ and $\cdot$ are defined pointwise. Is this ring a field?
 
 Let us see what the multiplicative inverse of a function $f\in\mathbb{Q}%
 ^{\mathbb{Q}}$ is. If $f,g\in\mathbb{Q}^{\mathbb{Q}}$ are two functions, then
@@ -22838,8 +23042,7 @@ gf\right)  \left(  x\right)  =1_{\mathbb{Q}^{\mathbb{Q}}}\left(  x\right)
 \text{since each }x\in\mathbb{Q}\text{ satisfies }\left(  fg\right)  \left(
 x\right)  =f\left(  x\right)  \cdot g\left(  x\right) \\
 \text{and }\left(  gf\right)  \left(  x\right)  =g\left(  x\right)  \cdot
-f\left(  x\right) \\
-\text{and }1_{\mathbb{Q}^{\mathbb{Q}}}\left(  x\right)  =1
+f\left(  x\right)  \text{ and }1_{\mathbb{Q}^{\mathbb{Q}}}\left(  x\right)  =1
 \end{array}
 \right) \\
 &  \Longleftrightarrow\ \left(  g\left(  x\right)  =\dfrac{1}{f\left(
@@ -22866,10 +23069,12 @@ rational entries is not a skew field. Indeed, the $2\times2$-matrix $\left(
 1 & 0\\
 1 & 0
 \end{array}
-\right)  $ is nonzero but not invertible. (Our notion of \textquotedblleft
-invertible\textquotedblright\ for elements of a ring of $n\times n$-matrices
-coincides with the usual notion of \textquotedblleft
-invertible\textquotedblright\ for matrices in linear algebra.)
+\right)  $ is nonzero but not invertible. (More generally: For each
+$n\in\mathbb{N}$, the $n\times n$-matrices over $\mathbb{Q}$ form a ring,
+which we will study later. Our notion of \textquotedblleft
+invertible\textquotedblright\ for elements of this ring coincides with the
+usual notion of \textquotedblleft invertible\textquotedblright\ for matrices
+in linear algebra.)
 \end{example}
 
 What about $\mathbb{Z}/n$ ?
@@ -22933,22 +23138,10 @@ $\mathbb{Z}/n$ is a field). Thus, by Exercise \ref{exe.rings.inv-mul.rules}
 \textbf{(d)}, their product $\left[  d\right]  _{n}\left[  e\right]  _{n}$ is
 invertible as well. But this product is $\left[  d\right]  _{n}\left[
 e\right]  _{n}=\left[  de\right]  _{n}=\left[  n\right]  _{n}=\left[
-0\right]  _{n}=0_{\mathbb{Z}/n},$ which is not invertible. Contradiction.
+0\right]  _{n}=0_{\mathbb{Z}/n}$, which is not invertible. Contradiction.
 Thus, the \textquotedblleft$\Longrightarrow$\textquotedblright\ direction of
 Theorem \ref{thm.field.Z/n} is proven.
 \end{proof}
-
-So we have found an infinite family of finite fields:%
-\[
-\mathbb{Z}/2,\ \ \ \ \ \ \ \ \ \ \mathbb{Z}/3,\ \ \ \ \ \ \ \ \ \ \mathbb{Z}%
-/5,\ \ \ \ \ \ \ \ \ \ \mathbb{Z}/7,\ \ \ \ \ \ \ \ \ \ \mathbb{Z}%
-/11,\ \ \ \ \ \ \ \ \ \ \ldots
-\]
-(A ring is said to be \textit{finite} if it has only finitely many elements.)
-
-\begin{question}
-Are there any further finite fields?
-\end{question}
 
 \begin{center}
 \textbf{2019-04-01 lecture}
@@ -23045,110 +23238,212 @@ quaternions can be used to encode rotations in 3-dimensional space}.
 
 \subsection{Hunting for finite fields I}
 
-Note that we already have found infinitely many finite fields, and in
-particular, for each $N$, we have found a finite field of size larger than $N$
-(since we can find a prime larger than $N$). Thus, Shamir's Secret Sharing
-Scheme can be fixed: We simply replace \textquotedblleft uniformly random
-rational numbers\textquotedblright\ (which aren't a thing) by uniformly random
-elements of $\mathbb{Z}/p$, where $p$ is a fixed prime $>N$. Then, the Scheme
-works as long as we correctly define what polynomials with coefficients in
-$\mathbb{Z}/p$ are (see later).
+\begin{definition}
+\textbf{(a)} The \textit{ground set} of a ring $\left(  \mathbb{K}%
+,+,\cdot,0,1\right)  $ is defined to be the set $\mathbb{K}$.
 
-Nevertheless, it turns out rather useful (and is a fairly natural question) to
-see if there are other finite fields.
+\textbf{(b)} The \textit{elements} of a ring are defined to be the elements of
+its ground set.
 
-We have found a field of size $p$ for each prime $p$. Are there fields of
-other sizes?
+\textbf{(c)} The \textit{size} (or \textit{cardinality}) of a ring is defined
+to be the size of its ground set.
+
+\textbf{(d)} A ring is said to be \textit{finite} if its size is finite (i.e.,
+if it has only finitely many elements).
+\end{definition}
+
+We have seen a bunch of finite rings. For example, if $S$ is a finite set,
+then the commutative ring $\left(  \mathcal{P}\left(  S\right)
+,\bigtriangleup,\cap,\varnothing,S\right)  $ (see one of the examples above)
+has size $\left\vert \mathcal{P}\left(  S\right)  \right\vert =2^{\left\vert
+S\right\vert }$, and thus is finite.
+
+We also have seen infinitely many finite fields:%
+\[
+\mathbb{Z}/2,\ \ \ \ \ \ \ \ \ \ \mathbb{Z}/3,\ \ \ \ \ \ \ \ \ \ \mathbb{Z}%
+/5,\ \ \ \ \ \ \ \ \ \ \mathbb{Z}/7,\ \ \ \ \ \ \ \ \ \ \mathbb{Z}%
+/11,\ \ \ \ \ \ \ \ \ \ \ldots
+\]
+Indeed, Theorem \ref{thm.field.Z/n} yields that $\mathbb{Z}/p$ is a finite
+field whenever $p$ is a prime.
+
+\begin{question}
+\label{quest.finfield.nonprime}Are there any further finite fields?
+\end{question}
+
+\begin{remark}
+Recall Shamir's Secret Sharing Scheme, which we introduced in Subsection
+\ref{subsect.intro.shamir.k=3}. The way we defined the Scheme, it had a
+problem: It relied on a spurious notion of a \textquotedblleft uniformly
+random rational number\textquotedblright, which does not exist in nature. Now
+we can fix this problem: Replace rational numbers by elements of a finite
+field. More precisely, let $N$ again be the length of the bitstring that we
+want to encrypt. Pick a prime $p$ that satisfies $p>N$; this exists due to
+Theorem \ref{thm.ent.prime.infin}. Then, the finite field $\mathbb{Z}/p$ has
+more than $p$ elements. Now, use elements of $\mathbb{Z}/p$ instead of
+integers. (Thus, a bitstring $a_{N-1}a_{N-2}\cdots a_{0}$ will be encoded as
+the residue class $\left[  a_{N-1}a_{N-2}\cdots a_{0}\right]  _{p}%
+\in\mathbb{Z}/p$ rather than as the number $a_{N-1}a_{N-2}\cdots a_{0}%
+\in\mathbb{Z}$.) Instead of picking two uniformly random bitstrings
+$\mathbf{c}$ and $\mathbf{b}$ and transforming them into numbers $c$ and $b$,
+just pick two uniformly random residue classes $c,b\in\mathbb{Z}/p$. (This is
+possible, since $\mathbb{Z}/p$ is a finite set.)
+
+This relies on having a well-behaved notion of polynomials over $\mathbb{Z}%
+/p$. We will later give a rigorous definition of this notion.
+
+Finite fields have many uses -- not just in making Shamir's Secret Sharing
+Scheme work. One great source of applications is \textit{coding theory}, which
+we might see later.
+\end{remark}
+
+Let us take some first steps towards addressing Question
+\ref{quest.finfield.nonprime}. We have found a field of size $p$ for each
+prime $p$. Are there fields of other sizes?
 
 \textbf{Idea:} We got $\mathbb{C}$ out of $\mathbb{R}$ by \textquotedblleft
-adjoining\textquotedblright\ a square root of $-1$.
+adjoining\textquotedblright\ a square root of $-1$. (In abstract algebra, the
+verb \textquotedblleft adjoin\textquotedblright\ means \textquotedblleft
+insert\textquotedblright\ or \textquotedblleft add\textquotedblright\ -- not
+in the sense of the addition operation $+$, but in the sense of throwing in
+something new into an existing collection.)
 
 Let's try to do this with $\mathbb{Z}/p$ instead of $\mathbb{R}$.
 
-So let us fix a prime $p$, and let $\mathbb{F}$ be the field $\mathbb{Z}/p$.
+More generally, let us start with an arbitrary commutative ring $\mathbb{K}$,
+and try to \textquotedblleft adjoin\textquotedblright\ a square root of $-1$
+to it. We are bold and don't care whether there might already be such a square
+root in $\mathbb{K}$; if there is, then we will get a second one!
 
-Let $0$ and $1$ stand for $0_{\mathbb{F}}=\left[  0\right]  _{p}$ and
-$1_{\mathbb{F}}=\left[  1\right]  _{p}$.
+Let $0$ and $1$ stand for the zero and the unity of $\mathbb{K}$. If
+$\mathbb{K}=\mathbb{Z}/n$ for some integer $n$, then these are the residue
+classes $\left[  0\right]  _{n}$ and $\left[  1\right]  _{n}$.
 
-Now, let $\mathbb{F}^{\prime}$ be the result of \textquotedblleft
-adjoining\textquotedblright\ a square root of $-1$ to $\mathbb{F}$.
-
-More formally, we repeat Definition \ref{def.CC.CC} with $\mathbb{C}$ replaced
-by $\mathbb{Z}/p$:
+Now, we want to define a new commutative ring $\mathbb{K}^{\prime}$ by
+\textquotedblleft adjoining\textquotedblright\ a square root of $-1$ to
+$\mathbb{K}$. A way to make this rigorous is as follows:
 
 \begin{definition}
-\textbf{(a)} A \textit{complex residue class modulo }$p$ is defined as a pair
-$\left(  a,b\right)  $ of two residue classes in $\mathbb{Z}/p$.
+\label{def.finfield.K'}Let $\mathbb{K}$ be a commutative ring.
 
-\textbf{(b)} We let $\mathbb{F}^{\prime}$ be the set of all complex residue
-classes modulo $p$.
+\textbf{(a)} Let $\mathbb{K}^{\prime}$ be the set of all pairs $\left(
+a,b\right)  \in\mathbb{K}\times\mathbb{K}$.
 
-\textbf{(c)} For each $r\in\mathbb{Z}/p$, we denote the complex residue class
-$\left(  r,0\right)  $ by $r_{\mathbb{F}^{\prime}}$.
+\textbf{(b)} For each $r\in\mathbb{K}$, we denote the pair $\left(
+r,0\right)  \in\mathbb{K}^{\prime}$ by $r_{\mathbb{K}^{\prime}}$. We identify
+$r\in\mathbb{K}$ with $r_{\mathbb{K}^{\prime}}=\left(  r,0\right)
+\in\mathbb{K}^{\prime}$, so that $\mathbb{K}$ becomes a subset of
+$\mathbb{K}^{\prime}$.
 
-\textbf{(d)} We let $i$ be the complex residue class $\left(  0,1\right)  $.
+\textbf{(d)} We let $i$ be the pair $\left(  0,1\right)  \in\mathbb{K}%
+^{\prime}$.
 
 \textbf{(e)} We define three binary operations $+$, $-$ and $\cdot$ on
-$\mathbb{F}^{\prime}$ by setting%
+$\mathbb{K}^{\prime}$ by setting%
 \begin{align*}
 \left(  a,b\right)  +\left(  c,d\right)   &  =\left(  a+c,b+d\right)  ,\\
 \left(  a,b\right)  -\left(  c,d\right)   &  =\left(  a-c,b-d\right)
 ,\ \ \ \ \ \ \ \ \ \ \text{and}\\
 \left(  a,b\right)  \cdot\left(  c,d\right)   &  =\left(  ac-bd,ad+bc\right)
 \end{align*}
-for all $\left(  a,b\right)  \in\mathbb{F}^{\prime}$ and $\left(  c,d\right)
-\in\mathbb{F}^{\prime}$.
+for all $\left(  a,b\right)  \in\mathbb{K}^{\prime}$ and $\left(  c,d\right)
+\in\mathbb{K}^{\prime}$.
 
-\textbf{(f)} If $\alpha$ and $\beta$ are two complex residue classes, then we
-write $\alpha\beta$ for $\alpha\cdot\beta$.
+\textbf{(f)} If $\alpha,\beta\in\mathbb{K}^{\prime}$, then we write
+$\alpha\beta$ for $\alpha\cdot\beta$.
 \end{definition}
 
+You will, of course, recognize this definition to be exactly Definition
+\ref{def.CC.CC} with $\mathbb{C}$ replaced by $\mathbb{K}$. The elements of
+$\mathbb{K}^{\prime}$ are like complex numbers, but built upon $\mathbb{K}$
+instead of $\mathbb{R}$.
+
 \begin{proposition}
-This $\mathbb{F}^{\prime}$ (with the operations $+$ and $\cdot$ and the
-elements $0_{\mathbb{F}^{\prime}}$ and $1_{\mathbb{F}^{\prime}}$) is a
+\label{prop.finfield.K'.cring}The set $\mathbb{K}^{\prime}$ defined in
+Definition \ref{def.finfield.K'} (equipped with the operations $+$ and $\cdot$
+and the elements $0_{\mathbb{K}^{\prime}}$ and $1_{\mathbb{K}^{\prime}}$) is a
 commutative ring.
 \end{proposition}
 
 \begin{proof}
-Same as we did for $\mathbb{C}$ in the proof of Theorem \ref{thm.CC.CC.rules}.
+Same argument as we did for $\mathbb{C}$ in the proof of Theorem
+\ref{thm.CC.CC.rules}.
 \end{proof}
 
-Thus, $\mathbb{F}^{\prime}$ is a ring with $p^{2}$ elements.
+\begin{convention}
+For the rest of this section, we let $\mathbb{K}^{\prime}$ be the commutative
+ring constructed in Proposition \ref{prop.finfield.K'.cring} (i.e., the set
+$\mathbb{K}^{\prime}$ equipped with the operations $+$ and $\cdot$ and the
+elements $0_{\mathbb{K}^{\prime}}$ and $1_{\mathbb{K}^{\prime}}$).
+\end{convention}
 
-But when is $\mathbb{F}^{\prime}$ is a field?
+Thus, if $\mathbb{K}=\mathbb{Z}/p$, then $\mathbb{K}^{\prime}$ is a ring with
+$p^{2}$ elements.
 
-For $\mathbb{F}^{\prime}$ to be a field, every nonzero $\xi\in\mathbb{F}%
-^{\prime}$ needs to have a multiplicative inverse.
+\begin{question}
+When is $\mathbb{K}^{\prime}$ is a field?
+\end{question}
 
-So let $\xi=x+yi$ (with $x,y\in\mathbb{F}=\mathbb{Z}/p$) be nonzero. Thus,
-$\left(  x,y\right)  \neq\left(  0,0\right)  $.
+Assume that $0\neq1$ in $\mathbb{K}$; thus, $0\neq1$ in $\mathbb{K}^{\prime}$
+as well (since $0_{\mathbb{K}^{\prime}}=\left(  0,0\right)  \neq\left(
+1,0\right)  =1_{\mathbb{K}^{\prime}}$). Hence, in order for $\mathbb{K}%
+^{\prime}$ to be a field, every nonzero $\xi\in\mathbb{K}^{\prime}$ needs to
+have a multiplicative inverse. Thus, in particular, every nonzero element of
+$\mathbb{K}$ must have a multiplicative inverse in $\mathbb{K}^{\prime}$. It
+is easy to see that such an inverse, if it exists, must belong to $\mathbb{K}$
+as well (i.e., it must have the form $r_{\mathbb{K}^{\prime}}$ for some
+$r\in\mathbb{K}$); thus, this means that every nonzero element of $\mathbb{K}$
+must have a multiplicative inverse in $\mathbb{K}$. In other words,
+$\mathbb{K}$ itself must be a field.
+
+Thus, we assume from now on that $\mathbb{K}$ is a field. But we are not done
+yet. It is definitely not always true that $\mathbb{K}^{\prime}$ is a field.
+For example, if $\mathbb{K}=\mathbb{Z}/2$, then the element $\left(
+1,1\right)  $ of $\mathbb{K}^{\prime}$ has no inverse (check this!), and so
+$\mathbb{K}^{\prime}$ is not a field in this case. What must $\mathbb{K}$
+satisfy in order for $\mathbb{K}^{\prime}$ to be a field?
+
+We know what it must satisfy: The condition is that every nonzero $\xi
+\in\mathbb{K}^{\prime}$ has a multiplicative inverse. We just need to see when
+this condition holds.
+
+So let $\xi=x+yi$ (with $x,y\in\mathbb{K}$) be nonzero. Thus, $\left(
+x,y\right)  \neq\left(  0,0\right)  $.
 
 How to find $\xi^{-1}$ ? Try rationalizing the denominator:%
 \[
 \dfrac{1}{\xi}=\dfrac{1}{x+yi}=\dfrac{x-yi}{\left(  x+yi\right)  \left(
 x-yi\right)  }=\dfrac{x-yi}{x^{2}+y^{2}}.
 \]
-We need $x^{2}+y^{2}\neq0$ in $\mathbb{F}$ for this to work.
-
-This works if the following condition holds:
+We need $x^{2}+y^{2}\neq0$ in $\mathbb{K}$ for this to work. In other words,
+we need the following condition to hold:
 
 \begin{statement}
-\textit{Condition 1:} For every pair $\left(  x,y\right)  \in\left(
-\mathbb{Z}/p\right)  \times\left(  \mathbb{Z}/p\right)  $ satisfying $\left(
-x,y\right)  \neq\left(  0,0\right)  $, we have $x^{2}+y^{2}\neq0$ in
-$\mathbb{F}=\mathbb{Z}/p$.
+\textit{Condition 1:} For every pair $\left(  x,y\right)  \in\mathbb{K}%
+\times\mathbb{K}$ satisfying $\left(  x,y\right)  \neq\left(  0,0\right)  $,
+we have $x^{2}+y^{2}\neq0$ in $\mathbb{K}$.
 \end{statement}
 
-Thus, $\mathbb{F}^{\prime}$ is a field if Condition 1 holds. Conversely, if
-$\mathbb{F}^{\prime}$ is a field, then Condition 1 holds (because if $\left(
-x,y\right)  \in\left(  \mathbb{Z}/p\right)  \times\left(  \mathbb{Z}/p\right)
-$ satisfies $\left(  x,y\right)  \neq\left(  0,0\right)  $, then $\left(
-x,y\right)  \left(  x,-y\right)  =\left(  x^{2}+y^{2},0\right)  $ would have
-to be $\neq\left(  0,0\right)  $ in order for $\mathbb{F}^{\prime}$ to be a
-field). So $\mathbb{F}^{\prime}$ is a field if and only if Condition 1 holds.
+Thus, $\mathbb{K}^{\prime}$ is a field if Condition 1 holds. Conversely, if
+$\mathbb{K}^{\prime}$ is a field, then Condition 1 holds (because if $\left(
+x,y\right)  \in\mathbb{K}\times\mathbb{K}$ satisfies $\left(  x,y\right)
+\neq\left(  0,0\right)  $, then $\left(  x,y\right)  \left(  x,-y\right)
+=\left(  x^{2}+y^{2},0\right)  $ would have to be $\neq\left(  0,0\right)  $
+in order for $\mathbb{K}^{\prime}$ to be a field). So $\mathbb{K}^{\prime}$ is
+a field if and only if Condition 1 holds.
 
-Let me restate Condition 1 in terms of integers by replacing the residue
-classes $x$ and $y$ with their representatives $a$ and $b$:
+If $\mathbb{K}=\mathbb{Z}/p$ for some prime $p$, then Condition 1 can be
+restated as follows:
+
+\begin{statement}
+\textit{Condition 1':} For every pair $\left(  x,y\right)  \in\left(
+\mathbb{Z}/p\right)  \times\left(  \mathbb{Z}/p\right)  $ satisfying $\left(
+x,y\right)  \neq\left(  0,0\right)  $, we have $x^{2}+y^{2}\neq0$ in
+$\mathbb{Z}/p$.
+\end{statement}
+
+We can further restate Condition 1' in terms of integers by replacing the
+residue classes $x$ and $y$ with their representatives $a$ and $b$:
 
 \begin{statement}
 \textit{Condition 2:} For every pair $\left(  a,b\right)  \in\mathbb{Z}%
@@ -23156,26 +23451,30 @@ classes $x$ and $y$ with their representatives $a$ and $b$:
 $p$, the sum $a^{2}+b^{2}$ is not divisible by $p$.
 \end{statement}
 
-\begin{example}
-\textbf{(a)} If $p=2$, then Condition 2 fails for $\left(  a,b\right)
-=\left(  1,1\right)  $. So $\mathbb{F}^{\prime}$ is not a field for $p=2$.
+So the ring $\mathbb{K}^{\prime}$ constructed from $\mathbb{K}=\mathbb{Z}/p$
+is a field if and only if Condition 2 holds. When does Condition 2 hold?
 
-\textbf{(b)} If $p=3$, then Condition 2 holds. So $\mathbb{F}^{\prime}$ is a
+\begin{example}
+Let $\mathbb{K}=\mathbb{Z}/p$.
+
+\textbf{(a)} If $p=2$, then Condition 2 fails for $\left(  a,b\right)
+=\left(  1,1\right)  $. So $\mathbb{K}^{\prime}$ is not a field for $p=2$.
+
+\textbf{(b)} If $p=3$, then Condition 2 holds. So $\mathbb{K}^{\prime}$ is a
 field for $p=3$. Thus we have found a field with $3^{2}=9$ elements.
 
 \textbf{(c)} If $p=5$, then Condition 2 fails for $\left(  a,b\right)
-=\left(  1,2\right)  $. So $\mathbb{F}^{\prime}$ is not a field for $p=5$.
+=\left(  1,2\right)  $. So $\mathbb{K}^{\prime}$ is not a field for $p=5$.
 \end{example}
 
-This suggests that Condition 2 holds if and only if $p\equiv
-3\operatorname{mod}4$.
+This suggests that the following:
 
 \begin{proposition}
 A prime $p$ satisfies Condition 2 if and only if $p\equiv3\operatorname{mod}4$.
 \end{proposition}
 
 \begin{proof}
-$\Longrightarrow:$ Assume that $p$ satisfies Condition 2. Assume (for
+$\Longrightarrow:$ Assume that a prime $p$ satisfies Condition 2. Assume (for
 contradiction) that $p\not \equiv 3\operatorname{mod}4$. So $p$ is a prime of
 Type 1 or 2. Thus, $p=x^{2}+y^{2}$ for two integers $x,y$ (by Theorem
 \ref{thm.Z[i].gauss.prime.1mod4} \textbf{(a)}). Now, $\left(  x,y\right)  $ is
@@ -23183,8 +23482,8 @@ a pair in $\mathbb{Z}\times\mathbb{Z}$ such that \textbf{not both} $x$ and $y$
 are divisible by $p$ (why not?), but the sum $x^{2}+y^{2}=p$ is divisible by
 $p$. So Condition 2 fails for $\left(  a,b\right)  =\left(  x,y\right)  $.
 
-$\Longleftarrow:$ Assume that $p\equiv3\operatorname{mod}4$. Thus, $\left(
-p-1\right)  /2$ is odd.
+$\Longleftarrow:$ Assume that a prime $p$ satisfies $p\equiv
+3\operatorname{mod}4$. Thus, $\left(  p-1\right)  /2$ is odd.
 
 Let $\left(  a,b\right)  \in\mathbb{Z}\times\mathbb{Z}$ be a pair such that
 \textbf{not both} $a$ and $b$ are divisible by $p$. We must prove that the sum
@@ -23209,8 +23508,7 @@ From $a^{2}+b^{2}\equiv0\operatorname{mod}p$, we get $a^{2}\equiv
 ^{\left(  p-1\right)  /2}=\underbrace{\left(  -1\right)  ^{\left(  p-1\right)
 /2}}_{\substack{=-1\\\text{(since }\left(  p-1\right)  /2\text{ is odd)}%
 }}\underbrace{\left(  b^{2}\right)  ^{\left(  p-1\right)  /2}}%
-_{\substack{=b^{p-1}\\\equiv1\operatorname{mod}p}}\equiv-1\operatorname{mod}%
-p.
+_{\substack{=b^{p-1}\\\equiv1\operatorname{mod}p}}\equiv-1\operatorname{mod}p.
 \]
 Hence,%
 \[
@@ -23221,8 +23519,10 @@ Hence, $p\mid\left(  -1\right)  -1=-2$, so $p=2$. This contradicts
 $p\equiv3\operatorname{mod}4$.
 \end{proof}
 
-Thus, we have found a field $\mathbb{F}^{\prime}$ with $p^{2}$ elements for
-any prime $p$ of Type 3. What about the other primes?
+Thus, if we set $\mathbb{K}=\mathbb{Z}/p$ where $p$ is a prime of Type 3, then
+$\mathbb{K}^{\prime}$ will be a field. So we have found a field $\mathbb{K}%
+^{\prime}$ with $p^{2}$ elements for any prime $p$ of Type 3. What about the
+other primes?
 
 We can try to vary the construction above: Instead of adjoining a square root
 of $-1$, we adjoin a square root of some other element $\eta\in\mathbb{Z}/p$.
@@ -23232,23 +23532,26 @@ Let $\mathbb{K}$ be a ring. A \textit{square} (in $\mathbb{K}$) means an
 element of the form $a^{2}$ for some $a\in\mathbb{K}$.
 \end{definition}
 
+Now, we generalize Definition \ref{def.finfield.K'} as follows:
+
 \begin{definition}
-Fix a prime $p$, and an element $\eta\in\mathbb{Z}/p$.
+\label{def.finfield.K'eta}Let $\mathbb{K}$ be a commutative ring. Let $\eta
+\in\mathbb{K}$.
 
-\textbf{(a)} A $\eta$\textit{-complex residue class modulo }$p$ is defined as
-a pair $\left(  a,b\right)  $ of two residue classes in $\mathbb{Z}/p$.
+\textbf{(a)} Let $\mathbb{K}_{\eta}^{\prime}$ be the set of all pairs $\left(
+a,b\right)  \in\mathbb{K}\times\mathbb{K}$.
 
-\textbf{(b)} We let $\mathbb{F}_{\eta}^{\prime}$ be the set of all $\eta
-$-complex residue classes modulo $p$.
+\textbf{(b)} For each $r\in\mathbb{K}$, we denote the pair $\left(
+r,0\right)  \in\mathbb{K}_{\eta}^{\prime}$ by $r_{\mathbb{K}_{\eta}^{\prime}}%
+$. We identify $r\in\mathbb{K}$ with $r_{\mathbb{K}_{\eta}^{\prime}}=\left(
+r,0\right)  \in\mathbb{K}_{\eta}^{\prime}$, so that $\mathbb{K}$ becomes a
+subset of $\mathbb{K}_{\eta}^{\prime}$.
 
-\textbf{(c)} For each $r\in\mathbb{Z}/p$, we denote the $\eta$-complex residue
-class $\left(  r,0\right)  $ by $r_{\mathbb{F}^{\prime}}$.
-
-\textbf{(d)} We let $i$ be the $\eta$-complex residue class $\left(
-0,1\right)  $.
+\textbf{(d)} We let $i_{\eta}$ be the pair $\left(  0,1\right)  \in
+\mathbb{K}_{\eta}^{\prime}$.
 
 \textbf{(e)} We define three binary operations $+$, $-$ and $\cdot$ on
-$\mathbb{F}_{\eta}^{\prime}$ by setting%
+$\mathbb{K}_{\eta}^{\prime}$ by setting%
 \begin{align*}
 \left(  a,b\right)  +\left(  c,d\right)   &  =\left(  a+c,b+d\right)  ,\\
 \left(  a,b\right)  -\left(  c,d\right)   &  =\left(  a-c,b-d\right)
@@ -23256,35 +23559,42 @@ $\mathbb{F}_{\eta}^{\prime}$ by setting%
 \left(  a,b\right)  \cdot\left(  c,d\right)   &  =\left(  ac+\eta
 bd,ad+bc\right)
 \end{align*}
-for all $\left(  a,b\right)  \in\mathbb{F}_{\eta}^{\prime}$ and $\left(
-c,d\right)  \in\mathbb{F}_{\eta}^{\prime}$.
+for all $\left(  a,b\right)  \in\mathbb{K}_{\eta}^{\prime}$ and $\left(
+c,d\right)  \in\mathbb{K}_{\eta}^{\prime}$.
 
-\textbf{(f)} If $\alpha$ and $\beta$ are two $\eta$-complex residue classes,
-then we write $\alpha\beta$ for $\alpha\cdot\beta$.
+\textbf{(f)} If $\alpha,\beta\in\mathbb{K}_{\eta}^{\prime}$, then we write
+$\alpha\beta$ for $\alpha\cdot\beta$.
 \end{definition}
 
+Note that $\mathbb{K}_{\eta}^{\prime}$ differs from $\mathbb{K}^{\prime}$ only
+in how the multiplication is defined.
+
 \begin{theorem}
-\textbf{(a)} This $\mathbb{F}_{\eta}^{\prime}$ is always a commutative ring.
+\textbf{(a)} The set $\mathbb{K}_{\eta}^{\prime}$ defined in Definition
+\ref{def.finfield.K'eta} (equipped with the operations $+$ and $\cdot$ and the
+elements $0_{\mathbb{K}_{\eta}^{\prime}}$ and $1_{\mathbb{K}_{\eta}^{\prime}}%
+$) is a commutative ring.
 
-\textbf{(b)} If $\eta$ is not a square in $\mathbb{Z}/p$, then $\mathbb{F}%
-_{\eta}^{\prime}$ is a field.
+\textbf{(b)} If $\mathbb{K}$ is a field and $\eta$ is not a square in
+$\mathbb{K}$, then $\mathbb{K}_{\eta}^{\prime}$ is a field.
 
-\textbf{(c)} There always exists an element $\eta\in\mathbb{Z}/p$ that is not
-a square, \textbf{unless} $p=2$.
+\textbf{(c)} Let $p$ be a prime. There always exists an element $\eta
+\in\mathbb{Z}/p$ that is not a square, \textbf{unless} $p=2$.
 \end{theorem}
 
 \begin{proof}
 \textbf{(a)} Similar to the proof for $\mathbb{C}$.
 
-\textbf{(b)} Assume that $\eta$ is not a square in $\mathbb{Z}/p$. We need to
-prove that each nonzero $\xi\in\mathbb{F}_{p}^{\prime}$ is invertible.
+\textbf{(b)} Assume that $\mathbb{K}$ is a field and that $\eta$ is not a
+square in $\mathbb{K}$. We need to prove that $\mathbb{K}_{\eta}^{\prime}$ is
+a field. In other words, we need to prove that each nonzero $\xi\in
+\mathbb{K}_{\eta}^{\prime}$ is invertible.
 
-So let $\xi\in\mathbb{F}_{p}^{\prime}$ be nonzero, and write $\xi$ as
-$\xi=\left(  x,y\right)  $ with $x,y\in\mathbb{Z}/p$. We must show that $\xi$
-is invertible.
+So let $\xi\in\mathbb{K}_{\eta}^{\prime}$ be nonzero, and write $\xi$ as
+$\xi=\left(  x,y\right)  $ with $x,y\in\mathbb{K}$. We must show that $\xi$ is invertible.
 
 We have $\left(  x,y\right)  \left(  x,-y\right)  =\left(  x^{2}-\eta
-y^{2},0\right)  $. If $x^{2}-\eta y^{2}$ is nonzero, then this allows me to
+y^{2},0\right)  $. If $x^{2}-\eta y^{2}$ is nonzero, then this allows us to
 construct the inverse of $\left(  x,y\right)  $ as $\dfrac{1}{x^{2}-\eta
 y^{2}}\left(  x,-y\right)  $. So we need to prove that $x^{2}-\eta y^{2}$ is nonzero.
 
@@ -23293,10 +23603,11 @@ can be rewritten as $\dfrac{x^{2}}{y^{2}}-\eta=0$, whence $\eta=\dfrac{x^{2}%
 }{y^{2}}=\left(  \dfrac{x}{y}\right)  ^{2}$, which contradicts the fact that
 $\eta$ is not a square. So $y$ cannot be nonzero. Thus, $y=0$. Hence,
 $x^{2}-\eta y^{2}=0$ rewrites as $x^{2}=0$. Since $\xi=\left(
-x,\underbrace{y}_{=0}\right)  =\left(  x,0\right)  $, so that $x$ is nonzero
-(since $\xi$ is nonzero). Hence, multiplying $x^{2}=0$ by $x^{-1}$, we obtain
-$x=0$, which contradicts $x$ being nonzero. So our assumption was wrong. Part
-\textbf{(b)} is proven.
+x,\underbrace{y}_{=0}\right)  =\left(  x,0\right)  $, we know that $x$ is
+nonzero (since $\xi$ is nonzero). Hence, $x$ has a multiplicative inverse
+(since $\mathbb{K}$ is a field). Hence, multiplying $x^{2}=0$ by $x^{-1}$, we
+obtain $x=0$, which contradicts $x$ being nonzero. So our assumption was
+wrong. Part \textbf{(b)} is proven.
 \end{proof}
 
 \begin{center}
@@ -23320,13 +23631,19 @@ bijective, hence injective). In other words, there exists some $\eta
 element $\eta\in\mathbb{Z}/p$ that is not a square.
 \end{proof}
 
+Now, if $p$ is a prime with $p>2$, then part \textbf{(c)} of the above Theorem
+yields that there exists an element $\eta\in\mathbb{Z}/p$ that is not a
+square; therefore, part \textbf{(b)} of the above Theorem shows that
+$\mathbb{K}_{\eta}^{\prime}$ is a field where $\mathbb{K}=\mathbb{Z}/p$. This
+is a field with $p^{2}$ elements.
+
 What about fields of size $4$ ?
 
 We cannot get them by adjoining a square root to $\mathbb{Z}/2$. So let us
 instead try to adjoin an element $j$ such that $j^{2}=j+1$. So we define
-$\mathbb{F}^{\prime}$ as the set of pairs $\left(  a,b\right)  \in\left(
-\mathbb{Z}/2\right)  \times\left(  \mathbb{Z}/2\right)  $, and we define
-$+,-,\cdot$ on $\mathbb{F}^{\prime}$ by%
+$\mathbb{K}^{\prime\prime}$ as the set of pairs $\left(  a,b\right)
+\in\left(  \mathbb{Z}/2\right)  \times\left(  \mathbb{Z}/2\right)  $, and we
+define $+,-,\cdot$ on $\mathbb{K}^{\prime\prime}$ by%
 \begin{align*}
 \left(  a,b\right)  +\left(  c,d\right)   &  =\left(  a+c,b+d\right)  ,\\
 \left(  a,b\right)  -\left(  c,d\right)   &  =\left(  a-c,b-d\right)
@@ -23334,14 +23651,14 @@ $+,-,\cdot$ on $\mathbb{F}^{\prime}$ by%
 \left(  a,b\right)  \cdot\left(  c,d\right)   &  =\left(
 ac+bd,ad+bc+bd\right)  .
 \end{align*}
-This is going to be a field with $4$ elements.
+You can check that this is a field with $4$ elements.
 
 Thus, for each prime $p$, we have found a field with $p^{2}$ elements.
 
 TODO:
 
 \begin{itemize}
-\item No field of size $6$.
+\item There is no field of size $6$.
 
 \item Direct products $\mathbb{K}_{1}\times\mathbb{K}_{2}\times\cdots
 \times\mathbb{K}_{n}$.
@@ -29988,7 +30305,7 @@ Multiplying these two equalities together, we obtain%
 \begin{equation}
 \alpha^{k+1}\beta^{k+1}=\left(  \alpha\alpha^{k}\right)  \left(  \beta
 \beta^{k}\right)  =\left(  \left(  \alpha\alpha^{k}\right)  \beta\right)
-\beta^{k}\label{sol.CC.CC.power-rules.a.c3.pf.1}%
+\beta^{k} \label{sol.CC.CC.power-rules.a.c3.pf.1}%
 \end{equation}
 (by Theorem \ref{thm.CC.CC.rules} \textbf{(f)}). But Proposition
 \ref{prop.CC.CC.power-rules} \textbf{(a)} (applied to $\alpha\beta$ and $k$
@@ -30000,9 +30317,9 @@ various ways of parenthesizing this product). I am avoiding unparenthesized
 products here for the purpose of illustrating how to live without them; in the
 future I will simply use them wherever they can help.}%
 \begin{align*}
-\left(  \alpha\beta\right)  ^{k+1} &  =\left(  \alpha\beta\right)
+\left(  \alpha\beta\right)  ^{k+1}  &  =\left(  \alpha\beta\right)
 \underbrace{\left(  \alpha\beta\right)  ^{k}}_{=\alpha^{k}\beta^{k}}=\left(
-\alpha\beta\right)  \left(  \alpha^{k}\beta^{k}\right)  \\
+\alpha\beta\right)  \left(  \alpha^{k}\beta^{k}\right) \\
 &  =\alpha\underbrace{\left(  \beta\left(  \alpha^{k}\beta^{k}\right)
 \right)  }_{=\left(  \beta\alpha^{k}\right)  \beta^{k}}%
 \ \ \ \ \ \ \ \ \ \ \left(
@@ -30012,12 +30329,12 @@ future I will simply use them wherever they can help.}%
 \text{yields }\alpha\left(  \beta\left(  \alpha^{k}\beta^{k}\right)  \right)
 =\left(  \alpha\beta\right)  \left(  \alpha^{k}\beta^{k}\right)
 \end{array}
-\right)  \\
+\right) \\
 &  =\alpha\left(  \left(  \beta\alpha^{k}\right)  \beta^{k}\right)  =\left(
 \alpha\underbrace{\left(  \beta\alpha^{k}\right)  }_{\substack{=\alpha
 ^{k}\beta\\\text{(by Theorem \ref{thm.CC.CC.rules} \textbf{(e)})}}}\right)
 \beta^{k}\ \ \ \ \ \ \ \ \ \ \left(  \text{by Theorem \ref{thm.CC.CC.rules}
-\textbf{(f)}}\right)  \\
+\textbf{(f)}}\right) \\
 &  =\underbrace{\left(  \alpha\left(  \alpha^{k}\beta\right)  \right)
 }_{\substack{=\left(  \alpha\alpha^{k}\right)  \beta\\\text{(by Theorem
 \ref{thm.CC.CC.rules} \textbf{(f)})}}}\beta^{k}=\left(  \left(  \alpha
@@ -30055,8 +30372,8 @@ yields%
 \]
 Comparing this with%
 \begin{align*}
-\alpha^{n\left(  k+1\right)  } &  =\alpha^{n+nk}\ \ \ \ \ \ \ \ \ \ \left(
-\text{since }n\left(  k+1\right)  =n+nk\right)  \\
+\alpha^{n\left(  k+1\right)  }  &  =\alpha^{n+nk}\ \ \ \ \ \ \ \ \ \ \left(
+\text{since }n\left(  k+1\right)  =n+nk\right) \\
 &  =\alpha^{n}\alpha^{nk}\ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition
 \ref{prop.CC.CC.power-rules} \textbf{(b)}, applied to }m=nk\right)  ,
 \end{align*}
@@ -30116,8 +30433,8 @@ Let us finally consider Case 3. In this case, we have $n<-1$. Hence, $n+1<0$.
 Therefore, Definition \ref{def.CC.CC.power-} (applied to $n+1$ instead of $n$)
 yields
 \begin{equation}
-\alpha^{n+1}=\left(  \alpha^{-1}\right)  ^{-\left(  n+1\right)  }%
-.\label{pf.prop.CC.CC.power-rules.e.3}%
+\alpha^{n+1}=\left(  \alpha^{-1}\right)  ^{-\left(  n+1\right)  }.
+\label{pf.prop.CC.CC.power-rules.e.3}%
 \end{equation}
 
 
@@ -30128,10 +30445,10 @@ $\alpha$ and $n$) yields $\left(  \alpha^{-1}\right)  ^{-\left(  n+1\right)
 +1}=\alpha^{-1}\left(  \alpha^{-1}\right)  ^{-\left(  n+1\right)  }$. On the
 other hand, $n<-1<0$. Hence, Definition \ref{def.CC.CC.power-} yields
 \begin{align*}
-\alpha^{n}  & =\left(  \alpha^{-1}\right)  ^{-n}=\left(  \alpha^{-1}\right)
+\alpha^{n}  &  =\left(  \alpha^{-1}\right)  ^{-n}=\left(  \alpha^{-1}\right)
 ^{-\left(  n+1\right)  +1}\ \ \ \ \ \ \ \ \ \ \left(  \text{since }-n=-\left(
-n+1\right)  +1\right)  \\
-& =\alpha^{-1}\underbrace{\left(  \alpha^{-1}\right)  ^{-\left(  n+1\right)
+n+1\right)  +1\right) \\
+&  =\alpha^{-1}\underbrace{\left(  \alpha^{-1}\right)  ^{-\left(  n+1\right)
 }}_{\substack{=\alpha^{n+1}\\\text{(by (\ref{pf.prop.CC.CC.power-rules.e.3}%
 ))}}}=\alpha^{-1}\alpha^{n+1}.
 \end{align*}
@@ -30198,7 +30515,7 @@ nonzero $\alpha\in\mathbb{C}$ and all $n,m\in\mathbb{Z}$. We shall first prove
 the following less general result:
 
 \begin{statement}
-\textit{Claim 1:} We have $\alpha^{n+m}=\alpha^{n}\alpha^{m}$ for  all nonzero
+\textit{Claim 1:} We have $\alpha^{n+m}=\alpha^{n}\alpha^{m}$ for all nonzero
 $\alpha\in\mathbb{C}$ and all $n\in\mathbb{N}$ and $m\in\mathbb{Z}$.
 \end{statement}
 
@@ -30210,7 +30527,7 @@ We shall prove Claim 1 by induction on $n$:
 \textit{Induction base:} If $\alpha\in\mathbb{C}$ is nonzero, and if
 $m\in\mathbb{Z}$, then $\underbrace{\alpha^{0}}_{=1}\alpha^{m}=1\cdot
 \alpha^{m}=\alpha^{m}=\alpha^{0+m}$ (since $m=0+m$). In other words, we have
-$\alpha^{0+m}=\alpha^{0}\alpha^{m}$ for  all nonzero $\alpha\in\mathbb{C}$ and
+$\alpha^{0+m}=\alpha^{0}\alpha^{m}$ for all nonzero $\alpha\in\mathbb{C}$ and
 all $m\in\mathbb{Z}$. In other words, Claim 1 holds for $n=0$. This completes
 the induction base.
 
@@ -30235,7 +30552,7 @@ But $\left(  k+1\right)  +m=\left(  k+m\right)  +1$ and hence%
 
 
 Now, forget that we fixed $m$. We thus have shown that $\alpha^{\left(
-k+1\right)  +m}=\alpha^{k+1}\alpha^{m}$ for  all nonzero $\alpha\in\mathbb{C}$
+k+1\right)  +m}=\alpha^{k+1}\alpha^{m}$ for all nonzero $\alpha\in\mathbb{C}$
 and all $m\in\mathbb{Z}$. In other words, Claim 1 holds for $n=k+1$. This
 completes the induction step. Thus, Claim 1 is proven by induction.]
 
@@ -30256,7 +30573,7 @@ which would be absurd). Hence, Claim 1 (applied to $\alpha^{-1}$, $-n$ and
 $-m$ instead of $\alpha$, $n$ and $m$) yields%
 \begin{equation}
 \left(  \alpha^{-1}\right)  ^{\left(  -n\right)  +\left(  -m\right)  }=\left(
-\alpha^{-1}\right)  ^{-n}\left(  \alpha^{-1}\right)  ^{-m}%
+\alpha^{-1}\right)  ^{-n}\left(  \alpha^{-1}\right)  ^{-m}
 \label{pf.prop.CC.CC.power-rules.h.5}%
 \end{equation}
 (since $-n\in\mathbb{N}$).
@@ -30270,12 +30587,12 @@ view of $-\left(  -m\right)  =m$, this rewrites $\alpha^{m}=\left(
 $m$) yields $\alpha^{n+m}=\left(  \alpha^{-1}\right)  ^{-\left(  n+m\right)
 }$. Hence,%
 \begin{align*}
-\alpha^{n+m}  & =\left(  \alpha^{-1}\right)  ^{-\left(  n+m\right)  }=\left(
+\alpha^{n+m}  &  =\left(  \alpha^{-1}\right)  ^{-\left(  n+m\right)  }=\left(
 \alpha^{-1}\right)  ^{\left(  -n\right)  +\left(  -m\right)  }%
 \ \ \ \ \ \ \ \ \ \ \left(  \text{since }-\left(  n+m\right)  =\left(
--n\right)  +\left(  -m\right)  \right)  \\
-& =\left(  \alpha^{-1}\right)  ^{-n}\left(  \alpha^{-1}\right)  ^{-m}%
-\ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.prop.CC.CC.power-rules.h.5}%
+-n\right)  +\left(  -m\right)  \right) \\
+&  =\left(  \alpha^{-1}\right)  ^{-n}\left(  \alpha^{-1}\right)
+^{-m}\ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.prop.CC.CC.power-rules.h.5}%
 )}\right)  .
 \end{align*}
 Comparing this with%
@@ -30310,7 +30627,7 @@ $\alpha\beta$ instead of $\alpha$) yields%
 \left(  \alpha\beta\right)  ^{n}=\left(  \underbrace{\left(  \alpha
 \beta\right)  ^{-1}}_{=\alpha^{-1}\beta^{-1}}\right)  ^{-n}=\left(
 \alpha^{-1}\beta^{-1}\right)  ^{-n}=\left(  \alpha^{-1}\right)  ^{-n}\left(
-\beta^{-1}\right)  ^{-n}.\label{pf.prop.CC.CC.power-rules.2}%
+\beta^{-1}\right)  ^{-n}. \label{pf.prop.CC.CC.power-rules.2}%
 \end{equation}
 
 
@@ -30358,7 +30675,7 @@ Hence, we cannot have $\alpha^{n}=0$. In other words, $\alpha^{n}\neq0$. Thus,
 $\alpha^{n}$ is nonzero. Hence, the inverse $\left(  \alpha^{n}\right)  ^{-1}$
 of $\alpha^{n}$ is well-defined.
 
-Moreover, the equality  $\alpha^{n}\left(  \alpha^{-1}\right)  ^{n}=1$ shows
+Moreover, the equality $\alpha^{n}\left(  \alpha^{-1}\right)  ^{n}=1$ shows
 that $\left(  \alpha^{-1}\right)  ^{n}$ is an inverse of $\alpha^{n}$ (by the
 definition of \textquotedblleft inverse\textquotedblright). In other words,
 the inverse of $\alpha^{n}$ is $\left(  \alpha^{-1}\right)  ^{n}$. In other
@@ -30402,8 +30719,8 @@ and $k$ instead of $\alpha$ and $n$) yields%
 \]
 Comparing this with%
 \begin{align*}
-\alpha^{n\left(  k+1\right)  } &  =\alpha^{n+nk}\ \ \ \ \ \ \ \ \ \ \left(
-\text{since }n\left(  k+1\right)  =n+nk\right)  \\
+\alpha^{n\left(  k+1\right)  }  &  =\alpha^{n+nk}\ \ \ \ \ \ \ \ \ \ \left(
+\text{since }n\left(  k+1\right)  =n+nk\right) \\
 &  =\alpha^{n}\alpha^{nk}\ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition
 \ref{prop.CC.CC.power-rules} \textbf{(h)}, applied to }m=nk\right)  ,
 \end{align*}
