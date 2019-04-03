@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Tuesday, April 02, 2019 22:41:33}
+%TCIDATA{LastRevised=Tuesday, April 02, 2019 23:07:47}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -9124,8 +9124,7 @@ For one last time, here is the proof in detail:
 We have $p>1$ (since $p$ is a prime), thus $p\neq1$. Also, $p\mid p$; hence,
 Proposition \ref{prop.ent.gcd.props1} \textbf{(i)} (applied to $a=p$ and
 $b=p$) yields $\gcd\left(  p,p\right)  =\left\vert p\right\vert =p$ (since
-$p>1>0$). Thus, $\gcd\left(  p,p\right)  =p\neq1$; in other words, we don't
-have $p\perp p$.
+$p>1>0$).
 
 Now, we claim that%
 \begin{equation}
@@ -9135,10 +9134,11 @@ Now, we claim that%
 
 
 [\textit{Proof of (\ref{pf.prop.ent.phi.p.1}):} Let $i\in\left\{
-1,2,\ldots,p\right\}  $ be such that $i\perp p$. If we had $i=p$, then we
-would have $p\perp p$ (since $i\perp p$ but $i=p$), which would contradict the
-fact that we don't have $p\perp p$. Thus, we cannot have $i=p$. Hence, we have
-$i\neq p$. Combining this with $i\in\left\{  1,2,\ldots,p\right\}  $, we
+1,2,\ldots,p\right\}  $ be such that $i\perp p$. From $i\perp p$, we obtain
+$\gcd\left(  i,p\right)  =1$. If we had $i=p$, then we would have $\gcd\left(
+\underbrace{i}_{=p},p\right)  =\gcd\left(  p,p\right)  =p\neq1$, which would
+contradict $\gcd\left(  i,p\right)  =1$. Thus, we cannot have $i=p$. Hence, we
+have $i\neq p$. Combining this with $i\in\left\{  1,2,\ldots,p\right\}  $, we
 obtain $i\in\left\{  1,2,\ldots,p\right\}  \setminus\left\{  p\right\}
 =\left\{  1,2,\ldots,p-1\right\}  $.
 
@@ -11454,7 +11454,7 @@ k\dbinom{n}{k}=n\dbinom{n-1}{k-1}.
 \subsubsection{Combinatorial interpretation}
 
 The next property of binomial coefficients is one of the major motivations for
-their definitions:
+defining them:
 
 \begin{theorem}
 \label{thm.binom.comb-int}Let $n\in\mathbb{N}$ and $k\in\mathbb{Q}$. Let $N$
@@ -23536,7 +23536,8 @@ From $a^{2}+b^{2}\equiv0\operatorname{mod}p$, we get $a^{2}\equiv
 ^{\left(  p-1\right)  /2}=\underbrace{\left(  -1\right)  ^{\left(  p-1\right)
 /2}}_{\substack{=-1\\\text{(since }\left(  p-1\right)  /2\text{ is odd)}%
 }}\underbrace{\left(  b^{2}\right)  ^{\left(  p-1\right)  /2}}%
-_{\substack{=b^{p-1}\\\equiv1\operatorname{mod}p}}\equiv-1\operatorname{mod}p.
+_{\substack{=b^{p-1}\\\equiv1\operatorname{mod}p}}\equiv-1\operatorname{mod}%
+p.
 \]
 Hence,%
 \[
@@ -26625,15 +26626,12 @@ other words, $p\mid p^{k}$ (since $p^{1}=p$). Now, Lemma
 \ref{lem.ent.gcd.uniprop} (applied to $m=p$ and $b=p^{k}$) yields $p\mid
 \gcd\left(  a,p^{k}\right)  $ (since $p\mid a$ and $p\mid p^{k}$). But from
 $a\perp p^{k}$, we obtain $\gcd\left(  a,p^{k}\right)  =1$. Hence, $p\mid
-\gcd\left(  a,p^{k}\right)  =1$. Thus, Proposition \ref{prop.ent.div.1}
-\textbf{(b)} (applied to $p$ and $1$ instead of $a$ and $b$) yields
-$\left\vert p\right\vert \leq\left\vert 1\right\vert =1$.
-
-Since $p$ is prime, we have $p>1>0$, so that $\left\vert p\right\vert =p>1$.
-This contradicts $\left\vert p\right\vert \leq1$. This contradiction shows
-that our assumption was false. Hence, $p\nmid a$ is proven. This concludes the
-proof of the \textquotedblleft$\Longrightarrow$\textquotedblright\ direction
-of Exercise \ref{exe.ent.prime.coprime-to-pk}.
+\gcd\left(  a,p^{k}\right)  =1$. But $p$ is prime; hence, $p>1>0$, so that $p$
+is nonnegative. Hence, Exercise \ref{exe.ent.div.g|1} (applied to $g=p$)
+yields $p=1$ (since $p\mid1$). This contradicts $p>1$. This contradiction
+shows that our assumption was false. Hence, $p\nmid a$ is proven. This
+concludes the proof of the \textquotedblleft$\Longrightarrow$%
+\textquotedblright\ direction of Exercise \ref{exe.ent.prime.coprime-to-pk}.
 
 $\Longleftarrow:$ Assume that $p\nmid a$. We must prove that $a\perp p^{k}$.
 
@@ -26668,15 +26666,15 @@ obtain%
 \]
 Thus,%
 \begin{align*}
-p^{k}-1  &  =\left(  p-1\right)  \underbrace{\left(  p^{k-1}+p^{k-2}%
+p^{k}-1 &  =\left(  p-1\right)  \underbrace{\left(  p^{k-1}+p^{k-2}%
 \cdot1+p^{k-3}\cdot1^{2}+\cdots+p\cdot1^{k-2}+1^{k-1}\right)  }_{=\sum
 _{i=0}^{k-1}p^{i}1^{k-i}}\\
 &  =\underbrace{\left(  p-1\right)  }_{\geq1}\sum_{i=0}^{k-1}p^{i}1^{k-i}%
 \geq1\sum_{i=0}^{k-1}p^{i}1^{k-i}\ \ \ \ \ \ \ \ \ \ \left(  \text{since }%
-\sum_{i=0}^{k-1}p^{i}1^{k-i}\text{ is clearly }\geq0\right) \\
+\sum_{i=0}^{k-1}p^{i}1^{k-i}\text{ is clearly }\geq0\right)  \\
 &  =\sum_{i=0}^{k-1}\underbrace{p^{i}1^{k-i}}_{\substack{=p^{i}\geq
-1^{i}\\\text{(since }p\geq1\text{)}}}=\sum_{i=0}^{k-1}\underbrace{1^{i}}%
-_{=1}=\sum_{i=0}^{k-1}1=k.
+1^{i}\\\text{(since }p\geq1\text{)}}}\geq\sum_{i=0}^{k-1}\underbrace{1^{i}%
+}_{=1}=\sum_{i=0}^{k-1}1=k.
 \end{align*}
 Hence, $p^{k}\geq k+1>k$. This solves Exercise \ref{exe.ent.prime.vp-lem}.
 \end{proof}
@@ -26693,10 +26691,10 @@ $\left\vert n\right\vert =n$ and thus $v_{p}\left(  \left\vert n\right\vert
 assume that $n<0$. Hence, $\left\vert n\right\vert =-n$.
 
 We have $-1\mid p$ (since $p=\left(  -1\right)  \cdot\left(  -p\right)  $).
-Thus, Proposition \ref{prop.ent.gcd.props1} \textbf{(i)} (applied to $-1$ and
-$p$ instead of $a$ and $b$) yields $\gcd\left(  -1,p\right)  =\left\vert
--1\right\vert =1$. In other words, $-1\perp p$. Also, $-1=\left(  -1\right)
-\cdot p^{0}$. Thus, Lemma \ref{lem.ent.prime.vp-copr} \textbf{(b)} (applied to
+Thus, Proposition \ref{prop.ent.gcd.props1} \textbf{(i)} (applied to $a=-1$
+and $b=p$) yields $\gcd\left(  -1,p\right)  =\left\vert -1\right\vert =1$. In
+other words, $-1\perp p$. Also, $-1=\left(  -1\right)  \cdot p^{0}$ (since
+$p^{0}=1$). Thus, Lemma \ref{lem.ent.prime.vp-copr} \textbf{(b)} (applied to
 $-1$, $0$ and $1$ instead of $n$, $i$ and $w$) yields $v_{p}\left(  -1\right)
 =0$. Now, Theorem \ref{thm.ent.prime.vp-ring} \textbf{(a)} (applied to $a=-1$
 and $b=n$) yields $v_{p}\left(  \left(  -1\right)  n\right)
@@ -26741,7 +26739,7 @@ $k$ and $a_{j}$) yields%
 \begin{align}
 v_{p}\left(  p_{1}^{a_{1}}p_{2}^{a_{2}}\cdots p_{u}^{a_{u}}\right)   &
 =v_{p}\left(  p_{1}^{a_{1}}\right)  +v_{p}\left(  p_{2}^{a_{2}}\right)
-+\cdots+v_{p}\left(  p_{u}^{a_{u}}\right) \nonumber\\
++\cdots+v_{p}\left(  p_{u}^{a_{u}}\right)  \nonumber\\
 &  =\sum_{j=1}^{u}\underbrace{v_{p}\left(  p_{j}^{a_{j}}\right)
 }_{\substack{=a_{j}v_{p}\left(  p_{j}\right)  \\\text{(by Exercise
 \ref{exe.ent.prime.vp-pow},}\\\text{applied to }a=p_{j}\text{ and }%
@@ -26753,13 +26751,13 @@ k=a_{j}\text{)}}}=\underbrace{\sum_{j=1}^{u}}_{=\sum_{j\in\left\{
 0, & \text{if }p_{j}\neq p
 \end{cases}
 \\\text{(by Theorem \ref{thm.ent.prime.vp-ring} \textbf{(d)},}\\\text{applied
-to }q=p_{j}\text{)}}}\nonumber\\
+to }q=p_{j}\\\text{(since }p_{j}\text{ is prime))}}}\nonumber\\
 &  =\sum_{j\in\left\{  1,2,\ldots,u\right\}  }a_{j}%
 \begin{cases}
 1, & \text{if }p_{j}=p;\\
 0, & \text{if }p_{j}\neq p
 \end{cases}
-. \label{sol.ent.prime.p1a1puau.1}%
+.\label{sol.ent.prime.p1a1puau.1}%
 \end{align}
 
 
@@ -26778,8 +26776,8 @@ v_{p}\left(  p_{1}^{a_{1}}p_{2}^{a_{2}}\cdots p_{u}^{a_{u}}\right)   &
 \nonumber\\
 &  =a_{i}%
 \begin{cases}
-1, & \text{if }p_{i}=p;\\
-0, & \text{if }p_{i}\neq p
+1, & \text{if }p_{i}=p_{i};\\
+0, & \text{if }p_{i}\neq p_{i}%
 \end{cases}
 +\sum_{\substack{j\in\left\{  1,2,\ldots,u\right\}  ;\\j\neq i}}a_{j}%
 \begin{cases}
@@ -26797,18 +26795,18 @@ distinct) and therefore%
 1, & \text{if }p_{j}=p_{i};\\
 0, & \text{if }p_{j}\neq p_{i}%
 \end{cases}
-=0. \label{sol.ent.prime.p1a1puau.a.2}%
+=0.\label{sol.ent.prime.p1a1puau.a.2}%
 \end{equation}
 Hence, (\ref{sol.ent.prime.p1a1puau.a.1}) becomes%
 \begin{align*}
-&  v_{p}\left(  p_{1}^{a_{1}}p_{2}^{a_{2}}\cdots p_{u}^{a_{u}}\right) \\
-&  =a_{i}\underbrace{%
+v_{p}\left(  p_{1}^{a_{1}}p_{2}^{a_{2}}\cdots p_{u}^{a_{u}}\right)   &
+=a_{i}\underbrace{%
 \begin{cases}
-1, & \text{if }p_{i}=p;\\
-0, & \text{if }p_{i}\neq p
+1, & \text{if }p_{i}=p_{i};\\
+0, & \text{if }p_{i}\neq p_{i}%
 \end{cases}
-}_{\substack{=1\\\text{(since }p_{i}=p\text{)}}}+\sum_{\substack{j\in\left\{
-1,2,\ldots,u\right\}  ;\\j\neq i}}a_{j}\underbrace{%
+}_{\substack{=1\\\text{(since }p_{i}=p_{i}\text{)}}}+\sum_{\substack{j\in
+\left\{  1,2,\ldots,u\right\}  ;\\j\neq i}}a_{j}\underbrace{%
 \begin{cases}
 1, & \text{if }p_{j}=p_{i};\\
 0, & \text{if }p_{j}\neq p_{i}%
@@ -28282,11 +28280,10 @@ This rewrites as $n\in N$ (since $N=\left\{  i\in\left\{  1,2,\ldots
 Now, we claim that $D\neq N$.
 
 [\textit{Proof:} Assume the contrary. Thus, $D=N$. Hence, $N=D$. Now,%
-\begin{align*}
-n  &  \in N=D=\left\{  i\in\left\{  1,2,\ldots,d\right\}  \ \mid\ \text{we
-don't have }i\perp d\right\} \\
-&  \subseteq\left\{  1,2,\ldots,d\right\}  ,
-\end{align*}
+\[
+n\in N=D=\left\{  i\in\left\{  1,2,\ldots,d\right\}  \ \mid\ \text{we don't
+have }i\perp d\right\}  \subseteq\left\{  1,2,\ldots,d\right\}  ,
+\]
 so that $n\leq d$. This contradicts $d<n$. This contradiction shows that our
 assumption was false. Hence, $D\neq N$ is proven.]
 
@@ -30626,20 +30623,21 @@ Recall that $\alpha^{-1}$ is the inverse of $\alpha$; hence, $\alpha
 \alpha^{-1}=1$ (by the definition of \textquotedblleft
 inverse\textquotedblright). Hence, $\alpha^{-1}\neq0$ (since otherwise, we
 would have $\alpha^{-1}=0$ and thus $1=\alpha\underbrace{\alpha^{-1}}_{=0}=0$,
-which would be absurd). Hence, Claim 1 (applied to $\alpha^{-1}$, $-n$ and
-$-m$ instead of $\alpha$, $n$ and $m$) yields%
+which would be absurd). So we have $\alpha^{-1}\neq0$ and $-n\in\mathbb{N}$.
+Hence, Claim 1 (applied to $\alpha^{-1}$, $-n$ and $-m$ instead of $\alpha$,
+$n$ and $m$) yields%
 \begin{equation}
 \left(  \alpha^{-1}\right)  ^{\left(  -n\right)  +\left(  -m\right)  }=\left(
-\alpha^{-1}\right)  ^{-n}\left(  \alpha^{-1}\right)  ^{-m}
+\alpha^{-1}\right)  ^{-n}\left(  \alpha^{-1}\right)  ^{-m}.
 \label{pf.prop.CC.CC.power-rules.h.5}%
 \end{equation}
-(since $-n\in\mathbb{N}$).
+
 
 Definition \ref{def.CC.CC.power-} yields $\alpha^{n}=\left(  \alpha
 ^{-1}\right)  ^{-n}$ (since $n$ is negative). Proposition
 \ref{prop.CC.CC.power-rules} \textbf{(g)} (applied to $-m$ instead of $n$)
 yields $\alpha^{-\left(  -m\right)  }=\left(  \alpha^{-1}\right)  ^{-m}$. In
-view of $-\left(  -m\right)  =m$, this rewrites $\alpha^{m}=\left(
+view of $-\left(  -m\right)  =m$, this rewrites as $\alpha^{m}=\left(
 \alpha^{-1}\right)  ^{-m}$. The same argument (applied to $n+m$ instead of
 $m$) yields $\alpha^{n+m}=\left(  \alpha^{-1}\right)  ^{-\left(  n+m\right)
 }$. Hence,%
@@ -30709,7 +30707,7 @@ yields $1^{-n}=1$.
 
 Also, $1\cdot1=1$. Hence, $1$ is an inverse of $1$ (by the definition of
 \textquotedblleft inverse\textquotedblright). Thus, the inverse of $1$ is $1$.
-In other words, $1^{-1}$.
+In other words, $1^{-1}=1$.
 
 But $n$ is negative. Thus, Definition \ref{def.CC.CC.power-} (applied to
 $\alpha=1$) yields $1^{n}=\left(  \underbrace{1^{-1}}_{=1}\right)
@@ -30721,9 +30719,9 @@ is proven.
 Recall that $\alpha^{-1}$ is the inverse of $\alpha$; hence, $\alpha
 \alpha^{-1}=1$ (by the definition of \textquotedblleft
 inverse\textquotedblright). Proposition \ref{prop.CC.CC.power-rules}
-\textbf{(i)} (applied to $\alpha^{-1}$ instead of $\beta$) yields $\left(
-\alpha\alpha^{-1}\right)  ^{n}=\alpha^{n}\left(  \alpha^{-1}\right)  ^{n}$.
-Hence, $\alpha^{n}\left(  \alpha^{-1}\right)  ^{n}=\left(  \underbrace{\alpha
+\textbf{(i)} (applied to $\beta=\alpha^{-1}$) yields $\left(  \alpha
+\alpha^{-1}\right)  ^{n}=\alpha^{n}\left(  \alpha^{-1}\right)  ^{n}$. Hence,
+$\alpha^{n}\left(  \alpha^{-1}\right)  ^{n}=\left(  \underbrace{\alpha
 \alpha^{-1}}_{=1}\right)  ^{n}=1^{n}=1$ (by Proposition
 \ref{prop.CC.CC.power-rules} \textbf{(j)}). If we had $\alpha^{n}=0$, then we
 would have $\underbrace{\alpha^{n}}_{=0}\left(  \alpha^{-1}\right)  ^{n}=0$,
