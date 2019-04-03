@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Wednesday, April 03, 2019 10:42:02}
+%TCIDATA{LastRevised=Wednesday, April 03, 2019 12:06:48}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -732,7 +732,7 @@ simply by fusing the $n$ parts back together), but fails Requirement 2
 is a far from being clueless about $\mathbf{a}$). So this method doesn't work.
 It is not that easy.
 
-\subsubsection{The $\operatorname*{XOR}$ operations}
+\subsubsection{\label{subsect.intro.XOR}The $\operatorname*{XOR}$ operations}
 
 One way to solve the $k=n$ case is using the $\operatorname*{XOR}$ operation.
 
@@ -771,8 +771,8 @@ Now, we define some specific binary operations on the set $\left\{
 length-$n$ bitstrings (for a given $n$).
 
 \begin{definition}
-We define a binary operation $\operatorname*{XOR}$ on the set $\left\{
-0,1\right\}  $ by setting%
+\label{def.intro.XOR.XOR01}We define a binary operation $\operatorname*{XOR}$
+on the set $\left\{  0,1\right\}  $ by setting%
 \begin{align*}
 0\operatorname*{XOR}0  &  =0,\\
 0\operatorname*{XOR}1  &  =1,\\
@@ -809,9 +809,9 @@ True\textquotedblright, which is also known as \textquotedblleft$a$
 exclusive-or $b$\textquotedblright.
 
 \begin{definition}
-Let $m$ be a nonnegative integer. We define a binary operation
-$\operatorname*{XOR}$ on the set $\left\{  0,1\right\}  ^{m}$ (this is the set
-of all length-$m$ bitstrings) by%
+\label{def.intro.XOR.XOR01m}Let $m$ be a nonnegative integer. We define a
+binary operation $\operatorname*{XOR}$ on the set $\left\{  0,1\right\}  ^{m}$
+(this is the set of all length-$m$ bitstrings) by%
 \[
 \left(  a_{1},a_{2},\ldots,a_{m}\right)  \operatorname*{XOR}\left(
 b_{1},b_{2},\ldots,b_{m}\right)  =\left(  a_{1}\operatorname*{XOR}b_{1}%
@@ -23528,7 +23528,7 @@ are divisible by $p$ (why not?), but the sum $x^{2}+y^{2}=p$ is divisible by
 $p$. So Condition 2 fails for $\left(  a,b\right)  =\left(  x,y\right)  $.
 
 $\Longleftarrow:$ Assume that a prime $p$ satisfies $p\equiv
-3\operatorname{mod}4$. Thus, $\left(  p-1\right)  /2$ is odd.
+3\operatorname{mod}4$. Thus, $\left(  p-1\right)  /2$ is an odd nonnegative integer.
 
 We must prove that Condition 2 holds. In other words, we must prove that for
 every pair $\left(  a,b\right)  \in\mathbb{Z}\times\mathbb{Z}$ such that
@@ -23567,7 +23567,7 @@ Hence,%
 \]
 Hence, $p\mid\left(  -1\right)  -1=-2\mid2$, so $p=2$. This contradicts
 $p\equiv3\operatorname{mod}4$. This contradiction shows that our assumption
-false; thus, Condition 2 holds.
+was false; thus, Condition 2 holds.
 \end{proof}
 
 Thus, if we set $\mathbb{K}=\mathbb{Z}/p$ where $p$ is a prime of Type 3, then
@@ -23661,112 +23661,68 @@ that $x$ is nonzero (since $\xi$ is nonzero). Hence, $x$ has a multiplicative
 inverse (since $\mathbb{K}$ is a field). Hence, multiplying $x^{2}=0$ by
 $x^{-1}$, we obtain $x=0$, which contradicts $x$ being nonzero. So our
 assumption was wrong. Part \textbf{(b)} is proven.
-\end{proof}
 
-\begin{center}
-\textbf{2019-04-03 lecture}
-\end{center}
-
-\begin{proof}
 \textbf{(c)} Assume that $p\neq2$. Thus, $p>2$.
 
-Consider the map%
+The map
 \[
 \mathbb{Z}/p\rightarrow\mathbb{Z}/p,\ \ \ \ \ \ \ \ \ \ \alpha\mapsto
 \alpha^{2}.
 \]
-This map is \textbf{not} injective (since it sends the two distinct residue
-classes $\left[  1\right]  _{p}$ and $\left[  p-1\right]  _{p}$ both to
-$\left[  1\right]  _{p}$). Hence, it cannot be surjective either (since
-otherwise, the Pigeonhole Principle for Surjections would entail that it is
-bijective, hence injective). In other words, there exists some $\eta
-\in\mathbb{Z}/p$ that is not in its image. In other words, there exists an
-element $\eta\in\mathbb{Z}/p$ that is not a square.
+This map is not injective (since it sends $\left[  1\right]  _{p}$ and
+$\left[  -1\right]  _{p}$ both to $\left[  1\right]  _{p}$). Thus, it is not
+surjective (since otherwise, the Pigeonhole Principle for Surjections would
+yield that it is injective, but we know it is not). This means that there
+exists an $\eta\in\mathbb{Z}/p$ outside of its image. In other words, there
+exists an $\eta\in\mathbb{Z}/p$ that is not a square.
 \end{proof}
 
-Now, if $p$ is a prime with $p>2$, then part \textbf{(c)} of the above Theorem
-yields that there exists an element $\eta\in\mathbb{Z}/p$ that is not a
-square; therefore, part \textbf{(b)} of the above Theorem shows that
-$\mathbb{K}_{\eta}^{\prime}$ is a field where $\mathbb{K}=\mathbb{Z}/p$. This
-is a field with $p^{2}$ elements.
+So for each prime $p>2$, there exists an $\eta\in\mathbb{Z}/p$ that is not a
+square (by part \textbf{(c)}), and therefore there exists a finite field
+$\mathbb{K}_{\eta}^{\prime}$ of size $p^{2}$ (by part \textbf{(b)}).
 
-What about fields of size $4$ ?
+Is there a finite field of size $4$ ?
 
-We cannot get such a field by adjoining a square root to $\mathbb{Z}/2$. So
-let us instead try to adjoin an element $j$ such that $j^{2}=j+1$. So we
-define $\mathbb{K}^{\prime\prime}$ as the set of pairs $\left(  a,b\right)
-\in\left(  \mathbb{Z}/2\right)  \times\left(  \mathbb{Z}/2\right)  $, and we
-define $+,-,\cdot$ on $\mathbb{K}^{\prime\prime}$ by%
+Let us try to adjoin an element $j$ such that $j^{2}=j+1$ to $\mathbb{Z}/2$.
+Rigorously, we define $\mathbb{K}^{\prime\prime}$ to be the set of all pairs
+$\left(  a,b\right)  \in\left(  \mathbb{Z}/2\right)  \times\left(
+\mathbb{Z}/2\right)  $, and define $+,-,\cdot$ on $\mathbb{K}^{\prime\prime}$
+by%
 \begin{align*}
-\left(  a,b\right)  +\left(  c,d\right)   &  =\left(  a+c,b+d\right)  ,\\
-\left(  a,b\right)  -\left(  c,d\right)   &  =\left(  a-c,b-d\right)
-,\ \ \ \ \ \ \ \ \ \ \text{and}\\
-\left(  a,b\right)  \cdot\left(  c,d\right)   &  =\left(
+\left(  a,b\right)  +\left(  c,d\right)    & =\left(  a+c,b+d\right)  ,\\
+\left(  a,b\right)  -\left(  c,d\right)    & =\left(  a-c,b-d\right)  ,\\
+\left(  a,b\right)  \cdot\left(  c,d\right)    & =\left(
 ac+bd,ad+bc+bd\right)  .
 \end{align*}
 You can check that this is a field with $4$ elements.
 
-Thus, for each prime $p$, we have found a field with $p^{2}$ elements.
+Thus, for each prime $p$, we have found a field with $p^{2}$ elements. (Note
+that this is not $\mathbb{Z}/p^{2}$, since $\mathbb{Z}/p^{2}$ is not a field.)
 
-For the sake of completeness, let me mention a \textbf{third idea} for
-constructing fields of size $p^{2}$: Recall that our field $\mathbb{Z}/p$ of
-size $p$ consisted of residue classes of integers modulo $p$. What happens if
-we take the residue classes of Gaussian integers modulo a Gaussian prime $\pi$ ?
+What about finite fields of size $p^{3},p^{4},\ldots$? What about fields of
+size $6$ ?
 
-I will not go into details, but here is a summary:
-
-\begin{itemize}
-\item The result is always a field of size $\operatorname*{N}\left(
-\pi\right)  $.
-
-\item If $\pi$ is not unit-equivalent to an integer, then this is a field that
-we already know (namely, $\mathbb{Z}/p$ for $p=\operatorname*{N}\left(
-\pi\right)  $) with its elements relabelled.
-
-\item If $\pi$ is unit-equivalent to an integer, then $\pi$ is unit-equivalent
-to a prime $p$ of Type 3, and the field of residue classes modulo $\pi$ will
-be a field with $p^{2}$ elements. Namely, it will be the field $\mathbb{K}%
-^{\prime}$ we constructed above (for $\mathbb{K}=\mathbb{Z}/p$), with its
-elements relabelled.
-\end{itemize}
-
-So this approach only gets us fields of size $p^{2}$ when $p$ is a prime of
-Type 3; it is thus inferior to the second idea above. Nevertheless, it
-illustrates a general idea: that residue classes make sense not only for integers.
-
-\begin{center}
-\textbf{2019-04-03 lecture}
-\end{center}
-
-\textbf{Warning:} When $p$ is a prime, $\mathbb{Z}/p^{2}$ is \textbf{not} a
-field; thus, the field with $p^{2}$ elements that we constructed is not
-$\mathbb{Z}/p^{2}$.
-
-Now, what about finite fields of size $p^{3},p^{4},\ldots$ ? What about finite
-fields of size $6$ ?
-
-\textbf{Spoiler:} It turns out that the former exist, while the latter do not.
-We will hopefully prove this later. More generally, for an integer $n>1$,
-there exists a field of size $n$ if and only if $n$ is a prime power (= power
-of a prime). Even better, if $n$ is a prime power, then a field of size $n$ is
-unique up to relabeling.
+\textbf{Spoiler:} The former exist, the latter do not. More generally, if
+$n>1$ is an integer, then a finite field of size $n$ exists if and only if $n$
+is a prime power (= $p^{k}$ = power of a prime). Even better, if $n$ is a
+prime power, then a field of size $n$ is unique up to relabeling.
 
 \subsection{Cartesian products}
 
 \begin{definition}
 Let $\mathbb{K}_{1},\mathbb{K}_{2},\ldots,\mathbb{K}_{n}$ be $n$ rings.
 Consider the set $\mathbb{K}_{1}\times\mathbb{K}_{2}\times\cdots
-\times\mathbb{K}_{n}$, whose elements are $n$-tuples $\left(  k_{1}%
-,k_{2},\ldots,k_{n}\right)  $ with $k_{i}\in\mathbb{K}_{i}$.
+\times\mathbb{K}_{n}$ of all $n$-tuples $\left(  k_{1},k_{2},\ldots
+,k_{n}\right)  $ with $k_{i}\in\mathbb{K}_{i}$.
 
 We define operations $+$ and $\cdot$ on $\mathbb{K}_{1}\times\mathbb{K}%
 _{2}\times\cdots\times\mathbb{K}_{n}$ by%
 \begin{align*}
 \left(  a_{1},a_{2},\ldots,a_{n}\right)  +\left(  b_{1},b_{2},\ldots
-,b_{n}\right)   &  =\left(  a_{1}+b_{1},a_{2}+b_{2},\ldots,a_{n}+b_{n}\right)
+,b_{n}\right)    & =\left(  a_{1}+b_{1},a_{2}+b_{2},\ldots,a_{n}+b_{n}\right)
 \ \ \ \ \ \ \ \ \ \ \text{and}\\
 \left(  a_{1},a_{2},\ldots,a_{n}\right)  \cdot\left(  b_{1},b_{2},\ldots
-,b_{n}\right)   &  =\left(  a_{1}b_{1},a_{2}b_{2},\ldots,a_{n}b_{n}\right)  .
+,b_{n}\right)    & =\left(  a_{1}b_{1},a_{2}b_{2},\ldots,a_{n}b_{n}\right)  .
 \end{align*}
 
 \end{definition}
@@ -23775,41 +23731,17 @@ _{2}\times\cdots\times\mathbb{K}_{n}$ by%
 Let $\mathbb{K}_{1},\mathbb{K}_{2},\ldots,\mathbb{K}_{n}$ be $n$ rings.
 
 \textbf{(a)} The set $\mathbb{K}_{1}\times\mathbb{K}_{2}\times\cdots
-\times\mathbb{K}_{n}$, endowed with the operations $+$ and $\cdot$ we just
-defined and with the zero $\left(  0,0,\ldots,0\right)  $ and the unity
-$\left(  1,1,\ldots,1\right)  $, is a ring.
+\times\mathbb{K}_{n}$ endowed with the operations $+$ and $\cdot$ we just
+defined and the zero $\left(  0,0,\ldots,0\right)  $ and the unity $\left(
+1,1,\ldots,1\right)  $ is a ring.
 
 \textbf{(b)} If the rings $\mathbb{K}_{1},\mathbb{K}_{2},\ldots,\mathbb{K}%
-_{n}$ are commutative, then so is the ring $\mathbb{K}_{1}\times\mathbb{K}%
-_{2}\times\cdots\times\mathbb{K}_{n}$.
+_{n}$ are commutative, then so is $\mathbb{K}_{1}\times\mathbb{K}_{2}%
+\times\cdots\times\mathbb{K}_{n}$.
 \end{proposition}
 
 \begin{proof}
-All axioms are checked entrywise: For example, associativity of multiplication
-follows from comparing%
-\begin{align*}
-&  \underbrace{\left(  \left(  a_{1},a_{2},\ldots,a_{n}\right)  \cdot\left(
-b_{1},b_{2},\ldots,b_{n}\right)  \right)  }_{=\left(  a_{1}b_{1},a_{2}%
-b_{2},\ldots,a_{n}b_{n}\right)  }\cdot\left(  c_{1},c_{2},\ldots,c_{n}\right)
-\\
-&  =\left(  a_{1}b_{1},a_{2}b_{2},\ldots,a_{n}b_{n}\right)  \cdot\left(
-c_{1},c_{2},\ldots,c_{n}\right) \\
-&  =\left(  \left(  a_{1}b_{1}\right)  c_{1},\left(  a_{2}b_{2}\right)
-c_{2},\ldots,\left(  a_{n}b_{n}\right)  c_{n}\right) \\
-&  =\left(  a_{1}\left(  b_{1}c_{1}\right)  ,a_{2}\left(  b_{2}c_{2}\right)
-,\ldots,a_{n}\left(  b_{n}c_{n}\right)  \right)
-\end{align*}
-with%
-\begin{align*}
-&  \left(  a_{1},a_{2},\ldots,a_{n}\right)  \cdot\underbrace{\left(
-b_{1},b_{2},\ldots,b_{n}\right)  \cdot\left(  c_{1},c_{2},\ldots,c_{n}\right)
-}_{=\left(  b_{1}c_{1},b_{2}c_{2},\ldots,b_{n}c_{n}\right)  }\\
-&  =\left(  a_{1},a_{2},\ldots,a_{n}\right)  \cdot\left(  b_{1}c_{1}%
-,b_{2}c_{2},\ldots,b_{n}c_{n}\right) \\
-&  =\left(  a_{1}\left(  b_{1}c_{1}\right)  ,a_{2}\left(  b_{2}c_{2}\right)
-,\ldots,a_{n}\left(  b_{n}c_{n}\right)  \right)  .
-\end{align*}
-
+All axioms are checked entry by entry.
 
 The additive inverse of $\left(  a_{1},a_{2},\ldots,a_{n}\right)  $ is
 $\left(  -a_{1},-a_{2},\ldots,-a_{n}\right)  $.
@@ -23822,51 +23754,28 @@ constructed in this Proposition is called the \textbf{Cartesian product} (or
 ,\ldots,\mathbb{K}_{n}$.
 \end{definition}
 
-We have already seen a Cartesian product. Indeed, recall the binary operations
-$\operatorname*{XOR}$ defined back in Subsection \ref{subsect.intro.XOR}. We
-first defined an operation $\operatorname*{XOR}$ on bits (Definition
-\ref{def.intro.XOR.XOR01}), and then defined an operation $\operatorname*{XOR}%
-$ on bitstrings (Definition \ref{def.intro.XOR.XOR01m}). It is easy to see
-that
-\[
-\left(  \left\{  0,1\right\}  ,\operatorname*{XOR},\cdot,0,1\right)
-\]
-is a commutative ring. Let me call this ring $\mathbb{X}$ for now. Note that
-this ring $\mathbb{X}$ can be seen as $\mathbb{Z}/2$ with its elements
-relabeled (more precisely, the elements $\left[  0\right]  _{2}$ and $\left[
-1\right]  _{2}$ of $\mathbb{Z}/2$ need to be relabelled as $0$ and $1$ in
-order to get $\mathbb{X}$); for example, the correspondence between the
-$\operatorname*{XOR}$ operation on $\mathbb{X}$ and the addition on
-$\mathbb{Z}/2$ can be seen by comparing their results face to face:%
-\begin{align*}
-0\operatorname*{XOR}0 &  =0\ \ \ \ \ \ \ \ \ \ \text{and}%
-\ \ \ \ \ \ \ \ \ \ \left[  0\right]  _{2}+\left[  0\right]  _{2}=\left[
-0\right]  _{2},\\
-0\operatorname*{XOR}1 &  =1\ \ \ \ \ \ \ \ \ \ \text{and}%
-\ \ \ \ \ \ \ \ \ \ \left[  0\right]  _{2}+\left[  1\right]  _{2}=\left[
-1\right]  _{2},\\
-1\operatorname*{XOR}0 &  =1\ \ \ \ \ \ \ \ \ \ \text{and}%
-\ \ \ \ \ \ \ \ \ \ \left[  1\right]  _{2}+\left[  0\right]  _{2}=\left[
-1\right]  _{2},\\
-1\operatorname*{XOR}1 &  =0\ \ \ \ \ \ \ \ \ \ \text{and}%
-\ \ \ \ \ \ \ \ \ \ \left[  1\right]  _{2}+\left[  1\right]  _{2}=\left[
-0\right]  _{2}.
-\end{align*}
+We have already seen a Cartesian product. Namely, recall the binary operation
+$\operatorname*{XOR}$ on bits, and the corresponding binary operation
+$\operatorname*{XOR}$ on bitstrings.
 
-
-In Definition \ref{def.intro.XOR.XOR01m}, we defined a binary operation
-$\operatorname*{XOR}$ on $\left\{  0,1\right\}  ^{m}$, i.e., on bitstrings.
-This gives a ring%
+The operation $\operatorname*{XOR}$ on bits gives a ring. More precisely: Let
+$\mathbb{X}$ be the ring%
 \[
-\left(  \left\{  0,1\right\}  ^{m},\operatorname*{XOR},\text{entrywise
-multiplication},00\cdots0,11\cdots1\right)
-\]
-of bitstrings. This ring is precisely the Cartesian product%
-\[
-\underbrace{\mathbb{X}\times\mathbb{X}\times\cdots\times\mathbb{X}}_{m\text{
-times}}.
+\left(  \left\{  0,1\right\}  ,\operatorname*{XOR},\cdot,0,1\right)  .
 \]
 
+
+The operation $\operatorname*{XOR}$ on bitstrings also gives a ring:%
+\[
+\left(  \left\{  0,1\right\}  ^{m},\operatorname*{XOR},\underbrace{\cdot
+}_{\text{entrywise}},00\cdots0,11\cdots1\right)  .
+\]
+This latter ring is exactly $\underbrace{\mathbb{X}\times\mathbb{X}%
+\times\cdots\times\mathbb{X}}_{m\text{ times}}$.
+
+Note that the ring $\mathbb{X}$ can be seen as $\mathbb{Z}/2$ with its
+elements relabeled ($\left[  0\right]  _{2}\rightarrow0$ and $\left[
+1\right]  _{2}\rightarrow1$).
 
 \subsection{Matrices and matrix rings}
 
@@ -23874,16 +23783,13 @@ times}}.
 In this section, we fix a ring $\mathbb{K}$.
 \end{convention}
 
-We take the familiar concept of matrices, and generalize it in a
-straightforward way, allowing matrices with entries in $\mathbb{K}$ 
-
 \begin{definition}
-\label{def.matrix.matrix}Given $n,m\in\mathbb{N}$, we define an $n\times
-m$\textbf{-matrix over }$\mathbb{K}$ to be a rectangular table with $n$ rows
-and $m$ columns whose entries are elements of $\mathbb{K}$. When $\mathbb{K}$
-is clear from the context (or irrelevant), we just say \textquotedblleft%
-$n\times m$-matrix\textquotedblright\ instead of \textquotedblleft$n\times
-m$-matrix over $\mathbb{K}$\textquotedblright.
+Given $n,m\in\mathbb{N}$, we define an $n\times m$\textbf{-matrix over
+}$\mathbb{K}$ to be a rectangular table with $n$ rows and $m$ columns whose
+entries are elements of $\mathbb{K}$.
+
+When $\mathbb{K}$ is clear from the context, we just say \textquotedblleft%
+$n\times m$-matrix\textquotedblright.
 \end{definition}
 
 For example, if $\mathbb{K}=\mathbb{Q}$, then%
@@ -23898,30 +23804,27 @@ For example, if $\mathbb{K}=\mathbb{Q}$, then%
 \]
 is a $2\times3$-matrix over $\mathbb{K}$.
 
-(Formally, an $n\times m$-matrix is defined as a map from $\left\{
-1,2,\ldots,n\right\}  \times\left\{  1,2,\ldots,m\right\}  $ to $\mathbb{K}$.
-Its entry in row $i$ and column $j$ is then defined to be the image of the
-pair $\left(  i,j\right)  $ under this map.)
-
-Let us define two pieces of notation:
+(Formally, an $n\times m$-matrix over $\mathbb{K}$ is defined as a map from
+$\left\{  1,2,\ldots,n\right\}  \times\left\{  1,2,\ldots,m\right\}  $ to
+$\mathbb{K}$. Its entry in row $i$ and column $j$ is then defined to be the
+image of the pair $\left(  i,j\right)  $ under this map.)
 
 \begin{definition}
-\label{def.matrix.ij-entry}Let $A$ be an $n\times m$-matrix over $\mathbb{K}$.
-Let $i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{  1,2,\ldots
-,m\right\}  $. The $\left(  i,j\right)  $\textit{-th entry of}\textbf{ }$A$ is
-defined to be the entry of $A$ in row $i$ and column $j$.
+Let $A$ be an $n\times m$-matrix over $\mathbb{K}$. Let $i\in\left\{
+1,2,\ldots,n\right\}  $ and $j\in\left\{  1,2,\ldots,m\right\}  $. The
+$\left(  i,j\right)  $\textbf{-th entry of }$A$ means the entry of $A$ in row
+$i$ and column $j$.
 \end{definition}
 
 \begin{definition}
-\label{def.matrix.(aij)}Let $n,m\in\mathbb{N}$. Assume that we are given some
-element $a_{i,j}\in\mathbb{K}$ for every $\left(  i,j\right)  \in\left\{
-1,2,\ldots,n\right\}  \times\left\{  1,2,\ldots,m\right\}  $. Then, we shall
-use the notation
-\begin{equation}
+Let $n,m\in\mathbb{N}$. Assume that we are given some element $a_{i,j}%
+\in\mathbb{K}$ for every $\left(  i,j\right)  \in\left\{  1,2,\ldots
+,n\right\}  \times\left\{  1,2,\ldots,m\right\}  $. Then, we shall use the
+notation%
+\[
 \left(  a_{i,j}\right)  _{1\leq i\leq n,\ 1\leq j\leq m}%
-\label{eq.def.matrix.(aij).(aij)}%
-\end{equation}
-for the $n\times m$-matrix%
+\]
+for the $n\times m$-matrix
 \[
 \left(
 \begin{array}
@@ -23939,7 +23842,7 @@ $a_{i,j}$ for all $i$ and $j$).
 
 For example,%
 \begin{align*}
-\left(  i+j\right)  _{1\leq i\leq3,\ 1\leq j\leq4}  &  =\left(
+\left(  i+j\right)  _{1\leq i\leq3,\ 1\leq j\leq4}  & =\left(
 \begin{array}
 [c]{cccc}%
 2 & 3 & 4 & 5\\
@@ -23947,38 +23850,43 @@ For example,%
 4 & 5 & 6 & 7
 \end{array}
 \right)  \ \ \ \ \ \ \ \ \ \ \text{and}\\
-\left(  i-j\right)  _{1\leq i\leq3,\ 1\leq j\leq4}  &  =\left(
+\left(  i-j\right)  _{1\leq i\leq3,\ 1\leq j\leq4}  & =\left(
 \begin{array}
 [c]{cccc}%
-2 & 3 & 4 & 5\\
-1 & 2 & 3 & 4\\
-0 & 1 & 2 & 3
+0 & -1 & -2 & -3\\
+1 & 0 & -1 & -2\\
+2 & 1 & 0 & -1
 \end{array}
 \right)  .
 \end{align*}
 
 
-The letters $i$ and $j$ in the notation (\ref{eq.def.matrix.(aij).(aij)}) are
-not set in stone; we can use any other letters instead. For example,%
+The letters $i$ and $j$ in the notation $\left(  a_{i,j}\right)  _{1\leq i\leq
+n,\ 1\leq j\leq m}$ are not set in stone; we can use any other letters
+instead. For example,%
 \[
-\left(  i+j\right)  _{1\leq i\leq3,\ 1\leq j\leq4}=\left(  x+y\right)  _{1\leq
-x\leq3,\ 1\leq y\leq4}=\left(  j+i\right)  _{1\leq j\leq3,\ 1\leq i\leq4}.
+\left(  i-j\right)  _{1\leq i\leq3,\ 1\leq j\leq4}=\left(  x-y\right)  _{1\leq
+x\leq3,\ 1\leq y\leq4}=\left(  j-i\right)  _{1\leq j\leq3,\ 1\leq i\leq4}.
 \]
 
 
 \begin{definition}
-\label{def.matrix.Knm}Let $n,m\in\mathbb{N}$. Then, $\mathbb{K}^{n\times m}$
-will denote the set of all $n\times m$-matrices.
+Let $n,m\in\mathbb{N}$. Then, $\mathbb{K}^{n\times m}$ means the set of all
+$n\times m$-matrices.
 \end{definition}
 
-(Some call it $\operatorname*{M}\nolimits_{n,m}\left(  \mathbb{K}\right)  $ instead.)
-
-We now define various operations with matrices:
+(Some call it $\operatorname*{M}\nolimits_{n,m}\left(  \mathbb{K}\right)  $.)
 
 \begin{definition}
-\label{def.matrix.+-}Fix $n,m\in\mathbb{N}$.
+\textbf{(a)} A \textbf{matrix} mean an $n\times m$-matrix for some $n,m$.
 
-\textbf{(a)} The \textit{sum} $A+B$ of two $n\times m$-matrices $A$ and $B$ is
+\textbf{(b)} A \textbf{square matrix} means an $n\times n$-matrix for some $n$.
+\end{definition}
+
+\begin{definition}
+Fix $n,m\in\mathbb{N}$.
+
+\textbf{(a)} The \textbf{sum} of two $n\times m$-matrices $A$ and $B$ is
 defined entrywise: i.e., if $A=\left(  a_{i,j}\right)  _{1\leq i\leq n,\ 1\leq
 j\leq m}$ and $B=\left(  b_{i,j}\right)  _{1\leq i\leq n,\ 1\leq j\leq m}$,
 then%
@@ -23987,8 +23895,8 @@ A+B=\left(  a_{i,j}+b_{i,j}\right)  _{1\leq i\leq n,\ 1\leq j\leq m}.
 \]
 
 
-\textbf{(b)} The \textit{difference} $A-B$ of two $n\times m$-matrices $A$ and
-$B$ is defined entrywise: i.e., if $A=\left(  a_{i,j}\right)  _{1\leq i\leq
+\textbf{(b)} The \textbf{difference} of two $n\times m$-matrices $A$ and $B$
+is defined entrywise: i.e., if $A=\left(  a_{i,j}\right)  _{1\leq i\leq
 n,\ 1\leq j\leq m}$ and $B=\left(  b_{i,j}\right)  _{1\leq i\leq n,\ 1\leq
 j\leq m}$, then%
 \[
@@ -23996,7 +23904,7 @@ A-B=\left(  a_{i,j}-b_{i,j}\right)  _{1\leq i\leq n,\ 1\leq j\leq m}.
 \]
 
 
-\textbf{(c)} We define \textit{scaling} of $n\times m$-matrices as follows: If
+\textbf{(c)} We define \textbf{scaling} of $n\times m$-matrices as follows: If
 $\lambda\in\mathbb{K}$ and $A\in\mathbb{K}^{n\times m}$, then the matrix
 $\lambda A\in\mathbb{K}^{n\times m}$ is defined by multiplying each entry of
 $A$ by $\lambda$. Formally speaking: if $A=\left(  a_{i,j}\right)  _{1\leq
@@ -24011,7 +23919,7 @@ i\leq n,\ 1\leq j\leq m}$, then%
 Let $n,m,p\in\mathbb{N}$. Let $A=\left(  a_{i,j}\right)  _{1\leq i\leq
 n,\ 1\leq j\leq m}$ be an $n\times m$-matrix. Let $B=\left(  b_{i,j}\right)
 _{1\leq i\leq m,\ 1\leq j\leq p}$ be an $m\times p$-matrix. Then, we define
-the \textit{product} $AB$ of the two matrices $A$ and $B$ as follows:%
+the \textbf{product} $AB$ of $A$ and $B$ by%
 \[
 AB=\left(  \sum_{k=1}^{m}a_{i,k}b_{k,j}\right)  _{1\leq i\leq n,\ 1\leq j\leq
 p}.
@@ -24019,12 +23927,8 @@ p}.
 This is an $n\times p$-matrix.
 \end{definition}
 
-So you can add together two $n\times m$-matrices, but multiply an $n\times
-m$-matrix with an $m\times p$-matrix. (You cannot multiply two $n\times
-m$-matrices, unless $n=m$.)
-
 \begin{definition}
-\textbf{(a)} If $n,m\in\mathbb{N}$, then the $n\times m$ \textit{zero matrix}
+\textbf{(a)} If $n,m\in\mathbb{N}$, then the $n\times m$ \textbf{zero matrix}
 is defined to be the $n\times m$-matrix%
 \[
 \left(  0\right)  _{1\leq i\leq n,\ 1\leq j\leq m}=\left(
@@ -24039,7 +23943,7 @@ is defined to be the $n\times m$-matrix%
 \]
 It is called $0_{n\times m}$.
 
-\textbf{(b)} If $n\in\mathbb{N}$, then the $n\times n$\textbf{ identity
+\textbf{(b)} If $n\in\mathbb{N}$, then the $n\times n$ \textbf{identity
 matrix} is defined to be the $n\times n$-matrix%
 \[
 \left(  \delta_{i,j}\right)  _{1\leq i\leq n,\ 1\leq j\leq n}=\left(
@@ -24061,17 +23965,20 @@ where%
 \end{cases}
 .
 \]
-(Note that $\delta_{i,j}=\left[  i=j\right]  $ using the Iverson bracket notation.)
+Note that $\delta_{i,j}=\left[  i=j\right]  $ using the Iverson bracket notation.
 
-The $n\times n$ identity matrix is called $I_{n}$.
+We denote the $n\times n$ identity matrix as $I_{n}$.
 \end{definition}
 
-Note that the $0$ and the $1$ here are the zero and the unity of $\mathbb{K}$.
+Note: The $0$ and the $1$ here are the zero and the unity of $\mathbb{K}$.
+
+The following rules hold for these matrix operations:
 
 \begin{theorem}
-The following rules hold for addition, subtraction, scaling etc. of matrices:
+The following rules for addition, subtraction, multiplication and scaling in
+$\mathbb{K}^{n\times m}$ hold:
 
-\textbf{(a)} We have $A+B=A+B$ for any $A,B\in\mathbb{K}^{n\times m}$.
+\textbf{(a)} We have $A+B=B+A$ for any $A,B\in\mathbb{K}^{n\times m}$.
 
 \textbf{(b)} We have $A+\left(  B+C\right)  =\left(  A+B\right)  +C$ for any
 $A,B,C\in\mathbb{K}^{n\times m}$.
@@ -24082,22 +23989,22 @@ $A\in\mathbb{K}^{n\times m}$.
 \textbf{(d)} We have $A\cdot I_{m}=I_{n}\cdot A=A$ for any $A\in
 \mathbb{K}^{n\times m}$.
 
-\textbf{(e)} In general, we \textbf{do not} have $AB=BA$. In fact, it can
-happen that one of $AB$ and $BA$ is defined and the other is not; but even if
-both are defined, they can be distinct (even if $\mathbb{K}$ is commutative).
+\textbf{(e)} We don't have $A\cdot B=B\cdot A$ for any $A,B$ in general, even
+when $A\cdot B$ and $B\cdot A$ are well-defined and of the same size and
+$\mathbb{K}$ is commutative.
 
-\textbf{(f)} We have $A\left(  BC\right)  =\left(  AB\right)  C$ for any
-$A\in\mathbb{K}^{n\times m}$, $B\in\mathbb{K}^{m\times p}$ and $C\in
-\mathbb{K}^{p\times q}$.
+\textbf{(f)} We have $A\cdot\left(  B\cdot C\right)  =\left(  A\cdot B\right)
+\cdot C$ for any $A\in\mathbb{K}^{n\times m}$, $B\in\mathbb{K}^{m\times p}$
+and $C\in\mathbb{K}^{p\times q}$.
 
-\textbf{(g)} We have $A\left(  B+C\right)  =AB+AC$ for any $A\in
+\textbf{(g)} We have $A\cdot\left(  B+C\right)  =AB+AC$ for any $A\in
 \mathbb{K}^{n\times m}$ and $B,C\in\mathbb{K}^{m\times p}$.
 
-We have $\left(  A+B\right)  C=AC+BC$ for any $A,B\in\mathbb{K}^{n\times m}$
-and $C\in\mathbb{K}^{m\times p}$.
+We have $\left(  A+B\right)  \cdot C=AC+BC$ for any $A,B\in\mathbb{K}^{n\times
+m}$ and $C\in\mathbb{K}^{m\times p}$.
 
-\textbf{(h)} We have $A\cdot0_{m\times p}=0_{p\times n}\cdot A=0_{n\times m}$
-for any $A\in\mathbb{K}^{n\times m}$.
+\textbf{(h)} We have $A\cdot0_{m\times p}=0_{n\times p}$ and $0_{p\times
+n}\cdot A=0_{p\times m}$ for any $A\in\mathbb{K}^{n\times m}$.
 
 \textbf{(i)} If $A,B,C\in\mathbb{K}^{n\times m}$, then we have the equivalence
 $\left(  A-B=C\right)  \Longleftrightarrow\left(  A=B+C\right)  $.
@@ -24112,8 +24019,9 @@ and $A\in\mathbb{K}^{n\times m}$.
 $r,s\in\mathbb{K}$ and $A\in\mathbb{K}^{n\times m}$.
 
 \textbf{(m)} We have $r\left(  AB\right)  =\left(  rA\right)  B=A\left(
-rB\right)  $ for any $r\in\mathbb{K}$ and $A,B\in\mathbb{K}^{n\times m}$ if
-$\mathbb{K}$ is commutative. The first equality also holds in general.
+rB\right)  $ for any $r\in\mathbb{K}$ and $A\in\mathbb{K}^{n\times m}$ and
+$B\in\mathbb{K}^{m\times p}$ when $\mathbb{K}$ is commutative. In general,
+$r\left(  AB\right)  =\left(  rA\right)  B$.
 
 \textbf{(n)} We have $-\left(  rA\right)  =\left(  -r\right)  A=r\left(
 -A\right)  $ for any $r\in\mathbb{K}$ and $A\in\mathbb{K}^{n\times m}$.
@@ -24142,111 +24050,17 @@ A-B\right)  -C$\textquotedblright.)
 \end{theorem}
 
 \begin{proof}
-Most of these are trivial. The hardest one is \textbf{(f)}. See \cite[\S 2.9]%
-{lina} for its proof.
+Most of these rules are trivial. The \textquotedblleft
+hardest\textquotedblright\ one is \textbf{(f)}. See [Grinbe18, \S 2.9] for its proof.
 \end{proof}
 
 \begin{corollary}
-Let $n\in\mathbb{N}$. The set $\mathbb{K}^{n\times n}$ of all $n\times
+\begin{coro}
+Let $n\in\mathbb{N}$. Then, the set $\mathbb{K}^{n\times n}$ of all $n\times
 n$-matrices (endowed with addition $+$, multiplication $\cdot$, zero
-$0_{n\times n}$ and identity $I_{n}$) is a ring.
+$0_{n\times n}$ and unity $I_{n}$) is a ring.
+\end{coro}
 \end{corollary}
-
-\begin{proof}
-Follows from the rules above.
-\end{proof}
-
-So we can define finite sums and finite products in $\mathbb{K}^{n\times n}$
-(but finite products need to have their order specified). These also make
-sense for non-square matrices whenever \textquotedblleft their sizes
-match\textquotedblright:\ e.g., you can define a sum of finitely many $n\times
-m$-matrices, and a product $A_{1}A_{2}\cdots A_{k}$ where each $A_{i}$ is an
-$n_{i}\times n_{i+1}$-matrix. Standard rules for sums and products hold, at
-least to the extent they don't use commutativity of multiplication.
-
-But $\mathbb{K}^{n\times n}$ is not the only ring we can make out of matrices!
-
-\begin{definition}
-Let $n\in\mathbb{N}$. Let $A=\left(  a_{i,j}\right)  _{1\leq i\leq n,\ 1\leq
-j\leq n}$ be an $n\times n$-matrix.
-
-\textbf{(a)} We say that $A$ is \textbf{lower-triangular} if and only if
-\[
-a_{i,j}=0\ \ \ \ \ \ \ \ \ \ \text{whenever }i<j.
-\]
-
-
-\textbf{(b)} We say that $A$ is \textbf{upper-triangular} if and only if
-\[
-a_{i,j}=0\ \ \ \ \ \ \ \ \ \ \text{whenever }i>j.
-\]
-
-
-\textbf{(c)} We say that $A$ is \textbf{diagonal} if and only if
-\[
-a_{i,j}=0\ \ \ \ \ \ \ \ \ \ \text{whenever }i\neq j.
-\]
-
-\end{definition}
-
-\begin{proposition}
-Let $n\in\mathbb{N}$.
-
-\textbf{(a)} The set of lower-triangular $n\times n$-matrices is a ring.
-
-\textbf{(b)} The set of upper-triangular $n\times n$-matrices is a ring.
-
-\textbf{(c)} The set of diagonal $n\times n$-matrices is a ring.
-\end{proposition}
-
-\begin{example}
-For $n=2$, the multiplication of lower-triangular $n\times n$-matrices looks
-as follows:%
-\[
-\left(
-\begin{array}
-[c]{cc}%
-a & b\\
-0 & c
-\end{array}
-\right)  \left(
-\begin{array}
-[c]{cc}%
-x & y\\
-0 & z
-\end{array}
-\right)  =\left(
-\begin{array}
-[c]{cc}%
-ax & ay+bz\\
-0 & cz
-\end{array}
-\right)  ,
-\]
-and the multiplication of diagonal $n\times n$-matrices looks as follows:%
-\[
-\left(
-\begin{array}
-[c]{cc}%
-a & 0\\
-0 & c
-\end{array}
-\right)  \left(
-\begin{array}
-[c]{cc}%
-x & 0\\
-0 & z
-\end{array}
-\right)  =\left(
-\begin{array}
-[c]{cc}%
-ax & 0\\
-0 & cz
-\end{array}
-\right)  .
-\]
-
-\end{example}
 
 
 \end{document}
