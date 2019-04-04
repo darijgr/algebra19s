@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Wednesday, April 03, 2019 22:36:47}
+%TCIDATA{LastRevised=Thursday, April 04, 2019 14:36:56}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -4727,7 +4727,7 @@ completes the induction base.
 
 \textit{Induction step:} Let $\ell$ be a positive integer. Assume that Theorem
 \ref{thm.ent.gcd.bezout-mul'} holds for $k=\ell-1$. We must prove that Theorem
-\ref{thm.ent.gcd.bezout-mul} holds for $k=\ell$.
+\ref{thm.ent.gcd.bezout-mul'} holds for $k=\ell$.
 
 We have assumed that Theorem \ref{thm.ent.gcd.bezout-mul'} holds for
 $k=\ell-1$. In other words, the following statement holds:
@@ -4879,7 +4879,8 @@ of the equivalence). Hence, Lemma \ref{lem.ent.gcd.yoneda} \textbf{(a)}
 (applied to $b$ and $a$ instead of $a$ and $b$) yields $b\mid a$.
 
 Hence, Exercise \ref{exe.ent.div.abba} yields $\left\vert a\right\vert
-=\left\vert b\right\vert $. This proves Lemma \ref{lem.ent.gcd.yoneda}.
+=\left\vert b\right\vert $. This proves Lemma \ref{lem.ent.gcd.yoneda}
+\textbf{(b)}.
 \end{proof}
 
 Lemma \ref{lem.ent.gcd.yoneda} is a simple case of what is known in category
@@ -17827,7 +17828,7 @@ exists if and only if $n$ is
 
 \item or a prime $p$,
 
-\item or a power $p^{k}$ of an odd prime\footnotemark $p$ (with $k$ being a
+\item or a power $p^{k}$ of an odd prime\footnotemark$\ p$ (with $k$ being a
 positive integer),
 
 \item or $4$,
@@ -20804,7 +20805,7 @@ prime with what it means for $\overline{\pi}$ to be a Gaussian prime, then you
 will see that it means the same thing.
 \end{proof}
 
-Now, we can prove Theorem \ref{thm.Z[i].gauss.prime.1mod4} quite easily:
+Now, we can prove Theorem \ref{thm.Z[i].gauss.prime.1mod4}:
 
 \begin{proof}
 [Proof of Theorem \ref{thm.Z[i].gauss.prime.1mod4}.]\textbf{(d)} Assume the
@@ -20929,7 +20930,7 @@ integers having norms $\operatorname*{N}\left(  \pi\right)  =x^{2}+y^{2}=p$
 and $\operatorname*{N}\left(  \alpha\right)  =a^{2}+b^{2}=p$ (by the
 definition of $\left(  a,b\right)  $). Thus, $\operatorname*{N}\left(
 \alpha\right)  =p$ is prime. Hence, Lemma \ref{lem.Z[i].prime.Nprime} shows
-that $\pi$ is a Gaussian prime. Similarly, $\alpha$ is a Gaussian prime.
+that $\alpha$ is a Gaussian prime. Similarly, $\pi$ is a Gaussian prime.
 
 We must prove that $x+yi\sim a+bi$ or $x-yi\sim a+bi$. In other words, we must
 prove that $\pi\sim\alpha$ or $\overline{\pi}\sim\alpha$ (since $x+yi=\pi$ and
@@ -21353,9 +21354,9 @@ following lemma:
 
 \begin{lemma}
 \label{lem.Z[i].divs-bijs}Let $\pi_{1},\pi_{2},\ldots,\pi_{u}$ be finitely
-many distinct Gaussian primes. For each $i\in\left\{  1,2,\ldots,u\right\}  $,
-let $a_{i}$ be a nonnegative integer. Let $\alpha=\pi_{1}^{a_{1}}\pi
-_{2}^{a_{2}}\cdots\pi_{u}^{a_{u}}$.
+many Gaussian primes, no two of which are unit-equivalent. For each
+$i\in\left\{  1,2,\ldots,u\right\}  $, let $a_{i}$ be a nonnegative integer.
+Let $\alpha=\pi_{1}^{a_{1}}\pi_{2}^{a_{2}}\cdots\pi_{u}^{a_{u}}$.
 
 Define a set $T$ by%
 \begin{align*}
@@ -21699,9 +21700,10 @@ so that%
 1,i,-1,-i\right\}  \right\vert }_{=4}\cdot\prod_{h=1}^{k}%
 \underbrace{\left\vert \left\{  0,1,\ldots,a_{h}\right\}  \right\vert
 }_{=a_{h}+1}\\
-&  =4\cdot\prod_{h=1}^{k}\left(  a_{h}+1\right)  =4\cdot\prod
-_{\substack{p\text{ prime;}\\p\equiv1\operatorname{mod}4}}\left(  v_{p}\left(
-n\right)  +1\right)  .
+&  =4\cdot\prod_{h=1}^{k}\left(  \underbrace{a_{h}}_{=v_{p_{h}}\left(
+n\right)  }+1\right)  =4\cdot\prod_{h=1}^{k}\left(  v_{p_{h}}\left(  n\right)
++1\right)  =4\cdot\prod_{\substack{p\text{ prime;}\\p\equiv1\operatorname{mod}%
+4}}\left(  v_{p}\left(  n\right)  +1\right)  .
 \end{align*}
 (The last equality sign is a consequence of the fact that $p_{1},p_{2}%
 ,\ldots,p_{h}$ are distinct primes of Type 1, and that all other primes
@@ -21999,7 +22001,7 @@ Note a few things:
 \item We shall abbreviate $+_{\mathbb{K}}$, $\cdot_{\mathbb{K}}$,
 $0_{\mathbb{K}}$ and $1_{\mathbb{K}}$ as $+$, $\cdot$, $0$ and $1$ unless
 there is a chance of confusion with the \textquotedblleft
-usual\textquotedblright\ notions of additions, multiplication, zero and one.
+usual\textquotedblright\ notions of addition, multiplication, zero and one.
 (The example of the ring $\mathbb{Z}^{\prime}$ shown below is a case where
 such confusion is possible; but most of the time, it is not.)
 
@@ -22007,12 +22009,14 @@ such confusion is possible; but most of the time, it is not.)
 subtraction\textquotedblright\ operation. Nevertheless, each ring $\mathbb{K}$
 automatically has a subtraction operation: Namely, for any $a,b\in\mathbb{K}$,
 we can define $a-b$ to be $a+b^{\prime}$, where $b^{\prime}$ is the additive
-inverse of $b$. (We will later see that this operation is well-defined and
-satisfies the rules you would expect.)
+inverse of $b$. (We will later see that this operation is well-defined
+(Definition \ref{def.rings.inv-add-a}) and satisfies the rules you would
+expect (Definition \ref{prop.rings.inv-add.rules}).)
 
-\item Some of the above axioms are redundant, i.e., they follow from other
-axioms. (For example, Annihilation follows from the other axioms.) We don't
-mind this, as long as these axioms are natural and easy to check in real examples.
+\item Some of the ring axioms we required in Definition \ref{def.rings.ring}
+are redundant, i.e., they follow from other ring axioms. (For example,
+Annihilation follows from the other axioms.) We don't mind this, as long as
+these axioms are natural and easy to check in real examples.
 
 \item We have required commutativity of addition to hold for all rings, but
 commutativity of multiplication only to hold for commutative rings. You may
