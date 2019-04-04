@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Wednesday, April 03, 2019 12:14:38}
+%TCIDATA{LastRevised=Wednesday, April 03, 2019 22:36:47}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -16121,7 +16121,7 @@ _{n},\left[  1\right]  _{n},\ldots,\left[  n-1\right]  _{n}$ (and in
 particular, these $n$ elements are all distinct). Thus, the map%
 \begin{align*}
 P:\left\{  0,1,\ldots,n-1\right\}   &  \rightarrow\mathbb{Z}/n,\\
-s  &  \mapsto\left[  s\right]  _{n}.
+s  &  \mapsto\left[  s\right]  _{n}%
 \end{align*}
 is bijective\footnote{We also have explicitly proven this fact during our
 proof of Theorem \ref{thm.eqrel.Z/n.explicit}.}. Consider this map $P$. For
@@ -16146,8 +16146,8 @@ such that }a\perp n\right) \\
 &  \ \ \ \ \ \ \ \ \ \ \left(
 \begin{array}
 [c]{c}%
-\text{because for each }a\in\left\{  0,1,\ldots,n\right\}  \text{, we have the
-logical}\\
+\text{because for each }a\in\left\{  0,1,\ldots,n-1\right\}  \text{, we have
+the logical}\\
 \text{equivalence }\left(  P\left(  a\right)  \in U_{n}\right)
 \ \Longleftrightarrow\ \left(  a\perp n\right)  \text{ (by
 (\ref{pf.cor.equiv.modinv.Unphi.b.equiv}))}%
@@ -17380,16 +17380,16 @@ to what \textquotedblleft large\textquotedblright\ means, we refer to
 \textquotedblleft key size\textquotedblright}.)
 
 \item Albert computes the positive integer $m=pq$. This number $m$ (called the
-\textit{modulus}) he makes public. (Note that to factor a number into a
-product of primes is computationally a lot harder than to multiply a bunch of
+\textit{modulus}) he makes public. (Note that factoring a number into a
+product of primes is computationally a lot harder than multiplying a bunch of
 primes\footnote{See
 \href{https://en.wikipedia.org/wiki/Integer_factorization}{the Wikipedia page
 on \textquotedblleft Integer factorization\textquotedblright} for details on
 what this means. Note that this is not a proven theorem; any day, someone
-could come with a quick algorithm for factoring integers into products of
+could come up with a quick algorithm for factoring integers into products of
 primes. You would hear about it in the news, though.}. Thus, eavesdroppers
 will not (likely) be able to reconstruct the primes $p$ and $q$ from their
-(public) product $m$.
+(public) product $m$.)
 
 \item Albert computes the positive integer $\ell=\left(  p-1\right)  \left(
 q-1\right)  $, but keeps this number private.
@@ -17496,8 +17496,8 @@ eavesdropper to reconstruct them and decrypt your messages. See
 a lot of common primes.}, or one of myriad other practical mistakes has been
 made. The proper implementation of the RSA cryptosystem, and the real-life
 considerations needed to prevent \textquotedblleft leakage\textquotedblright%
-\ of sensitive data such as the decryption key $d$, are a subject in its own,
-which we shall not discuss here.
+\ of sensitive data such as the decryption key $d$, are a subject in its own
+right, which we shall not discuss here.
 
 Albert's method for recovering Julia's message relies on the following fact
 (which we shall prove a bit later):
@@ -17827,21 +17827,22 @@ exists if and only if $n$ is
 
 \item or a prime $p$,
 
-\item or a power $p^{k}$ of an odd prime $p$ (recall: odd primes are just
-primes $\neq2$),
+\item or a power $p^{k}$ of an odd prime\footnotemark $p$ (with $k$ being a
+positive integer),
 
 \item or $4$,
 
-\item or $2p^{k}$ for an odd prime $p$.
+\item or $2p^{k}$ for an odd prime $p$ (with $k$ being a positive integer).
 \end{itemize}
 
 \textbf{(b)} If a primitive root modulo $n$ exists, then there are precisely
 $\phi\left(  \phi\left(  n\right)  \right)  $ many of them.
 \end{theorem}
 
-This theorem would be fairly difficult to prove at this point, but will be
-doable with some abstract algebra (at least in the case $n=p$). See
-\cite[Chapter 4]{Gallier-RSA} for a proof.
+\footnote{Recall: Odd primes are the same as primes $\neq2$.} This theorem
+would be fairly difficult to prove at this point, but will be doable with some
+abstract algebra (at least in the case $n=p$). See \cite[Chapter
+4]{Gallier-RSA} for a proof.
 
 \section{Complex numbers and Gaussian integers}
 
@@ -24104,7 +24105,7 @@ of matrices:
 \begin{theorem}
 \label{thm.matrix.rules}Let $n,m,p,q\in\mathbb{N}$.
 
-\textbf{(a)} We have $A+B=A+B$ for any $A,B\in\mathbb{K}^{n\times m}$.
+\textbf{(a)} We have $A+B=B+A$ for any $A,B\in\mathbb{K}^{n\times m}$.
 
 \textbf{(b)} We have $A+\left(  B+C\right)  =\left(  A+B\right)  +C$ for any
 $A,B,C\in\mathbb{K}^{n\times m}$.
@@ -28295,10 +28296,10 @@ Comparing these two equalities, we obtain%
 \]
 Now, (\ref{sol.ent.prime.gcd.distrib.2nd.a.11}) yields%
 \begin{align*}
-&  \gcd\left(  c,a\right)  \cdot\gcd\left(  a,b\right) \\
-&  =\underbrace{\gcd\left(  \gcd\left(  a,b\right)  ,\gcd\left(  a,c\right)
-\right)  }_{=\gcd\left(  a,b,c\right)  }\cdot\operatorname{lcm}\left(
-\gcd\left(  a,b\right)  ,\gcd\left(  a,c\right)  \right) \\
+\gcd\left(  c,a\right)  \cdot\gcd\left(  a,b\right)   &  =\underbrace{\gcd
+\left(  \gcd\left(  a,b\right)  ,\gcd\left(  a,c\right)  \right)  }%
+_{=\gcd\left(  a,b,c\right)  }\cdot\operatorname{lcm}\left(  \gcd\left(
+a,b\right)  ,\gcd\left(  a,c\right)  \right) \\
 &  =\gcd\left(  a,b,c\right)  \cdot\operatorname{lcm}\left(  \gcd\left(
 a,b\right)  ,\gcd\left(  a,c\right)  \right)  .
 \end{align*}
@@ -28338,7 +28339,7 @@ each of the two Cases 1 and 2. Thus, Exercise \ref{exe.ent.prime.gcd.distrib}
 \textbf{(a)} is solved in all cases.
 
 [\textit{Remark:} The above solution to Exercise
-\ref{exe.ent.prime.gcd.distrib} \textbf{(a)} is a (expanded version of) Bill
+\ref{exe.ent.prime.gcd.distrib} \textbf{(a)} is (an expanded version of) Bill
 Dubuque's post \url{https://math.stackexchange.com/a/147992/}. Note that
 Dubuque uses the notations $\left(  x_{1},x_{2},\ldots,x_{k}\right)  $ and
 $\left[  x_{1},x_{2},\ldots,x_{k}\right]  $ for what we call $\gcd\left(
@@ -28493,7 +28494,7 @@ Proposition \ref{prop.ent.gcd.props1} \textbf{(b)} (applied to $\gcd\left(
 b,c\right)  $ instead of $b$) yields \newline$\gcd\left(  a,\gcd\left(
 b,c\right)  \right)  =\gcd\left(  \gcd\left(  b,c\right)  ,a\right)  $. But
 Theorem \ref{thm.ent.gcd.uniprop-mul} \textbf{(d)} (applied to $3$ and
-$\left(  b,c\right)  $ instead of $k$ and $\left(  b_{1},b_{2},\ldots
+$\left(  b,c,a\right)  $ instead of $k$ and $\left(  b_{1},b_{2},\ldots
 ,b_{k}\right)  $) yields $\gcd\left(  b,c,a\right)  =\gcd\left(  \gcd\left(
 b,c\right)  ,a\right)  $. Comparing these two equalities, we obtain
 \begin{equation}
@@ -30967,16 +30968,12 @@ future I will simply use them wherever they can help.}%
 \begin{align*}
 \left(  \alpha\beta\right)  ^{k+1}  &  =\left(  \alpha\beta\right)
 \underbrace{\left(  \alpha\beta\right)  ^{k}}_{=\alpha^{k}\beta^{k}}=\left(
-\alpha\beta\right)  \left(  \alpha^{k}\beta^{k}\right) \\
-&  =\alpha\underbrace{\left(  \beta\left(  \alpha^{k}\beta^{k}\right)
-\right)  }_{=\left(  \beta\alpha^{k}\right)  \beta^{k}}%
-\ \ \ \ \ \ \ \ \ \ \left(
-\begin{array}
-[c]{c}%
-\text{since Theorem \ref{thm.CC.CC.rules} \textbf{(f)}}\\
-\text{yields }\alpha\left(  \beta\left(  \alpha^{k}\beta^{k}\right)  \right)
-=\left(  \alpha\beta\right)  \left(  \alpha^{k}\beta^{k}\right)
-\end{array}
+\alpha\beta\right)  \left(  \alpha^{k}\beta^{k}\right)  =\alpha
+\underbrace{\left(  \beta\left(  \alpha^{k}\beta^{k}\right)  \right)
+}_{=\left(  \beta\alpha^{k}\right)  \beta^{k}}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{since Theorem \ref{thm.CC.CC.rules}
+\textbf{(f) }yields }\alpha\left(  \beta\left(  \alpha^{k}\beta^{k}\right)
+\right)  =\left(  \alpha\beta\right)  \left(  \alpha^{k}\beta^{k}\right)
 \right) \\
 &  =\alpha\left(  \left(  \beta\alpha^{k}\right)  \beta^{k}\right)  =\left(
 \alpha\underbrace{\left(  \beta\alpha^{k}\right)  }_{\substack{=\alpha
