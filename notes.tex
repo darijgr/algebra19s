@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Friday, April 05, 2019 10:39:28}
+%TCIDATA{LastRevised=Friday, April 05, 2019 12:35:28}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -17087,7 +17087,6 @@ U_{m}\times U_{n}\subseteq S_{m,n}\left(  U_{mn}\right)  .
 \label{pf.thm.ent.phi.mult.2nd.2}%
 \end{equation}
 
-
 [\textit{Proof of (\ref{pf.thm.ent.phi.mult.2nd.2}):} Let $\theta\in
 U_{m}\times U_{n}$. We shall prove that $\theta\in S_{m,n}\left(
 U_{mn}\right)  $.
@@ -24329,9 +24328,9 @@ see soon how to make this precise.
 \subsection{Ring homomorphisms}
 
 \begin{definition}
-Let $\mathbb{K}$ and $\mathbb{L}$ be two rings. A \textit{ring homomorphism}
-from $\mathbb{K}$ to $\mathbb{L}$ means a map $f:\mathbb{K}\rightarrow
-\mathbb{L}$ that satisfies the following axioms:
+\label{def.riho.riho}Let $\mathbb{K}$ and $\mathbb{L}$ be two rings. A
+\textit{ring homomorphism} from $\mathbb{K}$ to $\mathbb{L}$ means a map
+$f:\mathbb{K}\rightarrow\mathbb{L}$ that satisfies the following axioms:
 
 \textbf{(a)} We have $f\left(  a+b\right)  =f\left(  a\right)  +f\left(
 b\right)  $ for all $a,b\in\mathbb{K}$. (This is called \textquotedblleft$f$
@@ -24351,8 +24350,8 @@ $f\left(  1_{\mathbb{K}}\right)  =1_{\mathbb{L}}$.)
 \end{definition}
 
 \begin{remark}
-The property \textbf{(b)} is redundant -- it follows from property
-\textbf{(a)}.
+\label{rmk.riho.0-free}The property \textbf{(b)} is redundant -- it follows
+from property \textbf{(a)}.
 \end{remark}
 
 \begin{proof}
@@ -24374,8 +24373,8 @@ Note, however, that property \textbf{(b)} is not redundant if we want to
 define semiring homomorphisms.
 
 \begin{example}
-Let $\mathbb{K}$ be any ring. The map $\operatorname*{id}:\mathbb{K}%
-\rightarrow\mathbb{K}$ is a ring homomorphism.
+\label{exa.riho.id}Let $\mathbb{K}$ be any ring. The map $\operatorname*{id}%
+:\mathbb{K}\rightarrow\mathbb{K}$ is a ring homomorphism.
 \end{example}
 
 \begin{proof}
@@ -24385,8 +24384,8 @@ b\right)  $. This means $ab=ab$. Obvious. Similarly, the other properties hold.
 \end{proof}
 
 \begin{example}
-Let $\mathbb{K}$ be any ring, and let $\mathbb{M}$ be the zero ring $\left\{
-0\right\}  $. Then, the map%
+\label{exa.riho.triv}Let $\mathbb{K}$ be any ring, and let $\mathbb{M}$ be the
+zero ring $\left\{  0\right\}  $. Then, the map%
 \[
 \mathbb{K}\rightarrow\mathbb{M},\ \ \ \ \ \ \ \ \ \ a\mapsto0
 \]
@@ -24394,10 +24393,10 @@ is a ring homomorphism.
 \end{example}
 
 \begin{example}
-Let $n$ be an integer. Consider the projection%
+\label{exa.riho.pin}Let $n$ be an integer. Consider the projection%
 \begin{align*}
-\pi_{\underset{n}{\equiv}}:\mathbb{Z}  &  \rightarrow\mathbb{Z}/n,\\
-s  &  \mapsto\left[  s\right]  _{n}.
+\pi_{\underset{n}{\equiv}}:\mathbb{Z} &  \rightarrow\mathbb{Z}/n,\\
+s &  \mapsto\left[  s\right]  _{n}.
 \end{align*}
 This is a ring homomorphism.
 \end{example}
@@ -24415,10 +24414,10 @@ defined. Thus, axiom \textbf{(c)} holds.
 \end{proof}
 
 \begin{example}
-Let $n>0$ be an integer. Consider the map%
+\label{exa.riho.Rn-not}Let $n$ be a positive integer. Consider the map%
 \begin{align*}
-R_{n}:\mathbb{Z}/n  &  \rightarrow\mathbb{Z},\\
-\left[  s\right]  _{n}  &  \mapsto s\%n.
+R_{n}:\mathbb{Z}/n &  \rightarrow\mathbb{Z},\\
+\left[  s\right]  _{n} &  \mapsto s\%n.
 \end{align*}
 (This is the map sending $\left[  0\right]  _{n},\left[  1\right]  _{n}%
 ,\ldots,\left[  n-1\right]  _{n}$ to the numbers $0,1,\ldots,n-1$.) This map
@@ -24426,11 +24425,19 @@ $R_{n}$ is \textbf{not} a ring homomorphism.
 \end{example}
 
 \begin{proof}
-First assume that $n>1$.
+Assume the contrary. Thus, $R_{n}$ is a ring homomorphism. We want a contradiction.
 
-If $R_{n}$ was a ring homomorphism, then axiom \textbf{(a)} could be applied
-to $a=\left[  1\right]  _{n}$ and $b=\left[  n-1\right]  _{n}$, and then we
-would get $R_{n}\left(  \left[  1\right]  _{n}+\left[  n-1\right]
+We are in one of the following two cases:
+
+\textit{Case 1:} We have $n>1$.
+
+\textit{Case 2:} We have $n=1$.
+
+Let us first consider Case 1. In this case, we have $n>1$.
+
+We have assumed that $R_{n}$ is a ring homomorphism. Thus, axiom \textbf{(a)}
+can be applied to $a=\left[  1\right]  _{n}$ and $b=\left[  n-1\right]  _{n}$,
+and thus we get $R_{n}\left(  \left[  1\right]  _{n}+\left[  n-1\right]
 _{n}\right)  =R_{n}\left(  \left[  1\right]  _{n}\right)  +R_{n}\left(
 \left[  n-1\right]  _{n}\right)  $. But comparing%
 \[
@@ -24444,13 +24451,15 @@ with%
 +\underbrace{R_{n}\left(  \left[  n-1\right]  _{n}\right)  }_{=n-1}=1+\left(
 n-1\right)  =n,
 \]
-we see that this is not true.
+we see that this is not true. So we have found a contradiction in Case 1.
 
-So we are done for $n>1$. Now, assume that $n=1$. So $R_{n}$ simply maps
-$\left[  0\right]  _{1}$ to $0$. But now, axiom \textbf{(d)} would force
+Let us now consider Case 2. In this case, we have $n=1$. So $R_{n}$ simply
+maps $\left[  0\right]  _{1}$ to $0$. But now, axiom \textbf{(d)} forces
 $R_{n}\left(  \left[  1\right]  _{1}\right)  =1$, which contradicts
 $R_{n}\left(  \left[  1\right]  _{1}\right)  =R_{n}\left(  \left[  0\right]
-_{1}\right)  =0$. So again, $R_{n}$ is not a ring homomorphism.
+_{1}\right)  =0$. So we have found a contradiction in Case 2.
+
+Thus, we always get a contradiction.
 \end{proof}
 
 \textbf{Warning:} The same people who don't require rings to have a unity, of
@@ -24458,10 +24467,11 @@ course, do not require ring homomorphisms to satisfy axiom \textbf{(d)}. So
 for them, $R_{n}$ would be a ring homomorphism for $n=1$.
 
 \begin{example}
-Let $n$ and $d$ be integers such that $d\mid n$. Then, the map%
+\label{exa.riho.pind}Let $n$ and $d$ be integers such that $d\mid n$. Then,
+the map%
 \begin{align*}
-\pi_{n,d}:\mathbb{Z}/n  &  \rightarrow\mathbb{Z}/d,\\
-\left[  s\right]  _{n}  &  \mapsto\left[  s\right]  _{d}%
+\pi_{n,d}:\mathbb{Z}/n &  \rightarrow\mathbb{Z}/d,\\
+\left[  s\right]  _{n} &  \mapsto\left[  s\right]  _{d}%
 \end{align*}
 is a ring homomorphism.
 \end{example}
@@ -24471,26 +24481,34 @@ Let us check axiom \textbf{(c)}. So we must prove that $\pi_{n,d}\left(
 \alpha\beta\right)  =\pi_{n,d}\left(  \alpha\right)  \cdot\pi_{n,d}\left(
 \beta\right)  $ for all $\alpha,\beta\in\mathbb{Z}/n$.
 
-Write $\alpha$ as $\alpha=\left[  a\right]  _{n}$ with $a\in\mathbb{Z}$.
+Fix $\alpha,\beta\in\mathbb{Z}/n$. Write $\alpha$ as $\alpha=\left[  a\right]
+_{n}$ with $a\in\mathbb{Z}$. Write $\beta$ as $\beta=\left[  b\right]  _{n}$
+with $b\in\mathbb{Z}$.
 
-Write $\beta$ as $\beta=\left[  b\right]  _{n}$ with $b\in\mathbb{Z}$.
+Thus, $\pi_{n,d}\left(  \alpha\right)  =\pi_{n,d}\left(  \left[  a\right]
+_{n}\right)  =\left[  a\right]  _{d}$ and $\pi_{n,d}\left(  \beta\right)
+=\pi_{n,d}\left(  \left[  b\right]  _{n}\right)  =\left[  b\right]  _{d}$.
+Multiplying these two equalities, we obtain
+\begin{equation}
+\underbrace{\pi_{n,d}\left(  \alpha\right)  }_{=\left[  a\right]  _{d}}%
+\cdot\underbrace{\pi_{n,d}\left(  \beta\right)  }_{=\left[  b\right]  _{d}%
+}=\left[  a\right]  _{d}\cdot\left[  b\right]  _{d}=\left[  ab\right]
+_{d}.\label{pf.exa.riho.pind.2}%
+\end{equation}
 
-Then, $\alpha\beta=\left[  a\right]  _{n}\cdot\left[  b\right]  _{n}=\left[
-ab\right]  _{n}$ and $\pi_{n,d}\left(  \alpha\right)  =\pi_{n,d}\left(
-\left[  a\right]  _{n}\right)  =\left[  a\right]  _{d}$ and $\pi_{n,d}\left(
-\beta\right)  =\pi_{n,d}\left(  \left[  b\right]  _{n}\right)  =\left[
-b\right]  _{d}$ and $\pi_{n,d}\left(  \alpha\beta\right)  =\pi_{n,d}\left(
-\left[  ab\right]  _{n}\right)  =\left[  ab\right]  _{d}$. Comparing the
-latter equality to $\underbrace{\pi_{n,d}\left(  \alpha\right)  }_{=\left[
-a\right]  _{d}}\cdot\underbrace{\pi_{n,d}\left(  \beta\right)  }_{=\left[
-b\right]  _{d}}=\left[  a\right]  _{d}\cdot\left[  b\right]  _{d}=\left[
-ab\right]  _{d}$, we conclude $\pi_{n,d}\left(  \alpha\beta\right)  =\pi
-_{n,d}\left(  \alpha\right)  \cdot\pi_{n,d}\left(  \beta\right)  $. Thus,
-axiom \textbf{(c)} is proven. The rest is LTTR.
+
+But $\underbrace{\alpha}_{=\left[  a\right]  _{n}}\underbrace{\beta}_{=\left[
+b\right]  _{n}}=\left[  a\right]  _{n}\cdot\left[  b\right]  _{n}=\left[
+ab\right]  _{n}$ and thus $\pi_{n,d}\left(  \alpha\beta\right)  =\pi
+_{n,d}\left(  \left[  ab\right]  _{n}\right)  =\left[  ab\right]  _{d}$.
+Comparing this equality to (\ref{pf.exa.riho.pind.2}), we conclude $\pi
+_{n,d}\left(  \alpha\beta\right)  =\pi_{n,d}\left(  \alpha\right)  \cdot
+\pi_{n,d}\left(  \beta\right)  $. Thus, axiom \textbf{(c)} is proven. The rest
+is LTTR.
 \end{proof}
 
 \begin{remark}
-Let $n$ and $d$ be integers. Then:
+\label{rmk.riho.pind.only}Let $n$ and $d$ be integers. Then:
 
 \textbf{(a)} If $d\mid n$, then the only ring homomorphism from $\mathbb{Z}/n$
 to $\mathbb{Z}/d$ is $\pi_{n,d}$.
@@ -24502,8 +24520,9 @@ $\mathbb{Z}/n$ to $\mathbb{Z}/d$.
 We won't prove this.
 
 \begin{example}
-Consider the map $\mu:\mathbb{C}\rightarrow\mathbb{R}^{2\times2}$ defined in
-Proposition \ref{prop.CC.as-matrices.mu}. It is given by%
+\label{exa.riho.C-mu}Consider the map $\mu:\mathbb{C}\rightarrow
+\mathbb{R}^{2\times2}$ defined in Proposition \ref{prop.CC.as-matrices.mu}. It
+is given by%
 \[
 \mu\left(  a+bi\right)  =\left(
 \begin{array}
@@ -24524,10 +24543,10 @@ is easy to see that it satisfies the other two.
 \end{proof}
 
 \begin{example}
-Let $\iota$ be the map%
+\label{exa.riho.C-iota}Let $\iota$ be the map%
 \begin{align*}
-\mathbb{R}  &  \rightarrow\mathbb{C},\\
-r  &  \mapsto r_{\mathbb{C}}=\left(  r,0\right)  .
+\mathbb{R} &  \rightarrow\mathbb{C},\\
+r &  \mapsto r_{\mathbb{C}}=\left(  r,0\right)  .
 \end{align*}
 This is a ring homomorphism.
 \end{example}
@@ -24540,9 +24559,60 @@ follow from the fact that the zero of $\mathbb{C}$ is $0_{\mathbb{C}}=\left(
 1,0\right)  $.
 \end{proof}
 
+\begin{example}
+\label{exa.riho.transp2}Let $\mathbb{K}^{2\leq2}$ be the ring of
+upper-triangular $2\times2$-matrices. (This is a ring, by Proposition
+\ref{prop.matrix.triang-ring}.)
+
+Let $\mathbb{K}^{2\geq2}$ be the ring of lower-triangular $2\times2$-matrices.
+(This is a ring, by Proposition \ref{prop.matrix.triang-ring}.)
+
+\textbf{(a)} Consider the map%
+\begin{align*}
+\mathbb{K}^{2\leq2} &  \rightarrow\mathbb{K}^{2\geq2},\\
+\left(
+\begin{array}
+[c]{cc}%
+a & b\\
+0 & c
+\end{array}
+\right)   &  \mapsto\left(
+\begin{array}
+[c]{cc}%
+a & 0\\
+b & c
+\end{array}
+\right)  .
+\end{align*}
+In other words, this is the map sending each $A$ to $A^{T}$ (the transpose of
+$A$). Is this a ring homomorphism? No, because $\left(  AB\right)  ^{T}$ is
+$B^{T}A^{T}$, not $A^{T}B^{T}$ (in general). This is called a \textit{ring
+antihomomorphism}.
+
+\textbf{(b)} Consider the map%
+\begin{align*}
+\mathbb{K}^{2\leq2} &  \rightarrow\mathbb{K}^{2\geq2},\\
+\left(
+\begin{array}
+[c]{cc}%
+a & b\\
+0 & c
+\end{array}
+\right)   &  \mapsto\left(
+\begin{array}
+[c]{cc}%
+c & 0\\
+b & a
+\end{array}
+\right)  .
+\end{align*}
+In other words, this is the map that reverses the order of the rows and
+reverses the order of the columns. You can check that this is a ring homomorphism.
+\end{example}
+
 \begin{proposition}
-Let $\mathbb{K}$ and $\mathbb{L}$ be two rings. Let $f:\mathbb{K}%
-\rightarrow\mathbb{L}$ be a ring homomorphism.
+\label{prop.riho.subtract}Let $\mathbb{K}$ and $\mathbb{L}$ be two rings. Let
+$f:\mathbb{K}\rightarrow\mathbb{L}$ be a ring homomorphism.
 
 \textbf{(a)} We have $f\left(  -a\right)  =-f\left(  a\right)  $ for all
 $a\in\mathbb{K}$. (In other words, $f$ \textquotedblleft preserves additive
@@ -24571,6 +24641,9 @@ $a_{1},a_{2},\ldots,a_{k}\in\mathbb{K}$.
 \textbf{(g)} If the rings $\mathbb{K}$ and $\mathbb{L}$ are commutative, then
 $f\left(  \prod_{s\in S}a_{s}\right)  =\prod_{s\in S}f\left(  a_{s}\right)  $
 whenever $S$ is a finite set and $a_{s}\in\mathbb{K}$ for all $s\in S$.
+
+\textbf{(h)} We have $f\left(  a^{n}\right)  =\left(  f\left(  a\right)
+\right)  ^{n}$ for each $a\in\mathbb{K}$ and each $n\in\mathbb{N}$.
 \end{proposition}
 
 \begin{proof}
@@ -24600,7 +24673,7 @@ because every element of $\mathbb{K}$ or $\mathbb{L}$ has an additive inverse).
 f\left(  a-b\right)   &  =f\left(  a+\left(  -b\right)  \right)  =f\left(
 a\right)  +\underbrace{f\left(  -b\right)  }_{\substack{=-f\left(  b\right)
 \\\text{(by part \textbf{(a)}}\\\text{of the proposition)}}%
-}\ \ \ \ \ \ \ \ \ \ \left(  \text{by axiom \textbf{(a)}}\right) \\
+}\ \ \ \ \ \ \ \ \ \ \left(  \text{by axiom \textbf{(a)}}\right)  \\
 &  =f\left(  a\right)  +\left(  -f\left(  b\right)  \right)  =f\left(
 a\right)  -f\left(  b\right)  .
 \end{align*}
@@ -24616,27 +24689,30 @@ induction step uses axiom \textbf{(c)}.
 
 \textbf{(g)} Induction on $\left\vert S\right\vert $. The induction base uses
 axiom \textbf{(d)}; the induction step uses axiom \textbf{(c)}.
+
+\textbf{(h)} Follows from \textbf{(f)}, applied to $k=n$ and $a_{i}=a$.
 \end{proof}
 
 \subsection{Ring isomorphisms}
 
 \begin{definition}
-Let $\mathbb{K}$ and $\mathbb{L}$ be two rings. Let $f:\mathbb{K}%
-\rightarrow\mathbb{L}$ be a map. Then, $f$ is called a \textit{ring
-isomorphism} if and only if $f$ is invertible (i.e., bijective) and both $f$
-and $f^{-1}$ are ring homomorphisms.
+\label{def.riiso.riiso}Let $\mathbb{K}$ and $\mathbb{L}$ be two rings. Let
+$f:\mathbb{K}\rightarrow\mathbb{L}$ be a map. Then, $f$ is called a
+\textit{ring isomorphism} if and only if $f$ is invertible (i.e., bijective)
+and both $f$ and $f^{-1}$ are ring homomorphisms.
 \end{definition}
 
 \begin{example}
-Let $\mathbb{K}$ be a ring. The identity map $\operatorname*{id}%
-:\mathbb{K}\rightarrow\mathbb{K}$ is a ring isomorphism.
+\label{exa.riiso.id}Let $\mathbb{K}$ be a ring. The identity map
+$\operatorname*{id}:\mathbb{K}\rightarrow\mathbb{K}$ is a ring isomorphism.
 \end{example}
 
 \begin{example}
-Let $\mathbb{K}$ be a ring. Let $n\in\mathbb{N}$. Consider the map%
+\label{exa.riiso.dn}Let $\mathbb{K}$ be a ring. Let $n\in\mathbb{N}$. Consider
+the map%
 \begin{align*}
 \mathbf{d}_{n}:\underbrace{\mathbb{K}\times\mathbb{K}\times\cdots
-\times\mathbb{K}}_{n\text{ times}}  &  \rightarrow\left\{  \text{diagonal
+\times\mathbb{K}}_{n\text{ times}} &  \rightarrow\left\{  \text{diagonal
 }n\times n\text{-matrices over }\mathbb{K}\right\}  ,\\
 \left(  d_{1},d_{2},\ldots,d_{n}\right)   &  \mapsto\left(
 \begin{array}
@@ -24655,13 +24731,42 @@ n\text{-matrices over }\mathbb{K}\right\}  $ are rings (the former by
 Definition \ref{def.ring.dirprod2}; the latter by Proposition
 \ref{prop.matrix.triang-ring} \textbf{(c)}).
 
-The map $\mathbf{d}_{n}$ is invertible. I claim that $\mathbf{d}_{n}$ is a
-ring isomorphism. This is easiest to check using the following proposition:
+The map $\mathbf{d}_{n}$ is invertible. I claim that furthermore,
+$\mathbf{d}_{n}$ is a ring isomorphism. This is easiest to check using
+Proposition \ref{prop.riiso.invertible} further below. Note that this claim is
+a rigorous version of our earlier informal statement that the ring formed by
+the diagonal $n\times n$-matrices is just $\underbrace{\mathbb{K}%
+\times\mathbb{K}\times\cdots\times\mathbb{K}}_{n\text{ times}}$ in disguise.
+The isomorphism $\mathbf{d}_{n}$ is responsible for the disguise!
+\end{example}
+
+\begin{example}
+The map from $\mathbb{K}^{2\leq2}$ to $\mathbb{K}^{2\geq2}$ introduced in
+Example \ref{exa.riho.transp2} \textbf{(b)} is a ring isomorphism. Its inverse
+is the map%
+\begin{align*}
+\mathbb{K}^{2\geq2} &  \rightarrow\mathbb{K}^{2\leq2},\\
+\left(
+\begin{array}
+[c]{cc}%
+c & 0\\
+b & a
+\end{array}
+\right)   &  \mapsto\left(
+\begin{array}
+[c]{cc}%
+a & b\\
+0 & c
+\end{array}
+\right)  .
+\end{align*}
+
 \end{example}
 
 \begin{proposition}
-Let $\mathbb{K}$ and $\mathbb{L}$ be two rings. Let $f:\mathbb{K}%
-\rightarrow\mathbb{L}$ be an invertible ring homomorphism. Then, $f$ is a ring isomorphism.
+\label{prop.riiso.invertible}Let $\mathbb{K}$ and $\mathbb{L}$ be two rings.
+Let $f:\mathbb{K}\rightarrow\mathbb{L}$ be an invertible ring homomorphism.
+Then, $f$ is a ring isomorphism.
 \end{proposition}
 
 \begin{proof}
@@ -24691,13 +24796,21 @@ f^{-1}\left(  a\right)  f^{-1}\left(  b\right)  =f^{-1}\left(  ab\right)  ,
 which is precisely what we wanted to prove.
 
 So axiom \textbf{(c)} for $f^{-1}$ is verified. Axiom \textbf{(a)} follows by
-the same argument with $+$ instead of $\cdot$. Axioms \textbf{(b)} and
-\textbf{(d)} are LTTR.
+the same argument with $+$ instead of $\cdot$.
+
+Since $f$ satisfies axiom \textbf{(d)} (being a ring homomorphism), we have
+$f\left(  1\right)  =1$. But this yields $f^{-1}\left(  1\right)  =1$, thus,
+$f^{-1}$ satisfies axiom \textbf{(d)}. Similarly, $f^{-1}$ satisfies axiom
+\textbf{(b)}.
+
+Thus, the map $f^{-1}:\mathbb{L}\rightarrow\mathbb{K}$ satisfies all four
+axioms for a ring homomorphism. Hence, $f^{-1}$ is a ring homomorphism. Thus,
+$f$ is a ring isomorphism (by the definition of a ring isomorphism).
 \end{proof}
 
 \begin{example}
-Let $m$ and $n$ be two coprime positive integers. Theorem \ref{thm.eqrel.CRT2}
-says that the map%
+\label{exa.riiso.CRT}Let $m$ and $n$ be two coprime positive integers. Theorem
+\ref{thm.eqrel.CRT2} says that the map%
 \begin{align*}
 S_{m,n}:\mathbb{Z}/\left(  mn\right)   &  \rightarrow\left(  \mathbb{Z}%
 /m\right)  \times\left(  \mathbb{Z}/n\right)  ,\\
@@ -24714,6 +24827,23 @@ LTTR.
 TODO:
 
 \begin{itemize}
+\item Explain why CRT computations are an application of this isomorphism.
+
+\item Ring isomorphisms let you go \textquotedblleft back and
+forth\textquotedblright. Example: If $\mathbb{K}$ field and $f:\mathbb{K}%
+\rightarrow\mathbb{L}$ ring isomorphism, then $\mathbb{L}$ field.
+
+\item Application: How many units does $\mathbb{Z}/\left(  mn\right)  $ have
+when $m\perp n$ ?
+
+\item Another application: Find all idempotents in $\mathbb{Z}/\left(
+mn\right)  $.
+
+\item Example with $\mathbb{Z}\left[  \phi\right]  $.
+
+\item Example with $\mathbb{K}^{n\times n}$ and $W$ (both arbitrary and
+triangular matrices).
+
 \item ...
 \end{itemize}
 

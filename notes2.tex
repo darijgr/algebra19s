@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Friday, April 05, 2019 10:33:31}
+%TCIDATA{LastRevised=Friday, April 05, 2019 12:05:31}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -18699,7 +18699,8 @@ $\alpha^{n}$ is nonzero, so that $\left(  \alpha^{n}\right)  ^{-1}$ is well-defi
 
 \textbf{(l)} We have $\left(  \alpha^{n}\right)  ^{m}=\alpha^{nm}$ for all
 nonzero $\alpha\in\mathbb{C}$ and all $n,m\in\mathbb{Z}$. (In particular,
-$\alpha^{n}$ is nonzero, so that $\left(  \alpha^{n}\right)  ^{-1}$ is well-defined.)
+$\alpha^{n}$ is nonzero, so that $\left(  \alpha^{n}\right)  ^{m}$ is
+well-defined for all $m\in\mathbb{Z}$.)
 
 \textbf{(m)} Complex numbers satisfy the binomial formula: That is, if
 $\alpha,\beta\in\mathbb{C}$, then%
@@ -24196,57 +24197,44 @@ $, zero $0_{n\times n}$ and unity $I_{n}$) is a ring.
 Follows from the rules above.
 \end{proof}
 
-So we can define finite sums and finite products in $\mathbb{K}^{n\times n}$
-(but finite products need to have their order specified). These also make
-sense for non-square matrices whenever \textquotedblleft their sizes
-match\textquotedblright:\ e.g., you can define a sum of finitely many $n\times
-m$-matrices, and a product $A_{1}A_{2}\cdots A_{k}$ where each $A_{i}$ is an
-$n_{i}\times n_{i+1}$-matrix (for any $n_{1},n_{2},\ldots,n_{k+1}\in
-\mathbb{N}$). Standard rules for sums and products hold, at least to the
-extent they don't rely on commutativity of multiplication.
+\begin{center}
+\textbf{2019-04-05 lecture}
+\end{center}
+
+So we know that $\mathbb{K}^{n\times n}$ is a ring whenever $n\in\mathbb{N}$.
+Hence, Proposition \ref{thm.rings.sum.wd} shows that we can define finite sums
+and finite products in $\mathbb{K}^{n\times n}$ (but finite products need to
+have the order of their factors specified). These also make sense for
+non-square matrices. The usual rules for sums and products hold, except for
+the ones that rely on commutativity of multiplication.
 
 But $\mathbb{K}^{n\times n}$ is not the only ring we can make out of matrices:
 
 \begin{definition}
-\label{def.matrix.triang}Let $n\in\mathbb{N}$. Let $A=\left(  a_{i,j}\right)
-_{1\leq i\leq n,\ 1\leq j\leq n}$ be an $n\times n$-matrix.
+Let $n\in\mathbb{N}$. Let $A=\left(  a_{i,j}\right)  _{1\leq i\leq n,\ 1\leq
+j\leq n}$ be an $n\times n$-matrix.
 
-\textbf{(a)} We say that $A$ is \textit{lower-triangular} if and only if
+\textbf{(a)} We say that $A$ is \textbf{lower-triangular} if and only if%
 \[
 a_{i,j}=0\ \ \ \ \ \ \ \ \ \ \text{whenever }i<j.
 \]
 
 
-\textbf{(b)} We say that $A$ is \textit{upper-triangular} if and only if
+\textbf{(b)} We say that $A$ is \textbf{upper-triangular} if and only if%
 \[
 a_{i,j}=0\ \ \ \ \ \ \ \ \ \ \text{whenever }i>j.
 \]
 
 
-\textbf{(c)} We say that $A$ is \textit{diagonal} if and only if
+\textbf{(c)} We say that $A$ is \textbf{diagonal} if and only if%
 \[
 a_{i,j}=0\ \ \ \ \ \ \ \ \ \ \text{whenever }i\neq j.
 \]
 
 \end{definition}
 
-For example, the $2\times2$-matrix $\left(
-\begin{array}
-[c]{cc}%
-1 & 2\\
-0 & 3
-\end{array}
-\right)  $ is upper-triangular (but not lower-triangular), while the
-$2\times2$-matrix $\left(
-\begin{array}
-[c]{cc}%
-1 & 0\\
-2 & 3
-\end{array}
-\right)  $ is lower-triangular (but not upper-triangular).
-
 \begin{proposition}
-\label{prop.matrix.triang-ring}Let $n\in\mathbb{N}$.
+Let $n\in\mathbb{N}$.
 
 \textbf{(a)} The set of all lower-triangular $n\times n$-matrices is a ring.
 
@@ -24256,8 +24244,8 @@ $2\times2$-matrix $\left(
 \end{proposition}
 
 \begin{example}
-For $n=2$, the multiplication of lower-triangular $n\times n$-matrices looks
-as follows:%
+For $n=2$, the multiplication of lower-triangular $n\times n$-matrices is
+given by%
 \[
 \left(
 \begin{array}
@@ -24279,7 +24267,7 @@ ax & ay+bz\\
 \end{array}
 \right)  ,
 \]
-and the multiplication of diagonal $n\times n$-matrices looks as follows:%
+while the multiplication of diagonal $n\times n$-matrices is given by%
 \[
 \left(
 \begin{array}
@@ -24304,27 +24292,23 @@ ax & 0\\
 
 \end{example}
 
-\begin{center}
-\textbf{2019-04-05 lecture}
-\end{center}
-
 \begin{proof}
-[Proof of Proposition \ref{prop.matrix.triang-ring}.]The main
-\textquotedblleft difficulty\textquotedblright\ is showing that the product of
-two upper-triangular matrices is upper-triangular (and similarly for
-lower-triangular matrices). This is \cite[Theorem 3.23 \textbf{(a)}]{lina}.
+[Proof of the Proposition.] The main \textquotedblleft
+difficulty\textquotedblright\ is showing that the product of two
+upper-triangular matrices is upper-triangular (and the same for
+lower-triangular matrices). This is [Grinbe18, Theorem 3.23 \textbf{(a)}].
 \end{proof}
 
-Note that diagonal $n\times n$-matrices are \textquotedblleft
-basically\textquotedblright\ the same as $n$-tuples of elements of
-$\mathbb{K}$; the ring they form is $\underbrace{\mathbb{K}\times
-\mathbb{K}\times\cdots\times\mathbb{K}}_{n\text{ times}}$ in disguise. We will
-see soon how to make this precise.
+Diagonal $n\times n$-matrices are \textquotedblleft basically the same
+as\textquotedblright\ $n$-tuples of elements of $\mathbb{K}$; the ring they
+form is just $\underbrace{\mathbb{K}\times\mathbb{K}\times\cdots
+\times\mathbb{K}}_{n\text{ times}}$ in disguise. We will later see how to make
+this precise.
 
 \subsection{Ring homomorphisms}
 
 \begin{definition}
-Let $\mathbb{K}$ and $\mathbb{L}$ be two rings. A \textit{ring homomorphism}
+Let $\mathbb{K}$ and $\mathbb{L}$ be two rings. A \textbf{ring homomorphism}
 from $\mathbb{K}$ to $\mathbb{L}$ means a map $f:\mathbb{K}\rightarrow
 \mathbb{L}$ that satisfies the following axioms:
 
@@ -24352,21 +24336,18 @@ The property \textbf{(b)} is redundant -- it follows from property
 
 \begin{proof}
 Assume property \textbf{(a)} holds. Apply property \textbf{(a)} to $a=0$ and
-$b=0$. Thus, you get%
+$b=0$. You get%
 \[
 f\left(  0+0\right)  =f\left(  0\right)  +f\left(  0\right)  .
 \]
-Since $0+0=0$, this rewrites as%
+Since $0+0=0$, this becomes%
 \[
 f\left(  0\right)  =f\left(  0\right)  +f\left(  0\right)  .
 \]
 Subtracting $f\left(  0\right)  $ on both sides (we can do this, since
-$\mathbb{L}$ is a ring), we obtain $0=f\left(  0\right)  $, thus $f\left(
+$\mathbb{L}$ is a ring), we obtain $0=f\left(  0\right)  $, so $f\left(
 0\right)  =0$. Thus, property \textbf{(b)} holds.
 \end{proof}
-
-Note, however, that property \textbf{(b)} is not redundant if we want to
-define semiring homomorphisms.
 
 \begin{example}
 Let $\mathbb{K}$ be any ring. The map $\operatorname*{id}:\mathbb{K}%
@@ -24374,9 +24355,9 @@ Let $\mathbb{K}$ be any ring. The map $\operatorname*{id}:\mathbb{K}%
 \end{example}
 
 \begin{proof}
-Let's check property \textbf{(c)}: It means $\operatorname*{id}\left(
-ab\right)  =\operatorname*{id}\left(  a\right)  \operatorname*{id}\left(
-b\right)  $. This means $ab=ab$. Obvious. Similarly, the other properties hold.
+Let's check \textbf{(c)}. It means $\operatorname*{id}\left(  ab\right)
+=\operatorname*{id}\left(  a\right)  \operatorname*{id}\left(  b\right)  $.
+This means $ab=ab$.
 \end{proof}
 
 \begin{example}
@@ -24391,29 +24372,28 @@ is a ring homomorphism.
 \begin{example}
 Let $n$ be an integer. Consider the projection%
 \begin{align*}
-\pi_{\underset{n}{\equiv}}:\mathbb{Z}  &  \rightarrow\mathbb{Z}/n,\\
-s  &  \mapsto\left[  s\right]  _{n}.
+\pi_{\underset{n}{\equiv}}:\mathbb{Z}  & \rightarrow\mathbb{Z}/n,\\
+s  & \mapsto\left[  s\right]  _{n}.
 \end{align*}
 This is a ring homomorphism.
 \end{example}
 
 \begin{proof}
-Again, let us check axiom \textbf{(c)} only. So let $a,b\in\mathbb{Z}$. We
-must prove that $\pi_{\underset{n}{\equiv}}\left(  ab\right)  =\pi
-_{\underset{n}{\equiv}}\left(  a\right)  \cdot\pi_{\underset{n}{\equiv}%
-}\left(  b\right)  $.
+Again, let's check \textbf{(c)} only. So let $a,b\in\mathbb{Z}$. We must prove
+that $\pi_{\underset{n}{\equiv}}\left(  ab\right)  =\pi_{\underset{n}{\equiv}%
+}\left(  a\right)  \cdot\pi_{\underset{n}{\equiv}}\left(  b\right)  $.
 
 The left hand side is $\left[  ab\right]  _{n}$, while the right hand side is
-$\left[  a\right]  _{n}\cdot\left[  b\right]  _{n}$. So they are equal,
-because this is how $\left[  a\right]  _{n}\cdot\left[  b\right]  _{n}$ was
-defined. Thus, axiom \textbf{(c)} holds.
+$\left[  a\right]  _{n}\cdot\left[  b\right]  _{n}$. But these are equal,
+since this is how we defined multiplication in $\mathbb{Z}/n$. Thus, axiom
+\textbf{(c)} holds.
 \end{proof}
 
 \begin{example}
-Let $n>0$ be an integer. Consider the map%
+Let $n$ be a positive integer. Consider the map%
 \begin{align*}
-R_{n}:\mathbb{Z}/n  &  \rightarrow\mathbb{Z},\\
-\left[  s\right]  _{n}  &  \mapsto s\%n.
+R_{n}:\mathbb{Z}/n  & \rightarrow\mathbb{Z},\\
+\left[  s\right]  _{n}  & \mapsto s\%n.
 \end{align*}
 (This is the map sending $\left[  0\right]  _{n},\left[  1\right]  _{n}%
 ,\ldots,\left[  n-1\right]  _{n}$ to the numbers $0,1,\ldots,n-1$.) This map
@@ -24421,67 +24401,45 @@ $R_{n}$ is \textbf{not} a ring homomorphism.
 \end{example}
 
 \begin{proof}
-First assume that $n>1$.
+Assume (for contradiction) that $R_{n}$ is a ring homomorphism.
 
-If $R_{n}$ was a ring homomorphism, then axiom \textbf{(a)} could be applied
-to $a=\left[  1\right]  _{n}$ and $b=\left[  n-1\right]  _{n}$, and then we
-would get $R_{n}\left(  \left[  1\right]  _{n}+\left[  n-1\right]
-_{n}\right)  =R_{n}\left(  \left[  1\right]  _{n}\right)  +R_{n}\left(
-\left[  n-1\right]  _{n}\right)  $. But comparing%
+\textit{Case 1:} $n>1$.
+
+\textit{Case 2:} $n=1$.
+
+In Case 1, apply axiom \textbf{(a)} to $a=\left[  1\right]  _{n}$ and
+$b=\left[  n-1\right]  _{n}$. Then, we get
 \[
 R_{n}\left(  \left[  1\right]  _{n}+\left[  n-1\right]  _{n}\right)
-=R_{n}\left(  \left[  n\right]  _{n}\right)  =R_{n}\left(  \left[  0\right]
-_{n}\right)  =0
+=R_{n}\left(  \left[  1\right]  _{n}\right)  +R_{n}\left(  \left[  n-1\right]
+_{n}\right)  .
 \]
-with%
+This means%
 \[
-\underbrace{R_{n}\left(  \left[  1\right]  _{n}\right)  }_{=1}%
-+\underbrace{R_{n}\left(  \left[  n-1\right]  _{n}\right)  }_{=n-1}=1+\left(
-n-1\right)  =n,
+0=1+\left(  n-1\right)  ,\ \ \ \ \ \ \ \ \ \ \text{which is absurd.}%
 \]
-we see that this is not true.
 
-So we are done for $n>1$. Now, assume that $n=1$. So $R_{n}$ simply maps
-$\left[  0\right]  _{1}$ to $0$. But now, axiom \textbf{(d)} would force
-$R_{n}\left(  \left[  1\right]  _{1}\right)  =1$, which contradicts
-$R_{n}\left(  \left[  1\right]  _{1}\right)  =R_{n}\left(  \left[  0\right]
-_{1}\right)  =0$. So again, $R_{n}$ is not a ring homomorphism.
+
+In Case 2, we fail axiom \textbf{(d)}, since $R_{n}\left(  \left[  1\right]
+_{n}\right)  =R_{n}\left(  \left[  1\right]  _{1}\right)  =R_{n}\left(
+\left[  0\right]  _{1}\right)  =0\neq1$.
 \end{proof}
 
 \textbf{Warning:} The same people who don't require rings to have a unity, of
-course, do not require ring homomorphisms to satisfy axiom \textbf{(d)}. So
-for them, $R_{n}$ would be a ring homomorphism for $n=1$.
+course, do not require ring homomorphisms to satisfy \textbf{(d)}. Thus, for
+them, $R_{n}$ would be a ring homomorphism when $n=1$.
 
 \begin{example}
 Let $n$ and $d$ be integers such that $d\mid n$. Then, the map%
 \begin{align*}
-\pi_{n,d}:\mathbb{Z}/n  &  \rightarrow\mathbb{Z}/d,\\
-\left[  s\right]  _{n}  &  \mapsto\left[  s\right]  _{d}%
+\pi_{n,d}:\mathbb{Z}/n &  \rightarrow\mathbb{Z}/d,\\
+\left[  s\right]  _{n} &  \mapsto\left[  s\right]  _{d}%
 \end{align*}
 is a ring homomorphism.
 \end{example}
 
 \begin{proof}
-Let us check axiom \textbf{(c)}. So we must prove that $\pi_{n,d}\left(
-\alpha\beta\right)  =\pi_{n,d}\left(  \alpha\right)  \cdot\pi_{n,d}\left(
-\beta\right)  $ for all $\alpha,\beta\in\mathbb{Z}/n$.
-
-Write $\alpha$ as $\alpha=\left[  a\right]  _{n}$ with $a\in\mathbb{Z}$.
-
-Write $\beta$ as $\beta=\left[  b\right]  _{n}$ with $b\in\mathbb{Z}$.
-
-Then, $\alpha\beta=\left[  a\right]  _{n}\cdot\left[  b\right]  _{n}=\left[
-ab\right]  _{n}$ and $\pi_{n,d}\left(  \alpha\right)  =\pi_{n,d}\left(
-\left[  a\right]  _{n}\right)  =\left[  a\right]  _{d}$ and $\pi_{n,d}\left(
-\beta\right)  =\pi_{n,d}\left(  \left[  b\right]  _{n}\right)  =\left[
-b\right]  _{d}$ and $\pi_{n,d}\left(  \alpha\beta\right)  =\pi_{n,d}\left(
-\left[  ab\right]  _{n}\right)  =\left[  ab\right]  _{d}$. Comparing the
-latter equality to $\underbrace{\pi_{n,d}\left(  \alpha\right)  }_{=\left[
-a\right]  _{d}}\cdot\underbrace{\pi_{n,d}\left(  \beta\right)  }_{=\left[
-b\right]  _{d}}=\left[  a\right]  _{d}\cdot\left[  b\right]  _{d}=\left[
-ab\right]  _{d}$, we conclude $\pi_{n,d}\left(  \alpha\beta\right)  =\pi
-_{n,d}\left(  \alpha\right)  \cdot\pi_{n,d}\left(  \beta\right)  $. Thus,
-axiom \textbf{(c)} is proven. The rest is LTTR.
+LTTR.
 \end{proof}
 
 \begin{remark}
@@ -24498,96 +24456,103 @@ We won't prove this.
 
 \begin{example}
 Consider the map $\mu:\mathbb{C}\rightarrow\mathbb{R}^{2\times2}$ defined in
-Proposition \ref{prop.CC.as-matrices.mu}. It is given by%
-\[
-\mu\left(  a+bi\right)  =\left(
-\begin{array}
-[c]{cc}%
-a & b\\
--b & a
-\end{array}
-\right)  .
-\]
-
-
-This map $\mu$ is a ring homomorphism.
+Proposition 4.1.27. This $\mu$ is a ring homomorphism.
 \end{example}
-
-\begin{proof}
-We already know that $\mu$ satisfies axioms \textbf{(a)} and \textbf{(c)}. It
-is easy to see that it satisfies the other two.
-\end{proof}
 
 \begin{example}
 Let $\iota$ be the map%
 \begin{align*}
-\mathbb{R}  &  \rightarrow\mathbb{C},\\
-r  &  \mapsto r_{\mathbb{C}}=\left(  r,0\right)  .
+\mathbb{R}  & \rightarrow\mathbb{C},\\
+r  & \mapsto r_{\mathbb{C}}=\left(  r,0\right)  .
 \end{align*}
 This is a ring homomorphism.
 \end{example}
 
-\begin{proof}
-Theorem \ref{thm.CC.RRtoCC.hom} shows that $\iota$ satisfies axioms
-\textbf{(a)} and \textbf{(c)}. As for \textbf{(b)} and \textbf{(d)}, these
-follow from the fact that the zero of $\mathbb{C}$ is $0_{\mathbb{C}}=\left(
-0,0\right)  $ and the unity of $\mathbb{C}$ is $1_{\mathbb{C}}=\left(
-1,0\right)  $.
-\end{proof}
+\begin{example}
+Let $\mathbb{K}^{2\leq2}$ be the ring of upper-triangular $2\times2$-matrices.
+
+Let $\mathbb{K}^{2\geq2}$ be the ring of lower-triangular $2\times2$-matrices.
+
+\textbf{(a)} Consider the map%
+\begin{align*}
+\mathbb{K}^{2\leq2}  & \rightarrow\mathbb{K}^{2\geq2},\\
+\left(
+\begin{array}
+[c]{cc}%
+a & b\\
+0 & c
+\end{array}
+\right)    & \mapsto\left(
+\begin{array}
+[c]{cc}%
+a & 0\\
+b & c
+\end{array}
+\right)  .
+\end{align*}
+In other words, this is the map sending each $A$ to $A^{T}$ (the transpose of
+$A$). Is this a ring homomorphism? No, because $\left(  AB\right)  ^{T}$ is
+$B^{T}A^{T}$, not $A^{T}B^{T}$ (in general). This is called a \textbf{ring
+antihomomorphism}.
+
+\textbf{(b)} Consider the map%
+\begin{align*}
+\mathbb{K}^{2\leq2}  & \rightarrow\mathbb{K}^{2\geq2},\\
+\left(
+\begin{array}
+[c]{cc}%
+a & b\\
+0 & c
+\end{array}
+\right)    & \mapsto\left(
+\begin{array}
+[c]{cc}%
+c & 0\\
+b & a
+\end{array}
+\right)  .
+\end{align*}
+In other words, this is the map that reverses the order of the rows and
+reverses the order of the columns. You can check that this is a ring homomorphism.
+\end{example}
 
 \begin{proposition}
 Let $\mathbb{K}$ and $\mathbb{L}$ be two rings. Let $f:\mathbb{K}%
 \rightarrow\mathbb{L}$ be a ring homomorphism.
 
 \textbf{(a)} We have $f\left(  -a\right)  =-f\left(  a\right)  $ for all
-$a\in\mathbb{K}$. (In other words, $f$ \textquotedblleft preserves additive
-inverses\textquotedblright.)
+$a\in\mathbb{K}$.
 
 \textbf{(b)} If $a\in\mathbb{K}$ is invertible, then $f\left(  a\right)
 \in\mathbb{L}$ is also invertible, and we have $f\left(  a^{-1}\right)
-=\left(  f\left(  a\right)  \right)  ^{-1}$. (In other words, $f$
-\textquotedblleft preserves multiplicative inverses\textquotedblright.)
+=\left(  f\left(  a\right)  \right)  ^{-1}$.
 
 \textbf{(c)} We have $f\left(  a-b\right)  =f\left(  a\right)  -f\left(
 b\right)  $ for all $a,b\in\mathbb{K}$.
 
-\textbf{(d)} If the rings $\mathbb{K}$ and $\mathbb{L}$ are commutative, then
-we have $f\left(  \dfrac{a}{b}\right)  =\dfrac{f\left(  a\right)  }{f\left(
-b\right)  }$ for all $a,b\in\mathbb{K}$ for which $b$ is invertible.
+\textbf{(d)} If $\mathbb{K}$ is commutative, then $f\left(  \dfrac{a}%
+{b}\right)  =\dfrac{f\left(  a\right)  }{f\left(  b\right)  }$ for all
+$a,b\in\mathbb{K}$ such that $b$ is invertible.
 
 \textbf{(e)} We have $f\left(  \sum_{s\in S}a_{s}\right)  =\sum_{s\in
-S}f\left(  a_{s}\right)  $ whenever $S$ is a finite set and $a_{s}%
-\in\mathbb{K}$ for all $s\in S$.
+S}f\left(  a_{s}\right)  $ for any finite set $S$ and any $a_{s}\in\mathbb{K}$.
 
 \textbf{(f)} We have $f\left(  a_{1}a_{2}\cdots a_{k}\right)  =f\left(
-a_{1}\right)  f\left(  a_{2}\right)  \cdots f\left(  a_{k}\right)  $ whenever
-$a_{1},a_{2},\ldots,a_{k}\in\mathbb{K}$.
+a_{1}\right)  f\left(  a_{2}\right)  \cdots f\left(  a_{k}\right)  $ for any
+$k\in\mathbb{N}$ and any $a_{1},a_{2},\ldots,a_{k}\in\mathbb{K}$.
 
-\textbf{(g)} If the rings $\mathbb{K}$ and $\mathbb{L}$ are commutative, then
-$f\left(  \prod_{s\in S}a_{s}\right)  =\prod_{s\in S}f\left(  a_{s}\right)  $
-whenever $S$ is a finite set and $a_{s}\in\mathbb{K}$ for all $s\in S$.
+\textbf{(g)} If $\mathbb{K}$ is commutative, then $f\left(  \prod_{s\in
+S}a_{s}\right)  =\prod_{s\in S}f\left(  a_{s}\right)  $ for any finite set $S$
+and any $a_{s}\in\mathbb{K}$.
+
+\textbf{(h)} We have $f\left(  a^{k}\right)  =\left(  f\left(  a\right)
+\right)  ^{k}$ for all $a\in\mathbb{K}$ and $k\in\mathbb{N}$.
 \end{proposition}
 
 \begin{proof}
-\textbf{(a)} Let $a\in\mathbb{K}$. We have%
+\textbf{(b)} Let $a\in\mathbb{K}$ be invertible. Axiom \textbf{(c)} yields%
 \[
-f\left(  \left(  -a\right)  +a\right)  =f\left(  -a\right)  +f\left(
-a\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by axiom \textbf{(a)}}\right)  .
-\]
-Solving this for $f\left(  -a\right)  $, we obtain%
-\begin{align*}
-f\left(  -a\right)   &  =f\left(  \underbrace{\left(  -a\right)  +a}%
-_{=0}\right)  -f\left(  a\right)  =\underbrace{f\left(  0\right)
-}_{\substack{=0\\\text{(by axiom \textbf{(b)})}}}-f\left(  a\right)
-=0-f\left(  a\right) \\
-&  =-f\left(  a\right)  .
-\end{align*}
-
-
-\textbf{(b)} Let $a\in\mathbb{K}$ be invertible. We have%
-\[
-f\left(  a^{-1}a\right)  =f\left(  a^{-1}\right)  f\left(  a\right)
-\ \ \ \ \ \ \ \ \ \ \left(  \text{by axiom \textbf{(c)}}\right)  .
+f\left(  a^{-1}a\right)  =f\left(  a^{-1}\right)  f\left(  a\right)  .
 \]
 Thus,%
 \[
@@ -24596,38 +24561,17 @@ _{=1}\right)  =f\left(  1\right)  =1\ \ \ \ \ \ \ \ \ \ \left(  \text{by axiom
 \textbf{(d)}}\right)  .
 \]
 Similarly, $f\left(  a\right)  f\left(  a^{-1}\right)  =1$. These two
-equations are saying that $f\left(  a^{-1}\right)  $ is a multiplicative
-inverse of $f\left(  a\right)  $. Thus, $f\left(  a\right)  $ is invertible,
-and $f\left(  a^{-1}\right)  =\left(  f\left(  a\right)  \right)  ^{-1}$.
-
-\textbf{(c)} Let $a,b\in\mathbb{K}$. Then,%
-\begin{align*}
-f\left(  a-b\right)   &  =f\left(  a+\left(  -b\right)  \right)  =f\left(
-a\right)  +\underbrace{f\left(  -b\right)  }_{\substack{=-f\left(  b\right)
-\\\text{(by part \textbf{(a)}}\\\text{of the proposition)}}%
-}\ \ \ \ \ \ \ \ \ \ \left(  \text{by axiom \textbf{(a)}}\right) \\
-&  =f\left(  a\right)  +\left(  -f\left(  b\right)  \right)  =f\left(
-a\right)  -f\left(  b\right)  .
-\end{align*}
-
-
-\textbf{(d)} Similar to part \textbf{(c)}, but addition is replaced by multiplication.
-
-\textbf{(e)} Induction on $\left\vert S\right\vert $. The induction base uses
-axiom \textbf{(b)}; the induction step uses axiom \textbf{(a)}.
-
-\textbf{(f)} Induction on $k$. The induction base uses axiom \textbf{(d)}; the
-induction step uses axiom \textbf{(c)}.
-
-\textbf{(g)} Induction on $\left\vert S\right\vert $. The induction base uses
-axiom \textbf{(d)}; the induction step uses axiom \textbf{(c)}.
+equalities say that $f\left(  a^{-1}\right)  $ is a multiplicative inverse of
+$f\left(  a\right)  $. Thus, $f\left(  a\right)  $ is invertible, and its
+inverse is $f\left(  a^{-1}\right)  =\left(  f\left(  a\right)  \right)
+^{-1}$.
 \end{proof}
 
 \subsection{Ring isomorphisms}
 
 \begin{definition}
 Let $\mathbb{K}$ and $\mathbb{L}$ be two rings. Let $f:\mathbb{K}%
-\rightarrow\mathbb{L}$ be a map. Then, $f$ is called a \textit{ring
+\rightarrow\mathbb{L}$ be a map. Then, $f$ is called a \textbf{ring
 isomorphism} if and only if $f$ is invertible (i.e., bijective) and both $f$
 and $f^{-1}$ are ring homomorphisms.
 \end{definition}
@@ -24638,12 +24582,34 @@ Let $\mathbb{K}$ be a ring. The identity map $\operatorname*{id}%
 \end{example}
 
 \begin{example}
+The ring homomorphism
+\begin{align*}
+\mathbb{K}^{2\leq2}  & \rightarrow\mathbb{K}^{2\geq2},\\
+\left(
+\begin{array}
+[c]{cc}%
+a & b\\
+0 & c
+\end{array}
+\right)    & \mapsto\left(
+\begin{array}
+[c]{cc}%
+c & 0\\
+b & a
+\end{array}
+\right)
+\end{align*}
+is a ring isomorphism (its inverse is given by the same formula).
+\end{example}
+
+\begin{example}
 Let $\mathbb{K}$ be a ring. Let $n\in\mathbb{N}$. Consider the map%
 \begin{align*}
 \mathbf{d}_{n}:\underbrace{\mathbb{K}\times\mathbb{K}\times\cdots
-\times\mathbb{K}}_{n\text{ times}} &  \rightarrow\left\{  \text{diagonal
-}n\times n\text{-matrices over }\mathbb{K}\right\}  ,\\
-\left(  d_{1},d_{2},\ldots,d_{n}\right)   &  \mapsto\left(
+\times\mathbb{K}}_{n\text{ times}}  & \rightarrow\underbrace{\left\{
+\text{diagonal }n\times n\text{-matrices over }\mathbb{K}\right\}
+}_{\text{this is a ring, as we saw}},\\
+\left(  d_{1},d_{2},\ldots,d_{n}\right)    & \mapsto\left(
 \begin{array}
 [c]{ccccc}%
 d_{1} & 0 & 0 & \cdots & 0\\
@@ -24654,14 +24620,7 @@ d_{1} & 0 & 0 & \cdots & 0\\
 \end{array}
 \right)  .
 \end{align*}
-Note that both $\underbrace{\mathbb{K}\times\mathbb{K}\times\cdots
-\times\mathbb{K}}_{n\text{ times}}$ and $\left\{  \text{diagonal }n\times
-n\text{-matrices over }\mathbb{K}\right\}  $ are rings (the former by
-Definition \ref{def.ring.dirprod2}; the latter by Proposition
-\ref{prop.matrix.triang-ring} \textbf{(c)}).
-
-The map $\mathbf{d}_{n}$ is invertible. I claim that $\mathbf{d}_{n}$ is a
-ring isomorphism. This is easiest to check using the following proposition:
+This is a ring isomorphism.
 \end{example}
 
 \begin{proposition}
@@ -24670,50 +24629,7 @@ Let $\mathbb{K}$ and $\mathbb{L}$ be two rings. Let $f:\mathbb{K}%
 \end{proposition}
 
 \begin{proof}
-We just need to show that $f^{-1}$ is a ring homomorphism.
-
-Let us verify axiom \textbf{(c)} for $f^{-1}$. This means that we must prove
-that%
-\[
-f^{-1}\left(  ab\right)  =f^{-1}\left(  a\right)  f^{-1}\left(  b\right)
-\ \ \ \ \ \ \ \ \ \ \text{for all }a,b\in\mathbb{L}.
-\]
-
-
-So let $a,b\in\mathbb{L}$. We know that $f$ is a ring homomorphism; thus it
-satisfies axiom \textbf{(c)}. Applying this axiom to $f^{-1}\left(  a\right)
-$ and $f^{-1}\left(  b\right)  $ instead of $a$ and $b$, we find%
-\[
-f\left(  f^{-1}\left(  a\right)  f^{-1}\left(  b\right)  \right)
-=\underbrace{f\left(  f^{-1}\left(  a\right)  \right)  }_{=a}\cdot
-\underbrace{f\left(  f^{-1}\left(  b\right)  \right)  }_{=b}=ab=f\left(
-f^{-1}\left(  ab\right)  \right)  .
-\]
-Since $f$ is injective (because $f$ is invertible), we thus conclude%
-\[
-f^{-1}\left(  a\right)  f^{-1}\left(  b\right)  =f^{-1}\left(  ab\right)  ,
-\]
-which is precisely what we wanted to prove.
-
-So axiom \textbf{(c)} for $f^{-1}$ is verified. Axiom \textbf{(a)} follows by
-the same argument with $+$ instead of $\cdot$. Axioms \textbf{(b)} and
-\textbf{(d)} are LTTR.
-\end{proof}
-
-\begin{example}
-Let $m$ and $n$ be two coprime positive integers. Theorem \ref{thm.eqrel.CRT2}
-says that the map%
-\begin{align*}
-S_{m,n}:\mathbb{Z}/\left(  mn\right)   &  \rightarrow\left(  \mathbb{Z}%
-/m\right)  \times\left(  \mathbb{Z}/n\right)  ,\\
-\alpha &  \mapsto\left(  \pi_{mn,m}\left(  \alpha\right)  ,\pi_{mn,n}\left(
-\alpha\right)  \right)
-\end{align*}
-is well-defined and is a bijection. We claim that this map $S_{m,n}$ is a ring isomorphism.
-\end{example}
-
-\begin{proof}
-LTTR.
+See notes.
 \end{proof}
 
 
