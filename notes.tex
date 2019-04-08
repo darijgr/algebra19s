@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Sunday, April 07, 2019 22:20:30}
+%TCIDATA{LastRevised=Monday, April 08, 2019 00:58:06}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -18863,47 +18863,165 @@ reasonable choices would be $i$ and $-i$ (since these are the only two complex
 numbers whose squares are $-1$); but with either option, the equality $\left(
 \alpha\beta\right)  ^{1/2}=\alpha^{1/2}\beta^{1/2}$ would fail if we took
 $\alpha=-1$ and $\beta=-1$. Thus, we prefer to leave powers of the form
-$\alpha^{n}$ for $n\notin\mathbb{Z}$ undefined.%
+$\alpha^{n}$ for $n\notin\mathbb{Z}$ undefined.
 
-\[%
-\begin{tabular}
-[c]{||l||}\hline\hline
-\textbf{You have reached the end of the finished part.}\\
-\textbf{TODO: Write on from here.}\\\hline\hline
-\end{tabular}
-\
+\subsubsection{The Argand diagram}
+
+Let us next make a small detour to demonstrate a geometric representation of
+the complex numbers which, while not strictly necessary for what we intend to
+do with them, is conducive both to understanding them and to applying them.
+
+Recall that a complex number was defined as a pair of real numbers. On the
+other hand, a point in the Cartesian plane is also defined as a pair of real
+numbers (its x-coordinate and its y-coordinate). Thus, it is natural to
+identify each complex number $\left(  a,b\right)  =a+bi$ with the point
+$\left(  a,b\right)  \in\mathbb{R}^{2}$ on the Cartesian plane (i.e., the
+point with x-coordinate $a$ and y-coordinate $b$). This identification equates
+each complex number with a unique point in the Cartesian plane, and vice
+versa:%
+\[
+\begin{tikzpicture}[scale=2.5]
+\draw[step=1cm,gray,very thin] (-0.5, -0.5) grid (2.4,2.4);
+\draw[->] (-0.6,0) -- (2.5,0);
+\draw[->] (0,-0.6) -- (0,2.5);
+\node (p) at (1.3 cm, 1.7 cm) {};
+\node (o) at (0 cm, 0 cm) {};
+\node (xproj) at (1.3 cm, 0 cm) {};
+\fill (p) circle (1pt) node[above right] {$a+bi = \left(a,b\right)$};
+\fill (xproj) circle (1pt);
+\fill (o) circle (1pt);
+\draw[very thick, blue] (p) -- node[right=1pt, fill=white] {$b$} (xproj);
+\draw[very thick, red] (xproj) -- node[below=1pt, fill=white] {$a$} (o);
+\end{tikzpicture}
+.
+\]
+The picture below shows some of the points (specifically, all the $25$ points
+$\left(  a,b\right)  \in\left\{  -2,-1,0,1,2\right\}  ^{2}$ whose both
+coordinates are integers between $-2$ and $2$) labeled with the corresponding
+complex numbers:%
+\[
+\begin{tikzpicture}[scale=2.5]
+\draw[step=1cm,gray,very thin] (-2.4,-2.4) grid (2.4,2.4);
+\draw[->] (-2.5,0) -- (2.5,0);
+\draw[->] (0,-2.5) -- (0,2.5);
+\draw (0,0) circle [radius=1cm];
+\foreach \x/\xtext in {-2, -1, 0, 1, 2}
+\fill (\x cm, 0) circle (1pt) node[above left=2pt]{$\xtext$};
+\foreach \x/\xtext in {-2, -1, 1, 2}
+\fill (\x cm, 1 cm) circle (1pt) node[above left=2pt]{$\xtext + i$};
+\fill (0, 1 cm) circle (1pt) node[above left=2pt] {$i$};
+\foreach \x/\xtext in {-2, -1, 1, 2}
+\fill (\x cm, -1 cm) circle (1pt) node[above left=2pt]{$\xtext - i$};
+\fill (0, -1 cm) circle (1pt) node[above left=2pt] {$-i$};
+\foreach \x/\xtext in {-2, -1, 1, 2}
+\fill (\x cm, 2 cm) circle (1pt) node[above left=2pt]{$\xtext + 2i$};
+\fill (0, 2 cm) circle (1pt) node[above left=2pt] {$2i$};
+\foreach \x/\xtext in {-2, -1, 1, 2}
+\fill (\x cm, -2 cm) circle (1pt) node[above left=2pt]{$\xtext - 2i$};
+\fill (0, -2 cm) circle (1pt) node[above left=2pt] {$-2i$};
+\end{tikzpicture}
+\]
+(as well as the unit circle, which passes through the four points labeled
+$1,i,-1,-i$; we will encounter these four points rather often in the following).
+
+This identification of complex numbers with points is called
+\href{https://en.wikipedia.org/wiki/Complex_plane}{the \textit{Argand diagram}
+or the \textit{complex plane}} (although the latter word has yet another,
+different meaning). The complex number $0$ corresponds to the origin $\left(
+0,0\right)  $ of the plane.
+
+In Definition \ref{def.CC.CC} \textbf{(e)}, we have introduced three
+operations on complex numbers; what do they mean geometrically for the
+corresponding points? The two operations $+$ and $-$ are easiest to
+understand: They are exactly the usual operations of addition and subtraction
+for vectors. Thus, if $\alpha$ and $\beta$ are two complex numbers, then the
+points labeled by the four complex numbers $0$, $\alpha$, $\alpha+\beta$ and
+$\beta$ form a parallelogram:%
+\[
+\begin{tikzpicture}[scale=2.5]
+\draw[step=1cm,gray,very thin] (-0.5, -0.5) grid (2.4,2.4);
+\draw[->] (-0.6,0) -- (2.5,0);
+\draw[->] (0,-0.6) -- (0,2.5);
+\node (a) at (1.2 cm, 0.6 cm) {};
+\node (b) at (0.5 cm, 1.5 cm) {};
+\node (ab) at (1.7 cm, 2.1 cm) {};
+\node (o) at (0 cm, 0 cm) {};
+\fill (a) circle (1pt) node[below right] {$\alpha$};
+\fill (b) circle (1pt) node[above left] {$\beta$};
+\fill (ab) circle (1pt) node[above left] {$\alpha+\beta$};
+\fill (o) circle (1pt) node[above left] {$0$};
+\draw[very thick, blue] (a) -- (ab);
+\draw[very thick, blue] (o) -- (b);
+\draw[very thick, red] (b) -- (ab);
+\draw[very thick, red] (o) -- (a);
+\end{tikzpicture}
+.
+\]
+Likewise, the points labeled by the four complex numbers $0$, $\alpha$,
+$\beta$ and $\beta-\alpha$ form a parallelogram. These parallelograms can be
+degenerate; in particular, the point $-\alpha$ is the reflection of the point
+$\alpha$ through the origin:\footnote{We no longer say \textquotedblleft the
+point labeled by $\alpha$\textquotedblright, but simply equate $\alpha$ with
+that point now.}%
+\[
+\begin{tikzpicture}[scale=2.5]
+\draw[step=1cm,gray,very thin] (-1.2, -1.2) grid (1.2, 1.2);
+\draw[->] (-1.3,0) -- (1.3,0);
+\draw[->] (0,-1.3) -- (0,1.3);
+\node (a) at (0.4 cm, 0.6 cm) {};
+\node (ma) at (-0.4 cm, -0.6 cm) {};
+\node (o) at (0 cm, 0 cm) {};
+\fill (a) circle (1pt) node[below right] {$\alpha$};
+\fill (ma) circle (1pt) node[above left] {$-\alpha$};
+\fill (o) circle (1pt) node[above left] {$0$};
+\draw[very thick, blue] (a) -- (o);
+\draw[very thick, blue] (o) -- (ma);
+\end{tikzpicture}
+.
 \]
 
 
+Multiplication is less evident. The easiest case is multiplying by $i$: If
+$\alpha$ is a complex number, then the point $i\alpha$ is obtained from the
+point $\alpha$ by a $90^{\circ}$ rotation (counterclockwise) around the
+origin. Thus, the four points $\alpha$, $i\alpha$, $-\alpha$ and $-i\alpha$
+form a square centered at the origin:%
+\[
+\begin{tikzpicture}[scale=2.5]
+\draw[step=1cm,gray,very thin] (-1.2, -1.2) grid (1.2, 1.2);
+\draw[->] (-1.3,0) -- (1.3,0);
+\draw[->] (0,-1.3) -- (0,1.3);
+\node (a) at (0.4 cm, 0.6 cm) {};
+\node (ma) at (-0.4 cm, -0.6 cm) {};
+\node (ia) at (-0.6 cm, 0.4 cm) {};
+\node (mia) at (0.6 cm, -0.4 cm) {};
+\node (o) at (0 cm, 0 cm) {};
+\fill (a) circle (1pt) node[below right] {$\alpha$};
+\fill (ma) circle (1pt) node[above left] {$-\alpha$};
+\fill (ia) circle (1pt) node[above left] {$i\alpha$};
+\fill (mia) circle (1pt) node[above left] {$-i\alpha$};
+\fill (o) circle (1pt) node[above left] {$0$};
+\draw[very thick, red] (a) -- (ia);
+\draw[very thick, red] (ia) -- (ma);
+\draw[very thick, red] (ma) -- (mia);
+\draw[very thick, red] (mia) -- (a);
+\end{tikzpicture}.
+\]
+
+
+More generally, if $\beta$ is a complex number, then multiplication by $\beta$
+(that is, the map $\mathbb{C}\rightarrow\mathbb{C},\ \alpha\mapsto\alpha\beta
+$) is a similitude transformation (so it preserves angles and ratios of
+lengths); more precisely it is a rotation around the origin composed with a
+homothety from the origin. Combined with the fact that it sends $1$ to $\beta
+$, this uniquely determines it.
+
+This is just the beginning of a rather helpful dictionary between elementary
+plane geometry and the algebra of complex numbers. See \cite{AndAnd14} for
+many applications of this point of view, particularly to proving results in
+plane geometry.
+
 \subsubsection{Norms and conjugates}
-
-\begin{teachingnote}
-Introduce the Argand diagram here at the latest. We will use the ideas that
-conjugation = reflection in x-axis and that absolute value = distance from
-origin. Also, \textquotedblleft first quadrant\textquotedblright\ is used
-further below. Mention at least the following:
-
-\begin{itemize}
-\item $0$ origin.
-
-\item addition \& subtraction as vectors; thus, $0,\alpha,\alpha+\beta,\beta$
-form a parallelogram.
-
-\item $-\alpha$ = reflection of $\alpha$ through origin.
-
-\item multiplication via rotation-stretch.
-
-\item in particular, multiplication by $i$ = rotation by $90^{\circ}$.
-\end{itemize}
-
-draw two pictures:
-
-\begin{itemize}
-\item point $a+bi$ with coordinates $a,b$ marked.
-
-\item points $-1,0,1,2,i,2i,-i,1+i,1-i$ marked.
-\end{itemize}
-\end{teachingnote}
 
 Let us now define some further features of complex numbers.
 
@@ -18924,7 +19042,7 @@ if $\alpha=0$.
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.CC.norm.basics}.] Write the complex number
+[Proof of Proposition \ref{prop.CC.norm.basics}.]Write the complex number
 $\alpha$ in the form $\alpha=\left(  a,b\right)  $ for two real numbers $a$
 and $b$. Then, $\operatorname*{N}\left(  \alpha\right)  =a^{2}+b^{2}$ (by the
 definition of the norm). But $a^{2}$ and $b^{2}$ are squares of real numbers
@@ -18943,14 +19061,14 @@ logical equivalence $\left(  a^{2}+b^{2}=0\right)  \ \Longleftrightarrow
 
 Now, we have the following chain of equivalences:%
 \begin{align*}
-\left(  \operatorname*{N}\left(  \alpha\right)  =0\right)  \   &
+\left(  \operatorname*{N}\left(  \alpha\right)  =0\right)  \  &
 \Longleftrightarrow\ \left(  a^{2}+b^{2}=0\right)  \ \ \ \ \ \ \ \ \ \ \left(
 \text{since }\operatorname*{N}\left(  \alpha\right)  =a^{2}+b^{2}\right)  \\
-& \Longleftrightarrow\ \left(  \text{both }a^{2}\text{ and }b^{2}\text{ are
+&  \Longleftrightarrow\ \left(  \text{both }a^{2}\text{ and }b^{2}\text{ are
 }0\right)  \\
-& \Longleftrightarrow\ \left(  a^{2}=0\text{ and }b^{2}=0\right)
+&  \Longleftrightarrow\ \left(  a^{2}=0\text{ and }b^{2}=0\right)
 \ \Longleftrightarrow\ \left(  a=0\text{ and }b=0\right)  \\
-& \Longleftrightarrow\ \left(  \underbrace{\left(  a,b\right)  }_{=\alpha
+&  \Longleftrightarrow\ \left(  \underbrace{\left(  a,b\right)  }_{=\alpha
 }=\underbrace{\left(  0,0\right)  }_{=0_{\mathbb{C}}}\right)
 \ \Longleftrightarrow\ \left(  \alpha=0_{\mathbb{C}}\right)
 \ \Longleftrightarrow\ \left(  \alpha=0\right)  .
@@ -18964,7 +19082,7 @@ a_{\mathbb{C}}\right)  =a^{2}$.
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.CC.norm.aa}.] We have $a_{\mathbb{C}}=\left(
+[Proof of Proposition \ref{prop.CC.norm.aa}.]We have $a_{\mathbb{C}}=\left(
 a,0\right)  $ (by the definition of $a_{\mathbb{C}}$). Hence, the definition
 of the norm yields $\operatorname*{N}\left(  a_{\mathbb{C}}\right)
 =a^{2}+0^{2}=a^{2}$. This proves Proposition \ref{prop.CC.norm.aa}.
@@ -18977,7 +19095,26 @@ The \textit{conjugate} $\overline{\alpha}$ of $\alpha$ is defined to be the
 complex number $\left(  a,-b\right)  \in\mathbb{C}$.
 \end{definition}
 
-The following is easy to check:
+From the viewpoint of the Argand diagram, the conjugate $\overline{\alpha}$ of
+a complex number $\alpha$ is simply the result of reflecting $\alpha$ (or, to
+be pedantic, the point labeled by $\alpha$) across the x-axis:%
+\[
+\begin{tikzpicture}[scale=2.5]
+\draw[step=1cm,gray,very thin] (-1.2, -1.2) grid (1.2, 1.2);
+\draw[->] (-1.3,0) -- (1.3,0);
+\draw[->] (0,-1.3) -- (0,1.3);
+\node (a) at (0.3 cm, 0.6 cm) {};
+\node (ca) at (0.3 cm, -0.6 cm) {};
+\node (o) at (0 cm, 0 cm) {};
+\fill (a) circle (1pt) node[below right] {$\alpha$};
+\fill (ca) circle (1pt) node[above right] {$\overline{\alpha}$};
+\fill (o) circle (1pt) node[above left] {$0$};
+\draw[very thick, blue] (o) -- (a);
+\draw[very thick, blue] (o) -- (ca);
+\end{tikzpicture}
+.
+\]
+Thus, the following is completely self-evident:
 
 \begin{proposition}
 \label{prop.CC.conj.conjconj}Let $\alpha\in\mathbb{C}$.
@@ -18992,8 +19129,11 @@ $\textquotedblright.)
 \textbf{(b)} We always have $\overline{\overline{\alpha}}=\alpha$.
 \end{proposition}
 
+Since we don't want to depend on geometric reasoning, let us nevertheless
+prove this fact algebraically:
+
 \begin{proof}
-[Proof of Proposition \ref{prop.CC.conj.conjconj}.] Write the complex number
+[Proof of Proposition \ref{prop.CC.conj.conjconj}.]Write the complex number
 $\alpha$ in the form $\alpha=\left(  a,b\right)  $ for two real numbers $a$
 and $b$. Then, $\overline{\alpha}=\left(  a,-b\right)  $ (by the definition of
 $\overline{\alpha}$). Hence, the definition of $\overline{\overline{\alpha}}$
@@ -19039,7 +19179,7 @@ $\Longrightarrow$\textquotedblright\ direction of Proposition
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.CC.norm.conj}.] Write the complex number
+[Proof of Proposition \ref{prop.CC.norm.conj}.]Write the complex number
 $\alpha$ in the form $\alpha=\left(  a,b\right)  $ for two real numbers $a$
 and $b$. Then, $\overline{\alpha}=\left(  a,-b\right)  $ (by the definition of
 $\overline{\alpha}$) and $\operatorname*{N}\left(  \alpha\right)  =a^{2}%
@@ -19100,7 +19240,7 @@ $. This proves Proposition \ref{prop.CC.norm.conj} \textbf{(b)}.
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.CC.conj.hom}.] Write the complex number
+[Proof of Proposition \ref{prop.CC.conj.hom}.]Write the complex number
 $\alpha$ in the form $\alpha=\left(  a,b\right)  $ for two real numbers $a$
 and $b$. Then, $\overline{\alpha}=\left(  a,-b\right)  $ (by the definition of
 $\overline{\alpha}$) and $\operatorname*{N}\left(  \alpha\right)  =a^{2}%
@@ -19163,8 +19303,8 @@ instead of $\alpha$) yields $\operatorname*{N}\left(  \dfrac{\alpha}{\beta
 }{\beta}\cdot\beta=\alpha$, this rewrites as
 \begin{equation}
 \operatorname*{N}\left(  \alpha\right)  =\operatorname*{N}\left(
-\dfrac{\alpha}{\beta}\right)  \cdot\operatorname*{N}\left(  \beta\right)
-.\label{pf.prop.CC.conj.hom.e.1}%
+\dfrac{\alpha}{\beta}\right)  \cdot\operatorname*{N}\left(  \beta\right)  .
+\label{pf.prop.CC.conj.hom.e.1}%
 \end{equation}
 Also, Proposition \ref{prop.CC.norm.basics} \textbf{(b)} (applied to $\beta$
 instead of $\alpha$) yields that we have $\operatorname*{N}\left(
@@ -19236,8 +19376,32 @@ $\sqrt{\operatorname*{N}\left(  a_{\mathbb{C}}\right)  }=\sqrt{a^{2}%
 $\textquotedblright\ means the classical concept of absolute value of $a$.)
 \end{definition}
 
+In the Argand diagram, the absolute value $\left\vert \alpha\right\vert $ of a
+complex number $\alpha$ is simply the distance of $\alpha$ from the origin.
+The reason for this is the Pythagorean theorem:%
+
+\[
+\begin{tikzpicture}[scale=2.5]
+\draw[step=1cm,gray,very thin] (-0.5, -0.5) grid (2.4,2.4);
+\draw[->] (-0.6,0) -- (2.5,0);
+\draw[->] (0,-0.6) -- (0,2.5);
+\node (p) at (1.3 cm, 1.7 cm) {};
+\node (o) at (0 cm, 0 cm) {};
+\node (xproj) at (1.3 cm, 0 cm) {};
+\fill (p) circle (1pt) node[above right] {$\alpha = a+bi$};
+\fill (xproj) circle (1pt);
+\fill (o) circle (1pt);
+\draw[very thick, blue] (p) -- node[right=1pt, fill=white] {$b$} (xproj);
+\draw[very thick, red] (xproj) -- node[below=1pt, fill=white] {$a$} (o);
+\draw[very thick, green!50!black] (o) --node[above left=1pt, fill=white] {$\left|\alpha\right| = \sqrt{a^2 + b^2}$} (p);
+\end{tikzpicture}
+.
+\]
+
+
 Good references for the basic properties of complex numbers are
-\cite{LaNaSc16} and \cite[\S 3.9--\S 3.12]{Swanso18}.
+\cite{LaNaSc16} and \cite[\S 3.9--\S 3.12]{Swanso18}. The book \cite{AndAnd14}
+is a treasure trove of applications and exercises.
 
 \subsubsection{$\operatorname*{Re}$, $\operatorname*{Im}$ and the $2\times
 2$-matrix representation}
@@ -19288,7 +19452,7 @@ a & b\\
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.CC.as-matrices.mu}.] \textbf{(c)} This is a
+[Proof of Proposition \ref{prop.CC.as-matrices.mu}.]\textbf{(c)} This is a
 straightforward computation: Let $\alpha,\beta\in\mathbb{C}$. Write the
 complex number $\alpha$ in the form $\alpha=\left(  a,b\right)  $ for two real
 numbers $a$ and $b$. Write the complex number $\beta$ in the form
@@ -19305,7 +19469,7 @@ ac-bd,ad+bc\right)
 \begin{array}
 [c]{cc}%
 ac-bd & ad+bc\\
--\left(  ad+bc\right)   & ac-bd
+-\left(  ad+bc\right)  & ac-bd
 \end{array}
 \right)  \label{pf.prop.CC.as-matrices.mu.c.1}%
 \end{equation}
@@ -19318,7 +19482,8 @@ a,b\right)  $, we obtain%
 a & b\\
 -b & a
 \end{array}
-\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of }\mu\right)  ,
+\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of }\mu\right)
+,
 \]
 and similarly we can find%
 \[
@@ -19332,7 +19497,7 @@ c & d\\
 \]
 Multiplying these two equalities together, we find%
 \begin{align*}
-\mu\left(  \alpha\right)  \cdot\mu\left(  \beta\right)    & =\left(
+\mu\left(  \alpha\right)  \cdot\mu\left(  \beta\right)   &  =\left(
 \begin{array}
 [c]{cc}%
 a & b\\
@@ -19347,15 +19512,15 @@ c & d\\
 \right)  =\left(
 \begin{array}
 [c]{cc}%
-ac+b\left(  -d\right)   & ad+bc\\
-\left(  -b\right)  c+a\left(  -d\right)   & \left(  -b\right)  d+ac
+ac+b\left(  -d\right)  & ad+bc\\
+\left(  -b\right)  c+a\left(  -d\right)  & \left(  -b\right)  d+ac
 \end{array}
-\right)  \\
-& =\left(
+\right) \\
+&  =\left(
 \begin{array}
 [c]{cc}%
 ac-bd & ad+bc\\
--\left(  ad+bc\right)   & ac-bd
+-\left(  ad+bc\right)  & ac-bd
 \end{array}
 \right)  .
 \end{align*}
@@ -19432,7 +19597,17 @@ that section).
 
 We shall follow Keith Conrad's notes \cite{Conrad-Gauss} for most of this
 section (but at the end we will go a bit further in order to answer Question
-\ref{quest.intro.sum-of-2sq.2} \textbf{(b)}).
+\ref{quest.intro.sum-of-2sq.2} \textbf{(b)}).%
+
+\[%
+\begin{tabular}
+[c]{||l||}\hline\hline
+\textbf{You have reached the end of the finished part.}\\
+\textbf{TODO: Write on from here.}\\\hline\hline
+\end{tabular}
+\ \
+\]
+
 
 \subsubsection{Definitions and basics}
 
@@ -22882,24 +23057,24 @@ straightforward to prove:
 -b\right)  $ (by the definition of $a-b$). Adding $b$ on both sides of this
 equation, we get%
 \begin{align*}
-c+b  & =\left(  a+\left(  -b\right)  \right)  +b=a+\underbrace{\left(  \left(
--b\right)  +b\right)  }_{\substack{=0\\\text{(since }-b\text{ is
+c+b  &  =\left(  a+\left(  -b\right)  \right)  +b=a+\underbrace{\left(
+\left(  -b\right)  +b\right)  }_{\substack{=0\\\text{(since }-b\text{ is
 the}\\\text{additive inverse of }b\text{)}}}\ \ \ \ \ \ \ \ \ \ \left(
-\text{by associativity of addition}\right)  \\
-& =a+0=a
+\text{by associativity of addition}\right) \\
+&  =a+0=a
 \end{align*}
 (by the neutrality of zero), so that $a=c+b=b+c$.
 
 $\Longleftarrow:$ Assume $a=b+c$. Adding $-b$ to both sides of this equation,
 we get%
 \begin{align*}
-a+\left(  -b\right)    & =\underbrace{\left(  b+c\right)  }%
+a+\left(  -b\right)   &  =\underbrace{\left(  b+c\right)  }%
 _{\substack{=c+b\\\text{(by commutativity}\\\text{of addition)}}}+\left(
 -b\right)  =\left(  c+b\right)  +\left(  -b\right)  =c+\underbrace{\left(
 b+\left(  -b\right)  \right)  }_{\substack{=0\\\text{(since }-b\text{ is
 the}\\\text{additive inverse of }b\text{)}}}\\
-& \ \ \ \ \ \ \ \ \ \ \left(  \text{by associativity of addition}\right)  \\
-& =c+0=c
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by associativity of addition}\right) \\
+&  =c+0=c
 \end{align*}
 (by the neutrality of zero), so that $c=a+\left(  -b\right)  =a-b$. Thus,
 Proposition \ref{prop.rings.inv-add.rules} \textbf{(a)} is proven.
@@ -23924,7 +24099,8 @@ nonnegative integer.}, we find%
 ^{\left(  p-1\right)  /2}=\underbrace{\left(  -1\right)  ^{\left(  p-1\right)
 /2}}_{\substack{=-1\\\text{(since }\left(  p-1\right)  /2\text{ is odd)}%
 }}\underbrace{\left(  b^{2}\right)  ^{\left(  p-1\right)  /2}}%
-_{\substack{=b^{p-1}\\\equiv1\operatorname{mod}p}}\equiv-1\operatorname{mod}p.
+_{\substack{=b^{p-1}\\\equiv1\operatorname{mod}p}}\equiv-1\operatorname{mod}%
+p.
 \]
 Hence,%
 \[
@@ -24932,7 +25108,7 @@ Let $\mathbb{K}^{2\geq2}$ be the ring of lower-triangular $2\times2$-matrices.
 
 \textbf{(a)} Consider the map%
 \begin{align*}
-\mathbb{K}^{2\leq2} &  \rightarrow\mathbb{K}^{2\geq2},\\
+\mathbb{K}^{2\leq2}  &  \rightarrow\mathbb{K}^{2\geq2},\\
 \left(
 \begin{array}
 [c]{cc}%
@@ -24956,7 +25132,7 @@ neither $B^{T}A^{T}$ nor $A^{T}B^{T}$.
 
 \textbf{(b)} Consider the map%
 \begin{align*}
-\mathbb{K}^{2\leq2} &  \rightarrow\mathbb{K}^{2\geq2},\\
+\mathbb{K}^{2\leq2}  &  \rightarrow\mathbb{K}^{2\geq2},\\
 \left(
 \begin{array}
 [c]{cc}%
@@ -25190,8 +25366,6 @@ is well-defined and is a bijection. We claim that this map $S_{m,n}$ is a ring i
 \begin{proof}
 LTTR.
 \end{proof}
-
-
 
 TODO:
 
@@ -32551,6 +32725,11 @@ real numbers.)
 
 \begin{thebibliography}{999999999}                                                                                        %
 
+
+\bibitem[AndAnd14]{AndAnd14}%
+\href{https://doi.org/10.1007/978-0-8176-8415-0}{Titu Andreescu, Dorin
+Andrica, \textit{Complex Numbers from A to\ldots Z}, 2nd edition, Springer
+2014.}
 
 \bibitem[Armstr18]{Armstrong}Drew Armstrong, \textit{Abstract Algebra I},
 2018.\newline\url{http://www.math.miami.edu/~armstrong/561fa18.php}
