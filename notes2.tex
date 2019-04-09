@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, April 08, 2019 10:43:58}
+%TCIDATA{LastRevised=Monday, April 08, 2019 12:05:18}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -16870,8 +16870,8 @@ Finish this!
 \end{fineprint}
 \end{proof}
 
-\subsection{The Chinese Remainder Theorem as a bijection between residue
-classes}
+\subsection{\label{sect.equiv.CRT-bij}The Chinese Remainder Theorem as a
+bijection between residue classes}
 
 \begin{definition}
 \label{def.eqrel.Z/n.pind}Let $n$ be a positive integer. Let $d$ be a positive
@@ -25356,121 +25356,99 @@ $f$ is a ring isomorphism (by the definition of a ring isomorphism).
 \end{center}
 
 \begin{example}
-\label{exa.riiso.CRT}Let $m$ and $n$ be two coprime positive integers. Theorem
-\ref{thm.eqrel.CRT2} says that the map%
+Let $m$ and $n$ be two coprime positive integers. Theorem 3.6.2 says that the
+map%
 \begin{align*}
 S_{m,n}:\mathbb{Z}/\left(  mn\right)   &  \rightarrow\left(  \mathbb{Z}%
 /m\right)  \times\left(  \mathbb{Z}/n\right)  ,\\
 \alpha &  \mapsto\left(  \pi_{mn,m}\left(  \alpha\right)  ,\pi_{mn,n}\left(
 \alpha\right)  \right)
 \end{align*}
-is well-defined and is a bijection. We claim that this map $S_{m,n}$ is a ring isomorphism.
+is well-defined and is a bijection. We claim that this $S_{m,n}$ is a ring isomorphism.
 \end{example}
 
 \begin{proof}
-The map $S_{m,n}$ is a bijection, thus invertible.
+The map $S_{m,n}$ is a bijection, thus invertible. Thus, it remains to check
+that it is a ring homomorphism.
 
-Let us first prove that the map $S_{m,n}$ is a ring homomorphism.
+We shall only check axiom \textbf{(c)}; the rest is similar.
 
-For each $s\in\mathbb{Z}$, we have%
-\begin{equation}
+Fix $\alpha,\beta\in\mathbb{Z}/\left(  mn\right)  $. We must prove that
+$S_{m,n}\left(  \alpha\beta\right)  =S_{m,n}\left(  \alpha\right)  \cdot
+S_{m,n}\left(  \beta\right)  $.
+
+Write $\alpha$ and $\beta$ as $\alpha=\left[  a\right]  _{mn}$ and
+$\beta=\left[  b\right]  _{mn}$ for integers $a$ and $b$. Thus, $\alpha
+\beta=\left[  a\right]  _{mn}\left[  b\right]  _{mn}=\left[  ab\right]  _{mn}$.
+
+Notice that if $s$ is any integer, then%
+\[
 S_{m,n}\left(  \left[  s\right]  _{mn}\right)  =\left(  \underbrace{\pi
 _{mn,m}\left(  \left[  s\right]  _{mn}\right)  }_{=\left[  s\right]  _{m}%
 },\underbrace{\pi_{mn,n}\left(  \left[  s\right]  _{mn}\right)  }_{=\left[
 s\right]  _{n}}\right)  =\left(  \left[  s\right]  _{m},\left[  s\right]
-_{n}\right)  .\label{pf.exa.riiso.CRT.1}%
-\end{equation}
-
-
-Let us check axiom \textbf{(c)} from Definition \ref{def.riho.riho} for
-$f=S_{m,n}$. Let $\alpha,\beta\in\mathbb{Z}/\left(  mn\right)  $. We must
-prove that $S_{m,n}\left(  \alpha\beta\right)  =S_{m,n}\left(  \alpha\right)
-\cdot S_{m,n}\left(  \beta\right)  $.
-
-Write $\alpha$ and $\beta$ in the form $\alpha=\left[  a\right]  _{mn}$ and
-$\beta=\left[  b\right]  _{mn}$ for some $a,b\in\mathbb{Z}$. Then,
-$\alpha\beta=\left[  a\right]  _{mn}\left[  b\right]  _{mn}=\left[  ab\right]
-_{mn}$, so
-\[
-S_{m,n}\left(  \alpha\beta\right)  =S_{m,n}\left(  \left[  ab\right]
-_{mn}\right)  =\left(  \left[  ab\right]  _{m},\left[  ab\right]  _{n}\right)
-\ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.exa.riiso.CRT.1})}\right)  .
+_{n}\right)  .
 \]
-Comparing this with%
+Hence,
 \begin{align*}
-&  S_{m,n}\left(  \underbrace{\alpha}_{=\left[  a\right]  _{mn}}\right)  \cdot
-S_{m,n}\left(  \underbrace{\beta}_{=\left[  b\right]  _{mn}}\right)  \\
-&  =\underbrace{S_{m,n}\left(  \left[  a\right]  _{mn}\right)  }%
-_{\substack{=\left(  \left[  a\right]  _{m},\left[  a\right]  _{n}\right)
-\\\text{(by (\ref{pf.exa.riiso.CRT.1}))}}}\cdot\underbrace{S_{m,n}\left(
-\left[  b\right]  _{mn}\right)  }_{\substack{=\left(  \left[  b\right]
-_{m},\left[  b\right]  _{n}\right)  \\\text{(by (\ref{pf.exa.riiso.CRT.1}))}%
-}}\\
-&  =\left(  \left[  a\right]  _{m},\left[  a\right]  _{n}\right)  \cdot\left(
-\left[  b\right]  _{m},\left[  b\right]  _{n}\right)  =\left(
-\underbrace{\left[  a\right]  _{m}\left[  b\right]  _{m}}_{=\left[  ab\right]
-_{m}},\underbrace{\left[  a\right]  _{n}\left[  b\right]  _{n}}_{=\left[
-ab\right]  _{n}}\right)  \\
-&  \ \ \ \ \ \ \ \ \ \ \left(
+S_{m,n}\left(  \alpha\right)    & =S_{m,n}\left(  \left[  a\right]
+_{mn}\right)  =\left(  \left[  a\right]  _{m},\left[  a\right]  _{n}\right)
+\ \ \ \ \ \ \ \ \ \ \text{and}\\
+S_{m,n}\left(  \beta\right)    & =S_{m,n}\left(  \left[  b\right]
+_{mn}\right)  =\left(  \left[  b\right]  _{m},\left[  b\right]  _{n}\right)
+\ \ \ \ \ \ \ \ \ \ \text{and}\\
+S_{m,n}\left(  \underbrace{\alpha\beta}_{=\left[  ab\right]  _{mn}}\right)
+& =S_{m,n}\left(  \left[  ab\right]  _{mn}\right)  =\left(  \left[  ab\right]
+_{m},\left[  ab\right]  _{n}\right)  .
+\end{align*}
+So the equality we need to check, $S_{m,n}\left(  \alpha\beta\right)
+=S_{m,n}\left(  \alpha\right)  \cdot S_{m,n}\left(  \beta\right)  $, rewrites
+as%
+\[
+\left(  \left[  ab\right]  _{m},\left[  ab\right]  _{n}\right)  =\left(
+\left[  a\right]  _{m},\left[  a\right]  _{n}\right)  \cdot\left(  \left[
+b\right]  _{m},\left[  b\right]  _{n}\right)  .
+\]
+But to check this, we observe that%
+\begin{align*}
+& \left(  \left[  a\right]  _{m},\left[  a\right]  _{n}\right)  \cdot\left(
+\left[  b\right]  _{m},\left[  b\right]  _{n}\right)  \\
+& =\left(  \left[  a\right]  _{m}\left[  b\right]  _{m},\left[  a\right]
+_{n}\left[  b\right]  _{n}\right)  \ \ \ \ \ \ \ \ \ \ \left(
 \begin{array}
 [c]{c}%
-\text{since the multiplication }\cdot\text{ on the Cartesian product }\left(
-\mathbb{Z}/m\right)  \times\left(  \mathbb{Z}/n\right)  \\
-\text{is defined entrywise}%
+\text{since multiplication on }\left(  \mathbb{Z}/m\right)  \times\left(
+\mathbb{Z}/n\right)  \\
+\text{is entrywise}%
 \end{array}
 \right)  \\
-&  =\left(  \left[  ab\right]  _{m},\left[  ab\right]  _{n}\right)  ,
+& =\left(  \left[  ab\right]  _{m},\left[  ab\right]  _{n}\right)  .
 \end{align*}
-we obtain $S_{m,n}\left(  \alpha\beta\right)  =S_{m,n}\left(  \alpha\right)
-\cdot S_{m,n}\left(  \beta\right)  $. This proves axiom \textbf{(c)} for our
-map $S_{m,n}$. Similarly, the other axioms can be shown. Thus, $S_{m,n}$ is a
-ring homomorphism. Therefore, Proposition \ref{prop.riiso.invertible} shows
-that $S_{m,n}$ is a ring isomorphism (since $S_{m,n}$ is invertible).
+So axiom \textbf{(c)} is verified. So we are done.
 \end{proof}
 
-Note one more simple general fact:
-
 \begin{proposition}
-\label{prop.riiso.inverse}Let $\mathbb{K}$ and $\mathbb{L}$ be two rings. Let
-$f:\mathbb{K}\rightarrow\mathbb{L}$ be a ring isomorphism. Then,
-$f^{-1}:\mathbb{L}\rightarrow\mathbb{K}$ is also a ring isomorphism.
+Let $\mathbb{K}$ and $\mathbb{L}$ be two rings. Let $f:\mathbb{K}%
+\rightarrow\mathbb{L}$ be a ring isomorphism. Then, $f^{-1}:\mathbb{L}%
+\rightarrow\mathbb{K}$ is also a ring isomorphism.
 \end{proposition}
 
 \begin{proof}
-Clearly, $f^{-1}$ is a ring homomorphism (since $f$ is a ring isomorphism).
-Furthermore, $f^{-1}$ is invertible (with inverse $\left(  f^{-1}\right)
-^{-1}=f$) and its inverse $\left(  f^{-1}\right)  ^{-1}=f$ is a ring
-homomorphism as well. Thus, $f^{-1}$ is a ring isomorphism.
+Clearly, $f^{-1}$ is invertible, with inverse $\left(  f^{-1}\right)  ^{-1}%
+=f$. Since $f$ is a ring isomorphism, both $f$ and $f^{-1}$ are ring
+homomorphisms. Hence, $f^{-1}$ and $\left(  f^{-1}\right)  ^{-1}=f$ are ring
+homomorphisms. And thus, $f^{-1}$ is a ring isomorphism.
 \end{proof}
 
-Let me attempt to discuss the use of ring isomorphisms; unfortunately, I will
-have to be vague at this point. Ring homomorphisms allow us to transfer some
-things from one ring into another. For example, if $f:\mathbb{K\rightarrow L}$
-is a ring homomorphism from a ring $\mathbb{K}$ to a ring $\mathbb{L}$, then
-$f$ sends any invertible element of $\mathbb{K}$ to an invertible element of
-$\mathbb{L}$ (by Proposition \ref{prop.riho.subtract} \textbf{(b)}). However,
-they are generally only \textquotedblleft one-way roads\textquotedblright. For
-instance, if $f:\mathbb{K\rightarrow L}$ is a ring homomorphism from a ring
-$\mathbb{K}$ to a ring $\mathbb{L}$, and if $a\in\mathbb{K}$ is such that
-$f\left(  a\right)  \in\mathbb{L}$ is invertible, then $a$ may and may not be
-invertible. A ring homomorphism does not determine either ring in terms of the
-other. You can have homomorphisms between completely different rings, such as
-from $\mathbb{Z}$ to the zero ring, or from $\mathbb{Z}$ to $\mathbb{C}$.
-
-On the other hand, ring isomorphisms let us go \textquotedblleft back and
-forth\textquotedblright\ between the rings they connect; if we have a ring
-isomorphism $f:\mathbb{K}\rightarrow\mathbb{L}$, we can regard $\mathbb{L}$ as
-being \textquotedblleft the same ring as $\mathbb{K}$, with its elements
-renamed\textquotedblright. (The isomorphism $f$ does the renaming: you should
-think of each $a\in\mathbb{K}$ being renamed as $f\left(  a\right)  $.)
-
-Thus, when you have a ring isomorphism $f:\mathbb{K}\rightarrow\mathbb{L}$,
-you can take any property of $\mathbb{K}$ and obtain the corresponding
-property of $\mathbb{L}$, and vice versa. Here is an example:
+Ring isomorphisms let you transfer all knowledge back and forth between two
+rings. If we have a ring isomorphism $f:\mathbb{K}\rightarrow\mathbb{L}$, we
+can regard $\mathbb{L}$ as being \textquotedblleft the same ring as
+$\mathbb{K}$, with its elements renamed\textquotedblright. (Specifically, $a$
+gets renamed as $f\left(  a\right)  $.)
 
 \begin{proposition}
-\label{prop.riiso.fieldfield}Let $\mathbb{K}$ and $\mathbb{L}$ be two rings.
-Let $f:\mathbb{K}\rightarrow\mathbb{L}$ be a ring isomorphism.
+Let $\mathbb{K}$ and $\mathbb{L}$ be two rings. Let $f:\mathbb{K}%
+\rightarrow\mathbb{L}$ be a ring isomorphism.
 
 \textbf{(a)} If $\mathbb{K}$ is commutative, then $\mathbb{L}$ is commutative.
 
@@ -25482,109 +25460,78 @@ Let $f:\mathbb{K}\rightarrow\mathbb{L}$ be a ring isomorphism.
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.riiso.fieldfield}.] The proofs given below are
-examplary; you should be able to similarly transfer any other property of
-$\mathbb{K}$ to $\mathbb{L}$ and vice versa.
-
-We first recall that $f$ is a ring isomorphism. Thus, the map $f$ is
-invertible, and both $f$ and $f^{-1}$ are ring homomorphisms (by the
-definition of a ring isomorphism).
+The map $f$ is a ring isomorphism, thus invertible. Furthermore, it follows
+that $f$ and $f^{-1}$ are ring isomorphisms.
 
 \textbf{(a)} Assume that $\mathbb{K}$ is commutative. We must prove that
 $\mathbb{L}$ is commutative. In other words, we must prove that $ab=ba$ for
-any $a,b\in\mathbb{L}$.
+all $a,b\in\mathbb{L}$.
 
-Fix $a,b\in\mathbb{L}$. We know that $f$ is invertible. Hence, $f^{-1}\left(
-a\right)  ,f^{-1}\left(  b\right)  \in\mathbb{K}$ are well-defined. Since
-$\mathbb{K}$ is commutative, these satisfy%
+Fix $a,b\in\mathbb{L}$. Then, $f^{-1}\left(  a\right)  ,f^{-1}\left(
+b\right)  \in\mathbb{K}$. Thus, since $\mathbb{K}$ is commutative, we have
+$f^{-1}\left(  a\right)  f^{-1}\left(  b\right)  =f^{-1}\left(  b\right)
+f^{-1}\left(  a\right)  $. Applying $f$ to both sides of this equality, we get%
 \[
-f^{-1}\left(  a\right)  f^{-1}\left(  b\right)  =f^{-1}\left(  b\right)
-f^{-1}\left(  a\right)  .
-\]
-Applying $f$ to this equality, we get%
-\begin{equation}
 f\left(  f^{-1}\left(  a\right)  f^{-1}\left(  b\right)  \right)  =f\left(
-f^{-1}\left(  b\right)  f^{-1}\left(  a\right)  \right)
-.\label{pf.prop.riiso.fieldfield.a.1}%
-\end{equation}
-But since $f$ is a ring homomorphism, we have%
+f^{-1}\left(  b\right)  f^{-1}\left(  a\right)  \right)  .
+\]
+But $f$ is a ring homomorphism, and thus%
 \[
 f\left(  f^{-1}\left(  a\right)  f^{-1}\left(  b\right)  \right)
 =\underbrace{f\left(  f^{-1}\left(  a\right)  \right)  }_{=a}%
-\underbrace{f\left(  f^{-1}\left(  b\right)  \right)  }_{=b}=ab
+\underbrace{f\left(  f^{-1}\left(  b\right)  \right)  }_{=b}=ab,
 \]
 and similarly $f\left(  f^{-1}\left(  b\right)  f^{-1}\left(  a\right)
-\right)  =ba$; thus, the equality (\ref{pf.prop.riiso.fieldfield.a.1}) becomes
-$ab=ba$. This shows that $\mathbb{L}$ is commutative. This proves Proposition
-\ref{prop.riiso.fieldfield} \textbf{(a)}.
+\right)  =ba$. Hence, the above equality becomes $ab=ba$. This proves that
+$\mathbb{L}$ is commutative.
 
-\textbf{(b)} Assume $0\neq1$ in $\mathbb{K}$. We must prove $0\neq1$ in
-$\mathbb{L}$.
+\textbf{(b)} Assume that $0\neq1$ in $\mathbb{K}$. How do we get $0\neq1$ in
+$\mathbb{L}$ ?
 
-The map $f$ is an isomorphism, thus invertible, thus bijective, thus
-injective. Hence, from $0\neq1$ in $\mathbb{K}$, we conclude $f\left(
-0\right)  \neq f\left(  1\right)  $ in $\mathbb{L}$. But since $f$ is a ring
-homomorphism, we have $f\left(  0\right)  =0$ and $f\left(  1\right)  =1$; so
-this becomes $0\neq1$ in $\mathbb{L}$. This proves Proposition
-\ref{prop.riiso.fieldfield} \textbf{(b)}.
+Assume the contrary. Thus $0=1$ in $\mathbb{L}$. Hence, $f^{-1}\left(
+0\right)  =f^{-1}\left(  1\right)  $ in $\mathbb{K}$. But since $f^{-1}$ is a
+ring homomorphism, this rewrites as $0=1$ in $\mathbb{K}$. Contradiction to
+our assumption.
 
 \textbf{(c)} Assume that $\mathbb{K}$ is a skew field. We must prove that
 $\mathbb{L}$ is a skew field.
 
-Since $\mathbb{K}$ is a skew field, we have $0\neq1$ in $\mathbb{K}$, thus
-$0\neq1$ in $\mathbb{L}$ (by Proposition \ref{prop.riiso.fieldfield}
-\textbf{(b)}). Hence, it remains to prove that every nonzero element
-$a\in\mathbb{L}$ has a multiplicative inverse.
+First of all, $0\neq1$ in $\mathbb{K}$ (by assumption), and thus $0\neq1$ in
+$\mathbb{L}$ (by part \textbf{(b)}).
 
-Let $a\in\mathbb{L}$ be nonzero. Then, $f^{-1}\left(  a\right)  \in\mathbb{K}$
-is nonzero (because if it was zero, then we would have $f^{-1}\left(
-a\right)  =0$ and thus $f\left(  f^{-1}\left(  a\right)  \right)  =f\left(
-0\right)  =0$ (since $f$ is a ring homomorphism); but this would contradict
-the fact that $f\left(  f^{-1}\left(  a\right)  \right)  =a$ is nonzero).
-Hence, $f^{-1}\left(  a\right)  \in\mathbb{K}$ has a multiplicative inverse
-$b$ (since $\mathbb{K}$ is a skew field). Consider this $b$. Thus,
-$f^{-1}\left(  a\right)  b=bf^{-1}\left(  a\right)  =1$ (since $b$ is a
-multiplicative inverse of $f^{-1}\left(  a\right)  $). Applying $f$ to this
-equation, we obtain%
+Hence, it remains to check that every nonzero $a\in\mathbb{L}$ is invertible.
+
+Fix a nonzero $a\in\mathbb{L}$. How do we find a multiplicative inverse of $a$ ?
+
+We know that $f^{-1}\left(  a\right)  \in\mathbb{K}$ has a multiplicative
+inverse, since $\mathbb{K}$ is a field and because $f^{-1}\left(  a\right)  $
+is nonzero. (Why is $f^{-1}\left(  a\right)  $ nonzero? Well, if
+$f^{-1}\left(  a\right)  =0$, then $f\left(  f^{-1}\left(  a\right)  \right)
+=f\left(  0\right)  =0$, which would mean $a=0$, contradicting the nonzeroness
+of $a$.)
+
+So let $b$ be the multiplicative inverse of $f^{-1}\left(  a\right)  $. Thus,%
+\[
+f^{-1}\left(  a\right)  b=bf^{-1}\left(  a\right)  =1.
+\]
+Now, applying $f$ to this equality, we get%
 \[
 f\left(  f^{-1}\left(  a\right)  b\right)  =f\left(  bf^{-1}\left(  a\right)
 \right)  =f\left(  1\right)  .
 \]
-This quickly rewrites as
+Since $f$ is a ring homomorphism, this rewrites as%
 \[
-af\left(  b\right)  =f\left(  b\right)  a=1
+af\left(  b\right)  =f\left(  b\right)  a=1.
 \]
-(since $f$ is a ring homomorphism). Thus, $f\left(  b\right)  $ is a
-multiplicative inverse of $a$. Hence, $a$ has a multiplicative inverse. Thus,
-we have shown that every nonzero element $a\in\mathbb{L}$ has a multiplicative
-inverse. Since $0\neq1$ in $\mathbb{L}$, this shows that $\mathbb{L}$ is a
-skew field. This proves Proposition \ref{prop.riiso.fieldfield} \textbf{(c)}.
+So $f\left(  b\right)  $ is a multiplicative inverse of $a$ in $\mathbb{L}$.
+Thus, $a$ is invertible. So we have shown that $\mathbb{L}$ is a skew field.
 
-\textbf{(d)} Assume that $\mathbb{K}$ is a field. We must prove that
-$\mathbb{L}$ is a field.
-
-Since $\mathbb{K}$ is a field, $\mathbb{K}$ is commutative, and thus
-$\mathbb{L}$ is commutative (by Proposition \ref{prop.riiso.fieldfield}
-\textbf{(a)}).
-
-But $\mathbb{K}$ is a field, and thus a skew field. Hence, Proposition
-\ref{prop.riiso.fieldfield} \textbf{(c)} shows that $\mathbb{L}$ is a skew
-field. Since $\mathbb{L}$ is commutative, this yields that $\mathbb{L}$ is a
-field. This proves Proposition \ref{prop.riiso.fieldfield} \textbf{(c)}.
+\textbf{(d)} = \textbf{(a)} + \textbf{(c)}.
 \end{proof}
 
-The idea of the above proof (and of many similar proofs, which we will omit)
-is that if you have a ring isomorphism $f:\mathbb{K}\rightarrow\mathbb{L}$,
-you can transport any equality or element from $\mathbb{K}$ to $\mathbb{L}$
-(via $f$) or vice versa (via $f^{-1}$); and each time, the ring operations
-($+$, $-$, $\cdot$, $\sum$, $0$, $1$) do not get damaged on the way (since $f$
-and $f^{-1}$ are ring homomorphisms).
-
-Here is another example:
-
 \begin{proposition}
-\label{prop.riiso.equal-invertibles}Let $\mathbb{K}$ and $\mathbb{L}$ be two
-rings. Let $f:\mathbb{K}\rightarrow\mathbb{L}$ be a ring isomorphism. Then:
+Let $\mathbb{K}$ and $\mathbb{L}$ be two rings. Let $f:\mathbb{K}%
+\rightarrow\mathbb{L}$ be a ring isomorphism.
 
 \textbf{(a)} We have%
 \[
@@ -25603,103 +25550,49 @@ rings. Let $f:\mathbb{K}\rightarrow\mathbb{L}$ be a ring isomorphism. Then:
 
 \end{proposition}
 
-Here, an element $a$ of a ring $\mathbb{K}$ is said to be \textit{idempotent}
-if $a^{2}=a$.
+Recall: An element $a\in\mathbb{K}$ is called \textbf{idempotent} if $a^{2}=a$.
 
 \begin{proof}
-[Proof of Proposition \ref{prop.riiso.equal-invertibles}.] Proposition
-\ref{prop.riiso.equal-invertibles} is another instance of the
-\textquotedblleft anything can be transported along a ring
-isomorphism\textquotedblright\ principle. Here is a proof in more detail:
-
-\textbf{(a)} If $a$ is an invertible element of $\mathbb{K}$, then $f\left(
-a\right)  $ is an invertible element of $\mathbb{L}$ (since we can pick a
-multiplicative inverse $b$ of $a$ in $\mathbb{K}$, and then $f\left(
-b\right)  $ will be a multiplicative inverse of $f\left(  a\right)  $ in
-$\mathbb{L}$). Hence, the map%
+\textbf{(a)} There is a bijection%
 \begin{align*}
 \left\{  \text{invertible elements of }\mathbb{K}\right\}    & \rightarrow
 \left\{  \text{invertible elements of }\mathbb{L}\right\}  ,\\
-a  & \mapsto f\left(  a\right)
+a  & \mapsto f\left(  a\right)  .
 \end{align*}
-is well-defined. Similarly, the map%
-\begin{align*}
-\left\{  \text{invertible elements of }\mathbb{L}\right\}    & \rightarrow
-\left\{  \text{invertible elements of }\mathbb{K}\right\}  ,\\
-a  & \mapsto f^{-1}\left(  a\right)
-\end{align*}
-is also well-defined (since Proposition \ref{prop.riiso.inverse} shows that
-the map $f^{-1}:\mathbb{L}\rightarrow\mathbb{K}$ is also a ring isomorphism).
-These two maps are clearly mutually inverse, and therefore are bijections.
-Hence, we have found a bijection from $\left\{  \text{invertible elements of
-}\mathbb{K}\right\}  $ to $\left\{  \text{invertible elements of }%
-\mathbb{L}\right\}  $. Thus,%
-\[
-\left\vert \left\{  \text{invertible elements of }\mathbb{K}\right\}
-\right\vert =\left\vert \left\{  \text{invertible elements of }\mathbb{L}%
-\right\}  \right\vert .
-\]
-This proves Proposition \ref{prop.riiso.equal-invertibles} \textbf{(a)}.
 
-\textbf{(b)} If $a$ is an idempotent element of $\mathbb{K}$, then $f\left(
-a\right)  $ is an idempotent element of $\mathbb{L}$ (since $f$ is a ring
-homomorphism and thus $\left(  f\left(  a\right)  \right)  ^{2}=f\left(
-\underbrace{a^{2}}_{=a}\right)  =f\left(  a\right)  $). Hence, the map%
-\begin{align*}
-\left\{  \text{idempotent elements of }\mathbb{K}\right\}    & \rightarrow
-\left\{  \text{idempotent elements of }\mathbb{L}\right\}  ,\\
-a  & \mapsto f\left(  a\right)
-\end{align*}
-is well-defined. Similarly, the map%
-\begin{align*}
-\left\{  \text{idempotent elements of }\mathbb{L}\right\}    & \rightarrow
-\left\{  \text{idempotent elements of }\mathbb{K}\right\}  ,\\
-a  & \mapsto f^{-1}\left(  a\right)
-\end{align*}
-is also well-defined (since Proposition \ref{prop.riiso.inverse} shows that
-the map $f^{-1}:\mathbb{L}\rightarrow\mathbb{K}$ is also a ring isomorphism).
-These two maps are clearly mutually inverse, and therefore are bijections.
-Hence, we have found a bijection from $\left\{  \text{idempotent elements of
-}\mathbb{K}\right\}  $ to $\left\{  \text{idempotent elements of }%
-\mathbb{L}\right\}  $. Thus,%
-\[
-\left\vert \left\{  \text{idempotent elements of }\mathbb{K}\right\}
-\right\vert =\left\vert \left\{  \text{idempotent elements of }\mathbb{L}%
-\right\}  \right\vert .
-\]
-This proves Proposition \ref{prop.riiso.equal-invertibles} \textbf{(b)}.
+
+\textbf{(b)} Similarly.
 \end{proof}
 
-Now let us see some applications of ring isomorphisms.
-
-Recall that we proved Theorem \ref{thm.ent.phi.mult} using the Chinese
-Remainder Theorem in Section \ref{sect.equiv.CRT-bij}. Let us redo this proof
-in a shorter way:
+Recall that we proved Theorem 2.14.4 (the equality $\phi\left(  mn\right)
+=\phi\left(  m\right)  \cdot\phi\left(  n\right)  $ for coprime positive
+integers $m$ and $n$) using the Chinese Remainder Theorem. We can redo this
+proof in a much shorter way using ring isomorphisms:
 
 \begin{proof}
-[New version of our Second proof of Theorem \ref{thm.ent.phi.mult}.]Example
-\ref{exa.riiso.CRT} says that the map%
+[New way of putting our old proof of Theorem 2.14.4.] Let $m$ and $n$ be two
+coprime positive integers. Our first example today says that the map%
 \begin{align*}
 S_{m,n}:\mathbb{Z}/\left(  mn\right)   &  \rightarrow\left(  \mathbb{Z}%
 /m\right)  \times\left(  \mathbb{Z}/n\right)  ,\\
 \alpha &  \mapsto\left(  \pi_{mn,m}\left(  \alpha\right)  ,\pi_{mn,n}\left(
 \alpha\right)  \right)
 \end{align*}
-is a ring isomorphism. Thus,%
-\begin{align}
-& \left\vert \left\{  \text{invertible elements of }\mathbb{Z}/\left(
-mn\right)  \right\}  \right\vert \nonumber\\
-& =\left\vert \left\{  \text{invertible elements of }\left(  \mathbb{Z}%
-/m\right)  \times\left(  \mathbb{Z}/n\right)  \right\}  \right\vert
-\label{pf.thm.ent.phi.mult.3rd.1}%
-\end{align}
-(by Proposition \ref{prop.riiso.equal-invertibles} \textbf{(a)}).
+is a ring isomorphism. Hence, part \textbf{(a)} of the latest Proposition
+yields that%
+\[
+\left\vert \left\{  \text{invertible elements of }\mathbb{Z}/\left(
+mn\right)  \right\}  \right\vert =\left\vert \left\{  \text{invertible
+elements of }\left(  \mathbb{Z}/m\right)  \times\left(  \mathbb{Z}/n\right)
+\right\}  \right\vert .
+\]
 
-But if $\mathbb{K}$ and $\mathbb{L}$ are any two rings, then%
+
+But if $\mathbb{K}$ and $\mathbb{L}$ are two rings, then%
 \begin{align*}
-&  \left\{  \text{invertible elements of }\mathbb{K}\times\mathbb{L}\right\}
+& \left\{  \text{invertible elements of }\mathbb{K}\times\mathbb{L}\right\}
 \\
-&  =\left\{  \text{invertible elements of }\mathbb{K}\right\}  \times\left\{
+& =\left\{  \text{invertible elements of }\mathbb{K}\right\}  \times\left\{
 \text{invertible elements of }\mathbb{L}\right\}
 \end{align*}
 (since multiplication on $\mathbb{K}\times\mathbb{L}$ is defined entrywise, so
@@ -25707,121 +25600,103 @@ an element $\left(  a,b\right)  \in\mathbb{K}\times\mathbb{L}$ is invertible
 if and only if both $a\in\mathbb{K}$ and $b\in\mathbb{L}$ are invertible).
 Hence,%
 \begin{align*}
-&  \left\{  \text{invertible elements of }\left(  \mathbb{Z}/m\right)
-\times\left(  \mathbb{Z}/n\right)  \right\}  \\
-&  =\left\{  \text{invertible elements of }\mathbb{Z}/m\right\}
-\times\left\{  \text{invertible elements of }\mathbb{Z}/n\right\}  ,
-\end{align*}
-so that%
-\begin{align*}
-&  \left\vert \left\{  \text{invertible elements of }\left(  \mathbb{Z}%
+& \left\vert \left\{  \text{invertible elements of }\left(  \mathbb{Z}%
 /m\right)  \times\left(  \mathbb{Z}/n\right)  \right\}  \right\vert \\
-&  =\left\vert \left\{  \text{invertible elements of }\mathbb{Z}/m\right\}
+& =\left\vert \left\{  \text{invertible elements of }\mathbb{Z}/m\right\}
 \times\left\{  \text{invertible elements of }\mathbb{Z}/n\right\}  \right\vert
 \\
-&  =\left\vert \left\{  \text{invertible elements of }\mathbb{Z}/m\right\}
+& =\left\vert \left\{  \text{invertible elements of }\mathbb{Z}/m\right\}
 \right\vert \cdot\left\vert \left\{  \text{invertible elements of }%
 \mathbb{Z}/n\right\}  \right\vert .
 \end{align*}
-Hence, (\ref{pf.thm.ent.phi.mult.3rd.1}) becomes%
-\begin{align}
-&  \left\vert \left\{  \text{invertible elements of }\mathbb{Z}/\left(
-mn\right)  \right\}  \right\vert \nonumber\\
-&  =\left\vert \left\{  \text{invertible elements of }\left(  \mathbb{Z}%
-/m\right)  \times\left(  \mathbb{Z}/n\right)  \right\}  \right\vert
-\nonumber\\
-&  =\left\vert \left\{  \text{invertible elements of }\mathbb{Z}/m\right\}
-\right\vert \cdot\left\vert \left\{  \text{invertible elements of }%
-\mathbb{Z}/n\right\}  \right\vert .\label{pf.thm.ent.phi.mult.3rd.5}%
-\end{align}
-
-
-On the other hand, we know that%
-\[
-\phi\left(  n\right)  =\left\vert \left\{  \text{invertible elements of
-}\mathbb{Z}/n\right\}  \right\vert
-\]
-(in fact, this is Corollary \ref{cor.equiv.modinv.Unphi} \textbf{(b)}, since
-what we called $U_{n}$ in this corollary is exactly $\left\{  \text{invertible
-elements of }\mathbb{Z}/n\right\}  $). Similarly,%
+Combining these two computations, we obtain%
 \begin{align*}
-\phi\left(  m\right)   &  =\left\vert \left\{  \text{invertible elements of
-}\mathbb{Z}/m\right\}  \right\vert \ \ \ \ \ \ \ \ \ \ \text{and}\\
-\phi\left(  mn\right)   &  =\left\vert \left\{  \text{invertible elements of
-}\mathbb{Z}/\left(  mn\right)  \right\}  \right\vert .
+& \left\vert \left\{  \text{invertible elements of }\mathbb{Z}/\left(
+mn\right)  \right\}  \right\vert \\
+& =\left\vert \left\{  \text{invertible elements of }\left(  \mathbb{Z}%
+/m\right)  \times\left(  \mathbb{Z}/n\right)  \right\}  \right\vert \\
+& =\left\vert \left\{  \text{invertible elements of }\mathbb{Z}/m\right\}
+\right\vert \cdot\left\vert \left\{  \text{invertible elements of }%
+\mathbb{Z}/n\right\}  \right\vert .
 \end{align*}
-So the equality (\ref{pf.thm.ent.phi.mult.3rd.5}) rewrites as $\phi\left(
-mn\right)  =\phi\left(  m\right)  \cdot\phi\left(  n\right)  $. So Theorem
-\ref{thm.ent.phi.mult} is proven again.
+
+
+But Corollary \ref{cor.equiv.modinv.Unphi} \textbf{(b)} yields%
+\[
+\left\vert \left\{  \text{invertible elements of }\mathbb{Z}/n\right\}
+\right\vert =\phi\left(  n\right)
+\]
+(since $U_{n}$ is exactly $\left\{  \text{invertible elements of }%
+\mathbb{Z}/n\right\}  $). Similarly,%
+\[
+\left\vert \left\{  \text{invertible elements of }\mathbb{Z}/m\right\}
+\right\vert =\phi\left(  m\right)
+\]
+and%
+\[
+\left\vert \left\{  \text{invertible elements of }\mathbb{Z}/\left(
+mn\right)  \right\}  \right\vert =\phi\left(  mn\right)  .
+\]
+So our equality above becomes $\phi\left(  mn\right)  =\phi\left(  m\right)
+\cdot\phi\left(  n\right)  $, qed.
 \end{proof}
 
-The next exercise offers another example of the same strategy:
-
-\begin{exercise}
+\begin{example}
 Let $p$ and $q$ be two distinct primes. How many idempotent elements does the
 ring $\mathbb{Z}/\left(  pq\right)  $ have?
-\end{exercise}
+\end{example}
 
 \begin{proof}
-[Solution.]The primes $p$ and $q$ are distinct, so they are coprime. Hence,
-Example \ref{exa.riiso.CRT} (applied to $m=p$ and $n=q$) says that the map%
+[Solution.] If $m$ and $n$ are two coprime positive integers, then we proved
+above that%
 \begin{align*}
-S_{p,q}:\mathbb{Z}/\left(  pq\right)   &  \rightarrow\left(  \mathbb{Z}%
-/p\right)  \times\left(  \mathbb{Z}/q\right)  ,\\
-\alpha &  \mapsto\left(  \pi_{pq,p}\left(  \alpha\right)  ,\pi_{pq,q}\left(
-\alpha\right)  \right)
+& \left\vert \left\{  \text{invertible elements of }\mathbb{Z}/\left(
+mn\right)  \right\}  \right\vert \\
+& =\left\vert \left\{  \text{invertible elements of }\mathbb{Z}/m\right\}
+\right\vert \cdot\left\vert \left\{  \text{invertible elements of }%
+\mathbb{Z}/n\right\}  \right\vert ;
 \end{align*}
-is a ring isomorphism. Hence, Proposition \ref{prop.riiso.equal-invertibles}
-\textbf{(b)} yields%
+the same argument (with \textquotedblleft invertible\textquotedblright%
+\ replaced by \textquotedblleft idempotent\textquotedblright) yields%
 \begin{align*}
-&  \left\vert \left\{  \text{idempotent elements of }\mathbb{Z}/\left(
+& \left\vert \left\{  \text{idempotent elements of }\mathbb{Z}/\left(
+mn\right)  \right\}  \right\vert \\
+& =\left\vert \left\{  \text{idempotent elements of }\mathbb{Z}/m\right\}
+\right\vert \cdot\left\vert \left\{  \text{idempotent elements of }%
+\mathbb{Z}/n\right\}  \right\vert .
+\end{align*}
+Since $p$ and $q$ are coprime (being distinct primes), we can apply this to
+$m=p$ and $n=q$, and obtain%
+\begin{align*}
+& \left\vert \left\{  \text{idempotent elements of }\mathbb{Z}/\left(
 pq\right)  \right\}  \right\vert \\
-&  =\left\vert \left\{  \text{idempotent elements of }\left(  \mathbb{Z}%
-/p\right)  \times\left(  \mathbb{Z}/q\right)  \right\}  \right\vert \\
-&  =\left\vert \left\{  \text{idempotent elements of }\mathbb{Z}/p\right\}
-\times\left\{  \text{idempotent elements of }\mathbb{Z}/q\right\}
-\right\vert
+& =\left\vert \left\{  \text{idempotent elements of }\mathbb{Z}/p\right\}
+\right\vert \cdot\left\vert \left\{  \text{idempotent elements of }%
+\mathbb{Z}/q\right\}  \right\vert .
 \end{align*}
-(since for any two rings $\mathbb{K}$ and $\mathbb{L}$, we have%
-\begin{align*}
-&  \left\{  \text{idempotent elements of }\mathbb{K}\times\mathbb{L}\right\}
-\\
-&  =\left\{  \text{idempotent elements of }\mathbb{K}\right\}  \times\left\{
-\text{idempotent elements of }\mathbb{L}\right\}  ,
-\end{align*}
-because of the entrywise multiplication on $\mathbb{K}\times\mathbb{L}$).
-Thus, it remains to find the number of idempotent elements of $\mathbb{Z}/p$
-and the number of idempotent elements of $\mathbb{Z}/q$.
+Now it remains to count the idempotent elements of $\mathbb{Z}/p$ and of
+$\mathbb{Z}/q$.
 
 How many idempotent elements does $\mathbb{Z}/p$ have? For any $a\in
-\mathbb{Z}$, we have the following chain of equivalences:%
+\mathbb{Z}$, we have the following equivalences:%
 \begin{align*}
-&  \ \left(  \left[  a\right]  _{p}\text{ is idempotent}\right)  \\
-&  \Longleftrightarrow\ \left(  \left(  \left[  a\right]  _{p}\right)
-^{2}=\left[  a\right]  _{p}\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the
-definition of \textquotedblleft idempotent\textquotedblright}\right)  \\
-&  \Longleftrightarrow\ \left(  \left[  a^{2}\right]  _{p}=\left[  a\right]
-_{p}\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{since }\left(  \left[
-a\right]  _{p}\right)  ^{2}=\left[  a^{2}\right]  _{p}\right)  \\
-&  \Longleftrightarrow\ \left(  a^{2}\equiv a\operatorname{mod}p\right)  \\
-&  \Longleftrightarrow\ \left(  p\mid\underbrace{a^{2}-a}_{=a\left(
-a-1\right)  }\right)  \ \Longleftrightarrow\ \left(  p\mid a\left(
-a-1\right)  \right)  \\
-&  \Longleftrightarrow\ \left(  p\mid a\text{ or }p\mid a-1\right)
-\ \Longleftrightarrow\ \left(  a\equiv0\operatorname{mod}p\text{ or }%
+& \ \left(  \left[  a\right]  _{p}\text{ is idempotent}\right)  \\
+& \Longleftrightarrow\ \left(  \left(  \left[  a\right]  _{p}\right)
+^{2}=\left[  a\right]  _{p}\right)  \\
+& \Longleftrightarrow\ \left(  \left[  a^{2}\right]  _{p}=\left[  a\right]
+_{p}\right)  \\
+& \Longleftrightarrow\ \left(  a^{2}\equiv a\operatorname{mod}p\right)  \\
+& \Longleftrightarrow\ \left(  p\mid a^{2}-a\right)  \\
+& \Longleftrightarrow\ \left(  p\mid a\left(  a-1\right)  \right)  \\
+& \Longleftrightarrow\ \left(  p\mid a\text{ or }p\mid a-1\right)  \\
+& \Longleftrightarrow\ \left(  a\equiv0\operatorname{mod}p\text{ or }%
 a\equiv1\operatorname{mod}p\right)  \\
-&  \Longleftrightarrow\ \left(  \left[  a\right]  _{p}=\left[  0\right]
+& \Longleftrightarrow\ \left(  \left[  a\right]  _{p}=\left[  0\right]
 _{p}\text{ or }\left[  a\right]  _{p}=\left[  1\right]  _{p}\right)  .
 \end{align*}
-In other words, for a given $a\in\mathbb{Z}$, the  residue class $\left[
-a\right]  _{p}$ is idempotent if and only if $\left[  a\right]  _{p}$ equals
-$\left[  0\right]  _{p}$ or $\left[  1\right]  _{p}$. Since every residue
-class $\alpha\in\mathbb{Z}/p$ has the form $\left[  a\right]  _{p}$ for some
-$a\in\mathbb{Z}$, we can restate this as follows: A residue class $\alpha
-\in\mathbb{Z}/p$ is idempotent if and only if it equals $\left[  0\right]
-_{p}$ or $\left[  1\right]  _{p}$. Thus, the ring $\mathbb{Z}/p$ has exactly
-two idempotent elements (namely, $\left[  0\right]  _{p}$ and $\left[
-1\right]  _{p}$). In other words,%
+Thus, we have shown that a residue class $\alpha\in\mathbb{Z}/p$ is idempotent
+if and only if $\alpha$ equals either $\left[  0\right]  _{p}$ or $\left[
+1\right]  _{p}$. Hence,%
 \[
 \left\vert \left\{  \text{idempotent elements of }\mathbb{Z}/p\right\}
 \right\vert =2.
@@ -25831,137 +25706,49 @@ Similarly,%
 \left\vert \left\{  \text{idempotent elements of }\mathbb{Z}/q\right\}
 \right\vert =2.
 \]
-Now, the above computation becomes%
+Now,%
 \begin{align*}
-&  \left\vert \left\{  \text{idempotent elements of }\mathbb{Z}/\left(
+& \left\vert \left\{  \text{idempotent elements of }\mathbb{Z}/\left(
 pq\right)  \right\}  \right\vert \\
-&  =\left\vert \left\{  \text{idempotent elements of }\mathbb{Z}/p\right\}
-\times\left\{  \text{idempotent elements of }\mathbb{Z}/q\right\}  \right\vert
-\\
-&  =\underbrace{\left\vert \left\{  \text{idempotent elements of }%
+& =\underbrace{\left\vert \left\{  \text{idempotent elements of }%
 \mathbb{Z}/p\right\}  \right\vert }_{=2}\cdot\underbrace{\left\vert \left\{
 \text{idempotent elements of }\mathbb{Z}/q\right\}  \right\vert }_{=2}\\
-&  =2\cdot2=4.
+& =2\cdot2=4.
 \end{align*}
-In other words, the ring $\mathbb{Z}/\left(  pq\right)  $ has $4$ idempotent elements.
 
-Side-note: What are these $4$ idempotent elements?
 
-Two of them are easy to find: $\left[  0\right]  _{pq}$ and $\left[  1\right]
-_{pq}$.
+So the ring $\mathbb{Z}/\left(  pq\right)  $ has $4$ idempotents.
 
-The other two are $\left[  px\right]  _{pq}$ where $x$ is a modular inverse of
-$p$ with respect to $q$, and $\left[  qy\right]  _{pq}$ where $y$ is a modular
-inverse of $q$ with respect to $p$.
+Side-note: What are these $4$ idempotents?
 
-The ring isomorphism $S_{p,q}$ sends these four elements to%
+The $4$ idempotents of $\left(  \mathbb{Z}/p\right)  \times\left(
+\mathbb{Z}/q\right)  $ are%
 \[
 \left(  \left[  0\right]  _{p},\left[  0\right]  _{q}\right)
 ,\ \ \ \ \ \ \ \ \ \ \left(  \left[  1\right]  _{p},\left[  1\right]
 _{q}\right)  ,\ \ \ \ \ \ \ \ \ \ \left(  \left[  0\right]  _{p},\left[
 1\right]  _{q}\right)  ,\ \ \ \ \ \ \ \ \ \ \left(  \left[  1\right]
-_{p},\left[  0\right]  _{q}\right)  ,
+_{p},\left[  0\right]  _{q}\right)  .
 \]
-which are of course the four idempotent elements of the ring $\left(
-\mathbb{Z}/p\right)  \times\left(  \mathbb{Z}/q\right)  $.
+To find the $4$ idempotents in $\mathbb{Z}/\left(  pq\right)  $, we have to
+apply the inverse $\left(  S_{p,q}\right)  ^{-1}$ of the Chinese Remainder
+isomorphism $S_{p,q}$ to them.
+
+\begin{itemize}
+\item The first gets sent to $\left[  0\right]  _{pq}$.
+
+\item The second gets sent to $\left[  1\right]  _{pq}$.
+
+\item The last two get sent to $\left[  px\right]  _{pq}$ and $\left[
+qy\right]  _{pq}$, where $x$ is a modular inverse of $p$ with respect to $q$,
+and where $y$ is a modular inverse of $q$ with respect to $p$. (It does not
+matter which inverses we choose.)
+
+Alternative point of view: Bezout's theorem yields that there exist integers
+$x$ and $y$ such that $xp+yq=1$. Then, $\left[  xp\right]  _{pq}$ and $\left[
+yq\right]  _{pq}$ are the two missing idempotents.
+\end{itemize}
 \end{proof}
 
-\begin{example}
-Let $A$ be the $2\times2$-matrix $\left(
-\begin{array}
-[c]{cc}%
-0 & 1\\
-1 & 1
-\end{array}
-\right)  \in\mathbb{Z}^{2\times2}$.
 
-On MT2 exercise 5, you have encountered the ring%
-\[
-\mathcal{F}=\left\{  aA+bI_{2}\ \mid\ a,b\in\mathbb{Z}\right\}  =\left\{
-\left(
-\begin{array}
-[c]{cc}%
-b & a\\
-a & a+b
-\end{array}
-\right)  \ \mid\ a,b\in\mathbb{Z}\right\}  .
-\]
-
-
-On HW5 exercise 5, you have encountered the ring%
-\[
-\mathbb{Z}\left[  \phi\right]  =\left\{  a+b\phi\ \mid\ a,b\in\mathbb{Z}%
-\right\}  ,
-\]
-where $\phi=\dfrac{1+\sqrt{5}}{2}=\allowbreak1.\,\allowbreak618\ldots$ is the
-golden ratio.
-
-I claim that there is an isomorphism from $\mathbb{Z}\left[  \phi\right]  $ to
-$\mathcal{F}$. Namely, the map%
-\begin{align*}
-f:\mathbb{Z}\left[  \phi\right]   &  \rightarrow\mathcal{F},\\
-a+b\phi &  \mapsto bA+aI_{2}=\left(
-\begin{array}
-[c]{cc}%
-a & b\\
-b & a+b
-\end{array}
-\right)
-\end{align*}
-is a ring isomorphism (but not the only one!).
-\end{example}
-
-(Check this by hand.)
-
-\begin{definition}
-Let $\mathbb{K}$ and $\mathbb{L}$ be two rings. We say that the rings
-$\mathbb{K}$ and $\mathbb{L}$ are \textit{isomorphic} if there exists a ring
-isomorphism $f:\mathbb{K}\rightarrow\mathbb{L}$.
-\end{definition}
-
-\subsection{An overview of matrix algebra over fields}
-
-I assume you have all seen some basic matrix algebra: Gaussian elimination,
-ranks of matrices, inverses of matrices, determinants, etc.
-
-Usually, these things are done for matrices over $\mathbb{R}$ or $\mathbb{C}$.
-But we can try doing the same with matrices over an arbitrary commutative ring
-$\mathbb{K}$.
-
-\textbf{Example:} Let $\mathbb{K}=\mathbb{Z}/3$, and let $A=\left(
-\begin{array}
-[c]{ccc}%
-0 & 1 & 1\\
-1 & 0 & 1\\
-1 & 1 & 0
-\end{array}
-\right)  \in\mathbb{K}^{3\times3}$. (Here, of course, $0$ and $1$ mean
-$\left[  0\right]  _{3}$ and $\left[  1\right]  _{3}$.) Let $b=\left(
-\begin{array}
-[c]{c}%
-1\\
-1\\
-1
-\end{array}
-\right)  \in\mathbb{K}^{3\times1}$. We want to find a column vector
-$x\in\mathbb{K}^{3\times1}$ such that $Ax=b$. This means, explicitly, to find
-$x_{1},x_{2},x_{3}\in\mathbb{K}$ such that%
-\[
-\left\{
-\begin{array}
-[c]{c}%
-0x_{1}+1x_{2}+1x_{3}=1;\\
-1x_{1}+0x_{2}+1x_{3}=1;\\
-1x_{1}+1x_{2}+0x_{3}=1.
-\end{array}
-\right.
-\]
-
-
-Can you do this?
-
-Next, try doing the same for $\mathbb{K}=\mathbb{Z}/2$, with the
-\textquotedblleft same\textquotedblright\ matrix. (It will not be literally
-the same matrix, of course, since $0$ and $1$ will now mean $\left[  0\right]
-_{2}$ and $\left[  1\right]  _{2}$.)
 \end{document}
