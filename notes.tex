@@ -13246,7 +13246,7 @@ Cartesian product}. It is understood to be a $1$-element set, and its single
 element is the $0$-tuple $\left(  {}\right)  $ (also known as the empty list).)
 \end{lemma}
 
-Lemma \ref{lem.prodrule.nums} is basically a version of the distributivity law
+Lemma \ref{lem.prodrule.nums} is essentially a version of the distributivity law
 (or the \href{https://en.wikipedia.org/wiki/FOIL_method}{FOIL method}) for
 expanding a product of several sums, each of which has several factors. For
 example, if we take $n=3$ and $Z_{i}=\left\{  1,2\right\}  $ for each
@@ -20942,7 +20942,7 @@ with $\lambda_{1},\lambda_{2},\ldots,\lambda_{k}\in\mathbb{Z}\left[  i\right]
 $.)
 
 \textbf{(b)} It satisfies $\operatorname*{Div}\nolimits_{\mathbb{Z}\left[
-i\right]  }\left(  \alpha_{1},\alpha_{2},\ldots,\alpha_{k}\right)
+i\right]  }\left(  \alpha_{1},\alpha_{2},\ldots,\alpha_{k}\right)g
 =\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
 \gamma\right)  $.
 
@@ -25565,6 +25565,77 @@ and similarly $f\left(  f^{-1}\left(  b\right)  f^{-1}\left(  a\right)
 $ab=ba$. This shows that $\mathbb{L}$ is commutative. This proves Proposition
 \ref{prop.riiso.fieldfield} \textbf{(a)}.
 
+Before I move on to the next part of Proposition \ref{prop.riiso.fieldfield},
+let me explain how the above proof could be found straightforwardly, without
+any creative input.
+The point of this is to show how to prove not just
+Proposition \ref{prop.riiso.fieldfield} \textbf{(a)}, but any similar claim
+as well.
+
+The (only) idea involved in the above proof was the following:
+The two mutually inverse bijections $f : \mathbb{K} \to \mathbb{L}$ and
+$f^{-1} : \mathbb{L} \to \mathbb{K}$ provide a ``railway system'' that can
+be used to transport anything (elements, equalities, subsets, etc.) between
+$\mathbb{K}$ and $\mathbb{L}$.
+Since these bijections are ring homomorphisms, the structure of the objects
+that we are transporting does not get ``damaged in transit'':
+Products remain products (i.e., if we have three elements
+$a$, $b$ and $c$ of $\mathbb{K}$ satisfying $ab = c$,
+and if we transport these three elements to $\mathbb{L}$ via $f$, then
+the resulting three elements of $\mathbb{L}$ will still satisfy
+$f\tup{a} f\tup{b} = f\tup{c}$), sums remain sums,
+etc..
+Thus, we can move back and forth between $\mathbb{K}$ and $\mathbb{L}$
+without keeping track of where precisely we take our sums and products.
+
+With this in mind, our above proof of
+Proposition \ref{prop.riiso.fieldfield} \textbf{(a)} can be discovered
+as follows:
+
+Assume that $\mathbb{K}$ is commutative.
+We must prove that $\mathbb{L}$ is commutative.
+In other words, we must prove that $ab = ba$ for any $a, b \in \mathbb{L}$.
+So let us fix $a, b \in \mathbb{L}$. We want to prove $ab = ba$, but all
+we have is an analogous identity for elements of $\mathbb{K}$ (since we
+know that $\mathbb{K}$ is commutative).
+In other words, we have
+\begin{equation}
+ a'b' = b'a' \ \ \ \ \ \ \ \ \ \ \text{for all } a', b' \in \mathbb{K} .
+ \label{pf.prop.riiso.fieldfield.a.idea.1}
+\end{equation}
+
+So we transport our two elements $a, b$ of $\mathbb{L}$ to $\mathbb{K}$
+(by our ``railway system'' -- specifically, using the map $f^{-1}$),
+in order to be able to apply \eqref{pf.prop.riiso.fieldfield.a.idea.1}
+to them.
+The result are the two elements $f^{-1}\tup{a}, f^{-1}\tup{b}$ of
+$\mathbb{K}$.
+Applying the identity \eqref{pf.prop.riiso.fieldfield.a.idea.1} to
+$a' = f^{-1}\tup{a}$ and $b' = f^{-1}\tup{b}$, we obtain
+$f^{-1}\tup{a} f^{-1}\tup{b} = f^{-1}\tup{b} f^{-1}\tup{a}$.
+This is an equality inside $\mathbb{K}$, whereas our goal is to prove
+an equality inside $\mathbb{L}$ (namely, the equality $ab = ba$).
+So we transport this equality back into $\mathbb{L}$ by applying $f$
+to its two sides. We thus obtain
+$f\tup{f^{-1}\tup{a} f^{-1}\tup{b}} = f\tup{f^{-1}\tup{b} f^{-1}\tup{a}}$.
+But recalling that $f$ is a ring homomorphism and thus no structure
+gets ``damaged in transit'', we see that
+\[
+f\left(  f^{-1}\left(  a\right)  f^{-1}\left(  b\right)  \right)
+=\underbrace{f\left(  f^{-1}\left(  a\right)  \right)  }_{=a}%
+\underbrace{f\left(  f^{-1}\left(  b\right)  \right)  }_{=b}=ab
+\]
+and similarly $f\left(  f^{-1}\left(  b\right)  f^{-1}\left(  a\right)
+\right)  =ba$.
+Hence, the equality
+$f\tup{f^{-1}\tup{a} f^{-1}\tup{b}} = f\tup{f^{-1}\tup{b} f^{-1}\tup{a}}$
+that we have just proven rewrites as $ab = ba$,
+which is precisely what we wanted to prove.
+Thus, we have proven Proposition \ref{prop.riiso.fieldfield} \textbf{(a)}
+by merely going back and forth between $\mathbb{K}$ and $\mathbb{L}$.
+
+Let us now prove the rest of Proposition \ref{prop.riiso.fieldfield}:
+
 \textbf{(b)} Assume $0\neq1$ in $\mathbb{K}$. We must prove $0\neq1$ in
 $\mathbb{L}$.
 
@@ -25617,7 +25688,7 @@ $\mathbb{L}$ is commutative (by Proposition \ref{prop.riiso.fieldfield}
 But $\mathbb{K}$ is a field, and thus a skew field. Hence, Proposition
 \ref{prop.riiso.fieldfield} \textbf{(c)} shows that $\mathbb{L}$ is a skew
 field. Since $\mathbb{L}$ is commutative, this yields that $\mathbb{L}$ is a
-field. This proves Proposition \ref{prop.riiso.fieldfield} \textbf{(c)}.
+field. This proves Proposition \ref{prop.riiso.fieldfield} \textbf{(d)}.
 \end{proof}
 
 The idea of the above proof (and of many similar proofs, which we will omit)
