@@ -12238,7 +12238,7 @@ Thus,%
 $\left(  i_{1},i_{2},\ldots,i_{p}\right)  $ to $\left(  i_{2},i_{3}%
 ,\ldots,i_{p},i_{1}\right)  $.
 
-A \textit{necklace} is (basically) a bitstring up to cyclic rotation.
+A \textit{necklace} is (essentially) a bitstring up to cyclic rotation.
 
 If $\left(  i_{1},i_{2},\ldots,i_{p}\right)  $ is any $p$-bitstring, then
 \begin{align*}
@@ -22905,7 +22905,7 @@ cannot exist. Thus, we cannot divide by $0$, even if we extend our
 \textquotedblleft number system\textquotedblright.
 
 \item Here is an \textquotedblleft almost-ring\textquotedblright\ beloved to
-combinatorialists: the \textit{max-plus semiring}\textbf{ }$\mathbb{T}$ (also
+combinatorialists: the \textit{max-plus semiring} $\mathbb{T}$ (also
 known as the \textit{tropical semiring}\footnote{To be pedantic: The name
 \textquotedblleft tropical semiring\textquotedblright\ refers to several
 different objects, of which $\mathbb{T}$ is but one.}).
@@ -22939,7 +22939,7 @@ multiplication\textquotedblright\ $\cdot_{\mathbb{T}}$, \textquotedblleft
 zero\textquotedblright\ $-\infty$ and \textquotedblleft
 unity\textquotedblright\ $0$ satisfies all but one of the ring
 axioms.\footnote{For example, the distributivity axiom for $\mathbb{T}$ boils
-down to%
+down to the two identities%
 \begin{align*}
 a+\max\left\{  b,c\right\}   &  =\max\left\{  a+b,a+c\right\}
 \ \ \ \ \ \ \ \ \ \ \text{and}\\
@@ -24414,7 +24414,7 @@ In this section, we fix a ring $\mathbb{K}$.
 \end{convention}
 
 We take the familiar concept of matrices, and generalize it in a
-straightforward way, allowing matrices with entries in $\mathbb{K}$
+straightforward way, allowing matrices with entries in $\mathbb{K}$:
 
 \begin{definition}
 \label{def.matrix.matrix}Given $n,m\in\mathbb{N}$, we define an $n\times
@@ -24575,6 +24575,22 @@ i\leq n,\ 1\leq j\leq m}$, then%
 \]
 
 \end{definition}
+
+To be more honest, the operation we defined in Definition \ref{def.matrix.+-}
+\textbf{(c)} should have been called ``left scaling'' rather than ``scaling''.
+And we should have defined an analogous operation called ``right scaling'',
+which takes an element $\lambda \in \mathbb{K}$ and a matrix
+$A=\left(  a_{i,j}\right)  _{1\leq
+i\leq n,\ 1\leq j\leq m} \in\mathbb{K}^{n\times m}$, and returns a new matrix
+\[
+A \lambda =\left( a_{i,j} \lambda \right)  _{1\leq i\leq n,\ 1\leq j\leq m}.
+\]
+But we will mostly be dealing with the case when the ring $\mathbb{K}$ is
+commutative; and in this case, we have $A \lambda = \lambda A$ always
+(meaning that ``right scaling'' and ``left scaling'' are the same operation).
+Thus, we take the liberty to put the ``right scaling'' operation on the
+backburner. (Its properties are analogous to the corresponding properties of
+``left scaling'' anyway.)
 
 \begin{definition}
 \label{def.matrix.AB}Let $n,m,p\in\mathbb{N}$. Let $A=\left(  a_{i,j}\right)
@@ -24856,7 +24872,7 @@ lower-triangular matrices). This is \cite[Theorem 3.23 \textbf{(a)}]{lina}.
 \end{proof}
 
 Note that diagonal $n\times n$-matrices are \textquotedblleft
-basically\textquotedblright\ the same as $n$-tuples of elements of
+essentially\textquotedblright\ the same as $n$-tuples of elements of
 $\mathbb{K}$; the ring they form is $\underbrace{\mathbb{K}\times
 \mathbb{K}\times\cdots\times\mathbb{K}}_{n\text{ times}}$ in disguise. We will
 see soon how to make this precise.
@@ -24866,7 +24882,8 @@ see soon how to make this precise.
 \begin{definition}
 \label{def.riho.riho}Let $\mathbb{K}$ and $\mathbb{L}$ be two rings. A
 \textit{ring homomorphism} from $\mathbb{K}$ to $\mathbb{L}$ means a map
-$f:\mathbb{K}\rightarrow\mathbb{L}$ that satisfies the following axioms:
+$f:\mathbb{K}\rightarrow\mathbb{L}$ that satisfies the following four
+axioms:
 
 \textbf{(a)} We have $f\left(  a+b\right)  =f\left(  a\right)  +f\left(
 b\right)  $ for all $a,b\in\mathbb{K}$. (This is called \textquotedblleft$f$
@@ -24886,12 +24903,12 @@ $f\left(  1_{\mathbb{K}}\right)  =1_{\mathbb{L}}$.)
 \end{definition}
 
 \begin{remark}
-\label{rmk.riho.0-free}The property \textbf{(b)} is redundant -- it follows
-from property \textbf{(a)}.
+\label{rmk.riho.0-free}The axiom \textbf{(b)} in Definition \ref{def.riho.riho}
+is redundant -- it follows from axiom \textbf{(a)}.
 \end{remark}
 
 \begin{proof}
-Assume property \textbf{(a)} holds. Apply property \textbf{(a)} to $a=0$ and
+Assume that axiom \textbf{(a)} holds. Apply axiom \textbf{(a)} to $a=0$ and
 $b=0$. Thus, you get%
 \[
 f\left(  0+0\right)  =f\left(  0\right)  +f\left(  0\right)  .
@@ -24902,11 +24919,26 @@ f\left(  0\right)  =f\left(  0\right)  +f\left(  0\right)  .
 \]
 Subtracting $f\left(  0\right)  $ on both sides (we can do this, since
 $\mathbb{L}$ is a ring), we obtain $0=f\left(  0\right)  $, thus $f\left(
-0\right)  =0$. Thus, property \textbf{(b)} holds.
+0\right)  =0$. Thus, axiom \textbf{(b)} holds.
 \end{proof}
 
-Note, however, that property \textbf{(b)} is not redundant if we want to
-define semiring homomorphisms.
+If the axiom \textbf{(b)} in Definition \ref{def.riho.riho} is redundant,
+then why did we require it?
+One reason to do so is purely aesthetical:
+It ensures that each of the two ``multiplicative'' axioms (viz., axioms
+\textbf{(c)} and \textbf{(d)}) is matched by a corresponding ``additive''
+axiom (viz., axioms \textbf{(a)} and \textbf{(b)}).
+We cannot omit axiom \textbf{(d)}\footnote{More precisely: if we did, then
+we would obtain a weaker, less useful notion of ring homomorphism.}; thus,
+to avoid breaking the symmetry, I prefer not to omit axiom \textbf{(b)}
+either.
+There is another reason to keep axiom \textbf{(b)}.
+Indeed, if we want to define \textit{semiring homomorphisms} (i.e., the
+analogue of ring homomorphisms in which rings are replaced by semirings),
+then axiom \textbf{(b)} is no longer redundant (since we cannot subtract
+elements in a semiring); thus, if we omitted axiom \textbf{(b)}, our
+definition of ring homomorphisms would become less robust with respect to
+replacing ``ring'' by ``semiring''.
 
 \begin{example}
 \label{exa.riho.id}Let $\mathbb{K}$ be any ring. The map $\operatorname*{id}%
@@ -25467,8 +25499,21 @@ renamed\textquotedblright. (The isomorphism $f$ does the renaming: you should
 think of each $a\in\mathbb{K}$ being renamed as $f\left(  a\right)  $.)
 
 Thus, when you have a ring isomorphism $f:\mathbb{K}\rightarrow\mathbb{L}$,
-you can take any property of $\mathbb{K}$ and obtain the corresponding
-property of $\mathbb{L}$, and vice versa. Here is an example:
+you can take any ``intrinsic'' property\footnote{What do we mean by
+``intrinsic''? Roughly speaking, an \textit{intrinsic} property of a ring
+is a property that can be stated entirely in terms of its structure (i.e.,
+its ground set and its operations $+$ and $\cdot$ and its elements $0$ and $1$),
+without
+referring to outside objects. For instance, ``every element $a$ of the ring
+satisfies $a^3 = a^2$'' is an intrinsic property (since $a^3=aaa$ and $a^2=aa$
+are defined purely in terms of the operation $\cdot$), and ``the ring has
+two nonzero elements $a$ and $b$ such that $ab = 0$'' is an intrinsic property
+as well (provided that ``nonzero'' and ``$0$'' refer to the zero of the ring,
+rather than the number $0$), but
+``the ring contains the number $\sqrt[3]{2}$'' is not an intrinsic property
+(since it refers to an outside object -- namely, the number $\sqrt[3]{2}$).
+} of $\mathbb{K}$ and obtain the
+corresponding property of $\mathbb{L}$, and vice versa. Here is an example:
 
 \begin{proposition}
 \label{prop.riiso.fieldfield}Let $\mathbb{K}$ and $\mathbb{L}$ be two rings.
