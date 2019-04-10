@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Wednesday, April 10, 2019 10:58:39}
+%TCIDATA{LastRevised=Wednesday, April 10, 2019 12:35:51}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -13253,7 +13253,7 @@ example, if we take $n=3$ and $Z_{i}=\left\{  1,2\right\}  $ for each
 $i\in\left\{  1,2,3\right\}  $, then Lemma \ref{lem.prodrule.nums} says that%
 \begin{align*}
 &  \left(  p_{1,1}+p_{1,2}\right)  \left(  p_{2,1}+p_{2,2}\right)  \left(
-p_{3,1}+p_{3,2}\right)  \\
+p_{3,1}+p_{3,2}\right) \\
 &  =p_{1,1}p_{2,1}p_{3,1}+p_{1,1}p_{2,1}p_{3,2}+p_{1,1}p_{2,2}p_{3,1}%
 +p_{1,1}p_{2,2}p_{3,2}\\
 &  \ \ \ \ \ \ \ \ \ \ +p_{1,2}p_{2,1}p_{3,1}+p_{1,2}p_{2,1}p_{3,2}%
@@ -13280,7 +13280,7 @@ $\left\{  1,2,\ldots,m_{i}\right\}  $ for $m_{i}=\left\vert Z_{i}\right\vert
 $.}%
 \begin{align*}
 &  \prod_{i=1}^{n}\sum_{k=1}^{m_{i}}p_{i,k}\\
-&  =\prod_{i=1}^{n}\left(  p_{i,1}+p_{i,2}+\cdots+p_{i,m_{i}}\right)  \\
+&  =\prod_{i=1}^{n}\left(  p_{i,1}+p_{i,2}+\cdots+p_{i,m_{i}}\right) \\
 &  =\left(  p_{1,1}+p_{1,2}+\cdots+p_{1,m_{1}}\right)  \left(  p_{2,1}%
 +p_{2,2}+\cdots+p_{2,m_{2}}\right)  \cdots\left(  p_{n,1}+p_{n,2}%
 +\cdots+p_{n,m_{n}}\right)  ,
@@ -24877,6 +24877,85 @@ $\mathbb{K}$; the ring they form is $\underbrace{\mathbb{K}\times
 \mathbb{K}\times\cdots\times\mathbb{K}}_{n\text{ times}}$ in disguise. We will
 see soon how to make this precise.
 
+One of the most important operations on matrices is taking the transpose:
+
+\begin{definition}
+Let $n\in\mathbb{N}$ and $m\in\mathbb{N}$. Let $A=\left(  a_{i,j}\right)
+_{1\leq i\leq n,\ 1\leq j\leq m}$ be an $n\times m$-matrix. Then, we define an
+$m\times n$-matrix $A^{T}$ by%
+\[
+A^{T}=\left(  a_{j,i}\right)  _{1\leq i\leq m,\ 1\leq j\leq n}.
+\]
+Thus, for each $i\in\left\{  1,2,\ldots,m\right\}  $ and $j\in\left\{
+1,2,\ldots,n\right\}  $, the $\left(  i,j\right)  $-th entry of $A^{T}$ is the
+$\left(  j,i\right)  $-th entry of $A$. This matrix $A^{T}$ is called the
+\textit{transpose} of $A$.
+\end{definition}
+
+For example,%
+\[
+\left(
+\begin{array}
+[c]{ccc}%
+1 & 2 & 3\\
+4 & 5 & 6
+\end{array}
+\right)  ^{T}=\left(
+\begin{array}
+[c]{cc}%
+1 & 4\\
+2 & 5\\
+3 & 6
+\end{array}
+\right)  \ \ \ \ \ \ \ \ \ \ \text{and}\ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{cc}%
+1 & 2\\
+1 & 0
+\end{array}
+\right)  ^{T}=\left(
+\begin{array}
+[c]{cc}%
+1 & 1\\
+2 & 0
+\end{array}
+\right)  .
+\]
+
+
+Let us use this occasion to define column vectors and row vectors:
+
+\begin{definition}
+Let $n\in\mathbb{N}$.
+
+\textbf{(a)} A \textit{column vector of size }$n$ will mean an $n\times1$-matrix.
+
+\textbf{(b)} A row vector of size $n$ will mean a $1\times n$-matrix.
+\end{definition}
+
+For example, $\left(
+\begin{array}
+[c]{c}%
+1\\
+2
+\end{array}
+\right)  $ is a column vector of size $2$, while $\left(
+\begin{array}
+[c]{ccc}%
+1 & 2 & 3
+\end{array}
+\right)  $ is a row vector of size $3$. We will often identify a row vector
+$\left(
+\begin{array}
+[c]{cccc}%
+a_{1} & a_{2} & \cdots & a_{n}%
+\end{array}
+\right)  \in\mathbb{K}^{1\times n}$ with the corresponding $n$-tuple $\left(
+a_{1},a_{2},\ldots,a_{n}\right)  $.$^{{}}$
+
+If $v$ is a column vector of size $n$, then $v^{T}$ is a row vector of size
+$n$.
+
 \subsection{Ring homomorphisms}
 
 \begin{definition}
@@ -26069,6 +26148,10 @@ Usually, these things are done for matrices over $\mathbb{R}$ or $\mathbb{C}$.
 But we can try doing the same with matrices over an arbitrary commutative ring
 $\mathbb{K}$.
 
+\subsubsection{Matrices over fields}
+
+Let us first study the situation when $\mathbb{K}$ is a field.
+
 \textbf{Example:} Let $\mathbb{K}=\mathbb{Z}/3$, and let $A=\left(
 \begin{array}
 [c]{ccc}%
@@ -26132,7 +26215,7 @@ form\textquotedblright\ in \cite{Hefferon}.}) by a series of row operations
 0 & 1 & 1 & 1\\
 1 & 1 & 0 & 1
 \end{array}
-\right) \\
+\right)  \\
 &  \overset{\text{subtract row }1\text{ from row }3}{\mapsto}\left(
 \begin{array}
 [c]{cccc}%
@@ -26141,7 +26224,7 @@ form\textquotedblright\ in \cite{Hefferon}.}) by a series of row operations
 0 & 1 & 2 & 0
 \end{array}
 \right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{since }-1=2\text{ in }%
-\mathbb{Z}/3\right) \\
+\mathbb{Z}/3\right)  \\
 &  \overset{\text{subtract row }2\text{ from row }3}{\mapsto}\left(
 \begin{array}
 [c]{cccc}%
@@ -26149,9 +26232,9 @@ form\textquotedblright\ in \cite{Hefferon}.}) by a series of row operations
 0 & 1 & 1 & 1\\
 0 & 0 & 1 & 2
 \end{array}
-\right) \\
+\right)  \\
 &  \ \ \ \ \ \ \ \ \ \ \left(  \text{this is a row echelon form, but not a
-reduced one}\right) \\
+reduced one}\right)  \\
 &  \overset{\text{subtract row }3\text{ from row }1}{\mapsto}\left(
 \begin{array}
 [c]{cccc}%
@@ -26159,7 +26242,7 @@ reduced one}\right) \\
 0 & 1 & 1 & 1\\
 0 & 0 & 1 & 2
 \end{array}
-\right) \\
+\right)  \\
 &  \overset{\text{subtract row }3\text{ from row }2}{\mapsto}\left(
 \begin{array}
 [c]{cccc}%
@@ -26179,7 +26262,8 @@ x_{3}%
 \right)  \in\mathbb{K}^{3\times1}$, we have the following chain of
 equivalences:%
 \begin{align*}
-&  \ \left(  Ax=b\right) \\
+&  \ \left(  Ax=b\right)  \\
+&  \Longleftrightarrow\ \left(  Ax-b=0_{3\times1}\right)  \\
 &  \Longleftrightarrow\ \left(  \left(  A\mid b\right)  \left(
 \begin{array}
 [c]{c}%
@@ -26188,8 +26272,8 @@ x_{2}\\
 x_{3}\\
 -1
 \end{array}
-\right)  =0\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{since }Ax-b=\left(
-A\mid b\right)  \left(
+\right)  =0_{3\times1}\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{since
+}Ax-b=\left(  A\mid b\right)  \left(
 \begin{array}
 [c]{c}%
 x_{1}\\
@@ -26197,7 +26281,7 @@ x_{2}\\
 x_{3}\\
 -1
 \end{array}
-\right)  \right) \\
+\right)  \right)  \\
 &  \Longleftrightarrow\ \left(  \left(
 \begin{array}
 [c]{cccc}%
@@ -26213,7 +26297,7 @@ x_{2}\\
 x_{3}\\
 -1
 \end{array}
-\right)  =0\right) \\
+\right)  =0\right)  \\
 &  \ \ \ \ \ \ \ \ \ \ \left(
 \begin{array}
 [c]{c}%
@@ -26227,7 +26311,7 @@ x_{3}\\
 \right)  \text{ by a series}\\
 \text{of row operations}%
 \end{array}
-\right) \\
+\right)  \\
 &  \Longleftrightarrow\ \left(  \left(
 \begin{array}
 [c]{c}%
@@ -26335,7 +26419,7 @@ of row operations:%
 0 & 1 & 1 & 1\\
 1 & 1 & 0 & 1
 \end{array}
-\right) \\
+\right)  \\
 &  \overset{\text{subtract row }1\text{ from row }3}{\mapsto}\left(
 \begin{array}
 [c]{cccc}%
@@ -26344,7 +26428,7 @@ of row operations:%
 0 & 1 & 1 & 0
 \end{array}
 \right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{since }-1=1\text{ in }%
-\mathbb{Z}/2\right) \\
+\mathbb{Z}/2\right)  \\
 &  \overset{\text{subtract row }2\text{ from row }3}{\mapsto}\left(
 \begin{array}
 [c]{cccc}%
@@ -26352,7 +26436,7 @@ of row operations:%
 0 & 1 & 1 & 1\\
 0 & 0 & 0 & 1
 \end{array}
-\right) \\
+\right)  \\
 &  \overset{\text{subtract row }3\text{ from row }1}{\mapsto}\left(
 \begin{array}
 [c]{cccc}%
@@ -26360,7 +26444,7 @@ of row operations:%
 0 & 1 & 1 & 1\\
 0 & 0 & 0 & 1
 \end{array}
-\right) \\
+\right)  \\
 &  \overset{\text{subtract row }3\text{ from row }2}{\mapsto}\left(
 \begin{array}
 [c]{cccc}%
@@ -26380,7 +26464,8 @@ x_{3}%
 \right)  \in\mathbb{K}^{3\times1}$, we have the following chain of
 equivalences:
 \begin{align*}
-&  \ \left(  Ax=b\right) \\
+&  \ \left(  Ax=b\right)  \\
+&  \Longleftrightarrow\ \left(  Ax-b=0_{3\times1}\right)  \\
 &  \Longleftrightarrow\ \left(  \left(  A\mid b\right)  \left(
 \begin{array}
 [c]{c}%
@@ -26389,7 +26474,7 @@ x_{2}\\
 x_{3}\\
 -1
 \end{array}
-\right)  =0\right) \\
+\right)  =0_{3\times1}\right)  \\
 &  \Longleftrightarrow\ \left(  \left(
 \begin{array}
 [c]{cccc}%
@@ -26405,7 +26490,7 @@ x_{2}\\
 x_{3}\\
 -1
 \end{array}
-\right)  =0\right) \\
+\right)  =0\right)  \\
 &  \Longleftrightarrow\ \left(  \left(
 \begin{array}
 [c]{c}%
@@ -26441,7 +26526,7 @@ in $\mathbb{Z}/2$), which is absurd. So the system has no solution.
 \textbf{Upshot:} We can do linear algebra over any field more or less in the
 same as we did over real/complex numbers. But the result will depend on the field.
 
-Let me recall a couple theorems from linear algerba that hold (with the same
+Let me recall a couple theorems from linear algebra that hold (with the same
 proofs) over any field:
 
 \begin{theorem}
@@ -26513,27 +26598,27 @@ in some detail.)
 \subsubsection{What if $\mathbb{K}$ is not a field?}
 
 Things get weird when $\mathbb{K}$ is not a field. For an example, set
-$\mathbb{K}=\mathbb{Z}/26$. This is not a field, since $26=\allowbreak
-2\cdot13$ is not prime. The ring $\mathbb{Z}/26$ has been used in classical
-cryptography, since its elements are in bijection with the letters of the
-(modern) Roman alphabet:%
+$\mathbb{K}=\mathbb{Z}/26$. This is not a field, since $26$ is not prime
+(after all, $26=2\cdot13$). The ring $\mathbb{Z}/26$ has been used in
+classical cryptography, since its elements are in bijection with the letters
+of the (modern) Roman alphabet:%
 \[
 0\mapsto A,\ \ \ \ \ \ \ \ \ \ 1\mapsto B,\ \ \ \ \ \ \ \ \ \ 2\mapsto
 C,\ \ \ \ \ \ \ \ \ \ \ldots.
 \]
-For example, the \textit{Hill cipher} lets you encrypt a word using a
-$3\times3$-matrix over $\mathbb{Z}/26$ as a key. The idea is simple: You split
-the word into 3-letter pieces; you turn each piece into a column vector in
-$\left(  \mathbb{Z}/26\right)  ^{3\times1}$; and you multiply each of these
-columns vectors by your key matrix. To decrypt, you would have to invert the
-key matrix.
+For example, \href{https://en.wikipedia.org/wiki/Hill_cipher}{the \textit{Hill
+cipher}} lets you encrypt a word using a $3\times3$-matrix over $\mathbb{Z}%
+/26$ as a key. The idea is simple: You split the word into 3-letter pieces;
+you turn each piece into a column vector in $\left(  \mathbb{Z}/26\right)
+^{3\times1}$; and you multiply each of these columns vectors by your key
+matrix. To decrypt, you would have to invert the key matrix.
 
 So we want to know how to invert a matrix over $\mathbb{Z}/26$.
 
 If $\mathbb{Z}/26$ was a field, you would know how to do this via Gaussian elimination.
 
 Most of Theorem \ref{thm.field.LA-main} collapses when $\mathbb{K}$ is not a
-field. For example, let $\mathbb{K}=\mathbb{Z}/26$ and
+field. For example, let $\mathbb{K}=\mathbb{Z}/26$ and%
 \[
 A=\left(
 \begin{array}
@@ -26543,15 +26628,22 @@ A=\left(
 \end{array}
 \right)  \in\mathbb{K}^{2\times2}.
 \]
-Is $A$ invertible?
+(We are abusing notation here: In truth, the entries of $A$ are not the
+integers $2,13,13,20$ but rather their residue classes $\left[  2\right]
+_{26},\left[  13\right]  _{26},\left[  13\right]  _{26},\left[  20\right]
+_{26}$. But we shall simply write the integers instead and hope that the
+reader knows what we mean.)
 
-If we would blindly follow the Gaussian elimination algorithm, we would fail
-very quickly: None of the $4$ entries of $A$ has a multiplicative inverse;
-thus we could not get a $1$ by scaling any of the rows of $A$. But we can try
-to loosen Gaussian elimination by allowing more strategic row operations:
-Instead of trying to get a $1$ in a pivot position immediately by scaling a
-row, we can attempt to obtain a $1$ by row addition operations. For example,
-we can transform our matrix $A$ above as follows:%
+Is this matrix $A$ invertible?
+
+Let us first try to find the RREF of $A$. If we would blindly follow the
+Gaussian elimination algorithm, we would fail very quickly: None of the $4$
+entries of $A$ has a multiplicative inverse; thus we could not transform any
+entry of $A$ into $1$ by scaling a row of $A$. But we can try to loosen
+Gaussian elimination by allowing more strategic row operations: Instead of
+trying to get a $1$ in a pivot position immediately by scaling a row, we can
+attempt to obtain a $1$ by row addition operations. For example, we can
+transform our matrix $A$ above as follows:%
 \begin{align*}
 &  \left(
 \begin{array}
@@ -26559,7 +26651,7 @@ we can transform our matrix $A$ above as follows:%
 2 & 13\\
 13 & 20
 \end{array}
-\right) \\
+\right)  \\
 &  \overset{\text{subtract }6\text{ times row }1\text{ from row }2}{\mapsto
 }\left(
 \begin{array}
@@ -26567,14 +26659,14 @@ we can transform our matrix $A$ above as follows:%
 2 & 13\\
 1 & 20
 \end{array}
-\right) \\
+\right)  \\
 &  \overset{\text{swap row }1\text{ with row }2}{\mapsto}\left(
 \begin{array}
 [c]{cc}%
 1 & 20\\
 2 & 13
 \end{array}
-\right) \\
+\right)  \\
 &  \overset{\text{subtract }2\text{ times row }1\text{ from row }2}{\mapsto
 }\left(
 \begin{array}
@@ -26582,14 +26674,14 @@ we can transform our matrix $A$ above as follows:%
 1 & 20\\
 0 & 25
 \end{array}
-\right) \\
+\right)  \\
 &  \overset{\text{scale row }2\text{ by }-1}{\mapsto}\left(
 \begin{array}
 [c]{cc}%
 1 & 20\\
 0 & 1
 \end{array}
-\right) \\
+\right)  \\
 &  \overset{\text{subtract }20\text{ times row }2\text{ from row }1}{\mapsto
 }\left(
 \begin{array}
@@ -26599,16 +26691,62 @@ we can transform our matrix $A$ above as follows:%
 \end{array}
 \right)  =I_{2}.
 \end{align*}
-So our matrix $A$ does have a RREF, and even is invertible!
+So our matrix $A$ does have a RREF, and even is invertible! (We can find an
+inverse of $A$ by computing an RREF of the block matrix $\left(  A\mid
+I_{2}\right)  $; see, e.g., \cite[Method 11.11]{Strickland} for this procedure.)
+
+What exactly was the method behind our above row-reduction procedure? Let us
+see how the first column was being transformed:%
+\[
+\left(
+\begin{array}
+[c]{c}%
+2\\
+13
+\end{array}
+\right)  \overset{\text{subtract }6\text{ times row }1\text{ from row
+}2}{\mapsto}\left(
+\begin{array}
+[c]{c}%
+2\\
+1
+\end{array}
+\right)  \overset{\text{swap row }1\text{ with row }2}{\mapsto}\left(
+\begin{array}
+[c]{c}%
+1\\
+2
+\end{array}
+\right)  \overset{\text{subtract }2\text{ times row }1\text{ from row
+}2}{\mapsto}\left(
+\begin{array}
+[c]{c}%
+1\\
+0
+\end{array}
+\right)  .
+\]
+So what we did was progressively making the entries of the first column
+smaller by subtracting a multiple of the first entry from the second entry
+(and swapping the two entries, in order to move the smaller entry into the
+first position). This is exactly the Euclidean algorithm! (Or, rather, it
+would be the Euclidean algorithm if we had used honest integers instead of
+residue classes in $\mathbb{Z}/26$.)
 
 What happens in general? In general, when $\mathbb{K}=\mathbb{Z}/n$, the
 Gaussian elimination algorithm as defined in linear algebra does not always
-work. Nevertheless, a variant of it works, in which you cannot scale rows to
-turn entries into $1$, but instead \textquotedblleft
-minimize\textquotedblright\ the whole column using the Euclidean algorithm.
+work. Nevertheless, a variant of it works, in which you do not directly scale
+rows to turn entries into $1$, but instead \textquotedblleft
+minimize\textquotedblright\ the whole column using the Euclidean algorithm as
+we did with our matrix $A$ above. You will not always be able to get $1$'s in
+pivot positions, because the gcd (which the Euclidean algorithm computes) may
+not be $1$; thus, the result will not always be an RREF in the classical
+sense, but rather something loosely resembling it.
 
-For details, look up the \textit{Smith normal form}. Note that for $n=0$, we
-have $\mathbb{Z}/n\cong\mathbb{Z}$, so this applies to matrices with integer entries.
+For details, look up
+\href{https://en.wikipedia.org/wiki/Smith_normal_form}{the \textit{Smith
+normal form}}. Note that for $n=0$, we have $\mathbb{Z}/n\cong\mathbb{Z}$, so
+this applies to matrices with integer entries.
 
 \subsubsection{Linear algebra over $\mathbb{Z}/2$: \textquotedblleft button
 madness\textquotedblright\ / \textquotedblleft lights out\textquotedblright}

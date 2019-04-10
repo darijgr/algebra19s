@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Wednesday, April 10, 2019 10:46:06}
+%TCIDATA{LastRevised=Wednesday, April 10, 2019 12:04:54}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -13250,7 +13250,7 @@ Lemma \ref{lem.prodrule.nums} is essentially a version of the distributivity
 law (or the \href{https://en.wikipedia.org/wiki/FOIL_method}{FOIL method}) for
 expanding a product of several sums, each of which has several factors. For
 example, if we take $n=3$ and $Z_{i}=\left\{  1,2\right\}  $ for each
-$i\in\left[  n\right]  $, then Lemma \ref{lem.prodrule.nums} says that%
+$i\in\left\{  1,2,3\right\}  $, then Lemma \ref{lem.prodrule.nums} says that%
 \begin{align*}
 &  \left(  p_{1,1}+p_{1,2}\right)  \left(  p_{2,1}+p_{2,2}\right)  \left(
 p_{3,1}+p_{3,2}\right) \\
@@ -13262,8 +13262,8 @@ p_{3,1}+p_{3,2}\right) \\
 (which is precisely what you get if you expand the product \newline$\left(
 p_{1,1}+p_{1,2}\right)  \left(  p_{2,1}+p_{2,2}\right)  \left(  p_{3,1}%
 +p_{3,2}\right)  $ using the distributivity law). For another example, if we
-take $n=2$ and $Z_{i}=\left\{  1,2,3\right\}  $ for each $i\in\left[
-n\right]  $, then Lemma \ref{lem.prodrule.nums} says that%
+take $n=2$ and $Z_{i}=\left\{  1,2,3\right\}  $ for each $i\in\left\{
+1,2\right\}  $, then Lemma \ref{lem.prodrule.nums} says that%
 \begin{align*}
 \left(  p_{1,1}+p_{1,2}+p_{1,3}\right)  \left(  p_{2,1}+p_{2,2}+p_{2,3}%
 \right)   &  =p_{1,1}p_{2,1}+p_{1,1}p_{2,2}+p_{1,1}p_{2,3}\\
@@ -13354,7 +13354,7 @@ _{=1^{k}}+2^{k}+3^{k}+\underbrace{2^{k}\cdot3^{k}}_{=\left(  2\cdot3\right)
 Note that Proposition \ref{prop.ent.count-divs} \textbf{(b)} is the particular
 case of Exercise \ref{exe.ent.count-divs-k} \textbf{(b)} obtained when setting
 $k=0$ (because each integer $z$ satisfies $z^{0}=1$, and thus $\sum_{d\mid
-n}d^{k}$ is the number of positive divisors of $n$).
+n}d^{0}$ is the number of positive divisors of $n$).
 
 \section{Equivalence relations and residue classes}
 
@@ -20942,7 +20942,7 @@ with $\lambda_{1},\lambda_{2},\ldots,\lambda_{k}\in\mathbb{Z}\left[  i\right]
 $.)
 
 \textbf{(b)} It satisfies $\operatorname*{Div}\nolimits_{\mathbb{Z}\left[
-i\right]  }\left(  \alpha_{1},\alpha_{2},\ldots,\alpha_{k}\right)  g
+i\right]  }\left(  \alpha_{1},\alpha_{2},\ldots,\alpha_{k}\right)
 =\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
 \gamma\right)  $.
 
@@ -25595,30 +25595,32 @@ a^{\prime}, b^{\prime}\in\mathbb{K} .
 \end{equation}
 
 
-So we transport our two elements $a, b$ of $\mathbb{L}$ to $\mathbb{K}$ (by
-our ``railway system'' -- specifically, using the map $f^{-1}$), in order to
-be able to apply \eqref{pf.prop.riiso.fieldfield.a.idea.1} to them. The result
-are the two elements $f^{-1}\left(  a \right)  , f^{-1}\left(  b \right)  $ of
-$\mathbb{K}$. Applying the identity \eqref{pf.prop.riiso.fieldfield.a.idea.1}
-to $a^{\prime-1}\left(  a \right)  $ and $b^{\prime-1}\left(  b \right)  $, we
-obtain $f^{-1}\left(  a \right)  f^{-1}\left(  b \right)  = f^{-1}\left(  b
-\right)  f^{-1}\left(  a \right)  $. This is an equality inside $\mathbb{K}$,
+So we transport our two elements $a,b$ of $\mathbb{L}$ to $\mathbb{K}$ (by our
+\textquotedblleft railway system\textquotedblright\ -- specifically, using the
+map $f^{-1}$), in order to be able to apply
+\eqref{pf.prop.riiso.fieldfield.a.idea.1} to them. The result are the two
+elements $f^{-1}\left(  a\right)  ,f^{-1}\left(  b\right)  $ of $\mathbb{K}$.
+Applying the identity \eqref{pf.prop.riiso.fieldfield.a.idea.1} to $a^{\prime
+}=f^{-1}\left(  a\right)  $ and $b^{\prime}=f^{-1}\left(  b\right)  $, we
+obtain $f^{-1}\left(  a\right)  f^{-1}\left(  b\right)  =f^{-1}\left(
+b\right)  f^{-1}\left(  a\right)  $. This is an equality inside $\mathbb{K}$,
 whereas our goal is to prove an equality inside $\mathbb{L}$ (namely, the
-equality $ab = ba$). So we transport this equality back into $\mathbb{L}$ by
-applying $f$ to its two sides. We thus obtain $f\left(  f^{-1}\left(  a
-\right)  f^{-1}\left(  b \right)  \right)  = f\left(  f^{-1}\left(  b \right)
-f^{-1}\left(  a \right)  \right)  $. But recalling that $f$ is a ring
-homomorphism and thus no structure gets ``damaged in transit'', we see that
+equality $ab=ba$). So we transport this equality back into $\mathbb{L}$ by
+applying $f$ to its two sides. We thus obtain $f\left(  f^{-1}\left(
+a\right)  f^{-1}\left(  b\right)  \right)  =f\left(  f^{-1}\left(  b\right)
+f^{-1}\left(  a\right)  \right)  $. But recalling that $f$ is a ring
+homomorphism and thus no structure gets \textquotedblleft damaged in
+transit\textquotedblright, we see that
 \[
 f\left(  f^{-1}\left(  a\right)  f^{-1}\left(  b\right)  \right)
 =\underbrace{f\left(  f^{-1}\left(  a\right)  \right)  }_{=a}%
 \underbrace{f\left(  f^{-1}\left(  b\right)  \right)  }_{=b}=ab
 \]
 and similarly $f\left(  f^{-1}\left(  b\right)  f^{-1}\left(  a\right)
-\right)  =ba$. Hence, the equality $f\left(  f^{-1}\left(  a \right)
-f^{-1}\left(  b \right)  \right)  = f\left(  f^{-1}\left(  b \right)
-f^{-1}\left(  a \right)  \right)  $ that we have just proven rewrites as $ab =
-ba$, which is precisely what we wanted to prove. Thus, we have proven
+\right)  =ba$. Hence, the equality $f\left(  f^{-1}\left(  a\right)
+f^{-1}\left(  b\right)  \right)  =f\left(  f^{-1}\left(  b\right)
+f^{-1}\left(  a\right)  \right)  $ that we have just proven rewrites as
+$ab=ba$, which is precisely what we wanted to prove. Thus, we have proven
 Proposition \ref{prop.riiso.fieldfield} \textbf{(a)} by merely going back and
 forth between $\mathbb{K}$ and $\mathbb{L}$.
 
@@ -26030,42 +26032,42 @@ On HW5 exercise 5, you have encountered the ring%
 where $\phi=\dfrac{1+\sqrt{5}}{2}=\allowbreak1.\,\allowbreak618\ldots$ is the
 golden ratio.
 
-I claim that there is an isomorphism from $\mathbb{Z}\left[  \phi\right]  $ to
-$\mathcal{F}$. Namely, the map%
+There is an isomorphism from $\mathbb{Z}\left[  \phi\right]  $ to
+$\mathcal{F}$, namely the map%
 \begin{align*}
-f:\mathbb{Z}\left[  \phi\right]   &  \rightarrow\mathcal{F},\\
-a+b\phi &  \mapsto bA+aI_{2}=\left(
+f:\mathbb{Z}\left[  \phi\right]    & \rightarrow\mathcal{F},\\
+a+b\phi & \mapsto bA+aI_{2}=\left(
 \begin{array}
 [c]{cc}%
 a & b\\
 b & a+b
 \end{array}
-\right)
+\right)  .
 \end{align*}
-is a ring isomorphism (but not the only one!).
-\end{example}
 
-(Check this by hand.)
+\end{example}
 
 \begin{definition}
 Let $\mathbb{K}$ and $\mathbb{L}$ be two rings. We say that the rings
-$\mathbb{K}$ and $\mathbb{L}$ are \textit{isomorphic} if there exists a ring
+$\mathbb{K}$ and $\mathbb{L}$ are \textbf{isomorphic} if there is a ring
 isomorphism $f:\mathbb{K}\rightarrow\mathbb{L}$.
 
 We write \textquotedblleft$\mathbb{K}\cong\mathbb{L}$ (as
-rings)\textquotedblright\ to say that the rings $\mathbb{K}$ and $\mathbb{L}$
-are isomorphic.
+rings)\textquotedblright\ in this case.
 \end{definition}
 
 \subsection{An overview of matrix algebra over fields}
 
 I assume you have all seen some basic matrix algebra: Gaussian elimination,
-ranks of matrices, inverses of matrices, determinants, etc. (If not, see
-\cite{Hefferon}.)
+ranks of matrices, inverses of matrices: otherwise, check out
 
-Usually, these things are done for matrices over $\mathbb{R}$ or $\mathbb{C}$.
-But we can try doing the same with matrices over an arbitrary commutative ring
-$\mathbb{K}$.
+[Heffer17] Jim Hefferon's \textit{Linear Algebra}.
+
+[Strick13] Neil Strickland, \textit{Linear mathematics for applications}, 2013.
+
+Usually, these things are taught for matrices over $\mathbb{R}$ or
+$\mathbb{C}$. But we can try doing the same with matrices over any commutative
+ring $\mathbb{K}$.
 
 \textbf{Example:} Let $\mathbb{K}=\mathbb{Z}/3$, and let $A=\left(
 \begin{array}
@@ -26074,7 +26076,7 @@ $\mathbb{K}$.
 1 & 0 & 1\\
 1 & 1 & 0
 \end{array}
-\right)  \in\mathbb{K}^{3\times3}$. (Here, of course, $0$ and $1$ mean
+\right)  \in\mathbb{K}^{3\times3}$. (Here, of course, $0$ and $1$ stand for
 $\left[  0\right]  _{3}$ and $\left[  1\right]  _{3}$.) Let $b=\left(
 \begin{array}
 [c]{c}%
@@ -26109,21 +26111,18 @@ obtaining the augmented matrix%
 \end{array}
 \right)  .
 \]
-Now, we shall transform this matrix into reduced row echelon form (see
-\cite[\S 5]{Strickland} or \cite[Chapter One, \S III]{Hefferon}\footnote{The
-reduced row echelon form is called \textquotedblleft reduced echelon
-form\textquotedblright\ in \cite{Hefferon}.}) by a series of row operations
-(this is called \textit{Gauss-Jordan reduction} in \cite[Chapter One,
-\S III]{Hefferon}, and also appears as Method 6.3 in \cite{Strickland}):%
+Now, we shall transform this matrix into reduced row echelon form by a series
+of row operations (this is called \textit{Gauss-Jordan reduction}):%
 \begin{align*}
-\left(  A\mid b\right)   &  =\left(
+\left(  A\mid b\right)    & =\left(
 \begin{array}
 [c]{cccc}%
 0 & 1 & 1 & 1\\
 1 & 0 & 1 & 1\\
 1 & 1 & 0 & 1
 \end{array}
-\right)  \overset{\text{swap row }2\text{ with row }1}{\mapsto}\left(
+\right)  \\
+& \overset{\text{swap row }1\text{ with row }2}{\mapsto}\left(
 \begin{array}
 [c]{cccc}%
 1 & 0 & 1 & 1\\
@@ -26131,7 +26130,7 @@ form\textquotedblright\ in \cite{Hefferon}.}) by a series of row operations
 1 & 1 & 0 & 1
 \end{array}
 \right)  \\
-&  \overset{\text{subtract row }1\text{ from row }3}{\mapsto}\left(
+& \overset{\text{subtract row }1\text{ from row }3}{\mapsto}\left(
 \begin{array}
 [c]{cccc}%
 1 & 0 & 1 & 1\\
@@ -26140,7 +26139,7 @@ form\textquotedblright\ in \cite{Hefferon}.}) by a series of row operations
 \end{array}
 \right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{since }-1=2\text{ in }%
 \mathbb{Z}/3\right)  \\
-&  \overset{\text{subtract row }2\text{ from row }3}{\mapsto}\left(
+& \overset{\text{subtract row }2\text{ from row }3}{\mapsto}\left(
 \begin{array}
 [c]{cccc}%
 1 & 0 & 1 & 1\\
@@ -26148,9 +26147,7 @@ form\textquotedblright\ in \cite{Hefferon}.}) by a series of row operations
 0 & 0 & 1 & 2
 \end{array}
 \right)  \\
-&  \ \ \ \ \ \ \ \ \ \ \left(  \text{this is a row echelon form, but not a
-reduced one}\right)  \\
-&  \overset{\text{subtract row }3\text{ from row }1}{\mapsto}\left(
+& \overset{\text{subtract row }3\text{ from row }1}{\mapsto}\left(
 \begin{array}
 [c]{cccc}%
 1 & 0 & 0 & 2\\
@@ -26158,7 +26155,7 @@ reduced one}\right)  \\
 0 & 0 & 1 & 2
 \end{array}
 \right)  \\
-&  \overset{\text{subtract row }3\text{ from row }2}{\mapsto}\left(
+& \overset{\text{subtract row }3\text{ from row }2}{\mapsto}\left(
 \begin{array}
 [c]{cccc}%
 1 & 0 & 0 & 2\\
@@ -26174,11 +26171,10 @@ x_{1}\\
 x_{2}\\
 x_{3}%
 \end{array}
-\right)  \in\mathbb{K}^{3\times1}$, we have the following chain of
-equivalences:%
+\right)  \in\mathbb{K}^{3\times1}$, we have the following equivalences:%
 \begin{align*}
-&  \ \left(  Ax=b\right)  \\
-&  \Longleftrightarrow\ \left(  \left(  A\mid b\right)  \left(
+& \left(  Ax=b\right)  \\
+& \Longleftrightarrow\ \left(  \left(  A\mid b\right)  \left(
 \begin{array}
 [c]{c}%
 x_{1}\\
@@ -26186,8 +26182,8 @@ x_{2}\\
 x_{3}\\
 -1
 \end{array}
-\right)  =0\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{since }Ax-b=\left(
-A\mid b\right)  \left(
+\right)  =0_{3\times1}\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{since
+}\left(  A\mid b\right)  \left(
 \begin{array}
 [c]{c}%
 x_{1}\\
@@ -26195,8 +26191,8 @@ x_{2}\\
 x_{3}\\
 -1
 \end{array}
-\right)  \right)  \\
-&  \Longleftrightarrow\ \left(  \left(
+\right)  =Ax-b\right)  \\
+& \Longleftrightarrow\ \left(  \left(
 \begin{array}
 [c]{cccc}%
 1 & 0 & 0 & 2\\
@@ -26211,36 +26207,15 @@ x_{2}\\
 x_{3}\\
 -1
 \end{array}
-\right)  =0\right)  \\
-&  \ \ \ \ \ \ \ \ \ \ \left(
-\begin{array}
-[c]{c}%
-\text{since }\left(  A\mid b\right)  \mapsto\left(
-\begin{array}
-[c]{cccc}%
-1 & 0 & 0 & 2\\
-0 & 1 & 0 & 2\\
-0 & 0 & 1 & 2
-\end{array}
-\right)  \text{ by a series}\\
-\text{of row operations}%
-\end{array}
-\right)  \\
-&  \Longleftrightarrow\ \left(  \left(
+\right)  =0_{3\times1}\right)  \\
+& \Longleftrightarrow\ \left(  \left(
 \begin{array}
 [c]{c}%
 x_{1}-2\\
 x_{2}-2\\
 x_{3}-2
 \end{array}
-\right)  =\left(
-\begin{array}
-[c]{c}%
-0\\
-0\\
-0
-\end{array}
-\right)  \right)  \ \Longleftrightarrow\ \left(  \left(
+\right)  =0_{3\times1}\right)  \ \Longleftrightarrow\ \left(  \left(
 \begin{array}
 [c]{c}%
 x_{1}\\
@@ -26256,7 +26231,7 @@ x_{3}%
 \end{array}
 \right)  \right)  .
 \end{align*}
-So our linear system has the unique solution%
+So our linear system (or equation $Ax=b$) has the unique solution%
 \[
 x=\left(
 \begin{array}
@@ -26269,19 +26244,16 @@ x=\left(
 \]
 
 
-Next, try doing the same for $\mathbb{K}=\mathbb{Z}/2$, with the
-\textquotedblleft same\textquotedblright\ matrix. (It will not be literally
-the same matrix, of course, since $0$ and $1$ will now mean $\left[  0\right]
-_{2}$ and $\left[  1\right]  _{2}$.)
+Now, try to do the same for $\mathbb{K}=\mathbb{Z}/2$.
 
-Thus, let $\mathbb{K}=\mathbb{Z}/2$, and let $A=\left(
+So let $\mathbb{K}=\mathbb{Z}/2$, and let $A=\left(
 \begin{array}
 [c]{ccc}%
 0 & 1 & 1\\
 1 & 0 & 1\\
 1 & 1 & 0
 \end{array}
-\right)  \in\mathbb{K}^{3\times3}$. (Here, of course, $0$ and $1$ mean
+\right)  \in\mathbb{K}^{3\times3}$. (Here, of course, $0$ and $1$ stand for
 $\left[  0\right]  _{2}$ and $\left[  1\right]  _{2}$.) Let $b=\left(
 \begin{array}
 [c]{c}%
@@ -26304,8 +26276,8 @@ $x_{1},x_{2},x_{3}\in\mathbb{K}$ such that%
 \]
 
 
-Can we do this? Again, we can try: Augment the matrix $A$ with the column $b$,
-obtaining%
+Can we do this? Well, we can try: Augment the matrix $A$ with the column $b$,
+obtaining the augmented matrix%
 \[
 \left(  A\mid b\right)  =\left(
 \begin{array}
@@ -26317,16 +26289,17 @@ obtaining%
 \right)  .
 \]
 Now, we shall transform this matrix into reduced row echelon form by a series
-of row operations:%
+of row operations (this is called \textit{Gauss-Jordan reduction}):%
 \begin{align*}
-\left(  A\mid b\right)   &  =\left(
+\left(  A\mid b\right)    & =\left(
 \begin{array}
 [c]{cccc}%
 0 & 1 & 1 & 1\\
 1 & 0 & 1 & 1\\
 1 & 1 & 0 & 1
 \end{array}
-\right)  \overset{\text{swap row }2\text{ with row }1}{\mapsto}\left(
+\right)  \\
+& \overset{\text{swap row }1\text{ with row }2}{\mapsto}\left(
 \begin{array}
 [c]{cccc}%
 1 & 0 & 1 & 1\\
@@ -26334,7 +26307,7 @@ of row operations:%
 1 & 1 & 0 & 1
 \end{array}
 \right)  \\
-&  \overset{\text{subtract row }1\text{ from row }3}{\mapsto}\left(
+& \overset{\text{subtract row }1\text{ from row }3}{\mapsto}\left(
 \begin{array}
 [c]{cccc}%
 1 & 0 & 1 & 1\\
@@ -26343,7 +26316,7 @@ of row operations:%
 \end{array}
 \right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{since }-1=1\text{ in }%
 \mathbb{Z}/2\right)  \\
-&  \overset{\text{subtract row }2\text{ from row }3}{\mapsto}\left(
+& \overset{\text{subtract row }2\text{ from row }3}{\mapsto}\left(
 \begin{array}
 [c]{cccc}%
 1 & 0 & 1 & 1\\
@@ -26351,7 +26324,7 @@ of row operations:%
 0 & 0 & 0 & 1
 \end{array}
 \right)  \\
-&  \overset{\text{subtract row }3\text{ from row }1}{\mapsto}\left(
+& \overset{\text{subtract row }3\text{ from row }1}{\mapsto}\left(
 \begin{array}
 [c]{cccc}%
 1 & 0 & 1 & 0\\
@@ -26359,7 +26332,7 @@ of row operations:%
 0 & 0 & 0 & 1
 \end{array}
 \right)  \\
-&  \overset{\text{subtract row }3\text{ from row }2}{\mapsto}\left(
+& \overset{\text{subtract row }3\text{ from row }2}{\mapsto}\left(
 \begin{array}
 [c]{cccc}%
 1 & 0 & 1 & 0\\
@@ -26375,11 +26348,10 @@ x_{1}\\
 x_{2}\\
 x_{3}%
 \end{array}
-\right)  \in\mathbb{K}^{3\times1}$, we have the following chain of
-equivalences:
+\right)  \in\mathbb{K}^{3\times1}$, we have the following equivalences:%
 \begin{align*}
-&  \ \left(  Ax=b\right)  \\
-&  \Longleftrightarrow\ \left(  \left(  A\mid b\right)  \left(
+& \left(  Ax=b\right)  \\
+& \Longleftrightarrow\ \left(  \left(  A\mid b\right)  \left(
 \begin{array}
 [c]{c}%
 x_{1}\\
@@ -26387,8 +26359,17 @@ x_{2}\\
 x_{3}\\
 -1
 \end{array}
-\right)  =0\right)  \\
-&  \Longleftrightarrow\ \left(  \left(
+\right)  =0_{3\times1}\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{since
+}\left(  A\mid b\right)  \left(
+\begin{array}
+[c]{c}%
+x_{1}\\
+x_{2}\\
+x_{3}\\
+-1
+\end{array}
+\right)  =Ax-b\right)  \\
+& \Longleftrightarrow\ \left(  \left(
 \begin{array}
 [c]{cccc}%
 1 & 0 & 1 & 0\\
@@ -26403,61 +26384,39 @@ x_{2}\\
 x_{3}\\
 -1
 \end{array}
-\right)  =0\right)  \\
-&  \Longleftrightarrow\ \left(  \left(
+\right)  =0_{3\times1}\right)  \\
+& \Longleftrightarrow\ \left(  \left(
 \begin{array}
 [c]{c}%
-x_{1}+x_{3}=0\\
-x_{2}+x_{3}=0\\
--1=0
+x_{1}+x_{3}\\
+x_{2}+x_{3}\\
+-1
 \end{array}
-\right)  =\left(
-\begin{array}
-[c]{c}%
-0\\
-0\\
-0
-\end{array}
-\right)  \right)  \ \Longleftrightarrow\ \left(  \text{false}\right)  .
+\right)  =0_{3\times1}\right)  \ \Longleftrightarrow\ \left(  \text{false}%
+\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{since }-1\neq0\text{ in }%
+\mathbb{Z}/2\right)  .
 \end{align*}
-So our linear system has no solution.
-
-By the way, you could have easily seen this from the system itself:%
-\[
-\left\{
-\begin{array}
-[c]{c}%
-0x_{1}+1x_{2}+1x_{3}=1;\\
-1x_{1}+0x_{2}+1x_{3}=1;\\
-1x_{1}+1x_{2}+0x_{3}=1.
-\end{array}
-\right.
-\]
-Adding together the three equations, we get $0=1$ (since $1+1=0$ and $1+1+1=1$
-in $\mathbb{Z}/2$), which is absurd. So the system has no solution.
+So our linear system (or equation $Ax=b$) has no solution.
 
 \textbf{Upshot:} We can do linear algebra over any field more or less in the
-same as we did over real/complex numbers. But the result will depend on the field.
+same way as we did over real/complex numbers. But the result will depend on
+the field.
 
-Let me recall a couple theorems from linear algerba that hold (with the same
-proofs) over any field:
+Let us recall a couple LA theorems that hold (with the same proofs) over any field:
 
 \begin{theorem}
-\label{thm.field.LA-main}Let $\mathbb{K}$ be a field.
+Let $\mathbb{K}$ be a field.
 
 \textbf{(a)} Any matrix over $\mathbb{K}$ has a reduced row echelon form (RREF).
 
 \textbf{(b)} If $A\in\mathbb{K}^{n\times m}$ is any matrix and $R$ is its
 RREF, then the row space, kernel (= nullspace) and rank of $A$ are equal to
-those of $R$. (Here, the \textit{row space}, \textit{kernel} and \textit{rank}
-of a matrix is defined as for real/complex matrices.)
+those of $R$.
 
 \textbf{(c)} If $A\in\mathbb{K}^{n\times m}$ is any matrix, and if
-$b\in\mathbb{K}^{n\times1}$ is any column vector, then the equation $Ax=b$
-(for an unknown column vector $x\in\mathbb{K}^{m\times1}$) can be solved using
-the Gaussian elimination algorithm (e.g., by forming the augmented matrix
-$\left(  A\mid b\right)  $, then transforming it into RREF, and reading off
-the solutions from this RREF by the same method as you learned in Linear Algebra).
+$b\in\mathbb{K}^{n\times1}$ is a column vector, then the equation $Ax=b$ (for
+an unknown $x\in\mathbb{K}^{m\times1}$) can be solved using Gaussian
+elimination as above.
 
 \textbf{(d)} If $A\in\mathbb{K}^{n\times m}$ is a matrix with $n<m$, then
 there exists a nonzero $x\in\mathbb{K}^{m\times1}$ such that $Ax=0_{n\times1}%
@@ -26470,13 +26429,10 @@ distinct from $0_{m\times1}$\textquotedblright\ here.)
 \item The matrix $A$ is invertible.
 
 \item The matrix $A$ is row-equivalent to $I_{n}$. (Two matrices are said to
-be \textit{row-equivalent} if one can be transformed into the other via row
+be \textbf{row-equivalent} if one can be transformed into another via row
 operations: swapping rows, scaling rows and adding a multiple of one row to another.)
 
-\item The matrix $A$ is column-equivalent to $I_{n}$. (The definition of
-\textquotedblleft\textit{column-equivalent}\textquotedblright\ is the same as
-of \textquotedblleft row-equivalent\textquotedblright, but with columns
-instead of rows.)
+\item The matrix $A$ is column-equivalent to $I_{n}$.
 
 \item The RREF of $A$ is $I_{n}$.
 
@@ -26487,10 +26443,9 @@ instead of rows.)
 \item The equation $Ax=0_{n\times1}$ (for an unknown $x\in\mathbb{K}%
 ^{n\times1}$) has only the trivial solution (that is, $x=0_{n\times1}$).
 
-\item For each vector $b\in\mathbb{K}^{n\times1}$, the equation $Ax=b$ has a solution.
+\item For each $b\in\mathbb{K}^{n\times1}$, the equation $Ax=b$ has a solution.
 
-\item For each vector $b\in\mathbb{K}^{n\times1}$, the equation $Ax=b$ has a
-unique solution.
+\item For each $b\in\mathbb{K}^{n\times1}$, the equation $Ax=b$ has a unique solution.
 
 \item The columns of $A$ are linearly independent.
 
@@ -26500,38 +26455,39 @@ unique solution.
 
 \item There is a matrix $B\in\mathbb{K}^{n\times n}$ such that $BA=I_{n}$.
 
-\item We have $\det A\neq0$. (We will later define determinants and study them
-in some detail.)
+\item We have $\det A\neq0$. (We will later define determinants.)
 \end{itemize}
 
 (Matrices satisfying these equivalent conditions are called
-\textit{nonsingular}.)
+\textbf{nonsingular}.)
 \end{theorem}
 
 \subsubsection{What if $\mathbb{K}$ is not a field?}
 
-Things get weird when $\mathbb{K}$ is not a field. For an example, set
-$\mathbb{K}=\mathbb{Z}/26$. This is not a field, since $26=\allowbreak
-2\cdot13$ is not prime. The ring $\mathbb{Z}/26$ has been used in classical
-cryptography, since its elements are in bijection with the letters of the
-(modern) Roman alphabet:%
+Things get weird when $\mathbb{K}$ is not a field.
+
+For an example, set $\mathbb{K}=\mathbb{Z}/26$. This is not a field, since
+$26=\allowbreak2\cdot13$ is not prime.
+
+The ring $\mathbb{Z}/26$ has been used in classical cryptography since its
+elements are in bijection with the letters $A,B,\ldots,Z$:%
 \[
 0\mapsto A,\ \ \ \ \ \ \ \ \ \ 1\mapsto B,\ \ \ \ \ \ \ \ \ \ 2\mapsto
-C,\ \ \ \ \ \ \ \ \ \ \ldots.
+C,\ \ \ \ \ \ \ \ \ \ .
 \]
-For example, the \textit{Hill cipher} lets you encrypt a word using a
-$3\times3$-matrix over $\mathbb{Z}/26$ as a key. The idea is simple: You split
-the word into 3-letter pieces; you turn each piece into a column vector in
-$\left(  \mathbb{Z}/26\right)  ^{3\times1}$; and you multiply each of these
-columns vectors by your key matrix. To decrypt, you would have to invert the
-key matrix.
+
+
+For example, the \textbf{Hill cipher} lets you encrypt a word using a
+$3\times3$-matrix over $\mathbb{Z}/26$ as key. The idea is simple: You split
+the word into 3-letter chunks; you turn each chunk into a column vector in
+$\left(  \mathbb{Z}/26\right)  ^{3\times1}$; you multiply each of these
+vectors by your matrix. To decrypt, just invert your matrix.
 
 So we want to know how to invert a matrix over $\mathbb{Z}/26$.
 
-If $\mathbb{Z}/26$ was a field, you would know how to do this via Gaussian elimination.
+If $\mathbb{Z}/26$ was a field, you could do that by Gaussian elimination.
 
-Most of Theorem \ref{thm.field.LA-main} collapses when $\mathbb{K}$ is not a
-field. For example, let $\mathbb{K}=\mathbb{Z}/26$ and
+For example, let $\mathbb{K}=\mathbb{Z}/26$ and let%
 \[
 A=\left(
 \begin{array}
@@ -26543,103 +26499,70 @@ A=\left(
 \]
 Is $A$ invertible?
 
-If we would blindly follow the Gaussian elimination algorithm, we would fail
-very quickly: None of the $4$ entries of $A$ has a multiplicative inverse;
-thus we could not get a $1$ by scaling any of the rows of $A$. But we can try
-to loosen Gaussian elimination by allowing more strategic row operations:
-Instead of trying to get a $1$ in a pivot position immediately by scaling a
-row, we can attempt to obtain a $1$ by row addition operations. For example,
-we can transform our matrix $A$ above as follows:%
+Gaussian elimination fails: Neither entry of the first column can be turned
+into $1$ by scaling a row (since neither $2$ nor $13$ is invertible modulo
+$26$). Try to be more strategic with your row operations:%
 \begin{align*}
-&  \left(
+& \left(
 \begin{array}
-[c]{cc}%
-2 & 13\\
-13 & 20
+[c]{cccc}%
+2 & 13 & 1 & 0\\
+13 & 20 & 0 & 1
 \end{array}
 \right)  \\
-&  \overset{\text{subtract }6\text{ times row }1\text{ from row }2}{\mapsto
+& \overset{\text{subtract }6\text{ times row }1\text{ from row }2}{\mapsto
 }\left(
 \begin{array}
-[c]{cc}%
-2 & 13\\
-1 & 20
+[c]{cccc}%
+2 & 13 & 1 & 0\\
+1 & 20 & 20 & 1
 \end{array}
 \right)  \\
-&  \overset{\text{swap row }1\text{ with row }2}{\mapsto}\left(
+& \overset{\text{swap row }1\text{ with row }2}{\mapsto}\left(
 \begin{array}
-[c]{cc}%
-1 & 20\\
-2 & 13
+[c]{cccc}%
+1 & 20 & 20 & 1\\
+2 & 13 & 1 & 0
 \end{array}
 \right)  \\
-&  \overset{\text{subtract }2\text{ times row }1\text{ from row }2}{\mapsto
+& \overset{\text{subtract }2\text{ times row }1\text{ from row }2}{\mapsto
 }\left(
 \begin{array}
-[c]{cc}%
-1 & 20\\
-0 & 25
+[c]{cccc}%
+1 & 20 & 20 & 1\\
+0 & 25 & 13 & 24
 \end{array}
 \right)  \\
-&  \overset{\text{scale row }2\text{ by }-1}{\mapsto}\left(
+& \overset{\text{scale row }2\text{ by }-1}{\mapsto}\left(
 \begin{array}
-[c]{cc}%
-1 & 20\\
-0 & 1
+[c]{cccc}%
+1 & 20 & 20 & 1\\
+0 & 1 & 13 & 2
 \end{array}
 \right)  \\
-&  \overset{\text{subtract }20\text{ times row }2\text{ from row }1}{\mapsto
+& \overset{\text{subtract }20\text{ times row }2\text{ from row }1}{\mapsto
 }\left(
 \begin{array}
-[c]{cc}%
-1 & 0\\
-0 & 1
+[c]{cccc}%
+1 & 0 & 20 & 13\\
+0 & 1 & 13 & 2
 \end{array}
-\right)  =I_{2}.
+\right)  .
 \end{align*}
-So our matrix $A$ does have a RREF, and even is invertible!
+Thus, $A$ is invertible, with inverse $\left(
+\begin{array}
+[c]{cc}%
+20 & 13\\
+13 & 2
+\end{array}
+\right)  $.
 
-What happens in general? In general, when $\mathbb{K}=\mathbb{Z}/n$, the
-Gaussian elimination algorithm as defined in linear algebra does not always
-work. Nevertheless, a variant of it works, in which you cannot scale rows to
-turn entries into $1$, but instead \textquotedblleft
-minimize\textquotedblright\ the whole column using the Euclidean algorithm.
+So we were able to invert $A$, but we had to digress from the usual Gaussian
+elimination algorithm somewhat. To clear out the first column as far as we
+could, we have essentially done the Euclidean algorithm.
 
-For details, look up the \textit{Smith normal form}. Note that for $n=0$, we
-have $\mathbb{Z}/n\cong\mathbb{Z}$, so this applies to matrices with integer entries.
+$\rightarrow$ \textit{Smith normal form}.
 
-\subsubsection{Linear algebra over $\mathbb{Z}/2$: \textquotedblleft button
-madness\textquotedblright\ / \textquotedblleft lights out\textquotedblright}
-
-\url{http://bz.var.ru/comp/web/js/floor.html}
-
-How do we get all lights out at the same time? Can we do this for any board?
-
-Consider the game on an $n\times n$ grid.
-
-Each state of the game can be viewed as a vector with $n^{2}$ entries (one for
-each box), over $\mathbb{Z}/2$. A light that is on will be encoded by a $1$; a
-light that is off will be encoded by a $0$.
-
-Each move in the game changes the state by adding $1$ to some selection of
-entries of this vector. This selection does not depend on the state; it only
-depends on the move.
-
-Let $c_{i,j}$ be the cell $\left(  i,j\right)  $ on the grid. For each
-$\left(  i,j\right)  $, let $e_{i,j}$ be the vector $\left(  0,0,\ldots
-,0,1,0,0,\ldots,0\right)  ^{T}$ corresponding to the cell $c_{i,j}$. Thus,
-when we \textquotedblleft click\textquotedblright\ on a given cell $c_{i,j}$,
-our state vector changes by%
-\[
-v_{i,j}:=e_{i,j}+e_{i-1,j}+e_{i,j-1}+e_{i+1,j}+e_{i,j+1},
-\]
-where we set $e_{0,\ast}=0$ and $e_{n+1,\ast}=0$ and $e_{\ast,0}=0$ and
-$e_{\ast,n+1}=0$.
-
-Now, our goal is to present the vector $\left(  1,1,\ldots,1\right)  ^{T}$ as
-a linear combination of the $v_{i,j}$'s.
-
-We can write this as a system of linear equations.
-
-
+In particular, we can do this for matrices over $\mathbb{Z}$, since
+$\mathbb{Z}/0\cong\mathbb{Z}$.
 \end{document}
