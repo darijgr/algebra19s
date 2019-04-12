@@ -27001,7 +27001,7 @@ Note that the number $\dim\operatorname*{Ker}A$ is known as the
 \subsubsection{Linear algebra over $\mathbb{Z}/2$: \textquotedblleft button
 madness\textquotedblright\ / \textquotedblleft lights out\textquotedblright}
 
-We now discuss an old puzzle -- called \textquotedblleft button
+We now discuss an old puzzle, which is known as \textquotedblleft button
 madness\textquotedblright\ or \textquotedblleft lights out\textquotedblright%
 \ (more precisely, these are two slightly different variants of the same
 puzzle). You can try it out on
@@ -27042,9 +27042,22 @@ $1$ & $1$ & $0$ & $1$\\\hline
 \]
 (A total of $5$ lamps have changed their state: three have been turned off,
 and two have been turned on.)
+If you then flip the lightswitch in cell $\left(1, 3\right)$ of this new
+grid, then you obtain the grid
+\[%
+\begin{tabular}
+[c]{|c|c|c|c|}\hline
+$1$ & $1$ & $0$ & $0$\\\hline
+$0$ & $0$ & $1$ & $1$\\\hline
+$0$ & $0$ & $0$ & $0$\\\hline
+$1$ & $1$ & $0$ & $1$\\\hline
+\end{tabular}
+\ .
+\]
 
 At the beginning, all lamps are turned off. Your goal is to achieve the
-opposite state (i.e., all lamps being on at the same time) by a sequence of
+opposite state (i.e., all lamps being on at the same time) by flipping
+a sequence of
 lightswitches. Is this possible, and how? (In some versions of this puzzle --
 such as \href{https://en.wikipedia.org/wiki/Lights_Out_(game)}{the
 \textquotedblleft lights out\textquotedblright\ version} -- it's exactly the
@@ -27059,7 +27072,7 @@ $\left(  1,1\right)  $. We shall not consider this case here, but it can be
 solved by the same method.
 
 Of course, you can play the same game on larger grids, triangular grids, etc..
-But in order to get a grip on how to solve such a puzzle, we shall analyze a
+But in order to get a grip on how to solve such a puzzle, we shall first analyze a
 much simpler version: the \textquotedblleft1-dimensional
 version\textquotedblright\ of the puzzle.
 
@@ -27069,7 +27082,7 @@ lightswitch at lamp $i$ toggles lamp $i$, lamp $i-1$ (if it exists) and lamp
 $i+1$ (if it exists). Initially, all $4$ lamps are off. Can we turn them all
 on by flipping a sequence of lightswitches?
 
-Yes, of course: we just have to toggle lamps $1$ and $4$. But let us pretend
+Yes, of course: we just have to flip the lightswitches at lamps $1$ and $4$. But let us pretend
 that we aren't that smart, and instead try to solve the puzzle systematically.
 
 We model the states of our lamps by a row vector in $\left(  \mathbb{Z}%
@@ -27106,23 +27119,24 @@ a_{i}=%
 =\underbrace{\left[  \text{lamp }i\text{ is on}\right]  }_{\text{Iverson
 bracket}},
 \]
-but keep in mind that everything is happening in $\mathbb{Z}/2$.
+but keep in mind that these values are understood to be in $\mathbb{Z}/2$.
 
 The initial state is $\left(  0,0,0,0\right)  $. The final state that we want
-to achieve is $\left(  1,1,1,1\right)  $. Toggling a lightswitch corresponds
+to achieve is $\left(  1,1,1,1\right)  $. Flipping a lightswitch corresponds
 to adding a certain row vector to our state. Namely:
 
 \begin{itemize}
-\item Toggling lightswitch $1$ means adding $\left(  1,1,0,0\right)  $.
+\item Flipping lightswitch $1$ means adding $\left(  1,1,0,0\right)  $.
 
-\item Toggling lightswitch $2$ means adding $\left(  1,1,1,0\right)  $.
+\item Flipping lightswitch $2$ means adding $\left(  1,1,1,0\right)  $.
 
-\item Toggling lightswitch $3$ means adding $\left(  0,1,1,1\right)  $.
+\item Flipping lightswitch $3$ means adding $\left(  0,1,1,1\right)  $.
 
-\item Toggling lightswitch $4$ means adding $\left(  0,0,1,1\right)  $.
+\item Flipping lightswitch $4$ means adding $\left(  0,0,1,1\right)  $.
 \end{itemize}
 
-Thus, toggling a lightswitch means adding the corresponding row of the matrix%
+\noindent
+Thus, flipping a lightswitch means adding the corresponding row of the matrix%
 \[
 A:=\left(
 \begin{array}
@@ -27132,29 +27146,28 @@ A:=\left(
 0 & 1 & 1 & 1\\
 0 & 0 & 1 & 1
 \end{array}
-\right)  .
+\right) 
+\in \left(\ZZ / 2 \right)^{4 \times 4} .
 \]
-
-
 The reachable states are thus exactly the elements of $\operatorname*{Row}A$,
 the row space of $A$.
 
-Now, our goal is to show that $\left(  1,1,1,1\right)  \in\operatorname*{Row}%
+Hence, our goal is to show that $\left(  1,1,1,1\right)  \in\operatorname*{Row}%
 A$.
 
 This is quite easy for the concrete matrix $A$ above, but let us try a
-theoretical argument.
-
-We will need the following general fact:
+theoretical argument. It will rely on the following general fact:
 
 \begin{proposition}
 \label{prop.laf.Ac0bc0}Let $\mathbb{K}$ be a field. Let $A\in\mathbb{K}%
 ^{n\times m}$ and $b\in\mathbb{K}^{1\times m}$. Assume the following:
 
+\begin{statement}
 \textit{Assumption 1:} If $c\in\mathbb{K}^{m\times1}$ satisfies $Ac=0$, then
 $bc=0$.
+\end{statement}
 
-Then, $b\in\operatorname*{Row}A$.
+\noindent Then, $b\in\operatorname*{Row}A$.
 \end{proposition}
 
 \begin{proof}
@@ -27295,7 +27308,8 @@ A\\
 b
 \end{array}
 \right)  $. Hence, the right hand sides of (\ref{pf.prop.laf.Ac0bc0.1}) and
-(\ref{pf.prop.laf.Ac0bc0.2}) are equal. Thus, $\operatorname*{rank}%
+(\ref{pf.prop.laf.Ac0bc0.2}) are equal. Thus, the left hand sides are
+equal as well. In other words, $\operatorname*{rank}%
 A=\operatorname*{rank}\left(
 \begin{array}
 [c]{c}%
@@ -27310,8 +27324,9 @@ b
 A\\
 b
 \end{array}
-\right)  .
+\right)
 \]
+(since $\operatorname{rank} B = \dim \operatorname{Row} B$ for any matrix $B$).
 But $\operatorname*{Row}A\subseteq\operatorname*{Row}\left(
 \begin{array}
 [c]{c}%
@@ -27376,19 +27391,21 @@ belong to $\operatorname*{Row}A$.
 =\mathbb{Z}/2$. By Proposition \ref{prop.laf.Ac0bc0} (applied to $m=n$ and
 $b=d$), it suffices to show the following:
 
+\begin{statement}
 \textit{Assumption 1:} If $c\in\mathbb{K}^{n\times1}$ satisfies $Ac=0$, then
 $dc=0$.
+\end{statement}
 
 [\textit{Proof of Assumption 1:} Let $c\in\mathbb{K}^{n\times1}$ satisfy
 $Ac=0$. We must prove that $dc=0$.
 
 I claim that $dc=c^{T}Ac$.
 
-To see this, write $c$ as $c=\left(  c_{1},c_{2},\ldots,c_{n}\right)  $ and
+To see this, write $c$ as $c=\left(  c_{1},c_{2},\ldots,c_{n}\right)^T$ and
 $A$ as $A=\left(  a_{i,j}\right)  _{1\leq i\leq n,\ 1\leq j\leq n}$. Then,
 expanding $c^{T}Ac$ yields%
 \begin{align*}
-&  c^{T}Ac\\
+c^{T}Ac
 &  =\sum_{i,j}c_{i}a_{i,j}c_{j}=\sum_{i,j}a_{i,j}c_{i}c_{j}\\
 &  =\underbrace{\sum_{i<j}a_{i,j}c_{i}c_{j}}_{\substack{=\sum_{j<i}%
 a_{j,i}c_{j}c_{i}\\\text{(here, we have renamed}\\\text{the indices }i\text{
@@ -27403,7 +27420,7 @@ a_{j,i}c_{j}c_{i}=\underbrace{2}_{\substack{=0\\\text{(since we are}\\\text{in
 =c_{i}\\\text{(since }x^{2}=x\\\text{for all }x\in\mathbb{Z}/2\text{)}}%
 }=\sum_{i}a_{i,i}c_{i}=dc
 \end{align*}
-(since $c=\left(  c_{1},c_{2},\ldots,c_{n}\right)  $ and $d=\left(
+(since $c=\left(  c_{1},c_{2},\ldots,c_{n}\right)^T$ and $d=\left(
 a_{1,1},a_{2,2},\ldots,a_{n,n}\right)  $). So $dc=c^{T}\underbrace{Ac}%
 _{=0}=c^{T}0=0$. Thus, Assumption 1 is proven.]
 
@@ -27433,13 +27450,19 @@ lamp $j$ toggles lamp $i$.
 
 These conditions guarantee that the corresponding matrix $A$ will be symmetric
 and its diagonal will be $\left(  1,1,\ldots,1\right)  $ (and thus we can
-apply the Corollary).
+apply Corollary \ref{cor.laf.lights-out-diag}).
 
-Finding the exact linear combination of the rows of $A$ that equals $\left(
-1,1,\ldots,1\right)  $ can be achieved using Gaussian elimination.
+How to find the exact sequence of flips that results in all lights being on?
+This is tantamount to finding the coefficient of a
+linear combination of the rows of $A$ that equals $\left(
+1,1,\ldots,1\right)  $.
+This boils down to solving a system of linear equations over $\ZZ/2$, which
+can be achieved using Gaussian elimination.
 
-By the way, what other states can be achieved by flipping lightswitches? This
-is a harder question without a unified answer.
+What other states can be achieved by flipping lightswitches?
+Again, for each specific grid and each specific state, this can be solved
+by Gaussian elimination; but characterizing the reachable states more
+explicitly is a hard problem with no unified answer. (See the link above.)
 
 \begin{center}
 \textbf{2019-04-15 lecture}
@@ -27452,13 +27475,14 @@ linear algebra over $\mathbb{R}$ works identically over any field $\mathbb{K}%
 $. There is an exception: Anything that uses positivity will break down over
 some fields $\mathbb{K}$.
 
-One thing that uses positivity is QR-decomposition. That no longer always
-works over $\mathbb{K}$.
+One thing that uses positivity is QR-decomposition. And indeed, not every
+matrix over an arbitrary field has a QR-decomposition.
 
-You can define dot products and orthogonal complements of subspaces. But it is
+You can still define dot products and orthogonal complements of subspaces.
+But it is
 no longer true that $V=U\oplus U^{\perp}$ for a subspace $U$ of $V$. It can
-happen that $U\cap U^{\perp}\neq0$. For example, there are vectors $v\neq0$
-that are orthogonal to themselves (that is, $v^{T}v=0$).
+happen that $U\cap U^{\perp}\neq0$. For example, there are column vectors $v\neq0$
+that are orthogonal to themselves with respect to the dot product (that is, $v^{T}v=0$).
 
 \textbf{Example:} In $\mathbb{Z}/3$, we have%
 \[
@@ -27496,13 +27520,13 @@ So the vector $\left(
 
 \subsection{Modules}
 
-Roughly speaking, a module is the same as a vector space, except that it's
+Roughly speaking, a module is the same as a vector space, except that it is
 over a commutative ring instead of a field:
 
 \begin{definition}
 Let $\mathbb{K}$ be a commutative ring.
 
-A $\mathbb{K}$\textbf{-module} means a set $M$ equipped with a binary
+A $\mathbb{K}$\textit{-module} means a set $M$ equipped with a binary
 operation $+$ (called \textquotedblleft addition\textquotedblright), a map%
 \[
 \cdot\ :\ \mathbb{K}\times M\rightarrow M\ \ \ \ \ \ \ \ \ \ \left(
@@ -27537,14 +27561,14 @@ a\right)  $ for all $\lambda,\mu\in\mathbb{K}$ and $a\in M$.
 
 \begin{definition}
 If $\mathbb{K}$ is a commutative ring and $M$ is a $\mathbb{K}$-module, then
-the elements of $M$ are called \textbf{vectors}, while the elements of
-$\mathbb{K}$ are called \textbf{scalars}.
+the elements of $M$ are called \textit{vectors}, while the elements of
+$\mathbb{K}$ are called \textit{scalars}.
 \end{definition}
 
 \begin{definition}
 If $\mathbb{K}$ is a field, then $\mathbb{K}$-modules are called $\mathbb{K}%
-$\textbf{-vector spaces}. (When $\mathbb{K}=\mathbb{R}$, these are the usual
-real vector spaces from linear algebra.)
+$\textit{-vector spaces}. (When $\mathbb{K}=\mathbb{R}$, these are the usual
+real vector spaces known from undergraduate linear algebra classes.)
 \end{definition}
 
 \begin{example}
@@ -27571,8 +27595,7 @@ the addition and the scaling that we defined above.
 $-module, if you equip it with the addition and the scaling that we defined above.
 \end{example}
 
-????
-
+\begin{comment}
 TODO:
 
 \begin{itemize}
@@ -27585,6 +27608,7 @@ triangular matrices).
 
 \item ...
 \end{itemize}
+\end{comment}
 
 \section{Solutions to the exercises}
 
