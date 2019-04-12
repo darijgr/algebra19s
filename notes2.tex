@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Friday, April 12, 2019 10:59:18}
+%TCIDATA{LastRevised=Friday, April 12, 2019 12:07:03}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -11370,7 +11370,6 @@ $k>n$. Then,
 \[
 \dbinom{n}{0}=1.
 \]
-
 \end{theorem}
 
 \begin{proof}
@@ -26756,47 +26755,142 @@ For details, look up
 normal form}}. Note that for $n=0$, we have $\mathbb{Z}/n\cong\mathbb{Z}$, so
 this applies to matrices with integer entries.
 
+\subsubsection{Review of basic notions from linear algebra}
+
+Let $\mathbb{K}$ be a field. The elements of $\mathbb{K}$ will be referred to
+as \textbf{scalars}. In the linear algebra you have seen before, they are
+usually real numbers ($\mathbb{K}=\mathbb{R}$), but what I'm doing below works
+in the same way for every field.
+
+\begin{definition}
+Let $n\in\mathbb{N}$. Recall that $\mathbb{K}^{1\times n}$ is the set of all
+row vectors of size $n$.
+
+A \textbf{subspace} of $\mathbb{K}^{1\times n}$ is a subset $S\subseteq
+\mathbb{K}^{1\times n}$ satisfying the following axioms:
+
+\textbf{(a)} We have $0_{1\times n}\in S$.
+
+\textbf{(b)} If $a,b\in S$, then $a+b\in S$.
+
+\textbf{(c)} If $a\in S$ and $\lambda\in\mathbb{K}$, then $\lambda a\in S$.
+\end{definition}
+
+A similar definition defines subspaces of $\mathbb{K}^{n\times1}$ (column vectors).
+
+\begin{definition}
+Let $n\in\mathbb{N}$. Let $v_{1},v_{2},\ldots,v_{k}$ be some row vectors in
+$\mathbb{K}^{1\times n}$.
+
+\textbf{(a)} A \textbf{linear combination} (or $\mathbb{K}$\textbf{-linear
+combination}) of $v_{1},v_{2},\ldots,v_{k}$ means a column vector of the form%
+\[
+\lambda_{1}v_{1}+\lambda_{2}v_{2}+\cdots+\lambda_{k}v_{k}%
+,\ \ \ \ \ \ \ \ \ \ \text{with }\lambda_{1},\lambda_{2},\ldots,\lambda_{k}%
+\in\mathbb{K}.
+\]
+
+
+\textbf{(b)} The \textbf{span} of $v_{1},v_{2},\ldots,v_{k}$ is defined to be
+the subset%
+\begin{align*}
+& \left\{  \lambda_{1}v_{1}+\lambda_{2}v_{2}+\cdots+\lambda_{k}v_{k}%
+\ \mid\ \lambda_{1},\lambda_{2},\ldots,\lambda_{k}\in\mathbb{K}\right\}  \\
+& =\left\{  \text{linear combinations of }v_{1},v_{2},\ldots,v_{k}\right\}
+\end{align*}
+of $\mathbb{K}^{1\times n}$. This span is actually a subspace of
+$\mathbb{K}^{1\times n}$.
+
+\textbf{(c)} The vectors $v_{1},v_{2},\ldots,v_{k}$ are \textbf{linearly
+independent} if and only if the only $k$-tuple $\left(  \lambda_{1}%
+,\lambda_{2},\ldots,\lambda_{k}\right)  \in\mathbb{K}^{k}$ satisfying
+$\lambda_{1}v_{1}+\lambda_{2}v_{2}+\cdots+\lambda_{k}v_{k}=0_{n\times1}$ is
+$\left(  0,0,\ldots,0\right)  $.
+
+\textbf{(d)} Let $U$ be a subspace of $\mathbb{K}^{1\times n}$. We say that
+$v_{1},v_{2},\ldots,v_{k}$ form a \textbf{basis} of $U$ (or, more formally,
+$\left(  v_{1},v_{2},\ldots,v_{k}\right)  $ is a basis of $U$) if and only if
+the vectors $v_{1},v_{2},\ldots,v_{k}$ are linearly independent and their span
+is $U$.
+\end{definition}
+
+\begin{theorem}
+Let $U$ be a subspace of $\mathbb{K}^{1\times n}$.
+
+\textbf{(a)} There exists at least one basis of $U$.
+
+\textbf{(b)} Any two bases of $U$ have the same size (= number of vectors).
+
+\textbf{(c)} Given $k$ linearly independent vectors in $U$, and given $\ell$
+vectors that span $U$, we always have $k\leq\ell$.
+
+\textbf{(d)} Any list of $k$ linearly independent vectors in $U$ can be
+extended to a basis of $U$.
+
+\textbf{(e)} Any list of $\ell$ vectors that span $U$ can be \textquotedblleft
+cut down\textquotedblright\ to a basis of $U$ (i.e., we can remove some of its
+entries to get a basis of $U$).
+\end{theorem}
+
+This all is proven just as in linear algebra.
+
+Again, the same holds for column vectors.
+
+\begin{definition}
+Let $U$ be a subspace of $\mathbb{K}^{1\times n}$.
+
+The \textbf{dimension} of $U$ is defined to be the size of a basis of $U$.
+Parts \textbf{(a)} and \textbf{(b)} of the above Theorem says that this is
+indeed well-defined. It is denoted by $\dim U$.
+\end{definition}
+
+\begin{proposition}
+Let $U$ and $V$ be two subspace of $\mathbb{K}^{1\times n}$ such that
+$U\subseteq V$ and $\dim U=\dim V$. Then, $U=V$.
+\end{proposition}
+
+Now, let us connect this with matrices:
+
+\begin{definition}
+Let $A\in\mathbb{K}^{n\times m}$ be a matrix.
+
+\textbf{(a)} The \textbf{row space} of $A$ is defined to be the span of the
+rows of $A$. This is a subspace of $\mathbb{K}^{1\times m}$, and is called
+$\operatorname*{Row}A$.
+
+\textbf{(b)} The \textbf{column space} of $A$ is defined to be the span of the
+columns of $A$. This is a subspace of $\mathbb{K}^{n\times1}$, and is called
+$\operatorname*{Col}A$.
+\end{definition}
+
+\begin{theorem}
+Let $A\in\mathbb{K}^{n\times m}$ be a matrix. Then, $\dim\operatorname*{Row}%
+A=\dim\operatorname*{Col}A$.
+\end{theorem}
+
+One way to prove this is to transform $A$ into RREF, and argue that both
+$\dim\operatorname*{Row}A$ and $\dim\operatorname*{Col}A$ equal the \# of
+pivots in the RREF. There are other, more abstract ways. See linear algebra
+textbooks for this proof.
+
+\begin{definition}
+Let $A\in\mathbb{K}^{n\times m}$ be a matrix. Then, the number $\dim
+\operatorname*{Row}A=\dim\operatorname*{Col}A$ is called the \textbf{rank} of
+$A$. It is an integer between $0$ and $\min\left\{  n,m\right\}  $.
+\end{definition}
+
 \subsubsection{Linear algebra over $\mathbb{Z}/2$: \textquotedblleft button
 madness\textquotedblright\ / \textquotedblleft lights out\textquotedblright}
 
 \url{http://bz.var.ru/comp/web/js/floor.html}
 
-How do we get all lights out at the same time? Can we do this for any board?
-
-Consider the game on an $n\times n$ grid.
-
-Each state of the game can be viewed as a vector with $n^{2}$ entries (one for
-each box), over $\mathbb{Z}/2$. A light that is on will be encoded by a $1$; a
-light that is off will be encoded by a $0$.
-
-Each move in the game changes the state by adding $1$ to some selection of
-entries of this vector. This selection does not depend on the state; it only
-depends on the move.
-
-Let $c_{i,j}$ be the cell $\left(  i,j\right)  $ on the grid. For each
-$\left(  i,j\right)  $, let $e_{i,j}$ be the vector $\left(  0,0,\ldots
-,0,1,0,0,\ldots,0\right)  ^{T}$ corresponding to the cell $c_{i,j}$. Thus,
-when we \textquotedblleft click\textquotedblright\ on a given cell $c_{i,j}$,
-our state vector changes by%
-\[
-v_{i,j}:=e_{i,j}+e_{i-1,j}+e_{i,j-1}+e_{i+1,j}+e_{i,j+1},
-\]
-where we set $e_{0,\ast}=0$ and $e_{n+1,\ast}=0$ and $e_{\ast,0}=0$ and
-$e_{\ast,n+1}=0$.
-
-Now, our goal is to present the vector $\left(  1,1,\ldots,1\right)  ^{T}$ as
-a linear combination of the $v_{i,j}$'s.
-
-We can write this as a system of linear equations.
-
-Let us analyze this puzzle in more detail.
-
-We start with the \textquotedblleft1-dimensional version\textquotedblright:
+First, we analyze a \textquotedblleft1-dimensional version\textquotedblright%
+\ of this puzzle.
 
 We have $4$ lamps in a row (numbered $1,2,3,4$), each equipped with a
 lightswitch. The lightswitch at lamp $i$ toggles lamp $i$, lamp $i-1$ (if it
-exists) and lamp $i+1$ (if it exists). Initially, all the $4$ lamps are off.
-Can we turn them all on by flipping a sequence of lightswitches?
+exists) and lamp $i+1$ (if it exists). Initially, all $4$ lamps are off. Can
+we turn them all on by flipping a sequence of lightswitches?
 
 We model the states of our lamps by a row vector in $\left(  \mathbb{Z}%
 /2\right)  ^{1\times4}$. We write a row vector $\left(
@@ -26807,31 +26901,35 @@ a_{1} & a_{2} & \cdots & a_{n}%
 \right)  $ as $\left(  a_{1},a_{2},\ldots,a_{n}\right)  $.
 
 More precisely, we model each state by the row vector $\left(  a_{1}%
-,a_{2},a_{3},a_{4}\right)  \in\left(  \mathbb{Z}/2\right)  ^{1\times4}$,
-where
-\begin{align*}
-a_{i}  &  =%
+,a_{2},a_{3},a_{4}\right)  \in\left(  \mathbb{Z}/2\right)  ^{1\times4}$, where%
+\[
+a_{i}=%
 \begin{cases}
 \left[  0\right]  _{2}, & \text{if lamp }i\text{ is off};\\
 \left[  1\right]  _{2}, & \text{if lamp }i\text{ is on}%
 \end{cases}
-\\
-&  =\underbrace{\left[  \underbrace{\left[  \text{lamp }i\text{ is on}\right]
+=\underbrace{\left[  \underbrace{\left[  \text{lamp }i\text{ is on}\right]
 }_{\text{Iverson bracket}}\right]  _{2}}_{\text{residue class}}.
-\end{align*}
+\]
 
 
-The initial state is $\left(  \left[  0\right]  _{2},\left[  0\right]
-_{2},\left[  0\right]  _{2},\left[  0\right]  _{2}\right)  $, which I shall
-abbreviate as $\left(  0,0,0,0\right)  $. The final state that we want to
-achieve is $\left(  \left[  1\right]  _{2},\left[  1\right]  _{2},\left[
-1\right]  _{2},\left[  1\right]  _{2}\right)  $, which I shall abbreviate as
-$\left(  1,1,1,1\right)  $. We will work in $\mathbb{Z}/2$ throughout this
-section, so $0$ and $1$ will always mean $\left[  0\right]  _{2}$ and $\left[
-1\right]  _{2}$.
+We shall write $0$ and $1$ for $\left[  0\right]  _{2}$ and $\left[  1\right]
+_{2}$ throughout this section, so we can rewrite this as%
 
-Now, toggling a lightswitch corresponds to adding a certain vector to our
-state. Namely:
+\[
+a_{i}=%
+\begin{cases}
+0, & \text{if lamp }i\text{ is off};\\
+1, & \text{if lamp }i\text{ is on}%
+\end{cases}
+=\underbrace{\left[  \text{lamp }i\text{ is on}\right]  }_{\text{Iverson
+bracket}},
+\]
+but keep in mind that everything is happening in $\mathbb{Z}/2$.
+
+The initial state is $\left(  0,0,0,0\right)  $. The final state that we want
+to achieve is $\left(  1,1,1,1\right)  $. Toggling a lightswitch corresponds
+to adding a certain row vector to our state. Namely:
 
 \begin{itemize}
 \item Toggling lightswitch $1$ means adding $\left(  1,1,0,0\right)  $.
@@ -26857,109 +26955,152 @@ A:=\left(
 \]
 
 
-The reachable states are exactly the elements of $\operatorname*{Row}A$, the
-row span of $A$.
-
-(Of course, the notion of a \textquotedblleft span\textquotedblright\ has to
-be interpreted in terms of $\mathbb{Z}/2$ now. So the \textit{span} of $k$ row
-vectors $v_{1},v_{2},\ldots,v_{k}$ is defined to be the set%
-\begin{align*}
-&  \left\{  \mathbb{Z}/2\text{-linear combinations of }v_{1},v_{2}%
-,\ldots,v_{k}\right\} \\
-&  =\left\{  \lambda_{1}v_{1}+\lambda_{2}v_{2}+\cdots+\lambda_{k}v_{k}%
-\ \mid\ \lambda_{1},\lambda_{2},\ldots,\lambda_{k}\in\mathbb{Z}/2\right\}  .
-\end{align*}
-The \textit{row span} of a matrix is defined to be the span of its row.)
+The reachable states are thus exactly the elements of $\operatorname*{Row}A$,
+the row space of $A$.
 
 Now, our goal is to show that $\left(  1,1,1,1\right)  \in\operatorname*{Row}%
 A$.
 
-EDIT: Talk about lin ind, span, basis, row span, col span here!!
+This is quite easy for the concrete matrix $A$ above, but let us try a
+theoretical argument.
 
-To do so, we shall use the following fact:
+We will need the following fact:
 
 \begin{proposition}
 Let $\mathbb{K}$ be a field. Let $A\in\mathbb{K}^{n\times m}$ and
-$b\in\mathbb{K}^{n\times1}$. Assume that:
+$b\in\mathbb{K}^{1\times m}$. Assume the following:
 
-\textbf{(1)} If $c\in\mathbb{K}^{1\times n}$ satisfies $cA=0$, then $cb=0$.
+\textbf{(1)} If $c\in\mathbb{K}^{m\times1}$ satisfies $Ac=0$, then $bc=0$.
 
 Then, $b\in\operatorname*{Row}A$.
 \end{proposition}
 
-(Here, again, $\operatorname*{Row}A$ denotes the row span of $A$, which means
-the span of the rows of $A$.)
-
 \begin{proof}
-[Proof of Proposition.]EDIT:\ The following proof is wrong, but might be salvageable.
-
-Assume the contrary. Thus, $b\notin\operatorname*{Row}A$.
-
-Perform Gaussian elimination on the matrix $\left(
-\begin{array}
-[c]{c}%
-A\\
-b
-\end{array}
-\right)  $ (this is the matrix $A$ with the extra row $b$ attached to it at
-the bottom) that brings this matrix to row echelon form (but not reduced row
-echelon form). Stop at the row echelon form (don't go on to the reduced row
-echelon form); thus, the last row is never subtracted from any other row of
-the matrix.
-
-Do it in such a way that the last row is never swapped with any of the other
-rows (?).
-
-You obtain a new matrix $\left(
-\begin{array}
-[c]{c}%
-\widetilde{A}\\
-\widetilde{b}%
-\end{array}
-\right)  $, which is in row echelon form. Note that $\operatorname*{Row}%
-\widetilde{A}=\operatorname*{Row}A$ (since row operations do not change the
-span of the rows). Note also that
+Consider the kernel $\operatorname*{Ker}A$ of $A$. This is the subset%
 \[
-\widetilde{b}=b-\left(  \text{some linear combination of the rows of
-}A\right)  \neq0
+\left\{  c\in\mathbb{K}^{m\times1}\ \mid\ Ac=0\right\}  .
 \]
-since $b\notin\operatorname*{Row}A$.
+It is easy to see that this is a subspace of $\mathbb{K}^{m\times1}$. The
+so-called \textbf{rank-nullity theorem} says that%
+\[
+\operatorname*{rank}A+\underbrace{\dim\operatorname*{Ker}A}%
+_{\substack{\text{this is called}\\\text{the \textbf{nullity} of }A}}=m.
+\]
+Thus,
+\begin{equation}
+\operatorname*{rank}A=m-\dim\operatorname*{Ker}A.\label{eq1}%
+\end{equation}
 
-If a matrix in row echelon form has bottom row $\neq0$, then it has a pivot in
-each row. Therefore, the equation $\left(
+
+The same argument can be applied to the matrix $\left(
 \begin{array}
 [c]{c}%
 A\\
 b
 \end{array}
-\right)  \left(  ?\right)  =\left(
-\begin{array}
-[c]{c}%
-0\\
-1
-\end{array}
-\right)  $ is solvable. So we can find a $d\in\mathbb{K}^{\left(  n+1\right)
-\times1}$ such that $\left(
+\right)  $ (this is the matrix formed from $A$ by attaching the row vector $b$
+to its bottom). This yields%
+\begin{equation}
+\operatorname*{rank}\left(
 \begin{array}
 [c]{c}%
 A\\
 b
 \end{array}
-\right)  \left(
+\right)  =m-\dim\operatorname*{Ker}\left(
 \begin{array}
 [c]{c}%
-c\\
-0
+A\\
+b
+\end{array}
+\right)  .\label{eq2}%
+\end{equation}
+
+
+But \textbf{(1)} says that each $c\in\operatorname*{Ker}A$ satisfies $bc=0$,
+which means that $c\in\operatorname*{Ker}\left(
+\begin{array}
+[c]{c}%
+A\\
+b
+\end{array}
+\right)  $ (because $\left(
+\begin{array}
+[c]{c}%
+A\\
+b
+\end{array}
+\right)  c=\left(
+\begin{array}
+[c]{c}%
+Ac\\
+bc
 \end{array}
 \right)  =\left(
 \begin{array}
 [c]{c}%
 0\\
-1
+0
 \end{array}
-\right)  $
-
-???
+\right)  =0$). So $\operatorname*{Ker}A\subseteq\operatorname*{Ker}\left(
+\begin{array}
+[c]{c}%
+A\\
+b
+\end{array}
+\right)  $. Clearly, $\operatorname*{Ker}\left(
+\begin{array}
+[c]{c}%
+A\\
+b
+\end{array}
+\right)  \subseteq\operatorname*{Ker}A$. So $\operatorname*{Ker}%
+A=\operatorname*{Ker}\left(
+\begin{array}
+[c]{c}%
+A\\
+b
+\end{array}
+\right)  $. Hence, the right hand sides of (\ref{eq1}) and (\ref{eq2}) are
+equal. Thus, $\operatorname*{rank}A=\operatorname*{rank}\left(
+\begin{array}
+[c]{c}%
+A\\
+b
+\end{array}
+\right)  $. In other words,%
+\[
+\dim\operatorname*{Row}A=\dim\operatorname*{Row}\left(
+\begin{array}
+[c]{c}%
+A\\
+b
+\end{array}
+\right)  .
+\]
+But $\operatorname*{Row}A\subseteq\operatorname*{Row}\left(
+\begin{array}
+[c]{c}%
+A\\
+b
+\end{array}
+\right)  $. Combining these facts, we obtain%
+\[
+\operatorname*{Row}A=\operatorname*{Row}\left(
+\begin{array}
+[c]{c}%
+A\\
+b
+\end{array}
+\right)  .
+\]
+Thus, $b\in\operatorname*{Row}\left(
+\begin{array}
+[c]{c}%
+A\\
+b
+\end{array}
+\right)  =\operatorname*{Row}A$, qed.
 \end{proof}
 
 \begin{corollary}
@@ -26976,47 +27117,47 @@ Then, $d\in\operatorname*{Row}A$.
 \end{corollary}
 
 \begin{proof}
-Set $\mathbb{K}=\mathbb{Z}/2$. By the Proposition above, it suffices to show that
+Set $\mathbb{K}=\mathbb{Z}/2$. By the Proposition above (applied to $m=n$ and
+$b=d$), it suffices to show that:
 
-\textbf{(1)} If $c\in\mathbb{K}^{1\times n}$ satisfies $cA=0$, then $cd=0$.
+\textbf{(1)} If $c\in\mathbb{K}^{n\times1}$ satisfies $Ac=0$, then $dc=0$.
 
-So let $c\in\mathbb{K}^{1\times n}$ satisfying $cA=0$. Then, $cAc^{T}=0$.
+So let $c\in\mathbb{K}^{n\times1}$ satisfy $Ac=0$. We must prove that $dc=0$.
 
-Now, I claim that $cAc^{T}=cd$.
+I claim that $dc=c^{T}Ac$.
 
 To see this, write $c$ as $c=\left(  c_{1},c_{2},\ldots,c_{n}\right)  $ and
 $A$ as $A=\left(  a_{i,j}\right)  _{1\leq i\leq n,\ 1\leq j\leq n}$. Then,
-expanding yields%
+expanding $c^{T}Ac$ yields%
 \begin{align*}
-cAc^{T}  &  =\sum_{i,j}c_{i}a_{i,j}c_{j}=\sum_{i,j}a_{i,j}c_{i}c_{j}\\
-&  =\sum_{i<j}a_{i,j}c_{i}c_{j}+\sum_{i=j}\underbrace{a_{i,j}}_{=a_{i,i}}%
-c_{i}\underbrace{c_{j}}_{=c_{i}}+\sum_{i>j}\underbrace{a_{i,j}}%
-_{\substack{=a_{j,i}\\\text{(since }A\\\text{is symmetric)}}}\underbrace{c_{i}%
-c_{j}}_{=c_{j}c_{i}}\\
-&  =\underbrace{\sum_{i<j}}_{=\sum_{j>i}}a_{i,j}c_{i}c_{j}+\sum_{i}%
-a_{i,i}c_{i}c_{i}+\underbrace{\sum_{i>j}a_{j,i}c_{j}c_{i}}_{\substack{=\sum
-_{j>i}a_{i,j}c_{i}c_{j}\\\text{(here, we renamed }i\text{ and }j\\\text{as
-}j\text{ and }i\text{)}}}\\
-&  =\sum_{j>i}a_{i,j}c_{i}c_{j}+\sum_{i}a_{i,i}c_{i}c_{i}+\sum_{j>i}%
-a_{i,j}c_{i}c_{j}\\
-&  =\underbrace{2}_{\substack{=0\\\text{(in }\mathbb{Z}/2\text{)}}}\sum
-_{j>i}a_{i,j}c_{i}c_{j}+\sum_{i}a_{i,i}c_{i}c_{i}=\sum_{i}a_{i,i}%
-\underbrace{c_{i}c_{i}}_{\substack{=c_{i}^{2}=c_{i}\\\text{(since }%
-x^{2}=x\\\text{for each }x\in\mathbb{Z}/2\text{)}}}\\
-&  =\sum_{i}a_{i,i}c_{i}=cd
+& c^{T}Ac\\
+& =\sum_{i,j}c_{i}a_{i,j}c_{j}=\sum_{i,j}a_{i,j}c_{i}c_{j}\\
+& =\underbrace{\sum_{i<j}a_{i,j}c_{i}c_{j}}_{\substack{=\sum_{j<i}a_{j,i}%
+c_{j}c_{i}\\\text{(here, we have renamed}\\\text{the indices }i\text{ and
+}j\text{ as }j\text{ and }i\text{)}}}+\underbrace{\sum_{i=j}a_{i,j}c_{i}c_{j}%
+}_{=\sum_{i}a_{i,i}c_{i}c_{i}}+\underbrace{\sum_{i>j}}_{=\sum_{j<i}%
+}\underbrace{a_{i,j}}_{\substack{=a_{j,i}\\\text{(since }A\\\text{is
+symmetric)}}}\underbrace{c_{i}c_{j}}_{=c_{j}c_{i}}\\
+& =\sum_{j<i}a_{j,i}c_{j}c_{i}+\sum_{i}a_{i,i}c_{i}c_{i}+\sum_{j<i}%
+a_{j,i}c_{j}c_{i}=\underbrace{2}_{\substack{=0\\\text{(since we are}\\\text{in
+}\mathbb{Z}/2\text{)}}}\sum_{j<i}a_{j,i}c_{j}c_{i}+\sum_{i}a_{i,i}c_{i}%
+c_{i}\\
+& =\sum_{i}a_{i,i}\underbrace{c_{i}c_{i}}_{\substack{=c_{i}^{2}=c_{i}%
+\\\text{(since }x^{2}=x\\\text{for all }x\in\mathbb{Z}/2\text{)}}}=\sum
+_{i}a_{i,i}c_{i}=dc
 \end{align*}
 (since $c=\left(  c_{1},c_{2},\ldots,c_{n}\right)  $ and $d=\left(
-a_{1,1},a_{2,2},\ldots,a_{n,n}\right)  $). So $cd=cAc^{T}=0$, and \textbf{(1)}
-is proven. Thus the Corollary follows.
+a_{1,1},a_{2,2},\ldots,a_{n,n}\right)  $). So $dc=c^{T}\underbrace{Ac}%
+_{=0}=c^{T}0=0$. Thus, \textbf{(1)} is proven. The Corollary now follows.
 \end{proof}
 
-Now, why can the lights-out puzzle always be solved?
+Now, why can the lights-out puzzle be solved?
 
 We want to prove that $\left(  1,1,1,1\right)  \in\operatorname*{Row}A$ for
 our matrix $A\in\left(  \mathbb{Z}/2\right)  ^{4\times4}$.
 
-This follows from the Corollary, since $A$ is symmetric and since its diagonal
-is $\left(  1,1,1,1\right)  $.
+This follows from the Corollary, since $A$ is symmetric, and since its
+diagonal is $\left(  1,1,1,1\right)  $.
 
 The same argument works for the \textquotedblleft proper\textquotedblright%
 \ (2-dimensional) lights-out puzzle, and more generally for any such puzzle on
@@ -27030,139 +27171,14 @@ lamp $j$ toggles lamp $i$.
 \end{itemize}
 
 These conditions guarantee that the corresponding matrix $A$ will be symmetric
-and its diagonal will be $\left(  1,1,\ldots,1\right)  $.
+and its diagonal will be $\left(  1,1,\ldots,1\right)  $ (and thus we can
+apply the Corollary).
 
 Finding the exact linear combination of the rows of $A$ that equals $\left(
 1,1,\ldots,1\right)  $ can be achieved using Gaussian elimination.
 
 By the way, what other states can be achieved by flipping lightswitches? This
 is a harder question without a unified answer.
-
-\subsubsection{A warning about orthogonality and positivity}
-
-I have said above that \textquotedblleft more or less\textquotedblright\ all
-linear algebra over $\mathbb{R}$ works identically over any field $\mathbb{K}%
-$. There is an exception: Anything that uses positivity will break down over
-some fields $\mathbb{K}$.
-
-One thing that uses positivity is QR-decomposition. That no longer always
-works over $\mathbb{K}$.
-
-You can define dot products and orthogonal complements of subspaces. But it is
-no longer true that $V=U\oplus U^{\perp}$ for a subspace $U$ of $V$. It can
-happen that $U\cap U^{\perp}\neq0$. For example, there are vectors $v\neq0$
-that are orthogonal to themselves (that is, $v^{T}v=0$).
-
-\textbf{Example:} In $\mathbb{Z}/3$, we have%
-\[
-\left(
-\begin{array}
-[c]{c}%
-1\\
-1\\
-1
-\end{array}
-\right)  ^{T}\left(
-\begin{array}
-[c]{c}%
-1\\
-1\\
-1
-\end{array}
-\right)  =\left(  1,1,1\right)  \left(
-\begin{array}
-[c]{c}%
-1\\
-1\\
-1
-\end{array}
-\right)  =1\cdot1+1\cdot1+1\cdot1=3=0.
-\]
-So the vector $\left(
-\begin{array}
-[c]{c}%
-1\\
-1\\
-1
-\end{array}
-\right)  $ is orthogonal to itself.
-
-\subsection{Modules}
-
-Roughly speaking, a module is the same as a vector space, except that it's
-over a commutative ring instead of a field:
-
-\begin{definition}
-Let $\mathbb{K}$ be a commutative ring.
-
-A $\mathbb{K}$\textbf{-module} means a set $M$ equipped with a binary
-operation $+$ (called \textquotedblleft addition\textquotedblright), a map%
-\[
-\cdot\ :\ \mathbb{K}\times M\rightarrow M\ \ \ \ \ \ \ \ \ \ \left(
-\text{called \textquotedblleft scaling\textquotedblright}\right)
-\]
-and an element $0_{M}$ satisfying the following axioms (where, again, we write
-$a\cdot b$ or $ab$ for $\cdot\left(  a,b\right)  $):
-
-\textbf{(a)} We have $a+b=b+a$ for all $a,b\in M$.
-
-\textbf{(b)} We have $a+\left(  b+c\right)  =\left(  a+b\right)  +c$ for all
-$a,b,c\in M$.
-
-\textbf{(c)} We have $a+0_{M}=0_{M}+a=a$ for all $a\in M$.
-
-\textbf{(d)} Each $a\in M$ has an additive inverse (i.e., there is an
-$a^{\prime}\in M$ such that $a+a^{\prime}=a^{\prime}+a=0_{M}$).
-
-\textbf{(e)} We have $\lambda\left(  a+b\right)  =\lambda a+\lambda b$ for all
-$\lambda\in\mathbb{K}$ and $a,b\in M$.
-
-\textbf{(f)} We have $\left(  \lambda+\mu\right)  a=\lambda a+\mu a$ for all
-$\lambda,\mu\in\mathbb{K}$ and $a\in M$.
-
-\textbf{(g)} We have $0a=0_{M}$ for all $a\in M$.
-
-\textbf{(h)} We have $\left(  \lambda\mu\right)  a=\lambda\left(  \mu
-a\right)  $ for all $\lambda,\mu\in\mathbb{K}$ and $a\in M$.
-
-\textbf{(i)} We have $1a=a$ for all $a\in M$.
-\end{definition}
-
-\begin{definition}
-If $\mathbb{K}$ is a commutative ring and $M$ is a $\mathbb{K}$-module, then
-the elements of $M$ are called \textbf{vectors}, while the elements of
-$\mathbb{K}$ are called \textbf{scalars}.
-\end{definition}
-
-\begin{definition}
-If $\mathbb{K}$ is a field, then $\mathbb{K}$-modules are called $\mathbb{K}%
-$\textbf{-vector spaces}. (When $\mathbb{K}=\mathbb{R}$, these are the usual
-real vector spaces from linear algebra.)
-\end{definition}
-
-\begin{example}
-\textbf{(a)} If $\mathbb{K}$ is a commutative ring, and $n\in\mathbb{N}$, then
-$\mathbb{K}^{n}$ (that is, the set of all $n$-tuples of elements of
-$\mathbb{K}$) is a $\mathbb{K}$-module, if you equip it with entrywise
-addition (that is,%
-\[
-\left(  a_{1},a_{2},\ldots,a_{n}\right)  +\left(  b_{1},b_{2},\ldots
-,b_{n}\right)  =\left(  a_{1}+b_{1},a_{2}+b_{2},\ldots,a_{n}+b_{n}\right)
-\]
-) and entrywise scaling (that is,%
-\[
-\lambda\left(  a_{1},a_{2},\ldots,a_{n}\right)  =\left(  \lambda a_{1},\lambda
-a_{2},\ldots,\lambda a_{n}\right)
-\]
-).
-
-\textbf{(b)} If $\mathbb{K}$ is a commutative ring, and $n,m\in\mathbb{N}$,
-then $\mathbb{K}^{n\times m}$ is a $\mathbb{K}$-module, if you equip it with
-the addition and the scaling that we defined above.
-
-\textbf{(c)} For each integer $n$, the set $\mathbb{Z}/n$ is a $\mathbb{Z}%
-$-module, if you equip it with the addition and the scaling that we defined above.
-\end{example}
 
 
 \end{document}

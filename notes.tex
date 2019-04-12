@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Thursday, April 11, 2019 20:28:20}
+%TCIDATA{LastRevised=Friday, April 12, 2019 12:47:31}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -13937,23 +13937,23 @@ $\sim$\textit{-equivalence classes}.
 $\mathbb{Z}$ (defined in Example \ref{exa.eqrel.rel.rels1} \textbf{(e)}). We
 have%
 \begin{align*}
-\left[  5\right]  _{\underset{3}{\equiv}} &  =\left\{  b\in\mathbb{Z}%
+\left[  5\right]  _{\underset{3}{\equiv}}  &  =\left\{  b\in\mathbb{Z}%
 \ \mid\ b\underset{3}{\equiv}5\right\}  =\left\{  b\in\mathbb{Z}%
-\ \mid\ b\equiv5\operatorname{mod}3\right\}  \\
+\ \mid\ b\equiv5\operatorname{mod}3\right\} \\
 &  =\left\{  \ldots,-4,-1,2,5,8,11,14,\ldots\right\}
 \end{align*}
 and%
 \begin{align*}
-\left[  3\right]  _{\underset{3}{\equiv}} &  =\left\{  b\in\mathbb{Z}%
+\left[  3\right]  _{\underset{3}{\equiv}}  &  =\left\{  b\in\mathbb{Z}%
 \ \mid\ b\underset{3}{\equiv}3\right\}  =\left\{  b\in\mathbb{Z}%
-\ \mid\ b\equiv3\operatorname{mod}3\right\}  \\
+\ \mid\ b\equiv3\operatorname{mod}3\right\} \\
 &  =\left\{  \ldots,-6,-3,0,3,6,9,12,\ldots\right\}
 \end{align*}
 and%
 \begin{align*}
-\left[  2\right]  _{\underset{3}{\equiv}} &  =\left\{  b\in\mathbb{Z}%
+\left[  2\right]  _{\underset{3}{\equiv}}  &  =\left\{  b\in\mathbb{Z}%
 \ \mid\ b\underset{3}{\equiv}2\right\}  =\left\{  b\in\mathbb{Z}%
-\ \mid\ b\equiv2\operatorname{mod}3\right\}  \\
+\ \mid\ b\equiv2\operatorname{mod}3\right\} \\
 &  =\left\{  \ldots,-4,-1,2,5,8,11,14,\ldots\right\}  .
 \end{align*}
 Note that $\left[  5\right]  _{\underset{3}{\equiv}}=\left[  2\right]
@@ -26756,38 +26756,721 @@ For details, look up
 normal form}}. Note that for $n=0$, we have $\mathbb{Z}/n\cong\mathbb{Z}$, so
 this applies to matrices with integer entries.
 
+\begin{center}
+\textbf{2019-04-12 lecture}
+\end{center}
+
+\subsubsection{Review of basic notions from linear algebra}
+
+Let $\mathbb{K}$ be a field. The elements of $\mathbb{K}$ will be referred to
+as \textbf{scalars}. In the linear algebra you have seen before, they are
+usually real numbers ($\mathbb{K}=\mathbb{R}$), but what I'm doing below works
+in the same way for every field.
+
+\begin{definition}
+\label{def.laf.subspace-of-row}Let $n\in\mathbb{N}$. Recall that
+$\mathbb{K}^{1\times n}$ is the set of all row vectors of size $n$.
+
+A \textit{subspace} of $\mathbb{K}^{1\times n}$ is a subset $S\subseteq
+\mathbb{K}^{1\times n}$ satisfying the following axioms:
+
+\textbf{(a)} We have $0_{1\times n}\in S$.
+
+\textbf{(b)} If $a,b\in S$, then $a+b\in S$.
+
+\textbf{(c)} If $a\in S$ and $\lambda\in\mathbb{K}$, then $\lambda a\in S$.
+\end{definition}
+
+A similar definition defines subspaces of $\mathbb{K}^{n\times1}$ (column vectors).
+
+\begin{definition}
+\label{def.laf.lincomb}Let $n\in\mathbb{N}$. Let $v_{1},v_{2},\ldots,v_{k}$ be
+some row vectors in $\mathbb{K}^{1\times n}$.
+
+\textbf{(a)} A \textit{linear combination} of $v_{1},v_{2},\ldots,v_{k}$ means
+a column vector of the form%
+\[
+\lambda_{1}v_{1}+\lambda_{2}v_{2}+\cdots+\lambda_{k}v_{k}%
+,\ \ \ \ \ \ \ \ \ \ \text{with }\lambda_{1},\lambda_{2},\ldots,\lambda_{k}%
+\in\mathbb{K}.
+\]
+
+
+\textbf{(b)} The \textit{span} of $v_{1},v_{2},\ldots,v_{k}$ is defined to be
+the subset%
+\begin{align*}
+&  \left\{  \lambda_{1}v_{1}+\lambda_{2}v_{2}+\cdots+\lambda_{k}v_{k}%
+\ \mid\ \lambda_{1},\lambda_{2},\ldots,\lambda_{k}\in\mathbb{K}\right\}  \\
+&  =\left\{  \text{linear combinations of }v_{1},v_{2},\ldots,v_{k}\right\}
+\end{align*}
+of $\mathbb{K}^{1\times n}$. This span is a subspace of $\mathbb{K}^{1\times
+n}$. (This is easy to check.)
+
+\textbf{(c)} The vectors $v_{1},v_{2},\ldots,v_{k}$ are \textit{linearly
+independent} if and only if the only $k$-tuple $\left(  \lambda_{1}%
+,\lambda_{2},\ldots,\lambda_{k}\right)  \in\mathbb{K}^{k}$ satisfying
+$\lambda_{1}v_{1}+\lambda_{2}v_{2}+\cdots+\lambda_{k}v_{k}=0_{n\times1}$ is
+$\left(  0,0,\ldots,0\right)  $.
+
+\textbf{(d)} Let $U$ be a subspace of $\mathbb{K}^{1\times n}$. We say that
+$v_{1},v_{2},\ldots,v_{k}$ form a \textit{basis} of $U$ (or, more formally,
+$\left(  v_{1},v_{2},\ldots,v_{k}\right)  $ is a basis of $U$) if and only if
+the vectors $v_{1},v_{2},\ldots,v_{k}$ are linearly independent and their span
+is $U$.
+\end{definition}
+
+All the terminology we have just introduced depends on $\mathbb{K}$. Whenever
+the field $\mathbb{K}$ is not clear from the context, you can insert it into
+this terminology: e.g., say \textquotedblleft$\mathbb{K}$-linear
+combination\textquotedblright\ instead of \textquotedblleft linear
+combination\textquotedblright, and \textquotedblleft$\mathbb{K}$%
+-span\textquotedblright\ instead of \textquotedblleft span\textquotedblright.
+
+\begin{theorem}
+\label{thm.laf.basis-of-subspace}Let $U$ be a subspace of $\mathbb{K}^{1\times
+n}$.
+
+\textbf{(a)} There exists at least one basis of $U$.
+
+\textbf{(b)} Any two bases of $U$ have the same size (= number of vectors).
+
+\textbf{(c)} Given $k$ linearly independent vectors in $U$, and given $\ell$
+vectors that span $U$, we always have $k\leq\ell$.
+
+\textbf{(d)} Any list of $k$ linearly independent vectors in $U$ can be
+extended to a basis of $U$.
+
+\textbf{(e)} Any list of $\ell$ vectors that span $U$ can be \textquotedblleft
+cut down\textquotedblright\ to a basis of $U$ (i.e., we can remove some of its
+entries to get a basis of $U$).
+\end{theorem}
+
+This all is proven just as in linear algebra.
+
+Again, the same holds for column vectors.
+
+\begin{definition}
+\label{def.laf.dim-of-subspace}Let $U$ be a subspace of $\mathbb{K}^{1\times
+n}$.
+
+The \textit{dimension} of $U$ is defined to be the size of a basis of $U$.
+Parts \textbf{(a)} and \textbf{(b)} of Theorem \ref{thm.laf.basis-of-subspace}
+says that this is indeed well-defined. It is denoted by $\dim U$.
+\end{definition}
+
+\begin{proposition}
+\label{prop.laf.dim-increases}Let $U$ and $V$ be two subspaces of
+$\mathbb{K}^{1\times n}$ such that $U\subseteq V$.
+
+\textbf{(a)} We have $\dim U\leq\dim V$.
+
+\textbf{(b)} If $\dim U=\dim V$, then $U=V$.
+\end{proposition}
+
+Now, let us connect this with matrices:
+
+\begin{definition}
+\label{def.laf.rowspan}Let $A\in\mathbb{K}^{n\times m}$ be a matrix.
+
+\textbf{(a)} The \textit{row space} of $A$ is defined to be the span of the
+rows of $A$. This is a subspace of $\mathbb{K}^{1\times m}$, and is called
+$\operatorname*{Row}A$.
+
+\textbf{(b)} The \textit{column space} of $A$ is defined to be the span of the
+columns of $A$. This is a subspace of $\mathbb{K}^{n\times1}$, and is called
+$\operatorname*{Col}A$.
+\end{definition}
+
+\begin{theorem}
+\label{thm.laf.ranks-equal}Let $A\in\mathbb{K}^{n\times m}$ be a matrix. Then,
+$\dim\operatorname*{Row}A=\dim\operatorname*{Col}A$.
+\end{theorem}
+
+One way to prove this is to transform $A$ into RREF, and argue that both
+$\dim\operatorname*{Row}A$ and $\dim\operatorname*{Col}A$ equal the number of
+pivots in the RREF. There are other, more abstract ways. See linear algebra
+textbooks for this proof.
+
+\begin{definition}
+\label{def.laf.rank}Let $A\in\mathbb{K}^{n\times m}$ be a matrix. Then, the
+number $\dim\operatorname*{Row}A=\dim\operatorname*{Col}A$ is called the
+\textit{rank} of $A$ and is denoted by $\operatorname*{rank}A$.
+\end{definition}
+
+\begin{proposition}
+Let $A\in\mathbb{K}^{n\times m}$ be a matrix. Then, $\operatorname*{rank}A$ is
+an integer between $0$ and $\min\left\{  n,m\right\}  $.
+\end{proposition}
+
+So we have seen that a matrix gives rise to two subspaces: its row space and
+its column space. But there is more:
+
+\begin{definition}
+\label{def.laf.ker}Let $A\in\mathbb{K}^{n\times m}$ be a matrix.
+
+\textbf{(a)} The \textit{kernel} (or \textit{nullspace}) of $A$ is defined to
+be the set of all column vectors $v\in\mathbb{K}^{m\times1}$ such that
+$Av=0_{n\times1}$. This is a subspace of $\mathbb{K}^{m\times1}$, and is
+called $\operatorname*{Ker}A$.
+
+\textbf{(b)} The \textit{left kernel} (or \textit{left nullspace}) of $A$ is
+defined to be the set of all row vectors $w\in\mathbb{K}^{1\times n}$ such
+that $wA=0_{1\times m}$. This is a subspace of $\mathbb{K}^{1\times n}$.
+\end{definition}
+
+Altogether, we have thus found four subspaces coming out of a matrix $A$.
+These are
+\href{https://en.wikipedia.org/wiki/Fundamental_theorem_of_linear_algebra}{the
+famous \textquotedblleft four fundamental subspaces\textquotedblright} (in
+Gilbert Strang's terminology). One result that connects two of them is the
+following fact, known as the \textit{rank-nullity theorem}:
+
+\begin{theorem}
+\label{thm.laf.rank-null}Let $A\in\mathbb{K}^{n\times m}$ be a matrix. Then,%
+\[
+\operatorname*{rank}A+\dim\operatorname*{Ker}A=m.
+\]
+
+\end{theorem}
+
+Note that the number $\dim\operatorname*{Ker}A$ is known as the
+\textit{nullity} of a matrix $A$.
+
 \subsubsection{Linear algebra over $\mathbb{Z}/2$: \textquotedblleft button
 madness\textquotedblright\ / \textquotedblleft lights out\textquotedblright}
 
-\url{http://bz.var.ru/comp/web/js/floor.html}
-
-How do we get all lights out at the same time? Can we do this for any board?
-
-Consider the game on an $n\times n$ grid.
-
-Each state of the game can be viewed as a vector with $n^{2}$ entries (one for
-each box), over $\mathbb{Z}/2$. A light that is on will be encoded by a $1$; a
-light that is off will be encoded by a $0$.
-
-Each move in the game changes the state by adding $1$ to some selection of
-entries of this vector. This selection does not depend on the state; it only
-depends on the move.
-
-Let $c_{i,j}$ be the cell $\left(  i,j\right)  $ on the grid. For each
-$\left(  i,j\right)  $, let $e_{i,j}$ be the vector $\left(  0,0,\ldots
-,0,1,0,0,\ldots,0\right)  ^{T}$ corresponding to the cell $c_{i,j}$. Thus,
-when we \textquotedblleft click\textquotedblright\ on a given cell $c_{i,j}$,
-our state vector changes by%
+We now discuss an old puzzle -- called \textquotedblleft button
+madness\textquotedblright\ or \textquotedblleft light out\textquotedblright%
+\ (more precisely, I think these are two slightly different variants of the
+same puzzle). You can try it out on
 \[
-v_{i,j}:=e_{i,j}+e_{i-1,j}+e_{i,j-1}+e_{i+1,j}+e_{i,j+1},
+\text{\url{http://bz.var.ru/comp/web/js/floor.html}}%
 \]
-where we set $e_{0,\ast}=0$ and $e_{n+1,\ast}=0$ and $e_{\ast,0}=0$ and
-$e_{\ast,n+1}=0$.
 
-Now, our goal is to present the vector $\left(  1,1,\ldots,1\right)  ^{T}$ as
-a linear combination of the $v_{i,j}$'s.
 
-We can write this as a system of linear equations.
+One version of this puzzle gives you $16$ lamps arranged into a $4\times
+4$-grid. Each lamp comes with a lightswitch; but this lightswitch toggles not
+just this lamp, but also its four adjacent lamps (or three or two adjacent
+lamps, if the lamp you have toggled is at the border of the grid). For
+example, if your grid looks like this:%
+\[%
+\begin{tabular}
+[c]{|c|c|c|c|}\hline
+$1$ & $0$ & $0$ & $1$\\\hline
+$0$ & $1$ & $1$ & $0$\\\hline
+$0$ & $0$ & $1$ & $0$\\\hline
+$1$ & $1$ & $0$ & $1$\\\hline
+\end{tabular}
+\]
+(where an entry $1$ means a lamp turned on, and an entry $0$ means a lamp
+turned off), and you flip the lightswitch in cell $\left(  2,3\right)  $ (that
+is, the third cell from the left in the second row from the top), then you
+obtain the grid%
+\[%
+\begin{tabular}
+[c]{|c|c|c|c|}\hline
+$1$ & $0$ & $1$ & $1$\\\hline
+$0$ & $0$ & $0$ & $1$\\\hline
+$0$ & $0$ & $0$ & $0$\\\hline
+$1$ & $1$ & $0$ & $1$\\\hline
+\end{tabular}
+.
+\]
+(A total of $5$ lamps have changed their state: three have been turned off,
+and two have been turned on.)
+
+At the beginning, all lamps are turned off. Your goal is to achieve the
+opposite state (i.e., all lamps being on at the same time) by a sequence of
+lightswitches. Is this possible, and how? (In some versions of this puzzle --
+such as \href{https://en.wikipedia.org/wiki/Lights_Out_(game)}{the
+\textquotedblleft lights out\textquotedblright\ version} -- it's exactly the
+other way round: The lights are all on initially, and you must turn them all
+off. Of course, this makes no difference to the solution.)
+
+In some versions of this puzzle, the grid is \textquotedblleft
+toroidal\textquotedblright, in the sense that it is understood to wrap around
+-- for example, the cells $\left(  1,4\right)  $ and $\left(  1,1\right)  $
+are considered to be adjacent, and so are the cells $\left(  4,1\right)  $ and
+$\left(  1,1\right)  $. We shall not consider this case here, but it can be
+solved by the same method.
+
+Of course, you can play the same game on larger grids, triangular grids, etc..
+But in order to get a grip on how to solve such a puzzle, we shall analyze a
+much simpler version: the \textquotedblleft1-dimensional
+version\textquotedblright\ of the puzzle.
+
+Here is this \textquotedblleft1-dimensional version\textquotedblright: We have
+$4$ lamps in a row (numbered $1,2,3,4$), each equipped with a lightswitch. The
+lightswitch at lamp $i$ toggles lamp $i$, lamp $i-1$ (if it exists) and lamp
+$i+1$ (if it exists). Initially, all $4$ lamps are off. Can we turn them all
+on by flipping a sequence of lightswitches?
+
+Yes, of course: we just have to toggle lamps $1$ and $4$. But let us pretend
+that we aren't that smart, and instead try to solve the puzzle systematically.
+
+We model the states of our lamps by a row vector in $\left(  \mathbb{Z}%
+/2\right)  ^{1\times4}$. We write a row vector $\left(
+\begin{array}
+[c]{cccc}%
+a_{1} & a_{2} & \cdots & a_{n}%
+\end{array}
+\right)  $ as $\left(  a_{1},a_{2},\ldots,a_{n}\right)  $.
+
+More precisely, we model each state by the row vector $\left(  a_{1}%
+,a_{2},a_{3},a_{4}\right)  \in\left(  \mathbb{Z}/2\right)  ^{1\times4}$, where%
+\[
+a_{i}=%
+\begin{cases}
+\left[  0\right]  _{2}, & \text{if lamp }i\text{ is off};\\
+\left[  1\right]  _{2}, & \text{if lamp }i\text{ is on}%
+\end{cases}
+=\underbrace{\left[  \underbrace{\left[  \text{lamp }i\text{ is on}\right]
+}_{\text{Iverson bracket}}\right]  _{2}}_{\text{residue class}}.
+\]
+
+
+We shall write $0$ and $1$ for $\left[  0\right]  _{2}$ and $\left[  1\right]
+_{2}$ throughout this section, so we can rewrite this as%
+
+\[
+a_{i}=%
+\begin{cases}
+0, & \text{if lamp }i\text{ is off};\\
+1, & \text{if lamp }i\text{ is on}%
+\end{cases}
+=\underbrace{\left[  \text{lamp }i\text{ is on}\right]  }_{\text{Iverson
+bracket}},
+\]
+but keep in mind that everything is happening in $\mathbb{Z}/2$.
+
+The initial state is $\left(  0,0,0,0\right)  $. The final state that we want
+to achieve is $\left(  1,1,1,1\right)  $. Toggling a lightswitch corresponds
+to adding a certain row vector to our state. Namely:
+
+\begin{itemize}
+\item Toggling lightswitch $1$ means adding $\left(  1,1,0,0\right)  $.
+
+\item Toggling lightswitch $2$ means adding $\left(  1,1,1,0\right)  $.
+
+\item Toggling lightswitch $3$ means adding $\left(  0,1,1,1\right)  $.
+
+\item Toggling lightswitch $4$ means adding $\left(  0,0,1,1\right)  $.
+\end{itemize}
+
+Thus, toggling a lightswitch means adding the corresponding row of the matrix%
+\[
+A:=\left(
+\begin{array}
+[c]{cccc}%
+1 & 1 & 0 & 0\\
+1 & 1 & 1 & 0\\
+0 & 1 & 1 & 1\\
+0 & 0 & 1 & 1
+\end{array}
+\right)  .
+\]
+
+
+The reachable states are thus exactly the elements of $\operatorname*{Row}A$,
+the row space of $A$.
+
+Now, our goal is to show that $\left(  1,1,1,1\right)  \in\operatorname*{Row}%
+A$.
+
+This is quite easy for the concrete matrix $A$ above, but let us try a
+theoretical argument.
+
+We will need the following fact:
+
+\begin{proposition}
+\label{prop.laf.Ac0bc0}Let $\mathbb{K}$ be a field. Let $A\in\mathbb{K}%
+^{n\times m}$ and $b\in\mathbb{K}^{1\times m}$. Assume the following:
+
+\textit{Assumption 1:} If $c\in\mathbb{K}^{m\times1}$ satisfies $Ac=0$, then
+$bc=0$.
+
+Then, $b\in\operatorname*{Row}A$.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.laf.Ac0bc0}.] Let $\left(
+\begin{array}
+[c]{c}%
+A\\
+b
+\end{array}
+\right)  $ denote the $\left(  n+1\right)  \times m$-matrix formed from $A$ by
+attaching the row vector $b$ to its bottom. For example, if $A=\left(
+\begin{array}
+[c]{cc}%
+a_{1,1} & a_{1,2}\\
+a_{2,1} & a_{2,2}%
+\end{array}
+\right)  $ and $b=\left(
+\begin{array}
+[c]{cc}%
+b_{1} & b_{2}%
+\end{array}
+\right)  $, then $\left(
+\begin{array}
+[c]{c}%
+A\\
+b
+\end{array}
+\right)  =\left(
+\begin{array}
+[c]{cc}%
+a_{1,1} & a_{1,2}\\
+a_{2,1} & a_{2,2}\\
+b_{1} & b_{2}%
+\end{array}
+\right)  $.
+
+Theorem \ref{thm.laf.rank-null} yields%
+\[
+\operatorname*{rank}A+\dim\operatorname*{Ker}A=m.
+\]
+Thus,
+\begin{equation}
+\operatorname*{rank}A=m-\dim\operatorname*{Ker}A.\label{pf.prop.laf.Ac0bc0.1}%
+\end{equation}
+
+
+The same argument can be applied to the matrix $\left(
+\begin{array}
+[c]{c}%
+A\\
+b
+\end{array}
+\right)  $ instead of $A$. We thus obtain%
+\begin{equation}
+\operatorname*{rank}\left(
+\begin{array}
+[c]{c}%
+A\\
+b
+\end{array}
+\right)  =m-\dim\operatorname*{Ker}\left(
+\begin{array}
+[c]{c}%
+A\\
+b
+\end{array}
+\right)  .\label{pf.prop.laf.Ac0bc0.2}%
+\end{equation}
+
+
+But Assumption 1 says that each $c\in\operatorname*{Ker}A$ satisfies $bc=0$,
+which means that $c\in\operatorname*{Ker}\left(
+\begin{array}
+[c]{c}%
+A\\
+b
+\end{array}
+\right)  $ (because $\left(
+\begin{array}
+[c]{c}%
+A\\
+b
+\end{array}
+\right)  c=\left(
+\begin{array}
+[c]{c}%
+Ac\\
+bc
+\end{array}
+\right)  =\left(
+\begin{array}
+[c]{c}%
+0\\
+0
+\end{array}
+\right)  =0$). So $\operatorname*{Ker}A\subseteq\operatorname*{Ker}\left(
+\begin{array}
+[c]{c}%
+A\\
+b
+\end{array}
+\right)  $. Clearly, $\operatorname*{Ker}\left(
+\begin{array}
+[c]{c}%
+A\\
+b
+\end{array}
+\right)  \subseteq\operatorname*{Ker}A$. So $\operatorname*{Ker}%
+A=\operatorname*{Ker}\left(
+\begin{array}
+[c]{c}%
+A\\
+b
+\end{array}
+\right)  $. Hence, the right hand sides of (\ref{pf.prop.laf.Ac0bc0.1}) and
+(\ref{pf.prop.laf.Ac0bc0.2}) are equal. Thus, $\operatorname*{rank}%
+A=\operatorname*{rank}\left(
+\begin{array}
+[c]{c}%
+A\\
+b
+\end{array}
+\right)  $. In other words,%
+\[
+\dim\operatorname*{Row}A=\dim\operatorname*{Row}\left(
+\begin{array}
+[c]{c}%
+A\\
+b
+\end{array}
+\right)  .
+\]
+But $\operatorname*{Row}A\subseteq\operatorname*{Row}\left(
+\begin{array}
+[c]{c}%
+A\\
+b
+\end{array}
+\right)  $. Combining these facts, we obtain%
+\[
+\operatorname*{Row}A=\operatorname*{Row}\left(
+\begin{array}
+[c]{c}%
+A\\
+b
+\end{array}
+\right)
+\]
+(by Proposition \ref{prop.laf.dim-increases} \textbf{(b)}, applied to
+$U=\operatorname*{Row}A$ and $V=\operatorname*{Row}\left(
+\begin{array}
+[c]{c}%
+A\\
+b
+\end{array}
+\right)  $). Thus, $b\in\operatorname*{Row}\left(
+\begin{array}
+[c]{c}%
+A\\
+b
+\end{array}
+\right)  =\operatorname*{Row}A$, qed.
+\end{proof}
+
+\begin{corollary}
+\label{cor.laf.lights-out-diag}Let $A\in\left(  \mathbb{Z}/2\right)  ^{n\times
+n}$ be a symmetric matrix. (\textquotedblleft Symmetric\textquotedblright%
+\ means that the $\left(  i,j\right)  $-th entry of $A$ equals the $\left(
+j,i\right)  $-th entry of $A$ for all $i$ and $j$. In other words, it means
+that $A^{T}=A$.)
+
+Let $d$ be the diagonal of $A$, written as a row vector. (In other words, let
+$D=\left(  a_{1,1},a_{2,2},\ldots,a_{n,n}\right)  $, where $a_{i,j}$ is the
+$\left(  i,j\right)  $-th entry of $A$.)
+
+Then, $d\in\operatorname*{Row}A$.
+\end{corollary}
+
+\begin{proof}
+[Proof of Corollary \ref{cor.laf.lights-out-diag}.] Set $\mathbb{K}%
+=\mathbb{Z}/2$. By Proposition \ref{prop.laf.Ac0bc0} (applied to $m=n$ and
+$b=d$), it suffices to show that:
+
+\textit{Assumption 1:} If $c\in\mathbb{K}^{n\times1}$ satisfies $Ac=0$, then
+$dc=0$.
+
+[\textit{Proof of Assumption 1:} Let $c\in\mathbb{K}^{n\times1}$ satisfy
+$Ac=0$. We must prove that $dc=0$.
+
+I claim that $dc=c^{T}Ac$.
+
+To see this, write $c$ as $c=\left(  c_{1},c_{2},\ldots,c_{n}\right)  $ and
+$A$ as $A=\left(  a_{i,j}\right)  _{1\leq i\leq n,\ 1\leq j\leq n}$. Then,
+expanding $c^{T}Ac$ yields%
+\begin{align*}
+&  c^{T}Ac\\
+&  =\sum_{i,j}c_{i}a_{i,j}c_{j}=\sum_{i,j}a_{i,j}c_{i}c_{j}\\
+&  =\underbrace{\sum_{i<j}a_{i,j}c_{i}c_{j}}_{\substack{=\sum_{j<i}%
+a_{j,i}c_{j}c_{i}\\\text{(here, we have renamed}\\\text{the indices }i\text{
+and }j\text{ as }j\text{ and }i\text{)}}}+\underbrace{\sum_{i=j}a_{i,j}%
+c_{i}c_{j}}_{=\sum_{i}a_{i,i}c_{i}c_{i}}+\underbrace{\sum_{i>j}}_{=\sum_{j<i}%
+}\underbrace{a_{i,j}}_{\substack{=a_{j,i}\\\text{(since }A\\\text{is
+symmetric)}}}\underbrace{c_{i}c_{j}}_{=c_{j}c_{i}}\\
+&  =\sum_{j<i}a_{j,i}c_{j}c_{i}+\sum_{i}a_{i,i}c_{i}c_{i}+\sum_{j<i}%
+a_{j,i}c_{j}c_{i}=\underbrace{2}_{\substack{=0\\\text{(since we are}\\\text{in
+}\mathbb{Z}/2\text{)}}}\sum_{j<i}a_{j,i}c_{j}c_{i}+\sum_{i}a_{i,i}c_{i}c_{i}\\
+&  =\sum_{i}a_{i,i}\underbrace{c_{i}c_{i}}_{\substack{=c_{i}^{2}%
+=c_{i}\\\text{(since }x^{2}=x\\\text{for all }x\in\mathbb{Z}/2\text{)}}%
+}=\sum_{i}a_{i,i}c_{i}=dc
+\end{align*}
+(since $c=\left(  c_{1},c_{2},\ldots,c_{n}\right)  $ and $d=\left(
+a_{1,1},a_{2,2},\ldots,a_{n,n}\right)  $). So $dc=c^{T}\underbrace{Ac}%
+_{=0}=c^{T}0=0$. Thus, Assumption 1 is proven.]
+
+Corollary \ref{cor.laf.lights-out-diag} now follows.
+\end{proof}
+
+Now, why can the lights-out puzzle be solved?
+
+We want to prove that $\left(  1,1,1,1\right)  \in\operatorname*{Row}A$ for
+our matrix $A\in\left(  \mathbb{Z}/2\right)  ^{4\times4}$.
+
+This follows from Corollary \ref{cor.laf.lights-out-diag}, since the matrix
+$A$ is symmetric, and since its diagonal is $\left(  1,1,1,1\right)  $.
+
+The same argument works for the \textquotedblleft proper\textquotedblright%
+\ (2-dimensional) lights-out puzzle; we just have to use row vectors of size
+$16$ (not $4$) and $16\times16$-matrices (not $4\times4$-matrices). More
+generally, the same argument works for any such puzzle on any
+\textquotedblleft grid\textquotedblright\ as long as:
+
+\begin{itemize}
+\item each lamp $i$ has a lightswitch which toggles at least lamp $i$;
+
+\item if the lightswitch at lamp $i$ toggles lamp $j$, then the lightswitch at
+lamp $j$ toggles lamp $i$.
+\end{itemize}
+
+These conditions guarantee that the corresponding matrix $A$ will be symmetric
+and its diagonal will be $\left(  1,1,\ldots,1\right)  $ (and thus we can
+apply the Corollary).
+
+Finding the exact linear combination of the rows of $A$ that equals $\left(
+1,1,\ldots,1\right)  $ can be achieved using Gaussian elimination.
+
+By the way, what other states can be achieved by flipping lightswitches? This
+is a harder question without a unified answer.
+
+\begin{center}
+\textbf{2019-04-15 lecture}
+\end{center}
+
+\subsubsection{}
+
+\subsubsection{A warning about orthogonality and positivity}
+
+I have said above that \textquotedblleft more or less\textquotedblright\ all
+linear algebra over $\mathbb{R}$ works identically over any field $\mathbb{K}%
+$. There is an exception: Anything that uses positivity will break down over
+some fields $\mathbb{K}$.
+
+One thing that uses positivity is QR-decomposition. That no longer always
+works over $\mathbb{K}$.
+
+You can define dot products and orthogonal complements of subspaces. But it is
+no longer true that $V=U\oplus U^{\perp}$ for a subspace $U$ of $V$. It can
+happen that $U\cap U^{\perp}\neq0$. For example, there are vectors $v\neq0$
+that are orthogonal to themselves (that is, $v^{T}v=0$).
+
+\textbf{Example:} In $\mathbb{Z}/3$, we have%
+\[
+\left(
+\begin{array}
+[c]{c}%
+1\\
+1\\
+1
+\end{array}
+\right)  ^{T}\left(
+\begin{array}
+[c]{c}%
+1\\
+1\\
+1
+\end{array}
+\right)  =\left(  1,1,1\right)  \left(
+\begin{array}
+[c]{c}%
+1\\
+1\\
+1
+\end{array}
+\right)  =1\cdot1+1\cdot1+1\cdot1=3=0.
+\]
+So the vector $\left(
+\begin{array}
+[c]{c}%
+1\\
+1\\
+1
+\end{array}
+\right)  $ is orthogonal to itself.
+
+\subsection{Modules}
+
+Roughly speaking, a module is the same as a vector space, except that it's
+over a commutative ring instead of a field:
+
+\begin{definition}
+Let $\mathbb{K}$ be a commutative ring.
+
+A $\mathbb{K}$\textbf{-module} means a set $M$ equipped with a binary
+operation $+$ (called \textquotedblleft addition\textquotedblright), a map%
+\[
+\cdot\ :\ \mathbb{K}\times M\rightarrow M\ \ \ \ \ \ \ \ \ \ \left(
+\text{called \textquotedblleft scaling\textquotedblright}\right)
+\]
+and an element $0_{M}$ satisfying the following axioms (where, again, we write
+$a\cdot b$ or $ab$ for $\cdot\left(  a,b\right)  $):
+
+\textbf{(a)} We have $a+b=b+a$ for all $a,b\in M$.
+
+\textbf{(b)} We have $a+\left(  b+c\right)  =\left(  a+b\right)  +c$ for all
+$a,b,c\in M$.
+
+\textbf{(c)} We have $a+0_{M}=0_{M}+a=a$ for all $a\in M$.
+
+\textbf{(d)} Each $a\in M$ has an additive inverse (i.e., there is an
+$a^{\prime}\in M$ such that $a+a^{\prime}=a^{\prime}+a=0_{M}$).
+
+\textbf{(e)} We have $\lambda\left(  a+b\right)  =\lambda a+\lambda b$ for all
+$\lambda\in\mathbb{K}$ and $a,b\in M$.
+
+\textbf{(f)} We have $\left(  \lambda+\mu\right)  a=\lambda a+\mu a$ for all
+$\lambda,\mu\in\mathbb{K}$ and $a\in M$.
+
+\textbf{(g)} We have $0a=0_{M}$ for all $a\in M$.
+
+\textbf{(h)} We have $\left(  \lambda\mu\right)  a=\lambda\left(  \mu
+a\right)  $ for all $\lambda,\mu\in\mathbb{K}$ and $a\in M$.
+
+\textbf{(i)} We have $1a=a$ for all $a\in M$.
+\end{definition}
+
+\begin{definition}
+If $\mathbb{K}$ is a commutative ring and $M$ is a $\mathbb{K}$-module, then
+the elements of $M$ are called \textbf{vectors}, while the elements of
+$\mathbb{K}$ are called \textbf{scalars}.
+\end{definition}
+
+\begin{definition}
+If $\mathbb{K}$ is a field, then $\mathbb{K}$-modules are called $\mathbb{K}%
+$\textbf{-vector spaces}. (When $\mathbb{K}=\mathbb{R}$, these are the usual
+real vector spaces from linear algebra.)
+\end{definition}
+
+\begin{example}
+\textbf{(a)} If $\mathbb{K}$ is a commutative ring, and $n\in\mathbb{N}$, then
+$\mathbb{K}^{n}$ (that is, the set of all $n$-tuples of elements of
+$\mathbb{K}$) is a $\mathbb{K}$-module, if you equip it with entrywise
+addition (that is,%
+\[
+\left(  a_{1},a_{2},\ldots,a_{n}\right)  +\left(  b_{1},b_{2},\ldots
+,b_{n}\right)  =\left(  a_{1}+b_{1},a_{2}+b_{2},\ldots,a_{n}+b_{n}\right)
+\]
+) and entrywise scaling (that is,%
+\[
+\lambda\left(  a_{1},a_{2},\ldots,a_{n}\right)  =\left(  \lambda a_{1},\lambda
+a_{2},\ldots,\lambda a_{n}\right)
+\]
+).
+
+\textbf{(b)} If $\mathbb{K}$ is a commutative ring, and $n,m\in\mathbb{N}$,
+then $\mathbb{K}^{n\times m}$ is a $\mathbb{K}$-module, if you equip it with
+the addition and the scaling that we defined above.
+
+\textbf{(c)} For each integer $n$, the set $\mathbb{Z}/n$ is a $\mathbb{Z}%
+$-module, if you equip it with the addition and the scaling that we defined above.
+\end{example}
+
+????
 
 TODO:
 
