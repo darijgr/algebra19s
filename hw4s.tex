@@ -22,7 +22,7 @@
 \setcounter{MaxMatrixCols}{30}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Sunday, March 24, 2019 19:24:41}
+%TCIDATA{LastRevised=Thursday, April 11, 2019 21:43:20}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
 %TCIDATA{BibliographyScheme=Manual}
@@ -232,25 +232,24 @@ all essentially obvious):
 \item We have $\alpha+ \left(  \beta+ \gamma\right)  = \left(  \alpha+
 \beta\right)  + \gamma$ for any $\alpha, \beta, \gamma\in{\mathbb{D}}$.
 
-\item We have $\alpha+ 0_{\mathbb{D}} = \alpha$ for any $\alpha\in{\mathbb{D}%
-}$.
-
-\item We have $\alpha\cdot1_{\mathbb{D}} = \alpha$ for any $\alpha
+\item We have $\alpha+0_{\mathbb{D}}=0_{\mathbb{D}}+\alpha$ for any $\alpha
 \in{\mathbb{D}}$.
 
-\item We have $\alpha\cdot\beta= \beta\cdot\alpha$ for any $\alpha, \beta
+\item We have $\alpha\cdot1_{\mathbb{D}}=1_{\mathbb{D}}\cdot\alpha=\alpha$ for
+any $\alpha\in{\mathbb{D}}$.
+
+\item We have $\alpha\cdot\beta=\beta\cdot\alpha$ for any $\alpha,\beta
 \in{\mathbb{D}}$.
 
-\item We have $\alpha\cdot\left(  \beta+ \gamma\right)  = \alpha\beta+
-\alpha\gamma$ and $\left(  \alpha+ \beta\right)  \cdot\gamma= \alpha\gamma+
-\beta\gamma$ for any $\alpha, \beta, \gamma\in{\mathbb{D}}$.
+\item We have $\alpha\cdot\left(  \beta+\gamma\right)  =\alpha\beta
++\alpha\gamma$ and $\left(  \alpha+\beta\right)  \cdot\gamma=\alpha
+\gamma+\beta\gamma$ for any $\alpha,\beta,\gamma\in{\mathbb{D}}$.
 
-\item We have $\alpha\cdot0_{\mathbb{D}} = 0_{\mathbb{D}}$ for any $\alpha
-\in{\mathbb{D}}$.
+\item We have $\alpha\cdot0_{\mathbb{D}}=0_{\mathbb{D}}\cdot\alpha
+=0_{\mathbb{D}}$ for any $\alpha\in{\mathbb{D}}$.
 
-\item If $\alpha, \beta, \gamma\in{\mathbb{D}}$, then we have the equivalence
-$\left(  \alpha- \beta= \gamma\right)  \iff\left(  \alpha= \beta+
-\gamma\right)  $.
+\item If $\alpha,\beta,\gamma\in{\mathbb{D}}$, then we have the equivalence
+$\left(  \alpha-\beta=\gamma\right)  \iff\left(  \alpha=\beta+\gamma\right)  $.
 \end{itemize}
 
 We shall identify each real number $r$ with the dual number $r_{\mathbb{D}} =
@@ -430,6 +429,8 @@ $. Hence, $\alpha=a+b\varepsilon=\left(  a,b\right)  $. Thus,%
 {a},-\dfrac{b}{a^{2}}\right)  =\left(  \underbrace{a\cdot\dfrac{1}{a}}%
 _{=1},\underbrace{a\cdot\left(  -\dfrac{b}{a^{2}}\right)  +b\cdot\dfrac{1}{a}%
 }_{=0}\right) \\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of the operation }%
+\cdot\text{ on }\mathbb{D}\right) \\
 &  =\left(  1,0\right)  =1_{\mathbb{D}}\ \ \ \ \ \ \ \ \ \ \left(  \text{since
 the definition of }1_{\mathbb{D}}\text{ yields }1_{\mathbb{D}}=\left(
 1,0\right)  \right)  .
@@ -523,7 +524,8 @@ $b_{j}$ be two real numbers. Then,%
 (as dual numbers). (Here, the \textquotedblleft$\sum_{j\in J}$%
 \textquotedblright\ sign on the left hand side stands for a sum of finitely
 many dual numbers; this is defined just as we defined sums of finitely many
-integers or real numbers or complex numbers.)
+integers or real numbers or complex numbers.\footnote{Recall that empty sums
+of dual numbers are defined to be $0_{\mathbb{D}}=\left(  0,0\right)  $.})
 \end{statement}
 
 [\textit{Proof of Claim 1:} This claim can be proven by a straightforward
@@ -531,7 +533,7 @@ induction on $\left\vert J\right\vert $, using the definition of the operation
 $+$ on $\mathbb{D}$. (We leave the details to the reader.).]
 
 \begin{statement}
-\textit{Claim 2:} Let $a,b\in\mathbb{R}$. Then,%
+\textit{Claim 2:} Let $a,b\in\mathbb{R}$. Then, in $\mathbb{D}$, we have%
 \[
 \left(  a,b\right)  ^{k}=\left(  a^{k},ka^{k-1}b\right)
 \ \ \ \ \ \ \ \ \ \ \text{for every }k\in\mathbb{N}.
@@ -571,10 +573,12 @@ also holds when $m=0$.) Thus,%
 \begin{align*}
 \left(  a,b\right)  ^{m+1}  &  =\left(  \underbrace{aa^{m}}_{=a^{m+1}%
 },\underbrace{ama^{m-1}b}_{=ma^{m}b}+\underbrace{ba^{m}}_{=a^{m}b}\right)
-=\left(  a^{m+1},\underbrace{ma^{m}b+a^{m}b}_{\substack{=\left(  m+1\right)
-a^{m}b=\left(  m+1\right)  a^{\left(  m+1\right)  -1}b\\\text{(since
-}m=\left(  m+1\right)  -1\text{)}}}\right) \\
-&  =\left(  a^{m+1},\left(  m+1\right)  a^{\left(  m+1\right)  -1}b\right)  .
+=\left(  a^{m+1},\underbrace{ma^{m}b+a^{m}b}_{=\left(  m+1\right)  a^{m}%
+b}\right) \\
+&  =\left(  a^{m+1},\left(  m+1\right)  \underbrace{a^{m}}%
+_{\substack{=a^{\left(  m+1\right)  -1}\\\text{(since }m=\left(  m+1\right)
+-1\text{)}}}b\right)  =\left(  a^{m+1},\left(  m+1\right)  a^{\left(
+m+1\right)  -1}b\right)  .
 \end{align*}
 In other words, Claim 2 holds for $k=m+1$. This completes the induction step.
 Thus, Claim 2 is proven by induction.]
@@ -631,14 +635,9 @@ Part \textbf{(b)} of this exercise yields $a+b\varepsilon=\left(  a,b\right)
 $. Hence, $\left(  a,b\right)  =a+b\varepsilon$. Thus,%
 \begin{align*}
 \left(  a,b\right)  ^{k}  &  =\left(  a+b\varepsilon\right)  ^{k}=\sum
-_{m=0}^{k}\dbinom{k}{m}a^{m}\left(  b\varepsilon\right)  ^{k-m}%
-\ \ \ \ \ \ \ \ \ \ \left(
-\begin{array}
-[c]{c}%
-\text{by (\ref{sol.dualnums.basics.e.binomf2}), applied}\\
-\text{to }x=a\text{ and }y=b\varepsilon
-\end{array}
-\right) \\
+_{m=0}^{k}\dbinom{k}{m}a^{m}\left(  b\varepsilon\right)  ^{k-m}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{sol.dualnums.basics.e.binomf2}),
+applied to }x=a\text{ and }y=b\varepsilon\text{ and }n=k\right) \\
 &  =\sum_{m=0}^{k-2}\dbinom{k}{m}a^{m}\underbrace{\left(  b\varepsilon\right)
 ^{k-m}}_{=b^{k-m}\varepsilon^{k-m}}+\underbrace{\dbinom{k}{k-1}}%
 _{\substack{=k\\\text{(this is easy}\\\text{to check)}}}a^{k-1}%
@@ -913,7 +912,7 @@ shows that each integer $u$ satisfies either $u^{2}\equiv0\operatorname{mod}4$
 other words, each perfect square is congruent to either $0$ or $1$ modulo $4$.
 Thus, any integer that is congruent to $2$ or $3$ modulo $4$ is not a perfect square.)
 
-Exercise 2.10.15 in
+Exercise 2.10.15 \textbf{(a)} in
 \href{http://www-users.math.umn.edu/~dgrinber/19s/notes.pdf}{the class notes}
 shows that if a positive integer $u$ is not a perfect square, then $\sqrt{u}$
 is irrational. Applying this to $u=2$, we conclude that $\sqrt{2}$ is
@@ -1135,6 +1134,4 @@ Let $p$ be an odd prime. Write $p$ in the form $p = 2k+1$ for some $k
 See \href{http://www-users.math.umn.edu/~dgrinber/19s/notes.pdf}{the class
 notes}, where this is Exercise 2.15.5. (The numbering may shift; it is one of
 the exercises in the ``Fermat, Euler, Wilson'' section.)
-
-
 \end{document}
