@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Friday, April 12, 2019 15:10:50}
+%TCIDATA{LastRevised=Friday, April 12, 2019 16:43:29}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -17929,9 +17929,10 @@ n\right)  }=\left[  1\right]  _{n}$ (because Corollary
 in the form $\alpha=\left[  a\right]  _{n}$ for some integer $a$ satisfying
 $a\perp n$). Thus, it is easy to see that an invertible residue class
 $\alpha\in\mathbb{Z}/n$ has at most $\phi\left(  n\right)  $ distinct powers.
-When an invertible residue class $\alpha$ has \textbf{exactly} $\phi\left(
-n\right)  $ distinct powers, it is a primitive root (since there are exactly
-$\phi\left(  n\right)  $ invertible residue classes in $\mathbb{Z}/n$).
+When an invertible residue class $\alpha\in\mathbb{Z}/n$ has \textbf{exactly}
+$\phi\left(  n\right)  $ distinct powers, it is a primitive root (since there
+are exactly $\phi\left(  n\right)  $ invertible residue classes in
+$\mathbb{Z}/n$).
 
 \begin{example}
 \label{exa.eqrel.primroot1.def.primroot8}Let $n=8$. The invertible residue
@@ -17989,9 +17990,9 @@ would be fairly difficult to prove at this point, but will be doable with some
 abstract algebra (at least in the case $n=p$). See \cite[Chapter
 4]{Gallier-RSA} for a proof.
 
-\section{Complex numbers and Gaussian integers}
+\section{\label{chp.CC}Complex numbers and Gaussian integers}
 
-\subsection{Complex numbers}
+\subsection{\label{sect.CC.CC}Complex numbers}
 
 \subsubsection{An informal introduction}
 
@@ -18568,9 +18569,8 @@ $\alpha\beta=1$. (Recall that $1=1_{\mathbb{C}}$ by Convention
 \ref{conv.CC.RRtoCC.embed}.)
 \end{definition}
 
-The complex number $0$ has no inverse (because $0\beta$ will never equal $1$,
-no matter what $\beta$ is). But it turns out that all the other complex
-numbers have one:
+The complex number $0$ has no inverse (because $0\beta=0\neq1$, no matter what
+$\beta$ is). But it turns out that all the other complex numbers have one:
 
 \begin{theorem}
 \label{thm.CC.CC.inverse.unique}Let $\alpha$ be a nonzero complex number.
@@ -18730,10 +18730,10 @@ numbers. Then, the complex number $\alpha\beta$ is nonzero as well.
 \begin{proof}
 [Proof of Corollary \ref{cor.CC.CC.intdom} (sketched).]The complex numbers
 $\alpha$ and $\beta$ are nonzero, and thus have inverses (by Theorem
-\ref{thm.CC.CC.inverse.unique}). Hence, Theorem \ref{thm.CC.CC.inverse.unique}
-\textbf{(b)} shows that their product $\alpha\beta$ has an inverse as well.
-Thus, $\alpha\beta\neq0$ (since $0$ has no inverse). This proves Corollary
-\ref{cor.CC.CC.intdom}.
+\ref{thm.CC.CC.inverse.unique}). Hence, Proposition
+\ref{prop.CC.CC.inverse.ab} \textbf{(b)} shows that their product $\alpha
+\beta$ has an inverse as well. Thus, $\alpha\beta\neq0$ (since $0$ has no
+inverse). This proves Corollary \ref{cor.CC.CC.intdom}.
 \end{proof}
 
 \subsubsection{Powers of complex numbers}
@@ -19550,11 +19550,11 @@ $\mu\left(  \alpha\right)  =\mu\left(  a,b\right)  =\left(
 a & b\\
 -b & a
 \end{array}
-\right)  $ (by the definition of $\alpha$), and therefore we can recover $a$
-and $b$ from $\mu\left(  \alpha\right)  $ (namely, $a$ and $b$ are the two
-entries of the first row of the matrix $\mu\left(  \alpha\right)  $). Hence,
-we can recover $\alpha$ from $\mu\left(  \alpha\right)  $. This shows that the
-map $\mu$ is injective; this proves Proposition \ref{prop.CC.as-matrices.mu}
+\right)  $ (by the definition of $\mu$), and therefore we can recover $a$ and
+$b$ from $\mu\left(  \alpha\right)  $ (namely, $a$ and $b$ are the two entries
+of the first row of the matrix $\mu\left(  \alpha\right)  $). Hence, we can
+recover $\alpha$ from $\mu\left(  \alpha\right)  $. This shows that the map
+$\mu$ is injective; this proves Proposition \ref{prop.CC.as-matrices.mu}
 \textbf{(d)}.
 \end{proof}
 
@@ -19605,31 +19605,63 @@ that section).
 
 We shall follow Keith Conrad's notes \cite{Conrad-Gauss} for most of this
 section (but at the end we will go a bit further in order to answer Question
-\ref{quest.intro.sum-of-2sq.2} \textbf{(b)}).%
-
-\[%
-\begin{tabular}
-[c]{||l||}\hline\hline
-\textbf{You have reached the end of the finished part.}\\
-\textbf{TODO: Write on from here.}\\\hline\hline
-\end{tabular}
-\ \
-\]
-
+\ref{quest.intro.sum-of-2sq.2} \textbf{(b)}).
 
 \subsubsection{Definitions and basics}
+
+We shall now define the \textit{Gaussian integers}: a middle ground between
+integers and complex numbers.
 
 \begin{definition}
 \label{def.Z[i].gauss.gauss}A \textit{Gaussian integer} is a complex number
 $\left(  a,b\right)  $ with $a,b\in\mathbb{Z}$.
 \end{definition}
 
-For example, $3+5i$ and $3-7i$ are Gaussian integers. So are $0$, $1$ and $i$.
-Every integer is a Gaussian integer. But $\dfrac{1}{2}+3i$ and $\sqrt{2}+4i$
-are not Gaussian integers.
+For example, $3+5i=\left(  3,5\right)  $ and $3-7i=\left(  3,-7\right)  $ are
+Gaussian integers. So are $0=\left(  0,0\right)  $, $1=\left(  1,0\right)  $
+and $i=\left(  0,1\right)  $. Every integer is a Gaussian integer. But
+$\dfrac{1}{2}+3i=\left(  \dfrac{1}{2},3\right)  $ and $\sqrt{2}+4i=\left(
+\sqrt{2},4\right)  $ are not Gaussian integers.
 
-Equivalently, we could have defined Gaussian integers in the same way as we
-defined complex numbers, but using $\mathbb{Z}$ instead of $\mathbb{R}$.
+\begin{remark}
+In Definition \ref{def.Z[i].gauss.gauss}, we have defined Gaussian integers
+using complex numbers. This can be viewed as somewhat of an overkill, as the
+notion of complex numbers depends on the notion of real numbers, which are
+mostly useless for Gaussian integers. Thus, one might ask for a different
+definition of Gaussian integers -- one which relies only on integers and not
+on real numbers.
+
+Such a definition is easy to make: Just replace every appearance of real
+numbers in Definition \ref{def.CC.CC} by integers! Thus, define the Gaussian
+integers as pairs of two integers; let $\mathbb{C}_{\mathbb{Z}}$ be the set of
+these pairs; denote the Gaussian integer $\left(  r,0\right)  $ by
+$r_{\mathbb{C}}$ whenever $r$ is an integer; define the operations $+$, $-$
+and $\cdot$ on the set $\mathbb{C}_{\mathbb{Z}}$ by the same formulas as in
+Definition \ref{def.CC.CC} \textbf{(e)}; likewise, adapt the rest of
+Definition \ref{def.CC.CC} to integers. Most of what we have done in Section
+\ref{sect.CC.CC} can be straightforwardly adapted to this notion of Gaussian
+integers (by making the obvious changes -- i.e., mostly, replacing real
+numbers by integers); the main exceptions are the following:
+
+\begin{itemize}
+\item Not every nonzero Gaussian integer has an inverse (in the set of
+Gaussian integers). (In fact, as we will soon see, the only Gaussian integers
+that have inverses are $1,i,-1,-i$.) Thus, division and negative powers of
+Gaussian integers are usually not defined (without leaving the set of Gaussian integers).
+
+\item The absolute value $\left\vert \alpha\right\vert $ of a Gaussian integer
+$\alpha$ will usually not be an integer (since it is defined as a square root).
+\end{itemize}
+
+This alternative definition of Gaussian integers is equivalent to Definition
+\ref{def.Z[i].gauss.gauss}; we are using the latter mainly because it is shorter.
+
+Likewise, we could have defined \textquotedblleft Gaussian
+rationals\textquotedblright\ by adapting Definition \ref{def.CC.CC} to
+rational (instead of real) numbers. Unlike the Gaussian integers, these
+\textquotedblleft Gaussian rationals\textquotedblright\ do have inverses (when
+they are nonzero), and thus division and negative powers are well-defined for them.
+\end{remark}
 
 \begin{definition}
 \label{def.Z[i].gauss.Z[i]}We let $\mathbb{Z}\left[  i\right]  $ be the set of
@@ -19638,7 +19670,8 @@ all Gaussian integers.
 
 Elementary number theory concerns itself with integers (mostly). Our goal in
 this section is to replicate as much as we can of this theory in the setting
-of Gaussian integers.
+of Gaussian integers, and then see how it can be applied back to answer some
+questions about the usual integers.
 
 We will try to use Greek letters for Gaussian integers and Roman letters for integers.
 
@@ -19651,9 +19684,27 @@ are Gaussian integers.
 \end{proposition}
 
 \begin{proof}
-\textbf{(a)} This follows from the definitions of $+,-,\cdot$ on $\mathbb{C}$.
+[Proposition \ref{prop.Z[i].gauss.ring}.]\textbf{(a)} Write the complex
+numbers $\alpha$ and $\beta$ as $\alpha=\left(  a,b\right)  $ and
+$\beta=\left(  c,d\right)  $, respectively (with $a,b,c,d\in\mathbb{R}$). The
+definition of a Gaussian integer shows that $a,b\in\mathbb{Z}$ (since $\left(
+a,b\right)  =\alpha$ is a Gaussian integer) and that $c,d\in\mathbb{Z}$ (since
+$\left(  c,d\right)  =\beta$ is a Gaussian integer). Now,
+\[
+\underbrace{\alpha}_{=\left(  a,b\right)  }\cdot\underbrace{\beta}_{=\left(
+c,d\right)  }=\left(  a,b\right)  \cdot\left(  c,d\right)  =\left(
+ac-bd,ad+bc\right)
+\]
+(by the definition of the operation $\cdot$ on $\mathbb{C}$). Since
+$ac-bd,ad+bc\in\mathbb{Z}$ (because $a,b,c,d\in\mathbb{Z}$), this entails that
+$\alpha\cdot\beta$ is a Gaussian integer (by the definition of a Gaussian
+integer). Similarly (using the definitions of the operations $+$ and $-$ on
+$\mathbb{C}$), we can see that $\alpha+\beta$ and $\alpha-\beta$ are Gaussian
+integers. This proves Proposition \ref{prop.Z[i].gauss.ring} \textbf{(a)}.
 
-\textbf{(b)} This follows by induction from part \textbf{(a)}.
+\textbf{(b)} This follows by induction. (The induction base relies on the fact
+that $0$ and $1$ are Gaussian integers; the induction step uses Proposition
+\ref{prop.Z[i].gauss.ring} \textbf{(a)}.)
 \end{proof}
 
 \begin{proposition}
@@ -19662,7 +19713,30 @@ $\overline{\alpha}$ is a Gaussian integer.
 \end{proposition}
 
 \begin{proof}
-Obvious.
+[Proof of Proposition \ref{prop.Z[i].gauss.conj}.]Write the complex number
+$\alpha$ as $\alpha=\left(  a,b\right)  $ with $a,b\in\mathbb{R}$. Then,
+$a,b\in\mathbb{Z}$ (since $\alpha$ is a Gaussian integer). Hence,
+$a,-b\in\mathbb{Z}$. Now, the definition of $\overline{\alpha}$ yields
+$\overline{\alpha}=\left(  a,-b\right)  $. Hence, $\overline{\alpha}$ is a
+Gaussian integer (since $a,-b\in\mathbb{Z}$). This proves Proposition
+\ref{prop.Z[i].gauss.conj}.
+\end{proof}
+
+\begin{proposition}
+\label{prop.Z[i].gauss.Norm-N}Let $\alpha\in\mathbb{Z}\left[  i\right]  $.
+Then, $\operatorname*{N}\left(  \alpha\right)  \in\mathbb{N}$.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.Z[i].gauss.Norm-N}.]Write the complex number
+$\alpha$ as $\alpha=\left(  a,b\right)  $ with $a,b\in\mathbb{R}$. Then,
+$a,b\in\mathbb{Z}$ (since $\alpha$ is a Gaussian integer). In other words, $a$
+and $b$ are integers. Hence, $a^{2}$ and $b^{2}$ are nonnegative integers
+(since the square of an integer is always a nonnegative integer). In other
+words, $a^{2},b^{2}\in\mathbb{N}$. Hence, $a^{2}+b^{2}\in\mathbb{N}$. But the
+definition of $\operatorname*{N}\left(  \alpha\right)  $ yields
+$\operatorname*{N}\left(  \alpha\right)  =a^{2}+b^{2}\in\mathbb{N}$. This
+proves Proposition \ref{prop.Z[i].gauss.Norm-N}.
 \end{proof}
 
 \begin{definition}
@@ -19683,11 +19757,13 @@ This relation will be called \textit{unit-equivalence} (or \textit{equality up
 to unit}).
 \end{definition}
 
-For comparison: The units of $\mathbb{Z}$ (that is, the integers that are
+For comparison, let us consider analogous concepts for integers instead of
+Gaussian integers. The units of $\mathbb{Z}$ (that is, the integers that are
 invertible in $\mathbb{Z}$) are $1$ and $-1$. So if we defined a relation
 $\underset{\mathbb{Z}}{\sim}$ on $\mathbb{Z}$ in the same way as we defined
-the relation $\sim$ (but requiring $\gamma\in\mathbb{Z}$ instead of $\gamma
-\in\mathbb{Z}\left[  i\right]  $), then this relation would just be given by%
+the relation $\sim$ on $\mathbb{Z}\left[  i\right]  $ (but requiring
+$\gamma\in\mathbb{Z}$ instead of $\gamma\in\mathbb{Z}\left[  i\right]  $),
+then this relation would just be given by%
 \begin{align}
 \left(  a\underset{\mathbb{Z}}{\sim}b\right)   &  \Longleftrightarrow\left(
 a=cb\text{ for some }c\in\left\{  1,-1\right\}  \right) \nonumber\\
@@ -19695,11 +19771,18 @@ a=cb\text{ for some }c\in\left\{  1,-1\right\}  \right) \nonumber\\
 \left(  \left\vert a\right\vert =\left\vert b\right\vert \right)  .
 \label{eq.Z[i].gauss.unit-Z}%
 \end{align}
-But this does not hold for the relation $\sim$. It is easy to find two
-Gaussian integers $\alpha$ and $\beta$ such that $\left\vert \alpha\right\vert
-=\left\vert \beta\right\vert $ holds but $\alpha\sim\beta$ does not (for
-example, $\alpha=16+63i$ and $\beta=33+56i$ both have absolute value $65$ but
-are not unit-equivalent).
+So the relation $\underset{\mathbb{Z}}{\sim}$ is not very exciting: it is
+simply \textquotedblleft equality up to sign\textquotedblright.\footnote{In
+other words, it is precisely the relation $\underset{\operatorname*{abs}%
+}{\equiv}$, where $\operatorname*{abs}:\mathbb{Z}\rightarrow\mathbb{N}$ is the
+map sending each integer $n$ to its absolute value $\left\vert n\right\vert $.
+(See Example \ref{exa.eqrel.eqrel.eqrelf} for how this relation
+$\underset{\operatorname*{abs}}{\equiv}$ is defined.)} But the equality $\sim$
+on $\mathbb{Z}\left[  i\right]  $ cannot be described as simply as this: It is
+easy to find two Gaussian integers $\alpha$ and $\beta$ such that $\left\vert
+\alpha\right\vert =\left\vert \beta\right\vert $ holds but $\alpha\sim\beta$
+does not (for example, $\alpha=16+63i$ and $\beta=33+56i$ both have absolute
+value $65$ but are not unit-equivalent).
 
 \begin{proposition}
 \label{prop.Z[i].gauss.uniteq.eqrel}The relation $\sim$ on $\mathbb{Z}\left[
@@ -19707,84 +19790,96 @@ i\right]  $ is an equivalence relation.
 \end{proposition}
 
 \begin{proof}
-The relation $\sim$ is reflexive. [\textit{Proof:} Each $\alpha\in
-\mathbb{Z}\left[  i\right]  $ satisfies $\alpha=1\alpha$, but $1$ is a unit.]
+[Proof of Proposition \ref{prop.Z[i].gauss.uniteq.eqrel}.]Observe the following:
 
-The relation $\sim$ is symmetric. [\textit{Proof:} Let $\alpha,\beta
-\in\mathbb{Z}\left[  i\right]  $ be such that $\alpha\sim\beta$. From
-$\alpha\sim\beta$, we conclude that $\alpha=\gamma\beta$ for some unit
-$\gamma$. Consider this $\gamma$. Then, $\gamma^{-1}$ is a Gaussian integer
-(since $\gamma$ is a unit) and is also a unit (since $\left(  \gamma
-^{-1}\right)  ^{-1}=\gamma$), and the equality $\alpha=\gamma\beta$ leads to
-$\beta=\gamma^{-1}\alpha$. Hence, $\beta\sim\alpha$.]
+\begin{itemize}
+\item The relation $\sim$ is reflexive.
 
-The relation $\sim$ is transitive. [\textit{Proof:} Let $\alpha,\beta
-,\gamma\in\mathbb{Z}\left[  i\right]  $ be such that $\alpha\sim\beta$ and
-$\beta\sim\gamma$. From $\alpha\sim\beta$, we conclude that $\alpha
-=\delta\beta$ for some unit $\delta$. From $\beta\sim\gamma$, we conclude that
-$\beta=\varepsilon\gamma$ for some unit $\varepsilon$. Now, $\delta
-\varepsilon$ is a product of two units, and thus is itself a unit (since
-$\left(  \delta\varepsilon\right)  ^{-1}=\varepsilon^{-1}\delta^{-1}$). This
-unit $\delta\varepsilon$ satisfies $\alpha=\left(  \delta\varepsilon\right)
-\gamma$ (since $\alpha=\delta\underbrace{\beta}_{=\varepsilon\gamma}%
-=\delta\varepsilon\gamma=\left(  \delta\varepsilon\right)  \gamma$). Hence,
-$\alpha\sim\gamma$.]
+\begin{fineprint}
+[\textit{Proof:} Let $\alpha\in\mathbb{Z}\left[  i\right]  $. Then,
+$\alpha=1\alpha$. But $1$ is a unit (since $1^{-1}=1\in\mathbb{Z}\left[
+i\right]  $). Hence, $\alpha=\gamma\alpha$ for some unit $\gamma\in
+\mathbb{Z}\left[  i\right]  $ (namely, $\gamma=1$). In other words,
+$\alpha\sim\alpha$ (by the definition of the relation $\sim$).
+
+Now, forget that we fixed $\alpha$. We thus have shown that every $\alpha
+\in\mathbb{Z}\left[  i\right]  $ satisfies $\alpha\sim\alpha$. In other words,
+the relation $\sim$ is reflexive.]
+\end{fineprint}
+
+\item The relation $\sim$ is symmetric.
+
+\begin{fineprint}
+[\textit{Proof:} Let $\alpha,\beta\in\mathbb{Z}\left[  i\right]  $ be such
+that $\alpha\sim\beta$. We shall prove that $\beta\sim\alpha$.
+
+We have $\alpha\sim\beta$. In other words, $\alpha=\delta\beta$ for some unit
+$\delta\in\mathbb{Z}\left[  i\right]  $ (by the definition of the relation
+$\sim$). Consider this $\delta$. Note that $\delta$ is a unit; in other words,
+$\delta$ is a Gaussian integer that has an inverse in $\mathbb{Z}\left[
+i\right]  $. Thus, $\delta^{-1}$ is well-defined (since $\delta$ has an
+inverse), and $\delta^{-1}\in\mathbb{Z}\left[  i\right]  $ (since $\delta$ has
+an inverse in $\mathbb{Z}\left[  i\right]  $). Now, $\delta^{-1}$ is a
+Gaussian integer (since $\delta^{-1}\in\mathbb{Z}\left[  i\right]  $) and
+itself has an inverse in $\mathbb{Z}\left[  i\right]  $ (since its inverse is
+$\left(  \delta^{-1}\right)  ^{-1}=\delta\in\mathbb{Z}\left[  i\right]  $). In
+other words, $\delta^{-1}$ is a unit. Furthermore, dividing both sides of the
+equality $\alpha=\delta\beta$ by $\delta$, we find $\delta^{-1}\alpha=\beta$,
+so that $\beta=\delta^{-1}\alpha$. Thus, $\beta=\gamma\alpha$ for some unit
+$\gamma\in\mathbb{Z}\left[  i\right]  $ (namely, for $\gamma=\delta^{-1}$). In
+other words, $\beta\sim\alpha$ (by the definition of the relation $\sim$).
+
+Now, forget that we fixed $\alpha$ and $\beta$. We thus have shown that every
+$\alpha,\beta\in\mathbb{Z}\left[  i\right]  $ satisfying $\alpha\sim\beta$
+satisfy $\beta\sim\alpha$. In other words, the relation $\sim$ is symmetric.]
+\end{fineprint}
+
+\item The relation $\sim$ is transitive.
+
+\begin{fineprint}
+[\textit{Proof:} Let $\alpha,\beta,\gamma\in\mathbb{Z}\left[  i\right]  $ be
+such that $\alpha\sim\beta$ and $\beta\sim\gamma$. We shall prove that
+$\alpha\sim\gamma$.
+
+From $\alpha\sim\beta$, we conclude that $\alpha=\delta\beta$ for some unit
+$\delta\in\mathbb{Z}\left[  i\right]  $ (by the definition of the relation
+$\sim$). From $\beta\sim\gamma$, we conclude that $\beta=\varepsilon\gamma$
+for some unit $\varepsilon\in\mathbb{Z}\left[  i\right]  $ (by the definition
+of the relation $\sim$). Consider these two units $\delta$ and $\varepsilon$.
+Both $\delta$ and $\varepsilon$ are units, and thus have inverses in
+$\mathbb{Z}\left[  i\right]  $ (by the definition of \textquotedblleft
+unit\textquotedblright). In other words, they have inverses, and these
+inverses $\delta^{-1}$ and $\varepsilon^{-1}$ belong to $\mathbb{Z}\left[
+i\right]  $. Now, Proposition \ref{prop.CC.CC.inverse.ab} \textbf{(b)}
+(applied to $\delta$ and $\varepsilon$ instead of $\alpha$ and $\beta$) yields
+that the product $\delta\varepsilon$ has an inverse as well, and this inverse
+is $\left(  \delta\varepsilon\right)  ^{-1}=\delta^{-1}\varepsilon^{-1}$.
+Hence, $\left(  \delta\varepsilon\right)  ^{-1}=\delta^{-1}\varepsilon^{-1}%
+\in\mathbb{Z}\left[  i\right]  $ (since both $\delta^{-1}$ and $\varepsilon
+^{-1}$ belong to $\mathbb{Z}\left[  i\right]  $). Thus, $\delta\varepsilon$ is
+a Gaussian integer (since $\delta$ and $\varepsilon$ are Gaussian integers)
+that has an inverse in $\mathbb{Z}\left[  i\right]  $ (since $\left(
+\delta\varepsilon\right)  ^{-1}\in\mathbb{Z}\left[  i\right]  $). In other
+words, $\delta\varepsilon$ is a unit (by the definition of a \textquotedblleft
+unit\textquotedblright). This unit $\delta\varepsilon$ satisfies
+$\alpha=\left(  \delta\varepsilon\right)  \gamma$ (since $\alpha
+=\delta\underbrace{\beta}_{=\varepsilon\gamma}=\delta\varepsilon\gamma=\left(
+\delta\varepsilon\right)  \gamma$). Hence, $\alpha=\rho\gamma$ for some unit
+$\rho\in\mathbb{Z}\left[  i\right]  $ (namely, for $\rho=\delta\varepsilon$).
+In other words, $\alpha\sim\gamma$ (by the definition of the relation $\sim$).
+
+Now, forget that we fixed $\alpha,\beta,\gamma$. We thus have shown that every
+$\alpha,\beta,\gamma\in\mathbb{Z}\left[  i\right]  $ satisfying $\alpha
+\sim\beta$ and $\beta\sim\gamma$ satisfy $\alpha\sim\gamma$. In other words,
+the relation $\sim$ is transitive.]
+\end{fineprint}
+\end{itemize}
+
+\noindent We have now proven that the relation $\sim$ is reflexive, symmetric
+and transitive. In other words, $\sim$ is an equivalence relation (by the
+definition of \textquotedblleft equivalence relation\textquotedblright). This
+proves Proposition \ref{prop.Z[i].gauss.uniteq.eqrel}.
 \end{proof}
-
-\begin{proposition}
-\label{prop.Z[i].gauss.Norm-N}Let $\alpha\in\mathbb{Z}\left[  i\right]  $.
-Then, $\operatorname*{N}\left(  \alpha\right)  \in\mathbb{N}$.
-\end{proposition}
-
-\begin{proof}
-Write $\alpha$ as $\left(  a,b\right)  $ for $a,b\in\mathbb{Z}$. Then,
-$\operatorname*{N}\left(  \alpha\right)  =a^{2}+b^{2}\in\mathbb{N}$, since
-squares of integers belong to $\mathbb{N}$.
-\end{proof}
-
-\begin{proposition}
-\label{prop.Z[i].gauss.units}The units of $\mathbb{Z}\left[  i\right]  $ are
-$1,-1,i,-i$.
-\end{proposition}
-
-\begin{proof}
-First of all, $1,-1,i,-i$ are units of $\mathbb{Z}\left[  i\right]  $ (since
-$i\left(  -i\right)  =1$). It remains to prove that there are no other units.
-
-So let $\alpha\in\mathbb{Z}\left[  i\right]  $ be a unit. Thus, it has an
-inverse $\alpha^{-1}\in\mathbb{Z}\left[  i\right]  $.
-
-Hence, $\alpha\alpha^{-1}=1$, so that $\operatorname*{N}\left(  \alpha
-\alpha^{-1}\right)  =\operatorname*{N}\left(  1\right)  =\operatorname*{N}%
-\left(  \left(  1,0\right)  \right)  =1^{2}+0^{2}=1$. But the formula
-$\operatorname*{N}\left(  \alpha\beta\right)  =\operatorname*{N}\left(
-\alpha\right)  \cdot\operatorname*{N}\left(  \beta\right)  $ (applied to
-$\beta=\alpha^{-1}$) yields $\operatorname*{N}\left(  \alpha\alpha
-^{-1}\right)  =\operatorname*{N}\left(  \alpha\right)  \cdot\operatorname*{N}%
-\left(  \alpha^{-1}\right)  $. Hence, $\operatorname*{N}\left(  \alpha\right)
-\cdot\operatorname*{N}\left(  \alpha^{-1}\right)  =\operatorname*{N}\left(
-\alpha\alpha^{-1}\right)  =1$. But Proposition \ref{prop.Z[i].gauss.Norm-N}
-yields $\operatorname*{N}\left(  \alpha\right)  ,\operatorname*{N}\left(
-\alpha^{-1}\right)  \in\mathbb{N}$. Hence, $\operatorname*{N}\left(
-\alpha\right)  \cdot\operatorname*{N}\left(  \alpha^{-1}\right)  =1$ yields
-$\operatorname*{N}\left(  \alpha\right)  \mid1$ and thus $\operatorname*{N}%
-\left(  \alpha\right)  =1$ (since $\operatorname*{N}\left(  \alpha\right)
-\in\mathbb{N}$).
-
-But let us write $\alpha$ as $\alpha=\left(  a,b\right)  $ with $a,b\in
-\mathbb{Z}$. Then, $\operatorname*{N}\left(  \alpha\right)  =a^{2}+b^{2}$, so
-that $a^{2}+b^{2}=\operatorname*{N}\left(  \alpha\right)  =1$. This entails
-that $\left(  a,b\right)  $ is either $\left(  1,0\right)  $ or $\left(
--1,0\right)  $ or $\left(  0,1\right)  $ or $\left(  0,-1\right)  $ (since
-$a^{2}+b^{2}=1$ leads to $a^{2}\leq1$ and thus $a\in\left\{  0,1,-1\right\}  $
-and similarly $b\in\left\{  0,1,-1\right\}  $, and we can check all these
-cases by hand). In other words, $\alpha$ is either $1$ or $-1$ or $i$ or $-i$.
-This proves Proposition \ref{prop.Z[i].gauss.units}.
-\end{proof}
-
-As a consequence of Proposition \ref{prop.Z[i].gauss.units}, if we are given
-two Gaussian integers $\alpha$ and $\beta$, we can easily check whether
-$\alpha\sim\beta$ holds.
 
 \begin{proposition}
 \label{prop.Z[i].gauss.norm1}Let $\alpha$ be a Gaussian integer.
@@ -19797,26 +19892,170 @@ if $\alpha$ is a unit.
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.Z[i].gauss.norm1}.]Write $\alpha$ as
-$\alpha=\left(  a,b\right)  =a+bi$ for $a,b\in\mathbb{Z}$. Then,
-$\operatorname*{N}\left(  \alpha\right)  =a^{2}+b^{2}$.
+[Proof of Proposition \ref{prop.Z[i].gauss.norm1}.]\textbf{(a)} This is a
+particular case of Proposition \ref{prop.CC.norm.basics} \textbf{(b)}.
 
-\textbf{(a)} We have $\operatorname*{N}\left(  \alpha\right)  =0$ if and only
-if $a^{2}+b^{2}=0$ (since $\operatorname*{N}\left(  \alpha\right)
-=a^{2}+b^{2}$), which can only happen when both $a$ and $b$ equal $0$, which
-means that $\alpha=0$.
+\textbf{(b)} $\Longrightarrow:$ Assume that $\operatorname*{N}\left(
+\alpha\right)  =1$. We must prove that $\alpha$ is a unit.
 
-\textbf{(b)} We have $\operatorname*{N}\left(  \alpha\right)  =a^{2}+b^{2}$.
-Thus, $\operatorname*{N}\left(  \alpha\right)  =1$ if and only if one of $a$
-and $b$ is $\pm1$ and the other is $0$; but this characterizes the Gaussian
-integers $1,-1,i,-i$, which are precisely the units.
+Proposition \ref{prop.CC.norm.conj} \textbf{(a)} yields $\operatorname*{N}%
+\left(  \alpha\right)  =\alpha\overline{\alpha}$.\ Hence, $\alpha
+\overline{\alpha}=\operatorname*{N}\left(  \alpha\right)  =1$.
+
+But Proposition \ref{prop.Z[i].gauss.conj} shows that $\overline{\alpha}$ is a
+Gaussian integer. In other words, $\overline{\alpha}\in\mathbb{Z}\left[
+i\right]  $. This Gaussian integer $\overline{\alpha}\in\mathbb{Z}\left[
+i\right]  $ is an inverse of $\alpha$ (since $\alpha\overline{\alpha}=1$).
+Thus, $\alpha$ has an inverse in $\mathbb{Z}\left[  i\right]  $ (namely,
+$\overline{\alpha}$). In other words, $\alpha$ is a unit (by the definition of
+\textquotedblleft unit\textquotedblright). This proves the \textquotedblleft%
+$\Longrightarrow$\textquotedblright\ direction of Proposition
+\ref{prop.Z[i].gauss.norm1} \textbf{(b)}.
+
+$\Longleftarrow:$ Assume that $\alpha$ is a unit. We must prove that
+$\operatorname*{N}\left(  \alpha\right)  =1$.
+
+We know that $\alpha$ is a unit. In other words, $\alpha$ is invertible in
+$\mathbb{Z}\left[  i\right]  $. In other words, $\alpha$ has an inverse
+$\alpha^{-1}\in\mathbb{Z}\left[  i\right]  $.
+
+This inverse $\alpha^{-1}$ satisfies $\alpha\alpha^{-1}=1=1_{\mathbb{C}%
+}=\left(  1,0\right)  $, so that
+\begin{align*}
+\operatorname*{N}\left(  \alpha\alpha^{-1}\right)   &  =\operatorname*{N}%
+\left(  \left(  1,0\right)  \right)  =1^{2}+0^{2}\ \ \ \ \ \ \ \ \ \ \left(
+\text{by the definition of }\operatorname*{N}\left(  \left(  1,0\right)
+\right)  \right) \\
+&  =1.
+\end{align*}
+But Proposition \ref{prop.CC.conj.hom} \textbf{(d)} (applied to $\beta
+=\alpha^{-1}$) yields $\operatorname*{N}\left(  \alpha\alpha^{-1}\right)
+=\operatorname*{N}\left(  \alpha\right)  \cdot\operatorname*{N}\left(
+\alpha^{-1}\right)  $. Hence, $\operatorname*{N}\left(  \alpha\right)
+\cdot\operatorname*{N}\left(  \alpha^{-1}\right)  =\operatorname*{N}\left(
+\alpha\alpha^{-1}\right)  =1$. But Proposition \ref{prop.Z[i].gauss.Norm-N}
+yields $\operatorname*{N}\left(  \alpha\right)  \in\mathbb{N}$. The same
+argument (applied to $\alpha^{-1}$ instead of $\alpha$) yields
+$\operatorname*{N}\left(  \alpha^{-1}\right)  \in\mathbb{N}$ (since
+$\alpha^{-1}\in\mathbb{Z}\left[  i\right]  $). Hence, the equality
+$\operatorname*{N}\left(  \alpha\right)  \cdot\operatorname*{N}\left(
+\alpha^{-1}\right)  =1$ entails that $\operatorname*{N}\left(  \alpha\right)
+\mid1$. Consequently, $\operatorname*{N}\left(  \alpha\right)  =1$ (since
+$\operatorname*{N}\left(  \alpha\right)  \in\mathbb{N}$). This proves the
+\textquotedblleft$\Longleftarrow$\textquotedblright\ direction of Proposition
+\ref{prop.Z[i].gauss.norm1} \textbf{(b)}.
 \end{proof}
+
+\begin{proposition}
+\label{prop.Z[i].gauss.units}The units (in $\mathbb{Z}\left[  i\right]  $) are
+$1,-1,i,-i$.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.Z[i].gauss.units}.]Each of the four Gaussian
+integers $1,-1,i,-i$ is a unit\footnote{\textit{Proof.} We have $i\left(
+-i\right)  =1$. Hence, the Gaussian integer $i$ has an inverse, namely
+$i^{-1}=-i$. Similarly, the Gaussian integer $-i$ has an inverse, namely
+$\left(  -i\right)  ^{-1}=i$.
+\par
+The Gaussian integer $1$ is invertible in $\mathbb{Z}\left[  i\right]  $
+(since its inverse is $1^{-1}=1\in\mathbb{Z}\left[  i\right]  $), and thus is
+a unit.
+\par
+The Gaussian integer $-1$ is invertible in $\mathbb{Z}\left[  i\right]  $
+(since its inverse is $\left(  -1\right)  ^{-1}=-1\in\mathbb{Z}\left[
+i\right]  $), and thus is a unit.
+\par
+The Gaussian integer $i$ is invertible in $\mathbb{Z}\left[  i\right]  $
+(since its inverse is $i^{-1}=-i\in\mathbb{Z}\left[  i\right]  $), and thus is
+a unit.
+\par
+The Gaussian integer $-i$ is invertible in $\mathbb{Z}\left[  i\right]  $
+(since its inverse is $\left(  -i\right)  ^{-1}=i\in\mathbb{Z}\left[
+i\right]  $), and thus is a unit.
+\par
+Thus, each of the four Gaussian integers $1,-1,i,-i$ is a unit.}. It remains
+to prove that there are no other units.
+
+So let $\alpha\in\mathbb{Z}\left[  i\right]  $ be a unit. We shall prove that
+$\alpha$ is either $1$ or $-1$ or $i$ or $-i$.
+
+Proposition \ref{prop.Z[i].gauss.norm1} \textbf{(b)} shows that we have
+$\operatorname*{N}\left(  \alpha\right)  =1$ if and only if $\alpha$ is a
+unit. Hence, we have $\operatorname*{N}\left(  \alpha\right)  =1$ (since
+$\alpha$ is a unit).
+
+Let us write the complex number $\alpha$ as $\alpha=\left(  a,b\right)  $.
+Then, $a,b\in\mathbb{Z}$ (since $\alpha\in\mathbb{Z}\left[  i\right]  $).
+Furthermore, the definition of $\operatorname*{N}\left(  \alpha\right)  $
+yields $\operatorname*{N}\left(  \alpha\right)  =a^{2}+b^{2}$, so that
+$a^{2}+b^{2}=\operatorname*{N}\left(  \alpha\right)  =1$. If both integers $a$
+and $b$ were nonzero, then both their squares $a^{2}$ and $b^{2}$ would be
+$\geq1$ (because the square of any nonzero integer is $\geq1$), and thus the
+sum of these squares would be $\underbrace{a^{2}}_{\geq1}+\underbrace{b^{2}%
+}_{\geq1}\geq1+1>1$; but this would contradict $a^{2}+b^{2}=1$. Hence, the two
+integers $a$ and $b$ cannot both be nonzero. In other words, at least one of
+them is $0$. In other words, we have $a=0$ or $b=0$. Thus, we are in one of
+the following two cases:
+
+\textit{Case 1:} We have $a=0$.
+
+\textit{Case 2:} We have $b=0$.
+
+(These two cases could theoretically overlap, though it is easy to see that
+they don't.)
+
+Let us first consider Case 1. In this case, we have $a=0$. Hence, $a^{2}%
++b^{2}=0^{2}+b^{2}=b^{2}$, so that $b^{2}=a^{2}+b^{2}=1$. Hence, $b$ is either
+$1$ or $-1$. Thus, the complex number $\left(  0,b\right)  $ is either
+$\left(  0,1\right)  $ or $\left(  0,-1\right)  $. In other words, the complex
+number $\alpha$ is either $i$ or $-i$ (since $\alpha=\left(  \underbrace{a}%
+_{=0},b\right)  =\left(  0,b\right)  $ and $i=\left(  0,1\right)  $ and
+$-\underbrace{i}_{=\left(  0,1\right)  }=-\left(  0,1\right)  =\left(
+0,-1\right)  $). Thus, $\alpha$ is either $1$ or $-1$ or $i$ or $-i$. So we
+have shown in Case 1 that $\alpha$ is either $1$ or $-1$ or $i$ or $-i$.
+
+Let us next consider Case 2. In this case, we have $b=0$. Hence, $a^{2}%
++b^{2}=a^{2}+0^{2}=a^{2}$, so that $a^{2}=a^{2}+b^{2}=1$. Hence, $a$ is either
+$1$ or $-1$. Thus, the complex number $\left(  a,0\right)  $ is either
+$\left(  1,0\right)  $ or $\left(  -1,0\right)  $. In other words, the complex
+number $\alpha$ is either $1$ or $-1$ (since $\alpha=\left(  a,\underbrace{b}%
+_{=0}\right)  =\left(  a,0\right)  $ and $1=\left(  1,0\right)  $ and
+$-1=\left(  -1,0\right)  $). Thus, $\alpha$ is either $1$ or $-1$ or $i$ or
+$-i$. So we have shown in Case 2 that $\alpha$ is either $1$ or $-1$ or $i$ or
+$-i$.
+
+We have now proven in both Cases 1 and 2 that $\alpha$ is either $1$ or $-1$
+or $i$ or $-i$. Hence, this always holds.
+
+Now, forget that we fixed $\alpha$. We thus have shown that if $\alpha
+\in\mathbb{Z}\left[  i\right]  $ is a unit, then $\alpha$ is either $1$ or
+$-1$ or $i$ or $-i$. Thus, $1,-1,i,-i$ are the only possible units. Since we
+already know that $1,-1,i,-i$ are units, we thus conclude that the units are
+$1,-1,i,-i$. This proves Proposition \ref{prop.Z[i].gauss.units}.
+\end{proof}
+
+As a consequence of Proposition \ref{prop.Z[i].gauss.units}, if we are given
+two Gaussian integers $\alpha$ and $\beta$, we can easily check whether
+$\alpha\sim\beta$ holds: Just check whether we have $\alpha=\beta$ or
+$\alpha=-1\beta$ or $\alpha=i\beta$ or $\alpha=-i\beta$.
 
 \begin{definition}
 \label{def.Z[i].gauss.uniteq.cl}The \textit{unit-equivalence classes} are
 defined to be the equivalence classes of the relation $\sim$ on $\mathbb{Z}%
-\left[  i\right]  $.
-\end{definition}
+\left[  i\right]  $. (We know from Proposition
+\ref{prop.Z[i].gauss.uniteq.eqrel} that this relation $\sim$ is an equivalence relation.)
+\end{definition}%
+
+\[%
+\begin{tabular}
+[c]{||l||}\hline\hline
+\textbf{You have reached the end of the finished part.}\\
+\textbf{TODO: Write on from here.}\\\hline\hline
+\end{tabular}
+\ \ \
+\]
+
 
 \begin{proposition}
 \label{prop.Z[i].gauss.uniteq.cl}The unit-equivalence classes are the sets of
@@ -27594,12 +27833,15 @@ $-module, if you equip it with the addition and the scaling that we defined abov
 
 \begin{noncompile}
 TODO:
+
 \begin{itemize}
 \item Note that the computations we have done in Subsection
 \ref{subsect.equiv.apps.CRT} can be viewed (in a sense) as an application of
 the ring isomorphism $S_{m,n}$ from Example \ref{exa.riiso.CRT}.
+
 \item Example with $\mathbb{K}^{n\times n}$ and $W$ (both arbitrary and
 triangular matrices).
+
 \item ...
 \end{itemize}
 \end{noncompile}
