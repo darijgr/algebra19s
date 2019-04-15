@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, April 15, 2019 15:27:40}
+%TCIDATA{LastRevised=Monday, April 15, 2019 18:17:40}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -19661,9 +19661,12 @@ $\left(  a,b\right)  $ with $a,b\in\mathbb{Z}$.
 
 For example, $3+5i=\left(  3,5\right)  $ and $3-7i=\left(  3,-7\right)  $ are
 Gaussian integers. So are $0=\left(  0,0\right)  $, $1=\left(  1,0\right)  $
-and $i=\left(  0,1\right)  $. Every integer is a Gaussian integer. But
-$\dfrac{1}{2}+3i=\left(  \dfrac{1}{2},3\right)  $ and $\sqrt{2}+4i=\left(
-\sqrt{2},4\right)  $ are not Gaussian integers.
+and $i=\left(  0,1\right)  $. Every integer is a Gaussian
+integer\footnote{This relies on Convention \ref{conv.CC.RRtoCC.embed}, of
+course. If we avoid this convention, then we should instead say that for every
+integer $r$, the complex number $r_{\mathbb{C}}=\left(  r,0\right)  $ is a
+Gaussian integer.}. But $\dfrac{1}{2}+3i=\left(  \dfrac{1}{2},3\right)  $ and
+$\sqrt{2}+4i=\left(  \sqrt{2},4\right)  $ are not Gaussian integers.
 
 \begin{remark}
 In Definition \ref{def.Z[i].gauss.gauss}, we have defined Gaussian integers
@@ -19781,6 +19784,8 @@ $\operatorname*{N}\left(  \alpha\right)  =a^{2}+b^{2}\in\mathbb{N}$. This
 proves Proposition \ref{prop.Z[i].gauss.Norm-N}.
 \end{proof}
 
+\subsubsection{Units and unit-equivalence}
+
 \begin{definition}
 \label{def.Z[i].gauss.unit}\textbf{(a)} A Gaussian integer $\alpha
 \in\mathbb{Z}\left[  i\right]  $ is said to be \textit{invertible in}\textbf{
@@ -19809,10 +19814,10 @@ $\gamma\in\mathbb{Z}$ instead of $\gamma\in\mathbb{Z}\left[  i\right]  $),
 then this relation would just be given by%
 \begin{align}
 \left(  a\underset{\mathbb{Z}}{\sim}b\right)   &  \Longleftrightarrow\left(
-a=cb\text{ for some }c\in\left\{  1,-1\right\}  \right) \nonumber\\
+a=cb\text{ for some }c\in\left\{  1,-1\right\}  \right)  \nonumber\\
 &  \Longleftrightarrow\left(  a=b\text{ or }a=-b\right)  \Longleftrightarrow
-\left(  \left\vert a\right\vert =\left\vert b\right\vert \right)  .
-\label{eq.Z[i].gauss.unit-Z}%
+\left(  \left\vert a\right\vert =\left\vert b\right\vert \right)
+.\label{eq.Z[i].gauss.unit-Z}%
 \end{align}
 So the relation $\underset{\mathbb{Z}}{\sim}$ is not very exciting: it is
 simply \textquotedblleft equality up to sign\textquotedblright.\footnote{In
@@ -19820,12 +19825,12 @@ other words, it is precisely the relation $\underset{\operatorname*{abs}%
 }{\equiv}$, where $\operatorname*{abs}:\mathbb{Z}\rightarrow\mathbb{N}$ is the
 map sending each integer $n$ to its absolute value $\left\vert n\right\vert $.
 (See Example \ref{exa.eqrel.eqrel.eqrelf} for how this relation
-$\underset{\operatorname*{abs}}{\equiv}$ is defined.)} But the equality $\sim$
+$\underset{\operatorname*{abs}}{\equiv}$ is defined.)} But the relation $\sim$
 on $\mathbb{Z}\left[  i\right]  $ cannot be described as simply as this: It is
 easy to find two Gaussian integers $\alpha$ and $\beta$ such that $\left\vert
 \alpha\right\vert =\left\vert \beta\right\vert $ holds but $\alpha\sim\beta$
-does not (for example, $\alpha=16+63i$ and $\beta=33+56i$ both have absolute
-value $65$ but are not unit-equivalent).
+does not (for example, the Gaussian integers $\alpha=16+63i$ and
+$\beta=33+56i$ both have absolute value $65$ but are not unit-equivalent).
 
 \begin{proposition}
 \label{prop.Z[i].gauss.uniteq.eqrel}The relation $\sim$ on $\mathbb{Z}\left[
@@ -20270,19 +20275,54 @@ hold: There exist Gaussian integers $\alpha$ and $\beta$ satisfying
 $\operatorname*{N}\left(  \alpha\right)  =\operatorname*{N}\left(
 \beta\right)  $ that are not unit-equivalent.
 
-\subsubsection{Divisibility and congruence}%
+For the sake of the next subsection, let us state a simple property of integers:
 
-\[%
-\begin{tabular}
-[c]{||l||}\hline\hline
-\textbf{You have reached the end of the finished part.}\\
-\textbf{TODO: Write on from here.}\\\hline\hline
-\end{tabular}
-\ \ \ \
+\begin{lemma}
+\label{lem.Z[i].gauss.div.no-clobber}Let $a$ and $b$ be two integers. Then, we
+have the logical equivalence%
+\[
+\left(  a\mid b\right)  \ \Longleftrightarrow\ \left(  \text{there exists a
+Gaussian integer }\gamma\text{ such that }b=a\gamma\right)  .
 \]
 
+\end{lemma}
 
-Now, we begin to do proper number theory with Gaussian integers. The next
+\begin{proof}
+[Proof of Lemma \ref{lem.Z[i].gauss.div.no-clobber}.] $\Longrightarrow:$
+Assume that $a\mid b$. We must prove that there exists a Gaussian integer
+$\gamma$ such that $b=a\gamma$.
+
+Thus, there exists an integer $c$ such that $b=ac$ (by the definition of
+divisibility). Consider this $c$. Then, $c$ is an integer, and thus is a
+Gaussian integer. Hence, there$\ $there exists a Gaussian integer $\gamma$
+such that $b=a\gamma$ (namely, $\gamma=c$). Thus, the \textquotedblleft%
+$\Longrightarrow$\textquotedblright\ direction of Lemma
+\ref{lem.Z[i].gauss.div.no-clobber} is proven.
+
+$\Longleftarrow:$ Assume that there exists a Gaussian integer $\gamma$ such
+that $b=a\gamma$. We must prove that $a\mid b$.
+
+We have assumed that there exists a Gaussian integer $\gamma$ such that
+$b=a\gamma$. Consider this $\gamma$. Write the complex number $\gamma$ as
+$\gamma=\left(  c,d\right)  $ with $c,d\in\mathbb{R}$. Then, $c,d\in
+\mathbb{Z}$ (since $\gamma$ is a Gaussian integer). In other words, $c$ and
+$d$ are integers. Furthermore, $b=a\underbrace{\gamma}_{=\left(  c,d\right)
+}=a\left(  c,d\right)  =\left(  ac,ad\right)  $ (by Proposition
+\ref{prop.CC.CC.a(b,c)}, applied to $\left(  c,d\right)  $ instead of $\left(
+b,c\right)  $). This is an equality between a real number (namely, $b$) and a
+complex number (namely, $\left(  ac,ad\right)  $); thus, it means
+$b_{\mathbb{C}}=\left(  ac,ad\right)  $ (according to Convention
+\ref{conv.CC.RRtoCC.embed}). But $b_{\mathbb{C}}=\left(  b,0\right)  $ (by the
+definition of $b_{\mathbb{C}}$). Hence, $\left(  b,0\right)  =b_{\mathbb{C}%
+}=\left(  ac,ad\right)  $. In other words, $b=ac$ and $0=ad$. Now, from
+$b=ac$, we obtain $a\mid b$ (since $c$ is an integer). This proves the
+\textquotedblleft$\Longleftarrow$\textquotedblright\ direction of Lemma
+\ref{lem.Z[i].gauss.div.no-clobber}.
+\end{proof}
+
+\subsubsection{Divisibility and congruence}
+
+Now, let us begin to do proper number theory with Gaussian integers. The next
 definition is the straightforward analogue of Definition \ref{def.ent.div.div}.
 
 \begin{definition}
@@ -20296,21 +20336,36 @@ integer $\gamma$ such that $\beta=\alpha\gamma$.
 We furthermore say that $\alpha\nmid\beta$ if $\alpha$ does not divide $\beta$.
 \end{definition}
 
-When making such a definition, we need to be very careful: Potentially, it
-might create a clash of notations. In fact, every integer is a Gaussian
-integer. If $a$ and $b$ are integers, then the statement \textquotedblleft%
-$a\mid b$\textquotedblright\ already has a meaning (explained in Definition
-\ref{def.ent.div.div}). Definition \ref{def.Z[i].gauss.div} gives this
-statement a new meaning, because we can consider our integers $a$ and $b$ as
-Gaussian integers. If these two meanings are not equivalent, then we have laid
-ourselves a landmine!
+When making such a definition, we need to be careful: Potentially, it might
+create a clash of notations. In fact, if $a$ and $b$ are integers, then the
+statement \textquotedblleft$a\mid b$\textquotedblright\ already has a meaning
+(explained in Definition \ref{def.ent.div.div}). Definition
+\ref{def.Z[i].gauss.div} gives this statement a new meaning, because we can
+consider our integers $a$ and $b$ as Gaussian integers (since every integer is
+a Gaussian integer). If these two meanings are not equivalent, then the
+statement \textquotedblleft$a\mid b$\textquotedblright\ becomes ambiguous (as
+it now has two different meanings) -- so we have laid ourselves a landmine!
 
 Fortunately, these two meanings \textbf{are} equivalent. That is: If $a$ and
 $b$ are two integers, then the statement \textquotedblleft$a\mid
 b$\textquotedblright\ interpreted according to Definition
 \ref{def.ent.div.div} is equivalent to the statement \textquotedblleft$a\mid
 b$\textquotedblright\ interpreted according to Definition
-\ref{def.Z[i].gauss.div}. This follows from the following proposition:
+\ref{def.Z[i].gauss.div}. Indeed, if $a$ and $b$ are two integers, then we
+have the following chain of equivalences:%
+\begin{align*}
+& \ \left(  a\mid b\text{ in the sense of Definition \ref{def.ent.div.div}%
+}\right)  \\
+& \Longleftrightarrow\ \left(  \text{there exists a Gaussian integer }%
+\gamma\text{ such that }b=a\gamma\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by
+Lemma \ref{lem.Z[i].gauss.div.no-clobber}}\right)  \\
+& \Longleftrightarrow\ \left(  a\mid b\text{ in the sense of Definition
+\ref{def.Z[i].gauss.div}}\right)  .
+\end{align*}
+Thus, the two possible meanings of \textquotedblleft$a\mid b$%
+\textquotedblright\ are equivalent, and so we are spared of any ambiguity.
+
+More generally, the following proposition holds:
 
 \begin{proposition}
 \label{prop.Z[i].gauss.div.int|gauss}Let $a\in\mathbb{Z}$ and $\beta=\left(
@@ -20319,33 +20374,51 @@ if $a$ divides both $b$ and $c$.
 \end{proposition}
 
 \begin{proof}
-We have the following equivalence:%
-\begin{align*}
-&  \ \left(  a\mid\beta\right) \\
-&  \Longleftrightarrow\ \left(  \text{there exists a Gaussian integer }%
-\gamma\text{ such that }\beta=a\gamma\right) \\
-&  \Longleftrightarrow\ \left(  \text{there exists a Gaussian integer }\left(
-u,v\right)  \text{ such that }\beta=a\left(  u,v\right)  \right) \\
-&  \Longleftrightarrow\ \left(  \text{there exist integers }u\text{ and
-}v\text{ such that }\beta=a\left(  u,v\right)  \right) \\
-&  \Longleftrightarrow\ \left(  \text{there exist integers }u\text{ and
-}v\text{ such that }\underbrace{\left(  b,c\right)  =\left(  au,av\right)
-}_{\Longleftrightarrow\ \left(  b=au\text{ and }c=av\right)  }\right) \\
-&  \ \ \ \ \ \ \ \ \ \ \left(  \text{since }\beta=\left(  b,c\right)  \text{
-and }a\left(  u,v\right)  =\left(  au,av\right)  \right) \\
-&  \Longleftrightarrow\ \left(  \text{there exist integers }u\text{ and
-}v\text{ such that }b=au\text{ and }c=av\right) \\
-&  \Longleftrightarrow\ \underbrace{\left(  \text{there exists an integer
-}u\text{ such that }b=au\right)  }_{\Longleftrightarrow\ \left(  a\mid
-b\right)  }\\
-&  \ \ \ \ \ \ \ \ \ \ \wedge\underbrace{\left(  \text{there exists an integer
-}v\text{ such that }c=av\right)  }_{\Longleftrightarrow\ \left(  a\mid
-c\right)  }\\
-&  \Longleftrightarrow\ \left(  a\mid b\right)  \wedge\left(  a\mid c\right)
-\\
-&  \Longleftrightarrow\ \left(  a\text{ divides }b\text{ and }c\right)  .
-\end{align*}
+[Proof of Proposition \ref{prop.Z[i].gauss.div.int|gauss}.] $\Longrightarrow:$
+Assume that $a\mid\beta$. We must prove that $a$ divides both $b$ and $c$.
 
+The statement $a\mid\beta$ means that there exists a Gaussian integer $\gamma$
+such that $\beta=a\gamma$ (according to Definition \ref{def.Z[i].gauss.div}).
+Thus, there exists a Gaussian integer $\gamma$ such that $\beta=a\gamma$
+(since $a\mid\beta$). Consider this $\gamma$. Write the complex number
+$\gamma$ in the form $\gamma=\left(  u,v\right)  $ for some $u,v\in\mathbb{R}%
+$. Then, $u,v\in\mathbb{Z}$ (since $\gamma$ is a Gaussian integer). In other
+words, $u$ and $v$ are integers.
+
+Recall that $\beta=\left(  b,c\right)  $. Hence, $\left(  b,c\right)
+=\beta=a\underbrace{\gamma}_{=\left(  u,v\right)  }=a\left(  u,v\right)
+=\left(  au,av\right)  $ (by Proposition \ref{prop.CC.CC.a(b,c)}, applied to
+$\left(  u,v\right)  $ instead of $\left(  b,c\right)  $). In other words,
+$b=au$ and $c=av$. From $b=au$, we obtain $a\mid b$ (since $u$ is an integer).
+From $c=av$, we obtain $a\mid c$ (since $v$ is an integer). Thus, we have
+$a\mid b$ and $a\mid c$. In other words, $a$ divides both $b$ and $c$. This
+proves the \textquotedblleft$\Longrightarrow$\textquotedblright\ direction of
+Proposition \ref{prop.Z[i].gauss.div.int|gauss}.
+
+$\Longleftarrow:$ Assume that $a$ divides both $b$ and $c$. We must prove that
+$a\mid\beta$.
+
+We have assumed that $a$ divides both $b$ and $c$. In other words, $a\mid b$
+and $a\mid c$. From $a\mid b$, we conclude that there exists an integer $u$
+such that $b=au$ (by the definition of divisibility). Consider this $u$. From
+$a\mid c$, we conclude that there exists an integer $v$ such that $c=av$ (by
+the definition of divisibility). Consider this $v$. Note that $u$ and $v$ are
+integers; in other words, $u,v\in\mathbb{Z}$.
+
+The complex number $\left(  u,v\right)  $ is a Gaussian integer (since
+$u,v\in\mathbb{Z}$). Moreover, Proposition \ref{prop.CC.CC.a(b,c)} (applied to
+$\left(  u,v\right)  $ instead of $\left(  b,c\right)  $) yields $a\left(
+u,v\right)  =\left(  au,av\right)  $. Comparing this with $\beta=\left(
+\underbrace{b}_{=au},\underbrace{c}_{=av}\right)  =\left(  au,av\right)  $, we
+obtain $\beta=a\left(  u,v\right)  $. Hence, there exists a Gaussian integer
+$\gamma$ such that $\beta=a\gamma$ (namely, $\gamma=\left(  u,v\right)  $).
+
+The statement $a\mid\beta$ means that there exists a Gaussian integer $\gamma$
+such that $\beta=a\gamma$ (according to Definition \ref{def.Z[i].gauss.div}).
+Thus, $a\mid\beta$ (since there exists a Gaussian integer $\gamma$ such that
+$\beta=a\gamma$). This proves the \textquotedblleft$\Longleftarrow
+$\textquotedblright\ direction of Proposition
+\ref{prop.Z[i].gauss.div.int|gauss}.
 \end{proof}
 
 The next proposition is a (partial) analogue of Proposition
@@ -20368,11 +20441,23 @@ Note that we are using the norms $\operatorname*{N}\left(  \alpha\right)  $
 and $\operatorname*{N}\left(  \beta\right)  $ as analogues of $\left\vert
 a\right\vert $ and $\left\vert b\right\vert $ here, since the absolute values
 $\left\vert \alpha\right\vert $ and $\left\vert \beta\right\vert $ of Gaussian
-integers are often irrational and thus it makes no sense to talk of their divisibility.
+integers are often irrational and thus it makes no sense to talk of their
+divisibility. (At least, this prevents us from using the absolute values of
+$\alpha$ and $\beta$ in Proposition \ref{prop.Z[i].gauss.div.1} \textbf{(a)}.
+We could use them in Proposition \ref{prop.Z[i].gauss.div.1} \textbf{(b)}.)
 
 Note that the converse of Proposition \ref{prop.Z[i].gauss.div.1} \textbf{(a)}
 does not hold. (That is, $\operatorname*{N}\left(  \alpha\right)
-\mid\operatorname*{N}\left(  \beta\right)  $ does not yield $\alpha\mid\beta$.)
+\mid\operatorname*{N}\left(  \beta\right)  $ does not yield $\alpha\mid\beta$.)%
+
+\[%
+\begin{tabular}
+[c]{||l||}\hline\hline
+\textbf{You have reached the end of the finished part.}\\
+\textbf{TODO: Write on from here.}\\\hline\hline
+\end{tabular}
+\]
+
 
 \begin{proof}
 [Proof of Proposition \ref{prop.Z[i].gauss.div.1}.]\textbf{(a)} Assume that
@@ -21339,7 +21424,7 @@ The next definition is an analogue of Definition \ref{def.ent.coprime.coprime}:
 
 \begin{definition}
 \label{def.Z[i].gauss.coprime}Let $\alpha$ and $\beta$ be two Gaussian
-integers. We say that $\alpha$ is \textbf{coprime} to $\beta$ if and only if
+integers. We say that $\alpha$ is \textit{coprime} to $\beta$ if and only if
 $\gcd\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  \alpha,\beta\right)
 \sim1$ (that is, $\gcd\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
 \alpha,\beta\right)  $ is a unit).
@@ -21449,7 +21534,7 @@ Theorem \ref{thm.ent.lcm.gcd*lcm} still holds, in the sense that
 $\gcd\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  \alpha,\beta\right)
 \cdot\operatorname{lcm}_{\mathbb{Z}\left[  i\right]  }\left(  \alpha
 ,\beta\right)  \sim\alpha\beta$. Many other properties of lowest common
-multiplies extend to Gaussian integers.
+multiples extend to Gaussian integers.
 
 The Chinese remainder theorem (Theorem \ref{thm.ent.crt1}) still holds for
 coprime Gaussian integers $\mu$ and $\nu$. Similarly for $k$ mutually coprime
@@ -21666,8 +21751,8 @@ $\overline{\pi}$ is also a Gaussian prime, and we do not have $\pi
 
 For example, the Type-1 prime $17$ satisfies%
 \begin{align*}
-17 &  =1^{2}+4^{2}=\left(  1+4i\right)  \left(  1-4i\right)  =\left(
-1+4i\right)  \left(  \overline{1+4i}\right)  \\
+17  &  =1^{2}+4^{2}=\left(  1+4i\right)  \left(  1-4i\right)  =\left(
+1+4i\right)  \left(  \overline{1+4i}\right) \\
 &  =\left(  1-4i\right)  \left(  \overline{1-4i}\right)  =\left(  4+i\right)
 \left(  \overline{4+i}\right)  .
 \end{align*}
@@ -22657,14 +22742,14 @@ So $F$ is a bijection. Thus,%
 &  =\left\vert \left\{  \alpha\in\mathbb{Z}\left[  i\right]  \ \mid
 \ n=\alpha\overline{\alpha}\right\}  \right\vert \\
 &  =\left(  \text{the number of }\alpha\in\mathbb{Z}\left[  i\right]  \text{
-such that }n=\alpha\overline{\alpha}\right)  \\
+such that }n=\alpha\overline{\alpha}\right) \\
 &  =\left(  \text{the number of pairs }\left(  x,y\right)  \in\mathbb{Z}%
 ^{2}\text{ such that }n=x^{2}+y^{2}\right)  ,
 \end{align*}
 so that%
 \begin{align*}
 &  \left(  \text{the number of pairs }\left(  x,y\right)  \in\mathbb{Z}%
-^{2}\text{ such that }n=x^{2}+y^{2}\right)  \\
+^{2}\text{ such that }n=x^{2}+y^{2}\right) \\
 &  =\left\vert \left\{  1,i,-1,-i\right\}  \times\prod_{h=1}^{k}\left\{
 0,1,\ldots,a_{h}\right\}  \right\vert =\underbrace{\left\vert \left\{
 1,i,-1,-i\right\}  \right\vert }_{=4}\cdot\prod_{h=1}^{k}%
