@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Sunday, April 14, 2019 22:40:43}
+%TCIDATA{LastRevised=Sunday, April 14, 2019 23:27:04}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -27023,8 +27023,7 @@ unique solution.
 
 \item There is a matrix $B\in\mathbb{K}^{n\times n}$ such that $BA=I_{n}$.
 
-\item We have $\det A\neq0$. (We will later define determinants and study them
-in some detail.)
+\item We have $\det A\neq0$. (We will later define determinants.)
 \end{itemize}
 
 (Matrices satisfying these equivalent conditions are called
@@ -27223,7 +27222,7 @@ Subspaces are often called \textit{vector subspaces}.
 A similar definition defines subspaces of $\mathbb{K}^{n\times1}$ (column vectors).
 
 There is a more general version of this definition, which extends it to
-subspaces of arbitrary vector spaces (see below); we may come to it later.
+subspaces of arbitrary vector spaces (see below).
 
 \begin{definition}
 \label{def.laf.lincomb}Let $n\in\mathbb{N}$. Let $v_{1},v_{2},\ldots,v_{k}$ be
@@ -27576,16 +27575,17 @@ A:=\left(
 0 & 1 & 1 & 1\\
 0 & 0 & 1 & 1
 \end{array}
-\right)  \in\left(  \mathbb{Z} / 2 \right)  ^{4 \times4} .
+\right)  \in\left(  \mathbb{Z}/2\right)  ^{4\times4}%
 \]
-The reachable states are thus exactly the elements of $\operatorname*{Row}A$,
-the row space of $A$.
+to our state. The reachable states are thus exactly the elements of
+$\operatorname*{Row}A$, the row space of $A$.
 
 Hence, our goal is to show that $\left(  1,1,1,1\right)  \in
 \operatorname*{Row}A$.
 
-This is quite easy for the concrete matrix $A$ above, but let us try a
-theoretical argument. It will rely on the following general fact:
+This is quite easy for the concrete matrix $A$ above (just notice that
+$\left(  1,1,1,1\right)  $ is the sum of the $1$-st and $4$-th rows of $A$);
+but let us try a theoretical argument. It will rely on the following general fact:
 
 \begin{proposition}
 \label{prop.laf.Ac0bc0}Let $\mathbb{K}$ be a field. Let $A\in\mathbb{K}%
@@ -27754,14 +27754,15 @@ b
 \end{array}
 \right)
 \]
-(since $\operatorname{rank} B = \dim\operatorname{Row} B$ for any matrix $B$).
-But $\operatorname*{Row}A\subseteq\operatorname*{Row}\left(
+(since $\operatorname{rank}B=\dim\operatorname{Row}B$ for any matrix $B$). But
+$\operatorname*{Row}A\subseteq\operatorname*{Row}\left(
 \begin{array}
 [c]{c}%
 A\\
 b
 \end{array}
-\right)  $ (by definition of a row space). Combining these facts, we obtain%
+\right)  $ (by the definition of a row space). Combining these facts, we
+obtain%
 \[
 \operatorname*{Row}A=\operatorname*{Row}\left(
 \begin{array}
@@ -27778,13 +27779,14 @@ $U=\operatorname*{Row}A$ and $V=\operatorname*{Row}\left(
 A\\
 b
 \end{array}
-\right)  $). Thus, $b\in\operatorname*{Row}\left(
+\right)  $). But the definition of a row space yields $b\in\operatorname*{Row}%
+\left(
 \begin{array}
 [c]{c}%
 A\\
 b
 \end{array}
-\right)  =\operatorname*{Row}A$, qed.
+\right)  =\operatorname*{Row}A$. This proves Proposition \ref{prop.laf.Ac0bc0}.
 \end{proof}
 
 Over the field $\mathbb{Z}/2$, this fact has the following consequence:
@@ -27906,10 +27908,11 @@ One thing that uses positivity is QR-decomposition. And indeed, not every
 matrix over an arbitrary field has a QR-decomposition.
 
 You can still define dot products and orthogonal complements of subspaces. But
-it is no longer true that $V=U\oplus U^{\perp}$ for a subspace $U$ of $V$. It
-can happen that $U\cap U^{\perp}\neq0$. For example, there are column vectors
-$v\neq0$ that are orthogonal to themselves with respect to the dot product
-(that is, $v^{T}v=0$).
+it is no longer true that $\mathbb{K}^{n\times1}=U\oplus U^{\perp}$ for any
+subspace $U$ of $\mathbb{K}^{n\times1}$. It can happen that $U\cap U^{\perp
+}\neq\left\{  0\right\}  $. For example, there are column vectors
+$v\neq0_{n\times1}$ that are orthogonal to themselves with respect to the dot
+product (that is, $v^{T}v=0$).
 
 \textbf{Example:} In $\mathbb{Z}/3$, we have%
 \[
@@ -27945,8 +27948,36 @@ So the vector $\left(
 \end{array}
 \right)  \in\left(  \mathbb{Z}/3\right)  ^{3\times1}$ is orthogonal to itself.
 
-\subsection{Modules}
+\subsection{Modules: coordinate-free linear algebra}
 
+There are two common approaches to linear algebra: The first is the study of
+matrices and column vectors (or row vectors); this is down-to-earth but often
+clumsy and unenlightening. The second is the study of vector spaces and linear
+transformations; this is more abstract but more general and often better for
+conceptual understanding. The first approach is known as \textit{matrix
+algebra}; the second is called \textit{coordinate-free linear algebra}.
+
+These two approaches are closely connected: The first can be viewed as a
+particular case of the second (as the column vectors of a given size $n$ form
+a vector space, and any matrix defines a linear map between two such vector
+spaces); the second appears more general but in reality can often be reduced
+to the first (viz., theorems about vector spaces can often be proven by
+\textquotedblleft picking bases\textquotedblright\ and representing linear
+maps by matrices with respect to these bases). Thus, a sufficiently deep
+course on linear algebra will necessarily survey both of these approaches, and
+practitioners of the subjects will often apply whichever approach fits a
+problem better.
+
+In the above few sections, we have seen how the first approach can be
+generalized from real or complex matrices to matrices over any field (and, as
+far as the basics are concerned, over any commutative ring). We shall now try
+this with the second approach. Over a field, the second approach turns out to
+work out in pretty much the same way as over the real or complex numbers;
+however, over a commutative ring, things become a lot more interesting.
+
+\subsubsection{The definition}
+
+Let us begin by defining the analogue of a vector space: a \textit{module}.
 Roughly speaking, a module is the same as a vector space, except that it is
 over a commutative ring instead of a field:
 
@@ -27956,7 +27987,7 @@ over a commutative ring instead of a field:
 A $\mathbb{K}$\textit{-module} means a set $M$ equipped with
 
 \begin{itemize}
-\item a binary operation $+$ (called \textquotedblleft\textit{addition}%
+\item a binary operation $+$ on $M$ (called \textquotedblleft\textit{addition}%
 \textquotedblright, and not to be confused with the addition of $\mathbb{K}$),
 
 \item a map $\cdot\ :\ \mathbb{K}\times M\rightarrow M$ (called
@@ -28010,29 +28041,164 @@ are called $\mathbb{K}$\textit{-vector spaces}. (When $\mathbb{K}=\mathbb{R}$,
 these are the usual real vector spaces known from undergraduate linear algebra classes.)
 \end{definition}
 
+\subsubsection{Examples}
+
+Thus, any vector space you have seen in linear algebra is an example of a
+module. Let us see some other examples:
+
 \begin{example}
-\label{exa.module.1}\textbf{(a)} If $\mathbb{K}$ is a commutative ring, and
-$n\in\mathbb{N}$, then $\mathbb{K}^{n}$ (that is, the set of all $n$-tuples of
-elements of $\mathbb{K}$) is a $\mathbb{K}$-module, if you equip it with
-entrywise addition (that is,%
+\label{exa.module.K}Let $\mathbb{K}$ be a commutative ring. Then, $\mathbb{K}$
+itself is a $\mathbb{K}$-module (with the addition given by the addition
+$+_{\mathbb{K}}$ of $\mathbb{K}$, and with the scaling given by the scaling
+given by the multiplication $\cdot_{\mathbb{K}}$ of $\mathbb{K}$).
+\end{example}
+
+\begin{example}
+\label{exa.module.Kn}Let $\mathbb{K}$ be a commutative ring. Let
+$n\in\mathbb{N}$. Equip the set $\mathbb{K}^{n}$ (that is, the set of all
+$n$-tuples of elements of $\mathbb{K}$) with entrywise addition (that is, a
+binary operation $+$ on $\mathbb{K}^{n}$ defined by%
 \[
 \left(  a_{1},a_{2},\ldots,a_{n}\right)  +\left(  b_{1},b_{2},\ldots
 ,b_{n}\right)  =\left(  a_{1}+b_{1},a_{2}+b_{2},\ldots,a_{n}+b_{n}\right)
 \]
-) and entrywise scaling (that is,%
+for all $\left(  a_{1},a_{2},\ldots,a_{n}\right)  ,\left(  b_{1},b_{2}%
+,\ldots,b_{n}\right)  \in\mathbb{K}^{n}$) and entrywise scaling (that is, a
+map $\cdot:\mathbb{K}\times\mathbb{K}^{n}\rightarrow\mathbb{K}^{n}$ defined by%
 \[
 \lambda\left(  a_{1},a_{2},\ldots,a_{n}\right)  =\left(  \lambda a_{1},\lambda
 a_{2},\ldots,\lambda a_{n}\right)
 \]
-).
-
-\textbf{(b)} If $\mathbb{K}$ is a commutative ring, and $n,m\in\mathbb{N}$,
-then $\mathbb{K}^{n\times m}$ is a $\mathbb{K}$-module, if you equip it with
-the addition and the scaling that we defined above.
-
-\textbf{(c)} For each integer $n$, the set $\mathbb{Z}/n$ is a $\mathbb{Z}%
-$-module, if you equip it with the addition and the scaling that we defined above.
+for all $\lambda\in\mathbb{K}$ and $\left(  a_{1},a_{2},\ldots,a_{n}\right)
+\in\mathbb{K}^{n}$). Then, $\mathbb{K}^{n}$ becomes a $\mathbb{K}$-module.
 \end{example}
+
+\begin{example}
+\label{exa.module.Knm}Let $\mathbb{K}$ be a commutative ring. Let
+$n,m\in\mathbb{N}$. Equip the set $\mathbb{K}^{n\times m}$ (that is, the set
+of all $n\times m$-matrix over $\mathbb{K}$) with the addition defined in
+Definition \ref{def.matrix.+-} \textbf{(a)} and the scaling defined in
+Definition \ref{def.matrix.+-} \textbf{(c)}. Then, $\mathbb{K}^{n\times m}$
+becomes a $\mathbb{K}$-module.
+\end{example}
+
+\begin{example}
+\label{exa.module.Z/n}Let $n$ be an integer. Then:
+
+\textbf{(a)} The set $\mathbb{Z}/n$ is a $\mathbb{Z}$-module, if you equip it
+with the addition and the scaling that we defined above (in Definition
+\ref{def.eqrel.Z/n.op} and Definition \ref{def.eqrel.Z/n.scaling}).
+
+\textbf{(b)} The set $n\mathbb{Z}:=\left\{  nz\ \mid\ z\in\mathbb{Z}\right\}
+=\left\{  \text{all multiples of }n\right\}  $ is a $\mathbb{Z}$-module (again
+equipped with the usual addition as addition, and the usual multiplication as scaling).
+\end{example}
+
+\begin{example}
+\label{exa.module.Q}The set $\mathbb{Q}$ (equipped with the usual addition,
+and with a scaling defined by the usual multiplication) is a $\mathbb{Z}%
+$-module. More generally, for every $q\in\mathbb{Q}$, the subset $q\mathbb{Z}$
+of $\mathbb{Q}$ is a $\mathbb{Z}$-module. For example, $\dfrac{1}{2}%
+\mathbb{Z}=\left\{  \ldots,-2,-1.5,-1,-0.5,0,0.5,1,1.5,2,\ldots\right\}  $.
+\end{example}
+
+\subsubsection{Features and rules}
+
+TODO:
+
+\begin{itemize}
+\item Subtraction automatic (as before).
+
+\item Subtraction on $\mathbb{K}^{n\times m}$ and $\mathbb{Z}/n$ follows from
+this construction.
+\end{itemize}
+
+\subsubsection{Linear maps}
+
+\begin{itemize}
+\item Define.
+
+\item aka module homomorphisms.
+
+\item Sufficient to require only one axiom: $f\left(  \lambda a+\mu b\right)
+=\lambda f\left(  a\right)  +\mu f\left(  b\right)  $.
+
+\item Each matrix $A\in\mathbb{K}^{n\times m}$ induces a linear map
+$L_{A}:\mathbb{K}^{m\times1}\rightarrow\mathbb{K}^{n\times1}$ given by
+$v\mapsto Av$.
+
+\item These are the only linear maps between $\mathbb{K}^{m\times1}%
+\rightarrow\mathbb{K}^{n\times1}$.
+
+\item hom $\circ$ hom = hom.
+
+\item hom $+$ hom.
+
+\item Rules for addition and multiplication of homs.
+
+\item $\operatorname*{Hom}$ module and $\operatorname*{End}$ ring.
+
+\item module isomorphisms.
+
+\item again, invertible hom = iso.
+
+\item $\mathbb{K}^{n\times1}\cong\mathbb{K}^{1\times n}\cong\mathbb{K}^{n}$.
+
+\item $\mathbb{K}^{n\times m}\cong\mathbb{K}^{m\times n}$ via transpose.
+
+\item $\operatorname*{End}\left(  \mathbb{K}^{n}\right)  \cong\mathbb{K}%
+^{n\times n}$ and $\operatorname*{Hom}\left(  \mathbb{K}^{n},\mathbb{K}%
+^{m}\right)  \cong\mathbb{K}^{m\times n}$.
+
+\item Matrix associativity via maps: $L_{A}\circ L_{B}=L_{AB}$.
+\end{itemize}
+
+\subsubsection{Submodules}
+
+\begin{itemize}
+\item define submodules.
+
+\item e.g. $n\mathbb{Z}$ and $\mathbb{Q}$.
+
+\item vector subspaces.
+
+\item Our old subspaces are a particular case of this.
+\end{itemize}
+
+\subsubsection{Bases etc.}
+
+\begin{itemize}
+\item Redo Definition \ref{def.laf.lincomb}.
+
+\item Fin-generated modules ($\approx$ fin-dim vector spaces).
+
+\item When $\mathbb{K}$ is a field, each fin-gen $\mathbb{K}$-module has a
+basis and thus is $\cong\mathbb{K}^{n}$ for a unique $n\in\mathbb{N}$. (There
+is an analogue in $\infty$ dim, provided you correctly define basis and
+believe ZFC.)
+
+\item How much survives of our theorems? A bit does.
+\end{itemize}
+
+\subsubsection{Constructions}
+
+\begin{itemize}
+\item direct products of modules.
+
+\item CRT as a $\mathbb{Z}$-module isomorphism.
+
+\item kernels and images of linear maps.
+
+\item Congruences modulo a submodule.
+
+\item Quotient modules.
+
+\item Example: $\mathbb{Z}/n\cong\mathbb{Z}/n\mathbb{Z}$.
+
+\item universal property of quotient module.
+
+\item rank-nullity theorem.
+\end{itemize}
 
 TODO:
 
@@ -34861,7 +35027,7 @@ S\left(  p,m\right)   &  =\sum_{k=0}^{m}\left(  \underbrace{L\left(  p\right)
 ^{m}\\
 &  =\underbrace{1+\left(  -1\right)  +1+\left(  -1\right)  +\cdots+1+\left(
 -1\right)  +1}_{m+1\text{ many addends, alternating between }1\text{ and }%
--1}\ \ \ \ \ \ \ \ \ \ \left(  \text{since }m+1\text{ is odd}\right)  \\
+-1}\ \ \ \ \ \ \ \ \ \ \left(  \text{since }m+1\text{ is odd}\right) \\
 &  =1
 \end{align*}
 (since $m+1$ is odd). This proves Lemma \ref{lem.sol.ent.count-divs-134.Lsum}
@@ -34877,7 +35043,7 @@ S\left(  p,m\right)   &  =\left(  -1\right)  ^{0}+\left(  -1\right)
 ^{1}+\cdots+\left(  -1\right)  ^{m}\\
 &  =\underbrace{1+\left(  -1\right)  +1+\left(  -1\right)  +\cdots+1+\left(
 -1\right)  }_{m+1\text{ many addends, alternating between }1\text{ and }%
--1}\ \ \ \ \ \ \ \ \ \ \left(  \text{since }m+1\text{ is even}\right)  \\
+-1}\ \ \ \ \ \ \ \ \ \ \left(  \text{since }m+1\text{ is even}\right) \\
 &  =0
 \end{align*}
 (since $m+1$ is even). This proves Lemma \ref{lem.sol.ent.count-divs-134.Lsum}
@@ -34901,7 +35067,7 @@ S\left(  p,m\right)   &  =\sum_{k=0}^{m}\left(  \underbrace{L\left(  p\right)
 }_{=0}\right)  ^{k}=\sum_{k=0}^{m}0^{k}=\underbrace{0^{0}}_{=1}+\sum_{k=1}%
 ^{m}\underbrace{0^{k}}_{\substack{=0\\\text{(since }k\geq1\text{)}}}\\
 &  \ \ \ \ \ \ \ \ \ \ \left(  \text{here, we have split off the addend for
-}k=0\text{ from the sum}\right)  \\
+}k=0\text{ from the sum}\right) \\
 &  =1+\underbrace{\sum_{k=1}^{m}0}_{=0}=1.
 \end{align*}
 This proves Lemma \ref{lem.sol.ent.count-divs-134.Lsum} \textbf{(d)}.
@@ -35036,9 +35202,9 @@ S\left(  p,\underbrace{v_{p}\left(  n\right)  }_{\substack{=0\\\text{(by
 (\ref{sol.ent.count-divs-134.vpn=0}))}}}\right)   &  =S\left(  p,0\right)
 =\sum_{k=0}^{0}\left(  L\left(  p\right)  \right)  ^{k}%
 \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of }S\left(  p,0\right)
-\right)  \nonumber\\
-&  =\left(  L\left(  p\right)  \right)  ^{0}%
-=1.\label{sol.ent.count-divs-134.S=1}%
+\right) \nonumber\\
+&  =\left(  L\left(  p\right)  \right)  ^{0}=1.
+\label{sol.ent.count-divs-134.S=1}%
 \end{align}
 Thus, all but finitely many primes $p$ satisfy $S\left(  p,v_{p}\left(
 n\right)  \right)  =1$ (since all but finitely many primes $p$ satisfy
@@ -35047,22 +35213,22 @@ finitely many factors of the product $\prod_{p\text{ prime}}S\left(
 p,v_{p}\left(  n\right)  \right)  $ are $1$. Thus, this product is
 well-defined. Moreover, we can split this product as follows:%
 \begin{align*}
-&  \prod_{p\text{ prime}}S\left(  p,v_{p}\left(  n\right)  \right)  \\
+&  \prod_{p\text{ prime}}S\left(  p,v_{p}\left(  n\right)  \right) \\
 &  =\left(  \prod_{\substack{p\text{ prime;}\\p\in\left\{  p_{1},p_{2}%
 ,\ldots,p_{u}\right\}  }}S\left(  p,v_{p}\left(  n\right)  \right)  \right)
 \left(  \prod_{\substack{p\text{ prime;}\\p\notin\left\{  p_{1},p_{2}%
 ,\ldots,p_{u}\right\}  }}\underbrace{S\left(  p,v_{p}\left(  n\right)
 \right)  }_{\substack{=1\\\text{(by (\ref{sol.ent.count-divs-134.S=1}))}%
-}}\right)  \\
+}}\right) \\
 &  \ \ \ \ \ \ \ \ \ \ \left(
 \begin{array}
 [c]{c}%
 \text{since each prime }p\text{ satisfies either }p\in\left\{  p_{1}%
-,p_{2},\ldots,p_{u}\right\}  \\
+,p_{2},\ldots,p_{u}\right\} \\
 \text{or }p\notin\left\{  p_{1},p_{2},\ldots,p_{u}\right\}  \text{ (but not
 both simultaneously)}%
 \end{array}
-\right)  \\
+\right) \\
 &  =\left(  \prod_{\substack{p\text{ prime;}\\p\in\left\{  p_{1},p_{2}%
 ,\ldots,p_{u}\right\}  }}S\left(  p,v_{p}\left(  n\right)  \right)  \right)
 \underbrace{\left(  \prod_{\substack{p\text{ prime;}\\p\notin\left\{
@@ -35071,11 +35237,11 @@ p_{1},p_{2},\ldots,p_{u}\right\}  }}1\right)  }_{=1}\\
 ,p_{2},\ldots,p_{u}\right\}  }}}_{\substack{=\prod_{p\in\left\{  p_{1}%
 ,p_{2},\ldots,p_{u}\right\}  }\\\text{(since each }p\in\left\{  p_{1}%
 ,p_{2},\ldots,p_{u}\right\}  \\\text{is a prime)}}}S\left(  p,v_{p}\left(
-n\right)  \right)  \\
+n\right)  \right) \\
 &  =\prod_{p\in\left\{  p_{1},p_{2},\ldots,p_{u}\right\}  }S\left(
 p,v_{p}\left(  n\right)  \right)  =\prod_{i=1}^{u}S\left(  p_{i}%
 ,\underbrace{v_{p_{i}}\left(  n\right)  }_{\substack{=a_{i}\\\text{(by
-(\ref{sol.ent.count-divs-134.ai=}))}}}\right)  \\
+(\ref{sol.ent.count-divs-134.ai=}))}}}\right) \\
 &  \ \ \ \ \ \ \ \ \ \ \left(
 \begin{array}
 [c]{c}%
@@ -35083,7 +35249,7 @@ p,v_{p}\left(  n\right)  \right)  =\prod_{i=1}^{u}S\left(  p_{i}%
 \text{since the map }\left\{  1,2,\ldots,u\right\}  \rightarrow\left\{
 p_{1},p_{2},\ldots,p_{u}\right\}  ,\ i\mapsto p_{i}\text{ is a bijection}%
 \end{array}
-\right)  \\
+\right) \\
 &  =\prod_{i=1}^{u}\underbrace{S\left(  p_{i},a_{i}\right)  }_{\substack{=\sum
 _{k=0}^{a_{i}}\left(  L\left(  p_{i}\right)  \right)  ^{k}\\\text{(by the
 definition of }S\left(  p_{i},a_{i}\right)  \text{)}}}=\prod_{i=1}^{u}%
@@ -35091,8 +35257,8 @@ definition of }S\left(  p_{i},a_{i}\right)  \text{)}}}=\prod_{i=1}^{u}%
 \end{align*}
 Comparing this with (\ref{sol.ent.count-divs-134.b.5}), we obtain%
 \begin{equation}
-z=\prod_{p\text{ prime}}S\left(  p,v_{p}\left(  n\right)  \right)
-.\label{sol.ent.count-divs-134.last-common}%
+z=\prod_{p\text{ prime}}S\left(  p,v_{p}\left(  n\right)  \right)  .
+\label{sol.ent.count-divs-134.last-common}%
 \end{equation}
 
 
@@ -35192,23 +35358,23 @@ _{\substack{p\text{ prime;}\\p\%4=1}}$\textquotedblright. Thus,%
 \begin{equation}
 \prod_{\substack{p\text{ prime;}\\p\equiv1\operatorname{mod}4}}\left(
 v_{p}\left(  n\right)  +1\right)  =\prod_{\substack{p\text{ prime;}%
-\\p\%4=1}}\left(  v_{p}\left(  n\right)  +1\right)
-.\label{sol.ent.count-divs-134.b.6}%
+\\p\%4=1}}\left(  v_{p}\left(  n\right)  +1\right)  .
+\label{sol.ent.count-divs-134.b.6}%
 \end{equation}
 
 
 Now, (\ref{sol.ent.count-divs-134.last-common}) becomes
 \begin{align*}
-z &  =\prod_{p\text{ prime}}S\left(  p,v_{p}\left(  n\right)  \right)
+z  &  =\prod_{p\text{ prime}}S\left(  p,v_{p}\left(  n\right)  \right)
 =\left(  \prod_{\substack{p\text{ prime;}\\p\%4=1}}\underbrace{S\left(
 p,v_{p}\left(  n\right)  \right)  }_{\substack{=v_{p}\left(  n\right)
 +1\\\text{(by Lemma \ref{lem.sol.ent.count-divs-134.Lsum} \textbf{(a)}%
 }\\\text{(applied to }m=v_{p}\left(  n\right)  \text{))}}}\right)
 \cdot\left(  \prod_{\substack{p\text{ prime;}\\p\%4\neq1}}\underbrace{S\left(
 p,v_{p}\left(  n\right)  \right)  }_{\substack{=1\\\text{(by Claim 1)}%
-}}\right)  \\
+}}\right) \\
 &  \ \ \ \ \ \ \ \ \ \ \left(  \text{since each prime }p\text{ satisfies
-either }p\%4=1\text{ or }p\%4\neq1\text{ (but not both)}\right)  \\
+either }p\%4=1\text{ or }p\%4\neq1\text{ (but not both)}\right) \\
 &  =\left(  \prod_{\substack{p\text{ prime;}\\p\%4=1}}\left(  v_{p}\left(
 n\right)  +1\right)  \right)  \cdot\underbrace{\left(  \prod
 _{\substack{p\text{ prime;}\\p\%4\neq1}}1\right)  }_{=1}=\prod
