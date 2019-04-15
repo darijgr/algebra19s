@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, April 15, 2019 14:05:18}
+%TCIDATA{LastRevised=Monday, April 15, 2019 15:27:40}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -324,6 +324,11 @@ way, but it does provide some clues to the answer that we will later see. In
 order to prove this observation, we shall need basic modular arithmetic (or at
 least division with remainder); we will see this proof very soon (see Exercise
 \ref{exe.ent.even-odd-sumsq} \textbf{(c)}).
+
+We will resolve Question \ref{quest.intro.sum-of-2sq.1} using the theory of
+Gaussian integers in Chapter \ref{chp.CC}. For a survey of different
+approaches to Question \ref{quest.intro.sum-of-2sq.1} (including a full answer
+using finite fields), see \cite[Chapter 4]{AigZie18}.
 
 Further questions can be asked. One of them is: Given an integer $n$, how many
 ways are there to represent $n$ as a sum of two perfect squares? This is
@@ -21661,12 +21666,16 @@ $\overline{\pi}$ is also a Gaussian prime, and we do not have $\pi
 
 For example, the Type-1 prime $17$ satisfies%
 \begin{align*}
-17  &  =1^{2}+4^{2}=\left(  1+4i\right)  \left(  1-4i\right)  =\left(
-1+4i\right)  \left(  \overline{1+4i}\right) \\
+17 &  =1^{2}+4^{2}=\left(  1+4i\right)  \left(  1-4i\right)  =\left(
+1+4i\right)  \left(  \overline{1+4i}\right)  \\
 &  =\left(  1-4i\right)  \left(  \overline{1-4i}\right)  =\left(  4+i\right)
 \left(  \overline{4+i}\right)  .
 \end{align*}
 
+
+Note that the claim of Theorem \ref{thm.Z[i].gauss.prime.1mod4} \textbf{(a)}
+(at least for $p\neq2$) also appears in \cite[Proposition in Chapter
+4]{AigZie18}, with a very different proof.
 
 Before we can prove Theorem \ref{thm.Z[i].gauss.prime.1mod4}, we will have to
 build up the theory of Gaussian primes a bit more. We first state the
@@ -21982,11 +21991,11 @@ always get a contradiction. Thus, the proof of Theorem
 \end{proof}
 
 We have thus answered Question \ref{quest.intro.sum-of-2sq.2} \textbf{(b)} in
-the case when $n$ is a prime: We have shown that $p$ is a sum of two perfect
-squares if and only if either $p=2$ or $p\equiv1\operatorname{mod}4$; and we
-have shown that the number of pairs $\left(  x,y\right)  \in\mathbb{Z}^{2}$
-satisfying $p=x^{2}+y^{2}$ is $8$ when $p\equiv1\operatorname{mod}4$ and is
-$4$ when $p=2$ (the latter claim is easy to check).
+the case when $n$ is a prime: We have shown that a prime $p$ is a sum of two
+perfect squares if and only if either $p=2$ or $p\equiv1\operatorname{mod}4$;
+and we have shown that the number of pairs $\left(  x,y\right)  \in
+\mathbb{Z}^{2}$ satisfying $p=x^{2}+y^{2}$ is $8$ when $p\equiv
+1\operatorname{mod}4$ and is $4$ when $p=2$ (the latter claim is easy to check).
 
 What about the case of arbitrary $n$?
 
@@ -22648,14 +22657,14 @@ So $F$ is a bijection. Thus,%
 &  =\left\vert \left\{  \alpha\in\mathbb{Z}\left[  i\right]  \ \mid
 \ n=\alpha\overline{\alpha}\right\}  \right\vert \\
 &  =\left(  \text{the number of }\alpha\in\mathbb{Z}\left[  i\right]  \text{
-such that }n=\alpha\overline{\alpha}\right) \\
+such that }n=\alpha\overline{\alpha}\right)  \\
 &  =\left(  \text{the number of pairs }\left(  x,y\right)  \in\mathbb{Z}%
 ^{2}\text{ such that }n=x^{2}+y^{2}\right)  ,
 \end{align*}
 so that%
 \begin{align*}
 &  \left(  \text{the number of pairs }\left(  x,y\right)  \in\mathbb{Z}%
-^{2}\text{ such that }n=x^{2}+y^{2}\right) \\
+^{2}\text{ such that }n=x^{2}+y^{2}\right)  \\
 &  =\left\vert \left\{  1,i,-1,-i\right\}  \times\prod_{h=1}^{k}\left\{
 0,1,\ldots,a_{h}\right\}  \right\vert =\underbrace{\left\vert \left\{
 1,i,-1,-i\right\}  \right\vert }_{=4}\cdot\prod_{h=1}^{k}%
@@ -22672,6 +22681,12 @@ $p\notin\left\{  p_{1},p_{2},\ldots,p_{h}\right\}  $ of Type 1 satisfy
 $v_{p}\left(  n\right)  =0$.) This proves Theorem \ref{thm.Z[i].count-xx+yy}
 \textbf{(b)}.
 \end{proof}
+
+One consequence of Theorem \ref{thm.Z[i].count-xx+yy} is that a positive
+integer $n$ can be written in the form $x^{2}+y^{2}$ with $x,y\in\mathbb{Z}$
+if and only if it has the property that for each prime $p\equiv
+3\operatorname{mod}4$, the number $v_{p}\left(  n\right)  $ is even. A
+different proof of this fact appears in \cite[Theorem in Chapter 4]{AigZie18}.
 
 \subsubsection{What are the Gaussian primes?}
 
@@ -22691,7 +22706,7 @@ Each Gaussian prime is unit-equivalent to one of the Gaussian primes in this lis
 \end{theorem}
 
 \begin{proof}
-HW5.
+See HW5 exercise 3.
 \end{proof}
 
 \subsection{Brief survey of similar number systems}
@@ -28677,8 +28692,8 @@ For each $j\in\left\{  1,2,\ldots,m\right\}  $, we let define a column vector
 $e_{j}$ as in Definition \ref{def.module.ej}.
 
 Now, let $F$ be the $n\times m$-matrix whose columns are the $m$ column
-vectors $f\left(  e_{1}\right)  ,f\left(  e_{2}\right)  ,\ldots,f\left(
-e_{m}\right)  $. We claim that $f=L_{F}$.
+vectors \newline$f\left(  e_{1}\right)  ,f\left(  e_{2}\right)  ,\ldots
+,f\left(  e_{m}\right)  $. We claim that $f=L_{F}$.
 
 Indeed, for each $j\in\left\{  1,2,\ldots,m\right\}  $, we have%
 \begin{align*}
@@ -37264,6 +37279,10 @@ real numbers.)
 
 \begin{thebibliography}{999999999}                                                                                        %
 
+
+\bibitem[AigZie18]{AigZie}%
+\href{https://doi.org/10.1007/978-3-662-44205-0}{Martin Aigner, G\"{u}nter M.
+Ziegler, \textit{Proofs from the Book}, 6th edition, Springer 2018.}
 
 \bibitem[AndAnd14]{AndAnd14}%
 \href{https://doi.org/10.1007/978-0-8176-8415-0}{Titu Andreescu, Dorin
