@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Saturday, April 13, 2019 21:23:39}
+%TCIDATA{LastRevised=Sunday, April 14, 2019 22:40:43}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -13355,6 +13355,43 @@ Note that Proposition \ref{prop.ent.count-divs} \textbf{(b)} is the particular
 case of Exercise \ref{exe.ent.count-divs-k} \textbf{(b)} obtained when setting
 $k=0$ (because each integer $z$ satisfies $z^{0}=1$, and thus $\sum_{d\mid
 n}d^{0}$ is the number of positive divisors of $n$).
+
+\begin{exercise}
+\label{exe.ent.count-divs-134}Let $n$ be a positive integer. Let%
+\begin{align*}
+z  &  =\left(  \text{the number of positive divisors $d$ of $n$ such that
+$d\equiv1\mod 4$}\right) \\
+&  \ \ \ \ \ \ \ \ \ \ -\left(  \text{the number of positive divisors $d$ of
+$n$ such that $d\equiv3\mod 4$}\right)  .
+\end{align*}
+
+
+Prove the following:
+
+\textbf{(a)} If there exists a prime $p$ satisfying $p\equiv
+3\operatorname{mod}4$ and $v_{p}\left(  n\right)  \equiv1\operatorname{mod}2$,
+then $z=0$.
+
+\textbf{(b)} If there exists no prime $p$ satisfying $p\equiv
+3\operatorname{mod}4$ and $v_{p}\left(  n\right)  \equiv1\operatorname{mod}2$,
+then
+\[
+z=\prod_{\substack{p\text{ prime;}\\p\equiv1\operatorname{mod}4}}\left(
+v_{p}\left(  n\right)  +1\right)  .
+\]
+
+
+[\textbf{Hint:} For every $u\in\mathbb{Z}$, set $L\left(  u\right)  =%
+\begin{cases}
+1, & \text{if }u\%4=1;\\
+-1, & \text{if }u\%4=3;\\
+0, & \text{otherwise.}%
+\end{cases}
+$ Prove that $L\left(  uv\right)  =L\left(  u\right)  \cdot L\left(  v\right)
+$ for any integers $u$ and $v$. Then, show that $z=\sum_{d\mid n}L\left(
+d\right)  $. Exploit the similarity between the sum $\sum_{d\mid n}L\left(
+d\right)  $ and the sum in Exercise \ref{exe.ent.count-divs-k} \textbf{(b)}.]
+\end{exercise}
 
 \section{Equivalence relations and residue classes}
 
@@ -34121,6 +34158,1111 @@ $k\in\mathbb{Z}$ satisfies%
 \]
 This solves Exercise \ref{exe.ent.count-divs-k} \textbf{(b)}.
 \end{proof}
+\end{fineprint}
+
+\subsection{Solution to Exercise \ref{exe.ent.count-divs-134}}
+
+\begin{fineprint}
+We shall prepare for the solution to Exercise \ref{exe.ent.count-divs-134} by
+defining a function $L$ on $\mathbb{Z}$ and proving a bunch of its properties.
+
+\begin{definition}
+\label{def.sol.ent.count-divs-134.L}Throughout this section, we shall use the
+following notation:
+
+For each $u\in\mathbb{Z}$, we set%
+\[
+L\left(  u\right)  =%
+\begin{cases}
+1, & \text{if }u\%4=1;\\
+-1, & \text{if }u\%4=3;\\
+0, & \text{otherwise.}%
+\end{cases}
+\]
+
+\end{definition}
+
+We notice the following properties of this definition:
+
+\begin{lemma}
+\label{lem.sol.ent.count-divs-134.L0}Let $u\in\mathbb{Z}$.
+
+\textbf{(a)} If $\gcd\left(  u,4\right)  \neq1$, then $L\left(  u\right)  =0$.
+
+\textbf{(b)} If $\gcd\left(  u,4\right)  =1$, then $L\left(  u\right)  \equiv
+u\operatorname{mod}4$.
+\end{lemma}
+
+\begin{proof}
+[Proof of Lemma \ref{lem.sol.ent.count-divs-134.L0}.]Corollary
+\ref{cor.ent.quo-rem.remmod} \textbf{(a)} (applied to $n=4$) yields
+$u\%4\in\left\{  0,1,\ldots,4-1\right\}  $ and $u\%4\equiv u\operatorname{mod}%
+4$. Hence, $u\equiv u\%4\operatorname{mod}4$ and $u\%4\in\left\{
+0,1,\ldots,4-1\right\}  =\left\{  0,1,2,3\right\}  $.
+
+Proposition \ref{prop.ent.gcd.props1} \textbf{(e)} (applied to $a=4$ and
+$b=u$) yields $\gcd\left(  4,u\right)  =\gcd\left(  4,u\%4\right)  $. But
+Proposition \ref{prop.ent.gcd.props1} \textbf{(b)} yields
+\begin{equation}
+\gcd\left(  u,4\right)  =\gcd\left(  4,u\right)  =\gcd\left(  4,u\%4\right)  .
+\label{pf.lem.sol.ent.count-divs-134.L0.1}%
+\end{equation}
+
+
+We have $u\%4\in\left\{  0,1,2,3\right\}  $. In other words, we have $u\%4=0$
+or $u\%4=1$ or $u\%4=2$ or $u\%4=3$. Hence, we are in one of the following
+four cases:
+
+\textit{Case 1:} We have $u\%4=0$.
+
+\textit{Case 2:} We have $u\%4=1$.
+
+\textit{Case 3:} We have $u\%4=2$.
+
+\textit{Case 4:} We have $u\%4=3$.
+
+Let us first consider Case 1. In this case, we have $u\%4=0$. Hence, we have
+neither $u\%4=1$ nor $u\%4=3$.
+
+Also, from $u\%4=0$, we obtain $\gcd\left(  u,4\right)  \neq1$%
+\ \ \ \ \footnote{\textit{Proof.} Proposition \ref{prop.ent.gcd.props1}
+\textbf{(a)} (applied to $a=4$) yields $\gcd\left(  4,0\right)  =\gcd\left(
+4\right)  =\left\vert 4\right\vert $.
+\par
+Now, (\ref{pf.lem.sol.ent.count-divs-134.L0.1}) becomes $\gcd\left(
+u,4\right)  =\gcd\left(  4,\underbrace{u\%4}_{=0}\right)  =\gcd\left(
+4,0\right)  =\left\vert 4\right\vert =4\neq1$.}. Hence, $\gcd\left(
+u,4\right)  =1$ is false. Thus, the claim of Lemma
+\ref{lem.sol.ent.count-divs-134.L0} \textbf{(b)} is vacuously true (in Case
+1). Furthermore, the definition of $L\left(  u\right)  $ yields $L\left(
+u\right)  =%
+\begin{cases}
+1, & \text{if }u\%4=1;\\
+-1, & \text{if }u\%4=3;\\
+0, & \text{otherwise}%
+\end{cases}
+=0$ (since we have neither $u\%4=1$ nor $u\%4=3$). Thus, the claim of Lemma
+\ref{lem.sol.ent.count-divs-134.L0} \textbf{(a)} is true (in Case 1). Hence,
+we have proven that both Lemma \ref{lem.sol.ent.count-divs-134.L0}
+\textbf{(a)} and Lemma \ref{lem.sol.ent.count-divs-134.L0} \textbf{(b)} are
+true (in Case 1). In other words, Lemma \ref{lem.sol.ent.count-divs-134.L0} is
+proven in Case 1.
+
+Let us next consider Case 2. In this case, we have $u\%4=1$.
+
+Thus, $\gcd\left(  u,4\right)  =1$\ \ \ \ \footnote{\textit{Proof.} The
+equality (\ref{pf.lem.sol.ent.count-divs-134.L0.1}) becomes $\gcd\left(
+u,4\right)  =\gcd\left(  4,\underbrace{u\%4}_{=1}\right)  =\gcd\left(
+4,1\right)  =\gcd\left(  1,4\right)  $ (by Proposition
+\ref{prop.ent.gcd.props1} \textbf{(b)}). But $1\mid4$; hence, Proposition
+\ref{prop.ent.gcd.props1} \textbf{(i)} (applied to $a=1$ and $b=4$) yields
+$\gcd\left(  1,4\right)  =\left\vert 1\right\vert =1$. Hence, $\gcd\left(
+u,4\right)  =\gcd\left(  1,4\right)  =1$.}. Hence, $\gcd\left(  u,4\right)
+\neq1$ is false. Thus, the claim of Lemma \ref{lem.sol.ent.count-divs-134.L0}
+\textbf{(a)} is vacuously true (in Case 2). Furthermore, the definition of
+$L\left(  u\right)  $ yields $L\left(  u\right)  =%
+\begin{cases}
+1, & \text{if }u\%4=1;\\
+-1, & \text{if }u\%4=3;\\
+0, & \text{otherwise}%
+\end{cases}
+=1$ (since $u\%4=1$), so that $L\left(  u\right)  =1=u\%4\equiv
+u\operatorname{mod}4$. Thus, the claim of Lemma
+\ref{lem.sol.ent.count-divs-134.L0} \textbf{(b)} is true (in Case 2). Hence,
+we have proven that both Lemma \ref{lem.sol.ent.count-divs-134.L0}
+\textbf{(a)} and Lemma \ref{lem.sol.ent.count-divs-134.L0} \textbf{(b)} are
+true (in Case 2). In other words, Lemma \ref{lem.sol.ent.count-divs-134.L0} is
+proven in Case 2.
+
+Let us next consider Case 3. In this case, we have $u\%4=2$. Hence, we have
+neither $u\%4=1$ nor $u\%4=3$.
+
+Also, from $u\%4=2$, we obtain $\gcd\left(  u,4\right)  \neq1$%
+\ \ \ \ \footnote{\textit{Proof.} We have $2\mid4$; thus, Proposition
+\ref{prop.ent.gcd.props1} \textbf{(i)} (applied to $a=2$ and $b=4$) yields
+$\gcd\left(  2,4\right)  =\left\vert 2\right\vert =2$. On the other hand,
+Proposition \ref{prop.ent.gcd.props1} \textbf{(b)} yields $\gcd\left(
+4,2\right)  =\gcd\left(  2,4\right)  =2$.
+\par
+Now, (\ref{pf.lem.sol.ent.count-divs-134.L0.1}) becomes $\gcd\left(
+u,4\right)  =\gcd\left(  4,\underbrace{u\%4}_{=2}\right)  =\gcd\left(
+4,2\right)  =2\neq1$.}. Hence, $\gcd\left(  u,4\right)  =1$ is false. Thus,
+the claim of Lemma \ref{lem.sol.ent.count-divs-134.L0} \textbf{(b)} is
+vacuously true (in Case 3). Furthermore, the definition of $L\left(  u\right)
+$ yields $L\left(  u\right)  =%
+\begin{cases}
+1, & \text{if }u\%4=1;\\
+-1, & \text{if }u\%4=3;\\
+0, & \text{otherwise}%
+\end{cases}
+=0$ (since we have neither $u\%4=1$ nor $u\%4=3$). Thus, the claim of Lemma
+\ref{lem.sol.ent.count-divs-134.L0} \textbf{(a)} is true (in Case 3). Hence,
+we have proven that both Lemma \ref{lem.sol.ent.count-divs-134.L0}
+\textbf{(a)} and Lemma \ref{lem.sol.ent.count-divs-134.L0} \textbf{(b)} are
+true (in Case 3). In other words, Lemma \ref{lem.sol.ent.count-divs-134.L0} is
+proven in Case 3.
+
+Finally, let us consider Case 4. In this case, we have $u\%4=3$. Thus,
+$\gcd\left(  u,4\right)  =1$\ \ \ \ \footnote{\textit{Proof.} From
+(\ref{pf.lem.sol.ent.count-divs-134.L0.1}), we obtain%
+\begin{align*}
+\gcd\left(  u,4\right)   &  =\gcd\left(  4,\underbrace{u\%4}_{=3}\right)
+=\gcd\left(  4,3\right)  =\gcd\left(  3,4\right)  \ \ \ \ \ \ \ \ \ \ \left(
+\text{by Proposition \ref{prop.ent.gcd.props1} \textbf{(b)}}\right) \\
+&  =\gcd\left(  3,\underbrace{4\%3}_{=1}\right)  \ \ \ \ \ \ \ \ \ \ \left(
+\text{by Proposition \ref{prop.ent.gcd.props1} \textbf{(e)}, applied to
+}a=3\text{ and }b=4\right) \\
+&  =\gcd\left(  3,1\right)  =\gcd\left(  1,3\right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition \ref{prop.ent.gcd.props1}
+\textbf{(b)}}\right)  .
+\end{align*}
+But $1\mid3$; thus, Proposition \ref{prop.ent.gcd.props1} \textbf{(i)}
+(applied to $a=1$ and $b=3$) yields $\gcd\left(  1,3\right)  =\left\vert
+1\right\vert =1$. Hence, $\gcd\left(  u,4\right)  =\gcd\left(  1,3\right)
+=1$.}. Hence, $\gcd\left(  u,4\right)  \neq1$ is false. Thus, the claim of
+Lemma \ref{lem.sol.ent.count-divs-134.L0} \textbf{(a)} is vacuously true (in
+Case 4). Furthermore, $-1\equiv3\operatorname{mod}4$ (since $\left(
+-1\right)  -3=-4$ is divisible by $4$). But the definition of $L\left(
+u\right)  $ yields $L\left(  u\right)  =%
+\begin{cases}
+1, & \text{if }u\%4=1;\\
+-1, & \text{if }u\%4=3;\\
+0, & \text{otherwise}%
+\end{cases}
+=-1$ (since $u\%4=3$), so that $L\left(  u\right)  =-1\equiv3=u\%4\equiv
+u\operatorname{mod}4$. Thus, the claim of Lemma
+\ref{lem.sol.ent.count-divs-134.L0} \textbf{(b)} is true (in Case 4). Hence,
+we have proven that both Lemma \ref{lem.sol.ent.count-divs-134.L0}
+\textbf{(a)} and Lemma \ref{lem.sol.ent.count-divs-134.L0} \textbf{(b)} are
+true (in Case 4). In other words, Lemma \ref{lem.sol.ent.count-divs-134.L0} is
+proven in Case 4.
+
+We have now proven Lemma \ref{lem.sol.ent.count-divs-134.L0} in all four Cases
+1, 2, 3 and 4. Thus, Lemma \ref{lem.sol.ent.count-divs-134.L0} always holds.
+\end{proof}
+
+\begin{lemma}
+\label{lem.sol.ent.count-divs-134.xyz}Let $x,y,z$ be three elements of the set
+$\left\{  -1,0,1\right\}  $. If $xy\equiv z\operatorname{mod}4$, then $xy=z$.
+\end{lemma}
+
+\begin{proof}
+[Proof of Lemma \ref{lem.sol.ent.count-divs-134.xyz}.]It is easy to prove this
+lemma by mechanically verifying that it holds for all $3^{3}$ possible choices
+of $\left(  x,y,z\right)  $; but here is a \textquotedblleft
+smarter\textquotedblright\ proof:
+
+We have $x\in\left\{  -1,0,1\right\}  =\left\{  -1,0,\ldots,1\right\}  $. In
+other words, $-1\leq x\leq1$. In other words, $\left\vert x\right\vert \leq1$.
+Similarly, $\left\vert y\right\vert \leq1$. We can multiply the two
+inequalities $\left\vert x\right\vert \leq1$ and $\left\vert y\right\vert
+\leq1$ together (this is legitimate, since all of their sides $\left\vert
+x\right\vert $, $1$, $\left\vert y\right\vert $ and $1$ are nonnegative
+reals); thus we obtain $\left\vert x\right\vert \cdot\left\vert y\right\vert
+\leq1\cdot1=1$. Now, (\ref{eq.ent.div.abs(xy)}) yields $\left\vert
+xy\right\vert =\left\vert x\right\vert \cdot\left\vert y\right\vert \leq1$. In
+other words, $-1\leq xy\leq1$. Furthermore, $x$ and $y$ are two elements of
+$\left\{  -1,0,1\right\}  $ and thus are integers; hence, $xy$ is an integer
+as well. Thus, from $-1\leq xy\leq1$, we obtain $xy\in\left\{  -1,0,\ldots
+,1\right\}  =\left\{  -1,0,1\right\}  $. Therefore, $xy+1\in\left\{
+0,1,2\right\}  \subseteq\left\{  0,1,2,3\right\}  =\left\{  0,1,\ldots
+,4-1\right\}  $.
+
+Also, from $z\in\left\{  -1,0,1\right\}  $, we obtain $z+1\in\left\{
+0,1,2\right\}  \subseteq\left\{  0,1,2,3\right\}  =\left\{  0,1,\ldots
+,4-1\right\}  $.
+
+Adding the congruence $xy\equiv z\operatorname{mod}4$ to the trivial
+congruence $1\equiv1\operatorname{mod}4$, we obtain $xy+1\equiv
+z+1\operatorname{mod}4$. Hence, Corollary \ref{cor.ent.quo-rem.remmod}
+\textbf{(c)} (applied to $n=4$, $u=z+1$ and $c=xy+1$) shows that
+\begin{equation}
+xy+1=\left(  z+1\right)  \%4 \label{pf.lem.sol.ent.count-divs-134.Luv.at}%
+\end{equation}
+(since $xy+1\in\left\{  0,1,\ldots,4-1\right\}  $).
+
+On the other hand, $z+1\in\left\{  0,1,\ldots,4-1\right\}  $ and $z+1\equiv
+z+1\operatorname{mod}4$ (obviously). Hence, Corollary
+\ref{cor.ent.quo-rem.remmod} \textbf{(c)} (applied to $n=4$, $u=z+1$ and
+$c=z+1$) shows that $z+1=\left(  z+1\right)  \%4$. Comparing this equality
+with (\ref{pf.lem.sol.ent.count-divs-134.Luv.at}), we find $xy+1=z+1$.
+Cancelling $1$ from this equality, we find $xy=z$. This proves Lemma
+\ref{lem.sol.ent.count-divs-134.xyz}.
+\end{proof}
+
+\begin{lemma}
+\label{lem.sol.ent.count-divs-134.Luv}Let $u\in\mathbb{Z}$ and $v\in
+\mathbb{Z}$. Then, $L\left(  uv\right)  =L\left(  u\right)  \cdot L\left(
+v\right)  $.
+\end{lemma}
+
+\begin{proof}
+[Proof of Lemma \ref{lem.sol.ent.count-divs-134.Luv}.]Corollary
+\ref{cor.ent.quo-rem.remmod} \textbf{(a)} (applied to $n=4$) yields
+$u\%4\in\left\{  0,1,\ldots,4-1\right\}  $ and $u\%4\equiv u\operatorname{mod}%
+4$. Thus, in particular, $u\%4\equiv u\operatorname{mod}4$, so that $u\equiv
+u\%4\operatorname{mod}4$. The same argument (applied to $v$ instead of $u$)
+yields $v\equiv v\%4\operatorname{mod}4$.
+
+We next observe the following:
+
+\begin{statement}
+\textit{Claim 1:} If $\gcd\left(  u,4\right)  \neq1$, then $L\left(
+uv\right)  =L\left(  u\right)  \cdot L\left(  v\right)  $.
+\end{statement}
+
+[\textit{Proof of Claim 1:} Assume that $\gcd\left(  u,4\right)  \neq1$. We
+must prove that $L\left(  uv\right)  =L\left(  u\right)  \cdot L\left(
+v\right)  $.
+
+Note that $\gcd\left(  u,4\right)  $ is a nonnegative integer (by the
+definition of a gcd). Hence, if we had $\gcd\left(  u,4\right)  \mid1$, then
+we would have $\gcd\left(  u,4\right)  =1$ (by Exercise \ref{exe.ent.div.g|1},
+applied to $g=\gcd\left(  u,4\right)  $), which would contradict $\gcd\left(
+u,4\right)  \neq1$. Thus, we cannot have $\gcd\left(  u,4\right)  \mid1$.
+
+Lemma \ref{lem.sol.ent.count-divs-134.L0} \textbf{(a)} yields $L\left(
+u\right)  =0$ (since $\gcd\left(  u,4\right)  \neq1$).
+
+Also, $u\mid uv$ and $4\mid4$. Hence, Exercise \ref{exe.ent.gcd.div} (applied
+to $a_{1}=u$, $a_{2}=4$, $b_{1}=uv$ and $b_{2}=4$) yields $\gcd\left(
+u,4\right)  \mid\gcd\left(  uv,4\right)  $. If we had $\gcd\left(
+uv,4\right)  =1$, then this would entail $\gcd\left(  u,4\right)  \mid
+\gcd\left(  uv,4\right)  =1$; but this would contradict the fact that we
+cannot have $\gcd\left(  u,4\right)  \mid1$. Hence, we cannot have
+$\gcd\left(  uv,4\right)  =1$. In other words, we must have $\gcd\left(
+uv,4\right)  \neq1$. Hence, Lemma \ref{lem.sol.ent.count-divs-134.L0}
+\textbf{(a)} (applied to $uv$ instead of $u$) yields $L\left(  uv\right)  =0$.
+Comparing this with $\underbrace{L\left(  u\right)  }_{=0}\cdot L\left(
+v\right)  =0$, we obtain $L\left(  uv\right)  =L\left(  u\right)  \cdot
+L\left(  v\right)  $. This proves Claim 1.]
+
+\begin{statement}
+\textit{Claim 2:} If $\gcd\left(  v,4\right)  \neq1$, then $L\left(
+uv\right)  =L\left(  u\right)  \cdot L\left(  v\right)  $.
+\end{statement}
+
+[\textit{Proof of Claim 2:} Claim 2 is obtained from Claim 1 by interchanging
+$u$ and $v$ (since $u$ and $v$ clearly play symmetric roles in the statement
+\textquotedblleft$L\left(  uv\right)  =L\left(  u\right)  \cdot L\left(
+v\right)  $\textquotedblright). Thus, the proof of Claim 2 is analogous to the
+proof of Claim 1.]
+
+Now, we must prove that $L\left(  uv\right)  =L\left(  u\right)  \cdot
+L\left(  v\right)  $. If $\gcd\left(  u,4\right)  \neq1$, then this follows
+from Claim 1. Hence, for the rest of this proof, we can WLOG assume that
+$\gcd\left(  u,4\right)  =1$. Assume this.
+
+Now, we must prove that $L\left(  uv\right)  =L\left(  u\right)  \cdot
+L\left(  v\right)  $. If $\gcd\left(  v,4\right)  \neq1$, then this follows
+from Claim 2. Hence, for the rest of this proof, we can WLOG assume that
+$\gcd\left(  v,4\right)  =1$. Assume this.
+
+From $\gcd\left(  u,4\right)  =1$, we obtain $u\perp4$ (by the definition of
+\textquotedblleft coprime\textquotedblright). From $\gcd\left(  v,4\right)
+=1$, we obtain $v\perp4$ (by the definition of \textquotedblleft
+coprime\textquotedblright). Hence, Theorem \ref{thm.ent.coprime.ab-to-c}
+(applied to $a=u$, $b=v$ and $c=4$) yields $uv\perp4$. In other words,
+$\gcd\left(  uv,4\right)  =1$ (by the definition of \textquotedblleft
+coprime\textquotedblright). Hence, Lemma \ref{lem.sol.ent.count-divs-134.L0}
+\textbf{(b)} (applied to $uv$ instead of $u$) yields $L\left(  uv\right)
+\equiv uv\operatorname{mod}4$. Furthermore, recall that $\gcd\left(
+u,4\right)  =1$; hence, Lemma \ref{lem.sol.ent.count-divs-134.L0} \textbf{(b)}
+yields $L\left(  u\right)  \equiv u\operatorname{mod}4$. Moreover,
+$\gcd\left(  v,4\right)  =1$; thus, Lemma \ref{lem.sol.ent.count-divs-134.L0}
+\textbf{(b)} (applied to $v$ instead of $u$) yields $L\left(  v\right)  \equiv
+v\operatorname{mod}4$. Thus,%
+\begin{equation}
+\underbrace{L\left(  u\right)  }_{\equiv u\operatorname{mod}4}\cdot
+\underbrace{L\left(  v\right)  }_{\equiv v\operatorname{mod}4}\equiv uv\equiv
+L\left(  uv\right)  \operatorname{mod}4
+\label{pf.lem.sol.ent.count-divs-134.Luv.mod4eq}%
+\end{equation}
+(since $L\left(  uv\right)  \equiv uv\operatorname{mod}4$).
+
+The definition of $L\left(  u\right)  $ yields $L\left(  u\right)  =%
+\begin{cases}
+1, & \text{if }u\%4=1;\\
+-1, & \text{if }u\%4=3;\\
+0, & \text{otherwise}%
+\end{cases}
+\in\left\{  -1,0,1\right\}  $ (since all three values $1,-1,0$ belong to the
+set $\left\{  -1,0,1\right\}  $). The same argument (applied to $v$ instead of
+$u$) shows that $L\left(  v\right)  \in\left\{  -1,0,1\right\}  $.
+Furthermore, the argument that we used to prove $L\left(  u\right)
+\in\left\{  -1,0,1\right\}  $ can also be applied to $uv$ instead of $u$; thus
+we obtain $L\left(  uv\right)  \in\left\{  -1,0,1\right\}  $. Thus,
+altogether, we know that $L\left(  u\right)  $, $L\left(  v\right)  $ and
+$L\left(  uv\right)  $ are three elements of the set $\left\{  -1,0,1\right\}
+$. These elements satisfy $L\left(  u\right)  \cdot L\left(  v\right)  \equiv
+L\left(  uv\right)  \operatorname{mod}4$ (by
+(\ref{pf.lem.sol.ent.count-divs-134.Luv.mod4eq})). Hence, Lemma
+\ref{lem.sol.ent.count-divs-134.xyz} (applied to $x=L\left(  u\right)  $,
+$y=L\left(  v\right)  $ and $z=L\left(  uv\right)  $) yields $L\left(
+u\right)  \cdot L\left(  v\right)  =L\left(  uv\right)  $. In other words,
+$L\left(  uv\right)  =L\left(  u\right)  \cdot L\left(  v\right)  $. This
+proves Lemma \ref{lem.sol.ent.count-divs-134.Luv}.
+\end{proof}
+
+\begin{lemma}
+\label{lem.sol.ent.count-divs-134.Lai}Let $a_{1},a_{2},\ldots,a_{k}$ be
+finitely many integers. Then,%
+\[
+L\left(  a_{1}a_{2}\cdots a_{k}\right)  =L\left(  a_{1}\right)  \cdot L\left(
+a_{2}\right)  \cdot\cdots\cdot L\left(  a_{k}\right)  .
+\]
+
+\end{lemma}
+
+\begin{proof}
+[Proof of Lemma \ref{lem.sol.ent.count-divs-134.Lai}.]We claim that%
+\begin{equation}
+L\left(  a_{1}a_{2}\cdots a_{i}\right)  =L\left(  a_{1}\right)  \cdot L\left(
+a_{2}\right)  \cdot\cdots\cdot L\left(  a_{i}\right)
+\label{pf.lem.sol.ent.count-divs-134.Lai.goal}%
+\end{equation}
+for each $i\in\left\{  0,1,\ldots,k\right\}  $.
+
+[\textit{Proof of (\ref{pf.lem.sol.ent.count-divs-134.Lai.goal}):} We shall
+prove (\ref{pf.lem.sol.ent.count-divs-134.Lai.goal}) by induction on $i$:
+
+\textit{Induction base:} We have $a_{1}a_{2}\cdots a_{0}=\left(  \text{empty
+product}\right)  =1$; thus,%
+\begin{align*}
+L\left(  a_{1}a_{2}\cdots a_{0}\right)   &  =L\left(  1\right)  =%
+\begin{cases}
+1, & \text{if }1\%4=1;\\
+-1, & \text{if }1\%4=3;\\
+0, & \text{otherwise}%
+\end{cases}
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of }L\left(  1\right)
+\right) \\
+&  =1\ \ \ \ \ \ \ \ \ \ \left(  \text{since }1\%4=1\right)  .
+\end{align*}
+Comparing this with $L\left(  a_{1}\right)  \cdot L\left(  a_{2}\right)
+\cdot\cdots\cdot L\left(  a_{0}\right)  =\left(  \text{empty product}\right)
+=1$, we obtain%
+\[
+L\left(  a_{1}a_{2}\cdots a_{0}\right)  =L\left(  a_{1}\right)  \cdot L\left(
+a_{2}\right)  \cdot\cdots\cdot L\left(  a_{0}\right)  .
+\]
+In other words, (\ref{pf.lem.sol.ent.count-divs-134.Lai.goal}) holds for
+$i=0$. This completes the induction base.
+
+\textit{Induction step:} Let $j\in\left\{  1,2,\ldots,k\right\}  $. Assume
+that (\ref{pf.lem.sol.ent.count-divs-134.Lai.goal}) holds for $i=j-1$. We must
+prove that (\ref{pf.lem.sol.ent.count-divs-134.Lai.goal}) holds for $i=j$.
+
+We have assumed that (\ref{pf.lem.sol.ent.count-divs-134.Lai.goal}) holds for
+$i=j-1$. In other words, we have%
+\[
+L\left(  a_{1}a_{2}\cdots a_{j-1}\right)  =L\left(  a_{1}\right)  \cdot
+L\left(  a_{2}\right)  \cdot\cdots\cdot L\left(  a_{j-1}\right)  .
+\]
+Now,%
+\begin{align*}
+L\left(  \underbrace{a_{1}a_{2}\cdots a_{j}}_{=\left(  a_{1}a_{2}\cdots
+a_{j-1}\right)  a_{j}}\right)   &  =L\left(  \left(  a_{1}a_{2}\cdots
+a_{j-1}\right)  a_{j}\right)  =\underbrace{L\left(  a_{1}a_{2}\cdots
+a_{j-1}\right)  }_{=L\left(  a_{1}\right)  \cdot L\left(  a_{2}\right)
+\cdot\cdots\cdot L\left(  a_{j-1}\right)  }\cdot L\left(  a_{j}\right) \\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Lemma
+\ref{lem.sol.ent.count-divs-134.Luv}, applied to }u=a_{1}a_{2}\cdots
+a_{j-1}\text{ and }v=a_{j}\right) \\
+&  =\left(  L\left(  a_{1}\right)  \cdot L\left(  a_{2}\right)  \cdot
+\cdots\cdot L\left(  a_{j-1}\right)  \right)  \cdot L\left(  a_{j}\right) \\
+&  =L\left(  a_{1}\right)  \cdot L\left(  a_{2}\right)  \cdot\cdots\cdot
+L\left(  a_{j}\right)  .
+\end{align*}
+In other words, (\ref{pf.lem.sol.ent.count-divs-134.Lai.goal}) holds for
+$i=j$. This completes the induction step. Thus,
+(\ref{pf.lem.sol.ent.count-divs-134.Lai.goal}) is proven by induction.]
+
+Now, (\ref{pf.lem.sol.ent.count-divs-134.Lai.goal}) (applied to $i=k$) yields
+$L\left(  a_{1}a_{2}\cdots a_{k}\right)  =L\left(  a_{1}\right)  \cdot
+L\left(  a_{2}\right)  \cdot\cdots\cdot L\left(  a_{k}\right)  $. This proves
+Lemma \ref{lem.sol.ent.count-divs-134.Lai}.
+\end{proof}
+
+\begin{lemma}
+\label{lem.sol.ent.count-divs-134.Lan}Let $a\in\mathbb{Z}$ and $k\in
+\mathbb{N}$. Then, $L\left(  a^{k}\right)  =\left(  L\left(  a\right)
+\right)  ^{k}$.
+\end{lemma}
+
+\begin{proof}
+[Proof of Lemma \ref{lem.sol.ent.count-divs-134.Lan}.]Lemma
+\ref{lem.sol.ent.count-divs-134.Lai} (applied to $a_{i}=a$) yields%
+\[
+L\left(  \underbrace{aa\cdots a}_{k\text{ times}}\right)
+=\underbrace{L\left(  a\right)  \cdot L\left(  a\right)  \cdot\cdots\cdot
+L\left(  a\right)  }_{k\text{ times}}=\left(  L\left(  a\right)  \right)
+^{k}.
+\]
+In view of $\underbrace{aa\cdots a}_{k\text{ times}}=a^{k}$, this rewrites as
+$L\left(  a^{k}\right)  =\left(  L\left(  a\right)  \right)  ^{k}$. Thus,
+Lemma \ref{lem.sol.ent.count-divs-134.Lan} is proven.
+\end{proof}
+
+\begin{lemma}
+\label{lem.sol.ent.count-divs-134.Lpb}Let $u\in\mathbb{N}$. Let $p_{1}%
+,p_{2},\ldots,p_{u}$ be $u$ integers. Let $b_{1},b_{2},\ldots,b_{u}$ be $u$
+nonnegative integers. Then,%
+\[
+L\left(  p_{1}^{b_{1}}p_{2}^{b_{2}}\cdots p_{u}^{b_{u}}\right)  =\prod
+_{i=1}^{u}\left(  L\left(  p_{i}\right)  \right)  ^{b_{i}}.
+\]
+
+\end{lemma}
+
+\begin{proof}
+[Proof of Lemma \ref{lem.sol.ent.count-divs-134.Lpb}.]Lemma
+\ref{lem.sol.ent.count-divs-134.Lai} (applied to $k=u$ and $a_{i}=p_{i}%
+^{b_{i}}$) yields%
+\[
+L\left(  p_{1}^{b_{1}}p_{2}^{b_{2}}\cdots p_{u}^{b_{u}}\right)  =L\left(
+p_{1}^{b_{1}}\right)  \cdot L\left(  p_{2}^{b_{2}}\right)  \cdot\cdots\cdot
+L\left(  p_{u}^{b_{u}}\right)  =\prod_{i=1}^{u}\underbrace{L\left(
+p_{i}^{b_{i}}\right)  }_{\substack{=\left(  L\left(  p_{i}\right)  \right)
+^{b_{i}}\\\text{(by Lemma \ref{lem.sol.ent.count-divs-134.Lan},}%
+\\\text{applied to }a=p_{i}\\\text{and }k=b_{i}\text{)}}}=\prod_{i=1}%
+^{u}\left(  L\left(  p_{i}\right)  \right)  ^{b_{i}}.
+\]
+This proves Lemma \ref{lem.sol.ent.count-divs-134.Lpb}.
+\end{proof}
+
+\begin{lemma}
+\label{lem.sol.ent.count-divs-134.z=}Let $n$ be a positive integer. Define $z$
+as in Exercise \ref{exe.ent.count-divs-134}. Then,%
+\[
+z=\sum_{d\mid n}L\left(  d\right)  .
+\]
+
+\end{lemma}
+
+\begin{proof}
+[Proof of Lemma \ref{lem.sol.ent.count-divs-134.z=}.]For each integer $d$, we
+have the logical equivalence%
+\begin{equation}
+\left(  d\equiv1\operatorname{mod}4\right)  \Longleftrightarrow\left(
+d\%4=1\right)  . \label{pf.lem.sol.ent.count-divs-134.z=.equiv1}%
+\end{equation}
+
+
+[\textit{Proof of (\ref{pf.lem.sol.ent.count-divs-134.z=.equiv1}):} Let $d$ be
+an integer. Exercise \ref{exe.ent.quo-rem.mod=rem} (applied to $4$, $d$ and
+$1$ instead of $n$, $u$ and $v$) shows that we have $d\equiv
+1\operatorname{mod}4$ if and only if $d\%4=1\%4$. Thus, we have the following
+chain of equivalences:%
+\[
+\left(  d\equiv1\operatorname{mod}4\right)  \ \Longleftrightarrow\ \left(
+d\%4=\underbrace{1\%4}_{=1}\right)  \ \Longleftrightarrow\ \left(
+d\%4=1\right)  .
+\]
+This proves (\ref{pf.lem.sol.ent.count-divs-134.z=.equiv1}).]
+
+\begin{noncompile}
+Do not change the above equivalence
+(\ref{pf.lem.sol.ent.count-divs-134.z=.equiv1})! It is cited further below, in
+the solution to Exercise \ref{exe.ent.count-divs-134} \textbf{(b)}.
+\end{noncompile}
+
+Now, for each positive divisor $d$ of $n$, the condition \textquotedblleft%
+$d\equiv1\mod 4$\textquotedblright\ is equivalent to \textquotedblleft%
+$d\%4=1$\textquotedblright\ (by (\ref{pf.lem.sol.ent.count-divs-134.z=.equiv1}%
+)). Hence, the positive divisors $d$ of $n$ such that $d\equiv1\mod 4$ are
+exactly the positive divisors $d$ of $n$ such that $d\%4=1$. Thus,%
+\begin{align}
+&  \left(  \text{the number of positive divisors $d$ of $n$ such that
+$d\equiv1\mod 4$}\right) \nonumber\\
+&  =\left(  \text{the number of positive divisors $d$ of $n$ such that
+$d\%4=1$}\right)  . \label{pf.lem.sol.ent.count-divs-134.z=.equiv1num}%
+\end{align}
+
+
+The same argument (but with every appearance of \textquotedblleft%
+$1$\textquotedblright\ replaced by \textquotedblleft$3$\textquotedblright)
+yields%
+\begin{align}
+&  \left(  \text{the number of positive divisors $d$ of $n$ such that
+$d\equiv3\mod 4$}\right) \nonumber\\
+&  =\left(  \text{the number of positive divisors $d$ of $n$ such that
+$d\%4=3$}\right)  . \label{pf.lem.sol.ent.count-divs-134.z=.equiv3num}%
+\end{align}
+
+
+Furthermore, if $d$ is an integer satisfying $d\%4=1$, then%
+\begin{align*}
+L\left(  d\right)   &  =%
+\begin{cases}
+1, & \text{if }d\%4=1;\\
+-1, & \text{if }d\%4=3;\\
+0, & \text{otherwise}%
+\end{cases}
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of }L\left(  d\right)
+\right) \\
+&  =1\ \ \ \ \ \ \ \ \ \ \left(  \text{since }d\%4=1\right)  .
+\end{align*}
+Summing up this equality over all positive divisors $d$ of $n$ satisfying
+$d\%4=1$, we obtain%
+\begin{align*}
+\sum_{\substack{d\mid n;\\d\%4=1}}L\left(  d\right)   &  =\sum
+_{\substack{d\mid n;\\d\%4=1}}1=\left(  \text{the number of positive divisors
+$d$ of $n$ such that $d\%4=1$}\right)  \cdot1\\
+&  =\left(  \text{the number of positive divisors $d$ of $n$ such that
+$d\%4=1$}\right) \\
+&  =\left(  \text{the number of positive divisors $d$ of $n$ such that
+$d\equiv1\mod 4$}\right)
+\end{align*}
+(by (\ref{pf.lem.sol.ent.count-divs-134.z=.equiv1num})).
+
+Also, if $d$ is an integer satisfying $d\%4=3$, then%
+\begin{align*}
+L\left(  d\right)   &  =%
+\begin{cases}
+1, & \text{if }d\%4=1;\\
+-1, & \text{if }d\%4=3;\\
+0, & \text{otherwise}%
+\end{cases}
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of }L\left(  d\right)
+\right) \\
+&  =-1\ \ \ \ \ \ \ \ \ \ \left(  \text{since }d\%4=3\right)  .
+\end{align*}
+Summing up this equality over all positive divisors $d$ of $n$ satisfying
+$d\%4=3$, we obtain%
+\begin{align*}
+\sum_{\substack{d\mid n;\\d\%4=3}}L\left(  d\right)   &  =\sum
+_{\substack{d\mid n;\\d\%4=3}}\left(  -1\right) \\
+&  =\left(  \text{the number of positive divisors $d$ of $n$ such that
+$d\%4=3$}\right)  \cdot\left(  -1\right) \\
+&  =-\left(  \text{the number of positive divisors $d$ of $n$ such that
+$d\%4=3$}\right) \\
+&  =-\left(  \text{the number of positive divisors $d$ of $n$ such that
+$d\equiv3\mod 4$}\right)
+\end{align*}
+(by (\ref{pf.lem.sol.ent.count-divs-134.z=.equiv3num})).
+
+Furthermore, if $d$ is an integer satisfying $\left(  \text{neither
+}d\%4=1\text{ nor }d\%4=3\right)  $, then%
+\begin{align*}
+L\left(  d\right)   &  =%
+\begin{cases}
+1, & \text{if }d\%4=1;\\
+-1, & \text{if }d\%4=3;\\
+0, & \text{otherwise}%
+\end{cases}
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of }L\left(  d\right)
+\right) \\
+&  =0\ \ \ \ \ \ \ \ \ \ \left(  \text{since we have neither }d\%4=1\text{ nor
+}d\%4=3\right)  .
+\end{align*}
+Summing up this equality over all positive divisors $d$ of $n$ satisfying
+\newline$\left(  \text{neither }d\%4=1\text{ nor }d\%4=3\right)  $, we obtain%
+\[
+\sum_{\substack{d\mid n;\\\text{neither }d\%4=1\text{ nor }d\%4=3}}L\left(
+d\right)  =\sum_{\substack{d\mid n;\\\text{neither }d\%4=1\text{ nor }%
+d\%4=3}}0=0.
+\]
+
+
+Recall that the summation sign \textquotedblleft$\sum_{d\mid n}$%
+\textquotedblright\ stands for a sum over all positive divisors of $n$. Each
+positive divisor $d$ of $n$ satisfies either $d\%4=1$ or $d\%4=3$ or $\left(
+\text{neither }d\%4=1\text{ nor }d\%4=3\right)  $ (and these three options are
+mutually exclusive). Hence, we can split the sum $\sum_{d\mid n}L\left(
+d\right)  $ as follows:
+\begin{align*}
+&  \sum_{d\mid n}L\left(  d\right) \\
+&  =\underbrace{\sum_{\substack{d\mid n;\\d\%4=1}}L\left(  d\right)
+}_{=\left(  \text{the number of positive divisors $d$ of $n$ such that
+$d\equiv1\mod 4$}\right)  }\\
+&  \ \ \ \ \ \ \ \ \ \ +\underbrace{\sum_{\substack{d\mid n;\\d\%4=3}}L\left(
+d\right)  }_{=-\left(  \text{the number of positive divisors $d$ of $n$ such
+that $d\equiv3\mod 4$}\right)  }\\
+&  \ \ \ \ \ \ \ \ \ \ +\underbrace{\sum_{\substack{d\mid n;\\\text{neither
+}d\%4=1\text{ nor }d\%4=3}}L\left(  d\right)  }_{=0}\\
+&  =\left(  \text{the number of positive divisors $d$ of $n$ such that
+$d\equiv1\mod 4$}\right) \\
+&  \ \ \ \ \ \ \ \ \ \ +\left(  -\left(  \text{the number of positive divisors
+$d$ of $n$ such that $d\equiv3\mod 4$}\right)  \right) \\
+&  =\left(  \text{the number of positive divisors $d$ of $n$ such that
+$d\equiv1\mod 4$}\right) \\
+&  \ \ \ \ \ \ \ \ \ \ -\left(  \text{the number of positive divisors $d$ of
+$n$ such that $d\equiv3\mod 4$}\right) \\
+&  =z
+\end{align*}
+(by the definition of $z$). This proves Lemma
+\ref{lem.sol.ent.count-divs-134.z=}.
+\end{proof}
+
+Next, we define a further notation:
+
+\begin{definition}
+\label{def.sol.ent.count-divs-134.L'}Throughout this section, we shall use the
+following notation:
+
+For each $p\in\mathbb{Z}$ and $m\in\mathbb{N}$, we set%
+\[
+S\left(  p,m\right)  =\sum_{k=0}^{m}\left(  L\left(  p\right)  \right)  ^{k}.
+\]
+\newline
+\end{definition}
+
+\begin{lemma}
+\label{lem.sol.ent.count-divs-134.Lsum}Let $p$ be an integer. Let
+$m\in\mathbb{N}$.
+
+\textbf{(a)} If $p\%4=1$, then $S\left(  p,m\right)  =m+1$.
+
+\textbf{(b)} If $m$ is even and $p\%4=3$, then $S\left(  p,m\right)  =1$.
+
+\textbf{(c)} If $m$ is odd and $p\%4=3$, then $S\left(  p,m\right)  =0$.
+
+\textbf{(d)} If we have neither $p\%4=1$ nor $p\%4=3$, then $S\left(
+p,m\right)  =1$.
+\end{lemma}
+
+\begin{proof}
+[Proof of Lemma \ref{lem.sol.ent.count-divs-134.Lsum}.]\textbf{(a)} Assume
+that $p\%4=1$. The definition of $L\left(  p\right)  $ yields%
+\[
+L\left(  p\right)  =%
+\begin{cases}
+1, & \text{if }p\%4=1;\\
+-1, & \text{if }p\%4=3;\\
+0, & \text{otherwise}%
+\end{cases}
+=1\ \ \ \ \ \ \ \ \ \ \left(  \text{since }p\%4=1\right)  .
+\]
+Hence, the definition of $S\left(  p,m\right)  $ yields%
+\[
+S\left(  p,m\right)  =\sum_{k=0}^{m}\left(  \underbrace{L\left(  p\right)
+}_{=1}\right)  ^{k}=\sum_{k=0}^{m}\underbrace{1^{k}}_{=1}=\sum_{k=0}%
+^{m}1=\left(  m+1\right)  \cdot1=m+1.
+\]
+This proves Lemma \ref{lem.sol.ent.count-divs-134.Lsum} \textbf{(a)}.
+
+\textbf{(b)} Assume that $m$ is even and $p\%4=3$. Note that $m+1$ is odd
+(since $m$ is even). The definition of $L\left(  p\right)  $ yields%
+\[
+L\left(  p\right)  =%
+\begin{cases}
+1, & \text{if }p\%4=1;\\
+-1, & \text{if }p\%4=3;\\
+0, & \text{otherwise}%
+\end{cases}
+=-1\ \ \ \ \ \ \ \ \ \ \left(  \text{since }p\%4=3\right)  .
+\]
+Hence, the definition of $S\left(  p,m\right)  $ yields%
+\begin{align*}
+S\left(  p,m\right)   &  =\sum_{k=0}^{m}\left(  \underbrace{L\left(  p\right)
+}_{=-1}\right)  ^{k}=\sum_{k=0}^{m}\left(  -1\right)  ^{k}\\
+&  =\left(  -1\right)  ^{0}+\left(  -1\right)  ^{1}+\cdots+\left(  -1\right)
+^{m}\\
+&  =\underbrace{1+\left(  -1\right)  +1+\left(  -1\right)  +\cdots+1+\left(
+-1\right)  +1}_{m+1\text{ many addends, alternating between }1\text{ and }%
+-1}\ \ \ \ \ \ \ \ \ \ \left(  \text{since }m+1\text{ is odd}\right)  \\
+&  =1
+\end{align*}
+(since $m+1$ is odd). This proves Lemma \ref{lem.sol.ent.count-divs-134.Lsum}
+\textbf{(b)}.
+
+\textbf{(c)} Assume that $m$ is odd and $p\%4=3$. Note that $m+1$ is even
+(since $m$ is odd). Just as in the proof of Lemma
+\ref{lem.sol.ent.count-divs-134.Lsum} \textbf{(b)} above, we can see that
+$L\left(  p\right)  =-1$ and $S\left(  p,m\right)  =\left(  -1\right)
+^{0}+\left(  -1\right)  ^{1}+\cdots+\left(  -1\right)  ^{m}$. Hence,%
+\begin{align*}
+S\left(  p,m\right)   &  =\left(  -1\right)  ^{0}+\left(  -1\right)
+^{1}+\cdots+\left(  -1\right)  ^{m}\\
+&  =\underbrace{1+\left(  -1\right)  +1+\left(  -1\right)  +\cdots+1+\left(
+-1\right)  }_{m+1\text{ many addends, alternating between }1\text{ and }%
+-1}\ \ \ \ \ \ \ \ \ \ \left(  \text{since }m+1\text{ is even}\right)  \\
+&  =0
+\end{align*}
+(since $m+1$ is even). This proves Lemma \ref{lem.sol.ent.count-divs-134.Lsum}
+\textbf{(c)}.
+
+\textbf{(d)} Assume that we have neither $p\%4=1$ nor $p\%4=3$. The definition
+of $L\left(  p\right)  $ yields%
+\[
+L\left(  p\right)  =%
+\begin{cases}
+1, & \text{if }p\%4=1;\\
+-1, & \text{if }p\%4=3;\\
+0, & \text{otherwise}%
+\end{cases}
+=0\ \ \ \ \ \ \ \ \ \ \left(  \text{since we have neither }p\%4=1\text{ nor
+}p\%4=3\right)  .
+\]
+Hence, the definition of $S\left(  p,m\right)  $ yields%
+\begin{align*}
+S\left(  p,m\right)   &  =\sum_{k=0}^{m}\left(  \underbrace{L\left(  p\right)
+}_{=0}\right)  ^{k}=\sum_{k=0}^{m}0^{k}=\underbrace{0^{0}}_{=1}+\sum_{k=1}%
+^{m}\underbrace{0^{k}}_{\substack{=0\\\text{(since }k\geq1\text{)}}}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{here, we have split off the addend for
+}k=0\text{ from the sum}\right)  \\
+&  =1+\underbrace{\sum_{k=1}^{m}0}_{=0}=1.
+\end{align*}
+This proves Lemma \ref{lem.sol.ent.count-divs-134.Lsum} \textbf{(d)}.
+\end{proof}
+
+\begin{proof}
+[Solution to Exercise \ref{exe.ent.count-divs-134}.]For every prime
+$p>\left\vert n\right\vert $, we have $v_{p}\left(  n\right)  =0$ (by Lemma
+\ref{lem.ent.prime.vpn=0} \textbf{(a)}). Thus, all but finitely many primes
+$p$ satisfy $v_{p}\left(  n\right)  =0$ (since all but finitely many primes
+$p$ satisfy $p>\left\vert n\right\vert $). In other words, the set of all
+primes $p$ satisfying $v_{p}\left(  n\right)  \neq0$ is finite. Let $P$ be
+this set. Thus, $P$ is finite.
+
+Let $\left(  p_{1},p_{2},\ldots,p_{u}\right)  $ be a list of elements of $P$,
+with no repetitions.\footnote{Such a list exists, since $P$ is finite.} Thus,
+$\left\{  p_{1},p_{2},\ldots,p_{u}\right\}  =P$. Now, the elements
+$p_{1},p_{2},\ldots,p_{u}$ belong to $\left\{  p_{1},p_{2},\ldots
+,p_{u}\right\}  =P$, and thus are primes (since $P$ is a set of primes).
+Furthermore, the elements $p_{1},p_{2},\ldots,p_{u}$ are distinct (since
+$\left(  p_{1},p_{2},\ldots,p_{u}\right)  $ was defined to be a list with no repetitions).
+
+For each $i\in\left\{  1,2,\ldots,u\right\}  $, define a nonnegative integer
+$a_{i}$ by%
+\begin{equation}
+a_{i}=v_{p_{i}}\left(  n\right)  . \label{sol.ent.count-divs-134.ai=}%
+\end{equation}
+This is well-defined, since $p_{i}$ is a prime (because $p_{1},p_{2}%
+,\ldots,p_{u}$ are primes) and since $n$ is nonzero.
+
+The following facts have been proven in the proof of Proposition
+\ref{prop.ent.count-divs}:
+
+\begin{itemize}
+\item The map $\left\{  1,2,\ldots,u\right\}  \rightarrow\left\{  p_{1}%
+,p_{2},\ldots,p_{u}\right\}  ,\ i\mapsto p_{i}$ is a bijection.
+
+\item If $p$ is a prime such that $p\notin\left\{  p_{1},p_{2},\ldots
+,p_{u}\right\}  $, then
+\begin{equation}
+v_{p}\left(  n\right)  =0. \label{sol.ent.count-divs-134.vpn=0}%
+\end{equation}
+
+
+\item We have $n=p_{1}^{a_{1}}p_{2}^{a_{2}}\cdots p_{u}^{a_{u}}$.
+\end{itemize}
+
+Define a set $T$ as in Lemma \ref{lem.ent.divs-bijs}. Then, Lemma
+\ref{lem.ent.divs-bijs} says that the map
+\begin{align*}
+\Lambda:T  &  \rightarrow\left\{  \text{positive divisors of }n\right\}  ,\\
+\left(  b_{1},b_{2},\ldots,b_{u}\right)   &  \mapsto p_{1}^{b_{1}}p_{2}%
+^{b_{2}}\cdots p_{u}^{b_{u}}%
+\end{align*}
+is well-defined and bijective. Thus, this map $\Lambda$ is a bijection.
+
+Now, the summation sign \textquotedblleft$\sum_{d\mid n}$\textquotedblright%
+\ stands for a sum over all positive divisors of $n$, and thus is equivalent
+to the summation sign \textquotedblleft$\sum_{d\in\left\{  \text{positive
+divisors of }n\right\}  }$\textquotedblright. Hence,%
+\begin{align}
+\sum_{d\mid n}L\left(  d\right)   &  =\sum_{d\in\left\{  \text{positive
+divisors of }n\right\}  }L\left(  d\right)  =\sum_{\left(  b_{1},b_{2}%
+,\ldots,b_{u}\right)  \in T}L\left(  \underbrace{\Lambda\left(  b_{1}%
+,b_{2},\ldots,b_{u}\right)  }_{\substack{=p_{1}^{b_{1}}p_{2}^{b_{2}}\cdots
+p_{u}^{b_{u}}\\\text{(by the definition of }\Lambda\text{)}}}\right)
+\nonumber\\
+&  \ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{here, we have substituted }\Lambda\left(  b_{1},b_{2},\ldots
+,b_{u}\right)  \text{ for }d\text{ in the}\\
+\text{sum, since the map }\Lambda:T\rightarrow\left\{  \text{positive divisors
+of }n\right\} \\
+\text{is a bijection}%
+\end{array}
+\right) \nonumber\\
+&  =\sum_{\left(  b_{1},b_{2},\ldots,b_{u}\right)  \in T}\underbrace{L\left(
+p_{1}^{b_{1}}p_{2}^{b_{2}}\cdots p_{u}^{b_{u}}\right)  }_{\substack{=\prod
+_{i=1}^{u}\left(  L\left(  p_{i}\right)  \right)  ^{b_{i}}\\\text{(by Lemma
+\ref{lem.sol.ent.count-divs-134.Lpb})}}}\nonumber\\
+&  =\sum_{\left(  b_{1},b_{2},\ldots,b_{u}\right)  \in T}\prod_{i=1}%
+^{u}\left(  L\left(  p_{i}\right)  \right)  ^{b_{i}}.
+\label{sol.ent.count-divs-134.b.3}%
+\end{align}
+
+
+Now, Lemma \ref{lem.prodrule.nums} (applied to $u$, $\left\{  0,1,\ldots
+,a_{i}\right\}  $ and $\left(  L\left(  p_{i}\right)  \right)  ^{k}$ instead
+of $n$, $Z_{i}$ and $p_{i,k}$) yields%
+\begin{align*}
+\prod_{i=1}^{u}\sum_{k\in\left\{  0,1,\ldots,a_{i}\right\}  }\left(  L\left(
+p_{i}\right)  \right)  ^{k}  &  =\sum_{\left(  k_{1},k_{2},\ldots
+,k_{u}\right)  \in\left\{  0,1,\ldots,a_{1}\right\}  \times\left\{
+0,1,\ldots,a_{2}\right\}  \times\cdots\times\left\{  0,1,\ldots,a_{u}\right\}
+}\prod_{i=1}^{u}\left(  L\left(  p_{i}\right)  \right)  ^{k_{i}}\\
+&  =\sum_{\left(  b_{1},b_{2},\ldots,b_{u}\right)  \in\left\{  0,1,\ldots
+,a_{1}\right\}  \times\left\{  0,1,\ldots,a_{2}\right\}  \times\cdots
+\times\left\{  0,1,\ldots,a_{u}\right\}  }\prod_{i=1}^{u}\left(  L\left(
+p_{i}\right)  \right)  ^{b_{i}}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{here, we have renamed the summation}\\
+\text{index }\left(  k_{1},k_{2},\ldots,k_{u}\right)  \text{ as }\left(
+b_{1},b_{2},\ldots,b_{u}\right)
+\end{array}
+\right) \\
+&  =\sum_{\left(  b_{1},b_{2},\ldots,b_{u}\right)  \in T}\prod_{i=1}%
+^{u}\left(  L\left(  p_{i}\right)  \right)  ^{b_{i}}%
+\end{align*}
+(since $\left\{  0,1,\ldots,a_{1}\right\}  \times\left\{  0,1,\ldots
+,a_{2}\right\}  \times\cdots\times\left\{  0,1,\ldots,a_{u}\right\}  =T$).
+Comparing this with (\ref{sol.ent.count-divs-134.b.3}), we find%
+\begin{equation}
+\sum_{d\mid n}L\left(  d\right)  =\prod_{i=1}^{u}\underbrace{\sum
+_{k\in\left\{  0,1,\ldots,a_{i}\right\}  }}_{=\sum_{k=0}^{a_{i}}}\left(
+L\left(  p_{i}\right)  \right)  ^{k}=\prod_{i=1}^{u}\sum_{k=0}^{a_{i}}\left(
+L\left(  p_{i}\right)  \right)  ^{k}. \label{sol.ent.count-divs-134.b.4}%
+\end{equation}
+But Lemma \ref{lem.sol.ent.count-divs-134.z=} yields%
+\begin{equation}
+z=\sum_{d\mid n}L\left(  d\right)  =\prod_{i=1}^{u}\sum_{k=0}^{a_{i}}\left(
+L\left(  p_{i}\right)  \right)  ^{k} \label{sol.ent.count-divs-134.b.5}%
+\end{equation}
+(by (\ref{sol.ent.count-divs-134.b.4})).
+
+On the other hand, if $p$ is a prime such that $p\notin\left\{  p_{1}%
+,p_{2},\ldots,p_{u}\right\}  $, then%
+\begin{align}
+S\left(  p,\underbrace{v_{p}\left(  n\right)  }_{\substack{=0\\\text{(by
+(\ref{sol.ent.count-divs-134.vpn=0}))}}}\right)   &  =S\left(  p,0\right)
+=\sum_{k=0}^{0}\left(  L\left(  p\right)  \right)  ^{k}%
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of }S\left(  p,0\right)
+\right)  \nonumber\\
+&  =\left(  L\left(  p\right)  \right)  ^{0}%
+=1.\label{sol.ent.count-divs-134.S=1}%
+\end{align}
+Thus, all but finitely many primes $p$ satisfy $S\left(  p,v_{p}\left(
+n\right)  \right)  =1$ (since all but finitely many primes $p$ satisfy
+$p\notin\left\{  p_{1},p_{2},\ldots,p_{u}\right\}  $). In other words, all but
+finitely many factors of the product $\prod_{p\text{ prime}}S\left(
+p,v_{p}\left(  n\right)  \right)  $ are $1$. Thus, this product is
+well-defined. Moreover, we can split this product as follows:%
+\begin{align*}
+&  \prod_{p\text{ prime}}S\left(  p,v_{p}\left(  n\right)  \right)  \\
+&  =\left(  \prod_{\substack{p\text{ prime;}\\p\in\left\{  p_{1},p_{2}%
+,\ldots,p_{u}\right\}  }}S\left(  p,v_{p}\left(  n\right)  \right)  \right)
+\left(  \prod_{\substack{p\text{ prime;}\\p\notin\left\{  p_{1},p_{2}%
+,\ldots,p_{u}\right\}  }}\underbrace{S\left(  p,v_{p}\left(  n\right)
+\right)  }_{\substack{=1\\\text{(by (\ref{sol.ent.count-divs-134.S=1}))}%
+}}\right)  \\
+&  \ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{since each prime }p\text{ satisfies either }p\in\left\{  p_{1}%
+,p_{2},\ldots,p_{u}\right\}  \\
+\text{or }p\notin\left\{  p_{1},p_{2},\ldots,p_{u}\right\}  \text{ (but not
+both simultaneously)}%
+\end{array}
+\right)  \\
+&  =\left(  \prod_{\substack{p\text{ prime;}\\p\in\left\{  p_{1},p_{2}%
+,\ldots,p_{u}\right\}  }}S\left(  p,v_{p}\left(  n\right)  \right)  \right)
+\underbrace{\left(  \prod_{\substack{p\text{ prime;}\\p\notin\left\{
+p_{1},p_{2},\ldots,p_{u}\right\}  }}1\right)  }_{=1}\\
+&  =\underbrace{\prod_{\substack{p\text{ prime;}\\p\in\left\{  p_{1}%
+,p_{2},\ldots,p_{u}\right\}  }}}_{\substack{=\prod_{p\in\left\{  p_{1}%
+,p_{2},\ldots,p_{u}\right\}  }\\\text{(since each }p\in\left\{  p_{1}%
+,p_{2},\ldots,p_{u}\right\}  \\\text{is a prime)}}}S\left(  p,v_{p}\left(
+n\right)  \right)  \\
+&  =\prod_{p\in\left\{  p_{1},p_{2},\ldots,p_{u}\right\}  }S\left(
+p,v_{p}\left(  n\right)  \right)  =\prod_{i=1}^{u}S\left(  p_{i}%
+,\underbrace{v_{p_{i}}\left(  n\right)  }_{\substack{=a_{i}\\\text{(by
+(\ref{sol.ent.count-divs-134.ai=}))}}}\right)  \\
+&  \ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{here, we have substituted }p_{i}\text{ for }p\text{ in the product,}\\
+\text{since the map }\left\{  1,2,\ldots,u\right\}  \rightarrow\left\{
+p_{1},p_{2},\ldots,p_{u}\right\}  ,\ i\mapsto p_{i}\text{ is a bijection}%
+\end{array}
+\right)  \\
+&  =\prod_{i=1}^{u}\underbrace{S\left(  p_{i},a_{i}\right)  }_{\substack{=\sum
+_{k=0}^{a_{i}}\left(  L\left(  p_{i}\right)  \right)  ^{k}\\\text{(by the
+definition of }S\left(  p_{i},a_{i}\right)  \text{)}}}=\prod_{i=1}^{u}%
+\sum_{k=0}^{a_{i}}\left(  L\left(  p_{i}\right)  \right)  ^{k}.
+\end{align*}
+Comparing this with (\ref{sol.ent.count-divs-134.b.5}), we obtain%
+\begin{equation}
+z=\prod_{p\text{ prime}}S\left(  p,v_{p}\left(  n\right)  \right)
+.\label{sol.ent.count-divs-134.last-common}%
+\end{equation}
+
+
+\textbf{(a)} Assume that there exists a prime $p$ satisfying $p\equiv
+3\operatorname{mod}4$ and $v_{p}\left(  n\right)  \equiv1\operatorname{mod}2$.
+Consider this $p$, and denote it by $q$. Thus, $q$ is a prime satisfying
+$q\equiv3\operatorname{mod}4$ and $v_{q}\left(  n\right)  \equiv
+1\operatorname{mod}2$.
+
+Exercise \ref{exe.ent.quo-rem.mod=rem} (applied to $4$, $q$ and $3$ instead of
+$n$, $u$ and $v$) shows that we have $q\equiv3\operatorname{mod}4$ if and only
+if $q\%4=3\%4$. Hence, from $q\equiv3\operatorname{mod}4$, we conclude that
+$q\%4=3\%4=3$. From $v_{q}\left(  n\right)  \equiv1\operatorname{mod}2$, we
+conclude that $v_{q}\left(  n\right)  $ is odd. Hence, Lemma
+\ref{lem.sol.ent.count-divs-134.Lsum} \textbf{(c)} (applied to $q$ and
+$v_{q}\left(  n\right)  $ instead of $p$ and $m$) yields $S\left(
+q,v_{q}\left(  n\right)  \right)  =0$.
+
+But $q$ is a prime. Thus, $S\left(  q,v_{q}\left(  n\right)  \right)  $ is a
+factor in the product $\prod_{p\text{ prime}}S\left(  p,v_{p}\left(  n\right)
+\right)  $. Splitting this factor off, we find%
+\[
+\prod_{p\text{ prime}}S\left(  p,v_{p}\left(  n\right)  \right)
+=\underbrace{S\left(  q,v_{q}\left(  n\right)  \right)  }_{=0}\cdot
+\prod_{\substack{p\text{ prime;}\\p\neq q}}S\left(  p,v_{p}\left(  n\right)
+\right)  =0.
+\]
+Now, (\ref{sol.ent.count-divs-134.last-common}) becomes $z=\prod_{p\text{
+prime}}S\left(  p,v_{p}\left(  n\right)  \right)  =0$. This solves Exercise
+\ref{exe.ent.count-divs-134} \textbf{(a)}.
+
+\textbf{(b)} Assume that there exists no prime $p$ satisfying $p\equiv
+3\operatorname{mod}4$ and $v_{p}\left(  n\right)  \equiv1\operatorname{mod}2$.
+Renaming $p$ as $q$ in this statement, we obtain the following:%
+\begin{equation}
+\text{There exists no prime }q\text{ satisfying }q\equiv3\operatorname{mod}%
+4\text{ and }v_{q}\left(  n\right)  \equiv1\operatorname{mod}2.
+\label{sol.ent.count-divs-134.b.1}%
+\end{equation}
+
+
+We can now easily see the following two auxiliary claims:
+
+\begin{statement}
+\textit{Claim 1:} Let $p$ be a prime such that $p\%4\neq1$. Then, $S\left(
+p,v_{p}\left(  n\right)  \right)  =1$.
+\end{statement}
+
+[\textit{Proof of Claim 1:} We are in one of the following two cases:
+
+\textit{Case 1:} We have $p\%4=3$.
+
+\textit{Case 2:} We have $p\%4\neq3$.
+
+Let us first consider Case 1. In this case, we have $p\%4=3$. Comparing this
+with $3\%4=3$, we obtain $p\%4=3\%4$. But Exercise
+\ref{exe.ent.quo-rem.mod=rem} (applied to $4$, $p$ and $3$ instead of $n$, $u$
+and $v$) shows that we have $p\equiv3\operatorname{mod}4$ if and only if
+$p\%4=3\%4$. Hence, from $p\%4=3\%4$, we conclude that $p\equiv
+3\operatorname{mod}4$. If we had $v_{p}\left(  n\right)  \equiv
+1\operatorname{mod}2$, then there would be a prime $q$ satisfying
+$q\equiv3\operatorname{mod}4$ and $v_{q}\left(  n\right)  \equiv
+1\operatorname{mod}2$ (namely, $q=p$); but this would contradict
+(\ref{sol.ent.count-divs-134.b.1}). Hence, we cannot have $v_{p}\left(
+n\right)  \equiv1\operatorname{mod}2$. In other words, the integer
+$v_{p}\left(  n\right)  $ cannot be odd. Hence, the integer $v_{p}\left(
+n\right)  $ is even. Thus, Lemma \ref{lem.sol.ent.count-divs-134.Lsum}
+\textbf{(b)} (applied to $m=v_{p}\left(  n\right)  $) yields $S\left(
+p,v_{p}\left(  n\right)  \right)  =1$. Hence, Claim 1 is proven in Case 1.
+
+Let us now consider Case 2. In this case, we have $p\%4\neq3$. Now, we have
+neither $p\%4=1$ nor $p\%4=3$ (since we have $p\%4\neq1$ and $p\%4\neq3$).
+Hence, Lemma \ref{lem.sol.ent.count-divs-134.Lsum} \textbf{(d)} (applied to
+$m=v_{p}\left(  n\right)  $) yields $S\left(  p,v_{p}\left(  n\right)
+\right)  =1$. Hence, Claim 1 is proven in Case 2.
+
+We have now proven Claim 1 in each of the Cases 1 and 2. Hence, Claim 1 always holds.]
+
+\begin{statement}
+\textit{Claim 2:} For each integer $p$, we have the logical equivalence%
+\[
+\left(  p\equiv1\operatorname{mod}4\right)  \Longleftrightarrow\left(
+p\%4=1\right)  .
+\]
+
+\end{statement}
+
+[\textit{Proof of Claim 2:} Claim 2 is precisely the equivalence
+(\ref{pf.lem.sol.ent.count-divs-134.z=.equiv1}) (with $d$ renamed as $p$).]
+
+Claim 2 shows that for each prime $p$, the condition \textquotedblleft%
+$p\equiv1\operatorname{mod}4$\textquotedblright\ is equivalent to the
+condition \textquotedblleft$p\%4=1$\textquotedblright. Hence, the product sign
+\textquotedblleft$\prod_{\substack{p\text{ prime;}\\p\equiv1\operatorname{mod}%
+4}}$\textquotedblright\ is equivalent to \textquotedblleft$\prod
+_{\substack{p\text{ prime;}\\p\%4=1}}$\textquotedblright. Thus,%
+\begin{equation}
+\prod_{\substack{p\text{ prime;}\\p\equiv1\operatorname{mod}4}}\left(
+v_{p}\left(  n\right)  +1\right)  =\prod_{\substack{p\text{ prime;}%
+\\p\%4=1}}\left(  v_{p}\left(  n\right)  +1\right)
+.\label{sol.ent.count-divs-134.b.6}%
+\end{equation}
+
+
+Now, (\ref{sol.ent.count-divs-134.last-common}) becomes
+\begin{align*}
+z &  =\prod_{p\text{ prime}}S\left(  p,v_{p}\left(  n\right)  \right)
+=\left(  \prod_{\substack{p\text{ prime;}\\p\%4=1}}\underbrace{S\left(
+p,v_{p}\left(  n\right)  \right)  }_{\substack{=v_{p}\left(  n\right)
++1\\\text{(by Lemma \ref{lem.sol.ent.count-divs-134.Lsum} \textbf{(a)}%
+}\\\text{(applied to }m=v_{p}\left(  n\right)  \text{))}}}\right)
+\cdot\left(  \prod_{\substack{p\text{ prime;}\\p\%4\neq1}}\underbrace{S\left(
+p,v_{p}\left(  n\right)  \right)  }_{\substack{=1\\\text{(by Claim 1)}%
+}}\right)  \\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{since each prime }p\text{ satisfies
+either }p\%4=1\text{ or }p\%4\neq1\text{ (but not both)}\right)  \\
+&  =\left(  \prod_{\substack{p\text{ prime;}\\p\%4=1}}\left(  v_{p}\left(
+n\right)  +1\right)  \right)  \cdot\underbrace{\left(  \prod
+_{\substack{p\text{ prime;}\\p\%4\neq1}}1\right)  }_{=1}=\prod
+_{\substack{p\text{ prime;}\\p\%4=1}}\left(  v_{p}\left(  n\right)  +1\right)
+=\prod_{\substack{p\text{ prime;}\\p\equiv1\operatorname{mod}4}}\left(
+v_{p}\left(  n\right)  +1\right)
+\end{align*}
+(by (\ref{sol.ent.count-divs-134.b.6})). This solves Exercise
+\ref{exe.ent.count-divs-134} \textbf{(b)}.
+\end{proof}
+
+\begin{remark}
+Exercise \ref{exe.ent.count-divs-134} can be slightly generalized: Let
+$N\in\left\{  3,4,6\right\}  $. Let $n$ be a positive integer. Let%
+\begin{align*}
+z  &  =\left(  \text{the number of positive divisors $d$ of $n$ such that
+$d\equiv1\operatorname{mod}N$}\right) \\
+&  \ \ \ \ \ \ \ \ \ \ -\left(  \text{the number of positive divisors $d$ of
+$n$ such that $d\equiv N-1\operatorname{mod}N$}\right)  .
+\end{align*}
+
+
+Then:
+
+\textbf{(a)} If there exists a prime $p$ satisfying $p\equiv
+N-1\operatorname{mod}N$ and $v_{p}\left(  n\right)  \equiv1\operatorname{mod}%
+2$, then $z=0$.
+
+\textbf{(b)} If there exists no prime $p$ satisfying $p\equiv
+N-1\operatorname{mod}N$ and $v_{p}\left(  n\right)  \equiv1\operatorname{mod}%
+2$, then
+\[
+z=\prod_{\substack{p\text{ prime;}\\p\equiv1\operatorname{mod}N}}\left(
+v_{p}\left(  n\right)  +1\right)  .
+\]
+
+
+The solution of Exercise \ref{exe.ent.count-divs-134} that we gave above can
+still be used to prove these two more general claims, once the obvious changes
+are made (which consist mostly in replacing \textquotedblleft$3$%
+\textquotedblright\ and \textquotedblleft$4$\textquotedblright\ by
+\textquotedblleft$N-1$\textquotedblright\ and \textquotedblleft$N$%
+\textquotedblright, respectively, and adding a few straightforward cases in
+the proof of Lemma \ref{lem.sol.ent.count-divs-134.L0}).
+
+Note that the numbers $3,4,6$ are precisely the positive integers $m$
+satisfying $\phi\left(  m\right)  =2$. This is directly connected to the fact
+that they are the integers $N$ for which these two statements hold. Indeed,
+Lemma \ref{lem.sol.ent.count-divs-134.L0} (modified to use $N$ instead of $4$)
+quickly boils down to the observation that the only elements $i\in\left\{
+0,1,\ldots,N-1\right\}  $ coprime to $N$ are the two elements $1$ and $N-1$
+and these two elements are distinct; but this is equivalent to $\phi\left(
+N\right)  =2$.
+\end{remark}
 \end{fineprint}
 
 \subsection{Solution to Exercise \ref{exe.eqrel.eqcl.dj}}
