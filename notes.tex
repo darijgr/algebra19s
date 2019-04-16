@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, April 15, 2019 23:19:10}
+%TCIDATA{LastRevised=Tuesday, April 16, 2019 01:43:54}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -20740,6 +20740,71 @@ c,d\right)  \operatorname{mod}n$\textquotedblright\ is to be understood by
 treating the integer $n$ as a Gaussian integer.)
 \end{exercise}
 
+\begin{exercise}
+\label{exe.Z[i].modn.classes}For any Gaussian integer $\tau$, we let
+$\underset{\tau}{\equiv}$ be the binary relation on $\mathbb{Z}\left[
+i\right]  $ defined by
+\[
+\left(  \alpha\underset{\tau}{\equiv}\beta\right)  \ \iff\ \left(
+\alpha\equiv\beta\operatorname{mod}\tau\right)  .
+\]
+
+
+\textbf{(a)} Prove that the relation $\underset{\tau}{\equiv}$ is an
+equivalence relation whenever $\tau\in\mathbb{Z}\left[  i\right]  $.
+
+We shall refer to the equivalence classes of this relation $\underset{\tau
+}{\equiv}$ as the \textit{Gaussian residue classes modulo }$\tau$; let
+$\mathbb{Z}\left[  i\right]  /\tau$ be the set of all these classes.
+
+\textbf{(b)} Let $n$ be a positive integer. Thus, a relation
+$\underset{n}{\equiv}$ on $\mathbb{Z}\left[  i\right]  $ is defined (by
+treating the integer $n$ as a Gaussian integer). Exercise
+\ref{exe.Z[i].modn.classes} \textbf{(a)} (applied to $\tau=n$) shows that this
+relation $\underset{n}{\equiv}$ is an equivalence relation.
+
+Prove that the equivalence classes of the relation $\underset{n}{\equiv}$ (on
+$\mathbb{Z}\left[  i\right]  $) are the $n^{2}$ classes $\left[  a+bi\right]
+_{\underset{n}{\equiv}}$ for $\left(  a,b\right)  \in\left\{  0,1,\ldots
+,n-1\right\}  ^{2}$, and that these $n^{2}$ classes are all distinct.
+\end{exercise}
+
+\begin{example}
+For $n=3$, Exercise \ref{exe.Z[i].modn.classes} \textbf{(b)} is saying that
+the equivalence classes of the relation $\underset{3}{\equiv}$ (on
+$\mathbb{Z}\left[  i\right]  $) are the $3^{2}$ classes%
+\begin{align*}
+& \left[  0+0i\right]  _{\underset{3}{\equiv}},\ \ \ \ \ \ \ \ \ \ \left[
+0+1i\right]  _{\underset{3}{\equiv}},\ \ \ \ \ \ \ \ \ \ \left[  0+2i\right]
+_{\underset{3}{\equiv}},\\
+& \left[  1+0i\right]  _{\underset{3}{\equiv}},\ \ \ \ \ \ \ \ \ \ \left[
+1+1i\right]  _{\underset{3}{\equiv}},\ \ \ \ \ \ \ \ \ \ \left[  1+2i\right]
+_{\underset{3}{\equiv}},\\
+& \left[  2+0i\right]  _{\underset{3}{\equiv}},\ \ \ \ \ \ \ \ \ \ \left[
+2+1i\right]  _{\underset{3}{\equiv}},\ \ \ \ \ \ \ \ \ \ \left[  2+2i\right]
+_{\underset{3}{\equiv}},
+\end{align*}
+and that these $3^{2}$ classes are distinct. In contrast, the equivalence
+classes of the analogous relation $\underset{3}{\equiv}$ on $\mathbb{Z}$ are
+merely the $3$ classes $\left[  0\right]  _{\underset{3}{\equiv}},\left[
+1\right]  _{\underset{3}{\equiv}},\left[  2\right]  _{\underset{3}{\equiv}}$
+(by Theorem \ref{thm.eqrel.Z/n.explicit}).
+\end{example}
+
+\begin{remark}
+Exercise \ref{exe.Z[i].modn.classes} \textbf{(b)} yields $\left\vert
+\mathbb{Z}\left[  i\right]  /n\right\vert =n^{2}=\operatorname{N}\left(
+n\right)  $ for any positive integer $n$. This is essentially \cite[Lemma
+7.15]{Conrad-Gauss}. (Conrad proves this \textquotedblleft by
+example\textquotedblright; you can follow the argument but you should write it
+up in full generality.)
+
+More generally, $\left\vert \mathbb{Z}\left[  i\right]  /\tau\right\vert
+=\operatorname{N}\left(  \tau\right)  $ for any nonzero Gaussian integer
+$\tau$. This is proven in \cite[Theorem 7.14]{Conrad-Gauss} (using Exercise
+\ref{exe.Z[i].modn.classes} as a stepping stone).
+\end{remark}
+
 \subsubsection{Division with remainder}
 
 Now, let us try to make division with remainder work for Gaussian integers.
@@ -28724,7 +28789,7 @@ This map $L_{A}$ is a $\mathbb{K}$-module homomorphism from $\mathbb{K}%
 \end{theorem}
 
 \begin{proof}
-[Proof of Theorem \ref{thm.module.LA}.] We just need to check that the three
+[Proof of Theorem \ref{thm.module.LA}.]We just need to check that the three
 axioms \textbf{(a)}, \textbf{(b)} and \textbf{(c)} in Definition
 \ref{def.module.moho} are satisfied for $M=\mathbb{K}^{m\times1}$,
 $N=\mathbb{K}^{n\times1}$ and $f=L_{A}$.
@@ -28881,14 +28946,14 @@ combinations\textquotedblright.)
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.module.f-pres-lc}.] \textbf{(a)} Let
+[Proof of Proposition \ref{prop.module.f-pres-lc}.]\textbf{(a)} Let
 $\lambda,\mu\in\mathbb{K}$ and $a,b\in M$. Then,%
 \begin{align*}
 f\left(  \lambda a+\mu b\right)   &  =\underbrace{f\left(  \lambda a\right)
 }_{\substack{=\lambda f\left(  a\right)  \\\text{(by axiom \textbf{(c)})}%
 }}+\underbrace{f\left(  \mu b\right)  }_{\substack{=\mu f\left(  b\right)
 \\\text{(by axiom \textbf{(c)})}}}\ \ \ \ \ \ \ \ \ \ \left(  \text{by axiom
-\textbf{(a)}}\right)  \\
+\textbf{(a)}}\right) \\
 &  =\lambda f\left(  a\right)  +\mu f\left(  b\right)  .
 \end{align*}
 This proves part \textbf{(a)}.
@@ -28907,14 +28972,14 @@ $f:M\rightarrow N$ be a map. Assume that
 \begin{equation}
 f\left(  \lambda a+\mu b\right)  =\lambda f\left(  a\right)  +\mu f\left(
 b\right)  \ \ \ \ \ \ \ \ \ \ \text{for all }\lambda,\mu\in\mathbb{K}\text{
-and }a,b\in M.\label{eq.prop.module.moho-alt.ass}%
+and }a,b\in M. \label{eq.prop.module.moho-alt.ass}%
 \end{equation}
 Then, $f$ is $\mathbb{K}$-linear.
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.module.moho-alt}.] We must prove that the
-three axioms \textbf{(a)}, \textbf{(b)} and \textbf{(c)} of Definition
+[Proof of Proposition \ref{prop.module.moho-alt}.]We must prove that the three
+axioms \textbf{(a)}, \textbf{(b)} and \textbf{(c)} of Definition
 \ref{def.module.moho} are satisfied.
 
 \textit{Proof of axiom \textbf{(a)}:} Let $a,b\in M$. Then,
@@ -28960,7 +29025,7 @@ Let $v\in\mathbb{K}^{m\times1}$. Write $v$ as $\left(  v_{1},v_{2}%
 ,\ldots,v_{m}\right)  ^{T}$, where $v_{1},v_{2},\ldots,v_{m}\in\mathbb{K}$.
 Then,%
 \begin{align*}
-v &  =\left(  v_{1},v_{2},\ldots,v_{m}\right)  ^{T}\\
+v  &  =\left(  v_{1},v_{2},\ldots,v_{m}\right)  ^{T}\\
 &  =\left(
 \begin{array}
 [c]{c}%
@@ -29014,7 +29079,7 @@ Hence,%
 \begin{align*}
 f\left(  v\right)   &  =f\left(  \sum_{i=1}^{m}v_{i}e_{i}\right)  =\sum
 _{i=1}^{m}v_{i}f\left(  e_{i}\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by
-Proposition \ref{prop.module.f-pres-lc} \textbf{(b)}}\right)  \\
+Proposition \ref{prop.module.f-pres-lc} \textbf{(b)}}\right) \\
 &  =\sum_{j=1}^{m}v_{j}f\left(  e_{j}\right)
 \end{align*}
 and similarly $g\left(  v\right)  =\sum_{j=1}^{m}v_{j}g\left(  e_{j}\right)
@@ -37888,6 +37953,184 @@ n\right)  \\\text{(by Definition \ref{def.ent.cong})}}}\right) \\
 }b\equiv d\operatorname{mod}n\right)  .
 \end{align*}
 This solves Exercise \ref{exe.Z[i].modn.split}.
+\end{proof}
+\end{fineprint}
+
+\subsection{Solution to Exercise \ref{exe.Z[i].modn.classes}}
+
+\begin{fineprint}
+\begin{proof}
+[Solution to Exercise \ref{exe.Z[i].modn.classes}.]\textbf{(a)} The solution
+to Exercise \ref{exe.Z[i].modn.classes} \textbf{(a)} is analogous to the proof
+of Example \ref{exa.eqrel.eqrel.eqrelmodn} (with the only difference that we
+have to replace Roman letters by Greek letters, replace integers by Gaussian
+integers, and use Proposition \ref{prop.Z[i].mod.basics} instead of
+Proposition \ref{prop.ent.mod.basics}).
+
+\textbf{(b)} We must prove the following two claims:
+
+\begin{statement}
+\textit{Claim 1:} The equivalence classes of the relation $\underset{n}{\equiv
+}$ (on $\mathbb{Z}\left[  i\right]  $) are the classes $\left[  a+bi\right]
+_{\underset{n}{\equiv}}$ for $\left(  a,b\right)  \in\left\{  0,1,\ldots
+,n-1\right\}  ^{2}$.
+\end{statement}
+
+\begin{statement}
+\textit{Claim 2:} The $n^{2}$ classes $\left[  a+bi\right]
+_{\underset{n}{\equiv}}$ for $\left(  a,b\right)  \in\left\{  0,1,\ldots
+,n-1\right\}  ^{2}$ are distinct.
+\end{statement}
+
+Let us start with the proof of Claim 2:
+
+[\textit{Proof of Claim 2:} Let $\left(  a,b\right)  ,\left(  c,d\right)
+\in\left\{  0,1,\ldots,n-1\right\}  ^{2}$ be two pairs such that $\left[
+a+bi\right]  _{\underset{n}{\equiv}}=\left[  c+di\right]
+_{\underset{n}{\equiv}}$. We shall prove that $\left(  a,b\right)  =\left(
+c,d\right)  $.
+
+From $\left(  a,b\right)  ,\left(  c,d\right)  \in\left\{  0,1,\ldots
+,n-1\right\}  ^{2}$, we conclude that $a,b,c,d\in\left\{  0,1,\ldots
+,n-1\right\}  \subseteq\mathbb{Z}$.
+
+Proposition \ref{prop.CC.RRtoCC.a+bi} yields $\left(  a,b\right)  =a+bi$
+(since $a$ and $b$ are reals). Thus, $\left[  \left(  a,b\right)  \right]
+_{\underset{n}{\equiv}}=\left[  a+bi\right]  _{\underset{n}{\equiv}}$.
+Similarly, $\left[  \left(  c,d\right)  \right]  _{\underset{n}{\equiv}%
+}=\left[  c+di\right]  _{\underset{n}{\equiv}}$. Hence,%
+\[
+\left[  \left(  a,b\right)  \right]  _{\underset{n}{\equiv}}=\left[
+a+bi\right]  _{\underset{n}{\equiv}}=\left[  c+di\right]
+_{\underset{n}{\equiv}}=\left[  \left(  c,d\right)  \right]
+_{\underset{n}{\equiv}}.
+\]
+But Theorem \ref{thm.eqrel.eqcl.disj} \textbf{(e)} (applied to $\mathbb{Z}%
+\left[  i\right]  $, $\underset{n}{\equiv}$, $\left(  a,b\right)  $ and
+$\left(  c,d\right)  $ instead of $S$, $\sim$, $x$ and $y$) shows that we have
+$\left(  a,b\right)  \underset{n}{\equiv}\left(  c,d\right)  $ if and only if
+$\left[  \left(  a,b\right)  \right]  _{\underset{n}{\equiv}}=\left[  \left(
+c,d\right)  \right]  _{\underset{n}{\equiv}}$. Hence, $\left(  a,b\right)
+\underset{n}{\equiv}\left(  c,d\right)  $ (since we have $\left[  \left(
+a,b\right)  \right]  _{\underset{n}{\equiv}}=\left[  \left(  c,d\right)
+\right]  _{\underset{n}{\equiv}}$). In other words, $\left(  a,b\right)
+\equiv\left(  c,d\right)  \operatorname{mod}n$ (by the definition of the
+relation $\underset{n}{\equiv}$ on $\mathbb{Z}\left[  i\right]  $).
+
+But $\left(  a,b\right)  $ and $\left(  c,d\right)  $ are two Gaussian
+integers (since $a,b,c,d\in\mathbb{Z}$). Hence, Exercise
+\ref{exe.Z[i].modn.split} shows that we have the following logical
+equivalence:%
+\[
+\left(  \left(  a,b\right)  \equiv\left(  c,d\right)  \operatorname{mod}%
+n\right)  \ \Longleftrightarrow\ \left(  a\equiv c\operatorname{mod}n\text{
+and }b\equiv d\operatorname{mod}n\right)  .
+\]
+Thus, we have $\left(  a\equiv c\operatorname{mod}n\text{ and }b\equiv
+d\operatorname{mod}n\right)  $ (since we have $\left(  a,b\right)
+\equiv\left(  c,d\right)  \operatorname{mod}n$).
+
+Now, $a\in\left\{  0,1,\ldots,n-1\right\}  $ and $a\equiv c\operatorname{mod}%
+n$. Hence, Corollary \ref{cor.ent.quo-rem.remmod} \textbf{(c)} (applied to $c$
+and $a$ instead of $u$ and $c$) yields $a=c\%n$. On the other hand,
+$c\in\left\{  0,1,\ldots,n-1\right\}  $ and $c\equiv c\operatorname{mod}n$.
+Hence, Corollary \ref{cor.ent.quo-rem.remmod} \textbf{(c)} (applied to $c$ and
+$c$ instead of $u$ and $c$) yields $c=c\%n$. Comparing this with $a=c\%n$, we
+obtain $a=c$. The same argument (but with $a$ and $c$ replaced by $b$ and $d$)
+yields $b=d$. Hence, $\left(  \underbrace{a}_{=c},\underbrace{b}_{=d}\right)
+=\left(  c,d\right)  $.
+
+Now, forget that we fixed $\left(  a,b\right)  ,\left(  c,d\right)  $. We thus
+have shown that if $\left(  a,b\right)  ,\left(  c,d\right)  \in\left\{
+0,1,\ldots,n-1\right\}  ^{2}$ are two pairs such that $\left[  a+bi\right]
+_{\underset{n}{\equiv}}=\left[  c+di\right]  _{\underset{n}{\equiv}}$, then
+$\left(  a,b\right)  =\left(  c,d\right)  $. In other words, the $n^{2}$
+classes $\left[  a+bi\right]  _{\underset{n}{\equiv}}$ for $\left(
+a,b\right)  \in\left\{  0,1,\ldots,n-1\right\}  ^{2}$ are distinct. This
+proves Claim 2.]
+
+[\textit{Proof of Claim 1:} Let $\xi$ be an equivalence class of the relation
+$\underset{n}{\equiv}$ (on $\mathbb{Z}\left[  i\right]  $). Thus, $\xi=\left[
+\alpha\right]  _{\underset{n}{\equiv}}$ for some $\alpha\in\mathbb{Z}\left[
+i\right]  $ (by the definition of an equivalence class). Consider this
+$\alpha$. Write the complex number $\alpha$ as $\alpha=\left(  x,y\right)  $
+for some $x,y\in\mathbb{R}$. Then, $x,y\in\mathbb{Z}$ (since $\alpha$ is a
+Gaussian integer).
+
+Corollary \ref{cor.ent.quo-rem.remmod} \textbf{(a)} (applied to $u=x$) shows
+that $x\%n\in\left\{  0,1,\ldots,n-1\right\}  $ and $x\%n\equiv
+x\operatorname{mod}n$. Corollary \ref{cor.ent.quo-rem.remmod} \textbf{(a)}
+(applied to $u=y$) shows that $y\%n\in\left\{  0,1,\ldots,n-1\right\}  $ and
+$y\%n\equiv y\operatorname{mod}n$. From $x\%n\in\left\{  0,1,\ldots
+,n-1\right\}  $ and $y\%n\in\left\{  0,1,\ldots,n-1\right\}  $, we obtain
+$\left(  x\%n,y\%n\right)  \in\left\{  0,1,\ldots,n-1\right\}  ^{2}$.
+
+Also, of course, $x\%n,y\%n\in\mathbb{Z}$; thus, the complex number $\left(
+x\%n,y\%n\right)  $ is a Gaussian integer. Denote this Gaussian integer by
+$\beta$. Thus, $\beta=\left(  x\%n,y\%n\right)  =x\%n+\left(  y\%n\right)  i$
+(by Proposition \ref{prop.CC.RRtoCC.a+bi}, applied to $\left(  a,b\right)
+=\left(  x\%n,y\%n\right)  $). Hence, $\beta$ is a Gaussian integer of the
+form $a+bi$ for $\left(  a,b\right)  \in\left\{  0,1,\ldots,n-1\right\}  ^{2}$
+(namely, for $\left(  a,b\right)  =\left(  x\%n,y\%n\right)  $). Thus, the
+equivalence class $\left[  \beta\right]  _{\underset{n}{\equiv}}$ is one of
+the classes $\left[  a+bi\right]  _{\underset{n}{\equiv}}$ for $\left(
+a,b\right)  \in\left\{  0,1,\ldots,n-1\right\}  ^{2}$.
+
+Recall that $\left(  x\%n,y\%n\right)  $ is a Gaussian integer. Hence,
+Exercise \ref{exe.Z[i].modn.split} (applied to $\left(  a,b\right)  =\left(
+x\%n,y\%n\right)  $ and $\left(  c,d\right)  =\left(  x,y\right)  $) shows
+that we have the following logical equivalence:%
+\[
+\left(  \left(  x\%n,y\%n\right)  \equiv\left(  x,y\right)  \operatorname{mod}%
+n\right)  \ \Longleftrightarrow\ \left(  x\%n\equiv x\operatorname{mod}n\text{
+and }y\%n\equiv y\operatorname{mod}n\right)  .
+\]
+Hence, we have $\left(  x\%n,y\%n\right)  \equiv\left(  x,y\right)
+\operatorname{mod}n$ (since we have $x\%n\equiv x\operatorname{mod}n$ and
+$y\%n\equiv y\operatorname{mod}n$). In view of $\left(  x,y\right)  =\alpha$
+and $\left(  x\%n,y\%n\right)  =\beta$, this rewrites as $\beta\equiv
+\alpha\operatorname{mod}n$. In other words, $\beta\underset{n}{\equiv}\alpha$
+(by the definition of the relation $\underset{n}{\equiv}$ on $\mathbb{Z}%
+\left[  i\right]  $).
+
+But Theorem \ref{thm.eqrel.eqcl.disj} \textbf{(e)} (applied to $\mathbb{Z}%
+\left[  i\right]  $, $\underset{n}{\equiv}$, $\beta$ and $\alpha$ instead of
+$S$, $\sim$, $x$ and $y$) shows that we have $\beta\underset{n}{\equiv}\alpha$
+if and only if $\left[  \beta\right]  _{\underset{n}{\equiv}}=\left[
+\alpha\right]  _{\underset{n}{\equiv}}$. Hence, we have $\left[  \beta\right]
+_{\underset{n}{\equiv}}=\left[  \alpha\right]  _{\underset{n}{\equiv}}$ (since
+we have $\beta\underset{n}{\equiv}\alpha$). Comparing this with $\xi=\left[
+\alpha\right]  _{\underset{n}{\equiv}}$, we obtain $\xi=\left[  \beta\right]
+_{\underset{n}{\equiv}}$.
+
+But recall that $\left[  \beta\right]  _{\underset{n}{\equiv}}$ is one of the
+classes $\left[  a+bi\right]  _{\underset{n}{\equiv}}$ for $\left(
+a,b\right)  \in\left\{  0,1,\ldots,n-1\right\}  ^{2}$. In view of $\xi=\left[
+\beta\right]  _{\underset{n}{\equiv}}$, this rewrites as follows: $\xi$ is one
+of the classes $\left[  a+bi\right]  _{\underset{n}{\equiv}}$ for $\left(
+a,b\right)  \in\left\{  0,1,\ldots,n-1\right\}  ^{2}$.
+
+Forget that we fixed $\xi$. We thus have proven that if $\xi$ is any
+equivalence class of the relation $\underset{n}{\equiv}$ (on $\mathbb{Z}%
+\left[  i\right]  $), then $\xi$ is one of the classes $\left[  a+bi\right]
+_{\underset{n}{\equiv}}$ for $\left(  a,b\right)  \in\left\{  0,1,\ldots
+,n-1\right\}  ^{2}$. In other words, each equivalence class of the relation
+$\underset{n}{\equiv}$ (on $\mathbb{Z}\left[  i\right]  $) is one of the
+classes $\left[  a+bi\right]  _{\underset{n}{\equiv}}$ for $\left(
+a,b\right)  \in\left\{  0,1,\ldots,n-1\right\}  ^{2}$. Conversely, of course,
+each of the latter classes is an equivalence class of the relation
+$\underset{n}{\equiv}$ (on $\mathbb{Z}\left[  i\right]  $). Combining these
+two statements, we conclude that the equivalence classes of the relation
+$\underset{n}{\equiv}$ (on $\mathbb{Z}\left[  i\right]  $) are the classes
+$\left[  a+bi\right]  _{\underset{n}{\equiv}}$ for $\left(  a,b\right)
+\in\left\{  0,1,\ldots,n-1\right\}  ^{2}$. This proves Claim 1.]
+
+Having proven both Claim 1 and Claim 2, we now conclude that the equivalence
+classes of the relation $\underset{n}{\equiv}$ (on $\mathbb{Z}\left[
+i\right]  $) are the $n^{2}$ classes $\left[  a+bi\right]
+_{\underset{n}{\equiv}}$ for $\left(  a,b\right)  \in\left\{  0,1,\ldots
+,n-1\right\}  ^{2}$, and that these $n^{2}$ classes are all distinct. This
+solves Exercise \ref{exe.Z[i].modn.classes}.
 \end{proof}
 \end{fineprint}
 
