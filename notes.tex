@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, April 15, 2019 22:49:34}
+%TCIDATA{LastRevised=Monday, April 15, 2019 23:19:10}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -25902,8 +25902,8 @@ ab\right]  _{n}$ and thus $\pi_{n,d}\left(  \alpha\beta\right)  =\pi
 _{n,d}\left(  \left[  ab\right]  _{n}\right)  =\left[  ab\right]  _{d}$.
 Comparing this equality to (\ref{pf.exa.riho.pind.2}), we conclude $\pi
 _{n,d}\left(  \alpha\beta\right)  =\pi_{n,d}\left(  \alpha\right)  \cdot
-\pi_{n,d}\left(  \beta\right)  $. Thus, axiom \textbf{(c)} is proven. The rest
-is LTTR.
+\pi_{n,d}\left(  \beta\right)  $. Thus, axiom \textbf{(c)} is proven. The
+other three axioms are proven similarly (we leave the details to the reader).
 \end{proof}
 
 \begin{remark}
@@ -28680,13 +28680,18 @@ Instead of \textquotedblleft$\mathbb{K}$-module homomorphism\textquotedblright%
 \end{definition}
 
 \begin{remark}
-The axiom \textbf{(b)} in Definition \ref{def.module.moho} is redundant -- it
-follows from axiom \textbf{(a)}.
+\label{rmk.module.moho.0-free}The axiom \textbf{(b)} in Definition
+\ref{def.module.moho} is redundant -- it follows from axiom \textbf{(a)}.
 \end{remark}
 
 \begin{proof}
 Same argument as for Remark \ref{rmk.riho.0-free}.
 \end{proof}
+
+Some authors (for example, Hefferon in \cite[Chapter Three, Definition
+II.1.1]{Hefferon}, and the authors of \cite[Definition 6.1.1]{LaNaSc16}) omit
+the axiom \textbf{(b)} when they define $\mathbb{K}$-linear maps. This does
+not change the concept, as Remark \ref{rmk.module.moho.0-free} shows.
 
 What are some examples of module homomorphisms?
 
@@ -28719,20 +28724,24 @@ This map $L_{A}$ is a $\mathbb{K}$-module homomorphism from $\mathbb{K}%
 \end{theorem}
 
 \begin{proof}
-Just check the three axioms:
+[Proof of Theorem \ref{thm.module.LA}.] We just need to check that the three
+axioms \textbf{(a)}, \textbf{(b)} and \textbf{(c)} in Definition
+\ref{def.module.moho} are satisfied for $M=\mathbb{K}^{m\times1}$,
+$N=\mathbb{K}^{n\times1}$ and $f=L_{A}$.
 
-\textbf{(a)} We must prove that $L_{A}\left(  a+b\right)  =L_{A}\left(
-a\right)  +L_{A}\left(  b\right)  $ for all $a,b\in\mathbb{K}^{m\times1}$.
-Indeed: Comparing%
+\textit{Proof of axiom \textbf{(a)}:} We must prove that $L_{A}\left(
+a+b\right)  =L_{A}\left(  a\right)  +L_{A}\left(  b\right)  $ for all
+$a,b\in\mathbb{K}^{m\times1}$. Indeed: Comparing%
 \begin{align*}
 L_{A}\left(  a+b\right)   &  =A\left(  a+b\right)
 =Aa+Ab\ \ \ \ \ \ \ \ \ \ \text{with}\\
 L_{A}\left(  a\right)  +L_{A}\left(  b\right)   &  =Aa+Ab,
 \end{align*}
 we obtain $L_{A}\left(  a+b\right)  =L_{A}\left(  a\right)  +L_{A}\left(
-b\right)  $.
+b\right)  $. Thus, axiom \textbf{(a)} has been verified.
 
-\textbf{(b)}, \textbf{(c)} are similar and LTTR.
+The axioms \textbf{(b)} and \textbf{(c)} are proven similarly (details are
+left to the reader).
 \end{proof}
 
 \begin{proposition}
@@ -28872,32 +28881,69 @@ combinations\textquotedblright.)
 \end{proposition}
 
 \begin{proof}
-\textbf{(a)} Let $\lambda,\mu\in\mathbb{K}$ and $a,b\in M$. Then,%
+[Proof of Proposition \ref{prop.module.f-pres-lc}.] \textbf{(a)} Let
+$\lambda,\mu\in\mathbb{K}$ and $a,b\in M$. Then,%
 \begin{align*}
 f\left(  \lambda a+\mu b\right)   &  =\underbrace{f\left(  \lambda a\right)
 }_{\substack{=\lambda f\left(  a\right)  \\\text{(by axiom \textbf{(c)})}%
 }}+\underbrace{f\left(  \mu b\right)  }_{\substack{=\mu f\left(  b\right)
 \\\text{(by axiom \textbf{(c)})}}}\ \ \ \ \ \ \ \ \ \ \left(  \text{by axiom
-\textbf{(a)}}\right) \\
+\textbf{(a)}}\right)  \\
 &  =\lambda f\left(  a\right)  +\mu f\left(  b\right)  .
 \end{align*}
 This proves part \textbf{(a)}.
 
-\textbf{(b)} Induction on $k$. Details LTTR.
+\textbf{(b)} This is proven by induction on $k$. The induction base follows
+from axiom \textbf{(b)}; the induction step uses Proposition
+\ref{prop.module.f-pres-lc} \textbf{(a)} (or axioms \textbf{(a)} and
+\textbf{(c)}, if you wish). Details are left to the reader.
 \end{proof}
 
 Proposition \ref{prop.module.f-pres-lc} \textbf{(a)} has a converse:
 
-\begin{remark}
-Let $M$ and $N$ be two $\mathbb{K}$-modules. Let $f:M\rightarrow N$ be a map.
-Assume that $f\left(  \lambda a+\mu b\right)  =\lambda f\left(  a\right)  +\mu
-f\left(  b\right)  $ for all $\lambda,\mu\in\mathbb{K}$ and $a,b\in M$. Then,
-$f$ is $\mathbb{K}$-linear.
-\end{remark}
+\begin{proposition}
+\label{prop.module.moho-alt}Let $M$ and $N$ be two $\mathbb{K}$-modules. Let
+$f:M\rightarrow N$ be a map. Assume that
+\begin{equation}
+f\left(  \lambda a+\mu b\right)  =\lambda f\left(  a\right)  +\mu f\left(
+b\right)  \ \ \ \ \ \ \ \ \ \ \text{for all }\lambda,\mu\in\mathbb{K}\text{
+and }a,b\in M.\label{eq.prop.module.moho-alt.ass}%
+\end{equation}
+Then, $f$ is $\mathbb{K}$-linear.
+\end{proposition}
 
 \begin{proof}
-LTTR.
+[Proof of Proposition \ref{prop.module.moho-alt}.] We must prove that the
+three axioms \textbf{(a)}, \textbf{(b)} and \textbf{(c)} of Definition
+\ref{def.module.moho} are satisfied.
+
+\textit{Proof of axiom \textbf{(a)}:} Let $a,b\in M$. Then,
+(\ref{eq.prop.module.moho-alt.ass}) (applied to $\lambda=1$ and $\mu=1$)
+yields $f\left(  1a+1b\right)  =1f\left(  a\right)  +1f\left(  b\right)  $.
+This quickly simplifies to $f\left(  a+b\right)  =f\left(  a\right)  +f\left(
+b\right)  $. Thus, axiom \textbf{(a)} has been verified.
+
+\textit{Proof of axiom \textbf{(b)}:} Applying
+(\ref{eq.prop.module.moho-alt.ass}) to $\lambda=0$, $\mu=0$, $a=0_{M}$ and
+$b=0_{M}$, we obtain $f\left(  0\cdot0_{M}+0\cdot0_{M}\right)  =0f\left(
+0_{M}\right)  +0f\left(  0_{M}\right)  =0_{N}$. In view of $0\cdot0_{M}%
++0\cdot0_{M}=0_{M}$, we can rewrite this as $f\left(  0_{M}\right)  =0_{N}$.
+Thus, axiom \textbf{(b)} has been verified.
+
+\textit{Proof of axiom \textbf{(c)}:} Let $\lambda\in\mathbb{K}$ and $a\in M$.
+Applying (\ref{eq.prop.module.moho-alt.ass}) to $\mu=0$ and $b=0_{M}$, we
+obtain $f\left(  \lambda a+0\cdot0_{M}\right)  =\lambda f\left(  a\right)
++0f\left(  0_{M}\right)  =\lambda f\left(  a\right)  $. In view of $\lambda
+a+\underbrace{0\cdot0_{M}}_{=0_{M}}=\lambda a+0_{M}=\lambda a$, this rewrites
+as $f\left(  \lambda a\right)  =\lambda f\left(  a\right)  $. Thus, axiom
+\textbf{(c)} has been verified.
 \end{proof}
+
+Some authors use the axiom (\ref{eq.prop.module.moho-alt.ass}) as their
+definition of what it means for a map $f:M\rightarrow N$ between two
+$\mathbb{K}$-modules $M$ and $N$ to be $\mathbb{K}$-linear. This definition is
+equivalent to ours (due to Proposition \ref{prop.module.moho-alt} and
+Proposition \ref{prop.module.f-pres-lc} \textbf{(a)}).
 
 \begin{lemma}
 \label{lem.module.f=g.ej-suff}Let $m\in\mathbb{N}$, and let $N$ be a
@@ -28914,7 +28960,7 @@ Let $v\in\mathbb{K}^{m\times1}$. Write $v$ as $\left(  v_{1},v_{2}%
 ,\ldots,v_{m}\right)  ^{T}$, where $v_{1},v_{2},\ldots,v_{m}\in\mathbb{K}$.
 Then,%
 \begin{align*}
-v  &  =\left(  v_{1},v_{2},\ldots,v_{m}\right)  ^{T}\\
+v &  =\left(  v_{1},v_{2},\ldots,v_{m}\right)  ^{T}\\
 &  =\left(
 \begin{array}
 [c]{c}%
@@ -28968,7 +29014,7 @@ Hence,%
 \begin{align*}
 f\left(  v\right)   &  =f\left(  \sum_{i=1}^{m}v_{i}e_{i}\right)  =\sum
 _{i=1}^{m}v_{i}f\left(  e_{i}\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by
-Proposition \ref{prop.module.f-pres-lc} \textbf{(b)}}\right) \\
+Proposition \ref{prop.module.f-pres-lc} \textbf{(b)}}\right)  \\
 &  =\sum_{j=1}^{m}v_{j}f\left(  e_{j}\right)
 \end{align*}
 and similarly $g\left(  v\right)  =\sum_{j=1}^{m}v_{j}g\left(  e_{j}\right)
@@ -29654,9 +29700,12 @@ Since $-\left(  -n\right)  =n$, this rewrites as follows:%
 a\equiv b\operatorname{mod}n\right)  .
 \]
 Combining this implication with the implication (\ref{sol.ent.mod.-.fwd}), we
-obtain the equivalence $\left(  a\equiv b\operatorname{mod}n\right)
-\ \Longleftrightarrow\ \left(  a\equiv b\operatorname{mod}-n\right)  $. This
-solves Exercise \ref{exe.ent.mod.-}.
+obtain the equivalence
+\[
+\left(  a\equiv b\operatorname{mod}n\right)  \ \Longleftrightarrow\ \left(
+a\equiv b\operatorname{mod}-n\right)  .
+\]
+This solves Exercise \ref{exe.ent.mod.-}.
 \end{proof}
 \end{fineprint}
 
