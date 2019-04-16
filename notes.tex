@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, April 15, 2019 21:32:34}
+%TCIDATA{LastRevised=Monday, April 15, 2019 22:49:34}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -19334,7 +19334,7 @@ a,-b\right)  $ and $\overline{\beta}=\left(  c,-d\right)  $ yields%
 ac-bd,-\left(  ad+bc\right)  \right)
 \]
 (by the definition of the operation $\cdot$ on $\mathbb{C}$). Comparing this
-with $\overline{\alpha\cdot\beta}=\left(  ac-bd,-\left(  ad+bc\right)
+with \newline$\overline{\alpha\cdot\beta}=\left(  ac-bd,-\left(  ad+bc\right)
 \right)  $, we obtain $\overline{\alpha\cdot\beta}=\overline{\alpha}%
 \cdot\overline{\beta}$. This proves Proposition \ref{prop.CC.conj.hom}
 \textbf{(c)}.
@@ -20306,7 +20306,7 @@ $\gamma$ instead of $\alpha$). Now,
 \ \ \ \ \ \ \ \ \ \ \left(
 \begin{array}
 [c]{c}%
-\text{by Proposition \textit{\ref{prop.CC.conj.hom} }\textbf{(d)},}\\
+\text{by Proposition \ref{prop.CC.conj.hom} \textbf{(d)},}\\
 \text{applied to }\gamma\text{ instead of }\alpha
 \end{array}
 \right) \\
@@ -20936,17 +20936,7 @@ $1+i$ is a Gaussian divisor of $2$ (since $2=\left(  1+i\right)  \left(
 1-i\right)  $), but the only divisors of $2$ (in the sense of Definition
 \ref{def.ent.divisors.divisors}) are $-2,-1,1,2$. This is one of those
 situations where using the same name for a concept and its Gaussian-integer
-analogue would lead to ambiguities.%
-
-\[%
-\begin{tabular}
-[c]{||l||}\hline\hline
-\textbf{You have reached the end of the finished part.}\\
-\textbf{TODO: Write on from here.}\\\hline\hline
-\end{tabular}
-\
-\]
-
+analogue would lead to ambiguities.
 
 The following is an analogue of Proposition \ref{prop.ent.divisors.find}:
 
@@ -20959,31 +20949,82 @@ i\right]  $, then $1$ and $\beta$ are Gaussian divisors of $\beta$.
 \textbf{(c)} Let $\beta\in\mathbb{Z}\left[  i\right]  $ be nonzero. Then, all
 Gaussian divisors of $\beta$ belong to the set%
 \[
-\left\{  x+yi\ \mid\ x,y\in\mathbb{Z}\text{ satisfying }\left\vert
-x\right\vert \leq\left\vert \beta\right\vert \text{ and }\left\vert
-y\right\vert \leq\left\vert \beta\right\vert \right\}  .
+\left\{  x+yi\ \mid\ x,y\in\mathbb{Z}\text{ satisfying }x^{2}\leq
+\operatorname*{N}\left(  \beta\right)  \text{ and }y^{2}\leq\operatorname*{N}%
+\left(  \beta\right)  \right\}  .
 \]
 
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.Z[i].divisors.find}.]Parts \textbf{(a)} and
-\textbf{(b)} are clear.
+[Proof of Proposition \ref{prop.Z[i].divisors.find}.]\textbf{(a)} Let
+$\beta\in\mathbb{Z}\left[  i\right]  $. Then, $\beta=1\beta$. Hence,
+$1\mid\beta$ (since $\beta$ is a Gaussian integer). In other words, $1$ is a
+Gaussian divisor of $\beta$.
 
-\textbf{(c)} Let $x+yi$ be a Gaussian divisor of $\beta$. Then, Proposition
-\ref{prop.Z[i].gauss.div.1} \textbf{(b)} yields $\operatorname*{N}\left(
-x+yi\right)  \leq\operatorname*{N}\left(  \beta\right)  $, thus $\left\vert
-x+yi\right\vert \leq\left\vert \beta\right\vert $ (since $\left\vert
-\alpha\right\vert =\sqrt{\operatorname*{N}\left(  \alpha\right)  }$ for every
-$\alpha\in\mathbb{C}$). But $\left\vert x+yi\right\vert =\sqrt{x^{2}+y^{2}%
-}\geq\sqrt{x^{2}}=\left\vert x\right\vert $, so that $\left\vert x\right\vert
-\leq\left\vert x+yi\right\vert \leq\left\vert \beta\right\vert $. Similarly,
-$\left\vert y\right\vert \leq\left\vert \beta\right\vert $.
+Also, $\beta=\beta\cdot1$. Hence, $\beta\mid\beta$ (since $1$ is a Gaussian
+integer). In other words, $\beta$ is a Gaussian divisor of $\beta$.
+
+So we have shown that $1$ and $\beta$ are Gaussian divisors of $\beta$. This
+proves Proposition \ref{prop.Z[i].divisors.find} \textbf{(a)}.
+
+\textbf{(b)} If $\beta$ is a Gaussian integer, then $0=\beta\cdot0$, and thus
+$\beta$ is a Gaussian divisor of $0$ (since $0$ is a Gaussian integer). In
+other words, each Gaussian integer is a Gaussian divisor of $0$. Conversely,
+each Gaussian divisor of $0$ is a Gaussian integer (by definition). Combining
+these two statements, we conclude that the Gaussian divisors of $0$ are all
+the Gaussian integers. This proves Proposition \ref{prop.Z[i].divisors.find}
+\textbf{(b)}.
+
+\textbf{(c)} Let $\alpha$ be a Gaussian divisor of $\beta$. Write the complex
+number $\alpha$ in the form $\alpha=\left(  a,b\right)  $ with $a,b\in
+\mathbb{C}$. Then, $a,b\in\mathbb{Z}$ (since $\alpha$ is a Gaussian integer)
+and $\operatorname*{N}\left(  \alpha\right)  =a^{2}+b^{2}$ (by the definition
+of $\operatorname*{N}\left(  \alpha\right)  $). But $\alpha\mid\beta$ (since
+$\alpha$ is a Gaussian divisor of $\beta$) and $\beta\neq0$ (since $\beta$ is
+nonzero). Hence, Proposition \ref{prop.Z[i].gauss.div.1} \textbf{(b)} yields
+$\operatorname*{N}\left(  \alpha\right)  \leq\operatorname*{N}\left(
+\beta\right)  $. But $a,b$ are reals, and thus $a^{2},b^{2}$ are nonnegative
+reals (since the square of a real is always a nonnegative real). In other
+words, $a^{2}\geq0$ and $b^{2}\geq0$.
+
+Now, $\operatorname*{N}\left(  \alpha\right)  =a^{2}+\underbrace{b^{2}}%
+_{\geq0}\geq a^{2}$, so that $a^{2}\leq\operatorname*{N}\left(  \alpha\right)
+\leq\operatorname*{N}\left(  \beta\right)  $. Also, $\operatorname*{N}\left(
+\alpha\right)  =\underbrace{a^{2}}_{\geq0}+b^{2}\geq b^{2}$, so that
+$b^{2}\leq\operatorname*{N}\left(  \alpha\right)  \leq\operatorname*{N}\left(
+\beta\right)  $. Also, $\alpha=\left(  a,b\right)  =a+bi$. Hence, we have
+$\alpha=x+yi$ for some $x,y\in\mathbb{Z}$ satisfying $x^{2}\leq
+\operatorname*{N}\left(  \beta\right)  $ and $y^{2}\leq\operatorname*{N}%
+\left(  \beta\right)  $ (namely, for $x=a$ and $y=b$). In other words,%
+\[
+\alpha\in\left\{  x+yi\ \mid\ x,y\in\mathbb{Z}\text{ satisfying }x^{2}%
+\leq\operatorname*{N}\left(  \beta\right)  \text{ and }y^{2}\leq
+\operatorname*{N}\left(  \beta\right)  \right\}  .
+\]
+
+
+Now, forget that we fixed $\alpha$. We thus have shown that if $\alpha$ is a
+Gaussian divisor of $\beta$, then%
+\[
+\alpha\in\left\{  x+yi\ \mid\ x,y\in\mathbb{Z}\text{ satisfying }x^{2}%
+\leq\operatorname*{N}\left(  \beta\right)  \text{ and }y^{2}\leq
+\operatorname*{N}\left(  \beta\right)  \right\}  .
+\]
+In other words, all Gaussian divisors of $\beta$ belong to the set%
+\[
+\left\{  x+yi\ \mid\ x,y\in\mathbb{Z}\text{ satisfying }x^{2}\leq
+\operatorname*{N}\left(  \beta\right)  \text{ and }y^{2}\leq\operatorname*{N}%
+\left(  \beta\right)  \right\}  .
+\]
+This proves Proposition \ref{prop.Z[i].divisors.find} \textbf{(c)}.
 \end{proof}
 
 Thus, again, finding all Gaussian divisors of a Gaussian integer $\beta$ is a
-problem solvable in finite time. (Indeed, the set in Proposition
-\ref{prop.Z[i].divisors.find} \textbf{(c)} is clearly finite.)
+problem solvable in finite time. (Indeed, if $\beta=0$, then Proposition
+\ref{prop.Z[i].divisors.find} \textbf{(b)} answers this question; but
+otherwise, the set in Proposition \ref{prop.Z[i].divisors.find} \textbf{(c)}
+is clearly finite.)
 
 The following is a straightforward analogue of Definition \ref{def.ent.Div}:
 
@@ -21021,7 +21062,17 @@ greatest element of $\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]
 \textquotedblleft greatest\textquotedblright\ does not make sense for complex
 numbers. (Even if we wanted \textquotedblleft greatest in
 norm\textquotedblright, it would not a-priori be obvious that there are no
-ties, i.e., that such a greatest common Gaussian divisor is unique.)
+ties, i.e., that such a greatest common Gaussian divisor is unique.)%
+
+\[%
+\begin{tabular}
+[c]{||l||}\hline\hline
+\textbf{You have reached the end of the finished part.}\\
+\textbf{TODO: Write on from here.}\\\hline\hline
+\end{tabular}
+\ \
+\]
+
 
 However, it turns out that a \textquotedblleft greatest common Gaussian
 divisor\textquotedblright\ $\gcd\nolimits_{\mathbb{Z}\left[  i\right]
@@ -29561,7 +29612,7 @@ Now, we have the following chain of logical equivalences:%
 \left(  a-b\equiv c\operatorname{mod}n\right)  \  &  \Longleftrightarrow
 \ \left(  n\mid\underbrace{\left(  a-b\right)  -c}_{=a-\left(  b+c\right)
 }\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{sol.ent.mod.diff.1}%
-)}\right)  \\
+)}\right) \\
 &  \Longleftrightarrow\ \left(  n\mid a-\left(  b+c\right)  \right)
 \ \Longleftrightarrow\ \left(  a\equiv b+c\operatorname{mod}n\right)
 \ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{sol.ent.mod.diff.2})}\right)  .
@@ -29575,11 +29626,11 @@ $a\equiv b+c\operatorname{mod}n$. This solves Exercise \ref{exe.ent.mod.diff}.
 
 \begin{fineprint}
 \begin{proof}
-[Solution to Exercise \ref{exe.ent.mod.-}.] Let us first prove the logical
+[Solution to Exercise \ref{exe.ent.mod.-}.]Let us first prove the logical
 implication%
 \begin{equation}
 \left(  a\equiv b\operatorname{mod}n\right)  \ \Longrightarrow\ \left(
-a\equiv b\operatorname{mod}-n\right)  .\label{sol.ent.mod.-.fwd}%
+a\equiv b\operatorname{mod}-n\right)  . \label{sol.ent.mod.-.fwd}%
 \end{equation}
 
 
