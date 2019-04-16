@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, April 15, 2019 21:22:00}
+%TCIDATA{LastRevised=Monday, April 15, 2019 21:32:34}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -1805,6 +1805,11 @@ that $b=a+nd$.
 \label{exe.ent.mod.diff}Let $a,b,c,n\in\mathbb{Z}$. Prove that we have
 $a-b\equiv c\operatorname{mod}n$ if and only if $a\equiv b+c\operatorname{mod}%
 n$.
+\end{exercise}
+
+\begin{exercise}
+\label{exe.ent.mod.-}Let $a,b,n\in\mathbb{Z}$. Prove that $a\equiv
+b\operatorname{mod}n$ if and only if $a\equiv b\operatorname{mod}-n$.
 \end{exercise}
 
 \subsection{\label{sect.ent.subst-chain}Chains of congruences}
@@ -20835,14 +20840,14 @@ Now, the complex number $r_{1}+r_{2}i=\left(  r_{1},r_{2}\right)  $ satisfies%
 \operatorname*{N}\left(  r_{1}+r_{2}i\right)   &  =\underbrace{r_{1}^{2}%
 }_{\leq n^{2}/4}+\underbrace{r_{2}^{2}}_{\leq n^{2}/4}%
 \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of }\operatorname*{N}%
-\left(  r_{1}+r_{2}i\right)  \right)  \\
+\left(  r_{1}+r_{2}i\right)  \right) \\
 &  \leq n^{2}/4+n^{2}/4=n^{2}/2.
 \end{align*}
 We can divide this inequality by $n$ (since $n>0$); thus, we find%
 \begin{equation}
 \dfrac{\operatorname*{N}\left(  r_{1}+r_{2}i\right)  }{n}\leq\dfrac{n^{2}%
-/2}{n}=n/2=\operatorname*{N}\left(  \beta\right)
-/2\label{pf.thm.Z[i].gauss.quorem.norm-ineq}%
+/2}{n}=n/2=\operatorname*{N}\left(  \beta\right)  /2
+\label{pf.thm.Z[i].gauss.quorem.norm-ineq}%
 \end{equation}
 (since $n=\operatorname*{N}\left(  \beta\right)  $).
 
@@ -20878,7 +20883,7 @@ Hence,
 \begin{align*}
 \rho &  =\beta\cdot\dfrac{r_{1}+r_{2}i}{n}=\beta\cdot\dfrac{r_{1}+r_{2}%
 i}{\beta\overline{\beta}}\ \ \ \ \ \ \ \ \ \ \left(  \text{since }%
-n=\beta\overline{\beta}\right)  \\
+n=\beta\overline{\beta}\right) \\
 &  =\dfrac{r_{1}+r_{2}i}{\overline{\beta}}%
 \end{align*}
 and thus%
@@ -20894,10 +20899,10 @@ and thus%
 r_{1}+r_{2}i\\
 \text{and }\overline{\beta}\text{ instead of }\alpha\text{ and }\beta
 \end{array}
-\right)  \\
+\right) \\
 &  =\dfrac{\operatorname*{N}\left(  r_{1}+r_{2}i\right)  }{n}%
 \ \ \ \ \ \ \ \ \ \ \left(  \text{since }\operatorname*{N}\left(
-\overline{\beta}\right)  =n\right)  \\
+\overline{\beta}\right)  =n\right) \\
 &  \leq\operatorname*{N}\left(  \beta\right)  /2\ \ \ \ \ \ \ \ \ \ \left(
 \text{by (\ref{pf.thm.Z[i].gauss.quorem.norm-ineq})}\right)  .
 \end{align*}
@@ -29213,13 +29218,13 @@ the definition of divisibility). This solves Exercise \ref{exe.ent.div.powers}.
 
 \begin{fineprint}
 \begin{proof}
-[First solution to Exercise \ref{exe.ent.div.g|1}.] Assume the contrary.
-Thus, $g\neq1$. But Proposition \ref{prop.ent.div.1} \textbf{(b)} (applied to
-$g$ and $1$ instead of $a$ and $b$) yields $\left\vert g\right\vert
-\leq\left\vert 1\right\vert $ (since $g\mid1$ and $1\neq0$). But $g$ is
-nonnegative; hence, $\left\vert g\right\vert =g$, so that $g=\left\vert
-g\right\vert \leq\left\vert 1\right\vert =1$. Combining this with $g\neq1$, we
-obtain $g<1$. Hence, $g=0$ (since $g$ is a nonnegative integer).
+[First solution to Exercise \ref{exe.ent.div.g|1}.]Assume the contrary. Thus,
+$g\neq1$. But Proposition \ref{prop.ent.div.1} \textbf{(b)} (applied to $g$
+and $1$ instead of $a$ and $b$) yields $\left\vert g\right\vert \leq\left\vert
+1\right\vert $ (since $g\mid1$ and $1\neq0$). But $g$ is nonnegative; hence,
+$\left\vert g\right\vert =g$, so that $g=\left\vert g\right\vert
+\leq\left\vert 1\right\vert =1$. Combining this with $g\neq1$, we obtain
+$g<1$. Hence, $g=0$ (since $g$ is a nonnegative integer).
 
 But $g\mid1$. In other words, there exists an integer $c$ such that $1=gc$ (by
 Definition \ref{def.ent.div.div}). Consider this $c$. Now, $1=\underbrace{g}%
@@ -29229,24 +29234,20 @@ assumption was wrong. Hence, Exercise \ref{exe.ent.div.g|1} is solved.
 \end{fineprint}
 
 \begin{fineprint}
-
-
 \begin{proof}
-[Second solution to Exercise \ref{exe.ent.div.g|1}.] We have $g=1g$.
-Hence, there exists an integer $c$ such that $g=1c$ (namely, $c=g$). In other
-words, $1\mid g$ (by the definition of divisibility). But we also have
-$g\mid1$ (by assumption). Hence, Exercise \ref{exe.ent.div.abba} (applied to
-$a=g$ and $b=1$) yields $\left\vert g\right\vert =\left\vert 1\right\vert =1$.
-But $g$ is nonnegative; thus, $\left\vert g\right\vert =g$. Hence,
-$g=\left\vert g\right\vert =1$. Hence, Exercise \ref{exe.ent.div.g|1} is solved.
+[Second solution to Exercise \ref{exe.ent.div.g|1}.]We have $g=1g$. Hence,
+there exists an integer $c$ such that $g=1c$ (namely, $c=g$). In other words,
+$1\mid g$ (by the definition of divisibility). But we also have $g\mid1$ (by
+assumption). Hence, Exercise \ref{exe.ent.div.abba} (applied to $a=g$ and
+$b=1$) yields $\left\vert g\right\vert =\left\vert 1\right\vert =1$. But $g$
+is nonnegative; thus, $\left\vert g\right\vert =g$. Hence, $g=\left\vert
+g\right\vert =1$. Hence, Exercise \ref{exe.ent.div.g|1} is solved.
 \end{proof}
 \end{fineprint}
 
 \subsection{Solution to Exercise \ref{exe.ent.div.powers-ab}}
 
 \begin{fineprint}
-
-
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.div.powers-ab}.]We have $a\mid b$. In other
 words, there exists an integer $d$ such that $b=ad$ (by Definition
@@ -29262,8 +29263,6 @@ b^{k}$ (by Definition \ref{def.ent.div.div}). This solves Exercise
 \subsection{Solution to Exercise \ref{exe.ent.mod.a+b=a-b}}
 
 \begin{fineprint}
-
-
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.mod.a+b=a-b}.]According to Definition
 \ref{def.ent.cong}, we have $a+b\equiv a-b\operatorname{mod}2$ if and only if
@@ -29277,8 +29276,6 @@ immediately from $\left(  a+b\right)  -\left(  a-b\right)  =2b$. Thus Exercise
 \subsection{Solution to Exercise \ref{exe.ent.mod.basics-nope}}
 
 \begin{fineprint}
-
-
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.mod.basics-nope}.]There are many such
 examples. Here is one:%
@@ -29300,8 +29297,6 @@ b_{1}^{b_{2}}\operatorname{mod}n$.
 \subsection{Solution to Exercise \ref{exe.ent.mod.basics.2}}
 
 \begin{fineprint}
-
-
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.mod.basics.2}.]We have $a\equiv
 b\operatorname{mod}n$. In other words, $n\mid a-b$ (by the definition of
@@ -29323,8 +29318,6 @@ a-b\right)  /d=a/d-b/d$). In other words, $a/d\equiv b/d\operatorname{mod}n/d$
 \subsection{Solution to Exercise \ref{exe.ent.mod.basics.k-power}}
 
 \begin{fineprint}
-
-
 \begin{proof}
 [First solution to Exercise \ref{exe.ent.mod.basics.k-power}.]We want to prove
 that
@@ -29386,8 +29379,6 @@ $a^{k}\equiv b^{k}\operatorname{mod}n$. Hence, Exercise
 \subsection{Solution to Exercise \ref{exe.ent.mod.k-sum}}
 
 \begin{fineprint}
-
-
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.mod.k-sum}.]\textbf{(a)} We shall solve
 Exercise \ref{exe.ent.mod.k-sum} \textbf{(a)} by induction on $\left\vert
@@ -29502,8 +29493,6 @@ analogous to the one we gave above for Exercise \ref{exe.ent.mod.k-sum}
 \subsection{Solution to Exercise \ref{exe.ent.mod.prod-wrong}}
 
 \begin{fineprint}
-
-
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.mod.prod-wrong}.]No, it is not true. For
 example, $a_{1}=1$, $a_{2}=1$, $b_{1}=1$, $b_{2}=0$, $n_{1}=0$ and $n_{2}=1$
@@ -29514,8 +29503,6 @@ yield a counterexample.
 \subsection{Solution to Exercise \ref{exe.ent.mod.a+nd}}
 
 \begin{fineprint}
-
-
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.mod.a+nd}.]If $a\equiv b\operatorname{mod}%
 n$, then $b\equiv a\operatorname{mod}n$ (by Proposition
@@ -29550,8 +29537,6 @@ $d\in\mathbb{Z}$ such that $b=a+nd$. This solves Exercise
 \subsection{Solution to Exercise \ref{exe.ent.mod.diff}}
 
 \begin{fineprint}
-
-
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.mod.diff}.]We have $a-b\equiv
 c\operatorname{mod}n$ if and only if $n\mid\left(  a-b\right)  -c$ (by the
@@ -29576,7 +29561,7 @@ Now, we have the following chain of logical equivalences:%
 \left(  a-b\equiv c\operatorname{mod}n\right)  \  &  \Longleftrightarrow
 \ \left(  n\mid\underbrace{\left(  a-b\right)  -c}_{=a-\left(  b+c\right)
 }\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{sol.ent.mod.diff.1}%
-)}\right) \\
+)}\right)  \\
 &  \Longleftrightarrow\ \left(  n\mid a-\left(  b+c\right)  \right)
 \ \Longleftrightarrow\ \left(  a\equiv b+c\operatorname{mod}n\right)
 \ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{sol.ent.mod.diff.2})}\right)  .
@@ -29586,11 +29571,47 @@ $a\equiv b+c\operatorname{mod}n$. This solves Exercise \ref{exe.ent.mod.diff}.
 \end{proof}
 \end{fineprint}
 
+\subsection{Solution to Exercise \ref{exe.ent.mod.-}}
+
+\begin{fineprint}
+\begin{proof}
+[Solution to Exercise \ref{exe.ent.mod.-}.] Let us first prove the logical
+implication%
+\begin{equation}
+\left(  a\equiv b\operatorname{mod}n\right)  \ \Longrightarrow\ \left(
+a\equiv b\operatorname{mod}-n\right)  .\label{sol.ent.mod.-.fwd}%
+\end{equation}
+
+
+[\textit{Proof of (\ref{sol.ent.mod.-.fwd}):} Assume that $a\equiv
+b\operatorname{mod}n$. We must show that $a\equiv b\operatorname{mod}-n$.
+
+We have $n=\left(  -n\right)  \left(  -1\right)  $. Since $-1$ is an integer,
+this shows that $-n\mid n$ (by the definition of divisibility). Thus,
+Proposition \ref{prop.ent.mod.basics} \textbf{(e)} (applied to $m=-n$) yields
+$a\equiv b\operatorname{mod}-n$. This proves (\ref{sol.ent.mod.-.fwd}).]
+
+So we have proven the logical implication (\ref{sol.ent.mod.-.fwd}). The same
+reasoning (applied to $-n$ instead of $n$) yields the logical implication%
+\[
+\left(  a\equiv b\operatorname{mod}-n\right)  \ \Longrightarrow\ \left(
+a\equiv b\operatorname{mod}-\left(  -n\right)  \right)  .
+\]
+Since $-\left(  -n\right)  =n$, this rewrites as follows:%
+\[
+\left(  a\equiv b\operatorname{mod}-n\right)  \ \Longrightarrow\ \left(
+a\equiv b\operatorname{mod}n\right)  .
+\]
+Combining this implication with the implication (\ref{sol.ent.mod.-.fwd}), we
+obtain the equivalence $\left(  a\equiv b\operatorname{mod}n\right)
+\ \Longleftrightarrow\ \left(  a\equiv b\operatorname{mod}-n\right)  $. This
+solves Exercise \ref{exe.ent.mod.-}.
+\end{proof}
+\end{fineprint}
+
 \subsection{Solution to Exercise \ref{exe.ent.mod.substitutivity.7div}}
 
 \begin{fineprint}
-
-
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.mod.substitutivity.7div}.]We have
 $3^{2n+1}=\left(  \underbrace{3^{2}}_{=9\equiv2\operatorname{mod}7}\right)
@@ -29637,8 +29658,6 @@ recurrences (such as the Fibonacci sequence).]
 \subsection{Solution to Exercise \ref{exe.ent.quo-rem.mod=rem}}
 
 \begin{fineprint}
-
-
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.quo-rem.mod=rem}.]$\Longrightarrow:$ Assume
 that $u\equiv v\operatorname{mod}n$. We must prove that $u\%n=v\%n$.
@@ -29674,8 +29693,6 @@ of Exercise \ref{exe.ent.quo-rem.mod=rem}.
 \subsection{Solution to Exercise \ref{exe.ent.quo-rem.minrem}}
 
 \begin{fineprint}
-
-
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.quo-rem.minrem}.]\textbf{(a)} Theorem
 \ref{thm.ent.quorem.full} shows that there exists a unique pair $\left(
@@ -29739,8 +29756,6 @@ pair $\left(  q,r\right)  $ from Exercise \ref{exe.ent.quo-rem.minrem}
 \subsection{Solution to Exercise \ref{exe.ent.quo-rem.u+v}}
 
 \begin{fineprint}
-
-
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.quo-rem.u+v}.]\textbf{(a)} Corollary
 \ref{cor.ent.quo-rem.remmod} \textbf{(a)} yields that $u\%n\in\left\{
@@ -29840,8 +29855,6 @@ This solves Exercise \ref{exe.ent.quo-rem.u+v} \textbf{(b)}.
 \subsection{Solution to Exercise \ref{exe.ent.even-odd.1}}
 
 \begin{fineprint}
-
-
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.even-odd.1}.]Corollary
 \ref{cor.ent.quo-rem.remmod} \textbf{(b)} (applied to $n=2$) shows that we
@@ -30092,8 +30105,6 @@ Cases 1, 2, 3 and 4. Hence, Exercise \ref{exe.ent.even-odd.1} \textbf{(i)} is so
 \subsection{Solution to Exercise \ref{exe.ent.even-odd-sumsq}}
 
 \begin{fineprint}
-
-
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.even-odd-sumsq}.]\textbf{(a)} Let $u$ be an
 even integer. Thus, $u$ is even. In other words, $u$ is divisible by $2$. In
@@ -30177,8 +30188,6 @@ left to the reader.
 \subsection{Solution to Exercise \ref{exe.ent.Div.set}}
 
 \begin{fineprint}
-
-
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.Div.set}.]Assume that $\left\{  b_{1}%
 ,b_{2},\ldots,b_{k}\right\}  =\left\{  c_{1},c_{2},\ldots,c_{\ell}\right\}  $.
@@ -30260,8 +30269,6 @@ $. This solves Exercise \ref{exe.ent.Div.set}.
 \subsection{Solution to Exercise \ref{exe.ent.gcd.set}}
 
 \begin{fineprint}
-
-
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.gcd.set}.]Assume that $\left\{  b_{1}%
 ,b_{2},\ldots,b_{k}\right\}  =\left\{  c_{1},c_{2},\ldots,c_{\ell}\right\}  $.
@@ -30276,8 +30283,6 @@ yields $\gcd\left(  b_{1},b_{2},\ldots,b_{k}\right)  =\gcd\left(  c_{1}%
 \subsection{Solution to Exercise \ref{exe.ent.gcd.an-1}}
 
 \begin{fineprint}
-
-
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.gcd.an-1}.]\textbf{(a)} Let $a\in
 \mathbb{N}$ and $b\in\mathbb{N}$ be such that $b\geq a$.
@@ -30460,8 +30465,6 @@ solutions of Exercise \ref{exe.ent.gcd.an-1} \textbf{(b)}.]
 \subsection{Solution to Exercise \ref{exe.ent.gcd.div}}
 
 \begin{fineprint}
-
-
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.gcd.div}.]Proposition
 \ref{prop.ent.gcd.props1} \textbf{(f)} (applied to $a=a_{1}$ and $b=a_{2}$)
@@ -30481,8 +30484,6 @@ This solves Exercise \ref{exe.ent.gcd.div}.
 \subsection{Solution to Exercise \ref{exe.ent.gcd.abs}}
 
 \begin{fineprint}
-
-
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.gcd.abs}.]\textbf{(a)} If $b\geq0$, then
 $\left\vert b\right\vert =b$. Hence, if $b\geq0$, then Exercise
@@ -30519,8 +30520,6 @@ b\right\vert \right)  =\gcd\left(  a,b\right)  $ (by Exercise
 \subsection{Solution to Exercise \ref{exe.ent.gcd.sa,sb,sc}}
 
 \begin{fineprint}
-
-
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.gcd.sa,sb,sc}.]Corollary
 \ref{cor.ent.gcd.sa,sb} yields
@@ -30584,8 +30583,6 @@ This solves Exercise \ref{exe.ent.gcd.sa,sb,sc}.
 \subsection{Solution to Exercise \ref{exe.ent.gcd.sak}}
 
 \begin{fineprint}
-
-
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.gcd.sak}.]We shall show that%
 \begin{equation}
@@ -30676,8 +30673,6 @@ a_{1},a_{2},\ldots,a_{k}\right)  $. This solves Exercise \ref{exe.ent.gcd.sak}.
 \subsection{Solution to Exercise \ref{exe.ent.coprime.01}}
 
 \begin{fineprint}
-
-
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.coprime.01}.]\textbf{(a)} We have $1\mid a$
 (since $a=1\cdot a$). Thus, Proposition \ref{prop.ent.gcd.props1} \textbf{(i)}
@@ -30708,8 +30703,6 @@ In other words, we have $0\perp a$ if and only if $\left\vert a\right\vert
 \subsection{Solution to Exercise \ref{exe.ent.coprime.ab-to-ck}}
 
 \begin{fineprint}
-
-
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.coprime.ab-to-ck}.]Let us prove that%
 \begin{equation}
@@ -30754,8 +30747,6 @@ obtain $a_{1}a_{2}\cdots a_{k}\perp c$. This proves Exercise
 \subsection{Solution to Exercise \ref{exe.ent.coprime.combinek}}
 
 \begin{fineprint}
-
-
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.coprime.combinek}.]We assumed that the
 integers $b_{1},b_{2},\ldots,b_{k}$ are mutually coprime. In other words, we
@@ -30816,8 +30807,6 @@ obtain $b_{1}b_{2}\cdots b_{k}\mid c$. This proves Exercise
 \subsection{Solution to Exercise \ref{exe.ent.coprime.powers}}
 
 \begin{fineprint}
-
-
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.coprime.powers}.]We have $a\perp b$. Thus,
 Exercise \ref{exe.ent.coprime.combinek} (applied to $n$, $b$ and $\left(
@@ -30843,8 +30832,6 @@ solves Exercise \ref{exe.ent.coprime.powers}.
 \subsection{Solution to Exercise \ref{exe.ent.coprime.ab-to-cI}}
 
 \begin{fineprint}
-
-
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.coprime.ab-to-cI}.]Exercise
 \ref{exe.ent.coprime.ab-to-ck} and Exercise \ref{exe.ent.coprime.ab-to-cI} say
@@ -30897,8 +30884,6 @@ I}b_{i}\perp c$. This solves Exercise \ref{exe.ent.coprime.ab-to-cI}.
 \subsection{Solution to Exercise \ref{exe.ent.coprime.b==c}}
 
 \begin{fineprint}
-
-
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.coprime.b==c}.]Assume that $a\perp c$. But
 Proposition \ref{prop.ent.coprime.perp-symm} (applied to $c$ instead of $b$)
@@ -30921,8 +30906,6 @@ This solves Exercise \ref{exe.ent.coprime.b==c}.
 \subsection{Solution to Exercise \ref{exe.ent.coprime.b-a}}
 
 \begin{fineprint}
-
-
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.coprime.b-a}.]Proposition
 \ref{prop.ent.gcd.props1} \textbf{(b)} (applied to $b-a$ instead of $a$)
@@ -30967,8 +30950,6 @@ Exercise \ref{exe.ent.coprime.b-a}.
 \subsection{Solution to Exercise \ref{exe.ent.coprime.1+2+...+n}}
 
 \begin{fineprint}
-
-
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.coprime.1+2+...+n}.]Proposition
 \ref{prop.ent.1+2+...+n} yields $1+2+\cdots+n=\dfrac{n\left(  n+1\right)  }%
@@ -31070,8 +31051,6 @@ We have now proven both (\ref{sol.ent.coprime.1+2+...+n.g1}) and
 \subsection{Solution to Exercise \ref{exe.ent.coprime.bezout-conv}}
 
 \begin{fineprint}
-
-
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.coprime.bezout-conv}.]Proposition
 \ref{prop.ent.gcd.bezout-conv} yields $\gcd\left(  a,b\right)  \mid xa+yb=1$.
@@ -31086,8 +31065,6 @@ words, $a$ is coprime to $b$. In other words, $a\perp b$. This solves Exercise
 \subsection{Solution to Exercise \ref{exe.ent.coprime.gcdgcd1}}
 
 \begin{fineprint}
-
-
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.coprime.gcdgcd1}.]Let $g=\gcd\left(
 x,y\right)  $. Then, $g$ is a nonnegative integer (since any gcd is a
@@ -31136,8 +31113,6 @@ This solves Exercise \ref{exe.ent.coprime.gcdgcd1}.
 \subsection{Solution to Exercise \ref{exe.ent.coprime.gcdgcd2}}
 
 \begin{fineprint}
-
-
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.coprime.gcdgcd2}.]\textbf{(a)} Let
 $g=\gcd\left(  a,b,c\right)  $. Then, $g=\gcd\left(  a,b,c\right)  \geq0$
@@ -31206,8 +31181,6 @@ This solves Exercise \ref{exe.ent.coprime.gcdgcd2} \textbf{(b)}.
 \subsection{Solution to Exercise \ref{exe.ent.coprime.a/g}}
 
 \begin{fineprint}
-
-
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.coprime.a/g}.]We have assumed that $a$ and
 $b$ are not both zero. In other words, the two integers $a,b$ are not all
@@ -31251,8 +31224,6 @@ is finished.
 \subsection{Solution to Exercise \ref{exe.ent.gcd.akbk}}
 
 \begin{fineprint}
-
-
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.gcd.akbk}.]If $k=0$, then Exercise
 \ref{exe.ent.gcd.akbk} holds\footnote{\textit{Proof.} Assume that $k=0$. Thus,
@@ -31325,8 +31296,6 @@ we obtain $\gcd\left(  a^{k},b^{k}\right)  =\left(  \gcd\left(  a,b\right)
 \subsection{Solution to Exercise \ref{exe.ent.coprime.frac-red}}
 
 \begin{fineprint}
-
-
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.coprime.frac-red}.]We have $r\in\mathbb{Q}%
 $. In other words, $r$ is a rational number. Thus, $r$ can be written in the
@@ -31347,8 +31316,6 @@ $r=a/b$ (namely, $a=\dfrac{x}{g}$ and $b=\dfrac{y}{g}$). This solves Exercise
 \subsection{Solution to Exercise \ref{exe.ent.coprime.sqrtu+sqrtv}}
 
 \begin{fineprint}
-
-
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.coprime.sqrtu+sqrtv}.]\textbf{(a)} Let $u$
 be a positive integer that is not a perfect square. We must prove that
@@ -31420,8 +31387,6 @@ This contradiction shows that our assumption was false. Hence, $\sqrt{u}%
 \subsection{Solution to Exercise \ref{exe.ent.coprime.gcdgcd1k}}
 
 \begin{fineprint}
-
-
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.coprime.gcdgcd1k}.]A gcd of a list of
 integers is always a nonnegative integer (by the definition of a gcd). Hence,
@@ -31508,8 +31473,6 @@ This solves Exercise \ref{exe.ent.coprime.gcdgcd1k}.
 \subsection{Solution to Exercise \ref{exe.ent.coprime.gcdgcd1k3}}
 
 \begin{fineprint}
-
-
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.coprime.gcdgcd1k3}.]Theorem
 \ref{thm.ent.gcd.uniprop-mul} \textbf{(d)} (applied to $3$ and $\left(
@@ -31589,8 +31552,6 @@ This solves Exercise \ref{exe.ent.coprime.gcdgcd1k3}.
 \subsection{Solution to Exercise \ref{exe.ent.coprime.gcd-distrib1}}
 
 \begin{fineprint}
-
-
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.coprime.gcd-distrib1}.]Exercise
 \ref{exe.ent.coprime.gcdgcd1} (applied to $u=b$, $v=c$, $x=c$ and $y=a$)
@@ -31670,8 +31631,6 @@ This solves Exercise \ref{exe.ent.coprime.gcd-distrib1}.
 \subsection{Solution to Exercise \ref{exe.ent.lcm.props1}}
 
 \begin{fineprint}
-
-
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.lcm.props1}.]The lowest common multiple of
 any set of integers is a nonnegative integer (by Definition
@@ -31826,8 +31785,6 @@ This solves Exercise \ref{exe.ent.lcm.props1} \textbf{(e)}.
 \subsection{Solution to Exercise \ref{exe.ent.lcm.lcmabc}}
 
 \begin{fineprint}
-
-
 \begin{proof}
 [First solution to Exercise \ref{exe.ent.lcm.lcmabc}.]Let us prove a more
 general fact:
@@ -32008,8 +31965,6 @@ solves Exercise \ref{exe.ent.lcm.lcmabc} \textbf{(b)}.
 \subsection{Solution to Exercise \ref{exe.ent.prime.dist=cop}}
 
 \begin{fineprint}
-
-
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.prime.dist=cop}.]We have $p\neq q$ (since
 $p$ and $q$ are distinct). Hence, $p\nmid q$\ \ \ \ \footnote{\textit{Proof.}
@@ -32035,8 +31990,6 @@ have $p\nmid q$), we thus conclude that $p\perp q$. This solves Exercise
 \subsection{Solution to Exercise \ref{exe.ent.prime.pab-conv}}
 
 \begin{fineprint}
-
-
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.prime.pab-conv}.]The integer $p$ is
 positive (since $p>1>0$). Thus, $\left\vert p\right\vert =p$.
@@ -32098,8 +32051,6 @@ prime\textquotedblright). This solves Exercise \ref{exe.ent.prime.pab-conv}.
 \subsection{Solution to Exercise \ref{exe.ent.prime.coprime-to-pk}}
 
 \begin{fineprint}
-
-
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.prime.coprime-to-pk}.]$\Longrightarrow:$
 Assume that $a\perp p^{k}$ holds. We must prove that $p\nmid a$.
@@ -32135,8 +32086,6 @@ $\Longleftarrow$\textquotedblright\ direction of Exercise
 \subsection{Solution to Exercise \ref{exe.ent.prime.vp-lem}}
 
 \begin{fineprint}
-
-
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.prime.vp-lem}.]This exercise can easily be
 solved by induction on $k$; but here is a more artful proof:
@@ -32170,8 +32119,6 @@ Hence, $p^{k}\geq k+1>k$. This solves Exercise \ref{exe.ent.prime.vp-lem}.
 \subsection{Solution to Exercise \ref{exe.ent.prime.vp-abs}}
 
 \begin{fineprint}
-
-
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.prime.vp-abs}.]If $n\geq0$, then we have
 $\left\vert n\right\vert =n$ and thus $v_{p}\left(  \left\vert n\right\vert
@@ -32197,8 +32144,6 @@ solves Exercise \ref{exe.ent.prime.vp-abs}.
 \subsection{Solution to Exercise \ref{exe.ent.prime.vp-pow}}
 
 \begin{fineprint}
-
-
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.prime.vp-pow}.]Corollary
 \ref{cor.ent.prime.vp-ringk} (applied to $a_{i}=a$) yields%
@@ -32216,8 +32161,6 @@ $v_{p}\left(  a^{k}\right)  =kv_{p}\left(  a\right)  $. This solves Exercise
 \subsection{Solution to Exercise \ref{exe.ent.prime.p1a1puau}}
 
 \begin{fineprint}
-
-
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.prime.p1a1puau}.]For each $i\in\left\{
 1,2,\ldots,u\right\}  $, the number $p_{i}^{a_{i}}$ is a well-defined positive
@@ -32340,8 +32283,6 @@ This solves Exercise \ref{exe.ent.prime.p1a1puau} \textbf{(b)}.
 \subsection{Solution to Exercise \ref{exe.ent.prime.vp=vp}}
 
 \begin{fineprint}
-
-
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.prime.vp=vp}.]Applying
 (\ref{eq.exe.ent.prime.vp=vp.ass}) to $p=2$, we obtain $v_{2}\left(  n\right)
@@ -32416,8 +32357,6 @@ and 2. Hence, Exercise \ref{exe.ent.prime.vp=vp} always holds.
 \ref{exe.ent.lcm.lcmabc}}
 
 \begin{fineprint}
-
-
 \begin{proof}
 [Second solution to Exercise \ref{exe.ent.lcm.lcmabc} (sketched).]WLOG assume
 that $a,b,c$ are nonzero (since otherwise, the claim of Exercise
@@ -32565,8 +32504,6 @@ Proposition \ref{prop.ent.prime.gcd}.}
 \subsection{Solution to Exercise \ref{exe.ent.prime.modpvp}}
 
 \begin{fineprint}
-
-
 \begin{proof}
 [First solution to Exercise \ref{exe.ent.prime.modpvp}.]We must prove that
 $a\equiv b\operatorname{mod}n$. If $a=b$, then this is true (because if $a=b$,
@@ -32699,8 +32636,6 @@ other words, $a\equiv b\operatorname{mod}n$. This solves Exercise
 \subsection{Solution to Exercise \ref{exe.ent.prime.gcd.1}}
 
 \begin{fineprint}
-
-
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.prime.gcd.1}.]\textbf{(a)} Forget that we
 fixed $p$. We thus must prove that
@@ -37816,10 +37751,10 @@ words, $\overline{\alpha}\mid\overline{\beta}$ (by Definition
 
 \begin{fineprint}
 \begin{proof}
-[Solution to Exercise \ref{exe.Z[i].modn.split}.] We have $a,b\in
-\mathbb{Z}$ (since $\left(  a,b\right)  $ is a Gaussian integer) and
-$c,d\in\mathbb{Z}$ (since $\left(  c,d\right)  $ is a Gaussian integer). Thus,
-all of $a,b,c,d$ are integers. Hence, the statements \textquotedblleft$a\equiv
+[Solution to Exercise \ref{exe.Z[i].modn.split}.]We have $a,b\in\mathbb{Z}$
+(since $\left(  a,b\right)  $ is a Gaussian integer) and $c,d\in\mathbb{Z}$
+(since $\left(  c,d\right)  $ is a Gaussian integer). Thus, all of $a,b,c,d$
+are integers. Hence, the statements \textquotedblleft$a\equiv
 c\operatorname{mod}n$\textquotedblright\ and \textquotedblleft$b\equiv
 d\operatorname{mod}n$\textquotedblright\ make sense. Moreover, $a-c,b-d\in
 \mathbb{Z}$ (since $a,b,c,d\in\mathbb{Z}$); thus, $\left(  a-c,b-d\right)  $
@@ -37836,21 +37771,21 @@ n\text{ divides both }a-c\text{ and }b-d\right)  .
 
 Now, we have the following chain of logical equivalences:%
 \begin{align*}
-& \ \left(  \left(  a,b\right)  \equiv\left(  c,d\right)  \operatorname{mod}%
-n\right)  \\
-& \Longleftrightarrow\ \left(  n\mid\underbrace{\left(  a,b\right)  -\left(
+&  \ \left(  \left(  a,b\right)  \equiv\left(  c,d\right)  \operatorname{mod}%
+n\right) \\
+&  \Longleftrightarrow\ \left(  n\mid\underbrace{\left(  a,b\right)  -\left(
 c,d\right)  }_{=\left(  a-c,b-d\right)  }\right)  \ \ \ \ \ \ \ \ \ \ \left(
-\text{by Definition \ref{def.Z[i].cong}}\right)  \\
-& \Longleftrightarrow\ \left(  n\mid\left(  a-c,b-d\right)  \right)
-\ \Longleftrightarrow\ \left(  n\text{ divides both }a-c\text{ and
-}b-d\right)  \\
-& \Longleftrightarrow\ \left(  \underbrace{n\mid a-c}%
+\text{by Definition \ref{def.Z[i].cong}}\right) \\
+&  \Longleftrightarrow\ \left(  n\mid\left(  a-c,b-d\right)  \right)
+\ \Longleftrightarrow\ \left(  n\text{ divides both }a-c\text{ and }b-d\right)
+\\
+&  \Longleftrightarrow\ \left(  \underbrace{n\mid a-c}%
 _{\substack{\Longleftrightarrow\ \left(  a\equiv c\operatorname{mod}n\right)
 \\\text{(by Definition \ref{def.ent.cong})}}}\text{ and }\underbrace{n\mid
 b-d}_{\substack{\Longleftrightarrow\ \left(  b\equiv d\operatorname{mod}%
-n\right)  \\\text{(by Definition \ref{def.ent.cong})}}}\right)  \\
-& \Longleftrightarrow\ \left(  a\equiv c\operatorname{mod}n\text{ and }b\equiv
-d\operatorname{mod}n\right)  .
+n\right)  \\\text{(by Definition \ref{def.ent.cong})}}}\right) \\
+&  \Longleftrightarrow\ \left(  a\equiv c\operatorname{mod}n\text{ and
+}b\equiv d\operatorname{mod}n\right)  .
 \end{align*}
 This solves Exercise \ref{exe.Z[i].modn.split}.
 \end{proof}
