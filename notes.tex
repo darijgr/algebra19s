@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, April 15, 2019 20:04:27}
+%TCIDATA{LastRevised=Monday, April 15, 2019 20:24:43}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -15198,7 +15198,7 @@ integer $s$ itself. In other words, we need to prove the following claim:
 
 \begin{statement}
 \textit{Claim 1:} If $s_{1}$ and $s_{2}$ are two integers such that $\left[
-s_{1}\right]  _{n}=\left[  s_{2}\right]  _{n}$, then, $\left[  s_{1}\right]
+s_{1}\right]  _{n}=\left[  s_{2}\right]  _{n}$, then $\left[  s_{1}\right]
 _{d}=\left[  s_{2}\right]  _{d}$.
 \end{statement}
 
@@ -19089,6 +19089,9 @@ The \textit{norm} of $\alpha$ is defined to be the real number $a^{2}+b^{2}%
 
 \textbf{(b)} We have $\operatorname*{N}\left(  \alpha\right)  =0$ if and only
 if $\alpha=0$.
+
+\textbf{(c)} If $\alpha\neq0$, then $\operatorname*{N}\left(  \alpha\right)
+>0$.
 \end{proposition}
 
 \begin{proof}
@@ -19113,17 +19116,25 @@ Now, we have the following chain of equivalences:%
 \begin{align*}
 \left(  \operatorname*{N}\left(  \alpha\right)  =0\right)  \  &
 \Longleftrightarrow\ \left(  a^{2}+b^{2}=0\right)  \ \ \ \ \ \ \ \ \ \ \left(
-\text{since }\operatorname*{N}\left(  \alpha\right)  =a^{2}+b^{2}\right) \\
+\text{since }\operatorname*{N}\left(  \alpha\right)  =a^{2}+b^{2}\right)  \\
 &  \Longleftrightarrow\ \left(  \text{both }a^{2}\text{ and }b^{2}\text{ are
-}0\right) \\
+}0\right)  \\
 &  \Longleftrightarrow\ \left(  a^{2}=0\text{ and }b^{2}=0\right)
-\ \Longleftrightarrow\ \left(  a=0\text{ and }b=0\right) \\
+\ \Longleftrightarrow\ \left(  a=0\text{ and }b=0\right)  \\
 &  \Longleftrightarrow\ \left(  \underbrace{\left(  a,b\right)  }_{=\alpha
 }=\underbrace{\left(  0,0\right)  }_{=0_{\mathbb{C}}}\right)
 \ \Longleftrightarrow\ \left(  \alpha=0_{\mathbb{C}}\right)
 \ \Longleftrightarrow\ \left(  \alpha=0\right)  .
 \end{align*}
 This proves Proposition \ref{prop.CC.norm.basics} \textbf{(b)}.
+
+\textbf{(c)} Assume that $\alpha\neq0$. But Proposition
+\ref{prop.CC.norm.basics} \textbf{(b)} shows that we have $\operatorname*{N}%
+\left(  \alpha\right)  =0$ if and only if $\alpha=0$. Hence, we have
+$\operatorname*{N}\left(  \alpha\right)  \neq0$ (since $\alpha\neq0$).
+Combining this with $\operatorname*{N}\left(  \alpha\right)  \geq0$, we obtain
+$\operatorname*{N}\left(  \alpha\right)  >0$. This proves Proposition
+\ref{prop.CC.norm.basics} \textbf{(c)}.
 \end{proof}
 
 \begin{proposition}
@@ -19353,17 +19364,17 @@ instead of $\alpha$) yields $\operatorname*{N}\left(  \dfrac{\alpha}{\beta
 }{\beta}\cdot\beta=\alpha$, this rewrites as
 \begin{equation}
 \operatorname*{N}\left(  \alpha\right)  =\operatorname*{N}\left(
-\dfrac{\alpha}{\beta}\right)  \cdot\operatorname*{N}\left(  \beta\right)  .
-\label{pf.prop.CC.conj.hom.e.1}%
+\dfrac{\alpha}{\beta}\right)  \cdot\operatorname*{N}\left(  \beta\right)
+.\label{pf.prop.CC.conj.hom.e.1}%
 \end{equation}
-Also, Proposition \ref{prop.CC.norm.basics} \textbf{(b)} (applied to $\beta$
+Also, Proposition \ref{prop.CC.norm.basics} \textbf{(c)} (applied to $\beta$
 instead of $\alpha$) yields that we have $\operatorname*{N}\left(
-\beta\right)  =0$ if and only if $\beta=0$. Hence, $\operatorname*{N}\left(
-\beta\right)  \neq0$ (since $\beta\neq0$). Thus, we can divide both sides of
-the equality (\ref{pf.prop.CC.conj.hom.e.1}) by $\operatorname*{N}\left(
-\beta\right)  $. We thus obtain $\dfrac{\operatorname*{N}\left(
-\alpha\right)  }{\operatorname*{N}\left(  \beta\right)  }=\operatorname*{N}%
-\left(  \dfrac{\alpha}{\beta}\right)  $. Proposition \ref{prop.CC.conj.hom}
+\beta\right)  >0$ (since $\beta\neq0$); thus, $\operatorname*{N}\left(
+\beta\right)  \neq0$. Thus, we can divide both sides of the equality
+(\ref{pf.prop.CC.conj.hom.e.1}) by $\operatorname*{N}\left(  \beta\right)  $.
+We thus obtain $\dfrac{\operatorname*{N}\left(  \alpha\right)  }%
+{\operatorname*{N}\left(  \beta\right)  }=\operatorname*{N}\left(
+\dfrac{\alpha}{\beta}\right)  $. Proposition \ref{prop.CC.conj.hom}
 \textbf{(e)} follows.
 \end{proof}
 
@@ -19721,20 +19732,23 @@ questions about the usual integers.
 We will try to use Greek letters for Gaussian integers and Roman letters for integers.
 
 \begin{proposition}
-\label{prop.Z[i].gauss.ring}\textbf{(a)} Let $\alpha$ and $\beta$ be two
-Gaussian integers. Then, $\alpha+\beta$, $\alpha-\beta$ and $\alpha\cdot\beta$
+\label{prop.Z[i].gauss.ring}\textbf{(a)} If $\alpha$ and $\beta$ are two
+Gaussian integers, then $\alpha+\beta$, $\alpha-\beta$ and $\alpha\cdot\beta$
 are Gaussian integers.
 
-\textbf{(b)} Sums and products of finitely many Gaussian integers are Gaussian integers.
+\textbf{(b)} If $\alpha$ is a Gaussian integer, then $-\alpha$ is a Gaussian integer.
+
+\textbf{(c)} Sums and products of finitely many Gaussian integers are Gaussian integers.
 \end{proposition}
 
 \begin{proof}
-[Proposition \ref{prop.Z[i].gauss.ring}.]\textbf{(a)} Write the complex
-numbers $\alpha$ and $\beta$ as $\alpha=\left(  a,b\right)  $ and
-$\beta=\left(  c,d\right)  $, respectively (with $a,b,c,d\in\mathbb{R}$). The
-definition of a Gaussian integer shows that $a,b\in\mathbb{Z}$ (since $\left(
-a,b\right)  =\alpha$ is a Gaussian integer) and that $c,d\in\mathbb{Z}$ (since
-$\left(  c,d\right)  =\beta$ is a Gaussian integer). Now,
+[Proposition \ref{prop.Z[i].gauss.ring}.]\textbf{(a)} Let $\alpha$ and $\beta$
+be two Gaussian integers. Write the complex numbers $\alpha$ and $\beta$ as
+$\alpha=\left(  a,b\right)  $ and $\beta=\left(  c,d\right)  $, respectively
+(with $a,b,c,d\in\mathbb{R}$). The definition of a Gaussian integer shows that
+$a,b\in\mathbb{Z}$ (since $\left(  a,b\right)  =\alpha$ is a Gaussian integer)
+and that $c,d\in\mathbb{Z}$ (since $\left(  c,d\right)  =\beta$ is a Gaussian
+integer). Now,
 \[
 \underbrace{\alpha}_{=\left(  a,b\right)  }\cdot\underbrace{\beta}_{=\left(
 c,d\right)  }=\left(  a,b\right)  \cdot\left(  c,d\right)  =\left(
@@ -19747,7 +19761,15 @@ integer). Similarly (using the definitions of the operations $+$ and $-$ on
 $\mathbb{C}$), we can see that $\alpha+\beta$ and $\alpha-\beta$ are Gaussian
 integers. This proves Proposition \ref{prop.Z[i].gauss.ring} \textbf{(a)}.
 
-\textbf{(b)} This follows by induction. (The induction base relies on the fact
+\textbf{(b)} Let $\alpha$ be a Gaussian integer. Recall that $0$ is a Gaussian
+integer. Thus, Proposition \ref{prop.Z[i].gauss.ring} \textbf{(a)} (applied to
+$0$ and $\alpha$ instead of $\alpha$ and $\beta$) yields that $0+\alpha$,
+$0-\alpha$ and $0\cdot\alpha$ is a Gaussian integer. Thus, in particular,
+$0-\alpha$ is a Gaussian integer. In other words, $-\alpha$ is a Gaussian
+integer (since $0-\alpha=-\alpha$). This proves Proposition
+\ref{prop.Z[i].gauss.ring} \textbf{(b)}.
+
+\textbf{(c)} This follows by induction. (The induction base relies on the fact
 that $0$ and $1$ are Gaussian integers; the induction step uses Proposition
 \ref{prop.Z[i].gauss.ring} \textbf{(a)}.)
 \end{proof}
@@ -19814,10 +19836,10 @@ $\gamma\in\mathbb{Z}$ instead of $\gamma\in\mathbb{Z}\left[  i\right]  $),
 then this relation would just be given by%
 \begin{align}
 \left(  a\underset{\mathbb{Z}}{\sim}b\right)   &  \Longleftrightarrow\left(
-a=cb\text{ for some }c\in\left\{  1,-1\right\}  \right)  \nonumber\\
+a=cb\text{ for some }c\in\left\{  1,-1\right\}  \right) \nonumber\\
 &  \Longleftrightarrow\left(  a=b\text{ or }a=-b\right)  \Longleftrightarrow
-\left(  \left\vert a\right\vert =\left\vert b\right\vert \right)
-.\label{eq.Z[i].gauss.unit-Z}%
+\left(  \left\vert a\right\vert =\left\vert b\right\vert \right)  .
+\label{eq.Z[i].gauss.unit-Z}%
 \end{align}
 So the relation $\underset{\mathbb{Z}}{\sim}$ is not very exciting: it is
 simply \textquotedblleft equality up to sign\textquotedblright.\footnote{In
@@ -19937,6 +19959,9 @@ if $\alpha=0$.
 
 \textbf{(b)} We have $\operatorname*{N}\left(  \alpha\right)  =1$ if and only
 if $\alpha$ is a unit.
+
+\textbf{(c)} If $\alpha$ is nonzero and not a unit, then $\operatorname*{N}%
+\left(  \alpha\right)  >1$.
 \end{proposition}
 
 \begin{proof}
@@ -19973,7 +19998,7 @@ This inverse $\alpha^{-1}$ satisfies $\alpha\alpha^{-1}=1=1_{\mathbb{C}%
 \operatorname*{N}\left(  \alpha\alpha^{-1}\right)   &  =\operatorname*{N}%
 \left(  \left(  1,0\right)  \right)  =1^{2}+0^{2}\ \ \ \ \ \ \ \ \ \ \left(
 \text{by the definition of }\operatorname*{N}\left(  \left(  1,0\right)
-\right)  \right) \\
+\right)  \right)  \\
 &  =1.
 \end{align*}
 But Proposition \ref{prop.CC.conj.hom} \textbf{(d)} (applied to $\beta
@@ -19992,6 +20017,21 @@ $\operatorname*{N}\left(  \alpha\right)  \cdot\operatorname*{N}\left(
 $\operatorname*{N}\left(  \alpha\right)  \in\mathbb{N}$). This proves the
 \textquotedblleft$\Longleftarrow$\textquotedblright\ direction of Proposition
 \ref{prop.Z[i].gauss.norm1} \textbf{(b)}.
+
+\textbf{(c)} Assume that $\alpha$ is nonzero and not a unit. Then, $\alpha
+\neq0$ (since $\alpha$ is nonzero). Hence, Proposition
+\ref{prop.CC.norm.basics} \textbf{(c)} yields $\operatorname*{N}\left(
+\alpha\right)  >0$. But Proposition \ref{prop.Z[i].gauss.Norm-N} yields
+$\operatorname*{N}\left(  \alpha\right)  \in\mathbb{N}$. Combining this with
+$\operatorname*{N}\left(  \alpha\right)  >0$, we obtain $\operatorname*{N}%
+\left(  \alpha\right)  \geq1$. But Proposition \ref{prop.Z[i].gauss.norm1}
+\textbf{(b)} shows that we have $\operatorname*{N}\left(  \alpha\right)  =1$
+if and only if $\alpha$ is a unit. Hence, we don't have $\operatorname*{N}%
+\left(  \alpha\right)  =1$ (since $\alpha$ is not a unit). In other words, we
+have $\operatorname*{N}\left(  \alpha\right)  \neq1$. Combining this with
+$\operatorname*{N}\left(  \alpha\right)  \geq1$, we find $\operatorname*{N}%
+\left(  \alpha\right)  >1$. This proves Proposition
+\ref{prop.Z[i].gauss.norm1} \textbf{(c)}.
 \end{proof}
 
 \begin{proposition}
@@ -20288,9 +20328,9 @@ Gaussian integer }\gamma\text{ such that }b=a\gamma\right)  .
 \end{lemma}
 
 \begin{proof}
-[Proof of Lemma \ref{lem.Z[i].gauss.div.no-clobber}.] $\Longrightarrow:$
-Assume that $a\mid b$. We must prove that there exists a Gaussian integer
-$\gamma$ such that $b=a\gamma$.
+[Proof of Lemma \ref{lem.Z[i].gauss.div.no-clobber}.]$\Longrightarrow:$ Assume
+that $a\mid b$. We must prove that there exists a Gaussian integer $\gamma$
+such that $b=a\gamma$.
 
 Thus, there exists an integer $c$ such that $b=ac$ (by the definition of
 divisibility). Consider this $c$. Then, $c$ is an integer, and thus is a
@@ -20354,12 +20394,12 @@ b$\textquotedblright\ interpreted according to Definition
 \ref{def.Z[i].gauss.div}. Indeed, if $a$ and $b$ are two integers, then we
 have the following chain of equivalences:%
 \begin{align*}
-& \ \left(  a\mid b\text{ in the sense of Definition \ref{def.ent.div.div}%
-}\right)  \\
-& \Longleftrightarrow\ \left(  \text{there exists a Gaussian integer }%
+&  \ \left(  a\mid b\text{ in the sense of Definition \ref{def.ent.div.div}%
+}\right) \\
+&  \Longleftrightarrow\ \left(  \text{there exists a Gaussian integer }%
 \gamma\text{ such that }b=a\gamma\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by
-Lemma \ref{lem.Z[i].gauss.div.no-clobber}}\right)  \\
-& \Longleftrightarrow\ \left(  a\mid b\text{ in the sense of Definition
+Lemma \ref{lem.Z[i].gauss.div.no-clobber}}\right) \\
+&  \Longleftrightarrow\ \left(  a\mid b\text{ in the sense of Definition
 \ref{def.Z[i].gauss.div}}\right)  .
 \end{align*}
 Thus, the two possible meanings of \textquotedblleft$a\mid b$%
@@ -20374,7 +20414,7 @@ if $a$ divides both $b$ and $c$.
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.Z[i].gauss.div.int|gauss}.] $\Longrightarrow:$
+[Proof of Proposition \ref{prop.Z[i].gauss.div.int|gauss}.]$\Longrightarrow:$
 Assume that $a\mid\beta$. We must prove that $a$ divides both $b$ and $c$.
 
 The statement $a\mid\beta$ means that there exists a Gaussian integer $\gamma$
@@ -20472,16 +20512,15 @@ Thus, $\operatorname*{N}\left(  \alpha\right)  \mid\operatorname*{N}\left(
 $). This proves Proposition \ref{prop.Z[i].gauss.div.1} \textbf{(a)}.
 
 \textbf{(b)} Assume that $\alpha\mid\beta$ and $\beta\neq0$. Proposition
-\ref{prop.CC.norm.basics} \textbf{(b)} (applied to $\beta$ instead of $\alpha
-$) shows that we have $\operatorname*{N}\left(  \beta\right)  =0$ if and only
-if $\beta=0$. Hence, $\operatorname*{N}\left(  \beta\right)  \neq0$ (since
-$\beta\neq0$). Furthermore, Proposition \ref{prop.Z[i].gauss.div.1}
-\textbf{(a)} yields $\operatorname*{N}\left(  \alpha\right)  \mid
-\operatorname*{N}\left(  \beta\right)  $. Thus, Proposition
-\ref{prop.ent.div.1} \textbf{(b)} (applied to $a=\operatorname*{N}\left(
-\alpha\right)  $ and $b=\operatorname*{N}\left(  \beta\right)  $) yields
-$\left\vert \operatorname*{N}\left(  \alpha\right)  \right\vert \leq\left\vert
-\operatorname*{N}\left(  \beta\right)  \right\vert $.
+\ref{prop.CC.norm.basics} \textbf{(c)} (applied to $\beta$ instead of $\alpha
+$) shows that $\operatorname*{N}\left(  \beta\right)  >0$ (since $\beta\neq
+0$). Hence, $\operatorname*{N}\left(  \beta\right)  \neq0$. Furthermore,
+Proposition \ref{prop.Z[i].gauss.div.1} \textbf{(a)} yields $\operatorname*{N}%
+\left(  \alpha\right)  \mid\operatorname*{N}\left(  \beta\right)  $. Thus,
+Proposition \ref{prop.ent.div.1} \textbf{(b)} (applied to $a=\operatorname*{N}%
+\left(  \alpha\right)  $ and $b=\operatorname*{N}\left(  \beta\right)  $)
+yields $\left\vert \operatorname*{N}\left(  \alpha\right)  \right\vert
+\leq\left\vert \operatorname*{N}\left(  \beta\right)  \right\vert $.
 
 But recall that $\operatorname*{N}\left(  \alpha\right)  \in\mathbb{N}$, so
 that $\operatorname*{N}\left(  \alpha\right)  \geq0$ and therefore $\left\vert
@@ -20622,16 +20661,7 @@ integers). To do so, recall that both statements are defined to mean
 \textquotedblleft$n\mid a-b$\textquotedblright, and the meaning of the latter
 statement does not depend on whether we interpret $n,a,b$ as integers or as
 Gaussian integers\footnote{We have proven this latter fact shortly after
-Definition \ref{def.Z[i].gauss.div}.}.%
-
-\[%
-\begin{tabular}
-[c]{||l||}\hline\hline
-\textbf{You have reached the end of the finished part.}\\
-\textbf{TODO: Write on from here.}\\\hline\hline
-\end{tabular}
-\]
-
+Definition \ref{def.Z[i].gauss.div}.}.
 
 The next proposition is a straightforward analogue of Proposition
 \ref{prop.ent.mod.0}:
@@ -20643,7 +20673,8 @@ if and only if $\nu\mid\alpha$.
 \end{proposition}
 
 \begin{proof}
-Analogous to the proof of Proposition \ref{prop.ent.mod.0}.
+[Proof of Proposition \ref{prop.Z[i].mod.0}.] This proof is analogous to the
+proof of Proposition \ref{prop.ent.mod.0}.
 \end{proof}
 
 The next proposition is a straightforward analogue of Proposition
@@ -20683,7 +20714,11 @@ $\alpha_{2}\equiv\beta_{2}\operatorname{mod}\nu$, then%
 \end{proposition}
 
 \begin{proof}
-Analogous to the proof of Proposition \ref{prop.ent.mod.basics}.
+[Proof of Proposition \ref{prop.Z[i].mod.basics}.] This proof is analogous to
+the proof of Proposition \ref{prop.ent.mod.basics}. (Of course, it relies on
+parts \textbf{(a)} and \textbf{(b)} of Proposition \ref{prop.Z[i].gauss.ring},
+and it uses Proposition \ref{prop.Z[i].div.2} instead of Proposition
+\ref{prop.ent.div.2}.)
 \end{proof}
 
 \subsubsection{Division with remainder}
@@ -20693,7 +20728,7 @@ This turns out to be tricky: There is no straightforward analogue of Theorem
 \ref{thm.ent.quorem.full} for Gaussian integers. (In fact, it is not clear
 what $\left\{  0,1,\ldots,b-1\right\}  $ would mean if we let $b$ be a
 Gaussian integer.) The best thing we can get for Gaussian integers is an
-analogue of Exercise \ref{exe.ent.quo-rem.minrem} \textbf{(a)}:{}
+analogue of Exercise \ref{exe.ent.quo-rem.minrem} \textbf{(a)}:
 
 \begin{theorem}
 \label{thm.Z[i].gauss.quorem}Let $\alpha$ and $\beta\neq0$ be Gaussian
@@ -20705,7 +20740,7 @@ $\alpha=\gamma\beta+\rho$ and $\operatorname*{N}\left(  \rho\right)
 Note that the pair $\left(  \gamma,\rho\right)  $ in this theorem is not
 unique. As we have said, Theorem \ref{thm.Z[i].gauss.quorem} is an analogue of
 Exercise \ref{exe.ent.quo-rem.minrem} \textbf{(a)} (with $\alpha$, $\beta$,
-$\gamma$ and $\rho$ taking the roles of $u$, $n$, $q$ and $r$), not as an
+$\gamma$ and $\rho$ taking the roles of $u$, $n$, $q$ and $r$), not an
 analogue of Theorem \ref{thm.ent.quorem.full}; nevertheless, it is the closest
 we can get to Theorem \ref{thm.ent.quorem.full} in $\mathbb{Z}\left[
 i\right]  $, and can often be substituted in places where one would usually
@@ -20714,13 +20749,27 @@ to use uniqueness of quotient and remainder).
 
 Theorem \ref{thm.Z[i].gauss.quorem} can be visualized geometrically (similarly
 to the visualizations shown in Remark \ref{rmk.ent.quo-rem.full.geo} and
-Remark \ref{rmk.ent.quo-rem.minrem.geo}). See \cite[\S 7]{Conrad-Gauss} for
-the details.
+Remark \ref{rmk.ent.quo-rem.minrem.geo}, but using the Argand diagram). See
+\cite[\S 7]{Conrad-Gauss} for the details.%
+
+\[%
+\begin{tabular}
+[c]{||l||}\hline\hline
+\textbf{You have reached the end of the finished part.}\\
+\textbf{TODO: Write on from here.}\\\hline\hline
+\end{tabular}
+\]
+
 
 \begin{proof}
 [Proof of Theorem \ref{thm.Z[i].gauss.quorem}.](The following proof follows
 \cite[proof of Theorem 3.1]{Conrad-Gauss}.) Let $N=\operatorname*{N}\left(
-\beta\right)  $. Write%
+\beta\right)  $. Then, $N=\operatorname*{N}\left(  \beta\right)  >0$ (by
+Proposition \ref{prop.CC.norm.basics} \textbf{(c)}, applied to $\beta$ instead
+of $\alpha$), since $\beta\neq0$. Hence, $N\neq0$, so that we can divide by
+$N$.
+
+Clearly,%
 \[
 \dfrac{\alpha}{\beta}=\dfrac{\alpha\overline{\beta}}{\beta\overline{\beta}%
 }=\dfrac{\alpha\overline{\beta}}{N}\ \ \ \ \ \ \ \ \ \ \left(  \text{since
@@ -20732,8 +20781,7 @@ $\overline{\beta}$ are Gaussian integers); thus, we can write it in the form
 \alpha\overline{\beta}=m+ni\ \ \ \ \ \ \ \ \ \ \text{for some }m,n\in
 \mathbb{Z}.
 \]
-Consider these $m,n$. Note that $N=\operatorname*{N}\left(  \beta\right)  >0$
-since $\beta\neq0$.
+Consider these $m,n$.
 
 Exercise \ref{exe.ent.quo-rem.minrem} \textbf{(a)} (applied to $N$ and $m$
 instead of $n$ and $u$) shows that there exists a pair $\left(  q_{1}%
@@ -29132,6 +29180,8 @@ $g=\left\vert g\right\vert =1$. Hence, Exercise \ref{exe.ent.div.g|1} is solved.
 \subsection{Solution to Exercise \ref{exe.ent.div.powers-ab}}
 
 \begin{fineprint}
+
+
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.div.powers-ab}.]We have $a\mid b$. In other
 words, there exists an integer $d$ such that $b=ad$ (by Definition
@@ -29147,6 +29197,8 @@ b^{k}$ (by Definition \ref{def.ent.div.div}). This solves Exercise
 \subsection{Solution to Exercise \ref{exe.ent.mod.a+b=a-b}}
 
 \begin{fineprint}
+
+
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.mod.a+b=a-b}.]According to Definition
 \ref{def.ent.cong}, we have $a+b\equiv a-b\operatorname{mod}2$ if and only if
@@ -29160,6 +29212,8 @@ immediately from $\left(  a+b\right)  -\left(  a-b\right)  =2b$. Thus Exercise
 \subsection{Solution to Exercise \ref{exe.ent.mod.basics-nope}}
 
 \begin{fineprint}
+
+
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.mod.basics-nope}.]There are many such
 examples. Here is one:%
@@ -29181,6 +29235,8 @@ b_{1}^{b_{2}}\operatorname{mod}n$.
 \subsection{Solution to Exercise \ref{exe.ent.mod.basics.2}}
 
 \begin{fineprint}
+
+
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.mod.basics.2}.]We have $a\equiv
 b\operatorname{mod}n$. In other words, $n\mid a-b$ (by the definition of
@@ -29202,6 +29258,8 @@ a-b\right)  /d=a/d-b/d$). In other words, $a/d\equiv b/d\operatorname{mod}n/d$
 \subsection{Solution to Exercise \ref{exe.ent.mod.basics.k-power}}
 
 \begin{fineprint}
+
+
 \begin{proof}
 [First solution to Exercise \ref{exe.ent.mod.basics.k-power}.]We want to prove
 that
@@ -29263,6 +29321,8 @@ $a^{k}\equiv b^{k}\operatorname{mod}n$. Hence, Exercise
 \subsection{Solution to Exercise \ref{exe.ent.mod.k-sum}}
 
 \begin{fineprint}
+
+
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.mod.k-sum}.]\textbf{(a)} We shall solve
 Exercise \ref{exe.ent.mod.k-sum} \textbf{(a)} by induction on $\left\vert
@@ -29377,6 +29437,8 @@ analogous to the one we gave above for Exercise \ref{exe.ent.mod.k-sum}
 \subsection{Solution to Exercise \ref{exe.ent.mod.prod-wrong}}
 
 \begin{fineprint}
+
+
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.mod.prod-wrong}.]No, it is not true. For
 example, $a_{1}=1$, $a_{2}=1$, $b_{1}=1$, $b_{2}=0$, $n_{1}=0$ and $n_{2}=1$
@@ -29387,6 +29449,8 @@ yield a counterexample.
 \subsection{Solution to Exercise \ref{exe.ent.mod.a+nd}}
 
 \begin{fineprint}
+
+
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.mod.a+nd}.]If $a\equiv b\operatorname{mod}%
 n$, then $b\equiv a\operatorname{mod}n$ (by Proposition
@@ -29421,6 +29485,8 @@ $d\in\mathbb{Z}$ such that $b=a+nd$. This solves Exercise
 \subsection{Solution to Exercise \ref{exe.ent.mod.diff}}
 
 \begin{fineprint}
+
+
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.mod.diff}.]We have $a-b\equiv
 c\operatorname{mod}n$ if and only if $n\mid\left(  a-b\right)  -c$ (by the
@@ -29458,6 +29524,8 @@ $a\equiv b+c\operatorname{mod}n$. This solves Exercise \ref{exe.ent.mod.diff}.
 \subsection{Solution to Exercise \ref{exe.ent.mod.substitutivity.7div}}
 
 \begin{fineprint}
+
+
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.mod.substitutivity.7div}.]We have
 $3^{2n+1}=\left(  \underbrace{3^{2}}_{=9\equiv2\operatorname{mod}7}\right)
@@ -29504,6 +29572,8 @@ recurrences (such as the Fibonacci sequence).]
 \subsection{Solution to Exercise \ref{exe.ent.quo-rem.mod=rem}}
 
 \begin{fineprint}
+
+
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.quo-rem.mod=rem}.]$\Longrightarrow:$ Assume
 that $u\equiv v\operatorname{mod}n$. We must prove that $u\%n=v\%n$.
@@ -29539,6 +29609,8 @@ of Exercise \ref{exe.ent.quo-rem.mod=rem}.
 \subsection{Solution to Exercise \ref{exe.ent.quo-rem.minrem}}
 
 \begin{fineprint}
+
+
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.quo-rem.minrem}.]\textbf{(a)} Theorem
 \ref{thm.ent.quorem.full} shows that there exists a unique pair $\left(
@@ -29602,6 +29674,8 @@ pair $\left(  q,r\right)  $ from Exercise \ref{exe.ent.quo-rem.minrem}
 \subsection{Solution to Exercise \ref{exe.ent.quo-rem.u+v}}
 
 \begin{fineprint}
+
+
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.quo-rem.u+v}.]\textbf{(a)} Corollary
 \ref{cor.ent.quo-rem.remmod} \textbf{(a)} yields that $u\%n\in\left\{
@@ -29701,6 +29775,8 @@ This solves Exercise \ref{exe.ent.quo-rem.u+v} \textbf{(b)}.
 \subsection{Solution to Exercise \ref{exe.ent.even-odd.1}}
 
 \begin{fineprint}
+
+
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.even-odd.1}.]Corollary
 \ref{cor.ent.quo-rem.remmod} \textbf{(b)} (applied to $n=2$) shows that we
@@ -29951,6 +30027,8 @@ Cases 1, 2, 3 and 4. Hence, Exercise \ref{exe.ent.even-odd.1} \textbf{(i)} is so
 \subsection{Solution to Exercise \ref{exe.ent.even-odd-sumsq}}
 
 \begin{fineprint}
+
+
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.even-odd-sumsq}.]\textbf{(a)} Let $u$ be an
 even integer. Thus, $u$ is even. In other words, $u$ is divisible by $2$. In
@@ -30034,6 +30112,8 @@ left to the reader.
 \subsection{Solution to Exercise \ref{exe.ent.Div.set}}
 
 \begin{fineprint}
+
+
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.Div.set}.]Assume that $\left\{  b_{1}%
 ,b_{2},\ldots,b_{k}\right\}  =\left\{  c_{1},c_{2},\ldots,c_{\ell}\right\}  $.
@@ -30115,6 +30195,8 @@ $. This solves Exercise \ref{exe.ent.Div.set}.
 \subsection{Solution to Exercise \ref{exe.ent.gcd.set}}
 
 \begin{fineprint}
+
+
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.gcd.set}.]Assume that $\left\{  b_{1}%
 ,b_{2},\ldots,b_{k}\right\}  =\left\{  c_{1},c_{2},\ldots,c_{\ell}\right\}  $.
@@ -30129,6 +30211,8 @@ yields $\gcd\left(  b_{1},b_{2},\ldots,b_{k}\right)  =\gcd\left(  c_{1}%
 \subsection{Solution to Exercise \ref{exe.ent.gcd.an-1}}
 
 \begin{fineprint}
+
+
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.gcd.an-1}.]\textbf{(a)} Let $a\in
 \mathbb{N}$ and $b\in\mathbb{N}$ be such that $b\geq a$.
@@ -30311,6 +30395,8 @@ solutions of Exercise \ref{exe.ent.gcd.an-1} \textbf{(b)}.]
 \subsection{Solution to Exercise \ref{exe.ent.gcd.div}}
 
 \begin{fineprint}
+
+
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.gcd.div}.]Proposition
 \ref{prop.ent.gcd.props1} \textbf{(f)} (applied to $a=a_{1}$ and $b=a_{2}$)
@@ -30330,6 +30416,8 @@ This solves Exercise \ref{exe.ent.gcd.div}.
 \subsection{Solution to Exercise \ref{exe.ent.gcd.abs}}
 
 \begin{fineprint}
+
+
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.gcd.abs}.]\textbf{(a)} If $b\geq0$, then
 $\left\vert b\right\vert =b$. Hence, if $b\geq0$, then Exercise
@@ -30366,6 +30454,8 @@ b\right\vert \right)  =\gcd\left(  a,b\right)  $ (by Exercise
 \subsection{Solution to Exercise \ref{exe.ent.gcd.sa,sb,sc}}
 
 \begin{fineprint}
+
+
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.gcd.sa,sb,sc}.]Corollary
 \ref{cor.ent.gcd.sa,sb} yields
@@ -30429,6 +30519,8 @@ This solves Exercise \ref{exe.ent.gcd.sa,sb,sc}.
 \subsection{Solution to Exercise \ref{exe.ent.gcd.sak}}
 
 \begin{fineprint}
+
+
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.gcd.sak}.]We shall show that%
 \begin{equation}
@@ -30519,6 +30611,8 @@ a_{1},a_{2},\ldots,a_{k}\right)  $. This solves Exercise \ref{exe.ent.gcd.sak}.
 \subsection{Solution to Exercise \ref{exe.ent.coprime.01}}
 
 \begin{fineprint}
+
+
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.coprime.01}.]\textbf{(a)} We have $1\mid a$
 (since $a=1\cdot a$). Thus, Proposition \ref{prop.ent.gcd.props1} \textbf{(i)}
@@ -30549,6 +30643,8 @@ In other words, we have $0\perp a$ if and only if $\left\vert a\right\vert
 \subsection{Solution to Exercise \ref{exe.ent.coprime.ab-to-ck}}
 
 \begin{fineprint}
+
+
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.coprime.ab-to-ck}.]Let us prove that%
 \begin{equation}
@@ -30593,6 +30689,8 @@ obtain $a_{1}a_{2}\cdots a_{k}\perp c$. This proves Exercise
 \subsection{Solution to Exercise \ref{exe.ent.coprime.combinek}}
 
 \begin{fineprint}
+
+
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.coprime.combinek}.]We assumed that the
 integers $b_{1},b_{2},\ldots,b_{k}$ are mutually coprime. In other words, we
@@ -30653,6 +30751,8 @@ obtain $b_{1}b_{2}\cdots b_{k}\mid c$. This proves Exercise
 \subsection{Solution to Exercise \ref{exe.ent.coprime.powers}}
 
 \begin{fineprint}
+
+
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.coprime.powers}.]We have $a\perp b$. Thus,
 Exercise \ref{exe.ent.coprime.combinek} (applied to $n$, $b$ and $\left(
@@ -30678,6 +30778,8 @@ solves Exercise \ref{exe.ent.coprime.powers}.
 \subsection{Solution to Exercise \ref{exe.ent.coprime.ab-to-cI}}
 
 \begin{fineprint}
+
+
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.coprime.ab-to-cI}.]Exercise
 \ref{exe.ent.coprime.ab-to-ck} and Exercise \ref{exe.ent.coprime.ab-to-cI} say
@@ -30730,6 +30832,8 @@ I}b_{i}\perp c$. This solves Exercise \ref{exe.ent.coprime.ab-to-cI}.
 \subsection{Solution to Exercise \ref{exe.ent.coprime.b==c}}
 
 \begin{fineprint}
+
+
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.coprime.b==c}.]Assume that $a\perp c$. But
 Proposition \ref{prop.ent.coprime.perp-symm} (applied to $c$ instead of $b$)
@@ -30752,6 +30856,8 @@ This solves Exercise \ref{exe.ent.coprime.b==c}.
 \subsection{Solution to Exercise \ref{exe.ent.coprime.b-a}}
 
 \begin{fineprint}
+
+
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.coprime.b-a}.]Proposition
 \ref{prop.ent.gcd.props1} \textbf{(b)} (applied to $b-a$ instead of $a$)
@@ -30796,6 +30902,8 @@ Exercise \ref{exe.ent.coprime.b-a}.
 \subsection{Solution to Exercise \ref{exe.ent.coprime.1+2+...+n}}
 
 \begin{fineprint}
+
+
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.coprime.1+2+...+n}.]Proposition
 \ref{prop.ent.1+2+...+n} yields $1+2+\cdots+n=\dfrac{n\left(  n+1\right)  }%
@@ -30897,6 +31005,8 @@ We have now proven both (\ref{sol.ent.coprime.1+2+...+n.g1}) and
 \subsection{Solution to Exercise \ref{exe.ent.coprime.bezout-conv}}
 
 \begin{fineprint}
+
+
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.coprime.bezout-conv}.]Proposition
 \ref{prop.ent.gcd.bezout-conv} yields $\gcd\left(  a,b\right)  \mid xa+yb=1$.
@@ -30911,6 +31021,8 @@ words, $a$ is coprime to $b$. In other words, $a\perp b$. This solves Exercise
 \subsection{Solution to Exercise \ref{exe.ent.coprime.gcdgcd1}}
 
 \begin{fineprint}
+
+
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.coprime.gcdgcd1}.]Let $g=\gcd\left(
 x,y\right)  $. Then, $g$ is a nonnegative integer (since any gcd is a
@@ -30959,6 +31071,8 @@ This solves Exercise \ref{exe.ent.coprime.gcdgcd1}.
 \subsection{Solution to Exercise \ref{exe.ent.coprime.gcdgcd2}}
 
 \begin{fineprint}
+
+
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.coprime.gcdgcd2}.]\textbf{(a)} Let
 $g=\gcd\left(  a,b,c\right)  $. Then, $g=\gcd\left(  a,b,c\right)  \geq0$
@@ -31027,6 +31141,8 @@ This solves Exercise \ref{exe.ent.coprime.gcdgcd2} \textbf{(b)}.
 \subsection{Solution to Exercise \ref{exe.ent.coprime.a/g}}
 
 \begin{fineprint}
+
+
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.coprime.a/g}.]We have assumed that $a$ and
 $b$ are not both zero. In other words, the two integers $a,b$ are not all
@@ -31070,6 +31186,8 @@ is finished.
 \subsection{Solution to Exercise \ref{exe.ent.gcd.akbk}}
 
 \begin{fineprint}
+
+
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.gcd.akbk}.]If $k=0$, then Exercise
 \ref{exe.ent.gcd.akbk} holds\footnote{\textit{Proof.} Assume that $k=0$. Thus,
@@ -31142,6 +31260,8 @@ we obtain $\gcd\left(  a^{k},b^{k}\right)  =\left(  \gcd\left(  a,b\right)
 \subsection{Solution to Exercise \ref{exe.ent.coprime.frac-red}}
 
 \begin{fineprint}
+
+
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.coprime.frac-red}.]We have $r\in\mathbb{Q}%
 $. In other words, $r$ is a rational number. Thus, $r$ can be written in the
@@ -31162,6 +31282,8 @@ $r=a/b$ (namely, $a=\dfrac{x}{g}$ and $b=\dfrac{y}{g}$). This solves Exercise
 \subsection{Solution to Exercise \ref{exe.ent.coprime.sqrtu+sqrtv}}
 
 \begin{fineprint}
+
+
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.coprime.sqrtu+sqrtv}.]\textbf{(a)} Let $u$
 be a positive integer that is not a perfect square. We must prove that
@@ -31233,6 +31355,8 @@ This contradiction shows that our assumption was false. Hence, $\sqrt{u}%
 \subsection{Solution to Exercise \ref{exe.ent.coprime.gcdgcd1k}}
 
 \begin{fineprint}
+
+
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.coprime.gcdgcd1k}.]A gcd of a list of
 integers is always a nonnegative integer (by the definition of a gcd). Hence,
@@ -31319,6 +31443,8 @@ This solves Exercise \ref{exe.ent.coprime.gcdgcd1k}.
 \subsection{Solution to Exercise \ref{exe.ent.coprime.gcdgcd1k3}}
 
 \begin{fineprint}
+
+
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.coprime.gcdgcd1k3}.]Theorem
 \ref{thm.ent.gcd.uniprop-mul} \textbf{(d)} (applied to $3$ and $\left(
@@ -31398,6 +31524,8 @@ This solves Exercise \ref{exe.ent.coprime.gcdgcd1k3}.
 \subsection{Solution to Exercise \ref{exe.ent.coprime.gcd-distrib1}}
 
 \begin{fineprint}
+
+
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.coprime.gcd-distrib1}.]Exercise
 \ref{exe.ent.coprime.gcdgcd1} (applied to $u=b$, $v=c$, $x=c$ and $y=a$)
@@ -31477,6 +31605,8 @@ This solves Exercise \ref{exe.ent.coprime.gcd-distrib1}.
 \subsection{Solution to Exercise \ref{exe.ent.lcm.props1}}
 
 \begin{fineprint}
+
+
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.lcm.props1}.]The lowest common multiple of
 any set of integers is a nonnegative integer (by Definition
@@ -31631,6 +31761,8 @@ This solves Exercise \ref{exe.ent.lcm.props1} \textbf{(e)}.
 \subsection{Solution to Exercise \ref{exe.ent.lcm.lcmabc}}
 
 \begin{fineprint}
+
+
 \begin{proof}
 [First solution to Exercise \ref{exe.ent.lcm.lcmabc}.]Let us prove a more
 general fact:
@@ -31811,6 +31943,8 @@ solves Exercise \ref{exe.ent.lcm.lcmabc} \textbf{(b)}.
 \subsection{Solution to Exercise \ref{exe.ent.prime.dist=cop}}
 
 \begin{fineprint}
+
+
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.prime.dist=cop}.]We have $p\neq q$ (since
 $p$ and $q$ are distinct). Hence, $p\nmid q$\ \ \ \ \footnote{\textit{Proof.}
@@ -31836,6 +31970,8 @@ have $p\nmid q$), we thus conclude that $p\perp q$. This solves Exercise
 \subsection{Solution to Exercise \ref{exe.ent.prime.pab-conv}}
 
 \begin{fineprint}
+
+
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.prime.pab-conv}.]The integer $p$ is
 positive (since $p>1>0$). Thus, $\left\vert p\right\vert =p$.
@@ -31897,6 +32033,8 @@ prime\textquotedblright). This solves Exercise \ref{exe.ent.prime.pab-conv}.
 \subsection{Solution to Exercise \ref{exe.ent.prime.coprime-to-pk}}
 
 \begin{fineprint}
+
+
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.prime.coprime-to-pk}.]$\Longrightarrow:$
 Assume that $a\perp p^{k}$ holds. We must prove that $p\nmid a$.
@@ -31932,6 +32070,8 @@ $\Longleftarrow$\textquotedblright\ direction of Exercise
 \subsection{Solution to Exercise \ref{exe.ent.prime.vp-lem}}
 
 \begin{fineprint}
+
+
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.prime.vp-lem}.]This exercise can easily be
 solved by induction on $k$; but here is a more artful proof:
@@ -31965,6 +32105,8 @@ Hence, $p^{k}\geq k+1>k$. This solves Exercise \ref{exe.ent.prime.vp-lem}.
 \subsection{Solution to Exercise \ref{exe.ent.prime.vp-abs}}
 
 \begin{fineprint}
+
+
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.prime.vp-abs}.]If $n\geq0$, then we have
 $\left\vert n\right\vert =n$ and thus $v_{p}\left(  \left\vert n\right\vert
@@ -31990,6 +32132,8 @@ solves Exercise \ref{exe.ent.prime.vp-abs}.
 \subsection{Solution to Exercise \ref{exe.ent.prime.vp-pow}}
 
 \begin{fineprint}
+
+
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.prime.vp-pow}.]Corollary
 \ref{cor.ent.prime.vp-ringk} (applied to $a_{i}=a$) yields%
@@ -32007,6 +32151,8 @@ $v_{p}\left(  a^{k}\right)  =kv_{p}\left(  a\right)  $. This solves Exercise
 \subsection{Solution to Exercise \ref{exe.ent.prime.p1a1puau}}
 
 \begin{fineprint}
+
+
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.prime.p1a1puau}.]For each $i\in\left\{
 1,2,\ldots,u\right\}  $, the number $p_{i}^{a_{i}}$ is a well-defined positive
@@ -32129,6 +32275,8 @@ This solves Exercise \ref{exe.ent.prime.p1a1puau} \textbf{(b)}.
 \subsection{Solution to Exercise \ref{exe.ent.prime.vp=vp}}
 
 \begin{fineprint}
+
+
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.prime.vp=vp}.]Applying
 (\ref{eq.exe.ent.prime.vp=vp.ass}) to $p=2$, we obtain $v_{2}\left(  n\right)
@@ -32203,6 +32351,8 @@ and 2. Hence, Exercise \ref{exe.ent.prime.vp=vp} always holds.
 \ref{exe.ent.lcm.lcmabc}}
 
 \begin{fineprint}
+
+
 \begin{proof}
 [Second solution to Exercise \ref{exe.ent.lcm.lcmabc} (sketched).]WLOG assume
 that $a,b,c$ are nonzero (since otherwise, the claim of Exercise
@@ -32350,6 +32500,8 @@ Proposition \ref{prop.ent.prime.gcd}.}
 \subsection{Solution to Exercise \ref{exe.ent.prime.modpvp}}
 
 \begin{fineprint}
+
+
 \begin{proof}
 [First solution to Exercise \ref{exe.ent.prime.modpvp}.]We must prove that
 $a\equiv b\operatorname{mod}n$. If $a=b$, then this is true (because if $a=b$,
@@ -32482,6 +32634,8 @@ other words, $a\equiv b\operatorname{mod}n$. This solves Exercise
 \subsection{Solution to Exercise \ref{exe.ent.prime.gcd.1}}
 
 \begin{fineprint}
+
+
 \begin{proof}
 [Solution to Exercise \ref{exe.ent.prime.gcd.1}.]\textbf{(a)} Forget that we
 fixed $p$. We thus must prove that
@@ -37523,7 +37677,7 @@ $\Longleftarrow:$ We have the logical implication $\left(  \alpha\sim
 
 \begin{fineprint}
 \begin{proof}
-[Solution to Exercise \ref{exe.Z[i].div.acbc}.] The solution to Exercise
+[Solution to Exercise \ref{exe.Z[i].div.acbc}.]The solution to Exercise
 \ref{exe.Z[i].div.acbc} is completely analogous to the above solution to
 Exercise \ref{exe.ent.div.acbc}. (As usual, you need to make the obvious
 changes: Replace all Roman letters $a,b,c,a_{1},b_{1},a_{2},b_{2}$ by Greek
@@ -37541,10 +37695,10 @@ number; but we know this fact from Definition
 
 \begin{fineprint}
 \begin{proof}
-[Solution to Exercise \ref{exe.Z[i].div.powers}.] The solution to
-Exercise \ref{exe.Z[i].div.powers} is completely analogous to the above
-solution to Exercise \ref{exe.ent.div.powers}. (Of course, you will have to
-replace the letter $n$ by $\nu$, and replace integers by Gaussian integers.)
+[Solution to Exercise \ref{exe.Z[i].div.powers}.]The solution to Exercise
+\ref{exe.Z[i].div.powers} is completely analogous to the above solution to
+Exercise \ref{exe.ent.div.powers}. (Of course, you will have to replace the
+letter $n$ by $\nu$, and replace integers by Gaussian integers.)
 \end{proof}
 \end{fineprint}
 
@@ -37552,8 +37706,8 @@ replace the letter $n$ by $\nu$, and replace integers by Gaussian integers.)
 
 \begin{fineprint}
 \begin{proof}
-[Solution to Exercise \ref{exe.Z[i].div.g|1}.] The following argument is
-an analogue of the Second solution to Exercise \ref{exe.ent.div.g|1} we gave above:
+[Solution to Exercise \ref{exe.Z[i].div.g|1}.]The following argument is an
+analogue of the Second solution to Exercise \ref{exe.ent.div.g|1} we gave above:
 
 We have $\gamma=1\gamma$. Hence, there exists a Gaussian integer $\delta$ such
 that $\gamma=1\delta$ (namely, $\delta=\gamma$). In other words, $1\mid\gamma$
@@ -37575,9 +37729,9 @@ unit). This solves Exercise \ref{exe.Z[i].div.g|1}.
 
 \begin{fineprint}
 \begin{proof}
-[Solution to Exercise \ref{exe.Z[i].div.conj}.] We have $\alpha\mid\beta
-$. In other words, there exists a Gaussian integer $\gamma$ such that
-$\beta=\alpha\gamma$ (by Definition \ref{def.Z[i].gauss.div}). Consider this
+[Solution to Exercise \ref{exe.Z[i].div.conj}.]We have $\alpha\mid\beta$. In
+other words, there exists a Gaussian integer $\gamma$ such that $\beta
+=\alpha\gamma$ (by Definition \ref{def.Z[i].gauss.div}). Consider this
 $\gamma$, and denote it by $\delta$. Thus, $\delta$ is a Gaussian integer and
 satisfies $\beta=\alpha\delta$.
 
