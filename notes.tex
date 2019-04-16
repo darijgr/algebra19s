@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, April 15, 2019 18:17:40}
+%TCIDATA{LastRevised=Monday, April 15, 2019 20:04:27}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -328,7 +328,7 @@ least division with remainder); we will see this proof very soon (see Exercise
 We will resolve Question \ref{quest.intro.sum-of-2sq.1} using the theory of
 Gaussian integers in Chapter \ref{chp.CC}. For a survey of different
 approaches to Question \ref{quest.intro.sum-of-2sq.1} (including a full answer
-using finite fields), see \cite[Chapter 4]{AigZie18}.
+using finite fields), see \cite[Chapter 4]{AigZie}.
 
 Further questions can be asked. One of them is: Given an integer $n$, how many
 ways are there to represent $n$ as a sum of two perfect squares? This is
@@ -20448,31 +20448,55 @@ We could use them in Proposition \ref{prop.Z[i].gauss.div.1} \textbf{(b)}.)
 
 Note that the converse of Proposition \ref{prop.Z[i].gauss.div.1} \textbf{(a)}
 does not hold. (That is, $\operatorname*{N}\left(  \alpha\right)
-\mid\operatorname*{N}\left(  \beta\right)  $ does not yield $\alpha\mid\beta$.)%
-
-\[%
-\begin{tabular}
-[c]{||l||}\hline\hline
-\textbf{You have reached the end of the finished part.}\\
-\textbf{TODO: Write on from here.}\\\hline\hline
-\end{tabular}
-\]
-
+\mid\operatorname*{N}\left(  \beta\right)  $ does not yield $\alpha\mid\beta$.)
 
 \begin{proof}
-[Proof of Proposition \ref{prop.Z[i].gauss.div.1}.]\textbf{(a)} Assume that
-$\alpha\mid\beta$. Then, $\beta=\alpha\gamma$ for some $\gamma\in
-\mathbb{Z}\left[  i\right]  $. Thus, $\operatorname*{N}\left(  \beta\right)
+[Proof of Proposition \ref{prop.Z[i].gauss.div.1}.]Proposition
+\ref{prop.Z[i].gauss.Norm-N} yields $\operatorname*{N}\left(  \alpha\right)
+\in\mathbb{N}$; thus, $\operatorname*{N}\left(  \alpha\right)  $ is an
+integer. Similarly, $\operatorname*{N}\left(  \beta\right)  $ is an integer.
+Hence, the statement \textquotedblleft$\operatorname*{N}\left(  \alpha\right)
+\mid\operatorname*{N}\left(  \beta\right)  $\textquotedblright\ makes sense.
+
+\textbf{(a)} Assume that $\alpha\mid\beta$. Thus, there exists a Gaussian
+integer $\gamma$ such that $\beta=\alpha\gamma$ (by Definition
+\ref{def.Z[i].gauss.div}). Consider this $\gamma$. We have $\operatorname*{N}%
+\left(  \gamma\right)  \in\mathbb{N}$ (by Proposition
+\ref{prop.Z[i].gauss.Norm-N}, applied to $\gamma$ instead of $\alpha$). Now,
+from $\beta=\alpha\gamma$, we obtain $\operatorname*{N}\left(  \beta\right)
 =\operatorname*{N}\left(  \alpha\gamma\right)  =\operatorname*{N}\left(
-\alpha\right)  \cdot\operatorname*{N}\left(  \gamma\right)  $, so
-$\operatorname*{N}\left(  \alpha\right)  \mid\operatorname*{N}\left(
-\beta\right)  $ since $\operatorname*{N}\left(  \gamma\right)  \in\mathbb{N}$.
+\alpha\right)  \cdot\operatorname*{N}\left(  \gamma\right)  $ (by Proposition
+\ref{prop.CC.conj.hom} \textbf{(d)}, applied to $\gamma$ instead of $\beta$).
+Thus, $\operatorname*{N}\left(  \alpha\right)  \mid\operatorname*{N}\left(
+\beta\right)  $ (since $\operatorname*{N}\left(  \gamma\right)  \in\mathbb{N}%
+$). This proves Proposition \ref{prop.Z[i].gauss.div.1} \textbf{(a)}.
 
-\textbf{(b)} follows from \textbf{(a)}, since the norms are nonnegative
-integers (and since $\beta\neq0$ implies $\operatorname*{N}\left(
-\beta\right)  \neq0$).
+\textbf{(b)} Assume that $\alpha\mid\beta$ and $\beta\neq0$. Proposition
+\ref{prop.CC.norm.basics} \textbf{(b)} (applied to $\beta$ instead of $\alpha
+$) shows that we have $\operatorname*{N}\left(  \beta\right)  =0$ if and only
+if $\beta=0$. Hence, $\operatorname*{N}\left(  \beta\right)  \neq0$ (since
+$\beta\neq0$). Furthermore, Proposition \ref{prop.Z[i].gauss.div.1}
+\textbf{(a)} yields $\operatorname*{N}\left(  \alpha\right)  \mid
+\operatorname*{N}\left(  \beta\right)  $. Thus, Proposition
+\ref{prop.ent.div.1} \textbf{(b)} (applied to $a=\operatorname*{N}\left(
+\alpha\right)  $ and $b=\operatorname*{N}\left(  \beta\right)  $) yields
+$\left\vert \operatorname*{N}\left(  \alpha\right)  \right\vert \leq\left\vert
+\operatorname*{N}\left(  \beta\right)  \right\vert $.
 
-\textbf{(c)} is proven as in the integer case.
+But recall that $\operatorname*{N}\left(  \alpha\right)  \in\mathbb{N}$, so
+that $\operatorname*{N}\left(  \alpha\right)  \geq0$ and therefore $\left\vert
+\operatorname*{N}\left(  \alpha\right)  \right\vert =\operatorname*{N}\left(
+\alpha\right)  $. Similarly, $\left\vert \operatorname*{N}\left(
+\beta\right)  \right\vert =\operatorname*{N}\left(  \beta\right)  $. Hence,
+$\operatorname*{N}\left(  \alpha\right)  =\left\vert \operatorname*{N}\left(
+\alpha\right)  \right\vert \leq\left\vert \operatorname*{N}\left(
+\beta\right)  \right\vert =\operatorname*{N}\left(  \beta\right)  $. This
+proves Proposition \ref{prop.Z[i].gauss.div.1} \textbf{(b)}.
+
+\textbf{(c)} The proof of Proposition \ref{prop.Z[i].gauss.div.1} \textbf{(c)}
+is analogous to the proof of Proposition \ref{prop.ent.div.1} \textbf{(c)}.
+(Of course, we need to replace $a$ and $b$ by $\alpha$ and $\beta$, and
+replace integers by Gaussian integers throughout the argument.)
 \end{proof}
 
 The next proposition is a straightforward analogue of Proposition
@@ -20481,11 +20505,11 @@ The next proposition is a straightforward analogue of Proposition
 \begin{proposition}
 \label{prop.Z[i].div.2}\textbf{(a)} We have $\alpha\mid\alpha$ for every
 $\alpha\in\mathbb{Z}\left[  i\right]  $. (This is called the
-\textit{reflexivity of divisibility}.)
+\textit{reflexivity of divisibility} for Gaussian integers.)
 
 \textbf{(b)} If $\alpha,\beta,\gamma\in\mathbb{Z}\left[  i\right]  $ satisfy
 $\alpha\mid\beta$ and $\beta\mid\gamma$, then $\alpha\mid\gamma$. (This is
-called the \textit{transitivity of divisibility}.)
+called the \textit{transitivity of divisibility} for Gaussian integers.)
 
 \textbf{(c)} If $\alpha_{1},\alpha_{2},\beta_{1},\beta_{2}\in\mathbb{Z}\left[
 i\right]  $ satisfy $\alpha_{1}\mid\beta_{1}$ and $\alpha_{2}\mid\beta_{2}$,
@@ -20493,7 +20517,14 @@ then $\alpha_{1}\alpha_{2}\mid\beta_{1}\beta_{2}$.
 \end{proposition}
 
 \begin{proof}
-Analogous to the proof of Proposition \ref{prop.ent.div.2}.
+[Proof of Proposition \ref{prop.Z[i].div.2}.]This proof is completely
+analogous to the proof of Proposition \ref{prop.ent.div.2}. (The only changes
+you need to make are replacing the Roman letters $a,b,c,a_{1},a_{2}%
+,b_{1},b_{2}$ by the corresponding Greek letters $\alpha,\beta,\gamma
+,\alpha_{1},\alpha_{2},\beta_{1},\beta_{2}$, and replacing integers by
+Gaussian integers. Of course, the resulting argument will use Proposition
+\ref{prop.Z[i].gauss.ring} \textbf{(a)}, specifically the fact that the
+product of two Gaussian integers is a Gaussian integer.)
 \end{proof}
 
 The next exercise is a Gaussian-integer analogue of Exercise
@@ -20505,17 +20536,6 @@ such that $\alpha\mid\beta$ and $\beta\mid\alpha$. Prove that $\alpha\sim
 \beta$.
 \end{exercise}
 
-\begin{proof}
-[Solution sketch.]WLOG assume that $\alpha\neq0$. Then, $\beta\neq0$. Now,
-from $\alpha\mid\beta$, we obtain $\dfrac{\beta}{\alpha}\in\mathbb{Z}\left[
-i\right]  $. Similarly, $\dfrac{\alpha}{\beta}\in\mathbb{Z}\left[  i\right]
-$. Thus, $\dfrac{\beta}{\alpha}$ and $\dfrac{\alpha}{\beta}$ are mutually
-inverse Gaussian integers. So $\dfrac{\beta}{\alpha}$ is invertible, i.e., is
-a unit. But $\beta=\alpha\cdot\dfrac{\beta}{\alpha}$, so $\beta\sim\alpha$
-(since $\dfrac{\beta}{\alpha}$ is a unit), and thus $\alpha\sim\beta$. This
-solves Exercise \ref{exe.Z[i].div.abba}.
-\end{proof}
-
 Note that the conclusion \textquotedblleft$\alpha\sim\beta$\textquotedblright%
 \ in Exercise \ref{exe.Z[i].div.abba} is the proper Gaussian-integer analogue
 of the conclusion \textquotedblleft$\left\vert a\right\vert =\left\vert
@@ -20525,6 +20545,19 @@ i\right]  $ is an analogue of the \textquotedblleft have the same absolute
 value\textquotedblright\ relation on $\mathbb{Z}$). (We could have stated the
 weaker conclusion $\left\vert \alpha\right\vert =\left\vert \beta\right\vert $
 as well, but it would not be half as useful.)
+
+A converse of Exercise \ref{exe.Z[i].div.abba} holds as well, so we have the
+following equivalent description of unit-equivalence:
+
+\begin{exercise}
+\label{exe.Z[i].div.abba-conv}Let $\alpha$ and $\beta$ be two Gaussian
+integers. Prove that we have the logical equivalence%
+\[
+\left(  \alpha\sim\beta\right)  \ \Longleftrightarrow\ \left(  \alpha\mid
+\beta\text{ and }\beta\mid\alpha\right)  .
+\]
+
+\end{exercise}
 
 The next exercise is an analogue of Exercise \ref{exe.ent.div.acbc}:
 
@@ -20542,7 +20575,7 @@ $a,b\in\mathbb{N}$ be such that $a\leq b$. Prove that $\nu^{a}\mid\nu^{b}$.
 \end{exercise}
 
 Needless to say, the $a$ and $b$ in this exercise still have to be nonnegative
-integers, since Gaussian integers make no sense in exponents.
+integers, since Gaussian integers make no sense as exponents.
 
 The next exercise is an analogue of Exercise \ref{exe.ent.div.g|1}:
 
@@ -20588,7 +20621,17 @@ according to Definition \ref{def.Z[i].cong} (by treating $n,a,b$ as Gaussian
 integers). To do so, recall that both statements are defined to mean
 \textquotedblleft$n\mid a-b$\textquotedblright, and the meaning of the latter
 statement does not depend on whether we interpret $n,a,b$ as integers or as
-Gaussian integers.
+Gaussian integers\footnote{We have proven this latter fact shortly after
+Definition \ref{def.Z[i].gauss.div}.}.%
+
+\[%
+\begin{tabular}
+[c]{||l||}\hline\hline
+\textbf{You have reached the end of the finished part.}\\
+\textbf{TODO: Write on from here.}\\\hline\hline
+\end{tabular}
+\]
+
 
 The next proposition is a straightforward analogue of Proposition
 \ref{prop.ent.mod.0}:
@@ -21760,7 +21803,7 @@ For example, the Type-1 prime $17$ satisfies%
 
 Note that the claim of Theorem \ref{thm.Z[i].gauss.prime.1mod4} \textbf{(a)}
 (at least for $p\neq2$) also appears in \cite[Proposition in Chapter
-4]{AigZie18}, with a very different proof.
+4]{AigZie}, with a very different proof.
 
 Before we can prove Theorem \ref{thm.Z[i].gauss.prime.1mod4}, we will have to
 build up the theory of Gaussian primes a bit more. We first state the
@@ -22771,7 +22814,7 @@ One consequence of Theorem \ref{thm.Z[i].count-xx+yy} is that a positive
 integer $n$ can be written in the form $x^{2}+y^{2}$ with $x,y\in\mathbb{Z}$
 if and only if it has the property that for each prime $p\equiv
 3\operatorname{mod}4$, the number $v_{p}\left(  n\right)  $ is even. A
-different proof of this fact appears in \cite[Theorem in Chapter 4]{AigZie18}.
+different proof of this fact appears in \cite[Theorem in Chapter 4]{AigZie}.
 
 \subsubsection{What are the Gaussian primes?}
 
@@ -28810,7 +28853,7 @@ reconstructed from $L_{A}$, because $\left(  \text{the }j\text{-th column of
 \end{center}
 
 \begin{definition}
-Let $M$ and $N$ be two $\mathbb{K}$-modules.
+\label{def.module.Hom}Let $M$ and $N$ be two $\mathbb{K}$-modules.
 
 \textbf{(a)} Let $\operatorname*{Hom}\left(  M,N\right)  $ be the set of all
 $\mathbb{K}$-module homomorphisms (= linear maps) from $M$ to $N$. We shall
@@ -28823,7 +28866,8 @@ then $f+g\in\operatorname*{Hom}\left(  M,N\right)  $ is defined by%
 \left(  f+g\right)  \left(  v\right)  =f\left(  v\right)  +g\left(  v\right)
 \ \ \ \ \ \ \ \ \ \ \text{for all }v\in M.
 \]
-(That is, the addition is pointwise. This is well-defined by the Proposition below.)
+(That is, the addition is pointwise. This is well-defined by Proposition
+\ref{prop.module.Hom.wd} \textbf{(a)} below.)
 
 \textbf{(c)} We define a scaling $\cdot$ on $\operatorname*{Hom}\left(
 M,N\right)  $ as follows: If $\lambda\in\mathbb{K}$ and $f\in
@@ -28833,7 +28877,8 @@ M,N\right)  $ as follows: If $\lambda\in\mathbb{K}$ and $f\in
 \left(  \lambda f\right)  \left(  v\right)  =\lambda\cdot f\left(  v\right)
 \ \ \ \ \ \ \ \ \ \ \text{for all }v\in M.
 \]
-(That is, the scaling is pointwise. This is well-defined by the Proposition below.)
+(That is, the scaling is pointwise. This is well-defined by Proposition
+\ref{prop.module.Hom.wd} \textbf{(b)} below.)
 
 \textbf{(d)} We define a map $0_{M\rightarrow N}:M\rightarrow N$ by setting
 \[
@@ -28841,18 +28886,31 @@ M,N\right)  $ as follows: If $\lambda\in\mathbb{K}$ and $f\in
 M.
 \]
 
+
+\textbf{(e)} We equip $\operatorname*{Hom}\left(  M,N\right)  $ with the
+addition $+$, the scaling $\cdot$ and the zero vector $0_{M\rightarrow N}$ we
+have just defined. This yields a $\mathbb{K}$-module (by Proposition
+\ref{prop.module.Hom.wd} \textbf{(d)} below).
 \end{definition}
 
 \begin{proposition}
-\textbf{(a)} These addition and scaling are well-defined (i.e., the $f+g$ and
-$\lambda f$ that we defined actually do lie in $\operatorname*{Hom}\left(
-M,N\right)  $).
+\label{prop.module.Hom.wd}\textbf{(a)} The addition $+$ defined in Definition
+\ref{def.module.Hom} \textbf{(b)} is well-defined (i.e., we have
+$f+g\in\operatorname*{Hom}\left(  M,N\right)  $ for all $f,g\in
+\operatorname*{Hom}\left(  M,N\right)  $).
 
-\textbf{(b)} The map $0_{M\rightarrow N}$ belong to $\operatorname*{Hom}%
-\left(  M,N\right)  $.
+\textbf{(b)} The scaling $\cdot$ defined in Definition \ref{def.module.Hom}
+\textbf{(c)} is well-defined (i.e., we have $\lambda f\in\operatorname*{Hom}%
+\left(  M,N\right)  $ for all $\lambda\in\mathbb{K}$ and $f\in
+\operatorname*{Hom}\left(  M,N\right)  $).
 
-\textbf{(c)} The set $\operatorname*{Hom}\left(  M,N\right)  $, equipped with
-these operations and the zero vector $0_{M\rightarrow N}$, is a $\mathbb{K}$-module.
+\textbf{(c)} The map $0_{M\rightarrow N}$ defined in Definition
+\ref{def.module.Hom} \textbf{(d)} belongs to $\operatorname*{Hom}\left(
+M,N\right)  $.
+
+\textbf{(d)} The set $\operatorname*{Hom}\left(  M,N\right)  $, equipped with
+the addition $+$, the scaling $\cdot$ and the zero vector $0_{M\rightarrow N}%
+$, is a $\mathbb{K}$-module.
 \end{proposition}
 
 TODO:
@@ -28860,11 +28918,9 @@ TODO:
 \begin{itemize}
 \item hom $\circ$ hom = hom.
 
-\item hom $+$ hom.
-
 \item Rules for addition and multiplication of homs.
 
-\item $\operatorname*{Hom}$ module and $\operatorname*{End}$ ring.
+\item $\operatorname*{End}$ ring.
 
 \item module isomorphisms.
 
@@ -29042,18 +29098,34 @@ the definition of divisibility). This solves Exercise \ref{exe.ent.div.powers}.
 
 \begin{fineprint}
 \begin{proof}
-[Solution to Exercise \ref{exe.ent.div.g|1}.]Assume the contrary. Thus,
-$g\neq1$. But Proposition \ref{prop.ent.div.1} \textbf{(b)} (applied to $g$
-and $1$ instead of $a$ and $b$) yields $\left\vert g\right\vert \leq\left\vert
-1\right\vert $ (since $g\mid1$ and $1\neq0$). But $g$ is nonnegative; hence,
-$\left\vert g\right\vert =g$, so that $g=\left\vert g\right\vert
-\leq\left\vert 1\right\vert =1$. Combining this with $g\neq1$, we obtain
-$g<1$. Hence, $g=0$ (since $g$ is a nonnegative integer).
+\item[First solution to Exercise \ref{exe.ent.div.g|1}.] Assume the contrary.
+Thus, $g\neq1$. But Proposition \ref{prop.ent.div.1} \textbf{(b)} (applied to
+$g$ and $1$ instead of $a$ and $b$) yields $\left\vert g\right\vert
+\leq\left\vert 1\right\vert $ (since $g\mid1$ and $1\neq0$). But $g$ is
+nonnegative; hence, $\left\vert g\right\vert =g$, so that $g=\left\vert
+g\right\vert \leq\left\vert 1\right\vert =1$. Combining this with $g\neq1$, we
+obtain $g<1$. Hence, $g=0$ (since $g$ is a nonnegative integer).
 
 But $g\mid1$. In other words, there exists an integer $c$ such that $1=gc$ (by
 Definition \ref{def.ent.div.div}). Consider this $c$. Now, $1=\underbrace{g}%
 _{=0}c=0c=0$. This contradicts $1\neq0$. This contradiction shows that our
 assumption was wrong. Hence, Exercise \ref{exe.ent.div.g|1} is solved.
+\end{proof}
+\end{fineprint}
+
+\begin{fineprint}
+
+
+\begin{proof}
+
+
+\item[Second solution to Exercise \ref{exe.ent.div.g|1}.] We have $g=1g$.
+Hence, there exists an integer $c$ such that $g=1c$ (namely, $c=g$). In other
+words, $1\mid g$ (by the definition of divisibility). But we also have
+$g\mid1$ (by assumption). Hence, Exercise \ref{exe.ent.div.abba} (applied to
+$a=g$ and $b=1$) yields $\left\vert g\right\vert =\left\vert 1\right\vert =1$.
+But $g$ is nonnegative; thus, $\left\vert g\right\vert =g$. Hence,
+$g=\left\vert g\right\vert =1$. Hence, Exercise \ref{exe.ent.div.g|1} is solved.
 \end{proof}
 \end{fineprint}
 
@@ -37359,6 +37431,165 @@ we are now calling our two numbers $\alpha$ and $\beta$ rather than $x$ and
 $y$, and that we now need to use Theorem \ref{thm.CC.CC.rules} and Proposition
 \ref{prop.CC.CC.power-rules} \textbf{(a)} instead of the analogous rules for
 real numbers.)
+\end{proof}
+\end{fineprint}
+
+\subsection{Solution to Exercise \ref{exe.Z[i].div.abba}}
+
+\begin{fineprint}
+\begin{proof}
+[Solution to Exercise \ref{exe.Z[i].div.abba}.]We are in one of the following
+two cases:
+
+\textit{Case 1:} We have $\beta\neq0$.
+
+\textit{Case 2:} We have $\beta=0$.
+
+Let us first consider Case 1. In this case, we have $\beta\neq0$. Thus, the
+complex number $\beta$ has an inverse $\beta^{-1}$ (by Definition
+\ref{def.CC.CC.inverse.notations} \textbf{(a)}). (This $\beta^{-1}$ may and
+may not be a Gaussian integer.)
+
+We have $\alpha\mid\beta$. In other words, there exists a Gaussian integer
+$\gamma$ such that $\beta=\alpha\gamma$ (by Definition
+\ref{def.Z[i].gauss.div}). Consider this $\gamma$.
+
+We have $\beta\mid\alpha$. In other words, there exists a Gaussian integer
+$\delta$ such that $\alpha=\beta\delta$ (by Definition
+\ref{def.Z[i].gauss.div}). Consider this $\delta$.
+
+Now, $\beta=\underbrace{\alpha}_{=\beta\delta}\gamma=\beta\delta\gamma$. But
+$\beta^{-1}\beta=1$. Comparing this with%
+\[
+\beta^{-1}\underbrace{\beta}_{=\beta\delta\gamma}=\underbrace{\beta^{-1}\beta
+}_{=1}\delta\gamma=\delta\gamma,
+\]
+we obtain $\delta\gamma=1$. In other words, $\gamma$ is an inverse of $\delta$
+(by Definition \ref{def.CC.CC.inverse.inverse}). Thus, the Gaussian integer
+$\delta$ has an inverse in $\mathbb{Z}\left[  i\right]  $ (namely, $\gamma$).
+In other words, the Gaussian integer $\delta$ is invertible in $\mathbb{Z}%
+\left[  i\right]  $ (by the definition of \textquotedblleft invertible in
+$\mathbb{Z}\left[  i\right]  $\textquotedblright). In other words, $\delta$ is
+a unit (by the definition of \textquotedblleft unit\textquotedblright). Hence,
+from $\alpha=\beta\delta=\delta\beta$, we conclude that $\alpha\sim\beta$ (by
+the definition of unit-equivalence). Thus, Exercise \ref{exe.Z[i].div.abba} is
+solved in Case 1.
+
+Let us now consider Case 2. In this case, we have $\beta=0$. But we have
+$\beta\mid\alpha$. In other words, there exists a Gaussian integer $\gamma$
+such that $\beta=\alpha\gamma$ (by Definition \ref{def.Z[i].gauss.div}).
+Consider this $\gamma$. Hence, $\alpha=\underbrace{\beta}_{=0}\gamma
+=0\gamma=0=\beta$ (since $\beta=0$). Thus, $\alpha=\beta=1\beta$, so that
+$\alpha\sim\beta$ (by the definition of unit-equivalence, since $1$ is a
+unit). Hence, Exercise \ref{exe.Z[i].div.abba} is solved in Case 2.
+
+Now, we have solved Exercise \ref{exe.Z[i].div.abba} in both Cases 1 and 2.
+Hence, Exercise \ref{exe.Z[i].div.abba} always holds.
+\end{proof}
+\end{fineprint}
+
+\subsection{Solution to Exercise \ref{exe.Z[i].div.abba-conv}}
+
+\begin{fineprint}
+\begin{proof}
+[Solution to Exercise \ref{exe.Z[i].div.abba-conv}.]$\Longrightarrow:$ Assume
+that $\alpha\sim\beta$. We must prove that $\left(  \alpha\mid\beta\text{ and
+}\beta\mid\alpha\right)  $.
+
+The relation $\sim$ is an equivalence relation (by Proposition
+\ref{prop.Z[i].gauss.uniteq.eqrel}), and thus is symmetric (since every
+equivalence relation is symmetric). Hence, from $\alpha\sim\beta$, we obtain
+$\beta\sim\alpha$.
+
+We have $\alpha\sim\beta$. In other words, $\alpha=\gamma\beta$ for some unit
+$\gamma\in\mathbb{Z}\left[  i\right]  $ (by the definition of
+unit-equivalence). Consider this $\gamma$. From $\alpha=\gamma\beta$, we
+obtain $\beta\mid\alpha$ (since $\gamma$ is a Gaussian integer). The same
+argument (with the roles of $\alpha$ and $\beta$ swapped) yields $\alpha
+\mid\beta$ (since $\beta\sim\alpha$). Hence, $\left(  \alpha\mid\beta\text{
+and }\beta\mid\alpha\right)  $. This proves the \textquotedblleft%
+$\Longrightarrow$\textquotedblright\ direction of Exercise
+\ref{exe.Z[i].div.abba-conv}.
+
+$\Longleftarrow:$ We have the logical implication $\left(  \alpha\sim
+\beta\right)  \ \Longleftarrow\ \left(  \alpha\mid\beta\text{ and }\beta
+\mid\alpha\right)  $ (due to Exercise \ref{exe.Z[i].div.abba}). Thus, the
+\textquotedblleft$\Longleftarrow$\textquotedblright\ direction of Exercise
+\ref{exe.Z[i].div.abba-conv} is proven.
+\end{proof}
+\end{fineprint}
+
+\subsection{Solution to Exercise \ref{exe.Z[i].div.acbc}}
+
+\begin{fineprint}
+\begin{proof}
+[Solution to Exercise \ref{exe.Z[i].div.acbc}.] The solution to Exercise
+\ref{exe.Z[i].div.acbc} is completely analogous to the above solution to
+Exercise \ref{exe.ent.div.acbc}. (As usual, you need to make the obvious
+changes: Replace all Roman letters $a,b,c,a_{1},b_{1},a_{2},b_{2}$ by Greek
+letters $\alpha,\beta,\gamma,\alpha_{1},\beta_{1},\alpha_{2},\beta_{2}$;
+replace integers by Gaussian integers; replace the reference to Proposition
+\ref{prop.ent.div.2} by a reference to its analogue for Gaussian integers
+(which is Proposition \ref{prop.Z[i].div.2}). The resulting argument will make
+use of the fact that we can divide any complex number by any nonzero complex
+number; but we know this fact from Definition
+\ref{def.CC.CC.inverse.notations} \textbf{(b)}.)
+\end{proof}
+\end{fineprint}
+
+\subsection{Solution to Exercise \ref{exe.Z[i].div.powers}}
+
+\begin{fineprint}
+\begin{proof}
+[Solution to Exercise \ref{exe.Z[i].div.powers}.] The solution to
+Exercise \ref{exe.Z[i].div.powers} is completely analogous to the above
+solution to Exercise \ref{exe.ent.div.powers}. (Of course, you will have to
+replace the letter $n$ by $\nu$, and replace integers by Gaussian integers.)
+\end{proof}
+\end{fineprint}
+
+\subsection{Solution to Exercise \ref{exe.Z[i].div.g|1}}
+
+\begin{fineprint}
+\begin{proof}
+[Solution to Exercise \ref{exe.Z[i].div.g|1}.] The following argument is
+an analogue of the Second solution to Exercise \ref{exe.ent.div.g|1} we gave above:
+
+We have $\gamma=1\gamma$. Hence, there exists a Gaussian integer $\delta$ such
+that $\gamma=1\delta$ (namely, $\delta=\gamma$). In other words, $1\mid\gamma$
+(by the definition of divisibility). But we also have $\gamma\mid1$ (by
+assumption). Hence, Exercise \ref{exe.Z[i].div.abba} (applied to
+$\alpha=\gamma$ and $\beta=1$) yields $\gamma\sim1$.
+
+But Proposition \ref{prop.Z[i].gauss.uniteq.1} (applied to $\alpha=\gamma$)
+shows that $\gamma\sim1$ if and only if $\gamma$ is a unit. Hence, $\gamma$ is
+a unit (since $\gamma\sim1$).
+
+Proposition \ref{prop.Z[i].gauss.units} shows that the units are $1,-1,i,-i$.
+Hence, $\gamma$ is either $1$ or $-1$ or $i$ or $-i$ (since $\gamma$ is a
+unit). This solves Exercise \ref{exe.Z[i].div.g|1}.
+\end{proof}
+\end{fineprint}
+
+\subsection{Solution to Exercise \ref{exe.Z[i].div.conj}}
+
+\begin{fineprint}
+\begin{proof}
+[Solution to Exercise \ref{exe.Z[i].div.conj}.] We have $\alpha\mid\beta
+$. In other words, there exists a Gaussian integer $\gamma$ such that
+$\beta=\alpha\gamma$ (by Definition \ref{def.Z[i].gauss.div}). Consider this
+$\gamma$, and denote it by $\delta$. Thus, $\delta$ is a Gaussian integer and
+satisfies $\beta=\alpha\delta$.
+
+From $\beta=\alpha\delta$, we obtain $\overline{\beta}=\overline{\alpha\delta
+}=\overline{\alpha}\cdot\overline{\delta}$ (by Proposition
+\ref{prop.CC.conj.hom} \textbf{(c)}, applied to $\delta$ instead of $\beta$).
+Also, $\overline{\delta}$ is a Gaussian integer (by Proposition
+\ref{prop.Z[i].gauss.conj}, applied to $\delta$ instead of $\alpha$). Hence,
+there exists a Gaussian integer $\gamma$ such that $\overline{\beta}%
+=\overline{\alpha}\gamma$ (namely, $\gamma=\overline{\delta}$). In other
+words, $\overline{\alpha}\mid\overline{\beta}$ (by Definition
+\ref{def.Z[i].gauss.div}). This solves Exercise \ref{exe.Z[i].div.conj}.
 \end{proof}
 \end{fineprint}
 
