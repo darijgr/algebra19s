@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Wednesday, April 17, 2019 12:12:52}
+%TCIDATA{LastRevised=Wednesday, April 17, 2019 13:37:54}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -6158,6 +6158,7 @@ equivalence:%
 \ \Longleftrightarrow\ \left(  \operatorname{lcm}\left(  b_{1},b_{2}%
 ,\ldots,b_{k}\right)  \mid m\right)  .
 \]
+
 
 \textbf{(b)} The common multiples of $b_{1},b_{2},\ldots,b_{k}$ are precisely
 the multiples of $\operatorname{lcm}\left(  b_{1},b_{2},\ldots,b_{k}\right)  $.
@@ -26197,7 +26198,7 @@ $g\circ f:\mathbb{K}\rightarrow\mathbb{M}$ is also a ring homomorphism.
 \end{proposition}
 
 \begin{proof}
-HW6 exercise 4.
+HW6 exercise 4 \textbf{(a)}.
 \end{proof}
 
 \subsection{Ring isomorphisms}
@@ -26277,7 +26278,8 @@ Then, $f$ is a ring isomorphism.
 \end{proposition}
 
 \begin{proof}
-We just need to show that $f^{-1}$ is a ring homomorphism.
+[Proof of Proposition \ref{prop.riiso.invertible}.]We just need to show that
+$f^{-1}$ is a ring homomorphism.
 
 Let us verify axiom \textbf{(c)} for $f^{-1}$. This means that we must prove
 that%
@@ -26334,7 +26336,7 @@ is well-defined and is a bijection. We claim that this map $S_{m,n}$ is a ring i
 \end{example}
 
 \begin{proof}
-The map $S_{m,n}$ is a bijection, thus invertible.
+[Proof of Example \ref{exa.riiso.CRT}.]The map $S_{m,n}$ is a bijection, thus invertible.
 
 Let us first prove that the map $S_{m,n}$ is a ring homomorphism.
 
@@ -29326,10 +29328,14 @@ M,N\right)  $.
 M,N\right)  $.
 \end{theorem}
 
+(The above list is skipping a few letters since we have not defined
+subtraction yet; nevertheless, subtraction exists and satisfies the
+appropriate rules. See below for the details.)
+
 \begin{proof}
-[Proof of Theorem \ref{thm.module.Hom.rules}.]Most of these are trivial and
-hold not just for $\mathbb{K}$-linear maps, but for arbitrary maps. Only the
-first part of \textbf{(g)}, the first part of \textbf{(h)}, and the second
+[Proof of Theorem \ref{thm.module.Hom.rules}.]Most of these claims are trivial
+and hold not just for $\mathbb{K}$-linear maps, but for arbitrary maps. Only
+the first part of \textbf{(g)}, the first part of \textbf{(h)}, and the second
 equality sign in \textbf{(m)} do not hold for arbitrary maps. So let us prove
 the first part of \textbf{(g)} (and leave the rest to the reader):
 
@@ -29370,20 +29376,46 @@ g+h\right)  =f\circ g+f\circ h$. This finishes the proof of the first half of
 The rest is equally straightforward.
 \end{proof}
 
-Note that we have not stated any rules for subtraction, because we have not
-defined a subtraction operation $-$ on $\operatorname*{Hom}\left(  M,N\right)
-$ yet. But this does not mean that such an operation does not exist; we simply
-don't want to waste our time defining it \textquotedblleft
-manually\textquotedblright\ when we can trivially obtain it from general
-principles (namely: we know that $\operatorname*{Hom}\left(  M,N\right)  $ is
-a $\mathbb{K}$-module, but Definition \ref{def.module.inv-add-a} shows that
-every $\mathbb{K}$-module automatically has a subtraction
-operation\footnote{and most of its properties follow directly from Proposition
-\ref{prop.module.inv-add.rules}}). Of course, the subtraction operation
-defined by these general principles is exactly the pointwise subtraction that
-you would expect (i.e., it satisfies $\left(  f-g\right)  \left(  v\right)
-=f\left(  v\right)  -g\left(  v\right)  $ for any $f,g\in\operatorname*{Hom}%
-\left(  M,N\right)  $ and any $v\in M$). This is easy to check.
+So far, we have not defined a subtraction operation $-$ on
+$\operatorname*{Hom}\left(  M,N\right)  $. But this does not mean that such an
+operation does not exist; we simply don't want to waste our time defining it
+\textquotedblleft manually\textquotedblright\ when we can trivially obtain it
+from general principles. Namely: We know that $\operatorname*{Hom}\left(
+M,N\right)  $ is a $\mathbb{K}$-module, but Definition
+\ref{def.module.inv-add-a} shows that every $\mathbb{K}$-module automatically
+has a subtraction operation. Thus, we get a subtraction operation on
+$\operatorname*{Hom}\left(  M,N\right)  $ for free; furthermore, Proposition
+\ref{prop.module.inv-add.rules} shows that this operation has all the
+properties that one would expect. The only rule that we do not automatically
+obtain from these general principles is%
+\[
+-\left(  f\circ g\right)  =\left(  -f\right)  \circ g=f\circ\left(  -g\right)
+\ \ \ \ \ \ \ \ \ \ \text{for all }f\in\operatorname*{Hom}\left(  N,P\right)
+\text{ and }g\in\operatorname*{Hom}\left(  M,P\right)
+\]
+(where $M$, $N$ and $P$ are three $\mathbb{K}$-modules). But this rule is
+easily verified by direct comparison.
+
+Note that if $M$ and $N$ are any two $\mathbb{K}$-modules, the subtraction we
+have just introduced on $\operatorname*{Hom}\left(  M,N\right)  $ is precisely
+the pointwise subtraction: i.e., it is given by
+\[
+\left(  f-g\right)  \left(  v\right)  =f\left(  v\right)  -g\left(  v\right)
+\ \ \ \ \ \ \ \ \ \ \text{for all }f,g\in\operatorname*{Hom}\left(
+M,N\right)  \text{ and }v\in M
+\]
+\footnote{\textit{Proof.} Let $f,g\in\operatorname*{Hom}\left(  M,N\right)  $
+and $v\in M$. Then, $f-g$ has the property that $f=\left(  f-g\right)  +g$ (by
+Proposition \ref{prop.module.inv-add.rules} \textbf{(a)}). Applying both sides
+of this equality to $v$, we obtain%
+\[
+f\left(  v\right)  =\left(  \left(  f-g\right)  +g\right)  \left(  v\right)
+=\left(  f-g\right)  \left(  v\right)  +g\left(  v\right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of }\left(  f-g\right)
++g\right)  ;
+\]
+but this yields $\left(  f-g\right)  \left(  v\right)  =f\left(  v\right)
+-g\left(  v\right)  $. Qed.}.
 
 \begin{corollary}
 \label{cor.module.End-ring}Let $M$ be a $\mathbb{K}$-module. The set
@@ -29399,12 +29431,14 @@ So the multiplication of the ring $\operatorname*{End}M$ is composition of
 maps. This ring $\operatorname*{End}M$ is, in general, not commutative.
 
 Note that $\operatorname*{End}M=\operatorname*{Hom}\left(  M,M\right)  $ as
-sets, and the additions are the same. But $\operatorname*{End}M$ has no
-scaling whereas $\operatorname*{Hom}\left(  M,M\right)  $ has no multiplication.
+sets, and the additions are the same. But $\operatorname*{End}M$ is a ring
+(thus has no scaling), whereas $\operatorname*{Hom}\left(  M,M\right)  $ is a
+$\mathbb{K}$-module (thus has no multiplication).
 
-There is a notion which combines both the multiplication and the scaling; this
-is the notion of a $\mathbb{K}$\textit{-algebra}. Roughly speaking, it is
-defined as follows:
+There is a notion which combines both the structure of a ring and the
+structure of a $\mathbb{K}$-module (so it has both multiplication and
+scaling); this is the notion of a $\mathbb{K}$\textit{-algebra}. Roughly
+speaking, it is defined as follows:
 
 \begin{definition}
 A $\mathbb{K}$\textit{-algebra} is a set $M$ endowed with two operations $+$
@@ -29595,8 +29629,8 @@ both $\mathbb{K}^{n\times m}$ and $\mathbb{K}^{nm}$) and invertible.
 Let $M$ be any $\mathbb{K}$-module. Let $\lambda\in\mathbb{K}$. Define the
 map
 \begin{align*}
-L_{\lambda}:M &  \rightarrow M,\\
-a &  \mapsto\lambda a.
+L_{\lambda}:M  &  \rightarrow M,\\
+a  &  \mapsto\lambda a.
 \end{align*}
 (This is called \textquotedblleft scaling by $\lambda$\textquotedblright.) As
 we know from Example \ref{exa.module.moho.id} \textbf{(b)}, this map
@@ -29709,8 +29743,8 @@ We say that $N$ is a $\mathbb{K}$\textit{-submodule} (or, for short,
 $n_{1}+_{N}n_{2}=n_{1}+_{M}n_{2}$ for all $n_{1},n_{2}\in N$);
 
 \item the scaling of $N$ is a restriction of the scaling of $M$ (that is,
-$\lambda\cdot_{N}n=\lambda\cdot_{M}n$ for all $\lambda\in\mathbb{K}$ and
-$n_{1}\in N$);
+$\lambda\cdot_{N}n=\lambda\cdot_{M}n$ for all $\lambda\in\mathbb{K}$ and $n\in
+N$);
 
 \item $0_{N}=0_{M}$.
 \end{itemize}
