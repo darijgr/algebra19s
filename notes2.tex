@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Wednesday, April 17, 2019 09:56:20}
+%TCIDATA{LastRevised=Wednesday, April 17, 2019 12:05:36}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -23100,7 +23100,8 @@ Each Gaussian prime is unit-equivalent to one of the Gaussian primes in this lis
 \end{theorem}
 
 \begin{proof}
-See HW5 exercise 3.
+See \href{http://www-users.math.umn.edu/~dgrinber/19s/hw5s.pdf}{homework set
+\#5} exercise 3.
 \end{proof}
 
 \subsection{Brief survey of similar number systems}
@@ -26186,6 +26187,20 @@ axiom \textbf{(d)}; the induction step uses axiom \textbf{(c)}.
 \textbf{(h)} Follows from \textbf{(f)}, applied to $k=n$ and $a_{i}=a$.
 \end{proof}
 
+The composition of two ring homomorphisms is again a ring homomorphism, as the
+following proposition shows:
+
+\begin{proposition}
+\label{prop.riho.compose}Let $\mathbb{K}$, $\mathbb{L}$ and $\mathbb{M}$ be
+three rings. Let $f:\mathbb{K}\rightarrow\mathbb{L}$ and $g:\mathbb{L}%
+\rightarrow\mathbb{M}$ be two ring homomorphisms. Then, the composition
+$g\circ f:\mathbb{K}\rightarrow\mathbb{M}$ is also a ring homomorphism.
+\end{proposition}
+
+\begin{proof}
+HW6 exercise 4.
+\end{proof}
+
 \subsection{Ring isomorphisms}
 
 \begin{definition}
@@ -26936,7 +26951,8 @@ Let $A$ be the $2\times2$-matrix $\left(
 \end{array}
 \right)  \in\mathbb{Z}^{2\times2}$.
 
-On MT2 exercise 5, you have encountered the ring%
+On \href{http://www-users.math.umn.edu/~dgrinber/19s/mt2s.pdf}{midterm \#2}
+exercise 5, you have encountered the ring%
 \[
 \mathcal{F}=\left\{  aA+bI_{2}\ \mid\ a,b\in\mathbb{Z}\right\}  =\left\{
 \left(
@@ -26949,7 +26965,8 @@ a & a+b
 \]
 
 
-On HW5 exercise 5, you have encountered the ring%
+On \href{http://www-users.math.umn.edu/~dgrinber/19s/hw5s.pdf}{homework set
+\#5} exercise 5, you have encountered the ring%
 \[
 \mathbb{Z}\left[  \phi\right]  =\left\{  a+b\phi\ \mid\ a,b\in\mathbb{Z}%
 \right\}  ,
@@ -28446,6 +28463,8 @@ a\right)  $ for all $\lambda,\mu\in\mathbb{K}$ and $a\in M$.
 \item \textbf{(j)} We have $\lambda\cdot0_{M}=0_{M}$ for all $\lambda
 \in\mathbb{K}$.
 \end{itemize}
+
+\noindent These ten axioms are called the \textit{module axioms}.
 \end{definition}
 
 \begin{definition}
@@ -28597,9 +28616,9 @@ axioms any more. (Indeed, our proof of axiom \textbf{(d)} relied on axiom
 What can you do when you have a $\mathbb{K}$-module?
 
 \begin{convention}
-\label{conv.module.K}For the rest of this section, we fix a commutative ring
-$\mathbb{K}$, and we denote its addition, multiplication, zero and unity by
-$+$, $\cdot$, $0$ and $1$.
+\label{conv.module.K}For the rest of this section, we fix a
+\textbf{commutative} ring $\mathbb{K}$, and we denote its addition,
+multiplication, zero and unity by $+$, $\cdot$, $0$ and $1$.
 \end{convention}
 
 \begin{convention}
@@ -28658,7 +28677,7 @@ Additive inverses and subtraction satisfy certain rules that should not
 surprise you:
 
 \begin{proposition}
-Let $a,b,c\in M$.
+\label{prop.module.inv-add.rules}Let $a,b,c\in M$.
 
 \textbf{(a)} We have $a-b=c$ if and only if $a=b+c$. (Roughly speaking, this
 means that subtraction undoes addition.)
@@ -29169,8 +29188,8 @@ reconstructed from $L_{A}$, because $\left(  \text{the }j\text{-th column of
 \label{def.module.Hom}Let $M$ and $N$ be two $\mathbb{K}$-modules.
 
 \textbf{(a)} Let $\operatorname*{Hom}\left(  M,N\right)  $ be the set of all
-$\mathbb{K}$-module homomorphisms (= linear maps) from $M$ to $N$. We shall
-now turn this set into a $\mathbb{K}$-module.
+$\mathbb{K}$-module homomorphisms (= $\mathbb{K}$-linear maps) from $M$ to
+$N$. We shall now turn this set into a $\mathbb{K}$-module.
 
 \textbf{(b)} We define an addition $+$ on $\operatorname*{Hom}\left(
 M,N\right)  $ as follows: If $f,g\in\operatorname*{Hom}\left(  M,N\right)  $,
@@ -29179,76 +29198,43 @@ then $f+g\in\operatorname*{Hom}\left(  M,N\right)  $ is defined by%
 \left(  f+g\right)  \left(  v\right)  =f\left(  v\right)  +g\left(  v\right)
 \ \ \ \ \ \ \ \ \ \ \text{for all }v\in M.
 \]
-(That is, the addition is pointwise. This is well-defined by Proposition
-\ref{prop.module.Hom.wd} \textbf{(a)} below.)
+(This is pointwise addition.)
 
 \textbf{(c)} We define a scaling $\cdot$ on $\operatorname*{Hom}\left(
-M,N\right)  $ as follows: If $\lambda\in\mathbb{K}$ and $f\in
-\operatorname*{Hom}\left(  M,N\right)  $, then $\lambda f\in
-\operatorname*{Hom}\left(  M,N\right)  $ is defined by%
+M,N\right)  $ as follows: If $\lambda\in\mathbb{K}$ and $f:\operatorname*{Hom}%
+\left(  M,N\right)  $, then $\lambda f\in\operatorname*{Hom}\left(
+M,N\right)  $ is defined by%
 \[
 \left(  \lambda f\right)  \left(  v\right)  =\lambda\cdot f\left(  v\right)
 \ \ \ \ \ \ \ \ \ \ \text{for all }v\in M.
 \]
-(That is, the scaling is pointwise. This is well-defined by Proposition
-\ref{prop.module.Hom.wd} \textbf{(b)} below.)
+(This is pointwise scaling.)
 
-\textbf{(d)} We define a map $0_{M\rightarrow N}:M\rightarrow N$ by setting
+\textbf{(d)} We define a map $0_{M\rightarrow N}:M\rightarrow N$ by setting%
 \[
 0_{M\rightarrow N}\left(  v\right)  =0\ \ \ \ \ \ \ \ \ \ \text{for all }v\in
 M.
 \]
 
 
-\textbf{(e)} We equip $\operatorname*{Hom}\left(  M,N\right)  $ with the
-addition $+$, the scaling $\cdot$ and the zero vector $0_{M\rightarrow N}$ we
-have just defined. This yields a $\mathbb{K}$-module (by Proposition
-\ref{prop.module.Hom.wd} \textbf{(d)} below).
+\textbf{(e)} We equip $\operatorname*{Hom}\left(  M,N\right)  $ with these
+$+$, $\cdot$ and $0_{M\rightarrow N}$. This yields a $\mathbb{K}$-module.
 \end{definition}
 
 \begin{proposition}
-\label{prop.module.Hom.wd}\textbf{(a)} The addition $+$ defined in Definition
-\ref{def.module.Hom} \textbf{(b)} is well-defined (i.e., we have
-$f+g\in\operatorname*{Hom}\left(  M,N\right)  $ for all $f,g\in
-\operatorname*{Hom}\left(  M,N\right)  $).
-
-\textbf{(b)} The scaling $\cdot$ defined in Definition \ref{def.module.Hom}
-\textbf{(c)} is well-defined (i.e., we have $\lambda f\in\operatorname*{Hom}%
-\left(  M,N\right)  $ for all $\lambda\in\mathbb{K}$ and $f\in
-\operatorname*{Hom}\left(  M,N\right)  $).
-
-\textbf{(c)} The map $0_{M\rightarrow N}$ defined in Definition
-\ref{def.module.Hom} \textbf{(d)} belongs to $\operatorname*{Hom}\left(
-M,N\right)  $.
-
-\textbf{(d)} The set $\operatorname*{Hom}\left(  M,N\right)  $, equipped with
-the addition $+$, the scaling $\cdot$ and the zero vector $0_{M\rightarrow N}%
-$, is a $\mathbb{K}$-module.
+This is all well-defined.
 \end{proposition}
 
-\begin{proof}
-Straightforward and LTTR.
-\end{proof}
-
-\begin{proposition}
 \begin{proposition}
 Let $M$, $N$ and $P$ be three $\mathbb{K}$-modules. Let $f:M\rightarrow N$ and
 $g:N\rightarrow P$ be two $\mathbb{K}$-module homomorphisms. Then, the
-composition $g\circ f:M\rightarrow P$ is also a $\mathbb{K}$-module homomorphism.
+composition $g\circ f:M\rightarrow P$ is a $\mathbb{K}$-module homomorphism.
 \end{proposition}
-\end{proposition}
 
-\begin{proof}
-Straightforward and LTTR.
-\end{proof}
-
-This proposition is similar to HW6 exercise 4.
-
-The following rules hold for addition, subtraction, multiplication and scaling
-of module homomorphisms (similarly to Theorem \ref{thm.matrix.rules}):
+Compare with HW6 exercise 4 \textbf{(a)}, which states the same thing for ring homomorphisms.
 
 \begin{theorem}
-Let $N,M,P,Q$ be $\mathbb{K}$-modules.
+Let $N$, $M$, $P$, $Q$ be $\mathbb{K}$-modules.
 
 \textbf{(a)} We have $f+g=g+f$ for any $f,g\in\operatorname*{Hom}\left(
 M,N\right)  $.
@@ -29262,26 +29248,23 @@ $f\in\operatorname*{Hom}\left(  M,N\right)  $.
 \textbf{(d)} We have $f\circ\operatorname*{id}\nolimits_{M}=\operatorname*{id}%
 \nolimits_{N}\circ f=f$ for any $f\in\operatorname*{Hom}\left(  M,N\right)  $.
 
-\textbf{(e)} In general, we \textbf{do not} have $f\circ g=g\circ f$. In fact,
-it can happen that one of $f\circ g$ and $g\circ f$ is defined and the other
-is not; but even if both are defined, they can be distinct (even if
-$\mathbb{K}$ is commutative).
+\textbf{(e)} In general, we \textbf{do not} have $f\circ g=g\circ f$, even if
+$f,g\in\operatorname*{Hom}\left(  M,M\right)  $.
 
 \textbf{(f)} We have $f\circ\left(  g\circ h\right)  =\left(  f\circ g\right)
-\circ h$ for any $f\in\operatorname*{Hom}\left(  M,N\right)  $, $g\in
+\circ h$ for all $f,g,h$ for which this makes sense.
+
+\textbf{(g)} We have $f\circ\left(  g+h\right)  =f\circ g+f\circ h$ (PEMDAS:
+this means $\left(  f\circ g\right)  +\left(  f\circ h\right)  $) for all
+$f\in\operatorname*{Hom}\left(  N,P\right)  $ and $g,h\in\operatorname*{Hom}%
+\left(  M,N\right)  $.
+
+We have $\left(  f+g\right)  \circ h=f\circ h+g\circ h$ for all $f,g\in
 \operatorname*{Hom}\left(  N,P\right)  $ and $h\in\operatorname*{Hom}\left(
-P,Q\right)  $.
+M,N\right)  $.
 
-\textbf{(g)} We have $f\circ\left(  g+h\right)  =f\circ g+f\circ h$ for any
-$f\in\operatorname*{Hom}\left(  M,N\right)  $ and $g,h\in\operatorname*{Hom}%
-\left(  N,P\right)  $.
-
-We have $\left(  f+g\right)  \circ h=f\circ h+g\circ h$ for any $f,g\in
-\operatorname*{Hom}\left(  M,N\right)  $ and $h\in\operatorname*{Hom}\left(
-N,P\right)  $.
-
-\textbf{(h)} We have $f\circ0_{M\rightarrow P}=0_{N\rightarrow P}$ and
-$0_{P\rightarrow N}\circ f=0_{P\rightarrow M}$ for any $f\in
+\textbf{(h)} We have $f\circ0_{P\rightarrow M}=0_{P\rightarrow N}$ and
+$0_{N\rightarrow P}\circ f=0_{M\rightarrow P}$ for any $f\in
 \operatorname*{Hom}\left(  M,N\right)  $.
 
 \textbf{(j)} We have $r\left(  f+g\right)  =rf+rg$ for any $r\in\mathbb{K}$
@@ -29294,32 +29277,28 @@ and $f\in\operatorname*{Hom}\left(  M,N\right)  $.
 $r,s\in\mathbb{K}$ and $f\in\operatorname*{Hom}\left(  M,N\right)  $.
 
 \textbf{(m)} We have $r\left(  f\circ g\right)  =\left(  rf\right)  \circ
-g=f\circ\left(  rg\right)  $ for any $r\in\mathbb{K}$ and $f\in
-\operatorname*{Hom}\left(  M,N\right)  $ and $g\in\operatorname*{Hom}\left(
-N,P\right)  $.
+g=f\circ\left(  rg\right)  $ for any $r\in\mathbb{K}$ and any $f\in
+\operatorname*{Hom}\left(  N,P\right)  $ and $g\in\operatorname*{Hom}\left(
+M,N\right)  $.
 
 \textbf{(o)} We have $1f=f$ for any $f\in\operatorname*{Hom}\left(
 M,N\right)  $.
-
-\textbf{(p)} We have $\left(  -1\right)  f=-f$ for any $f\in
-\operatorname*{Hom}\left(  M,N\right)  $.
 \end{theorem}
 
 \begin{proof}
-Most of these are trivial and hold not just for $\mathbb{K}$-linear maps, but
-for arbitrary maps. Only the first part of \textbf{(g)}, the first part of
-\textbf{(h)}, and \textbf{(m)} do not hold for arbitrary maps. So let us prove
-the first part of \textbf{(g)} (and leave the rest to the reader):
+Most of these are trivial and hold for arbitrary maps, not just $\mathbb{K}%
+$-linear maps. Only the first part of \textbf{(g)}, the first part of
+\textbf{(h)} and the second equality of \textbf{(m)} require linearity. Still,
+all proofs are stf. Let me show the first part of \textbf{(g)}:
 
-Let $f\in\operatorname*{Hom}\left(  M,N\right)  $ and $g,h\in
-\operatorname*{Hom}\left(  N,P\right)  $. We must prove that%
+Let $f\in\operatorname*{Hom}\left(  N,P\right)  $ and $g,h\in
+\operatorname*{Hom}\left(  M,N\right)  $. We must prove
 \[
 f\circ\left(  g+h\right)  =f\circ g+f\circ h.
 \]
 
 
-So let $v\in M$. Then, $f$ is $\mathbb{K}$-linear (because $f\in
-\operatorname*{Hom}\left(  M,N\right)  $). Now, comparing%
+Let $v\in M$. Comparing%
 \begin{align*}
 \left(  f\circ\left(  g+h\right)  \right)  \left(  v\right)    & =f\left(
 \underbrace{\left(  g+h\right)  \left(  v\right)  }_{=g\left(  v\right)
@@ -29337,50 +29316,76 @@ f\circ g\right)  \left(  v\right)  }_{=f\left(  g\left(  v\right)  \right)
 v\right)  \right)  }=f\left(  g\left(  v\right)  \right)  +f\left(  h\left(
 v\right)  \right)  ,
 \]
-we obtain $\left(  f\circ\left(  g+h\right)  \right)  \left(  v\right)
-=\left(  f\circ g+f\circ h\right)  \left(  v\right)  $. Since we have proven
-this for \textbf{all} $v\in M$, we thus conclude that $f\circ\left(
-g+h\right)  =f\circ g+f\circ h$. This finishes the proof of the first half of
-\textbf{(g)}.
-
-The rest is equally straightforward.
+we get $\left(  f\circ\left(  g+h\right)  \right)  \left(  v\right)  =\left(
+f\circ g+f\circ h\right)  \left(  v\right)  $. Since this holds for
+\textbf{all} $v\in M$, we thus conclude that $f\circ\left(  g+h\right)
+=f\circ g+f\circ h$. So the first half of \textbf{(g)} is proven.
 \end{proof}
+
+We have not so far defined subtraction on $\operatorname*{Hom}\left(
+M,N\right)  $, but we don't have to. We know that $\operatorname*{Hom}\left(
+M,N\right)  $ is a $\mathbb{K}$-module, and we have defined a subtraction on
+any $\mathbb{K}$-module (Definition 5.11.15 \textbf{(b)}). So we get a
+subtraction on $\operatorname*{Hom}\left(  M,N\right)  $ for free, and we get
+all rules that we could want for it from Proposition 5.11.17. The only rule we
+don't automatically get is $-\left(  f\circ g\right)  =\left(  -f\right)
+\circ g=f\circ\left(  -g\right)  $, which is easy to check. Note that this
+subtraction is the pointwise subtraction: $\left(  f-g\right)  \left(
+v\right)  =f\left(  v\right)  -g\left(  v\right)  $.
 
 \begin{corollary}
 Let $M$ be a $\mathbb{K}$-module. The set $\operatorname*{Hom}\left(
 M,M\right)  $ of all $\mathbb{K}$-linear maps from $M$ to $M$ (endowed with
-the addition $+$, the multiplication $\circ$, the zero $0_{M\rightarrow M}$
-and the unity $\operatorname*{id}\nolimits_{M}$) is a ring. This ring is
-called the \textbf{endomorphism ring} of $M$, and is denoted by
-$\operatorname*{End}M$; its elements (i.e., the $\mathbb{K}$-linear maps
-$M\rightarrow M$) are called \textbf{endomorphisms} of $M$.
+addition $+$, multiplication $\circ$, zero $0_{M\rightarrow M}$ and unity
+$\operatorname*{id}\nolimits_{M}$) is a ring.
+
+This ring is called the \textbf{endomorphism ring} of $M$, and is denoted by
+$\operatorname*{End}M$; its elements are called the \textbf{endomorphisms} of
+$M$.
 \end{corollary}
 
 Note that $\operatorname*{End}M=\operatorname*{Hom}\left(  M,M\right)  $ as
 sets, and the additions are the same. But $\operatorname*{End}M$ has no
 scaling whereas $\operatorname*{Hom}\left(  M,M\right)  $ has no multiplication.
 
-There is a notion which combines both the multiplication and the scaling; this
-is the notion of a $\mathbb{K}$\textbf{-algebra}. We will not define it fully,
-but the gist of the definition is \textquotedblleft a $\mathbb{K}$-module that
-is also a ring, with the same addition and $0$\textquotedblright. In other
-words, you get the definition of a $\mathbb{K}$-algebra by throwing the
-definitions of a ring and of a $\mathbb{K}$-module together.
+There is a notion which combines the notion of a ring with the notion of a
+$\mathbb{K}$-module -- the notion of a $\mathbb{K}$-algebra:
 
-So $\operatorname*{End}M$ becomes a $\mathbb{K}$-algebra for every
-$\mathbb{K}$-module. Likewise, $\mathbb{C}$ is an $\mathbb{R}$-algebra.
-Likewise, $\mathbb{K}^{n\times n}$ is a $\mathbb{K}$-algebra. So are
-polynomial rings like $\mathbb{K}\left[  x\right]  $ (see below for details).
+\begin{definition}
+A $\mathbb{K}$\textbf{-algebra} is a set $M$ endowed with two operations $+$
+and $\cdot$ as well a scaling map $\cdot:\mathbb{K}\times M\rightarrow M$
+(confusingly also called $\cdot$) and two elements $0,1\in M$ that satisfy all
+the ring axioms and all the module axioms.
+\end{definition}
 
-\subsubsection{Module isomorphism}
+Examples:
 
-In analogy to Definition \ref{def.riiso.riiso}, we define:
+\begin{itemize}
+\item The commutative ring $\mathbb{K}$ itself is a $\mathbb{K}$-algebra.
+(Both scaling and multiplication are $\cdot_{\mathbb{K}}$.)
+
+\item The endomorphism ring $\operatorname*{End}M$ of any $\mathbb{K}$-module
+$M$ becomes a $\mathbb{K}$-algebra (with multiplication $\circ$).
+
+\item The matrix ring $\mathbb{K}^{n\times n}$ is a $\mathbb{K}$-algebra.
+
+\item The ring $\mathbb{C}$ is an $\mathbb{R}$-algebra.
+
+\item The ring $\mathbb{R}$ is a $\mathbb{Q}$-algebra.
+
+\item The polynomial ring $\mathbb{K}\left[  x\right]  $ (see below) is a
+$\mathbb{K}$-algebra.
+\end{itemize}
+
+\subsubsection{Module isomorphisms}
+
+In analogy to ring isomorphisms, we define:
 
 \begin{definition}
 Let $M$ and $N$ be two $\mathbb{K}$-modules. Let $f:M\rightarrow N$ be a map.
-Then, $f$ is called a $\mathbb{K}$\textit{-module isomorphism} if and only if
+Then, $f$ is called a $\mathbb{K}$\textbf{-module isomorphism} if and only if
 $f$ is invertible (i.e., bijective) and both $f$ and $f^{-1}$ are $\mathbb{K}%
-$\textit{-module }homomorphisms.
+$-module homomorphisms.
 \end{definition}
 
 \begin{example}
@@ -29388,18 +29393,13 @@ Let $M$ be a $\mathbb{K}$-module. The identity map $\operatorname*{id}%
 :M\rightarrow M$ is a $\mathbb{K}$-module isomorphism.
 \end{example}
 
-Proposition \ref{prop.riiso.invertible} has an analogue for $\mathbb{K}%
-$-module isomorphisms:
+Proposition 5.9.5 has an analogue for module isomorphisms:
 
 \begin{proposition}
-\label{prop.modiso.invertible}Let $M$ and $N$ be two $\mathbb{K}$-modules. Let
-$f:M\rightarrow N$ be an invertible $\mathbb{K}$-module homomorphism. Then,
-$f$ is a $\mathbb{K}$-module isomorphism.
+Let $M$ and $N$ be two $\mathbb{K}$-modules. Let $f:M\rightarrow N$ be an
+invertible $\mathbb{K}$-module homomorphism. Then, $f$ is a $\mathbb{K}%
+$-module isomorphism.
 \end{proposition}
-
-\begin{proof}
-Same proof as for Proposition \ref{prop.riiso.invertible} (with obvious changes).
-\end{proof}
 
 \begin{definition}
 Let $M$ and $N$ be two $\mathbb{K}$-modules. We say that the $\mathbb{K}%
@@ -29411,11 +29411,21 @@ We write \textquotedblleft$M\cong N$ (as $\mathbb{K}$%
 are isomorphic.
 \end{definition}
 
-Keep in mind that one and the same symbol can stand for a ring and for a
-$\mathbb{K}$-module. Thus, when saying something like \textquotedblleft%
-$\mathbb{K}^{1\times1}\cong\mathbb{K}$\textquotedblright, you should clarify
-whether you mean \textquotedblleft isomorphic as rings\textquotedblright\ or
-\textquotedblleft isomorphic as $\mathbb{K}$-modules\textquotedblright.
+Warning: Many sets have both a ring structure and a $\mathbb{K}$-module
+structure at the same time. For example, $\mathbb{C}$ is a ring but also an
+$\mathbb{R}$-module (scaling = multiplication). Also, $\mathbb{R}%
+\times\mathbb{R}$ is a ring but also an $\mathbb{R}$-module (scaling
+entrywise). We have%
+\[
+\mathbb{C}\cong\mathbb{R}\times\mathbb{R}\ \ \ \ \ \ \ \ \ \ \text{as
+}\mathbb{R}\text{-modules,}%
+\]
+but%
+\[
+\text{\textbf{we don't have }}\mathbb{C}\cong\mathbb{R}\times\mathbb{R}%
+\ \ \ \ \ \ \ \ \ \ \text{as rings.}%
+\]
+
 
 \begin{example}
 Let $n,m\in\mathbb{N}$. Then, the map%
@@ -29425,19 +29435,6 @@ A  & \mapsto A^{T}%
 \end{align*}
 is a $\mathbb{K}$-module isomorphism.
 \end{example}
-
-\begin{proof}
-By Proposition \ref{prop.modiso.invertible}, it suffices to prove that this
-map is $\mathbb{K}$-linear and invertible. The $\mathbb{K}$-linearity follows
-from the formulas%
-\begin{align*}
-\left(  A+B\right)  ^{T}  & =A^{T}+B^{T};\\
-\left(  \lambda A\right)  ^{T}  & =\lambda A^{T};\\
-\left(  0_{n\times m}\right)  ^{T}  & =0_{m\times n}.
-\end{align*}
-The invertibility follows by constructing its inverse, which is again a map
-sending each matrix $A$ to $A^{T}$.
-\end{proof}
 
 \begin{example}
 Let $n\in\mathbb{N}$. Then, the map%
@@ -29456,16 +29453,8 @@ a_{n}%
 is a $\mathbb{K}$-module isomorphism.
 \end{example}
 
-\begin{proof}
-Easy.
-\end{proof}
-
-The previous two examples show that%
-\[
-\mathbb{K}^{n\times1}\cong\mathbb{K}^{1\times n}\cong\mathbb{K}^{n}%
-\ \ \ \ \ \ \ \ \ \ \text{as }\mathbb{K}\text{-modules.}%
-\]
-
+The previous two examples show that $\mathbb{K}^{1\times n}\cong%
+\mathbb{K}^{n\times1}\cong\mathbb{K}^{n}$ as $\mathbb{K}$-modules.
 
 \begin{example}
 Let $n,m\in\mathbb{N}$. Then, we define a map%
@@ -29491,68 +29480,42 @@ vectorization}.
 This map $\operatorname*{vec}$ is a $\mathbb{K}$-module isomorphism.
 \end{example}
 
-\begin{proof}
-It is $\mathbb{K}$-linear (since addition and scaling are defined entrywise on
-both sides) and invertible.
-\end{proof}
-
 \begin{example}
-Let $M$ be any $\mathbb{K}$-module. Let $\lambda\in\mathbb{K}$. Define the
-map
+Let $M$ be any $\mathbb{K}$-module. Let $\lambda\in\mathbb{K}$. Define the map%
 \begin{align*}
 L_{\lambda}:M  & \rightarrow M,\\
 a  & \mapsto\lambda a.
 \end{align*}
-(This is called \textquotedblleft left multiplication by $\lambda
-$\textquotedblright.) As we know from Example \ref{exa.module.moho.id}
-\textbf{(b)}, this map $L_{\lambda}$ is $\mathbb{K}$-linear, i.e., a
-$\mathbb{K}$-module homomorphism. When is it an isomorphism?
+(This is called \textquotedblleft scaling by $\lambda$\textquotedblright.) It
+is easy to see that $L_{\lambda}$ is $\mathbb{K}$-linear, i.e., a $\mathbb{K}%
+$-module homomorphism. When is it an isomorphism?
 
 \textbf{(a)} If $\lambda\in\mathbb{K}$ is invertible, then $L_{\lambda}$ is a
-$\mathbb{K}$-module isomorphism.
+$\mathbb{K}$-module isomorphism (with inverse is $L_{\lambda^{-1}}$).
 
 \textbf{(b)} If $M=\mathbb{K}$ and $L_{\lambda}$ is a $\mathbb{K}$-module
 isomorphism, then $\lambda$ is invertible.
 
 \textbf{(c)} If $\mathbb{K}=\mathbb{Z}$ and $M=\mathbb{Z}/n$ for some integer
-$n$, then $L_{\lambda}$ is a $\mathbb{K}$-module isomorphism whenever
+$n$, then $L_{\lambda}$ is a $\mathbb{K}$-module isomorphism if and only if
 $\lambda\perp n$.
 \end{example}
 
-\begin{proof}
-\textbf{(a)} If $\lambda\in\mathbb{K}$ is invertible, then the map
-$L_{\lambda^{-1}}$ is inverse to $L_{\lambda}$. (Actually, we have rules like
-$L_{\lambda\mu}=L_{\lambda}\circ L_{\mu}$ and $L_{\lambda+\mu}=L_{\lambda
-}+L_{\mu}$; see more below.)
-
-\textbf{(b)} LTTR.
-
-\textbf{(c)} Let $\mathbb{K}=\mathbb{Z}$ and $M=\mathbb{Z}/n$ for some integer
-$n$. Assume that $\lambda\perp n$. Then, $\lambda$ has a modular inverse $\mu$
-modulo $n$. It is now easy to check that the map $L_{\mu}$ is inverse to
-$L_{\lambda}$; thus $L_{\lambda}$ is a $\mathbb{K}$-module isomorphism.
-\end{proof}
-
 \begin{remark}
-Fix any $\mathbb{K}$-module $M$. Then, the map%
+Let $M$ be any $\mathbb{K}$-module. Then, the map%
 \begin{align*}
 \mathbb{K}  & \rightarrow\operatorname*{End}M,\\
 \lambda & \mapsto L_{\lambda}%
 \end{align*}
-is a ring homomorphism.
+is a ring homomorphism. (That is, $L_{\lambda+\mu}=L_{\lambda}+L_{\mu}$ and
+$L_{\lambda\mu}=L_{\lambda}\circ L_{\mu}$ and so on.)
 \end{remark}
 
-\begin{proof}
-Straightforward.
-\end{proof}
-
-We talked for a while about the meaning and use of ring isomorphisms. The same
-can be said about $\mathbb{K}$-module isomorphisms. So, in particular, two
-isomorphic $\mathbb{K}$-modules can be viewed as being \textquotedblleft the
-same $\mathbb{K}$-module up to renaming its elements\textquotedblright, and
-any property of one can be transferred to the other. For example, two
-isomorphic $\mathbb{K}$-modules must have the same size; their endomorphism
-rings must be isomorphic; etc.
+We talked about the meaning \& use of ring isomorphisms. The same can be said
+of $\mathbb{K}$-module isomorphisms. In particular, two isomorphic
+$\mathbb{K}$-modules can be viewed as being \textquotedblleft the same in all
+but name(s of their elements)\textquotedblright, and any property of one can
+be transferred to the other.
 
 \begin{proposition}
 Let $n,m\in\mathbb{N}$. The map%
@@ -29561,13 +29524,13 @@ Let $n,m\in\mathbb{N}$. The map%
 ^{m\times1},\mathbb{K}^{n\times1}\right)  ,\\
 A  & \mapsto L_{A}%
 \end{align*}
-(defined in Theorem \ref{thm.module.LA}) is a $\mathbb{K}$-module isomorphism.
+(defined in Theorem 5.11.23) is a $\mathbb{K}$-module isomorphism.
 \end{proposition}
 
 \begin{proof}
-Straightforward: This map is $\mathbb{K}$-linear (due to easily proven
-statements like $L_{A+B}=L_{A}+L_{B}$ and $L_{\lambda A}=\lambda L_{A}$) and
-invertible (since Proposition \ref{prop.module.f=LA} shows that it is bijective).
+This map is $\mathbb{K}$-linear (due to easily proven statements like
+$L_{A+B}=L_{A}+L_{B}$ and $L_{\lambda A}=\lambda L_{A}$) and invertible (since
+Proposition 5.11.24 shows that it is bijective).
 \end{proof}
 
 So $\mathbb{K}^{n\times m}\cong\operatorname*{Hom}\left(  \mathbb{K}%
@@ -29575,47 +29538,33 @@ So $\mathbb{K}^{n\times m}\cong\operatorname*{Hom}\left(  \mathbb{K}%
 $n,m\in\mathbb{N}$. So $\mathbb{K}$\textbf{-linear maps between }%
 $\mathbb{K}^{m\times1}$\textbf{ and }$\mathbb{K}^{n\times1}$ \textbf{are
 \textquotedblleft the same as\textquotedblright\ }$n\times m$%
-\textbf{-matrices}. This says that the \textquotedblleft
-matrix\textquotedblright\ way of doing linear algebra can be embedded into the
-\textquotedblleft$\mathbb{K}$-module\textquotedblright\ way of doing linear algebra.
-
-Furthermore:
+\textbf{-matrices}.
 
 \begin{proposition}
 Let $n,m,p\in\mathbb{N}$. Let $A\in\mathbb{K}^{n\times m}$ and $B\in
 \mathbb{K}^{m\times p}$. Then, $L_{AB}=L_{A}\circ L_{B}$.
 \end{proposition}
 
-\begin{proof}
-For any $C\in\mathbb{K}^{p\times1}$, we have $L_{AB}\left(  C\right)  =\left(
-AB\right)  C=ABC$ and $\left(  L_{A}\circ L_{B}\right)  \left(  C\right)
-=L_{A}\left(  L_{B}\left(  C\right)  \right)  =A\left(  BC\right)  =ABC$.
-\end{proof}
-
 \begin{corollary}
-Let $n\in\mathbb{N}$. The map%
+Let $n\in\mathbb{N}$. The map
 \begin{align*}
 \mathbb{K}^{n\times n}  & \rightarrow\operatorname*{End}\left(  \mathbb{K}%
 ^{n\times1}\right)  ,\\
 A  & \mapsto L_{A}%
 \end{align*}
-(defined in Theorem \ref{thm.module.LA} for $m=n$) is a ring isomorphism.
+is a ring isomorphism.
 \end{corollary}
 
 \subsubsection{Submodules}
 
 \begin{definition}
 Let $M$ and $N$ be two $\mathbb{K}$-modules such that $N\subseteq M$ as sets.
-We say that $N$ is a $\mathbb{K}$\textbf{-submodule} (or, for short,
-\textbf{submodule}) of $M$ if
+We say that $N$ is a $\mathbb{K}$\textbf{-submodule} of $M$ if
 
 \begin{itemize}
-\item the addition of $N$ is a restriction of the addition of $M$ (that is,
-$n_{1}+_{N}n_{2}=n_{1}+_{M}n_{2}$ for all $n_{1},n_{2}\in N$);
+\item the addition of $N$ is a restriction of the addition of $M$;
 
-\item the scaling of $N$ is a restriction of the scaling of $M$ (that is,
-$\lambda\cdot_{N}n=\lambda\cdot_{M}n$ for all $\lambda\in\mathbb{K}$ and
-$n_{1}\in N$);
+\item the scaling of $N$ is a restriction of the scaling of $M$;
 
 \item $0_{N}=0_{M}$.
 \end{itemize}
@@ -29627,83 +29576,27 @@ $n_{1}\in N$);
 \textbf{(b)} If $n\in\mathbb{Z}$, then $n\mathbb{Z}=\left\{  \text{all
 multiples of }n\right\}  $ is a $\mathbb{Z}$-submodule of $\mathbb{Z}$.
 
-\textbf{(c)} Vector subspaces (as known from linear algebra, or from
-Definition \ref{def.laf.subspace-of-row} in the case of column vectors) are
-$\mathbb{K}$-submodules.
+\textbf{(c)} Vector subspaces are $\mathbb{K}$-submodules.
 \end{example}
 
 \begin{proposition}
 Let $M$ be a $\mathbb{K}$-module. Let $N$ be a subset of $M$ which contains
 $0$ and is closed under addition (i.e., we have $n_{1}+n_{2}\in N$ for all
-$n_{1},n_{2}\in N$) and closed under scaling (i.e., we have $\lambda n\in N$
-for all $\lambda\in\mathbb{K}$ and $n\in N$).
+$n_{1},n_{2}\in N$) and is closed under scaling (i.e., we have $\lambda n\in
+N$ for all $\lambda\in\mathbb{K}$ and $n\in N$).
 
 Then, $N$ becomes a $\mathbb{K}$-module if we endow it with the addition and
-the scaling inherited from $M$ (more precisely: with the restrictions of these
-operations to $N$), and this $\mathbb{K}$-module is a submodule of $M$.
+the scaling inherited from $M$ (i.e., the restrictions of the addition and the
+scaling of $M$). This $\mathbb{K}$-module is a $\mathbb{K}$-submodule of $M$.
 \end{proposition}
-
-\begin{proof}
-Obvious.
-\end{proof}
 
 \begin{definition}
 If $\mathbb{K}$ is a field, then $\mathbb{K}$-submodules are also known as
-$\mathbb{K}$\textbf{-vector subspaces} (or, short, $\mathbb{K}$-subspaces).
+$\mathbb{K}$\textbf{-vector subspaces} (or, short, $\mathbb{K}$%
+\textbf{-subspaces}).
 \end{definition}
 
-\subsubsection{Linear independence, etc.}
 
-Now, generalize Definition \ref{def.laf.lincomb} to arbitrary $\mathbb{K}%
-$-modules (where $\mathbb{K}$ is still an arbitrary commutative ring):
-
-\begin{definition}
-Let $M$ be a $\mathbb{K}$-module. Let $v_{1},v_{2},\ldots,v_{k}$ be some
-vectors in $M$.
-
-\textbf{(a)} A \textit{linear combination} of $v_{1},v_{2},\ldots,v_{k}$ means
-a vector of the form%
-\[
-\lambda_{1}v_{1}+\lambda_{2}v_{2}+\cdots+\lambda_{k}v_{k}%
-,\ \ \ \ \ \ \ \ \ \ \text{with }\lambda_{1},\lambda_{2},\ldots,\lambda_{k}%
-\in\mathbb{K}.
-\]
-
-
-\textbf{(b)} The \textit{span} of $v_{1},v_{2},\ldots,v_{k}$ is defined to be
-the subset%
-\begin{align*}
-&  \left\{  \lambda_{1}v_{1}+\lambda_{2}v_{2}+\cdots+\lambda_{k}v_{k}%
-\ \mid\ \lambda_{1},\lambda_{2},\ldots,\lambda_{k}\in\mathbb{K}\right\}  \\
-&  =\left\{  \text{linear combinations of }v_{1},v_{2},\ldots,v_{k}\right\}
-\end{align*}
-of $M$. This span is a $\mathbb{K}$-submodule of $M$. (This is easy to check.)
-
-\textbf{(c)} The vectors $v_{1},v_{2},\ldots,v_{k}$ are said to be
-\textit{linearly independent} if the only $k$-tuple $\left(  \lambda
-_{1},\lambda_{2},\ldots,\lambda_{k}\right)  \in\mathbb{K}^{k}$ satisfying
-$\lambda_{1}v_{1}+\lambda_{2}v_{2}+\cdots+\lambda_{k}v_{k}=0$ is $\left(
-\underbrace{0,0,\ldots,0}_{k\text{ times}}\right)  $.
-
-\textbf{(d)} Let $U$ be a $\mathbb{K}$-submodule of $M$. We say that
-$v_{1},v_{2},\ldots,v_{k}$ form a \textit{basis} of $U$ (or, more formally,
-$\left(  v_{1},v_{2},\ldots,v_{k}\right)  $ is a basis of $U$) if and only if
-the vectors $v_{1},v_{2},\ldots,v_{k}$ are linearly independent and their span
-is $U$.
-\end{definition}
-
-\begin{definition}
-Let $M$ be a $\mathbb{K}$-module. Then, we say that $M$ is \textbf{finitely
-generated} if there exists a $k\in\mathbb{N}$ and $k$ vectors $v_{1}%
-,v_{2},\ldots,v_{k}$ that span $M$.
-\end{definition}
-
-A classical result from linear algebra says:
-
-\begin{theorem}
-If $\mathbb{K}$ is a field, then every finitely generated $\mathbb{K}$-module
-(= $\mathbb{K}$-vector space) has a basis.
-\end{theorem}
 
 
 \end{document}

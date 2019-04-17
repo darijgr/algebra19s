@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Wednesday, April 17, 2019 11:10:11}
+%TCIDATA{LastRevised=Wednesday, April 17, 2019 12:12:52}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -6158,7 +6158,6 @@ equivalence:%
 \ \Longleftrightarrow\ \left(  \operatorname{lcm}\left(  b_{1},b_{2}%
 ,\ldots,b_{k}\right)  \mid m\right)  .
 \]
-
 
 \textbf{(b)} The common multiples of $b_{1},b_{2},\ldots,b_{k}$ are precisely
 the multiples of $\operatorname{lcm}\left(  b_{1},b_{2},\ldots,b_{k}\right)  $.
@@ -29263,6 +29262,13 @@ Straightforward and LTTR.
 Note the analogy between Proposition \ref{prop.module.Hom.compose} and
 Proposition \ref{prop.riho.compose}.
 
+We shall follow PEMDAS-style conventions when writing expressions involving
+addition and composition of $\mathbb{K}$-linear maps (where we treat
+composition as a multiplication-like operation). For example, the expression
+\textquotedblleft$f\circ h+g\circ h$\textquotedblright\ (where $f,g,h$ are
+three $\mathbb{K}$-linear maps) is to be understood as $\left(  f\circ
+h\right)  +\left(  g\circ h\right)  $.
+
 The following rules hold for addition, multiplication and scaling of module
 homomorphisms (similarly to Theorem \ref{thm.matrix.rules}):
 
@@ -29321,11 +29327,11 @@ M,N\right)  $.
 \end{theorem}
 
 \begin{proof}
-[Proof of Theorem \ref{thm.module.Hom.rules}.] Most of these are trivial and
+[Proof of Theorem \ref{thm.module.Hom.rules}.]Most of these are trivial and
 hold not just for $\mathbb{K}$-linear maps, but for arbitrary maps. Only the
-first part of \textbf{(g)}, the first part of \textbf{(h)}, and \textbf{(m)}
-do not hold for arbitrary maps. So let us prove the first part of \textbf{(g)}
-(and leave the rest to the reader):
+first part of \textbf{(g)}, the first part of \textbf{(h)}, and the second
+equality sign in \textbf{(m)} do not hold for arbitrary maps. So let us prove
+the first part of \textbf{(g)} (and leave the rest to the reader):
 
 Let $f\in\operatorname*{Hom}\left(  N,P\right)  $ and $g,h\in
 \operatorname*{Hom}\left(  M,N\right)  $. We must prove that%
@@ -29342,7 +29348,7 @@ $. Now, comparing%
 \left(  f\circ\left(  g+h\right)  \right)  \left(  v\right)   &  =f\left(
 \underbrace{\left(  g+h\right)  \left(  v\right)  }_{=g\left(  v\right)
 +h\left(  v\right)  }\right)  =f\left(  g\left(  v\right)  +h\left(  v\right)
-\right)  \\
+\right) \\
 &  =f\left(  g\left(  v\right)  \right)  +f\left(  h\left(  v\right)  \right)
 \ \ \ \ \ \ \ \ \ \ \left(  \text{since }f\text{ is }\mathbb{K}\text{-linear}%
 \right)
@@ -29401,10 +29407,11 @@ is the notion of a $\mathbb{K}$\textit{-algebra}. Roughly speaking, it is
 defined as follows:
 
 \begin{definition}
-A $\mathbb{K}$-algebra is a set $M$ endowed with two operations $+$ and
-$\cdot$ as well as a scaling map $\cdot:\mathbb{K}\times M\rightarrow M$ (not
-to be confused with the multiplication map) and two elements $0,1\in M$ that
-satisfy all the ring axioms as well as all the module axioms.
+A $\mathbb{K}$\textit{-algebra} is a set $M$ endowed with two operations $+$
+and $\cdot$ as well as a scaling map $\cdot:\mathbb{K}\times M\rightarrow M$
+(not to be confused with the multiplication map) and two elements $0,1\in M$
+that satisfy all the ring axioms (with $\mathbb{K}$ replaced by $M$) as well
+as all the module axioms.
 \end{definition}
 
 It seems somewhat confusing that both the multiplication map $M\times
@@ -29431,8 +29438,8 @@ $-algebra for every $\mathbb{K}$-module $M$. (Its multiplication is
 composition of maps, whereas its scaling is the scaling on
 $\operatorname*{Hom}\left(  M,M\right)  $).
 
-\item Likewise, $\mathbb{K}^{n\times n}$ is a $\mathbb{K}$-algebra for any
-$n\in\mathbb{N}$.
+\item The matrix ring $\mathbb{K}^{n\times n}$ is a $\mathbb{K}$-algebra for
+any $n\in\mathbb{N}$.
 
 \item The ring $\mathbb{C}$ is an $\mathbb{R}$-algebra.
 
@@ -29450,7 +29457,7 @@ In analogy to Definition \ref{def.riiso.riiso}, we define:
 \label{def.modiso.modiso}Let $M$ and $N$ be two $\mathbb{K}$-modules. Let
 $f:M\rightarrow N$ be a map. Then, $f$ is called a $\mathbb{K}$\textit{-module
 isomorphism} if and only if $f$ is invertible (i.e., bijective) and both $f$
-and $f^{-1}$ are $\mathbb{K}$\textit{-module }homomorphisms.
+and $f^{-1}$ are $\mathbb{K}$-module homomorphisms.
 \end{definition}
 
 \begin{example}
@@ -29468,8 +29475,8 @@ $f$ is a $\mathbb{K}$-module isomorphism.
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.modiso.invertible}.] Same proof as for
-Proposition \ref{prop.riiso.invertible} (with obvious changes).
+[Proof of Proposition \ref{prop.modiso.invertible}.]Similar to the proof of
+Proposition \ref{prop.riiso.invertible}.
 \end{proof}
 
 \begin{definition}
@@ -29513,16 +29520,16 @@ By Proposition \ref{prop.modiso.invertible}, it suffices to prove that this
 map is $\mathbb{K}$-linear and invertible. The $\mathbb{K}$-linearity follows
 from the formulas%
 \begin{align*}
-\left(  A+B\right)  ^{T} &  =A^{T}+B^{T};\\
-\left(  \lambda A\right)  ^{T} &  =\lambda A^{T};\\
-\left(  0_{n\times m}\right)  ^{T} &  =0_{m\times n}%
+\left(  A+B\right)  ^{T}  &  =A^{T}+B^{T};\\
+\left(  \lambda A\right)  ^{T}  &  =\lambda A^{T};\\
+\left(  0_{n\times m}\right)  ^{T}  &  =0_{m\times n}%
 \end{align*}
 which hold for arbitrary $A,B\in\mathbb{K}^{n\times m}$ and $\lambda
 \in\mathbb{K}$. The invertibility follows by constructing its inverse, which
 is the map%
 \begin{align*}
-\mathbb{K}^{m\times n} &  \rightarrow\mathbb{K}^{n\times m},\\
-A &  \mapsto A^{T}.
+\mathbb{K}^{m\times n}  &  \rightarrow\mathbb{K}^{n\times m},\\
+A  &  \mapsto A^{T}.
 \end{align*}
 
 \end{proof}
@@ -29588,13 +29595,13 @@ both $\mathbb{K}^{n\times m}$ and $\mathbb{K}^{nm}$) and invertible.
 Let $M$ be any $\mathbb{K}$-module. Let $\lambda\in\mathbb{K}$. Define the
 map
 \begin{align*}
-L_{\lambda}:M  &  \rightarrow M,\\
-a  &  \mapsto\lambda a.
+L_{\lambda}:M &  \rightarrow M,\\
+a &  \mapsto\lambda a.
 \end{align*}
-(This is called \textquotedblleft left multiplication by $\lambda
-$\textquotedblright.) As we know from Example \ref{exa.module.moho.id}
-\textbf{(b)}, this map $L_{\lambda}$ is $\mathbb{K}$-linear, i.e., a
-$\mathbb{K}$-module homomorphism. When is it an isomorphism?
+(This is called \textquotedblleft scaling by $\lambda$\textquotedblright.) As
+we know from Example \ref{exa.module.moho.id} \textbf{(b)}, this map
+$L_{\lambda}$ is $\mathbb{K}$-linear, i.e., a $\mathbb{K}$-module
+homomorphism. When is it an isomorphism?
 
 \textbf{(a)} If $\lambda\in\mathbb{K}$ is invertible, then $L_{\lambda}$ is a
 $\mathbb{K}$-module isomorphism.
@@ -29653,9 +29660,9 @@ A  &  \mapsto L_{A}%
 \end{proposition}
 
 \begin{proof}
-Straightforward: This map is $\mathbb{K}$-linear (due to easily proven
-statements like $L_{A+B}=L_{A}+L_{B}$ and $L_{\lambda A}=\lambda L_{A}$) and
-invertible (since Proposition \ref{prop.module.f=LA} shows that it is bijective).
+This map is $\mathbb{K}$-linear (due to easily proven statements like
+$L_{A+B}=L_{A}+L_{B}$ and $L_{\lambda A}=\lambda L_{A}$) and invertible (since
+Proposition \ref{prop.module.f=LA} shows that it is bijective).
 \end{proof}
 
 So $\mathbb{K}^{n\times m}\cong\operatorname*{Hom}\left(  \mathbb{K}%
@@ -29739,6 +29746,10 @@ Obvious.
 If $\mathbb{K}$ is a field, then $\mathbb{K}$-submodules are also known as
 $\mathbb{K}$\textit{-vector subspaces} (or, short, $\mathbb{K}$-subspaces).
 \end{definition}
+
+\begin{center}
+\textbf{2019-04-19 lecture}
+\end{center}
 
 \subsubsection{Linear independence, etc.}
 
