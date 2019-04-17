@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Wednesday, April 17, 2019 13:37:54}
+%TCIDATA{LastRevised=Wednesday, April 17, 2019 14:12:23}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -29377,37 +29377,27 @@ The rest is equally straightforward.
 \end{proof}
 
 So far, we have not defined a subtraction operation $-$ on
-$\operatorname*{Hom}\left(  M,N\right)  $. But this does not mean that such an
-operation does not exist; we simply don't want to waste our time defining it
-\textquotedblleft manually\textquotedblright\ when we can trivially obtain it
-from general principles. Namely: We know that $\operatorname*{Hom}\left(
-M,N\right)  $ is a $\mathbb{K}$-module, but Definition
-\ref{def.module.inv-add-a} shows that every $\mathbb{K}$-module automatically
-has a subtraction operation. Thus, we get a subtraction operation on
-$\operatorname*{Hom}\left(  M,N\right)  $ for free; furthermore, Proposition
-\ref{prop.module.inv-add.rules} shows that this operation has all the
-properties that one would expect. The only rule that we do not automatically
-obtain from these general principles is%
-\[
--\left(  f\circ g\right)  =\left(  -f\right)  \circ g=f\circ\left(  -g\right)
-\ \ \ \ \ \ \ \ \ \ \text{for all }f\in\operatorname*{Hom}\left(  N,P\right)
-\text{ and }g\in\operatorname*{Hom}\left(  M,P\right)
-\]
-(where $M$, $N$ and $P$ are three $\mathbb{K}$-modules). But this rule is
-easily verified by direct comparison.
-
-Note that if $M$ and $N$ are any two $\mathbb{K}$-modules, the subtraction we
-have just introduced on $\operatorname*{Hom}\left(  M,N\right)  $ is precisely
-the pointwise subtraction: i.e., it is given by
-\[
-\left(  f-g\right)  \left(  v\right)  =f\left(  v\right)  -g\left(  v\right)
-\ \ \ \ \ \ \ \ \ \ \text{for all }f,g\in\operatorname*{Hom}\left(
-M,N\right)  \text{ and }v\in M
-\]
-\footnote{\textit{Proof.} Let $f,g\in\operatorname*{Hom}\left(  M,N\right)  $
-and $v\in M$. Then, $f-g$ has the property that $f=\left(  f-g\right)  +g$ (by
-Proposition \ref{prop.module.inv-add.rules} \textbf{(a)}). Applying both sides
-of this equality to $v$, we obtain%
+$\operatorname*{Hom}\left(  M,N\right)  $ (where $M$ and $N$ are two
+$\mathbb{K}$-modules). But this does not mean that such an operation does not
+exist; we simply don't want to waste our time defining it \textquotedblleft
+manually\textquotedblright\ when we can trivially obtain it from general
+principles. Namely: We know that $\operatorname*{Hom}\left(  M,N\right)  $ is
+a $\mathbb{K}$-module, but Definition \ref{def.module.inv-add-a} shows that
+every $\mathbb{K}$-module automatically has a subtraction operation. Thus, we
+get a subtraction operation on $\operatorname*{Hom}\left(  M,N\right)  $ for
+free. This subtraction is precisely the pointwise subtraction: i.e., it is
+given by%
+\begin{align}
+\left(  f-g\right)  \left(  v\right)    & =f\left(  v\right)  -g\left(
+v\right)  \label{eq.module.Hom.-.ptwise}\\
+& \ \ \ \ \ \ \ \ \ \ \text{for all }f,g\in\operatorname*{Hom}\left(
+M,N\right)  \text{ and }v\in M\nonumber
+\end{align}
+\footnote{\textit{Proof of (\ref{eq.module.Hom.-.ptwise}):} Let $f,g\in
+\operatorname*{Hom}\left(  M,N\right)  $ and $v\in M$. Then, $f-g$ has the
+property that $f=\left(  f-g\right)  +g$ (by Proposition
+\ref{prop.module.inv-add.rules} \textbf{(a)}). Applying both sides of this
+equality to $v$, we obtain%
 \[
 f\left(  v\right)  =\left(  \left(  f-g\right)  +g\right)  \left(  v\right)
 =\left(  f-g\right)  \left(  v\right)  +g\left(  v\right)
@@ -29415,7 +29405,20 @@ f\left(  v\right)  =\left(  \left(  f-g\right)  +g\right)  \left(  v\right)
 +g\right)  ;
 \]
 but this yields $\left(  f-g\right)  \left(  v\right)  =f\left(  v\right)
--g\left(  v\right)  $. Qed.}.
+-g\left(  v\right)  $. This proves (\ref{eq.module.Hom.-.ptwise}).}.
+
+Proposition \ref{prop.module.inv-add.rules} shows that the subtraction
+operation on $\operatorname*{Hom}\left(  M,N\right)  $ (for arbitrary
+$\mathbb{K}$-modules $M$ and $N$) has almost all the properties that one would
+expect. The only rule that we do not automatically obtain from these general
+principles is%
+\[
+-\left(  f\circ g\right)  =\left(  -f\right)  \circ g=f\circ\left(  -g\right)
+\ \ \ \ \ \ \ \ \ \ \text{for all }f\in\operatorname*{Hom}\left(  N,P\right)
+\text{ and }g\in\operatorname*{Hom}\left(  M,P\right)
+\]
+(where $M$, $N$ and $P$ are three $\mathbb{K}$-modules). But this rule is
+easily verified by direct comparison (using (\ref{eq.module.Hom.-.ptwise})).
 
 \begin{corollary}
 \label{cor.module.End-ring}Let $M$ be a $\mathbb{K}$-module. The set
