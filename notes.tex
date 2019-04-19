@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Thursday, April 18, 2019 19:12:46}
+%TCIDATA{LastRevised=Thursday, April 18, 2019 20:43:46}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -23606,7 +23606,9 @@ b\right)  \ \ \ \ \ \ \ \ \ \ \text{for all }a,b\in\mathbb{Z};\\
 Thus, we can view $\varphi$ as a way of relabelling the integers so that data
 $+,\cdot,0,1$ of $\mathbb{Z}$ become the data $+,\widetilde{\times
 },0,1_{\mathbb{Z}^{\prime}}$ of $\mathbb{Z}^{\prime}$. We will later call
-bijections like $\varphi$ \textit{ring isomorphisms}.
+bijections like $\varphi$ \textquotedblleft ring
+isomorphisms\textquotedblright. (See Definition \ref{def.riiso.riiso} for the
+definition of a ring homomorphism.)
 
 \item Recall: If $A$ and $B$ are two sets, then
 \[
@@ -23614,8 +23616,9 @@ B^{A}:=\left\{  \text{maps }A\rightarrow B\right\}  .
 \]
 (This notation is not wantonly chosen to annoy you with its seeming
 backwardness; instead, it harkens back to the fact that $\left\vert
-B^{A}\right\vert =\left\vert B\right\vert ^{\left\vert A\right\vert }$.) The
-set $\mathbb{Q}^{\mathbb{Q}}$ of all the maps from $\mathbb{Q}$ to
+B^{A}\right\vert =\left\vert B\right\vert ^{\left\vert A\right\vert }$.)
+
+The set $\mathbb{Q}^{\mathbb{Q}}$ of all the maps from $\mathbb{Q}$ to
 $\mathbb{Q}$ is a commutative ring, where
 
 \begin{itemize}
@@ -23624,29 +23627,32 @@ $f,g\in\mathbb{Q}^{\mathbb{Q}}$ are two maps, then the maps $f+g$ and $f\cdot
 g$ are defined by
 \begin{align*}
 \left(  f+g\right)  \left(  x\right)   &  =f\left(  x\right)  +g\left(
-x\right)  ,\ \ \ \ \ \ \ \ \ \ \text{and}\\
+x\right)  \ \ \ \ \ \ \ \ \ \ \text{and}\\
 \left(  f\cdot g\right)  \left(  x\right)   &  =f\left(  x\right)  \cdot
-g\left(  x\right)  \ \ \ \ \ \ \ \ \ \ \text{for all }x\in\mathbb{Q} ;
+g\left(  x\right)  \ \ \ \ \ \ \ \ \ \ \text{for all }x\in\mathbb{Q};
 \end{align*}
 
 
-\item $0$ means the ``constant $0$'' function (i.e., the map $\mathbb{Q}
-\to\mathbb{Q},\ x \mapsto0$);
+\item $0$ means the \textquotedblleft constant $0$\textquotedblright\ function
+(i.e., the map $\mathbb{Q}\rightarrow\mathbb{Q},\ x\mapsto0$);
 
-\item $1$ means the ``constant $1$'' function (i.e., the map $\mathbb{Q}
-\to\mathbb{Q},\ x \mapsto1$).
+\item $1$ means the \textquotedblleft constant $1$\textquotedblright\ function
+(i.e., the map $\mathbb{Q}\rightarrow\mathbb{Q},\ x\mapsto1$).
 \end{itemize}
 
-All the axioms are easy to check.
+All the ring axioms are easy to check. For example, each $f\in\mathbb{Q}%
+^{\mathbb{Q}}$ has an additive inverse (namely, the map $-f\in\mathbb{Q}%
+^{\mathbb{Q}}$ that sends each $x\in\mathbb{Q}$ to $-f\left(  x\right)  $).
 
-Similarly for $\mathbb{Q}^{\mathbb{C}}$ or $\mathbb{Q}^{\mathbb{N}}$ or
+Similarly, the sets $\mathbb{Q}^{\mathbb{C}}$ or $\mathbb{Q}^{\mathbb{N}}$ or
 $\mathbb{R}^{\mathbb{R}}$ (the set of \textquotedblleft
 functions\textquotedblright\ you know from calculus) or $\mathbb{C}%
 ^{\mathbb{C}}$ (or, more generally, for $\mathbb{K}^{S}$, where $\mathbb{K}$
-is any commutative ring and $S$ is any set), but \textbf{not} for
-$\mathbb{N}^{\mathbb{Q}}$. The problem with $\mathbb{N}^{\mathbb{Q}}$ is that
-\textquotedblleft existence of additive inverses\textquotedblright\ is not
-satisfied, since $-a\notin\mathbb{N}$ for positive $a\in\mathbb{N}$.
+is any commutative ring and $S$ is any set) can be made into commutative
+rings; but the set $\mathbb{N}^{\mathbb{Q}}$ cannot. The problem with
+$\mathbb{N}^{\mathbb{Q}}$ is that \textquotedblleft existence of additive
+inverses\textquotedblright\ is not satisfied, since $-a\notin\mathbb{N}$ for
+positive $a\in\mathbb{N}$.
 
 \item Recall that%
 \[
@@ -23725,24 +23731,24 @@ Now, let $S$ be any set. Let $\mathcal{P}\left(  S\right)  $ denote the power
 set of $S$ (that is, the set of all subsets of $S$). Then, it is easy to check
 that the following properties hold:%
 \begin{align*}
-A\bigtriangleup B  &  =B\bigtriangleup A\ \ \ \ \ \ \ \ \ \ \text{for any sets
+A\bigtriangleup B &  =B\bigtriangleup A\ \ \ \ \ \ \ \ \ \ \text{for any sets
 }A\text{ and }B;\\
-A\cap B  &  =B\cap A\ \ \ \ \ \ \ \ \ \ \text{for any sets }A\text{ and }B;\\
-\left(  A\bigtriangleup B\right)  \bigtriangleup C  &  =A\bigtriangleup\left(
+A\cap B &  =B\cap A\ \ \ \ \ \ \ \ \ \ \text{for any sets }A\text{ and }B;\\
+\left(  A\bigtriangleup B\right)  \bigtriangleup C &  =A\bigtriangleup\left(
 B\bigtriangleup C\right)  \ \ \ \ \ \ \ \ \ \ \text{for any sets }A,B,C;\\
-\left(  A\cap B\right)  \cap C  &  =A\cap\left(  B\cap C\right)
+\left(  A\cap B\right)  \cap C &  =A\cap\left(  B\cap C\right)
 \ \ \ \ \ \ \ \ \ \ \text{for any sets }A,B,C;\\
 A\bigtriangleup\varnothing &  =\varnothing\bigtriangleup
 A=A\ \ \ \ \ \ \ \ \ \ \text{for any set }A;\\
-A\cap S  &  =S\cap A=A\ \ \ \ \ \ \ \ \ \ \text{for any subset }A\text{ of
+A\cap S &  =S\cap A=A\ \ \ \ \ \ \ \ \ \ \text{for any subset }A\text{ of
 }S;\\
-A\bigtriangleup A  &  =\varnothing\ \ \ \ \ \ \ \ \ \ \text{for any set }A;\\
-\varnothing\cap A  &  =A\cap\varnothing=\varnothing
+A\bigtriangleup A &  =\varnothing\ \ \ \ \ \ \ \ \ \ \text{for any set }A;\\
+\varnothing\cap A &  =A\cap\varnothing=\varnothing
 \ \ \ \ \ \ \ \ \ \ \text{for any set }A;\\
 A\cap\left(  B\bigtriangleup C\right)   &  =\left(  A\cap B\right)
 \bigtriangleup\left(  A\cap C\right)  \ \ \ \ \ \ \ \ \ \ \text{for any sets
 }A,B,C;\\
-\left(  A\bigtriangleup B\right)  \cap C  &  =\left(  A\cap C\right)
+\left(  A\bigtriangleup B\right)  \cap C &  =\left(  A\cap C\right)
 \bigtriangleup\left(  B\cap C\right)  \ \ \ \ \ \ \ \ \ \ \text{for any sets
 }A,B,C.
 \end{align*}
@@ -23754,7 +23760,9 @@ A=\varnothing$). Moreover, each $A\in\mathcal{P}\left(  S\right)  $ satisfies
 $A\cap A=A$, which means (in the language of ring operations) that its square
 is itself. Thus, $\mathcal{P}\left(  S\right)  $ is what is called a
 \textit{\href{https://en.wikipedia.org/wiki/Boolean_ring}{\textit{Boolean
-ring}}}.
+ring}}}. (See Exercise 2 on
+\href{http://www-users.math.umn.edu/~dgrinber/19s/mt2s.pdf}{midterm \#2} for
+the precise definition and a few properties of Boolean rings.)
 \end{itemize}
 
 Let us now see some non-examples -- i.e., examples of things that are not rings:
