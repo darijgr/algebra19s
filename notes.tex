@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Friday, April 19, 2019 00:52:55}
+%TCIDATA{LastRevised=Friday, April 19, 2019 08:02:02}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -30144,8 +30144,9 @@ So the multiplication of the ring $\operatorname*{End}M$ is composition of
 maps. This ring $\operatorname*{End}M$ is, in general, not commutative.
 
 Note that $\operatorname*{End}M=\operatorname*{Hom}\left(  M,M\right)  $ as
-sets, and the additions are the same. But $\operatorname*{End}M$ is a ring
-(thus has no scaling), whereas $\operatorname*{Hom}\left(  M,M\right)  $ is a
+sets, and the additions of $\operatorname*{End}M$ and of $\operatorname*{Hom}%
+\left(  M,M\right)  $ are the same. But $\operatorname*{End}M$ is a ring (thus
+has no scaling), whereas $\operatorname*{Hom}\left(  M,M\right)  $ is a
 $\mathbb{K}$-module (thus has no multiplication).
 
 There is a notion which combines both the structure of a ring and the
@@ -30155,10 +30156,17 @@ speaking, it is defined as follows:
 
 \begin{definition}
 \label{def.K-alg.K-alg.short-def}A $\mathbb{K}$\textit{-algebra} is a set $M$
-endowed with two operations $+$ and $\cdot$ as well as a scaling map
+endowed with two binary operations $+$ and $\cdot$ as well as a scaling map
 $\cdot:\mathbb{K}\times M\rightarrow M$ (not to be confused with the
-multiplication map) and two elements $0,1\in M$ that satisfy all the ring
-axioms (with $\mathbb{K}$ replaced by $M$) as well as all the module axioms.
+multiplication map, which is also denoted by $\cdot$) and two elements $0,1\in
+M$ that satisfy all the ring axioms (with $\mathbb{K}$ replaced by $M$) as
+well as all the module axioms and also the following axiom:
+
+\begin{itemize}
+\item \textbf{Scale-invariance of multiplication:} We have $\lambda\left(
+ab\right)  =\left(  \lambda a\right)  \cdot b=a\cdot\left(  \lambda b\right)
+$ for all $\lambda\in\mathbb{K}$ and $a,b\in M$.
+\end{itemize}
 \end{definition}
 
 It seems somewhat confusing that both the multiplication map $M\times
@@ -30168,10 +30176,14 @@ trouble, since it is (almost) always clear from the context which one is being
 applied (just check if the first argument belongs to $M$ or to $\mathbb{K}$).
 
 So, roughly speaking, a $\mathbb{K}$\textit{-algebra} is a $\mathbb{K}$-module
-that is also a ring, with the same addition and $0$. In other words, you get
-the definition of a $\mathbb{K}$-algebra by throwing the definitions of a ring
-and of a $\mathbb{K}$-module together, requiring the two additions $+$ to be
-the same map.
+that is also a ring, with the same addition and $0$ and satisfying the
+\textquotedblleft Scale-invariance of multiplication\textquotedblright\ axiom.
+In other words, you get the definition of a $\mathbb{K}$-algebra by throwing
+the definitions of a ring and of a $\mathbb{K}$-module together, requiring the
+two additions $+$ to be the same map and requiring the multiplication to be
+\textquotedblleft nice to the scaling\textquotedblright\ (in the sense that
+the \textquotedblleft Scale-invariance of multiplication\textquotedblright%
+\ axiom holds).
 
 Examples of $\mathbb{K}$-algebras include the following:
 
@@ -30509,7 +30521,7 @@ ring isomorphism.
 \textbf{2019-04-19 lecture}
 \end{center}
 
-\subsection{Linear independence, etc.}
+\subsection{Linear independence, spans, bases}
 
 Now, let us generalize Definition \ref{def.laf.lincomb} to arbitrary
 $\mathbb{K}$-modules (where $\mathbb{K}$ is still an arbitrary commutative ring):
