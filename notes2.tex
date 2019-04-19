@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Friday, April 19, 2019 09:56:07}
+%TCIDATA{LastRevised=Friday, April 19, 2019 12:05:32}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -11776,7 +11776,8 @@ how many zeroes the decimal expansion of $n!$ ends with. (Note that Exercise
 n\right)  =\sum_{\substack{i\geq1;\\p^{i}\mid n}}1$; in this form it appears
 in \cite[Lemma 1.3.4]{floor}.)
 
-\subsubsection{Binomial formula and Vandermonde convolution}
+\subsubsection{\label{subsect.ent.vandermonde}Binomial formula and Vandermonde
+convolution}
 
 One of the staples of enumerative combinatorics are identities that involve
 binomial coefficients. Hundreds of such identities have been found (see, e.g.,
@@ -24078,11 +24079,11 @@ subset of $\mathbb{L}$ that satisfies the following four conditions:\footnotemar
 \item The subset $S$ is \textit{closed under addition}. (This means that all
 $a,b\in S$ satisfy $a+b\in S$.)
 
-\item The subset $S$ is closed under additive inverses. (This means that all
-$a\in S$ satisfy $-a\in S$.)
+\item The subset $S$ is \textit{closed under additive inverses}. (This means
+that all $a\in S$ satisfy $-a\in S$.)
 
-\item The subset $S$ is closed under multiplication. (This means that all
-$a,b\in S$ satisfy $ab\in S$.)
+\item The subset $S$ is \textit{closed under multiplication}. (This means that
+all $a,b\in S$ satisfy $ab\in S$.)
 \end{itemize}
 
 Then, the set $S$ itself becomes a ring if we endow it with the following two operations:
@@ -29166,8 +29167,8 @@ be a subset of $N$ that satisfies the following three conditions:\footnotemark
 \item The subset $S$ is \textit{closed under addition}. (This means that all
 $a,b\in S$ satisfy $a+b\in S$.)
 
-\item The subset $S$ is closed under scaling. (This means that all $\lambda
-\in\mathbb{K}$ and $a\in S$ satisfy $\lambda a\in S$.)
+\item The subset $S$ is \textit{closed under scaling}. (This means that all
+$\lambda\in\mathbb{K}$ and $a\in S$ satisfy $\lambda a\in S$.)
 \end{itemize}
 
 Then, the set $S$ itself becomes a $\mathbb{K}$-module if we endow it with:
@@ -29198,19 +29199,20 @@ $-a=\left(  -1\right)  a\in S$.)
 \end{proof}
 
 \begin{definition}
-Let $N$ be a $\mathbb{K}$-module. Let $S$ be a subset of $N$ that satisfies
-the three conditions of Proposition \ref{prop.module.submod.as-subset}. Then,
-we shall say that \textquotedblleft$S$ is a $\mathbb{K}$-submodule of
-$N$\textquotedblright. Technically speaking, this is premature, since $S$ is
-so far just a subset of $N$ without the structure of a $\mathbb{K}$-module;
-however, Proposition \ref{prop.module.submod.as-subset} shows that there is an
-obvious way of turning $S$ into a $\mathbb{K}$-module (viz.: define an
-operation $+$ by restricting the corresponding operation of $N$, define a map
-$\cdot$ similarly, and steal the zero vector from $N$), and we shall
-automatically regard $S$ as becoming a $\mathbb{K}$-module in this way (unless
-we say otherwise). We say that the operation $+$ on $S$ (obtained by
-restricting the corresponding operation on $N$) and the map $\cdot$ on $S$ and
-the zero vector of $S$ are \textit{inherited from }$N$.
+\label{def.module.submod.as-subset} Let $N$ be a $\mathbb{K}$-module. Let $S$
+be a subset of $N$ that satisfies the three conditions of Proposition
+\ref{prop.module.submod.as-subset}. Then, we shall say that \textquotedblleft%
+$S$ is a $\mathbb{K}$-submodule of $N$\textquotedblright. Technically
+speaking, this is premature, since $S$ is so far just a subset of $N$ without
+the structure of a $\mathbb{K}$-module; however, Proposition
+\ref{prop.module.submod.as-subset} shows that there is an obvious way of
+turning $S$ into a $\mathbb{K}$-module (viz.: define an operation $+$ by
+restricting the corresponding operation of $N$, define a map $\cdot$
+similarly, and steal the zero vector from $N$), and we shall automatically
+regard $S$ as becoming a $\mathbb{K}$-module in this way (unless we say
+otherwise). We say that the operation $+$ on $S$ (obtained by restricting the
+corresponding operation on $N$) and the map $\cdot$ on $S$ and the zero vector
+of $S$ are \textit{inherited from }$N$.
 \end{definition}
 
 Thus, finding $\mathbb{K}$-submodules of a $\mathbb{K}$-module $N$ boils down
@@ -30180,10 +30182,11 @@ that is also a ring, with the same addition and $0$ and satisfying the
 \textquotedblleft Scale-invariance of multiplication\textquotedblright\ axiom.
 In other words, you get the definition of a $\mathbb{K}$-algebra by throwing
 the definitions of a ring and of a $\mathbb{K}$-module together, requiring the
-two additions $+$ to be the same map and requiring the multiplication to be
-\textquotedblleft nice to the scaling\textquotedblright\ (in the sense that
-the \textquotedblleft Scale-invariance of multiplication\textquotedblright%
-\ axiom holds).
+two additions $+$ to be the same map, requiring the zero of the ring to
+coincide with the zero vector of the $\mathbb{K}$-module, and requiring the
+multiplication to be \textquotedblleft nice to the scaling\textquotedblright%
+\ (in the sense that the \textquotedblleft Scale-invariance of
+multiplication\textquotedblright\ axiom holds).
 
 Examples of $\mathbb{K}$-algebras include the following:
 
@@ -30527,49 +30530,47 @@ Now, let us generalize Definition \ref{def.laf.lincomb} to arbitrary
 $\mathbb{K}$-modules (where $\mathbb{K}$ is still an arbitrary commutative ring):
 
 \begin{definition}
-Let $M$ be a $\mathbb{K}$-module. Let $v_{1},v_{2},\ldots,v_{k}$ be some
-vectors in $M$.
+\label{def.module.lincomb}Let $M$ be a $\mathbb{K}$-module. Let $v_{1}%
+,v_{2},\ldots,v_{k}$ be some vectors in $M$.
 
-\textbf{(a)} A \textit{linear combination} of $v_{1},v_{2},\ldots,v_{k}$ means
+\textbf{(a)} A \textbf{linear combination} of $v_{1},v_{2},\ldots,v_{k}$ means
 a vector of the form%
 \[
 \lambda_{1}v_{1}+\lambda_{2}v_{2}+\cdots+\lambda_{k}v_{k}%
-,\ \ \ \ \ \ \ \ \ \ \text{with }\lambda_{1},\lambda_{2},\ldots,\lambda_{k}%
-\in\mathbb{K}.
+,\ \ \ \ \ \ \ \ \ \ \text{where }\lambda_{1},\lambda_{2},\ldots,\lambda
+_{k}\in\mathbb{K}.
 \]
 
 
-\textbf{(b)} The \textit{span} of $v_{1},v_{2},\ldots,v_{k}$ is defined to be
+\textbf{(b)} The \textbf{span} of $v_{1},v_{2},\ldots,v_{k}$ is defined to be
 the subset%
 \begin{align*}
-&  \left\{  \lambda_{1}v_{1}+\lambda_{2}v_{2}+\cdots+\lambda_{k}v_{k}%
-\ \mid\ \lambda_{1},\lambda_{2},\ldots,\lambda_{k}\in\mathbb{K}\right\} \\
-&  =\left\{  \text{linear combinations of }v_{1},v_{2},\ldots,v_{k}\right\}
+& \left\{  \lambda_{1}v_{1}+\lambda_{2}v_{2}+\cdots+\lambda_{k}v_{k}%
+\mid\lambda_{1},\lambda_{2},\ldots,\lambda_{k}\in\mathbb{K}\right\}  \\
+& =\left\{  \text{linear combinations of }v_{1},v_{2},\ldots,v_{k}\right\}
 \end{align*}
-of $M$. This span is a $\mathbb{K}$-submodule of $M$. (This is easy to check.)
+of $M$. This span is a $\mathbb{K}$-submodule of $M$.
 
 \textbf{(c)} The vectors $v_{1},v_{2},\ldots,v_{k}$ are said to be
-\textit{linearly independent} if the only $k$-tuple $\left(  \lambda
-_{1},\lambda_{2},\ldots,\lambda_{k}\right)  \in\mathbb{K}^{k}$ satisfying
-$\lambda_{1}v_{1}+\lambda_{2}v_{2}+\cdots+\lambda_{k}v_{k}=0$ is $\left(
-\underbrace{0,0,\ldots,0}_{k\text{ times}}\right)  $.
+\textbf{linearly independent} if the only $\left(  \lambda_{1},\lambda
+_{2},\ldots,\lambda_{k}\right)  \in\mathbb{K}^{k}$ satisfying $\lambda
+_{1}v_{1}+\lambda_{2}v_{2}+\cdots+\lambda_{k}v_{k}=0$ is $\left(
+0,0,\ldots,0\right)  $.
 
 \textbf{(d)} Let $U$ be a $\mathbb{K}$-submodule of $M$. We say that
-$v_{1},v_{2},\ldots,v_{k}$ form a \textit{basis} of $U$ (or, more formally,
+$v_{1},v_{2},\ldots,v_{k}$ form a \textbf{basis} of $U$ (or, more formally,
 $\left(  v_{1},v_{2},\ldots,v_{k}\right)  $ is a basis of $U$) if and only if
-the vectors $v_{1},v_{2},\ldots,v_{k}$ are linearly independent and their span
-is $U$.
+$v_{1},v_{2},\ldots,v_{k}$ are linearly independent and their span is $U$.
 \end{definition}
 
 \begin{definition}
-Let $M$ be a $\mathbb{K}$-module. Then, we say that $M$ is \textit{finitely
-generated} if there exists a $k\in\mathbb{N}$ and $k$ vectors $v_{1}%
+Let $M$ be a $\mathbb{K}$-module. Then, we say that $M$ is \textbf{finitely
+generated} if there exists some $k\in\mathbb{N}$ and $k$ vectors $v_{1}%
 ,v_{2},\ldots,v_{k}$ that span $M$.
 \end{definition}
 
-Finitely generated $\mathbb{K}$-modules are a generalization of
-finite-dimensional $\mathbb{K}$-vector spaces. A classical result from linear
-algebra says the following:
+Finitely generated $\mathbb{K}$-modules generalize finite-dimensional
+$\mathbb{K}$-vector space.
 
 \begin{theorem}
 If $\mathbb{K}$ is a field, then every finitely generated $\mathbb{K}$-module
@@ -30577,66 +30578,52 @@ If $\mathbb{K}$ is a field, then every finitely generated $\mathbb{K}$-module
 \end{theorem}
 
 \begin{proof}
-See \cite[Theorem 1]{Conrad-dim}, for example.\footnote{Note that in the
-(otherwise excellent) note \cite{Conrad-dim}, Conrad follows the inane
-convention that an empty list $\left(  {}\right)  $ cannot be a basis. This
-forces him to make the unnatural requirement \textquotedblleft$V\neq\left\{
-0\right\}  $\textquotedblright\ in \cite[Theorem 1]{Conrad-dim}. You should
-ignore this special treatment (or, rather, non-treatment) of empty lists when
-you read the note.}
+Classical (see Conrad on dimension).
 \end{proof}
 
 This theorem fails horribly when $\mathbb{K}$ is not a field. For example, the
-$\mathbb{Z}$-module $\mathbb{Z}/2$ has no basis. Indeed, its only $\mathbb{Z}%
-$-linearly independent list of vectors is the empty list $\left(  {}\right)
-$, since any vector in $\mathbb{Z}/2$ becomes $0$ when multiplied by the
-nonzero integer $2$. More generally, if $\mathbb{K}$ is not a field, then
-there is a $\mathbb{K}$-module spanned by a single vector that has no basis.
+$\mathbb{Z}$-module $\mathbb{Z}/2$ has no basis. Indeed, the only $\mathbb{Z}%
+$-linearly independent list of vectors in $\mathbb{Z}/2$ is the empty list
+$\left(  {}\right)  $, since any vector in $\mathbb{Z}/2$ becomes $0$ when
+scaled by the nonzero integer $2$. More generally, if $\mathbb{K}$ is not a
+field, then there is a $\mathbb{K}$-module spanned by a single vector that has
+no basis.
 
-So Theorem 6.1.5 \textbf{(a)} is false when $\mathbb{K}$ is just a commutative ring.
+Submodules of $\mathbb{K}^{1\times n}$ fare only somewhat better than
+arbitrary $\mathbb{K}$-modules in terms of having bases. It can be shown that
+every $\mathbb{Z}$-submodule of $\mathbb{Z}^{1\times n}$ has a basis. Thus,
+Theorem 6.1.5 \textbf{(a)} holds for $\mathbb{K}=\mathbb{Z}$. But it fails for
+$\mathbb{K}=\mathbb{Z}\left[  \sqrt{-3}\right]  $ and for $\mathbb{K}%
+=\mathbb{Z}/4$.
 
-Literally speaking, so is Theorem 6.1.5 \textbf{(b)}. The problem is, there is
-only one module over the zero ring (namely, $\left\{  0\right\}  $), but it
-has bases of all sizes: $\left(  0,0,\ldots,0\right)  $ is a basis of this
-module. So two bases of this module can have different sizes.
-
-However, magically, this turns out to be the only counterexample for Theorem
-6.1.5 \textbf{(b)}! More precisely:
-
-\begin{theorem}
-Let $\mathbb{K}$ be a commutative ring with $\left\vert \mathbb{K}\right\vert
->1$. Let $U$ be a $\mathbb{K}$-module. Then, any two bases of $U$ have the
-same size.
-\end{theorem}
-
-This is much harder to prove than the analogue for fields! There is an
-argument using determinants.
-
-More generally, Theorem 6.1.5 \textbf{(c)} also holds over commutative rings
-$\mathbb{K}$ such that $\left\vert \mathbb{K}\right\vert >1$.
-
-Parts \textbf{(d)} and \textbf{(e)} of Theorem 6.1.5 fail for commutative
-rings $\mathbb{K}$:
+Parts \textbf{(d)} and \textbf{(e)} of Theorem 6.1.5 fail even for
+$\mathbb{K}=\mathbb{Z}$ and $n=1$ (so $\mathbb{K}^{1\times1}\cong\mathbb{K}$):
 
 \begin{itemize}
-\item Part \textbf{(d)} fails for $\mathbb{K}=\mathbb{Z}$: The two vectors
-$\left(  1,0\right)  $ and $\left(  0,2\right)  $ in $\mathbb{Z}^{2}$ are
-$\mathbb{Z}$-linearly independent, but you cannot extend them to a basis of
-$\mathbb{Z}^{2}$.
+\item For part \textbf{(d)}: There is a list of $1$ linearly independent
+vector in $\mathbb{Z}$ that cannot be extended to a basis. Namely, $\left(
+2\right)  $.
 
-\item Part \textbf{(e)} fails for $\mathbb{K}=\mathbb{Z}$: The span of the two
-vectors $\left(  2\right)  $ and $\left(  3\right)  $ in $\mathbb{Z}^{1}$ is
-$\mathbb{Z}^{1}$ (since $2\perp3$, so that Bezout's theorem says that $1$ is a
-$\mathbb{Z}$-linear combination of $2$ and $3$; but this entails that every
-integer is a $\mathbb{Z}$-linear combination of $2$ and $3$). But neither of
-these two vectors alone suffices: The span of the vector $\left(  2\right)  $
-is just $\left\{  \text{multiples of }2\right\}  $, whereas the span of the
-vector $\left(  3\right)  $ is just $\left\{  \text{multiples of }3\right\}  $.
+\item For part \textbf{(e)}: There is a list of $2$ vectors in $\mathbb{Z}$
+whose span is $\mathbb{Z}$ yet which cannot be shrunk to a basis. Namely, take
+the list $\left(  2,3\right)  $.
 \end{itemize}
 
-This illustrates the fact that $\mathbb{K}$-modules (where $\mathbb{K}$ is a
-commutative ring) are a much richer structure than just $\mathbb{K}^{n\times
-1}$'s for $n\in\mathbb{N}$.
+What about parts \textbf{(b)} and \textbf{(c)}?
+
+Literally speaking, they fail. If $\mathbb{K}$ is the zero ring, then there is
+only one $\mathbb{K}$-module (namely, $\left\{  0\right\}  $), but it has
+bases of all sizes (indeed, for each $n\in\mathbb{N}$, the $n$-element list
+$\left(  0,0,\ldots,0\right)  $ is a basis).
+
+However, magically, this turns out to be the only counterexample for parts
+\textbf{(b)} and \textbf{(c)}! More precisely, if the ring $\mathbb{K}$ has
+more than $1$ element, then any two bases of a $\mathbb{K}$-module have the
+same size, and given $k$ linearly independent vectors in $U$ and $\ell$
+vectors that span $U$, then $k\leq\ell$.
+
+This is much harder to prove than Theorem 6.1.5. The simplest argument I know
+uses determinants.
 
 \subsection{$\mathbb{K}$-submodules from linear maps}
 
@@ -30649,62 +30636,46 @@ $\mathbb{K}$-module homomorphism (i.e., a $\mathbb{K}$-linear map).
 \left\{  v\in M\ \mid\ f\left(  v\right)  =0\right\}
 \]
 is a $\mathbb{K}$-submodule of $M$. This is called the \textbf{kernel} of $f$,
-and is written $\ker f$ (or $\operatorname*{Ker}f$).
+and is written $\operatorname*{Ker}f$ or $\ker f$.
 
-\textbf{(b)} The set $f\left(  M\right)  =\left\{  f\left(  v\right)
-\ \mid\ v\in M\right\}  $ is a $\mathbb{K}$-submodule of $N$. This is called
-the \textbf{image} of $f$.
+\textbf{(b)} The set $f\left(  M\right)  =\left\{  f\left(  v\right)  \mid
+v\in M\right\}  $ is a $\mathbb{K}$-submodule of $N$. This is called the
+\textbf{image} of $f$.
 
 \textbf{(c)} Let $V$ be a $\mathbb{K}$-submodule of $N$. Then, the set%
 \[
 \left\{  v\in M\ \mid\ f\left(  v\right)  \in V\right\}
 \]
-is a $\mathbb{K}$-submodule of $M$. This is called the \textbf{preimage} of
-$V$, and is written $f^{-1}\left(  V\right)  $.
+is a $\mathbb{K}$-submodule of $M$. This is called the \textbf{preimage of
+}$V$ \textbf{under }$f$, and is written $f^{-1}\left(  V\right)  $.
 
 \textbf{(d)} Let $U$ be a $\mathbb{K}$-submodule of $M$. Then, the set
-$f\left(  U\right)  =\left\{  f\left(  v\right)  \ \mid\ v\in U\right\}  $ is
-a $\mathbb{K}$-submodule of $N$. This is called the \textbf{image of }%
-$U$\textbf{ under }$f$.
+$f\left(  U\right)  =\left\{  f\left(  v\right)  \mid v\in U\right\}  $ is a
+$\mathbb{K}$-submodule of $N$. This is called the \textbf{image of }$U$
+\textbf{under }$f$.
 \end{proposition}
 
 \begin{proof}
-All of these are straightforward. For example, let us do \textbf{(c)}:
-
-\textbf{(c)} We must prove that this set $\left\{  v\in M\ \mid\ f\left(
-v\right)  \in V\right\}  $ contains $0$, is closed under addition, and is
-closed under scaling.
-
-It contains $0$, because $f\left(  0\right)  =0\in V$ (since $V$ is a
-$\mathbb{K}$-submodule of $N$).
-
-It is closed under addition, because if $u,v\in M$ satisfy $f\left(  u\right)
-\in V$ and $f\left(  v\right)  \in V$, then $f\left(  u+v\right)
-=\underbrace{f\left(  u\right)  }_{\in V}+\underbrace{f\left(  v\right)
-}_{\in V}\in V$ (since $V$ is a $\mathbb{K}$-submodule of $N$).
-
-It is closed under scaling, for roughly the same reason.
-
-So Proposition 6.5.4 shows that it is a $\mathbb{K}$-submodule of $M$. This
-proves \textbf{(c)}.
+See notes (in a few hours).
 \end{proof}
 
 \section{Polynomials}
 
-\subsubsection{Motivation}
+\subsection{Motivation}
 
-Back in our proof of Theorem 2.17.14, we used a vague notion of polynomials.
-Let us try and formalize this notion. While at that, we shall also try to
-generalize it from polynomials with rational coefficients to polynomials with
-coefficients in an arbitrary commutative ring.
+Back in our proof of Theorem 2.17.14, we have used a vague notion of
+polynomials. Let us now try to formalize it, and while at that, extend it from
+\textquotedblleft coefficients in $\mathbb{Q}$\textquotedblright\ to
+\textquotedblleft coefficients in any commutative ring $\mathbb{K}%
+$\textquotedblright.
 
-The most \textquotedblleft naive\textquotedblright\ notion of polynomials is
+The most \textquotedblleft naive\textquotedblright\ notion of polynomial is
 that of a polynomial function:
 
 \begin{definition}
 Let $\mathbb{K}$ be a commutative ring. A function $f:\mathbb{K}%
-\rightarrow\mathbb{K}$ is a \textbf{polynomial function} if there exist some
-elements $a_{0},a_{1},\ldots,a_{n}\in\mathbb{K}$ such that every
+\rightarrow\mathbb{K}$ is said to be a \textbf{polynomial function} if there
+exist some elements $a_{0},a_{1},\ldots,a_{n}\in\mathbb{K}$ such that every
 $u\in\mathbb{K}$ satisfies%
 \[
 f\left(  u\right)  =a_{0}u^{0}+a_{1}u^{1}+\cdots+a_{n}u^{n}.
@@ -30712,88 +30683,109 @@ f\left(  u\right)  =a_{0}u^{0}+a_{1}u^{1}+\cdots+a_{n}u^{n}.
 
 \end{definition}
 
-This definition has its uses. In particular, it suffices when you are working
-with real or complex numbers. But when we want polynomials with coefficients
-from other rings, this definition starts showing cracks. In what sense?
+For example, the function%
+\[
+\mathbb{R}\rightarrow\mathbb{R},\ \ \ \ \ \ \ \ \ \ u\mapsto6u^{3}-\dfrac
+{1}{2}u+\sqrt{3}%
+\]
+is a polynomial function.
 
-Here is an example. Recall that we constructed a field with $4$ elements by
-adjoining a $j$ satisfying $j^{2}=j+1$ to $\mathbb{Z}/2$. It would be helpful
-to generalize this: How can we adjoin a root of a polynomial to a ring? In
-particular, if we can do this with polynomials of higher degree than $2$, we
-may hope to be able to construct larger finite fields. For example, what about
-a field of size $8$ ? We would hope to get it by adjoining to $\mathbb{Z}/2$ a
-root of a degree-$3$ polynomial.
+This definition has its uses, and is sufficient as long as you stick to
+$\mathbb{R}$ or $\mathbb{C}$. But when we want polynomials over other rings,
+it shows weaknesses. In what sense?
+
+Here is an example. In Section 5.6, we constructed a field with $4$ elements
+by adjoining a $j$ satisfying $j^{2}=j+1$ to $\mathbb{Z}/2$. In other words,
+we adjoined a root of \textquotedblleft the polynomial\textquotedblright%
+\ $x^{2}-x-1$ to $\mathbb{Z}/2$. How can we adjoin a root of a polynomial to a
+ring? If we can do this with polynomials of higher degree than $2$, we might
+be able to construct larger finite fields. For example, we may hope to get a
+field of size $8$ by adjoining a root of a degree-$3$ polynomial.
 
 So we need a notion of polynomials over $\mathbb{Z}/2$, and we need there to
 be infinitely many of them, ideally at least one of each degree. With
-polynomial functions, we cannot get this. In fact, there are only $4$
-functions from $\mathbb{Z}/2$ to $\mathbb{Z}/2$.
+polynomial functions, this is doomed. In fact, there are only $4$ functions
+from $\mathbb{Z}/2$ to $\mathbb{Z}/2$.
 
-There is yet another reason why polynomial functions are unsuited for this.
-The polynomial function%
+Worse yet, if we treat $x^{2}-x-1$ as a polynomial function $\mathbb{Z}%
+/2\rightarrow\mathbb{Z}/2$, then we realize that it is the same function as
+\textquotedblleft constant $1$\textquotedblright. So when we adjoined a root
+of this polynomial, did we just adjoin a root of $1$ ?
+
+The moral of the story is that when we adjoin a root of a polynomial to a
+field, we are certainly not adjoining a root of a polynomial function. So we
+need a concept of polynomials that is finer than polynomial functions.
+
+Another reason why we want this is: Polynomial functions $\mathbb{K}%
+\rightarrow\mathbb{K}$ can only be applied to elements of $\mathbb{K}$, but we
+want our polynomials to be applied to other things as well (such as square
+matrices or other polynomials).
+
+For example, the polynomial functions%
 \[
-\mathbb{Z}/2\rightarrow\mathbb{Z}/2,\ \ \ \ \ \ \ \ \ \ x\mapsto x^{2}-x-1
+\mathbb{Z}/2\rightarrow\mathbb{Z}/2,\ \ \ \ \ \ \ \ \ \ x\mapsto x^{2}%
 \]
-is actually just the constant-$1$ function. So when we adjoined a root of this
-polynomial, did we just adjoin a root of $1$ ? Hardly.
+and%
+\[
+\mathbb{Z}/2\rightarrow\mathbb{Z}/2,\ \ \ \ \ \ \ \ \ \ x\mapsto x
+\]
+are identical, but if we applied them to the matrix $A=\left(
+\begin{array}
+[c]{cc}%
+0 & 1\\
+0 & 0
+\end{array}
+\right)  \in\left(  \mathbb{Z}/2\right)  ^{2\times2}$, then we would get
+$A^{2}$ and $A$, which are \textbf{not} identical. Thus we cannot apply a
+polynomial function to a square matrix.
 
-The moral of the story for now is that when we adjoin a root of a polynomial
-to a field, we are not adjoining a root of a polynomial function.
+We gave a hint of a better definition of a polynomial in Section 2.17.3,
+defining it as an \textquotedblleft expression\textquotedblright\ involving an
+\textquotedblleft indeterminate\textquotedblright\ $x$. Let us try to make
+this rigorous.
 
-Polynomial functions over $\mathbb{K}$ can only be applied to elements of
-$\mathbb{K}$, but we want a notion of polynomials that can be applied to more
-general things.
-
-For another example of why this is useful, recall that back in linear algebra,
-we want to apply polynomials to square matrices. With polynomial functions,
-this makes no sense: A polynomial function over $\mathbb{R}$ is defined only
-on $\mathbb{R}$, so how can you apply it to a $2\times2$-matrix?
-
-Idea: A polynomial of degree $\leq1$ over $\mathbb{R}$ always looks like
+Idea: A polynomial of degree $\leq1$ over $\mathbb{R}$ always has the form
 $a_{0}+a_{1}x$ (with $a_{0},a_{1}\in\mathbb{R}$), so why not just define it as
-the \textbf{pair} $\left(  a_{0},a_{1}\right)  $ ? Then, we can define
+the \textbf{pair} $\left(  a_{0},a_{1}\right)  $ ? Then, we can define an
 addition on polynomials of degree $\leq1$ by%
 \[
 \left(  a_{0},a_{1}\right)  +\left(  b_{0},b_{1}\right)  =\left(  a_{0}%
 +b_{0},a_{1}+b_{1}\right)  ,
 \]
-and we can define multiplication by%
+imitating the rule%
+\[
+\left(  a_{0}+a_{1}x\right)  +\left(  b_{0}+b_{1}x\right)  =\left(
+a_{0}+b_{0}\right)  +\left(  a_{1}+b_{1}\right)  x.
+\]
+Furthermore, we can define a multiplication on these polynomials by%
 \[
 \left(  a_{0},a_{1}\right)  \cdot\left(  b_{0},b_{1}\right)  =\left(
 a_{0}b_{0},a_{0}b_{1}+a_{1}b_{0},a_{1}b_{1}\right)  ,
 \]
-imitating the \textquotedblleft FOIL\textquotedblright\ rules%
-\begin{align*}
-\left(  a_{0}+a_{1}x\right)  +\left(  b_{0}+b_{1}x\right)    & =\left(
-a_{0}+b_{0}\right)  +\left(  a_{1}+b_{1}\right)
-x\ \ \ \ \ \ \ \ \ \ \text{and}\\
-\left(  a_{0}+a_{1}x\right)  \cdot\left(  b_{0}+b_{1}x\right)    & =a_{0}%
+imitating the \textquotedblleft FOIL\textquotedblright\ rule%
+\[
+\left(  a_{0}+a_{1}x\right)  \cdot\left(  b_{0}+b_{1}x\right)  =a_{0}%
 b_{0}+\left(  a_{0}b_{1}+a_{1}b_{0}\right)  x+a_{1}b_{1}x^{2}.
-\end{align*}
-But notice that multiplication yields a triple, not a pair, so it is not a
-binary operation.
+\]
+But this multiplication yields triples, not pairs, so it is not a binary operation.
 
-We can also consider polynomials of degree $\leq2$, which can be defined as
-triples $\left(  a_{0},a_{1},a_{2}\right)  $, but then multiplication yields a
-$5$-tuple.
-
-So if you want to define polynomials in such a way that they form a ring, you
-should define them not as pairs or triples or $k$-tuples, but rather as
-infinite sequences.
+So, if you want to define polynomials in a way that they would form a ring,
+you should define them not as pairs or triples, but as infinite sequences
+(\textquotedblleft$\infty$-tuples\textquotedblright).
 
 \subsection{The definition of formal power series and polynomials}
 
-An upside of this strategy is that with such a definition, you get a second
-object for free: the \textit{formal power series}.
+An upside of this strategy is that you get a second object for free: the
+\textit{formal power series}.
 
 \begin{convention}
 For the rest of this chapter, we fix a commutative ring $\mathbb{K}$.
 \end{convention}
 
 \begin{definition}
-\textbf{(a)} A \textbf{formal power series} (short \textbf{FPS}) (in $1$
+\textbf{(a)} A \textbf{formal power series} (short: \textbf{FPS}) (in $1$
 indeterminate over $\mathbb{K}$) is defined to be a sequence $\left(
-a_{0},a_{1},a_{2},\ldots\right)  =\left(  a_{n}\right)  _{n\in\mathbb{N}}%
+a_{0},a_{1},a_{2},\ldots\right)  =\left(  a_{i}\right)  _{i\in\mathbb{N}}%
 \in\mathbb{K}^{\mathbb{N}}$ of elements of $\mathbb{K}$.
 
 We let $\mathbb{K}\left[  \left[  x\right]  \right]  $ be the set of all FPSs.
@@ -30813,23 +30805,22 @@ largest $i\in\mathbb{N}$ such that $a_{i}\neq0$. (If no such $i$ exists, then
 we define it to be $-\infty$, which is a symbolic quantity that is understood
 to be smaller than every integer and to satisfy $\left(  -\infty\right)
 +m=-\infty$ for all $m$.)
-
-The degree of $\mathbf{a}$ will be denoted $\deg\mathbf{a}$.
 \end{definition}
 
-So for now, our FPSs are just sequences, with no other meaning; we will later
-see why they can be viewed as \textquotedblleft power series\textquotedblright%
-\ and what the $x$ in \textquotedblleft$\mathbb{K}\left[  \left[  x\right]
-\right]  $\textquotedblright\ means.
+So, for now, our FPSs are just sequences, with no other meaning; we will later
+see why we can actually view them as \textquotedblleft
+series\textquotedblright\ and what the \textquotedblleft$x$\textquotedblright%
+\ means in $\mathbb{K}\left[  \left[  x\right]  \right]  $.
 
 \begin{example}
+For this example, let $\mathbb{K}=\mathbb{Z}$.
+
 \textbf{(a)} The sequence $\left(  1,2,3,4,5,\ldots\right)  $ is a FPS, but
-not a polynomial. We will later write this FPS as $1+2x+3x^{2}+4x^{3}%
-+5x^{4}+\cdots$.
+not a polynomial. We will later write it as $1+2x+3x^{2}+4x^{3}+5x^{4}+\cdots$.
 
 \textbf{(b)} The sequence $\left(  3,0,2,5,\underbrace{0,0,0,0,\ldots
 }_{\text{zeroes}}\right)  $ is a polynomial of degree $3$. We will later write
-this polynomial as $3+2x^{2}+5x^{3}$.
+it as $3+2x^{2}+5x^{3}$.
 \end{example}
 
 \begin{definition}
@@ -30842,30 +30833,7 @@ $\mathbb{K}\left[  \left[  x\right]  \right]  $ by%
 \left(  a_{0},a_{1},a_{2},\ldots\right)  +\left(  b_{0},b_{1},b_{2}%
 ,\ldots\right)  =\left(  a_{0}+b_{0},a_{1}+b_{1},a_{2}+b_{2},\ldots\right)  .
 \]
-(That is, we define an entrywise addition.)
-
-\textbf{(b)} We define a scaling map $\cdot:\mathbb{K}\times\mathbb{K}\left[
-\left[  x\right]  \right]  \rightarrow\mathbb{K}\left[  \left[  x\right]
-\right]  $ by%
-\[
-\lambda\left(  a_{0},a_{1},a_{2},\ldots\right)  =\left(  \lambda a_{0},\lambda
-a_{1},\lambda a_{2},\ldots\right)  .
-\]
-(That is, we define an entrywise scaling.)
-
-\textbf{(c)} We define a binary operation $\cdot$ (called
-\textbf{multiplication}) on $\mathbb{K}\left[  \left[  x\right]  \right]  $ by%
-\[
-\left(  a_{0},a_{1},a_{2},\ldots\right)  \cdot\left(  b_{0},b_{1},b_{2}%
-,\ldots\right)  =\left(  c_{0},c_{1},c_{2},\ldots\right)  ,
-\]
-where
-\[
-c_{n}=\sum_{i=0}^{n}a_{i}b_{n-i}=\sum_{\substack{i,j\in\mathbb{N}%
-;\\i+j=n}}a_{i}b_{j}=a_{0}b_{n}+a_{1}b_{n-1}+\cdots+a_{n}b_{0}%
-\ \ \ \ \ \ \ \ \ \ \text{for all }n\in\mathbb{N}.
-\]
-
+(This is just entrywise addition.)
 \end{definition}
 
 

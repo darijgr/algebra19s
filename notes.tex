@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Friday, April 19, 2019 11:14:45}
+%TCIDATA{LastRevised=Friday, April 19, 2019 14:29:49}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -23811,6 +23811,17 @@ $. Indeed, our definition of a binary operation requires that its output
 belongs to the same domain as its two inputs; this is clearly not true of the
 dot product (since its output is a real number, while its two inputs are vectors).
 
+\item The set $\left\{  a+b\sqrt[3]{2}\ \mid\ a,b\in\mathbb{Z}\right\}  $ is
+not a ring (despite the superficial similarity to $\left\{  a+b\sqrt{2}%
+\ \mid\ a,b\in\mathbb{Z}\right\}  $, which is a ring), at least not if we try
+to use the usual multiplication of real numbers as its multiplication. In
+fact, this multiplication is not a binary operation on this set, because the
+product of $\sqrt[3]{2}$ and $\sqrt[3]{2}$ is not an element of this set.
+
+However, the larger set $\left\{  a+b\sqrt[3]{2}+c\left(  \sqrt[3]{2}\right)
+^{2}\ \mid\ a,b\in\mathbb{Z}\right\}  $ is a ring (endowed with the usual
+addition, the usual multiplication, the usual $0$ and the usual $1$). (Check this!)
+
 \item For each $a,b\in\mathbb{R}$, we let $A_{a,b}$ be the function%
 \[
 \mathbb{R}\rightarrow\mathbb{R},\ \ \ \ \ \ \ \ \ \ x\mapsto ax+b.
@@ -28171,6 +28182,15 @@ $v_{1},v_{2},\ldots,v_{k}$ form a \textit{basis} of $U$ (or, more formally,
 $\left(  v_{1},v_{2},\ldots,v_{k}\right)  $ is a basis of $U$) if and only if
 the vectors $v_{1},v_{2},\ldots,v_{k}$ are linearly independent and their span
 is $U$.
+
+\textbf{(e)} Let $U$ be a subspace of $\mathbb{K}^{1\times n}$. We say that
+the list $\left(  v_{1},v_{2},\ldots,v_{k}\right)  $ \textit{spans} $U$ if and
+only if the span of $v_{1},v_{2},\ldots,v_{k}$ is $U$. (More informally,
+instead of saying \textquotedblleft the list $\left(  v_{1},v_{2},\ldots
+,v_{k}\right)  $ \textit{spans} $U$\textquotedblright, we can say
+\textquotedblleft the vectors $v_{1},v_{2},\ldots,v_{k}$ \textit{span}
+$U$\textquotedblright; of course, this is not the same as saying that each of
+these $k$ vectors on its own spans $U$.)
 \end{definition}
 
 All the terminology we have just introduced depends on $\mathbb{K}$. Whenever
@@ -30562,6 +30582,23 @@ $v_{1},v_{2},\ldots,v_{k}$ form a \textit{basis} of $U$ (or, more formally,
 $\left(  v_{1},v_{2},\ldots,v_{k}\right)  $ is a basis of $U$) if and only if
 the vectors $v_{1},v_{2},\ldots,v_{k}$ are linearly independent and their span
 is $U$.
+
+\textbf{(e)} Let $U$ be a $\mathbb{K}$-submodule of $M$. We say that the list
+$\left(  v_{1},v_{2},\ldots,v_{k}\right)  $ \textit{spans} $U$ if and only if
+the span of $v_{1},v_{2},\ldots,v_{k}$ is $U$. (More informally, instead of
+saying \textquotedblleft the list $\left(  v_{1},v_{2},\ldots,v_{k}\right)  $
+\textit{spans} $U$\textquotedblright, we can say \textquotedblleft the vectors
+$v_{1},v_{2},\ldots,v_{k}$ \textit{span} $U$\textquotedblright; of course,
+this is not the same as saying that each of these $k$ vectors on its own spans
+$U$.)
+
+\textbf{(f)} All the terminology we have just introduced depends on
+$\mathbb{K}$. Whenever the ring $\mathbb{K}$ is not clear from the context,
+you can insert it into this terminology to make it unambiguous: e.g., say
+\textquotedblleft$\mathbb{K}$-linear combination\textquotedblright\ instead of
+\textquotedblleft linear combination\textquotedblright, and \textquotedblleft%
+$\mathbb{K}$-span\textquotedblright\ instead of \textquotedblleft
+span\textquotedblright.
 \end{definition}
 
 \begin{definition}
@@ -30598,53 +30635,67 @@ Theorem \ref{thm.module.vs-has-basis} fails horribly when $\mathbb{K}$ is not
 a field. For example, the $\mathbb{Z}$-module $\mathbb{Z}/2$ has no basis.
 Indeed, the only $\mathbb{Z}$-linearly independent list of vectors in
 $\mathbb{Z}/2$ is the empty list $\left(  {}\right)  $, since any vector in
-$\mathbb{Z}/2$ becomes $0$ when multiplied by the nonzero integer $2$. More
+$\mathbb{Z}/2$ becomes $0$ when scaled by the nonzero integer $2$. More
 generally, if $\mathbb{K}$ is not a field, then there is a $\mathbb{K}$-module
 spanned by a single vector that has no basis.
 
-Submodules of $\mathbb{K}^{1 \times n}$ fare only somewhat better than
+Submodules of $\mathbb{K}^{1\times n}$ fare only somewhat better than
 arbitrary $\mathbb{K}$-modules in terms of having bases. It can be shown that
-every $\mathbb{Z}$-submodule of $\mathbb{Z}^{1 \times n}$ (or, more generally,
+every $\mathbb{Z}$-submodule of $\mathbb{Z}^{1\times n}$ (or, more generally,
 of a $\mathbb{Z}$-module that has a basis) must have a basis; thus, Theorem
-\ref{thm.laf.basis-of-subspace} \textbf{(a)} does hold for $\mathbb{K} =
-\mathbb{Z}$. Theorem \ref{thm.laf.basis-of-subspace} \textbf{(a)} also holds
-for $\mathbb{K} = \mathbb{Z} \left[  i \right] $. (These facts are particular
+\ref{thm.laf.basis-of-subspace} \textbf{(a)} does hold for $\mathbb{K}%
+=\mathbb{Z}$. Theorem \ref{thm.laf.basis-of-subspace} \textbf{(a)} also holds
+for $\mathbb{K}=\mathbb{Z}\left[  i\right]  $. (These facts are particular
 cases of \cite[Theorem 2.1]{Conrad-subPID}.) However, Theorem
-\ref{thm.laf.basis-of-subspace} \textbf{(a)} does not hold for $\mathbb{K} =
-\mathbb{Z}\left[  \sqrt{-3} \right] $ or for $\mathbb{K} = \mathbb{Z} / 4$; in
+\ref{thm.laf.basis-of-subspace} \textbf{(a)} does not hold for $\mathbb{K}%
+=\mathbb{Z}\left[  \sqrt{-3}\right]  $ or for $\mathbb{K}=\mathbb{Z}/4$; in
 both of these cases, we can find $\mathbb{K}$-submodules \textbf{of
-$\mathbb{K}$ itself} that have no basis\footnote{If $\mathbb{K} = \mathbb{Z} /
-2$, then this is easy: Just take the $\mathbb{K}$-submodule $2 \mathbb{K} =
-\left\{  \left[  0 \right] _{4}, \left[  2 \right] _{4} \right\} $ of
-$\mathbb{K}$; it has no basis, since scaling by $2$ sends all of its elements
-to $0$.
+}$\mathbb{K}$\textbf{ itself} that have no basis\footnote{If $\mathbb{K}%
+=\mathbb{Z}/2$, then this is easy: Just take the $\mathbb{K}$-submodule
+$2\mathbb{K}=\left\{  \left[  0\right]  _{4},\left[  2\right]  _{4}\right\}  $
+of $\mathbb{K}$; it has no basis, since scaling by $2$ sends all of its
+elements to $0$.
 \par
-If $\mathbb{K} = \mathbb{Z}\left[  \sqrt{-3} \right] $, then the subset
-$\left\{  a + b \sqrt{-3} \mid a, b \in\mathbb{Z} \text{ satisfying } a \equiv
-b \mod 2 \right\} $ of $\mathbb{K}$ is a $\mathbb{K}$-submodule having no
+If $\mathbb{K}=\mathbb{Z}\left[  \sqrt{-3}\right]  $, then the subset
+$\left\{  a+b\sqrt{-3}\mid a,b\in\mathbb{Z}\text{ satisfying }a\equiv
+b\mod 2\right\}  $ of $\mathbb{K}$ is a $\mathbb{K}$-submodule having no
 basis. This is closely connected to the facts that division with remainder and
 unique factorization into primes do not work in the ring $\mathbb{Z}\left[
-\sqrt{-3} \right] $.}.
+\sqrt{-3}\right]  $.}.
 
 Thus, Theorem \ref{thm.laf.basis-of-subspace} \textbf{(a)} becomes false when
 $\mathbb{K}$ is allowed to be an arbitrary ring. The same can be said of parts
-\textbf{(d)} and \textbf{(e)} of Theorem \ref{thm.laf.basis-of-subspace}:
+\textbf{(d)} and \textbf{(e)} of Theorem \ref{thm.laf.basis-of-subspace};
+indeed, they become false even for $\mathbb{K}=\mathbb{Z}$, $n=1$ and
+$U=\mathbb{Z}^{1\times1}$. Here are examples of their failure (where, for the
+sake of simplicity, we are working not in the $\mathbb{Z}$-module
+$\mathbb{Z}^{1\times1}$, but in the $\mathbb{Z}$-module $\mathbb{Z}$, which is
+isomorphic to it):
 
 \begin{itemize}
-\item Part \textbf{(d)} fails for $\mathbb{K}=\mathbb{Z}$, $n = 2$ and $U =
-\mathbb{Z}^{2}$: The two vectors $\left(  1,0\right)  $ and $\left(
-0,2\right)  $ in $\mathbb{Z}^{2}$ are $\mathbb{Z}$-linearly independent, but
-you cannot extend them to a basis of $\mathbb{Z}^{2}$.
+\item The $1$-element list $\left(  2\right)  $ of vectors in the $\mathbb{Z}%
+$-module $\mathbb{Z}$ (consisting of just the single vector $2\in\mathbb{Z}$)
+is $\mathbb{Z}$-linearly independent (because if $\lambda_{1}\in\mathbb{Z}$
+satisfies $\lambda_{1}\cdot2=0$, then $\lambda_{1}=0$); but you cannot extend
+it to a basis of $\mathbb{Z}$ (since adding any further vector to it would
+break linear independence). Thus, Theorem \ref{thm.laf.basis-of-subspace}
+\textbf{(d)} fails for $\mathbb{K}=\mathbb{Z}$, $n=1$ and $U=\mathbb{Z}%
+^{1\times1}$.
 
-\item Part \textbf{(e)} fails for $\mathbb{K}=\mathbb{Z}$, $n = 1$ and $U [=
-\mathbb{Z}$: The span of the two vectors $\left(  2\right)  $ and $\left(
-3\right)  $ in $\mathbb{Z}^{1}$ is $\mathbb{Z}^{1}$ (since $2\perp3$, so that
-Bezout's theorem says that $1$ is a $\mathbb{Z}$-linear combination of $2$ and
-$3$; but this entails that every integer is a $\mathbb{Z}$-linear combination
-of $2$ and $3$). But neither of these two vectors alone suffices: The span of
-the vector $\left(  2\right)  $ is just $\left\{  \text{multiples of
-}2\right\}  $, whereas the span of the vector $\left(  3\right)  $ is just
-$\left\{  \text{multiples of }3\right\}  $.
+\item The integers $2$ and $3$ are coprime. Hence, Bezout's theorem says that
+$1$ is a $\mathbb{Z}$-linear combination of $2$ and $3$. (This can be proven
+more directly: $1=1\cdot3+\left(  -1\right)  \cdot2$.) This entails that
+\textbf{every} integer is a $\mathbb{Z}$-linear combination of $2$ and $3$. In
+other words, the span of the $2$-element list $\left(  2,3\right)  $ of
+vectors in $\mathbb{Z}$ is $\mathbb{Z}$. But neither of these two vectors
+alone suffices: The span of the $1$-element list $\left(  2\right)  $ is just
+$\left\{  \text{multiples of }2\right\}  $, whereas the span of the
+$1$-element list $\left(  3\right)  $ is just $\left\{  \text{multiples of
+}3\right\}  $. So the $2$-element list $\left(  2,3\right)  $ spans the
+$\mathbb{Z}$-module $\mathbb{Z}$, but cannot be \textquotedblleft
+shrunk\textquotedblright\ to a basis of $\mathbb{Z}$. Therefore, Theorem
+\ref{thm.laf.basis-of-subspace} \textbf{(e)} fails for $\mathbb{K}=\mathbb{Z}%
+$, $n=1$ and $U=\mathbb{Z}^{1\times1}$.
 \end{itemize}
 
 Does Theorem \ref{thm.laf.basis-of-subspace} \textbf{(b)} survive the
@@ -30680,7 +30731,7 @@ structure than just $\mathbb{K}^{n\times1}$'s for $n\in\mathbb{N}$.
 \subsection{\label{sect.la.ker}$\mathbb{K}$-submodules from linear maps}
 
 We defined the kernel of a matrix; we can similarly define the kernel of a
-linear map, and a few more related notions:
+linear map, and a slightly more general notion:
 
 \begin{proposition}
 \label{prop.modhom.ker} Let $M$ and $N$ be two $\mathbb{K}$-modules. Let
@@ -30692,47 +30743,171 @@ $-linear map).
 \left\{  v\in M\ \mid\ f\left(  v\right)  =0\right\}
 \]
 is a $\mathbb{K}$-submodule of $M$. This is called the \textit{kernel} of $f$,
-and is written $\ker f$ (or $\operatorname*{Ker}f$).
+and is written $\operatorname*{Ker}f$ (or $\ker f$).
 
-\textbf{(b)} The set $f\left(  M\right)  =\left\{  f\left(  v\right)
-\ \mid\ v\in M\right\}  $ is a $\mathbb{K}$-submodule of $N$. This is called
-the \textit{image} of $f$.
-
-\textbf{(c)} Let $V$ be a $\mathbb{K}$-submodule of $N$. Then, the set%
+\textbf{(b)} Let $V$ be a $\mathbb{K}$-submodule of $N$. Then, the set%
 \[
 \left\{  v\in M\ \mid\ f\left(  v\right)  \in V\right\}
 \]
 is a $\mathbb{K}$-submodule of $M$. This is called the \textit{preimage of $V$
 under $f$}, and is written $f^{-1}\left(  V\right)  $.
+\end{proposition}
 
-\textbf{(d)} Let $U$ be a $\mathbb{K}$-submodule of $M$. Then, the set
+\begin{proof}
+[Proof of Proposition \ref{prop.modhom.ker}.]\textbf{(b)} Let us denote the
+subset $\left\{  v\in M\ \mid\ f\left(  v\right)  \in V\right\}  $ by
+$f^{-1}\left(  V\right)  $. We must prove that this subset $f^{-1}\left(
+V\right)  $ is a $\mathbb{K}$-submodule of $M$.
+
+According to Definition \ref{def.module.submod.as-subset}, we can achieve this
+by proving that this subset contains $0$, is closed under addition and is
+closed under scaling.
+
+Let us first prove that it contains $0$. Indeed, since $f$ is $\mathbb{K}%
+$-linear, we have $f\left(  0\right)  =0\in V$ (since $V$ is a $\mathbb{K}%
+$-submodule of $N$). Thus, $0\in f^{-1}\left(  V\right)  $ (by the definition
+of $f^{-1}\left(  V\right)  $). In other words, the subset $f^{-1}\left(
+V\right)  $ contains $0$.
+
+Next, let us show that $f^{-1}\left(  V\right)  $ is closed under addition.
+Indeed, let $a,b\in f^{-1}\left(  V\right)  $; we must then prove that $a+b\in
+f^{-1}\left(  V\right)  $.
+
+From $a\in f^{-1}\left(  V\right)  $, we obtain $f\left(  a\right)  \in V$ (by
+the definition of $f^{-1}\left(  V\right)  $). Similarly, $f\left(  b\right)
+\in V$. But $V$ is a $\mathbb{K}$-submodule of $N$ and therefore closed under
+addition; hence, from $f\left(  a\right)  \in V$ and $f\left(  b\right)  \in
+V$, we conclude that $f\left(  a\right)  +f\left(  b\right)  \in V$. But the
+map $f$ is $\mathbb{K}$-linear; thus, $f\left(  a+b\right)  =f\left(
+a\right)  +f\left(  b\right)  \in V$. In other words, $a+b\in f^{-1}\left(
+V\right)  $ (by the definition of $f^{-1}\left(  V\right)  $).
+
+Now, forget that we fixed $a,b$. We thus have proven that all $a,b\in
+f^{-1}\left(  V\right)  $ satisfy $a+b\in f^{-1}\left(  V\right)  $. In other
+words, the subset $f^{-1}\left(  V\right)  $ is closed under addition.
+
+A similar argument shows that $f^{-1}\left(  V\right)  $ is closed under scaling.
+
+Thus, $f^{-1}\left(  V\right)  $ is a $\mathbb{K}$-submodule of $M$ (according
+to Definition \ref{def.module.submod.as-subset}). This proves Proposition
+\ref{prop.modhom.ker} \textbf{(b)}.
+
+\textbf{(a)} It is easy to see that the one-element set $\left\{
+0_{N}\right\}  $ is a $\mathbb{K}$-submodule of $N$. Hence, Proposition
+\ref{prop.modhom.ker} \textbf{(b)} (applied to $V=\left\{  0_{N}\right\}  $)
+yields that the set $\left\{  v\in M\ \mid\ f\left(  v\right)  \in\left\{
+0_{N}\right\}  \right\}  $ is a $\mathbb{K}$-submodule of $M$. But this set is
+precisely $\left\{  v\in M\ \mid\ f\left(  v\right)  =0\right\}  $ (since the
+condition \textquotedblleft$f\left(  v\right)  \in\left\{  0_{N}\right\}
+$\textquotedblright\ on a vector $v\in M$ is equivalent to \textquotedblleft%
+$f\left(  v\right)  =0$\textquotedblright). Hence, we conclude that $\left\{
+v\in M\ \mid\ f\left(  v\right)  =0\right\}  $ is a $\mathbb{K}$-submodule of
+$M$. This proves Proposition \ref{prop.modhom.ker} \textbf{(a)}.
+\end{proof}
+
+A second way to construct $\mathbb{K}$-submodules out of linear maps
+generalizes the column space of a matrix:
+
+\begin{proposition}
+\label{prop.modhom.im} Let $M$ and $N$ be two $\mathbb{K}$-modules. Let
+$f:M\rightarrow N$ be a $\mathbb{K}$-module homomorphism (i.e., a $\mathbb{K}%
+$-linear map).
+
+\textbf{(a)} The set $f\left(  M\right)  =\left\{  f\left(  v\right)
+\ \mid\ v\in M\right\}  $ is a $\mathbb{K}$-submodule of $N$. This is called
+the \textit{image} of $f$.
+
+\textbf{(b)} Let $U$ be a $\mathbb{K}$-submodule of $M$. Then, the set
 $f\left(  U\right)  =\left\{  f\left(  v\right)  \ \mid\ v\in U\right\}  $ is
 a $\mathbb{K}$-submodule of $N$. This is called the \textit{image of }%
 $U$\textit{ under }$f$.
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.modhom.ker}.]All of these are straightforward.
-For example, let us do \textbf{(c)}:
-
-\textbf{(c)} We must prove that this set $\left\{  v\in M\ \mid\ f\left(
-v\right)  \in V\right\}  $ contains $0$, is closed under addition, and is
-closed under scaling.
-
-It contains $0$, because $f\left(  0\right)  =0\in V$ (since $V$ is a
-$\mathbb{K}$-submodule of $N$).
-
-It is closed under addition, because if $u,v\in M$ satisfy $f\left(  u\right)
-\in V$ and $f\left(  v\right)  \in V$, then $f\left(  u+v\right)
-=\underbrace{f\left(  u\right)  }_{\in V}+\underbrace{f\left(  v\right)
-}_{\in V}\in V$ (since $V$ is a $\mathbb{K}$-submodule of $N$).
-
-It is closed under scaling, for roughly the same reason.
-
-So it is a $\mathbb{K}$-submodule of $M$ (according to Definition
-\ref{def.module.submod.as-subset}). This proves Proposition
-\ref{prop.modhom.ker} \textbf{(c)}.
+[Proof of Proposition \ref{prop.modhom.im}.] This is somewhat similar to the
+proof of Proposition \ref{prop.modhom.ker}, and left to the reader.
 \end{proof}
+
+How do the kernel and the image of a linear map generalize the kernel and the
+column space of a matrix? Again, this comes from the correspondence between
+matrices and linear maps:
+
+\begin{remark}
+\label{rmk.modhom.ker=ker}Let $n,m\in\mathbb{N}$. Let $A\in\mathbb{K}^{n\times
+m}$ be an $n\times m$-matrix. Consider the $\mathbb{K}$-linear map $L_{A}$
+defined in Theorem \ref{thm.module.LA}. Then:
+
+\textbf{(a)} The kernel of the map $L_{A}$ is the kernel of the matrix $A$.
+
+\textbf{(b)} The image of the map $L_{A}$ is the column space of the matrix
+$A$.
+
+(Here, we are defining the kernel and the column space of a matrix as we did
+in Definition \ref{def.laf.ker} and Definition \ref{def.laf.rowspace}, but
+without requiring $\mathbb{K}$ to be a field.)
+\end{remark}
+
+\begin{proof}
+[Proof of Remark \ref{rmk.modhom.ker=ker}.] Follows directly from the definitions.
+\end{proof}
+
+The reader may wonder, after we have stressed certain parallels between rings
+and $\mathbb{K}$-modules a few times, whether kernels and images can be
+defined for ring homomorphisms in the same way as we have defined them for
+$\mathbb{K}$-module homomorphisms. The answer is \textquotedblleft
+yes\textquotedblright, of course (after all, rings also have a $0$, just as
+modules do), but the outcome is perhaps somewhat surprising. First, let us
+show the analogue of Proposition \ref{prop.modhom.im} for rings:
+
+\begin{proposition}
+\label{prop.rihom.im} Let $\mathbb{K}$ and $\mathbb{L}$ be two rings. Let
+$f:\mathbb{K}\rightarrow\mathbb{L}$ be a ring homomorphism.
+
+\textbf{(a)} The set $f\left(  \mathbb{K}\right)  =\left\{  f\left(  v\right)
+\ \mid\ v\in\mathbb{K}\right\}  $ is a subring of $\mathbb{L}$. This is called
+the \textit{image} of $f$.
+
+\textbf{(b)} Let $\mathbb{U}$ be a subring of $\mathbb{K}$. Then, the set
+$f\left(  \mathbb{U}\right)  =\left\{  f\left(  v\right)  \ \mid
+\ v\in\mathbb{U}\right\}  $ is a subring of $\mathbb{L}$. This is called the
+\textit{image of }$\mathbb{U}$\textit{ under }$f$.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.rihom.im}.] This is similar to the proof of
+Proposition \ref{prop.modhom.im}.
+\end{proof}
+
+Next, we can define the kernel of a ring homomorphism by imitating Proposition
+\ref{prop.modhom.ker}; but this kernel will almost never be a subring (as it
+will almost never contain $1$). Instead, it will be a $\mathbb{K}$-submodule
+of $\mathbb{K}$ (remember that $\mathbb{K}$ itself is a $\mathbb{K}$-module!).
+So the analogue of Proposition \ref{prop.modhom.ker} is the following:
+
+\begin{proposition}
+\label{prop.rihom.ker} Let $\mathbb{K}$ and $\mathbb{L}$ be two rings. Let
+$f:\mathbb{K}\rightarrow\mathbb{L}$ be a ring homomorphism.
+
+\textbf{(a)} The set%
+\[
+\left\{  v\in\mathbb{K}\ \mid\ f\left(  v\right)  =0\right\}
+\]
+is a $\mathbb{K}$-submodule of $\mathbb{K}$. This is called the
+\textit{kernel} of $f$, and is written $\operatorname*{Ker}f$ (or $\ker f$).
+
+\textbf{(b)} Let $V$ be an $\mathbb{L}$-submodule of $\mathbb{L}$. Then, the
+set%
+\[
+\left\{  v\in\mathbb{K}\ \mid\ f\left(  v\right)  \in V\right\}
+\]
+is a $\mathbb{K}$-submodule of $\mathbb{K}$. This is called the
+\textit{preimage of $V$ under $f$}, and is written $f^{-1}\left(  V\right)  $.
+\end{proposition}
+
+If $\mathbb{K}$ is a commutative ring, then the $\mathbb{K}$-submodules of
+$\mathbb{K}$ have a special name; they are called the \textit{ideal} of
+$\mathbb{K}$. So the kernel of a ring homomorphism is always an ideal. (And
+conversely, every ideal can be written as the kernel of a ring homomorphism.)
 
 \section{\label{chp.pol}Polynomials}
 
@@ -30759,7 +30934,7 @@ f\left(  u\right)  =a_{0}u^{0}+a_{1}u^{1}+\cdots+a_{n}u^{n}.
 
 For example, the function
 \[
-\mathbb{R} \to\mathbb{R}, \qquad u \mapsto6x^{3} - \dfrac{1}{2} x + \sqrt{3}
+\mathbb{R}\rightarrow\mathbb{R},\qquad u\mapsto6u^{3}-\dfrac{1}{2}u+\sqrt{3}%
 \]
 is a polynomial function.
 
@@ -30800,90 +30975,129 @@ to a field, we certainly are not adjoining a root of a polynomial function. So
 we have at least one reason to want a concept of polynomials that is finer
 than that of polynomial functions.
 
-Here is another reason: Polynomial functions over $\mathbb{K}$ can only be
-applied to elements of $\mathbb{K}$ (because they are defined as functions
-from $\mathbb{K}$), but we want a notion of polynomials that can be applied to
-more general things (such as square matrices or other polynomials).
+Here is another reason: Polynomial functions from $\mathbb{K}$ to $\mathbb{K}$
+can only be applied to elements of $\mathbb{K}$ (because they are defined as
+functions from $\mathbb{K}$), but we want a notion of polynomials that can be
+applied to more general things (such as square matrices or other polynomials).
 
 For example, in linear algebra, it is extremely useful to apply polynomials to
 square matrices. With polynomial functions, this makes no sense: A polynomial
 function over $\mathbb{R}$ is defined only on $\mathbb{R}$, so how can you
 apply it to a $2\times2$-matrix? Once again, the discrepancy becomes the most
-obvious over a finite field: The two polynomial functions $\mathbb{Z}/2
-\to\mathbb{Z}/2, \ x \mapsto x^{2}$ and $\mathbb{Z}/2 \to\mathbb{Z}/2, \ x
-\mapsto x$ are identical (since $x^{2} = x$ for all $x \in\mathbb{Z}/2$); but
-the matrix $A =
+obvious over a finite field: The two polynomial functions $\mathbb{Z}%
+/2\rightarrow\mathbb{Z}/2,\ x\mapsto x^{2}$ and $\mathbb{Z}/2\rightarrow
+\mathbb{Z}/2,\ x\mapsto x$ are identical (since $x^{2}=x$ for all
+$x\in\mathbb{Z}/2$); but the matrix $A=\left(
 \begin{array}
 [c]{cc}%
 0 & 1\\
 0 & 0
 \end{array}
-\in\left(  \mathbb{Z}/2 \right) ^{2 \times2}$ does not satisfy $A^{2} = A$. So
-if we apply these two identical polynomial functions to $A$, we should obtain
-two different results, which is absurd.
+\right)  \in\left(  \mathbb{Z}/2\right)  ^{2\times2}$ does not satisfy
+$A^{2}=A$. So if there was a way to apply these two identical polynomial
+functions to $A$, then we should obtain two different results, which is
+absurd. Thus, it makes no sense to apply a polynomial function $\mathbb{Z}%
+/2\rightarrow\mathbb{Z}/2$ to a square matrix over $\mathbb{Z}/2$.
 
-Thus, we need a finer definition of a polynomial which doesn't just remember
+Hence, we need a finer definition of a polynomial which doesn't just remember
 its values on the elements of $\mathbb{K}$, but remembers all its
 coefficients. So we need to bake the coefficients into the definition.
 
 We already gave a hint of such a definition in Section
 \ref{subsect.ent.vandermonde}, where we said that a polynomial (in $1$
-variable $x$, with rational coefficients) is an ``expression'' (whatever this
-means) of the form $a_{k} x^{k} + a_{k-1} x^{k-1} + \cdots+ a_{0}$, where
-$a_{k}, a_{k-1}, \ldots, a_{0}$ are (fixed) rational numbers and where $x$ is
-an ``indeterminate'' (a symbol that itself does not stand for a number, but we
-can substitute a number for). This was vague (what exactly is an
-``expression''?) but a step in the right direction. So, in order to generalize
-it to an arbitrary commutative ring $\mathbb{K}$, we just replace ``rational
-numbers'' by ``elements of $\mathbb{K}$''. But how do we make the notion of
-``expression'' rigorous?
+variable $x$, with rational coefficients) is an \textquotedblleft
+expression\textquotedblright\ (whatever this means) of the form $a_{k}%
+x^{k}+a_{k-1}x^{k-1}+\cdots+a_{0}$, where $a_{k},a_{k-1},\ldots,a_{0}$ are
+(fixed) rational numbers and where $x$ is an \textquotedblleft
+indeterminate\textquotedblright\ (a symbol that itself does not stand for a
+number, but we can substitute a number for). This was vague (what exactly is
+an \textquotedblleft expression\textquotedblright?) but a step in the right
+direction. We can, of course, generalize this informal definition to an
+arbitrary commutative ring $\mathbb{K}$ by replacing \textquotedblleft
+rational numbers\textquotedblright\ by \textquotedblleft elements of
+$\mathbb{K}$\textquotedblright. But how do we make the notion of
+\textquotedblleft expression\textquotedblright\ rigorous?
 
-Idea: A polynomial of degree $\leq1$ over $\mathbb{R}$ always looks like
-$a_{0}+a_{1}x$ (with $a_{0},a_{1}\in\mathbb{R}$), so why not just define it as
-the \textbf{pair} $\left(  a_{0},a_{1}\right)  $ ? Then, we can define
-addition on polynomials of degree $\leq1$ by%
+The idea is to forget (at first) about the specific form of the expression
+$a_{k}x^{k}+a_{k-1}x^{k-1}+\cdots+a_{0}$ and simply store the coefficients
+$a_{0},a_{1},\ldots,a_{k}$ appearing in it in a list.
+
+For example, let us consider polynomials of degree $\leq1$ over $\mathbb{R}$.
+These always have the form $a_{0}+a_{1}x$ (with $a_{0},a_{1}\in\mathbb{R}$),
+so we can simply define them as \textbf{pairs} $\left(  a_{0},a_{1}\right)  $
+of real numbers $a_{0}$ and $a_{1}$. (This is analogous to Definition
+\ref{def.CC.CC}, where we defined a complex number as a pair of real numbers
+rather than trying to treat them as \textquotedblleft expressions involving
+$i$\textquotedblright.) Next, we define an addition operation $+$ on
+polynomials of degree $\leq1$ by setting
+
+Then, we can define an addition on polynomials of degree $\leq1$ by setting%
 \[
 \left(  a_{0},a_{1}\right)  +\left(  b_{0},b_{1}\right)  =\left(  a_{0}%
 +b_{0},a_{1}+b_{1}\right)  ,
 \]
-and we can define multiplication by%
+which of course imitates the \textquotedblleft computation\textquotedblright%
+\[
+\left(  a_{0}+a_{1}x\right)  +\left(  b_{0}+b_{1}x\right)  =\left(
+a_{0}+b_{0}\right)  +\left(  a_{1}+b_{1}\right)  x.
+\]
+Furthermore, we define a multiplication on these polynomials by setting%
 \[
 \left(  a_{0},a_{1}\right)  \cdot\left(  b_{0},b_{1}\right)  =\left(
 a_{0}b_{0},a_{0}b_{1}+a_{1}b_{0},a_{1}b_{1}\right)  ,
 \]
-imitating the \textquotedblleft FOIL\textquotedblright\ rules%
-\begin{align*}
-\left(  a_{0}+a_{1}x\right)  +\left(  b_{0}+b_{1}x\right)   &  =\left(
-a_{0}+b_{0}\right)  +\left(  a_{1}+b_{1}\right)
-x\ \ \ \ \ \ \ \ \ \ \text{and}\\
-\left(  a_{0}+a_{1}x\right)  \cdot\left(  b_{0}+b_{1}x\right)   &  =a_{0}%
+which imitates the \textquotedblleft FOIL\textquotedblright\ rule%
+\[
+\left(  a_{0}+a_{1}x\right)  \cdot\left(  b_{0}+b_{1}x\right)  =a_{0}%
 b_{0}+\left(  a_{0}b_{1}+a_{1}b_{0}\right)  x+a_{1}b_{1}x^{2}.
-\end{align*}
-But notice that multiplication yields a triple, not a pair, so it is not a
-binary operation.
+\]
+However, this multiplication yields a triple, not a pair, so it is not a
+binary operation. So our polynomials of degree $\leq1$ do not form a ring;
+their multiplication takes us out of their set.
 
-We can also consider polynomials of degree $\leq2$, which can be defined as
-triples $\left(  a_{0},a_{1},a_{2}\right)  $, but then multiplication yields a
-$5$-tuple.
+We can likewise consider polynomials of degree $\leq2$, which can be defined
+as triples $\left(  a_{0},a_{1},a_{2}\right)  $, but then multiplication
+yields a $5$-tuple rather than a triple.
 
-So if you want to define polynomials in such a way that they form a ring, you
-should define them not as pairs or triples or $k$-tuples, but rather as
-infinite sequences.
+More generally: For each $n\in\mathbb{N}$, we can define polynomials of degree
+$\leq n$ as $\left(  n+1\right)  $-tuples $\left(  a_{0},a_{1},\ldots
+,a_{n}\right)  $, and define addition and multiplication on them, but the
+multiplication will result in $\left(  2n+1\right)  $-tuples rather than
+$\left(  n+1\right)  $-tuples.
+
+Hence, if we want to define polynomials in such a way that they form a ring,
+we should define them not as pairs or triples or $\left(  n+1\right)
+$-tuples, but rather as infinite sequences. In other words, we should define a
+polynomial as an infinite sequence $\left(  a_{0},a_{1},a_{2},\ldots\right)
+$, which will encode the \textquotedblleft expression\textquotedblright%
+\ $a_{0}+a_{1}x+a_{2}x^{2}+\cdots$. However, not every sequence stands for a
+polynomial; after all, we want polynomials to be \textbf{finite} expressions,
+so the sum $a_{0}+a_{1}x+a_{2}x^{2}+\cdots$ needs to be finite (in the sense
+that all but finitely many of its addends are $0$) in order for it to qualify
+as a polynomial. Thus, our polynomials should be defined as infinite sequences
+$\left(  a_{0},a_{1},a_{2},\ldots\right)  $ that have only finitely many
+nonzero entries.
+
+An upside of this strategy is that with such a definition, we get a second
+object for free: the \textit{formal power series}. Those are just going to be
+\textbf{all} infinite sequences $\left(  a_{0},a_{1},a_{2},\ldots\right)  $,
+including the ones that have infinitely many nonzero entries. We will see that
+the same rules by which we define addition and multiplication of polynomials
+can be used to define these operations on formal power series.
 
 \subsection{The definition of formal power series and polynomials}
 
-An upside of this strategy is that with such a definition, you get a second
-object for free: the \textit{formal power series}.
+Let us now explicitly state the definitions we have been working towards.
 
 \begin{convention}
 For the rest of this chapter, we fix a commutative ring $\mathbb{K}$.
 \end{convention}
 
 \begin{definition}
-\textbf{(a)} A \textit{formal power series} (in $1$ indeterminate over
-$\mathbb{K}$) is defined to be a sequence $\left(  a_{0},a_{1},a_{2}%
-,\ldots\right)  =\left(  a_{n}\right)  _{n\in\mathbb{N}}\in\mathbb{K}%
-^{\mathbb{N}}$ of elements of $\mathbb{K}$.
+\label{def.pol.pol}\textbf{(a)} A \textit{formal power series} (in $1$
+indeterminate over $\mathbb{K}$) is defined to be a sequence $\left(
+a_{0},a_{1},a_{2},\ldots\right)  =\left(  a_{n}\right)  _{n\in\mathbb{N}}%
+\in\mathbb{K}^{\mathbb{N}}$ of elements of $\mathbb{K}$.
 
 We abbreviate the words \textquotedblleft formal power
 series\textquotedblright\ as \textquotedblleft\textit{FPS}\textquotedblright.
@@ -30915,6 +31129,8 @@ see why they can be viewed as \textquotedblleft power series\textquotedblright%
 \right]  $\textquotedblright\ means.
 
 \begin{example}
+In this example, let $\mathbb{K}=\mathbb{Z}$.
+
 \textbf{(a)} The sequence $\left(  1,2,3,4,5,\ldots\right)  $ is a FPS, but
 not a polynomial. We will later write this FPS as $1+2x+3x^{2}+4x^{3}%
 +5x^{4}+\cdots$.
