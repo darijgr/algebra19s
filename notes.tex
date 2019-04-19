@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Friday, April 19, 2019 14:29:49}
+%TCIDATA{LastRevised=Friday, April 19, 2019 15:25:13}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -23595,15 +23595,17 @@ follows: The bijection%
 -a
 \]
 satisfies%
-\begin{align*}
+\begin{align}
 \varphi\left(  a+b\right)   &  =\varphi\left(  a\right)  +\varphi\left(
-b\right)  \ \ \ \ \ \ \ \ \ \ \text{for all }a,b\in\mathbb{Z};\\
+b\right)  \ \ \ \ \ \ \ \ \ \ \text{for all }a,b\in\mathbb{Z}%
+;\label{eq.exa.ring.ZZ'.phi.1}\\
 \varphi\left(  ab\right)   &  =\varphi\left(  a\right)  \widetilde{\times
 }\varphi\left(  b\right)  \ \ \ \ \ \ \ \ \ \ \text{for all }a,b\in
-\mathbb{Z};\\
-\varphi\left(  0\right)   &  =0;\\
-\varphi\left(  1\right)   &  =-1=1_{\mathbb{Z}^{\prime}}.
-\end{align*}
+\mathbb{Z};\label{eq.exa.ring.ZZ'.phi.2}\\
+\varphi\left(  0\right)   &  =0;\label{eq.exa.ring.ZZ'.phi.3}\\
+\varphi\left(  1\right)   &  =-1=1_{\mathbb{Z}^{\prime}}%
+.\label{eq.exa.ring.ZZ'.phi.4}%
+\end{align}
 Thus, we can view $\varphi$ as a way of relabelling the integers so that data
 $+,\cdot,0,1$ of $\mathbb{Z}$ become the data $+,\widetilde{\times
 },0,1_{\mathbb{Z}^{\prime}}$ of $\mathbb{Z}^{\prime}$. We will later call
@@ -26288,6 +26290,26 @@ $f\left(  1_{\mathbb{K}}\right)  =1_{\mathbb{L}}$.)
 \end{definition}
 
 \begin{remark}
+The statement \textquotedblleft$f\left(  a+b\right)  =f\left(  a\right)
++f\left(  b\right)  $\textquotedblright\ in Definition \ref{def.riho.riho}
+should, of course, be understood as \textquotedblleft$f\left(  a+_{\mathbb{K}%
+}b\right)  =f\left(  a\right)  +_{\mathbb{L}}f\left(  b\right)  $%
+\textquotedblright. Likewise, the statement \textquotedblleft$f\left(
+ab\right)  =f\left(  a\right)  f\left(  b\right)  $\textquotedblright\ should
+be understood as \textquotedblleft$f\left(  a\cdot_{\mathbb{K}}b\right)
+=f\left(  a\right)  \cdot_{\mathbb{L}}f\left(  b\right)  $\textquotedblright.
+In Definition \ref{def.riho.riho}, we could afford omitting the
+\textquotedblleft$_{\mathbb{K}}$\textquotedblright\ and \textquotedblleft%
+$_{\mathbb{L}}$\textquotedblright\ subscripts under the \textquotedblleft%
+$+$\textquotedblright\ and \textquotedblleft$\cdot$\textquotedblright\ signs
+because it is always clear whether the things being added (or multiplied) are
+in $\mathbb{K}$ or in $\mathbb{L}$; but in many practical situations we do not
+have such luxury (for example, because $\mathbb{K}$ and $\mathbb{L}$ have
+elements in common) and thus need to include these subscripts. (See Example
+\ref{exa.riiso.ZZ'} for an example of such a situation.)
+\end{remark}
+
+\begin{remark}
 \label{rmk.riho.0-free}The axiom \textbf{(b)} in Definition
 \ref{def.riho.riho} is redundant -- it follows from axiom \textbf{(a)}.
 \end{remark}
@@ -26799,6 +26821,27 @@ Thus, the map $f^{-1}:\mathbb{L}\rightarrow\mathbb{K}$ satisfies all four
 axioms for a ring homomorphism. Hence, $f^{-1}$ is a ring homomorphism. Thus,
 $f$ is a ring isomorphism (by the definition of a ring isomorphism).
 \end{proof}
+
+\begin{example}
+\label{exa.riiso.ZZ'}Recall the ring $\mathbb{Z}^{\prime}$ introduced in
+Section \ref{sect.ring.exa}. It is the \textbf{set} $\mathbb{Z}$, endowed with
+the usual addition $+$ and the unusual multiplication $\widetilde{\times}$ and
+the elements $0_{\mathbb{Z}^{\prime}}=0$ and $1_{\mathbb{Z}^{\prime}}=-1$.
+
+As we have suggested back in that section, this ring $\mathbb{Z}^{\prime}$ is
+simply a relabelled version of $\mathbb{Z}$. We now have the proper language
+for this: The map%
+\[
+\varphi:\mathbb{Z}\rightarrow\mathbb{Z}^{\prime},\ \ \ \ \ \ \ \ \ \ a\mapsto
+-a
+\]
+is a ring isomorphism. This can easily be checked using Proposition
+\ref{prop.riiso.invertible}, since this map $\varphi$ is invertible (actually,
+$\varphi\circ\varphi=\operatorname*{id}$), and since $\varphi$ is a ring
+homomorphism (because of (\ref{eq.exa.ring.ZZ'.phi.1}),
+(\ref{eq.exa.ring.ZZ'.phi.2}), (\ref{eq.exa.ring.ZZ'.phi.3}) and
+(\ref{eq.exa.ring.ZZ'.phi.4})).
+\end{example}
 
 \begin{center}
 \textbf{2019-04-08 lecture}
@@ -30824,7 +30867,7 @@ $U$\textit{ under }$f$.
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.modhom.im}.] This is somewhat similar to the
+[Proof of Proposition \ref{prop.modhom.im}.]This is somewhat similar to the
 proof of Proposition \ref{prop.modhom.ker}, and left to the reader.
 \end{proof}
 
@@ -30848,7 +30891,7 @@ without requiring $\mathbb{K}$ to be a field.)
 \end{remark}
 
 \begin{proof}
-[Proof of Remark \ref{rmk.modhom.ker=ker}.] Follows directly from the definitions.
+[Proof of Remark \ref{rmk.modhom.ker=ker}.]Follows directly from the definitions.
 \end{proof}
 
 The reader may wonder, after we have stressed certain parallels between rings
@@ -30874,7 +30917,7 @@ $f\left(  \mathbb{U}\right)  =\left\{  f\left(  v\right)  \ \mid
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.rihom.im}.] This is similar to the proof of
+[Proof of Proposition \ref{prop.rihom.im}.]This is similar to the proof of
 Proposition \ref{prop.modhom.im}.
 \end{proof}
 
@@ -31087,7 +31130,10 @@ can be used to define these operations on formal power series.
 
 \subsection{The definition of formal power series and polynomials}
 
-Let us now explicitly state the definitions we have been working towards.
+Let us now explicitly state the definitions we have been working towards. We
+shall only define polynomials (and formal power series) in $1$ indeterminate;
+there is a version that involves multiple indeterminates, but for now we
+restrict ourselves to one.
 
 \begin{convention}
 For the rest of this chapter, we fix a commutative ring $\mathbb{K}$.
@@ -31120,7 +31166,7 @@ we define it to be $-\infty$, which is a symbolic quantity that is understood
 to be smaller than every integer and to satisfy $\left(  -\infty\right)
 +m=-\infty$ for all $m$.)
 
-The degree of $\mathbf{a}$ will be denoted $\deg\mathbf{a}$.
+The degree of a polynomial $\mathbf{a}$ will be denoted $\deg\mathbf{a}$.
 \end{definition}
 
 So for now, our FPSs are just sequences, with no other meaning; we will later
