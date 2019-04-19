@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Thursday, April 18, 2019 23:48:05}
+%TCIDATA{LastRevised=Friday, April 19, 2019 00:52:55}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -24199,7 +24199,7 @@ of }a\right\}  =\left\{  a+aci\ \mid\ a,c\in\mathbb{Z}\right\}  .
 Is $S_{3}$ a subring of $\mathbb{Z}\left[  i\right]  $ ? The subset $S_{3}$
 does contain both $0$ and $1$ and is closed under additive inverses; but
 $S_{3}$ is not closed under addition (nor under multiplication). Thus, $S_{3}$
-is not a subring of $\mathbb{Z}\left[  i\right]  $. (For a concerte example:
+is not a subring of $\mathbb{Z}\left[  i\right]  $. (For a concrete example:
 The numbers $1+2i$ and $1+3i$ both belong to $S_{3}$, but their sum $2+5i$
 does not.)
 
@@ -28877,7 +28877,7 @@ to the first (viz., theorems about vector spaces can often be proven by
 \textquotedblleft picking bases\textquotedblright\ and representing linear
 maps by matrices with respect to these bases). Thus, a sufficiently deep
 course on linear algebra will necessarily survey both of these approaches, and
-practitioners of the subjects will often apply whichever approach fits a
+practitioners of the subject will often apply whichever approach fits a
 problem better.
 
 In the previous section, we have seen how the first approach can be
@@ -28951,6 +28951,9 @@ a\right)  $ for all $\lambda,\mu\in\mathbb{K}$ and $a\in M$.
 
 \noindent These ten axioms are called the \textit{module axioms}.
 \end{definition}
+
+A $\mathbb{K}$-module is often called a \textquotedblleft module over
+$\mathbb{K}$\textquotedblright.
 
 \begin{definition}
 \label{def.module.vectors}If $\mathbb{K}$ is a commutative ring and $M$ is a
@@ -30595,23 +30598,96 @@ rescue (not in this course, though).
 
 \begin{itemize}
 \item kernels and images of linear maps.
-
-\item Congruences modulo a submodule.
-
-\item Quotient modules.
-
-\item Example: $\mathbb{Z}/n\cong\mathbb{Z}/n\mathbb{Z}$.
-
-\item universal property of quotient module.
-
-\item rank-nullity theorem.
 \end{itemize}
 
 \subsection{Polynomials}
 
 \begin{itemize}
+\item Define polynomial functions (the \textquotedblleft
+naive\textquotedblright\ version of polynomials).
+
+\item Why don't just content ourselves with polynomial functions?
+
+\item Recall that we constructed a field with $4$ elements by adjoining a $j$
+satisfying $j^{2}=j+1$ to $\mathbb{Z}/2$.
+
+More generally: Hope to get bigger fields by adjoining roots of other polynomials.
+
+But adjoining a root of a polynomial \textbf{function} makes no sense (and
+clearly cannot be fixed: there are only $4$ polynomial functions
+$\mathbb{Z}/2\rightarrow\mathbb{Z}/2$, so we do not get enough polynomial functions).
+
+For example, the polynomial function $\mathbb{Z}/2\rightarrow\mathbb{Z}%
+/2,\ x\mapsto x^{2}-x-1$ is constantly $1$, and it is a bad idea to adjoin a
+root of $1$ to a field.
+
+\item The upshot is: Polynomials over $\mathbb{K}$ aren't meant only to be
+applied to elements of $\mathbb{K}$.
+
+\item Another reason for this is that we want to apply polynomials to
+matrices. Now, $x^{2}=x$ as polynomial functions over $\mathbb{Z}/2$, but
+$\left(
+\begin{array}
+[c]{cc}%
+0 & 1\\
+0 & 0
+\end{array}
+\right)  ^{2}\neq\left(
+\begin{array}
+[c]{cc}%
+0 & 1\\
+0 & 0
+\end{array}
+\right)  $ (even over $\mathbb{Z}/2$).
+
+\item If two polynomial functions over $\mathbb{Q}$ are equal on all of
+$\mathbb{Q}$, then their coefficients are equal. But this is not true for
+$\mathbb{Z}/2$. So we want to bake the coefficients into the definition of a
+polynomial rather than just require their existence!
+
+\item Another reason to give a coefficient-based definition of a polynomial is
+that the same definition can be used to define formal power series
+(\textquotedblleft infinite\textquotedblright\ polynomials)! So we get another
+important object basically for free.
+
 \item ...
 \end{itemize}
+
+\subsection{Quotient constructions}
+
+\begin{itemize}
+\item Congruences modulo an element of $\mathbb{K}$ (generalizing $\mathbb{Z}$
+and $\mathbb{Z}\left[  i\right]  $).
+
+\item $\mathbb{K}/a$ instead of $\mathbb{Z}/n$ (both as ring and a
+$\mathbb{K}$-module).
+
+\item Congruence $\underset{N}{\equiv}$ modulo a submodule $M$ of $N$.
+
+\item Quotient module $N/M$.
+
+\item A submodule of $\mathbb{K}$ itself is called an \textit{ideal} of
+$\mathbb{K}$.
+
+\item The congruence $\underset{aK}{\equiv}$ is precisely $\underset{a}{\equiv
+}$. The quotient $\mathbb{K}/a\mathbb{K}$ is $\mathbb{K}/a$. For example,
+$\mathbb{Z}/n=\mathbb{Z}/n\mathbb{Z}$.
+
+\item More generally, $\underset{I}{\equiv}$ yields a ring when $I$ is an
+ideal of $\mathbb{K}$.
+
+\item Universal property of quotient module.
+
+\item If $f:U\rightarrow V$ a $\mathbb{K}$-module homomorphism, then iso
+$U/\operatorname*{Ker}f\rightarrow f\left(  U\right)  ,\ \left[  u\right]
+_{\operatorname*{Ker}f}\mapsto f\left(  u\right)  $.
+
+\item Conclude the rank-nullity theorem.
+
+\item Now, use this for field extension.
+\end{itemize}
+
+...
 
 \section{Solutions to the exercises}
 
