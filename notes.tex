@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Wednesday, April 17, 2019 14:12:23}
+%TCIDATA{LastRevised=Thursday, April 18, 2019 19:12:46}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -4725,15 +4725,15 @@ combination of $b_{1},b_{2},\ldots,b_{k}$.
 [Proof of Theorem \ref{thm.ent.gcd.bezout-mul'}.]We shall prove this by
 induction on $k$:
 
-\textit{Induction base:} Recall that the empty list $\left(  {}\right)  $
-satisfies $\gcd\left(  {}\right)  =0$ (by Definition \ref{def.ent.gcd.gcd},
-since all entries of the empty list are $0$). But $0$ is a $\mathbb{Z}$-linear
+\textit{Induction base:} The empty list $\left(  {}\right)  $ satisfies
+$\gcd\left(  {}\right)  =0$ (by Definition \ref{def.ent.gcd.gcd}, since all
+entries of the empty list are $0$). But $0$ is a $\mathbb{Z}$-linear
 combination of an empty list of numbers, because $0=\left(  \text{empty
-sum}\right)  $. Combining these facts, we conclude that $\gcd\left(
-{}\right)  $ is a $\mathbb{Z}$-linear combination of an empty list of numbers.
-But this is precisely the claim of Theorem \ref{thm.ent.gcd.bezout-mul'} for
-$k=0$. Thus, Theorem \ref{thm.ent.gcd.bezout-mul'} holds for $k=0$. This
-completes the induction base.
+sum}\right)  $. In other words, $\gcd\left(  {}\right)  $ is a $\mathbb{Z}%
+$-linear combination of an empty list of numbers (since $\gcd\left(
+{}\right)  =0$). But this is precisely the claim of Theorem
+\ref{thm.ent.gcd.bezout-mul'} for $k=0$. Thus, Theorem
+\ref{thm.ent.gcd.bezout-mul'} holds for $k=0$. This completes the induction base.
 
 \textit{Induction step:} Let $\ell$ be a positive integer. Assume that Theorem
 \ref{thm.ent.gcd.bezout-mul'} holds for $k=\ell-1$. We must prove that Theorem
@@ -6709,18 +6709,43 @@ change the table (because all multiples of $d$ have already been removed
 before this step). Thus, we do not need to make this step.
 
 \item If $d\in\left\{  2,3,\ldots,30\right\}  $ satisfies $d^{2}>30$, then
-Step $d$ will not change the table (because if $m\in\left\{  2,3,\ldots
-,30\right\}  $ is a multiple of $d$ that is larger than $d$, then $m$ is also
-a multiple of the integer $m/d$ as well (since $d\mid m$ and thus
-$m/d\in\mathbb{Z}$ and of course $m/d\mid m$), and therefore $m$ has already
-been removed in Step $m/d$ (which has already happened before Step $d$
-(because $d^{2}>30\geq m$ and therefore $d>m/d$)). Thus, we only need to take
+Step $d$ will not change the table\footnotemark. Thus, we only need to take
 the Steps $d$ with $d^{2}\leq30$.
 \end{itemize}
 
 Together, these tricks tell us that the only steps we need to take are the
 Steps 2, 3 and 5.
 \end{example}
+
+\footnotetext{\textit{Proof.} Let $d\in\left\{  2,3,\ldots,30\right\}  $ be
+such that $d^{2}>30$. We must show that Step $d$ will not change the table.
+\par
+Indeed, at Step $d$, we remove all multiples of $d$ that are larger than $d$
+from our table. But all these multiples (at least the ones that appear in our
+table) have already been removed from this table before Step $d$.
+\par
+Here is why: Let $m\in\left\{  2,3,\ldots,30\right\}  $ be a multiple of $d$
+that is larger than $d$. Then, $d\mid m$ (since $m$ is a multiple of $d$) and
+thus $m/d\in\mathbb{Z}$. Hence, $m/d$ is a positive integer (since $m/d$ is
+clearly positive) and $m/d>1$ (since $m$ is larger than $d$). Furthermore,
+$m/d\mid m$ (since $m=\left(  m/d\right)  d$), so that $m$ is a multiple of
+$m/d$. But $d>1$ (since $d\in\left\{  2,3,\ldots,30\right\}  $) and thus
+$m/d<m$. In other words, $m>m/d$. Hence, $m$ is a multiple of $m/d$ that is
+larger than $m/d$.
+\par
+Furthermore, $d^{2}>30\geq m$ (since $m\in\left\{  2,3,\ldots,30\right\}  $).
+Dividing both sides of this inequality by $d$, we obtain $d>m/d$. Hence,
+$m/d<d$, so that $m/d\in\left\{  2,3,\ldots,d-1\right\}  $ (since $m/d>1$).
+Thus, before Step $d$ begins, Step $m/d$ has already happened. Of course, Step
+$m/d$ has removed $m$ from the table (since $m$ is a multiple of $m/d$ that is
+larger than $m/d$). Therefore, the number $m$ has already been removed from
+the table before Step $d$.
+\par
+Now, forget that we fixed $m$. We thus have shown that if $m\in\left\{
+2,3,\ldots,30\right\}  $ is a multiple of $d$ that is larger than $d$, then
+$m$ $m$ has already been removed from the table before Step $d$. In other
+words, all multiples of $d$ that we try to remove at Step $d$ have already
+been removed before Step $d$. Therefore, Step $d$ does not change our table.}
 
 \begin{center}
 \textbf{2019-02-11 lecture}
@@ -10809,6 +10834,14 @@ the subset $\left\{  i\in\left\{  0,1,\ldots,n-1\right\}  \ \mid\ i\perp
 n\right\}  $ of $\left\{  0,1,\ldots,n-1\right\}  $.
 \end{definition}
 
+For instance,%
+\[
+C_{4}=\left\{  1,3\right\}  ,\ \ \ \ \ \ \ \ \ \ C_{5}=\left\{
+1,2,3,4\right\}  ,\ \ \ \ \ \ \ \ \ \ C_{6}=\left\{  1,5\right\}
+\ \ \ \ \ \ \ \ \ \ \text{and}\ \ \ \ \ \ \ \ \ \ C_{1}=\left\{  0\right\}  .
+\]
+
+
 Now, we claim the following:
 
 \begin{proposition}
@@ -10850,7 +10883,7 @@ And indeed, this can easily be checked: The map $K_{3,5}$ sends%
 \[%
 \begin{array}
 [c]{cccccccccc}%
-1, & 2, & 4, & 7, & 8, & 11 & 13, & 14, &  & \text{to}\\
+1, & 2, & 4, & 7, & 8, & 11, & 13, & 14, &  & \text{to}\\
 \left(  1,1\right)  , & \left(  2,2\right)  , & \left(  1,4\right)  , &
 \left(  1,2\right)  , & \left(  2,3\right)  , & \left(  2,1\right)  , &
 \left(  1,3\right)  & \left(  2,4\right)  , &  &
@@ -18879,7 +18912,7 @@ Definition \ref{def.CC.CC.power-}, then we get $\alpha^{-1}=\left(
 ^{-1}$\textquotedblright\ on the left hand side is the new meaning defined in
 Definition \ref{def.CC.CC.power-}, whereas the \textquotedblleft$\alpha^{-1}%
 $\textquotedblright\ on the right hand side is the old meaning defined in
-Definition \ref{def.CC.CC.inverse.notations} \textbf{(a)}.
+Definition \ref{def.CC.CC.inverse.notations} \textbf{(a)}).
 
 If $\alpha=0$ and if $n\in\mathbb{Z}$ is negative, then we leave $\alpha^{n}$ undefined.
 
@@ -21752,7 +21785,7 @@ the gcd is no longer unique, so for example \textquotedblleft$ab\equiv
 \gcd\left(  a,n\right)  \operatorname{mod}n$\textquotedblright\ must be
 interpreted as \textquotedblleft$ab$ is congruent to \textbf{some} of the
 possible values of $\gcd\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
-a,n\right)  $ modulo $n$\textquotedblright.
+a,n\right)  $ modulo $n$\textquotedblright).
 
 \begin{noncompile}
 Let us generalize Theorem \ref{thm.Z[i].gauss.bezout} to $k$ Gaussian integers:
@@ -23727,6 +23760,78 @@ ring}}}.
 Let us now see some non-examples -- i.e., examples of things that are not rings:
 
 \begin{itemize}
+\item You probably remember the
+\textit{\href{https://en.wikipedia.org/wiki/Cross_product}{\textit{cross
+product}}} from analytic geometry. In a nutshell: The set $\mathbb{R}^{3}$ of
+vectors in $3$-dimensional space has a binary operation $\times$ defined on
+it, which is given by%
+\[
+\left(  a_{1},a_{2},a_{3}\right)  \times\left(  b_{1},b_{2},b_{3}\right)
+=\left(  a_{2}b_{3}-a_{3}b_{2},a_{3}b_{1}-a_{1}b_{3},a_{1}b_{2}-a_{2}%
+b_{1}\right)  .
+\]
+Is the set $\mathbb{R}^{3}$, equipped with the addition $+$ and the
+multiplication $\times$ (and some elements playing the roles of zero and
+unity) a ring?
+
+The answer is \textquotedblleft no\textquotedblright, no matter which elements
+you want to play the roles of zero and unity. Indeed, the \textquotedblleft
+Associativity of multiplication\textquotedblright\ axiom does not hold,
+because three vectors $\mathbf{a},\mathbf{b},\mathbf{c}\in\mathbb{R}^{3}$
+usually do \textbf{not} satisfy $\mathbf{a}\times\left(  \mathbf{b}%
+\times\mathbf{c}\right)  =\left(  \mathbf{a}\times\mathbf{b}\right)
+\times\mathbf{c}$.
+
+Nevertheless, not all is lost; for example, the \textquotedblleft
+Distributivity\textquotedblright\ axiom holds. The structure formed by the set
+$\mathbb{R}^{3}$, its addition $+$ and its cross product $\times$ is an
+instance of a different concept -- namely, of a
+\href{https://en.wikipedia.org/wiki/Lie_algebra}{Lie algebra}.
+
+\item So the cross product does not work; what about the dot product? The dot
+product of two vectors $\left(  a_{1},a_{2},a_{3}\right)  $ and $\left(
+b_{1},b_{2},b_{3}\right)  $ in $\mathbb{R}^{3}$ is a real number given by%
+\[
+\left(  a_{1},a_{2},a_{3}\right)  \cdot\left(  b_{1},b_{2},b_{3}\right)
+=a_{1}b_{1}+a_{2}b_{2}+a_{3}b_{3}.
+\]
+Can this be used to make $\mathbb{R}^{3}$ into a ring?
+
+No, because the dot product is not even a binary operation on $\mathbb{R}^{3}%
+$. Indeed, our definition of a binary operation requires that its output
+belongs to the same domain as its two inputs; this is clearly not true of the
+dot product (since its output is a real number, while its two inputs are vectors).
+
+\item For each $a,b\in\mathbb{R}$, we let $A_{a,b}$ be the function%
+\[
+\mathbb{R}\rightarrow\mathbb{R},\ \ \ \ \ \ \ \ \ \ x\mapsto ax+b.
+\]
+This sort of function is called \textquotedblleft linear
+function\textquotedblright\ in high school; research mathematicians prefer to
+call it \textquotedblleft affine-linear function\textquotedblright\ instead
+(while reserving the word \textquotedblleft linear\textquotedblright\ for a
+more restrictive class of functions). Let $\operatorname*{ALF}$ be the set of
+these affine-linear functions $A_{a,b}$ for all $a,b\in\mathbb{R}$.
+
+We can define a pointwise addition $+$ on $\operatorname*{ALF}$; that is, for
+any $f,g\in A_{a,b}$, we define a function $f+g\in A_{a,b}$ by%
+\[
+\left(  f+g\right)  \left(  x\right)  =f\left(  x\right)  +g\left(  x\right)
+\ \ \ \ \ \ \ \ \ \ \text{for all }x\in\mathbb{R}.
+\]
+We can also try to define a multiplication $\cdot$ on $\operatorname*{ALF}$.
+One obvious choice would be to define multiplication to be composition (that
+is, $f\cdot g=f\circ g$); another would be pointwise multiplication (that is,
+$\left(  f\cdot g\right)  \left(  x\right)  =f\left(  x\right)  \cdot g\left(
+x\right)  $ for all $x\in\mathbb{R}$). Does any of these lead to a ring?
+
+No. If we define multiplication to be composition, then the \textquotedblleft
+Distributivity\textquotedblright\ axiom is violated, since affine-linear
+functions $f,g,h$ do not always satisfy $f\circ\left(  g+h\right)  =f\circ
+g+f\circ h$. If we define multiplication to be pointwise multiplication, then
+it is not a binary operation on $\operatorname*{ALF}$, since the pointwise
+product of two affine-linear functions is not an affine-linear function in general.
+
 \item How comes we cannot divide by $0$?
 
 Let us make the question precise. Of course, we cannot find an integer $a$
@@ -24710,7 +24815,7 @@ prime $p$. Are there fields of other sizes?
 duplicating\textquotedblright\ the known field $\mathbb{Z}/p$. Thus, we fix a
 prime $p$, and consider the Cartesian product $\left(  \mathbb{Z}/p\right)
 \times\left(  \mathbb{Z}/p\right)  $. Define addition, subtraction and
-multiplication on this Cartesian product elementwise (so, e.g., $\left(
+multiplication on this Cartesian product entrywise (so, e.g., $\left(
 a,b\right)  \left(  c,d\right)  =\left(  ac,bd\right)  $). This will yield a
 commutative ring with zero $\left(  \left[  0\right]  _{p},\left[  0\right]
 _{p}\right)  $ and unity $\left(  \left[  1\right]  _{p},\left[  1\right]
@@ -25133,6 +25238,8 @@ existence part) further on in this class.
 
 \subsection{Cartesian products}
 
+Next comes a basic and unimaginative way of constructing new rings from old:
+
 \begin{definition}
 \label{def.ring.dirprod1}Let $\mathbb{K}_{1},\mathbb{K}_{2},\ldots
 ,\mathbb{K}_{n}$ be $n$ rings. Consider the set $\mathbb{K}_{1}\times
@@ -25166,8 +25273,8 @@ _{2}\times\cdots\times\mathbb{K}_{n}$.
 \end{proposition}
 
 \begin{proof}
-All axioms are checked entrywise: For example, associativity of multiplication
-follows from comparing%
+[Proof of Proposition \ref{prop.ring.dirprod.ring}.]All axioms are checked
+entrywise: For example, associativity of multiplication follows from comparing%
 \begin{align*}
 &  \underbrace{\left(  \left(  a_{1},a_{2},\ldots,a_{n}\right)  \cdot\left(
 b_{1},b_{2},\ldots,b_{n}\right)  \right)  }_{=\left(  a_{1}b_{1},a_{2}%
@@ -26993,9 +27100,9 @@ is a ring isomorphism (but not the only one!).
 (Check this by hand.)
 
 \begin{definition}
-Let $\mathbb{K}$ and $\mathbb{L}$ be two rings. We say that the rings
-$\mathbb{K}$ and $\mathbb{L}$ are \textit{isomorphic} if there exists a ring
-isomorphism $f:\mathbb{K}\rightarrow\mathbb{L}$.
+\label{def.riiso.isomorphic}Let $\mathbb{K}$ and $\mathbb{L}$ be two rings. We
+say that the rings $\mathbb{K}$ and $\mathbb{L}$ are \textit{isomorphic} if
+there exists a ring isomorphism $f:\mathbb{K}\rightarrow\mathbb{L}$.
 
 We write \textquotedblleft$\mathbb{K}\cong\mathbb{L}$ (as
 rings)\textquotedblright\ to say that the rings $\mathbb{K}$ and $\mathbb{L}$
@@ -27388,7 +27495,7 @@ Adding together the three equations, we get $0=1$ (since $1+1=0$ and $1+1+1=1$
 in $\mathbb{Z}/2$), which is absurd. So the system has no solution.
 
 \textbf{Upshot:} We can do linear algebra over any field more or less in the
-same as we did over real/complex numbers. But the result will depend on the field.
+same as we did over real/complex numbers. But the result may depend on the field.
 
 Let me recall a couple theorems from linear algebra that hold (with the same
 proofs) over any field:
@@ -27471,8 +27578,8 @@ C,\ \ \ \ \ \ \ \ \ \ \ldots.
 \]
 For example, \href{https://en.wikipedia.org/wiki/Hill_cipher}{the \textit{Hill
 cipher}} lets you encrypt a word using a $3\times3$-matrix over $\mathbb{Z}%
-/26$ as a key. The idea is simple: You split the word into 3-letter pieces;
-you turn each piece into a column vector in $\left(  \mathbb{Z}/26\right)
+/26$ as a key. The idea is simple: You split the word into $3$-letter chunks;
+you turn each chunk into a column vector in $\left(  \mathbb{Z}/26\right)
 ^{3\times1}$; and you multiply each of these columns vectors by your key
 matrix. To decrypt, you would have to invert the key matrix.
 
@@ -27554,9 +27661,10 @@ transform our matrix $A$ above as follows:%
 \end{array}
 \right)  =I_{2}.
 \end{align*}
-So our matrix $A$ does have a RREF, and even is invertible! (We can find an
-inverse of $A$ by computing an RREF of the block matrix $\left(  A\mid
-I_{2}\right)  $; see, e.g., \cite[Method 11.11]{Strickland} for this procedure.)
+So our matrix $A$ does have a RREF (namely, $I_{2}$), and even is invertible!
+(We can find an inverse of $A$ by computing an RREF of the block matrix
+$\left(  A\mid I_{2}\right)  $; see, e.g., \cite[Method 11.11]{Strickland} for
+this procedure.)
 
 What exactly was the method behind our above row-reduction procedure? Let us
 see how the first column has been transformed:%
@@ -27609,8 +27717,9 @@ sense, but rather something loosely resembling it.
 
 For details, look up
 \href{https://en.wikipedia.org/wiki/Smith_normal_form}{the \textit{Smith
-normal form}}. Note that for $n=0$, we have $\mathbb{Z}/n\cong\mathbb{Z}$, so
-this applies to matrices with integer entries.
+normal form}} (e.g., in \cite[\S 113]{Elman18}). Note that for $n=0$, we have
+$\mathbb{Z}/n\cong\mathbb{Z}$ (as rings), so this applies to matrices with
+integer entries.
 
 \begin{center}
 \textbf{2019-04-12 lecture}
@@ -28556,7 +28665,70 @@ $\dfrac{1}{2}\mathbb{Z}=\left\{  \ldots,-2,-1.5,-1,-0.5,0,0.5,1,1.5,2,\ldots
 \right\}  $ is a $\mathbb{Z}$-module. Note that $\dfrac{1}{2}\mathbb{Z}$ is
 \textbf{not} a ring (at least not with the usual $\cdot$ as multiplication),
 since $\dfrac{1}{2}\cdot\dfrac{1}{2}=\dfrac{1}{4}\notin\dfrac{1}{2}\mathbb{Z}$.
+
+\textbf{(c)} What other $\mathbb{Z}$-modules can we find inside $\mathbb{Q}$ ?
+Quite a few, it turns out. Here is a not-completely-obvious one: Let us call
+an integer $n$ \textit{squarefree} if it is not divisible by any perfect
+square other than $1$. It is easy to see that an integer $n$ is squarefree if
+and only if $n$ is a product of \textbf{distinct} primes (or, equivalently,
+$v_{p}\left(  n\right)  \leq1$ for each prime $p$). Thus, the squarefree
+integers are $1,2,3,5,6,7,10,11,13,\ldots$ and their negatives. Now, let
+$\mathbb{Q}_{\operatorname*{sqf}}$ be the subset%
+\[
+\left\{  \dfrac{a}{b}\ \mid\ a,b\in\mathbb{Z}\text{ with }b\text{
+squarefree}\right\}
+\]
+of $\mathbb{Q}$. Then, $\mathbb{Q}_{\operatorname*{sqf}}$ (equipped with the
+usual addition as addition, the usual multiplication as scaling, and the usual
+$0$ as zero vector) is a $\mathbb{Z}$-module. (Check this!)
 \end{example}
+
+\subsubsection{Direct products of $\mathbb{K}$-modules}
+
+Instead of giving further examples, let us show a way of constructing new
+$\mathbb{K}$-modules from old (analogous to Definition \ref{def.ring.dirprod2}):
+
+\begin{definition}
+\label{def.module.dirprod1}Let $M_{1},M_{2},\ldots,M_{n}$ be $n$ many
+$\mathbb{K}$-modules. Consider the set $M_{1}\times M_{2}\times\cdots\times
+M_{n}$, whose elements are $n$-tuples $\left(  m_{1},m_{2},\ldots
+,m_{n}\right)  $ with $m_{i}\in M_{i}$.
+
+We define a binary operation $+$ on $M_{1}\times M_{2}\times\cdots\times
+M_{n}$ by%
+\[
+\left(  a_{1},a_{2},\ldots,a_{n}\right)  +\left(  b_{1},b_{2},\ldots
+,b_{n}\right)  =\left(  a_{1}+b_{1},a_{2}+b_{2},\ldots,a_{n}+b_{n}\right)  ,
+\]
+and we define a \textquotedblleft scaling\textquotedblright\ map
+$\cdot\ :\ \mathbb{K}\times\left(  M_{1}\times M_{2}\times\cdots\times
+M_{n}\right)  \rightarrow M_{1}\times M_{2}\times\cdots\times M_{n}$ by%
+\[
+\lambda\cdot\left(  a_{1},a_{2},\ldots,a_{n}\right)  =\left(  \lambda
+a_{1},\lambda a_{2},\ldots,\lambda a_{n}\right)  .
+\]
+
+\end{definition}
+
+\begin{proposition}
+\label{prop.module.dirprod.module}Let $M_{1},M_{2},\ldots,M_{n}$ be $n$ many
+$\mathbb{K}$-modules. The set $M_{1}\times M_{2}\times\cdots\times M_{n}$,
+endowed with the operation $+$ and the map $\cdot$ we just defined and with
+the zero vector $\left(  0,0,\ldots,0\right)  $, is a $\mathbb{K}$-module.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.module.dirprod.module}.]Similar to the proof
+of Proposition \ref{prop.ring.dirprod.ring}.
+\end{proof}
+
+\begin{definition}
+\label{def.module.dirprod2}The $\mathbb{K}$-module $M_{1}\times M_{2}%
+\times\cdots\times M_{n}$ constructed in Proposition
+\ref{prop.module.dirprod.module} is called the \textit{Cartesian product} (or
+\textit{direct product}) of the $\mathbb{K}$-modules $M_{1},M_{2},\ldots
+,M_{n}$.
+\end{definition}
 
 \subsubsection{Features and rules}
 
@@ -28737,7 +28909,7 @@ We cannot define $a^{n}$ for $a\in M$.
 Instead of Proposition \ref{prop.rings.pow.rules} \textbf{(a)}, we have the following:
 
 \begin{proposition}
-We have%
+\label{prop.module.na.rules}We have%
 \begin{align}
 \left(  n+m\right)  a  &  =na+ma\ \ \ \ \ \ \ \ \ \ \text{for all }a\in
 M\text{ and }n,m\in\mathbb{Z};\\
@@ -28750,8 +28922,8 @@ all }a\in M\text{ and }n,m\in\mathbb{Z};\\
 n\left(  \lambda a\right)   &  =\left(  n\lambda\right)  a=\lambda\left(
 na\right)  \ \ \ \ \ \ \ \ \ \ \text{for all }a\in M\text{ and }\lambda
 \in\mathbb{K}\text{ and }n\in\mathbb{Z};\\
-1a  &  =a\ \ \ \ \ \ \ \ \ \ \text{for all }a\in\mathbb{K};\\
-\left(  -1\right)  a  &  =-a\ \ \ \ \ \ \ \ \ \ \text{for all }a\in\mathbb{K}.
+1a  &  =a\ \ \ \ \ \ \ \ \ \ \text{for all }a\in M;\\
+\left(  -1\right)  a  &  =-a\ \ \ \ \ \ \ \ \ \ \text{for all }a\in M.
 \end{align}
 (Here, \textquotedblleft$1$\textquotedblright\ stands for the number
 $1\in\mathbb{Z}$, not for the scalar $1\in\mathbb{K}$.) In particular, these
@@ -29388,9 +29560,9 @@ get a subtraction operation on $\operatorname*{Hom}\left(  M,N\right)  $ for
 free. This subtraction is precisely the pointwise subtraction: i.e., it is
 given by%
 \begin{align}
-\left(  f-g\right)  \left(  v\right)    & =f\left(  v\right)  -g\left(
-v\right)  \label{eq.module.Hom.-.ptwise}\\
-& \ \ \ \ \ \ \ \ \ \ \text{for all }f,g\in\operatorname*{Hom}\left(
+\left(  f-g\right)  \left(  v\right)   &  =f\left(  v\right)  -g\left(
+v\right) \label{eq.module.Hom.-.ptwise}\\
+&  \ \ \ \ \ \ \ \ \ \ \text{for all }f,g\in\operatorname*{Hom}\left(
 M,N\right)  \text{ and }v\in M\nonumber
 \end{align}
 \footnote{\textit{Proof of (\ref{eq.module.Hom.-.ptwise}):} Let $f,g\in
@@ -29444,11 +29616,11 @@ scaling); this is the notion of a $\mathbb{K}$\textit{-algebra}. Roughly
 speaking, it is defined as follows:
 
 \begin{definition}
-A $\mathbb{K}$\textit{-algebra} is a set $M$ endowed with two operations $+$
-and $\cdot$ as well as a scaling map $\cdot:\mathbb{K}\times M\rightarrow M$
-(not to be confused with the multiplication map) and two elements $0,1\in M$
-that satisfy all the ring axioms (with $\mathbb{K}$ replaced by $M$) as well
-as all the module axioms.
+\label{def.K-alg.K-alg.short-def}A $\mathbb{K}$\textit{-algebra} is a set $M$
+endowed with two operations $+$ and $\cdot$ as well as a scaling map
+$\cdot:\mathbb{K}\times M\rightarrow M$ (not to be confused with the
+multiplication map) and two elements $0,1\in M$ that satisfy all the ring
+axioms (with $\mathbb{K}$ replaced by $M$) as well as all the module axioms.
 \end{definition}
 
 It seems somewhat confusing that both the multiplication map $M\times
@@ -29470,10 +29642,10 @@ Examples of $\mathbb{K}$-algebras include the following:
 both multiplication and scaling being the usual multiplication $\cdot$ of
 $\mathbb{K}$).
 
-\item The endomorphism ring $\operatorname*{End}M$ becomes a $\mathbb{K}%
-$-algebra for every $\mathbb{K}$-module $M$. (Its multiplication is
+\item If $M$ is any $\mathbb{K}$-module, then the endomorphism ring
+$\operatorname*{End}M$ becomes a $\mathbb{K}$-algebra. (Its multiplication is
 composition of maps, whereas its scaling is the scaling on
-$\operatorname*{Hom}\left(  M,M\right)  $).
+$\operatorname*{Hom}\left(  M,M\right)  $.)
 
 \item The matrix ring $\mathbb{K}^{n\times n}$ is a $\mathbb{K}$-algebra for
 any $n\in\mathbb{N}$.
@@ -29517,34 +29689,42 @@ Proposition \ref{prop.riiso.invertible}.
 \end{proof}
 
 \begin{definition}
-Let $M$ and $N$ be two $\mathbb{K}$-modules. We say that the $\mathbb{K}%
-$-modules $M$ and $N$ are \textit{isomorphic} if there exists a $\mathbb{K}%
-$-module isomorphism $f:M\rightarrow N$.
+\label{def.modiso.isomorphic}Let $M$ and $N$ be two $\mathbb{K}$-modules. We
+say that the $\mathbb{K}$-modules $M$ and $N$ are \textit{isomorphic} if there
+exists a $\mathbb{K}$-module isomorphism $f:M\rightarrow N$.
 
 We write \textquotedblleft$M\cong N$ (as $\mathbb{K}$%
 -modules)\textquotedblright\ to say that the $\mathbb{K}$-modules $M$ and $N$
 are isomorphic.
 \end{definition}
 
-Keep in mind that one and the same symbol can stand for a ring and for a
+Keep in mind that one and the same symbol can stand both for a ring and for a
 $\mathbb{K}$-module. Thus, when saying something like \textquotedblleft$M\cong
 N$\textquotedblright, you should clarify whether you mean \textquotedblleft%
 $M\cong N$ (as rings)\textquotedblright\ or \textquotedblleft$M\cong N$ (as
 $\mathbb{K}$-modules)\textquotedblright. For example, $\mathbb{C}$ and
-$\mathbb{R}\times\mathbb{R}$ are both rings and $\mathbb{R}$-modules (indeed,
-$\mathbb{C}$ becomes an $\mathbb{R}$-module by defining scaling as
-multiplication, whereas $\mathbb{R}\times\mathbb{R}$ becomes an $\mathbb{R}%
-$-module by defining scaling entrywise: $\lambda\left(  u,v\right)  =\left(
-\lambda u,\lambda v\right)  $ for all $\lambda\in\mathbb{R}$ and $\left(
-u,v\right)  \in\mathbb{R}\times\mathbb{R}$). We do have $\mathbb{C}%
-\cong\mathbb{R}\times\mathbb{R}$ as $\mathbb{R}$-modules, but we don't have
-$\mathbb{C}\cong\mathbb{R}\times\mathbb{R}$ as rings (since $\mathbb{C}$ is a
-field, but $\mathbb{R}\times\mathbb{R}$ is not a field). So an unqualified
-statement like \textquotedblleft$\mathbb{C}\cong\mathbb{R}\times\mathbb{R}%
-$\textquotedblright\ would be dangerous.
+$\mathbb{R}\times\mathbb{R}$ are both rings and $\mathbb{R}$%
+-modules\footnote{Indeed:
+\par
+\begin{itemize}
+\item The set $\mathbb{C}$ becomes an $\mathbb{R}$-module by defining scaling
+as multiplication (and addition as addition, and the zero vector as $0$),
+whereas
+\par
+\item the set $\mathbb{R}\times\mathbb{R}$ becomes an $\mathbb{R}$-module
+according to Definition \ref{def.module.dirprod2} (so its scaling is defined
+entrywise: that is, $\lambda\left(  u,v\right)  =\left(  \lambda u,\lambda
+v\right)  $ for all $\lambda\in\mathbb{R}$ and $\left(  u,v\right)
+\in\mathbb{R}\times\mathbb{R}$).
+\end{itemize}
+}. We do have $\mathbb{C}\cong\mathbb{R}\times\mathbb{R}$ as $\mathbb{R}%
+$-modules, but we don't have $\mathbb{C}\cong\mathbb{R}\times\mathbb{R}$ as
+rings (since $\mathbb{C}$ is a field, but $\mathbb{R}\times\mathbb{R}$ is not
+a field). So an unqualified statement like \textquotedblleft$\mathbb{C}%
+\cong\mathbb{R}\times\mathbb{R}$\textquotedblright\ would be dangerous.
 
 \begin{example}
-Let $n,m\in\mathbb{N}$. Then, the map%
+\label{exa.modiso.mat.transp}Let $n,m\in\mathbb{N}$. Then, the map%
 \begin{align*}
 \mathbb{K}^{n\times m}  &  \rightarrow\mathbb{K}^{m\times n},\\
 A  &  \mapsto A^{T}%
@@ -29553,9 +29733,10 @@ is a $\mathbb{K}$-module isomorphism.
 \end{example}
 
 \begin{proof}
-By Proposition \ref{prop.modiso.invertible}, it suffices to prove that this
-map is $\mathbb{K}$-linear and invertible. The $\mathbb{K}$-linearity follows
-from the formulas%
+[Proof of Example \ref{exa.modiso.mat.transp}.]By Proposition
+\ref{prop.modiso.invertible}, it suffices to prove that this map is
+$\mathbb{K}$-linear and invertible. The $\mathbb{K}$-linearity follows from
+the formulas%
 \begin{align*}
 \left(  A+B\right)  ^{T}  &  =A^{T}+B^{T};\\
 \left(  \lambda A\right)  ^{T}  &  =\lambda A^{T};\\
@@ -29572,7 +29753,7 @@ A  &  \mapsto A^{T}.
 \end{proof}
 
 \begin{example}
-Let $n\in\mathbb{N}$. Then, the map%
+\label{exa.modiso.vec.col=tup}Let $n\in\mathbb{N}$. Then, the map%
 \begin{align*}
 \mathbb{K}^{n\times1}  &  \rightarrow\mathbb{K}^{n},\\
 \left(
@@ -29600,7 +29781,7 @@ The previous two examples show that%
 
 
 \begin{example}
-Let $n,m\in\mathbb{N}$. Then, we define a map%
+\label{exa.modiso.mat.vec}Let $n,m\in\mathbb{N}$. Then, we define a map%
 \begin{align*}
 \operatorname*{vec}:\mathbb{K}^{n\times m}  &  \rightarrow\mathbb{K}^{nm},\\
 \left(  a_{i,j}\right)  _{1\leq i\leq n,\ 1\leq j\leq m}  &  \mapsto\left(
@@ -29624,13 +29805,16 @@ This map $\operatorname*{vec}$ is a $\mathbb{K}$-module isomorphism.
 \end{example}
 
 \begin{proof}
-It is $\mathbb{K}$-linear (since addition and scaling are defined entrywise on
-both $\mathbb{K}^{n\times m}$ and $\mathbb{K}^{nm}$) and invertible.
+[Proof of Example \ref{exa.modiso.mat.vec}.]The map $\operatorname*{vec}$ is
+$\mathbb{K}$-linear (since addition and scaling are defined entrywise on both
+$\mathbb{K}^{n\times m}$ and $\mathbb{K}^{nm}$) and invertible. Thus,
+Proposition \ref{prop.modiso.invertible} shows that it is a $\mathbb{K}%
+$-module isomorphism.
 \end{proof}
 
 \begin{example}
-Let $M$ be any $\mathbb{K}$-module. Let $\lambda\in\mathbb{K}$. Define the
-map
+\label{exa.modiso.scal-lam}Let $M$ be any $\mathbb{K}$-module. Let $\lambda
+\in\mathbb{K}$. Define the map
 \begin{align*}
 L_{\lambda}:M  &  \rightarrow M,\\
 a  &  \mapsto\lambda a.
@@ -29652,21 +29836,24 @@ $\lambda\perp n$.
 \end{example}
 
 \begin{proof}
-\textbf{(a)} If $\lambda\in\mathbb{K}$ is invertible, then the map
-$L_{\lambda^{-1}}$ is inverse to $L_{\lambda}$. (Actually, we have rules like
-$L_{\lambda\mu}=L_{\lambda}\circ L_{\mu}$ and $L_{\lambda+\mu}=L_{\lambda
-}+L_{\mu}$; see more below.)
+[Proof of Example \ref{exa.modiso.scal-lam}.]\textbf{(a)} If $\lambda
+\in\mathbb{K}$ is invertible, then the map $L_{\lambda^{-1}}$ is inverse to
+$L_{\lambda}$. (Actually, we have rules like $L_{\lambda\mu}=L_{\lambda}\circ
+L_{\mu}$ and $L_{\lambda+\mu}=L_{\lambda}+L_{\mu}$; see Remark
+\ref{rmk.modhom.KtoEnd} below.)
 
 \textbf{(b)} LTTR.
 
 \textbf{(c)} Let $\mathbb{K}=\mathbb{Z}$ and $M=\mathbb{Z}/n$ for some integer
 $n$. Assume that $\lambda\perp n$. Then, $\lambda$ has a modular inverse $\mu$
 modulo $n$. It is now easy to check that the map $L_{\mu}$ is inverse to
-$L_{\lambda}$; thus $L_{\lambda}$ is a $\mathbb{K}$-module isomorphism.
+$L_{\lambda}$; thus, $L_{\lambda}$ is invertible and therefore a $\mathbb{K}%
+$-module isomorphism (since we already know that $L_{\lambda}$ is a
+$\mathbb{K}$-module homomorphism).
 \end{proof}
 
 \begin{remark}
-Fix any $\mathbb{K}$-module $M$. Then, the map%
+\label{rmk.modhom.KtoEnd}Fix any $\mathbb{K}$-module $M$. Then, the map%
 \begin{align*}
 \mathbb{K}  &  \rightarrow\operatorname*{End}M,\\
 \lambda &  \mapsto L_{\lambda}%
@@ -29687,25 +29874,27 @@ isomorphic $\mathbb{K}$-modules must have the same size; their endomorphism
 rings must be isomorphic; etc.
 
 \begin{proposition}
-Let $n,m\in\mathbb{N}$. The map%
+\label{prop.modiso.mat-Hom}Let $n,m\in\mathbb{N}$. The map%
 \begin{align*}
 \mathbb{K}^{n\times m}  &  \rightarrow\operatorname*{Hom}\left(
 \mathbb{K}^{m\times1},\mathbb{K}^{n\times1}\right)  ,\\
 A  &  \mapsto L_{A}%
 \end{align*}
-(defined in Theorem \ref{thm.module.LA}) is a $\mathbb{K}$-module isomorphism.
+(where $L_{A}$ is defined as in Theorem \ref{thm.module.LA}) is a $\mathbb{K}%
+$-module isomorphism.
 \end{proposition}
 
 \begin{proof}
-This map is $\mathbb{K}$-linear (due to easily proven statements like
-$L_{A+B}=L_{A}+L_{B}$ and $L_{\lambda A}=\lambda L_{A}$) and invertible (since
-Proposition \ref{prop.module.f=LA} shows that it is bijective).
+[Proof of Proposition \ref{prop.modiso.mat-Hom}.]This map is $\mathbb{K}%
+$-linear (due to easily proven statements like $L_{A+B}=L_{A}+L_{B}$ and
+$L_{\lambda A}=\lambda L_{A}$) and invertible (since Proposition
+\ref{prop.module.f=LA} shows that it is bijective).
 \end{proof}
 
 So $\mathbb{K}^{n\times m}\cong\operatorname*{Hom}\left(  \mathbb{K}%
 ^{m\times1},\mathbb{K}^{n\times1}\right)  $ as $\mathbb{K}$-modules whenever
-$n,m\in\mathbb{N}$. So $\mathbb{K}$\textbf{-linear maps between }%
-$\mathbb{K}^{m\times1}$\textbf{ and }$\mathbb{K}^{n\times1}$ \textbf{are
+$n,m\in\mathbb{N}$. This means that $\mathbb{K}$\textbf{-linear maps between
+}$\mathbb{K}^{m\times1}$\textbf{ and }$\mathbb{K}^{n\times1}$ \textbf{are
 \textquotedblleft the same as\textquotedblright\ }$n\times m$%
 \textbf{-matrices}. This says that the \textquotedblleft
 matrix\textquotedblright\ way of doing linear algebra can be embedded into the
@@ -29714,24 +29903,28 @@ matrix\textquotedblright\ way of doing linear algebra can be embedded into the
 Furthermore:
 
 \begin{proposition}
-Let $n,m,p\in\mathbb{N}$. Let $A\in\mathbb{K}^{n\times m}$ and $B\in
-\mathbb{K}^{m\times p}$. Then, $L_{AB}=L_{A}\circ L_{B}$.
+\label{prop.module.LAB}Let $n,m,p\in\mathbb{N}$. Let $A\in\mathbb{K}^{n\times
+m}$ and $B\in\mathbb{K}^{m\times p}$. Then, $L_{AB}=L_{A}\circ L_{B}$.
 \end{proposition}
 
 \begin{proof}
-For any $C\in\mathbb{K}^{p\times1}$, we have $L_{AB}\left(  C\right)  =\left(
-AB\right)  C=ABC$ and $\left(  L_{A}\circ L_{B}\right)  \left(  C\right)
-=L_{A}\left(  L_{B}\left(  C\right)  \right)  =A\left(  BC\right)  =ABC$.
+[Proof of Proposition \ref{prop.module.LAB}.]For any $C\in\mathbb{K}%
+^{p\times1}$, we have $L_{AB}\left(  C\right)  =\left(  L_{A}\circ
+L_{B}\right)  \left(  C\right)  $ (this follows by comparing the equalities
+$L_{AB}\left(  C\right)  =\left(  AB\right)  C=ABC$ and $\left(  L_{A}\circ
+L_{B}\right)  \left(  C\right)  =L_{A}\left(  L_{B}\left(  C\right)  \right)
+=A\left(  BC\right)  =ABC$).
 \end{proof}
 
 \begin{corollary}
-Let $n\in\mathbb{N}$. The map%
+\label{cor.modiso.mat-End}Let $n\in\mathbb{N}$. The map%
 \begin{align*}
 \mathbb{K}^{n\times n}  &  \rightarrow\operatorname*{End}\left(
 \mathbb{K}^{n\times1}\right)  ,\\
 A  &  \mapsto L_{A}%
 \end{align*}
-(defined in Theorem \ref{thm.module.LA} for $m=n$) is a ring isomorphism.
+(where $L_{A}$ is defined as in Theorem \ref{thm.module.LA} for $m=n$) is a
+ring isomorphism.
 \end{corollary}
 
 \subsubsection{Submodules}
@@ -39150,6 +39343,9 @@ Mathematical Vernacular}, 7 December 2016.\newline%
 \bibitem[DumFoo04]{Dummit-Foote}David S. Dummit, Richard M. Foote,
 \textit{Abstract Algebra}, 3rd edition, Wiley 2004. \newline See
 \url{http://www.cems.uvm.edu/~rfoote/errata_3rd_edition.pdf} for errata.
+
+\bibitem[Elman18]{Elman18}Richard Elman, \textit{Lectures on Abstract
+Algebra}, 17 September 2018.\newline\url{https://www.math.ucla.edu/~rse/algebra_book.pdf}
 
 \bibitem[Galvin17]{Galvin}David Galvin, \textit{Basic discrete mathematics},
 13 December 2017.\newline%
