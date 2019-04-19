@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Thursday, April 18, 2019 20:43:46}
+%TCIDATA{LastRevised=Thursday, April 18, 2019 23:48:05}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -23267,9 +23267,9 @@ _{\substack{d\mid n;\\4\nmid d}}d$. The existence part can be proven using
 \textbf{2019-03-25 lecture}
 \end{center}
 
-\section{Rings and fields I: definitions and examples}
+\section{\label{chp.ring}Rings and fields}
 
-\subsection{Definition of a ring}
+\subsection{\label{sect.ring.ring}Definition of a ring}
 
 We have seen several \textquotedblleft number systems\textquotedblright\ in
 the above chapters:
@@ -23461,7 +23461,7 @@ that satisfies the \textquotedblleft Neutrality of one\textquotedblright%
 we call \textquotedblleft ring\textquotedblright.)
 \end{itemize}
 
-\subsection{Examples of rings}
+\subsection{\label{sect.ring.exa}Examples of rings}
 
 Many of the \textquotedblleft number systems\textquotedblright\ seen above,
 and several others, are examples of rings:
@@ -23695,8 +23695,8 @@ $\left(
 ring axioms are true (this is known from linear algebra), but commutativity of
 multiplication is not (the product $AB$ of two $2\times2$-matrices $A$ and $B$
 is not always equal to $BA$). The same applies to $n\times n$-matrices for
-arbitrary $n$. (See \cite[\S 2.9]{lina} for a proof of the associativity of
-multiplication of $n\times n$-matrices.)
+arbitrary $n\in\mathbb{N}$. (We will see this in Corollary
+\ref{cor.matrix.ring} below, in greater generality.)
 
 \item If you like the empty set, you will enjoy the \textit{zero ring}. This
 is the one-element set $\left\{  0\right\}  $, endowed with the only possible
@@ -23731,24 +23731,24 @@ Now, let $S$ be any set. Let $\mathcal{P}\left(  S\right)  $ denote the power
 set of $S$ (that is, the set of all subsets of $S$). Then, it is easy to check
 that the following properties hold:%
 \begin{align*}
-A\bigtriangleup B &  =B\bigtriangleup A\ \ \ \ \ \ \ \ \ \ \text{for any sets
+A\bigtriangleup B  &  =B\bigtriangleup A\ \ \ \ \ \ \ \ \ \ \text{for any sets
 }A\text{ and }B;\\
-A\cap B &  =B\cap A\ \ \ \ \ \ \ \ \ \ \text{for any sets }A\text{ and }B;\\
-\left(  A\bigtriangleup B\right)  \bigtriangleup C &  =A\bigtriangleup\left(
+A\cap B  &  =B\cap A\ \ \ \ \ \ \ \ \ \ \text{for any sets }A\text{ and }B;\\
+\left(  A\bigtriangleup B\right)  \bigtriangleup C  &  =A\bigtriangleup\left(
 B\bigtriangleup C\right)  \ \ \ \ \ \ \ \ \ \ \text{for any sets }A,B,C;\\
-\left(  A\cap B\right)  \cap C &  =A\cap\left(  B\cap C\right)
+\left(  A\cap B\right)  \cap C  &  =A\cap\left(  B\cap C\right)
 \ \ \ \ \ \ \ \ \ \ \text{for any sets }A,B,C;\\
 A\bigtriangleup\varnothing &  =\varnothing\bigtriangleup
 A=A\ \ \ \ \ \ \ \ \ \ \text{for any set }A;\\
-A\cap S &  =S\cap A=A\ \ \ \ \ \ \ \ \ \ \text{for any subset }A\text{ of
+A\cap S  &  =S\cap A=A\ \ \ \ \ \ \ \ \ \ \text{for any subset }A\text{ of
 }S;\\
-A\bigtriangleup A &  =\varnothing\ \ \ \ \ \ \ \ \ \ \text{for any set }A;\\
-\varnothing\cap A &  =A\cap\varnothing=\varnothing
+A\bigtriangleup A  &  =\varnothing\ \ \ \ \ \ \ \ \ \ \text{for any set }A;\\
+\varnothing\cap A  &  =A\cap\varnothing=\varnothing
 \ \ \ \ \ \ \ \ \ \ \text{for any set }A;\\
 A\cap\left(  B\bigtriangleup C\right)   &  =\left(  A\cap B\right)
 \bigtriangleup\left(  A\cap C\right)  \ \ \ \ \ \ \ \ \ \ \text{for any sets
 }A,B,C;\\
-\left(  A\bigtriangleup B\right)  \cap C &  =\left(  A\cap C\right)
+\left(  A\bigtriangleup B\right)  \cap C  &  =\left(  A\cap C\right)
 \bigtriangleup\left(  B\cap C\right)  \ \ \ \ \ \ \ \ \ \ \text{for any sets
 }A,B,C.
 \end{align*}
@@ -23916,7 +23916,320 @@ obtain a structure that is like a ring but has no unity. This is called a
 example) $2$ is not a product of any two elements of $2\mathbb{Z}$.
 \end{itemize}
 
-\subsection{Additive inverses, sums, powers and their properties}
+\subsection{\label{sect.ring.subring}Subrings}
+
+Looking back at the examples of rings listed above, you might notice that a
+lot of them are \textquotedblleft nested\textquotedblright\ inside one
+another: For example, the rings $\mathbb{Z}$, $\mathbb{Q}$, $\mathbb{R}$ and
+$\mathbb{C}$ form a chain $\mathbb{Z}\subseteq\mathbb{Q}\subseteq
+\mathbb{R}\subseteq\mathbb{C}$ in which each ring not only is a subset of the
+subsequent one\footnote{To be fully honest, we are relying on Convention
+\ref{conv.CC.RRtoCC.embed} in order to make $\mathbb{R}$ a subset of
+$\mathbb{C}$. And if you look closely at the definitions of $\mathbb{Q}$ and
+$\mathbb{R}$, the relations $\mathbb{Z}\subseteq\mathbb{Q}$ and $\mathbb{Q}%
+\subseteq\mathbb{R}$ are also not immediately satisfied but rather rely on
+similar conventions. For example, rational numbers are defined as equivalence
+classes of pairs of integers; an integer is not an equivalence class of such
+pairs. Thus, we need a convention which identifies each integer $z$ with an
+appropriate rational number in order to turn $\mathbb{Z}$ into a subset of
+$\mathbb{Q}$. Similarly for turning $\mathbb{Q}$ into a subset of $\mathbb{R}%
+$. But let us not worry about this issue for now.}, but also has
+\textquotedblleft the same\textquotedblright\ addition, multiplication, zero
+and unity as the subsequent one. Of course, when we are saying
+\textquotedblleft the same\textquotedblright\ here, we do not literally mean
+\textquotedblleft the same\textquotedblright; we mean that, e.g., if we add
+two integers in $\mathbb{Z}$, we get the same result as if we add the same two
+integers as elements of $\mathbb{Q}$, or as elements of $\mathbb{R}$, or as
+elements of $\mathbb{C}$. In other words, the addition operation of the ring
+$\mathbb{Z}$ is a \textbf{restriction} of the addition operation of the ring
+$\mathbb{Q}$, which in turn is a restriction of the addition operation of the
+ring $\mathbb{R}$, etc.. The same holds for multiplication. The zeroes of the
+rings $\mathbb{Z}$, $\mathbb{Q}$, $\mathbb{R}$ and $\mathbb{C}$ are literally
+identical, as are the unities of these rings.
+
+It is worth introducing a name for this situation:
+
+\begin{definition}
+\label{def.ring.subring}Let $\mathbb{K}$ and $\mathbb{L}$ be two rings. We say
+that $\mathbb{K}$ is a \textit{subring} of $\mathbb{L}$ if and only if it
+satisfies the following five requirements:
+
+\begin{itemize}
+\item the set $\mathbb{K}$ is a subset of $\mathbb{L}$;
+
+\item the addition of $\mathbb{K}$ is a restriction of the addition of
+$\mathbb{L}$ (that is, we have $a_{1}+_{\mathbb{K}}a_{2}=a_{1}+_{\mathbb{L}%
+}a_{2}$ for all $a_{1},a_{2}\in\mathbb{K}$);
+
+\item the multiplication of $\mathbb{K}$ is a restriction of the
+multiplication of $\mathbb{L}$ (that is, we have $a_{1}\cdot_{\mathbb{K}}%
+a_{2}=a_{1}\cdot_{\mathbb{L}}a_{2}$ for all $a_{1},a_{2}\in\mathbb{K}$);
+
+\item the zero of $\mathbb{K}$ is the zero of $\mathbb{L}$ (that is, we have
+$0_{\mathbb{K}}=0_{\mathbb{L}}$);
+
+\item the unity of $\mathbb{K}$ is the unity of $\mathbb{L}$ (that is, we have
+$1_{\mathbb{K}}=1_{\mathbb{L}}$).
+\end{itemize}
+\end{definition}
+
+Thus, according to this definition:
+
+\begin{itemize}
+\item the ring $\mathbb{Z}$ is a subring of $\mathbb{Q}$;
+
+\item the ring $\mathbb{Q}$ is a subring of $\mathbb{R}$;
+
+\item the ring $\mathbb{R}$ is a subring of $\mathbb{C}$;
+
+\item the ring $\mathbb{Z}\left[  i\right]  $ (of Gaussian integers) is a
+subring of $\mathbb{C}$;
+
+\item every ring $\mathbb{K}$ is a subring of itself.
+\end{itemize}
+
+What is an example of two rings $\mathbb{K}$ and $\mathbb{L}$ for which the
+set $\mathbb{K}$ is a \textbf{subset} of $\mathbb{L}$ yet the ring
+$\mathbb{K}$ is \textbf{not a subring} of $\mathbb{L}$ ? Here is one example
+of an \textquotedblleft almost-subring\textquotedblright:
+
+\begin{example}
+One of our above examples of rings (in Section \ref{sect.ring.exa}) is the
+power set of any set $S$. Namely, if $S$ is any set, then we have observed
+that its power set $\mathcal{P}\left(  S\right)  $, endowed with the addition
+$\bigtriangleup$, the multiplication $\cap$, the zero $\varnothing$ and the
+unity $S$ is a commutative ring. We shall refer to this ring by $\mathcal{P}%
+\left(  S\right)  $ (omitting mention of its addition, multiplication, zero
+and unity).
+
+Now, let $T$ be a subset of a set $S$. Is $\mathcal{P}\left(  T\right)  $ a
+subring of the ring $\mathcal{P}\left(  S\right)  $ ? The first four
+requirements of Definition \ref{def.ring.subring} are satisfied: The set
+$\mathcal{P}\left(  T\right)  $ is a subset of $\mathcal{P}\left(  S\right)
+$; its addition is a restriction of the addition of $\mathcal{P}\left(
+S\right)  $ (indeed, both of these additions turn two sets $A$ and $B$ into
+$A\bigtriangleup B$); its multiplication is a restriction of the
+multiplication of $\mathcal{P}\left(  S\right)  $, its zero is the zero of
+$\mathcal{P}\left(  S\right)  $. But its unity is not the unity of
+$\mathcal{P}\left(  S\right)  $ (unless $T=S$); indeed, the former unity is
+$T$, while the latter unity is $S$. Thus, $\mathcal{P}\left(  T\right)  $ is
+not a subring of $\mathcal{P}\left(  S\right)  $ (unless $T=S$). It fails the
+fifth requirement of Definition \ref{def.ring.subring}.
+
+(As we have remarked, some authors do not require rings to have a unity.
+Correspondingly, these authors do not pose the fifth requirement in Definition
+\ref{def.ring.subring}. Thus, for these authors, $\mathcal{P}\left(  T\right)
+$ is a subring of $\mathcal{P}\left(  S\right)  $.)
+\end{example}
+
+For a less subtle example, recall the ring $\mathbb{Z}^{\prime}$ constructed
+in Section \ref{sect.ring.exa}. The sets $\mathbb{Z}^{\prime}$ and
+$\mathbb{Z}$ are identical, but the rings $\mathbb{Z}^{\prime}$ and
+$\mathbb{Z}$ are not, so the ring $\mathbb{Z}^{\prime}$ is not a subring of
+$\mathbb{Z}$ despite being a subset of $\mathbb{Z}$.
+
+When we have two rings $\mathbb{K}$ and $\mathbb{L}$ such that $\mathbb{K}%
+\subseteq\mathbb{L}$ as sets (or, more generally, such that $\mathbb{K}$ and
+$\mathbb{L}$ have elements in common), we generally need to be careful using
+the symbol \textquotedblleft$+$\textquotedblright: This symbol may mean both
+the addition of $\mathbb{K}$ and the addition of $\mathbb{L}$, and these
+additions might not be the same. Thus it is prudent to disambiguate its
+meaning by attaching a subscript \textquotedblleft$_{\mathbb{K}}%
+$\textquotedblright\ or \textquotedblleft$_{\mathbb{L}}$\textquotedblright\ to
+it. The same applies to the symbols \textquotedblleft$\cdot$\textquotedblright%
+, \textquotedblleft$0$\textquotedblright\ and \textquotedblleft$1$%
+\textquotedblright\ and expressions like \textquotedblleft$ab$%
+\textquotedblright\ (which have an implicit multiplication sign). However,
+when $\mathbb{K}$ is a subring of $\mathbb{L}$, we do not need to take this
+precaution; in this case, the meaning of expressions like \textquotedblleft%
+$a+b$\textquotedblright\ does not depend on whether you read \textquotedblleft%
+$+$\textquotedblright\ as the addition of $\mathbb{K}$ or as the addition of
+$\mathbb{L}$.
+
+The following facts are essentially obvious:
+
+\begin{proposition}
+\label{prop.ring.subring.comm}A subring of a commutative ring is always commutative.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.ring.subring.comm}.]Let $\mathbb{K}$ be a
+subring of a commutative ring $\mathbb{L}$. We must prove that $\mathbb{K}$ is commutative.
+
+We have $ab=ba$ for all $a,b\in\mathbb{L}$ (since $\mathbb{L}$ is
+commutative). Thus, $ab=ba$ for all $a,b\in\mathbb{K}$ (since $\mathbb{K}$ is
+a subring of $\mathbb{L}$). In other words, $\mathbb{K}$ is commutative. This
+completes our proof.
+
+Note how we were able to write expressions like \textquotedblleft%
+$ab$\textquotedblright\ and \textquotedblleft$ba$\textquotedblright\ without
+specifying whether we were using the multiplication of $\mathbb{K}$ or the
+multiplication of $\mathbb{L}$. This was legitimate because $\mathbb{K}$ is a
+subring (not just a subset) of $\mathbb{L}$.
+\end{proof}
+
+\begin{proposition}
+\label{prop.ring.subring.as-subset}Let $\mathbb{L}$ be a ring. Let $S$ be a
+subset of $\mathbb{L}$ that satisfies the following four conditions:\footnotemark
+
+\begin{itemize}
+\item We have $0\in S$ and $1\in S$.
+
+\item The subset $S$ is \textit{closed under addition}. (This means that all
+$a,b\in S$ satisfy $a+b\in S$.)
+
+\item The subset $S$ is closed under additive inverses. (This means that all
+$a\in S$ satisfy $-a\in S$.)
+
+\item The subset $S$ is closed under multiplication. (This means that all
+$a,b\in S$ satisfy $ab\in S$.)
+\end{itemize}
+
+Then, the set $S$ itself becomes a ring if we endow it with the following two operations:
+
+\begin{itemize}
+\item an addition operation $+$ which is defined as the restriction of the
+addition operation of the ring $\mathbb{L}$;
+
+\item a multiplication operation $\cdot$ which is defined as the restriction
+of the multiplication operation of the ring $\mathbb{L}$,
+\end{itemize}
+
+\noindent and the zero $0$ and the unity $1$. Furthermore, this ring $S$ is a
+subring of $\mathbb{L}$.
+\end{proposition}
+
+\footnotetext{In this proposition, the symbols \textquotedblleft%
+$+$\textquotedblright, \textquotedblleft$\cdot$\textquotedblright,
+\textquotedblleft$0$\textquotedblright\ and \textquotedblleft$1$%
+\textquotedblright\ mean the addition, the multiplication, the zero and the
+unity of $\mathbb{L}$.}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.ring.subring.as-subset}.]The addition
+operation $+$ that we are trying to define on $S$ is indeed a well-defined
+binary operation on $S$, because $S$ is closed under addition. Ditto for the
+multiplication operation $\cdot$. Also, $0$ and $1$ are elements of $S$ (by
+the first of our four conditions). Thus, in order to prove that the subset $S$
+becomes a ring (when endowed with these two operations and two elements), we
+just need to check that it satisfies the ring axioms. This is easy: The
+\textquotedblleft Existence of additive inverses\textquotedblright\ axiom
+follows from the fact that $S$ is closed under additive inverses; all the
+remaining axioms follow from the fact that $\mathbb{L}$ is a ring. Finally,
+this ring $S$ is a subring of $\mathbb{L}$, because of how we defined it.
+Thus, Proposition \ref{prop.ring.subring.as-subset} is proven.
+\end{proof}
+
+\begin{definition}
+Let $\mathbb{L}$ be a ring. Let $S$ be a subset of $\mathbb{L}$ that satisfies
+the four conditions of Proposition \ref{prop.ring.subring.as-subset}. Then, we
+shall say that \textquotedblleft$S$ is a subring of $\mathbb{L}$%
+\textquotedblright. Technically speaking, this is premature, since $S$ is so
+far just a subset of $\mathbb{L}$ without the structure of a ring; however,
+Proposition \ref{prop.ring.subring.as-subset} shows that there is an obvious
+way of turning $S$ into a ring (viz.: define two operations $+$ and $\cdot$ by
+restricting the corresponding operations of $\mathbb{L}$, and steal the zero
+and the unity from $\mathbb{L}$), and we shall automatically regard $S$ as
+becoming a ring in this way (unless we say otherwise). We say that the
+operations $+$ and $\cdot$ on $S$ (obtained by restricting the corresponding
+operations on $\mathbb{L}$) and the zero and the unity of $S$ (which are
+exactly those of $\mathbb{L}$) are \textit{inherited from }$\mathbb{L}$.
+\end{definition}
+
+Thus, finding subrings of a ring $\mathbb{L}$ boils down to finding subsets
+that contain its $0$ and $1$ and are closed under addition, under additive
+inverses and under multiplication; the ring axioms don't need to be
+re-checked. This offers an easy way to discover subrings:
+
+\begin{example}
+Let us define a few subsets of the ring $\mathbb{Z}\left[  i\right]  $ and see
+whether they are subrings.
+
+\textbf{(a)} Let
+\[
+S_{1}=\left\{  a+bi\ \mid\ a,b\in\mathbb{Z}\text{, and }b\text{ is
+even}\right\}  =\left\{  a+2ci\ \mid\ a,c\in\mathbb{Z}\right\}  .
+\]
+Is $S_{1}$ a subring of $\mathbb{Z}\left[  i\right]  $ ?
+
+It is easy to check that $0\in S_{1}$ and $1\in S_{1}$. Let us now check that
+$S_{1}$ is closed under multiplication: Let $\alpha,\beta\in S_{1}$; we need
+to show that $\alpha\beta\in S_{1}$. We have $\alpha\in S_{1}=\left\{
+a+2ci\ \mid\ a,c\in\mathbb{Z}\right\}  $; in other words, we can write
+$\alpha$ in the form $\alpha=x+2yi$ for some $x,y\in\mathbb{Z}$. Similarly, we
+can write $\beta$ in the form $\beta=z+2wi$ for some $z,w\in\mathbb{Z}$. Now,
+multiplying the two equalities $\alpha=x+2yi$ and $\beta=z+2wi$, we obtain%
+\begin{align*}
+\alpha\beta &  =\left(  x+2yi\right)  \left(  z+2wi\right)
+=xz+2xwi+2yzi+4yw\underbrace{i^{2}}_{=-1}\\
+&  =\left(  xz-4yw\right)  +2\left(  xw+yz\right)  i.
+\end{align*}
+Thus, $\alpha\beta$ can be written in the form $a+2ci$ for some $a,c\in
+\mathbb{Z}$ (namely, for $a=xz-4yw$ and $c=xw+yz$). Thus, $\alpha\beta\in
+S_{1}$. Now, forget that we fixed $\alpha,\beta$. We thus have shown that all
+$\alpha,\beta\in S_{1}$ satisfy $\alpha\beta\in S_{1}$. In other words,
+$S_{1}$ is closed under multiplication. Similar arguments show that $S_{1}$ is
+closed under addition and under additive inverses. Thus, $S_{1}$ is a subring
+of $\mathbb{Z}\left[  i\right]  $.
+
+This subring $S_{1}$ is only \textquotedblleft half as large\textquotedblright%
+\ as $\mathbb{Z}\left[  i\right]  $ (in a vague sense that can be made
+precise), but it has rather different properties. For example, $\mathbb{Z}%
+\left[  i\right]  $ has greatest common divisors and unique factorization into
+primes; the subring $S_{1}$
+\href{https://math.stackexchange.com/questions/657058}{does not}.
+
+There is nothing special about the number $2$; we could have just as easily
+shown that $\left\{  a+kci\ \mid\ a,c\in\mathbb{Z}\right\}  $ is a subring of
+$\mathbb{Z}\left[  i\right]  $ for each $k\in\mathbb{Z}$.
+
+\textbf{(b)} Let
+\[
+S_{2}=\left\{  a+bi\ \mid\ a,b\in\mathbb{Z}\text{, and }a\text{ is
+even}\right\}  =\left\{  2c+bi\ \mid\ c,b\in\mathbb{Z}\right\}  .
+\]
+Is $S_{2}$ a subring of $\mathbb{Z}\left[  i\right]  $ ? No, since $1\notin
+S_{2}$.
+
+\textbf{(c)} Let
+\[
+S_{3}=\left\{  a+bi\ \mid\ a,b\in\mathbb{Z}\text{, and }b\text{ is a multiple
+of }a\right\}  =\left\{  a+aci\ \mid\ a,c\in\mathbb{Z}\right\}  .
+\]
+Is $S_{3}$ a subring of $\mathbb{Z}\left[  i\right]  $ ? The subset $S_{3}$
+does contain both $0$ and $1$ and is closed under additive inverses; but
+$S_{3}$ is not closed under addition (nor under multiplication). Thus, $S_{3}$
+is not a subring of $\mathbb{Z}\left[  i\right]  $. (For a concerte example:
+The numbers $1+2i$ and $1+3i$ both belong to $S_{3}$, but their sum $2+5i$
+does not.)
+
+\textbf{(d)} Let%
+\[
+S_{4}=\left\{  a+bi\ \mid\ a,b\in\mathbb{N}\right\}  .
+\]
+Is $S_{4}$ a subring of $\mathbb{Z}\left[  i\right]  $ ? No, because $S_{4}$
+is not closed under additive inverses (although $S_{4}$ satisfies all the
+other three conditions of Proposition \ref{prop.ring.subring.as-subset}.)
+
+\textbf{(e)} A pattern emerges: It appears that the only subrings of
+$\mathbb{Z}\left[  i\right]  $ are the ones of the form $\left\{
+a+kci\ \mid\ a,c\in\mathbb{Z}\right\}  $ for $k\in\mathbb{Z}$. This is indeed
+true. (It is not hard to prove, if you are so inclined! \textbf{Hint:} Let $S$
+be any subring of $\mathbb{Z}\left[  i\right]  $. Clearly, $S$ contains $1$
+and therefore all the integer multiples of $1$; in other words, $\mathbb{Z}%
+\subseteq S$. Hence, if $S\subseteq\mathbb{Z}$, then clearly $S=\mathbb{Z}$,
+which means that $S=\left\{  a+kci\ \mid\ a,c\in\mathbb{Z}\right\}  $ for
+$k=0$. Thus, we can WLOG assume that $S\not \subseteq \mathbb{Z}$. Hence,
+there exists at least one $a+bi\in S$ with $b\neq0$. Thus, there exists at
+least one $a+bi\in S$ with $b>0$ (indeed, if $b<0$, then we replace this
+element by its additive inverse). Pick the one with the \textbf{smallest} $b$.
+Then, from $a+bi\in S$ and $a\in\mathbb{Z}\subseteq S$, we obtain $\left(
+a+bi\right)  -a\in S$ (since $S$ is a ring), which means that $bi\in S$. Next,
+argue that $S=\left\{  a+kci\ \mid\ a,c\in\mathbb{Z}\right\}  $ for $k=b$.)
+\end{example}
+
+\subsection{\label{sect.ring.rules}Additive inverses, sums, powers and their
+properties}
 
 What can you do when you have a ring?
 
@@ -24151,8 +24464,8 @@ the order of summation in order to make them non-ambiguous.
 \end{theorem}
 
 \begin{proof}
-This is proven just as for numbers. (See \cite[\S 2.14 and \S 1.4]{detnotes}
-for how it is proven for numbers.)
+[Proof of Theorem \ref{thm.rings.sum.wd}.]This is proven just as for numbers.
+(See \cite[\S 2.14 and \S 1.4]{detnotes} for how it is proven for numbers.)
 \end{proof}
 
 What about finite products? Is $\prod_{s\in S}a_{s}$ well-defined? Not always,
@@ -24190,8 +24503,8 @@ i\in\left\{  0,1,\ldots,k\right\}  .
 \end{theorem}
 
 \begin{proof}
-\textbf{(a)} This is proven just as for numbers. (See \cite[\S 2.14 and
-\S 1.4]{detnotes} for how it is proven for numbers.)
+[Proof of Theorem \ref{thm.rings.prod.wd}.]\textbf{(a)} This is proven just as
+for numbers. (See \cite[\S 2.14 and \S 1.4]{detnotes} for how it is proven for numbers.)
 
 \textbf{(b)} This will be proven on HW0. (For now, you can find proofs in
 various texts on algebra, or at
@@ -24200,18 +24513,19 @@ various texts on algebra, or at
 \end{proof}
 
 Theorem \ref{thm.rings.prod.wd} \textbf{(b)} is called the \textit{general
-associativity theorem}. Note that Theorem \ref{thm.rings.prod.wd} \textbf{(b)}
-entails that if we have $k$ elements $a_{1},a_{2},\ldots,a_{k}$ of a ring
-$\mathbb{K}$, then any two ways of parenthesizing the product $a_{1}%
-a_{2}\cdots a_{k}$ yield the same result. For example, for $k=4$, we have%
+associativity theorem for rings}. Note that Theorem \ref{thm.rings.prod.wd}
+\textbf{(b)} entails that if we have $k$ elements $a_{1},a_{2},\ldots,a_{k}$
+of a ring $\mathbb{K}$, then any two ways of parenthesizing the product
+$a_{1}a_{2}\cdots a_{k}$ yield the same result. For example, for $k=4$, we
+have%
 \[
 \left(  \left(  a_{1}a_{2}\right)  a_{3}\right)  a_{4}=\left(  a_{1}\left(
 a_{2}a_{3}\right)  \right)  a_{4}=\left(  a_{1}a_{2}\right)  \left(
 a_{3}a_{4}\right)  =a_{1}\left(  \left(  a_{2}a_{3}\right)  a_{4}\right)
 =a_{1}\left(  a_{2}\left(  a_{3}a_{4}\right)  \right)  .
 \]
-(It is not hard to prove this particular chain of identities by multiplying
-the associativity of multiplication in the appropriate places; but for higher
+(It is not hard to prove this particular chain of identities by applying the
+associativity of multiplication in the appropriate places; but for higher
 values of $k$, such a manual approach becomes more and more cumbersome.)
 
 What else can we do with our ring $\mathbb{K}$ ?
@@ -24374,7 +24688,7 @@ of $n,m,n+m$.
 \textbf{(d)} Analogous to the proof for rationals.
 \end{proof}
 
-\subsection{Multiplicative inverses and fields}
+\subsection{\label{sect.ring.inv}Multiplicative inverses and fields}
 
 \begin{convention}
 For the rest of this section, we fix a ring $\mathbb{K}$, and we denote its
@@ -24535,8 +24849,10 @@ we had used $\mathbb{Q}$ instead of $\mathbb{Z}$ in their definitions.
 
 \textbf{(c)} The polynomial ring $\mathbb{Z}\left[  x\right]  $ is not a field
 (since, for example, $x$ is not invertible in it). There is a way to get a
-field out of it, similarly to how $\mathbb{Q}$ is obtained from $\mathbb{Z}$
-(more on that later perhaps).
+field out of it, similarly to how $\mathbb{Q}$ is obtained from $\mathbb{Z}$.
+(This leads to the so-called
+\textit{\href{https://en.wikipedia.org/wiki/Rational_function}{\textit{rational
+functions}}}.)
 
 \textbf{(d)} Recall the commutative ring $\mathbb{Q}^{\mathbb{Q}}$; the
 elements of this ring are functions from $\mathbb{Q}$ to $\mathbb{Q}$, and the
@@ -24668,13 +24984,13 @@ Theorem \ref{thm.field.Z/n} is proven.
 Now, for an example of a skew field that is not a field.
 
 \begin{example}
-Informally, we have obtained $\mathbb{C}$ from $\mathbb{R}$ by throwing in a
-new number $i$ that satisfies $i^{2}=-1$. In order for $i$ not to feel alone,
-let us introduce yet another new \textquotedblleft number\textquotedblright%
-\ $j$ such that $j^{2}=-1$ and $ji=-ij$. Now we try to calculate with these
-$i$ and $j$. Of course, $i$ and $j$ cannot belong to a commutative ring
-together, but let us assume that they (and the further numbers we obtain from
-them) at least satisfy the ring axioms.
+\label{exa.ring.H}Informally, we have obtained $\mathbb{C}$ from $\mathbb{R}$
+by throwing in a new number $i$ that satisfies $i^{2}=-1$. In order for $i$
+not to feel alone, let us introduce yet another new \textquotedblleft
+number\textquotedblright\ $j$ such that $j^{2}=-1$ and $ji=-ij$. Now we try to
+calculate with these $i$ and $j$. Of course, $i$ and $j$ cannot belong to a
+commutative ring together, but let us assume that they (and the further
+numbers we obtain from them) at least satisfy the ring axioms.
 
 We have%
 \begin{align*}
@@ -24754,11 +25070,11 @@ Also,
 quaternions can be used to encode rotations in 3-dimensional space}.
 \end{example}
 
-\subsection{Hunting for finite fields I}
+\subsection{\label{sect.ring.hunting1}Hunting for finite fields I}
 
 \begin{definition}
-\textbf{(a)} The \textit{ground set} of a ring $\left(  \mathbb{K}%
-,+,\cdot,0,1\right)  $ is defined to be the set $\mathbb{K}$.
+\label{def.ring.size}\textbf{(a)} The \textit{ground set} of a ring $\left(
+\mathbb{K},+,\cdot,0,1\right)  $ is defined to be the set $\mathbb{K}$.
 
 \textbf{(b)} The \textit{elements} of a ring are defined to be the elements of
 its ground set.
@@ -24894,15 +25210,21 @@ and $\mathbb{K}^{\prime}$. The elements of $\mathbb{K}^{\prime}$ are like
 complex numbers, but built upon $\mathbb{K}$ instead of $\mathbb{R}$.
 
 \begin{proposition}
-\label{prop.finfield.K'.cring}The set $\mathbb{K}^{\prime}$ defined in
-Definition \ref{def.finfield.K'} (equipped with the operations $+$ and $\cdot$
-and the elements $0_{\mathbb{K}^{\prime}}$ and $1_{\mathbb{K}^{\prime}}$) is a
-commutative ring.
+\label{prop.finfield.K'.cring}\textbf{(a)} The set $\mathbb{K}^{\prime}$
+defined in Definition \ref{def.finfield.K'} (equipped with the operations $+$
+and $\cdot$ and the elements $0_{\mathbb{K}^{\prime}}$ and $1_{\mathbb{K}%
+^{\prime}}$) is a commutative ring.
+
+\textbf{(b)} Furthermore, the ring $\mathbb{K}$ is a subring of $\mathbb{K}%
+^{\prime}$ (where we regard $\mathbb{K}$ as a subset of $\mathbb{K}^{\prime}$
+as explained in Definition \ref{def.finfield.K'} \textbf{(b)}).
 \end{proposition}
 
 \begin{proof}
-Same argument as we did for $\mathbb{C}$ in the proof of Theorem
-\ref{thm.CC.CC.rules}.
+[Proof of Proposition \ref{prop.finfield.K'.cring}.]\textbf{(a)} Same argument
+as we did for $\mathbb{C}$ in the proof of Theorem \ref{thm.CC.CC.rules}.
+
+\textbf{(b)} This is straightforward to check.
 \end{proof}
 
 \begin{convention}
@@ -25244,7 +25566,7 @@ of a prime). Even better, if $n$ is a prime power, then a field of size $n$ is
 unique up to relabeling. We hope to see a proof of this (at least of the
 existence part) further on in this class.
 
-\subsection{Cartesian products}
+\subsection{\label{sect.ring.cart-prod}Cartesian products}
 
 Next comes a basic and unimaginative way of constructing new rings from old:
 
@@ -25365,7 +25687,7 @@ times}}.
 \]
 
 
-\subsection{Matrices and matrix rings}
+\subsection{\label{sect.ring.matrix}Matrices and matrix rings}
 
 \begin{convention}
 In this section, we fix a ring $\mathbb{K}$.
@@ -25479,8 +25801,8 @@ Again, the \textquotedblleft$\times$\textquotedblright\ symbol in this
 notation is just a symbol; it does not stand for a product of numbers.
 
 \begin{definition}
-\textbf{(a)} A \textit{matrix} means an $n\times m$-matrix for some
-$n,m\in\mathbb{N}$.
+\label{def.matrix.square}\textbf{(a)} A \textit{matrix} means an $n\times
+m$-matrix for some $n,m\in\mathbb{N}$.
 
 \textbf{(b)} A \textit{square matrix} means an $n\times n$-matrix for some
 $n\in\mathbb{N}$.
@@ -25695,8 +26017,8 @@ A-B\right)  -C$\textquotedblright.)
 \end{theorem}
 
 \begin{proof}
-Most of these are trivial. The hardest one is part \textbf{(f)}. See
-\cite[\S 2.9]{lina} for its proof.
+[Proof of Theorem \ref{thm.matrix.rules}.]Most of these are trivial. The
+hardest one is part \textbf{(f)}. See \cite[\S 2.9]{lina} for its proof.
 \end{proof}
 
 \begin{corollary}
@@ -25708,6 +26030,12 @@ $, zero $0_{n\times n}$ and unity $I_{n}$) is a ring.
 \begin{proof}
 Follows from Theorem \ref{thm.matrix.rules}.
 \end{proof}
+
+\begin{definition}
+\label{def.matrix.ring}Let $n\in\mathbb{N}$. The ring $\mathbb{K}^{n\times n}$
+defined in Corollary \ref{cor.matrix.ring} is called the $n$\textit{-th matrix
+ring} over $\mathbb{K}$.
+\end{definition}
 
 \begin{center}
 \textbf{2019-04-05 lecture}
@@ -25726,7 +26054,10 @@ $n_{i}\times n_{i+1}$-matrix (for any $n_{1},n_{2},\ldots,n_{k+1}\in
 \mathbb{N}$). Standard rules for sums and products hold, at least to the
 extent they don't rely on commutativity of multiplication.
 
-But $\mathbb{K}^{n\times n}$ is not the only ring we can make out of matrices:
+But $\mathbb{K}^{n\times n}$ is not the only ring we can make out of matrices.
+In fact, $\mathbb{K}^{n\times n}$ is full of interesting subrings, which are
+obtained by restricting ourselves to special kinds of matrices. Here are some
+of these:
 
 \begin{definition}
 \label{def.matrix.triang}Let $n\in\mathbb{N}$. Let $A=\left(  a_{i,j}\right)
@@ -25769,11 +26100,14 @@ $2\times2$-matrix $\left(
 \begin{proposition}
 \label{prop.matrix.triang-ring}Let $n\in\mathbb{N}$.
 
-\textbf{(a)} The set of all lower-triangular $n\times n$-matrices is a ring.
+\textbf{(a)} The set of all lower-triangular $n\times n$-matrices is a subring
+of $\mathbb{K}^{n\times n}$.
 
-\textbf{(b)} The set of all upper-triangular $n\times n$-matrices is a ring.
+\textbf{(b)} The set of all upper-triangular $n\times n$-matrices is a subring
+of $\mathbb{K}^{n\times n}$.
 
-\textbf{(c)} The set of all diagonal $n\times n$-matrices is a ring.
+\textbf{(c)} The set of all diagonal $n\times n$-matrices is a subring of
+$\mathbb{K}^{n\times n}$.
 \end{proposition}
 
 \begin{example}
@@ -25836,7 +26170,7 @@ Note that diagonal $n\times n$-matrices are \textquotedblleft
 essentially\textquotedblright\ the same as $n$-tuples of elements of
 $\mathbb{K}$; the ring they form is $\underbrace{\mathbb{K}\times
 \mathbb{K}\times\cdots\times\mathbb{K}}_{n\text{ times}}$ in disguise. We will
-see soon how to make this precise.
+make this precise in Example \ref{exa.riiso.dn} (using the notion of a ring isomorphism).
 
 One of the most important operations on matrices is taking the transpose:
 
@@ -25917,7 +26251,7 @@ a_{1},a_{2},\ldots,a_{n}\right)  $.
 If $v$ is a column vector of size $n$, then $v^{T}$ is a row vector of size
 $n$.
 
-\subsection{Ring homomorphisms}
+\subsection{\label{sect.ring.riho}Ring homomorphisms}
 
 \begin{definition}
 \label{def.riho.riho}Let $\mathbb{K}$ and $\mathbb{L}$ be two rings. A
@@ -25984,11 +26318,27 @@ with respect to replacing \textquotedblleft ring\textquotedblright\ by
 \end{example}
 
 \begin{proof}
-Let us check that $\operatorname*{id}$ satisfies the axiom \textbf{(c)} in
-Definition \ref{def.riho.riho}: Indeed, this simply means checking that
-$\operatorname*{id}\left(  ab\right)  =\operatorname*{id}\left(  a\right)
-\operatorname*{id}\left(  b\right)  $ for all $a,b\in\mathbb{K}$. But this
-rewrites as $ab=ab$, which is obvious. Similarly, the other three axioms hold.
+[Proof of Example \ref{exa.riho.id}.]Let us check that $\operatorname*{id}$
+satisfies the axiom \textbf{(c)} in Definition \ref{def.riho.riho}: Indeed,
+this simply means checking that $\operatorname*{id}\left(  ab\right)
+=\operatorname*{id}\left(  a\right)  \operatorname*{id}\left(  b\right)  $ for
+all $a,b\in\mathbb{K}$. But this rewrites as $ab=ab$, which is obvious.
+Similarly, the other three axioms hold.
+\end{proof}
+
+We can slightly generalize Example \ref{exa.riho.id} as follows:
+
+\begin{example}
+\label{exa.riho.incl}Let $\mathbb{K}$ be a subring of a ring $\mathbb{L}$. Let
+$\iota:\mathbb{K}\rightarrow\mathbb{L}$ be the map that sends each
+$a\in\mathbb{K}$ to $a$ itself. (This map is called the \textit{inclusion map}
+from $\mathbb{K}$ to $\mathbb{L}$.) Then, $\iota$ is a ring homomorphism.
+\end{example}
+
+\begin{proof}
+[Proof of Example \ref{exa.riho.incl}.]The four axioms in Definition
+\ref{def.riho.riho} follow straight from the five requirements in Definition
+\ref{def.ring.subring}.
 \end{proof}
 
 \begin{example}
@@ -25997,8 +26347,14 @@ zero ring $\left\{  0\right\}  $. Then, the map%
 \[
 \mathbb{K}\rightarrow\mathbb{M},\ \ \ \ \ \ \ \ \ \ a\mapsto0
 \]
-is a ring homomorphism.
+is a ring homomorphism.{}
 \end{example}
+
+\begin{proof}
+[Proof of Example \ref{exa.riho.triv}.]Each of the four axioms in Definition
+\ref{def.riho.riho} holds trivially for this map (since $\mathbb{M}$ has only
+one element, and thus any two elements of $\mathbb{M}$ are equal).
+\end{proof}
 
 \begin{example}
 \label{exa.riho.pin}Let $n$ be an integer. Consider the projection%
@@ -26143,7 +26499,7 @@ other two.
 \end{proof}
 
 \begin{example}
-\label{exa.riho.C-iota}Let $\iota$ be the map%
+\label{exa.riho.C-iota}Let $\iota_{\mathbb{C}}$ be the map%
 \begin{align*}
 \mathbb{R}  &  \rightarrow\mathbb{C},\\
 r  &  \mapsto r_{\mathbb{C}}=\left(  r,0\right)  .
@@ -26152,11 +26508,11 @@ This is a ring homomorphism.
 \end{example}
 
 \begin{proof}
-Theorem \ref{thm.CC.RRtoCC.hom} shows that $\iota$ satisfies axioms
-\textbf{(a)} and \textbf{(c)}. As for \textbf{(b)} and \textbf{(d)}, these
-follow from the fact that the zero of $\mathbb{C}$ is $0_{\mathbb{C}}=\left(
-0,0\right)  $ and the unity of $\mathbb{C}$ is $1_{\mathbb{C}}=\left(
-1,0\right)  $.
+Theorem \ref{thm.CC.RRtoCC.hom} shows that $\iota_{\mathbb{C}}$ satisfies
+axioms \textbf{(a)} and \textbf{(c)}. As for \textbf{(b)} and \textbf{(d)},
+these follow from the fact that the zero of $\mathbb{C}$ is $0_{\mathbb{C}%
+}=\left(  0,0\right)  $ and the unity of $\mathbb{C}$ is $1_{\mathbb{C}%
+}=\left(  1,0\right)  $.
 \end{proof}
 
 \begin{example}
@@ -26316,7 +26672,7 @@ $g\circ f:\mathbb{K}\rightarrow\mathbb{M}$ is also a ring homomorphism.
 HW6 exercise 4 \textbf{(a)}.
 \end{proof}
 
-\subsection{Ring isomorphisms}
+\subsection{\label{sect.ring.riiso}Ring isomorphisms}
 
 \begin{definition}
 \label{def.riiso.riiso}Let $\mathbb{K}$ and $\mathbb{L}$ be two rings. Let
@@ -26447,13 +26803,13 @@ S_{m,n}:\mathbb{Z}/\left(  mn\right)   &  \rightarrow\left(  \mathbb{Z}%
 \alpha &  \mapsto\left(  \pi_{mn,m}\left(  \alpha\right)  ,\pi_{mn,n}\left(
 \alpha\right)  \right)
 \end{align*}
-is well-defined and is a bijection. We claim that this map $S_{m,n}$ is a ring isomorphism.
+is well-defined and is a bijection. This map $S_{m,n}$ is furthermore a ring isomorphism.
 \end{example}
 
 \begin{proof}
 [Proof of Example \ref{exa.riiso.CRT}.]The map $S_{m,n}$ is a bijection, thus invertible.
 
-Let us first prove that the map $S_{m,n}$ is a ring homomorphism.
+Let us next prove that the map $S_{m,n}$ is a ring homomorphism.
 
 For each $s\in\mathbb{Z}$, we have%
 \begin{equation}
@@ -27079,7 +27435,7 @@ a & a+b
 \end{array}
 \right)  \ \mid\ a,b\in\mathbb{Z}\right\}  .
 \]
-
+This is a subring of the matrix ring $\mathbb{Z}^{2\times2}$.
 
 On \href{http://www-users.math.umn.edu/~dgrinber/19s/hw5s.pdf}{homework set
 \#5} exercise 5, you have encountered the ring%
@@ -27088,7 +27444,7 @@ On \href{http://www-users.math.umn.edu/~dgrinber/19s/hw5s.pdf}{homework set
 \right\}  ,
 \]
 where $\phi=\dfrac{1+\sqrt{5}}{2}=\allowbreak1.\,\allowbreak618\ldots$ is the
-golden ratio.
+golden ratio. This is a subring of $\mathbb{R}$.
 
 I claim that there is an isomorphism from $\mathbb{Z}\left[  \phi\right]  $ to
 $\mathcal{F}$. Namely, the map%
@@ -27117,7 +27473,18 @@ rings)\textquotedblright\ to say that the rings $\mathbb{K}$ and $\mathbb{L}$
 are isomorphic.
 \end{definition}
 
-\subsection{An overview of matrix algebra over fields}
+\section{\label{chp.la}Linear algebra over commutative rings}
+
+We shall now continue studying rings, but slowly shift our focus. Namely,
+while we so far have been studying rings themselves, we are now going to move
+towards structures \textquotedblleft over\textquotedblright\ rings -- such as
+matrices and $\mathbb{K}$-modules (a generalization of vector spaces). The
+rings will no longer be the place where everything happens, but rather they
+will \textquotedblleft act\textquotedblright\ on our structures in the way
+scalars act on vectors in linear algebra.
+
+\subsection{\label{sect.la.matrix-review}An overview of matrix algebra over
+fields}
 
 I assume you have all seen some basic matrix algebra: Gaussian elimination,
 ranks of matrices, inverses of matrices, determinants, etc. (If not, see
@@ -28493,7 +28860,7 @@ So the vector $\left(
 \end{array}
 \right)  \in\left(  \mathbb{Z}/3\right)  ^{3\times1}$ is orthogonal to itself.
 
-\subsection{Modules: coordinate-free linear algebra}
+\subsection{Matrix algebra vs. coordinate-free linear algebra}
 
 There are two common approaches to linear algebra: The first is the study of
 matrices and column vectors (or row vectors); this is down-to-earth but often
@@ -28513,14 +28880,14 @@ course on linear algebra will necessarily survey both of these approaches, and
 practitioners of the subjects will often apply whichever approach fits a
 problem better.
 
-In the above few sections, we have seen how the first approach can be
+In the previous section, we have seen how the first approach can be
 generalized from real or complex matrices to matrices over any field (and, as
 far as the basics are concerned, over any commutative ring). We shall now try
 this with the second approach. Over a field, the second approach turns out to
 work out in pretty much the same way as over the real or complex numbers;
 however, over a commutative ring, things become a lot more interesting.
 
-\subsubsection{The definition}
+\subsection{\label{sect.la.mod-def}$\mathbb{K}$-modules: the definition}
 
 Let us begin by defining the analogue of a vector space: a \textit{module}.
 Roughly speaking, a module is the same as a vector space, except that it is
@@ -28597,7 +28964,7 @@ are called $\mathbb{K}$\textit{-vector spaces}. (When $\mathbb{K}=\mathbb{R}$,
 these are the usual real vector spaces known from undergraduate linear algebra classes.)
 \end{definition}
 
-\subsubsection{Examples}
+\subsection{\label{sect.la.mod-exa}Examples of $\mathbb{K}$-modules}
 
 Thus, any vector space you have seen in linear algebra is an example of a
 module. Let us see some other examples:
@@ -28691,7 +29058,169 @@ usual addition as addition, the usual multiplication as scaling, and the usual
 $0$ as zero vector) is a $\mathbb{Z}$-module. (Check this!)
 \end{example}
 
-\subsubsection{Direct products of $\mathbb{K}$-modules}
+\subsection{\label{sect.la.submod}Submodules}
+
+\begin{convention}
+\label{conv.module.K}For the rest of Chapter \ref{chp.la}, we fix a
+\textbf{commutative} ring $\mathbb{K}$, and we denote its addition,
+multiplication, zero and unity by $+$, $\cdot$, $0$ and $1$.
+\end{convention}
+
+In Section \ref{sect.ring.subring}, we have defined the notion of a subring of
+a ring. Similarly, we shall now define a submodule of a $\mathbb{K}$-module.
+For example, the $\mathbb{Z}$-modules $q\mathbb{Z}$ and $\mathbb{Q}%
+_{\operatorname*{sqf}}$ from Example \ref{exa.module.Q} will fall under this
+concept. The idea is the same as for subrings: A submodule of a $\mathbb{K}%
+$-module $M$ is a $\mathbb{K}$-module $N$ that is a subset of $N$ and has
+\textquotedblleft the same\textquotedblright\ addition, scaling and zero
+vector. Here is the formal definition (analogous to Definition
+\ref{def.ring.subring}):
+
+\begin{definition}
+\label{def.la.submod}Let $M$ and $N$ be two $\mathbb{K}$-modules. We say that
+$M$ is a $\mathbb{K}$\textit{-submodule} (or, for short, \textit{submodule})
+of $N$ if and only if it satisfies the following four requirements:
+
+\begin{itemize}
+\item the set $M$ is a subset of $N$;
+
+\item the addition of $M$ is a restriction of the addition of $N$ (that is, we
+have $a_{1}+_{M}a_{2}=a_{1}+_{N}a_{2}$ for all $a_{1},a_{2}\in M$);
+
+\item the scaling of $M$ is a restriction of the scaling of $N$ (that is, we
+have $\lambda\cdot_{M}a=\lambda\cdot_{N}a$ for all $\lambda\in\mathbb{K}$ and
+$a\in M$);
+
+\item the zero vector of $M$ is the zero vector of $N$ (that is, we have
+$0_{M}=0_{N}$).
+\end{itemize}
+\end{definition}
+
+Thus, according to this definition:
+
+\begin{itemize}
+\item the $\mathbb{Z}$-modules $n\mathbb{Z}$ from Example \ref{exa.module.Z/n}
+\textbf{(b)} are $\mathbb{Z}$-submodules of $\mathbb{Z}$;
+
+\item the $\mathbb{Z}$-modules $q\mathbb{Z}$ and $\mathbb{Q}%
+_{\operatorname*{sqf}}$ from Example \ref{exa.module.Q} are $\mathbb{Z}%
+$-submodules of $\mathbb{Q}$;
+
+\item every $\mathbb{K}$-module $M$ is a $\mathbb{K}$-submodule of itself.
+\end{itemize}
+
+Again, you can find examples of two $\mathbb{K}$-modules $M$ and $N$ for which
+the set $M$ is a \textbf{subset} of $N$ yet the $\mathbb{K}$-module $M$ is
+\textbf{not a }$\mathbb{K}$\textbf{-submodule} of $N$. For example,
+$\mathbb{C}$ becomes a $\mathbb{C}$-module in the usual way (with addition
+playing the role of addition, and multiplication playing the role of scaling);
+but you can also define a second \textquotedblleft scaling\textquotedblright%
+\ operation $\overline{\cdot}:\mathbb{C}\times\mathbb{C}\rightarrow\mathbb{C}$
+by setting%
+\[
+\alpha\left.  \overline{\cdot}\right.  \beta=\overline{\alpha}\beta
+\ \ \ \ \ \ \ \ \ \ \text{for all }\alpha,\beta\in\mathbb{C}\text{.}%
+\]
+Then, we can turn the set $\mathbb{C}$ into a $\mathbb{C}$-module by endowing
+it with the usual addition, the unusual scaling operation $\left.
+\overline{\cdot}\right.  $ and the zero vector $0$. This new $\mathbb{C}%
+$-module may be called $\overline{\mathbb{C}}$, and is useful in studying
+\href{https://en.wikipedia.org/wiki/Sesquilinear_form}{Hermitian forms}. The
+$\mathbb{C}$-modules $\mathbb{C}$ and $\overline{\mathbb{C}}$ are equal as
+sets, but neither is a $\mathbb{C}$-submodule of the other.
+
+\begin{definition}
+If $\mathbb{K}$ is a field, then $\mathbb{K}$-submodules are also known as
+$\mathbb{K}$\textit{-vector subspaces} (or, short, $\mathbb{K}$%
+\textit{-subspaces}).
+\end{definition}
+
+When we have two $\mathbb{K}$-modules $M$ and $N$ such that $M\subseteq N$ as
+sets (or, more generally, such that $M$ and $N$ have elements in common), we
+generally need to be careful using the symbol \textquotedblleft$+$%
+\textquotedblright: This symbol may mean both the addition of $M$ and the
+addition of $N$, and these additions might not be the same. Thus it is prudent
+to disambiguate its meaning by attaching a subscript \textquotedblleft$_{M}%
+$\textquotedblright\ or \textquotedblleft$_{N}$\textquotedblright\ to it. The
+same applies to the symbols \textquotedblleft$\cdot$\textquotedblright\ and
+\textquotedblleft$0$\textquotedblright\ and expressions like \textquotedblleft%
+$\lambda a$\textquotedblright\ (which have an implicit scaling sign). However,
+when $M$ is a $\mathbb{K}$-submodule of $N$, we do not need to take this
+precaution; in this case, the meaning of expressions like \textquotedblleft%
+$a+b$\textquotedblright\ does not depend on whether you read \textquotedblleft%
+$+$\textquotedblright\ as the addition of $M$ or as the addition of
+$\mathbb{L}$.
+
+The following is analogous to Proposition \ref{prop.ring.subring.as-subset}:
+
+\begin{proposition}
+\label{prop.module.submod.as-subset}Let $N$ be a $\mathbb{K}$-module. Let $S$
+be a subset of $N$ that satisfies the following three conditions:\footnotemark
+
+\begin{itemize}
+\item We have $0\in S$.
+
+\item The subset $S$ is \textit{closed under addition}. (This means that all
+$a,b\in S$ satisfy $a+b\in S$.)
+
+\item The subset $S$ is closed under scaling. (This means that all $\lambda
+\in\mathbb{K}$ and $a\in S$ satisfy $\lambda a\in S$.)
+\end{itemize}
+
+Then, the set $S$ itself becomes a $\mathbb{K}$-module if we endow it with:
+
+\begin{itemize}
+\item an addition operation $+$ which is defined as the restriction of the
+addition operation of the $\mathbb{K}$-module $N$;
+
+\item a scaling map $\cdot:\mathbb{K}\times S\rightarrow S$ which is defined
+as the restriction of the scaling map of the $\mathbb{K}$-module $N$,
+\end{itemize}
+
+\noindent and the zero vector $0$. Furthermore, this $\mathbb{K}$-module $S$
+is a $\mathbb{K}$-submodule of $N$.
+\end{proposition}
+
+\footnotetext{In this proposition, the symbols \textquotedblleft%
+$+$\textquotedblright, \textquotedblleft$\cdot$\textquotedblright\ and
+\textquotedblleft$0$\textquotedblright\ mean the addition, the scaling and the
+zero vector of $N$.}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.module.submod.as-subset}.]Similar to the proof
+of Proposition \ref{prop.ring.subring.as-subset}, except that we now need to
+argue that each $a\in S$ satisfies $-a\in S$. (But this is easy: Since $S$ is
+closed under scaling, we have $\left(  -1\right)  a\in S$, and thus
+$-a=\left(  -1\right)  a\in S$.)
+\end{proof}
+
+\begin{definition}
+Let $N$ be a $\mathbb{K}$-module. Let $S$ be a subset of $N$ that satisfies
+the three conditions of Proposition \ref{prop.module.submod.as-subset}. Then,
+we shall say that \textquotedblleft$S$ is a $\mathbb{K}$-submodule of
+$N$\textquotedblright. Technically speaking, this is premature, since $S$ is
+so far just a subset of $N$ without the structure of a $\mathbb{K}$-module;
+however, Proposition \ref{prop.module.submod.as-subset} shows that there is an
+obvious way of turning $S$ into a $\mathbb{K}$-module (viz.: define an
+operation $+$ by restricting the corresponding operation of $N$, define a map
+$\cdot$ similarly, and steal the zero vector from $N$), and we shall
+automatically regard $S$ as becoming a $\mathbb{K}$-module in this way (unless
+we say otherwise). We say that the operation $+$ on $S$ (obtained by
+restricting the corresponding operation on $N$) and the map $\cdot$ on $S$ and
+the zero vector of $S$ are \textit{inherited from }$N$.
+\end{definition}
+
+Thus, finding $\mathbb{K}$-submodules of a $\mathbb{K}$-module $N$ boils down
+to finding subsets that contain its $0$ and are closed under addition and
+under scaling; the module axioms don't need to be re-checked.
+
+Thus, in particular, when $\mathbb{K}$ is a field, the vector subspaces of
+$\mathbb{K}^{n\times1}$ (as in Definition \ref{def.laf.subspace-of-row}) are
+precisely the $\mathbb{K}$-submodules of $\mathbb{K}^{n\times1}$. Many
+examples of $\mathbb{K}$-submodules can thus be found in textbooks on linear algebra.
+
+\subsection{\label{sect.la.cart-prod}Cartesian products of $\mathbb{K}%
+$-modules}
 
 Instead of giving further examples, let us show a way of constructing new
 $\mathbb{K}$-modules from old (analogous to Definition \ref{def.ring.dirprod2}):
@@ -28738,7 +29267,7 @@ of Proposition \ref{prop.ring.dirprod.ring}.
 ,M_{n}$.
 \end{definition}
 
-\subsubsection{Features and rules}
+\subsection{\label{sect.la.rules}Features and rules}
 
 Again, we shall follow the PEMDAS convention for addition and scaling. For
 example, the expression \textquotedblleft$a+\lambda b$\textquotedblright%
@@ -28797,12 +29326,6 @@ axioms any more. (Indeed, our proof of axiom \textbf{(d)} relied on axiom
 What can you do when you have a $\mathbb{K}$-module?
 
 \begin{convention}
-\label{conv.module.K}For the rest of this section, we fix a
-\textbf{commutative} ring $\mathbb{K}$, and we denote its addition,
-multiplication, zero and unity by $+$, $\cdot$, $0$ and $1$.
-\end{convention}
-
-\begin{convention}
 For the rest of this subsection, we fix a $\mathbb{K}$-module $M$. We shall
 denote its zero vector $0_{M}$ by $0$. (More generally, it is common to denote
 the zero vector of any $\mathbb{K}$-module by $0$ as long as you are not
@@ -28811,16 +29334,17 @@ afraid of confusion.)
 
 Just as in a ring, elements of a module have unique additive inverses:
 
-\begin{proposition}
+\begin{theorem}
 \label{thm.module.inv-add.uni}Let $a\in M$. Then:
 
 \textbf{(a)} The element $a$ has exactly one additive inverse.
 
 \textbf{(b)} This additive inverse is $\left(  -1\right)  a$.
-\end{proposition}
+\end{theorem}
 
 \begin{proof}
-\textbf{(a)} Same as the proof of Theorem \ref{thm.rings.inv-add.uni}.
+[Proof of Theorem \ref{thm.module.inv-add.uni}.]\textbf{(a)} Same as the proof
+of Theorem \ref{thm.rings.inv-add.uni}.
 
 \textbf{(b)} This was shown in the proof of Proposition
 \ref{prop.module.redundant-2}.
@@ -28881,10 +29405,12 @@ following, \textquotedblleft$a-b-c$\textquotedblright\ should be read as
 \end{proposition}
 
 \begin{proof}
-Same as for Proposition \ref{prop.rings.inv-add.rules}.
+[Proof of Proposition \ref{prop.module.inv-add.rules}.]Same as for Proposition
+\ref{prop.rings.inv-add.rules}.
 \end{proof}
 
-Again, this proposition shows that certain expressions are unambiguous.
+Again, Proposition \ref{prop.module.inv-add.rules} shows that certain
+expressions are unambiguous.
 
 Theorem \ref{thm.rings.sum.wd} holds for the $\mathbb{K}$-module $M$ just as
 it holds for the ring $\mathbb{K}$. Thus, we have a notion of finite sums of
@@ -28912,9 +29438,10 @@ na=%
 
 \end{definition}
 
-We cannot define $a^{n}$ for $a\in M$.
+We cannot define $a^{n}$ for $a\in M$ and $n\in\mathbb{N}$.
 
-Instead of Proposition \ref{prop.rings.pow.rules} \textbf{(a)}, we have the following:
+Some parts of Proposition \ref{prop.rings.pow.rules} \textbf{(a)} have
+analogues for a $\mathbb{K}$-module; namely, we have the following:
 
 \begin{proposition}
 \label{prop.module.na.rules}We have%
@@ -28945,7 +29472,7 @@ are still true for $\mathbb{K}$-modules. Some basic rules relating to
 multiplication can be salvaged\ (i.e., made to work for $\mathbb{K}$-modules)
 by replacing multiplication by scaling.
 
-\subsubsection{Linear maps}
+\subsection{\label{sect.la.liho}Linear maps}
 
 Recall Definition \ref{def.riho.riho}. In a similar way, we define
 $\mathbb{K}$\textit{-module homomorphisms}, also known as $\mathbb{K}%
@@ -29666,7 +30193,7 @@ any $n\in\mathbb{N}$.
 details) is a $\mathbb{K}$-algebra.
 \end{itemize}
 
-\subsubsection{Module isomorphisms}
+\subsection{\label{sect.la.modiso}Module isomorphisms}
 
 In analogy to Definition \ref{def.riiso.riiso}, we define:
 
@@ -29682,6 +30209,22 @@ Let $M$ be a $\mathbb{K}$-module. The identity map $\operatorname*{id}%
 :M\rightarrow M$ is a $\mathbb{K}$-module isomorphism.
 \end{example}
 
+More generally:
+
+\begin{example}
+\label{exa.modho.incl}Let $M$ be a $\mathbb{K}$-submodule of a $\mathbb{K}%
+$-module $N$. Let $\iota:M\rightarrow N$ be the map that sends each $a\in M$
+to $a$ itself. (This map is called the \textit{inclusion map} from $M$ to $N$.)
+
+\textbf{(a)} Then, the map $\iota$ is a $\mathbb{K}$-module homomorphism.
+
+\textbf{(b)} It is an isomorphism if and only if $M=N$.
+\end{example}
+
+\begin{proof}
+[Proof of Example \ref{exa.modho.incl}.]LTTR.
+\end{proof}
+
 Proposition \ref{prop.riiso.invertible} has an analogue for $\mathbb{K}%
 $-module isomorphisms:
 
@@ -29694,6 +30237,30 @@ $f$ is a $\mathbb{K}$-module isomorphism.
 \begin{proof}
 [Proof of Proposition \ref{prop.modiso.invertible}.]Similar to the proof of
 Proposition \ref{prop.riiso.invertible}.
+\end{proof}
+
+The Chinese Remainder Theorem already brought us an example of a ring
+isomorphism (Example \ref{exa.riiso.CRT}); we can also turn it into an example
+of a module isomorphism:
+
+\begin{example}
+\label{exa.modiso.CRT}Let $m$ and $n$ be two coprime positive integers. Then,
+$\left(  \mathbb{Z}/m\right)  \times\left(  \mathbb{Z}/n\right)  $ is a
+$\mathbb{Z}$-module (according to Definition \ref{def.module.dirprod2}).
+Theorem \ref{thm.eqrel.CRT2} says that the map%
+\begin{align*}
+S_{m,n}:\mathbb{Z}/\left(  mn\right)   &  \rightarrow\left(  \mathbb{Z}%
+/m\right)  \times\left(  \mathbb{Z}/n\right)  ,\\
+\alpha &  \mapsto\left(  \pi_{mn,m}\left(  \alpha\right)  ,\pi_{mn,n}\left(
+\alpha\right)  \right)
+\end{align*}
+is well-defined and is a bijection. This map $S_{m,n}$ is furthermore a
+$\mathbb{Z}$-module isomorphism.
+\end{example}
+
+\begin{proof}
+[Proof of Example \ref{exa.modiso.CRT}.]Similar to the proof of Example
+\ref{exa.riiso.CRT}.
 \end{proof}
 
 \begin{definition}
@@ -29935,64 +30502,14 @@ A  &  \mapsto L_{A}%
 ring isomorphism.
 \end{corollary}
 
-\subsubsection{Submodules}
-
-\begin{definition}
-Let $M$ and $N$ be two $\mathbb{K}$-modules such that $N\subseteq M$ as sets.
-We say that $N$ is a $\mathbb{K}$\textit{-submodule} (or, for short,
-\textit{submodule}) of $M$ if
-
-\begin{itemize}
-\item the addition of $N$ is a restriction of the addition of $M$ (that is,
-$n_{1}+_{N}n_{2}=n_{1}+_{M}n_{2}$ for all $n_{1},n_{2}\in N$);
-
-\item the scaling of $N$ is a restriction of the scaling of $M$ (that is,
-$\lambda\cdot_{N}n=\lambda\cdot_{M}n$ for all $\lambda\in\mathbb{K}$ and $n\in
-N$);
-
-\item $0_{N}=0_{M}$.
-\end{itemize}
-\end{definition}
-
-\begin{example}
-\textbf{(a)} $\mathbb{Z}$ is a $\mathbb{Z}$-submodule of $\mathbb{Q}$.
-
-\textbf{(b)} If $n\in\mathbb{Z}$, then $n\mathbb{Z}=\left\{  \text{all
-multiples of }n\right\}  $ is a $\mathbb{Z}$-submodule of $\mathbb{Z}$.
-
-\textbf{(c)} Vector subspaces (as known from linear algebra, or from
-Definition \ref{def.laf.subspace-of-row} in the case of column vectors) are
-$\mathbb{K}$-submodules.
-\end{example}
-
-\begin{proposition}
-Let $M$ be a $\mathbb{K}$-module. Let $N$ be a subset of $M$ which contains
-$0$ and is closed under addition (i.e., we have $n_{1}+n_{2}\in N$ for all
-$n_{1},n_{2}\in N$) and closed under scaling (i.e., we have $\lambda n\in N$
-for all $\lambda\in\mathbb{K}$ and $n\in N$).
-
-Then, $N$ becomes a $\mathbb{K}$-module if we endow it with the addition and
-the scaling inherited from $M$ (more precisely: with the restrictions of these
-operations to $N$), and this $\mathbb{K}$-module is a submodule of $M$.
-\end{proposition}
-
-\begin{proof}
-Obvious.
-\end{proof}
-
-\begin{definition}
-If $\mathbb{K}$ is a field, then $\mathbb{K}$-submodules are also known as
-$\mathbb{K}$\textit{-vector subspaces} (or, short, $\mathbb{K}$-subspaces).
-\end{definition}
-
 \begin{center}
 \textbf{2019-04-19 lecture}
 \end{center}
 
-\subsubsection{Linear independence, etc.}
+\subsection{Linear independence, etc.}
 
-Now, generalize Definition \ref{def.laf.lincomb} to arbitrary $\mathbb{K}%
-$-modules (where $\mathbb{K}$ is still an arbitrary commutative ring):
+Now, let us generalize Definition \ref{def.laf.lincomb} to arbitrary
+$\mathbb{K}$-modules (where $\mathbb{K}$ is still an arbitrary commutative ring):
 
 \begin{definition}
 Let $M$ be a $\mathbb{K}$-module. Let $v_{1},v_{2},\ldots,v_{k}$ be some
@@ -30065,15 +30582,18 @@ is an analogue in $\infty$ dim, provided you correctly define basis and
 believe ZFC.)
 
 \item How much survives of our theorems? A bit does.
+
+\item \textbf{Thm:} If a $\mathbb{K}$-module has a basis, then all bases have
+the same size, unless $\mathbb{K}$ is trivial (i.e., $\left\vert
+\mathbb{K}\right\vert =1$).
+
+Proof: The usual linear-algebra argument doesn't work! Determinants to the
+rescue (not in this course, though).
 \end{itemize}
 
 \subsubsection{Constructions}
 
 \begin{itemize}
-\item direct products of modules.
-
-\item CRT as a $\mathbb{Z}$-module isomorphism.
-
 \item kernels and images of linear maps.
 
 \item Congruences modulo a submodule.
@@ -30087,7 +30607,7 @@ believe ZFC.)
 \item rank-nullity theorem.
 \end{itemize}
 
-TODO:
+\subsection{Polynomials}
 
 \begin{itemize}
 \item ...
