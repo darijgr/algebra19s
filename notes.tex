@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Friday, April 19, 2019 15:25:13}
+%TCIDATA{LastRevised=Saturday, April 20, 2019 18:01:13}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -1372,9 +1372,10 @@ Now, $q\underbrace{\left\vert b\right\vert }_{=qb}=\underbrace{qq}_{=q^{2}%
 =1}b=b$, so that $b=q\underbrace{\left\vert b\right\vert }_{=\left\vert
 a\right\vert \cdot f}=q\underbrace{\left\vert a\right\vert }_{=ra}\cdot
 f=qra\cdot f=a\cdot qfr$. Hence, there exists an integer $c$ such that $b=ac$
-(namely, $c=qfr$). In other words, $a\mid b$. This proves the
-\textquotedblleft$\Longleftarrow$\textquotedblright\ direction of Proposition
-\ref{prop.ent.div.1} \textbf{(a)}.
+(namely, $c=qfr$). In other words, $a\mid b$ (by Definition
+\ref{def.ent.div.div}). This proves the \textquotedblleft$\Longleftarrow
+$\textquotedblright\ direction of Proposition \ref{prop.ent.div.1}
+\textbf{(a)}.
 
 Thus, the proof of Proposition \ref{prop.ent.div.1} \textbf{(a)} is complete.
 
@@ -1418,8 +1419,7 @@ Proposition \ref{prop.ent.div.1} \textbf{(a)} shows that both $a$ and $b$ in
 the statement \textquotedblleft$a\mid b$\textquotedblright\ can be replaced by
 their absolute values. Thus, when we talk about divisibility of integers, the
 sign of the integers does not really matter -- it usually suffices to work
-with nonnegative integers. We will often use this (tacitly, after a couple
-times) in proofs.
+with nonnegative integers. We will often use this (tacitly, after a while) in proofs.
 
 The next proposition shows some basic properties of the divisibility relation:
 
@@ -1435,17 +1435,19 @@ b_{1}$ and $a_{2}\mid b_{2}$, then $a_{1}a_{2}\mid b_{1}b_{2}$.
 \end{proposition}
 
 \begin{proof}
-\textbf{(a)} Let $a\in\mathbb{Z}$. Then, there exists an integer $c$ such that
-$a=ac$ (namely, $c=1$). In other words, $a\mid a$. This proves Proposition
-\ref{prop.ent.div.2} \textbf{(a)}.
+[Proof of Proposition \ref{prop.ent.div.2}.]\textbf{(a)} Let $a\in\mathbb{Z}$.
+Then, $a=a\cdot1$. Hence, there exists an integer $c$ such that $a=ac$
+(namely, $c=1$). In other words, $a\mid a$ (by Definition
+\ref{def.ent.div.div}). This proves Proposition \ref{prop.ent.div.2}
+\textbf{(a)}.
 
 \textbf{(b)} Let $a,b,c\in\mathbb{Z}$ satisfy $a\mid b$ and $b\mid c$.
 
-From $a\mid b$, we conclude that there exists an integer $d$ such that $b=ad$.
-Consider this $d$.
+From $a\mid b$, we conclude that there exists an integer $d$ such that $b=ad$
+(by Definition \ref{def.ent.div.div}). Consider this $d$.
 
-From $b\mid c$, we conclude that there exists an integer $e$ such that $c=be$.
-Consider this $e$.
+From $b\mid c$, we conclude that there exists an integer $e$ such that $c=be$
+(by Definition \ref{def.ent.div.div}). Consider this $e$.
 
 We have $c=\underbrace{b}_{=ad}e=ade$. Hence, there exists an integer $f$ such
 that $c=af$ (namely, $f=de$). In other words, $a\mid c$ (by Definition
@@ -1608,10 +1610,11 @@ b\operatorname{mod}m$.
 \end{proposition}
 
 \begin{proof}
-\textbf{(a)} Let $a\in\mathbb{Z}$. Recall that $a\equiv a\operatorname{mod}n$
-is defined to mean $n\mid a-a$. Since $n\mid a-a$ holds (because
-$a-a=0=n\cdot0$), we thus see that $a\equiv a\operatorname{mod}n$ holds. This
-proves Proposition \ref{prop.ent.mod.basics} \textbf{(a)}.
+[Proof of Proposition \ref{prop.ent.mod.basics}.]\textbf{(a)} Let
+$a\in\mathbb{Z}$. Recall that $a\equiv a\operatorname{mod}n$ is defined to
+mean $n\mid a-a$. Since $n\mid a-a$ holds (because $a-a=0=n\cdot0$), we thus
+see that $a\equiv a\operatorname{mod}n$ holds. This proves Proposition
+\ref{prop.ent.mod.basics} \textbf{(a)}.
 
 \textbf{(b)} Let $a,b,c\in\mathbb{Z}$ satisfy $a\equiv b\operatorname{mod}n$
 and $b\equiv c\operatorname{mod}n$.
@@ -1814,7 +1817,9 @@ b\operatorname{mod}n$ if and only if $a\equiv b\operatorname{mod}-n$.
 
 \subsection{\label{sect.ent.subst-chain}Chains of congruences}
 
+\begin{convention}
 For this whole Section \ref{sect.ent.subst-chain}, we fix an integer $n$.
+\end{convention}
 
 Chains of equalities are a fundamental piece of notation used throughout
 mathematics. For example, here is a chain of equalities:%
@@ -2029,7 +2034,9 @@ is involved in our expressions. For example, we have $6\equiv
 exponentiation can be problematic. So we need to state the principle we are
 using here in clearer terms, so that we know what we can do.
 
+\begin{convention}
 For this whole Section \ref{sect.ent.subst-mod}, we fix an integer $n$.
+\end{convention}
 
 The \textit{principle of substitutivity for equalities} says the following:
 
@@ -2127,9 +2134,8 @@ proven in a manner like these. Thus, the proofs of
 situation in which an application of the PSC needs to be justified.
 
 \begin{proof}
-[Proof of (\ref{eq.mod.substitutivity-congs.1}).]Let $n$ be any integer, and
-let $a,b,c,d,e,c^{\prime}$ be integers such that $c\equiv c^{\prime
-}\operatorname{mod}n$.
+[Proof of (\ref{eq.mod.substitutivity-congs.1}).]Let $a,b,c,d,e,c^{\prime}$ be
+integers such that $c\equiv c^{\prime}\operatorname{mod}n$.
 
 Adding the congruence\footnote{Proposition \ref{prop.ent.mod.basics}
 \textbf{(d)} shows that we can add, subtract and multiply congruences modulo
@@ -2152,9 +2158,8 @@ This proves (\ref{eq.mod.substitutivity-congs.1}).
 \end{proof}
 
 \begin{proof}
-[Proof of (\ref{eq.mod.substitutivity-congs.2}).]Let $n$ be any integer, and
-let $a,b,c,a^{\prime}$ be integers such that $a\equiv a^{\prime}%
-\operatorname{mod}n$.
+[Proof of (\ref{eq.mod.substitutivity-congs.2}).]Let $a,b,c,a^{\prime}$ be
+integers such that $a\equiv a^{\prime}\operatorname{mod}n$.
 
 Subtracting the congruence $b\equiv b\operatorname{mod}n$ (which follows from
 Proposition \ref{prop.ent.mod.basics} \textbf{(a)}) from the congruence
@@ -2514,7 +2519,10 @@ strong induction.
 In order to derive Lemma \ref{lem.ent.quorem.exist} from Lemma
 \ref{lem.ent.quorem.existN} (that is, to extend Lemma
 \ref{lem.ent.quorem.existN} to the case of negative $u$), we shall need a
-simple but important trick:
+simple but important trick: By adding a sufficiently high multiple of the
+positive integer $n$ to $u$, we eventually obtain a nonnegative integer $v$
+(to which we can then apply Lemma \ref{lem.ent.quorem.existN}). This trick can
+be crystallized in the following lemma:
 
 \begin{lemma}
 \label{lem.ent.cong-to-nonneg}Let $n$ be a positive integer. Let
@@ -2926,6 +2934,11 @@ See \cite{floor} and \cite[\S 4.1]{NiZuMo91} for further properties of the
 floor function.
 
 \subsection{Common divisors, the Euclidean algorithm and the Bezout theorem}
+
+We are next going to define and study the divisors of an integer, as well as
+the common divisors of several integers. These concepts form the backbone of
+most of number theory, and will later be extended to some more complicated
+notions than integers (e.g., Gaussian integers and polynomials).
 
 \subsubsection{Divisors}
 
@@ -11840,8 +11853,8 @@ sketch is similar to the one given in \cite[\S 3.3.3]{detnotes} (but, unlike
 the latter proof, we will use polynomials in $1$ variable only). It will not
 be a complete proof, since it will rely on some properties of polynomials, and
 not only have we not proven these properties -- we have actually not
-rigorously defined polynomials yet! (We will do so later, after we have
-introduced rings.) See \cite[\S 3.3.2]{detnotes} for another (more boring and
+rigorously defined polynomials yet! (We will do so later, in Chapter
+\ref{chp.pol}.) See \cite[\S 3.3.2]{detnotes} for another (more boring and
 tedious, but conceptually simpler) proof of Theorem
 \ref{thm.binom.vandermonde}.
 
@@ -12020,10 +12033,10 @@ a square matrix or another polynomial. (We will later learn the precise
 meaning of \textquotedblleft anything\textquotedblright\ here.)
 
 We have been vague in our definition of polynomials, since making it rigorous
-would take us a fair way afield. But we \textbf{will} eventually (in April?)
-define polynomials rigorously and prove that all of the above claims (e.g.,
-about associativity and distributivity) actually hold. For now, we need a
-basic property of polynomials:
+would take us a fair way afield. But we \textbf{will} eventually (in Chapter
+\ref{chp.pol}) define polynomials rigorously and prove that all of the above
+claims (e.g., about associativity and distributivity) actually hold. For now,
+we need a basic property of polynomials:
 
 \begin{proposition}
 \label{prop.poly.informal.f=g}Let $P$ and $Q$ be two polynomials in $1$
@@ -12042,7 +12055,7 @@ section, the difference does not matter; we can treat polynomials as functions h
 With Lemma \ref{lem.binom.vandermonde.NN}, we have proven Theorem
 \ref{thm.binom.vandermonde} in the case when $x$ and $y$ belong to
 $\mathbb{N}$. Our goal, however, is to prove it for arbitrary $x,y\in
-\mathbb{Q}$. Let us first go to the intermediate level of generality --
+\mathbb{Q}$. Let us first lift it to an intermediate level of generality --
 allowing $x$ to be arbitrary, but still requiring $y\in\mathbb{N}$. Thus, we
 want to prove the following lemma:
 
@@ -12056,7 +12069,7 @@ $n\in\mathbb{N}$. Then,%
 \end{lemma}
 
 \begin{proof}
-[Proof of Lemma \ref{lem.binom.vandermonde.NN} (sketched).]Let us define a
+[Proof of Lemma \ref{lem.binom.vandermonde.QN} (sketched).]Let us define a
 polynomial $P$ in $1$ variable $x$ with rational coefficients as follows:%
 \begin{equation}
 P=\dbinom{x+b}{n}. \label{pf.lem.binom.vandermonde.NN.P=}%
@@ -19719,11 +19732,10 @@ a theorem of analysis. For a proof, see \cite[Theorem 3.2.2]{LaNaSc16}.
 
 Inside the set $\mathbb{C}$ of all complex numbers (an uncountable set) lies a
 much smaller (countable) set of numbers, which are much closer to integers
-than even to real numbers. We shall study them partly for their own sake,
-partly as an instructive example of what will later call a commutative ring,
-and partly in order to answer the questions from Section
-\ref{sect.intro.sum-of-2sq} (although complex numbers were never mentioned in
-that section).
+than to real numbers. We shall study them partly for their own sake, partly as
+an instructive example of what will later call a commutative ring, and partly
+in order to answer the questions from Section \ref{sect.intro.sum-of-2sq}
+(although complex numbers were never mentioned in that section).
 
 We shall follow Keith Conrad's notes \cite{Conrad-Gauss} for most of this
 section (but at the end we will go a bit further in order to answer Question
@@ -23491,8 +23503,8 @@ $-a$.
 \item If you have seen polynomials: The set $\mathbb{Z}\left[  x\right]  $ of
 all polynomials in a single variable $x$ with integer coefficients is a
 commutative ring. Similarly for other kinds of coefficients, and several
-variables. But we will come back later to this, once we have rigorously
-defined polynomials.
+variables. We will come back later to this, once we have rigorously defined
+polynomials in Chapter \ref{chp.pol}.
 
 \item We can define a commutative ring $\mathbb{Z}^{\prime}$ as follows:
 
@@ -23603,8 +23615,8 @@ b\right)  \ \ \ \ \ \ \ \ \ \ \text{for all }a,b\in\mathbb{Z}%
 }\varphi\left(  b\right)  \ \ \ \ \ \ \ \ \ \ \text{for all }a,b\in
 \mathbb{Z};\label{eq.exa.ring.ZZ'.phi.2}\\
 \varphi\left(  0\right)   &  =0;\label{eq.exa.ring.ZZ'.phi.3}\\
-\varphi\left(  1\right)   &  =-1=1_{\mathbb{Z}^{\prime}}%
-.\label{eq.exa.ring.ZZ'.phi.4}%
+\varphi\left(  1\right)   &  =-1=1_{\mathbb{Z}^{\prime}}.
+\label{eq.exa.ring.ZZ'.phi.4}%
 \end{align}
 Thus, we can view $\varphi$ as a way of relabelling the integers so that data
 $+,\cdot,0,1$ of $\mathbb{Z}$ become the data $+,\widetilde{\times
@@ -24579,7 +24591,7 @@ is easy to prove by induction.)
 \textbf{2019-03-29 lecture}
 \end{center}
 
-We can also define powers of elements of a commutative ring:
+We can also define powers of elements of a ring:
 
 \begin{definition}
 \label{def.rings.pow}Let $a\in\mathbb{K}$ and $n\in\mathbb{N}$. Then, we
@@ -24690,10 +24702,10 @@ a^{n}-b^{n}=\left(  a-b\right)  \left(  a^{n-1}+a^{n-2}b+\cdots+ab^{n-2}%
 \end{proposition}
 
 \begin{proof}
-\textbf{(a)} Analogous to the proofs for rationals (at least if you know the
-right proofs). For example, to prove (\ref{eq.prop.rings.pow.rules.d1}),
-consider six cases corresponding to the six possible constellations of signs
-of $n,m,n+m$.
+[Proof of Proposition \ref{prop.rings.pow.rules}.]\textbf{(a)} Analogous to
+the proofs for rationals (at least if you know the right proofs). For example,
+to prove (\ref{eq.prop.rings.pow.rules.d1}), consider six cases corresponding
+to the six possible constellations of signs of $n,m,n+m$.
 
 \textbf{(b)} Expand using distributivity.
 
@@ -24719,9 +24731,10 @@ inverse} of $a$ means an element $a^{\prime}$ of $\mathbb{K}$ such that
 $aa^{\prime}=a^{\prime}a=1$.
 \end{definition}
 
-Of course, multiplicative inverses don't always exist. In $\mathbb{Q}$, the
-number $0$ has none. In $\mathbb{Z}$, the number $2$ has none. But when they
-do exist, they are unique:
+Of course, multiplicative inverses don't always exist. In the ring
+$\mathbb{Q}$, the number $0$ has none. In the ring $\mathbb{Z}$, the number
+$2$ has none (since $\dfrac{1}{2}\notin\mathbb{Z}$). But when they do exist,
+they are unique:
 
 \begin{theorem}
 \label{thm.rings.inv-mul.uni}Let $a\in\mathbb{K}$. Then, $a$ has \textbf{at
@@ -24729,8 +24742,9 @@ most one} multiplicative inverse.
 \end{theorem}
 
 \begin{proof}
-This is analogous to Theorem \ref{thm.rings.inv-add.uni}, but we have to
-replace $+$ and $0$ by $\cdot$ and $1$.
+[Proof of Theorem \ref{thm.rings.inv-mul.uni}.]This is analogous to Theorem
+\ref{thm.rings.inv-add.uni}, but we have to replace $+$ and $0$ by $\cdot$ and
+$1$.
 \end{proof}
 
 \textbf{Warning:} In Definition \ref{def.rings.inv-add}, we could have
@@ -24842,18 +24856,20 @@ clearly not requiring the \textbf{integers} $0$ and $1$ to be distinct.)
 commutative skew field.
 \end{definition}
 
-The condition \textquotedblleft$0\neq1$ in $\mathbb{K}$\textquotedblright\ is
-technical. It is easy to see that if a ring $\mathbb{K}$ satisfies $0=1$ in
-$\mathbb{K}$, then it has only one element (to wit: any $a\in\mathbb{K}$ must
-satisfy $a=\underbrace{1}_{=0}\cdot a=0\cdot a=0$), which entails that
-$\mathbb{K}$ is the zero ring (up to relabeling of its element $0$). We do not
-want the zero ring to count as a skew field; thus we require $0\neq1$ in
-$\mathbb{K}$.
+The condition \textquotedblleft$0\neq1$ in $\mathbb{K}$\textquotedblright\ has
+been made to rule out an annoying exception. It is easy to see that if a ring
+$\mathbb{K}$ satisfies $0=1$ in $\mathbb{K}$, then it has only one element (to
+wit: any $a\in\mathbb{K}$ must satisfy $a=\underbrace{1}_{=0}\cdot a=0\cdot
+a=0$), which entails that $\mathbb{K}$ is the zero ring (up to relabeling of
+its element $0$). We do not want the zero ring to count as a skew
+field\footnote{just as we don't want the number $1$ to count as a prime}; thus
+we require $0\neq1$ in $\mathbb{K}$ in Definition \ref{def.field.field}.
 
 Some authors call skew fields \textit{division rings}.
 
 \begin{example}
-\textbf{(a)} The rings $\mathbb{Q}$, $\mathbb{R}$ and $\mathbb{C}$ are fields.
+\label{exa.field.fields}\textbf{(a)} The rings $\mathbb{Q}$, $\mathbb{R}$ and
+$\mathbb{C}$ are fields.
 
 \textbf{(b)} The rings $\mathbb{Z}$, $\mathbb{Z}\left[  i\right]  $ and
 $\mathbb{Z}\left[  \sqrt{2}\right]  $ are not fields (since, for example, $2$
@@ -24861,10 +24877,11 @@ is not invertible in any of these rings). However, $\mathbb{Z}\left[
 i\right]  $ and $\mathbb{Z}\left[  \sqrt{2}\right]  $ would become fields if
 we had used $\mathbb{Q}$ instead of $\mathbb{Z}$ in their definitions.
 
-\textbf{(c)} The polynomial ring $\mathbb{Z}\left[  x\right]  $ is not a field
-(since, for example, $x$ is not invertible in it). There is a way to get a
-field out of it, similarly to how $\mathbb{Q}$ is obtained from $\mathbb{Z}$.
-(This leads to the so-called
+\textbf{(c)} The polynomial ring $\mathbb{Z}\left[  x\right]  $ (which we will
+formally define in Chapter \ref{chp.pol}) is not a field (since, for example,
+$x$ is not invertible in it). There is a way to get a field out of it,
+similarly to how $\mathbb{Q}$ is obtained from $\mathbb{Z}$. (This leads to
+the so-called
 \textit{\href{https://en.wikipedia.org/wiki/Rational_function}{\textit{rational
 functions}}}.)
 
@@ -24974,28 +24991,29 @@ $\Longrightarrow:$ Rough idea: Assume that $\mathbb{Z}/n$ is a field. We must
 prove that $n$ is a prime. Assume the contrary.
 
 We have $0\neq1$ in $\mathbb{Z}/n$ (since $\mathbb{Z}/n$ is a field); in other
-words, $0\not \equiv 1\operatorname{mod}n$. This quickly yields $n>1$. Hence,
-there must exist two elements $d,e\in\left\{  1,2,\ldots,n-1\right\}  $ such
-that $n=de$ (since $n$ is not a prime). Consider these $d$ and $e$. Theorem
-\ref{thm.eqrel.Z/n.explicit} shows that the $n$ residue classes $\left[
-0\right]  _{n},\left[  1\right]  _{n},\ldots,\left[  n-1\right]  _{n}$ are
-distinct. Hence, the residue classes $\left[  d\right]  _{n}$ and $\left[
-e\right]  _{n}$ are nonzero (since $d,e\in\left\{  1,2,\ldots,n-1\right\}  $
-are distinct from $0$). Thus, these two residue classes are invertible (since
-$\mathbb{Z}/n$ is a field). Thus, by Exercise \ref{exe.rings.inv-mul.rules}
-\textbf{(d)}, their product $\left[  d\right]  _{n}\left[  e\right]  _{n}$ is
-invertible as well. But this product is $\left[  d\right]  _{n}\left[
-e\right]  _{n}=\left[  de\right]  _{n}=\left[  n\right]  _{n}=\left[
-0\right]  _{n}=0_{\mathbb{Z}/n}$, which is not invertible. Contradiction.
-Thus, the \textquotedblleft$\Longrightarrow$\textquotedblright\ direction of
-Theorem \ref{thm.field.Z/n} is proven.
+words, $0\not \equiv 1\operatorname{mod}n$. Hence, $n\neq1$, so that $n>1$
+(since $n$ is a positive integer). Hence, there must exist two elements
+$d,e\in\left\{  1,2,\ldots,n-1\right\}  $ such that $n=de$ (since $n$ is not a
+prime). Consider these $d$ and $e$. Theorem \ref{thm.eqrel.Z/n.explicit} shows
+that the $n$ residue classes $\left[  0\right]  _{n},\left[  1\right]
+_{n},\ldots,\left[  n-1\right]  _{n}$ are distinct. Hence, the residue classes
+$\left[  d\right]  _{n}$ and $\left[  e\right]  _{n}$ are nonzero (since
+$d,e\in\left\{  1,2,\ldots,n-1\right\}  $ are distinct from $0$). Thus, these
+two residue classes are invertible (since $\mathbb{Z}/n$ is a field). Thus, by
+Exercise \ref{exe.rings.inv-mul.rules} \textbf{(d)}, their product $\left[
+d\right]  _{n}\left[  e\right]  _{n}$ is invertible as well. But this product
+is $\left[  d\right]  _{n}\left[  e\right]  _{n}=\left[  de\right]
+_{n}=\left[  n\right]  _{n}=\left[  0\right]  _{n}=0_{\mathbb{Z}/n}$, which is
+not invertible. Contradiction. Thus, the \textquotedblleft$\Longrightarrow
+$\textquotedblright\ direction of Theorem \ref{thm.field.Z/n} is proven.
 \end{proof}
 
 \begin{center}
 \textbf{2019-04-01 lecture}
 \end{center}
 
-Now, for an example of a skew field that is not a field.
+It is tricky to find a skew field that is not a field. Here is the simplest
+example of such a skew field:
 
 \begin{example}
 \label{exa.ring.H}Informally, we have obtained $\mathbb{C}$ from $\mathbb{R}$
@@ -25049,12 +25067,12 @@ y_{2},x_{1}y_{4}+x_{2}y_{3}-x_{3}y_{2}+x_{4}y_{1}\right)  .
 \end{align*}
 
 
-These new numbers are \href{https://en.wikipedia.org/wiki/Quaternion}{the
-\textit{quaternions}}. It turns out that they form a skew field, albeit not a
-field (since commutativity is lacking). They have several properties that make
-them useful in physics and space geometry. For one, they encode both the
-scalar product and the cross product of two vectors in $\mathbb{R}^{3}$:
-Namely, if $\mathbf{a}=\left(
+These new numbers are known as
+\href{https://en.wikipedia.org/wiki/Quaternion}{the \textit{quaternions}}. It
+turns out that they form a skew field, albeit not a field (since commutativity
+is lacking). They have several properties that make them useful in physics and
+space geometry. For one, they encode both the dot product and the cross
+product of two vectors in $\mathbb{R}^{3}$: Namely, if $\mathbf{a}=\left(
 \begin{array}
 [c]{c}%
 a_{1}\\
@@ -25074,8 +25092,8 @@ b_{3}%
 \\
 &  =\left(  \underbrace{-a_{1}b_{1}-a_{2}b_{2}-a_{3}b_{3}}%
 _{\substack{=-\mathbf{a}\cdot\mathbf{b}\\\text{(where }\cdot\text{ stands
-for}\\\text{the scalar product)}}},\underbrace{a_{2}b_{3}-a_{3}b_{2}%
-,a_{3}b_{1}-a_{1}b_{3},a_{1}b_{2}-a_{2}b_{1}}_{\substack{\text{the three
+for}\\\text{the dot product)}}},\underbrace{a_{2}b_{3}-a_{3}b_{2},a_{3}%
+b_{1}-a_{1}b_{3},a_{1}b_{2}-a_{2}b_{1}}_{\substack{\text{the three
 coordinates}\\\text{of the cross product }\mathbf{a}\times\mathbf{b}}}\right)
 .
 \end{align*}
@@ -25083,6 +25101,27 @@ Also,
 \href{https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation}{the
 quaternions can be used to encode rotations in 3-dimensional space}.
 \end{example}
+
+\begin{exercise}
+\label{exe.field.xy=0}Let $\mathbb{K}$ be a skew field. Let $x,y\in\mathbb{K}$
+satisfy $xy=0$. (Here, of course, \textquotedblleft$0$\textquotedblright%
+\ means the zero of $\mathbb{K}$.) Prove that $x=0$ or $y=0$.
+\end{exercise}
+
+\begin{proof}
+[Solution to Exercise \ref{exe.field.xy=0}.]Assume the contrary. Thus, neither
+$x=0$ nor $y=0$. In other words, we have $x\neq0$ and $y\neq0$.
+
+We know that $\mathbb{K}$ is a skew field. Thus, every nonzero $a\in
+\mathbb{K}$ is invertible (by the definition of a skew field).
+
+The element $x$ of $\mathbb{K}$ is nonzero (since $x\neq0$) and thus
+invertible (since every nonzero $a\in\mathbb{K}$ is invertible). Hence, its
+inverse $x^{-1}$ exists. Comparing $x^{-1}\underbrace{xy}_{=0}=x^{-1}0=0$ with
+$\underbrace{x^{-1}x}_{=1}y=1y=y$, we obtain $y=0$; this contradicts $y\neq0$.
+This contradiction shows that our assumption was false. Hence, Exercise
+\ref{exe.field.xy=0} is solved.
+\end{proof}
 
 \subsection{\label{sect.ring.hunting1}Hunting for finite fields I}
 
@@ -25138,7 +25177,7 @@ just pick two uniformly random residue classes $c,b\in\mathbb{Z}/p$. (This is
 possible, since $\mathbb{Z}/p$ is a finite set.)
 
 This relies on having a well-behaved notion of polynomials over $\mathbb{Z}%
-/p$. We will later give a rigorous definition of this notion.
+/p$. We give a rigorous definition of this notion in Chapter \ref{chp.pol}.
 
 Finite fields have many uses -- not just in making Shamir's Secret Sharing
 Scheme work. One great source of applications is \textit{coding theory}, which
@@ -25172,7 +25211,7 @@ abstract algebra, the verb \textquotedblleft adjoin\textquotedblright\ means
 add\textquotedblright\ -- not in the sense of the addition operation $+$, but
 in the sense of throwing in something new into an existing collection.)
 
-Let's try to do this with $\mathbb{Z}/p$ instead of $\mathbb{R}$.
+Let us try to do this with $\mathbb{Z}/p$ instead of $\mathbb{R}$.
 
 More generally, let us start with an arbitrary commutative ring $\mathbb{K}$,
 and try to \textquotedblleft adjoin\textquotedblright\ a square root of $-1$
@@ -25452,13 +25491,14 @@ $\alpha\beta$ for $\alpha\cdot\beta$.
 \end{definition}
 
 Note that $\mathbb{K}_{\eta}^{\prime}$ differs from $\mathbb{K}^{\prime}$ only
-in how the multiplication is defined.
+in how the multiplication is defined. Note also that $\mathbb{K}_{-1}^{\prime
+}=\mathbb{K}^{\prime}$.
 
 \begin{theorem}
-\textbf{(a)} The set $\mathbb{K}_{\eta}^{\prime}$ defined in Definition
-\ref{def.finfield.K'eta} (equipped with the operations $+$ and $\cdot$ and the
-elements $0_{\mathbb{K}_{\eta}^{\prime}}$ and $1_{\mathbb{K}_{\eta}^{\prime}}%
-$) is a commutative ring.
+\label{thm.finfield.K'eta.cring}\textbf{(a)} The set $\mathbb{K}_{\eta
+}^{\prime}$ defined in Definition \ref{def.finfield.K'eta} (equipped with the
+operations $+$ and $\cdot$ and the elements $0_{\mathbb{K}_{\eta}^{\prime}}$
+and $1_{\mathbb{K}_{\eta}^{\prime}}$) is a commutative ring.
 
 \textbf{(b)} If $\mathbb{K}$ is a field and $\eta$ is not a square in
 $\mathbb{K}$, then $\mathbb{K}_{\eta}^{\prime}$ is a field.
@@ -25468,7 +25508,8 @@ $\mathbb{K}$, then $\mathbb{K}_{\eta}^{\prime}$ is a field.
 \end{theorem}
 
 \begin{proof}
-\textbf{(a)} Similar to the proof for $\mathbb{C}$.
+[Proof of Theorem \ref{thm.finfield.K'eta.cring}.]\textbf{(a)} This is similar
+to our above proof that $\mathbb{C}$ is a commutative ring.
 
 \textbf{(b)} Assume that $\mathbb{K}$ is a field and that $\eta$ is not a
 square in $\mathbb{K}$. We need to prove that $\mathbb{K}_{\eta}^{\prime}$ is
@@ -25494,9 +25535,10 @@ $\xi=\left(  x,\underbrace{y}_{=0}\right)  =\left(  x,0\right)  $, we know
 that $x$ is nonzero (since $\xi$ is nonzero). Hence, $x$ has a multiplicative
 inverse (since $\mathbb{K}$ is a field). Hence, multiplying $x^{2}=0$ by
 $x^{-1}$, we obtain $x=0$, which contradicts $x$ being nonzero. So our
-assumption was wrong. Part \textbf{(b)} is proven.
+assumption was wrong. Theorem \ref{thm.finfield.K'eta.cring} \textbf{(b)} is proven.
 
-\textbf{(c)} Assume that $p\neq2$. Thus, $p>2$.
+\textbf{(c)} Assume that $p\neq2$. Thus, $p>2$. Hence, the two residue classes
+$\left[  1\right]  _{p}$ and $\left[  p-1\right]  _{p}$ in $\mathbb{Z}/p$ are distinct.
 
 Consider the map%
 \[
@@ -25509,14 +25551,15 @@ $\left[  1\right]  _{p}$). Hence, it cannot be surjective either (since
 otherwise, the Pigeonhole Principle for Surjections would entail that it is
 bijective, hence injective). In other words, there exists some $\eta
 \in\mathbb{Z}/p$ that is not in its image. In other words, there exists an
-element $\eta\in\mathbb{Z}/p$ that is not a square.
+element $\eta\in\mathbb{Z}/p$ that is not a square. This proves Theorem
+\ref{thm.finfield.K'eta.cring} \textbf{(c)}.
 \end{proof}
 
-Now, if $p$ is a prime with $p>2$, then part \textbf{(c)} of the above Theorem
-yields that there exists an element $\eta\in\mathbb{Z}/p$ that is not a
-square; therefore, part \textbf{(b)} of the above Theorem shows that
-$\mathbb{K}_{\eta}^{\prime}$ is a field where $\mathbb{K}=\mathbb{Z}/p$. This
-is a field with $p^{2}$ elements.
+Now, if $p$ is a prime with $p>2$, then Theorem \ref{thm.finfield.K'eta.cring}
+\textbf{(c)} yields that there exists an element $\eta\in\mathbb{Z}/p$ that is
+not a square; therefore, Theorem \ref{thm.finfield.K'eta.cring} \textbf{(b)}
+shows that $\mathbb{K}_{\eta}^{\prime}$ is a field where $\mathbb{K}%
+=\mathbb{Z}/p$. This is a field with $p^{2}$ elements.
 
 Is there a field of size $4$, too?
 
@@ -27453,15 +27496,18 @@ isomorphism $S_{p,q}$ to them.
 
 \item The second gets sent to $\left[  1\right]  _{pq}$.
 
-\item The last two get sent to $\left[  px\right]  _{pq}$ and $\left[
-qy\right]  _{pq}$, where $x$ is a modular inverse of $p$ modulo $q$, and where
+\item The last two get sent to $\left[  xp\right]  _{pq}$ and $\left[
+yq\right]  _{pq}$, where $x$ is a modular inverse of $p$ modulo $q$, and where
 $y$ is a modular inverse of $q$ modulo $p$. (It does not matter which inverses
 we choose; we get the same elements.)
 
 Here is a slightly different way to get the last two idempotent elements:
 Bezout's theorem yields that there exist integers $x$ and $y$ such that
 $xp+yq=1$. Then, $\left[  xp\right]  _{pq}$ and $\left[  yq\right]  _{pq}$ are
-the two missing idempotents.
+the two missing idempotents. (In truth, this is not different from the
+previous answer; in fact, if $x$ and $y$ are integers such that $xp+yq=1$,
+then $x$ is a modular inverse of $p$ modulo $q$, and $y$ is a modular inverse
+of $q$ modulo $p$.)
 \end{itemize}
 \end{proof}
 
