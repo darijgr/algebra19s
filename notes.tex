@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Sunday, April 21, 2019 13:34:14}
+%TCIDATA{LastRevised=Sunday, April 21, 2019 15:14:39}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -19173,7 +19173,7 @@ $\left(  a,b\right)  \in\mathbb{R}^{2}$ on the Cartesian plane (i.e., the
 point with x-coordinate $a$ and y-coordinate $b$). This identification equates
 each complex number with a unique point in the Cartesian plane, and vice
 versa:%
-\begin{equation}
+\[
 \begin{tikzpicture}[baseline, scale=2.5]
 \draw[step=1cm,gray,very thin] (-0.5, -0.5) grid (2.4,2.4);
 \draw[->] (-0.6,0) -- (2.5,0);
@@ -19186,33 +19186,56 @@ versa:%
 \fill (o) circle (1pt);
 \draw[very thick, blue] (p) -- node[right=1pt, fill=white] {$b$} (xproj);
 \draw[very thick, red] (xproj) -- node[below=1pt, fill=white] {$a$} (o);
-\end{tikzpicture}.\label{eq.CC.CC.argand.fig1}%
-\end{equation}
+\end{tikzpicture}.
+\]
 The picture below shows some of the points (specifically, all the $25$ points
 $\left(  a,b\right)  \in\left\{  -2,-1,0,1,2\right\}  ^{2}$ whose both
 coordinates are integers between $-2$ and $2$) labeled with the corresponding
 complex numbers:%
-\begin{equation}
+\begin{equation}%
+%TCIMACRO{\TeXButton{25 points}{\begin{tikzpicture}[baseline, scale=2.5]
+%\draw[step=1cm,gray,very thin] (-2.4,-2.4) grid (2.4,2.4);
+%\draw[->] (-2.5,0) -- (2.5,0);
+%\draw[->] (0,-2.5) -- (0,2.5);
+%\draw(0,0) circle [radius=1cm];
+%\foreach\x/\xtext in {-2, -1, 0, 1, 2}
+%\fill(\x cm, 0) circle (1pt) node[above left=2pt]{$\xtext$};
+%\foreach\x/\xtext in {-2, -1, 1, 2}
+%\fill(\x cm, 1 cm) circle (1pt) node[above left=2pt]{$\xtext+ i$};
+%\fill(0, 1 cm) circle (1pt) node[above left=2pt] {$i$};
+%\foreach\x/\xtext in {-2, -1, 1, 2}
+%\fill(\x cm, -1 cm) circle (1pt) node[above left=2pt]{$\xtext- i$};
+%\fill(0, -1 cm) circle (1pt) node[above left=2pt] {$-i$};
+%\foreach\x/\xtext in {-2, -1, 1, 2}
+%\fill(\x cm, 2 cm) circle (1pt) node[above left=2pt]{$\xtext+ 2i$};
+%\fill(0, 2 cm) circle (1pt) node[above left=2pt] {$2i$};
+%\foreach\x/\xtext in {-2, -1, 1, 2}
+%\fill(\x cm, -2 cm) circle (1pt) node[above left=2pt]{$\xtext- 2i$};
+%\fill(0, -2 cm) circle (1pt) node[above left=2pt] {$-2i$};
+%\end{tikzpicture}}}%
+%BeginExpansion
 \begin{tikzpicture}[baseline, scale=2.5]
 \draw[step=1cm,gray,very thin] (-2.4,-2.4) grid (2.4,2.4);
 \draw[->] (-2.5,0) -- (2.5,0);
 \draw[->] (0,-2.5) -- (0,2.5);
-\draw (0,0) circle [radius=1cm];
-\foreach \x/\xtext in {-2, -1, 0, 1, 2}
-\fill (\x cm, 0) circle (1pt) node[above left=2pt]{$\xtext$};
-\foreach \x/\xtext in {-2, -1, 1, 2}
-\fill (\x cm, 1 cm) circle (1pt) node[above left=2pt]{$\xtext + i$};
-\fill (0, 1 cm) circle (1pt) node[above left=2pt] {$i$};
-\foreach \x/\xtext in {-2, -1, 1, 2}
-\fill (\x cm, -1 cm) circle (1pt) node[above left=2pt]{$\xtext - i$};
-\fill (0, -1 cm) circle (1pt) node[above left=2pt] {$-i$};
-\foreach \x/\xtext in {-2, -1, 1, 2}
-\fill (\x cm, 2 cm) circle (1pt) node[above left=2pt]{$\xtext + 2i$};
-\fill (0, 2 cm) circle (1pt) node[above left=2pt] {$2i$};
-\foreach \x/\xtext in {-2, -1, 1, 2}
-\fill (\x cm, -2 cm) circle (1pt) node[above left=2pt]{$\xtext - 2i$};
-\fill (0, -2 cm) circle (1pt) node[above left=2pt] {$-2i$};
-\end{tikzpicture}\ \ \ \ \ \label{eq.CC.CC.argand.fig2}%
+\draw(0,0) circle [radius=1cm];
+\foreach\x/\xtext in {-2, -1, 0, 1, 2}
+\fill(\x cm, 0) circle (1pt) node[above left=2pt]{$\xtext$};
+\foreach\x/\xtext in {-2, -1, 1, 2}
+\fill(\x cm, 1 cm) circle (1pt) node[above left=2pt]{$\xtext+ i$};
+\fill(0, 1 cm) circle (1pt) node[above left=2pt] {$i$};
+\foreach\x/\xtext in {-2, -1, 1, 2}
+\fill(\x cm, -1 cm) circle (1pt) node[above left=2pt]{$\xtext- i$};
+\fill(0, -1 cm) circle (1pt) node[above left=2pt] {$-i$};
+\foreach\x/\xtext in {-2, -1, 1, 2}
+\fill(\x cm, 2 cm) circle (1pt) node[above left=2pt]{$\xtext+ 2i$};
+\fill(0, 2 cm) circle (1pt) node[above left=2pt] {$2i$};
+\foreach\x/\xtext in {-2, -1, 1, 2}
+\fill(\x cm, -2 cm) circle (1pt) node[above left=2pt]{$\xtext- 2i$};
+\fill(0, -2 cm) circle (1pt) node[above left=2pt] {$-2i$};
+\end{tikzpicture}%
+%EndExpansion
+\ \ \ \ \ \label{eq.CC.CC.argand.fig2}%
 \end{equation}
 (as well as the unit circle, which passes through the four points labeled
 $1,i,-1,-i$; we will encounter these four points rather often in the following).
@@ -22597,7 +22620,7 @@ Next, let us show that conjugation does not change Gaussian primeness:
 \end{lemma}
 
 \begin{proof}
-[Proof of Lemma \ref{lem.Z[i].prime.conj}.] Conjugation (of complex numbers)
+[Proof of Lemma \ref{lem.Z[i].prime.conj}.]Conjugation (of complex numbers)
 sends Gaussian integers to Gaussian integers (by Proposition
 \ref{prop.Z[i].gauss.conj}), products to products (by Proposition
 \ref{prop.CC.conj.hom} \textbf{(c)}) and inverses to inverses (i.e., we have
