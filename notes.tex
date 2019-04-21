@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Saturday, April 20, 2019 20:13:47}
+%TCIDATA{LastRevised=Sunday, April 21, 2019 13:34:14}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -2846,6 +2846,19 @@ Exercise \ref{exe.ent.even-odd-sumsq} \textbf{(c)} establishes our previous
 experimental observation that an integer of the form $4k+3$ with integer $k$
 (that is, an integer that is larger by $3$ than a multiple of $4$) can never
 be written as a sum of two perfect squares.
+
+\begin{teachingnote}
+At this point, as an application of division with remainder, it would be
+helpful to explain how nonnegative integers can be written in base $n>1$. Make
+sure to stress that the last digit of $u$ is $u//n$.
+
+Decimal fractions can then be handled later using Euler's totient theorem.
+Exercises can be added about mixed-radix number systems as well as
+alternating-sign ternary.
+
+\textquotedblleft Base $n$\textquotedblright\ works with polynomials as well,
+as long as $n$ is a monic polynomial of degree $>0$. Not sure how useful it is.
+\end{teachingnote}
 
 \begin{center}
 \textbf{2019-02-04 lecture}
@@ -19160,8 +19173,8 @@ $\left(  a,b\right)  \in\mathbb{R}^{2}$ on the Cartesian plane (i.e., the
 point with x-coordinate $a$ and y-coordinate $b$). This identification equates
 each complex number with a unique point in the Cartesian plane, and vice
 versa:%
-\[
-\begin{tikzpicture}[scale=2.5]
+\begin{equation}
+\begin{tikzpicture}[baseline, scale=2.5]
 \draw[step=1cm,gray,very thin] (-0.5, -0.5) grid (2.4,2.4);
 \draw[->] (-0.6,0) -- (2.5,0);
 \draw[->] (0,-0.6) -- (0,2.5);
@@ -19173,15 +19186,14 @@ versa:%
 \fill (o) circle (1pt);
 \draw[very thick, blue] (p) -- node[right=1pt, fill=white] {$b$} (xproj);
 \draw[very thick, red] (xproj) -- node[below=1pt, fill=white] {$a$} (o);
-\end{tikzpicture}
-.
-\]
+\end{tikzpicture}.\label{eq.CC.CC.argand.fig1}%
+\end{equation}
 The picture below shows some of the points (specifically, all the $25$ points
 $\left(  a,b\right)  \in\left\{  -2,-1,0,1,2\right\}  ^{2}$ whose both
 coordinates are integers between $-2$ and $2$) labeled with the corresponding
 complex numbers:%
-\[
-\begin{tikzpicture}[scale=2.5]
+\begin{equation}
+\begin{tikzpicture}[baseline, scale=2.5]
 \draw[step=1cm,gray,very thin] (-2.4,-2.4) grid (2.4,2.4);
 \draw[->] (-2.5,0) -- (2.5,0);
 \draw[->] (0,-2.5) -- (0,2.5);
@@ -19200,8 +19212,8 @@ complex numbers:%
 \foreach \x/\xtext in {-2, -1, 1, 2}
 \fill (\x cm, -2 cm) circle (1pt) node[above left=2pt]{$\xtext - 2i$};
 \fill (0, -2 cm) circle (1pt) node[above left=2pt] {$-2i$};
-\end{tikzpicture}
-\]
+\end{tikzpicture}\ \ \ \ \ \label{eq.CC.CC.argand.fig2}%
+\end{equation}
 (as well as the unit circle, which passes through the four points labeled
 $1,i,-1,-i$; we will encounter these four points rather often in the following).
 
@@ -19909,6 +19921,14 @@ integer $r$, the complex number $r_{\mathbb{C}}=\left(  r,0\right)  $ is a
 Gaussian integer.}. But $\dfrac{1}{2}+3i=\left(  \dfrac{1}{2},3\right)  $ and
 $\sqrt{2}+4i=\left(  \sqrt{2},4\right)  $ are not Gaussian integers.
 
+Recall that in the Argand diagram, complex numbers correspond to points in the
+Cartesian plane. The Gaussian integers thus correspond to a special type of
+points -- the ones whose both coordinates are integers. These points are
+called \textit{lattice points}, as they form the nodes of a square lattice
+covering the plane. In the picture (\ref{eq.CC.CC.argand.fig2}), the $25$
+marked points are precisely the lattice points (i.e., the Gaussian integers)
+that happen to fall inside the region drawn.
+
 \begin{remark}
 In Definition \ref{def.Z[i].gauss.gauss}, we have defined Gaussian integers
 using complex numbers. This can be viewed as somewhat of an overkill, as the
@@ -20302,6 +20322,19 @@ Proposition \ref{prop.Z[i].gauss.norm1} \textbf{(b)} shows that we have
 $\operatorname*{N}\left(  \alpha\right)  =1$ if and only if $\alpha$ is a
 unit. Hence, we have $\operatorname*{N}\left(  \alpha\right)  =1$ (since
 $\alpha$ is a unit).
+
+Our goal is to prove that $\alpha$ is either $1$ or $-1$ or $i$ or $-i$. If
+you don't insist on full rigor, then you can easily read this off from the
+Argand diagram: We have $\left\vert \alpha\right\vert =\sqrt{\operatorname*{N}%
+\left(  \alpha\right)  }=1$ (since $\operatorname*{N}\left(  \alpha\right)
+=1$). Now, the point $\alpha$ is a Gaussian integer, i.e., a lattice point,
+and lies on the unit circle (since its distance to the origin is $\left\vert
+\alpha\right\vert =1$). But a look at the picture (\ref{eq.CC.CC.argand.fig2})
+reveals that the only lattice points lying on the unit circle are $1,-1,i,-i$.
+Hence, if you believe this kind of reasoning, you have shown that $\alpha$ is
+either $1$ or $-1$ or $i$ or $-i$.
+
+Here is a rigorous argument for this:
 
 Let us write the complex number $\alpha$ as $\alpha=\left(  a,b\right)  $.
 Then, $a,b\in\mathbb{Z}$ (since $\alpha\in\mathbb{Z}\left[  i\right]  $).
@@ -21463,23 +21496,23 @@ $\beta$ and $\gamma$) shows that we have the logical equivalence $\left(
 But we have the following chain of equivalences:%
 \begin{align*}
 &  \ \left(  \xi\in\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]
-}\left(  \alpha,\beta\right)  \right)  \\
+}\left(  \alpha,\beta\right)  \right) \\
 &  \Longleftrightarrow\ \left(  \xi\text{ is a common Gaussian divisor of
-}\alpha\text{ and }\beta\right)  \\
+}\alpha\text{ and }\beta\right) \\
 &  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of }\operatorname*{Div}%
 \nolimits_{\mathbb{Z}\left[  i\right]  }\left(  \alpha,\beta\right)  \right)
 \\
 &  \Longleftrightarrow\ \left(  \underbrace{\xi\mid\alpha}%
 _{\Longleftrightarrow\left(  \xi\mid\eta\alpha\right)  }\text{ and }\xi
-\mid\beta\right)  \\
+\mid\beta\right) \\
 &  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of a \textquotedblleft
-common Gaussian divisor\textquotedblright}\right)  \\
+common Gaussian divisor\textquotedblright}\right) \\
 &  \Longleftrightarrow\ \left(  \xi\mid\eta\alpha\text{ and }\xi\mid
-\beta\right)  \\
+\beta\right) \\
 &  \Longleftrightarrow\ \left(  \xi\text{ is a common Gaussian divisor of
-}\eta\alpha\text{ and }\beta\right)  \\
+}\eta\alpha\text{ and }\beta\right) \\
 &  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of a \textquotedblleft
-common Gaussian divisor\textquotedblright}\right)  \\
+common Gaussian divisor\textquotedblright}\right) \\
 &  \Longleftrightarrow\ \left(  \xi\in\operatorname*{Div}\nolimits_{\mathbb{Z}%
 \left[  i\right]  }\left(  \eta\alpha,\beta\right)  \right)
 \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of }\operatorname*{Div}%
@@ -21532,7 +21565,9 @@ i\right]  }\left(  \eta\beta,\alpha\right)  =\operatorname*{Div}%
 \ref{prop.Z[i].gauss.divrules} \textbf{(b)}}\right)  .
 \end{align*}
 Thus, Proposition \ref{prop.Z[i].gauss.divrules} \textbf{(h)} is proven.
-\end{proof}%
+\end{proof}
+
+%
 
 \[%
 \begin{tabular}
@@ -21557,27 +21592,26 @@ $\gamma$). For example, we can compute $\operatorname*{Div}%
 follows:\footnote{This is \cite[Example 4.4]{Conrad-Gauss}.}%
 \begin{align*}
 &  \operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
-32+9i,4+11i\right)  \\
+32+9i,4+11i\right) \\
 &  =\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
 4+11i,\underbrace{32+9i}_{\substack{=\left(  2-2i\right)  \left(
 4+11i\right)  +\left(  2-5i\right)  }}\right)  \ \ \ \ \ \ \ \ \ \ \left(
-\text{by Proposition \ref{prop.Z[i].gauss.divrules} \textbf{(b)}}\right)  \\
+\text{by Proposition \ref{prop.Z[i].gauss.divrules} \textbf{(b)}}\right) \\
 &  =\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
-4+11i,\left(  2-2i\right)  \left(  4+11i\right)  +\left(  2-5i\right)
-\right)  \\
+4+11i,\left(  2-2i\right)  \left(  4+11i\right)  +\left(  2-5i\right)  \right)
+\\
 &  =\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
 4+11i,2-5i\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition
-\ref{prop.Z[i].gauss.divrules} \textbf{(c)}}\right)  \\
+\ref{prop.Z[i].gauss.divrules} \textbf{(c)}}\right) \\
 &  =\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
 2-5i,\underbrace{4+11i}_{=\left(  -2+i\right)  \left(  2-5i\right)  +\left(
 3-i\right)  }\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition
-\ref{prop.Z[i].gauss.divrules} \textbf{(b)}}\right)  \\
+\ref{prop.Z[i].gauss.divrules} \textbf{(b)}}\right) \\
 &  =\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
-2-5i,\left(  -2+i\right)  \left(  2-5i\right)  +\left(  3-i\right)  \right)
-\\
+2-5i,\left(  -2+i\right)  \left(  2-5i\right)  +\left(  3-i\right)  \right) \\
 &  =\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
 2-5i,3-i\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition
-\ref{prop.Z[i].gauss.divrules} \textbf{(c)}}\right)  \\
+\ref{prop.Z[i].gauss.divrules} \textbf{(c)}}\right) \\
 &  =\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
 3-i,\underbrace{2-5i}_{=\left(  1-i\right)  \left(  3-i\right)  -i}\right)
 \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition
@@ -21585,22 +21619,22 @@ follows:\footnote{This is \cite[Example 4.4]{Conrad-Gauss}.}%
 \end{align*}%
 \begin{align*}
 &  =\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
-3-i,\left(  1-i\right)  \left(  3-i\right)  -i\right)  \\
+3-i,\left(  1-i\right)  \left(  3-i\right)  -i\right) \\
 &  =\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
 3-i,-i\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition
-\ref{prop.Z[i].gauss.divrules} \textbf{(c)}}\right)  \\
+\ref{prop.Z[i].gauss.divrules} \textbf{(c)}}\right) \\
 &  =\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
 -i,\underbrace{3-i}_{=\left(  1+3i\right)  \left(  -i\right)  +0}\right)
 \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition
-\ref{prop.Z[i].gauss.divrules} \textbf{(b)}}\right)  \\
+\ref{prop.Z[i].gauss.divrules} \textbf{(b)}}\right) \\
 &  =\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
--i,\left(  1+3i\right)  \left(  -i\right)  +0\right)  \\
+-i,\left(  1+3i\right)  \left(  -i\right)  +0\right) \\
 &  =\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
 -i,0\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition
-\ref{prop.Z[i].gauss.divrules} \textbf{(c)}}\right)  \\
+\ref{prop.Z[i].gauss.divrules} \textbf{(c)}}\right) \\
 &  =\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
 -i\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition
-\ref{prop.Z[i].gauss.divrules} \textbf{(a)}}\right)  \\
+\ref{prop.Z[i].gauss.divrules} \textbf{(a)}}\right) \\
 &  =\left\{  1,i,-1,-i\right\}  .
 \end{align*}
 In the same way, for \textbf{any} two Gaussian integers $\alpha$ and $\beta$
@@ -40556,7 +40590,7 @@ words, $\overline{\alpha}\mid\overline{\beta}$ (by Definition
 
 \begin{fineprint}
 \begin{proof}
-[Solution to Exercise \ref{exe.Z[i].div.uneq}.] The relation $\sim$ on
+[Solution to Exercise \ref{exe.Z[i].div.uneq}.]The relation $\sim$ on
 $\mathbb{Z}\left[  i\right]  $ is an equivalence relation (by Proposition
 \ref{prop.Z[i].gauss.uniteq.eqrel}), and thus is symmetric.
 
@@ -40616,8 +40650,6 @@ This solves Exercise \ref{exe.Z[i].div.uneq} \textbf{(c)}.
 \subsection{Solution to Exercise \ref{exe.Z[i].modn.split}}
 
 \begin{fineprint}
-
-
 \begin{proof}
 [Solution to Exercise \ref{exe.Z[i].modn.split}.]We have $a,b\in\mathbb{Z}$
 (since $\left(  a,b\right)  $ is a Gaussian integer) and $c,d\in\mathbb{Z}$
@@ -40662,8 +40694,6 @@ This solves Exercise \ref{exe.Z[i].modn.split}.
 \subsection{Solution to Exercise \ref{exe.Z[i].modn.classes}}
 
 \begin{fineprint}
-
-
 \begin{proof}
 [Solution to Exercise \ref{exe.Z[i].modn.classes}.]\textbf{(a)} The solution
 to Exercise \ref{exe.Z[i].modn.classes} \textbf{(a)} is analogous to the proof
