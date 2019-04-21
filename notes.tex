@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Saturday, April 20, 2019 18:01:13}
+%TCIDATA{LastRevised=Saturday, April 20, 2019 20:13:47}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -3466,35 +3466,64 @@ Comparing these two equalities, we obtain $\gcd\left(  b_{1},b_{2}%
 proves Lemma \ref{lem.ent.gcd.through-Divc}.
 \end{proof}
 
-\begin{proof}
-[Proof of Proposition \ref{prop.ent.gcd.props1}.]\textbf{(a)} Here is a sketch
-of the proof: The number $0$ is a \textquotedblleft joker\textquotedblright%
-\ when it comes to common divisors: For example, if $a\in\mathbb{Z}$, then the
-common divisors of $a$ and $0$ are the same as the divisors of $a$, because
-every integer divides $0$. Thus, if $a\in\mathbb{Z}$ is nonzero, then the
-greatest common divisor of $a$ and $0$ is the greatest divisor of $a$, which
-is $\left\vert a\right\vert $ (an easy consequence of Proposition
-\ref{prop.ent.divisors.find} \textbf{(b)}).
+Lemma \ref{lem.ent.gcd.through-Divc} tells us that in order to prove that two
+lists of integers have the same gcd, it suffices to check that they have the
+same set of common divisors. Since many of the claims of Proposition
+\ref{prop.ent.gcd.props1} are equalities between gcds, we can thus reduce them
+to equalities between sets of common divisors. Let us state these equalities
+as a lemma, which we will then use as a stepping stone in our proof of
+Proposition \ref{prop.ent.gcd.props1}:
 
-For the sake of completeness, let us give a detailed proof of Proposition
-\ref{prop.ent.gcd.props1} \textbf{(a)}:
+\begin{lemma}
+\label{lem.ent.Div.props1}\textbf{(a)} We have $\operatorname*{Div}\left(
+a,0\right)  =\operatorname*{Div}\left(  a\right)  $ for all $a\in\mathbb{Z}$.
+
+\textbf{(b)} We have $\operatorname*{Div}\left(  a,b\right)
+=\operatorname*{Div}\left(  b,a\right)  $ for all $a,b\in\mathbb{Z}$.
+
+\textbf{(c)} We have $\operatorname*{Div}\left(  a,ua+b\right)
+=\operatorname*{Div}\left(  a,b\right)  $ for all $a,b,u\in\mathbb{Z}$.
+
+\textbf{(d)} If $a,b,c\in\mathbb{Z}$ satisfy $b\equiv c\operatorname{mod}a$,
+then $\operatorname*{Div}\left(  a,b\right)  =\operatorname*{Div}\left(
+a,c\right)  $.
+
+\textbf{(e)} If $a,b\in\mathbb{Z}$ are such that $a$ is positive, then
+$\operatorname*{Div}\left(  a,b\right)  =\operatorname*{Div}\left(
+a,b\%a\right)  $.
+
+\textbf{(f)} We have $\operatorname*{Div}\left(  a,b\right)  \subseteq
+\operatorname*{Div}\left(  a\right)  $ and $\operatorname*{Div}\left(
+a,b\right)  \subseteq\operatorname*{Div}\left(  b\right)  $ for all
+$a,b\in\mathbb{Z}$.
+
+\textbf{(g)} We have $\operatorname*{Div}\left(  -a,b\right)
+=\operatorname*{Div}\left(  a,b\right)  $ for all $a,b\in\mathbb{Z}$.
+
+\textbf{(h)} We have $\operatorname*{Div}\left(  a,-b\right)
+=\operatorname*{Div}\left(  a,b\right)  $ for all $a,b\in\mathbb{Z}$.
+
+\textbf{(i)} If $a,b\in\mathbb{Z}$ satisfy $a\mid b$, then
+$\operatorname*{Div}\left(  a,b\right)  =\operatorname*{Div}\left(  a\right)
+$.
+
+\textbf{(j)} The set of common divisors of the empty list of integers is
+$\operatorname*{Div}\left(  {}\right)  =\mathbb{Z}$.
+\end{lemma}
+
+\begin{proof}
+[Proof of Lemma \ref{lem.ent.Div.props1}.]\textbf{(a)} Here is a sketch of the
+proof: The number $0$ is a \textquotedblleft joker\textquotedblright\ when it
+comes to common divisors: For example, if $a\in\mathbb{Z}$, then the common
+divisors of $a$ and $0$ are the same as the divisors of $a$, because every
+integer divides $0$. But this is saying precisely that $\operatorname*{Div}%
+\left(  a,0\right)  =\operatorname*{Div}\left(  a\right)  $.
+
+For the sake of completeness, let us give a detailed proof of Lemma
+\ref{lem.ent.Div.props1} \textbf{(a)}:
 
 \begin{fineprint}
-Let $a\in\mathbb{Z}$. Definition \ref{def.ent.gcd.gcd} (specifically, its case
-when $b_{1},b_{2},\ldots,b_{k}$ are all $0$) shows that $\gcd\left(
-0,0\right)  =0$ and $\gcd\left(  0\right)  =0$. Combining this with
-$\left\vert 0\right\vert =0$, we obtain $\gcd\left(  0,0\right)  =\gcd\left(
-0\right)  =\left\vert 0\right\vert $. In other words, Proposition
-\ref{prop.ent.gcd.props1} \textbf{(a)} holds if $a=0$. Thus, for the rest of
-this proof, we WLOG assume that $a\neq0$. Hence, the two integers $a,0$ are
-not all zero. Thus, $\gcd\left(  a,0\right)  $ is defined to be the largest
-element of the set $\operatorname*{Div}\left(  a,0\right)  $ (by Definition
-\ref{def.ent.gcd.gcd}). Likewise, $\gcd\left(  a\right)  $ is the largest
-element of the set $\operatorname*{Div}\left(  a\right)  $.
-
-We shall now prove that $\operatorname*{Div}\left(  a,0\right)
-=\operatorname*{Div}\left(  a\right)  $. Indeed, for any integer $x$, we have
-the following chain of equivalences:%
+For any integer $x$, we have the following chain of equivalences:%
 \begin{align*}
 &  \ \left(  x\in\operatorname*{Div}\left(  a,0\right)  \right) \\
 &  \Longleftrightarrow\ \left(  x\text{ is a common divisor of }a\text{ and
@@ -3517,6 +3546,215 @@ $ if and only if it belongs to $\operatorname*{Div}\left(  a\right)  $. Thus,
 $\operatorname*{Div}\left(  a,0\right)  =\operatorname*{Div}\left(  a\right)
 $ (since both $\operatorname*{Div}\left(  a,0\right)  $ and
 $\operatorname*{Div}\left(  a\right)  $ are sets of integers). Thus, Lemma
+\ref{lem.ent.Div.props1} \textbf{(a)} is finally proven.
+\end{fineprint}
+
+\textbf{(b)} Let $a,b\in\mathbb{Z}$. For any integer $x$, we have the
+following chain of equivalences:%
+\begin{align*}
+&  \ \left(  x\in\operatorname*{Div}\left(  a,b\right)  \right) \\
+&  \Longleftrightarrow\ \left(  x\text{ is a common divisor of }a\text{ and
+}b\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of
+}\operatorname*{Div}\left(  a,b\right)  \right) \\
+&  \Longleftrightarrow\ \left(  x\mid a\text{ and }x\mid b\right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of a \textquotedblleft
+common divisor\textquotedblright}\right) \\
+&  \Longleftrightarrow\ \left(  x\mid b\text{ and }x\mid a\right) \\
+&  \Longleftrightarrow\ \left(  x\text{ is a common divisor of }b\text{ and
+}a\right) \\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of a \textquotedblleft
+common divisor\textquotedblright}\right) \\
+&  \Longleftrightarrow\ \left(  x\in\operatorname*{Div}\left(  b,a\right)
+\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of }%
+\operatorname*{Div}\left(  b,a\right)  \right)  .
+\end{align*}
+In other words, an integer belongs to $\operatorname*{Div}\left(  a,b\right)
+$ if and only if it belongs to $\operatorname*{Div}\left(  b,a\right)  $.
+Thus, $\operatorname*{Div}\left(  a,b\right)  =\operatorname*{Div}\left(
+b,a\right)  $ (since both $\operatorname*{Div}\left(  a,b\right)  $ and
+$\operatorname*{Div}\left(  b,a\right)  $ are sets of integers). This proves
+Lemma \ref{lem.ent.Div.props1} \textbf{(b)}.
+
+Let us prove part \textbf{(d)} now, and then derive part \textbf{(c)} from it.
+
+\textbf{(d)} Let $a,b,c\in\mathbb{Z}$ satisfy $b\equiv c\operatorname{mod}a$.
+We must prove that $\operatorname*{Div}\left(  a,b\right)
+=\operatorname*{Div}\left(  a,c\right)  $.
+
+From $b\equiv c\operatorname{mod}a$, we obtain $c\equiv b\operatorname{mod}a$
+(by Proposition \ref{prop.ent.mod.basics} \textbf{(c)}). Hence, our situation
+is symmetric with respect to $b$ and $c$.
+
+We shall now show that $\operatorname*{Div}\left(  a,b\right)  \subseteq
+\operatorname*{Div}\left(  a,c\right)  $. Indeed, let $x\in\operatorname*{Div}%
+\left(  a,b\right)  $. Then, $x$ is a common divisor of $a$ and $b$ (by the
+definition of $\operatorname*{Div}\left(  a,b\right)  $). In other words,
+$x\mid a$ and $x\mid b$ (by the definition of a \textquotedblleft common
+divisor\textquotedblright). From $x\mid b$, we obtain $b\equiv
+0\operatorname{mod}x$. But from $x\mid a$ and $c\equiv b\operatorname{mod}a$,
+we obtain $c\equiv b\operatorname{mod}x$ (by Proposition
+\ref{prop.ent.mod.basics} \textbf{(e)}, applied to $a$, $x$, $c$ and $b$
+instead of $n$, $m$, $c$ and $b$). Thus, $c\equiv b\equiv0\operatorname{mod}%
+x$, so that $x\mid c$. Combining $x\mid a$ and $x\mid c$, we see that $x$ is a
+common divisor of $a$ and $c$ (by the definition of a \textquotedblleft common
+divisor\textquotedblright). In other words, $x\in\operatorname*{Div}\left(
+a,c\right)  $ (by the definition of $\operatorname*{Div}\left(  a,c\right)  $).
+
+Now, forget that we fixed $x$. We thus have proven that $x\in
+\operatorname*{Div}\left(  a,c\right)  $ for each $x\in\operatorname*{Div}%
+\left(  a,b\right)  $. In other words, $\operatorname*{Div}\left(  a,b\right)
+\subseteq\operatorname*{Div}\left(  a,c\right)  $.
+
+The same argument (but with the roles of $b$ and $c$ swapped) shows that
+$\operatorname*{Div}\left(  a,c\right)  \subseteq\operatorname*{Div}\left(
+a,b\right)  $ (since our situation is symmetric with respect to $b$ and $c$).
+Combining this with $\operatorname*{Div}\left(  a,b\right)  \subseteq
+\operatorname*{Div}\left(  a,c\right)  $, we obtain $\operatorname*{Div}%
+\left(  a,b\right)  =\operatorname*{Div}\left(  a,c\right)  $. This proves
+Lemma \ref{lem.ent.Div.props1} \textbf{(d)}.
+
+\textbf{(c)} Let $a,b,u\in\mathbb{Z}$. Then, $ua+b\equiv b\operatorname{mod}a$
+(since $\left(  ua+b\right)  -b=ua$ is clearly divisible by $a$). Thus, Lemma
+\ref{lem.ent.Div.props1} \textbf{(d)} (applied to $ua+b$ and $b$ instead of
+$b$ and $c$) yields $\operatorname*{Div}\left(  a,ua+b\right)
+=\operatorname*{Div}\left(  a,b\right)  $. This proves Lemma
+\ref{lem.ent.Div.props1} \textbf{(c)}.
+
+\textbf{(e)} Let $a,b\in\mathbb{Z}$ be such that $a$ is positive. Then,
+$b\%a\equiv b\operatorname{mod}a$ (by Corollary \ref{cor.ent.quo-rem.remmod}
+\textbf{(a)}, applied to $a$ and $b$ instead of $n$ and $u$), thus $b\equiv
+b\%a\operatorname{mod}a$. Hence, $\operatorname*{Div}\left(  a,b\right)
+=\operatorname*{Div}\left(  a,b\%a\right)  $ (by Lemma
+\ref{lem.ent.Div.props1} \textbf{(d)}, applied to $c=b\%a$). This proves Lemma
+\ref{lem.ent.Div.props1} \textbf{(e)}.
+
+\textbf{(f)} Let $a,b\in\mathbb{Z}$. We must prove that $\operatorname*{Div}%
+\left(  a,b\right)  \subseteq\operatorname*{Div}\left(  a\right)  $ and
+$\operatorname*{Div}\left(  a,b\right)  \subseteq\operatorname*{Div}\left(
+b\right)  $.
+
+Let $x\in\operatorname*{Div}\left(  a,b\right)  $. We shall prove that
+$x\in\operatorname*{Div}\left(  b\right)  $.
+
+Indeed, $x\in\operatorname*{Div}\left(  a,b\right)  $; in other words, $x$ is
+a common divisor of $a$ and $b$ (by the definition of $\operatorname*{Div}%
+\left(  a,b\right)  $). In other words, $\left(  x\mid a\text{ and }x\mid
+b\right)  $ (by the definition of a \textquotedblleft common
+divisor\textquotedblright). Hence, $x\mid a$. In other words, $x$ is a common
+divisor of $a$ (by the definition of a \textquotedblleft common
+divisor\textquotedblright). In other words, $x\in\operatorname*{Div}\left(
+a\right)  $ (by the definition of $\operatorname*{Div}\left(  a\right)  $).
+
+Now, forget that we fixed $x$. We thus have shownt hat $x\in
+\operatorname*{Div}\left(  a\right)  $ for each $x\in\operatorname*{Div}%
+\left(  a,b\right)  $. In other words, $\operatorname*{Div}\left(  a,b\right)
+\subseteq\operatorname*{Div}\left(  a\right)  $. A similar argument shows that
+$\operatorname*{Div}\left(  a,b\right)  \subseteq\operatorname*{Div}\left(
+b\right)  $. This proves Lemma \ref{lem.ent.Div.props1} \textbf{(f)}.
+
+\textbf{(g)} Let $a,b\in\mathbb{Z}$. We must prove that $\operatorname*{Div}%
+\left(  -a,b\right)  =\operatorname*{Div}\left(  a,b\right)  $.
+
+First, we will show that $\operatorname*{Div}\left(  a,b\right)
+\subseteq\operatorname*{Div}\left(  -a,b\right)  $. Indeed, let $x\in
+\operatorname*{Div}\left(  a,b\right)  $. Then, $x$ is a common divisor of $a$
+and $b$ (by the definition of $\operatorname*{Div}\left(  a,b\right)  $). In
+other words, $x\mid a$ and $x\mid b$ (by the definition of a \textquotedblleft
+common divisor\textquotedblright). We have $a\mid-a$ (since $-a=a\cdot\left(
+-1\right)  $). Thus, $x\mid a\mid-a$. Combining $x\mid-a$ and $x\mid b$, we
+see that $x$ is a common divisor of $-a$ and $b$ (by the definition of a
+\textquotedblleft common divisor\textquotedblright). In other words,
+$x\in\operatorname*{Div}\left(  -a,b\right)  $ (by the definition of
+$\operatorname*{Div}\left(  -a,b\right)  $).
+
+Now, forget that we fixed $x$. We thus have proven that $x\in
+\operatorname*{Div}\left(  -a,b\right)  $ for each $x\in\operatorname*{Div}%
+\left(  a,b\right)  $. In other words, $\operatorname*{Div}\left(  a,b\right)
+\subseteq\operatorname*{Div}\left(  -a,b\right)  $.
+
+The same argument (but applied to $-a$ instead of $a$) shows that
+$\operatorname*{Div}\left(  -a,b\right)  \subseteq\operatorname*{Div}\left(
+-\left(  -a\right)  ,b\right)  $. Since $-\left(  -a\right)  =a$, this
+rewrites as $\operatorname*{Div}\left(  -a,b\right)  \subseteq
+\operatorname*{Div}\left(  a,b\right)  $. Combining this with
+$\operatorname*{Div}\left(  a,b\right)  \subseteq\operatorname*{Div}\left(
+-a,b\right)  $, we obtain $\operatorname*{Div}\left(  -a,b\right)
+=\operatorname*{Div}\left(  a,b\right)  $. This proves Lemma
+\ref{lem.ent.Div.props1} \textbf{(g)}.
+
+\textbf{(h)} We can prove this similarly to how we just proved Lemma
+\ref{lem.ent.Div.props1} \textbf{(g)}, but it is easier to derive it from what
+was already shown.
+
+Let $a,b\in\mathbb{Z}$. Lemma \ref{lem.ent.Div.props1} \textbf{(b)} (applied
+to $-b$ instead of $b$) yields%
+\begin{align*}
+\operatorname*{Div}\left(  a,-b\right)   &  =\operatorname*{Div}\left(
+-b,a\right)  =\operatorname*{Div}\left(  b,a\right)
+\ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{by Lemma \ref{lem.ent.Div.props1} \textbf{(g),}}\\
+\text{applied to }b\text{ and }a\text{ instead of }a\text{ and }b
+\end{array}
+\right) \\
+&  =\operatorname*{Div}\left(  a,b\right)  \ \ \ \ \ \ \ \ \ \ \left(
+\text{by Lemma \ref{lem.ent.Div.props1} \textbf{(b)}}\right)  .
+\end{align*}
+This proves Lemma \ref{lem.ent.Div.props1} \textbf{(h)}.
+
+\textbf{(i)} Let $a,b\in\mathbb{Z}$ satisfy $a\mid b$. From $a\mid b$, we
+obtain $b\equiv0\operatorname{mod}a$. Hence, Lemma \ref{lem.ent.Div.props1}
+\textbf{(d)} (applied to $c=0$) yields $\operatorname*{Div}\left(  a,b\right)
+=\operatorname*{Div}\left(  a,0\right)  =\operatorname*{Div}\left(  a\right)
+$ (by Lemma \ref{lem.ent.Div.props1} \textbf{(a)}). This proves Lemma
+\ref{lem.ent.Div.props1} \textbf{(i)}.
+
+\textbf{(j)} The definition of $\operatorname*{Div}$ shows that
+$\operatorname*{Div}\left(  b_{1},b_{2},\ldots,b_{k}\right)  \subseteq
+\mathbb{Z}$ for any finitely many integers $b_{1},b_{2},\ldots,b_{k}$. Thus,
+in particular, $\operatorname*{Div}\left(  {}\right)  \subseteq\mathbb{Z}$. We
+shall next prove that $\mathbb{Z}\subseteq\operatorname*{Div}\left(
+{}\right)  $.
+
+Indeed, let $x\in\mathbb{Z}$. Let us denote the empty list $\left(  {}\right)
+$ of integers by $\left(  b_{1},b_{2},\ldots,b_{0}\right)  $. Then, $\left(
+b_{1},b_{2},\ldots,b_{0}\right)  =\left(  {}\right)  $.
+
+But $x\mid b_{i}$ for all $i\in\left\{  1,2,\ldots,0\right\}  $ (indeed, this
+is vacuously true, since there exists no $i\in\left\{  1,2,\ldots,0\right\}
+$). In other words, $x$ is a common divisor of $\left(  b_{1},b_{2}%
+,\ldots,b_{0}\right)  $ (by the definition of \textquotedblleft common
+divisor\textquotedblright). In other words, $x\in\operatorname*{Div}\left(
+b_{1},b_{2},\ldots,b_{0}\right)  $ (by the definition of $\left(  b_{1}%
+,b_{2},\ldots,b_{0}\right)  $). In other words, $x\in\operatorname*{Div}%
+\left(  {}\right)  $ (since $\left(  b_{1},b_{2},\ldots,b_{0}\right)  =\left(
+{}\right)  $).
+
+Now, forget that we fixed $x$. We thus have proven that $x\in
+\operatorname*{Div}\left(  {}\right)  $ for each $x\in\mathbb{Z}$. In other
+words, $\mathbb{Z}\subseteq\operatorname*{Div}\left(  {}\right)  $. Combining
+this with $\operatorname*{Div}\left(  {}\right)  \subseteq\mathbb{Z}$, we
+obtain $\operatorname*{Div}\left(  {}\right)  =\mathbb{Z}$. This proves Lemma
+\ref{lem.ent.Div.props1} \textbf{(j)}.
+\end{proof}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.ent.gcd.props1}.]\textbf{(a)} Let
+$a\in\mathbb{Z}$. Definition \ref{def.ent.gcd.gcd} (specifically, its case
+when $b_{1},b_{2},\ldots,b_{k}$ are all $0$) shows that $\gcd\left(
+0,0\right)  =0$ and $\gcd\left(  0\right)  =0$. Combining this with
+$\left\vert 0\right\vert =0$, we obtain $\gcd\left(  0,0\right)  =\gcd\left(
+0\right)  =\left\vert 0\right\vert $. In other words, Proposition
+\ref{prop.ent.gcd.props1} \textbf{(a)} holds if $a=0$. Thus, for the rest of
+this proof, we WLOG assume that $a\neq0$. Hence, the two integers $a,0$ are
+not all zero. Thus, $\gcd\left(  a,0\right)  $ is defined to be the largest
+element of the set $\operatorname*{Div}\left(  a,0\right)  $ (by Definition
+\ref{def.ent.gcd.gcd}). Likewise, $\gcd\left(  a\right)  $ is the largest
+element of the set $\operatorname*{Div}\left(  a\right)  $.
+
+Lemma \ref{lem.ent.Div.props1} \textbf{(a)} yields $\operatorname*{Div}\left(
+a,0\right)  =\operatorname*{Div}\left(  a\right)  $. Thus, Lemma
 \ref{lem.ent.gcd.through-Divc} (applied to $\left(  a,0\right)  $ and $\left(
 a\right)  $ instead of $\left(  b_{1},b_{2},\ldots,b_{k}\right)  $ and
 $\left(  c_{1},c_{2},\ldots,c_{\ell}\right)  $) yields $\gcd\left(
@@ -3559,73 +3797,27 @@ $\gcd\left(  a\right)  =\left\vert a\right\vert $. Combining this with
 $\gcd\left(  a,0\right)  =\gcd\left(  a\right)  $, this yields $\gcd\left(
 a,0\right)  =\gcd\left(  a\right)  =\left\vert a\right\vert $. Thus,
 Proposition \ref{prop.ent.gcd.props1} \textbf{(a)} is finally proven.
-\end{fineprint}
 
-\textbf{(b)} For any integer $x$, we have the following chain of equivalences:%
-\begin{align*}
-&  \ \left(  x\in\operatorname*{Div}\left(  a,b\right)  \right) \\
-&  \Longleftrightarrow\ \left(  x\text{ is a common divisor of }a\text{ and
-}b\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of
-}\operatorname*{Div}\left(  a,b\right)  \right) \\
-&  \Longleftrightarrow\ \left(  x\mid a\text{ and }x\mid b\right)
-\ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of a \textquotedblleft
-common divisor\textquotedblright}\right) \\
-&  \Longleftrightarrow\ \left(  x\mid b\text{ and }x\mid a\right) \\
-&  \Longleftrightarrow\ \left(  x\text{ is a common divisor of }b\text{ and
-}a\right) \\
-&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of a \textquotedblleft
-common divisor\textquotedblright}\right) \\
-&  \Longleftrightarrow\ \left(  x\in\operatorname*{Div}\left(  b,a\right)
-\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of }%
-\operatorname*{Div}\left(  b,a\right)  \right)  .
-\end{align*}
-In other words, an integer belongs to $\operatorname*{Div}\left(  a,b\right)
-$ if and only if it belongs to $\operatorname*{Div}\left(  b,a\right)  $.
-Thus, $\operatorname*{Div}\left(  a,b\right)  =\operatorname*{Div}\left(
-b,a\right)  $ (since both $\operatorname*{Div}\left(  a,b\right)  $ and
-$\operatorname*{Div}\left(  b,a\right)  $ are sets of integers). Thus, Lemma
+\textbf{(b)} Let $a,b\in\mathbb{Z}$. Lemma \ref{lem.ent.Div.props1}
+\textbf{(b)} yields $\operatorname*{Div}\left(  a,b\right)
+=\operatorname*{Div}\left(  b,a\right)  $. Thus, Lemma
 \ref{lem.ent.gcd.through-Divc} (applied to $\left(  a,b\right)  $ and $\left(
 b,a\right)  $ instead of $\left(  b_{1},b_{2},\ldots,b_{k}\right)  $ and
 $\left(  c_{1},c_{2},\ldots,c_{\ell}\right)  $) yields $\gcd\left(
 a,b\right)  =\gcd\left(  b,a\right)  $. This proves Proposition
 \ref{prop.ent.gcd.props1} \textbf{(b)}.
 
-Let us prove part \textbf{(d)} now, and then derive part \textbf{(c)} from it.
+\textbf{(c)} Let $a,b,u\in\mathbb{Z}$. Then, Lemma \ref{lem.ent.Div.props1}
+\textbf{(c)} yields $\operatorname*{Div}\left(  a,ua+b\right)
+=\operatorname*{Div}\left(  a,b\right)  $. Thus, Lemma
+\ref{lem.ent.gcd.through-Divc} (applied to $\left(  a,ua+b\right)  $ and
+$\left(  a,b\right)  $ instead of $\left(  b_{1},b_{2},\ldots,b_{k}\right)  $
+and $\left(  c_{1},c_{2},\ldots,c_{\ell}\right)  $) yields $\gcd\left(
+a,ua+b\right)  =\gcd\left(  a,b\right)  $. This proves Proposition
+\ref{prop.ent.gcd.props1} \textbf{(c)}.
 
 \textbf{(d)} Let $a,b,c\in\mathbb{Z}$ satisfy $b\equiv c\operatorname{mod}a$.
-We must prove that $\gcd\left(  a,b\right)  =\gcd\left(  a,c\right)  $. To do
-so, we shall first prove that $\operatorname*{Div}\left(  a,b\right)
-=\operatorname*{Div}\left(  a,c\right)  $.
-
-From $b\equiv c\operatorname{mod}a$, we obtain $c\equiv b\operatorname{mod}a$
-(by Proposition \ref{prop.ent.mod.basics} \textbf{(c)}). Hence, our situation
-is symmetric with respect to $b$ and $c$.
-
-We shall now show that $\operatorname*{Div}\left(  a,b\right)  \subseteq
-\operatorname*{Div}\left(  a,c\right)  $. Indeed, let $x\in\operatorname*{Div}%
-\left(  a,b\right)  $. Then, $x$ is a common divisor of $a$ and $b$ (by the
-definition of $\operatorname*{Div}\left(  a,b\right)  $). In other words,
-$x\mid a$ and $x\mid b$ (by the definition of a \textquotedblleft common
-divisor\textquotedblright). From $x\mid b$, we obtain $b\equiv
-0\operatorname{mod}x$. But from $x\mid a$ and $c\equiv b\operatorname{mod}a$,
-we obtain $c\equiv b\operatorname{mod}x$ (by Proposition
-\ref{prop.ent.mod.basics} \textbf{(e)}, applied to $a$, $x$, $c$ and $b$
-instead of $n$, $m$, $c$ and $b$). Thus, $c\equiv b\equiv0\operatorname{mod}%
-x$, so that $x\mid c$. Combining $x\mid a$ and $x\mid c$, we see that $x$ is a
-common divisor of $a$ and $c$ (by the definition of a \textquotedblleft common
-divisor\textquotedblright). In other words, $x\in\operatorname*{Div}\left(
-a,c\right)  $ (by the definition of $\operatorname*{Div}\left(  a,c\right)  $).
-
-Now, forget that we fixed $x$. We thus have proven that $x\in
-\operatorname*{Div}\left(  a,c\right)  $ for each $x\in\operatorname*{Div}%
-\left(  a,b\right)  $. In other words, $\operatorname*{Div}\left(  a,b\right)
-\subseteq\operatorname*{Div}\left(  a,c\right)  $.
-
-The same argument (but with the roles of $b$ and $c$ swapped) shows that
-$\operatorname*{Div}\left(  a,c\right)  \subseteq\operatorname*{Div}\left(
-a,b\right)  $ (since our situation is symmetric with respect to $b$ and $c$).
-Combining this with $\operatorname*{Div}\left(  a,b\right)  \subseteq
-\operatorname*{Div}\left(  a,c\right)  $, we obtain $\operatorname*{Div}%
+Then, Lemma \ref{lem.ent.Div.props1} \textbf{(d)} yields $\operatorname*{Div}%
 \left(  a,b\right)  =\operatorname*{Div}\left(  a,c\right)  $. Thus, Lemma
 \ref{lem.ent.gcd.through-Divc} (applied to $\left(  a,b\right)  $ and $\left(
 a,c\right)  $ instead of $\left(  b_{1},b_{2},\ldots,b_{k}\right)  $ and
@@ -3633,19 +3825,14 @@ $\left(  c_{1},c_{2},\ldots,c_{\ell}\right)  $) yields $\gcd\left(
 a,b\right)  =\gcd\left(  a,c\right)  $. This proves Proposition
 \ref{prop.ent.gcd.props1} \textbf{(d)}.
 
-\textbf{(c)} Let $a,b,u\in\mathbb{Z}$. Then, $ua+b\equiv b\operatorname{mod}a$
-(since $\left(  ua+b\right)  -b=ua$ is clearly divisible by $a$). Thus,
-Proposition \ref{prop.ent.gcd.props1} \textbf{(d)} (applied to $ua+b$ and $b$
-instead of $b$ and $c$) yields $\gcd\left(  a,ua+b\right)  =\gcd\left(
-a,b\right)  $. This proves Proposition \ref{prop.ent.gcd.props1} \textbf{(c)}.
-
-\textbf{(e)} Let $a,b\in\mathbb{Z}$ be such that $a$ is positive. Then,
-$b\%a\equiv b\operatorname{mod}a$ (by Corollary \ref{cor.ent.quo-rem.remmod}
-\textbf{(a)}, applied to $a$ and $b$ instead of $n$ and $u$), thus $b\equiv
-b\%a\operatorname{mod}a$. Hence, $\gcd\left(  a,b\right)  =\gcd\left(
-a,b\%a\right)  $ (by Proposition \ref{prop.ent.gcd.props1} \textbf{(d)},
-applied to $c=b\%a$). This proves Proposition \ref{prop.ent.gcd.props1}
-\textbf{(e)}.
+\textbf{(e)} Let $a,b\in\mathbb{Z}$ be such that $a$ is positive. Then, Lemma
+\ref{lem.ent.Div.props1} \textbf{(e)} yields $\operatorname*{Div}\left(
+a,b\right)  =\operatorname*{Div}\left(  a,b\%a\right)  $. Thus, Lemma
+\ref{lem.ent.gcd.through-Divc} (applied to $\left(  a,b\right)  $ and $\left(
+a,b\%a\right)  $ instead of $\left(  b_{1},b_{2},\ldots,b_{k}\right)  $ and
+$\left(  c_{1},c_{2},\ldots,c_{\ell}\right)  $) yields $\gcd\left(
+a,b\right)  =\gcd\left(  a,b\%a\right)  $. This proves Proposition
+\ref{prop.ent.gcd.props1} \textbf{(e)}.
 
 \textbf{(f)} Let $a,b\in\mathbb{Z}$. We must prove that $\gcd\left(
 a,b\right)  \mid a$ and $\gcd\left(  a,b\right)  \mid b$.
@@ -3665,35 +3852,8 @@ definition of $\operatorname*{Div}\left(  a,b\right)  $). In other words,
 $\gcd\left(  a,b\right)  \mid a$ and $\gcd\left(  a,b\right)  \mid b$. This
 proves Proposition \ref{prop.ent.gcd.props1} \textbf{(f)}.
 
-\textbf{(g)} Let $a,b\in\mathbb{Z}$. We must prove that $\gcd\left(
--a,b\right)  =\gcd\left(  a,b\right)  $. Again, we shall achieve this via
-showing that $\operatorname*{Div}\left(  -a,b\right)  =\operatorname*{Div}%
-\left(  a,b\right)  $.
-
-First, we will show that $\operatorname*{Div}\left(  a,b\right)
-\subseteq\operatorname*{Div}\left(  -a,b\right)  $. Indeed, let $x\in
-\operatorname*{Div}\left(  a,b\right)  $. Then, $x$ is a common divisor of $a$
-and $b$ (by the definition of $\operatorname*{Div}\left(  a,b\right)  $). In
-other words, $x\mid a$ and $x\mid b$ (by the definition of a \textquotedblleft
-common divisor\textquotedblright). We have $a\mid-a$ (since $-a=a\cdot\left(
--1\right)  $). Thus, $x\mid a\mid-a$. Combining $x\mid-a$ and $x\mid b$, we
-see that $x$ is a common divisor of $-a$ and $b$ (by the definition of a
-\textquotedblleft common divisor\textquotedblright). In other words,
-$x\in\operatorname*{Div}\left(  -a,b\right)  $ (by the definition of
-$\operatorname*{Div}\left(  -a,b\right)  $).
-
-Now, forget that we fixed $x$. We thus have proven that $x\in
-\operatorname*{Div}\left(  -a,b\right)  $ for each $x\in\operatorname*{Div}%
-\left(  a,b\right)  $. In other words, $\operatorname*{Div}\left(  a,b\right)
-\subseteq\operatorname*{Div}\left(  -a,b\right)  $.
-
-The same argument (but applied to $-a$ instead of $a$) shows that
-$\operatorname*{Div}\left(  -a,b\right)  \subseteq\operatorname*{Div}\left(
--\left(  -a\right)  ,b\right)  $. Since $-\left(  -a\right)  =a$, this
-rewrites as $\operatorname*{Div}\left(  -a,b\right)  \subseteq
-\operatorname*{Div}\left(  a,b\right)  $. Combining this with
-$\operatorname*{Div}\left(  a,b\right)  \subseteq\operatorname*{Div}\left(
--a,b\right)  $, we obtain $\operatorname*{Div}\left(  -a,b\right)
+\textbf{(g)} Let $a,b\in\mathbb{Z}$. Then, Lemma \ref{lem.ent.Div.props1}
+\textbf{(g)} yields $\operatorname*{Div}\left(  -a,b\right)
 =\operatorname*{Div}\left(  a,b\right)  $. Thus, Lemma
 \ref{lem.ent.gcd.through-Divc} (applied to $\left(  -a,b\right)  $ and
 $\left(  a,b\right)  $ instead of $\left(  b_{1},b_{2},\ldots,b_{k}\right)  $
@@ -3701,25 +3861,14 @@ and $\left(  c_{1},c_{2},\ldots,c_{\ell}\right)  $) yields $\gcd\left(
 -a,b\right)  =\gcd\left(  a,b\right)  $. This proves Proposition
 \ref{prop.ent.gcd.props1} \textbf{(g)}.
 
-\textbf{(h)} We can prove this similarly to how we just proved Proposition
-\ref{prop.ent.gcd.props1} \textbf{(g)}, but it is easier to derive it from
-what was already shown.
-
-Let $a,b\in\mathbb{Z}$. Proposition \ref{prop.ent.gcd.props1} \textbf{(b)}
-(applied to $-b$ instead of $b$) yields%
-\begin{align*}
-\gcd\left(  a,-b\right)   &  =\gcd\left(  -b,a\right)  =\gcd\left(
-b,a\right)  \ \ \ \ \ \ \ \ \ \ \left(
-\begin{array}
-[c]{c}%
-\text{by Proposition \ref{prop.ent.gcd.props1} \textbf{(g),}}\\
-\text{applied to }b\text{ and }a\text{ instead of }a\text{ and }b
-\end{array}
-\right) \\
-&  =\gcd\left(  a,b\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition
-\ref{prop.ent.gcd.props1} \textbf{(b)}}\right)  .
-\end{align*}
-This proves Proposition \ref{prop.ent.gcd.props1} \textbf{(h)}.
+\textbf{(h)} Let $a,b\in\mathbb{Z}$. Then, Lemma \ref{lem.ent.Div.props1}
+\textbf{(h)} yields $\operatorname*{Div}\left(  a,-b\right)
+=\operatorname*{Div}\left(  a,b\right)  $. Thus, Lemma
+\ref{lem.ent.gcd.through-Divc} (applied to $\left(  a,-b\right)  $ and
+$\left(  a,b\right)  $ instead of $\left(  b_{1},b_{2},\ldots,b_{k}\right)  $
+and $\left(  c_{1},c_{2},\ldots,c_{\ell}\right)  $) yields $\gcd\left(
+a,-b\right)  =\gcd\left(  a,b\right)  $. This proves Proposition
+\ref{prop.ent.gcd.props1} \textbf{(h)}.
 
 \textbf{(i)} Let $a,b\in\mathbb{Z}$ satisfy $a\mid b$. From $a\mid b$, we
 obtain $b\equiv0\operatorname{mod}a$. Hence, Proposition
@@ -20705,11 +20854,29 @@ $\gamma\mid1$. Prove that $\gamma\sim1$ (that is, $\gamma$ is a unit, i.e.,
 either $1$ or $-1$ or $i$ or $-i$).
 \end{exercise}
 
-Next comes another trivial fact:
+Next come two more trivial facts:
 
 \begin{exercise}
 \label{exe.Z[i].div.conj}Let $\alpha$ and $\beta$ be Gaussian integers such
 that $\alpha\mid\beta$. Prove that $\overline{\alpha}\mid\overline{\beta}$.
+\end{exercise}
+
+\begin{exercise}
+\label{exe.Z[i].div.uneq}Let $\alpha$, $\beta$ and $\gamma$ be three Gaussian
+integers. Prove the following:
+
+\textbf{(a)} If $\beta\sim\gamma$, then we have the logical equivalence
+$\left(  \alpha\mid\beta\right)  \Longleftrightarrow\left(  \alpha\mid
+\gamma\right)  $.
+
+\textbf{(b)} If $\alpha\sim\beta$, then we have the logical equivalence
+$\left(  \alpha\mid\gamma\right)  \Longleftrightarrow\left(  \beta\mid
+\gamma\right)  $.
+
+\textbf{(c)} Let $\delta$ be a further Gaussian integer. Assume that
+$\alpha\sim\beta$ and $\gamma\sim\delta$. Then, we have the logical
+equivalence $\left(  \alpha\mid\gamma\right)  \Longleftrightarrow\left(
+\beta\mid\delta\right)  $.
 \end{exercise}
 
 \begin{center}
@@ -21203,23 +21370,20 @@ greatest element of $\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]
 \textquotedblleft greatest\textquotedblright\ does not make sense for complex
 numbers. (Even if we wanted \textquotedblleft greatest in
 norm\textquotedblright, it would not a-priori be obvious that there are no
-ties, i.e., that such a greatest common Gaussian divisor is unique.)%
-
-\[%
-\begin{tabular}
-[c]{||l||}\hline\hline
-\textbf{You have reached the end of the finished part.}\\
-\textbf{TODO: Write on from here.}\\\hline\hline
-\end{tabular}
-\ \
-\]
-
+ties, i.e., that such a greatest common Gaussian divisor is unique.)
 
 However, it turns out that a \textquotedblleft greatest common Gaussian
 divisor\textquotedblright\ $\gcd\nolimits_{\mathbb{Z}\left[  i\right]
 }\left(  \beta_{1},\beta_{2},\ldots,\beta_{k}\right)  $ actually can be
 defined reasonably (although only up to multiplication by units). Before we
-can do so, let us state some basic properties of common Gaussian divisors:
+can do so, let us state some basic properties of common Gaussian
+divisors:\footnote{Proposition \ref{prop.Z[i].gauss.divrules} is an analogue
+of part of Lemma \ref{lem.ent.Div.props1}. Thus, we have chosen to label its
+claims in a way that matches the corresponding claims in Lemma
+\ref{lem.ent.Div.props1}. This forced us to skip claim \textbf{(e)}, since
+there is no analogue of Lemma \ref{lem.ent.Div.props1} \textbf{(e)} for
+Gaussian integers (because $\beta\%\alpha$ is not defined when $\beta$ and
+$\alpha$ are Gaussian integers).}
 
 \begin{proposition}
 \label{prop.Z[i].gauss.divrules}\textbf{(a)} We have $\operatorname*{Div}%
@@ -21243,16 +21407,24 @@ $\beta\equiv\gamma\operatorname{mod}\alpha$, then $\operatorname*{Div}%
 =\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
 \alpha,\gamma\right)  $.
 
+\textbf{(f)} We have $\operatorname*{Div}\nolimits_{\mathbb{Z}\left[
+i\right]  }\left(  \alpha,\beta\right)  \subseteq\operatorname*{Div}%
+\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  \alpha\right)  $ and
+$\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
+\alpha,\beta\right)  \subseteq\operatorname*{Div}\nolimits_{\mathbb{Z}\left[
+i\right]  }\left(  \beta\right)  $ for all $\alpha,\beta\in\mathbb{Z}\left[
+i\right]  $.
+
 \textbf{(g)} We have $\operatorname*{Div}\nolimits_{\mathbb{Z}\left[
 i\right]  }\left(  \eta\alpha,\beta\right)  =\operatorname*{Div}%
 \nolimits_{\mathbb{Z}\left[  i\right]  }\left(  \alpha,\beta\right)  $ for all
-$\alpha,\beta\in\mathbb{Z}\left[  i\right]  $ for every unit $\eta
+$\alpha,\beta\in\mathbb{Z}\left[  i\right]  $ and every unit $\eta
 \in\mathbb{Z}\left[  i\right]  $.
 
 \textbf{(h)} We have $\operatorname*{Div}\nolimits_{\mathbb{Z}\left[
 i\right]  }\left(  \alpha,\eta\beta\right)  =\operatorname*{Div}%
 \nolimits_{\mathbb{Z}\left[  i\right]  }\left(  \alpha,\beta\right)  $ for all
-$\alpha,\beta\in\mathbb{Z}\left[  i\right]  $ for every unit $\eta
+$\alpha,\beta\in\mathbb{Z}\left[  i\right]  $ and every unit $\eta
 \in\mathbb{Z}\left[  i\right]  $.
 
 \textbf{(i)} If $\alpha,\beta\in\mathbb{Z}\left[  i\right]  $ satisfy
@@ -21266,56 +21438,146 @@ integers are $\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]
 \end{proposition}
 
 \begin{proof}
-Most of these facts are analogues of Proposition \ref{prop.ent.gcd.props1}, or
-rather of the corresponding properties of $\operatorname*{Div}\left(
-a,b\right)  $ for two integers $a$ and $b$ that were proven during our proof
-of Proposition \ref{prop.ent.gcd.props1}. Their proofs also are
-straightforward adaptations of the proofs of the latter properties. Let us
-only sketch the proof of \textbf{(g)}, since it may require some extra thinking:
+[Proof of Proposition \ref{prop.Z[i].gauss.divrules}.]Parts \textbf{(a)},
+\textbf{(b)}, \textbf{(c)}, \textbf{(d)}, \textbf{(f)}, \textbf{(i)} and
+\textbf{(j)} of Proposition \ref{prop.Z[i].gauss.divrules} are analogues of
+the corresponding parts of Lemma \ref{lem.ent.Div.props1}. Their proofs also
+are straightforward adaptations of the proofs of the latter parts; we trust
+the reader to perform the necessary replacements. Thus, it remains to prove
+parts \textbf{(g)} and \textbf{(h)} of Proposition
+\ref{prop.Z[i].gauss.divrules} (which are similar to parts \textbf{(g)} and
+\textbf{(h)} of Lemma \ref{lem.ent.Div.props1}, but perhaps not in a
+completely evident way). Let us do this now.
 
-\textbf{(g)} Let $\eta\in\mathbb{Z}\left[  i\right]  $ be a unit.
+\textbf{(g)} Let $\alpha,\beta\in\mathbb{Z}\left[  i\right]  $. Let $\eta
+\in\mathbb{Z}\left[  i\right]  $ be a unit.
 
-Claim: The Gaussian divisors of $\alpha$ are exactly the Gaussian divisors of
-$\eta\alpha$.
+Let $\xi$ be a Gaussian integer. We have $\eta\alpha=\gamma\alpha$ for some
+unit $\gamma\in\mathbb{Z}\left[  i\right]  $ (namely, for $\gamma=\eta$). In
+other words, $\eta\alpha\sim\alpha$ (by the definition of the relation $\sim$
+on $\mathbb{Z}\left[  i\right]  $). Hence, Exercise \ref{exe.Z[i].div.uneq}
+\textbf{(a)} (applied to $\xi$, $\eta\alpha$ and $\alpha$ instead of $\alpha$,
+$\beta$ and $\gamma$) shows that we have the logical equivalence $\left(
+\xi\mid\alpha\right)  \Longleftrightarrow\left(  \xi\mid\eta\alpha\right)  $.
 
-(Indeed, any Gaussian divisor of $\alpha$ is clearly a Gaussian divisor of
-$\eta\alpha$. Conversely, since $\eta^{-1}$ is a Gaussian integer, any
-Gaussian divisor of $\eta\alpha$ is a Gaussian divisor of $\eta^{-1}\eta
-\alpha=\alpha$.)
+But we have the following chain of equivalences:%
+\begin{align*}
+&  \ \left(  \xi\in\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]
+}\left(  \alpha,\beta\right)  \right)  \\
+&  \Longleftrightarrow\ \left(  \xi\text{ is a common Gaussian divisor of
+}\alpha\text{ and }\beta\right)  \\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of }\operatorname*{Div}%
+\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  \alpha,\beta\right)  \right)
+\\
+&  \Longleftrightarrow\ \left(  \underbrace{\xi\mid\alpha}%
+_{\Longleftrightarrow\left(  \xi\mid\eta\alpha\right)  }\text{ and }\xi
+\mid\beta\right)  \\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of a \textquotedblleft
+common Gaussian divisor\textquotedblright}\right)  \\
+&  \Longleftrightarrow\ \left(  \xi\mid\eta\alpha\text{ and }\xi\mid
+\beta\right)  \\
+&  \Longleftrightarrow\ \left(  \xi\text{ is a common Gaussian divisor of
+}\eta\alpha\text{ and }\beta\right)  \\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of a \textquotedblleft
+common Gaussian divisor\textquotedblright}\right)  \\
+&  \Longleftrightarrow\ \left(  \xi\in\operatorname*{Div}\nolimits_{\mathbb{Z}%
+\left[  i\right]  }\left(  \eta\alpha,\beta\right)  \right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of }\operatorname*{Div}%
+\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  \eta\alpha,\beta\right)
+\right)  .
+\end{align*}
 
-The rest is proven just as for integers, except that we don't make the final
-step from $\operatorname*{Div}$ to $\gcd$.
-\end{proof}
 
-Now, we can compute $\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]
-}\left(  \alpha,\beta\right)  $ for Gaussian integers $\alpha$ and $\beta$ by
-a version of the \textquotedblleft Euclidean algorithm\textquotedblright\ that
-we used to compute $\gcd\left(  a,b\right)  $ for integers $a$ and $b$. For
-example, we can compute $\operatorname*{Div}\nolimits_{\mathbb{Z}\left[
-i\right]  }\left(  32+9i,4+11i\right)  $ as follows:\footnote{This is
-\cite[Example 4.4]{Conrad-Gauss}.}%
+Now, forget that we fixed $\xi$. We thus have proved the logical equivalence
+\newline$\left(  \xi\in\operatorname*{Div}\nolimits_{\mathbb{Z}\left[
+i\right]  }\left(  \alpha,\beta\right)  \right)  \ \Longleftrightarrow
+\ \left(  \xi\in\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]
+}\left(  \eta\alpha,\beta\right)  \right)  $ for each Gaussian integer $\xi$.
+In other words, a Gaussian integer belongs to $\operatorname*{Div}%
+\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  \alpha,\beta\right)  $ if and
+only if it belongs to $\operatorname*{Div}\nolimits_{\mathbb{Z}\left[
+i\right]  }\left(  \eta\alpha,\beta\right)  $. Thus, $\operatorname*{Div}%
+\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  \alpha,\beta\right)
+=\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  \eta
+\alpha,\beta\right)  $ (since both $\operatorname*{Div}\nolimits_{\mathbb{Z}%
+\left[  i\right]  }\left(  \alpha,\beta\right)  $ and $\operatorname*{Div}%
+\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  \eta\alpha,\beta\right)  $ are
+sets of Gaussian integers). This proves Proposition
+\ref{prop.Z[i].gauss.divrules} \textbf{(g)}.
+
+\textbf{(h)} We can prove Proposition \ref{prop.Z[i].gauss.divrules}
+\textbf{(h)} in a similar way to Proposition \ref{prop.Z[i].gauss.divrules}
+\textbf{(g)}. Alternatively, we can derive it from the already proven parts of
+Proposition \ref{prop.Z[i].gauss.divrules} as follows:
+
+Let $\alpha,\beta\in\mathbb{Z}\left[  i\right]  $. Let $\eta\in\mathbb{Z}%
+\left[  i\right]  $ be a unit. Then, Proposition
+\ref{prop.Z[i].gauss.divrules} \textbf{(b)} (applied to $\eta\beta$ instead of
+$\beta$) yields%
+\begin{align*}
+\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  \alpha
+,\eta\beta\right)   &  =\operatorname*{Div}\nolimits_{\mathbb{Z}\left[
+i\right]  }\left(  \eta\beta,\alpha\right)  =\operatorname*{Div}%
+\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  \beta,\alpha\right) \\
+&  \ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{by Proposition \ref{prop.Z[i].gauss.divrules} \textbf{(g)}, applied to
+}\beta\text{ and }\alpha\\
+\text{instead of }\alpha\text{ and }\beta
+\end{array}
+\right) \\
+&  =\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
+\alpha,\beta\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition
+\ref{prop.Z[i].gauss.divrules} \textbf{(b)}}\right)  .
+\end{align*}
+Thus, Proposition \ref{prop.Z[i].gauss.divrules} \textbf{(h)} is proven.
+\end{proof}%
+
+\[%
+\begin{tabular}
+[c]{||l||}\hline\hline
+\textbf{You have reached the end of the finished part.}\\
+\textbf{TODO: Write on from here.}\\\hline\hline
+\end{tabular}
+\]
+
+
+Recall that Proposition \ref{prop.ent.gcd.props1} gave us a quick way to
+compute $\gcd\left(  a,b\right)  $ for two nonnegative integers $a$ and $b$;
+this is called the Euclidean algorithm. Likewise, we can use Proposition
+\ref{prop.Z[i].gauss.divrules} to compute $\operatorname*{Div}%
+\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  \alpha,\beta\right)  $ for two
+Gaussian integers $\alpha$ and $\beta$ (or, more precisely, to rewrite
+$\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
+\alpha,\beta\right)  $ in the form $\operatorname*{Div}\nolimits_{\mathbb{Z}%
+\left[  i\right]  }\left(  \gamma\right)  $ for a single Gaussian integer
+$\gamma$). For example, we can compute $\operatorname*{Div}%
+\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  32+9i,4+11i\right)  $ as
+follows:\footnote{This is \cite[Example 4.4]{Conrad-Gauss}.}%
 \begin{align*}
 &  \operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
-32+9i,4+11i\right) \\
+32+9i,4+11i\right)  \\
 &  =\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
-4+11i,\underbrace{32+9i}_{=\left(  2-2i\right)  \left(  4+11i\right)  +\left(
-2-5i\right)  }\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition
-\ref{prop.Z[i].gauss.divrules} \textbf{(b)}}\right) \\
+4+11i,\underbrace{32+9i}_{\substack{=\left(  2-2i\right)  \left(
+4+11i\right)  +\left(  2-5i\right)  }}\right)  \ \ \ \ \ \ \ \ \ \ \left(
+\text{by Proposition \ref{prop.Z[i].gauss.divrules} \textbf{(b)}}\right)  \\
 &  =\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
-4+11i,\left(  2-2i\right)  \left(  4+11i\right)  +\left(  2-5i\right)  \right)
-\\
+4+11i,\left(  2-2i\right)  \left(  4+11i\right)  +\left(  2-5i\right)
+\right)  \\
 &  =\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
 4+11i,2-5i\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition
-\ref{prop.Z[i].gauss.divrules} \textbf{(c)}}\right) \\
+\ref{prop.Z[i].gauss.divrules} \textbf{(c)}}\right)  \\
 &  =\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
 2-5i,\underbrace{4+11i}_{=\left(  -2+i\right)  \left(  2-5i\right)  +\left(
 3-i\right)  }\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition
-\ref{prop.Z[i].gauss.divrules} \textbf{(b)}}\right) \\
+\ref{prop.Z[i].gauss.divrules} \textbf{(b)}}\right)  \\
 &  =\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
-2-5i,\left(  -2+i\right)  \left(  2-5i\right)  +\left(  3-i\right)  \right) \\
+2-5i,\left(  -2+i\right)  \left(  2-5i\right)  +\left(  3-i\right)  \right)
+\\
 &  =\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
 2-5i,3-i\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition
-\ref{prop.Z[i].gauss.divrules} \textbf{(c)}}\right) \\
+\ref{prop.Z[i].gauss.divrules} \textbf{(c)}}\right)  \\
 &  =\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
 3-i,\underbrace{2-5i}_{=\left(  1-i\right)  \left(  3-i\right)  -i}\right)
 \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition
@@ -21323,22 +21585,22 @@ i\right]  }\left(  32+9i,4+11i\right)  $ as follows:\footnote{This is
 \end{align*}%
 \begin{align*}
 &  =\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
-3-i,\left(  1-i\right)  \left(  3-i\right)  -i\right) \\
+3-i,\left(  1-i\right)  \left(  3-i\right)  -i\right)  \\
 &  =\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
 3-i,-i\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition
-\ref{prop.Z[i].gauss.divrules} \textbf{(c)}}\right) \\
+\ref{prop.Z[i].gauss.divrules} \textbf{(c)}}\right)  \\
 &  =\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
 -i,\underbrace{3-i}_{=\left(  1+3i\right)  \left(  -i\right)  +0}\right)
 \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition
-\ref{prop.Z[i].gauss.divrules} \textbf{(b)}}\right) \\
+\ref{prop.Z[i].gauss.divrules} \textbf{(b)}}\right)  \\
 &  =\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
--i,\left(  1+3i\right)  \left(  -i\right)  +0\right) \\
+-i,\left(  1+3i\right)  \left(  -i\right)  +0\right)  \\
 &  =\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
 -i,0\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition
-\ref{prop.Z[i].gauss.divrules} \textbf{(c)}}\right) \\
+\ref{prop.Z[i].gauss.divrules} \textbf{(c)}}\right)  \\
 &  =\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
 -i\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition
-\ref{prop.Z[i].gauss.divrules} \textbf{(a)}}\right) \\
+\ref{prop.Z[i].gauss.divrules} \textbf{(a)}}\right)  \\
 &  =\left\{  1,i,-1,-i\right\}  .
 \end{align*}
 In the same way, for \textbf{any} two Gaussian integers $\alpha$ and $\beta$
@@ -21347,17 +21609,16 @@ we can find a Gaussian integer $\gamma$ such that $\operatorname*{Div}%
 =\operatorname*{Div}\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
 \gamma\right)  $. This resulting $\gamma$ will actually be unique up to
 multiplication by units (i.e., its unit-equivalence class will be unique).
-Better yet, we have the following:
+Better yet, we have the following analogue of Bezout's theorem for Gaussian integers:
 
 \begin{theorem}
-\label{thm.Z[i].gauss.bezout}(Bezout's theorem for Gaussian integers:)
-
-Let $\alpha,\beta\in\mathbb{Z}\left[  i\right]  $. Then:
+\label{thm.Z[i].gauss.bezout}Let $\alpha,\beta\in\mathbb{Z}\left[  i\right]
+$. Then:
 
 \textbf{(a)} There exists a $\mathbb{Z}\left[  i\right]  $-linear combination
 $\gamma$ of $\alpha$ and $\beta$ that is a common Gaussian divisor of $\alpha$
-and $\beta$. (Note: A $\mathbb{Z}\left[  i\right]  $\textbf{-linear
-combination of }$\alpha$ \textbf{and }$\beta$ means a Gaussian integer of the
+and $\beta$. (Note: A $\mathbb{Z}\left[  i\right]  $\textit{-linear
+combination of }$\alpha$\textit{ and }$\beta$ means a Gaussian integer of the
 form $\lambda\alpha+\mu\beta$ with $\lambda,\mu\in\mathbb{Z}\left[  i\right]
 $.)
 
@@ -21605,13 +21866,14 @@ greatest common Gaussian divisor of the Gaussian integers $a$ and $b$.)
 \end{proposition}
 
 \begin{proof}
-The integer $\gcd\left(  a,b\right)  $ is a common divisor of $a$ and $b$ and
-also is a $\mathbb{Z}$-linear combination of $a$ and $b$ (by Bezout).
-Therefore, it is also a common Gaussian divisor of the Gaussian integers $a$
-and $b$ and also is a $\mathbb{Z}\left[  i\right]  $-linear combination of $a$
-and $b$. But this yields that it is $\gcd\nolimits_{\mathbb{Z}\left[
-i\right]  }\left(  a,b\right)  $ (due to the definition of $\gcd
-\nolimits_{\mathbb{Z}\left[  i\right]  }\left(  a,b\right)  $).
+[Proof of Proposition \ref{prop.Z[i].gauss.gcd=gcd}.]The integer $\gcd\left(
+a,b\right)  $ is a common divisor of $a$ and $b$ and also is a $\mathbb{Z}%
+$-linear combination of $a$ and $b$ (by Bezout's theorem). Therefore, it is
+also a common Gaussian divisor of the Gaussian integers $a$ and $b$ and also
+is a $\mathbb{Z}\left[  i\right]  $-linear combination of $a$ and $b$. But
+this yields that it is $\gcd\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
+a,b\right)  $ (due to the definition of $\gcd\nolimits_{\mathbb{Z}\left[
+i\right]  }\left(  a,b\right)  $).
 \end{proof}
 
 This proposition allows us to write \textquotedblleft$\gcd$\textquotedblright%
@@ -21727,12 +21989,12 @@ $\beta\equiv\gamma\operatorname{mod}\alpha$, then $\gcd\nolimits_{\mathbb{Z}%
 \textbf{(g)} We have $\gcd\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
 \eta\alpha,\beta\right)  \sim\gcd\nolimits_{\mathbb{Z}\left[  i\right]
 }\left(  \alpha,\beta\right)  $ for all $\alpha,\beta\in\mathbb{Z}\left[
-i\right]  $ for every unit $\eta\in\mathbb{Z}\left[  i\right]  $.
+i\right]  $ and every unit $\eta\in\mathbb{Z}\left[  i\right]  $.
 
 \textbf{(h)} We have $\gcd\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
 \alpha,\eta\beta\right)  \sim\gcd\nolimits_{\mathbb{Z}\left[  i\right]
 }\left(  \alpha,\beta\right)  $ for all $\alpha,\beta\in\mathbb{Z}\left[
-i\right]  $ for every unit $\eta\in\mathbb{Z}\left[  i\right]  $.
+i\right]  $ and every unit $\eta\in\mathbb{Z}\left[  i\right]  $.
 
 \textbf{(i)} If $\alpha,\beta\in\mathbb{Z}\left[  i\right]  $ satisfy
 $\alpha\mid\beta$, then $\gcd\nolimits_{\mathbb{Z}\left[  i\right]  }\left(
@@ -21804,8 +22066,6 @@ a,n\right)  $ modulo $n$\textquotedblright).
 Let us generalize Theorem \ref{thm.Z[i].gauss.bezout} to $k$ Gaussian integers:
 
 \begin{theorem}
-(Bezout's theorem for $k$ Gaussian integers:)
-
 Let $\alpha_{1},\alpha_{2},\ldots,\alpha_{k}\in\mathbb{Z}\left[  i\right]  $. Then:
 
 \textbf{(a)} There exists a $\mathbb{Z}\left[  i\right]  $-linear combination
@@ -40292,9 +40552,72 @@ words, $\overline{\alpha}\mid\overline{\beta}$ (by Definition
 \end{proof}
 \end{fineprint}
 
+\subsection{Solution to Exercise \ref{exe.Z[i].div.uneq}}
+
+\begin{fineprint}
+\begin{proof}
+[Solution to Exercise \ref{exe.Z[i].div.uneq}.] The relation $\sim$ on
+$\mathbb{Z}\left[  i\right]  $ is an equivalence relation (by Proposition
+\ref{prop.Z[i].gauss.uniteq.eqrel}), and thus is symmetric.
+
+\textbf{(a)} Assume that $\beta\sim\gamma$. But Exercise
+\ref{exe.Z[i].div.abba-conv} (applied to $\beta$ and $\gamma$ instead of
+$\alpha$ and $\beta$) shows that we have the logical equivalence $\left(
+\beta\sim\gamma\right)  \ \Longleftrightarrow\ \left(  \beta\mid\gamma\text{
+and }\gamma\mid\beta\right)  $. Hence, we have $\left(  \beta\mid\gamma\text{
+and }\gamma\mid\beta\right)  $ (since $\beta\sim\gamma$). Thus, $\beta
+\mid\gamma$ and $\gamma\mid\beta$.
+
+Thus, in particular, $\beta\mid\gamma$. Hence, if $\alpha\mid\beta$, then
+$\alpha\mid\gamma$ (by Proposition \ref{prop.Z[i].div.2} \textbf{(b)}). In
+other words, we have proven the implication $\left(  \alpha\mid\beta\right)
+\Longrightarrow\left(  \alpha\mid\gamma\right)  $. The same argument (with the
+roles of $\beta$ and $\gamma$ switched) proves the implication $\left(
+\alpha\mid\gamma\right)  \Longrightarrow\left(  \alpha\mid\beta\right)  $
+(since $\gamma\mid\beta$). Combining these two implications, we obtain the
+equivalence $\left(  \alpha\mid\beta\right)  \Longleftrightarrow\left(
+\alpha\mid\gamma\right)  $. This solves Exercise \ref{exe.Z[i].div.uneq}
+\textbf{(a)}.
+
+\textbf{(b)} Assume that $\alpha\sim\beta$. But Exercise
+\ref{exe.Z[i].div.abba-conv} shows that we have the logical equivalence
+$\left(  \alpha\sim\beta\right)  \ \Longleftrightarrow\ \left(  \alpha
+\mid\beta\text{ and }\beta\mid\alpha\right)  $. Hence, we have $\left(
+\alpha\mid\beta\text{ and }\beta\mid\alpha\right)  $ (since $\alpha\sim\beta
+$). Thus, $\alpha\mid\beta$ and $\beta\mid\alpha$.
+
+Thus, in particular, $\alpha\mid\beta$. Hence, if $\beta\mid\gamma$, then
+$\alpha\mid\gamma$ (by Proposition \ref{prop.Z[i].div.2} \textbf{(b)}). In
+other words, we have proven the implication $\left(  \beta\mid\gamma\right)
+\Longrightarrow\left(  \alpha\mid\gamma\right)  $. The same argument (with the
+roles of $\alpha$ and $\beta$ switched) proves the implication $\left(
+\alpha\mid\gamma\right)  \Longrightarrow\left(  \beta\mid\gamma\right)  $
+(since $\beta\mid\alpha$). Combining these two implications, we obtain the
+equivalence $\left(  \alpha\mid\gamma\right)  \Longleftrightarrow\left(
+\beta\mid\gamma\right)  $. This solves Exercise \ref{exe.Z[i].div.uneq}
+\textbf{(b)}.
+
+\textbf{(c)} Exercise \ref{exe.Z[i].div.uneq} \textbf{(a)} (applied to
+$\gamma$ and $\delta$ instead of $\beta$ and $\gamma$) yields the logical
+equivalence $\left(  \alpha\mid\gamma\right)  \Longleftrightarrow\left(
+\alpha\mid\delta\right)  $ (since $\gamma\sim\delta$). Exercise
+\ref{exe.Z[i].div.uneq} \textbf{(b)} (applied to $\delta$ instead of $\gamma$)
+yields the logical equivalence $\left(  \alpha\mid\delta\right)
+\Longleftrightarrow\left(  \beta\mid\delta\right)  $ (since $\alpha\sim\beta
+$). Hence, we obtain the following chain of equivalences:%
+\[
+\left(  \alpha\mid\gamma\right)  \Longleftrightarrow\left(  \alpha\mid
+\delta\right)  \Longleftrightarrow\left(  \beta\mid\delta\right)  .
+\]
+This solves Exercise \ref{exe.Z[i].div.uneq} \textbf{(c)}.
+\end{proof}
+\end{fineprint}
+
 \subsection{Solution to Exercise \ref{exe.Z[i].modn.split}}
 
 \begin{fineprint}
+
+
 \begin{proof}
 [Solution to Exercise \ref{exe.Z[i].modn.split}.]We have $a,b\in\mathbb{Z}$
 (since $\left(  a,b\right)  $ is a Gaussian integer) and $c,d\in\mathbb{Z}$
@@ -40339,6 +40662,8 @@ This solves Exercise \ref{exe.Z[i].modn.split}.
 \subsection{Solution to Exercise \ref{exe.Z[i].modn.classes}}
 
 \begin{fineprint}
+
+
 \begin{proof}
 [Solution to Exercise \ref{exe.Z[i].modn.classes}.]\textbf{(a)} The solution
 to Exercise \ref{exe.Z[i].modn.classes} \textbf{(a)} is analogous to the proof
