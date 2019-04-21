@@ -20578,6 +20578,106 @@ hold: There exist Gaussian integers $\alpha$ and $\beta$ satisfying
 $\operatorname*{N}\left(  \alpha\right)  =\operatorname*{N}\left(
 \beta\right)  $ that are not unit-equivalent.
 
+At this point, let us briefly take a look at a seemingly random question:
+Which Gaussian integers $\alpha$ are unit-equivalent to their own conjugates
+(i.e., satisfy $\alpha\sim\overline{\alpha}$) ? Besides being an instructive
+exercise, answering this question will surprisingly aid us answer Question
+\ref{quest.intro.sum-of-2sq.2} later on!
+
+Here are some examples:
+
+\begin{itemize}
+\item Every integer $g$ satisfies $g\sim\overline{g}$, since an integer $g$
+always satisfies $\overline{g}=g$.
+
+\item Every integer $g$ satisfies $gi\sim\overline{gi}$. Indeed, if $g$ is an
+integer, then Proposition \ref{prop.CC.conj.hom} \textbf{(c)} (applied to
+$\alpha=g$ and $\beta=i$) yields%
+\[
+\overline{gi}=\underbrace{\overline{g}}_{\substack{=g\\\text{(since }%
+g\in\mathbb{Z}\subseteq\mathbb{R}\text{)}}}\cdot\underbrace{\overline{i}%
+}_{=-i}=g\left(  -i\right)  =-gi=\left(  -1\right)  \cdot\left(  gi\right)  ,
+\]
+and this leads to $\overline{gi}\sim gi$ (since $-1$ is a unit); but this, in
+turn, yields $gi\sim\overline{gi}$ (since Proposition
+\ref{prop.Z[i].gauss.uniteq.eqrel} shows that $\sim$ is an equivalence relation).
+
+\item Every integer $g$ satisfies $g\left(  1+i\right)  \sim\overline{g\left(
+1+i\right)  }$. Indeed, if $g$ is an integer, then Proposition
+\ref{prop.CC.conj.hom} \textbf{(c)} (applied to $\alpha=g$ and $\beta=1+i$)
+yields%
+\[
+\overline{g\left(  1+i\right)  }=\underbrace{\overline{g}}%
+_{\substack{=g\\\text{(since }g\in\mathbb{Z}\subseteq\mathbb{R}\text{)}}%
+}\cdot\underbrace{\overline{\left(  1+i\right)  }}_{\substack{=1-i\\=\left(
+-i\right)  \left(  1+i\right)  \\\text{(check this!)}}}=g\left(  -i\right)
+\left(  1+i\right)  =\left(  -i\right)  \cdot\left(  g\left(  1+i\right)
+\right)  ,
+\]
+and this leads to $\overline{g\left(  1+i\right)  }\sim g\left(  1+i\right)  $
+(since $-i$ is a unit); but this, in turn, yields $g\left(  1+i\right)
+\sim\overline{g\left(  1+i\right)  }$ (since Proposition
+\ref{prop.Z[i].gauss.uniteq.eqrel} shows that $\sim$ is an equivalence relation).
+
+\item Every integer $g$ satisfies $g\left(  1-i\right)  \sim\overline{g\left(
+1-i\right)  }$. This can be checked similarly to how we just checked $g\left(
+1+i\right)  \sim\overline{g\left(  1+i\right)  }$.
+\end{itemize}
+
+Thus, in total, we have found four families of Gaussian integers $\alpha$
+satisfying $\alpha\sim\overline{\alpha}$: namely, those of the form
+$g\in\mathbb{Z}$; those of the form $gi$ with $g\in\mathbb{Z}$; those of the
+form $g\left(  1+i\right)  $ with $g\in\mathbb{Z}$; and those of the form
+$g\left(  1-i\right)  $ with $g\in\mathbb{Z}$. On the Argand diagram, these
+are precisely the lattice points on the four bold red lines on the following
+picture:%
+\[
+\begin{tikzpicture}[baseline, scale=2.5]
+\draw[step=1cm,gray,very thin] (-2.4,-2.4) grid (2.4,2.4);
+\draw[very thick,red,->] (-2.5,0) -- (2.5,0);
+\draw[very thick,red,->] (0,-2.5) -- (0,2.5);
+\draw[very thick,red] (-2.5, -2.5) -- (2.5, 2.5);
+\draw[very thick,red] (2.5, -2.5) -- (-2.5, 2.5);
+\foreach \x/\xtext in {-2, -1, 0, 1, 2}
+\fill (\x cm, 0) circle (1pt) node[above left=2pt]{$\xtext$};
+\foreach \x/\xtext in {-2, -1, 1, 2}
+\fill (\x cm, 1 cm) circle (1pt) node[above left=2pt]{$\xtext + i$};
+\fill (0, 1 cm) circle (1pt) node[above left=2pt] {$i$};
+\foreach \x/\xtext in {-2, -1, 1, 2}
+\fill (\x cm, -1 cm) circle (1pt) node[above left=2pt]{$\xtext - i$};
+\fill (0, -1 cm) circle (1pt) node[above left=2pt] {$-i$};
+\foreach \x/\xtext in {-2, -1, 1, 2}
+\fill (\x cm, 2 cm) circle (1pt) node[above left=2pt]{$\xtext + 2i$};
+\fill (0, 2 cm) circle (1pt) node[above left=2pt] {$2i$};
+\foreach \x/\xtext in {-2, -1, 1, 2}
+\fill (\x cm, -2 cm) circle (1pt) node[above left=2pt]{$\xtext - 2i$};
+\fill (0, -2 cm) circle (1pt) node[above left=2pt] {$-2i$};
+\end{tikzpicture}\ \ \ \ .
+\]
+
+
+Are there any other Gaussian integers $\alpha$ satisfying $\alpha\sim
+\overline{\alpha}$ ? As the following exercise (or, rather, its part
+\textbf{(a)}) shows, the answer is \textquotedblleft no\textquotedblright; we
+have found all such $\alpha$.
+
+\begin{exercise}
+\label{exe.Z[i].gauss.uneqcon}Let $\alpha$ be a Gaussian integer satisfying
+$\alpha\sim\overline{\alpha}$. Prove the following:
+
+\textbf{(a)} There exist some $g\in\mathbb{Z}$ and $\tau\in\left\{
+1,i,1+i,1-i\right\}  $ such that $\alpha=g\tau$.
+
+\textbf{(b)} These $g$ and $\tau$ satisfy $\operatorname*{N}\left(
+\alpha\right)  \in\left\{  g^{2},2g^{2}\right\}  $.
+
+\textbf{(c)} The norm $\operatorname*{N}\left(  \alpha\right)  $ cannot be an
+odd prime.
+\end{exercise}
+
+(Part \textbf{(c)} of this exercise, strange as it sounds, is the one we will
+end up using later.)
+
 For the sake of the next subsection, let us state a simple property of integers:
 
 \begin{lemma}
@@ -22497,16 +22597,37 @@ Next, let us show that conjugation does not change Gaussian primeness:
 \end{lemma}
 
 \begin{proof}
-Easy: Conjugation reflects everything across the x-axis, without changing any
-properties. For example: If $\delta$ is a Gaussian divisor of $\pi$, then
-$\overline{\delta}$ is a Gaussian divisor of $\overline{\pi}$, and vice versa.
-If $\delta$ is not a unit, then $\overline{\delta}$ is not a unit, and vice
-versa. If $\delta$ is not unit-equivalent to $\pi$, then $\overline{\delta}$
-is not unit-equivalent to $\overline{\pi}$, and vice versa. If $\pi$ is
-nonzero and not a unit, then $\overline{\pi}$ is nonzero and not a unit, and
-vice versa. Thus, if you compare what it means for $\pi$ to be a Gaussian
-prime with what it means for $\overline{\pi}$ to be a Gaussian prime, then you
-will see that it means the same thing.
+[Proof of Lemma \ref{lem.Z[i].prime.conj}.] Conjugation (of complex numbers)
+sends Gaussian integers to Gaussian integers (by Proposition
+\ref{prop.Z[i].gauss.conj}), products to products (by Proposition
+\ref{prop.CC.conj.hom} \textbf{(c)}) and inverses to inverses (i.e., we have
+$\overline{\alpha^{-1}}=\overline{\alpha}^{-1}$ whenever $\alpha\in\mathbb{C}$
+is nonzero). Furthermore, it is an involution (since $\overline{\overline
+{\alpha}}=\alpha$ for each $\alpha\in\mathbb{C}$). Thus, conjugation preserves
+all \textquotedblleft intrinsic\textquotedblright\ properties of Gaussian
+integers; for example:
+
+\begin{itemize}
+\item If $\pi$ is nonzero, then $\overline{\pi}$ is nonzero, and vice versa.
+
+\item If $\pi$ is not a unit, then $\overline{\pi}$ is not a unit, and vice versa.
+
+\item If $\delta$ is a Gaussian divisor of $\pi$, then $\overline{\delta}$ is
+a Gaussian divisor of $\overline{\pi}$, and vice versa.
+
+\item If $\delta$ is not a unit, then $\overline{\delta}$ is not a unit, and
+vice versa.
+
+\item If $\delta$ is not unit-equivalent to $\pi$, then $\overline{\delta}$ is
+not unit-equivalent to $\overline{\pi}$, and vice versa.
+\end{itemize}
+
+\noindent(These facts are straightforward to prove; see, for example, Exercise
+\ref{exe.Z[i].div.conj} for a proof of the third one.)
+
+Hence, if you compare what it means for $\pi$ to be a Gaussian prime with what
+it means for $\overline{\pi}$ to be a Gaussian prime, then you will see that
+it means the same thing. This proves Lemma \ref{lem.Z[i].prime.conj}.
 \end{proof}
 
 Now, we can prove Theorem \ref{thm.Z[i].gauss.prime.1mod4}:
@@ -22674,54 +22795,20 @@ Hence, in both Cases, we have proven that $x+yi\sim a+bi$ or $x-yi\sim a+bi$.
 This completes our proof of Theorem \ref{thm.Z[i].gauss.prime.1mod4}
 \textbf{(b)}.
 
-\textbf{(e)} Conjugation is a symmetry which preserves divisibility (by
-Exercise \ref{exe.Z[i].div.conj}). Thus, since $\pi$ is a Gaussian prime, its
-conjugate $\overline{\pi}$ is a Gaussian prime as well. It remains to prove
-that we do not have $\pi\sim\overline{\pi}$.
+\textbf{(e)} Lemma \ref{lem.Z[i].prime.conj} yields that $\overline{\pi}$ is a
+Gaussian prime. It remains to prove that we do not have $\pi\sim\overline{\pi
+}$.
 
-Assume the contrary. Thus, $\pi\sim\overline{\pi}$. Write the Gaussian prime
-$\pi$ in the form $\pi=x+yi$ for some $x,y\in\mathbb{Z}$. Thus, $\overline
-{\pi}=x-yi$ and $\operatorname*{N}\left(  \pi\right)  =x^{2}+y^{2}$;
-therefore, $p=\pi\overline{\pi}=\operatorname*{N}\left(  \pi\right)
-=x^{2}+y^{2}$. But $\pi\sim\overline{\pi}$. Hence, there exists a unit
-$\gamma$ such that $\overline{\pi}=\gamma\pi$. Consider this $\gamma$. Since
-$\gamma$ is a unit, we have $\gamma\in\left\{  1,-1,i,-i\right\}  $ (by
-Proposition \ref{prop.Z[i].gauss.units}). So we are in one of the following
-four cases:
+Assume the contrary. Thus, $\pi\sim\overline{\pi}$. Hence, Exercise
+\ref{exe.Z[i].gauss.uneqcon} \textbf{(c)} (applied to $\pi$ instead of
+$\alpha$) yields that the norm $\operatorname*{N}\left(  \pi\right)  $ cannot
+be an odd prime. In view of $\operatorname*{N}\left(  \pi\right)
+=\pi\overline{\pi}=p$, this rewrites as follows: $p$ cannot be an odd prime.
 
-\textit{Case 1:} We have $\gamma=1$.
-
-\textit{Case 2:} We have $\gamma=-1$.
-
-\textit{Case 3:} We have $\gamma=i$.
-
-\textit{Case 4:} We have $\gamma=-i$.
-
-Let us first consider Case 1. In this case, we have $\gamma=1$. Now,
-$x-yi=\overline{\pi}=\underbrace{\gamma}_{=1}\underbrace{\pi}_{=x+yi}=x+yi$.
-Hence, $y=0$. Now, $p=x^{2}+y^{2}=x^{2}$ (since $y=0$). This contradicts the
-fact that $p$ (being a prime) cannot be a square.
-
-Let us first consider Case 2. In this case, we have $\gamma=-1$. Now,
-$x-yi=\overline{\pi}=\underbrace{\gamma}_{=-1}\underbrace{\pi}_{=x+yi}%
-=-\left(  x+yi\right)  =-x-yi$. Hence, $x=0$. Now, $p=x^{2}+y^{2}=y^{2}$
-(since $x=0$). This contradicts the fact that $p$ (being a prime) cannot be a square.
-
-Let us first consider Case 3. In this case, we have $\gamma=i$. Now,
-$x-yi=\overline{\pi}=\underbrace{\gamma}_{=i}\underbrace{\pi}_{=x+yi}=i\left(
-x+yi\right)  =-y+xi$. Hence, $x=-y$. Now, $p=x^{2}+y^{2}=2y^{2}$ (since
-$x=-y$). This contradicts the fact that $p$ is odd (since $p\equiv
-1\operatorname{mod}4$).
-
-Let us first consider Case 4. In this case, we have $\gamma=-i$. Now,
-$x-yi=\overline{\pi}=\underbrace{\gamma}_{=-i}\underbrace{\pi}_{=x+yi}%
-=-i\left(  x+yi\right)  =y-xi$. Hence, $x=y$. Now, $p=x^{2}+y^{2}=2y^{2}$
-(since $x=y$). This contradicts the fact that $p$ is odd (since $p\equiv
-1\operatorname{mod}4$).
-
-We have thus obtained a contradiction in each of our four cases. Hence, we
-always get a contradiction. Thus, the proof of Theorem
-\ref{thm.Z[i].gauss.prime.1mod4} \textbf{(e)} is complete.
+But $p$ is odd (since $p\equiv1\operatorname{mod}4$) and prime. In other
+words, $p$ is an odd prime. This contradicts the fact that $p$ cannot be an
+odd prime. This contradiction shows that our assumption was false. Thus, the
+proof of Theorem \ref{thm.Z[i].gauss.prime.1mod4} \textbf{(e)} is complete.
 \end{proof}
 
 We have thus answered Question \ref{quest.intro.sum-of-2sq.2} \textbf{(b)} in
@@ -40424,6 +40511,193 @@ we are now calling our two numbers $\alpha$ and $\beta$ rather than $x$ and
 $y$, and that we now need to use Theorem \ref{thm.CC.CC.rules} and Proposition
 \ref{prop.CC.CC.power-rules} \textbf{(a)} instead of the analogous rules for
 real numbers.)
+\end{proof}
+\end{fineprint}
+
+\subsection{Solution to Exercise \ref{exe.Z[i].gauss.uneqcon}}
+
+\begin{fineprint}
+\begin{proof}
+[Solution to Exercise \ref{exe.Z[i].gauss.uneqcon}.]Write the complex number
+$\alpha$ in the form $\alpha=\left(  x,y\right)  $ for some $x,y\in\mathbb{R}%
+$. Then, $x,y\in\mathbb{Z}$ (since $\alpha$ is a Gaussian integer). Moreover,
+from $\alpha=\left(  x,y\right)  $, we obtain $\overline{\alpha}=\left(
+x,-y\right)  $ (by the definition of $\overline{\alpha}$). Also,
+$\overline{\alpha}$ is a Gaussian integer (by Proposition
+\ref{prop.Z[i].gauss.conj}).
+
+From $\overline{\alpha}=\left(  x,-y\right)  $, we obtain
+\[
+-\overline{\alpha}=-\left(  x,-y\right)  =\left(  -x,\underbrace{-\left(
+-y\right)  }_{=y}\right)  =\left(  -x,y\right)
+\]
+and%
+\begin{align*}
+\underbrace{i}_{=\left(  0,1\right)  }\underbrace{\overline{\alpha}}_{=\left(
+x,-y\right)  }  &  =\left(  0,1\right)  \left(  x,-y\right)  =\left(
+\underbrace{0\cdot x-1\cdot\left(  -y\right)  }_{=y},\underbrace{0\cdot\left(
+-y\right)  +1\cdot x}_{=x}\right) \\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of the operation }%
+\cdot\text{ on }\mathbb{C}\right) \\
+&  =\left(  y,x\right)
+\end{align*}
+and%
+\[
+-\underbrace{i\overline{\alpha}}_{=\left(  y,x\right)  }=-\left(  y,x\right)
+=\left(  -y,-x\right)  .
+\]
+
+
+\textbf{(a)} Proposition \ref{prop.Z[i].gauss.uniteq} (applied to
+$\beta=\overline{\alpha}$) shows that we have $\alpha\sim\overline{\alpha}$ if
+and only if
+\[
+\left(  \alpha=\overline{\alpha}\text{ or }\alpha=-\overline{\alpha}\text{ or
+}\alpha=i\overline{\alpha}\text{ or }\alpha=-i\overline{\alpha}\right)  .
+\]
+Hence, we have $\left(  \alpha=\overline{\alpha}\text{ or }\alpha
+=-\overline{\alpha}\text{ or }\alpha=i\overline{\alpha}\text{ or }%
+\alpha=-i\overline{\alpha}\right)  $ (since we have $\alpha\sim\overline
+{\alpha}$). Thus, we are in one of the following four cases:
+
+\textit{Case 1:} We have $\alpha=\overline{\alpha}$.
+
+\textit{Case 2:} We have $\alpha=-\overline{\alpha}$.
+
+\textit{Case 3:} We have $\alpha=i\overline{\alpha}$.
+
+\textit{Case 4:} We have $\alpha=-i\overline{\alpha}$.
+
+Let us first consider Case 1. In this case, we have $\alpha=\overline{\alpha}%
+$. Thus, $\left(  x,y\right)  =\alpha=\overline{\alpha}=\left(  x,-y\right)
+$. In other words, $x=x$ and $y=-y$. From $y=-y$, we obtain $2y=0$, thus
+$y=0$. Hence, $\alpha=\left(  x,\underbrace{y}_{=0}\right)  =\left(
+x,0\right)  =x\cdot\underbrace{\left(  1,0\right)  }_{=1}=x\cdot1$. Thus,
+there exist some $g\in\mathbb{Z}$ and $\tau\in\left\{  1,i,1+i,1-i\right\}  $
+such that $\alpha=g\tau$ (namely, $g=x$ and $\tau=1$). Thus, Exercise
+\ref{exe.Z[i].gauss.uneqcon} \textbf{(a)} is solved in Case 1.
+
+Let us next consider Case 2. In this case, we have $\alpha=-\overline{\alpha}%
+$. Thus, $\left(  x,y\right)  =\alpha=-\overline{\alpha}=\left(  -x,y\right)
+$. In other words, $x=-x$ and $y=y$. From $x=-x$, we obtain $2x=0$, thus
+$x=0$. Hence, $\alpha=\left(  \underbrace{x}_{=0},y\right)  =\left(
+0,y\right)  =y\cdot\underbrace{\left(  0,1\right)  }_{=i}=yi$. Thus, there
+exist some $g\in\mathbb{Z}$ and $\tau\in\left\{  1,i,1+i,1-i\right\}  $ such
+that $\alpha=g\tau$ (namely, $g=y$ and $\tau=i$). Thus, Exercise
+\ref{exe.Z[i].gauss.uneqcon} \textbf{(a)} is solved in Case 2.
+
+Let us now consider Case 3. In this case, we have $\alpha=i\overline{\alpha}$.
+Thus, $\left(  x,y\right)  =\alpha=i\overline{\alpha}=\left(  y,x\right)  $.
+In other words, $x=y$ and $y=x$. Hence, $\alpha=\left(  x,\underbrace{y}%
+_{=x}\right)  =\left(  x,x\right)  =x\cdot\underbrace{\left(  1,1\right)
+}_{=1+i}=x\left(  1+i\right)  $. Thus, there exist some $g\in\mathbb{Z}$ and
+$\tau\in\left\{  1,i,1+i,1-i\right\}  $ such that $\alpha=g\tau$ (namely,
+$g=x$ and $\tau=1+i$). Thus, Exercise \ref{exe.Z[i].gauss.uneqcon}
+\textbf{(a)} is solved in Case 3.
+
+Let us finally consider Case 4. In this case, we have $\alpha=-i\overline
+{\alpha}$. Thus, $\left(  x,y\right)  =\alpha=-i\overline{\alpha}=\left(
+-y,-x\right)  $. In other words, $x=-y$ and $y=-x$. Hence, $\alpha=\left(
+x,\underbrace{y}_{=-x}\right)  =\left(  x,-x\right)  =x\cdot
+\underbrace{\left(  1,-1\right)  }_{=1-i}=x\left(  1-i\right)  $. Thus, there
+exist some $g\in\mathbb{Z}$ and $\tau\in\left\{  1,i,1+i,1-i\right\}  $ such
+that $\alpha=g\tau$ (namely, $g=x$ and $\tau=1-i$). Thus, Exercise
+\ref{exe.Z[i].gauss.uneqcon} \textbf{(a)} is solved in Case 4.
+
+We have now solved Exercise \ref{exe.Z[i].gauss.uneqcon} \textbf{(a)} in all
+four Cases 1, 2, 3 and 4. Hence, Exercise \ref{exe.Z[i].gauss.uneqcon}
+\textbf{(a)} is solved (since these four Cases cover all possibilities).
+
+\textbf{(b)} Let $g\in\mathbb{Z}$ and $\tau\in\left\{  1,i,1+i,1-i\right\}  $
+be such that $\alpha=g\tau$. We must prove that $\operatorname*{N}\left(
+\alpha\right)  \in\left\{  g^{2},2g^{2}\right\}  $.
+
+We have $1+i=\left(  1,1\right)  $. Thus, the definition of $\operatorname*{N}%
+\left(  1+i\right)  $ yields $\operatorname*{N}\left(  1+i\right)
+=1^{2}+1^{2}=2$.
+
+We have $1-i=\left(  1,-1\right)  $. Thus, the definition of
+$\operatorname*{N}\left(  1-i\right)  $ yields $\operatorname*{N}\left(
+1-i\right)  =1^{2}+\left(  -1\right)  ^{2}=2$.
+
+We have $i=\left(  0,1\right)  $. Thus, the definition of $\operatorname*{N}%
+\left(  i\right)  $ yields $\operatorname*{N}\left(  i\right)  =0^{2}+1^{2}=1$.
+
+Proposition \ref{prop.CC.norm.aa} (applied to $a=1$) yields $\operatorname*{N}%
+\left(  1_{\mathbb{C}}\right)  =1^{2}=1$. In other words, $\operatorname*{N}%
+\left(  1\right)  =1$ (since we identify $1_{\mathbb{C}}$ with $1$).
+
+Now, from $\tau\in\left\{  1,i,1+i,1-i\right\}  $, we obtain%
+\[
+\operatorname*{N}\left(  \tau\right)  \in\left\{
+\underbrace{\operatorname*{N}\left(  1\right)  }_{=1}%
+,\underbrace{\operatorname*{N}\left(  i\right)  }_{=1}%
+,\underbrace{\operatorname*{N}\left(  1+i\right)  }_{=2}%
+,\underbrace{\operatorname*{N}\left(  1-i\right)  }_{=2}\right\}  =\left\{
+1,1,2,2\right\}  =\left\{  1,2\right\}  .
+\]
+
+
+Proposition \ref{prop.CC.norm.aa} (applied to $a=g$) yields $\operatorname*{N}%
+\left(  g_{\mathbb{C}}\right)  =g^{2}$. In other words, $\operatorname*{N}%
+\left(  g\right)  =g^{2}$ (since we identify $g_{\mathbb{C}}$ with $g$).
+
+Now, Proposition \ref{prop.CC.conj.hom} \textbf{(d)} (applied to $g$ and
+$\tau$ instead of $\alpha$ and $\beta$) yields%
+\begin{align*}
+\operatorname*{N}\left(  g\tau\right)   &  =\underbrace{\operatorname*{N}%
+\left(  g\right)  }_{=g^{2}}\cdot\operatorname*{N}\left(  \tau\right)
+=g^{2}\cdot\operatorname*{N}\left(  \tau\right)  =\operatorname*{N}\left(
+\tau\right)  \cdot g^{2}\in\left\{  \underbrace{1g^{2}}_{=g^{2}}%
+,2g^{2}\right\}  \ \ \ \ \ \ \ \ \ \ \left(  \text{since }\operatorname*{N}%
+\left(  \tau\right)  \in\left\{  1,2\right\}  \right) \\
+&  =\left\{  g^{2},2g^{2}\right\}  .
+\end{align*}
+In view of $\alpha=g\tau$, this rewrites as $\operatorname*{N}\left(
+\alpha\right)  \in\left\{  g^{2},2g^{2}\right\}  $. This solves Exercise
+\ref{exe.Z[i].gauss.uneqcon} \textbf{(b)}.
+
+\textbf{(c)} Assume the contrary. Thus, $\operatorname*{N}\left(
+\alpha\right)  $ is an odd prime.
+
+Exercise \ref{exe.Z[i].gauss.uneqcon} \textbf{(b)} yields $\operatorname*{N}%
+\left(  \alpha\right)  \in\left\{  g^{2},2g^{2}\right\}  $. In other words, we
+have $\operatorname*{N}\left(  \alpha\right)  =g^{2}$ or $\operatorname*{N}%
+\left(  \alpha\right)  =2g^{2}$. But if we had $\operatorname*{N}\left(
+\alpha\right)  =2g^{2}$, then $\operatorname*{N}\left(  \alpha\right)  $ would
+be even (since $g^{2}\in\mathbb{Z}$), which would contradict the fact that
+$\operatorname*{N}\left(  \alpha\right)  $ is odd. Hence, we cannot have
+$\operatorname*{N}\left(  \alpha\right)  =2g^{2}$. Thus, we must have
+$\operatorname*{N}\left(  \alpha\right)  =g^{2}$ (because we know that
+$\operatorname*{N}\left(  \alpha\right)  =g^{2}$ or $\operatorname*{N}\left(
+\alpha\right)  =2g^{2}$). Hence, $\operatorname*{N}\left(  \alpha\right)  $ is
+the square of an integer (since $g$ is an integer), i.e., a perfect square.
+
+But a prime can never be a perfect square\footnote{\textit{Proof.} Let $p$ be
+a prime. We must prove that $p$ cannot be a perfect square.
+\par
+Indeed, assume the contrary. Thus, $p$ is a perfect square. In other words,
+$p=m^{2}$ for some integer $m$. Consider this $m$. Let $n=\left\vert
+m\right\vert $. Then, $n$ is a nonnegative integer (since $m$ is an integer)
+and satisfies $n^{2}=\left\vert m\right\vert ^{2}=m^{2}=p$.
+\par
+But $p$ is a prime. Thus, $p>1$. Hence, $n^{2}=p>1=1^{2}$. We can take square
+roots on both sides of this inequality, and obtain $n>1$ (since $n$ and $1$
+are nonnegative). Hence, $n$ is positive. Thus, we can multiply the inequality
+$n>1$ by $n$, and obtain $nn>n$. Hence, $n<nn=n^{2}=p$, so that $n\neq p$.
+Also, $n\neq1$ (since $n>1$). But $n$ is positive and is a divisor of $p$
+(since $n\mid nn=p$). Thus, $n$ is a positive divisor of $p$. But the only
+positive divisors of $p$ are $1$ and $p$ (since $p$ is prime). Hence, $n$ is
+either $1$ or $p$ (since $n$ is a positive divisor of $p$). This contradicts
+the fact that $n\neq1$ and $n\neq p$. This contradiction shows that our
+assumption was false.
+\par
+Hence, we have proven that $p$ cannot be a perfect square. Qed.}. Thus,
+$\operatorname*{N}\left(  \alpha\right)  $ cannot be a perfect square (since
+$\operatorname*{N}\left(  \alpha\right)  $ is prime). This contradicts the
+fact that $\operatorname*{N}\left(  \alpha\right)  $ is a perfect square. This
+contradiction shows that our assumption was wrong; hence, Exercise
+\ref{exe.Z[i].gauss.uneqcon} \textbf{(c)} is solved.
 \end{proof}
 \end{fineprint}
 
