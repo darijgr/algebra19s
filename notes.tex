@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Sunday, April 21, 2019 16:32:38}
+%TCIDATA{LastRevised=Sunday, April 21, 2019 21:44:28}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -24379,8 +24379,12 @@ $. But let us not worry about this issue for now.}, but also has
 \textquotedblleft the same\textquotedblright\ addition, multiplication, zero
 and unity as the subsequent one. Of course, when we are saying
 \textquotedblleft the same\textquotedblright\ here, we do not literally mean
-\textquotedblleft the same\textquotedblright; we mean that, e.g., if we add
-two integers in $\mathbb{Z}$, we get the same result as if we add the same two
+\textquotedblleft the same binary operation\textquotedblright\footnote{The
+addition of $\mathbb{R}$ is a map from $\mathbb{R}\times\mathbb{R}$ to
+$\mathbb{R}$, while the addition of $\mathbb{C}$ is a map from $\mathbb{C}%
+\times\mathbb{C}$ to $\mathbb{C}$. Thus, of course, these two additions are
+not literally the same binary operation.}; we mean that, e.g., if we add two
+integers in $\mathbb{Z}$, we get the same result as if we add the same two
 integers as elements of $\mathbb{Q}$, or as elements of $\mathbb{R}$, or as
 elements of $\mathbb{C}$. In other words, the addition operation of the ring
 $\mathbb{Z}$ is a \textbf{restriction} of the addition operation of the ring
@@ -28978,7 +28982,7 @@ a_{i}=%
 
 
 We shall write $0$ and $1$ for $\left[  0\right]  _{2}$ and $\left[  1\right]
-_{2}$ throughout this section (except in Proposition \ref{prop.laf.Ac0bc0}),
+_{2}$ throughout this subsection (except in Proposition \ref{prop.laf.Ac0bc0}),
 so we can rewrite this as%
 
 \[
@@ -29604,7 +29608,7 @@ a ring. Similarly, we shall now define a submodule of a $\mathbb{K}$-module.
 For example, the $\mathbb{Z}$-modules $q\mathbb{Z}$ and $\mathbb{Q}%
 _{\operatorname*{sqf}}$ from Example \ref{exa.module.Q} will fall under this
 concept. The idea is the same as for subrings: A submodule of a $\mathbb{K}%
-$-module $M$ is a $\mathbb{K}$-module $N$ that is a subset of $N$ and has
+$-module $N$ is a $\mathbb{K}$-module $M$ that is a subset of $N$ and has
 \textquotedblleft the same\textquotedblright\ addition, scaling and zero
 vector. Here is the formal definition (analogous to Definition
 \ref{def.ring.subring}):
@@ -29681,8 +29685,7 @@ $\lambda a$\textquotedblright\ (which have an implicit scaling sign). However,
 when $M$ is a $\mathbb{K}$-submodule of $N$, we do not need to take this
 precaution; in this case, the meaning of expressions like \textquotedblleft%
 $a+b$\textquotedblright\ does not depend on whether you read \textquotedblleft%
-$+$\textquotedblright\ as the addition of $M$ or as the addition of
-$\mathbb{L}$.
+$+$\textquotedblright\ as the addition of $M$ or as the addition of $N$.
 
 The following is analogous to Proposition \ref{prop.ring.subring.as-subset}:
 
@@ -29860,7 +29863,7 @@ axioms any more. (Indeed, our proof of axiom \textbf{(d)} relied on axiom
 What can you do when you have a $\mathbb{K}$-module?
 
 \begin{convention}
-For the rest of this subsection, we fix a $\mathbb{K}$-module $M$. We shall
+For the rest of this section, we fix a $\mathbb{K}$-module $M$. We shall
 denote its zero vector $0_{M}$ by $0$. (More generally, it is common to denote
 the zero vector of any $\mathbb{K}$-module by $0$ as long as you are not
 afraid of confusion.)
@@ -31512,7 +31515,7 @@ Hence, we need a finer definition of a polynomial which doesn't just remember
 its values on the elements of $\mathbb{K}$, but remembers all its
 coefficients. So we need to bake the coefficients into the definition.
 
-We already gave a hint of such a definition in Section
+We already gave a hint of such a definition in Subsection
 \ref{subsect.ent.vandermonde}, where we said that a polynomial (in $1$
 variable $x$, with rational coefficients) is an \textquotedblleft
 expression\textquotedblright\ (whatever this means) of the form $a_{k}%
@@ -31635,8 +31638,8 @@ to be smaller than every integer and to satisfy $\left(  -\infty\right)
 The degree of a polynomial $\mathbf{a}$ will be denoted $\deg\mathbf{a}$.
 \end{definition}
 
-So for now, our FPSs are just sequences, with no other meaning; we will later
-see why they can be viewed as \textquotedblleft power series\textquotedblright%
+So far, our FPSs are just sequences, with no other meaning; we will later see
+why they can be viewed as \textquotedblleft power series\textquotedblright%
 \ and what the $x$ in \textquotedblleft$\mathbb{K}\left[  \left[  x\right]
 \right]  $\textquotedblright\ means.
 
@@ -31690,16 +31693,9 @@ c_{n}=\sum_{i=0}^{n}a_{i}b_{n-i}=\sum_{\substack{i,j\in\mathbb{N}%
 
 TODO:
 
-\subsection{Polynomials}
+\subsection{Polynomials in detail}
 
 \begin{itemize}
-\item Why we don't just tuples of all possible sizes.
-
-\item Another reason to give a coefficient-based definition of a polynomial is
-that the same definition can be used to define formal power series
-(\textquotedblleft infinite\textquotedblright\ polynomials)! So we get another
-important object basically for free.
-
 \item ...
 \end{itemize}
 
@@ -39665,14 +39661,14 @@ In other words, we have the following logical equivalence:%
 \end{equation}
 
 
-But Proposition \ref{prop.ent.prime.n|m} (applied to $a=m$ and $b=n$) shows
+But Proposition \ref{prop.ent.prime.n|m} (applied to $m=a$ and $n=b$) shows
 that we have $b\mid a$ if and only if each prime $p$ satisfies $v_{p}\left(
 b\right)  \leq v_{p}\left(  a\right)  $. In other words, we have the following
 logical equivalence:%
 \begin{equation}
 \left(  b\mid a\right)  \ \Longleftrightarrow\ \left(  \text{each prime
 }p\text{ satisfies }v_{p}\left(  b\right)  \leq v_{p}\left(  a\right)
-\right)  . \label{sol.eqrel.quot.wp.e.equiv2}%
+\right)  .\label{sol.eqrel.quot.wp.e.equiv2}%
 \end{equation}
 
 
