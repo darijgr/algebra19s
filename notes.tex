@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, April 22, 2019 01:29:43}
+%TCIDATA{LastRevised=Monday, April 22, 2019 08:36:37}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -30416,7 +30416,7 @@ $\mathbb{K}$-linear maps from $\mathbb{K}^{m\times1}$ to $\mathbb{K}%
 have%
 \begin{align*}
 f\left(  e_{j}\right)   &  =\left(  \text{the }j\text{-th column of }F\right)
-\ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of }F\right)  \\
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of }F\right) \\
 &  =L_{F}\left(  e_{j}\right)  \ \ \ \ \ \ \ \ \ \ \left(
 \begin{array}
 [c]{c}%
@@ -31799,27 +31799,7 @@ This map $\iota$ is a $\mathbb{K}$-algebra homomorphism.
 \mathbf{a}\in\mathbb{K}\left[  \left[  x\right]  \right]  .
 \]
 
-
-\textbf{(e)} If $\mathbf{a}$ and $\mathbf{b}$ are two polynomials, then
-$\mathbf{a}+\mathbf{b}$ and $\mathbf{ab}$ are two polynomials satisfying
-\[
-\deg\left(  \mathbf{a}+\mathbf{b}\right)  \leq\max\left\{  \deg\mathbf{a}%
-,\deg\mathbf{b}\right\}  \ \ \ \ \ \ \ \ \ \ \text{and}%
-\ \ \ \ \ \ \ \ \ \ \deg\left(  \mathbf{ab}\right)  \leq\deg\mathbf{a}%
-+\deg\mathbf{b}.
-\]
-
-
-\textbf{(f)} The subset $\mathbb{K}\left[  x\right]  $ of $\mathbb{K}\left[
-\left[  x\right]  \right]  $ is a $\mathbb{K}$-subalgebra (i.e.,
-simultaneously a subring and a $\mathbb{K}$-submodule) of $\mathbb{K}\left[
-\left[  x\right]  \right]  $.
 \end{theorem}
-
-We will later see that when $\mathbb{K}$ is a field, the inequality
-$\deg\left(  \mathbf{ab}\right)  \leq\deg\mathbf{a}+\deg\mathbf{b}$ in Theorem
-\ref{thm.pol.K-alg} \textbf{(e)} actually becomes an equality (if $\mathbf{a}$
-and $\mathbf{b}$ are nonzero); but this is not true for arbitrary commutative rings.
 
 Before we outline a proof of this theorem, let us introduce a helpful notation
 (used often in enumerative combinatorics):
@@ -32001,24 +31981,262 @@ that $\lambda\underline{a}=\underline{\lambda a}$ for all $\lambda
 \left[  x\right]  \right]  }$. All of these claims follow easily from the definitions.
 
 \textbf{(d)} Easy.
+\end{proof}
 
-\textbf{(e)} Let $\mathbf{a}$ and $\mathbf{b}$ be two polynomials.
+\begin{convention}
+\label{conv.pol.embed-FPS}From now on, we shall identify each $a\in\mathbb{K}$
+with the FPS $\underline{a}\in\mathbb{K}\left[  \left[  x\right]  \right]  $.
+\end{convention}
+
+This identification is harmless, due to Theorem \ref{thm.pol.K-alg}
+\textbf{(c)} and to the fact that the map
+\begin{align*}
+\iota:\mathbb{K} &  \rightarrow\mathbb{K}\left[  \left[  x\right]  \right]
+,\\
+a &  \mapsto\underline{a}%
+\end{align*}
+is injective (since $a=\left[  x^{0}\right]  \left(  \underline{a}\right)  $
+for all $a\in\mathbb{K}$). Note that if $a\in\mathbb{K}$, then the FPS
+$\underline{a}$ is actually a polynomial (since $\underline{a}=\left(
+a,0,0,0,0,\ldots\right)  $ has at most one nonzero entry), i.e., belongs to
+$\mathbb{K}\left[  x\right]  $.
+
+Theorem \ref{thm.pol.K-alg} shows that $\mathbb{K}\left[  \left[  x\right]
+\right]  $ is a $\mathbb{K}$-algebra and a commutative ring, so that
+differences, powers, finite sums, and finite products of FPSs are
+well-defined. But more can be said. Indeed, sometimes, infinite sums of FPSs
+make sense. For example, it is reasonable to write%
+\begin{align*}
+& \left(  1,1,1,1,1,\ldots\right)  \\
++  & \left(  0,1,1,1,1,\ldots\right)  \\
++  & \left(  0,0,1,1,1,\ldots\right)  \\
++  & \left(  0,0,0,1,1,\ldots\right)  \\
++  & \left(  0,0,0,0,1,\ldots\right)  \\
++  & \cdots\\
+=  & \left(  1,2,3,4,5,\ldots\right)  ,
+\end{align*}
+even though the sum on the left hand side has infinitely many
+nonzero\footnote{As usual, \textquotedblleft nonzero\textquotedblright\ means
+\textquotedblleft different from $0_{\mathbb{K}\left[  \left[  x\right]
+\right]  }=\left(  0,0,0,0,\ldots\right)  $\textquotedblright.} addends! The
+addition of $\mathbb{K}\left[  \left[  x\right]  \right]  $ is entrywise, so
+it stands to reason that infinite sums of FPSs should be defined entrywise as
+well, and whenever such entrywise sums are well-defined, it makes sense to
+call them the sum of the FPSs. Thus, we make the following definition:
+
+\begin{definition}
+\label{def.pol.summable}A (possibly infinite) family $\left(  \mathbf{a}%
+_{i}\right)  _{i\in I}$ of FPSs is called \textit{summable} if for each
+$n\in\mathbb{N}$, the following requirement holds:%
+\begin{equation}
+\text{only finitely many }i\in I\text{ satisfy }\left[  x^{n}\right]  \left(
+\mathbf{a}_{i}\right)  \neq0.\label{eq.def.pol.summable.cond}%
+\end{equation}
+In this case, the sum $\sum_{i\in I}\mathbf{a}_{i}$ of the family $\left(
+\mathbf{a}_{i}\right)  _{i\in I}$ is defined as the FPS whose coefficients are
+given by%
+\[
+\left[  x^{n}\right]  \left(  \sum_{i\in I}\mathbf{a}_{i}\right)  =\sum_{i\in
+I}\left[  x^{n}\right]  \left(  \mathbf{a}_{i}\right)
+\ \ \ \ \ \ \ \ \ \ \text{for all }n\in\mathbb{N}.
+\]
+(The sum on the right hand side of this equality is well-defined in
+$\mathbb{K}$, since it is a sum with only finitely many nonzero addends.)
+\end{definition}
+
+We notice that the equality (\ref{eq.def.pol.summable.cond}) is \textbf{not}
+equivalent to saying \textquotedblleft infinitely many $i\in I$ satisfy
+$\left[  x^{n}\right]  \left(  \mathbf{a}_{i}\right)  =0$\textquotedblright.
+
+\begin{proposition}
+\label{prop.pol.summable.rules}Sums of summable families of FPSs satisfy the
+usual rules for summation, as long as all families involved are summable. For example:
+
+\begin{itemize}
+\item If $\left(  \mathbf{a}_{i}\right)  _{i\in I}$ and $\left(
+\mathbf{b}_{i}\right)  _{i\in I}$ are two summable families of FPSs, then the
+family $\left(  \mathbf{a}_{i}+\mathbf{b}_{i}\right)  _{i\in I}$ is summable
+as well and its sum is%
+\[
+\sum_{i\in I}\left(  \mathbf{a}_{i}+\mathbf{b}_{i}\right)  =\sum_{i\in
+I}\mathbf{a}_{i}+\sum_{i\in I}\mathbf{b}_{i}.
+\]
+
+
+\item If $\left(  \mathbf{a}_{i}\right)  _{i\in I}$ is a summable family of
+FPSs, and if $J$ is a subset of $I$, then the families $\left(  \mathbf{a}%
+_{i}\right)  _{i\in J}$ and $\left(  \mathbf{a}_{i}\right)  _{i\in I\setminus
+J}$ are summable as well and we have%
+\[
+\sum_{i\in I}\mathbf{a}_{i}=\sum_{i\in J}\mathbf{a}_{i}+\sum_{i\in I\setminus
+J}\mathbf{a}_{i}.
+\]
+
+
+\item If $\left(  \mathbf{a}_{i,j}\right)  _{\left(  i,j\right)  \in I\times
+J}$ is a summable family of FPSs indexed by \textbf{pairs} $\left(
+i,j\right)  \in I\times J$, then%
+\[
+\sum_{i\in I}\sum_{j\in J}\mathbf{a}_{i,j}=\sum_{\left(  i,j\right)  \in
+I\times J}\mathbf{a}_{i,j}=\sum_{j\in J}\sum_{i\in I}\mathbf{a}_{i,j}.
+\]
+
+
+\textbf{Caveat:} The condition that the family $\left(  \mathbf{a}%
+_{i,j}\right)  _{\left(  i,j\right)  \in I\times J}$ is summable is needed
+here! If we drop this condition, and merely require the (weaker!) condition
+that all the families $\left(  \mathbf{a}_{i,j}\right)  _{j\in J}$ (for each
+fixed $i$), $\left(  \mathbf{a}_{i,j}\right)  _{i\in I}$ (for each fixed $j$),
+$\left(  \sum_{j\in J}\mathbf{a}_{i,j}\right)  _{i\in I}$ and $\left(
+\sum_{i\in I}\mathbf{a}_{i,j}\right)  _{j\in J}$ are summable, then the
+equality%
+\[
+\sum_{i\in I}\sum_{j\in J}\mathbf{a}_{i,j}=\sum_{j\in J}\sum_{i\in
+I}\mathbf{a}_{i,j}%
+\]
+\textbf{may be false}. For an example where it is false, consider the family
+$\left(  \mathbf{a}_{i,j}\right)  _{\left(  i,j\right)  \in I\times J}$ with
+$I=\left\{  1,2,3,\ldots\right\}  $ and $J=\left\{  1,2,3,\ldots\right\}  $
+and $\mathbf{a}_{i,j}$ given by the following matrix:%
+\[%
+\begin{tabular}
+[c]{|c||c|c|c|c|c|c|}\hline
+& $1$ & $2$ & $3$ & $4$ & $5$ & $\cdots$\\\hline\hline
+$1$ & $1$ & $-1$ &  &  &  & $\cdots$\\\hline
+$2$ &  & $1$ & $-1$ &  &  & $\cdots$\\\hline
+$3$ &  &  & $1$ & $-1$ &  & $\cdots$\\\hline
+$4$ &  &  &  & $1$ & $-1$ & $\cdots$\\\hline
+$5$ &  &  &  &  & $1$ & $\cdots$\\\hline
+$\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\ddots
+$\\\hline
+\end{tabular}
+\]
+(where all the entries not shown are $0$). Note that the elements of this
+family belong to $\mathbb{K}$, and thus can be considered as FPSs via
+Convention \ref{conv.pol.embed-FPS}.
+\end{itemize}
+\end{proposition}
+
+\begin{definition}
+\label{def.pol.x}We let $x$ denote the FPS $\left(
+0,1,\underbrace{0,0,0,0,\ldots}_{\text{zeroes}}\right)  $.
+\end{definition}
+
+Thus, $\left[  x^{n}\right]  x=%
+\begin{cases}
+1, & \text{if }n=1;\\
+0, & \text{if }n\neq1
+\end{cases}
+$ for all $n\in\mathbb{N}$.
+
+TODO:
+
+\subsection{Polynomials}
+
+\begin{theorem}
+\label{thm.pol.pol-basics}\textbf{(a)} If $a\in\mathbb{K}$, then
+$\underline{a}\in\mathbb{K}\left[  x\right]  $ and $\deg\underline{a}\leq0$.
+
+\textbf{(b)} We have $\deg x\leq1$.
+
+\textbf{(c)} If $\mathbf{a}$ and $\mathbf{b}$ are two polynomials, then
+$\mathbf{a}+\mathbf{b}$ and $\mathbf{ab}$ are two polynomials satisfying
+\[
+\deg\left(  \mathbf{a}+\mathbf{b}\right)  \leq\max\left\{  \deg\mathbf{a}%
+,\deg\mathbf{b}\right\}  \ \ \ \ \ \ \ \ \ \ \text{and}%
+\ \ \ \ \ \ \ \ \ \ \deg\left(  \mathbf{ab}\right)  \leq\deg\mathbf{a}%
++\deg\mathbf{b}.
+\]
+
+
+\textbf{(d)} The subset $\mathbb{K}\left[  x\right]  $ of $\mathbb{K}\left[
+\left[  x\right]  \right]  $ is a $\mathbb{K}$-subalgebra (i.e.,
+simultaneously a subring and a $\mathbb{K}$-submodule) of $\mathbb{K}\left[
+\left[  x\right]  \right]  $.
+\end{theorem}
+
+We will later see that when $\mathbb{K}$ is a field, the inequality
+$\deg\left(  \mathbf{ab}\right)  \leq\deg\mathbf{a}+\deg\mathbf{b}$ in Theorem
+\ref{thm.pol.pol-basics} \textbf{(c)} actually becomes an equality (if
+$\mathbf{a}$ and $\mathbf{b}$ are nonzero); but this is not true for arbitrary
+commutative rings.
+
+(Proof:)
+
+\begin{proof}
+\textbf{(c)} Let $\mathbf{a}$ and $\mathbf{b}$ be two polynomials.
 
 [...]
 
-\textbf{(f)} We need to prove that $\mathbb{K}\left[  x\right]  $ is closed
+\textbf{(d)} We need to prove that $\mathbb{K}\left[  x\right]  $ is closed
 under addition, closed under multiplication, closed under scaling, contains
 $0$ and contains $1$.
 
 [...]
 \end{proof}
 
-TODO:
-
-\subsection{Polynomials in detail}
-
 \begin{itemize}
 \item ...
+
+\item $f\left[  g\right]  $ wd if $f$ is a poly and $g$ is in any comm
+$\mathbb{K}$-alg.
+
+\item $\deg\left(  f\left[  g\right]  \right)  \leq\deg f\cdot\deg g$.
+
+\item \textbf{Thm:} Poly quo\_rem (like Gauss, but with uniqueness):
+
+Let $n\in\mathbb{N}$. Let $a$ and $b$ be polynomials such that $\deg b\leq n$
+and such that $\left[  x^{n}\right]  b\in\mathbb{K}$ is invertible. Then,
+there exists a \textbf{unique} pair $\left(  q,r\right)  $ of polynomials such
+that $a=qb+r$ and $\deg r<n$. Moreover, this pair satisfies $\deg q\leq\deg
+a-n$.
+
+(\textit{Proof:} Strind/$\deg a$.)
+
+\item \textbf{Def:} monic.
+
+\item \textbf{Cor:} quo\_rem for monic.
+
+\item \textbf{Cor:} quo\_rem for $x-a$.
+
+\item \textbf{Def:} root.
+
+\item \textbf{Def:} $\mid$ in $\mathbb{K}\left[  x\right]  $.
+
+\item \textbf{Def:} $a$ root of $f$ $\Longleftrightarrow$ $x-a\mid f$.
+
+\item \textbf{Def:} A poly of degree $\leq n$ over a field $\mathbb{K}$ has
+$\leq n$ roots.
+
+\item \textbf{Cor:} If $f,g$ are polys of degree $\leq n$, and $f=g$ on more
+than $n$ values, then $f=g$.
+
+\item \textbf{Cor:} If $f,g$ are polys over a field $\mathbb{K}$ with
+$f\left(  k\right)  =g\left(  k\right)  $ for infinitely many $k$, then $f=g$.
+
+\item Remark about functoriality.
+
+\item Apply to Vandermonde (Proposition \ref{prop.poly.informal.f=g}:
+\textquotedblleft Let $P$ and $Q$ be two polynomials in $1$ variable $x$ with
+rational coefficients. Assume that infinitely many $u\in\mathbb{Q}$ satisfy
+$P\left(  u\right)  =Q\left(  u\right)  $. Then, $P=Q$ (as
+polynomials).\textquotedblright)
+
+\item Apply to Shamir Secret Sharing.
+
+\item Apply to Reed--Solomon: Encode data as $f\in\mathbb{K}\left[  x\right]
+$ of degree $\leq d$, and send $e$ values.
+
+\item Explicit Lagrange interpolation: If $a_{1},a_{2},\ldots,a_{n}$ are $n$
+distinct elements of a field $\mathbb{K}$, and $b_{1},b_{2},\ldots,b_{n}$ are
+$n$ arbitrary elements of $\mathbb{K}$, then there is a unique polynomial
+$f\in\mathbb{K}\left[  x\right]  $ of degree $<n$ satisfying $f\left(
+a_{i}\right)  =b_{i}$ for all $i$. It is%
+\[
+\sum_{j=1}^{n}b_{j}\dfrac{\prod_{i\neq j}\left(  x-a_{i}\right)  }%
+{\prod_{i\neq j}\left(  a_{j}-a_{i}\right)  }.
+\]
+
 \end{itemize}
 
 \subsection{Quotient constructions}
