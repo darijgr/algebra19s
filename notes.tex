@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Sunday, April 21, 2019 21:44:28}
+%TCIDATA{LastRevised=Monday, April 22, 2019 01:29:43}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -28659,7 +28659,8 @@ Subspaces are often called \textit{vector subspaces}.
 A similar definition defines subspaces of $\mathbb{K}^{n\times1}$ (column vectors).
 
 There is a more general version of this definition, which extends it to
-subspaces of arbitrary vector spaces (see below).
+subspaces of arbitrary vector spaces (see Definition
+\ref{def.la.submod-subspace}).
 
 \begin{definition}
 \label{def.laf.lincomb}Let $n\in\mathbb{N}$. Let $v_{1},v_{2},\ldots,v_{k}$ be
@@ -28748,8 +28749,8 @@ vectors spanning $U$ to a basis of $U$.)
 Again, the same holds for column vectors.
 
 \begin{definition}
-\label{def.laf.dim-of-subspace}Let $U$ be a subspace of $\mathbb{K}^{1\times
-n}$.
+\label{def.laf.dim-of-subspace}Let $n\in\mathbb{N}$. Let $U$ be a subspace of
+$\mathbb{K}^{1\times n}$.
 
 The \textit{dimension} of $U$ is defined to be the size of a basis of $U$.
 (Parts \textbf{(a)} and \textbf{(b)} of Theorem
@@ -28758,8 +28759,8 @@ dimension of $U$ is denoted by $\dim U$.
 \end{definition}
 
 \begin{proposition}
-\label{prop.laf.dim-increases}Let $U$ and $V$ be two subspaces of
-$\mathbb{K}^{1\times n}$ such that $U\subseteq V$.
+\label{prop.laf.dim-increases}Let $n\in\mathbb{N}$. Let $U$ and $V$ be two
+subspaces of $\mathbb{K}^{1\times n}$ such that $U\subseteq V$.
 
 \textbf{(a)} We have $\dim U\leq\dim V$.
 
@@ -28787,7 +28788,8 @@ This proves Proposition \ref{prop.laf.dim-increases} \textbf{(b)}.
 Now, let us connect this with matrices:
 
 \begin{definition}
-\label{def.laf.rowspace}Let $A\in\mathbb{K}^{n\times m}$ be a matrix.
+\label{def.laf.rowspace}Let $n,m\in\mathbb{N}$. Let $A\in\mathbb{K}^{n\times
+m}$ be a matrix.
 
 \textbf{(a)} The \textit{row space} of $A$ is defined to be the span of the
 rows of $A$. This is a subspace of $\mathbb{K}^{1\times m}$, and is called
@@ -28815,25 +28817,27 @@ rank\textquotedblright\ of $A$, and $\dim\operatorname*{Col}A$ is called the
 \end{proof}
 
 \begin{definition}
-\label{def.laf.rank}Let $A\in\mathbb{K}^{n\times m}$ be a matrix. Theorem
-\ref{thm.laf.ranks-equal} shows that $\dim\operatorname*{Row}A=\dim
-\operatorname*{Col}A$. This number $\dim\operatorname*{Row}A=\dim
-\operatorname*{Col}A$ is called the \textit{rank} of $A$ and is denoted by
-$\operatorname*{rank}A$.
+\label{def.laf.rank}Let $n,m\in\mathbb{N}$. Let $A\in\mathbb{K}^{n\times m}$
+be a matrix. Theorem \ref{thm.laf.ranks-equal} shows that $\dim
+\operatorname*{Row}A=\dim\operatorname*{Col}A$. This number $\dim
+\operatorname*{Row}A=\dim\operatorname*{Col}A$ is called the \textit{rank} of
+$A$ and is denoted by $\operatorname*{rank}A$.
 \end{definition}
 
 The following is easy to see:
 
 \begin{proposition}
-Let $A\in\mathbb{K}^{n\times m}$ be a matrix. Then, $\operatorname*{rank}A$ is
-an integer between $0$ and $\min\left\{  n,m\right\}  $.
+\label{prop.laf.rank-minnm}Let $n,m\in\mathbb{N}$. Let $A\in\mathbb{K}%
+^{n\times m}$ be a matrix. Then, $\operatorname*{rank}A$ is an integer between
+$0$ and $\min\left\{  n,m\right\}  $.
 \end{proposition}
 
 So we have seen that a matrix gives rise to two subspaces: its row space and
 its column space. But there is more:
 
 \begin{definition}
-\label{def.laf.ker}Let $A\in\mathbb{K}^{n\times m}$ be a matrix.
+\label{def.laf.ker}Let $n,m\in\mathbb{N}$. Let $A\in\mathbb{K}^{n\times m}$ be
+a matrix.
 
 \textbf{(a)} The \textit{kernel} (or \textit{nullspace}) of $A$ is defined to
 be the set of all column vectors $v\in\mathbb{K}^{m\times1}$ such that
@@ -28855,7 +28859,8 @@ following fact, known as
 \textit{rank-nullity theorem}}:
 
 \begin{theorem}
-\label{thm.laf.rank-null}Let $A\in\mathbb{K}^{n\times m}$ be a matrix. Then,%
+\label{thm.laf.rank-null}Let $n,m\in\mathbb{N}$. Let $A\in\mathbb{K}^{n\times
+m}$ be a matrix. Then,%
 \[
 \operatorname*{rank}A+\dim\operatorname*{Ker}A=m.
 \]
@@ -28982,9 +28987,8 @@ a_{i}=%
 
 
 We shall write $0$ and $1$ for $\left[  0\right]  _{2}$ and $\left[  1\right]
-_{2}$ throughout this subsection (except in Proposition \ref{prop.laf.Ac0bc0}),
-so we can rewrite this as%
-
+_{2}$ throughout this subsection (except in Proposition \ref{prop.laf.Ac0bc0}%
+), so we can rewrite this as%
 \[
 a_{i}=%
 \begin{cases}
@@ -29034,12 +29038,13 @@ $\left(  1,1,1,1\right)  $ is the sum of the $1$-st and $4$-th rows of $A$);
 but let us try a theoretical argument. It will rely on the following general fact:
 
 \begin{proposition}
-\label{prop.laf.Ac0bc0}Let $\mathbb{K}$ be a field. Let $A\in\mathbb{K}%
-^{n\times m}$ and $b\in\mathbb{K}^{1\times m}$. Assume the following:
+\label{prop.laf.Ac0bc0}Let $n,m\in\mathbb{N}$. Let $\mathbb{K}$ be any field.
+Let $A\in\mathbb{K}^{n\times m}$ and $b\in\mathbb{K}^{1\times m}$. Assume the following:
 
 \begin{statement}
 \textit{Assumption 1:} If $c\in\mathbb{K}^{m\times1}$ satisfies $Ac=0$, then
-$bc=0$.
+$bc=0$. (Here, of course, the \textquotedblleft$0$\textquotedblright\ in
+\textquotedblleft$Ac=0$\textquotedblright\ means $0_{n\times1}$.)
 \end{statement}
 
 \noindent Then, $b\in\operatorname*{Row}A$.
@@ -29052,8 +29057,9 @@ $bc=0$.
 A\\
 b
 \end{array}
-\right)  $ denote the $\left(  n+1\right)  \times m$-matrix formed from $A$ by
-attaching the row vector $b$ to its bottom. For example, if $A=\left(
+\right)  $ denote the $\left(  n+1\right)  \times m$-matrix formed from the
+$n\times m$-matrix $A$ by attaching the row vector $b$ to its bottom. For
+example, if $A=\left(
 \begin{array}
 [c]{cc}%
 a_{1,1} & a_{1,2}\\
@@ -29238,11 +29244,11 @@ b
 Over the field $\mathbb{Z}/2$, this fact has the following consequence:
 
 \begin{corollary}
-\label{cor.laf.lights-out-diag}Let $A\in\left(  \mathbb{Z}/2\right)  ^{n\times
-n}$ be a symmetric matrix. (\textquotedblleft\textit{Symmetric}%
-\textquotedblright\ means that the $\left(  i,j\right)  $-th entry of $A$
-equals the $\left(  j,i\right)  $-th entry of $A$ for all $i$ and $j$. In
-other words, it means that $A^{T}=A$.)
+\label{cor.laf.lights-out-diag}Let $n\in\mathbb{N}$. Let $A\in\left(
+\mathbb{Z}/2\right)  ^{n\times n}$ be a symmetric matrix. (\textquotedblleft%
+\textit{Symmetric}\textquotedblright\ means that the $\left(  i,j\right)  $-th
+entry of $A$ equals the $\left(  j,i\right)  $-th entry of $A$ for all $i$ and
+$j$. In other words, it means that $A^{T}=A$.)
 
 Let $d$ be the diagonal of $A$, written as a row vector. (In other words, let
 $D=\left(  a_{1,1},a_{2,2},\ldots,a_{n,n}\right)  $, where $a_{i,j}$ is the
@@ -29302,7 +29308,7 @@ _{=0}=c^{T}0=0$. Thus, Assumption 1 is proven.]
 Corollary \ref{cor.laf.lights-out-diag} now follows.
 \end{proof}
 
-Now, why can the lights-out puzzle be solved?
+Now, why can the \textquotedblleft lights out\textquotedblright\ puzzle be solved?
 
 We want to prove that $\left(  1,1,1,1\right)  \in\operatorname*{Row}A$ for
 our matrix $A\in\left(  \mathbb{Z}/2\right)  ^{4\times4}$.
@@ -29311,10 +29317,10 @@ This follows from Corollary \ref{cor.laf.lights-out-diag}, since the matrix
 $A$ is symmetric, and since its diagonal is $\left(  1,1,1,1\right)  $.
 
 The same argument works for the \textquotedblleft proper\textquotedblright%
-\ (2-dimensional) lights-out puzzle; we just have to use row vectors of size
-$16$ (not $4$) and $16\times16$-matrices (not $4\times4$-matrices). More
-generally, the same argument works for any such puzzle on any
-\textquotedblleft grid\textquotedblright\ as long as:
+\ (2-dimensional) \textquotedblleft lights out\textquotedblright\ puzzle; we
+just have to use row vectors of size $16$ (not $4$) and $16\times16$-matrices
+(not $4\times4$-matrices). More generally, the same argument works for any
+such puzzle on any \textquotedblleft grid\textquotedblright\ as long as:
 
 \begin{itemize}
 \item each lamp $i$ has a lightswitch which toggles at least lamp $i$;
@@ -29323,12 +29329,12 @@ generally, the same argument works for any such puzzle on any
 lamp $j$ toggles lamp $i$.
 \end{itemize}
 
-These conditions guarantee that the corresponding matrix $A$ will be symmetric
-and its diagonal will be $\left(  1,1,\ldots,1\right)  $ (and thus we can
-apply Corollary \ref{cor.laf.lights-out-diag}).
+\noindent These conditions guarantee that the corresponding matrix $A$ will be
+symmetric and its diagonal will be $\left(  1,1,\ldots,1\right)  $ (and thus
+we can apply Corollary \ref{cor.laf.lights-out-diag}).
 
 How to find the exact sequence of flips that results in all lights being on?
-This is tantamount to finding the coefficient of a linear combination of the
+This is tantamount to finding the coefficients of a linear combination of the
 rows of $A$ that equals $\left(  1,1,\ldots,1\right)  $. This boils down to
 solving a system of linear equations over $\mathbb{Z}/2$, which can be
 achieved using Gaussian elimination.
@@ -29667,9 +29673,9 @@ $\mathbb{C}$-modules $\mathbb{C}$ and $\overline{\mathbb{C}}$ are equal as
 sets, but neither is a $\mathbb{C}$-submodule of the other.
 
 \begin{definition}
-If $\mathbb{K}$ is a field, then $\mathbb{K}$-submodules are also known as
-$\mathbb{K}$\textit{-vector subspaces} (or, short, $\mathbb{K}$%
-\textit{-subspaces}).
+\label{def.la.submod-subspace}If $\mathbb{K}$ is a field, then $\mathbb{K}%
+$-submodules are also known as $\mathbb{K}$\textit{-vector subspaces} (or,
+short, $\mathbb{K}$\textit{-subspaces}).
 \end{definition}
 
 When we have two $\mathbb{K}$-modules $M$ and $N$ such that $M\subseteq N$ as
@@ -30285,18 +30291,19 @@ b\right)  $. Thus, axiom \textbf{(a)} has been verified.
 
 \textit{Proof of axiom \textbf{(b)}:} Applying
 (\ref{eq.prop.module.moho-alt.ass}) to $\lambda=0$, $\mu=0$, $a=0_{M}$ and
-$b=0_{M}$, we obtain $f\left(  0\cdot0_{M}+0\cdot0_{M}\right)  =0f\left(
-0_{M}\right)  +0f\left(  0_{M}\right)  =0_{N}$. In view of $0\cdot0_{M}%
-+0\cdot0_{M}=0_{M}$, we can rewrite this as $f\left(  0_{M}\right)  =0_{N}$.
-Thus, axiom \textbf{(b)} has been verified.
+$b=0_{M}$, we obtain $f\left(  0\cdot0_{M}+0\cdot0_{M}\right)
+=\underbrace{0f\left(  0_{M}\right)  }_{=0_{N}}+\underbrace{0f\left(
+0_{M}\right)  }_{=0_{N}}=0_{N}$. In view of $0\cdot0_{M}+0\cdot0_{M}=0_{M}$,
+we can rewrite this as $f\left(  0_{M}\right)  =0_{N}$. Thus, axiom
+\textbf{(b)} has been verified.
 
 \textit{Proof of axiom \textbf{(c)}:} Let $\lambda\in\mathbb{K}$ and $a\in M$.
 Applying (\ref{eq.prop.module.moho-alt.ass}) to $\mu=0$ and $b=0_{M}$, we
 obtain $f\left(  \lambda a+0\cdot0_{M}\right)  =\lambda f\left(  a\right)
-+0f\left(  0_{M}\right)  =\lambda f\left(  a\right)  $. In view of $\lambda
-a+\underbrace{0\cdot0_{M}}_{=0_{M}}=\lambda a+0_{M}=\lambda a$, this rewrites
-as $f\left(  \lambda a\right)  =\lambda f\left(  a\right)  $. Thus, axiom
-\textbf{(c)} has been verified.
++\underbrace{0f\left(  0_{M}\right)  }_{=0_{N}}=\lambda f\left(  a\right)  $.
+In view of $\lambda a+\underbrace{0\cdot0_{M}}_{=0_{M}}=\lambda a+0_{M}%
+=\lambda a$, this rewrites as $f\left(  \lambda a\right)  =\lambda f\left(
+a\right)  $. Thus, axiom \textbf{(c)} has been verified.
 \end{proof}
 
 Some authors use the axiom (\ref{eq.prop.module.moho-alt.ass}) as their
@@ -30308,7 +30315,8 @@ Proposition \ref{prop.module.f-pres-lc} \textbf{(a)}).
 \begin{lemma}
 \label{lem.module.f=g.ej-suff}Let $m\in\mathbb{N}$, and let $N$ be a
 $\mathbb{K}$-module. For each $j\in\left\{  1,2,\ldots,m\right\}  $, we let
-define a column vector $e_{j}$ as in Definition \ref{def.module.ej}.
+define a column vector $e_{j}\in\mathbb{K}^{m\times1}$ as in Definition
+\ref{def.module.ej}.
 
 Let $f,g:\mathbb{K}^{m\times1}\rightarrow N$ be two $\mathbb{K}$-linear maps.
 Assume that $f\left(  e_{j}\right)  =g\left(  e_{j}\right)  $ for all
@@ -30316,9 +30324,9 @@ $j\in\left\{  1,2,\ldots,m\right\}  $. Then, $f=g$.
 \end{lemma}
 
 \begin{proof}
-Let $v\in\mathbb{K}^{m\times1}$. Write $v$ as $\left(  v_{1},v_{2}%
-,\ldots,v_{m}\right)  ^{T}$, where $v_{1},v_{2},\ldots,v_{m}\in\mathbb{K}$.
-Then,%
+[Proof of Lemma \ref{lem.module.f=g.ej-suff}.]Let $v\in\mathbb{K}^{m\times1}$.
+Write $v$ as $\left(  v_{1},v_{2},\ldots,v_{m}\right)  ^{T}$, where
+$v_{1},v_{2},\ldots,v_{m}\in\mathbb{K}$. Then,%
 \begin{align*}
 v  &  =\left(  v_{1},v_{2},\ldots,v_{m}\right)  ^{T}\\
 &  =\left(
@@ -30357,7 +30365,7 @@ v_{3}\\
 \vdots\\
 0
 \end{array}
-\right)  }_{=v_{3}e_{3}}\cdots+\underbrace{\left(
+\right)  }_{=v_{3}e_{3}}+\cdots+\underbrace{\left(
 \begin{array}
 [c]{c}%
 0\\
@@ -30375,15 +30383,16 @@ Hence,%
 f\left(  v\right)   &  =f\left(  \sum_{i=1}^{m}v_{i}e_{i}\right)  =\sum
 _{i=1}^{m}v_{i}f\left(  e_{i}\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by
 Proposition \ref{prop.module.f-pres-lc} \textbf{(b)}}\right) \\
-&  =\sum_{j=1}^{m}v_{j}f\left(  e_{j}\right)
+&  =\sum_{j=1}^{m}v_{j}f\left(  e_{j}\right)  \ \ \ \ \ \ \ \ \ \ \left(
+\text{here, we have renamed the summation index }i\text{ as }j\right)
 \end{align*}
 and similarly $g\left(  v\right)  =\sum_{j=1}^{m}v_{j}g\left(  e_{j}\right)
 $. Now, the right hand sides of these two equalities are equal, since we
 assumed that $f\left(  e_{j}\right)  =g\left(  e_{j}\right)  $ for all
 $j\in\left\{  1,2,\ldots,m\right\}  $. Hence, the left hand sides are equal,
-too. So $f\left(  v\right)  =g\left(  v\right)  $. Since we have proven this
-for every $v\in\mathbb{K}^{m\times1}$, we thus conclude that $f=g$. This
-proves the lemma.
+too. In other words, $f\left(  v\right)  =g\left(  v\right)  $. Since we have
+proven this for every $v\in\mathbb{K}^{m\times1}$, we thus conclude that
+$f=g$. This proves Lemma \ref{lem.module.f=g.ej-suff}.
 \end{proof}
 
 We are now ready to prove Proposition \ref{prop.module.f=LA}:
@@ -30394,16 +30403,20 @@ homomorphism from $\mathbb{K}^{m\times1}$ to $\mathbb{K}^{n\times1}$. We must
 prove that $f=L_{A}$ for a unique $A\in\mathbb{K}^{n\times m}$.
 
 For each $j\in\left\{  1,2,\ldots,m\right\}  $, we let define a column vector
-$e_{j}$ as in Definition \ref{def.module.ej}.
+$e_{j}\in\mathbb{K}^{m\times1}$ as in Definition \ref{def.module.ej}.
 
 Now, let $F$ be the $n\times m$-matrix whose columns are the $m$ column
 vectors \newline$f\left(  e_{1}\right)  ,f\left(  e_{2}\right)  ,\ldots
 ,f\left(  e_{m}\right)  $. We claim that $f=L_{F}$.
 
-Indeed, for each $j\in\left\{  1,2,\ldots,m\right\}  $, we have%
+Indeed, both $f$ and $L_{F}$ are $\mathbb{K}$-module homomorphisms from
+$\mathbb{K}^{m\times1}$ to $\mathbb{K}^{n\times1}$. That is, they are
+$\mathbb{K}$-linear maps from $\mathbb{K}^{m\times1}$ to $\mathbb{K}%
+^{n\times1}$. Furthermore, for each $j\in\left\{  1,2,\ldots,m\right\}  $, we
+have%
 \begin{align*}
 f\left(  e_{j}\right)   &  =\left(  \text{the }j\text{-th column of }F\right)
-\ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of }F\right) \\
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of }F\right)  \\
 &  =L_{F}\left(  e_{j}\right)  \ \ \ \ \ \ \ \ \ \ \left(
 \begin{array}
 [c]{c}%
@@ -30413,11 +30426,9 @@ of }F\right)
 \end{array}
 \right)  .
 \end{align*}
-So the maps $f$ and $L_{F}$ are equal at least on the vectors $e_{1}%
-,e_{2},\ldots,e_{m}$. But furthermore, they are $\mathbb{K}$-linear. Hence,
-Lemma \ref{lem.module.f=g.ej-suff} (applied to $N=\mathbb{K}^{n\times1}$ and
-$g=L_{F}$) shows that they are identical. Hence, $f=L_{F}$. This shows that
-$f=L_{A}$ for \textbf{some} $A\in\mathbb{K}^{n\times m}$.
+Hence, Lemma \ref{lem.module.f=g.ej-suff} (applied to $N=\mathbb{K}^{n\times
+1}$ and $g=L_{F}$) shows that $f=L_{F}$. This shows that $f=L_{A}$ for
+\textbf{some} $A\in\mathbb{K}^{n\times m}$ (namely, for $A=F$).
 
 How to prove that this $A$ is unique? The idea is that $A$ can be
 reconstructed from $L_{A}$, because $\left(  \text{the }j\text{-th column of
@@ -30572,7 +30583,7 @@ M,N\right)  $.
 M,N\right)  $.
 \end{theorem}
 
-(The above list is skipping a few letters since we have not defined
+\noindent(The above list is skipping a few letters since we have not defined
 subtraction yet; nevertheless, subtraction exists and satisfies the
 appropriate rules. See below for the details.)
 
@@ -30742,6 +30753,37 @@ any $n\in\mathbb{N}$.
 \item The polynomial ring $\mathbb{K}\left[  x\right]  $ (see below for
 details) is a $\mathbb{K}$-algebra.
 \end{itemize}
+
+There is also a notion of a $\mathbb{K}$\textit{-subalgebra} of a $\mathbb{K}%
+$-algebra, which can be easily defined as follows:
+
+\begin{definition}
+\label{def.K-alg.K-subalg}Let $A$ and $B$ be two $\mathbb{K}$-algebras. We say
+that $A$ is a $\mathbb{K}$\textit{-subalgebra} (or, for short,
+\textit{subalgebra}) of $B$ if and only if it satisfies the following six requirements:
+
+\begin{itemize}
+\item the set $A$ is a subset of $B$;
+
+\item the addition of $A$ is a restriction of the addition of $B$ (that is, we
+have $a_{1}+_{A}a_{2}=a_{1}+_{B}a_{2}$ for all $a_{1},a_{2}\in A$);
+
+\item the multiplication of $A$ is a restriction of the multiplication of $B$
+(that is, we have $a_{1}\cdot_{A}a_{2}=a_{1}\cdot_{B}a_{2}$ for all
+$a_{1},a_{2}\in A$);
+
+\item the zero of $A$ is the zero of $B$ (that is, we have $0_{A}=0_{B}$);
+
+\item the unity of $A$ is the unity of $B$ (that is, we have $1_{A}=1_{B}$).
+
+\item the scaling of $A$ is a restriction of the scaling of $B$ (that is, we
+have $\lambda\cdot_{A}a=\lambda\cdot_{B}a$ for all $\lambda\in\mathbb{K}$ and
+$a\in A$);
+\end{itemize}
+
+Equivalently, $A$ is a $\mathbb{K}$-subalgebra of $B$ if and only if $A$ is
+simultaneously a subring of $B$ and a $\mathbb{K}$-submodule of $B$.
+\end{definition}
 
 \subsection{\label{sect.la.modiso}Module isomorphisms}
 
@@ -31638,10 +31680,13 @@ to be smaller than every integer and to satisfy $\left(  -\infty\right)
 The degree of a polynomial $\mathbf{a}$ will be denoted $\deg\mathbf{a}$.
 \end{definition}
 
-So far, our FPSs are just sequences, with no other meaning; we will later see
-why they can be viewed as \textquotedblleft power series\textquotedblright%
-\ and what the $x$ in \textquotedblleft$\mathbb{K}\left[  \left[  x\right]
-\right]  $\textquotedblright\ means.
+So far, our FPSs are just sequences, with no other meaning. We will later see
+why they can be viewed as \textquotedblleft power series\textquotedblright,
+what the $x$ in \textquotedblleft$\mathbb{K}\left[  \left[  x\right]  \right]
+$\textquotedblright\ means, and why we can write a sequence $\left(
+a_{0},a_{1},a_{2},\ldots\right)  $ as $a_{0}+a_{1}x+a_{2}x^{2}+\cdots$.
+
+First, let us give two examples to illustrate the above definition:
 
 \begin{example}
 In this example, let $\mathbb{K}=\mathbb{Z}$.
@@ -31655,9 +31700,13 @@ not a polynomial. We will later write this FPS as $1+2x+3x^{2}+4x^{3}%
 this polynomial as $3+2x^{2}+5x^{3}$.
 \end{example}
 
+\begin{center}
+\textbf{2019-04-22 lecture}
+\end{center}
+
 \begin{definition}
-The goal of this definition is to make $\mathbb{K}\left[  \left[  x\right]
-\right]  $ into a $\mathbb{K}$-algebra.
+\label{def.pol.K-alg}The goal of this definition is to make $\mathbb{K}\left[
+\left[  x\right]  \right]  $ into a $\mathbb{K}$-algebra.
 
 \textbf{(a)} We define a binary operation $+$ (called \textit{addition}) on
 $\mathbb{K}\left[  \left[  x\right]  \right]  $ by%
@@ -31689,7 +31738,280 @@ c_{n}=\sum_{i=0}^{n}a_{i}b_{n-i}=\sum_{\substack{i,j\in\mathbb{N}%
 \ \ \ \ \ \ \ \ \ \ \text{for all }n\in\mathbb{N}.
 \]
 
+
+\textbf{(d)} For each $a\in\mathbb{K}$, we define a FPS $\underline{a}%
+\in\mathbb{K}\left[  \left[  x\right]  \right]  $ by
+\[
+\underline{a}=\left(  a,\underbrace{0,0,0,\ldots}_{\text{zeroes}}\right)  .
+\]
+This is called a \textit{constant} FPS.
 \end{definition}
+
+For example,%
+\begin{align*}
+\left(  0,1,2,3,4,\ldots\right)  +\left(  1,1,1,1,1,\ldots\right)   &
+=\left(  1,2,3,4,5,\ldots\right)  \ \ \ \ \ \ \ \ \ \ \text{and}\\
+\left(  1,1,1,1,1,\ldots\right)  +\left(  1,1,1,1,1,\ldots\right)   &
+=\left(  2,2,2,2,2,\ldots\right)  \ \ \ \ \ \ \ \ \ \ \text{and}\\
+8\cdot\left(  1,1,1,1,1,\ldots\right)   &  =\left(  8,8,8,8,8,\ldots\right)
+\ \ \ \ \ \ \ \ \ \ \text{and}\\
+\left(  1,1,1,1,1,\ldots\right)  \cdot\left(  1,1,1,1,1,\ldots\right)   &
+=\left(  1,2,3,4,5,\ldots\right)  \ \ \ \ \ \ \ \ \ \ \text{and}\\
+\left(  1,-1,\underbrace{0,0,0,\ldots}_{\text{zeroes}}\right)  \cdot\left(
+1,1,1,1,1,\ldots\right)   &  =\left(  1,\underbrace{0,0,0,\ldots
+}_{\text{zeroes}}\right)  =\underline{1}.
+\end{align*}
+
+
+\begin{theorem}
+\label{thm.pol.K-alg}\textbf{(a)} Equip the set $\mathbb{K}\left[  \left[
+x\right]  \right]  $ with the addition $+$ defined in Definition
+\ref{def.pol.K-alg} \textbf{(a)}, the multiplication $\cdot$ defined in
+Definition \ref{def.pol.K-alg} \textbf{(c)}, the scaling $\cdot$ defined in
+Definition \ref{def.pol.K-alg} \textbf{(b)}, the zero $\underline{0}$ and the
+unity $\underline{1}$. Then, $\mathbb{K}\left[  \left[  x\right]  \right]  $
+is a $\mathbb{K}$-algebra, a commutative ring and a $\mathbb{K}$-module.
+
+\textbf{(b)} The subtraction $-$ that comes from the $\mathbb{K}$-algebra
+structure on $\mathbb{K}\left[  \left[  x\right]  \right]  $ is entrywise; in
+other words, any two FPSs $\left(  a_{0},a_{1},a_{2},\ldots\right)  $ and
+$\left(  b_{0},b_{1},b_{2},\ldots\right)  $ satisfy%
+\[
+\left(  a_{0},a_{1},a_{2},\ldots\right)  -\left(  b_{0},b_{1},b_{2}%
+,\ldots\right)  =\left(  a_{0}-b_{0},a_{1}-b_{1},a_{2}-b_{2},\ldots\right)  .
+\]
+
+
+\textbf{(c)} Consider the map
+\begin{align*}
+\iota:\mathbb{K}  &  \rightarrow\mathbb{K}\left[  \left[  x\right]  \right]
+,\\
+a  &  \mapsto\underline{a}%
+\end{align*}
+(sending each element $a\in\mathbb{K}$ to the corresponding constant FPS
+$\underline{a}=\left(  a,\underbrace{0,0,0,\ldots}_{\text{zeroes}}\right)  $).
+This map $\iota$ is a $\mathbb{K}$-algebra homomorphism.
+
+\textbf{(d)} We have
+\[
+\lambda\mathbf{a}=\underline{\lambda}\cdot\mathbf{a}%
+\ \ \ \ \ \ \ \ \ \ \text{for each }\lambda\in\mathbb{K}\text{ and }%
+\mathbf{a}\in\mathbb{K}\left[  \left[  x\right]  \right]  .
+\]
+
+
+\textbf{(e)} If $\mathbf{a}$ and $\mathbf{b}$ are two polynomials, then
+$\mathbf{a}+\mathbf{b}$ and $\mathbf{ab}$ are two polynomials satisfying
+\[
+\deg\left(  \mathbf{a}+\mathbf{b}\right)  \leq\max\left\{  \deg\mathbf{a}%
+,\deg\mathbf{b}\right\}  \ \ \ \ \ \ \ \ \ \ \text{and}%
+\ \ \ \ \ \ \ \ \ \ \deg\left(  \mathbf{ab}\right)  \leq\deg\mathbf{a}%
++\deg\mathbf{b}.
+\]
+
+
+\textbf{(f)} The subset $\mathbb{K}\left[  x\right]  $ of $\mathbb{K}\left[
+\left[  x\right]  \right]  $ is a $\mathbb{K}$-subalgebra (i.e.,
+simultaneously a subring and a $\mathbb{K}$-submodule) of $\mathbb{K}\left[
+\left[  x\right]  \right]  $.
+\end{theorem}
+
+We will later see that when $\mathbb{K}$ is a field, the inequality
+$\deg\left(  \mathbf{ab}\right)  \leq\deg\mathbf{a}+\deg\mathbf{b}$ in Theorem
+\ref{thm.pol.K-alg} \textbf{(e)} actually becomes an equality (if $\mathbf{a}$
+and $\mathbf{b}$ are nonzero); but this is not true for arbitrary commutative rings.
+
+Before we outline a proof of this theorem, let us introduce a helpful notation
+(used often in enumerative combinatorics):
+
+\begin{definition}
+\label{def.pol.coeff}Let $n\in\mathbb{N}$. Let $\mathbf{a}=\left(  a_{0}%
+,a_{1},a_{2},\ldots\right)  \in\mathbb{K}\left[  \left[  x\right]  \right]  $.
+Then, we define an element $\left[  x^{n}\right]  \mathbf{a}\in\mathbb{K}$ by%
+\[
+\left[  x^{n}\right]  \mathbf{a}=a_{n}.
+\]
+This element $\left[  x^{n}\right]  \mathbf{a}$ is called \textit{the
+coefficient of }$x^{n}$ \textit{in }$\mathbf{a}$, or the $n$\textit{-th
+coefficient} of $\mathbf{a}$. (The letter \textquotedblleft$x$%
+\textquotedblright\ is so far considered just as a symbolic part of this
+notation, with no standalone meaning.)
+\end{definition}
+
+Be careful with this notation: What you would normally call \textquotedblleft
+the first entry\textquotedblright\ of the sequence $\left(  a_{0},a_{1}%
+,a_{2},\ldots\right)  $ is called its $0$-th (not $1$-st) coefficient.
+
+Definition \ref{def.pol.coeff} has a tautological consequence: Each FPS
+$\mathbf{a}$ satisfies%
+\[
+\mathbf{a}=\left(  \left[  x^{0}\right]  \mathbf{a},\left[  x^{1}\right]
+\mathbf{a},\left[  x^{2}\right]  \mathbf{a},\ldots\right)  .
+\]
+Thus, an FPS $\mathbf{a}$ is uniquely determined by its coefficients $\left[
+x^{0}\right]  \mathbf{a},\left[  x^{1}\right]  \mathbf{a},\left[
+x^{2}\right]  \mathbf{a},\ldots$. Hence, if two FPSs $\mathbf{a}$ and
+$\mathbf{b}$ satisfy $\left[  x^{n}\right]  \mathbf{a}=\left[  x^{n}\right]
+\mathbf{b}$ for all $n\in\mathbb{N}$, then $\mathbf{a}=\mathbf{b}$.
+
+The definition of the sum of two FPSs (Definition \ref{def.pol.K-alg}
+\textbf{(a)}) rewrites as follows:%
+\begin{equation}
+\left[  x^{n}\right]  \left(  \mathbf{a}+\mathbf{b}\right)  =\left[
+x^{n}\right]  \mathbf{a}+\left[  x^{n}\right]  \mathbf{b}%
+\ \ \ \ \ \ \ \ \ \ \text{for all }\mathbf{a},\mathbf{b}\in\mathbb{K}\left[
+\left[  x\right]  \right]  . \label{eq.pol.fps-sum.1}%
+\end{equation}
+Furthermore, the definition of scaling on FPSs (Definition \ref{def.pol.K-alg}
+\textbf{(b)}) rewrites as follows:%
+\begin{equation}
+\left[  x^{n}\right]  \left(  \lambda\mathbf{a}\right)  =\lambda\cdot\left[
+x^{n}\right]  \mathbf{a}\ \ \ \ \ \ \ \ \ \ \text{for all }\lambda
+\in\mathbb{K}\text{ and }\mathbf{a}\in\mathbb{K}\left[  \left[  x\right]
+\right]  . \label{eq.pol.fps-scal.1}%
+\end{equation}
+Finally, the definition of the product of two FPSs (Definition
+\ref{def.pol.K-alg} \textbf{(c)}) rewrites as follows:%
+\begin{align}
+\left[  x^{n}\right]  \left(  \mathbf{ab}\right)   &  =\sum_{i=0}^{n}\left(
+\left[  x^{i}\right]  \mathbf{a}\right)  \cdot\left(  \left[  x^{n-i}\right]
+\mathbf{b}\right) \label{eq.pol.fps-mul.1}\\
+&  =\sum_{\substack{i,j\in\mathbb{N};\\i+j=n}}\left(  \left[  x^{i}\right]
+\mathbf{a}\right)  \cdot\left(  \left[  x^{j}\right]  \mathbf{b}\right)
+\label{eq.pol.fps-mul.2}\\
+&  =\left(  \left[  x^{0}\right]  \mathbf{a}\right)  \cdot\left(  \left[
+x^{n}\right]  \mathbf{b}\right)  +\left(  \left[  x^{1}\right]  \mathbf{a}%
+\right)  \cdot\left(  \left[  x^{n-1}\right]  \mathbf{b}\right)
++\cdots+\left(  \left[  x^{n}\right]  \mathbf{a}\right)  \cdot\left(  \left[
+x^{0}\right]  \mathbf{b}\right) \label{eq.pol.fps-mul.3}\\
+&  \ \ \ \ \ \ \ \ \ \ \text{for all }\mathbf{a},\mathbf{b}\in\mathbb{K}%
+\left[  \left[  x\right]  \right]  . \label{eq.pol.fps-mul.4}%
+\end{align}
+Thus, any $\mathbf{a},\mathbf{b}\in\mathbb{K}\left[  \left[  x\right]
+\right]  $ satisfy%
+\begin{align}
+\left[  x^{n}\right]  \left(  \mathbf{ab}\right)   &  =\sum_{i=0}^{n}\left(
+\left[  x^{i}\right]  \mathbf{a}\right)  \cdot\left(  \left[  x^{n-i}\right]
+\mathbf{b}\right) \nonumber\\
+&  =\sum_{j=0}^{n}\left(  \left[  x^{n-j}\right]  \mathbf{a}\right)
+\cdot\left(  \left[  x^{j}\right]  \mathbf{b}\right)  \label{eq.pol.fps-mul.5}%
+\end{align}
+(here, we have substituted $n-j$ for $i$ in the sum). We are now ready to
+prove Theorem \ref{thm.pol.K-alg}:
+
+\begin{proof}
+[Proof of Theorem \ref{thm.pol.K-alg}.]\textbf{(a)} We need to prove:
+
+\begin{itemize}
+\item the ring axioms,
+
+\item the module axioms,
+
+\item the \textquotedblleft Scale-invariance of
+multiplication\textquotedblright\ axiom from Definition
+\ref{def.K-alg.K-alg.short-def};
+
+\item the \textquotedblleft Commutativity of multiplication\textquotedblright\ axiom.
+\end{itemize}
+
+Most of these verifications are easy and straightforward. Let us only check
+associativity of multiplication (since this is the hardest one):
+
+Let $\mathbf{a},\mathbf{b},\mathbf{c}\in\mathbb{K}\left[  \left[  x\right]
+\right]  $. We must prove that $\mathbf{a}\left(  \mathbf{bc}\right)  =\left(
+\mathbf{ab}\right)  \mathbf{c}$. In order to do so, we shall prove that
+$\left[  x^{n}\right]  \left(  \mathbf{a}\left(  \mathbf{bc}\right)  \right)
+=\left[  x^{n}\right]  \left(  \left(  \mathbf{ab}\right)  \mathbf{c}\right)
+$ for each $n\in\mathbb{N}$. (This is sufficient, because an FPS is uniquely
+determined by its coefficients.)
+
+Let $n\in\mathbb{N}$. Consider the two equalities%
+\begin{align*}
+\left[  x^{n}\right]  \left(  \mathbf{a}\left(  \mathbf{bc}\right)  \right)
+&  =\sum_{i=0}^{n}\left(  \left[  x^{i}\right]  \mathbf{a}\right)
+\cdot\underbrace{\left(  \left[  x^{n-i}\right]  \left(  \mathbf{bc}\right)
+\right)  }_{\substack{=\sum_{j=0}^{n-i}\left(  \left[  x^{n-i-j}\right]
+\mathbf{b}\right)  \cdot\left(  \left[  x^{j}\right]  \mathbf{c}\right)
+\\\text{(by (\ref{eq.pol.fps-mul.5}), applied to }n-j\text{, }\mathbf{b}\text{
+and }\mathbf{c}\\\text{instead of }n\text{, }\mathbf{a}\text{ and }%
+\mathbf{b}\text{)}}}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{eq.pol.fps-mul.1}), applied to
+}\mathbf{bc}\text{ instead of }\mathbf{b}\right) \\
+&  =\sum_{i=0}^{n}\left(  \left[  x^{i}\right]  \mathbf{a}\right)  \cdot
+\sum_{j=0}^{n-i}\left(  \left[  x^{n-i-j}\right]  \mathbf{b}\right)
+\cdot\left(  \left[  x^{j}\right]  \mathbf{c}\right) \\
+&  =\sum_{i=0}^{n}\sum_{j=0}^{n-i}\left(  \left[  x^{i}\right]  \mathbf{a}%
+\right)  \cdot\left(  \left[  x^{n-i-j}\right]  \mathbf{b}\right)
+\cdot\left(  \left[  x^{j}\right]  \mathbf{c}\right)
+\end{align*}
+and%
+\begin{align*}
+\left[  x^{n}\right]  \left(  \left(  \mathbf{ab}\right)  \mathbf{c}\right)
+&  =\sum_{j=0}^{n}\underbrace{\left(  \left[  x^{n-j}\right]  \left(
+\mathbf{ab}\right)  \right)  }_{\substack{=\sum_{i=0}^{n-j}\left(  \left[
+x^{i}\right]  \mathbf{a}\right)  \cdot\left(  \left[  x^{n-j-i}\right]
+\mathbf{b}\right)  \\\text{(by (\ref{eq.pol.fps-mul.1}), applied to
+}n-j\\\text{instead of }n\text{)}}}\cdot\left(  \left[  x^{j}\right]
+\mathbf{c}\right) \\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{eq.pol.fps-mul.5}), applied to
+}\mathbf{ab}\text{ and }\mathbf{c}\text{ instead of }\mathbf{a}\text{ and
+}\mathbf{b}\right) \\
+&  =\sum_{j=0}^{n}\sum_{i=0}^{n-j}\left(  \left[  x^{i}\right]  \mathbf{a}%
+\right)  \cdot\left(  \left[  x^{n-j-i}\right]  \mathbf{b}\right)
+\cdot\left(  \left[  x^{j}\right]  \mathbf{c}\right)  .
+\end{align*}
+The right hand sides of these two equalities are equal, since
+\[
+\sum_{i=0}^{n}\sum_{j=0}^{n-i}=\sum_{\substack{i,j\in\mathbb{N};\\i+j\leq
+n}}=\sum_{j=0}^{n}\sum_{i=0}^{n-j}\ \ \ \ \ \ \ \ \ \ \left(  \text{an
+equality of summation signs}\right)
+\]
+and $n-i-j=n-j-i$ for all $i,j$. Thus, the left hand sides of these two
+equalities are equal as well. In other words, $\left[  x^{n}\right]  \left(
+\mathbf{a}\left(  \mathbf{bc}\right)  \right)  =\left[  x^{n}\right]  \left(
+\left(  \mathbf{ab}\right)  \mathbf{c}\right)  $.
+
+Forget that we fixed $n$. Thus, we have shown that $\left[  x^{n}\right]
+\left(  \mathbf{a}\left(  \mathbf{bc}\right)  \right)  =\left[  x^{n}\right]
+\left(  \left(  \mathbf{ab}\right)  \mathbf{c}\right)  $ for each
+$n\in\mathbb{N}$. In other words, $\mathbf{a}\left(  \mathbf{bc}\right)
+=\left(  \mathbf{ab}\right)  \mathbf{c}$.
+
+Thus, associativity of multiplication is proven for $\mathbb{K}\left[  \left[
+x\right]  \right]  $. All the remaining axioms to be proven are easier but
+follow from similar reasoning. The \textquotedblleft Existence of additive
+inverses\textquotedblright\ axiom follows by recognizing $\left(
+-a_{0},-a_{1},-a_{2},\ldots\right)  $ as the additive inverse of the FPS
+$\left(  a_{0},a_{1},a_{2},\ldots\right)  $. Thus, Theorem \ref{thm.pol.K-alg}
+\textbf{(a)} is proven.
+
+\textbf{(b)} This follows easily from the fact (noticed in the proof of part
+\textbf{(a)}) that $\left(  -a_{0},-a_{1},-a_{2},\ldots\right)  $ as the
+additive inverse of any FPS $\left(  a_{0},a_{1},a_{2},\ldots\right)  $.
+
+\textbf{(c)} We need to prove that%
+\[
+\underline{a}+\underline{b}=\underline{a+b}\ \ \ \ \ \ \ \ \ \ \text{and}%
+\ \ \ \ \ \ \ \ \ \ \underline{a}\cdot\underline{b}=\underline{ab}%
+\ \ \ \ \ \ \ \ \ \ \text{for all }a,b\in\mathbb{K},
+\]
+that $\lambda\underline{a}=\underline{\lambda a}$ for all $\lambda
+\in\mathbb{K}$ and $a\in\mathbb{K}$, and that $\underline{0}=0_{\mathbb{K}%
+\left[  \left[  x\right]  \right]  }$ and $\underline{1}=1_{\mathbb{K}\left[
+\left[  x\right]  \right]  }$. All of these claims follow easily from the definitions.
+
+\textbf{(d)} Easy.
+
+\textbf{(e)} Let $\mathbf{a}$ and $\mathbf{b}$ be two polynomials.
+
+[...]
+
+\textbf{(f)} We need to prove that $\mathbb{K}\left[  x\right]  $ is closed
+under addition, closed under multiplication, closed under scaling, contains
+$0$ and contains $1$.
+
+[...]
+\end{proof}
 
 TODO:
 
@@ -39668,7 +39990,7 @@ logical equivalence:%
 \begin{equation}
 \left(  b\mid a\right)  \ \Longleftrightarrow\ \left(  \text{each prime
 }p\text{ satisfies }v_{p}\left(  b\right)  \leq v_{p}\left(  a\right)
-\right)  .\label{sol.eqrel.quot.wp.e.equiv2}%
+\right)  . \label{sol.eqrel.quot.wp.e.equiv2}%
 \end{equation}
 
 
@@ -41258,8 +41580,8 @@ Wayback Machine:
 .)
 
 \bibitem[GalQua17]{Gallier-RSA}Jean Gallier, Jocelyn Quaintance, \textit{Notes
-on Primality Testing And Public Key Cryptography, Part 1}, 8 November
-2017.\newline\url{https://www.cis.upenn.edu/~jean/RSA-primality-testing.pdf}
+on Primality Testing And Public Key Cryptography, Part 1}, 27 February
+2019.\newline\url{https://www.cis.upenn.edu/~jean/RSA-primality-testing.pdf}
 
 \bibitem[Goodma16]{Goodman}Frederick M. Goodman, \textit{Algebra: Abstract and
 Concrete}, edition 2.6, 12 October 2016.\newline\url{http://homepage.divms.uiowa.edu/~goodman/algebrabook.dir/algebrabook.html}
