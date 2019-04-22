@@ -17,7 +17,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, April 22, 2019 16:44:24}
+%TCIDATA{LastRevised=Monday, April 22, 2019 18:06:06}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -9975,22 +9975,22 @@ So the last digit of $3^{4^{5}}$ is $1$.
 
 Theorem \ref{thm.ent.euler} is also the reason why certain rational numbers
 (such as $\dfrac{2}{7}=0.\overline{285714}$\ \ \ \ \footnote{The bar
-($\overline{}$) over the \textquotedblleft$285714$\textquotedblright\ means
-that we are repeating $285714$ over and over. So $0.\overline{285714}%
-=0.285714285714285714\ldots$.}) have purely periodic decimal expansions, while
-others (such as $\dfrac{1}{12}=0.08\overline{3}=0.0833333\ldots$ or $\dfrac
-{1}{2}=0.5\overline{0}=0.50000\ldots$) have their periods start only after
-some initial nonrepeating block. We refer \cite[\S 4]{Conrad-Euler} to the
-details of this.\footnote{In brief, the rule is as follows: Any fraction
-$\dfrac{a}{b}$ with $a,b\in\mathbb{Z}$ (and $b\neq0$) has such a decimal
-representation with a period. (A \textit{period} means a part that gets
-repeated over and over.) A fraction $\dfrac{a}{b}$ is called \textit{purely
-periodic} if its period (in decimal notation) begins straight after the
-decimal point. So $\dfrac{2}{7}$ is purely periodic but $\dfrac{1}{12}$ and
-$\dfrac{1}{2}$ are not. Now, the answer is that a fraction $\dfrac{a}{b}$
-(with $a\perp b$) is purely periodic if and only if $b\perp10$ (in other
-words, $2\nmid b$ and $5\nmid b$). This can be proven using Theorem
-\ref{thm.ent.euler}.}
+($\ \overline{\ \ \text{\vphantom{5}}\ \ }\ $) over the \textquotedblleft%
+$285714$\textquotedblright\ means that we are repeating $285714$ over and
+over. So $0.\overline{285714}=0.285714285714285714\ldots$.}) have purely
+periodic decimal expansions, while others (such as $\dfrac{1}{12}%
+=0.08\overline{3}=0.0833333\ldots$ or $\dfrac{1}{2}=0.5\overline
+{0}=0.50000\ldots$) have their periods start only after some initial
+nonrepeating block. We refer \cite[\S 4]{Conrad-Euler} to the details of
+this.\footnote{In brief, the rule is as follows: Any fraction $\dfrac{a}{b}$
+with $a,b\in\mathbb{Z}$ (and $b\neq0$) has such a decimal representation with
+a period. (A \textit{period} means a part that gets repeated over and over.) A
+fraction $\dfrac{a}{b}$ is called \textit{purely periodic} if its period (in
+decimal notation) begins straight after the decimal point. So $\dfrac{2}{7}$
+is purely periodic but $\dfrac{1}{12}$ and $\dfrac{1}{2}$ are not. Now, the
+answer is that a fraction $\dfrac{a}{b}$ (with $a\perp b$) is purely periodic
+if and only if $b\perp10$ (in other words, $2\nmid b$ and $5\nmid b$). This
+can be proven using Theorem \ref{thm.ent.euler}.}
 
 \subsubsection{Proving Euler and Fermat}
 
@@ -17772,24 +17772,29 @@ Let us present \href{https://en.wikipedia.org/wiki/RSA_(cryptosystem)}{the
 encrypting data. (The name \textquotedblleft RSA\textquotedblright\ stands for
 the initials of its three authors: Rivest, Shamir and Adleman.)
 
-This cryptosystem addresses a fairly standard situation: Albert and Julia want
-to communicate secretly (i.e., Albert wants to send messages to Julia, and
-Julia to Albert), \textbf{without} having to give each other keys in advance.
-
-Albert wants to send encrypted messages that only Julia can read, and receive
-encrypted messages that only he can read. The channel of communication may
-have eavesdroppers.\footnote{We assume that Albert and Julia are merely trying
-to keep the \textbf{content} of their messages secret from the eavesdroppers;
-the eavesdroppers can still see \textbf{that they are sending each other
-something}. If Albert and Julia want to keep even this fact secret, they need
-a different branch of science -- \textit{steganography}, not cryptography.
-(For reasons that become obvious after a bit of thought, steganography is much
-less of an exact science than cryptography, and has a lot to do with real-life
-situations.)} How can they do that?
+This cryptosystem addresses a fairly standard situation: Albert and Julia are
+communicating over a channel (e.g., the Internet), but the channel may have
+eavesdroppers. Julia wants to send a secret message to Albert over this
+channel -- i.e., a message that eavesdroppers should not be able to
+understand\footnote{We assume that Julia is merely trying to keep the
+\textbf{content} of her message secret from the eavesdroppers; the
+eavesdroppers can still see \textbf{that she is sending something to Albert}.
+If Albert and Julia want to keep even this fact secret, they need a different
+branch of science -- \textit{steganography}, not cryptography. (For reasons
+that become obvious after a bit of thought, steganography is much less of an
+exact science than cryptography, and has a lot to do with real-life
+situations.)}. But Albert and Julia have not exchanged any keys with each
+other in advance; they can start exchanging keys now, but the eavesdropper
+will know all the keys they are sending each other. How can Albert and Julia
+start secretly communicating without giving eavesdroppers all the information
+they want to give each other?
 
 \textbf{Setup:}
 
 \begin{itemize}
+\item Julia tells Albert (openly, over the channel) that she wants to
+communicate and thus he should start creating keys for that purpose.
+
 \item Albert generates two distinct large and sufficiently random primes $p$
 and $q$. (This involves a lot of technicalities like actually finding large
 primes. See Keith Conrad's note \textit{The Solovay-Strassen test}
@@ -17805,15 +17810,16 @@ number to be prime is $\approx1/k$. (A precise statement of this result would
 require us to introduce notions that have nothing to do with algebra; it is
 commonly done in courses on \textit{analytic number theory}. Needless to say,
 it is perfectly possible to profit from this result in practice without
-proving it.)}, and \cite{Gallier-RSA} for a more comprehensive treatment. As
-to what \textquotedblleft large\textquotedblright\ means, we refer to
+proving it.)}, and \cite{Gallier-RSA} for a more comprehensive treatment. A
+brief discussion is also found in Garrett's slides \cite{Garret03}. As to what
+\textquotedblleft large\textquotedblright\ means, we refer to
 \href{https://en.wikipedia.org/wiki/Key_size}{the Wikipedia article on
 \textquotedblleft key size\textquotedblright}.)
 
 \item Albert computes the positive integer $m=pq$. This number $m$ (called the
-\textit{modulus}) he makes public. (Note that factoring a number into a
-product of primes is computationally a lot harder than multiplying a bunch of
-primes\footnote{See
+\textit{modulus}) he makes public (i.e., sends to Julia over the channel).
+(Note that factoring a number into a product of primes is computationally a
+lot harder than multiplying a bunch of primes\footnote{See
 \href{https://en.wikipedia.org/wiki/Integer_factorization}{the Wikipedia page
 on \textquotedblleft Integer factorization\textquotedblright} for details on
 what this means. Note that this is not a proven theorem; any day, someone
@@ -17843,11 +17849,11 @@ it will be called the \textit{decryption key}.
 \item Albert publishes the pair $\left(  e,m\right)  $ as his \textit{public
 key}.
 
-\item We assume that the messages that Albert and Julia want to send to each
-other are elements of $\left\{  0,1,\ldots,m-1\right\}  $. This assumption is
-perfectly reasonable, because these messages originally exist in \textbf{some}
-digital form (e.g., as bitstrings), and it is easy to translate them from this
-form into elements of $\left\{  0,1,\ldots,m-1\right\}  $ by some universally
+\item We assume that the message that Julia wants to send to Albert is an
+element of $\left\{  0,1,\ldots,m-1\right\}  $. This assumption is perfectly
+reasonable, because this message originally exists in \textbf{some} digital
+form (e.g., as a bitstring), and it is easy to translate it from this form
+into an element of $\left\{  0,1,\ldots,m-1\right\}  $ by some universally
 agreed rule (e.g., if a bitstring $\left(  a_{1},a_{2},\ldots,a_{k}\right)  $
 is short enough, then the integer $a_{1}2^{k-1}+a_{2}2^{k-2}+\cdots
 +a_{k}2^{k-k}$ will belong to $\left\{  0,1,\ldots,m-1\right\}  $, and thus we
@@ -17865,10 +17871,15 @@ Albert, then she does the following:
 \in\mathbb{Z}/m$.
 
 \item She computes $\alpha^{e}$ in $\mathbb{Z}/m$. (This can be computed
-quickly using \textit{binary exponentiation}: If $\beta\in\mathbb{Z}/m$, then
-all powers of $\beta$ can be computed recursively via the formulas $\beta
-^{2k}=\left(  \beta^{k}\right)  ^{2}$ and $\beta^{2k+1}=\left(  \beta
-^{k}\right)  ^{2}\beta$.)
+quickly using
+\textit{\href{https://en.wikipedia.org/wiki/Exponentiation_by_squaring}{\textit{binary
+exponentiation} (also known as \textit{exponentiation by squaring)}}}: If
+$\beta\in\mathbb{Z}/m$, then all powers of $\beta$ can be computed recursively
+via the formulas $\beta^{2k}=\left(  \beta^{k}\right)  ^{2}$ and $\beta
+^{2k+1}=\left(  \beta^{k}\right)  ^{2}\beta$. Note that we are working with
+residue classes in $\mathbb{Z}/m$ here, not with integers, so that the powers
+$\beta^{k}$ of $\beta$ will not grow forever as $k$ gets large; they stay in
+the finite set $\mathbb{Z}/m$.)
 
 \item She sends the residue class $\alpha^{e}$ (or, more precisely, its unique
 representative in the set $\left\{  0,1,\ldots,m-1\right\}  $%
@@ -18000,6 +18011,19 @@ a\right]  _{pq}$ (since Lemma \ref{lem.ent.rsa.rsa-lem} \textbf{(a)} yields
 $a^{N}\equiv a\operatorname{mod}pq$). Hence, $\alpha^{N}=\left[  a\right]
 _{pq}=\alpha$. This proves Lemma \ref{lem.ent.rsa.rsa-lem} \textbf{(b)}.
 \end{proof}
+
+The RSA cryptosystem, as presented above, is more versatile than it may seem
+at first. Once Albert has generated his $p$, $q$, $\ell$, $m$, $d$ and $e$ and
+sent $\left(  e,m\right)  $ to Julia, Julia can send not just one but multiple
+messages to Albert using these keys. Albert can confidentially respond to
+these messages as well, by having Julia switch roles with him (i.e., Julia
+generates keys, Albert encrypts and Julia decrypts). Thus, a secure channel
+for communication can be established. Moreover, and less obviously, RSA can be
+used to digitally sign messages (i.e., convince the recipient that they really
+come from you -- or at least from someone who possesses your private key);
+see, e.g., \cite{Dummit16} or the
+\href{https://en.wikipedia.org/wiki/RSA_(cryptosystem)#Signing_messages}{Wikipedia}%
+.
 
 \subsubsection{\label{subsect.equiv.apps.CRT}Computing using the Chinese
 Remainder Theorem}
@@ -42199,6 +42223,9 @@ Mathematical Vernacular}, 7 December 2016.\newline%
 \textit{Abstract Algebra}, 3rd edition, Wiley 2004. \newline See
 \url{http://www.cems.uvm.edu/~rfoote/errata_3rd_edition.pdf} for errata.
 
+\bibitem[Dummit16]{Dummit16}Evan Dummit, \textit{Mathematical Cryptography,
+Spring 2016}, handouts.\newline\url{https://math.la.asu.edu/~dummit/handouts.html}
+
 \bibitem[Elman18]{Elman18}Richard Elman, \textit{Lectures on Abstract
 Algebra}, 17 September 2018.\newline\url{https://www.math.ucla.edu/~rse/algebra_book.pdf}
 
@@ -42214,6 +42241,9 @@ Wayback Machine:
 \bibitem[GalQua17]{Gallier-RSA}Jean Gallier, Jocelyn Quaintance, \textit{Notes
 on Primality Testing And Public Key Cryptography, Part 1}, 27 February
 2019.\newline\url{https://www.cis.upenn.edu/~jean/RSA-primality-testing.pdf}
+
+\bibitem[Garret03]{Garret03}Paul Garrett, \textit{Crypto and Number Theory},
+slides, 2003.\newline\url{http://www-users.math.umn.edu/~garrett/crypto/}
 
 \bibitem[Goodma16]{Goodman}Frederick M. Goodman, \textit{Algebra: Abstract and
 Concrete}, edition 2.6, 12 October 2016.\newline\url{http://homepage.divms.uiowa.edu/~goodman/algebrabook.dir/algebrabook.html}
