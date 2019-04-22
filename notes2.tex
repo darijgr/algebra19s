@@ -16,7 +16,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, April 22, 2019 10:50:25}
+%TCIDATA{LastRevised=Monday, April 22, 2019 12:04:22}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -31754,8 +31754,417 @@ a_{1},\lambda a_{2},\ldots\right)  .
 (That is, we define an entrywise scaling.)
 
 \textbf{(c)} We define a binary operation $\cdot$ (called
-\textit{multiplication}) on $\mathbb{K}\left[  \left[  x\right]  \right]  $ by
+\textit{multiplication}) on $\mathbb{K}\left[  \left[  x\right]  \right]  $ by%
+\[
+\left(  a_{0},a_{1},a_{2},\ldots\right)  \cdot\left(  b_{0},b_{1},b_{2}%
+,\ldots\right)  =\left(  c_{0},c_{1},c_{2},\ldots\right)  ,
+\]
+where%
+\[
+c_{n}=\sum_{i=0}^{n}a_{i}b_{n-i}=\sum_{\substack{i,j\in\mathbb{N}%
+;\\i+j=n}}a_{i}b_{j}=a_{0}b_{n}+a_{1}b_{n-1}+\cdots+a_{n}b_{0}%
+\ \ \ \ \ \ \ \ \ \ \text{for all }n\in\mathbb{N}.
+\]
+
+
+\textbf{(d)} For each $a\in\mathbb{K}$, we define an FPS $\underline{a}%
+\in\mathbb{K}\left[  \left[  x\right]  \right]  $ by%
+\[
+\underline{a}=\left(  a,\underbrace{0,0,0,0,\ldots}_{\text{zeroes}}\right)  .
+\]
+This is called a \textbf{constant} FPS.
 \end{definition}
+
+For example,%
+\begin{align*}
+\left(  1,1,1,1,1,\ldots\right)  \cdot\left(  1,1,1,1,1,\ldots\right)    &
+=\left(  1,2,3,4,5,\ldots\right)  \ \ \ \ \ \ \ \ \ \ \text{and}\\
+\left(  1,-1,\underbrace{0,0,0,\ldots}_{\text{zeroes}}\right)  \cdot\left(
+1,1,1,1,1,\ldots\right)    & =\left(  1,0,0,0,0,\ldots\right)  .
+\end{align*}
+
+
+\begin{theorem}
+\textbf{(a)} The set $\mathbb{K}\left[  \left[  x\right]  \right]  $ (equipped
+with the addition, multiplication and scaling defined above) is a commutative
+$\mathbb{K}$-algebra (= a $\mathbb{K}$-algebra and a commutative ring) with
+zero $\underline{0}$ and unity $\underline{1}$.
+
+\textbf{(b)} The subtraction $-$ that comes from this $\mathbb{K}$-algebra
+structure is entrywise; i.e., it is given by%
+\[
+\left(  a_{0},a_{1},a_{2},\ldots\right)  -\left(  b_{0},b_{1},b_{2}%
+,\ldots\right)  =\left(  a_{0}-b_{0},a_{1}-b_{1},a_{2}-b_{2},\ldots\right)  .
+\]
+
+
+\textbf{(c)} We have $\lambda\mathbf{a}=\underline{\lambda}\cdot\mathbf{a}$
+for $\lambda\in\mathbb{K}$ and $\mathbf{a}\in\mathbb{K}\left[  \left[
+x\right]  \right]  $.
+
+\textbf{(d)} Consider the map%
+\begin{align*}
+\iota:\mathbb{K}  & \rightarrow\mathbb{K}\left[  \left[  x\right]  \right]
+,\\
+a  & \mapsto\underline{a}=\left(  a,0,0,0,0,\ldots\right)  .
+\end{align*}
+Then, $\iota$ is a $\mathbb{K}$-algebra homomorphism (= respects addition,
+multiplication, scaling, zero and one).
+\end{theorem}
+
+Before we outline how this is proven, let us introduce a notation:
+
+\begin{definition}
+Let $n\in\mathbb{N}$. Let $\mathbf{a}=\left(  a_{0},a_{1},a_{2},\ldots\right)
+\in\mathbb{K}\left[  \left[  x\right]  \right]  $. Then, we set%
+\[
+\left[  x^{n}\right]  \mathbf{a}=a_{n}.
+\]
+This element $\left[  x^{n}\right]  \mathbf{a}$ belongs to $\mathbb{K}$, and
+is called the \textbf{coefficient of }$x^{n}$ \textbf{in }$\mathbf{a}$.
+\end{definition}
+
+Example:%
+\[
+\left[  x^{0}\right]  \left(  1,2,3,4,5,\ldots\right)
+=1\ \ \ \ \ \ \ \ \ \ \text{and}\ \ \ \ \ \ \ \ \ \ \left[  x^{3}\right]
+\left(  1,2,3,4,5,\ldots\right)  =4.
+\]
+
+
+Each FPS $\mathbf{a}$ satisfies%
+\[
+\mathbf{a}=\left(  \left[  x^{0}\right]  \mathbf{a},\left[  x^{1}\right]
+\mathbf{a},\left[  x^{2}\right]  \mathbf{a},\ldots\right)  .
+\]
+
+
+Furthermore, the definition of the sum of two FPSs rewrites as follows:%
+\[
+\left[  x^{n}\right]  \left(  \mathbf{a}+\mathbf{b}\right)  =\left[
+x^{n}\right]  \mathbf{a}+\left[  x^{n}\right]  \mathbf{b}%
+\ \ \ \ \ \ \ \ \ \ \text{for all }\mathbf{a},\mathbf{b}\in\mathbb{K}\left[
+\left[  x\right]  \right]  \text{ and }n\in\mathbb{N}.
+\]
+The definition of scaling rewrites as follows:%
+\[
+\left[  x^{n}\right]  \left(  \lambda\mathbf{a}\right)  =\lambda\cdot\left[
+x^{n}\right]  \mathbf{a}\ \ \ \ \ \ \ \ \ \ \text{for all }\lambda
+\in\mathbb{K}\text{, }\mathbf{a}\in\mathbb{K}\left[  \left[  x\right]
+\right]  \text{ and }n\in\mathbb{N}.
+\]
+The definition of multiplication rewrites as follows:%
+\begin{align}
+\left[  x^{n}\right]  \left(  \mathbf{ab}\right)    & =\sum_{\substack{i,j\in
+\mathbb{N};\\i+j=n}}\left(  \left[  x^{i}\right]  \mathbf{a}\right)
+\cdot\left(  \left[  x^{j}\right]  \mathbf{b}\right)  \nonumber\\
+& =\sum_{i=0}^{n}\left(  \left[  x^{i}\right]  \mathbf{a}\right)  \cdot\left(
+\left[  x^{n-i}\right]  \mathbf{b}\right)  \tag{(1)}\\
+& =\sum_{j=0}^{n}\left(  \left[  x^{n-j}\right]  \mathbf{a}\right)
+\cdot\left(  \left[  x^{j}\right]  \mathbf{b}\right)  \tag{(2)}\\
+& =\left(  \left[  x^{0}\right]  \mathbf{a}\right)  \cdot\left(  \left[
+x^{n}\right]  \mathbf{b}\right)  +\left(  \left[  x^{1}\right]  \mathbf{a}%
+\right)  \cdot\left(  \left[  x^{n-1}\right]  \mathbf{b}\right)
++\cdots+\left(  \left[  x^{n}\right]  \mathbf{a}\right)  \cdot\left(  \left[
+x^{0}\right]  \mathbf{b}\right)  .\nonumber
+\end{align}
+
+
+Finally, for any $a\in\mathbb{K}$, we have
+\[
+\left[  x^{n}\right]  \left(  \underline{a}\right)  =%
+\begin{cases}
+a, & \text{if }n=0;\\
+0, & \text{if }n\neq0
+\end{cases}
+=\left[  n=0\right]  \cdot a
+\]
+using the Iverson bracket.
+
+\begin{proof}
+[Proof of Theorem.] \textbf{(a)} We need to prove:
+
+\begin{itemize}
+\item the ring axioms;
+
+\item the module axioms;
+
+\item the \textquotedblleft Scale-invariance of
+multiplication\textquotedblright\ axiom;
+
+\item the \textquotedblleft Commutativity of multiplication\textquotedblright\ axiom.
+\end{itemize}
+
+Most of these are straightforward. Additive inverses are entrywise. Let me
+only prove the associativity of multiplication.
+
+Let $\mathbf{a},\mathbf{b},\mathbf{c}\in\mathbb{K}\left[  \left[  x\right]
+\right]  $. We must prove that $\mathbf{a}\left(  \mathbf{bc}\right)  =\left(
+\mathbf{ab}\right)  \mathbf{c}$. In order to do so, we shall prove that
+$\left[  x^{n}\right]  \left(  \mathbf{a}\left(  \mathbf{bc}\right)  \right)
+=\left[  x^{n}\right]  \left(  \left(  \mathbf{ab}\right)  \mathbf{c}\right)
+$ for each $n\in\mathbb{N}$.
+
+Let $n\in\mathbb{N}$. Consider the two equalities%
+\begin{align*}
+\left[  x^{n}\right]  \left(  \mathbf{a}\left(  \mathbf{bc}\right)  \right)
+& \overset{\text{(1)}}{=}\sum_{i=0}^{n}\left(  \left[  x^{i}\right]
+\mathbf{a}\right)  \cdot\underbrace{\left(  \left[  x^{n-i}\right]  \left(
+\mathbf{bc}\right)  \right)  }_{\overset{\text{(2)}}{=}\sum\limits_{j=0}%
+^{n-i}\left(  \left[  x^{n-i-j}\right]  \mathbf{b}\right)  \cdot\left(
+\left[  x^{j}\right]  \mathbf{c}\right)  }\\
+& =\sum_{i=0}^{n}\sum\limits_{j=0}^{n-i}\left(  \left[  x^{i}\right]
+\mathbf{a}\right)  \cdot\left(  \left[  x^{n-i-j}\right]  \mathbf{b}\right)
+\cdot\left(  \left[  x^{j}\right]  \mathbf{c}\right)
+\end{align*}
+and%
+\begin{align*}
+\left[  x^{n}\right]  \left(  \left(  \mathbf{ab}\right)  \mathbf{c}\right)
+& \overset{\text{(2)}}{=}\sum_{j=0}^{n}\underbrace{\left(  \left[
+x^{n-j}\right]  \left(  \mathbf{ab}\right)  \right)  }_{\overset{\text{(1)}%
+}{=}\sum\limits_{i=0}^{n-j}\left(  \left[  x^{i}\right]  \mathbf{a}\right)
+\cdot\left(  \left[  x^{n-j-i}\right]  \mathbf{b}\right)  }\cdot\left(
+\left[  x^{j}\right]  \mathbf{c}\right)  \\
+& =\sum_{j=0}^{n}\sum\limits_{i=0}^{n-j}\left(  \left[  x^{i}\right]
+\mathbf{a}\right)  \cdot\left(  \left[  x^{n-j-i}\right]  \mathbf{b}\right)
+\cdot\left(  \left[  x^{j}\right]  \mathbf{c}\right)  .
+\end{align*}
+The right hand sides of these two equalities are equal, since $n-i-j=n-j-i$
+and%
+\[
+\sum_{i=0}^{n}\sum\limits_{j=0}^{n-i}=\sum_{\substack{i,j\in\mathbb{N}%
+;\\i+j\leq n}}=\sum_{j=0}^{n}\sum\limits_{i=0}^{n-j}.
+\]
+So the left hand sides are equal as well. In other words, $\left[
+x^{n}\right]  \left(  \mathbf{a}\left(  \mathbf{bc}\right)  \right)  =\left[
+x^{n}\right]  \left(  \left(  \mathbf{ab}\right)  \mathbf{c}\right)  $. So we
+have proven associativity of multiplication.
+
+\textbf{(b)} Easy.
+
+\textbf{(c)} Let $\lambda\in\mathbb{K}$ and $\mathbf{a}\in\mathbb{K}\left[
+\left[  x\right]  \right]  $. Write $\mathbf{a}$ as $\mathbf{a}=\left(
+a_{0},a_{1},a_{2},\ldots\right)  $. Then,%
+\[
+\lambda\mathbf{a}=\left(  \lambda a_{0},\lambda a_{1},\lambda a_{2}%
+,\ldots\right)  .
+\]
+But
+\[
+\underline{\lambda}\cdot\mathbf{a}=\left(  \lambda,0,0,0,0,\ldots\right)
+\cdot\left(  a_{0},a_{1},a_{2},\ldots\right)  =\left(  \lambda a_{0},\lambda
+a_{1},\lambda a_{2},\ldots\right)  .
+\]
+
+
+\textbf{(d)} We need to prove that%
+\[
+\underline{a}+\underline{b}=\underline{a+b};\ \ \ \ \ \ \ \ \ \ \underline{a}%
+\cdot\underline{b}=\underline{ab};\ \ \ \ \ \ \ \ \ \ \lambda\cdot
+\underline{a}=\underline{\lambda a};\ \ \ \ \ \ \ \ \ \ \underline{0}%
+=0_{\mathbb{K}\left[  \left[  x\right]  \right]  }%
+;\ \ \ \ \ \ \ \ \ \ \underline{1}=1_{\mathbb{K}\left[  \left[  x\right]
+\right]  }.
+\]
+
+
+All is straightforward (the 2nd equality uses \textbf{(c)}).
+\end{proof}
+
+\begin{convention}
+From now on, we shall identify each $a\in\mathbb{K}$ with $\underline{a}%
+\in\mathbb{K}\left[  \left[  x\right]  \right]  $.
+\end{convention}
+
+This is okay, by Theorem \textbf{(d)} above and because $\left[  x^{0}\right]
+\underline{a}=a$.
+
+Thus, $\mathbb{K}$ becomes a subring of $\mathbb{K}\left[  \left[  x\right]
+\right]  $ -- actually a $\mathbb{K}$-subalgebra.
+
+The theorem shows that $\mathbb{K}\left[  \left[  x\right]  \right]  $ is a
+commutative $\mathbb{K}$-algebra. Thus, differences, powers, finite sums, and
+finite products of FPSs are well-defined. But sometimes, even infinite sums of
+FPSs make sense. For example, it is reasonable to write%
+\begin{align*}
+& \left(  1,1,1,1,1,\ldots\right)  \\
++  & \left(  0,1,1,1,1,\ldots\right)  \\
++  & \left(  0,0,1,1,1,\ldots\right)  \\
++  & \left(  0,0,0,1,1,\ldots\right)  \\
++  & \left(  0,0,0,0,1,\ldots\right)  \\
++  & \cdots\\
+=  & \left(  1,2,3,4,5,\ldots\right)  ,
+\end{align*}
+even though the sum on the LHS has $\infty$ many nonzero addends. The addition
+of FPSs is entrywise, so it stands to reason that infinite sums of FPSs should
+also be defined entrywise, whenever such entrywise sums are well-defined:
+
+\begin{definition}
+A (possibly infinite) family $\left(  \mathbf{a}_{i}\right)  _{i\in I}$ of
+FPSs is called \textbf{summable} if for each $n\in\mathbb{N}$, the following
+requirement holds:%
+\[
+\text{only finitely many }i\in I\text{ satisfy }\left[  x^{n}\right]  \left(
+\mathbf{a}_{i}\right)  \neq0.
+\]
+In this case, the sum $\sum\limits_{i\in I}\mathbf{a}_{i}$ of the family
+$\left(  \mathbf{a}_{i}\right)  _{i\in I}$ is defined as the FPS whose
+coefficients are given by%
+\[
+\left[  x^{n}\right]  \left(  \sum\limits_{i\in I}\mathbf{a}_{i}\right)
+=\underbrace{\sum\limits_{i\in I}\left[  x^{n}\right]  \left(  \mathbf{a}%
+_{i}\right)  }_{\text{a well-defined sum in }\mathbb{K}}%
+\ \ \ \ \ \ \ \ \ \ \text{for all }n\in\mathbb{N}.
+\]
+
+\end{definition}
+
+\begin{proposition}
+Sums of summable families of FPSs satisfy the usual rules for summation, as
+long as all families involved are summable. For example:
+
+\begin{itemize}
+\item If $\left(  \mathbf{a}_{i}\right)  _{i\in I}$ and $\left(
+\mathbf{b}_{i}\right)  _{i\in I}$ are two summable families of FPSs, then the
+family $\left(  \mathbf{a}_{i}+\mathbf{b}_{i}\right)  _{i\in I}$ is summable
+and satisfies%
+\[
+\sum_{i\in I}\left(  \mathbf{a}_{i}+\mathbf{b}_{i}\right)  =\sum_{i\in
+I}\mathbf{a}_{i}+\sum_{i\in I}\mathbf{b}_{i}.
+\]
+
+
+\item If $\left(  \mathbf{a}_{i}\right)  _{i\in I}$ is a summable family of
+FPSs, and $J\subseteq I$, then the families $\left(  \mathbf{a}_{i}\right)
+_{i\in J}$ and $\left(  \mathbf{a}_{i}\right)  _{i\in I\setminus J}$ are
+summable and satisfy%
+\[
+\sum_{i\in I}\mathbf{a}_{i}=\sum_{i\in J}\mathbf{a}_{i}+\sum_{i\in I\setminus
+J}\mathbf{a}_{i}.
+\]
+
+
+\item If $\left(  \mathbf{a}_{i,j}\right)  _{\left(  i,j\right)  \in I\times
+J}$ is a summable family of FPSs indexed by \textbf{pairs} $\left(
+i,j\right)  \in I\times J$, then%
+\[
+\sum_{i\in I}\sum_{j\in J}\mathbf{a}_{i,j}=\sum_{\left(  i,j\right)  \in
+I\times J}\mathbf{a}_{i,j}=\sum_{j\in J}\sum_{i\in I}\mathbf{a}_{i,j}.
+\]
+
+
+\textbf{Caveat:} The condition that the family $\left(  \mathbf{a}%
+_{i,j}\right)  _{\left(  i,j\right)  \in I\times J}$ is summable is crucial!
+
+If we only assume that the LHS and the RHS exist, then they may and may not be
+equal without assuming that the MHS exists.
+
+\textbf{Example:} $I=J=\left\{  1,2,3,\ldots\right\}  $ and%
+\[%
+\begin{tabular}
+[c]{|c||c|c|c|c|c|c|}\hline
+$\mathbf{a}_{i,j}$ & $1$ & $2$ & $3$ & $4$ & $5$ & $\cdots$\\\hline\hline
+$1$ & $1$ & $-1$ &  &  &  & $\cdots$\\\hline
+$2$ &  & $1$ & $-1$ &  &  & $\cdots$\\\hline
+$3$ &  &  & $1$ & $-1$ &  & $\cdots$\\\hline
+$4$ &  &  &  & $1$ & $-1$ & $\cdots$\\\hline
+$5$ &  &  &  &  & $1$ & $\cdots$\\\hline
+$\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\ddots
+$\\\hline
+\end{tabular}
+\ \
+\]
+(where all entries not shown are $0$). The LHS is $0$, but the RHS is $1$. The
+MHS does not exist: The family $\left(  \mathbf{a}_{i,j}\right)  _{\left(
+i,j\right)  \in I\times J}$ is not summable, since it has $\infty$ many $1$'s.
+\end{itemize}
+\end{proposition}
+
+\begin{definition}
+We let $x$ denote the FPS $\left(  0,1,\underbrace{0,0,0,0,\ldots
+}_{\text{zeroes}}\right)  $.
+\end{definition}
+
+Thus,%
+\begin{align*}
+\left[  x^{1}\right]  x  & =1,\ \ \ \ \ \ \ \ \ \ \text{and}\\
+\left[  x^{n}\right]  x  & =0\ \ \ \ \ \ \ \ \ \ \text{for all }n\neq1.
+\end{align*}
+
+
+\begin{lemma}
+Let $\left(  a_{0},a_{1},a_{2},\ldots\right)  \in\mathbb{K}\left[  \left[
+x\right]  \right]  $ be an FPS. Then,%
+\[
+x\left(  a_{0},a_{1},a_{2},\ldots\right)  =\left(  0,a_{0},a_{1},a_{2}%
+,\ldots\right)  .
+\]
+
+\end{lemma}
+
+\begin{proof}%
+\begin{align*}
+& x\left(  a_{0},a_{1},a_{2},\ldots\right)  \\
+& =\left(  0,1,\underbrace{0,0,0,0,\ldots}_{\text{zeroes}}\right)  \left(
+a_{0},a_{1},a_{2},\ldots\right)  .
+\end{align*}
+
+\end{proof}
+
+\begin{proposition}
+For each $k\in\mathbb{N}$, we have%
+\[
+x^{k}=\left(  \underbrace{0,0,\ldots,0}_{k\text{ zeroes}}%
+,1,\underbrace{0,0,0,\ldots}_{\text{zeroes}}\right)  .
+\]
+
+\end{proposition}
+
+\begin{proof}
+Induction on $k$. The induction base follows by observing that $x^{0}%
+=1_{\mathbb{K}\left[  \left[  x\right]  \right]  }=\underline{1}=\left(
+1,0,0,0,\ldots\right)  $.
+
+The induction step uses the previous lemma.
+\end{proof}
+
+\begin{corollary}
+Let $\left(  a_{0},a_{1},a_{2},\ldots\right)  \in\mathbb{K}\left[  \left[
+x\right]  \right]  $ be any FPS. Then,%
+\[
+\left(  a_{0},a_{1},a_{2},\ldots\right)  =a_{0}+a_{1}x+a_{2}x^{2}+a_{3}%
+x^{3}+\cdots=\sum_{n\in\mathbb{N}}a_{n}x^{n}.
+\]
+In particular, the RHS of this equality is well-defined, as the family
+$\left(  a_{n}x^{n}\right)  _{n\in\mathbb{N}}$ is summable.
+\end{corollary}
+
+\begin{proof}
+We have
+\begin{align*}
+& \sum_{n\in\mathbb{N}}a_{n}x^{n}\\
+& =a_{0}x^{0}+a_{1}x^{1}+a_{2}x^{2}+a_{3}x^{3}+\cdots\\
+& =a_{0}\left(  1,0,0,0,\ldots\right)  +a_{1}\left(  0,1,0,0,\ldots\right)
++a_{2}\left(  0,0,1,0,\ldots\right)  +a_{3}\left(  0,0,0,1,\ldots\right)
++\cdots\\
+& \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition above}\right)
+\end{align*}%
+\begin{align*}
+=  & \left(  a_{0},0,0,0,\ldots\right)  \\
++  & \left(  0,a_{1},0,0,\ldots\right)  \\
++  & \left(  0,0,a_{2},0,\ldots\right)  \\
++  & \left(  0,0,0,a_{3},\ldots\right)  \\
++  & \cdots\\
+=  & \left(  a_{0},a_{1},a_{2},a_{3},\ldots\right)  .
+\end{align*}
+
+\end{proof}
+
+This corollary justifies computing \textquotedblleft
+formally\textquotedblright\ with FPSs as if they were infinite sums of powers
+of $x$ times scalars -- because now they really are infinite sums of powers of
+$x$ times scalars. This is the rigorous answer to \textquotedblleft what is
+$x$ in a polynomial or FPS\textquotedblright.
 
 
 \end{document}
