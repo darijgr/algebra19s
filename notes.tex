@@ -17,7 +17,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Tuesday, April 23, 2019 00:33:32}
+%TCIDATA{LastRevised=Wednesday, April 24, 2019 09:03:49}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -31513,7 +31513,7 @@ is a $\mathbb{K}$-submodule of $\mathbb{K}$. This is called the
 \end{proposition}
 
 If $\mathbb{K}$ is a commutative ring, then the $\mathbb{K}$-submodules of
-$\mathbb{K}$ have a special name; they are called the \textit{ideal} of
+$\mathbb{K}$ have a special name; they are called the \textit{ideals} of
 $\mathbb{K}$. So the kernel of a ring homomorphism is always an ideal. (And
 conversely, every ideal can be written as the kernel of a ring homomorphism.)
 
@@ -31724,14 +31724,15 @@ defined to be an FPS $\left(  a_{0},a_{1},a_{2},\ldots\right)  $ such that%
 
 We let $\mathbb{K}\left[  x\right]  $ be the set of all polynomials.
 
-\textbf{(c)} If $\mathbf{a}=\left(  a_{0},a_{1},a_{2},\ldots\right)  $ is a
-polynomial, then the \textit{degree} of $\mathbf{a}$ is defined to be the
-largest $i\in\mathbb{N}$ such that $a_{i}\neq0$. (If no such $i$ exists, then
-we define it to be $-\infty$, which is a symbolic quantity that is understood
-to be smaller than every integer and to satisfy $\left(  -\infty\right)
-+m=-\infty$ for all $m$.)
+\textbf{(c)} Let $\mathbf{a}=\left(  a_{0},a_{1},a_{2},\ldots\right)  $ be a
+polynomial. Then, all but finitely many $i\in\mathbb{N}$ satisfy $a_{i}=0$; in
+other words, only finitely many $i\in\mathbb{N}$ satisfy $a_{i}\neq0$. The
+\textit{degree} of $\mathbf{a}$ is defined to be the largest $i\in\mathbb{N}$
+such that $a_{i}\neq0$. (If no such $i$ exists, then we define it to be
+$-\infty$, which is a symbolic quantity that is understood to be smaller than
+every integer and to satisfy $\left(  -\infty\right)  +m=-\infty$ for all $m$.)
 
-The degree of a polynomial $\mathbf{a}$ will be denoted $\deg\mathbf{a}$.
+The degree of the polynomial $\mathbf{a}$ will be denoted $\deg\mathbf{a}$.
 \end{definition}
 
 So far, our FPSs are just sequences, with no other meaning. We will later see
@@ -31888,10 +31889,11 @@ $\left[  x^{3}\right]  \left(  1,2,3,4,5,\ldots\right)  =4$.
 
 Definition \ref{def.pol.coeff} has a tautological consequence: Each FPS
 $\mathbf{a}$ satisfies%
-\[
+\begin{equation}
 \mathbf{a}=\left(  \left[  x^{0}\right]  \mathbf{a},\left[  x^{1}\right]
 \mathbf{a},\left[  x^{2}\right]  \mathbf{a},\ldots\right)  .
-\]
+\label{eq.pol.fps-a=()}%
+\end{equation}
 Thus, an FPS $\mathbf{a}$ is uniquely determined by its coefficients $\left[
 x^{0}\right]  \mathbf{a},\left[  x^{1}\right]  \mathbf{a},\left[
 x^{2}\right]  \mathbf{a},\ldots$. Hence, if two FPSs $\mathbf{a}$ and
@@ -32142,7 +32144,7 @@ $\left(  a_{0},a_{1},a_{2},\ldots\right)  $. Thus, Theorem \ref{thm.pol.K-alg}
 \textbf{(a)} is proven.
 
 \textbf{(b)} This follows easily from the fact (noticed in the proof of part
-\textbf{(a)}) that \newline$\left(  -a_{0},-a_{1},-a_{2},\ldots\right)  $ as
+\textbf{(a)}) that \newline$\left(  -a_{0},-a_{1},-a_{2},\ldots\right)  $ is
 the additive inverse of any FPS $\left(  a_{0},a_{1},a_{2},\ldots\right)  $.
 
 \textbf{(d)} We need to prove that%
@@ -32265,8 +32267,8 @@ J}$ is a summable family of FPSs indexed by \textbf{pairs} $\left(
 i,j\right)  \in I\times J$, then%
 \begin{equation}
 \sum_{i\in I}\sum_{j\in J}\mathbf{a}_{i,j}=\sum_{\left(  i,j\right)  \in
-I\times J}\mathbf{a}_{i,j}=\sum_{j\in J}\sum_{i\in I}\mathbf{a}_{i,j}%
-.\label{eq.prop.pol.summable.rules.fubini-full}%
+I\times J}\mathbf{a}_{i,j}=\sum_{j\in J}\sum_{i\in I}\mathbf{a}_{i,j}.
+\label{eq.prop.pol.summable.rules.fubini-full}%
 \end{equation}
 
 
@@ -32280,7 +32282,7 @@ $\left(  \sum_{j\in J}\mathbf{a}_{i,j}\right)  _{i\in I}$ and $\left(
 equality%
 \begin{equation}
 \sum_{i\in I}\sum_{j\in J}\mathbf{a}_{i,j}=\sum_{j\in J}\sum_{i\in
-I}\mathbf{a}_{i,j}\label{eq.prop.pol.summable.rules.fubini-LR}%
+I}\mathbf{a}_{i,j} \label{eq.prop.pol.summable.rules.fubini-LR}%
 \end{equation}
 \textbf{may be false}. For an example where it is false, consider the family
 $\left(  \mathbf{a}_{i,j}\right)  _{\left(  i,j\right)  \in I\times J}$ with
@@ -32454,6 +32456,18 @@ follows by observing that $x^{0}=1_{\mathbb{K}\left[  \left[  x\right]
 
 The induction step uses Lemma \ref{lem.pol.x-shift}.
 \end{proof}
+
+Proposition \ref{prop.pol.xk} can be restated as follows:%
+\begin{equation}
+\left[  x^{n}\right]  \left(  x^{k}\right)  =%
+\begin{cases}
+1, & \text{if }n=k;\\
+0, & \text{if }n\neq k
+\end{cases}
+\ \ \ \ \ \ \ \ \ \ \text{for all }n,k\in\mathbb{N}.
+\label{eq.prop.pol.xk.rest}%
+\end{equation}
+
 
 \begin{corollary}
 \label{cor.pol.FPS-as-sum}Let $\left(  a_{0},a_{1},a_{2},\ldots\right)
@@ -32732,7 +32746,8 @@ finite sum:
 a_{0},a_{1},a_{2},\ldots\right)  \in\mathbb{K}\left[  x\right]  $ be a
 polynomial of degree $\leq n$. Then,%
 \[
-\mathbf{a}=a_{0}+a_{1}x+a_{2}x^{2}+\cdots+a_{n}x^{n}=\sum_{k=0}^{n}a_{k}x^{k}.
+\mathbf{a}=a_{0}+a_{1}x+a_{2}x^{2}+\cdots+a_{n}x^{n}=\sum_{k=0}^{n}a_{k}%
+x^{k}.
 \]
 
 \end{theorem}
@@ -32763,9 +32778,8 @@ $-\infty$ if and only if all its coefficients $a_{0},a_{1},a_{2},\ldots$ are
 $0$ (because the only negative degree that a polynomial can have is $-\infty$).
 
 \begin{proof}
-[Proof of Lemma \ref{lem.pol.deg}.] $\Longrightarrow:$ Assume that
-$\mathbf{a}$ is a polynomial of degree $\leq n$. We must prove that $a_{k}=0$
-for all $k>n$.
+[Proof of Lemma \ref{lem.pol.deg}.]$\Longrightarrow:$ Assume that $\mathbf{a}$
+is a polynomial of degree $\leq n$. We must prove that $a_{k}=0$ for all $k>n$.
 
 If all $i\in\mathbb{N}$ satisfy $a_{i}=0$, then this is clearly satisfied.
 Thus, WLOG assume that not all $i\in\mathbb{N}$ satisfy $a_{i}=0$. Hence,
@@ -32821,22 +32835,50 @@ Lemma \ref{lem.pol.deg}.
 [Proof of Theorem \ref{thm.pol.pol-as-sum}.]Lemma \ref{lem.pol.deg} yields
 that
 \begin{equation}
-a_{k}=0\ \ \ \ \ \ \ \ \ \ \text{for all }k>n\label{pf.thm.pol.pol-as-sum.=0}%
+a_{k}=0\ \ \ \ \ \ \ \ \ \ \text{for all }k>n \label{pf.thm.pol.pol-as-sum.=0}%
 \end{equation}
 (since $\mathbf{a}$ is a polynomial of degree $\leq n$). Now,%
 \begin{align*}
-\mathbf{a}  & =\left(  a_{0},a_{1},a_{2},\ldots\right)  =\sum_{k\in\mathbb{N}%
-}a_{k}x^{k}\ \ \ \ \ \ \ \ \ \ \left(  \text{by Corollary
-\ref{cor.pol.FPS-as-sum}}\right)  \\
-& =\sum_{k=0}^{n}a_{k}x^{k}+\sum_{k=n+1}^{\infty}\underbrace{a_{k}%
+\mathbf{a}  &  =\left(  a_{0},a_{1},a_{2},\ldots\right)  =\sum_{k\in
+\mathbb{N}}a_{k}x^{k}\ \ \ \ \ \ \ \ \ \ \left(  \text{by Corollary
+\ref{cor.pol.FPS-as-sum}}\right) \\
+&  =\sum_{k=0}^{n}a_{k}x^{k}+\sum_{k=n+1}^{\infty}\underbrace{a_{k}%
 }_{\substack{=0\\\text{(by (\ref{pf.thm.pol.pol-as-sum.=0}))}}}x^{k}%
 =\sum_{k=0}^{n}a_{k}x^{k}+\underbrace{\sum_{k=n+1}^{\infty}0x^{k}}_{=0}%
 =\sum_{k=0}^{n}a_{k}x^{k}\\
-& =a_{0}x^{0}+a_{1}x^{1}+a_{2}x^{2}+\cdots+a_{n}x^{n}=a_{0}+a_{1}x+a_{2}%
+&  =a_{0}x^{0}+a_{1}x^{1}+a_{2}x^{2}+\cdots+a_{n}x^{n}=a_{0}+a_{1}x+a_{2}%
 x^{2}+\cdots+a_{n}x^{n}%
 \end{align*}
 (since $a_{0}\underbrace{x^{0}}_{=1}=a_{0}$ and $a_{1}\underbrace{x^{1}}%
 _{=x}=a_{1}x$). This proves Theorem \ref{thm.pol.pol-as-sum}.
+\end{proof}
+
+We can restate Lemma \ref{lem.pol.deg} as follows:
+
+\begin{lemma}
+\label{lem.pol.deg-rest}Let $n\in\mathbb{Z}$. Let $\mathbf{a}\in
+\mathbb{K}\left[  \left[  x\right]  \right]  $ be an FPS. Then, we have the
+following equivalence:%
+\[
+\left(  \mathbf{a}\text{ is a polynomial of degree }\leq n\right)
+\ \Longleftrightarrow\ \left(  \left[  x^{k}\right]  \mathbf{a}=0\text{ for
+all }k>n\right)  .
+\]
+
+\end{lemma}
+
+\begin{proof}
+[Proof of Lemma \ref{lem.pol.deg-rest}.]We have $\mathbf{a}=\left(  \left[
+x^{0}\right]  \mathbf{a},\left[  x^{1}\right]  \mathbf{a},\left[
+x^{2}\right]  \mathbf{a},\ldots\right)  $ (by (\ref{eq.pol.fps-a=()})). Thus,
+Lemma \ref{lem.pol.deg} (applied to $a_{k}=\left[  x^{k}\right]  \mathbf{a}$)
+yields the equivalence
+\[
+\left(  \mathbf{a}\text{ is a polynomial of degree }\leq n\right)
+\ \Longleftrightarrow\ \left(  \left[  x^{k}\right]  \mathbf{a}=0\text{ for
+all }k>n\right)  .
+\]
+This proves Lemma \ref{lem.pol.deg-rest}.
 \end{proof}
 
 Next, let us prove some basic rules for degrees of polynomials:
@@ -32875,15 +32917,140 @@ the \textquotedblleft$\mathbb{K}$ is a field\textquotedblright\ requirement;
 for example, if $\mathbb{K}=\mathbb{Z}/4$ and $\mathbf{a}=1+2x$ and
 $\mathbf{b}=1+2x$ (using the standard shorthand notations $1=\left[  1\right]
 _{4}$ and $2=\left[  2\right]  _{4}$ etc.), then the polynomial%
-\[
+\begin{equation}
 \mathbf{ab}=\left(  1+2x\right)  \left(  1+2x\right)  =1+\underbrace{4x+4x^{2}%
-}_{=0}=1
-\]
+}_{=0}=1 \label{eq.pol.deg(ab)=0.cex}%
+\end{equation}
 has degree $<2$.
 
-TODO: Monic polynomials.
+Before proving Theorem \ref{thm.pol.pol-basics}, let us show two lemmas:
+
+\begin{lemma}
+\label{lem.pol.deg(ab)}Let $n,m\in\mathbb{N}$. Let $\mathbf{a}$ and
+$\mathbf{b}$ be two polynomials such that $\deg\mathbf{a}\leq n$ and
+$\deg\mathbf{b}\leq m$. Then:
+
+\textbf{(a)} We have $\left[  x^{n+i}\right]  \left(  \mathbf{ab}\right)
+=\left(  \left[  x^{n}\right]  \mathbf{a}\right)  \cdot\left(  \left[
+x^{i}\right]  \mathbf{b}\right)  $ for each integer $i\geq m$.
+
+\textbf{(b)} The FPS $\mathbf{ab}$ is a polynomial and satisfies $\deg\left(
+\mathbf{ab}\right)  \leq n+m$.
+
+\textbf{(c)} We have $\left[  x^{n+m}\right]  \left(  \mathbf{ab}\right)
+=\left(  \left[  x^{n}\right]  \mathbf{a}\right)  \cdot\left(  \left[
+x^{m}\right]  \mathbf{b}\right)  $.
+\end{lemma}
 
 \begin{proof}
+[Proof of Lemma \ref{lem.pol.deg(ab)}.]We know that $\mathbf{a}$ is a
+polynomial of degree $\leq n$ (since $\mathbf{a}$ is a polynomial such that
+$\deg\mathbf{a}\leq n$). Thus, Lemma \ref{lem.pol.deg-rest} shows that%
+\begin{equation}
+\left[  x^{k}\right]  \mathbf{a}=0\text{ for all }k>n.
+\label{pf.lem.pol.deg(ab).ak=0}%
+\end{equation}
+Similarly,%
+\begin{equation}
+\left[  x^{k}\right]  \mathbf{b}=0\text{ for all }k>m.
+\label{pf.lem.pol.deg(ab).bk=0}%
+\end{equation}
+
+
+\textbf{(a)} Let $i$ be an integer such that $i\geq m$. Thus, $i\geq m\geq0$.
+For each $j\in\left\{  0,1,\ldots,i-1\right\}  $, we have $j\leq i-1<i$ and
+thus $n+i-\underbrace{j}_{<i}>n+i-i=n$ and thus%
+\begin{equation}
+\left[  x^{n+i-j}\right]  \mathbf{a}=0 \label{pf.lem.pol.deg(ab).a.1}%
+\end{equation}
+(by (\ref{pf.lem.pol.deg(ab).ak=0}), applied to $k=n+i-j$). For each
+$j\in\left\{  i+1,i+2,\ldots,n+i\right\}  $, we have $j\geq i+1>i\geq m$ and
+thus%
+\begin{equation}
+\left[  x^{j}\right]  \mathbf{b}=0 \label{pf.lem.pol.deg(ab).a.2}%
+\end{equation}
+(by (\ref{pf.lem.pol.deg(ab).bk=0}), applied to $k=j$).
+
+The equality (\ref{eq.pol.fps-mul.5}) (applied to $n+i$ instead of $n$) yields%
+\begin{align*}
+\left[  x^{n+i}\right]  \left(  \mathbf{ab}\right)   &  =\sum_{j=0}%
+^{n+i}\left(  \left[  x^{n+i-j}\right]  \mathbf{a}\right)  \cdot\left(
+\left[  x^{j}\right]  \mathbf{b}\right) \\
+&  =\sum_{j=0}^{i}\left(  \left[  x^{n+i-j}\right]  \mathbf{a}\right)
+\cdot\left(  \left[  x^{j}\right]  \mathbf{b}\right)  +\sum_{j=i+1}%
+^{n+i}\left(  \left[  x^{n+i-j}\right]  \mathbf{a}\right)  \cdot
+\underbrace{\left(  \left[  x^{j}\right]  \mathbf{b}\right)  }%
+_{\substack{=0\\\text{(by (\ref{pf.lem.pol.deg(ab).a.2}))}}}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{since }0\leq i\leq n+i\right) \\
+&  =\sum_{j=0}^{i}\left(  \left[  x^{n+i-j}\right]  \mathbf{a}\right)
+\cdot\left(  \left[  x^{j}\right]  \mathbf{b}\right)  +\underbrace{\sum
+_{j=i+1}^{n+i}\left(  \left[  x^{n+i-j}\right]  \mathbf{a}\right)  \cdot
+0}_{=0}\\
+&  =\sum_{j=0}^{i}\left(  \left[  x^{n+i-j}\right]  \mathbf{a}\right)
+\cdot\left(  \left[  x^{j}\right]  \mathbf{b}\right)  =\sum_{j=0}%
+^{i-1}\underbrace{\left(  \left[  x^{n+i-j}\right]  \mathbf{a}\right)
+}_{\substack{=0\\\text{(by (\ref{pf.lem.pol.deg(ab).a.1}))}}}\cdot\left(
+\left[  x^{j}\right]  \mathbf{b}\right)  +\underbrace{\left(  \left[
+x^{n+i-i}\right]  \mathbf{a}\right)  }_{=\left[  x^{n}\right]  \mathbf{a}%
+}\cdot\left(  \left[  x^{i}\right]  \mathbf{b}\right) \\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{here, we have split off the addend for
+}j=i\text{ from the sum}\right) \\
+&  =\underbrace{\sum_{j=0}^{i-1}0\cdot\left(  \left[  x^{j}\right]
+\mathbf{b}\right)  }_{=0}+\left(  \left[  x^{n}\right]  \mathbf{a}\right)
+\cdot\left(  \left[  x^{i}\right]  \mathbf{b}\right)  =\left(  \left[
+x^{n}\right]  \mathbf{a}\right)  \cdot\left(  \left[  x^{i}\right]
+\mathbf{b}\right)  .
+\end{align*}
+This proves Lemma \ref{lem.pol.deg(ab)} \textbf{(a)}.
+
+\textbf{(b)} Let $k$ be an integer such that $k>n+m$. Hence, $k-n>m$. Thus,
+(\ref{pf.lem.pol.deg(ab).bk=0}) (applied to $k-n$ instead of $k$) yields
+$\left[  x^{k-n}\right]  \mathbf{b}=0$.
+
+Again, we have $k-n>m$; thus, Lemma \ref{lem.pol.deg(ab)} \textbf{(a)}
+(applied to $i=k-n$) yields
+\[
+\left[  x^{n+\left(  k-n\right)  }\right]  \left(  \mathbf{ab}\right)
+=\left(  \left[  x^{n}\right]  \mathbf{a}\right)  \cdot\underbrace{\left(
+\left[  x^{k-n}\right]  \mathbf{b}\right)  }_{=0}=0.
+\]
+In other words, $\left[  x^{k}\right]  \left(  \mathbf{ab}\right)  =0$ (since
+$n+\left(  k-n\right)  =k$).
+
+Now, forget that we fixed $k$. Thus we have seen that $\left[  x^{k}\right]
+\left(  \mathbf{ab}\right)  =0$ for all $k>n+m$.
+
+But Lemma \ref{lem.pol.deg-rest} (applied to $n+m$ and $\mathbf{ab}$ instead
+of $n$ and $\mathbf{a}$) shows that we have the equivalence
+\[
+\left(  \mathbf{ab}\text{ is a polynomial of degree }\leq n+m\right)
+\ \Longleftrightarrow\ \left(  \left[  x^{k}\right]  \left(  \mathbf{ab}%
+\right)  =0\text{ for all }k>n+m\right)  .
+\]
+Hence, $\mathbf{ab}$ is a polynomial of degree $\leq n+m$ (since $\left[
+x^{k}\right]  \left(  \mathbf{ab}\right)  =0$ for all $k>n+m$). This proves
+Lemma \ref{lem.pol.deg(ab)} \textbf{(b)}.
+
+\textbf{(c)} This follows from applying Lemma \ref{lem.pol.deg(ab)}
+\textbf{(a)} to $i=m$.
+\end{proof}
+
+\begin{lemma}
+\label{lem.pol.deg(ab)-ible}Let $n\in\mathbb{N}$. Let $\mathbf{a}$ and
+$\mathbf{b}$ be two polynomials such that $\deg\mathbf{b}\leq n$. Assume that
+$\left[  x^{m}\right]  \mathbf{b}\in\mathbb{K}$ is invertible. Then,
+$\deg\left(  \mathbf{ab}\right)  =\deg\mathbf{a}+m$.
+\end{lemma}
+
+\begin{proof}
+[Proof of Lemma \ref{lem.pol.deg(ab)-ible}.] TODO.
+
+.....
+\end{proof}
+
+\begin{proof}
+[Proof of Theorem \ref{thm.pol.pol-basics}.]\textbf{(a)} TODO....
+
 \textbf{(c)} Let $\mathbf{a}$ and $\mathbf{b}$ be two polynomials.
 
 [...]
@@ -32895,9 +33062,104 @@ $0$ and contains $1$.
 [...]
 \end{proof}
 
-\begin{itemize}
-\item Explain why $\deg x=1$ fails for $\mathbb{K}$ trivial.
+The condition \textquotedblleft$\left\vert \mathbb{K}\right\vert
+>1$\textquotedblright\ in Theorem \ref{thm.pol.pol-basics} \textbf{(d)} is a
+homage to the possibility that $\mathbb{K}$ may be a trivial ring (i.e., a
+ring with only one element). If $\mathbb{K}$ is a trivial ring, then all
+coefficients of the polynomial $x$ are $0$ (because all elements of
+$\mathbb{K}$ are $0$), and thus $\deg x=-\infty$ rather than $\deg x=1$. The
+zero ring is generally responsible for lots of exceptions in rules about
+degrees; thus it is better to speak of \textquotedblleft polynomials of degree
+$\leq n$\textquotedblright\ than of the exact degree of a polynomial.
 
+Here is a version of division with remainder for polynomials:
+
+\begin{theorem}
+\label{thm.pol.quorem}Let $n\in\mathbb{N}$. Let $\mathbf{b}$ be a polynomial
+such that $\deg\mathbf{b}\leq n$ and such that $\left[  x^{n}\right]
+\mathbf{b}\in\mathbb{K}$ is invertible. Let $\mathbf{a}$ be any polynomial.
+
+\textbf{(a)} Then, there exists a \textbf{unique} pair $\left(  \mathbf{q}%
+,\mathbf{r}\right)  $ of polynomials such that $\mathbf{a}=\mathbf{qb}%
++\mathbf{r}$ and $\deg\mathbf{r}<n$.
+
+\textbf{(b)} Moreover, this pair satisfies $\deg\mathbf{q}\leq\deg
+\mathbf{a}-n$.
+\end{theorem}
+
+\begin{proof}
+[Proof of Theorem \ref{thm.pol.quorem}.](sketch, so far.) WLOG assume that
+$\left[  x^{n}\right]  \mathbf{b}=1$, since otherwise we can replace
+$\mathbf{b}$ by $\left(  \left[  x^{n}\right]  \mathbf{b}\right)
+^{-1}\mathbf{b}$.
+
+\textbf{(a)} \textit{Existence:} Strong induction on $\deg\mathbf{a}$ (while
+$\mathbf{b}$ is fixed):
+
+Fix $m\in\mathbb{N}$. Assume that the existence part of Theorem
+\ref{thm.pol.quorem} \textbf{(a)} has already been proven in the case when
+$\deg\mathbf{a}<m$. We must now prove it when $\deg\mathbf{a}=m$.
+
+Fix a polynomial $\mathbf{a}$ with $\deg\mathbf{a}=m$. If $m<n$, then just
+take $\left(  \mathbf{q},\mathbf{r}\right)  =\left(  \mathbf{a},0\right)  $
+and we are done. Thus, WLOG assume that $m\geq n$.
+
+Else, let $a_{m}=\left[  x^{m}\right]  \mathbf{a}$. Then, the polynomial
+$a-a_{m}x^{m-n}\mathbf{b}$ has degree $<m$ (since leading terms cancel) and
+thus can be written as $\mathbf{q}_{0}\mathbf{b}+\mathbf{r}_{0}$ with
+$\deg\mathbf{r}_{0}<n$. Now set $\left(  \mathbf{q},\mathbf{r}\right)
+=\left(  \mathbf{q}_{0}+a_{m}x^{m-n},\mathbf{r}_{0}\right)  $. Done.
+
+\textit{Uniqueness:} If $\mathbf{q}_{1}\mathbf{b}+\mathbf{r}_{1}%
+=\mathbf{q}_{2}\mathbf{b}+\mathbf{r}_{2}$, then $\left(  \mathbf{q}%
+_{1}-\mathbf{q}_{2}\right)  \mathbf{b}=\mathbf{r}_{2}-\mathbf{r}_{1}$ has
+degree $<n$.
+
+Assume (for contradiction) that $\mathbf{q}_{1}\neq\mathbf{q}_{2}$. Then,
+$\mathbf{q}_{1}-\mathbf{q}_{2}\neq0$. Let $w=\deg\left(  \mathbf{q}%
+_{1}-\mathbf{q}_{2}\right)  $.
+
+Now, Lemma \ref{lem.pol.deg(ab)} \textbf{(c)} yields%
+\[
+\left[  x^{w+}\right]  \left(  \left(  \mathbf{q}_{1}-\mathbf{q}_{2}\right)
+\mathbf{b}\right)
+\]
+
+
+NEED\ LEMMA!.....
+\end{proof}
+
+As we have seen in (\ref{eq.pol.deg(ab)=0.cex}), even over nontrivial rings
+$\mathbb{K}$, degrees of polynomials can behave weirdly. A class of
+polynomials for which this does not happen are the \textit{monic polynomials}:
+
+\begin{definition}
+\label{def.pol.monic}Let $n\in\mathbb{N}$. Let $\mathbf{a}\in\mathbb{K}\left[
+x\right]  $. We say that the polynomial $\mathbf{a}$ is \textit{monic of
+degree }$n$ if and only if it satisfies
+\[
+\deg\mathbf{a}\leq n\ \ \ \ \ \ \ \ \ \ \text{and}\ \ \ \ \ \ \ \ \ \ \left[
+x^{n}\right]  \mathbf{a}=1.
+\]
+In other words, $\mathbf{a}$ is monic of degree $n$ if and only if it
+satisfies%
+\[
+\left(  \left[  x^{k}\right]  \mathbf{a}=0\text{ for all }k>n\right)
+\ \ \ \ \ \ \ \ \ \ \text{and}\ \ \ \ \ \ \ \ \ \ \left[  x^{n}\right]
+\mathbf{a}=1.
+\]
+(These two statements are equivalent because of Lemma \ref{lem.pol.deg-rest}.)
+\end{definition}
+
+Again, if the ring $\mathbb{K}$ is trivial, then weird things happen: The
+polynomial $0$ is monic of every possible degree in that case (despite its
+degree, as we originally defined it, being $-\infty$). Other than this, the
+notation does not mislead us: If $\left\vert \mathbb{K}\right\vert >1$, and if
+a polynomial $\mathbf{a}\in\mathbb{K}\left[  x\right]  $ is monic of degree
+$n$, then the degree of $\mathbf{a}$ is actually $n$ (since $\left[
+x^{n}\right]  \mathbf{a}=1\neq0$).
+
+\begin{itemize}
 \item Evaluation $f\left[  g\right]  $ if $f$ is a poly and $g$ is in any comm
 $\mathbb{K}$-alg.
 
@@ -32976,6 +33238,18 @@ in $\mathbb{K}$.
 Stark contrast to FPS invertibility!
 
 \item Remark about functoriality.
+
+\item Prove%
+\[
+\sum_{k=0}^{n}\left(  -1\right)  ^{k}\dbinom{u}{k}\dbinom{u}{n-k}=%
+\begin{cases}
+\left(  -1\right)  ^{n/2}\dbinom{u}{n/2}, & \text{if }n\text{ is even};\\
+0, & \text{if }n\text{ is odd}%
+\end{cases}
+\]
+for all $n\in\mathbb{N}$ and $u\in\mathbb{N}$ via $\left(  1-x\right)
+^{u}\left(  1+x\right)  ^{u}=\left(  1-x^{2}\right)  ^{u}$. Then extend to
+$u\in\mathbb{Q}$ via polynomial identity trick.
 
 \item Prove Lucas's congruence.
 
