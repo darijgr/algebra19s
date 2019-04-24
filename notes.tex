@@ -17,7 +17,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Wednesday, April 24, 2019 11:10:32}
+%TCIDATA{LastRevised=Wednesday, April 24, 2019 12:57:23}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -2390,7 +2390,6 @@ Hence,%
 r_{2}-r_{1}=q_{1}n-q_{2}n=\left(  q_{1}-q_{2}\right)  n.
 \label{pf.lem.ent.quorem.unique.1}%
 \end{equation}
-
 
 Assume (for the sake of contradiction) that $q_{1}\neq q_{2}$. Thus,
 $q_{1}-q_{2}\neq0$, so that $\left\vert q_{1}-q_{2}\right\vert >0$ and
@@ -32539,7 +32538,9 @@ of $x$ times scalars, because we have now constructed a ring with an actual
 element $x$ in it and we have shown that these infinite sums are well-defined
 and just encode the sequences of their coefficients. This is the rigorous
 answer to the question \textquotedblleft what is an indeterminate in a
-polynomial or FPS\textquotedblright.
+polynomial or FPS\textquotedblright. This also explains why we refer to the
+entries of an FPS $\left(  a_{0},a_{1},a_{2},\ldots\right)  $ as its
+\textquotedblleft coefficients\textquotedblright.
 
 \begin{center}
 \textbf{2019-04-24 lecture}
@@ -32896,10 +32897,11 @@ n-1$.
 \end{exercise}
 
 \begin{proof}
-[Solution to Exercise \ref{exe.pol.deg-red}.] We have assumed that
-$\mathbf{a}$ is a polynomial of degree $\leq n$. In other words,
+[Solution to Exercise \ref{exe.pol.deg-red}.]We have assumed that $\mathbf{a}$
+is a polynomial of degree $\leq n$. In other words,
 \begin{equation}
-\left[  x^{k}\right]  \mathbf{a}=0\text{ for all }k>n\label{sol.pol.deg-red.1}%
+\left[  x^{k}\right]  \mathbf{a}=0\text{ for all }k>n
+\label{sol.pol.deg-red.1}%
 \end{equation}
 (by Lemma \ref{lem.pol.deg-rest}).
 
@@ -32907,8 +32909,8 @@ $\mathbf{a}$ is a polynomial of degree $\leq n$. In other words,
 $\left[  x^{k}\right]  \mathbf{a}=0$ holds for all $k>n$ (by
 (\ref{sol.pol.deg-red.1})), but also holds for $k=n$ (since $\left[
 x^{n}\right]  \mathbf{a}=0$). Hence, this equality holds for all $k\geq n$. In
-other words, it holds for all $k>n-1$ (since the integers $k$ satisfying
-$k\geq n$ are precisely the integers $k$ satisfying $k>n-1$).
+other words, it holds for all $k>n-1$ (since the $k\in\mathbb{N}$ satisfying
+$k\geq n$ are precisely the $k\in\mathbb{N}$ satisfying $k>n-1$).
 
 But Lemma \ref{lem.pol.deg-rest} (applied to $n-1$ instead of $n$) yields that
 we have the following equivalence:%
@@ -32950,7 +32952,10 @@ $\leq n$, then $\mathbf{a}+\mathbf{b}$ is a polynomial of degree $\leq n$.
 \textbf{(c)} Any finite sum of polynomials of degree $\leq n$ is a polynomial
 of degree $\leq n$.
 
-\textbf{(d)} If $i\in\mathbb{N}$ satisfies $i\leq n$, then $x^{i}$ is a
+\textbf{(d)} If $\lambda\in\mathbb{K}$, and if $\mathbf{a}$ is a polynomial of
+degree $\leq n$, then $\lambda\mathbf{a}$ is a polynomial of degree $\leq n$.
+
+\textbf{(e)} If $i\in\mathbb{N}$ satisfies $i\leq n$, then $x^{i}$ is a
 polynomial of degree $\leq n$.
 \end{lemma}
 
@@ -32970,7 +32975,7 @@ We know that $\mathbf{a}$ is a polynomial of degree $\leq n$. In other words,
 \end{equation}
 
 
-Now, for each integer $k$ satisfying $k>n$, we have%
+Now, for each $k\in\mathbb{N}$ satisfying $k>n$, we have%
 \begin{align*}
 \left[  x^{k}\right]  \left(  \mathbf{a}+\mathbf{b}\right)   &
 =\underbrace{\left[  x^{k}\right]  \mathbf{a}}_{\substack{=0\\\text{(by
@@ -32997,7 +33002,9 @@ $k>n$). This proves Lemma \ref{lem.pol.addition} \textbf{(b)}.
 base follows from Lemma \ref{lem.pol.addition} \textbf{(a)}, and the induction
 step follows from Lemma \ref{lem.pol.addition} \textbf{(b)}.)
 
-\textbf{(d)} Let $i\in\mathbb{N}$ be such that $i\leq n$. We must prove that
+\textbf{(d)} Easy.
+
+\textbf{(e)} Let $i\in\mathbb{N}$ be such that $i\leq n$. We must prove that
 $x^{i}$ is a polynomial of degree $\leq n$.
 
 Lemma \ref{lem.pol.deg-rest} (applied to $\mathbf{a}=x^{i}$) shows that we
@@ -33008,14 +33015,14 @@ have the equivalence%
 =0\text{ for all }k>n\right)  .
 \]
 Thus, it remains to show that $\left[  x^{k}\right]  \left(  x^{i}\right)  =0$
-for all $k>n$. So let us fix an integer $k$ satisfying $k>n$. Then,
+for all $k>n$. So let us fix a $k\in\mathbb{N}$ satisfying $k>n$. Then,
 (\ref{eq.prop.pol.xk.rest}) (applied to $k$ and $i$ instead of $n$ and $k$)
 yields $\left[  x^{k}\right]  \left(  x^{i}\right)  =0$. This is precisely
-what we wanted to show. Hence, Lemma \ref{lem.pol.addition} \textbf{(d)} is proven.
+what we wanted to show. Hence, Lemma \ref{lem.pol.addition} \textbf{(e)} is proven.
 \end{proof}
 
-Lemma \ref{lem.pol.addition} \textbf{(c)} yields the following converse of
-Theorem \ref{thm.pol.pol-as-sum}:
+Lemma \ref{lem.pol.addition} yields the following converse of Theorem
+\ref{thm.pol.pol-as-sum}:
 
 \begin{exercise}
 \label{exe.pol.sum-as-pol}Let $n\in\mathbb{Z}$. Let $a_{0},a_{1},\ldots
@@ -33024,7 +33031,15 @@ degree $\leq n$.
 \end{exercise}
 
 \begin{proof}
-[Solution to Exercise \ref{exe.pol.sum-as-pol}.] TODO.
+[Solution to Exercise \ref{exe.pol.sum-as-pol}.]If $k\in\left\{
+0,1,\ldots,n\right\}  $, then $x^{k}$ is a polynomial of degree $\leq n$ (by
+Lemma \ref{lem.pol.addition} \textbf{(e)}), and therefore $a_{k}x^{k}$ is a
+polynomial of degree $\leq n$ (by Lemma \ref{lem.pol.addition} \textbf{(d)},
+applied to $\lambda=a_{k}$ and $\mathbf{a}=x^{k}$). Hence, $\sum_{k=0}%
+^{n}a_{k}x^{k}$ is a finite sum of polynomials of degree $\leq n$. Because of
+Lemma \ref{lem.pol.addition} \textbf{(c)}, this entails that $\sum_{k=0}%
+^{n}a_{k}x^{k}$ is a polynomial of degree $\leq n$. This solves Exercise
+\ref{exe.pol.sum-as-pol}.
 \end{proof}
 
 \begin{theorem}
@@ -33033,7 +33048,7 @@ $\underline{a}\in\mathbb{K}\left[  x\right]  $ and $\deg\underline{a}\leq0$.
 
 \textbf{(b)} If $a\in\mathbb{K}$ is nonzero, then $\deg\underline{a}=0$.
 
-\textbf{(c)} We have $\deg x\leq1$.
+\textbf{(c)} We have $x\in\mathbb{K}\left[  x\right]  $ and $\deg x\leq1$.
 
 \textbf{(d)} If $\left\vert \mathbb{K}\right\vert >1$, then $\deg x=1$.
 
@@ -33047,7 +33062,7 @@ $\mathbf{a}+\mathbf{b}$ and $\mathbf{ab}$ are two polynomials satisfying
 \]
 
 
-\textbf{(f)} If $\mathbb{K}$ is a field and if $\mathbf{a}$ and $\mathbf{b}$
+\textbf{(f)} If $\mathbb{K}$ is a field, and if $\mathbf{a}$ and $\mathbf{b}$
 are two polynomials, then $\deg\left(  \mathbf{ab}\right)  =\deg
 \mathbf{a}+\deg\mathbf{b}$.
 
@@ -33056,15 +33071,25 @@ are two polynomials, then $\deg\left(  \mathbf{ab}\right)  =\deg
 \left[  \left[  x\right]  \right]  $.
 \end{theorem}
 
-Note that Theorem \ref{thm.pol.pol-basics} \textbf{(f)} is not true without
-the \textquotedblleft$\mathbb{K}$ is a field\textquotedblright\ requirement.
-For example, if $\mathbb{K}=\mathbb{Z}/4$ and $\mathbf{a}=1+2x$ and
-$\mathbf{b}=1+2x$ (using the standard shorthand notations $1=\left[  1\right]
-_{4}$ and $2=\left[  2\right]  _{4}$ etc.), then the polynomial%
+The condition \textquotedblleft$\left\vert \mathbb{K}\right\vert
+>1$\textquotedblright\ in Theorem \ref{thm.pol.pol-basics} \textbf{(d)} is a
+homage to the possibility that $\mathbb{K}$ may be a trivial ring (i.e., a
+ring with only one element). If $\mathbb{K}$ is a trivial ring, then all
+coefficients of the polynomial $x$ are $0$ (because all elements of
+$\mathbb{K}$ are $0$), and thus $\deg x=-\infty$ rather than $\deg x=1$. The
+zero ring is generally responsible for lots of exceptions in rules about
+degrees; thus it is better to speak of \textquotedblleft polynomials of degree
+$\leq n$\textquotedblright\ than of the exact degree of a polynomial.
+
+Note also that Theorem \ref{thm.pol.pol-basics} \textbf{(f)} would not be true
+without the \textquotedblleft$\mathbb{K}$ is a field\textquotedblright%
+\ requirement. For example, if $\mathbb{K}=\mathbb{Z}/4$ and $\mathbf{a}=1+2x$
+and $\mathbf{b}=1+2x$ (using the standard shorthand notations $1=\left[
+1\right]  _{4}$ and $2=\left[  2\right]  _{4}$ etc.), then the polynomial%
 \begin{equation}
 \mathbf{ab}=\left(  1+2x\right)  \left(  1+2x\right)  =1+\underbrace{4x+4x^{2}%
-}_{\substack{=0\\\text{(since }4=0\text{ in }\mathbb{K}\text{)}}}=1
-\label{eq.pol.deg(ab)=0.cex}%
+}_{\substack{=0\\\text{(since }4=0\text{ in }\mathbb{K}\text{)}}%
+}=1\label{eq.pol.deg(ab)=0.cex}%
 \end{equation}
 has degree $<2$.
 
@@ -33149,7 +33174,7 @@ x^{n}\right]  \mathbf{a}\right)  \cdot\left(  \left[  x^{i}\right]
 \end{align*}
 This proves Lemma \ref{lem.pol.deg(ab)} \textbf{(a)}.
 
-\textbf{(b)} Let $k$ be an integer such that $k>n+m$. Hence, $k-n>m$. Thus,
+\textbf{(b)} Let $k\in\mathbb{N}$ be such that $k>n+m$. Hence, $k-n>m$. Thus,
 (\ref{pf.lem.pol.deg(ab).bk=0}) (applied to $k-n$ instead of $k$) yields
 $\left[  x^{k-n}\right]  \mathbf{b}=0$.
 
@@ -33181,6 +33206,12 @@ Lemma \ref{lem.pol.deg(ab)} \textbf{(b)}.
 \textbf{(a)} to $i=m$.
 \end{proof}
 
+Our next lemma is a generalization of Theorem \ref{thm.pol.pol-basics}
+\textbf{(f)}: Instead of requiring $\mathbb{K}$ to be a field, we will merely
+require that the coefficient $\left[  x^{m}\right]  \mathbf{b}$ of
+$\mathbf{b}$ be invertible (which is automatically satisfied when $\mathbb{K}$
+is a field and $m=\deg\mathbf{b}$).
+
 \begin{lemma}
 \label{lem.pol.deg(ab)-ible}Let $m\in\mathbb{N}$. Let $\mathbf{a}$ and
 $\mathbf{b}$ be two polynomials such that $\deg\mathbf{b}\leq m$. Assume that
@@ -33206,38 +33237,159 @@ x^{n+m}\right]  \left(  \mathbf{ab}\right)  =\left(  \left[  x^{n}\right]
 \mathbf{a}\right)  \cdot\left(  \left[  x^{m}\right]  \mathbf{b}\right)  $.
 
 Assume (for the sake of contradiction) that $\left[  x^{n+m}\right]  \left(
-\mathbf{ab}\right)  =0$, .............
-
-Exercise \ref{exe.pol.deg-red} \textbf{(b)}
-
-
-
-.....
+\mathbf{ab}\right)  =0$. Then, $0=\left[  x^{n+m}\right]  \left(
+\mathbf{ab}\right)  =\left(  \left[  x^{n}\right]  \mathbf{a}\right)
+\cdot\left(  \left[  x^{m}\right]  \mathbf{b}\right)  $. We can divide both
+sides of this equality by $\left[  x^{m}\right]  \mathbf{b}$ (since $\left[
+x^{m}\right]  \mathbf{b}$ is invertible), and thus obtain $0=\left[
+x^{n}\right]  \mathbf{a}$. In other words, $\left[  x^{n}\right]
+\mathbf{a}=0$. Hence, Exercise \ref{exe.pol.deg-red} \textbf{(a)} yields
+$\deg\mathbf{a}\leq n-1<n$, which contradicts $\deg\mathbf{a}=n$. This
+contradiction shows that our assumption was wrong. Hence, $\left[
+x^{n+m}\right]  \left(  \mathbf{ab}\right)  \neq0$. Thus, Exercise
+\ref{exe.pol.deg-red} \textbf{(b)} (applied to $\mathbf{ab}$ and $n+m$ instead
+of $\mathbf{a}$ and $n$) yields $\deg\left(  \mathbf{ab}\right)  =n+m$ (since
+$\deg\left(  \mathbf{ab}\right)  \leq n+m$). In view of $n=\deg\mathbf{a}$,
+this rewrites as $\deg\left(  \mathbf{ab}\right)  =\deg\mathbf{a}+m$. This
+solves Exercise \ref{lem.pol.deg(ab)-ible}.
 \end{proof}
 
 \begin{proof}
-[Proof of Theorem \ref{thm.pol.pol-basics}.]\textbf{(a)} TODO....
+[Proof of Theorem \ref{thm.pol.pol-basics}.]\textbf{(a)} We have $\left[
+x^{k}\right]  \underline{a}=0$ for all $k>0$ (since $\underline{a}=\left(
+a,\underbrace{0,0,0,\ldots}_{\text{zeroes}}\right)  $). But Lemma
+\ref{lem.pol.deg-rest} (applied to $0$ and $\underline{a}$ instead of $n$ and
+$\mathbf{a}$) shows that we have the equivalence
+\[
+\left(  \underline{a}\text{ is a polynomial of degree }\leq0\right)
+\ \Longleftrightarrow\ \left(  \left[  x^{k}\right]  \left(  \underline{0}%
+\right)  =0\text{ for all }k>0\right)  .
+\]
+Hence, $\underline{a}$ is a polynomial of degree $\leq0$ (since we have
+$\left[  x^{k}\right]  \underline{a}=0$ for all $k>0$). In other words,
+$\underline{a}\in\mathbb{K}\left[  x\right]  $ and $\deg\underline{a}\leq0$.
+This proves Theorem \ref{thm.pol.pol-basics} \textbf{(a)}.
 
-\textbf{(c)} Let $\mathbf{a}$ and $\mathbf{b}$ be two polynomials.
+\textbf{(b)} LTTR.
 
-[...]
+\textbf{(c)} Lemma \ref{lem.pol.addition} \textbf{(e)} (applied to $i=1$ and
+$n=1$) shows that $x^{1}$ is a polynomial of degree $\leq1$. In other words,
+we have $x^{1}\in\mathbb{K}\left[  x\right]  $ and $\deg\left(  x^{1}\right)
+\leq1$. Since $x^{1}=x$, this rewrites as follows: We have $x\in
+\mathbb{K}\left[  x\right]  $ and $\deg x\leq1$. This proves Theorem
+\ref{thm.pol.pol-basics} \textbf{(c)}.
 
-\textbf{(d)} We need to prove that $\mathbb{K}\left[  x\right]  $ is closed
-under addition, closed under multiplication, closed under scaling, contains
-$0$ and contains $1$.
+\textbf{(d)} LTTR.
 
-[...]
+\textbf{(e)} Let $\mathbf{a}$ and $\mathbf{b}$ be two polynomials. We must
+prove that $\mathbf{a}+\mathbf{b}$ and $\mathbf{ab}$ are two polynomials
+satisfying%
+\[
+\deg\left(  \mathbf{a}+\mathbf{b}\right)  \leq\max\left\{  \deg\mathbf{a}%
+,\deg\mathbf{b}\right\}  \ \ \ \ \ \ \ \ \ \ \text{and}%
+\ \ \ \ \ \ \ \ \ \ \deg\left(  \mathbf{ab}\right)  \leq\deg\mathbf{a}%
++\deg\mathbf{b}.
+\]
+If $\mathbf{a}=\underline{0}$, then this is all obvious (because in this case,
+we have $\mathbf{a}+\mathbf{b}=\mathbf{b}$ and $\mathbf{ab}=\underline{0}$ and
+$\deg\underline{0}=-\infty$). Thus, for the rest of this proof, we WLOG assume
+that $\mathbf{a}\neq\underline{0}$. For a similar reason, we WLOG assume that
+$\mathbf{b}\neq\underline{0}$. Now, $\deg\mathbf{a}$ is a well-defined
+nonnegative integer (since $\mathbf{a}\neq\underline{0}$). Similarly,
+$\deg\mathbf{b}$ is a well-defined nonnegative integer.
+
+Both $\mathbf{a}$ and $\mathbf{b}$ are polynomials of degree $\leq\max\left\{
+\deg\mathbf{a},\deg\mathbf{b}\right\}  $ (since $\deg\mathbf{a}\leq
+\max\left\{  \deg\mathbf{a},\deg\mathbf{b}\right\}  $ and $\deg\mathbf{b}%
+\leq\max\left\{  \deg\mathbf{a},\deg\mathbf{b}\right\}  $). Thus, Lemma
+\ref{lem.pol.addition} \textbf{(b)} (applied to $n=\max\left\{  \deg
+\mathbf{a},\deg\mathbf{b}\right\}  $) shows that $\mathbf{a}+\mathbf{b}$ is a
+polynomial of degree $\leq\max\left\{  \deg\mathbf{a},\deg\mathbf{b}\right\}
+$. In other words, $\mathbf{a}+\mathbf{b}$ is a polynomial satisfying
+$\deg\left(  \mathbf{a}+\mathbf{b}\right)  \leq\max\left\{  \deg
+\mathbf{a},\deg\mathbf{b}\right\}  $.
+
+Lemma \ref{lem.pol.deg(ab)} \textbf{(b)} (applied to $n=\deg\mathbf{a}$ and
+$m=\deg\mathbf{b}$) shows that the FPS $\mathbf{ab}$ is a polynomial and
+satisfies $\deg\left(  \mathbf{ab}\right)  \leq\deg\mathbf{a}+\deg\mathbf{b}$.
+This completes the proof of Theorem \ref{thm.pol.pol-basics} \textbf{(e)}.
+
+\textbf{(f)} Assume that $\mathbb{K}$ is a field. Let $\mathbf{a}$ and
+$\mathbf{b}$ be two polynomials. We must prove that $\deg\left(
+\mathbf{ab}\right)  =\deg\mathbf{a}+\deg\mathbf{b}$. If $\mathbf{a}%
+=\underline{0}$, then this is obvious (because in this case, we have
+$\mathbf{ab}=\underline{0}$ and $\deg\underline{0}=-\infty$). Thus, for the
+rest of this proof, we WLOG assume that $\mathbf{a}\neq\underline{0}$. For a
+similar reason, we WLOG assume that $\mathbf{b}\neq\underline{0}$.
+
+Define $m\in\mathbb{N}$ by $m=\deg\mathbf{b}$. (We can do this, since
+$\mathbf{b}\neq\underline{0}$.) Then, $\deg\mathbf{b}\leq m$. In other words,
+$\mathbf{b}$ is a polynomial of degree $\leq m$. If the element $\left[
+x^{m}\right]  \mathbf{b}\in\mathbb{K}$ was $0$, then Exercise
+\ref{exe.pol.deg-red} \textbf{(a)} (applied to $m$ and $\mathbf{b}$ instead of
+$n$ and $\mathbf{a}$) would yield $\deg\mathbf{b}\leq m-1<m$, which would
+contradict $m=\deg\mathbf{b}$. Hence, the element $\left[  x^{m}\right]
+\mathbf{b}\in\mathbb{K}$ cannot be $0$. Thus, this element $\left[
+x^{m}\right]  \mathbf{b}$ is nonzero and therefore invertible (since
+$\mathbb{K}$ is a field, and thus every nonzero element of $\mathbb{K}$ is
+invertible). Therefore, Lemma \ref{lem.pol.deg(ab)} shows that $\deg\left(
+\mathbf{ab}\right)  =\deg\mathbf{a}+\underbrace{m}_{=\deg\mathbf{b}}%
+=\deg\mathbf{a}+\deg\mathbf{b}$. This proves Theorem \ref{thm.pol.pol-basics}
+\textbf{(f)}.
+
+\textbf{(g)} Theorem \ref{thm.pol.pol-basics} \textbf{(a)} yields
+$\underline{0}\in\mathbb{K}\left[  x\right]  $ and $\underline{1}\in
+\mathbb{K}\left[  x\right]  $.
+
+If $\mathbf{a}$ and $\mathbf{b}$ are two polynomials, then $\mathbf{a}%
++\mathbf{b}$ is a polynomial (by Theorem \ref{thm.pol.pol-basics}
+\textbf{(e)}). In other words, if $\mathbf{a},\mathbf{b}\in\mathbb{K}\left[
+x\right]  $, then $\mathbf{a}+\mathbf{b}\in\mathbb{K}\left[  x\right]  $
+(since $\mathbb{K}\left[  x\right]  $ is the set of all polynomials). In other
+words, the subset $\mathbb{K}\left[  x\right]  $ of $\mathbb{K}\left[  \left[
+x\right]  \right]  $ is closed under addition.
+
+If $\mathbf{a}$ and $\mathbf{b}$ are two polynomials, then $\mathbf{ab}$ is a
+polynomial (by Theorem \ref{thm.pol.pol-basics} \textbf{(e)}). In other words,
+if $\mathbf{a},\mathbf{b}\in\mathbb{K}\left[  x\right]  $, then $\mathbf{ab}%
+\in\mathbb{K}\left[  x\right]  $ (since $\mathbb{K}\left[  x\right]  $ is the
+set of all polynomials). In other words, the subset $\mathbb{K}\left[
+x\right]  $ of $\mathbb{K}\left[  \left[  x\right]  \right]  $ is closed under multiplication.
+
+If $\lambda\in\mathbb{K}$ and if $\mathbf{a}$ is a polynomial, then
+$\lambda\mathbf{a}$ is a polynomial\footnote{\textit{Proof.} Let $\lambda
+\in\mathbb{K}$ and let $\mathbf{a}$ be a polynomial. We must prove that
+$\lambda\mathbf{a}$ is a polynomial. If $\mathbf{a}=\underline{0}$, then this
+is obvious (since in this case, we have $\lambda\mathbf{a}=\lambda
+\underline{0}=\underline{0}\in\mathbb{K}\left[  x\right]  $). Hence, for the
+rest of this proof, we WLOG assume that $\mathbf{a}\neq\underline{0}$. Thus,
+$\deg\mathbf{a}\in\mathbb{N}$. Hence, Lemma \ref{lem.pol.addition}
+\textbf{(d)} yields that $\lambda\mathbf{a}$ is a polynomial of degree
+$\leq\deg\mathbf{a}$ (since $\mathbf{a}$ is a polynomial of degree $\leq
+\deg\mathbf{a}$). Qed.}. In other words, the subset $\mathbb{K}\left[
+x\right]  $ of $\mathbb{K}\left[  \left[  x\right]  \right]  $ is closed under scaling.
+
+The subset $\mathbb{K}\left[  x\right]  $ of $\mathbb{K}\left[  \left[
+x\right]  \right]  $ contains $0_{\mathbb{K}\left[  \left[  x\right]  \right]
+}$ (since $0_{\mathbb{K}\left[  \left[  x\right]  \right]  }=\underline{0}%
+\in\mathbb{K}\left[  x\right]  $) and is closed under addition and closed
+under scaling. Thus, this subset $\mathbb{K}\left[  x\right]  $ is a
+$\mathbb{K}$-submodule of $\mathbb{K}\left[  \left[  x\right]  \right]  $.
+
+The subset $\mathbb{K}\left[  x\right]  $ of $\mathbb{K}\left[  \left[
+x\right]  \right]  $ contains $0_{\mathbb{K}\left[  \left[  x\right]  \right]
+}$ and contains $1_{\mathbb{K}\left[  \left[  x\right]  \right]  }$ (since
+$1_{\mathbb{K}\left[  \left[  x\right]  \right]  }=\underline{1}\in
+\mathbb{K}\left[  x\right]  $) and is closed under addition and closed under
+multiplication. Thus, this subset $\mathbb{K}\left[  x\right]  $ is a subring
+of $\mathbb{K}\left[  \left[  x\right]  \right]  $.
+
+Now, the subset $\mathbb{K}\left[  x\right]  $ is both a subring and a
+$\mathbb{K}$-submodule of $\mathbb{K}\left[  \left[  x\right]  \right]  $. In
+other words, $\mathbb{K}\left[  x\right]  $ is a $\mathbb{K}$-subalgebra of
+$\mathbb{K}\left[  \left[  x\right]  \right]  $. This proves Theorem
+\ref{thm.pol.pol-basics} \textbf{(g)}.
 \end{proof}
-
-The condition \textquotedblleft$\left\vert \mathbb{K}\right\vert
->1$\textquotedblright\ in Theorem \ref{thm.pol.pol-basics} \textbf{(d)} is a
-homage to the possibility that $\mathbb{K}$ may be a trivial ring (i.e., a
-ring with only one element). If $\mathbb{K}$ is a trivial ring, then all
-coefficients of the polynomial $x$ are $0$ (because all elements of
-$\mathbb{K}$ are $0$), and thus $\deg x=-\infty$ rather than $\deg x=1$. The
-zero ring is generally responsible for lots of exceptions in rules about
-degrees; thus it is better to speak of \textquotedblleft polynomials of degree
-$\leq n$\textquotedblright\ than of the exact degree of a polynomial.
 
 Here is a version of division with remainder for polynomials (compare with
 Theorem \ref{thm.Z[i].gauss.quorem}):
@@ -33274,11 +33426,11 @@ From $\deg\mathbf{q}\leq2$ and $\mathbf{a}=\mathbf{qb}+\mathbf{r}$, we obtain
 where $\deg\mathbf{q}_{1}\leq1$. Now,
 \begin{align*}
 &  \ \left(  x^{4}-x^{2}=\mathbf{q}\cdot\left(  x^{2}+x+1\right)
-+\mathbf{r}\right)  \\
++\mathbf{r}\right) \\
 &  \Longleftrightarrow\ \left(  x^{4}-x^{2}=\left(  x^{2}+\mathbf{q}%
-_{1}\right)  \cdot\left(  x^{2}+x+1\right)  +\mathbf{r}\right)  \\
+_{1}\right)  \cdot\left(  x^{2}+x+1\right)  +\mathbf{r}\right) \\
 &  \Longleftrightarrow\ \left(  x^{4}-x^{2}-x^{2}\left(  x^{2}+x+1\right)
-=\mathbf{q}_{1}\cdot\left(  x^{2}+x+1\right)  +\mathbf{r}\right)  \\
+=\mathbf{q}_{1}\cdot\left(  x^{2}+x+1\right)  +\mathbf{r}\right) \\
 &  \Longleftrightarrow\ \left(  -x^{3}-2x^{2}=\mathbf{q}_{1}\cdot\left(
 x^{2}+x+1\right)  +\mathbf{r}\right)  .
 \end{align*}
@@ -33290,12 +33442,12 @@ _{2},
 where $\deg\mathbf{q}_{2}\leq0$. Now,%
 \begin{align*}
 &  \ \left(  -x^{3}-2x^{2}=\mathbf{q}_{1}\cdot\left(  x^{2}+x+1\right)
-+\mathbf{r}\right)  \\
++\mathbf{r}\right) \\
 &  \Longleftrightarrow\ \left(  -x^{3}-2x^{2}=\left(  -x+\mathbf{q}%
-_{2}\right)  \cdot\left(  x^{2}+x+1\right)  +\mathbf{r}\right)  \\
+_{2}\right)  \cdot\left(  x^{2}+x+1\right)  +\mathbf{r}\right) \\
 &  \Longleftrightarrow\ \left(  -x^{3}-2x^{2}-\left(  -x\right)  \cdot\left(
 x^{2}+x+1\right)  =\mathbf{q}_{2}\cdot\left(  x^{2}+x+1\right)  +\mathbf{r}%
-\right)  \\
+\right) \\
 &  \Longleftrightarrow\ \left(  -x^{2}+x=\mathbf{q}_{2}\cdot\left(
 x^{2}+x+1\right)  +\mathbf{r}\right)  .
 \end{align*}
@@ -33307,9 +33459,9 @@ Hence, $\mathbf{q}_{1}=-x+\mathbf{q}_{2}=-x-1$, so $\mathbf{q}=x^{2}%
 +\mathbf{q}_{1}=x^{2}-x-1$. Also,
 \begin{align*}
 &  \ \left(  -x^{2}+x=\mathbf{q}_{2}\cdot\left(  x^{2}+x+1\right)
-+\mathbf{r}\right)  \\
++\mathbf{r}\right) \\
 &  \Longleftrightarrow\ \left(  -x^{2}+x=-1\cdot\left(  x^{2}+x+1\right)
-+\mathbf{r}\right)  \\
++\mathbf{r}\right) \\
 &  \Longleftrightarrow\ \left(  \mathbf{r}=2x+1\right)  .
 \end{align*}
 
@@ -33364,8 +33516,6 @@ Now, Lemma \ref{lem.pol.deg(ab)} \textbf{(c)} yields%
 
 NEED\ LEMMA!.....
 \end{proof}
-
-
 
 When $\mathbb{K}$ is a field, every nonzero polynomial $\mathbf{b}%
 \in\mathbb{K}\left[  \left[  x\right]  \right]  $ has an invertible leading
