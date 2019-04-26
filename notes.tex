@@ -17,7 +17,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Friday, April 26, 2019 10:59:28}
+%TCIDATA{LastRevised=Friday, April 26, 2019 13:48:13}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -32333,7 +32333,7 @@ I}\mathbf{a}_{i,j} \label{eq.prop.pol.summable.rules.fubini-LR}%
 \textbf{may be false}. For an example where it is false, consider the family
 $\left(  \mathbf{a}_{i,j}\right)  _{\left(  i,j\right)  \in I\times J}$ with
 $I=\left\{  1,2,3,\ldots\right\}  $ and $J=\left\{  1,2,3,\ldots\right\}  $
-and $\mathbf{a}_{i,j}$ given by the following table:%
+and $\mathbf{a}_{i,j}$ given by the following table: \Needspace{5cm}%
 \[%
 \begin{tabular}
 [c]{|c||c|c|c|c|c|c|}\hline
@@ -32346,7 +32346,7 @@ $5$ &  &  &  &  & $1$ & $\cdots$\\\hline
 $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\ddots
 $\\\hline
 \end{tabular}
-\ \
+\ \ \
 \]
 (where all the entries not shown are $0$). Note that the elements of this
 family belong to $\mathbb{K}$, and thus can be considered as FPSs via
@@ -32424,12 +32424,11 @@ now-empty $0$-th slot with a $0$.
 \begin{proof}
 [Proof of Lemma \ref{lem.pol.x-shift}.]We have $x=\left(
 0,1,\underbrace{0,0,0,0,\ldots}_{\text{zeroes}}\right)  $ and therefore%
-\begin{align*}
-x\left(  a_{0},a_{1},a_{2},\ldots\right)   &  =\left(
+\[
+x\left(  a_{0},a_{1},a_{2},\ldots\right)  =\left(
 0,1,\underbrace{0,0,0,0,\ldots}_{\text{zeroes}}\right)  \left(  a_{0}%
-,a_{1},a_{2},\ldots\right) \\
-&  =\left(  0,a_{0},a_{1},a_{2},\ldots\right)  ,
-\end{align*}
+,a_{1},a_{2},\ldots\right)  =\left(  0,a_{0},a_{1},a_{2},\ldots\right)  ,
+\]
 where the last equality sign can easily be obtained from the definition of the
 multiplication on $\mathbb{K}\left[  \left[  x\right]  \right]  $.
 
@@ -33006,14 +33005,14 @@ $a_{i}\neq0$). Thus, the notion of \textquotedblleft the degree of a
 polynomial\textquotedblright\ is not well-behaved in constructive mathematics.
 It is also not well-behaved in other ways -- e.g., it is not preserved by ring
 homomorphisms, and leads to nuisances when $\mathbb{K}$ is the trivial ring,
-as witnessed in Theorem \ref{thm.pol.pol-basics} XINSERT \textbf{(d)} below.
-Thus, I shall avoid this notion whereever I can help it, and instead use the
-notion of $\mathbb{K}\left[  x\right]  _{\leq n}$ (where $n\in\mathbb{Z}$).
-This is a bit less familiar but hopefully more \textquotedblleft
-philosophically right\textquotedblright\ (while being essentially equivalent
-to the notion of degree under classical logic, because of Lemma
-\ref{lem.pol.deg} \textbf{(b)}). (The notion of a degree does become useful
-again when $\mathbb{K}$ is a field, but I will first study a more general setup.)
+as witnessed in Theorem \ref{thm.pol.deg-basics} \textbf{(d)} below. Thus, I
+shall avoid this notion whereever I can help it, and instead use the notion of
+$\mathbb{K}\left[  x\right]  _{\leq n}$ (where $n\in\mathbb{Z}$). This is a
+bit less familiar but hopefully more \textquotedblleft philosophically
+right\textquotedblright\ (while being essentially equivalent to the notion of
+degree under classical logic, because of Lemma \ref{lem.pol.deg}
+\textbf{(b)}). (The notion of a degree does become useful again when
+$\mathbb{K}$ is a field, but I will first study a more general setup.)
 \end{remark}
 \end{fineprint}
 
@@ -33279,7 +33278,7 @@ merely in $\mathbb{K}\left[  x\right]  _{\leq n}$, then $\deg\mathbf{a}$ may
 be smaller than $n$, in which case its leading term is not $a_{n}x^{n}$ but
 rather $a_{i}x^{i}$ for $i=\deg\mathbf{a}$. Thus there is a discrepancy
 between the definition of \textquotedblleft leading term\textquotedblright%
-\ and what we really want to say when we use this word.)}). This fact is
+\ and what we typically want to say when we use this word.)}). This fact is
 highly useful in induction proofs (specifically, it helps prove properties of
 polynomials by induction on the degree of a polynomial); let us state it as an exercise:
 
@@ -33337,169 +33336,17 @@ is a $\mathbb{K}$-submodule of $\mathbb{K}\left[  x\right]  $.
 some $n\in\mathbb{N}$ such that $\mathbf{a}\in\mathbb{K}\left[  x\right]
 _{\leq n}$.
 
-\textbf{(d)} The subset $\mathbb{K}\left[  x\right]  $ of $\mathbb{K}\left[
-\left[  x\right]  \right]  $ is a $\mathbb{K}$-subalgebra of $\mathbb{K}%
-\left[  \left[  x\right]  \right]  $.
-
-\textbf{(e)} If $a\in\mathbb{K}$, then $\underline{a}\in\mathbb{K}\left[
+\textbf{(d)} If $a\in\mathbb{K}$, then $\underline{a}\in\mathbb{K}\left[
 x\right]  _{\leq0}$.
 
-\textbf{(f)} We have $x\in\mathbb{K}\left[  x\right]  _{\leq1}$.
+\textbf{(e)} We have $x\in\mathbb{K}\left[  x\right]  _{\leq1}$.
 
-\textbf{(g)} Let $n\in\mathbb{N}$ and $m\in\mathbb{N}$. Let $\mathbf{a}%
+\textbf{(f)} Let $n\in\mathbb{N}$ and $m\in\mathbb{N}$. Let $\mathbf{a}%
 \in\mathbb{K}\left[  x\right]  _{\leq n}$ and $\mathbf{b}\in\mathbb{K}\left[
 x\right]  _{\leq m}$. Then, $\mathbf{a}+\mathbf{b}\in\mathbb{K}\left[
 x\right]  _{\leq\max\left\{  n,m\right\}  }$ and $\mathbf{ab}\in
 \mathbb{K}\left[  x\right]  _{\leq n+m}$.
 \end{theorem}
-
-\begin{proof}
-[Proof of Theorem \ref{thm.pol.pol-basics}.]\textbf{(a)} Let $n\in\mathbb{Z}$.
-Let $\mathbf{a}\in\mathbb{K}\left[  x\right]  _{\leq n}$. We shall prove that
-$\mathbf{a}\in\mathbb{K}\left[  x\right]  _{\leq n+1}$.
-
-Lemma \ref{lem.pol.deg} \textbf{(a)} shows that we have the equivalence%
-\[
-\left(  \mathbf{a}\in\mathbb{K}\left[  x\right]  _{\leq n}\right)
-\ \Longleftrightarrow\ \left(  \left[  x^{k}\right]  \mathbf{a}=0\text{ for
-all }k>n\right)  .
-\]
-Hence, we have $\left[  x^{k}\right]  \mathbf{a}=0$ for all $k>n$ (since
-$\mathbf{a}\in\mathbb{K}\left[  x\right]  _{\leq n}$). Therefore, $\left[
-x^{k}\right]  \mathbf{a}=0$ for all $k>n+1$ (since each $k\in\mathbb{N}$
-satisfying $k>n+1$ must also satisfy $k>n+1>n$).
-
-But Lemma \ref{lem.pol.deg} \textbf{(a)} (applied to $n+1$ instead of $n$)
-shows that we have the equivalence $\left(  \mathbf{a}\in\mathbb{K}\left[
-x\right]  _{\leq n+1}\right)  \ \Longleftrightarrow\ \left(  \left[
-x^{k}\right]  \mathbf{a}=0\text{ for all }k>n+1\right)  $. Hence, we have
-$\mathbf{a}\in\mathbb{K}\left[  x\right]  _{\leq n+1}$ (since we have $\left[
-x^{k}\right]  \mathbf{a}=0$ for all $k>n+1$).
-
-Now, forget that we fixed $\mathbf{a}$. We thus have shown that $\mathbf{a}%
-\in\mathbb{K}\left[  x\right]  _{\leq n+1}$ for each $\mathbf{a}\in
-\mathbb{K}\left[  x\right]  _{\leq n}$. In other words, $\mathbb{K}\left[
-x\right]  _{\leq n}\subseteq\mathbb{K}\left[  x\right]  _{\leq n+1}$. This
-proves Theorem \ref{thm.pol.pol-basics} \textbf{(a)}.
-
-\textbf{(b)} Let $n\in\mathbb{Z}$. Let $\mathbf{a}\in\mathbb{K}\left[
-x\right]  _{\leq n}$. We shall show that $\mathbf{a}\in\mathbb{K}\left[
-x\right]  $.
-
-Write the FPS $\mathbf{a}$ as $\mathbf{a}=\left(  a_{0},a_{1},a_{2}%
-,\ldots\right)  $. Thus, $\left(  a_{0},a_{1},a_{2},\ldots\right)
-=\mathbf{a}\in\mathbb{K}\left[  x\right]  _{\leq n}$. According to
-(\ref{eq.def.pol.deg.a.1}), this means that $a_{k}=0$ for all $k>n$. Renaming
-$k$ as $i$ in this statement, we conclude the following: $a_{i}=0$ for all
-$i>n$. Hence, all but finitely many $i\in\mathbb{N}$ satisfy $a_{i}=0$ (since
-all but finitely many $i\in\mathbb{N}$ satisfy $i>n$). In other words, the FPS
-$\left(  a_{0},a_{1},a_{2},\ldots\right)  $ is a polynomial (by the definition
-of a polynomial). In other words, $\mathbf{a}$ is a polynomial (since
-$\mathbf{a}=\left(  a_{0},a_{1},a_{2},\ldots\right)  $). In other words,
-$\mathbf{a}\in\mathbb{K}\left[  x\right]  $ (since $\mathbb{K}\left[
-x\right]  $ is the set of all polynomials).
-
-Forget that we fixed $\mathbf{a}$. We thus have shown that $\mathbf{a}%
-\in\mathbb{K}\left[  x\right]  $ for each $\mathbf{a}\in\mathbb{K}\left[
-x\right]  _{\leq n}$. In other words, $\mathbb{K}\left[  x\right]  _{\leq n}$
-is a subset of $\mathbb{K}\left[  x\right]  $.
-
-Furthermore, this subset $\mathbb{K}\left[  x\right]  _{\leq n}$ contains the
-zero vector $\underline{0}$ (by Lemma \ref{lem.pol.addition} \textbf{(a)}) and
-is closed under addition (by Lemma \ref{lem.pol.addition} \textbf{(b)}) and
-closed under scaling (by Lemma \ref{lem.pol.addition} \textbf{(c)}). Hence, it
-is a $\mathbb{K}$-submodule of $\mathbb{K}\left[  x\right]  $. This proves
-Theorem \ref{thm.pol.pol-basics} \textbf{(b)}.
-
-\textbf{(c)} Let $\mathbf{a}\in\mathbb{K}\left[  x\right]  $. In other words,
-$\mathbf{a}$ is a polynomial (since $\mathbb{K}\left[  x\right]  $ is the set
-of all polynomials).
-
-Write the FPS $\mathbf{a}$ as $\mathbf{a}=\left(  a_{0},a_{1},a_{2}%
-,\ldots\right)  $. Then, $\left(  a_{0},a_{1},a_{2},\ldots\right)
-=\mathbf{a}$ is a polynomial. In other words, all but finitely many
-$i\in\mathbb{N}$ satisfy $a_{i}=0$ (by the definition of a polynomial). In
-other words, there is a finite subset $S$ of $\mathbb{N}$ such that every
-$i\in\mathbb{N}\setminus S$ satisfies $a_{i}=0$. Consider this $S$.
-
-The subset $S\cup\left\{  0\right\}  $ of $\mathbb{N}$ is finite (since it is
-the union of the two finite sets $S$ and $\left\{  0\right\}  $) and nonempty
-(since it contains $0$); thus, it has a maximum (since any finite nonempty
-subset of $\mathbb{N}$ is finite). Let $s$ be this maximum. Then, every $t\in
-S\cup\left\{  0\right\}  $ satisfies $s\geq t$ (since $s$ is the maximum of
-$S\cup\left\{  0\right\}  $).
-
-If $k\in\mathbb{N}$ satisfies $k>s$, then XXX
-
-We have $a_{k}=0$ for all $k>nXXX$ XXX
-
-XXXX
-\end{proof}
-
-Using parts \textbf{(b)} and \textbf{(c)} of Theorem \ref{thm.pol.pol-basics},
-we can easily see that%
-\[
-\mathbb{K}\left[  x\right]  =\bigcup_{n\in\mathbb{N}}\mathbb{K}\left[
-x\right]  _{\leq n}.
-\]
-Here, $\bigcup_{n\in\mathbb{N}}\mathbb{K}\left[  x\right]  _{\leq n}$ means
-the union of the set $\mathbb{K}\left[  x\right]  _{\leq n}$ over all
-$n\in\mathbb{N}$; in other words,%
-\[
-\bigcup_{n\in\mathbb{N}}\mathbb{K}\left[  x\right]  _{\leq n}=\mathbb{K}%
-\left[  x\right]  _{\leq0}\cup\mathbb{K}\left[  x\right]  _{\leq1}%
-\cup\mathbb{K}\left[  x\right]  _{\leq2}\cup\cdots.
-\]
-
-
-TODO! The next stuff belongs into a separate theorem!
-
-\begin{theorem}
-\label{thm.pol.deg-basics}\textbf{(a)} If $a\in\mathbb{K}$, then
-$\underline{a}\in\mathbb{K}\left[  x\right]  $ and $\deg\underline{a}\leq0$.
-
-\textbf{(b)} If $a\in\mathbb{K}$ is nonzero, then $\deg\underline{a}=0$.
-
-\textbf{(c)} We have $x\in\mathbb{K}\left[  x\right]  $ and $\deg x\leq1$.
-
-\textbf{(d)} If $\left\vert \mathbb{K}\right\vert >1$, then $\deg x=1$.
-
-\textbf{(e)} If $\mathbf{a}$ and $\mathbf{b}$ are two polynomials, then
-$\mathbf{a}+\mathbf{b}$ and $\mathbf{ab}$ are two polynomials satisfying
-\[
-\deg\left(  \mathbf{a}+\mathbf{b}\right)  \leq\max\left\{  \deg\mathbf{a}%
-,\deg\mathbf{b}\right\}  \ \ \ \ \ \ \ \ \ \ \text{and}%
-\ \ \ \ \ \ \ \ \ \ \deg\left(  \mathbf{ab}\right)  \leq\deg\mathbf{a}%
-+\deg\mathbf{b}.
-\]
-
-
-\textbf{(f)} If $\mathbb{K}$ is a field, and if $\mathbf{a}$ and $\mathbf{b}$
-are two polynomials, then $\deg\left(  \mathbf{ab}\right)  =\deg
-\mathbf{a}+\deg\mathbf{b}$.
-\end{theorem}
-
-The condition \textquotedblleft$\left\vert \mathbb{K}\right\vert
->1$\textquotedblright\ in Theorem \ref{thm.pol.pol-basics} \textbf{(d)} is a
-homage to the possibility that $\mathbb{K}$ may be a trivial ring (i.e., a
-ring with only one element). If $\mathbb{K}$ is a trivial ring, then all
-coefficients of the polynomial $x$ are $0$ (because all elements of
-$\mathbb{K}$ are $0$), and thus $\deg x=-\infty$ rather than $\deg x=1$. The
-zero ring is generally responsible for lots of exceptions in rules about
-degrees; thus it is better to speak of \textquotedblleft polynomials of degree
-$\leq n$\textquotedblright\ than of the exact degree of a polynomial.
-
-Note also that Theorem \ref{thm.pol.pol-basics} \textbf{(f)} would not be true
-without the \textquotedblleft$\mathbb{K}$ is a field\textquotedblright%
-\ requirement. For example, if $\mathbb{K}=\mathbb{Z}/4$ and $\mathbf{a}=1+2x$
-and $\mathbf{b}=1+2x$ (using the standard shorthand notations $1=\left[
-1\right]  _{4}$ and $2=\left[  2\right]  _{4}$ etc.), then the polynomial%
-\begin{equation}
-\mathbf{ab}=\left(  1+2x\right)  \left(  1+2x\right)  =1+\underbrace{4x+4x^{2}%
-}_{\substack{=0\\\text{(since }4=0\text{ in }\mathbb{K}\text{)}}}=1
-\label{eq.pol.deg(ab)=0.cex}%
-\end{equation}
-has degree $<2$.
 
 Before proving Theorem \ref{thm.pol.pol-basics}, let us show two lemmas:
 
@@ -33586,9 +33433,10 @@ x^{n}\right]  \mathbf{a}\right)  \cdot\left(  \left[  x^{i}\right]
 \end{align*}
 This proves Lemma \ref{lem.pol.deg(ab)} \textbf{(a)}.
 
-\textbf{(b)} Let $k\in\mathbb{N}$ be such that $k>n+m$. Hence, $k-n>m$. Thus,
-(\ref{pf.lem.pol.deg(ab).bk=0}) (applied to $k-n$ instead of $k$) yields
-$\left[  x^{k-n}\right]  \mathbf{b}=0$.
+\textbf{(b)} Let $k\in\mathbb{N}$ be such that $k>n+m$. Hence, $k-n>m\geq0$,
+so that $k-n\in\mathbb{N}$. Thus, (\ref{pf.lem.pol.deg(ab).bk=0}) (applied to
+$k-n$ instead of $k$) yields $\left[  x^{k-n}\right]  \mathbf{b}=0$ (since
+$k-n>m$).
 
 Again, we have $k-n>m$; thus, Lemma \ref{lem.pol.deg(ab)} \textbf{(a)}
 (applied to $i=k-n$) yields
@@ -33618,7 +33466,329 @@ Lemma \ref{lem.pol.deg(ab)} \textbf{(b)}.
 \textbf{(a)} to $i=m$.
 \end{proof}
 
-Our next lemma is a generalization of Theorem \ref{thm.pol.pol-basics}
+\begin{proof}
+[Proof of Theorem \ref{thm.pol.pol-basics}.]\textbf{(a)} Let $n\in\mathbb{Z}$.
+Let $\mathbf{a}\in\mathbb{K}\left[  x\right]  _{\leq n}$. We shall prove that
+$\mathbf{a}\in\mathbb{K}\left[  x\right]  _{\leq n+1}$.
+
+Lemma \ref{lem.pol.deg} \textbf{(a)} shows that we have the equivalence%
+\[
+\left(  \mathbf{a}\in\mathbb{K}\left[  x\right]  _{\leq n}\right)
+\ \Longleftrightarrow\ \left(  \left[  x^{k}\right]  \mathbf{a}=0\text{ for
+all }k>n\right)  .
+\]
+Hence, we have $\left[  x^{k}\right]  \mathbf{a}=0$ for all $k>n$ (since
+$\mathbf{a}\in\mathbb{K}\left[  x\right]  _{\leq n}$). Therefore, $\left[
+x^{k}\right]  \mathbf{a}=0$ for all $k>n+1$ (since each $k\in\mathbb{N}$
+satisfying $k>n+1$ must also satisfy $k>n+1>n$).
+
+But Lemma \ref{lem.pol.deg} \textbf{(a)} (applied to $n+1$ instead of $n$)
+shows that we have the equivalence $\left(  \mathbf{a}\in\mathbb{K}\left[
+x\right]  _{\leq n+1}\right)  \ \Longleftrightarrow\ \left(  \left[
+x^{k}\right]  \mathbf{a}=0\text{ for all }k>n+1\right)  $. Hence, we have
+$\mathbf{a}\in\mathbb{K}\left[  x\right]  _{\leq n+1}$ (since we have $\left[
+x^{k}\right]  \mathbf{a}=0$ for all $k>n+1$).
+
+Now, forget that we fixed $\mathbf{a}$. We thus have shown that $\mathbf{a}%
+\in\mathbb{K}\left[  x\right]  _{\leq n+1}$ for each $\mathbf{a}\in
+\mathbb{K}\left[  x\right]  _{\leq n}$. In other words, $\mathbb{K}\left[
+x\right]  _{\leq n}\subseteq\mathbb{K}\left[  x\right]  _{\leq n+1}$. This
+proves Theorem \ref{thm.pol.pol-basics} \textbf{(a)}.
+
+\textbf{(b)} Let $n\in\mathbb{Z}$. Let $\mathbf{a}\in\mathbb{K}\left[
+x\right]  _{\leq n}$. We shall show that $\mathbf{a}\in\mathbb{K}\left[
+x\right]  $.
+
+Write the FPS $\mathbf{a}$ as $\mathbf{a}=\left(  a_{0},a_{1},a_{2}%
+,\ldots\right)  $. Thus, $\left(  a_{0},a_{1},a_{2},\ldots\right)
+=\mathbf{a}\in\mathbb{K}\left[  x\right]  _{\leq n}$. According to
+(\ref{eq.def.pol.deg.a.1}), this means that $a_{k}=0$ for all $k>n$. Renaming
+$k$ as $i$ in this statement, we conclude the following: $a_{i}=0$ for all
+$i>n$. Hence, all but finitely many $i\in\mathbb{N}$ satisfy $a_{i}=0$ (since
+all but finitely many $i\in\mathbb{N}$ satisfy $i>n$). In other words, the FPS
+$\left(  a_{0},a_{1},a_{2},\ldots\right)  $ is a polynomial (by the definition
+of a polynomial). In other words, $\mathbf{a}$ is a polynomial (since
+$\mathbf{a}=\left(  a_{0},a_{1},a_{2},\ldots\right)  $). In other words,
+$\mathbf{a}\in\mathbb{K}\left[  x\right]  $ (since $\mathbb{K}\left[
+x\right]  $ is the set of all polynomials).
+
+Forget that we fixed $\mathbf{a}$. We thus have shown that $\mathbf{a}%
+\in\mathbb{K}\left[  x\right]  $ for each $\mathbf{a}\in\mathbb{K}\left[
+x\right]  _{\leq n}$. In other words, $\mathbb{K}\left[  x\right]  _{\leq n}$
+is a subset of $\mathbb{K}\left[  x\right]  $.
+
+Furthermore, this subset $\mathbb{K}\left[  x\right]  _{\leq n}$ contains the
+zero vector $\underline{0}$ (by Lemma \ref{lem.pol.addition} \textbf{(a)}) and
+is closed under addition (by Lemma \ref{lem.pol.addition} \textbf{(b)}) and
+closed under scaling (by Lemma \ref{lem.pol.addition} \textbf{(c)}). Hence, it
+is a $\mathbb{K}$-submodule of $\mathbb{K}\left[  x\right]  $. This proves
+Theorem \ref{thm.pol.pol-basics} \textbf{(b)}.
+
+\textbf{(c)} Let $\mathbf{a}\in\mathbb{K}\left[  x\right]  $. In other words,
+$\mathbf{a}$ is a polynomial (since $\mathbb{K}\left[  x\right]  $ is the set
+of all polynomials).
+
+Write the FPS $\mathbf{a}$ as $\mathbf{a}=\left(  a_{0},a_{1},a_{2}%
+,\ldots\right)  $. Then, $\left(  a_{0},a_{1},a_{2},\ldots\right)
+=\mathbf{a}$ is a polynomial. In other words, all but finitely many
+$i\in\mathbb{N}$ satisfy $a_{i}=0$ (by the definition of a polynomial). In
+other words, there is a finite subset $S$ of $\mathbb{N}$ such that%
+\begin{equation}
+\text{every }i\in\mathbb{N}\setminus S\text{ satisfies }a_{i}%
+=0.\label{pf.thm.pol.pol-basics.c.1}%
+\end{equation}
+Consider this $S$.
+
+The subset $S\cup\left\{  0\right\}  $ of $\mathbb{N}$ is finite (since it is
+the union of the two finite sets $S$ and $\left\{  0\right\}  $) and nonempty
+(since it contains $0$); thus, it has a maximum (since any finite nonempty
+subset of $\mathbb{N}$ is finite). Let $n$ be this maximum. Then,
+\begin{equation}
+\text{every }t\in S\cup\left\{  0\right\}  \text{ satisfies }n\geq
+t\label{pf.thm.pol.pol-basics.c.2}%
+\end{equation}
+(since $n$ is the maximum of $S\cup\left\{  0\right\}  $).
+
+If $k\in\mathbb{N}$ satisfies $k>n$, then $a_{k}=0$%
+\ \ \ \ \footnote{\textit{Proof.} Let $k\in\mathbb{N}$ be such that $k>n$. We
+must prove that $a_{k}=0$.
+\par
+If we had $k\in S$, then we would have $k\in S\subseteq S\cup\left\{
+0\right\}  $ and therefore $n\geq k$ (by (\ref{pf.thm.pol.pol-basics.c.2}),
+applied to $t=k$); but this would contradict $k>n$. Hence, we cannot have
+$k\in S$. Thus, $k\notin S$. Combining this with $k\in\mathbb{N}$, we obtain
+$k\in\mathbb{N}\setminus S$. Hence, (\ref{pf.thm.pol.pol-basics.c.1}) (applied
+to $i=k$) yields $a_{k}=0$. Qed.}. In other words, $\left(  a_{k}=0\text{ for
+all }k>n\right)  $. In view of (\ref{eq.def.pol.deg.a.1}), this rewrites as
+$\left(  a_{0},a_{1},a_{2},\ldots\right)  \in\mathbb{K}\left[  x\right]
+_{\leq n}$. Thus, $\mathbf{a}=\left(  a_{0},a_{1},a_{2},\ldots\right)
+\in\mathbb{K}\left[  x\right]  _{\leq n}$.
+
+Hence, we have found an $n\in\mathbb{N}$ such that $\mathbf{a}\in
+\mathbb{K}\left[  x\right]  _{\leq n}$. Thus, such an $n$ exists. This proves
+Theorem \ref{thm.pol.pol-basics} \textbf{(c)}.
+
+\textbf{(d)} Lemma \ref{lem.pol.addition} \textbf{(f)} (applied to $i=0$ and
+$n=0$) yields $x^{0}\in\mathbb{K}\left[  x\right]  _{\leq0}$. Thus, Lemma
+\ref{lem.pol.addition} \textbf{(c)} (applied to $n=0$, $\lambda=a$ and
+$\mathbf{a}=x^{0}$) yields $ax^{0}\in\mathbb{K}\left[  x\right]  _{\leq0}$.
+But%
+\[
+a\underbrace{x^{0}}_{=1_{\mathbb{\mathbb{K}}\left[  \left[  x\right]  \right]
+}=\underline{1}}=a\underline{1}=a\left(  1,\underbrace{0,0,0,\ldots
+}_{\text{zeroes}}\right)  =\left(  a,\underbrace{0,0,0,\ldots}_{\text{zeroes}%
+}\right)  =\underline{a}.
+\]
+Thus, $\underline{a}=ax^{0}\in\mathbb{K}\left[  x\right]  _{\leq0}$. This
+proves Theorem \ref{thm.pol.pol-basics} \textbf{(d)}.
+
+\textbf{(e)} Lemma \ref{lem.pol.addition} \textbf{(f)} (applied to $i=1$ and
+$n=1$) yields $x^{1}\in\mathbb{K}\left[  x\right]  _{\leq1}$. Thus,
+$x=x^{1}\in\mathbb{K}\left[  x\right]  _{\leq1}$. This proves Theorem
+\ref{thm.pol.pol-basics} \textbf{(e)}.
+
+\textbf{(f)} Let $j=\max\left\{  n,m\right\}  $. Then, $n\leq\max\left\{
+n,m\right\}  =j$ and similarly $m\leq j$.
+
+But Theorem \ref{thm.pol.pol-basics} \textbf{(a)} yields that
+\[
+\cdots\subseteq\mathbb{K}\left[  x\right]  _{\leq0}\subseteq\mathbb{K}\left[
+x\right]  _{\leq1}\subseteq\mathbb{K}\left[  x\right]  _{\leq2}\subseteq
+\cdots.
+\]
+In other words, $\mathbb{K}\left[  x\right]  _{\leq u}\subseteq\mathbb{K}%
+\left[  x\right]  _{\leq v}$ whenever $u,v\in\mathbb{Z}$ satisfy $u\leq v$.
+Applying this to $u=n$ and $v=j$, we obtain $\mathbb{K}\left[  x\right]
+_{\leq n}\subseteq\mathbb{K}\left[  x\right]  _{\leq j}$. Hence,
+$\mathbf{a}\in\mathbb{K}\left[  x\right]  _{\leq n}\subseteq\mathbb{K}\left[
+x\right]  _{\leq j}$. Similarly, $\mathbf{b}\in\mathbb{K}\left[  x\right]
+_{\leq j}$. Hence, Lemma \ref{lem.pol.addition} \textbf{(b)} (applied to $j$
+instead of $n$) yields $\mathbf{a}+\mathbf{b}\in\mathbb{K}\left[  x\right]
+_{\leq j}=\mathbb{K}\left[  x\right]  _{\leq\max\left\{  n,m\right\}  }$
+(since $j=\max\left\{  n,m\right\}  $). Furthermore, Lemma
+\ref{lem.pol.deg(ab)} \textbf{(b)} yields $\mathbf{ab}\in\mathbb{K}\left[
+x\right]  _{\leq n+m}$. Thus, Theorem \ref{thm.pol.pol-basics} \textbf{(f)} is proven.
+\end{proof}
+
+Using parts \textbf{(b)} and \textbf{(c)} of Theorem \ref{thm.pol.pol-basics},
+we can easily see that%
+\[
+\mathbb{K}\left[  x\right]  =\bigcup_{n\in\mathbb{N}}\mathbb{K}\left[
+x\right]  _{\leq n}.
+\]
+Here, $\bigcup_{n\in\mathbb{N}}\mathbb{K}\left[  x\right]  _{\leq n}$ means
+the union of the set $\mathbb{K}\left[  x\right]  _{\leq n}$ over all
+$n\in\mathbb{N}$; in other words,%
+\[
+\bigcup_{n\in\mathbb{N}}\mathbb{K}\left[  x\right]  _{\leq n}=\mathbb{K}%
+\left[  x\right]  _{\leq0}\cup\mathbb{K}\left[  x\right]  _{\leq1}%
+\cup\mathbb{K}\left[  x\right]  _{\leq2}\cup\cdots.
+\]
+
+
+\begin{corollary}
+\label{cor.pol.pol-subal}\textbf{(a)} The subset $\mathbb{K}\left[  x\right]
+$ of $\mathbb{K}\left[  \left[  x\right]  \right]  $ is a $\mathbb{K}%
+$-subalgebra of $\mathbb{K}\left[  \left[  x\right]  \right]  $.
+
+\textbf{(b)} We have $x\in\mathbb{K}\left[  x\right]  $.
+\end{corollary}
+
+\begin{proof}
+[Proof of Corollary \ref{cor.pol.pol-subal}.] Theorem \ref{thm.pol.pol-basics}
+\textbf{(a)} (applied to $n=1$) yields that $\mathbb{K}\left[  x\right]
+_{\leq1}$ is a $\mathbb{K}$-submodule of $\mathbb{K}\left[  x\right]  $. Thus,
+$\mathbb{K}\left[  x\right]  _{\leq1}\subseteq\mathbb{K}\left[  x\right]  $.
+But Theorem \ref{thm.pol.pol-basics} \textbf{(e)} yields $x\in\mathbb{K}%
+\left[  x\right]  _{\leq1}\subseteq\mathbb{K}\left[  x\right]  $. This proves
+Corollary \ref{cor.pol.pol-subal} \textbf{(b)}.
+
+\textbf{(a)} Theorem \ref{thm.pol.pol-basics} \textbf{(b)} (applied to $n=0$)
+yields that $\mathbb{K}\left[  x\right]  _{\leq0}$ is a $\mathbb{K}$-submodule
+of $\mathbb{K}\left[  x\right]  $. Thus, $\mathbb{K}\left[  x\right]  _{\leq
+0}\subseteq\mathbb{K}\left[  x\right]  $.
+
+Theorem \ref{thm.pol.pol-basics} \textbf{(e)} yields $\underline{0}%
+\in\mathbb{K}\left[  x\right]  _{\leq0}\subseteq\mathbb{K}\left[  x\right]  $
+and $\underline{1}\in\mathbb{K}\left[  x\right]  _{\leq0}\subseteq
+\mathbb{K}\left[  x\right]  $.
+
+Now, let $\mathbf{a},\mathbf{b}\in\mathbb{K}\left[  x\right]  $. Then, there
+exists some $n\in\mathbb{N}$ such that $\mathbf{a}\in\mathbb{K}\left[
+x\right]  _{\leq n}$ (by Theorem \ref{thm.pol.pol-basics} \textbf{(c)}).
+Similarly, there exists some $m\in\mathbb{N}$ such that $\mathbf{b}%
+\in\mathbb{K}\left[  x\right]  _{\leq m}$. Consider these $n$ and $m$.
+
+Theorem \ref{thm.pol.pol-basics} \textbf{(f)} yields that $\mathbf{a}%
++\mathbf{b}\in\mathbb{K}\left[  x\right]  _{\leq\max\left\{  n,m\right\}  }$
+and $\mathbf{ab}\in\mathbb{K}\left[  x\right]  _{\leq n+m}$. But Theorem
+\ref{thm.pol.pol-basics} \textbf{(a)} (applied to $\max\left\{  n,m\right\}  $
+instead of $n$) yields that $\mathbb{K}\left[  x\right]  _{\leq\max\left\{
+n,m\right\}  }$ is a $\mathbb{K}$-submodule of $\mathbb{K}\left[  x\right]  $.
+Thus, $\mathbb{K}\left[  x\right]  _{\leq\max\left\{  n,m\right\}  }%
+\subseteq\mathbb{K}\left[  x\right]  $. Hence,%
+\begin{equation}
+\mathbf{a}+\mathbf{b}\in\mathbb{K}\left[  x\right]  _{\leq\max\left\{
+n,m\right\}  }\subseteq\mathbb{K}\left[  x\right]
+.\label{pf.cor.pol.pol-subal.a+b}%
+\end{equation}
+Furthermore, Theorem \ref{thm.pol.pol-basics} \textbf{(a)} (applied to $n+m$
+instead of $n$) yields that $\mathbb{K}\left[  x\right]  _{\leq n+m}$ is a
+$\mathbb{K}$-submodule of $\mathbb{K}\left[  x\right]  $. Thus, $\mathbb{K}%
+\left[  x\right]  _{\leq n+m}\subseteq\mathbb{K}\left[  x\right]  $. Hence,%
+\begin{equation}
+\mathbf{ab}\in\mathbb{K}\left[  x\right]  _{\leq n+m}\subseteq\mathbb{K}%
+\left[  x\right]  .\label{pf.cor.pol.pol-subal.ab}%
+\end{equation}
+
+
+Now, forget that we fixed $\mathbf{a}$ and $\mathbf{b}$. We thus have proven
+(\ref{pf.cor.pol.pol-subal.a+b}) and (\ref{pf.cor.pol.pol-subal.ab}) for every
+$\mathbf{a},\mathbf{b}\in\mathbb{K}\left[  x\right]  $.
+
+Thus, in particular, $\mathbf{a}+\mathbf{b}\in\mathbb{K}\left[  x\right]  $
+for every $\mathbf{a},\mathbf{b}\in\mathbb{K}\left[  x\right]  $. In other
+words, the subset $\mathbb{K}\left[  x\right]  $ of $\mathbb{K}\left[  \left[
+x\right]  \right]  $ is closed under addition.
+
+Furthermore, $\mathbf{ab}\in\mathbb{K}\left[  x\right]  $ for every
+$\mathbf{a},\mathbf{b}\in\mathbb{K}\left[  x\right]  $ (since we have proven
+(\ref{pf.cor.pol.pol-subal.ab}) for every $\mathbf{a},\mathbf{b}\in
+\mathbb{K}\left[  x\right]  $). In other words, the subset $\mathbb{K}\left[
+x\right]  $ of $\mathbb{K}\left[  \left[  x\right]  \right]  $ is closed under multiplication.
+
+If $\lambda\in\mathbb{K}$ and if $\mathbf{a}\in\mathbb{K}\left[  x\right]  $,
+then $\lambda\mathbf{a}\in\mathbb{K}\left[  x\right]  $%
+\ \ \ \ \footnote{\textit{Proof.} Let $\lambda\in\mathbb{K}$ and let
+$\mathbf{a}\in\mathbb{K}\left[  x\right]  $. We must prove that $\lambda
+\mathbf{a}\in\mathbb{K}\left[  x\right]  $. But there exists some
+$n\in\mathbb{N}$ such that $\mathbf{a}\in\mathbb{K}\left[  x\right]  _{\leq
+n}$ (by Theorem \ref{thm.pol.pol-basics} \textbf{(c)}). Consider this $n$.
+Then, Lemma \ref{lem.pol.addition} \textbf{(c)} yields $\lambda\mathbf{a}%
+\in\mathbb{K}\left[  x\right]  _{\leq n}$. On the other hand, Theorem
+\ref{thm.pol.pol-basics} \textbf{(a)} yields that $\mathbb{K}\left[  x\right]
+_{\leq n}$ is a $\mathbb{K}$-submodule of $\mathbb{K}\left[  x\right]  $.
+Thus, $\mathbb{K}\left[  x\right]  _{\leq n}\subseteq\mathbb{K}\left[
+x\right]  $. Hence, $\lambda\mathbf{a}\in\mathbb{K}\left[  x\right]  _{\leq
+n}\subseteq\mathbb{K}\left[  x\right]  $. Qed.}. In other words, the subset
+$\mathbb{K}\left[  x\right]  $ of $\mathbb{K}\left[  \left[  x\right]
+\right]  $ is closed under scaling.
+
+The subset $\mathbb{K}\left[  x\right]  $ of $\mathbb{K}\left[  \left[
+x\right]  \right]  $ contains $0_{\mathbb{K}\left[  \left[  x\right]  \right]
+}$ (since $0_{\mathbb{K}\left[  \left[  x\right]  \right]  }=\underline{0}%
+\in\mathbb{K}\left[  x\right]  $) and is closed under addition and closed
+under scaling. Thus, this subset $\mathbb{K}\left[  x\right]  $ is a
+$\mathbb{K}$-submodule of $\mathbb{K}\left[  \left[  x\right]  \right]  $.
+
+The subset $\mathbb{K}\left[  x\right]  $ of $\mathbb{K}\left[  \left[
+x\right]  \right]  $ contains $0_{\mathbb{K}\left[  \left[  x\right]  \right]
+}$ and contains $1_{\mathbb{K}\left[  \left[  x\right]  \right]  }$ (since
+$1_{\mathbb{K}\left[  \left[  x\right]  \right]  }=\underline{1}\in
+\mathbb{K}\left[  x\right]  $) and is closed under addition and closed under
+multiplication. Thus, this subset $\mathbb{K}\left[  x\right]  $ is a subring
+of $\mathbb{K}\left[  \left[  x\right]  \right]  $.
+
+Now, the subset $\mathbb{K}\left[  x\right]  $ is both a subring and a
+$\mathbb{K}$-submodule of $\mathbb{K}\left[  \left[  x\right]  \right]  $. In
+other words, $\mathbb{K}\left[  x\right]  $ is a $\mathbb{K}$-subalgebra of
+$\mathbb{K}\left[  \left[  x\right]  \right]  $. This proves Corollary
+\ref{cor.pol.pol-subal} \textbf{(d)}.
+\end{proof}
+
+We can restate some of Theorem \ref{thm.pol.pol-basics} in terms of degrees:
+
+\begin{theorem}
+\label{thm.pol.deg-basics}\textbf{(a)} If $a\in\mathbb{K}$, then
+$\underline{a}\in\mathbb{K}\left[  x\right]  $ and $\deg\underline{a}\leq0$.
+
+\textbf{(b)} If $a\in\mathbb{K}$ is nonzero, then $\deg\underline{a}=0$.
+
+\textbf{(c)} We have $x\in\mathbb{K}\left[  x\right]  $ and $\deg x\leq1$.
+
+\textbf{(d)} If $\left\vert \mathbb{K}\right\vert >1$, then $\deg x=1$.
+
+\textbf{(e)} If $\mathbf{a}$ and $\mathbf{b}$ are two polynomials, then
+$\mathbf{a}+\mathbf{b}$ and $\mathbf{ab}$ are two polynomials satisfying
+\[
+\deg\left(  \mathbf{a}+\mathbf{b}\right)  \leq\max\left\{  \deg\mathbf{a}%
+,\deg\mathbf{b}\right\}  \ \ \ \ \ \ \ \ \ \ \text{and}%
+\ \ \ \ \ \ \ \ \ \ \deg\left(  \mathbf{ab}\right)  \leq\deg\mathbf{a}%
++\deg\mathbf{b}.
+\]
+
+
+\textbf{(f)} If $\mathbb{K}$ is a field, and if $\mathbf{a}$ and $\mathbf{b}$
+are two polynomials, then $\deg\left(  \mathbf{ab}\right)  =\deg
+\mathbf{a}+\deg\mathbf{b}$.
+\end{theorem}
+
+We shall prove this in more detail later. The condition \textquotedblleft%
+$\left\vert \mathbb{K}\right\vert >1$\textquotedblright\ in Theorem
+\ref{thm.pol.deg-basics} \textbf{(d)} is a homage to the possibility that
+$\mathbb{K}$ may be a trivial ring (i.e., a ring with only one element). If
+$\mathbb{K}$ is a trivial ring, then all coefficients of the polynomial $x$
+are $0$ (because all elements of $\mathbb{K}$ are $0$), and thus $\deg
+x=-\infty$ rather than $\deg x=1$. The zero ring is generally responsible for
+lots of exceptions in rules about degrees; thus it is better to speak of
+\textquotedblleft polynomials of degree $\leq n$\textquotedblright\ than of
+the exact degree of a polynomial.
+
+Note also that Theorem \ref{thm.pol.deg-basics} \textbf{(f)} would not be true
+without the \textquotedblleft$\mathbb{K}$ is a field\textquotedblright%
+\ requirement. For example, if $\mathbb{K}=\mathbb{Z}/4$ and $\mathbf{a}=1+2x$
+and $\mathbf{b}=1+2x$ (using the standard shorthand notations $1=\left[
+1\right]  _{4}$ and $2=\left[  2\right]  _{4}$ etc.), then the polynomial%
+\begin{equation}
+\mathbf{ab}=\left(  1+2x\right)  \left(  1+2x\right)  =1+\underbrace{4x+4x^{2}%
+}_{\substack{=0\\\text{(since }4=0\text{ in }\mathbb{K}\text{)}}%
+}=1\label{eq.pol.deg(ab)=0.cex}%
+\end{equation}
+has degree $<2$.
+
+TODO! The next stuff belongs into a separate theorem!
+
+Our next lemma is a generalization of Theorem \ref{thm.pol.deg-basics}
 \textbf{(f)}: Instead of requiring $\mathbb{K}$ to be a field, we will merely
 require that the coefficient $\left[  x^{m}\right]  \mathbf{b}$ of
 $\mathbf{b}$ be invertible (which is automatically satisfied when $\mathbb{K}$
@@ -33748,59 +33918,6 @@ invertible). Therefore, Lemma \ref{lem.pol.deg(ab)-ible} shows that
 $\deg\left(  \mathbf{ab}\right)  =\deg\mathbf{a}+\underbrace{m}_{=\deg
 \mathbf{b}}=\deg\mathbf{a}+\deg\mathbf{b}$. This proves Theorem
 \ref{thm.pol.pol-basics} \textbf{(f)}.
-
-\textbf{(g)} Theorem \ref{thm.pol.pol-basics} \textbf{(a)} yields
-$\underline{0}\in\mathbb{K}\left[  x\right]  $ and $\underline{1}\in
-\mathbb{K}\left[  x\right]  $.
-
-If $\mathbf{a}$ and $\mathbf{b}$ are two polynomials, then $\mathbf{a}%
-+\mathbf{b}$ is a polynomial (by Theorem \ref{thm.pol.pol-basics}
-\textbf{(e)}). In other words, if $\mathbf{a},\mathbf{b}\in\mathbb{K}\left[
-x\right]  $, then $\mathbf{a}+\mathbf{b}\in\mathbb{K}\left[  x\right]  $
-(since $\mathbb{K}\left[  x\right]  $ is the set of all polynomials). In other
-words, the subset $\mathbb{K}\left[  x\right]  $ of $\mathbb{K}\left[  \left[
-x\right]  \right]  $ is closed under addition.
-
-If $\mathbf{a}$ and $\mathbf{b}$ are two polynomials, then $\mathbf{ab}$ is a
-polynomial (by Theorem \ref{thm.pol.pol-basics} \textbf{(e)}). In other words,
-if $\mathbf{a},\mathbf{b}\in\mathbb{K}\left[  x\right]  $, then $\mathbf{ab}%
-\in\mathbb{K}\left[  x\right]  $ (since $\mathbb{K}\left[  x\right]  $ is the
-set of all polynomials). In other words, the subset $\mathbb{K}\left[
-x\right]  $ of $\mathbb{K}\left[  \left[  x\right]  \right]  $ is closed under multiplication.
-
-If $\lambda\in\mathbb{K}$ and if $\mathbf{a}$ is a polynomial, then
-$\lambda\mathbf{a}$ is a polynomial\footnote{\textit{Proof.} Let $\lambda
-\in\mathbb{K}$ and let $\mathbf{a}$ be a polynomial. We must prove that
-$\lambda\mathbf{a}$ is a polynomial. If $\mathbf{a}=\underline{0}$, then this
-is obvious (since in this case, we have $\lambda\mathbf{a}=\lambda
-\underline{0}=\underline{0}\in\mathbb{K}\left[  x\right]  $). Hence, for the
-rest of this proof, we WLOG assume that $\mathbf{a}\neq\underline{0}$. Thus,
-$\deg\mathbf{a}\in\mathbb{N}$. Hence, Lemma \ref{lem.pol.addition}
-\textbf{(d)} yields that $\lambda\mathbf{a}$ is a polynomial of degree
-$\leq\deg\mathbf{a}$ (since $\mathbf{a}$ is a polynomial of degree $\leq
-\deg\mathbf{a}$). Qed.}. In other words, the subset $\mathbb{K}\left[
-x\right]  $ of $\mathbb{K}\left[  \left[  x\right]  \right]  $ is closed under scaling.
-
-The subset $\mathbb{K}\left[  x\right]  $ of $\mathbb{K}\left[  \left[
-x\right]  \right]  $ contains $0_{\mathbb{K}\left[  \left[  x\right]  \right]
-}$ (since $0_{\mathbb{K}\left[  \left[  x\right]  \right]  }=\underline{0}%
-\in\mathbb{K}\left[  x\right]  $) and is closed under addition and closed
-under scaling. Thus, this subset $\mathbb{K}\left[  x\right]  $ is a
-$\mathbb{K}$-submodule of $\mathbb{K}\left[  \left[  x\right]  \right]  $.
-
-The subset $\mathbb{K}\left[  x\right]  $ of $\mathbb{K}\left[  \left[
-x\right]  \right]  $ contains $0_{\mathbb{K}\left[  \left[  x\right]  \right]
-}$ and contains $1_{\mathbb{K}\left[  \left[  x\right]  \right]  }$ (since
-$1_{\mathbb{K}\left[  \left[  x\right]  \right]  }=\underline{1}\in
-\mathbb{K}\left[  x\right]  $) and is closed under addition and closed under
-multiplication. Thus, this subset $\mathbb{K}\left[  x\right]  $ is a subring
-of $\mathbb{K}\left[  \left[  x\right]  \right]  $.
-
-Now, the subset $\mathbb{K}\left[  x\right]  $ is both a subring and a
-$\mathbb{K}$-submodule of $\mathbb{K}\left[  \left[  x\right]  \right]  $. In
-other words, $\mathbb{K}\left[  x\right]  $ is a $\mathbb{K}$-subalgebra of
-$\mathbb{K}\left[  \left[  x\right]  \right]  $. This proves Theorem
-\ref{thm.pol.pol-basics} \textbf{(g)}.
 \end{proof}
 
 \subsection{Division with remainder}
@@ -33834,16 +33951,17 @@ The first basic fact is a version of division with remainder for polynomials
 \ref{thm.Z[i].gauss.quorem}):
 
 \begin{theorem}
-\label{thm.pol.quorem}Let $m\in\mathbb{N}$. Let $\mathbf{b}$ be a polynomial
-such that $\deg\mathbf{b}\leq m$ and such that $\left[  x^{m}\right]
-\mathbf{b}\in\mathbb{K}$ is invertible. Let $\mathbf{a}$ be any polynomial.
+\label{thm.pol.quorem}Let $m\in\mathbb{N}$. Let $\mathbf{b}\in\mathbb{K}%
+\left[  x\right]  _{\leq m}$ be such that $\left[  x^{m}\right]  \mathbf{b}%
+\in\mathbb{K}$ is invertible. Let $\mathbf{a}$ be any polynomial.
 
 \textbf{(a)} Then, there exists a \textbf{unique} pair $\left(  \mathbf{q}%
 ,\mathbf{r}\right)  $ of polynomials such that $\mathbf{a}=\mathbf{qb}%
 +\mathbf{r}$ and $\deg\mathbf{r}<m$.
 
-\textbf{(b)} Moreover, this pair satisfies $\deg\mathbf{q}\leq\deg
-\mathbf{a}-m$.
+\textbf{(b)} Moreover, if $n\in\mathbb{N}$ satisfies $\mathbf{a}\in
+\mathbb{K}\left[  x\right]  _{\leq n}$, then this pair satisfies
+$\mathbf{q}\in\mathbb{K}\left[  x\right]  _{\leq n-m}$.
 \end{theorem}
 
 We shall give an example for Theorem \ref{thm.pol.quorem} in a moment (and
@@ -34306,32 +34424,50 @@ x^{n}\right]  \mathbf{a}=1\neq0$).
 \end{comment}
 
 
-\begin{example}
-Let $\mathbf{a}=\left(  a_{0},a_{1},a_{2},\ldots\right)  \in\mathbb{K}\left[
-x\right]  $ be a polynomial.
+\begin{center}
+\textbf{2019-04-26 lecture}
+\end{center}
 
-\textbf{(a)} Then,%
+\begin{example}
+\label{exa.pol.eval.0}Let $\mathbf{a}=\left(  a_{0},a_{1},a_{2},\ldots\right)
+\in\mathbb{K}\left[  x\right]  $ be a polynomial.
+
+\textbf{(a)} Taking $U=\mathbb{K}$ and $u=0$ in the above definition, we
+obtain%
 \[
 \mathbf{a}\left[  0\right]  =\sum_{k\in\mathbb{N}}a_{k}0^{k}=a_{0}%
-\underbrace{0^{0}}_{=1}+\sum_{k>0}a_{k}\underbrace{0^{k}}_{=0}=a_{0}.
+\underbrace{0^{0}}_{=1}+\sum_{k>0}a_{k}\underbrace{0^{k}}%
+_{\substack{=0\\\text{(since }k>0\text{)}}}=a_{0}=\left[  x^{0}\right]
+\mathbf{a}.
 \]
 
 
-\textbf{(b)} Furthermore,%
+\textbf{(b)} Taking $U=\mathbb{K}$ and $u=1$ in the above definition, we
+obtain%
 \[
 \mathbf{a}\left[  1\right]  =\sum_{k\in\mathbb{N}}a_{k}\underbrace{1^{k}}%
 _{=1}=\sum_{k\in\mathbb{N}}a_{k}=a_{0}+a_{1}+a_{2}+\cdots.
 \]
+This is the sum of all coefficients of $\mathbf{a}$.
 
-
-\textbf{(c)} Furthermore,%
+\textbf{(c)} Taking $U=\mathbb{K}\left[  x\right]  $ and $u=x$, we obtain%
 \[
 \mathbf{a}\left[  x\right]  =\sum_{k\in\mathbb{N}}a_{k}x^{k}=\left(
 a_{0},a_{1},a_{2},\ldots\right)  =\mathbf{a}.
 \]
-
+So $\mathbf{a}\left[  x\right]  $ is another way of saying \textquotedblleft%
+$\mathbf{a}$\textquotedblright.
 
 \textbf{(d)} Furthermore,%
+\[
+\mathbf{a}\left[  -x\right]  =\sum_{k\in\mathbb{N}}a_{k}\underbrace{\left(
+-x\right)  ^{k}}_{=\left(  -1\right)  ^{k}x^{k}}=\sum_{k\in\mathbb{N}}\left(
+-1\right)  ^{k}a_{k}x^{k}=\left(  a_{0},-a_{1},a_{2},-a_{3},a_{4}%
+,\ldots\right)  .
+\]
+
+
+\textbf{(e)} Furthermore,%
 \[
 \mathbf{a}\left[  x^{2}\right]  =\sum_{k\in\mathbb{N}}a_{k}\left(
 x^{2}\right)  ^{k}=\sum_{k\in\mathbb{N}}a_{k}x^{2k}=\left(  a_{0}%
@@ -34341,13 +34477,13 @@ x^{2}\right)  ^{k}=\sum_{k\in\mathbb{N}}a_{k}x^{2k}=\left(  a_{0}%
 \end{example}
 
 \begin{theorem}
-Let $U$ be a $\mathbb{K}$-algebra. Let $u\in U$.
+\label{thm.pol.eval.a+b}Let $U$ be a $\mathbb{K}$-algebra. Let $u\in U$.
 
 \textbf{(a)} Any $\mathbf{a},\mathbf{b}\in\mathbb{K}\left[  x\right]  $
 satisfy%
 \[
-\left(  \mathbf{a}+\mathbf{b}\right)  \left[  u\right]  =\mathbf{a}\left[
-u\right]  +\mathbf{b}\left[  u\right]  \ \ \ \ \ \ \ \ \ \ \text{and}%
+\left(  \mathbf{a+b}\right)  \left[  u\right]  =\mathbf{a}\left[  u\right]
++\mathbf{b}\left[  u\right]  \ \ \ \ \ \ \ \ \ \ \text{and}%
 \ \ \ \ \ \ \ \ \ \ \left(  \mathbf{ab}\right)  \left[  u\right]
 =\mathbf{a}\left[  u\right]  \cdot\mathbf{b}\left[  u\right]  .
 \]
@@ -34362,15 +34498,25 @@ x\right]  $ satisfy%
 
 
 \textbf{(c)} Any $a\in\mathbb{K}$ satisfies $\underline{a}\left[  u\right]
-=a$.
+=a\cdot1_{U}$. (This is often written $\underline{a}\left[  u\right]  =a$, but
+keep in mind that the $a$ on the right hand side is understood to be
+\textquotedblleft coerced into $U$\textquotedblright, so it actually means the
+element of $U$ \textquotedblleft corresponding to $a$\textquotedblright.)
 \end{theorem}
 
 \begin{proof}
-\textbf{(a)} Only the second equality is not obvious.
+[Proof of Theorem \ref{thm.pol.eval.a+b}.] \textbf{(b)} and \textbf{(c)} are easy.
+
+\textbf{(a)} It is easy to see that $\left(  \mathbf{a+b}\right)  \left[
+u\right]  =\mathbf{a}\left[  u\right]  +\mathbf{b}\left[  u\right]  $.
+
+It remains to prove that $\left(  \mathbf{ab}\right)  \left[  u\right]
+=\mathbf{a}\left[  u\right]  \cdot\mathbf{b}\left[  u\right]  $.
 
 Write $\mathbf{a}$ and $\mathbf{b}$ as $\mathbf{a}=\left(  a_{0},a_{1}%
 ,a_{2},\ldots\right)  $ and $\mathbf{b}=\left(  b_{0},b_{1},b_{2}%
-,\ldots\right)  $. Then, as we know,
+,\ldots\right)  $. Then, the definition of multiplication on $\mathbb{K}%
+\left[  \left[  x\right]  \right]  $, we have%
 \[
 \mathbf{ab}=\left(  c_{0},c_{1},c_{2},\ldots\right)
 ,\ \ \ \ \ \ \ \ \ \ \text{where }c_{n}=\sum\limits_{\substack{i,j\in
@@ -34378,38 +34524,41 @@ Write $\mathbf{a}$ and $\mathbf{b}$ as $\mathbf{a}=\left(  a_{0},a_{1}%
 \]
 Hence,%
 \begin{align*}
-\left(  \mathbf{ab}\right)  \left[  u\right]   &  =\sum_{k\in\mathbb{N}%
-}\underbrace{c_{k}}_{=\sum\limits_{\substack{i,j\in\mathbb{N};\\i+j=k}%
-}a_{i}b_{j}}u^{k}=\sum_{k\in\mathbb{N}}\sum\limits_{\substack{i,j\in
-\mathbb{N};\\i+j=k}}a_{i}b_{j}\underbrace{u^{k}}_{\substack{=u^{i+j}%
-\\\text{(since }k=i+j\text{)}}}\\
-&  =\underbrace{\sum_{k\in\mathbb{N}}\sum\limits_{\substack{i,j\in
-\mathbb{N};\\i+j=k}}}_{\substack{=\sum_{i,j\in\mathbb{N}}\\=\sum
-_{i\in\mathbb{N}}\sum_{j\in\mathbb{N}}}}a_{i}b_{j}\underbrace{u^{i+j}}%
-_{=u^{i}u^{j}}=\sum_{i\in\mathbb{N}}\sum_{j\in\mathbb{N}}a_{i}b_{j}u^{i}%
-u^{j}\\
-&  =\underbrace{\left(  \sum_{i\in\mathbb{N}}a_{i}u^{i}\right)  }%
-_{=\mathbf{a}\left[  u\right]  }\underbrace{\left(  \sum_{j\in\mathbb{N}}%
-b_{j}u^{j}\right)  }_{=\mathbf{b}\left[  u\right]  }=\mathbf{a}\left[
-u\right]  \cdot\mathbf{b}\left[  u\right]  .
+\left(  \mathbf{ab}\right)  \left[  u\right]   &  =\sum_{k\in\mathbb{N}}%
+c_{k}u^{k}=\sum_{n\in\mathbb{N}}\underbrace{c_{n}}_{=\sum
+\limits_{\substack{i,j\in\mathbb{N};\\i+j=n}}a_{i}b_{j}}u^{n}=\sum
+_{n\in\mathbb{N}}\sum\limits_{\substack{i,j\in\mathbb{N};\\i+j=n}}a_{i}%
+b_{j}\underbrace{u^{n}}_{\substack{=u^{i+j}\\\text{(since }n=i+j\text{)}}}\\
+&  =\underbrace{\sum_{n\in\mathbb{N}}\sum\limits_{\substack{i,j\in
+\mathbb{N};\\i+j=n}}}_{\substack{=\sum\limits_{i,j\in\mathbb{N}}%
+\\=\sum\limits_{i\in\mathbb{N}}\sum\limits_{j\in\mathbb{N}}}}a_{i}%
+b_{j}\underbrace{u^{i+j}}_{=u^{i}u^{j}}=\sum\limits_{i\in\mathbb{N}}%
+\sum\limits_{j\in\mathbb{N}}a_{i}b_{j}u^{i}u^{j}=\sum\limits_{i\in\mathbb{N}%
+}a_{i}u^{i}\sum\limits_{j\in\mathbb{N}}b_{j}u^{j}\\
+&  =\underbrace{\left(  \sum\limits_{i\in\mathbb{N}}a_{i}u^{i}\right)
+}_{=\mathbf{a}\left[  u\right]  }\underbrace{\left(  \sum\limits_{j\in
+\mathbb{N}}b_{j}u^{j}\right)  }_{=\mathbf{b}\left[  u\right]  }=\mathbf{a}%
+\left[  u\right]  \cdot\mathbf{b}\left[  u\right]  .
 \end{align*}
-(These manipulations with $\infty$ sums are all kosher because only finitely
+(These manipulations with infinite sums are all kosher, because only finitely
 many pairs $\left(  i,j\right)  \in\mathbb{N}\times\mathbb{N}$ satisfy
-$a_{i}b_{j}\neq0$.)
+$a_{i}b_{j}\neq0$.) This completes our proof.
 \end{proof}
 
 \begin{corollary}
-Let $U$ be a $\mathbb{K}$-algebra. Let $u\in U$. Then, the map%
+\label{cor.pol.eval.evu}Let $U$ be a $\mathbb{K}$-algebra. Let $u\in U$. Then,
+the map%
 \begin{align*}
 \operatorname*{ev}\nolimits_{u}:\mathbb{K}\left[  x\right]   &  \rightarrow
 U,\\
-\mathbf{a}  &  \mapsto\mathbf{a}\left[  u\right]
+\mathbf{a} &  \mapsto\mathbf{a}\left[  u\right]
 \end{align*}
 is a $\mathbb{K}$-algebra homomorphism.
 \end{corollary}
 
 \begin{proof}
-Follows straight from the theorem above. For example,%
+[Proof of Corollary \ref{cor.pol.eval.evu}.] This follows straight from
+Theorem \ref{thm.pol.eval.a+b}. For example,%
 \[
 \left(  \mathbf{ab}\right)  \left[  u\right]  =\mathbf{a}\left[  u\right]
 \cdot\mathbf{b}\left[  u\right]
@@ -34418,80 +34567,93 @@ rewrites as%
 \[
 \operatorname*{ev}\nolimits_{u}\left(  \mathbf{ab}\right)  =\operatorname*{ev}%
 \nolimits_{u}\left(  \mathbf{a}\right)  \cdot\operatorname*{ev}\nolimits_{u}%
-\left(  \mathbf{b}\right)  .
+\left(  \mathbf{b}\right)  ,
 \]
-
+and this is one of the axioms that it takes for $\operatorname*{ev}%
+\nolimits_{u}$ to be a $\mathbb{K}$-algebra homomorphism. (Theorem
+\ref{thm.pol.eval.a+b} \textbf{(c)} yields that $\operatorname*{ev}%
+\nolimits_{u}$ preserves $0$ and $1$.)
 \end{proof}
 
-The map $\operatorname*{ev}\nolimits_{u}$ is called an \textbf{evaluation
-homomorphism}. Thanks to this corollary, the polynomial ring $\mathbb{K}%
-\left[  x\right]  $ is a sort of \textquotedblleft forge\textquotedblright%
-\ for properties of elements of arbitrary $\mathbb{K}$-algebras: Every
-identity that holds in $\mathbb{K}\left[  x\right]  $ can be turned into an
-identity between elements of any $\mathbb{K}$-algebra by \textquotedblleft
-substituting $u$ for $x$\textquotedblright\ (= applying $\operatorname*{ev}%
-\nolimits_{u}$). For instance, if you show that%
-\[
-x^{3}-x=x\left(  x-1\right)  \left(  x+1\right)  \ \ \ \ \ \ \ \ \ \ \text{in
-}\mathbb{K}\left[  x\right]  ,
-\]
-you can immediately conclude that%
+The map $\operatorname*{ev}\nolimits_{u}$ is called an \textit{evaluation
+homomorphism} (specifically, the \textit{evaluation homomorphism at }$u$),
+since it \textquotedblleft evaluates\textquotedblright\ each polynomial at $u$.
+
+Thanks for this corollary, the polynomial ring $\mathbb{K}\left[  x\right]  $
+is a sort of \textquotedblleft forge\textquotedblright\ for identities
+involving an arbitrary element $u$ of an arbitrary $\mathbb{K}$-algebra $U$.
+Indeed, if you want (e.g.) to prove the identity%
 \[
 u^{3}-u=u\left(  u-1\right)  \left(  u+1\right)  \ \ \ \ \ \ \ \ \ \ \text{for
 any }\mathbb{K}\text{-algebra }U\text{ and any }u\in U,
 \]
-because you can simply apply $\operatorname*{ev}\nolimits_{u}$ to both sides
-of $x^{3}-x=x\left(  x-1\right)  \left(  x+1\right)  $.
+then it suffices to prove the identity%
+\[
+x^{3}-x=x\left(  x-1\right)  \left(  x+1\right)  \ \ \ \ \ \ \ \ \ \ \text{in
+}\mathbb{K}\left[  x\right]
+\]
+and then apply $\operatorname*{ev}\nolimits_{u}$ to both sides of it. Indeed,
+$\operatorname*{ev}\nolimits_{u}$ sends $x$ to $u$ and is a $\mathbb{K}%
+$-algebra homomorphism, whence it also sends $x^{3}-x$ to $u^{3}-u$ and sends
+$x\left(  x-1\right)  \left(  x+1\right)  $ to $u\left(  u-1\right)  \left(
+u+1\right)  $. In other words, applying $\operatorname*{ev}\nolimits_{u}$ to a
+polynomial in $\mathbb{K}\left[  x\right]  $ is tantamount to
+\textquotedblleft substituting $u$ for $x$\textquotedblright\ in this polynomial.
 
 \begin{remark}
 Let $U$ be a $\mathbb{K}$-algebra. Let $u\in U$. We have defined
 $\mathbf{a}\left[  u\right]  $ for $\mathbf{a}\in\mathbb{K}\left[  x\right]
-$. We could try to define it also for arbitrary $\mathbf{a}\in\mathbb{K}%
-\left[  \left[  x\right]  \right]  $. But in general, this would not work,
-since the sum $\sum_{k\in\mathbb{N}}a_{k}u^{k}$ would not be well-defined.
-However, if $u$ itself is an FPS (that is, $u\in\mathbb{K}\left[  \left[
-x\right]  \right]  $) and if $\left[  x^{0}\right]  u=0$, then the family
-$\left(  a_{k}u^{k}\right)  _{k\in\mathbb{N}}$ is summable (since in this
-case, we have%
+$. We can try to define it for arbitrary $\mathbf{a}=\left(  a_{0},a_{1}%
+,a_{2},\ldots\right)  \in\mathbb{K}\left[  \left[  x\right]  \right]  $ as
+well. But in general, this will not work, since the sum $\sum_{k\in\mathbb{N}%
+}a_{k}u^{k}$ may not be well-defined. However, if $u$ itself is a FPS (that
+is, $u\in\mathbb{K}\left[  \left[  x\right]  \right]  $) and satisfies
+$\left[  x^{0}\right]  u=0$, then the family $\left(  a_{k}u^{k}\right)
+_{k\in\mathbb{N}}$ is summable (because in this case, we have%
 \[
 \left[  x^{0}\right]  \left(  u^{k}\right)  =\left[  x^{1}\right]  \left(
-u^{k}\right)  =\cdots=\left[  x^{k-1}\right]  \left(  u^{k}\right)
-=0\ \ \ \ \ \ \ \ \ \ \text{for all }k\in\mathbb{N}%
+u^{k}\right)  =\cdots=\left[  x^{k-1}\right]  \left(  u^{k}\right)  =0
 \]
-), and therefore $\mathbf{a}\left[  u\right]  $ is well-defined. For example,
-$\mathbf{a}\left[  x^{2}\right]  $ is well-defined, and more generally,
-$\mathbf{a}\left[  x^{k}\right]  $ is well-defined for every positive integer
-$k$; but $\mathbf{a}\left[  1\right]  $ is not well-defined.
+for all $k\in\mathbb{N}$), and therefore $\mathbf{a}\left[  u\right]  $ is
+well-defined. For example, $\mathbf{a}\left[  x^{2}\right]  $ is well-defined,
+and more generally, $\mathbf{a}\left[  x^{k}\right]  $ is well-defined for
+every positive integer $k$; but $\mathbf{a}\left[  1\right]  $ is not well-defined.
 \end{remark}
 
 \begin{definition}
 Let $U$ be a $\mathbb{K}$-algebra. Let $u\in U$. Let $\mathbf{a}\in
 \mathbb{K}\left[  x\right]  $.
 
-We say that $u$ is a \textbf{root} of $\mathbf{a}$ if $\mathbf{a}\left[
+We say that $u$ is a \textit{root} of $\mathbf{a}$ if $\mathbf{a}\left[
 u\right]  =0$.
 \end{definition}
 
 For example, the roots of the polynomial $x\left(  x-1\right)  $ are the
-idempotent elements of $U$, because
+idempotent elements of $U$, because for any element $u\in U$, we have the
+following equivalence:%
 \begin{align*}
 &  \ \left(  u\text{ is a root of }x\left(  x-1\right)  \right) \\
 &  \Longleftrightarrow\ \left(  \underbrace{\left(  x\left(  x-1\right)
-\right)  \left[  u\right]  }_{\substack{=x\left[  u\right]  \cdot\left(
-x-1\right)  \left[  u\right]  \\=u\cdot\left(  u-1\right)  }}=0\right)
-\ \Longleftrightarrow\ \left(  u\cdot\left(  u-1\right)  =0\right)
-\ \Longleftrightarrow\ \left(  u^{2}-u=0\right) \\
-&  \Longleftrightarrow\ \left(  u^{2}=u\right)  \ \Longleftrightarrow\ \left(
+\right)  \left[  u\right]  }_{=x\left[  u\right]  \cdot\left(  x-1\right)
+\left[  u\right]  }=0\right)  \ \Longleftrightarrow\ \left(
+\underbrace{x\left[  u\right]  }_{=u}\cdot\underbrace{\left(  x-1\right)
+\left[  u\right]  }_{=u-1}=0\right) \\
+&  \Longleftrightarrow\ \left(  \underbrace{u\cdot\left(  u-1\right)
+}_{=u^{2}-u}=0\right)  \ \Longleftrightarrow\ \left(  u^{2}-u=0\right)
+\ \Longleftrightarrow\ \left(  u^{2}=u\right)  \ \Longleftrightarrow\ \left(
 u\text{ is idempotent}\right)  .
 \end{align*}
-If $U$ is a field, then the only idempotent elements of $U$ are $0$ and $1$.
-Otherwise, there can be more, as we have already seen (e.g., in $\mathbb{Z}%
-/6$, there are four idempotents).
+If $U$ is a field, then the only idempotent elements of $U$ are $0$ and $1$
+(because $u\cdot\left(  u-1\right)  =0$ implies that $u$ or $u-1$ is $0$).
+Otherwise, there can be more idempotent elements; for example, $\mathbb{Z}/6$
+has the four idempotent elements $0,1,3,4$.
 
 \begin{definition}
 Let $\mathbf{a}$ and $\mathbf{b}$ be two polynomials in $\mathbb{K}\left[
-x\right]  $. We say $\mathbf{a}\mid\mathbf{b}$ if there exists a
-$\mathbf{c}\in\mathbb{K}\left[  x\right]  $ such that $\mathbf{b}=\mathbf{ac}$.
+x\right]  $. We say that $\mathbf{a}\mid\mathbf{b}$ (or, more precisely,
+\textquotedblleft$\mathbf{a}\mid\mathbf{b}$ in $\mathbb{K}\left[  x\right]
+$\textquotedblright) if there exists a $\mathbf{c}\in\mathbb{K}\left[
+x\right]  $ such that $\mathbf{b}=\mathbf{ac}$.
 \end{definition}
 
 \begin{proposition}
@@ -34501,47 +34663,54 @@ $u\in\mathbb{K}$. Then,%
 \left(  u\text{ is a root of }\mathbf{a}\right)  \Longleftrightarrow\left(
 x-u\mid\mathbf{a}\right)  .
 \]
-
+(Of course, $x-u$ means $x-\underline{u}$.)
 \end{proposition}
 
 \begin{proof}
+$\Longrightarrow:$ Assume that $u$ is a root of $\mathbf{a}$. We must prove
+that $x-u\mid\mathbf{a}$.
+
 The polynomial $x-u$ is \textquotedblleft nice\textquotedblright: It has
-degree $\leq1$, and its $x^{1}$-coefficient is $1$, which is invertible. Thus,
-we can divide $\mathbf{a}$ with remainder by $x-u$ (by the \textquotedblleft
-division with remainder\textquotedblright\ theorem from last time). In other
-words, there exists a pair $\left(  \mathbf{q,r}\right)  $ of polynomials with
-$\mathbf{a}=\mathbf{q}\cdot\left(  x-u\right)  +\mathbf{r}$ and $\deg
-\mathbf{r}<1$. Consider this pair.
+degree $\leq1$, and its $x^{1}$-coefficient is invertible (in fact, this
+coefficient is $1$). Thus, we can divide $\mathbf{a}$ with remainder by $x-u$
+(by the \textquotedblleft division with remainder\textquotedblright\ theorem
+from last time). In other words, there exists a pair $\left(  \mathbf{q}%
+,\mathbf{r}\right)  $ of polynomials with $\mathbf{a}=\mathbf{q}\cdot\left(
+x-u\right)  +\mathbf{r}$ and $\deg\mathbf{r}<1$. Consider this pair.
 
-Now, $\deg\mathbf{r}<1$ means that $\mathbf{r}$ is a constant, i.e.,
-$\mathbf{r}=\underline{b}$ for some $b\in\mathbb{K}$. Hence, the equality
-$\mathbf{a}=\mathbf{q}\cdot\left(  x-u\right)  +\mathbf{r}$ rewrites as
-$\mathbf{a}=\mathbf{q}\cdot\left(  x-u\right)  +\underline{b}$.
+Now, $\deg\mathbf{r}<1$ means that $\mathbf{r}$ is a constant. In other words,
+$\mathbf{r}=\underline{b}$ for some $b\in\mathbb{K}$. Thus, $\mathbf{a}%
+=\mathbf{q}\cdot\left(  x-u\right)  +\underbrace{\mathbf{r}}_{=\underline{b}%
+}=\mathbf{q}\cdot\left(  x-u\right)  +\underline{b}$.
 
-Now, we can substitute $u$ for $x$ in the equation $\mathbf{a}=\mathbf{q}%
-\cdot\left(  x-u\right)  +\underline{b}$ (this means, apply the $\mathbb{K}%
+We can substitute $u$ for $x$ in this equation (i.e., apply the $\mathbb{K}%
 $-algebra homomorphism $\operatorname*{ev}\nolimits_{u}$ to both sides of it),
 and obtain%
+\begin{align*}
+\mathbf{a}\left[  u\right]   &  =\left(  \mathbf{q}\cdot\left(  x-u\right)
++\underline{b}\right)  \left[  u\right]  =\mathbf{q}\left[  u\right]
+\cdot\underbrace{\left(  x-u\right)  \left[  u\right]  }_{=u-u=0}%
++\underbrace{\underline{b}\left[  u\right]  }_{=b}\\
+&  =\underbrace{\mathbf{q}\left[  u\right]  \cdot0}_{=0}+b=b.
+\end{align*}
+Thus, $b=\mathbf{a}\left[  u\right]  =0$ (since $u$ is a root of $\mathbf{a}%
+$). Thus,
 \[
-\mathbf{a}\left[  u\right]  =\mathbf{q}\left[  u\right]  \cdot
-\underbrace{\left(  u-u\right)  }_{=0}+\underline{b}\left[  u\right]
-=\underline{b}\left[  u\right]  =b.
+\mathbf{a}=\mathbf{q}\cdot\left(  x-u\right)  +\underbrace{\underline{b}%
+}_{=\underline{0}}=\mathbf{q}\cdot\left(  x-u\right)
+,\ \ \ \ \ \ \ \ \ \ \text{and thus }x-u\mid\mathbf{a}.
 \]
-Hence,
-\[
-\left(  u\text{ is a root of }\mathbf{a}\right)  \ \Longleftrightarrow
-\ \left(  \mathbf{a}\left[  u\right]  =0\right)  \ \Longleftrightarrow
-\ \left(  b=0\right)  .
-\]
-Thus, if $u$ is a root of $\mathbf{a}$, then $b=0$ and therefore
-$\mathbf{a}=\mathbf{q}\cdot\left(  x-u\right)  +\underbrace{\underline{b}%
-}_{=\underline{0}}=\mathbf{q}\cdot\left(  x-u\right)  $, so that
-$x-u\mid\mathbf{a}$. Conversely, if $x-u\mid\mathbf{a}$, then $\mathbf{a}%
-=\left(  x-u\right)  \cdot\mathbf{s}$ for some polynomial $\mathbf{s}$, and
-therefore (again by substituting $u$ for $x$) we obtain%
+
+
+$\Longleftarrow:$ Assume that $x-u\mid\mathbf{a}$. We must prove that $u$ is a
+root of $\mathbf{a}$.
+
+We have $x-u\mid\mathbf{a}$. In other words, $\mathbf{a}=\left(  x-u\right)
+\cdot\mathbf{c}$ for some polynomial $\mathbf{c}$. Substituting $x$ for $u$ in
+this equation, we obtain%
 \[
 \mathbf{a}\left[  u\right]  =\underbrace{\left(  u-u\right)  }_{=0}%
-\cdot\mathbf{s}\left[  u\right]  =0,
+\cdot\mathbf{c}\left[  u\right]  =0,
 \]
 so that $u$ is a root of $\mathbf{a}$.
 \end{proof}
@@ -34555,84 +34724,108 @@ mean that the product $\left(  x-0\right)  \left(  x-1\right)  \left(
 x-3\right)  \left(  x-4\right)  $ divides $\mathbf{a}$. Instead, we have%
 \[
 \mathbf{a}=\left(  x-0\right)  \left(  x-1\right)  =\left(  x-3\right)
-\left(  x-4\right)  \ \ \ \ \ \ \ \ \ \ \text{in }\mathbb{K}.
+\left(  x-4\right)  \ \ \ \ \ \ \ \ \ \ \text{in }\mathbb{K}\left[  x\right]
+.
 \]
-If this looks weird, keep in mind that $\mathbb{K}$ is not a field.
+
 \end{example}
 
-When $\mathbb{K}$ is a field, the polynomial ring $\mathbb{K}\left[  x\right]
-$ behaves very much like $\mathbb{Z}$: You have division with remainder by any
-nonzero polynomial; you have gcds; you have a notion of \textquotedblleft
-primes\textquotedblright\ (which are called irreducible polynomials); and
-every nonzero polynomial has a unique factorization into primes (up to units,
-which are the nonzero constant polynomials). But when $\mathbb{K}$ is a ring,
-this can all break down; in particular, the example we just gave shows that
-the factorization into primes is not unique.
+If this example appears weird, keep in mind that $\mathbb{Z}/6$ is not a
+field. When $\mathbb{K}$ is a field, the polynomial ring $\mathbb{K}\left[
+x\right]  $ behaves very much like $\mathbb{Z}$ or $\mathbb{Z}\left[
+i\right]  $: We have division with remainder by any nonzero polynomial; we
+have gcds; we have a notion of \textquotedblleft primes\textquotedblright%
+\ (which are called irreducible polynomials); and every nonzero polynomial has
+a unique factorization into primes (up to units, which are the nonzero
+constant polynomials). But when $\mathbb{K}$ is a ring, this can all break
+down; in particular, the example that we just gave shows that the
+factorization into primes (when it exists) is not unique.
 
 \begin{theorem}
 (Easy half of the Fundamental Theorem of Algebra)
 
 Let $\mathbb{K}$ be a field. Let $n\in\mathbb{N}$. Then, any nonzero
 polynomial $\mathbf{a}\in\mathbb{K}\left[  x\right]  $ of degree $\leq n$ has
-at most $n$ roots in $\mathbb{K}$.
+at most $n$ roots in $\mathbb{K}$. (We are not counting the roots with
+multiplicity here.)
 \end{theorem}
 
 \begin{proof}
 Induction on $n$.
 
-Base case ($n=0$) is obvious: a nonzero constant has no roots.
+The base case ($n=0$) is obvious, since a nonzero constant polynomial has no roots.
 
-Induction step: Let $n$ be a positive integer. Let $\mathbf{a}$ be a nonzero
-polynomial of degree $\leq n$. If $\mathbf{a}$ has no roots, we are done. So
-WLOG assume that $\mathbf{a}$ has a root $u\in\mathbb{K}$. Then,
-$x-u\mid\mathbf{a}$ (by the Proposition above). Hence,%
+Induction step: Let $n$ be a positive integer. Assume (as induction
+hypothesis) that any nonzero polynomial of degree $\leq n-1$ has at most $n-1$
+roots in $\mathbb{K}$. We must prove the analogous fact for $n$.
+
+Let $\mathbf{a}\in\mathbb{K}\left[  x\right]  $ be a nonzero polynomial of
+degree $\leq n$. We must prove that $\mathbf{a}$ has at most $n$ roots in
+$\mathbb{K}$. If $\mathbf{a}$ has no roots at all, then we are done. So WLOG
+assume that $\mathbf{a}$ has a root $u\in\mathbb{K}$. Then, $x-u\mid
+\mathbf{a}$ (by the Proposition above). Hence,%
 \[
-\mathbf{a}=\left(  x-u\right)  \mathbf{c}\ \ \ \ \ \ \ \ \ \ \text{for some
-}\mathbf{c}\in\mathbb{K}\left[  x\right]  .
+\mathbf{a}=\left(  x-u\right)  \cdot\mathbf{c}\ \ \ \ \ \ \ \ \ \ \text{for
+some }\mathbf{c}\in\mathbb{K}\left[  x\right]  .
 \]
-Consider this $\mathbf{c}$. From $\mathbf{a}=\left(  x-u\right)  \mathbf{c}$,
-we obtain%
+Consider this $\mathbf{c}$. From $\mathbf{a}=\left(  x-u\right)
+\cdot\mathbf{c}$, we obtain%
 \begin{align*}
-\deg\mathbf{a}  &  =\deg\left(  \left(  x-u\right)  \mathbf{c}\right)
+\deg\mathbf{a}  &  =\deg\left(  \left(  x-u\right)  \cdot\mathbf{c}\right)
 =\underbrace{\deg\left(  x-u\right)  }_{=1}+\deg\mathbf{c}%
 \ \ \ \ \ \ \ \ \ \ \left(  \text{since }\mathbb{K}\text{ is a field}\right)
 \\
 &  =1+\deg\mathbf{c},
 \end{align*}
-so that $\deg\mathbf{c}=\underbrace{\deg\mathbf{a}}_{\leq n}-1\leq n-1$. So
+so that $\deg\mathbf{c}=\underbrace{\deg\mathbf{a}}_{\leq n}-1\leq n-1$. Thus,
 $\mathbf{c}$ is a polynomial of degree $\leq n-1$, and thus has at most $n-1$
-roots (by the induction hypothesis).
+roots in $\mathbb{K}$ (by the induction hypothesis).
 
-Now, I claim that every root of $\mathbf{a}$ other than $u$ must be a root of
-$\mathbf{c}$. Indeed, let $v$ be a root of $\mathbf{a}$ other than $u$. Then,
-$v\neq u$ and $\mathbf{a}\left[  v\right]  =0$. From $v\neq u$, we obtain
-$v-u\neq0$ and therefore $v-u\in\mathbb{K}$ is invertible (since $\mathbb{K}$
-is a field).
+Next, we claim that every root of $\mathbf{a}$ other than $u$ must be a root
+of $\mathbf{c}$.
 
-But substituting $v$ for $x$ in $\mathbf{a}=\left(  x-u\right)  \mathbf{c}$,
-we obtain%
+[\textit{Proof:} Let $v$ be a root of $\mathbf{a}$ other than $u$. We must
+prove that $v$ is a root of $\mathbf{c}$.
+
+By definition of $v$, we have $v\neq u$ and $\mathbf{a}\left[  v\right]  =0$.
+From $v\neq u$, we obtain $v-u\neq0$, and thus $v-u\in\mathbb{K}$ is
+invertible (since $\mathbb{K}$ is a field). But substituting $v$ for $x$ in
+$\mathbf{a}=\left(  x-u\right)  \cdot\mathbf{c}$, we obtain%
 \[
-\mathbf{a}\left[  v\right]  =\left(  v-u\right)  \mathbf{c}\left[  v\right]
-.
+\mathbf{a}\left[  v\right]  =\left(  v-u\right)  \cdot\mathbf{c}\left[
+v\right]  .
 \]
-Hence, $\left(  v-u\right)  \mathbf{c}\left[  v\right]  =\mathbf{a}\left[
+Thus, $\left(  v-u\right)  \cdot\mathbf{c}\left[  v\right]  =\mathbf{a}\left[
 v\right]  =0$. We can divide this equation by $v-u$ (since $v-u$ is
-invertible), and obtain $\mathbf{c}\left[  v\right]  =0$, which means that $v$
-is a root of $\mathbf{c}$. As we claimed.
+invertible), and thus obtain $\mathbf{c}\left[  v\right]  =0$. In other words,
+$v$ is a root of $\mathbf{c}$. As we claimed.]
 
-Thus, we conclude that $\mathbf{a}$ has at most one more root than
-$\mathbf{c}$. Therefore, $\mathbf{a}$ has at most $n$ roots (since
+The claim that we just proved shows that $\mathbf{a}$ has at most one more
+root than $\mathbf{c}$. Thus, $\mathbf{a}$ has at most $n$ roots (since
 $\mathbf{c}$ has at most $n-1$ roots). This completes the induction step.
 \end{proof}
 
+When $\mathbb{K}$ is just an arbitrary field, the number of roots of a
+degree-$n$ nonzero polynomial over $\mathbb{K}$ can be much smaller than $n$.
+For example, the polynomial $x^{2}+1\in\mathbb{R}\left[  x\right]  $ has $0$
+roots in $\mathbb{R}$ (but it has $2$ roots in $\mathbb{C}$). The
+\textquotedblleft hard half\textquotedblright\ of the Fundamental Theorem of
+Algebra says that a nonzero polynomial $\mathbf{a}\in\mathbb{C}\left[
+x\right]  $ of degree $n$ has exactly $n$ roots in $\mathbb{C}$, counted with
+multiplicity. As I said before, this is not a theorem of algebra, since it
+relies on the fact that $\mathbb{C}$ has a topology and is closed in this topology.
+
+Next comes a little potpourri of properties of polynomials:
+
 \begin{proposition}
 If $\mathbf{a}$ and $\mathbf{b}$ are two polynomials in $\mathbb{K}\left[
-x\right]  $, then
+x\right]  $, then%
 \[
 \deg\left(  \mathbf{a}\left[  \mathbf{b}\right]  \right)  \leq\deg
 \mathbf{a}\cdot\deg\mathbf{b}.
 \]
-If $\mathbb{K}$ is a field, then this is actually an equality.
+If $\mathbb{K}$ is a field, then this is actually an equality (when
+$\mathbf{a},\mathbf{b}\neq0$).
 \end{proposition}
 
 \begin{proof}
@@ -34657,7 +34850,7 @@ f\left(  u^{3}-2u+5\right)  =\left(  f\left(  u\right)  \right)
 ^{3}-2f\left(  u\right)  +5.
 \]
 But this is true, since $f$ preserves addition, multiplication, scaling, zero
-and unity.
+and unity (because $f$ is a $\mathbb{K}$-algebra homomorphism).
 \end{proof}
 
 \begin{proposition}
@@ -34671,7 +34864,8 @@ Let $U$ be a $\mathbb{K}$-algebra. Let $u\in U$. Let $\mathbf{a},\mathbf{b}%
 \end{proposition}
 
 \begin{proof}
-Exercise (use the previous proposition).
+Exercise (using the previous Proposition and the fact that $\operatorname*{ev}%
+\nolimits_{u}$ is a $\mathbb{K}$-algebra homomorphism).
 \end{proof}
 
 \begin{proposition}
@@ -34699,7 +34893,11 @@ x-n+1\right)  }{n!}.
 Then, $\dbinom{x}{n}$ is a polynomial of degree $n$.
 \end{corollary}
 
-\subsection{The polynomial identity trick}
+\begin{proof}
+Follows from the previous Proposition.
+\end{proof}
+
+\subsection{\label{sec.pol.id}The polynomial identity trick}
 
 \begin{convention}
 For this whole section, let $\mathbb{K}$ be a field.
@@ -34725,9 +34923,9 @@ in $\mathbb{K}$.
 
 But the Easy half of the Fundamental Theorem of Algebra yields that if
 $\mathbf{a}-\mathbf{b}$ is nonzero, then $\mathbf{a}-\mathbf{b}$ has at most
-$n$ roots in $\mathbb{K}$. This cannot happen. So $\mathbf{a}-\mathbf{b}$
-cannot be nonzero. In other words, $\mathbf{a}-\mathbf{b}=\underline{0}$. In
-other words, $\mathbf{a}=\mathbf{b}$.
+$n$ roots in $\mathbb{K}$. This would contradict the preceding sentence. So
+$\mathbf{a}-\mathbf{b}$ cannot be nonzero. In other words, $\mathbf{a}%
+-\mathbf{b}=\underline{0}$. In other words, $\mathbf{a}=\mathbf{b}$.
 \end{proof}
 
 \begin{corollary}
@@ -34745,6 +34943,10 @@ Then, $\mathbf{a}=\mathbf{b}$.
 Choose an $n\in\mathbb{N}$ such that $\mathbf{a}$ and $\mathbf{b}$ have degree
 $\leq n$. Then, apply the previous Corollary.
 \end{proof}
+
+\begin{center}
+\textbf{2019-04-29 lecture}
+\end{center}
 
 Applying the last Corollary to $\mathbb{K}=\mathbb{Q}$ (and recalling that we
 previously denoted $\mathbf{a}\left[  u\right]  $ by $\mathbf{a}\left(
@@ -34776,43 +34978,13 @@ being an FPS only if the family $\left(  a_{k}u^{k}\right)  _{k\in\mathbb{N}}$
 is summable. This happens, e.g., if $U=\mathbb{K}\left[  \left[  x\right]
 \right]  $ and $u$ itself is an FPS with $x^{0}$-coefficient $0$.
 
-\item \textbf{Def:} root ($u$ root of $\mathbf{a}$ $\Longleftrightarrow$
-$\mathbf{a}\left[  u\right]  =0$).
-
-\item \textbf{Def:} $\mid$ in $\mathbb{K}\left[  x\right]  $.
-
-\item \textbf{Def:} $u$ root of $\mathbf{a}$ $\Longleftrightarrow$
-$x-u\mid\mathbf{a}$.
-
-\item \textbf{Def:} Let $\mathbb{K}$ be a field. Let $n\in\mathbb{N}$. Then,
-any nonzero polynomial $\mathbf{a}\in\mathbb{K}\left[  x\right]  $ of degree
-$\leq n$ has at most $n$ roots.
-
-\textit{Proof:} Ind/$n$. Base case $n=0$ obv. Otherwise, pick a root $u$ and
-argue that $\mathbf{b}:=\dfrac{x-u}{\mathbf{a}}$ has degree $\leq n-1$. But
-any root of $\mathbf{a}$ other than $u$ is a root of $\mathbf{b}$.
-
-\item Note: \textquotedblleft at most\textquotedblright, first because of
-closedness (e.g., $x^{2}+1$ over $\mathbb{R}$), then because of multiplicity.
-
-\item \textbf{Prop:} $\deg\left(  \mathbf{f}\left[  \mathbf{g}\right]
-\right)  \leq\deg\mathbf{f}\cdot\deg\mathbf{g}$.
-
-\item \textbf{Prop:} $\deg\left(  \mathbf{a}_{1}\mathbf{a}_{2}\cdots
-\mathbf{a}_{k}\right)  \leq\deg\left(  \mathbf{a}_{1}\right)  +\deg\left(
-\mathbf{a}_{2}\right)  +\cdots+\deg\left(  \mathbf{a}_{k}\right)  $.
-
-\item \textbf{Cor:} Over $\mathbb{Q}$, we can define $\dbinom{x}{n}%
-=\dfrac{x\left(  x-1\right)  \cdots\left(  x-n+1\right)  }{n!}$; this is a pol
-of deg $n$.
-
-\item Fix XINSERT.
+\item Fix all references to old versions (degrees).
 
 \item @Proof of quo\_rem: Cannot take $n=\deg\mathbf{a}$, must $0$ when
 $\deg\mathbf{a}=-\infty$.
 \end{itemize}
 
-\subsection{\label{sec.pol.id}The polynomial identity trick}
+\subsection{The polynomial identity trick}
 
 \begin{itemize}
 \item Let $\mathbb{K}$ be a field for this whole section.
