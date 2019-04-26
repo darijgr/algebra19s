@@ -17,7 +17,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Thursday, April 25, 2019 20:49:47}
+%TCIDATA{LastRevised=Friday, April 26, 2019 00:32:06}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -31775,41 +31775,7 @@ defined to be an FPS $\left(  a_{0},a_{1},a_{2},\ldots\right)  $ such that%
 (that is, only finitely many $i\in\mathbb{N}$ satisfy $a_{i}\neq0$).
 
 We let $\mathbb{K}\left[  x\right]  $ be the set of all polynomials.
-
-\textbf{(c)} Let $\mathbf{a}=\left(  a_{0},a_{1},a_{2},\ldots\right)  $ be a
-polynomial. Then, all but finitely many $i\in\mathbb{N}$ satisfy $a_{i}=0$; in
-other words, only finitely many $i\in\mathbb{N}$ satisfy $a_{i}\neq0$. The
-\textit{degree} of $\mathbf{a}$ is defined to be the largest $i\in\mathbb{N}$
-such that $a_{i}\neq0$. (If no such $i$ exists, then we define it to be
-$-\infty$, which is a symbolic quantity that is understood to be smaller than
-every integer and to satisfy $\left(  -\infty\right)  +m=-\infty$ for all $m$.)
-
-The degree of the polynomial $\mathbf{a}$ will be denoted $\deg\mathbf{a}$.
 \end{definition}
-
-\begin{fineprint}
-\begin{remark}
-If you work in constructive logic, then you cannot prove that each polynomial
-has a well-defined degree (since it cannot generally be proven that each
-$i\in\mathbb{N}$ satisfies either $a_{i}=0$ or $a_{i}\neq0$). Thus, the notion
-of \textquotedblleft the degree of a polynomial\textquotedblright\ is not
-well-behaved in constructive mathematics. (It is also not well-behaved in
-other ways -- e.g., it is not preserved by ring homomorphisms, and leads to
-nuisances when $\mathbb{K}$ is the trivial ring, as witnessed in Theorem
-\ref{thm.pol.pol-basics} \textbf{(d)} below.) It would thus be philosophically
-better not to speak of \textquotedblleft the degree of a
-polynomial\textquotedblright, but rather use the better-behaved concept of
-\textquotedblleft a polynomial of degree $\leq n$\textquotedblright\ (for a
-given $n\in\mathbb{Z}$), which can be defined constructively (without ever
-defining the degree of a polynomial) to mean an FPS $\left(  a_{0},a_{1}%
-,a_{2},\ldots\right)  $ satisfying $\left(  a_{k}=0\text{ for all }k>n\right)
-$ (see Lemma \ref{lem.pol.deg} further below). I would be doing this in these
-notes, if it wasn't for the familiarity of the concept of \textquotedblleft
-degree\textquotedblright. However, you can easily transform all our arguments
-below to replace all uses of the concept of \textquotedblleft the
-degree\textquotedblright\ by the latter, better-behaved concept.
-\end{remark}
-\end{fineprint}
 
 So far, our FPSs are just sequences, with no other meaning. We will later see
 why they can be viewed as \textquotedblleft power series\textquotedblright,
@@ -31827,8 +31793,8 @@ not a polynomial. We will later write this FPS as $1+2x+3x^{2}+4x^{3}%
 +5x^{4}+\cdots$.
 
 \textbf{(b)} The sequence $\left(  3,0,2,5,\underbrace{0,0,0,0,\ldots
-}_{\text{zeroes}}\right)  $ is a polynomial of degree $3$. We will later write
-this polynomial as $3+2x^{2}+5x^{3}$.
+}_{\text{zeroes}}\right)  $ is a polynomial. We will later write this
+polynomial as $3+2x^{2}+5x^{3}$.
 \end{example}
 
 \begin{center}
@@ -32820,51 +32786,154 @@ Theorem \ref{thm.pol.FPS-inv}.
 
 Recall that polynomials have been defined as a special case of FPSs: Namely, a
 polynomial is just an FPS with only finitely many nonzero entries (=
-coefficients). Corollary \ref{cor.pol.FPS-as-sum} has shown that we can write
-each FPS as an infinite sum; likewise, we can write each polynomial as a
-finite sum:
+coefficients). But polynomials are, in many ways, better behaved than
+arbitrary FPSs; in particular, polynomials (unlike FPSs) can be evaluated at
+elements of $\mathbb{K}$ (by plugging these elements for the \textquotedblleft%
+$x$\textquotedblright\ in the polynomial), and even at more general things,
+whereas FPSs don't (in general).
 
-\begin{theorem}
-\label{thm.pol.pol-as-sum}Let $n\in\mathbb{Z}$. Let $\left(  a_{0},a_{1}%
-,a_{2},\ldots\right)  \in\mathbb{K}\left[  x\right]  $ be a polynomial of
-degree $\leq n$. Then,%
-\[
-a_{0}+a_{1}x+a_{2}x^{2}+\cdots+a_{n}x^{n}=\sum_{k=0}^{n}a_{k}x^{k}.
-\]
+We shall now study polynomials in more detail. To that aim, it helps to look a
+bit closer and define some smaller classes of polynomials. Namely, we know
+that each polynomial has only finitely many nonzero coefficients; we can thus
+ask what its last nonzero coefficient is. This leads to the following definition:
 
-\end{theorem}
+\begin{definition}
+\label{def.pol.deg}\textbf{(a)} For each $n\in\mathbb{Z}$, we define a subset
+$\mathbb{K}\left[  x\right]  _{\leq n}$ of $\mathbb{K}\left[  \left[
+x\right]  \right]  $ by%
+\begin{align}
+\mathbb{K}\left[  x\right]  _{\leq n}  & =\left\{  \left(  a_{0},a_{1}%
+,a_{2},\ldots\right)  \in\mathbb{K}\left[  \left[  x\right]  \right]
+\ \mid\ a_{k}=0\text{ for all }k>n\right\}  \label{eq.def.pol.deg.a.1}\\
+& =\left\{  \mathbf{a}\in\mathbb{K}\left[  \left[  x\right]  \right]
+\ \mid\ \left[  x^{k}\right]  \mathbf{a}=0\text{ for all }k>n\right\}
+.\label{eq.def.pol.deg.a.2}%
+\end{align}
+(Here, of course, \textquotedblleft for all $k>n$\textquotedblright\ means
+\textquotedblleft for all $k\in\mathbb{N}$ satisfying $k>n$\textquotedblright.)
 
-Note that $n$ is allowed to be negative in Theorem \ref{thm.pol.pol-as-sum};
-in this case, the sum $\sum_{k=0}^{n}a_{k}x^{k}$ is empty (and thus equals
-$0_{\mathbb{K}\left[  \left[  x\right]  \right]  }$), and this should not be
-surprising (since the only polynomial that has negative degree is
-$0_{\mathbb{K}\left[  \left[  x\right]  \right]  }$, which has degree
-$-\infty$).
+\textbf{(b)} Let $\mathbf{a}=\left(  a_{0},a_{1},a_{2},\ldots\right)  $ be a
+polynomial. Then, all but finitely many $i\in\mathbb{N}$ satisfy $a_{i}=0$ (by
+the definition of a polynomial); in other words, only finitely many
+$i\in\mathbb{N}$ satisfy $a_{i}\neq0$. The \textit{degree} of $\mathbf{a}$ is
+defined to be the largest $i\in\mathbb{N}$ such that $a_{i}\neq0$. (If no such
+$i$ exists, then we define it to be $-\infty$, which is a symbolic quantity
+that is understood to be smaller than every integer and to satisfy $\left(
+-\infty\right)  +m=-\infty$ for all $m$.)
 
-Before we prove this theorem, we need a simple lemma:
+The degree of the polynomial $\mathbf{a}$ will be denoted $\deg\mathbf{a}$.
+\end{definition}
+
+\begin{example}
+\label{exa.pol.deg.1}\textbf{(a)} We have%
+\begin{align*}
+\mathbb{K}\left[  x\right]  _{\leq0}  & =\left\{  \left(  a_{0},a_{1}%
+,a_{2},\ldots\right)  \in\mathbb{K}\left[  \left[  x\right]  \right]
+\ \mid\ a_{k}=0\text{ for all }k>0\right\}  \\
+& =\left\{  \left(  a_{0},a_{1},a_{2},\ldots\right)  \in\mathbb{K}\left[
+\left[  x\right]  \right]  \ \mid\ a_{1}=a_{2}=a_{3}=\cdots=0\right\}  \\
+& =\left\{  \left(  a_{0},\underbrace{0,0,0,\ldots}_{\text{zeroes}}\right)
+\ \mid\ a_{0}\in\mathbb{K}\right\}  \\
+& =\left\{  \underline{a_{0}}\ \mid\ a_{0}\in\mathbb{K}\right\}  =\left\{
+\underline{a}\ \mid\ a\in\mathbb{K}\right\}  .
+\end{align*}
+This is the set of all constant FPSs; these are also known as the
+\textit{constant polynomials}. Convention \ref{conv.pol.embed-FPS} lets us
+identify these constant polynomials to the elements of $\mathbb{K}$; thus,
+$\mathbb{K}\left[  x\right]  _{\leq0}$ simply is $\mathbb{K}$.
+
+\textbf{(b)} We have%
+\begin{align*}
+\mathbb{K}\left[  x\right]  _{\leq1}  & =\left\{  \left(  a_{0},a_{1}%
+,a_{2},\ldots\right)  \in\mathbb{K}\left[  \left[  x\right]  \right]
+\ \mid\ a_{k}=0\text{ for all }k>1\right\}  \\
+& =\left\{  \left(  a_{0},a_{1},a_{2},\ldots\right)  \in\mathbb{K}\left[
+\left[  x\right]  \right]  \ \mid\ a_{2}=a_{3}=a_{4}=\cdots=0\right\}  \\
+& =\left\{  \left(  a_{0},a_{1},\underbrace{0,0,0,\ldots}_{\text{zeroes}%
+}\right)  \ \mid\ a_{0},a_{1}\in\mathbb{K}\right\}  \\
+& =\left\{  a_{0}+a_{1}x\ \mid\ a_{0},a_{1}\in\mathbb{K}\right\}  .
+\end{align*}
+The elements of this set are called the \textit{linear polynomials} (at least
+in one sense of this word).
+
+\textbf{(c)} If $n\in\mathbb{Z}$ is negative, then%
+\begin{align*}
+\mathbb{K}\left[  x\right]  _{\leq n}  & =\left\{  \left(  a_{0},a_{1}%
+,a_{2},\ldots\right)  \in\mathbb{K}\left[  \left[  x\right]  \right]
+\ \mid\ a_{k}=0\text{ for all }k>n\right\}  \\
+& =\left\{  \left(  a_{0},a_{1},a_{2},\ldots\right)  \in\mathbb{K}\left[
+\left[  x\right]  \right]  \ \mid\ a_{0}=a_{1}=a_{2}=\cdots=0\right\}  \\
+& =\left\{  \left(  0,0,0,\ldots\right)  \right\}  =\left\{  \underline{0}%
+\right\}  .
+\end{align*}
+
+
+\textbf{(d)} The FPS $\left(  3,0,2,5,\underbrace{0,0,0,0,\ldots
+}_{\text{zeroes}}\right)  $ is a polynomial of degree $3$.
+\end{example}
+
+Parts \textbf{(a)} and \textbf{(b)} of Definition \ref{def.pol.deg} are
+essentially two different ways to look at the same thing (viz., at what point
+the coefficients of a polynomial become $0$); the precise relation is captured
+by the following lemma:
 
 \begin{lemma}
-\label{lem.pol.deg}Let $n\in\mathbb{Z}$. Let $\mathbf{a}=\left(  a_{0}%
-,a_{1},a_{2},\ldots\right)  \in\mathbb{K}\left[  \left[  x\right]  \right]  $
-be an FPS. Then, we have the following equivalence:%
+\label{lem.pol.deg}Let $n\in\mathbb{Z}$. Let $\mathbf{a}\in\mathbb{K}\left[
+\left[  x\right]  \right]  $ be an FPS. Then:
+
+\textbf{(a)} We have the following equivalence:%
+\[
+\left(  \mathbf{a}\in\mathbb{K}\left[  x\right]  _{\leq n}\right)
+\ \Longleftrightarrow\ \left(  \left[  x^{k}\right]  \mathbf{a}=0\text{ for
+all }k>n\right)  .
+\]
+
+
+\textbf{(b)} We have the following equivalence:%
 \[
 \left(  \mathbf{a}\text{ is a polynomial of degree }\leq n\right)
-\ \Longleftrightarrow\ \left(  a_{k}=0\text{ for all }k>n\right)  .
+\ \Longleftrightarrow\ \left(  \mathbf{a}\in\mathbb{K}\left[  x\right]  _{\leq
+n}\right)  .
 \]
 
 \end{lemma}
 
 Note that $n$ is allowed to be negative in Lemma \ref{lem.pol.deg}; in this
-case, the lemma is simply saying that $\mathbf{a}$ is a polynomial of degree
-$-\infty$ if and only if all its coefficients $a_{0},a_{1},a_{2},\ldots$ are
-$0$ (because the only negative degree that a polynomial can have is $-\infty$).
+case, Lemma \ref{lem.pol.deg} \textbf{(b)} is simply saying that $\mathbf{a}$
+is a polynomial of degree $-\infty$ if and only if all its coefficients
+$a_{0},a_{1},a_{2},\ldots$ are $0$ (because the only negative degree that a
+polynomial can have is $-\infty$).
 
-Lemma \ref{lem.pol.deg} is an easy consequence of Definition \ref{def.pol.pol}%
+Lemma \ref{lem.pol.deg} is an easy consequence of Definition \ref{def.pol.deg}%
 , but the proof grows long on paper:
 
 \begin{proof}
-[Proof of Lemma \ref{lem.pol.deg}.]$\Longrightarrow:$ Assume that $\mathbf{a}$
-is a polynomial of degree $\leq n$. We must prove that $a_{k}=0$ for all $k>n$.
+[Proof of Lemma \ref{lem.pol.deg}.]\textbf{(a)} This follows directly from
+(\ref{eq.def.pol.deg.a.2}).
+
+\textbf{(b)} Write the FPS $\mathbf{a}$ in the form $\mathbf{a}=\left(
+a_{0},a_{1},a_{2},\ldots\right)  $. Then, we have the following equivalence:%
+\begin{equation}
+\left(  \mathbf{a}\in\mathbb{K}\left[  x\right]  _{\leq n}\right)
+\ \Longleftrightarrow\ \left(  a_{k}=0\text{ for all }k>n\right)
+\label{pf.lem.pol.deg.eq1}%
+\end{equation}
+(by (\ref{eq.def.pol.deg.a.1})).
+
+Now, we shall prove the equivalence
+\begin{equation}
+\left(  \mathbf{a}\text{ is a polynomial of degree }\leq n\right)
+\ \Longleftrightarrow\ \left(  a_{k}=0\text{ for all }k>n\right)
+.\label{pf.lem.pol.deg.eq2}%
+\end{equation}
+
+
+In order to do so, let us prove the \textquotedblleft$\Longrightarrow
+$\textquotedblright\ and \textquotedblleft$\Longleftarrow$\textquotedblright%
+\ directions of the equivalence (\ref{pf.lem.pol.deg.eq2}) separately:
+
+$\Longrightarrow:$ Assume that $\mathbf{a}$ is a polynomial of degree $\leq
+n$. We must prove that $\left(  a_{k}=0\text{ for all }k>n\right)  $.
 
 If all $i\in\mathbb{N}$ satisfy $a_{i}=0$, then this is clearly satisfied.
 Thus, WLOG assume that not all $i\in\mathbb{N}$ satisfy $a_{i}=0$. Hence,
@@ -32881,11 +32950,11 @@ larger $i\in\mathbb{N}$ must satisfy $a_{i}=0$. In other words, we have
 $a_{i}=0$ for all $i>d$. Hence, $a_{i}=0$ for all $i>n$ (because if $i>n$,
 then $i>n\geq d$). Renaming the index $i$ as $k$ in this statement, we obtain
 $\left(  a_{k}=0\text{ for all }k>n\right)  $. This proves the
-\textquotedblleft$\Longrightarrow$\textquotedblright\ direction of Lemma
-\ref{lem.pol.deg}.
+\textquotedblleft$\Longrightarrow$\textquotedblright\ direction of the
+equivalence (\ref{pf.lem.pol.deg.eq2}).
 
-$\Longleftarrow:$ Assume that $a_{k}=0$ for all $k>n$. We must prove that
-$\mathbf{a}$ is a polynomial of degree $\leq n$.
+$\Longleftarrow:$ Assume that $\left(  a_{k}=0\text{ for all }k>n\right)  $.
+We must prove that $\mathbf{a}$ is a polynomial of degree $\leq n$.
 
 If all $i\in\mathbb{N}$ satisfy $a_{i}=0$, then this is clearly satisfied
 (because in this case, the degree of $\mathbf{a}$ is defined to be $-\infty$,
@@ -32913,17 +32982,71 @@ $a_{d}\neq0$. Hence, we cannot have $d>n$. Thus, we have $d\leq n$. In other
 words, the degree of $\mathbf{a}$ is $\leq n$ (since $d$ is the degree of
 $\mathbf{a}$). Thus, $\mathbf{a}$ is a polynomial of degree $\leq n$. This
 proves the \textquotedblleft$\Longleftarrow$\textquotedblright\ direction of
-Lemma \ref{lem.pol.deg}.
+the equivalence (\ref{pf.lem.pol.deg.eq2}).
+
+We have now proven both directions of the equivalence
+(\ref{pf.lem.pol.deg.eq2}); thus, this equivalence holds. Now, the equivalence
+(\ref{pf.lem.pol.deg.eq2}) becomes%
+\[
+\left(  \mathbf{a}\text{ is a polynomial of degree }\leq n\right)
+\ \Longleftrightarrow\ \left(  a_{k}=0\text{ for all }k>n\right)
+\ \Longleftrightarrow\ \left(  \mathbf{a}\in\mathbb{K}\left[  x\right]  _{\leq
+n}\right)
+\]
+(by (\ref{pf.lem.pol.deg.eq1})). This proves Lemma \ref{lem.pol.deg}
+\textbf{(b)}.
 \end{proof}
 
+\begin{fineprint}
+\begin{remark}
+\label{rmk.pol.deg-bad}If you work in constructive logic, then you cannot
+prove that each polynomial has a well-defined degree (since it cannot
+generally be proven that each $i\in\mathbb{N}$ satisfies either $a_{i}=0$ or
+$a_{i}\neq0$). Thus, the notion of \textquotedblleft the degree of a
+polynomial\textquotedblright\ is not well-behaved in constructive mathematics.
+It is also not well-behaved in other ways -- e.g., it is not preserved by ring
+homomorphisms, and leads to nuisances when $\mathbb{K}$ is the trivial ring,
+as witnessed in Theorem \ref{thm.pol.pol-basics} XINSERT \textbf{(d)} below.
+Thus, I shall avoid this notion whereever I can help it, and instead use the
+notion of $\mathbb{K}\left[  x\right]  _{\leq n}$ (where $n\in\mathbb{Z}$).
+This is a bit less familiar but hopefully more \textquotedblleft
+philosophically right\textquotedblright. (The notion of a degree does become
+useful again when $\mathbb{K}$ is a field, but I will first study a more
+general setup.)
+\end{remark}
+\end{fineprint}
+
+Corollary \ref{cor.pol.FPS-as-sum} has shown that we can write each FPS as an
+infinite sum; likewise, we can write each polynomial as a finite sum:
+
+\begin{theorem}
+\label{thm.pol.pol-as-sum}Let $n\in\mathbb{Z}$. Let $\left(  a_{0},a_{1}%
+,a_{2},\ldots\right)  \in\mathbb{K}\left[  x\right]  _{\leq n}$. Then,%
+\[
+\left(  a_{0},a_{1},a_{2},\ldots\right)  =a_{0}+a_{1}x+a_{2}x^{2}+\cdots
++a_{n}x^{n}=\sum_{k=0}^{n}a_{k}x^{k}.
+\]
+
+\end{theorem}
+
+Note that $n$ is allowed to be negative in Theorem \ref{thm.pol.pol-as-sum};
+in this case, the sum $\sum_{k=0}^{n}a_{k}x^{k}$ is empty (and thus equals
+$0_{\mathbb{K}\left[  \left[  x\right]  \right]  }$), and this should not be
+surprising (because in this case, we have $\left(  a_{0},a_{1},a_{2}%
+,\ldots\right)  \in\mathbb{K}\left[  x\right]  _{\leq n}=\left\{
+\underline{0}\right\}  $ (by Example \ref{exa.pol.deg.1} \textbf{(c)}), so
+that $\left(  a_{0},a_{1},a_{2},\ldots\right)  =\underline{0}=\left(
+\text{empty sum}\right)  $).
+
 \begin{proof}
-[Proof of Theorem \ref{thm.pol.pol-as-sum}.]Lemma \ref{lem.pol.deg} yields
-that
+[Proof of Theorem \ref{thm.pol.pol-as-sum}.]We have $\left(  a_{0},a_{1}%
+,a_{2},\ldots\right)  \in\mathbb{K}\left[  x\right]  _{\leq n}$. Equivalently,%
 \begin{equation}
-a_{k}=0\ \ \ \ \ \ \ \ \ \ \text{for all }k>n \label{pf.thm.pol.pol-as-sum.=0}%
+a_{k}=0\ \ \ \ \ \ \ \ \ \ \text{for all }k>n\label{pf.thm.pol.pol-as-sum.=0}%
 \end{equation}
-(since $\mathbf{a}$ is a polynomial of degree $\leq n$). Now, Corollary
-\ref{cor.pol.FPS-as-sum} yields%
+(indeed, this is equivalent to $\left(  a_{0},a_{1},a_{2},\ldots\right)
+\in\mathbb{K}\left[  x\right]  _{\leq n}$, because of
+(\ref{eq.def.pol.deg.a.1})). Now, Corollary \ref{cor.pol.FPS-as-sum} yields%
 \begin{align*}
 \left(  a_{0},a_{1},a_{2},\ldots\right)   &  =\sum_{k\in\mathbb{N}}a_{k}%
 x^{k}=\sum_{k=0}^{n}a_{k}x^{k}+\sum_{k=n+1}^{\infty}\underbrace{a_{k}%
@@ -32937,40 +33060,12 @@ x^{k}=\sum_{k=0}^{n}a_{k}x^{k}+\sum_{k=n+1}^{\infty}\underbrace{a_{k}%
 _{=x}=a_{1}x$). This proves Theorem \ref{thm.pol.pol-as-sum}.
 \end{proof}
 
-We can restate Lemma \ref{lem.pol.deg} as follows:
-
-\begin{lemma}
-\label{lem.pol.deg-rest}Let $n\in\mathbb{Z}$. Let $\mathbf{a}\in
-\mathbb{K}\left[  \left[  x\right]  \right]  $ be an FPS. Then, we have the
-following equivalence:%
-\[
-\left(  \mathbf{a}\text{ is a polynomial of degree }\leq n\right)
-\ \Longleftrightarrow\ \left(  \left[  x^{k}\right]  \mathbf{a}=0\text{ for
-all }k>n\right)  .
-\]
-
-\end{lemma}
-
-\begin{proof}
-[Proof of Lemma \ref{lem.pol.deg-rest}.]We have $\mathbf{a}=\left(  \left[
-x^{0}\right]  \mathbf{a},\left[  x^{1}\right]  \mathbf{a},\left[
-x^{2}\right]  \mathbf{a},\ldots\right)  $ (by (\ref{eq.pol.fps-a=()})). Thus,
-Lemma \ref{lem.pol.deg} (applied to $a_{k}=\left[  x^{k}\right]  \mathbf{a}$)
-yields the equivalence
-\[
-\left(  \mathbf{a}\text{ is a polynomial of degree }\leq n\right)
-\ \Longleftrightarrow\ \left(  \left[  x^{k}\right]  \mathbf{a}=0\text{ for
-all }k>n\right)  .
-\]
-This proves Lemma \ref{lem.pol.deg-rest}.
-\end{proof}
-
 \begin{exercise}
 \label{exe.pol.deg-red}Let $n\in\mathbb{N}$. Let $\mathbf{a}\in\mathbb{K}%
-\left[  x\right]  $ be a polynomial of degree $\leq n$. Prove the following:
+\left[  x\right]  _{\leq n}$. Prove the following:
 
-\textbf{(a)} If $\left[  x^{n}\right]  \mathbf{a}=0$, then $\deg\mathbf{a}\leq
-n-1$.
+\textbf{(a)} If $\left[  x^{n}\right]  \mathbf{a}=0$, then $\mathbf{a}%
+\in\mathbb{K}\left[  x\right]  _{\leq n-1}$.
 
 \textbf{(b)} If $\left[  x^{n}\right]  \mathbf{a}\neq0$, then $\deg
 \mathbf{a}=n$.
@@ -32980,13 +33075,15 @@ x^{n}\right]  \mathbf{a}\neq0$.
 \end{exercise}
 
 \begin{proof}
-[Solution to Exercise \ref{exe.pol.deg-red}.]We have assumed that $\mathbf{a}$
-is a polynomial of degree $\leq n$. In other words,
+[Solution to Exercise \ref{exe.pol.deg-red}.]Lemma \ref{lem.pol.deg}
+\textbf{(a)} shows that we have the equivalence $\left(  \mathbf{a}%
+\in\mathbb{K}\left[  x\right]  _{\leq n}\right)  \ \Longleftrightarrow
+\ \left(  \left[  x^{k}\right]  \mathbf{a}=0\text{ for all }k>n\right)  $.
+Hence, we have
 \begin{equation}
-\left[  x^{k}\right]  \mathbf{a}=0\text{ for all }k>n
-\label{sol.pol.deg-red.1}%
+\left[  x^{k}\right]  \mathbf{a}=0\text{ for all }k>n\label{sol.pol.deg-red.1}%
 \end{equation}
-(by Lemma \ref{lem.pol.deg-rest}).
+(since we have $\mathbf{a}\in\mathbb{K}\left[  x\right]  _{\leq n}$).
 
 \textbf{(a)} Assume that $\left[  x^{n}\right]  \mathbf{a}=0$. The equality
 $\left[  x^{k}\right]  \mathbf{a}=0$ holds for all $k>n$ (by
@@ -32995,16 +33092,13 @@ x^{n}\right]  \mathbf{a}=0$). Hence, this equality holds for all $k\geq n$. In
 other words, it holds for all $k>n-1$ (since the $k\in\mathbb{N}$ satisfying
 $k\geq n$ are precisely the $k\in\mathbb{N}$ satisfying $k>n-1$).
 
-But Lemma \ref{lem.pol.deg-rest} (applied to $n-1$ instead of $n$) yields that
-we have the following equivalence:%
-\[
-\left(  \mathbf{a}\text{ is a polynomial of degree }\leq n-1\right)
-\ \Longleftrightarrow\ \left(  \left[  x^{k}\right]  \mathbf{a}=0\text{ for
-all }k>n-1\right)  .
-\]
-Hence, $\mathbf{a}$ is a polynomial of degree $\leq n-1$ (since $\left[
-x^{k}\right]  \mathbf{a}=0$ for all $k>n-1$). Thus, $\deg\mathbf{a}\leq n-1$.
-This solves Exercise \ref{exe.pol.deg-red} \textbf{(a)}.
+But Lemma \ref{lem.pol.deg} \textbf{(a)} (applied to $n-1$ instead of $n$)
+shows that we have the equivalence $\left(  \mathbf{a}\in\mathbb{K}\left[
+x\right]  _{\leq n-1}\right)  \ \Longleftrightarrow\ \left(  \left[
+x^{k}\right]  \mathbf{a}=0\text{ for all }k>n-1\right)  $. Hence, we have
+$\mathbf{a}\in\mathbb{K}\left[  x\right]  _{\leq n-1}$ (since we have $\left[
+x^{k}\right]  \mathbf{a}=0$ for all $k>n-1$). This solves Exercise
+\ref{exe.pol.deg-red} \textbf{(a)}.
 
 \textbf{(b)} Assume that $\left[  x^{n}\right]  \mathbf{a}\neq0$. Then, we
 have $\left[  x^{n}\right]  \mathbf{a}\neq0$, but $\left[  x^{k}\right]
@@ -33025,12 +33119,24 @@ solves Exercise \ref{exe.pol.deg-red} \textbf{(b)}.
 \ref{exe.pol.deg-red} \textbf{(c)} follows immediately from Exercise
 \ref{exe.pol.deg-red} \textbf{(b)}.
 
-$\Longrightarrow$: Assume that $\deg\mathbf{a} = n$. If we had $\left[
-x^{n}\right]  \mathbf{a} = 0$, then Exercise \ref{exe.pol.deg-red}
-\textbf{(a)} would show that $\deg\mathbf{a} \leq n-1 < n$, which would
-contradict $\deg\mathbf{a} = n$. Hence, we must have $\left[  x^{n}\right]
-\mathbf{a}\neq0$. This solves the ``$\Longrightarrow$'' direction of Exercise
-\ref{exe.pol.deg-red} \textbf{(c)}.
+$\Longrightarrow$: Assume that $\deg\mathbf{a}=n$. We must prove that $\left[
+x^{n}\right]  \mathbf{a}\neq0$.
+
+Indeed, assume the contrary. Thus, $\left[  x^{n}\right]  \mathbf{a}=0$.
+Hence, Exercise \ref{exe.pol.deg-red} \textbf{(a)} yields $\mathbf{a}%
+\in\mathbb{K}\left[  x\right]  _{\leq n-1}$. But Lemma \ref{lem.pol.deg}
+\textbf{(b)} (applied to $n-1$ instead of $n$) yields the equivalence%
+\[
+\left(  \mathbf{a}\text{ is a polynomial of degree }\leq n-1\right)
+\ \Longleftrightarrow\ \left(  \mathbf{a}\in\mathbb{K}\left[  x\right]  _{\leq
+n-1}\right)  .
+\]
+Hence, $\mathbf{a}$ is a polynomial of degree $\leq n-1$ (since we have
+$\mathbf{a}\in\mathbb{K}\left[  x\right]  _{\leq n-1}$). Thus, $\deg
+\mathbf{a}\leq n-1<n$. This contradicts $\deg\mathbf{a}=n$. This contradiction
+shows that our assumption was wrong. Hence, $\left[  x^{n}\right]
+\mathbf{a}\neq0$. This solves the \textquotedblleft$\Longrightarrow
+$\textquotedblright\ direction of Exercise \ref{exe.pol.deg-red} \textbf{(c)}.
 \end{proof}
 
 Next, let us prove some basic rules for degrees of polynomials:
@@ -33038,34 +33144,42 @@ Next, let us prove some basic rules for degrees of polynomials:
 \begin{lemma}
 \label{lem.pol.addition}Let $n\in\mathbb{Z}$.
 
-\textbf{(a)} The FPS $\underline{0}$ is a polynomial of degree $\leq n$.
+\textbf{(a)} We have $\underline{0}\in\mathbb{K}\left[  x\right]  _{\leq n}$.
 
-\textbf{(b)} If $\mathbf{a}$ and $\mathbf{b}$ are two polynomials of degree
-$\leq n$, then $\mathbf{a}+\mathbf{b}$ is a polynomial of degree $\leq n$.
+\textbf{(b)} If $\mathbf{a},\mathbf{b}\in\mathbb{K}\left[  x\right]  _{\leq
+n}$, then $\mathbf{a}+\mathbf{b}\in\mathbb{K}\left[  x\right]  _{\leq n}$.
 
-\textbf{(c)} Any finite sum of polynomials of degree $\leq n$ is a polynomial
-of degree $\leq n$.
+\textbf{(c)} If $\lambda\in\mathbb{K}$ and $\mathbf{a}\in\mathbb{K}\left[
+x\right]  _{\leq n}$, then $\lambda\mathbf{a}\in\mathbb{K}\left[  x\right]
+_{\leq n}$.
 
-\textbf{(d)} If $\lambda\in\mathbb{K}$, and if $\mathbf{a}$ is a polynomial of
-degree $\leq n$, then $\lambda\mathbf{a}$ is a polynomial of degree $\leq n$.
+\textbf{(d)} The subset $\mathbb{K}\left[  x\right]  _{\leq n}$ of
+$\mathbb{K}\left[  \left[  x\right]  \right]  $ is a $\mathbb{K}$-submodule of
+$\mathbb{K}\left[  \left[  x\right]  \right]  $.
 
-\textbf{(e)} If $i\in\mathbb{N}$ satisfies $i\leq n$, then $x^{i}$ is a
-polynomial of degree $\leq n$.
+\textbf{(e)} If $i\in\mathbb{N}$ satisfies $i\leq n$, then $x^{i}\in
+\mathbb{K}\left[  x\right]  _{\leq n}$.
 \end{lemma}
 
 \begin{proof}
-[Proof of Lemma \ref{lem.pol.addition}.]\textbf{(b)} Let $\mathbf{a}$ and
-$\mathbf{b}$ be two polynomials of degree $\leq n$.
+[Proof of Lemma \ref{lem.pol.addition}.]\textbf{(b)} Let $\mathbf{a}%
+,\mathbf{b}\in\mathbb{K}\left[  x\right]  _{\leq n}$.
 
-We know that $\mathbf{a}$ is a polynomial of degree $\leq n$. In other words,
+Lemma \ref{lem.pol.deg} \textbf{(a)} shows that we have the equivalence%
+\[
+\left(  \mathbf{a}\in\mathbb{K}\left[  x\right]  _{\leq n}\right)
+\ \Longleftrightarrow\ \left(  \left[  x^{k}\right]  \mathbf{a}=0\text{ for
+all }k>n\right)  .
+\]
+Hence, we have%
 \begin{equation}
-\left[  x^{k}\right]  \mathbf{a}=0\text{ for all }k>n
-\label{pf.lem.pol.addition.b.1}%
+\left[  x^{k}\right]  \mathbf{a}=0\text{ for all }%
+k>n\label{pf.lem.pol.addition.b.1}%
 \end{equation}
-(by Lemma \ref{lem.pol.deg-rest}). Similarly,%
+(since $\mathbf{a}\in\mathbb{K}\left[  x\right]  _{\leq n}$). Similarly,%
 \begin{equation}
-\left[  x^{k}\right]  \mathbf{b}=0\text{ for all }k>n.
-\label{pf.lem.pol.addition.b.2}%
+\left[  x^{k}\right]  \mathbf{b}=0\text{ for all }%
+k>n.\label{pf.lem.pol.addition.b.2}%
 \end{equation}
 
 
@@ -33075,28 +33189,30 @@ Now, for each $k\in\mathbb{N}$ satisfying $k>n$, we have%
 =\underbrace{\left[  x^{k}\right]  \mathbf{a}}_{\substack{=0\\\text{(by
 (\ref{pf.lem.pol.addition.b.1}))}}}+\underbrace{\left[  x^{k}\right]
 \mathbf{b}}_{\substack{=0\\\text{(by (\ref{pf.lem.pol.addition.b.2}))}%
-}}\ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{eq.pol.fps-sum.1})}\right) \\
+}}\ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{eq.pol.fps-sum.1})}\right)  \\
 &  =0+0=0.
 \end{align*}
 In other words, $\left[  x^{k}\right]  \left(  \mathbf{a}+\mathbf{b}\right)
-=0$ for all $k>n$. But Lemma \ref{lem.pol.deg-rest} (applied to $\mathbf{a}%
-+\mathbf{b}$ instead of $\mathbf{a}$) shows that we have the equivalence%
+=0$ for all $k>n$. But Lemma \ref{lem.pol.deg} \textbf{(a)} (applied to
+$\mathbf{a}+\mathbf{b}$ instead of $\mathbf{a}$) shows that we have the
+equivalence%
 \[
-\left(  \mathbf{a}+\mathbf{b}\text{ is a polynomial of degree }\leq n\right)
+\left(  \mathbf{a}+\mathbf{b}\in\mathbb{K}\left[  x\right]  _{\leq n}\right)
 \ \Longleftrightarrow\ \left(  \left[  x^{k}\right]  \left(  \mathbf{a}%
 +\mathbf{b}\right)  =0\text{ for all }k>n\right)  .
 \]
-Thus, $\mathbf{a}+\mathbf{b}$ is a polynomial of degree $\leq n$ (since
+Thus, $\mathbf{a}+\mathbf{b}\in\mathbb{K}\left[  x\right]  _{\leq n}$ (since
 $\left[  x^{k}\right]  \left(  \mathbf{a}+\mathbf{b}\right)  =0$ for all
 $k>n$). This proves Lemma \ref{lem.pol.addition} \textbf{(b)}.
 
 \textbf{(a)} This is trivial.
 
-\textbf{(c)} This follows by induction on the size of the sum. (The induction
-base follows from Lemma \ref{lem.pol.addition} \textbf{(a)}, and the induction
-step follows from Lemma \ref{lem.pol.addition} \textbf{(b)}.)
+\textbf{(c)} This is like part \textbf{(b)}, but easier.
 
-\textbf{(d)} Easy.
+\textbf{(d)} This follows from parts \textbf{(a)}, \textbf{(b)} and
+\textbf{(c)}.
+
+TODO: From here, renew!
 
 \textbf{(e)} Let $i\in\mathbb{N}$ be such that $i\leq n$. We must prove that
 $x^{i}$ is a polynomial of degree $\leq n$.
@@ -33820,14 +33936,14 @@ $\deg\mathbf{a}\leq N$). Furthermore, (\ref{eq.pol.fps-scal.1}) (applied to
 $N$ and $x^{N-m}\mathbf{b}$ instead of $n$ and $\mathbf{a}$) yields%
 \begin{align*}
 \left[  x^{N}\right]  \left(  \lambda x^{N-m}\mathbf{b}\right)   &
-=\lambda\cdot\left[  x^{N}\right]  \left(  x^{N-m}\mathbf{b}\right)  \\
+=\lambda\cdot\left[  x^{N}\right]  \left(  x^{N-m}\mathbf{b}\right) \\
 &  =\lambda\cdot\underbrace{\left[  x^{\left(  N-m\right)  +m}\right]  \left(
 x^{N-m}\mathbf{b}\right)  }_{\substack{=\left(  \left[  x^{N-m}\right]
 \left(  x^{N-m}\right)  \right)  \cdot\left(  \left[  x^{m}\right]
 \mathbf{b}\right)  \\\text{(by Lemma \ref{lem.pol.deg(ab)} \textbf{(c)}%
 ,}\\\text{applied to }N-m\text{ and }x^{N-m}\text{ instead of }\mathbf{a}%
 \text{ and }n\text{)}}}\ \ \ \ \ \ \ \ \ \ \left(  \text{since }N=\left(
-N-m\right)  +m\right)  \\
+N-m\right)  +m\right) \\
 &  =\underbrace{\lambda}_{=\dfrac{a_{N}}{b_{m}}}\cdot\underbrace{\left(
 \left[  x^{N-m}\right]  \left(  x^{N-m}\right)  \right)  }_{=1}\cdot
 \underbrace{\left(  \left[  x^{m}\right]  \mathbf{b}\right)  }%
@@ -33849,7 +33965,7 @@ and $\mathbf{a}$) yields that there exists a pair $\left(  \mathbf{q}%
 x^{N-m}\mathbf{b}=\mathbf{qb}+\mathbf{r}$ and $\deg\mathbf{r}<m$ and
 $\deg\mathbf{q}\leq\left(  N-1\right)  -m$. Consider this $\left(
 \mathbf{q},\mathbf{r}\right)  $, and denote it by $\left(  \mathbf{q}%
-_{0},\mathbf{r}_{0}\right)  $. Thus, ....... 
+_{0},\mathbf{r}_{0}\right)  $. Thus, .......
 \end{proof}
 
 TODO
@@ -33896,6 +34012,74 @@ Now, Lemma \ref{lem.pol.deg(ab)} \textbf{(c)} yields%
 NEED\ LEMMA!.....
 \end{proof}
 
+
+
+\begin{example}
+------
+\end{example}
+
+\begin{proof}
+WLOG assume that $\left[  x^{m}\right]  \mathbf{b}=1$, since otherwise we can
+just replace $\mathbf{b}$ by $\left(  \left[  x^{m}\right]  \mathbf{b}\right)
+^{-1}\mathbf{b}$.
+
+\textbf{(a)} \textit{Existence:} Strong induction on $\deg\mathbf{a}$.
+
+Fix $n\in\mathbb{N}$. Assume that the existence part of \textbf{(a)} has
+already been proven in the case $\deg\mathbf{a}<n$. We must now prove it for
+$\deg\mathbf{a}=n$.
+
+So fix a polynomial $\mathbf{a}$ of degree $n$. If $n<m$, then the claim is
+trivial (just take $\left(  \mathbf{q,r}\right)  =\left(  0,\mathbf{a}\right)
+$). So WLOG assume that $n\geq m$.
+
+Let $a_{n}=\left[  x^{n}\right]  \mathbf{a}$. Then, the polynomial%
+\[
+\mathbf{a}-a_{n}x^{n-m}\mathbf{b}%
+\]
+has degree $<n$. Hence, by the induction hypothesis, we can write
+\[
+\mathbf{a}-a_{n}x^{n-m}\mathbf{b}=\mathbf{q}_{0}\mathbf{b}+\mathbf{r}%
+_{0}\ \ \ \ \ \ \ \ \ \ \text{with }\deg\mathbf{r}_{0}<m.
+\]
+Thus,%
+\[
+\mathbf{a}=\left(  \mathbf{q}_{0}+a_{n}x^{n-m}\right)  \mathbf{b}%
++\mathbf{r}_{0}.
+\]
+So we just need to take $\left(  \mathbf{q},\mathbf{r}\right)  =\left(
+\mathbf{q}_{0}+a_{n}x^{n-m},\mathbf{r}_{0}\right)  $.
+
+\textit{Uniqueness:} If $\left(  \mathbf{q}_{1},\mathbf{r}_{1}\right)  $ and
+$\left(  \mathbf{q}_{2},\mathbf{r}_{2}\right)  $ are two possible pairs
+$\left(  \mathbf{q,r}\right)  $ of polynomials such that $\mathbf{a=qb+r}$ and
+$\deg\mathbf{r}<m$, then we must prove that $\left(  \mathbf{q}_{1}%
+,\mathbf{r}_{1}\right)  =\left(  \mathbf{q}_{2},\mathbf{r}_{2}\right)  $.
+
+We have
+\[
+\mathbf{a}=\mathbf{q}_{1}\mathbf{b}+\mathbf{r}_{1}%
+\ \ \ \ \ \ \ \ \ \ \text{and}\ \ \ \ \ \ \ \ \ \ \mathbf{a=q}_{2}%
+\mathbf{b+r}_{2},
+\]
+so%
+\begin{align*}
+\mathbf{q}_{1}\mathbf{b}+\mathbf{r}_{1}  &  =\mathbf{q}_{2}\mathbf{b+r}%
+_{2},\ \ \ \ \ \ \ \ \ \ \text{so}\\
+\left(  \mathbf{q}_{1}-\mathbf{q}_{2}\right)  \mathbf{b}  &  =\mathbf{r}%
+_{2}-\mathbf{r}_{1}.
+\end{align*}
+The RHS has degree $<m$. But if $\mathbf{q}_{1}\neq\mathbf{q}_{2}$, then the
+LHS has degree $\geq m$ (this is easily seen using the fact that $\left[
+x^{m}\right]  \mathbf{b}$ is invertible), which is absurd. Thus,
+$\mathbf{q}_{1}=\mathbf{q}_{2}$, whence $\mathbf{r}_{1}=\mathbf{r}_{2}$. So
+$\left(  \mathbf{q}_{1},\mathbf{r}_{1}\right)  =\left(  \mathbf{q}%
+_{2},\mathbf{r}_{2}\right)  $.
+
+\textbf{(b)} You can have this statement piggyback on the induction argument
+we just did for Existence.
+\end{proof}
+
 When $\mathbb{K}$ is a field, every nonzero polynomial $\mathbf{b}%
 \in\mathbb{K}\left[  \left[  x\right]  \right]  $ has an invertible leading
 coefficient (i.e., if $n=\deg\mathbf{b}$, then $\left[  x^{n}\right]
@@ -33940,8 +34124,17 @@ x\right]  $ be a polynomial over $\mathbb{K}$. (Thus, $\mathbf{a}%
 \mathbf{a}\left[  u\right]  :=\sum_{k\in\mathbb{N}}a_{k}u^{k}\in U.
 \]
 This sum is well-defined, since only finitely many $a_{k}$ are nonzero. We
-shall call $\mathbf{a}\left[  u\right]  $ the \textbf{value} of $\mathbf{a}$
-at $u$. This is commonly denoted by $a\left(  u\right)  $, but that would be problematic.
+shall call $\mathbf{a}\left[  u\right]  $ the \textit{value} of $\mathbf{a}$
+at $u$. This is commonly denoted by $\mathbf{a}\left(  u\right)  $, but that
+would be problematic, since expressions like \textquotedblleft$\mathbf{a}%
+\left(  x+1\right)  $\textquotedblright\ could mean different things depending
+on whether they are interpreted as values or as products. (That said, be
+careful with the notation \textquotedblleft$\mathbf{a}\left[  u\right]
+$\textquotedblright\ as well: The expression \textquotedblleft$\mathbf{a}%
+\left[  x^{2}\right]  \mathbf{b}$\textquotedblright\ can mean either
+$\mathbf{a}$ times the coefficient $\left[  x^{2}\right]  \mathbf{b}$ or the
+value $\mathbf{a}\left[  x^{2}\right]  $ times $\mathbf{b}$. Disambiguate such
+expressions using parentheses or dots.)
 \end{definition}
 
 As we have seen in (\ref{eq.pol.deg(ab)=0.cex}), even over nontrivial rings
