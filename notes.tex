@@ -17,7 +17,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Friday, April 26, 2019 13:48:13}
+%TCIDATA{LastRevised=Sunday, April 28, 2019 16:55:41}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -659,10 +659,10 @@ Scheme}
 
 \subsubsection{The problem}
 
-Adi Shamir is one of the founders of modern mathematical cryptography (famous
-in particular for \href{https://en.wikipedia.org/wiki/RSA_(cryptosystem)}{the
-RSA cryptosystem}, which we will discuss in Subsection
-\ref{subsect.equiv.apps.RSA}).
+\href{https://en.wikipedia.org/wiki/Adi_Shamir}{Adi Shamir} is one of the
+founders of modern mathematical cryptography (famous in particular for
+\href{https://en.wikipedia.org/wiki/RSA_(cryptosystem)}{the RSA cryptosystem},
+which we will discuss in Subsection \ref{subsect.equiv.apps.RSA}).
 
 Shamir's Secret Sharing Scheme is a way in which a secret $\mathbf{a}$ (a
 piece of data -- e.g., nuclear launch codes) can be distributed among $n$
@@ -676,7 +676,7 @@ insight about it (i.e., not only cannot they reconstruct it, but they cannot
 even tell that some values are more likely than others to be $\mathbf{a}$).
 \end{itemize}
 
-Here $n$ and $k$ are fixed positive integers.
+\noindent Here $n$ and $k$ are fixed positive integers.
 
 Understanding this scheme completely will require some abstract algebra, but
 we can already start thinking about the problem and get reasonably far.
@@ -1107,20 +1107,38 @@ the $k=n$ case). So again, the problem is solved in this case.
 
 \subsubsection{\label{subsect.intro.shamir.k=3}The $k=3$ case}
 
-Now, let us come to the case when $k=3$. Now I think the usefulness of the
+Now, let us come to the case when $k=3$. Here, I think, the usefulness of the
 $\operatorname*{XOR}$ approach has come to its end: at least I don't know how
 to make it work here. Instead, out of the blue, I will invoke something
 completely different: polynomials (let's say with rational coefficients).
 
-Recall a fact you might have heard in high school: A polynomial $p\left(
-x\right)  =cx^{2}+bx+a$ of degree $\leq2$ is uniquely determined by any three
-of its values. More precisely: If $u,v,w$ are three fixed distinct numbers,
-then a polynomial $p\left(  x\right)  =cx^{2}+bx+a$ of degree $\leq2$ is
-uniquely determined by the values $p\left(  u\right)  ,p\left(  v\right)
-,p\left(  w\right)  $. We will put this to use now, and sort-of solve the problem.
+Recall a fact you might have heard in high school:
+
+\begin{proposition}
+\label{prop.intro.shamir.quadpol}A polynomial $\mathbf{f}\left(  x\right)
+=cx^{2}+bx+a$ of degree $\leq2$ is uniquely determined by any three of its
+values. More precisely: If $u,v,w$ are three fixed distinct numbers, then a
+polynomial $\mathbf{f}\left(  x\right)  =cx^{2}+bx+a$ of degree $\leq2$ is
+uniquely determined by the values $\mathbf{f}\left(  u\right)  ,\mathbf{f}%
+\left(  v\right)  ,\mathbf{f}\left(  w\right)  $.
+
+More precisely: If $u,v,w$ are three fixed distinct numbers, and if $p,q,r$
+are three arbitrary numbers, then there is a unique polynomial $\mathbf{f}%
+\left(  x\right)  =cx^{2}+bx+a$ of degree $\leq2$ satisfying%
+\[
+\mathbf{f}\left(  u\right)  =p,\ \ \ \ \ \ \ \ \ \ \mathbf{f}\left(  v\right)
+=q,\ \ \ \ \ \ \ \ \ \ \text{and}\ \ \ \ \ \ \ \ \ \ \mathbf{f}\left(
+w\right)  =r.
+\]
+
+\end{proposition}
+
+\noindent Here, the word \textquotedblleft number\textquotedblright\ is
+deliberately left ambiguous, but you can think of rational or real numbers
+(Proposition \ref{prop.intro.shamir.quadpol} is definitely true for them).
 
 Also recall that any bitstring of given length $N$ can be encoded as an
-integer in $\left\{  0,1,\ldots,2^{N}-1\right\}  $; just read it as a number
+integer in $\left\{  0,1,\ldots,2^{N}-1\right\}  $: Just read it as a number
 in binary. More precisely, any bitstring $a_{N-1}a_{N-2}\cdots a_{0}$ of
 length $N$ becomes the integer $a_{N-1}\cdot2^{N-1}+a_{N-2}\cdot2^{N-2}%
 +\cdots+a_{0}\cdot2^{0}\in\left\{  0,1,\ldots,2^{N}-1\right\}  $. For example,
@@ -1134,46 +1152,53 @@ the bitstring $010110$ of length $6$ becomes the integer%
 Choose two \textbf{uniformly random} bitstrings $\mathbf{c}$ and $\mathbf{b}$
 (of the same length as $\mathbf{a}$) and encode them as numbers $c$ and $b$
 (as just explained). Encode the secret $\mathbf{a}$ as a number $a$ as well
-(in the same way). Define the polynomial $p\left(  x\right)  =cx^{2}+bx+a$.
-Reveal to each person $i\in\left\{  1,2,\ldots,n\right\}  $ the value
-$p\left(  i\right)  $ -- or, rather, a bitstring that encodes it in binary --
-as $\mathbf{a}_{i}$.
+(in the same way). Define the polynomial $\mathbf{f}\left(  x\right)
+=cx^{2}+bx+a$. Reveal to each person $i\in\left\{  1,2,\ldots,n\right\}  $ the
+value $\mathbf{f}\left(  i\right)  $ -- or, rather, a bitstring that encodes
+it in binary -- as $\mathbf{a}_{i}$.
 
-As we know, any three of the values $p\left(  i\right)  $ uniquely determine
-the polynomial $p$. Thus, any three people can use their bitstrings
-$\mathbf{a}_{i}$ to recover three values $p\left(  i\right)  $ and therefore
-$p$ and therefore $a$ (as the constant term of $p$) and therefore $\mathbf{a}$
-(by decoding $a$). So our method satisfies Requirement 1.
+Any three of the $n$ values $\mathbf{f}\left(  i\right)  $ uniquely determine
+the polynomial $\mathbf{f}$ (because of Proposition
+\ref{prop.intro.shamir.quadpol}). Thus, any three people can use their
+bitstrings $\mathbf{a}_{i}$ to recover three values $\mathbf{f}\left(
+i\right)  $ and therefore $\mathbf{f}$ and therefore $a$ (as the constant term
+of $\mathbf{f}$) and therefore $\mathbf{a}$ (by decoding $a$). So our method
+satisfies Requirement 1.
 
 Now, let us see whether it satisfies Requirement 2. Any $2$ people can recover
-two values $p\left(  i\right)  $, which generally do not determine $p$
-uniquely. It is not hard to show that they do not even determine $a$ uniquely;
-thus, they do not determine $\mathbf{a}$ uniquely. What's better: If you know
-just two values of $p$, there are infinitely many possible choices for $p$,
-and all of them have distinct constant terms (unless one of the two values you
-know is $p\left(  0\right)  $, which of course pins down the constant term).
-So we get infinitely many possible values for $a$, and thus infinitely many
-possible values for $\mathbf{a}$. This means that our $2$ people don't gain
-any insight about $\mathbf{a}$, right?
+two values $\mathbf{f}\left(  i\right)  $, which generally do not determine
+$\mathbf{f}$ uniquely. It is not hard to show that they do not even determine
+$a$ uniquely; thus, they do not determine $\mathbf{a}$ uniquely. What's
+better: If you know just two values of $\mathbf{f}$, there are infinitely many
+possible choices for $\mathbf{f}$, and all of them have distinct constant
+terms (unless one of the two values you know is $\mathbf{f}\left(  0\right)
+$, which of course pins down the constant term)\footnote{Prove this!
+(\textbf{Hint:} The constant term of a polynomial is just its value at $0$.
+Thus, if you know two values of $\mathbf{f}$ at points other than $0$ and also
+the constant term of $\mathbf{f}$, then you simply know three values of
+$\mathbf{f}$.)}. So we get infinitely many possible values for $a$, and thus
+infinitely many possible values for $\mathbf{a}$. This means that our $2$
+people don't gain any insight about $\mathbf{a}$, right?
 
 Not so fast! We cannot really have \textquotedblleft infinitely many possible
 values for $\mathbf{a}$\textquotedblright, since $\mathbf{a}$ is bound to be a
 bitstring of a given length -- there are only finitely many of those! You can
-only get infinitely many possible values for $p$ if you forget how $p$ was
-constructed (from $c$, $b$ and $a$) and pretend that $p$ is just a
-\textquotedblleft uniformly random\textquotedblright\ polynomial (whatever
-this means). But no one can force the $2$ people to do this; it is certainly
-not in their interest! Here are some things they might do with this knowledge:
+only get infinitely many possible values for $\mathbf{f}$ if you forget how
+$\mathbf{f}$ was constructed (from $c$, $b$ and $a$) and pretend that
+$\mathbf{f}$ is just a \textquotedblleft uniformly random\textquotedblright%
+\ polynomial (whatever this means). But no one can force the $2$ people to do
+this; it is certainly not in their interest! Here are some things they might
+do with this knowledge:
 
 \begin{itemize}
 \item Let $N$ be the length of $\mathbf{a}$ (which, as we said, is known).
 Thus, $\mathbf{c}$ and $\mathbf{b}$ are bitstrings of length $N$, so that $c$
 and $b$ are integers in $\left\{  0,1,\ldots,2^{N}-1\right\}  $. Assume that
-one of the $2$ people is person $2$. Now, person $2$ knows $p\left(  2\right)
-=c2^{2}+b2+a=4c+2b+a$, and thus knows whether $a$ is even or odd (because $a$
-is even resp. odd if and only if $4c+2b+a$ is even resp. odd). This means she
-knows the last bit of the secret $\mathbf{a}$. This is not \textquotedblleft
-clueless\textquotedblright.
+one of the $2$ people is person $2$. Now, person $2$ knows $\mathbf{f}\left(
+2\right)  =c2^{2}+b2+a=4c+2b+a$, and thus knows whether $a$ is even or odd
+(because $a$ is even resp. odd if and only if $4c+2b+a$ is even resp. odd).
+This means she knows the last bit of the secret $\mathbf{a}$. This is not
+\textquotedblleft clueless\textquotedblright.
 
 \item You might try to fix this by picking $c$ and $b$ to be uniformly random
 rational numbers instead (rather than using uniformly random bitstrings
@@ -1186,11 +1211,12 @@ distribution will make some numbers more likely than others, and this will
 usually cause information about $\mathbf{a}$ to \textquotedblleft
 leak\textquotedblright. For example, if $c$ and $b$ are chosen from the
 interval $\left[  0,2^{N}-1\right]  $, then person $1$'s knowledge of
-$p\left(  1\right)  =c1^{2}+b1+a=c+b+a$ will sometimes reveal to person $1$
-that $a\geq0.5\cdot\left(  2^{N}-1\right)  $ (namely, this will happen when
-$p\left(  1\right)  \geq2.5\cdot\left(  2^{N}-1\right)  $, which occasionally
-happens). This, again, is nontrivial information about the secret $\mathbf{a}%
-$, which a single person (or even two people) should not be having.
+$\mathbf{f}\left(  1\right)  =c1^{2}+b1+a=c+b+a$ will sometimes reveal to
+person $1$ that $a\geq0.5\cdot\left(  2^{N}-1\right)  $ (namely, this will
+happen when $\mathbf{f}\left(  1\right)  \geq2.5\cdot\left(  2^{N}-1\right)
+$, which occasionally happens). This, again, is nontrivial information about
+the secret $\mathbf{a}$, which a single person (or even two people) should not
+be having.
 \end{itemize}
 
 So we cannot make Requirement 2 hold, and the culprit is that there are too
@@ -1247,6 +1273,18 @@ $\mathbb{N}$ should mean.
 Same holds for the word \textquotedblleft natural number\textquotedblright%
 \ (which I will avoid): It means \textquotedblleft element of $\mathbb{N}%
 $\textquotedblright, so again its ultimate meaning depends on the author.
+
+The word \textquotedblleft list\textquotedblright\ shall always mean
+\textquotedblleft ordered finite list\textquotedblright\ unless declared
+otherwise. Examples of lists of numbers are $\left(  2,5,2\right)  $, $\left(
+1,9\right)  $, the one-entry list $\left(  9\right)  $ (not the same as the
+number $9$ itself) and the empty list $\left(  {}\right)  $. The word
+\textquotedblleft tuple\textquotedblright\ means the same as \textquotedblleft
+list\textquotedblright, but more specifically, the word \textquotedblleft%
+$k$-tuple\textquotedblright\ (for some $k\in\mathbb{N}$) means
+\textquotedblleft list with exactly $k$ entries\textquotedblright. For
+instance, $\left(  5,1,5\right)  $ is a $3$-tuple. The word \textquotedblleft
+sequence\textquotedblright\ means an ordered, but not necessarily finite, list.
 
 \subsection{Divisibility}
 
@@ -4429,16 +4467,16 @@ c=\gcd\left(  a,b\right)  \cdot c$, this rewrites as $\gcd\left(  a,b\right)
 a,b\right)  \cdot c$. This proves Theorem \ref{thm.ent.gcd.cancel}.
 \end{proof}
 
-\begin{corollary}
-\label{cor.ent.gcd.sa,sb}Let $s,a,b\in\mathbb{Z}$. Then,
+\begin{theorem}
+\label{thm.ent.gcd.sa,sb}Let $s,a,b\in\mathbb{Z}$. Then,
 \[
 \gcd\left(  sa,sb\right)  =\left\vert s\right\vert \gcd\left(  a,b\right)  .
 \]
 
-\end{corollary}
+\end{theorem}
 
 \begin{proof}
-[Proof of Corollary \ref{cor.ent.gcd.sa,sb}.]We shall prove that the two
+[Proof of Theorem \ref{thm.ent.gcd.sa,sb}.]We shall prove that the two
 integers $\gcd\left(  sa,sb\right)  $ and $s\gcd\left(  a,b\right)  $ mutually
 divide each other (i.e., they satisfy $\gcd\left(  sa,sb\right)  \mid
 s\gcd\left(  a,b\right)  $ and $s\gcd\left(  a,b\right)  \mid\gcd\left(
@@ -4507,7 +4545,7 @@ Hence,
 \gcd\left(  sa,sb\right)  =\left\vert g\right\vert =\left\vert h\right\vert
 =\left\vert s\right\vert \gcd\left(  a,b\right)  .
 \]
-This proves Corollary \ref{cor.ent.gcd.sa,sb}.
+This proves Theorem \ref{thm.ent.gcd.sa,sb}.
 \end{proof}
 
 \begin{exercise}
@@ -4689,7 +4727,7 @@ b_{1},b_{2},\ldots,b_{\ell-1}\right)  ,b_{\ell}\right)  .
 
 \end{statement}
 
-\textit{Proof of Statement 2:} \textbf{(d)} Let us begin with part
+[\textit{Proof of Statement 2:} \textbf{(d)} Let us begin with part
 \textbf{(d)}. Assume that $\ell>0$ (though we already know that this is true).
 
 Let $g=\gcd\left(  b_{1},b_{2},\ldots,b_{\ell}\right)  $ and $h=\gcd\left(
@@ -4836,7 +4874,7 @@ of Theorem \ref{thm.ent.gcd.uniprop} \textbf{(a)}).
 
 Statement 2 \textbf{(c)} is a restatement of Statement 2 \textbf{(b)} (in the
 same way that Theorem \ref{thm.ent.gcd.uniprop} \textbf{(c)} is a restatement
-of Theorem \ref{thm.ent.gcd.uniprop} \textbf{(b)}).
+of Theorem \ref{thm.ent.gcd.uniprop} \textbf{(b)}).]
 
 We are thus done proving Statement 2.
 
@@ -4848,7 +4886,7 @@ holds for $k=\ell$. This completes the induction step. Thus, Theorem
 Theorem \ref{thm.ent.gcd.uniprop-mul} \textbf{(d)} is the reason why most
 properties of gcds of multiple numbers can be derived from corresponding
 properties of gcds of two numbers. For example, we can easily prove the
-following analogue of Corollary \ref{cor.ent.gcd.sa,sb} for gcds of three numbers:
+following analogue of Theorem \ref{thm.ent.gcd.sa,sb} for gcds of three numbers:
 
 \begin{exercise}
 \label{exe.ent.gcd.sa,sb,sc}Let $s,a,b,c\in\mathbb{Z}$. Prove that
@@ -4856,7 +4894,7 @@ $\gcd\left(  sa,sb,sc\right)  =\left\vert s\right\vert \gcd\left(
 a,b,c\right)  $.
 \end{exercise}
 
-More generally, Corollary \ref{cor.ent.gcd.sa,sb} can be generalized to any
+More generally, Theorem \ref{thm.ent.gcd.sa,sb} can be generalized to any
 number of integers:
 
 \begin{exercise}
@@ -9747,8 +9785,8 @@ $d\mid a$ if and only if $\dfrac{a}{d}\in\mathbb{Z}$. Thus, $\dfrac{a}{d}%
 $a\in\left\{  1,2,\ldots,n\right\}  $, so that $0<a\leq n$. We can divide this
 chain of inequalities by $d$ (since $d$ is positive), and thus obtain
 $0<a/d\leq n/d$. Hence, $a/d\in\left\{  1,2,\ldots,n/d\right\}  $ (since
-$a/d\in\mathbb{Z}$). Furthermore, Corollary \ref{cor.ent.gcd.sa,sb} (applied
-to $d$, $a/d$ and $n/d$ instead of $s$, $a$ and $b$) yields%
+$a/d\in\mathbb{Z}$). Furthermore, Theorem \ref{thm.ent.gcd.sa,sb} (applied to
+$d$, $a/d$ and $n/d$ instead of $s$, $a$ and $b$) yields%
 \[
 \gcd\left(  d\left(  a/d\right)  ,d\left(  n/d\right)  \right)
 =\underbrace{\left\vert d\right\vert }_{\substack{=d\\\text{(since }d\text{ is
@@ -9782,8 +9820,8 @@ $d\in\mathbb{Z}$, we obtain $bd\in\mathbb{Z}$. From $b\in\left\{
 1,2,\ldots,n/d\right\}  $, we obtain $0<b\leq n/d$. We can multiply this chain
 of inequalities by $d$ (since $d$ is positive), and thus obtain $0<bd\leq n$.
 Thus, $bd\in\left\{  1,2,\ldots,n\right\}  $ (since $bd\in\mathbb{Z}$).
-Corollary \ref{cor.ent.gcd.sa,sb} (applied to $d$, $b$ and $n/d$ instead of
-$s$, $a$ and $b$) yields%
+Theorem \ref{thm.ent.gcd.sa,sb} (applied to $d$, $b$ and $n/d$ instead of $s$,
+$a$ and $b$) yields%
 \[
 \gcd\left(  db,d\left(  n/d\right)  \right)  =\underbrace{\left\vert
 d\right\vert }_{\substack{=d\\\text{(since }d\text{ is positive)}%
@@ -11453,7 +11491,7 @@ Here is the definition of binomial coefficients (at least the one I am going
 to follow in these notes):
 
 \begin{definition}
-\label{def.binom.binom}Let $n\in\mathbb{Q}$ and $k\in\mathbb{N}$. Then, we
+\label{def.binom.binom}Let $n\in\mathbb{Q}$ and $k\in\mathbb{Q}$. Then, we
 define the \textit{binomial coefficient} $\dbinom{n}{k}$ as follows:
 
 \textbf{(a)} If $k\in\mathbb{N}$, then we set
@@ -12155,7 +12193,7 @@ e.g., commutativity holds: $2x^{3}+5x$ and $5x+2x^{3}$ are the same polynomial
 (but $2x+5x^{3}$ is different). We also pretend that distributivity holds, so
 \textquotedblleft like terms\textquotedblright\ can be combined: e.g., we have
 $4x^{3}+9x^{3}=\left(  4+9\right)  x^{3}=13x^{3}$ or $4x^{3}-12x^{3}=\left(
-4-12\right)  x^{3}=-8x^{3}$. Thus, we can add two polynomials: e.g.,%
+4-12\right)  x^{3}=-8x^{3}$. Thus, we can add two polynomials: for example,%
 \[
 \left(  3x^{2}-1x+\dfrac{1}{2}\right)  +\left(  6x-7\right)  =3x^{2}%
 +\underbrace{\left(  -1+6\right)  }_{=5}x+\underbrace{\left(  \dfrac{1}%
@@ -12193,7 +12231,10 @@ substituted in a polynomial $P$ -- it can be (roughly speaking!) anything that
 can be taken to the $i$-th power for $i\in\mathbb{N}$ and that can be added
 and multiplied by a rational number. For example, $u$ can be a real number or
 a square matrix or another polynomial. (We will later learn the precise
-meaning of \textquotedblleft anything\textquotedblright\ here.)
+meaning of \textquotedblleft anything\textquotedblright\ here\footnote{Namely,
+\textquotedblleft anything\textquotedblright\ will be concretized to mean
+\textquotedblleft any element of a $\mathbb{Q}$-algebra\textquotedblright. See
+Definition \ref{def.pol.eval} for the details.}.)
 
 We have been vague in our definition of polynomials, since making it rigorous
 would take us a fair way afield. But we \textbf{will} eventually (in Chapter
@@ -12208,7 +12249,9 @@ $u\in\mathbb{Q}$ satisfy $P\left(  u\right)  =Q\left(  u\right)  $. Then,
 $P=Q$ (as polynomials).
 \end{proposition}
 
-We will prove Proposition \ref{prop.poly.informal.f=g} later.
+We will prove Proposition \ref{prop.poly.informal.f=g} later (in Section
+\ref{sect.pol.id}).\footnote{Note that it is closely related to the
+Proposition \ref{prop.intro.shamir.quadpol} we used above.}
 
 Note that polynomials are not functions -- despite the fact that we can
 substitute numbers into them and obtain other numbers. However, in many
@@ -12848,25 +12891,24 @@ a_{i}-b_{i}  &  \in\left\{  0,1,\ldots,a_{i}\right\}
 \end{align*}
 and thus $p_{i}^{a_{i}-b_{i}}$ is an integer. Hence, $\prod_{i=1}^{u}%
 p_{i}^{a_{i}-b_{i}}$ is a product of integers, and thus is an integer as well.
-Now,%
-\begin{align*}
-n  &  =\prod_{i=1}^{u}\underbrace{p_{i}^{a_{i}}}_{\substack{=p_{i}%
-^{b_{i}+\left(  a_{i}-b_{i}\right)  }\\=p_{i}^{b_{i}}p_{i}^{a_{i}-b_{i}}%
-}}=\prod_{i=1}^{u}\left(  p_{i}^{b_{i}}p_{i}^{a_{i}-b_{i}}\right)
-=\underbrace{\left(  \prod_{i=1}^{u}p_{i}^{b_{i}}\right)  }_{=p_{1}^{b_{1}%
-}p_{2}^{b_{2}}\cdots p_{u}^{b_{u}}}\left(  \prod_{i=1}^{u}p_{i}^{a_{i}-b_{i}%
-}\right) \\
-&  =\left(  p_{1}^{b_{1}}p_{2}^{b_{2}}\cdots p_{u}^{b_{u}}\right)  \left(
-\prod_{i=1}^{u}p_{i}^{a_{i}-b_{i}}\right)  .
-\end{align*}
-Thus, $p_{1}^{b_{1}}p_{2}^{b_{2}}\cdots p_{u}^{b_{u}}\mid n$ (since
-$\prod_{i=1}^{u}p_{i}^{a_{i}-b_{i}}$ is an integer). In other words,
-$p_{1}^{b_{1}}p_{2}^{b_{2}}\cdots p_{u}^{b_{u}}$ is a divisor of $n$. Hence,
-$p_{1}^{b_{1}}p_{2}^{b_{2}}\cdots p_{u}^{b_{u}}$ is a positive divisor of $n$
-(since $p_{1}^{b_{1}}p_{2}^{b_{2}}\cdots p_{u}^{b_{u}}$ is clearly positive).
-In other words, $p_{1}^{b_{1}}p_{2}^{b_{2}}\cdots p_{u}^{b_{u}}\in\left\{
-\text{positive divisors of }n\right\}  $. This proves
-(\ref{pf.lem.ent.divs-bijs.wd}).]
+Likewise, $\prod_{i=1}^{u}p_{i}^{b_{i}}$ is an integer (since $b_{i}%
+\in\left\{  0,1,\ldots,a_{i}\right\}  \subseteq\mathbb{N}$ for each
+$i\in\left\{  1,2,\ldots,u\right\}  $). Now,%
+\[
+n=\prod_{i=1}^{u}\underbrace{p_{i}^{a_{i}}}_{\substack{=p_{i}^{b_{i}+\left(
+a_{i}-b_{i}\right)  }\\=p_{i}^{b_{i}}p_{i}^{a_{i}-b_{i}}}}=\prod_{i=1}%
+^{u}\left(  p_{i}^{b_{i}}p_{i}^{a_{i}-b_{i}}\right)  =\left(  \prod_{i=1}%
+^{u}p_{i}^{b_{i}}\right)  \left(  \prod_{i=1}^{u}p_{i}^{a_{i}-b_{i}}\right)
+.
+\]
+Thus, $\prod_{i=1}^{u}p_{i}^{b_{i}}\mid n$ (since $\prod_{i=1}^{u}p_{i}%
+^{a_{i}-b_{i}}$ is an integer). In other words, $\prod_{i=1}^{u}p_{i}^{b_{i}}$
+is a divisor of $n$. Hence, $\prod_{i=1}^{u}p_{i}^{b_{i}}$ is a positive
+divisor of $n$ (since $\prod_{i=1}^{u}p_{i}^{b_{i}}$ is clearly positive). In
+other words, $\prod_{i=1}^{u}p_{i}^{b_{i}}\in\left\{  \text{positive divisors
+of }n\right\}  $. Hence, $p_{1}^{b_{1}}p_{2}^{b_{2}}\cdots p_{u}^{b_{u}}%
+=\prod_{i=1}^{u}p_{i}^{b_{i}}\in\left\{  \text{positive divisors of
+}n\right\}  $. This proves (\ref{pf.lem.ent.divs-bijs.wd}).]
 \end{fineprint}
 
 The equality (\ref{pf.lem.ent.divs-bijs.wd}) shows that the map $\Lambda$ in
@@ -14379,8 +14421,8 @@ Prove that any two equivalence classes of $\sim$ are either identical or disjoin
 \end{exercise}
 
 In the following, we will try to use Greek letters for equivalence classes and
-Roman letters for their representatives (as we did in the solution to Exercise
-\ref{exe.eqrel.eqcl.dj} above).
+Roman letters for their representatives. (See the solution to Exercise
+\ref{exe.eqrel.eqcl.dj} for an example.)
 
 \begin{center}
 \textbf{2019-02-22 lecture}
@@ -14399,7 +14441,7 @@ by $a_{1}/a_{2}$). This is how rational numbers are defined!
 \end{example}
 
 Equivalence classes appear in real life too, at least in the modern world.
-When you say that the sun rises approximately at 7 AM in\ February\footnote{in
+When you say that the sun rises approximately at 7 AM in February\footnote{in
 Minneapolis}, what do \textquotedblleft7 AM\textquotedblright\ and
 \textquotedblleft February\textquotedblright\ mean? Clearly, \textquotedblleft
 February\textquotedblright\ is not a specific month in history, since each
@@ -22207,7 +22249,7 @@ Theorem \ref{thm.ent.gcd.combine} still holds for Gaussian integers.
 
 Theorem \ref{thm.ent.gcd.cancel} still holds for Gaussian integers.
 
-Corollary \ref{cor.ent.gcd.sa,sb} has to be modified as follows:
+Theorem \ref{thm.ent.gcd.sa,sb} has to be modified as follows:
 
 \begin{corollary}
 Let $\sigma,\alpha,\beta\in\mathbb{Z}\left[  i\right]  $. Then,
@@ -22791,17 +22833,21 @@ One such pair is provided by Theorem \ref{thm.Z[i].gauss.prime.1mod4}
 \textbf{(a)}. Let us call it $\left(  a,b\right)  $. To get the other $7$, we
 notice that it must satisfy $a\neq0$ (since $p$ is not a perfect square) and
 $b\neq0$ (for the same reason) and $a\neq b$ (since $p$ is not $2n^{2}$ for
-any $n\in\mathbb{Z}$), and thus it leads to $7$ other pairs%
+any $n\in\mathbb{Z}$). Thus, the $8$ pairs%
 \begin{align*}
-&  \left(  b,a\right)  ,\ \ \ \ \ \ \ \ \ \ \left(  a,-b\right)
-,\ \ \ \ \ \ \ \ \ \ \left(  -b,a\right)  ,\ \ \ \ \ \ \ \ \ \ \left(
--a,b\right)  ,\\
-&  \left(  b,-a\right)  ,\ \ \ \ \ \ \ \ \ \ \left(  -a,-b\right)
-,\ \ \ \ \ \ \ \ \ \ \left(  -b,-a\right)  ,
+&  \left(  a,b\right)  ,\ \ \ \ \ \ \ \ \ \ \left(  b,a\right)
+,\ \ \ \ \ \ \ \ \ \ \left(  a,-b\right)  ,\ \ \ \ \ \ \ \ \ \ \left(
+-b,a\right)  ,\\
+&  \left(  -a,b\right)  ,\ \ \ \ \ \ \ \ \ \ \left(  b,-a\right)
+,\ \ \ \ \ \ \ \ \ \ \left(  -a,-b\right)  ,\ \ \ \ \ \ \ \ \ \ \left(
+-b,-a\right)
 \end{align*}
-which are all distinct. It thus remains to prove that these altogether $8$
-pairs are the \textbf{only} pairs $\left(  x,y\right)  $ of integers such that
-$p=x^{2}+y^{2}$.
+are all distinct. Each of these $8$ distinct pairs is a pair $\left(
+x,y\right)  $ of integers such that $p=x^{2}+y^{2}$ (because $p=a^{2}%
++b^{2}=b^{2}+a^{2}=a^{2}+\left(  -b\right)  ^{2}$ etc.).
+
+It thus remains to prove that these $8$ pairs are the \textbf{only} pairs
+$\left(  x,y\right)  $ of integers such that $p=x^{2}+y^{2}$.
 
 In other words, we need to prove that if $\left(  x,y\right)  $ is a pair of
 integers such that $p=x^{2}+y^{2}$, then $\left(  x,y\right)  $ is one of the
@@ -23702,14 +23748,18 @@ $\mathbb{Z}\left[  \sqrt{2}\right]  $; the same is true for each
 $\mathbb{Z}\left[  \sqrt{n}\right]  $ with $n>1$ and $n$ not being a perfect
 square (but this is much harder to prove).
 
-\item When can $n\in\mathbb{N}$ be written as a sum of three squares?
-Legendre's three-squares theorem: iff $n$ is not of the form $n=4^{a}\left(
-8b+7\right)  $ for integers $a,b$. Very hard to prove (\cite[Chapter
+\item When can an $n\in\mathbb{N}$ be written as a sum of three squares?
+\href{https://en.wikipedia.org/wiki/Legendre's_three-square_theorem}{Legendre's
+three-squares theorem} says that the answer is \textquotedblleft if and only
+if $n$ is not of the form $n=4^{a}\left(  8b+7\right)  $ for $a,b\in
+\mathbb{N}$\textquotedblright. This is very hard to prove (\cite[Chapter
 XIII]{Uspensky-Heaslet} might have the only elementary proof).
 
-\item When can $n\in\mathbb{N}$ be written as a sum of four squares?
-Lagrange's four-squares theorem: always!\footnote{An application (fortunately,
-no longer relevant):
+\item When can an $n\in\mathbb{N}$ be written as a sum of four squares?
+\href{https://en.wikipedia.org/wiki/Lagrange's_four-square_theorem}{Lagrange's
+four-squares theorem} reveals that the answer to this question is
+\textquotedblleft always\textquotedblright!\footnote{An application
+(fortunately, no longer relevant):
 \par
 \textquotedblleft\texttt{Warning: Due to a known bug, the default Linux
 document viewer evince prints N*N copies of a PDF file when N copies
@@ -24695,8 +24745,8 @@ does not.)
 S_{4}=\left\{  a+bi\ \mid\ a,b\in\mathbb{N}\right\}  .
 \]
 Is $S_{4}$ a subring of $\mathbb{Z}\left[  i\right]  $ ? No, because $S_{4}$
-is not closed under additive inverses (although $S_{4}$ satisfies all the
-other three conditions of Proposition \ref{prop.ring.subring.as-subset}.)
+is not closed under additive inverses (although $S_{4}$ satisfies two of the
+other conditions of Proposition \ref{prop.ring.subring.as-subset}).
 
 \textbf{(e)} A pattern emerges: It appears that the only subrings of
 $\mathbb{Z}\left[  i\right]  $ are the ones of the form $\left\{
@@ -25597,6 +25647,7 @@ satisfy $xy=0$. (Here, of course, \textquotedblleft$0$\textquotedblright%
 \ means the zero of $\mathbb{K}$.) Prove that $x=0$ or $y=0$.
 \end{exercise}
 
+\begin{fineprint}
 \begin{proof}
 [Solution to Exercise \ref{exe.field.xy=0}.]Assume the contrary. Thus, neither
 $x=0$ nor $y=0$. In other words, we have $x\neq0$ and $y\neq0$.
@@ -25611,6 +25662,7 @@ $\underbrace{x^{-1}x}_{=1}y=1y=y$, we obtain $y=0$; this contradicts $y\neq0$.
 This contradiction shows that our assumption was false. Hence, Exercise
 \ref{exe.field.xy=0} is solved.
 \end{proof}
+\end{fineprint}
 
 \subsection{\label{sect.ring.hunting1}Hunting for finite fields I}
 
@@ -25630,9 +25682,10 @@ if it has only finitely many elements).
 
 We have seen a bunch of finite rings. For example, if $S$ is a finite set,
 then the commutative ring $\left(  \mathcal{P}\left(  S\right)
-,\bigtriangleup,\cap,\varnothing,S\right)  $ (see one of the examples above)
-has size $\left\vert \mathcal{P}\left(  S\right)  \right\vert =2^{\left\vert
-S\right\vert }$, and thus is finite.
+,\bigtriangleup,\cap,\varnothing,S\right)  $ (which was constructed in one of
+the examples in Section \ref{sect.ring.exa}) has size $\left\vert
+\mathcal{P}\left(  S\right)  \right\vert =2^{\left\vert S\right\vert }$, and
+thus is finite.
 
 We also have seen infinitely many finite fields:%
 \[
@@ -25648,25 +25701,32 @@ field whenever $p$ is a prime.
 \end{question}
 
 \begin{remark}
+\label{rmk.finfield.shamir1}Why do we care?
+
 Recall Shamir's Secret Sharing Scheme, which we introduced in Subsection
 \ref{subsect.intro.shamir.k=3}. The way we defined the Scheme, it had a
 problem: It relied on a spurious notion of a \textquotedblleft uniformly
 random rational number\textquotedblright, which does not exist in nature. Now
 we can fix this problem: Replace rational numbers by elements of a finite
 field. More precisely, let $N$ again be the length of the bitstring that we
-want to encrypt. Pick a prime $p$ that satisfies $p>N$; this exists due to
-Theorem \ref{thm.ent.prime.infin}. Then, the finite field $\mathbb{Z}/p$ has
-more than $p$ elements. Now, use elements of $\mathbb{Z}/p$ instead of
-integers. (Thus, a bitstring $a_{N-1}a_{N-2}\cdots a_{0}$ will be encoded as
-the residue class $\left[  a_{N-1}a_{N-2}\cdots a_{0}\right]  _{p}%
-\in\mathbb{Z}/p$ rather than as the number $a_{N-1}a_{N-2}\cdots a_{0}%
-\in\mathbb{Z}$.) Instead of picking two uniformly random bitstrings
-$\mathbf{c}$ and $\mathbf{b}$ and transforming them into numbers $c$ and $b$,
-just pick two uniformly random residue classes $c,b\in\mathbb{Z}/p$. (This is
-possible, since $\mathbb{Z}/p$ is a finite set.)
+want to encrypt. Pick a prime $p$ that satisfies both $p\geq2^{N}$ and $p>n$;
+this exists due to Theorem \ref{thm.ent.prime.infin}. Now, use elements of the
+finite field $\mathbb{Z}/p$ instead of integers. (Thus, a bitstring
+$a_{N-1}a_{N-2}\cdots a_{0}$ will be encoded as the residue class $\left[
+a_{N-1}\cdot2^{N-1}+a_{N-2}\cdot2^{N-2}+\cdots+a_{0}\cdot2^{0}\right]  _{p}%
+\in\mathbb{Z}/p$ rather than as the number $a_{N-1}\cdot2^{N-1}+a_{N-2}%
+\cdot2^{N-2}+\cdots+a_{0}\cdot2^{0}\in\mathbb{Z}$. This encoding can be
+uniquely decoded, because $p\geq2^{N}$.) Instead of picking two uniformly
+random bitstrings $\mathbf{c}$ and $\mathbf{b}$ and transforming them into
+numbers $c$ and $b$, just pick two uniformly random residue classes
+$c,b\in\mathbb{Z}/p$. (This is possible, since $\mathbb{Z}/p$ is a finite set.)
 
 This relies on having a well-behaved notion of polynomials over $\mathbb{Z}%
-/p$. We give a rigorous definition of this notion in Chapter \ref{chp.pol}.
+/p$, which should satisfy the obvious analogue of Proposition
+\ref{prop.intro.shamir.quadpol} (with \textquotedblleft
+numbers\textquotedblright\ replaced by \textquotedblleft elements of
+$\mathbb{Z}/p$\textquotedblright). We will give a rigorous definition of this
+notion in Chapter \ref{chp.pol}.
 
 Finite fields have many uses -- not just in making Shamir's Secret Sharing
 Scheme work. One great source of applications is \textit{coding theory}, which
@@ -25681,17 +25741,24 @@ prime $p$. Are there fields of other sizes?
 duplicating\textquotedblright\ the known field $\mathbb{Z}/p$. Thus, we fix a
 prime $p$, and consider the Cartesian product $\left(  \mathbb{Z}/p\right)
 \times\left(  \mathbb{Z}/p\right)  $. Define addition, subtraction and
-multiplication on this Cartesian product entrywise (so, e.g., $\left(
-a,b\right)  \left(  c,d\right)  =\left(  ac,bd\right)  $). This will yield a
-commutative ring with zero $\left(  \left[  0\right]  _{p},\left[  0\right]
-_{p}\right)  $ and unity $\left(  \left[  1\right]  _{p},\left[  1\right]
-_{p}\right)  $.
+multiplication on this Cartesian product entrywise\footnote{That is,%
+\begin{align*}
+\left(  a,b\right)  +\left(  c,d\right)   &  =\left(  a+c,b+d\right)  ;\\
+\left(  a,b\right)  -\left(  c,d\right)   &  =\left(  a-c,b-d\right)  ;\\
+\left(  a,b\right)  \left(  c,d\right)   &  =\left(  ac,bd\right)
+\end{align*}
+}. This will yield a commutative ring with zero $\left(  \left[  0\right]
+_{p},\left[  0\right]  _{p}\right)  $ and unity $\left(  \left[  1\right]
+_{p},\left[  1\right]  _{p}\right)  $.
 
 However, the element $\left(  \left[  0\right]  _{p},\left[  1\right]
 _{p}\right)  $ of this ring is nonzero (because it is not $\left(  \left[
 0\right]  _{p},\left[  0\right]  _{p}\right)  $) but has no inverse (since
 multiplying it by anything will never make its first entry anything other than
 $\left[  0\right]  _{p}$). So this ring is not a field.
+
+(This is not a useless construction -- we will see it in greater generality in
+Section \ref{sect.ring.cart-prod} below. But it does not help us find new fields.)
 
 \textbf{Second idea:} We obtained $\mathbb{C}$ from $\mathbb{R}$ by
 \textquotedblleft adjoining\textquotedblright\ a square root of $-1$. (In
@@ -29654,13 +29721,13 @@ $\dfrac{1}{2}\mathbb{Z}=\left\{  \ldots,-2,-1.5,-1,-0.5,0,0.5,1,1.5,2,\ldots
 since $\dfrac{1}{2}\cdot\dfrac{1}{2}=\dfrac{1}{4}\notin\dfrac{1}{2}\mathbb{Z}$.
 
 \textbf{(c)} What other $\mathbb{Z}$-modules can we find inside $\mathbb{Q}$ ?
-Quite a few, it turns out. Here is a not-completely-obvious one: Let us call
-an integer $n$ \textit{squarefree} if it is not divisible by any perfect
-square other than $1$. It is easy to see that an integer $n$ is squarefree if
-and only if $n$ is a product of \textbf{distinct} primes (or, equivalently,
-$v_{p}\left(  n\right)  \leq1$ for each prime $p$). Thus, the squarefree
-integers are $1,2,3,5,6,7,10,11,13,\ldots$ and their negatives. Now, let
-$\mathbb{Q}_{\operatorname*{sqf}}$ be the subset%
+Quite a few, it turns out. Here is a more exotic one: Let us call an integer
+$n$ \textit{squarefree} if it is not divisible by any perfect square other
+than $1$. It is easy to see that an integer $n$ is squarefree if and only if
+$n$ is a product of \textbf{distinct} primes (or, equivalently, $v_{p}\left(
+n\right)  \leq1$ for each prime $p$). Thus, the squarefree integers are
+$1,2,3,5,6,7,10,11,13,\ldots$ and their negatives. Now, let $\mathbb{Q}%
+_{\operatorname*{sqf}}$ be the subset%
 \[
 \left\{  \dfrac{a}{b}\ \mid\ a,b\in\mathbb{Z}\text{ with }b\text{
 squarefree}\right\}
@@ -30081,9 +30148,9 @@ turning $S$ into a $\mathbb{K}$-module (viz.: define an operation $+$ by
 restricting the corresponding operation of $N$, define a map $\cdot$
 similarly, and steal the zero vector from $N$), and we shall automatically
 regard $S$ as becoming a $\mathbb{K}$-module in this way (unless we say
-otherwise). We say that the operation $+$ on $S$ (obtained by restricting the
-corresponding operation on $N$) and the map $\cdot$ on $S$ and the zero vector
-of $S$ are \textit{inherited from }$N$.
+otherwise). We say that the addition operation $+$ on $S$ (obtained by
+restricting the corresponding operation on $N$) and the scaling map $\cdot$ of
+$S$ and the zero vector of $S$ are \textit{inherited from }$N$.
 \end{definition}
 
 Thus, finding $\mathbb{K}$-submodules of a $\mathbb{K}$-module $N$ boils down
@@ -30093,7 +30160,11 @@ under scaling; the module axioms don't need to be re-checked.
 Thus, in particular, when $\mathbb{K}$ is a field, the vector subspaces of
 $\mathbb{K}^{n\times1}$ (as in Definition \ref{def.laf.subspace-of-row}) are
 precisely the $\mathbb{K}$-submodules of $\mathbb{K}^{n\times1}$. Many
-examples of $\mathbb{K}$-submodules can thus be found in textbooks on linear algebra.
+examples of $\mathbb{K}$-submodules can thus be found in textbooks on linear
+algebra. If $M$ is any $\mathbb{K}$-module, then both $M$ and the one-element
+subset $\left\{  0_{M}\right\}  $ are $\mathbb{K}$-submodules of $M$ (this is
+easily checked); the more interesting submodules are the ones that lie in
+between these two extremes.
 
 \subsection{\label{sect.la.liho}Linear maps}
 
@@ -31629,8 +31700,8 @@ functions are not suited. In fact, the polynomial function%
 \]
 is actually just the constant-$1$ function. So when we adjoined a root of this
 polynomial, did we just adjoin a root of $1$ ? Hardly. (A root of $1$ would be
-a $j$ satisfying $1 = 0$; ``adjoining'' such a thing would yield the zero
-ring, not a field with $4$ element.)
+a $j$ satisfying $1=0$; \textquotedblleft adjoining\textquotedblright\ such a
+thing would yield the zero ring, not a field with $4$ elements.)
 
 The moral of the story for now is that when we adjoin a root of a polynomial
 to a field, we certainly are not adjoining a root of a polynomial function. So
@@ -32257,15 +32328,16 @@ call them the sum of the FPSs. Thus, we make the following definition:
 
 \begin{definition}
 \label{def.pol.summable}A (possibly infinite) family $\left(  \mathbf{a}%
-_{i}\right)  _{i\in I}$ of FPSs is called \textit{summable} if for each
-$n\in\mathbb{N}$, the following requirement holds:%
+_{i}\right)  _{i\in I}$ of FPSs (where $I$ is an arbitrary set) is called
+\textit{summable} if for each $n\in\mathbb{N}$, the following requirement
+holds:%
 \begin{equation}
 \text{only finitely many }i\in I\text{ satisfy }\left[  x^{n}\right]  \left(
 \mathbf{a}_{i}\right)  \neq0. \label{eq.def.pol.summable.cond}%
 \end{equation}
-In this case, the sum $\sum_{i\in I}\mathbf{a}_{i}$ of the family $\left(
-\mathbf{a}_{i}\right)  _{i\in I}$ is defined as the FPS whose coefficients are
-given by%
+In this case, the \textit{sum} $\sum_{i\in I}\mathbf{a}_{i}$ of the family
+$\left(  \mathbf{a}_{i}\right)  _{i\in I}$ is defined as the FPS whose
+coefficients are given by%
 \[
 \left[  x^{n}\right]  \left(  \sum_{i\in I}\mathbf{a}_{i}\right)  =\sum_{i\in
 I}\left[  x^{n}\right]  \left(  \mathbf{a}_{i}\right)
@@ -32275,9 +32347,20 @@ I}\left[  x^{n}\right]  \left(  \mathbf{a}_{i}\right)
 $\mathbb{K}$, since it is a sum with only finitely many nonzero addends.)
 \end{definition}
 
-We notice that the equality (\ref{eq.def.pol.summable.cond}) is \textbf{not}
+We notice that the condition (\ref{eq.def.pol.summable.cond}) is \textbf{not}
 equivalent to saying \textquotedblleft infinitely many $i\in I$ satisfy
 $\left[  x^{n}\right]  \left(  \mathbf{a}_{i}\right)  =0$\textquotedblright.
+
+\begin{fineprint}
+\begin{remark}
+If you work in constructive logic, you should read the condition
+(\ref{eq.def.pol.summable.cond}) as \textquotedblleft all but finitely many
+$i\in I$ satisfy $\left[  x^{n}\right]  \left(  \mathbf{a}_{i}\right)
+=0$\textquotedblright\ (that is, \textquotedblleft there exists a finite
+subset $S$ of $I$ such that each $i\in I\setminus S$ satisfies $\left[
+x^{n}\right]  \left(  \mathbf{a}_{i}\right)  =0$\textquotedblright).
+\end{remark}
+\end{fineprint}
 
 \begin{proposition}
 \label{prop.pol.summable.rules}Sums of summable families of FPSs satisfy the
@@ -32471,12 +32554,11 @@ _{\substack{=0\\\text{(by (\ref{eq.pol.fps-x.0-2}) (applied}\\\text{to
 \end{array}
 \right) \\
 &  =a_{n-1}+\underbrace{\sum_{\substack{i\in\left\{  0,1,\ldots,n\right\}
-;\\i\neq1}}0\cdot\left(  \left[  x^{n-i}\right]  \left(  a_{0},a_{1}%
-,a_{2},\ldots\right)  \right)  }_{=0}=a_{n-1}.
+;\\i\neq1}}0\cdot a_{n-i}}_{=0}=a_{n-1}.
 \end{align*}
 In other words, the entries of the sequence $x\left(  a_{0},a_{1},a_{2}%
 ,\ldots\right)  $ after the first entry are $a_{0},a_{1},a_{2},\ldots$. Since
-we already know that the first entry of this sequence of $0$, we thus conclude
+we already know that the first entry of this sequence is $0$, we thus conclude
 that%
 \[
 \left(  x\left(  a_{0},a_{1},a_{2},\ldots\right)  \right)  =\left(
@@ -32781,7 +32863,14 @@ proves the \textquotedblleft$\Longleftarrow$\textquotedblright\ direction of
 Theorem \ref{thm.pol.FPS-inv}.
 \end{proof}
 
-\subsection{Polynomials}
+\subsection{Polynomials and their degrees}
+
+\begin{teachingnote}
+This section does a crappy job at explaining degrees at thrice the length such
+an explanation should take. Some of this can be amended by banishing arguments
+into exercises, but this is probably not enough on its own. Some of it is
+unavoidable for lack of a good language for constructive logic. What about the rest?
+\end{teachingnote}
 
 Recall that polynomials have been defined as a special case of FPSs: Namely, a
 polynomial is just an FPS with only finitely many nonzero entries (=
@@ -32833,8 +32922,12 @@ The degree of the polynomial $\mathbf{a}$ will be denoted $\deg\mathbf{a}$.
 \left[  x\right]  \right]  \ \mid\ a_{1}=a_{2}=a_{3}=\cdots=0\right\} \\
 &  =\left\{  \left(  a_{0},\underbrace{0,0,0,\ldots}_{\text{zeroes}}\right)
 \ \mid\ a_{0}\in\mathbb{K}\right\} \\
-&  =\left\{  \underline{a_{0}}\ \mid\ a_{0}\in\mathbb{K}\right\}  =\left\{
-\underline{a}\ \mid\ a\in\mathbb{K}\right\}  .
+&  =\left\{  \left(  a,\underbrace{0,0,0,\ldots}_{\text{zeroes}}\right)
+\ \mid\ a\in\mathbb{K}\right\} \\
+&  =\left\{  \underline{a}\ \mid\ a\in\mathbb{K}\right\}
+\ \ \ \ \ \ \ \ \ \ \left(  \text{since }\left(  a,\underbrace{0,0,0,\ldots
+}_{\text{zeroes}}\right)  =\underline{a}\text{ for each }a\in\mathbb{K}%
+\right)  .
 \end{align*}
 This is the set of all constant FPSs; these are also known as the
 \textit{constant polynomials}. Convention \ref{conv.pol.embed-FPS} lets us
@@ -32998,21 +33091,23 @@ n}\right)
 
 \begin{fineprint}
 \begin{remark}
-\label{rmk.pol.deg-bad}If you work in constructive logic, then you cannot
-prove that each polynomial has a well-defined degree (since it cannot
-generally be proven that each $i\in\mathbb{N}$ satisfies either $a_{i}=0$ or
-$a_{i}\neq0$). Thus, the notion of \textquotedblleft the degree of a
-polynomial\textquotedblright\ is not well-behaved in constructive mathematics.
-It is also not well-behaved in other ways -- e.g., it is not preserved by ring
-homomorphisms, and leads to nuisances when $\mathbb{K}$ is the trivial ring,
-as witnessed in Theorem \ref{thm.pol.deg-basics} \textbf{(d)} below. Thus, I
-shall avoid this notion whereever I can help it, and instead use the notion of
-$\mathbb{K}\left[  x\right]  _{\leq n}$ (where $n\in\mathbb{Z}$). This is a
-bit less familiar but hopefully more \textquotedblleft philosophically
-right\textquotedblright\ (while being essentially equivalent to the notion of
-degree under classical logic, because of Lemma \ref{lem.pol.deg}
-\textbf{(b)}). (The notion of a degree does become useful again when
-$\mathbb{K}$ is a field, but I will first study a more general setup.)
+\label{rmk.pol.deg-bad}If you work in constructive logic, then Lemma
+\ref{lem.pol.deg} \textbf{(b)} cannot be proven. In fact, in constructive
+logic, you cannot prove that each polynomial has a well-defined degree (since
+you cannot generally prove that each $i\in\mathbb{N}$ satisfies either
+$a_{i}=0$ or $a_{i}\neq0$). Thus, the notion of \textquotedblleft the degree
+of a polynomial\textquotedblright\ is not well-behaved in constructive
+mathematics. It is also not well-behaved in other ways -- e.g., it is not
+preserved by ring homomorphisms, and leads to nuisances when $\mathbb{K}$ is
+the trivial ring, as witnessed in Theorem \ref{thm.pol.deg-basics}
+\textbf{(d)} below. Thus, I shall avoid this notion whereever I can help it,
+and instead use the notion of $\mathbb{K}\left[  x\right]  _{\leq n}$ (where
+$n\in\mathbb{Z}$). This is a bit less familiar but hopefully more
+\textquotedblleft philosophically right\textquotedblright\ (while being
+essentially equivalent to the notion of degree under classical logic, because
+of Lemma \ref{lem.pol.deg} \textbf{(b)}). (The notion of a degree does become
+useful again when $\mathbb{K}$ is a field, but I will first study a more
+general setup.)
 \end{remark}
 \end{fineprint}
 
@@ -33074,9 +33169,10 @@ _{=x}=a_{1}x$). This proves Theorem \ref{thm.pol.pol-as-sum}.
 x^{n}\right]  \mathbf{a}\neq0$.
 \end{exercise}
 
+\begin{fineprint}
 \begin{proof}
 [Solution to Exercise \ref{exe.pol.deg-red}.]Lemma \ref{lem.pol.deg}
-\textbf{(a)} shows that we have the equivalence $\left(  \mathbf{a}%
+\textbf{(a)} shows that we have the equivalence \newline$\left(  \mathbf{a}%
 \in\mathbb{K}\left[  x\right]  _{\leq n}\right)  \ \Longleftrightarrow
 \ \left(  \left[  x^{k}\right]  \mathbf{a}=0\text{ for all }k>n\right)  $.
 Hence, we have
@@ -33091,7 +33187,8 @@ $\left[  x^{k}\right]  \mathbf{a}=0$ holds for all $k>n$ (by
 (\ref{sol.pol.deg-red.1})), but also holds for $k=n$ (since $\left[
 x^{n}\right]  \mathbf{a}=0$). Hence, this equality holds for all $k\geq n$. In
 other words, it holds for all $k>n-1$ (since the $k\in\mathbb{N}$ satisfying
-$k\geq n$ are precisely the $k\in\mathbb{N}$ satisfying $k>n-1$).
+$k\geq n$ are precisely the $k\in\mathbb{N}$ satisfying $k>n-1$). Thus, we
+have proven that $\left[  x^{k}\right]  \mathbf{a}=0$ for all $k>n-1$.
 
 But Lemma \ref{lem.pol.deg} \textbf{(a)} (applied to $n-1$ instead of $n$)
 shows that we have the equivalence $\left(  \mathbf{a}\in\mathbb{K}\left[
@@ -33139,8 +33236,10 @@ shows that our assumption was wrong. Hence, $\left[  x^{n}\right]
 \mathbf{a}\neq0$. This solves the \textquotedblleft$\Longrightarrow
 $\textquotedblright\ direction of Exercise \ref{exe.pol.deg-red} \textbf{(c)}.
 \end{proof}
+\end{fineprint}
 
-Next, let us prove some basic rules for degrees of polynomials:
+Next, let us prove some basic properties of $\mathbb{K}\left[  x\right]
+_{\leq n}$:
 
 \begin{lemma}
 \label{lem.pol.addition}Let $n\in\mathbb{Z}$.
@@ -33211,7 +33310,7 @@ $k>n$). This proves Lemma \ref{lem.pol.addition} \textbf{(b)}.
 
 \textbf{(a)} This is trivial.
 
-\textbf{(c)} This is like part \textbf{(b)}, but easier.
+\textbf{(c)} This is like Lemma \ref{lem.pol.addition} \textbf{(b)}, but easier.
 
 \textbf{(d)} The subset $\mathbb{K}\left[  x\right]  _{\leq n}$ of
 $\mathbb{K}\left[  \left[  x\right]  \right]  $ contains the zero vector
@@ -33221,9 +33320,10 @@ scaling (by Lemma \ref{lem.pol.addition} \textbf{(c)}). Hence, it is a
 $\mathbb{K}$-submodule of $\mathbb{K}\left[  \left[  x\right]  \right]  $.
 This proves Lemma \ref{lem.pol.addition} \textbf{(d)}.
 
-\textbf{(e)} This follows from part \textbf{(e)}. (A more down to earth way to
+\textbf{(e)} This follows from part \textbf{(e)}. (A more down-to-earth way to
 prove this is to proceed by induction on the size of the sum; the induction
-base uses part \textbf{(a)}, while the induction step uses part \textbf{(b)}.)
+base uses Lemma \ref{lem.pol.addition} \textbf{(a)}, while the induction step
+uses Lemma \ref{lem.pol.addition} \textbf{(b)}.)
 
 \textbf{(f)} Let $i\in\mathbb{N}$ be such that $i\leq n$. We must prove that
 $x^{i}\in\mathbb{K}\left[  x\right]  _{\leq n}$.
@@ -33237,9 +33337,10 @@ that we have the equivalence%
 \]
 Thus, it remains to show that $\left[  x^{k}\right]  \left(  x^{i}\right)  =0$
 for all $k>n$. So let us fix a $k\in\mathbb{N}$ satisfying $k>n$. Then,
-(\ref{eq.prop.pol.xk.rest}) (applied to $k$ and $i$ instead of $n$ and $k$)
-yields $\left[  x^{k}\right]  \left(  x^{i}\right)  =0$. This is precisely
-what we wanted to show. Hence, Lemma \ref{lem.pol.addition} \textbf{(f)} is proven.
+$k>n\geq i$ (since $i\leq n$). Hence, (\ref{eq.prop.pol.xk.rest}) (applied to
+$k$ and $i$ instead of $n$ and $k$) yields $\left[  x^{k}\right]  \left(
+x^{i}\right)  =0$. This is precisely what we wanted to show. Hence, Lemma
+\ref{lem.pol.addition} \textbf{(f)} is proven.
 \end{proof}
 
 Lemma \ref{lem.pol.addition} yields the following converse of Theorem
@@ -33251,6 +33352,7 @@ Lemma \ref{lem.pol.addition} yields the following converse of Theorem
 x\right]  _{\leq n}$.
 \end{exercise}
 
+\begin{fineprint}
 \begin{proof}
 [Solution to Exercise \ref{exe.pol.sum-as-pol}.]If $k\in\left\{
 0,1,\ldots,n\right\}  $, then $x^{k}\in\mathbb{K}\left[  x\right]  _{\leq n}$
@@ -33263,6 +33365,7 @@ elements of $\mathbb{K}\left[  x\right]  _{\leq n}$. Because of Lemma
 a_{k}x^{k}$ belongs to $\mathbb{K}\left[  x\right]  _{\leq n}$. This solves
 Exercise \ref{exe.pol.sum-as-pol}.
 \end{proof}
+\end{fineprint}
 
 Combining Lemma \ref{lem.pol.addition} with Exercise \ref{exe.pol.deg-red}
 \textbf{(a)}, we obtain a simple fact: If two polynomials in $\mathbb{K}%
@@ -33289,6 +33392,7 @@ x^{n}\right]  \mathbf{a}=\left[  x^{n}\right]  \mathbf{b}$. Then,
 $\mathbf{a}-\mathbf{b}\in\mathbb{K}\left[  x\right]  _{\leq n-1}$.
 \end{exercise}
 
+\begin{fineprint}
 \begin{proof}
 [Solution to Exercise \ref{exe.pol.leading-cancel}.]Lemma
 \ref{lem.pol.addition} \textbf{(c)} (applied to $-1$ and $\mathbf{b}$ instead
@@ -33323,11 +33427,12 @@ view of
 this rewrites as $\mathbf{a}-\mathbf{b}\in\mathbb{K}\left[  x\right]  _{\leq
 n-1}$. This solves Exercise \ref{exe.pol.leading-cancel}.
 \end{proof}
+\end{fineprint}
 
 \begin{theorem}
-\label{thm.pol.pol-basics}\textbf{(a)} We have $\mathbb{K}\left[  x\right]
-_{\leq n}\subseteq\mathbb{K}\left[  x\right]  _{\leq n+1}$ for any
-$n\in\mathbb{Z}$.
+\label{thm.pol.pol-basics}\textbf{(a)} If $u\in\mathbb{Z}$ and $v\in
+\mathbb{Z}$ satisfy $u\leq v$, then $\mathbb{K}\left[  x\right]  _{\leq
+u}\subseteq\mathbb{K}\left[  x\right]  _{\leq v}$.
 
 \textbf{(b)} If $n\in\mathbb{Z}$, then $\mathbb{K}\left[  x\right]  _{\leq n}$
 is a $\mathbb{K}$-submodule of $\mathbb{K}\left[  x\right]  $.
@@ -33348,7 +33453,10 @@ x\right]  _{\leq\max\left\{  n,m\right\}  }$ and $\mathbf{ab}\in
 \mathbb{K}\left[  x\right]  _{\leq n+m}$.
 \end{theorem}
 
-Before proving Theorem \ref{thm.pol.pol-basics}, let us show two lemmas:
+We shall prove Theorem \ref{thm.pol.pol-basics} in Exercise
+\ref{exe.pol.pol-basics} below. The hardest part of this theorem is the claim
+$\mathbf{ab}\in\mathbb{K}\left[  x\right]  _{\leq n+m}$ in its part
+\textbf{(f)}; we can strengthen this part as follows:
 
 \begin{lemma}
 \label{lem.pol.deg(ab)}Let $n,m\in\mathbb{N}$. Let $\mathbf{a}\in
@@ -33466,33 +33574,40 @@ Lemma \ref{lem.pol.deg(ab)} \textbf{(b)}.
 \textbf{(a)} to $i=m$.
 \end{proof}
 
+\begin{exercise}
+\label{exe.pol.pol-basics}Prove Theorem \ref{thm.pol.pol-basics}.
+\end{exercise}
+
+\begin{fineprint}
 \begin{proof}
-[Proof of Theorem \ref{thm.pol.pol-basics}.]\textbf{(a)} Let $n\in\mathbb{Z}$.
-Let $\mathbf{a}\in\mathbb{K}\left[  x\right]  _{\leq n}$. We shall prove that
-$\mathbf{a}\in\mathbb{K}\left[  x\right]  _{\leq n+1}$.
+[Proof of Theorem \ref{thm.pol.pol-basics}.]\textbf{(a)} Let $u\in\mathbb{Z}$
+and $v\in\mathbb{Z}$ be such that $u\leq v$. Let $\mathbf{a}\in\mathbb{K}%
+\left[  x\right]  _{\leq u}$. We shall prove that $\mathbf{a}\in
+\mathbb{K}\left[  x\right]  _{\leq v}$.
 
-Lemma \ref{lem.pol.deg} \textbf{(a)} shows that we have the equivalence%
+We have $u\leq v$, thus $v\geq u$. Lemma \ref{lem.pol.deg} \textbf{(a)}
+(applied to $n=u$) shows that we have the equivalence%
 \[
-\left(  \mathbf{a}\in\mathbb{K}\left[  x\right]  _{\leq n}\right)
+\left(  \mathbf{a}\in\mathbb{K}\left[  x\right]  _{\leq u}\right)
 \ \Longleftrightarrow\ \left(  \left[  x^{k}\right]  \mathbf{a}=0\text{ for
-all }k>n\right)  .
+all }k>u\right)  .
 \]
-Hence, we have $\left[  x^{k}\right]  \mathbf{a}=0$ for all $k>n$ (since
-$\mathbf{a}\in\mathbb{K}\left[  x\right]  _{\leq n}$). Therefore, $\left[
-x^{k}\right]  \mathbf{a}=0$ for all $k>n+1$ (since each $k\in\mathbb{N}$
-satisfying $k>n+1$ must also satisfy $k>n+1>n$).
+Hence, we have $\left[  x^{k}\right]  \mathbf{a}=0$ for all $k>u$ (since
+$\mathbf{a}\in\mathbb{K}\left[  x\right]  _{\leq u}$). Therefore, $\left[
+x^{k}\right]  \mathbf{a}=0$ for all $k>v$ (since each $k\in\mathbb{N}$
+satisfying $k>v$ must also satisfy $k>v\geq u$).
 
-But Lemma \ref{lem.pol.deg} \textbf{(a)} (applied to $n+1$ instead of $n$)
-shows that we have the equivalence $\left(  \mathbf{a}\in\mathbb{K}\left[
-x\right]  _{\leq n+1}\right)  \ \Longleftrightarrow\ \left(  \left[
-x^{k}\right]  \mathbf{a}=0\text{ for all }k>n+1\right)  $. Hence, we have
-$\mathbf{a}\in\mathbb{K}\left[  x\right]  _{\leq n+1}$ (since we have $\left[
-x^{k}\right]  \mathbf{a}=0$ for all $k>n+1$).
+But Lemma \ref{lem.pol.deg} \textbf{(a)} (applied to $n=v$) shows that we have
+the equivalence $\left(  \mathbf{a}\in\mathbb{K}\left[  x\right]  _{\leq
+v}\right)  \ \Longleftrightarrow\ \left(  \left[  x^{k}\right]  \mathbf{a}%
+=0\text{ for all }k>v\right)  $. Hence, we have $\mathbf{a}\in\mathbb{K}%
+\left[  x\right]  _{\leq v}$ (since we have $\left[  x^{k}\right]
+\mathbf{a}=0$ for all $k>v$).
 
 Now, forget that we fixed $\mathbf{a}$. We thus have shown that $\mathbf{a}%
-\in\mathbb{K}\left[  x\right]  _{\leq n+1}$ for each $\mathbf{a}\in
-\mathbb{K}\left[  x\right]  _{\leq n}$. In other words, $\mathbb{K}\left[
-x\right]  _{\leq n}\subseteq\mathbb{K}\left[  x\right]  _{\leq n+1}$. This
+\in\mathbb{K}\left[  x\right]  _{\leq v}$ for each $\mathbf{a}\in
+\mathbb{K}\left[  x\right]  _{\leq u}$. In other words, $\mathbb{K}\left[
+x\right]  _{\leq u}\subseteq\mathbb{K}\left[  x\right]  _{\leq v}$. This
 proves Theorem \ref{thm.pol.pol-basics} \textbf{(a)}.
 
 \textbf{(b)} Let $n\in\mathbb{Z}$. Let $\mathbf{a}\in\mathbb{K}\left[
@@ -33534,8 +33649,8 @@ Write the FPS $\mathbf{a}$ as $\mathbf{a}=\left(  a_{0},a_{1},a_{2}%
 $i\in\mathbb{N}$ satisfy $a_{i}=0$ (by the definition of a polynomial). In
 other words, there is a finite subset $S$ of $\mathbb{N}$ such that%
 \begin{equation}
-\text{every }i\in\mathbb{N}\setminus S\text{ satisfies }a_{i}%
-=0.\label{pf.thm.pol.pol-basics.c.1}%
+\text{every }i\in\mathbb{N}\setminus S\text{ satisfies }a_{i}=0.
+\label{pf.thm.pol.pol-basics.c.1}%
 \end{equation}
 Consider this $S$.
 
@@ -33544,8 +33659,8 @@ the union of the two finite sets $S$ and $\left\{  0\right\}  $) and nonempty
 (since it contains $0$); thus, it has a maximum (since any finite nonempty
 subset of $\mathbb{N}$ is finite). Let $n$ be this maximum. Then,
 \begin{equation}
-\text{every }t\in S\cup\left\{  0\right\}  \text{ satisfies }n\geq
-t\label{pf.thm.pol.pol-basics.c.2}%
+\text{every }t\in S\cup\left\{  0\right\}  \text{ satisfies }n\geq t
+\label{pf.thm.pol.pol-basics.c.2}%
 \end{equation}
 (since $n$ is the maximum of $S\cup\left\{  0\right\}  $).
 
@@ -33590,25 +33705,19 @@ $x=x^{1}\in\mathbb{K}\left[  x\right]  _{\leq1}$. This proves Theorem
 \textbf{(f)} Let $j=\max\left\{  n,m\right\}  $. Then, $n\leq\max\left\{
 n,m\right\}  =j$ and similarly $m\leq j$.
 
-But Theorem \ref{thm.pol.pol-basics} \textbf{(a)} yields that
-\[
-\cdots\subseteq\mathbb{K}\left[  x\right]  _{\leq0}\subseteq\mathbb{K}\left[
-x\right]  _{\leq1}\subseteq\mathbb{K}\left[  x\right]  _{\leq2}\subseteq
-\cdots.
-\]
-In other words, $\mathbb{K}\left[  x\right]  _{\leq u}\subseteq\mathbb{K}%
-\left[  x\right]  _{\leq v}$ whenever $u,v\in\mathbb{Z}$ satisfy $u\leq v$.
-Applying this to $u=n$ and $v=j$, we obtain $\mathbb{K}\left[  x\right]
-_{\leq n}\subseteq\mathbb{K}\left[  x\right]  _{\leq j}$. Hence,
-$\mathbf{a}\in\mathbb{K}\left[  x\right]  _{\leq n}\subseteq\mathbb{K}\left[
-x\right]  _{\leq j}$. Similarly, $\mathbf{b}\in\mathbb{K}\left[  x\right]
-_{\leq j}$. Hence, Lemma \ref{lem.pol.addition} \textbf{(b)} (applied to $j$
-instead of $n$) yields $\mathbf{a}+\mathbf{b}\in\mathbb{K}\left[  x\right]
-_{\leq j}=\mathbb{K}\left[  x\right]  _{\leq\max\left\{  n,m\right\}  }$
-(since $j=\max\left\{  n,m\right\}  $). Furthermore, Lemma
-\ref{lem.pol.deg(ab)} \textbf{(b)} yields $\mathbf{ab}\in\mathbb{K}\left[
-x\right]  _{\leq n+m}$. Thus, Theorem \ref{thm.pol.pol-basics} \textbf{(f)} is proven.
+But Theorem \ref{thm.pol.pol-basics} \textbf{(a)} (applied to $u=n$ and $v=j$)
+yields $\mathbb{K}\left[  x\right]  _{\leq n}\subseteq\mathbb{K}\left[
+x\right]  _{\leq j}$ (since $n\leq j$). Hence, $\mathbf{a}\in\mathbb{K}\left[
+x\right]  _{\leq n}\subseteq\mathbb{K}\left[  x\right]  _{\leq j}$. Similarly,
+$\mathbf{b}\in\mathbb{K}\left[  x\right]  _{\leq j}$. Hence, Lemma
+\ref{lem.pol.addition} \textbf{(b)} (applied to $j$ instead of $n$) yields
+$\mathbf{a}+\mathbf{b}\in\mathbb{K}\left[  x\right]  _{\leq j}=\mathbb{K}%
+\left[  x\right]  _{\leq\max\left\{  n,m\right\}  }$ (since $j=\max\left\{
+n,m\right\}  $). Furthermore, Lemma \ref{lem.pol.deg(ab)} \textbf{(b)} yields
+$\mathbf{ab}\in\mathbb{K}\left[  x\right]  _{\leq n+m}$. Thus, Theorem
+\ref{thm.pol.pol-basics} \textbf{(f)} is proven.
 \end{proof}
+\end{fineprint}
 
 Using parts \textbf{(b)} and \textbf{(c)} of Theorem \ref{thm.pol.pol-basics},
 we can easily see that%
@@ -33634,9 +33743,14 @@ $-subalgebra of $\mathbb{K}\left[  \left[  x\right]  \right]  $.
 \textbf{(b)} We have $x\in\mathbb{K}\left[  x\right]  $.
 \end{corollary}
 
+\begin{exercise}
+\label{exe.pol.pol-subal}Prove Corollary \ref{cor.pol.pol-subal}.
+\end{exercise}
+
+\begin{fineprint}
 \begin{proof}
-[Proof of Corollary \ref{cor.pol.pol-subal}.] Theorem \ref{thm.pol.pol-basics}
-\textbf{(a)} (applied to $n=1$) yields that $\mathbb{K}\left[  x\right]
+[Proof of Corollary \ref{cor.pol.pol-subal}.]Theorem \ref{thm.pol.pol-basics}
+\textbf{(b)} (applied to $n=1$) yields that $\mathbb{K}\left[  x\right]
 _{\leq1}$ is a $\mathbb{K}$-submodule of $\mathbb{K}\left[  x\right]  $. Thus,
 $\mathbb{K}\left[  x\right]  _{\leq1}\subseteq\mathbb{K}\left[  x\right]  $.
 But Theorem \ref{thm.pol.pol-basics} \textbf{(e)} yields $x\in\mathbb{K}%
@@ -33662,23 +33776,23 @@ Similarly, there exists some $m\in\mathbb{N}$ such that $\mathbf{b}%
 Theorem \ref{thm.pol.pol-basics} \textbf{(f)} yields that $\mathbf{a}%
 +\mathbf{b}\in\mathbb{K}\left[  x\right]  _{\leq\max\left\{  n,m\right\}  }$
 and $\mathbf{ab}\in\mathbb{K}\left[  x\right]  _{\leq n+m}$. But Theorem
-\ref{thm.pol.pol-basics} \textbf{(a)} (applied to $\max\left\{  n,m\right\}  $
+\ref{thm.pol.pol-basics} \textbf{(b)} (applied to $\max\left\{  n,m\right\}  $
 instead of $n$) yields that $\mathbb{K}\left[  x\right]  _{\leq\max\left\{
 n,m\right\}  }$ is a $\mathbb{K}$-submodule of $\mathbb{K}\left[  x\right]  $.
 Thus, $\mathbb{K}\left[  x\right]  _{\leq\max\left\{  n,m\right\}  }%
 \subseteq\mathbb{K}\left[  x\right]  $. Hence,%
 \begin{equation}
 \mathbf{a}+\mathbf{b}\in\mathbb{K}\left[  x\right]  _{\leq\max\left\{
-n,m\right\}  }\subseteq\mathbb{K}\left[  x\right]
-.\label{pf.cor.pol.pol-subal.a+b}%
+n,m\right\}  }\subseteq\mathbb{K}\left[  x\right]  .
+\label{pf.cor.pol.pol-subal.a+b}%
 \end{equation}
-Furthermore, Theorem \ref{thm.pol.pol-basics} \textbf{(a)} (applied to $n+m$
+Furthermore, Theorem \ref{thm.pol.pol-basics} \textbf{(b)} (applied to $n+m$
 instead of $n$) yields that $\mathbb{K}\left[  x\right]  _{\leq n+m}$ is a
 $\mathbb{K}$-submodule of $\mathbb{K}\left[  x\right]  $. Thus, $\mathbb{K}%
 \left[  x\right]  _{\leq n+m}\subseteq\mathbb{K}\left[  x\right]  $. Hence,%
 \begin{equation}
 \mathbf{ab}\in\mathbb{K}\left[  x\right]  _{\leq n+m}\subseteq\mathbb{K}%
-\left[  x\right]  .\label{pf.cor.pol.pol-subal.ab}%
+\left[  x\right]  . \label{pf.cor.pol.pol-subal.ab}%
 \end{equation}
 
 
@@ -33735,6 +33849,14 @@ other words, $\mathbb{K}\left[  x\right]  $ is a $\mathbb{K}$-subalgebra of
 $\mathbb{K}\left[  \left[  x\right]  \right]  $. This proves Corollary
 \ref{cor.pol.pol-subal} \textbf{(d)}.
 \end{proof}
+\end{fineprint}
+
+\begin{definition}
+Corollary \ref{cor.pol.pol-subal} \textbf{(a)} yields that $\mathbb{K}\left[
+x\right]  $ is a $\mathbb{K}$-algebra. This $\mathbb{K}$-algebra is called the
+\textit{polynomial ring over }$\mathbb{K}$ \textit{in the indeterminate }$x$
+(or the \textit{algebra of polynomials in }$x$ \textit{over }$\mathbb{K}$).
+\end{definition}
 
 We can restate some of Theorem \ref{thm.pol.pol-basics} in terms of degrees:
 
@@ -33763,11 +33885,11 @@ are two polynomials, then $\deg\left(  \mathbf{ab}\right)  =\deg
 \mathbf{a}+\deg\mathbf{b}$.
 \end{theorem}
 
-We shall prove this in more detail later. The condition \textquotedblleft%
-$\left\vert \mathbb{K}\right\vert >1$\textquotedblright\ in Theorem
-\ref{thm.pol.deg-basics} \textbf{(d)} is a homage to the possibility that
-$\mathbb{K}$ may be a trivial ring (i.e., a ring with only one element). If
-$\mathbb{K}$ is a trivial ring, then all coefficients of the polynomial $x$
+We shall prove this in Exercise \ref{exe.pol.deg-basics}. The condition
+\textquotedblleft$\left\vert \mathbb{K}\right\vert >1$\textquotedblright\ in
+Theorem \ref{thm.pol.deg-basics} \textbf{(d)} is a homage to the possibility
+that $\mathbb{K}$ may be a trivial ring (i.e., a ring with only one element).
+If $\mathbb{K}$ is a trivial ring, then all coefficients of the polynomial $x$
 are $0$ (because all elements of $\mathbb{K}$ are $0$), and thus $\deg
 x=-\infty$ rather than $\deg x=1$. The zero ring is generally responsible for
 lots of exceptions in rules about degrees; thus it is better to speak of
@@ -33781,12 +33903,10 @@ and $\mathbf{b}=1+2x$ (using the standard shorthand notations $1=\left[
 1\right]  _{4}$ and $2=\left[  2\right]  _{4}$ etc.), then the polynomial%
 \begin{equation}
 \mathbf{ab}=\left(  1+2x\right)  \left(  1+2x\right)  =1+\underbrace{4x+4x^{2}%
-}_{\substack{=0\\\text{(since }4=0\text{ in }\mathbb{K}\text{)}}%
-}=1\label{eq.pol.deg(ab)=0.cex}%
+}_{\substack{=0\\\text{(since }4=0\text{ in }\mathbb{K}\text{)}}}=1
+\label{eq.pol.deg(ab)=0.cex}%
 \end{equation}
 has degree $<2$.
-
-TODO! The next stuff belongs into a separate theorem!
 
 Our next lemma is a generalization of Theorem \ref{thm.pol.deg-basics}
 \textbf{(f)}: Instead of requiring $\mathbb{K}$ to be a field, we will merely
@@ -33796,11 +33916,17 @@ is a field and $m=\deg\mathbf{b}$).
 
 \begin{lemma}
 \label{lem.pol.deg(ab)-ible}Let $m\in\mathbb{N}$. Let $\mathbf{a}$ and
-$\mathbf{b}$ be two polynomials $\mathbf{b}\in\mathbb{K}\left[  x\right]
+$\mathbf{b}$ be two polynomials with $\mathbf{b}\in\mathbb{K}\left[  x\right]
 _{\leq m}$. Assume that $\left[  x^{m}\right]  \mathbf{b}\in\mathbb{K}$ is
 invertible. Then, $\deg\left(  \mathbf{ab}\right)  =\deg\mathbf{a}+m$.
 \end{lemma}
 
+\begin{exercise}
+\label{exe.pol.deg-basics} Prove Theorem \ref{thm.pol.deg-basics} and Lemma
+\ref{lem.pol.deg(ab)-ible}.
+\end{exercise}
+
+\begin{fineprint}
 \begin{proof}
 [Proof of Lemma \ref{lem.pol.deg(ab)-ible}.]If $\mathbf{a}=\underline{0}$,
 then the claim that we have to prove boils down to $-\infty=\left(
@@ -33811,12 +33937,18 @@ rules we stipulated for the symbol $-\infty$. Thus, WLOG assume that
 $\mathbf{a}\neq\underline{0}$. Hence, $\deg\mathbf{a}\in\mathbb{N}$. Define
 $n\in\mathbb{N}$ by $n=\deg\mathbf{a}$.
 
-Now, $\deg\mathbf{a}=n\leq n$ and $\deg\mathbf{b}\leq m$. Hence, Lemma
-\ref{lem.pol.deg(ab)} \textbf{(b)} yields that the FPS $\mathbf{ab}$ is a
-polynomial and satisfies $\deg\left(  \mathbf{ab}\right)  \leq n+m$.
-Furthermore, Lemma \ref{lem.pol.deg(ab)} \textbf{(c)} yields $\left[
-x^{n+m}\right]  \left(  \mathbf{ab}\right)  =\left(  \left[  x^{n}\right]
-\mathbf{a}\right)  \cdot\left(  \left[  x^{m}\right]  \mathbf{b}\right)  $.
+Now, $\deg\mathbf{a}=n\leq n$. Hence, $\mathbf{a}$ is a polynomial of degree
+$\leq n$. According to Lemma \ref{lem.pol.deg} \textbf{(b)}, this entails that
+$\mathbf{a}\in\mathbb{K}\left[  x\right]  _{\leq n}$. Hence, Lemma
+\ref{lem.pol.deg(ab)} \textbf{(b)} yields that $\mathbf{ab}\in\mathbb{K}%
+\left[  x\right]  _{\leq n+m}$. Furthermore, Lemma \ref{lem.pol.deg(ab)}
+\textbf{(c)} yields $\left[  x^{n+m}\right]  \left(  \mathbf{ab}\right)
+=\left(  \left[  x^{n}\right]  \mathbf{a}\right)  \cdot\left(  \left[
+x^{m}\right]  \mathbf{b}\right)  $.
+
+But Exercise \ref{exe.pol.deg-red} \textbf{(c)} yields that we have
+$\deg\mathbf{a}=n$ if and only if $\left[  x^{n}\right]  \mathbf{a}\neq0$.
+Hence, $\left[  x^{n}\right]  \mathbf{a}\neq0$ (since $\deg\mathbf{a}=n$).
 
 Assume (for the sake of contradiction) that $\left[  x^{n+m}\right]  \left(
 \mathbf{ab}\right)  =0$. Then, $0=\left[  x^{n+m}\right]  \left(
@@ -33824,44 +33956,65 @@ Assume (for the sake of contradiction) that $\left[  x^{n+m}\right]  \left(
 \cdot\left(  \left[  x^{m}\right]  \mathbf{b}\right)  $. We can divide both
 sides of this equality by $\left[  x^{m}\right]  \mathbf{b}$ (since $\left[
 x^{m}\right]  \mathbf{b}$ is invertible), and thus obtain $0=\left[
-x^{n}\right]  \mathbf{a}$. In other words, $\left[  x^{n}\right]
-\mathbf{a}=0$. Hence, Exercise \ref{exe.pol.deg-red} \textbf{(a)} yields
-$\deg\mathbf{a}\leq n-1<n$, which contradicts $\deg\mathbf{a}=n$. This
-contradiction shows that our assumption was wrong. Hence, $\left[
-x^{n+m}\right]  \left(  \mathbf{ab}\right)  \neq0$. Thus, Exercise
-\ref{exe.pol.deg-red} \textbf{(b)} (applied to $\mathbf{ab}$ and $n+m$ instead
-of $\mathbf{a}$ and $n$) yields $\deg\left(  \mathbf{ab}\right)  =n+m$ (since
-$\deg\left(  \mathbf{ab}\right)  \leq n+m$). In view of $n=\deg\mathbf{a}$,
-this rewrites as $\deg\left(  \mathbf{ab}\right)  =\deg\mathbf{a}+m$. This
-proves Lemma \ref{lem.pol.deg(ab)-ible}.
+x^{n}\right]  \mathbf{a}\neq0$. This is absurd. This contradiction shows that
+our assumption was wrong. Hence, $\left[  x^{n+m}\right]  \left(
+\mathbf{ab}\right)  \neq0$. Thus, Exercise \ref{exe.pol.deg-red} \textbf{(b)}
+(applied to $\mathbf{ab}$ and $n+m$ instead of $\mathbf{a}$ and $n$) yields
+$\deg\left(  \mathbf{ab}\right)  =n+m$ (since $\deg\left(  \mathbf{ab}\right)
+\leq n+m$). In view of $n=\deg\mathbf{a}$, this rewrites as $\deg\left(
+\mathbf{ab}\right)  =\deg\mathbf{a}+m$. This proves Lemma
+\ref{lem.pol.deg(ab)-ible}.
 \end{proof}
 
 \begin{proof}
-[Proof of Theorem \ref{thm.pol.pol-basics}.]\textbf{(a)} We have $\left[
-x^{k}\right]  \underline{a}=0$ for all $k>0$ (since $\underline{a}=\left(
-a,\underbrace{0,0,0,\ldots}_{\text{zeroes}}\right)  $). But Lemma
-\ref{lem.pol.deg-rest} (applied to $0$ and $\underline{a}$ instead of $n$ and
-$\mathbf{a}$) shows that we have the equivalence
+[Proof of Theorem \ref{thm.pol.deg-basics}.]\textbf{(a)} Let $a\in\mathbb{K}$.
+Theorem \ref{thm.pol.pol-basics} \textbf{(d)} yields $\underline{a}%
+\in\mathbb{K}\left[  x\right]  _{\leq0}$. But Lemma \ref{lem.pol.deg}
+\textbf{(b)} (applied to $\mathbf{a}=\underline{a}$ and $n=0$) shows that we
+have the following equivalence:%
 \[
 \left(  \underline{a}\text{ is a polynomial of degree }\leq0\right)
-\ \Longleftrightarrow\ \left(  \left[  x^{k}\right]  \underline{a}=0\text{ for
-all }k>0\right)  .
+\ \Longleftrightarrow\ \left(  \underline{a}\in\mathbb{K}\left[  x\right]
+_{\leq0}\right)  .
 \]
-Hence, $\underline{a}$ is a polynomial of degree $\leq0$ (since we have
-$\left[  x^{k}\right]  \underline{a}=0$ for all $k>0$). In other words,
-$\underline{a}\in\mathbb{K}\left[  x\right]  $ and $\deg\underline{a}\leq0$.
-This proves Theorem \ref{thm.pol.pol-basics} \textbf{(a)}.
+Hence, $\underline{a}$ is a polynomial of degree $\leq0$ (since $\underline{a}%
+\in\mathbb{K}\left[  x\right]  _{\leq0}$). In other words, $\underline{a}%
+\in\mathbb{K}\left[  x\right]  $ and $\deg\underline{a}\leq0$. This proves
+Theorem \ref{thm.pol.deg-basics} \textbf{(a)}.
 
-\textbf{(b)} LTTR.
+\textbf{(b)} Let $a\in\mathbb{K}$ be nonzero. Theorem \ref{thm.pol.pol-basics}
+\textbf{(d)} yields $\underline{a}\in\mathbb{K}\left[  x\right]  _{\leq0}$.
+Moreover, $\left[  x^{0}\right]  \left(  \underline{a}\right)  =a\neq0$ (since
+$a$ is nonzero). Hence, Exercise \ref{exe.pol.deg-red} \textbf{(b)} (applied
+to $n=0$ and $\mathbf{a}=\underline{a}$) yields $\deg\underline{a}=0$. This
+proves Theorem \ref{thm.pol.deg-basics} \textbf{(b)}.
 
-\textbf{(c)} Lemma \ref{lem.pol.addition} \textbf{(e)} (applied to $i=1$ and
-$n=1$) shows that $x^{1}$ is a polynomial of degree $\leq1$. In other words,
-we have $x^{1}\in\mathbb{K}\left[  x\right]  $ and $\deg\left(  x^{1}\right)
-\leq1$. Since $x^{1}=x$, this rewrites as follows: We have $x\in
-\mathbb{K}\left[  x\right]  $ and $\deg x\leq1$. This proves Theorem
-\ref{thm.pol.pol-basics} \textbf{(c)}.
+\textbf{(c)} Theorem \ref{thm.pol.pol-basics} \textbf{(e)} yields
+$x\in\mathbb{K}\left[  x\right]  _{\leq1}$. But Lemma \ref{lem.pol.deg}
+\textbf{(b)} (applied to $\mathbf{a}=x$ and $n=1$) shows that we have the
+following equivalence:%
+\[
+\left(  x\text{ is a polynomial of degree }\leq1\right)  \ \Longleftrightarrow
+\ \left(  x\in\mathbb{K}\left[  x\right]  _{\leq1}\right)  .
+\]
+Hence, $x$ is a polynomial of degree $\leq1$ (since $x\in\mathbb{K}\left[
+x\right]  _{\leq1}$). In other words, $x\in\mathbb{K}\left[  x\right]  $ and
+$\deg x\leq1$. This proves Theorem \ref{thm.pol.deg-basics} \textbf{(c)}.
 
-\textbf{(d)} LTTR.
+\textbf{(d)} Assume that $\left\vert \mathbb{K}\right\vert >1$. Then, $1\neq0$
+in $\mathbb{K}$ (that is, $1_{\mathbb{K}}\neq0_{\mathbb{K}}$%
+)\ \ \ \ \footnote{\textit{Proof:} Let us recall how this is proven: If we had
+$1=0$ in $\mathbb{K}$, then we would have $a=a\cdot\underbrace{1}_{=0}%
+=a\cdot0=0$ for each $a\in\mathbb{K}$, and therefore we would have
+$\mathbb{K}\subseteq\left\{  0\right\}  $ and thus $\left\vert \mathbb{K}%
+\right\vert \leq\left\vert \left\{  0\right\}  \right\vert =1$, which would
+contradict $\left\vert \mathbb{K}\right\vert >1$. Hence, we cannot have $1=0$
+in $\mathbb{K}$. Thus, $1\neq0$ in $\mathbb{K}$.}. Now, Theorem
+\ref{thm.pol.pol-basics} \textbf{(e)} yields $x\in\mathbb{K}\left[  x\right]
+_{\leq1}$. Moreover, $\left[  x^{1}\right]  \left(  x\right)  =1\neq0$. Hence,
+Exercise \ref{exe.pol.deg-red} \textbf{(b)} (applied to $n=1$ and
+$\mathbf{a}=x$) yields $\deg x=1$. This proves Theorem
+\ref{thm.pol.deg-basics} \textbf{(d)}.
 
 \textbf{(e)} Let $\mathbf{a}$ and $\mathbf{b}$ be two polynomials. We must
 prove that $\mathbf{a}+\mathbf{b}$ and $\mathbf{ab}$ are two polynomials
@@ -33880,21 +34033,73 @@ $\mathbf{b}\neq\underline{0}$. Now, $\deg\mathbf{a}$ is a well-defined
 nonnegative integer (since $\mathbf{a}\neq\underline{0}$). Similarly,
 $\deg\mathbf{b}$ is a well-defined nonnegative integer.
 
-Both $\mathbf{a}$ and $\mathbf{b}$ are polynomials of degree $\leq\max\left\{
-\deg\mathbf{a},\deg\mathbf{b}\right\}  $ (since $\deg\mathbf{a}\leq
-\max\left\{  \deg\mathbf{a},\deg\mathbf{b}\right\}  $ and $\deg\mathbf{b}%
-\leq\max\left\{  \deg\mathbf{a},\deg\mathbf{b}\right\}  $). Thus, Lemma
-\ref{lem.pol.addition} \textbf{(b)} (applied to $n=\max\left\{  \deg
-\mathbf{a},\deg\mathbf{b}\right\}  $) shows that $\mathbf{a}+\mathbf{b}$ is a
-polynomial of degree $\leq\max\left\{  \deg\mathbf{a},\deg\mathbf{b}\right\}
-$. In other words, $\mathbf{a}+\mathbf{b}$ is a polynomial satisfying
-$\deg\left(  \mathbf{a}+\mathbf{b}\right)  \leq\max\left\{  \deg
-\mathbf{a},\deg\mathbf{b}\right\}  $.
+Define $n\in\mathbb{N}$ by $n=\deg\mathbf{a}$. Define $m\in\mathbb{N}$ by
+$m=\deg\mathbf{b}$. Lemma \ref{lem.pol.deg} \textbf{(b)} shows that we have
+the following equivalence:%
+\[
+\left(  \mathbf{a}\text{ is a polynomial of degree }\leq n\right)
+\ \Longleftrightarrow\ \left(  \mathbf{a}\in\mathbb{K}\left[  x\right]  _{\leq
+n}\right)  .
+\]
+Hence, $\mathbf{a}\in\mathbb{K}\left[  x\right]  _{\leq n}$ (since
+$\mathbf{a}$ is a polynomial of degree $\leq n$ (since $n=\deg\mathbf{a}$)).
+Similarly, $\mathbf{b}\in\mathbb{K}\left[  x\right]  _{\leq m}$.
 
-Lemma \ref{lem.pol.deg(ab)} \textbf{(b)} (applied to $n=\deg\mathbf{a}$ and
-$m=\deg\mathbf{b}$) shows that the FPS $\mathbf{ab}$ is a polynomial and
-satisfies $\deg\left(  \mathbf{ab}\right)  \leq\deg\mathbf{a}+\deg\mathbf{b}$.
-This completes the proof of Theorem \ref{thm.pol.pol-basics} \textbf{(e)}.
+Now, $\mathbf{a}$ is a polynomial of degree $\deg\mathbf{a}=n\leq\max\left\{
+n,m\right\}  $. But Lemma \ref{lem.pol.deg} \textbf{(b)} (applied to
+$\max\left\{  n,m\right\}  $ instead of $n$) shows that we have the following
+equivalence:%
+\[
+\left(  \mathbf{a}\text{ is a polynomial of degree }\leq\max\left\{
+n,m\right\}  \right)  \ \Longleftrightarrow\ \left(  \mathbf{a}\in
+\mathbb{K}\left[  x\right]  _{\leq\max\left\{  n,m\right\}  }\right)  .
+\]
+Hence, $\mathbf{a}\in\mathbb{K}\left[  x\right]  _{\leq\max\left\{
+n,m\right\}  }$ (since $\mathbf{a}$ is a polynomial of degree $\leq
+\max\left\{  n,m\right\}  $). Similarly, $\mathbf{b}\in\mathbb{K}\left[
+x\right]  _{\leq\max\left\{  n,m\right\}  }$. Thus, Lemma
+\ref{lem.pol.addition} \textbf{(b)} (applied to $\max\left\{  n,m\right\}  $
+instead of $n$) shows that $\mathbf{a}+\mathbf{b}\in\mathbb{K}\left[
+x\right]  _{\leq\max\left\{  n,m\right\}  }$. But Lemma \ref{lem.pol.deg}
+\textbf{(b)} (applied to $\max\left\{  n,m\right\}  $ and $\mathbf{a}%
++\mathbf{b}$ instead of $n$ and $\mathbf{a}$) shows that we have the following
+equivalence:%
+\[
+\left(  \mathbf{a}+\mathbf{b}\text{ is a polynomial of degree }\leq
+\max\left\{  n,m\right\}  \right)  \ \Longleftrightarrow\ \left(
+\mathbf{a}+\mathbf{b}\in\mathbb{K}\left[  x\right]  _{\leq\max\left\{
+n,m\right\}  }\right)  .
+\]
+Hence, $\mathbf{a}+\mathbf{b}$ is a polynomial of degree $\leq\max\left\{
+n,m\right\}  $ (since $\mathbf{a}+\mathbf{b}\in\mathbb{K}\left[  x\right]
+_{\leq\max\left\{  n,m\right\}  }$). In other words, $\mathbf{a}+\mathbf{b}$
+is a polynomial satisfying $\deg\left(  \mathbf{a}+\mathbf{b}\right)  \leq
+\max\left\{  n,m\right\}  $.
+
+Lemma \ref{lem.pol.deg(ab)} \textbf{(b)} yields $\mathbf{ab}\in\mathbb{K}%
+\left[  x\right]  _{\leq n+m}$. But Lemma \ref{lem.pol.deg} \textbf{(b)}
+(applied to $n+m$ and $\mathbf{ab}$ instead of $n$ and $\mathbf{a}$) shows
+that we have the following equivalence:%
+\[
+\left(  \mathbf{ab}\text{ is a polynomial of degree }\leq n+m\right)
+\ \Longleftrightarrow\ \left(  \mathbf{ab}\in\mathbb{K}\left[  x\right]
+_{\leq n+m}\right)  .
+\]
+Hence, $\mathbf{ab}$ is a polynomial of degree $\leq n+m$ (since
+$\mathbf{ab}\in\mathbb{K}\left[  x\right]  _{\leq n+m}$). In other words,
+$\mathbf{ab}$ is a polynomial satisfying $\deg\left(  \mathbf{ab}\right)  \leq
+n+m$.
+
+So we have shown that $\mathbf{a}+\mathbf{b}$ and $\mathbf{ab}$ are two
+polynomials, and we have%
+\begin{align*}
+\deg\left(  \mathbf{a}+\mathbf{b}\right)   &  \leq\max\left\{  \underbrace{n}%
+_{=\deg\mathbf{a}},\underbrace{m}_{=\deg\mathbf{b}}\right\}  =\max\left\{
+\deg\mathbf{a},\deg\mathbf{b}\right\}  \ \ \ \ \ \ \ \ \ \ \text{and}\\
+\deg\left(  \mathbf{ab}\right)   &  \leq\underbrace{n}_{=\deg\mathbf{a}%
+}+\underbrace{m}_{=\deg\mathbf{b}}=\deg\mathbf{a}+\deg\mathbf{b.}%
+\end{align*}
+This completes the proof of Theorem \ref{thm.pol.deg-basics} \textbf{(e)}.
 
 \textbf{(f)} Assume that $\mathbb{K}$ is a field. Let $\mathbf{a}$ and
 $\mathbf{b}$ be two polynomials. We must prove that $\deg\left(
@@ -33906,19 +34111,162 @@ similar reason, we WLOG assume that $\mathbf{b}\neq\underline{0}$.
 
 Define $m\in\mathbb{N}$ by $m=\deg\mathbf{b}$. (We can do this, since
 $\mathbf{b}\neq\underline{0}$.) Then, $\deg\mathbf{b}\leq m$. In other words,
-$\mathbf{b}$ is a polynomial of degree $\leq m$. If the element $\left[
-x^{m}\right]  \mathbf{b}\in\mathbb{K}$ was $0$, then Exercise
-\ref{exe.pol.deg-red} \textbf{(a)} (applied to $m$ and $\mathbf{b}$ instead of
-$n$ and $\mathbf{a}$) would yield $\deg\mathbf{b}\leq m-1<m$, which would
-contradict $m=\deg\mathbf{b}$. Hence, the element $\left[  x^{m}\right]
-\mathbf{b}\in\mathbb{K}$ cannot be $0$. Thus, this element $\left[
-x^{m}\right]  \mathbf{b}$ is nonzero and therefore invertible (since
-$\mathbb{K}$ is a field, and thus every nonzero element of $\mathbb{K}$ is
-invertible). Therefore, Lemma \ref{lem.pol.deg(ab)-ible} shows that
+$\mathbf{b}$ is a polynomial of degree $\leq m$. Exercise
+\ref{exe.pol.deg-red} \textbf{(c)} (applied to $m$ and $\mathbf{b}$ instead of
+$n$ and $\mathbf{a}$) yields that we have $\deg\mathbf{b}=m$ if and only if
+$\left[  x^{m}\right]  \mathbf{b}\neq0$. Hence, $\left[  x^{m}\right]
+\mathbf{b}\neq0$ (since $\deg\mathbf{b}=m$). Thus, the element $\left[
+x^{m}\right]  \mathbf{b}\in\mathbb{K}$ is nonzero and therefore invertible
+(since $\mathbb{K}$ is a field, and thus every nonzero element of $\mathbb{K}$
+is invertible). Therefore, Lemma \ref{lem.pol.deg(ab)-ible} shows that
 $\deg\left(  \mathbf{ab}\right)  =\deg\mathbf{a}+\underbrace{m}_{=\deg
 \mathbf{b}}=\deg\mathbf{a}+\deg\mathbf{b}$. This proves Theorem
-\ref{thm.pol.pol-basics} \textbf{(f)}.
+\ref{thm.pol.deg-basics} \textbf{(f)}.
 \end{proof}
+\end{fineprint}
+
+\begin{proposition}
+\label{prop.pol.deg-prod-k}Let $\mathbf{a}_{1},\mathbf{a}_{2},\ldots
+,\mathbf{a}_{k}\in\mathbb{K}\left[  x\right]  $.
+
+\textbf{(a)} Then,%
+\[
+\deg\left(  \mathbf{a}_{1}\mathbf{a}_{2}\cdots\mathbf{a}_{k}\right)  \leq
+\deg\left(  \mathbf{a}_{1}\right)  +\deg\left(  \mathbf{a}_{2}\right)
++\cdots+\deg\left(  \mathbf{a}_{k}\right)  .
+\]
+
+
+\textbf{(b)} If $\mathbb{K}$ is a field, then this is an equality.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.pol.deg-prod-k}.]\textbf{(a)} Proceed by
+induction on $k$. The base case ($k=0$) follows from Theorem
+\ref{thm.pol.deg-basics} \textbf{(a)} (applied to $a=1$), since the empty
+product of polynomials in $\mathbb{K}\left[  x\right]  $ is $1_{\mathbb{K}%
+\left[  x\right]  }=\underline{1}$. The induction step relies on Theorem
+\ref{thm.pol.deg-basics} \textbf{(e)} (specifically, the inequality
+$\deg\left(  \mathbf{ab}\right)  \leq\deg\mathbf{a}+\deg\mathbf{b}$).
+
+\textbf{(b)} Again, proceed by induction on $k$. The base case ($k=0$) follows
+from Theorem \ref{thm.pol.deg-basics} \textbf{(b)} (applied to $a=1$), since
+the empty product of polynomials in $\mathbb{K}\left[  x\right]  $ is
+$1_{\mathbb{K}\left[  x\right]  }=\underline{1}$. The induction step relies on
+Theorem \ref{thm.pol.deg-basics} \textbf{(f)}.
+\end{proof}
+
+The following exercise will be useful to us later on:
+
+\begin{exercise}
+\label{exe.pol.deg-ab-uniquot}Let $m\in\mathbb{N}$. Let $\mathbf{b}%
+\in\mathbb{K}\left[  x\right]  _{\leq m}$ be such that $\left[  x^{m}\right]
+\mathbf{b}\in\mathbb{K}$ is invertible. Let $\mathbf{q}\in\mathbb{K}\left[
+x\right]  $ be such that $\mathbf{qb}\in\mathbb{K}\left[  x\right]  _{\leq
+m-1}$. Prove that $\mathbf{q}=\underline{0}$.
+\end{exercise}
+
+\begin{fineprint}
+\begin{proof}
+[Solution to Exercise \ref{exe.pol.deg-ab-uniquot}.]This can be easily solved
+using classical logic: Assume the contrary. Thus, $\mathbf{q}\neq
+\underline{0}$. Hence, $\deg\mathbf{q}$ is a well-defined nonnegative integer.
+Thus, $\deg\mathbf{q}\geq0$. Now, Lemma \ref{lem.pol.deg(ab)} (applied to
+$\mathbf{a}=\mathbf{q}$) yields $\deg\left(  \mathbf{qb}\right)
+=\underbrace{\deg\mathbf{q}}_{\geq0}+m\geq m$. But Lemma \ref{lem.pol.deg}
+\textbf{(b)} (applied to $n=m-1$ and $\mathbf{a}=\mathbf{qb}$) shows that we
+have the following equivalence:%
+\[
+\left(  \mathbf{qb}\text{ is a polynomial of degree }\leq m-1\right)
+\ \Longleftrightarrow\ \left(  \mathbf{qb}\in\mathbb{K}\left[  x\right]
+_{\leq m-1}\right)  .
+\]
+Hence, $\mathbf{qb}$ is a polynomial of degree $\leq m-1$ (since
+$\mathbf{qb}\in\mathbb{K}\left[  x\right]  _{\leq m-1}$). Hence, $\deg\left(
+\mathbf{qb}\right)  \leq m-1<m$. This contradicts $\deg\left(  \mathbf{qb}%
+\right)  \geq m$. This contradiction shows that our assumption was false.
+Thus, the exercise is solved.
+
+Here is a constructive solution: Theorem \ref{thm.pol.pol-basics} \textbf{(c)}
+(applied to $\mathbf{a}=\mathbf{q}$) shows that there exists some
+$n\in\mathbb{N}$ such that $\mathbf{q}\in\mathbb{K}\left[  x\right]  _{\leq
+n}$. Consider this $n$. We now claim that%
+\begin{equation}
+\mathbf{q}\in\mathbb{K}\left[  x\right]  _{\leq n-d}%
+\ \ \ \ \ \ \ \ \ \ \text{for each }d\in\left\{  0,1,\ldots,n+1\right\}  .
+\label{sol.pol.deg-ab-uniquot.1}%
+\end{equation}
+
+
+[\textit{Proof of (\ref{sol.pol.deg-ab-uniquot.1}):} We shall prove
+(\ref{sol.pol.deg-ab-uniquot.1}) by induction on $d$:
+
+\textit{Induction base:} We have $\mathbf{q}\in\mathbb{K}\left[  x\right]
+_{\leq n}=\mathbb{K}\left[  x\right]  _{\leq n-0}$ (since $n=n-0$). In other
+words, (\ref{sol.pol.deg-ab-uniquot.1}) holds for $d=0$. This completes the
+induction base.
+
+\textit{Induction step:} Let $p\in\left\{  0,1,\ldots,n\right\}  $. Assume
+that (\ref{sol.pol.deg-ab-uniquot.1}) holds for $d=p$. We must prove that
+(\ref{sol.pol.deg-ab-uniquot.1}) holds for $d=p+1$.
+
+Note that $p\in\left\{  0,1,\ldots,n\right\}  $, thus $p\leq n$, hence
+$n-p\geq0$ and thus $n-p\in\mathbb{N}$. Hence, $\left(  n-p\right)
++m\in\mathbb{N}$ (since $m\in\mathbb{N}$). Furthermore, $\underbrace{\left(
+n-p\right)  }_{\geq0}+m\geq m>m-1$.
+
+We have assumed that (\ref{sol.pol.deg-ab-uniquot.1}) holds for $d=p$. In
+other words, we have $\mathbf{q}\in\mathbb{K}\left[  x\right]  _{\leq n-p}$.
+Also, $n-p\in\mathbb{N}$ and $\mathbf{b}\in\mathbb{K}\left[  x\right]  _{\leq
+m}$. Hence, Lemma \ref{lem.pol.deg(ab)} \textbf{(c)} (applied to $n-p$ and
+$\mathbf{q}$ instead of $n$ and $\mathbf{a}$) yields
+\begin{equation}
+\left[  x^{\left(  n-p\right)  +m}\right]  \left(  \mathbf{qb}\right)
+=\left(  \left[  x^{n-p}\right]  \mathbf{q}\right)  \cdot\left(  \left[
+x^{m}\right]  \mathbf{b}\right)  . \label{sol.pol.deg-ab-uniquot.1.pf.2}%
+\end{equation}
+
+
+Lemma \ref{lem.pol.deg} \textbf{(a)} (applied to $\mathbf{qb}$ and $m-1$
+instead of $\mathbf{a}$ and $n$) shows that we have the following equivalence:%
+\[
+\left(  \mathbf{qb}\in\mathbb{K}\left[  x\right]  _{\leq m-1}\right)
+\ \Longleftrightarrow\ \left(  \left[  x^{k}\right]  \left(  \mathbf{qb}%
+\right)  =0\text{ for all }k>m-1\right)  .
+\]
+Hence, we have $\left[  x^{k}\right]  \left(  \mathbf{qb}\right)  =0$ for all
+$k>m-1$ (since $\mathbf{qb}\in\mathbb{K}\left[  x\right]  _{\leq m-1}$).
+Applying this to $k=\left(  n-p\right)  +m$, we obtain $\left[  x^{\left(
+n-p\right)  +m}\right]  \left(  \mathbf{qb}\right)  =0$ (since $\left(
+n-p\right)  +m>m-1$). Comparing this with (\ref{sol.pol.deg-ab-uniquot.1.pf.2}%
+), we obtain $\left(  \left[  x^{n-p}\right]  \mathbf{q}\right)  \cdot\left(
+\left[  x^{m}\right]  \mathbf{b}\right)  =0$. We can divide both sides of this
+equality by $\left[  x^{m}\right]  \mathbf{b}$ (since $\left[  x^{m}\right]
+\mathbf{b}\in\mathbb{K}$ is invertible). As a result, we obtain $\left[
+x^{n-p}\right]  \mathbf{q}=0$.
+
+Now, we know that $\mathbf{q}\in\mathbb{K}\left[  x\right]  _{\leq n-p}$ and
+$\left[  x^{n-p}\right]  \mathbf{q}=0$. Hence, Exercise \ref{exe.pol.deg-red}
+\textbf{(a)} (applied to $n-p$ and $\mathbf{q}$ instead of $n$ and
+$\mathbf{a}$) yields $\mathbf{q}\in\mathbb{K}\left[  x\right]  _{\leq
+n-p-1}=\mathbb{K}\left[  x\right]  _{\leq n-\left(  p+1\right)  }$ (since
+$n-p-1=n-\left(  p+1\right)  $). In other words,
+(\ref{sol.pol.deg-ab-uniquot.1}) holds for $d=p+1$. This completes the
+induction step. Thus, (\ref{sol.pol.deg-ab-uniquot.1}) is proven by induction.]
+
+Now that we have proven (\ref{sol.pol.deg-ab-uniquot.1}), we can apply
+(\ref{sol.pol.deg-ab-uniquot.1}) to $d=n+1$. As a result, we obtain
+\begin{align*}
+\mathbf{q}  &  \in\mathbb{K}\left[  x\right]  _{\leq n-\left(  n+1\right)
+}=\mathbb{K}\left[  x\right]  _{\leq-1}\ \ \ \ \ \ \ \ \ \ \left(  \text{since
+}n-\left(  n+1\right)  =-1\right) \\
+&  =\left\{  \underline{0}\right\}
+\end{align*}
+(by Example \ref{exa.pol.deg.1} \textbf{(c)} (applied to $-1$ instead of $n$),
+since $-1$ is negative). In other words, $\mathbf{q}=\underline{0}$. Thus,
+Exercise \ref{exe.pol.deg-ab-uniquot} is solved again (constructively this time).
+\end{proof}
+\end{fineprint}
 
 \subsection{Division with remainder}
 
@@ -33953,11 +34301,12 @@ The first basic fact is a version of division with remainder for polynomials
 \begin{theorem}
 \label{thm.pol.quorem}Let $m\in\mathbb{N}$. Let $\mathbf{b}\in\mathbb{K}%
 \left[  x\right]  _{\leq m}$ be such that $\left[  x^{m}\right]  \mathbf{b}%
-\in\mathbb{K}$ is invertible. Let $\mathbf{a}$ be any polynomial.
+\in\mathbb{K}$ is invertible. Let $\mathbf{a}\in\mathbb{K}\left[  x\right]  $
+be any polynomial.
 
 \textbf{(a)} Then, there exists a \textbf{unique} pair $\left(  \mathbf{q}%
 ,\mathbf{r}\right)  $ of polynomials such that $\mathbf{a}=\mathbf{qb}%
-+\mathbf{r}$ and $\deg\mathbf{r}<m$.
++\mathbf{r}$ and $\mathbf{r}\in\mathbb{K}\left[  x\right]  _{\leq m-1}$.
 
 \textbf{(b)} Moreover, if $n\in\mathbb{N}$ satisfies $\mathbf{a}\in
 \mathbb{K}\left[  x\right]  _{\leq n}$, then this pair satisfies
@@ -33986,25 +34335,37 @@ remainders of degree $>1$).
 
 \begin{example}
 \label{exa.pol.quorem.1} For this example, set $\mathbb{K}=\mathbb{Z}$ and
-$m=2$ and $\mathbf{b}=x^{2}+x+1$.
+$m=2$ and $\mathbf{b}=x^{2}+x+1$. Then, $\mathbf{b}\in\mathbb{K}\left[
+x\right]  _{\leq m}$.
 
-Let $\mathbf{a}=x^{4}-x^{2}$. Then, Theorem \ref{thm.pol.quorem} \textbf{(a)}
-says that there exists a \textbf{unique} pair $\left(  \mathbf{q}%
-,\mathbf{r}\right)  $ of polynomials such that $\mathbf{a}=\mathbf{qb}%
-+\mathbf{r}$ (that is, $x^{4}-x^{2}=\mathbf{q}\cdot\left(  x^{2}+x+1\right)
-+\mathbf{r}$) and $\deg\mathbf{r}<m$ (that is, $\deg\mathbf{r}<2$). Theorem
-\ref{thm.pol.quorem} \textbf{(b)} says that this pair satisfies $\deg
-\mathbf{q}\leq\deg\mathbf{a}-m$ (that is, $\deg\mathbf{q}\leq2$). How can we
-find this pair?
+Let $n=4$ and $\mathbf{a}=x^{4}-x^{2}$; thus, $\mathbf{a}\in\mathbb{K}\left[
+x\right]  _{\leq n}$. Then, Theorem \ref{thm.pol.quorem} \textbf{(a)} says
+that there exists a \textbf{unique} pair $\left(  \mathbf{q},\mathbf{r}%
+\right)  $ of polynomials such that
+\begin{align*}
+\mathbf{a}  & =\mathbf{qb}+\mathbf{r}\ \ \ \ \ \ \ \ \ \ \left(  \text{that
+is, }x^{4}-x^{2}=\mathbf{q}\cdot\left(  x^{2}+x+1\right)  +\mathbf{r}\right)
+\ \ \ \ \ \ \ \ \ \ \text{and}\\
+\mathbf{r}  & \in\mathbb{K}\left[  x\right]  _{\leq m-1}%
+\ \ \ \ \ \ \ \ \ \ \left(  \text{that is, }\deg\mathbf{r}\leq\underbrace{m}%
+_{=2}-1=1\right)  .
+\end{align*}
+Theorem \ref{thm.pol.quorem} \textbf{(b)} says that this pair satisfies
+\[
+\mathbf{q}\in\mathbb{K}\left[  x\right]  _{\leq n-m}%
+\ \ \ \ \ \ \ \ \ \ \left(  \text{that is, }\deg\mathbf{q}\leq\underbrace{n}%
+_{=4}-\underbrace{m}_{=2}=2\right)  .
+\]
+How can we find this pair?
 
 Consider this, so far unknown, pair. Comparing the coefficients of $x^{4}$ in
 the equality
 \begin{equation}
 x^{4}-x^{2}=\mathbf{q}\cdot\left(  x^{2}+x+1\right)  +\mathbf{r}=\left(
-x^{2}+x+1\right)  \mathbf{q}+\mathbf{r}, \label{eq.exa.pol.quorem.1.1}%
+x^{2}+x+1\right)  \mathbf{q}+\mathbf{r},\label{eq.exa.pol.quorem.1.1}%
 \end{equation}
 we obtain $1=1\cdot\left[  x^{2}\right]  \mathbf{q}$ (because $\deg
-\mathbf{r}<2$ and $\deg\mathbf{q}\leq2$, so the only contribution to the
+\mathbf{r}\leq1$ and $\deg\mathbf{q}\leq2$, so the only contribution to the
 coefficient of $x^{4}$ on the right hand side of \eqref{eq.exa.pol.quorem.1.1}
 comes from picking the \textquotedblleft$x^{2}$\textquotedblright\ from the
 \textquotedblleft$x^{2}+x+1$\textquotedblright\ factor and the
@@ -34020,22 +34381,22 @@ Consider this $\mathbf{q}_{1}$. Now, \eqref{eq.exa.pol.quorem.1.1} can be
 transformed as follows:
 \begin{align}
 &  \ \left(  x^{4}-x^{2}=\left(  x^{2}+x+1\right)  \underbrace{\mathbf{q}%
-}_{=x^{2}+\mathbf{q}_{1}}+\mathbf{r}\right) \nonumber\\
+}_{=x^{2}+\mathbf{q}_{1}}+\mathbf{r}\right)  \nonumber\\
 &  \Longleftrightarrow\ \left(  x^{4}-x^{2}=\underbrace{\left(  x^{2}%
 +x+1\right)  \left(  x^{2}+\mathbf{q}_{1}\right)  }_{=\left(  x^{2}%
-+x+1\right)  x^{2}+\left(  x^{2}+x+1\right)  \mathbf{q}_{1}}+\mathbf{r}\right)
-\nonumber\\
++x+1\right)  x^{2}+\left(  x^{2}+x+1\right)  \mathbf{q}_{1}}+\mathbf{r}%
+\right)  \nonumber\\
 &  \Longleftrightarrow\ \left(  x^{4}-x^{2}=\left(  x^{2}+x+1\right)
-x^{2}+\left(  x^{2}+x+1\right)  \mathbf{q}_{1}+\mathbf{r}\right) \nonumber\\
+x^{2}+\left(  x^{2}+x+1\right)  \mathbf{q}_{1}+\mathbf{r}\right)  \nonumber\\
 &  \Longleftrightarrow\ \left(  \underbrace{x^{4}-x^{2}-\left(  x^{2}%
 +x+1\right)  x^{2}}_{=-x^{3}-2x^{2}}=\left(  x^{2}+x+1\right)  \mathbf{q}%
-_{1}+\mathbf{r}\right) \nonumber\\
+_{1}+\mathbf{r}\right)  \nonumber\\
 &  \Longleftrightarrow\ \left(  -x^{3}-2x^{2}=\left(  x^{2}+x+1\right)
-\mathbf{q}_{1}+\mathbf{r}\right)  . \label{eq.exa.pol.quorem.1.2}%
+\mathbf{q}_{1}+\mathbf{r}\right)  .\label{eq.exa.pol.quorem.1.2}%
 \end{align}
 Comparing the coefficients of $x^{3}$ in the last equality here, we obtain
-$-1=1\cdot\left[  x^{1}\right]  \mathbf{q}_{1}$ (because $\deg\mathbf{r}<2$
-and $\deg\mathbf{q}_{1}\leq2$). Hence, $\left[  x^{1}\right]  \mathbf{q}%
+$-1=1\cdot\left[  x^{1}\right]  \mathbf{q}_{1}$ (because $\deg\mathbf{r}\leq1$
+and $\deg\mathbf{q}_{1}\leq1$). Hence, $\left[  x^{1}\right]  \mathbf{q}%
 _{1}=-1$. Since $\deg\mathbf{q}_{1}\leq1$, we can thus write $\mathbf{q}_{1}$
 in the form
 \[
@@ -34046,22 +34407,22 @@ Consider this $\mathbf{q}_{2}$. Now, the last equality of
 (\ref{eq.exa.pol.quorem.1.2}) can be transformed as follows:
 \begin{align}
 &  \ \left(  -x^{3}-2x^{2}=\left(  x^{2}+x+1\right)  \underbrace{\mathbf{q}%
-_{1}}_{=-x+\mathbf{q}_{2}}+\mathbf{r}\right) \nonumber\\
+_{1}}_{=-x+\mathbf{q}_{2}}+\mathbf{r}\right)  \nonumber\\
 &  \Longleftrightarrow\ \left(  -x^{3}-2x^{2}=\underbrace{\left(
 x^{2}+x+1\right)  \left(  -x+\mathbf{q}_{2}\right)  }_{=\left(  x^{2}%
 +x+1\right)  \left(  -x\right)  +\left(  x^{2}+x+1\right)  \mathbf{q}_{2}%
-}+\mathbf{r}\right) \nonumber\\
+}+\mathbf{r}\right)  \nonumber\\
 &  \Longleftrightarrow\ \left(  -x^{3}-2x^{2}=\left(  x^{2}+x+1\right)
-\left(  -x\right)  +\left(  x^{2}+x+1\right)  \mathbf{q}_{2}+\mathbf{r}\right)
-\nonumber\\
+\left(  -x\right)  +\left(  x^{2}+x+1\right)  \mathbf{q}_{2}+\mathbf{r}%
+\right)  \nonumber\\
 &  \Longleftrightarrow\ \left(  \underbrace{-x^{3}-2x^{2}-\left(
 x^{2}+x+1\right)  \left(  -x\right)  }_{=-x^{2}+x}=\left(  x^{2}+x+1\right)
-\mathbf{q}_{2}+\mathbf{r}\right) \nonumber\\
+\mathbf{q}_{2}+\mathbf{r}\right)  \nonumber\\
 &  \Longleftrightarrow\ \left(  -x^{2}+x=\left(  x^{2}+x+1\right)
-\mathbf{q}_{2}+\mathbf{r}\right)  . \label{eq.exa.pol.quorem.1.3}%
+\mathbf{q}_{2}+\mathbf{r}\right)  .\label{eq.exa.pol.quorem.1.3}%
 \end{align}
 Comparing the coefficients of $x^{2}$ in the last equality here, we obtain
-$-1=1\cdot\left[  x^{0}\right]  \mathbf{q}_{2}$ (because $\deg\mathbf{r}<2$
+$-1=1\cdot\left[  x^{0}\right]  \mathbf{q}_{2}$ (because $\deg\mathbf{r}\leq1$
 and $\deg\mathbf{q}_{2}\leq0$). Hence, $\left[  x^{0}\right]  \mathbf{q}%
 _{2}=-1$. Since $\deg\mathbf{q}_{2}\leq0$, we can thus write $\mathbf{q}_{2}$
 in the form%
@@ -34074,9 +34435,9 @@ polynomial (that is, $\underline{0}=0_{\mathbb{K}\left[  x\right]  }$), since
 $\deg\mathbf{q}_{3}\leq-1$. Now that we have found $\mathbf{q}_{3}$, we can
 recover $\mathbf{q}_{2},\mathbf{q}_{1},\mathbf{q}$ by back-substitution:%
 \begin{align*}
-\mathbf{q}_{2}  &  =-1+\underbrace{\mathbf{q}_{3}}_{=\underline{0}}=-1;\\
-\mathbf{q}_{1}  &  =-x+\underbrace{\mathbf{q}_{2}}_{=-1}=-x-1;\\
-\mathbf{q}  &  =x^{2}+\underbrace{\mathbf{q}_{1}}_{=-x-1}=x^{2}-x-1.
+\mathbf{q}_{2} &  =-1+\underbrace{\mathbf{q}_{3}}_{=\underline{0}}=-1;\\
+\mathbf{q}_{1} &  =-x+\underbrace{\mathbf{q}_{2}}_{=-1}=-x-1;\\
+\mathbf{q} &  =x^{2}+\underbrace{\mathbf{q}_{1}}_{=-x-1}=x^{2}-x-1.
 \end{align*}
 Finally, we can find $\mathbf{r}$, for instance, by solving the last equality
 (\ref{eq.exa.pol.quorem.1.3}):%
@@ -34100,21 +34461,21 @@ spotted a proof idea in Example \ref{exa.pol.quorem.1}; we will essentially
 follow this idea when proving the \textquotedblleft
 existence\textquotedblright\ part of Theorem \ref{thm.pol.quorem}
 \textbf{(a)}, while the \textquotedblleft uniqueness\textquotedblright\ part
-will be proven by a more direct argument using Lemma
-\ref{lem.pol.deg(ab)-ible}.
+will be proven by a direct argument using Exercise
+\ref{exe.pol.deg-ab-uniquot}.
 
 Let us first combine the \textquotedblleft existence\textquotedblright\ part
 of Theorem \ref{thm.pol.quorem} \textbf{(a)} with Theorem \ref{thm.pol.quorem}
 \textbf{(b)} in order to prove both simultaneously:
 
 \begin{lemma}
-\label{lem.pol.quorem.exist}Let $m\in\mathbb{N}$. Let $\mathbf{b}$ be a
-polynomial such that $\deg\mathbf{b}\leq m$ and such that $\left[
-x^{m}\right]  \mathbf{b}\in\mathbb{K}$ is invertible. Let $n\in\left\{
--1,0,1,\ldots\right\}  $. Let $\mathbf{a}$ be any polynomial such that
-$\deg\mathbf{a}\leq n$. Then, there exists a pair $\left(  \mathbf{q}%
-,\mathbf{r}\right)  $ of polynomials such that $\mathbf{a}=\mathbf{qb}%
-+\mathbf{r}$ and $\deg\mathbf{r}<m$ and $\deg\mathbf{q}\leq n-m$.
+\label{lem.pol.quorem.exist}Let $m\in\mathbb{N}$. Let $\mathbf{b}\in
+\mathbb{K}\left[  x\right]  _{\leq m}$ be such that $\left[  x^{m}\right]
+\mathbf{b}\in\mathbb{K}$ is invertible. Let $n\in\left\{  -1,0,1,\ldots
+\right\}  $. Let $\mathbf{a}\in\mathbb{K}\left[  x\right]  _{\leq n}$. Then,
+there exist $\mathbf{q}\in\mathbb{K}\left[  x\right]  _{\leq n-m}$ and
+$\mathbf{r}\in\mathbb{K}\left[  x\right]  _{\leq m-1}$ such that
+$\mathbf{a}=\mathbf{qb}+\mathbf{r}$.
 \end{lemma}
 
 \begin{proof}
@@ -34131,10 +34492,10 @@ other words, the following claim holds:
 
 \begin{statement}
 \textit{Claim 1:} Let $n\in\left\{  -1,0,1,\ldots\right\}  $ be such that
-$n<N$. Let $\mathbf{a}$ be any polynomial such that $\deg\mathbf{a}\leq n$.
-Then, there exists a pair $\left(  \mathbf{q},\mathbf{r}\right)  $ of
-polynomials such that $\mathbf{a}=\mathbf{qb}+\mathbf{r}$ and $\deg
-\mathbf{r}<m$ and $\deg\mathbf{q}\leq n-m$.
+$n<N$. Let $\mathbf{a}\in\mathbb{K}\left[  x\right]  _{\leq n}$. Then, there
+exist $\mathbf{q}\in\mathbb{K}\left[  x\right]  _{\leq n-m}$ and
+$\mathbf{r}\in\mathbb{K}\left[  x\right]  _{\leq m-1}$ such that
+$\mathbf{a}=\mathbf{qb}+\mathbf{r}$.
 \end{statement}
 
 (We did not have to write \textquotedblleft Let $m\in\mathbb{N}$%
@@ -34145,27 +34506,31 @@ We must prove that Lemma \ref{lem.pol.quorem.exist} holds for $n=N$. In other
 words, we must prove the following claim:
 
 \begin{statement}
-\textit{Claim 2:} Let $\mathbf{a}$ be any polynomial such that $\deg
-\mathbf{a}\leq N$. Then, there exists a pair $\left(  \mathbf{q}%
-,\mathbf{r}\right)  $ of polynomials such that $\mathbf{a}=\mathbf{qb}%
-+\mathbf{r}$ and $\deg\mathbf{r}<m$ and $\deg\mathbf{q}\leq N-m$.
+\textit{Claim 2:} Let $\mathbf{a}\in\mathbb{K}\left[  x\right]  _{\leq N}$.
+Then, there exist $\mathbf{q}\in\mathbb{K}\left[  x\right]  _{\leq N-m}$ and
+$\mathbf{r}\in\mathbb{K}\left[  x\right]  _{\leq m-1}$ such that
+$\mathbf{a}=\mathbf{qb}+\mathbf{r}$.
 \end{statement}
 
 [\textit{Proof of Claim 2:} If $N<m$, then Claim 2 clearly holds (just take
-$\left(  \mathbf{q},\mathbf{r}\right)  =\left(  \underline{0},\mathbf{a}%
-\right)  $)\ \ \ \ \footnote{\textit{Proof.} Assume that $N<m$. Then,
-$\mathbf{a}=\underline{0}\cdot\mathbf{b}+\mathbf{a}$ and $\deg\mathbf{a}<m$
-(since $\deg\mathbf{a}\leq N<m$) and $\deg\underline{0}\leq N-m$ (since
-$\deg\underline{0}=-\infty\leq N-m$). Hence, $\left(  \underline{0}%
-,\mathbf{a}\right)  $ is a pair $\left(  \mathbf{q},\mathbf{r}\right)  $ of
-polynomials such that $\mathbf{a}=\mathbf{qb}+\mathbf{r}$ and $\deg
-\mathbf{r}<m$ and $\deg\mathbf{q}\leq N-m$. Thus, such a pair $\left(
-\mathbf{q},\mathbf{r}\right)  $ exists. In other words, Claim 2 holds. So we
-have shown that Claim 2 holds under the assumption that $N<m$.}. Hence, for
-the rest of this proof of Claim 2, we WLOG assume that we don't have $N<m$.
-Hence, $N\geq m$. Thus, $N-m\geq0$, so that $N-m\in\mathbb{N}$. Also, $N\geq
-m\geq0$ (since $m\in\mathbb{N}$), so that $N\in\mathbb{N}$ and therefore
-$N-1\in\left\{  -1,0,1,\ldots\right\}  $.
+$\mathbf{q}=\underline{0}$ and $\mathbf{r}=\mathbf{a}$%
+)\ \ \ \ \footnote{\textit{Proof.} Assume that $N<m$. Then, $N\leq m-1$ (since
+$N$ and $m$ are integers). Hence, Theorem \ref{thm.pol.pol-basics}
+\textbf{(a)} (applied to $u=N$ and $v=m-1$) yields $\mathbb{K}\left[
+x\right]  _{\leq N}\subseteq\mathbb{K}\left[  x\right]  _{\leq m-1}$. Hence,
+$\mathbf{a}\in\mathbb{K}\left[  x\right]  _{\leq N}\subseteq\mathbb{K}\left[
+x\right]  _{\leq m-1}$. Furthermore, $\underline{0}\in\mathbb{K}\left[
+x\right]  _{\leq N-m}$ (by Lemma \ref{lem.pol.addition} \textbf{(a)}, applied
+to $n=N-m$). Finally, $\mathbf{a}=\underline{0}\cdot\mathbf{b}+\mathbf{a}$
+(obviously). Thus, there exist $\mathbf{q}\in\mathbb{K}\left[  x\right]
+_{\leq N-m}$ and $\mathbf{r}\in\mathbb{K}\left[  x\right]  _{\leq m-1}$ such
+that $\mathbf{a}=\mathbf{qb}+\mathbf{r}$ (namely, $\mathbf{q}=\underline{0}$
+and $\mathbf{r}=\mathbf{a}$). In other words, Claim 2 holds. So we have shown
+that Claim 2 holds under the assumption that $N<m$.}. Hence, for the rest of
+this proof of Claim 2, we WLOG assume that we don't have $N<m$. Hence, $N\geq
+m$. Thus, $N-m\geq0$, so that $N-m\in\mathbb{N}$. Also, $N\geq m\geq0$ (since
+$m\in\mathbb{N}$), so that $N\in\mathbb{N}$ and therefore $N-1\in\left\{
+-1,0,1,\ldots\right\}  $.
 
 Define two elements $a_{N}$ and $b_{m}$ of $\mathbb{K}$ by $a_{N}=\left[
 x^{N}\right]  \mathbf{a}$ and $b_{m}=\left[  x^{m}\right]  \mathbf{b}$. (These
@@ -34176,33 +34541,30 @@ x^{m}\right]  \mathbf{b}$ is invertible (by an assumption in Lemma
 Define an element $\lambda\in\mathbb{K}$ by $\lambda=\dfrac{a_{N}}{b_{m}}$.
 (This is well-defined, since $b_{m}$ is invertible.)
 
-Recall that $N-m\in\mathbb{N}$. Hence, Lemma \ref{lem.pol.addition}
-\textbf{(e)} (applied to $N-m$ and $N-m$ instead of $n$ and $i$) yields that
-$x^{N-m}$ is a polynomial of degree $\leq N-m$. In other words, $x^{N-m}$ is a
-polynomial such that $\deg\left(  x^{N-m}\right)  \leq N-m$. (Only the
-possibility that $\left\vert \mathbb{K}\right\vert $ can be $1$ forces us to
-write the \textquotedblleft$\leq$\textquotedblright\ sign here.)
-
-Hence, Lemma \ref{lem.pol.deg(ab)} \textbf{(b)} (applied to $x^{N-m}$ and
-$N-m$ instead of $\mathbf{a}$ and $n$) yields that the FPS $x^{N-m}\mathbf{b}$
-is a polynomial and satisfies $\deg\left(  x^{N-m}\mathbf{b}\right)
-\leq\left(  N-m\right)  +m=N$. In other words, $x^{N-m}\mathbf{b}$ is a
-polynomial of degree $\leq N$. Thus, Lemma \ref{lem.pol.addition} \textbf{(d)}
-(applied to $N$ and $x^{N-m}\mathbf{b}$ instead of $n$ and $\mathbf{a}$)
-yields that $\lambda x^{N-m}\mathbf{b}$ is a polynomial of degree $\leq N$.
-But we also know that $\mathbf{a}$ is a polynomial of degree $\leq N$ (since
-$\deg\mathbf{a}\leq N$). Furthermore, (\ref{eq.pol.fps-scal.1}) (applied to
-$N$ and $x^{N-m}\mathbf{b}$ instead of $n$ and $\mathbf{a}$) yields%
+Recall that $N-m\in\mathbb{N}$ and $N-m\leq N-m$. Hence, Lemma
+\ref{lem.pol.addition} \textbf{(f)} (applied to $N-m$ and $N-m$ instead of $n$
+and $i$) yields that $x^{N-m}\in\mathbb{K}\left[  x\right]  _{\leq N-m}$.
+Thus, Lemma \ref{lem.pol.addition} \textbf{(c)} (applied to $N-m$ and
+$x^{N-m}$ instead of $n$ and $\mathbf{a}$) yields that $\lambda x^{N-m}%
+\in\mathbb{K}\left[  x\right]  _{\leq N-m}$. Recall also that $\mathbf{b}%
+\in\mathbb{K}\left[  x\right]  _{\leq m}$. Hence, Lemma \ref{lem.pol.deg(ab)}
+\textbf{(b)} (applied to $N-m$ and $\lambda x^{N-m}$ instead of $n$ and
+$\mathbf{a}$) yields that $\lambda x^{N-m}\mathbf{b}\in\mathbb{K}\left[
+x\right]  _{\leq\left(  N-m\right)  +m}=\mathbb{K}\left[  x\right]  _{\leq N}$
+(since $\left(  N-m\right)  +m=N$). But we also know that $\mathbf{a}%
+\in\mathbb{K}\left[  x\right]  _{\leq N}$. Furthermore,
+(\ref{eq.pol.fps-scal.1}) (applied to $N$ and $x^{N-m}\mathbf{b}$ instead of
+$n$ and $\mathbf{a}$) yields%
 \begin{align*}
 \left[  x^{N}\right]  \left(  \lambda x^{N-m}\mathbf{b}\right)   &
-=\lambda\cdot\left[  x^{N}\right]  \left(  x^{N-m}\mathbf{b}\right) \\
-&  =\lambda\cdot\underbrace{\left[  x^{\left(  N-m\right)  +m}\right]  \left(
+=\lambda\cdot\left[  x^{N}\right]  \left(  x^{N-m}\mathbf{b}\right)
+=\lambda\cdot\underbrace{\left[  x^{\left(  N-m\right)  +m}\right]  \left(
 x^{N-m}\mathbf{b}\right)  }_{\substack{=\left(  \left[  x^{N-m}\right]
 \left(  x^{N-m}\right)  \right)  \cdot\left(  \left[  x^{m}\right]
 \mathbf{b}\right)  \\\text{(by Lemma \ref{lem.pol.deg(ab)} \textbf{(c)}%
-,}\\\text{applied to }N-m\text{ and }x^{N-m}\text{ instead of }\mathbf{a}%
-\text{ and }n\text{)}}}\ \ \ \ \ \ \ \ \ \ \left(  \text{since }N=\left(
-N-m\right)  +m\right) \\
+,}\\\text{applied to }N-m\text{ and }x^{N-m}\text{ instead of }n\text{ and
+}\mathbf{a}\text{)}}}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{since }N=\left(  N-m\right)  +m\right) \\
 &  =\underbrace{\lambda}_{=\dfrac{a_{N}}{b_{m}}}\cdot\underbrace{\left(
 \left[  x^{N-m}\right]  \left(  x^{N-m}\right)  \right)  }_{=1}\cdot
 \underbrace{\left(  \left[  x^{m}\right]  \mathbf{b}\right)  }%
@@ -34215,129 +34577,217 @@ in other words, $\left[  x^{N}\right]  \mathbf{a}=\left[  x^{N}\right]
 \left(  \lambda x^{N-m}\mathbf{b}\right)  $. Hence, Exercise
 \ref{exe.pol.leading-cancel} (applied to $N$ and $\lambda x^{N-m}\mathbf{b}$
 instead of $n$ and $\mathbf{b}$) yields that $\mathbf{a}-\lambda
-x^{N-m}\mathbf{b}$ is a polynomial of degree $\leq N-1$. In other words,
-$\mathbf{a}-\lambda x^{N-m}\mathbf{b}$ is a polynomial such that $\deg\left(
-\mathbf{a}-\lambda x^{N-m}\mathbf{b}\right)  \leq N-1$. Hence, Claim 1
+x^{N-m}\mathbf{b}\in\mathbb{K}\left[  x\right]  _{\leq N-1}$. Hence, Claim 1
 (applied to $N-1$ and $\mathbf{a}-\lambda x^{N-m}\mathbf{b}$ instead of $n$
-and $\mathbf{a}$) yields that there exists a pair $\left(  \mathbf{q}%
-,\mathbf{r}\right)  $ of polynomials such that $\mathbf{a}-\lambda
-x^{N-m}\mathbf{b}=\mathbf{qb}+\mathbf{r}$ and $\deg\mathbf{r}<m$ and
-$\deg\mathbf{q}\leq\left(  N-1\right)  -m$. Consider this $\left(
-\mathbf{q},\mathbf{r}\right)  $, and denote it by $\left(  \mathbf{q}%
-_{0},\mathbf{r}_{0}\right)  $. Thus, .......
-\end{proof}
+and $\mathbf{a}$) yields that there exist $\mathbf{q}\in\mathbb{K}\left[
+x\right]  _{\leq N-1-m}$ and $\mathbf{r}\in\mathbb{K}\left[  x\right]  _{\leq
+m-1}$ such that $\mathbf{a}-\lambda x^{N-m}\mathbf{b}=\mathbf{qb}+\mathbf{r}$
+(since $N-1<N$). Consider these $\mathbf{q}$ and $\mathbf{r}$, and denote them
+by $\mathbf{q}_{0}$ and $\mathbf{r}_{0}$. Thus, $\mathbf{q}_{0}\in
+\mathbb{K}\left[  x\right]  _{\leq N-1-m}$ and $\mathbf{r}_{0}\in
+\mathbb{K}\left[  x\right]  _{\leq m-1}$ satisfy $\mathbf{a}-\lambda
+x^{N-m}\mathbf{b}=\mathbf{q}_{0}\mathbf{b}+\mathbf{r}_{0}$.
 
-TODO
-
-\begin{proof}
-[Proof of Theorem \ref{thm.pol.quorem}.](sketch, so far.) WLOG assume that
-$\left[  x^{m}\right]  \mathbf{b}=1$, since otherwise we can replace
-$\mathbf{b}$ by $\left(  \left[  x^{m}\right]  \mathbf{b}\right)
-^{-1}\mathbf{b}$.
-
-\textbf{(a)} \textit{Existence:} Strong induction on $\deg\mathbf{a}$ (while
-$\mathbf{b}$ is fixed):
-
-Fix $n\in\mathbb{N}$. Assume that the existence part of Theorem
-\ref{thm.pol.quorem} \textbf{(a)} has already been proven in the case when
-$\deg\mathbf{a}<n$. We must now prove it when $\deg\mathbf{a}=n$.
-
-Fix a polynomial $\mathbf{a}$ with $\deg\mathbf{a}=n$. If $n<m$, then just
-take $\left(  \mathbf{q},\mathbf{r}\right)  =\left(  \mathbf{a},0\right)  $
-and we are done. Thus, WLOG assume that $n\geq m$.
-
-Else, let $a_{n}=\left[  x^{n}\right]  \mathbf{a}$. Then, the polynomial
-$a-a_{n}x^{n-m}\mathbf{b}$ has degree $<n$ (since leading terms cancel) and
-thus can be written as $\mathbf{q}_{0}\mathbf{b}+\mathbf{r}_{0}$ with
-$\deg\mathbf{r}_{0}<m$. Now set $\left(  \mathbf{q},\mathbf{r}\right)
-=\left(  \mathbf{q}_{0}+a_{n}x^{n-m},\mathbf{r}_{0}\right)  $. Done.
-
-\textit{Uniqueness:} If $\mathbf{q}_{1}\mathbf{b}+\mathbf{r}_{1}%
-=\mathbf{q}_{2}\mathbf{b}+\mathbf{r}_{2}$, then $\left(  \mathbf{q}%
-_{1}-\mathbf{q}_{2}\right)  \mathbf{b}=\mathbf{r}_{2}-\mathbf{r}_{1}$ has
-degree $<m$.
-
-Assume (for contradiction) that $\mathbf{q}_{1}\neq\mathbf{q}_{2}$. Then,
-$\mathbf{q}_{1}-\mathbf{q}_{2}\neq0$. Let $w=\deg\left(  \mathbf{q}%
-_{1}-\mathbf{q}_{2}\right)  $.
-
-Now, Lemma \ref{lem.pol.deg(ab)} \textbf{(c)} yields%
-\[
-\left[  x^{w+}\right]  \left(  \left(  \mathbf{q}_{1}-\mathbf{q}_{2}\right)
-\mathbf{b}\right)
-\]
+From $\mathbf{a}-\lambda x^{N-m}\mathbf{b}=\mathbf{q}_{0}\mathbf{b}%
++\mathbf{r}_{0}$, we obtain%
+\begin{equation}
+\mathbf{a}=\lambda x^{N-m}\mathbf{b}+\mathbf{q}_{0}\mathbf{b}+\mathbf{r}%
+_{0}=\left(  \lambda x^{N-m}+\mathbf{q}_{0}\right)  \mathbf{b}+\mathbf{r}_{0}.
+\label{pf.lem.pol.quorem.exist.5}%
+\end{equation}
 
 
-NEED\ LEMMA!.....
+We shall next show that $\lambda x^{N-m}+\mathbf{q}_{0}\in\mathbb{K}\left[
+x\right]  _{\leq N-m}$. Indeed, $N-1-m\leq N-m$; hence, Theorem
+\ref{thm.pol.pol-basics} \textbf{(a)} (applied to $u=N-1-m$ and $v=N-m$)
+yields $\mathbb{K}\left[  x\right]  _{\leq N-1-m}\subseteq\mathbb{K}\left[
+x\right]  _{\leq N-m}$. Thus, $\mathbf{q}_{0}\in\mathbb{K}\left[  x\right]
+_{\leq N-1-m}\subseteq\mathbb{K}\left[  x\right]  _{\leq N-m}$. Furthermore,
+$\lambda x^{N-m}\in\mathbb{K}\left[  x\right]  _{\leq N-m}$ (as we already
+know). Thus, Lemma \ref{lem.pol.addition} \textbf{(c)} (applied to $N-m$,
+$\lambda x^{N-m}$ and $\mathbf{q}_{0}$ instead of $n$, $\mathbf{a}$ and
+$\mathbf{b}$) yields $\lambda x^{N-m}+\mathbf{q}_{0}\in\mathbb{K}\left[
+x\right]  _{\leq N-m}$.
+
+Altogether, we now know that $\lambda x^{N-m}+\mathbf{q}_{0}\in\mathbb{K}%
+\left[  x\right]  _{\leq N-m}$ and $\mathbf{r}_{0}\in\mathbb{K}\left[
+x\right]  _{\leq m-1}$ and $\mathbf{a}=\left(  \lambda x^{N-m}+\mathbf{q}%
+_{0}\right)  \mathbf{b}+\mathbf{r}_{0}$ (by (\ref{pf.lem.pol.quorem.exist.5}%
+)). Hence, there exist $\mathbf{q}\in\mathbb{K}\left[  x\right]  _{\leq N-m}$
+and $\mathbf{r}\in\mathbb{K}\left[  x\right]  _{\leq m-1}$ such that
+$\mathbf{a}=\mathbf{qb}+\mathbf{r}$ (namely, $\mathbf{q}=\lambda
+x^{N-m}+\mathbf{q}_{0}$ and $\mathbf{r}=\mathbf{r}_{0}$). This proves Claim 2.]
+
+Now, we have proven Claim 2; in other words, Lemma \ref{lem.pol.quorem.exist}
+holds for $n=N$. This completes the induction step. Thus, Lemma
+\ref{lem.pol.quorem.exist} is proven by induction.
 \end{proof}
 
 \begin{proof}
-(Other version of the same proof, also unfinished!) WLOG assume that $\left[
-x^{m}\right]  \mathbf{b}=1$, since otherwise we can just replace $\mathbf{b}$
-by $\left(  \left[  x^{m}\right]  \mathbf{b}\right)  ^{-1}\mathbf{b}$.
+[Proof of Theorem \ref{thm.pol.quorem}.]\textbf{(a)} Theorem
+\ref{thm.pol.pol-basics} \textbf{(c)} shows that there exists some
+$n\in\mathbb{N}$ such that $\mathbf{a}\in\mathbb{K}\left[  x\right]  _{\leq
+n}$. Consider this $n$.
 
-\textbf{(a)} \textit{Existence:} Strong induction on $\deg\mathbf{a}$.
+Now, Lemma \ref{lem.pol.quorem.exist} yields that there exist $\mathbf{q}%
+\in\mathbb{K}\left[  x\right]  _{\leq n-m}$ and $\mathbf{r}\in\mathbb{K}%
+\left[  x\right]  _{\leq m-1}$ such that $\mathbf{a}=\mathbf{qb}+\mathbf{r}$.
+Consider these $\mathbf{q}$ and $\mathbf{r}$, and denote them by
+$\mathbf{q}_{0}$ and $\mathbf{r}_{0}$. Thus, $\mathbf{q}_{0}\in\mathbb{K}%
+\left[  x\right]  _{\leq n-m}$ and $\mathbf{r}_{0}\in\mathbb{K}\left[
+x\right]  _{\leq m-1}$ satisfy $\mathbf{a}=\mathbf{q}_{0}\mathbf{b}%
++\mathbf{r}_{0}$.
 
-Fix $n\in\mathbb{N}$. Assume that the existence part of \textbf{(a)} has
-already been proven in the case $\deg\mathbf{a}<n$. We must now prove it for
-$\deg\mathbf{a}=n$.
+Now, $\mathbf{q}_{0}\in\mathbb{K}\left[  x\right]  _{\leq n-m}\subseteq
+\mathbb{K}\left[  x\right]  $ (since Theorem \ref{thm.pol.pol-basics}
+\textbf{(b)} (applied to $n-m$ instead of $n$) shows that $\mathbb{K}\left[
+x\right]  _{\leq n-m}$ is a $\mathbb{K}$-submodule of $\mathbb{K}\left[
+x\right]  $). In other words, $\mathbf{q}_{0}$ is a polynomial. Similarly,
+$\mathbf{r}_{0}$ is a polynomial. Hence, $\left(  \mathbf{q}_{0}%
+,\mathbf{r}_{0}\right)  $ is a pair of polynomials. As we know, this pair
+satisfies $\mathbf{a}=\mathbf{q}_{0}\mathbf{b}+\mathbf{r}_{0}$ and
+$\mathbf{r}_{0}\in\mathbb{K}\left[  x\right]  _{\leq m-1}$. Thus, there exists
+a pair $\left(  \mathbf{q},\mathbf{r}\right)  $ of polynomials such that
+$\mathbf{a}=\mathbf{qb}+\mathbf{r}$ and $\mathbf{r}\in\mathbb{K}\left[
+x\right]  _{\leq m-1}$ (namely, $\left(  \mathbf{q},\mathbf{r}\right)
+=\left(  \mathbf{q}_{0},\mathbf{r}_{0}\right)  $).
 
-So fix a polynomial $\mathbf{a}$ of degree $n$. If $n<m$, then the claim is
-trivial (just take $\left(  \mathbf{q,r}\right)  =\left(  0,\mathbf{a}\right)
-$). So WLOG assume that $n\geq m$.
+It remains to prove that this pair is unique. In other words, it remains to
+prove that any two such pairs $\left(  \mathbf{q},\mathbf{r}\right)  $ must be
+equal. In other words, it remains to prove the following:
 
-Let $a_{n}=\left[  x^{n}\right]  \mathbf{a}$. Then, the polynomial%
-\[
-\mathbf{a}-a_{n}x^{n-m}\mathbf{b}%
-\]
-has degree $<n$. Hence, by the induction hypothesis, we can write
-\[
-\mathbf{a}-a_{n}x^{n-m}\mathbf{b}=\mathbf{q}_{0}\mathbf{b}+\mathbf{r}%
-_{0}\ \ \ \ \ \ \ \ \ \ \text{with }\deg\mathbf{r}_{0}<m.
-\]
-Thus,%
-\[
-\mathbf{a}=\left(  \mathbf{q}_{0}+a_{n}x^{n-m}\right)  \mathbf{b}%
-+\mathbf{r}_{0}.
-\]
-So we just need to take $\left(  \mathbf{q},\mathbf{r}\right)  =\left(
-\mathbf{q}_{0}+a_{n}x^{n-m},\mathbf{r}_{0}\right)  $.
+\begin{statement}
+\textit{Claim 1:} If $\left(  \mathbf{q}_{1},\mathbf{r}_{1}\right)  $ and
+$\left(  \mathbf{q}_{2},\mathbf{r}_{2}\right)  $ are two pairs $\left(
+\mathbf{q,r}\right)  $ of polynomials such that $\mathbf{a=qb+r}$ and
+$\mathbf{r}\in\mathbb{K}\left[  x\right]  _{\leq m-1}$, then $\left(
+\mathbf{q}_{1},\mathbf{r}_{1}\right)  =\left(  \mathbf{q}_{2},\mathbf{r}%
+_{2}\right)  $.
+\end{statement}
 
-\textit{Uniqueness:} If $\left(  \mathbf{q}_{1},\mathbf{r}_{1}\right)  $ and
-$\left(  \mathbf{q}_{2},\mathbf{r}_{2}\right)  $ are two possible pairs
-$\left(  \mathbf{q,r}\right)  $ of polynomials such that $\mathbf{a=qb+r}$ and
-$\deg\mathbf{r}<m$, then we must prove that $\left(  \mathbf{q}_{1}%
-,\mathbf{r}_{1}\right)  =\left(  \mathbf{q}_{2},\mathbf{r}_{2}\right)  $.
-
-We have
-\[
-\mathbf{a}=\mathbf{q}_{1}\mathbf{b}+\mathbf{r}_{1}%
-\ \ \ \ \ \ \ \ \ \ \text{and}\ \ \ \ \ \ \ \ \ \ \mathbf{a=q}_{2}%
-\mathbf{b+r}_{2},
-\]
-so%
-\begin{align*}
-\mathbf{q}_{1}\mathbf{b}+\mathbf{r}_{1}  &  =\mathbf{q}_{2}\mathbf{b+r}%
-_{2},\ \ \ \ \ \ \ \ \ \ \text{so}\\
-\left(  \mathbf{q}_{1}-\mathbf{q}_{2}\right)  \mathbf{b}  &  =\mathbf{r}%
-_{2}-\mathbf{r}_{1}.
-\end{align*}
-The RHS has degree $<m$. But if $\mathbf{q}_{1}\neq\mathbf{q}_{2}$, then the
-LHS has degree $\geq m$ (this is easily seen using the fact that $\left[
-x^{m}\right]  \mathbf{b}$ is invertible), which is absurd. Thus,
-$\mathbf{q}_{1}=\mathbf{q}_{2}$, whence $\mathbf{r}_{1}=\mathbf{r}_{2}$. So
+[\textit{Proof of Claim 1:} Let $\left(  \mathbf{q}_{1},\mathbf{r}_{1}\right)
+$ and $\left(  \mathbf{q}_{2},\mathbf{r}_{2}\right)  $ be two pairs $\left(
+\mathbf{q,r}\right)  $ of polynomials such that $\mathbf{a=qb+r}$ and
+$\mathbf{r}\in\mathbb{K}\left[  x\right]  _{\leq m-1}$. We must prove that
 $\left(  \mathbf{q}_{1},\mathbf{r}_{1}\right)  =\left(  \mathbf{q}%
 _{2},\mathbf{r}_{2}\right)  $.
 
-\textbf{(b)} You can have this statement piggyback on the induction argument
-we just did for Existence.
+We have assumed that $\left(  \mathbf{q}_{1},\mathbf{r}_{1}\right)  $ is a
+pair $\left(  \mathbf{q,r}\right)  $ of polynomials such that $\mathbf{a=qb+r}%
+$ and $\mathbf{r}\in\mathbb{K}\left[  x\right]  _{\leq m-1}$. In other words,
+$\left(  \mathbf{q}_{1},\mathbf{r}_{1}\right)  $ is a pair of polynomials
+satisfying $\mathbf{a}=\mathbf{q}_{1}\mathbf{b}+\mathbf{r}_{1}$ and
+$\mathbf{r}_{1}\in\mathbb{K}\left[  x\right]  _{\leq m-1}$. Similarly,
+$\left(  \mathbf{q}_{2},\mathbf{r}_{2}\right)  $ is a pair of polynomials
+satisfying $\mathbf{a}=\mathbf{q}_{2}\mathbf{b}+\mathbf{r}_{2}$ and
+$\mathbf{r}_{2}\in\mathbb{K}\left[  x\right]  _{\leq m-1}$.
+
+From $\mathbf{r}_{1}\in\mathbb{K}\left[  x\right]  _{\leq m-1}$ and
+$\mathbf{r}_{2}\in\mathbb{K}\left[  x\right]  _{\leq m-1}$, we easily obtain
+$\mathbf{r}_{2}-\mathbf{r}_{1}\in\mathbb{K}\left[  x\right]  _{\leq m-1}%
+$\ \ \ \ \footnote{\textit{Proof.} Lemma \ref{lem.pol.addition} \textbf{(c)}
+(applied to $m-1$, $-1$ and $\mathbf{r}_{1}$ instead of $n$, $\lambda$ and
+$\mathbf{a}$) yields $\left(  -1\right)  \mathbf{r}_{1}\in\mathbb{K}\left[
+x\right]  _{\leq m-1}$ (since $\mathbf{r}_{1}\in\mathbb{K}\left[  x\right]
+_{\leq m-1}$). Hence, Lemma \ref{lem.pol.addition} \textbf{(b)} (applied to
+$m-1$, $\mathbf{r}_{2}$ and $\left(  -1\right)  \mathbf{r}_{1}$ instead of
+$n$, $\mathbf{a}$ and $\mathbf{b}$) yields $\mathbf{r}_{2}+\left(  -1\right)
+\mathbf{r}_{1}\in\mathbb{K}\left[  x\right]  _{\leq m-1}$ (since
+$\mathbf{r}_{2}\in\mathbb{K}\left[  x\right]  _{\leq m-1}$). Thus,
+$\mathbf{r}_{2}-\mathbf{r}_{1}=\mathbf{r}_{2}+\left(  -1\right)
+\mathbf{r}_{1}\in\mathbb{K}\left[  x\right]  _{\leq m-1}$.}.
+
+Comparing the equalities $\mathbf{a}=\mathbf{q}_{1}\mathbf{b}+\mathbf{r}_{1}$
+and $\mathbf{a=q}_{2}\mathbf{b+r}_{2}$, we obtain $\mathbf{q}_{1}%
+\mathbf{b}+\mathbf{r}_{1}=\mathbf{q}_{2}\mathbf{b+r}_{2}$. In other words,
+$\mathbf{q}_{1}\mathbf{b}-\mathbf{q}_{2}\mathbf{b}=\mathbf{r}_{2}%
+-\mathbf{r}_{1}$. Hence,%
+\[
+\left(  \mathbf{q}_{1}-\mathbf{q}_{2}\right)  \mathbf{b}=\mathbf{q}%
+_{1}\mathbf{b}-\mathbf{q}_{2}\mathbf{b}=\mathbf{r}_{2}-\mathbf{r}_{1}%
+\in\mathbb{K}\left[  x\right]  _{\leq m-1}.
+\]
+Hence, Exercise \ref{exe.pol.deg-ab-uniquot} (applied to $\mathbf{q}%
+=\mathbf{q}_{1}-\mathbf{q}_{2}$) yields $\mathbf{q}_{1}-\mathbf{q}%
+_{2}=\underline{0}=0_{\mathbb{K}\left[  \left[  x\right]  \right]  }$. In
+other words, $\mathbf{q}_{1}=\mathbf{q}_{2}$. Now, comparing the equalities%
+\[
+\mathbf{a}=\underbrace{\mathbf{q}_{1}}_{=\mathbf{q}_{2}}\mathbf{b}%
++\mathbf{r}_{1}=\mathbf{q}_{2}\mathbf{b}+\mathbf{r}_{1}%
+\ \ \ \ \ \ \ \ \ \ \text{and}\ \ \ \ \ \ \ \ \ \ \mathbf{a}=\mathbf{q}%
+_{2}\mathbf{b}+\mathbf{r}_{2},
+\]
+we obtain $\mathbf{q}_{2}\mathbf{b}+\mathbf{r}_{1}=\mathbf{q}_{2}%
+\mathbf{b}+\mathbf{r}_{2}$. Thus, $\mathbf{r}_{1}=\mathbf{r}_{2}$. Combining
+$\mathbf{q}_{1}=\mathbf{q}_{2}$ with $\mathbf{r}_{1}=\mathbf{r}_{2}$, we
+obtain $\left(  \mathbf{q}_{1},\mathbf{r}_{1}\right)  =\left(  \mathbf{q}%
+_{2},\mathbf{r}_{2}\right)  $. This proves Claim 1.]
+
+As we said, Claim 1 was the only thing that remained for us to prove in order
+to obtain Theorem \ref{thm.pol.quorem} \textbf{(a)}. Thus, having just proven
+Claim 1, we have finished the proof of Theorem \ref{thm.pol.quorem}
+\textbf{(a)}.
+
+\textbf{(b)} Let $n\in\mathbb{N}$ be such that $\mathbf{a}\in\mathbb{K}\left[
+x\right]  _{\leq n}$. Let $\left(  \mathbf{u},\mathbf{v}\right)  $ be the pair
+$\left(  \mathbf{q},\mathbf{r}\right)  $ whose existence is claimed by Theorem
+\ref{thm.pol.quorem} \textbf{(a)}. (We don't want to call it $\left(
+\mathbf{q},\mathbf{r}\right)  $ just yet, since we want to keep the letters
+$\mathbf{q}$ and $\mathbf{r}$ free for other uses.) We shall show that
+$\mathbf{u}\in\mathbb{K}\left[  x\right]  _{\leq n-m}$.
+
+Indeed, Lemma \ref{lem.pol.quorem.exist} yields that there exist
+$\mathbf{q}\in\mathbb{K}\left[  x\right]  _{\leq n-m}$ and $\mathbf{r}%
+\in\mathbb{K}\left[  x\right]  _{\leq m-1}$ such that $\mathbf{a}%
+=\mathbf{qb}+\mathbf{r}$. Consider these $\mathbf{q}$ and $\mathbf{r}$, and
+denote them by $\mathbf{q}_{0}$ and $\mathbf{r}_{0}$. Thus, $\mathbf{q}_{0}%
+\in\mathbb{K}\left[  x\right]  _{\leq n-m}$ and $\mathbf{r}_{0}\in
+\mathbb{K}\left[  x\right]  _{\leq m-1}$ satisfy $\mathbf{a}=\mathbf{q}%
+_{0}\mathbf{b}+\mathbf{r}_{0}$.
+
+Now, $\left(  \mathbf{q}_{0},\mathbf{r}_{0}\right)  $ is a pair of
+polynomials\footnote{This can be shown just as in the proof of Theorem
+\ref{thm.pol.quorem} \textbf{(a)} above.}. As we know, this pair satisfies
+$\mathbf{a}=\mathbf{q}_{0}\mathbf{b}+\mathbf{r}_{0}$ and $\mathbf{r}_{0}%
+\in\mathbb{K}\left[  x\right]  _{\leq m-1}$. Thus, $\left(  \mathbf{q}%
+_{0},\mathbf{r}_{0}\right)  $ is a pair $\left(  \mathbf{q},\mathbf{r}\right)
+$ of polynomials such that $\mathbf{a}=\mathbf{qb}+\mathbf{r}$ and
+$\mathbf{r}\in\mathbb{K}\left[  x\right]  _{\leq m-1}$. But $\left(
+\mathbf{u},\mathbf{v}\right)  $ also is a pair $\left(  \mathbf{q}%
+,\mathbf{r}\right)  $ of polynomials such that $\mathbf{a}=\mathbf{qb}%
++\mathbf{r}$ and $\mathbf{r}\in\mathbb{K}\left[  x\right]  _{\leq m-1}$
+(because this is how $\left(  \mathbf{u},\mathbf{v}\right)  $ was defined).
+Now, recall the Claim 1 that we stated (and proved) during our proof of
+Theorem \ref{thm.pol.quorem} \textbf{(a)}. We can apply this Claim to $\left(
+\mathbf{q}_{1},\mathbf{r}_{1}\right)  =\left(  \mathbf{u},\mathbf{v}\right)  $
+and $\left(  \mathbf{q}_{2},\mathbf{r}_{2}\right)  =\left(  \mathbf{q}%
+_{0},\mathbf{r}_{0}\right)  $ (since $\left(  \mathbf{u},\mathbf{v}\right)  $
+and $\left(  \mathbf{q}_{0},\mathbf{r}_{0}\right)  $ are two pairs $\left(
+\mathbf{q,r}\right)  $ of polynomials such that $\mathbf{a=qb+r}$ and
+$\mathbf{r}\in\mathbb{K}\left[  x\right]  _{\leq m-1}$). As a result, we
+obtain $\left(  \mathbf{u},\mathbf{v}\right)  =\left(  \mathbf{q}%
+_{0},\mathbf{r}_{0}\right)  $. In other words, $\mathbf{u}=\mathbf{q}_{0}$ and
+$\mathbf{v}=\mathbf{r}_{0}$. Thus, $\mathbf{u}=\mathbf{q}_{0}\in
+\mathbb{K}\left[  x\right]  _{\leq n-m}$.
+
+Now, forget that we introduced $\left(  \mathbf{u},\mathbf{v}\right)  $. We
+thus have shown that if $\left(  \mathbf{u},\mathbf{v}\right)  $ is the pair
+$\left(  \mathbf{q},\mathbf{r}\right)  $ whose existence is claimed by Theorem
+\ref{thm.pol.quorem} \textbf{(a)}, then $\mathbf{u}\in\mathbb{K}\left[
+x\right]  _{\leq n-m}$. Renaming $\left(  \mathbf{u},\mathbf{v}\right)  $ as
+$\left(  \mathbf{q},\mathbf{r}\right)  $ in this statement, we obtain the
+following: The pair $\left(  \mathbf{q},\mathbf{r}\right)  $ whose existence
+is claimed by Theorem \ref{thm.pol.quorem} \textbf{(a)} satisfies
+$\mathbf{q}\in\mathbb{K}\left[  x\right]  _{\leq n-m}$. This proves Theorem
+\ref{thm.pol.quorem} \textbf{(b)}.
 \end{proof}
 
 When $\mathbb{K}$ is a field, every nonzero polynomial $\mathbf{b}%
 \in\mathbb{K}\left[  \left[  x\right]  \right]  $ has an invertible leading
-coefficient (i.e., if $n=\deg\mathbf{b}$, then $\left[  x^{n}\right]
-\mathbf{b}\in\mathbb{K}$ is invertible). Thus, the Theorem above shows that we
-can divide (with remainder) by any nonzero polynomial when $\mathbb{K}$ is a
+coefficient (i.e., if $m=\deg\mathbf{b}$, then $\left[  x^{m}\right]
+\mathbf{b}\in\mathbb{K}$ is invertible). Thus, Theorem \ref{thm.pol.quorem}
+\textbf{(a)} shows that we can divide (with remainder) any polynomial
+$\mathbf{a}$ by any nonzero polynomial $\mathbf{b}$ when $\mathbb{K}$ is a
 field. Thus, in this case, the ring $\mathbb{K}\left[  x\right]  $ shares many
 properties with $\mathbb{Z}$ and $\mathbb{Z}\left[  i\right]  $. In
 particular, we have a good theory of divisibility, congruence, common divisors
@@ -34361,7 +34811,7 @@ x^{2}-1\right)  }_{=x-1}\right) \\
 \end{align*}
 
 
-\subsection{\label{sec.pol.eval}Evaluating polynomials}
+\subsection{\label{sect.pol.eval}Evaluating polynomials}
 
 So far, polynomials have just been sequences of scalars. But recall that the
 most useful thing about polynomials should be the ability of evaluating them
@@ -34432,8 +34882,8 @@ x^{n}\right]  \mathbf{a}=1\neq0$).
 \label{exa.pol.eval.0}Let $\mathbf{a}=\left(  a_{0},a_{1},a_{2},\ldots\right)
 \in\mathbb{K}\left[  x\right]  $ be a polynomial.
 
-\textbf{(a)} Taking $U=\mathbb{K}$ and $u=0$ in the above definition, we
-obtain%
+\textbf{(a)} Taking $U=\mathbb{K}$ and $u=0$ in Definition \ref{def.pol.eval},
+we obtain%
 \[
 \mathbf{a}\left[  0\right]  =\sum_{k\in\mathbb{N}}a_{k}0^{k}=a_{0}%
 \underbrace{0^{0}}_{=1}+\sum_{k>0}a_{k}\underbrace{0^{k}}%
@@ -34442,15 +34892,16 @@ _{\substack{=0\\\text{(since }k>0\text{)}}}=a_{0}=\left[  x^{0}\right]
 \]
 
 
-\textbf{(b)} Taking $U=\mathbb{K}$ and $u=1$ in the above definition, we
-obtain%
+\textbf{(b)} Taking $U=\mathbb{K}$ and $u=1$ in Definition \ref{def.pol.eval},
+we obtain%
 \[
 \mathbf{a}\left[  1\right]  =\sum_{k\in\mathbb{N}}a_{k}\underbrace{1^{k}}%
 _{=1}=\sum_{k\in\mathbb{N}}a_{k}=a_{0}+a_{1}+a_{2}+\cdots.
 \]
 This is the sum of all coefficients of $\mathbf{a}$.
 
-\textbf{(c)} Taking $U=\mathbb{K}\left[  x\right]  $ and $u=x$, we obtain%
+\textbf{(c)} Taking $U=\mathbb{K}\left[  x\right]  $ and $u=x$ in Definition
+\ref{def.pol.eval}, we obtain%
 \[
 \mathbf{a}\left[  x\right]  =\sum_{k\in\mathbb{N}}a_{k}x^{k}=\left(
 a_{0},a_{1},a_{2},\ldots\right)  =\mathbf{a}.
@@ -34505,10 +34956,11 @@ element of $U$ \textquotedblleft corresponding to $a$\textquotedblright.)
 \end{theorem}
 
 \begin{proof}
-[Proof of Theorem \ref{thm.pol.eval.a+b}.] \textbf{(b)} and \textbf{(c)} are easy.
+[Proof of Theorem \ref{thm.pol.eval.a+b}.]\textbf{(b)} and \textbf{(c)} are easy.
 
-\textbf{(a)} It is easy to see that $\left(  \mathbf{a+b}\right)  \left[
-u\right]  =\mathbf{a}\left[  u\right]  +\mathbf{b}\left[  u\right]  $.
+\textbf{(a)} Let $\mathbf{a},\mathbf{b}\in\mathbb{K}\left[  x\right]  $. It is
+easy to see that $\left(  \mathbf{a+b}\right)  \left[  u\right]
+=\mathbf{a}\left[  u\right]  +\mathbf{b}\left[  u\right]  $.
 
 It remains to prove that $\left(  \mathbf{ab}\right)  \left[  u\right]
 =\mathbf{a}\left[  u\right]  \cdot\mathbf{b}\left[  u\right]  $.
@@ -34516,7 +34968,7 @@ It remains to prove that $\left(  \mathbf{ab}\right)  \left[  u\right]
 Write $\mathbf{a}$ and $\mathbf{b}$ as $\mathbf{a}=\left(  a_{0},a_{1}%
 ,a_{2},\ldots\right)  $ and $\mathbf{b}=\left(  b_{0},b_{1},b_{2}%
 ,\ldots\right)  $. Then, the definition of multiplication on $\mathbb{K}%
-\left[  \left[  x\right]  \right]  $, we have%
+\left[  \left[  x\right]  \right]  $ yields%
 \[
 \mathbf{ab}=\left(  c_{0},c_{1},c_{2},\ldots\right)
 ,\ \ \ \ \ \ \ \ \ \ \text{where }c_{n}=\sum\limits_{\substack{i,j\in
@@ -34551,14 +35003,14 @@ the map%
 \begin{align*}
 \operatorname*{ev}\nolimits_{u}:\mathbb{K}\left[  x\right]   &  \rightarrow
 U,\\
-\mathbf{a} &  \mapsto\mathbf{a}\left[  u\right]
+\mathbf{a}  &  \mapsto\mathbf{a}\left[  u\right]
 \end{align*}
 is a $\mathbb{K}$-algebra homomorphism.
 \end{corollary}
 
 \begin{proof}
-[Proof of Corollary \ref{cor.pol.eval.evu}.] This follows straight from
-Theorem \ref{thm.pol.eval.a+b}. For example,%
+[Proof of Corollary \ref{cor.pol.eval.evu}.]This follows straight from Theorem
+\ref{thm.pol.eval.a+b}. For example,%
 \[
 \left(  \mathbf{ab}\right)  \left[  u\right]  =\mathbf{a}\left[  u\right]
 \cdot\mathbf{b}\left[  u\right]
@@ -34575,14 +35027,15 @@ and this is one of the axioms that it takes for $\operatorname*{ev}%
 \nolimits_{u}$ preserves $0$ and $1$.)
 \end{proof}
 
-The map $\operatorname*{ev}\nolimits_{u}$ is called an \textit{evaluation
-homomorphism} (specifically, the \textit{evaluation homomorphism at }$u$),
-since it \textquotedblleft evaluates\textquotedblright\ each polynomial at $u$.
+The map $\operatorname*{ev}\nolimits_{u}$ in Corollary \ref{cor.pol.eval.evu}
+is called an \textit{evaluation homomorphism} (specifically, the
+\textit{evaluation homomorphism at }$u$), since it \textquotedblleft
+evaluates\textquotedblright\ each polynomial at $u$.
 
-Thanks for this corollary, the polynomial ring $\mathbb{K}\left[  x\right]  $
-is a sort of \textquotedblleft forge\textquotedblright\ for identities
-involving an arbitrary element $u$ of an arbitrary $\mathbb{K}$-algebra $U$.
-Indeed, if you want (e.g.) to prove the identity%
+Thanks to Corollary \ref{cor.pol.eval.evu}, the polynomial ring $\mathbb{K}%
+\left[  x\right]  $ is a sort of \textquotedblleft forge\textquotedblright%
+\ for identities that concern an arbitrary element $u$ of an arbitrary
+$\mathbb{K}$-algebra $U$. For example, if you want to prove the identity%
 \[
 u^{3}-u=u\left(  u-1\right)  \left(  u+1\right)  \ \ \ \ \ \ \ \ \ \ \text{for
 any }\mathbb{K}\text{-algebra }U\text{ and any }u\in U,
@@ -34601,15 +35054,15 @@ polynomial in $\mathbb{K}\left[  x\right]  $ is tantamount to
 \textquotedblleft substituting $u$ for $x$\textquotedblright\ in this polynomial.
 
 \begin{remark}
-Let $U$ be a $\mathbb{K}$-algebra. Let $u\in U$. We have defined
-$\mathbf{a}\left[  u\right]  $ for $\mathbf{a}\in\mathbb{K}\left[  x\right]
-$. We can try to define it for arbitrary $\mathbf{a}=\left(  a_{0},a_{1}%
-,a_{2},\ldots\right)  \in\mathbb{K}\left[  \left[  x\right]  \right]  $ as
-well. But in general, this will not work, since the sum $\sum_{k\in\mathbb{N}%
-}a_{k}u^{k}$ may not be well-defined. However, if $u$ itself is a FPS (that
-is, $u\in\mathbb{K}\left[  \left[  x\right]  \right]  $) and satisfies
-$\left[  x^{0}\right]  u=0$, then the family $\left(  a_{k}u^{k}\right)
-_{k\in\mathbb{N}}$ is summable (because in this case, we have%
+\label{rmk.pol.eval.FPS}Let $U$ be a $\mathbb{K}$-algebra. Let $u\in U$. We
+have defined $\mathbf{a}\left[  u\right]  $ for $\mathbf{a}\in\mathbb{K}%
+\left[  x\right]  $. We can try to define it for arbitrary $\mathbf{a}=\left(
+a_{0},a_{1},a_{2},\ldots\right)  \in\mathbb{K}\left[  \left[  x\right]
+\right]  $ as well. But in general, this will not work, since the sum
+$\sum_{k\in\mathbb{N}}a_{k}u^{k}$ may not be well-defined. However, if $u$
+itself is a FPS (that is, $u\in\mathbb{K}\left[  \left[  x\right]  \right]  $)
+and satisfies $\left[  x^{0}\right]  u=0$, then the family $\left(  a_{k}%
+u^{k}\right)  _{k\in\mathbb{N}}$ is summable (because in this case, we have%
 \[
 \left[  x^{0}\right]  \left(  u^{k}\right)  =\left[  x^{1}\right]  \left(
 u^{k}\right)  =\cdots=\left[  x^{k-1}\right]  \left(  u^{k}\right)  =0
@@ -34620,16 +35073,24 @@ and more generally, $\mathbf{a}\left[  x^{k}\right]  $ is well-defined for
 every positive integer $k$; but $\mathbf{a}\left[  1\right]  $ is not well-defined.
 \end{remark}
 
+We now define the concept of a root of a polynomial:
+
 \begin{definition}
-Let $U$ be a $\mathbb{K}$-algebra. Let $u\in U$. Let $\mathbf{a}\in
-\mathbb{K}\left[  x\right]  $.
+\label{def.pol.eval.root}Let $U$ be a $\mathbb{K}$-algebra. Let $u\in U$. Let
+$\mathbf{a}\in\mathbb{K}\left[  x\right]  $.
 
 We say that $u$ is a \textit{root} of $\mathbf{a}$ if $\mathbf{a}\left[
 u\right]  =0$.
 \end{definition}
 
-For example, the roots of the polynomial $x\left(  x-1\right)  $ are the
-idempotent elements of $U$, because for any element $u\in U$, we have the
+This is a very general notion of \textquotedblleft root\textquotedblright%
+\ that we have just defined. You may be used to the idea that a polynomial
+$\mathbf{a}\in\mathbb{K}\left[  x\right]  $ can have roots in the ring
+$\mathbb{K}$ itself, but we are allowing roots in any arbitrary $\mathbb{K}%
+$-algebra (e.g., in a matrix algebra $\mathbb{K}^{n\times n}$ or even in the
+polynomial ring $\mathbb{K}\left[  x\right]  $ itself). For example, the roots
+of the polynomial $x\left(  x-1\right)  $ in a $\mathbb{K}$-algebra $U$ are
+the idempotent elements of $U$, because for any element $u\in U$, we have the
 following equivalence:%
 \begin{align*}
 &  \ \left(  u\text{ is a root of }x\left(  x-1\right)  \right) \\
@@ -34640,25 +35101,43 @@ following equivalence:%
 \left[  u\right]  }_{=u-1}=0\right) \\
 &  \Longleftrightarrow\ \left(  \underbrace{u\cdot\left(  u-1\right)
 }_{=u^{2}-u}=0\right)  \ \Longleftrightarrow\ \left(  u^{2}-u=0\right)
-\ \Longleftrightarrow\ \left(  u^{2}=u\right)  \ \Longleftrightarrow\ \left(
-u\text{ is idempotent}\right)  .
+\ \Longleftrightarrow\ \left(  u^{2}=u\right) \\
+&  \Longleftrightarrow\ \left(  u\text{ is idempotent}\right)  .
 \end{align*}
 If $U$ is a field, then the only idempotent elements of $U$ are $0$ and $1$
 (because $u\cdot\left(  u-1\right)  =0$ implies that $u$ or $u-1$ is $0$).
 Otherwise, there can be more idempotent elements; for example, $\mathbb{Z}/6$
 has the four idempotent elements $0,1,3,4$.
 
+We now define divisibility of polynomials in the same way as we defined
+divisibility of integers (Definition \ref{def.ent.div.div}) and divisibility
+of Gaussian integers (Definition \ref{def.Z[i].gauss.div}):
+
 \begin{definition}
-Let $\mathbf{a}$ and $\mathbf{b}$ be two polynomials in $\mathbb{K}\left[
-x\right]  $. We say that $\mathbf{a}\mid\mathbf{b}$ (or, more precisely,
-\textquotedblleft$\mathbf{a}\mid\mathbf{b}$ in $\mathbb{K}\left[  x\right]
-$\textquotedblright) if there exists a $\mathbf{c}\in\mathbb{K}\left[
-x\right]  $ such that $\mathbf{b}=\mathbf{ac}$.
+\label{def.pol.div}Let $\mathbf{a}$ and $\mathbf{b}$ be two polynomials in
+$\mathbb{K}\left[  x\right]  $. We say that $\mathbf{a}\mid\mathbf{b}$ (or,
+more precisely, \textquotedblleft$\mathbf{a}\mid\mathbf{b}$ in $\mathbb{K}%
+\left[  x\right]  $\textquotedblright) if there exists a $\mathbf{c}%
+\in\mathbb{K}\left[  x\right]  $ such that $\mathbf{b}=\mathbf{ac}$.
 \end{definition}
 
+Be aware that this is a somewhat slippery notion, as its meaning depends on
+$\mathbb{K}$, which is not reflected in the notation \textquotedblleft%
+$\mathbf{a}\mid\mathbf{b}$\textquotedblright. For example, the two polynomials
+$1+x$ and $2+2x$ satisfy $2+2x\mid1+x$ when $\mathbb{K}=\mathbb{Q}$ (since
+$1+x=\left(  2+2x\right)  \cdot\dfrac{1}{2}$), but not when $\mathbb{K}%
+=\mathbb{Z}$. Thus, when ambiguity is possible, $\mathbb{K}$ should be
+specified (i.e., you should write \textquotedblleft$\mathbf{a}\mid\mathbf{b}$
+in $\mathbb{K}\left[  x\right]  $\textquotedblright\ rather than just
+\textquotedblleft$\mathbf{a}\mid\mathbf{b}$\textquotedblright).
+
+The roots of a polynomial $\mathbf{a}\in\mathbb{K}\left[  x\right]  $ are
+closely connected to divisors of $\mathbf{a}$ -- specifically, ones of the
+form $x-u$:
+
 \begin{proposition}
-Let $\mathbf{a}$ be a polynomial in $\mathbb{K}\left[  x\right]  $. Let
-$u\in\mathbb{K}$. Then,%
+\label{prop.pol.root=div}Let $\mathbf{a}$ be a polynomial in $\mathbb{K}%
+\left[  x\right]  $. Let $u\in\mathbb{K}$. Then,%
 \[
 \left(  u\text{ is a root of }\mathbf{a}\right)  \Longleftrightarrow\left(
 x-u\mid\mathbf{a}\right)  .
@@ -34667,21 +35146,29 @@ x-u\mid\mathbf{a}\right)  .
 \end{proposition}
 
 \begin{proof}
-$\Longrightarrow:$ Assume that $u$ is a root of $\mathbf{a}$. We must prove
-that $x-u\mid\mathbf{a}$.
+[Proof of Proposition \ref{prop.pol.root=div}.]$\Longrightarrow:$ Assume that
+$u$ is a root of $\mathbf{a}$. We must prove that $x-u\mid\mathbf{a}$.
 
-The polynomial $x-u$ is \textquotedblleft nice\textquotedblright: It has
-degree $\leq1$, and its $x^{1}$-coefficient is invertible (in fact, this
-coefficient is $1$). Thus, we can divide $\mathbf{a}$ with remainder by $x-u$
-(by the \textquotedblleft division with remainder\textquotedblright\ theorem
-from last time). In other words, there exists a pair $\left(  \mathbf{q}%
-,\mathbf{r}\right)  $ of polynomials with $\mathbf{a}=\mathbf{q}\cdot\left(
-x-u\right)  +\mathbf{r}$ and $\deg\mathbf{r}<1$. Consider this pair.
+We have $x-u\in\mathbb{K}\left[  x\right]  _{\leq1}$, and the coefficient
+$\left[  x^{1}\right]  \left(  x-u\right)  \in\mathbb{K}$ is invertible (since
+this coefficient is $1$). Thus, Theorem \ref{thm.pol.quorem} \textbf{(a)}
+(applied to $m=1$ and $\mathbf{b}=x-u$) shows that there exists a
+\textbf{unique} pair $\left(  \mathbf{q},\mathbf{r}\right)  $ of polynomials
+such that $\mathbf{a}=\mathbf{q}\cdot\left(  x-u\right)  +\mathbf{r}$ and
+$\mathbf{r}\in\mathbb{K}\left[  x\right]  _{\leq1-1}$. Consider this pair.
 
-Now, $\deg\mathbf{r}<1$ means that $\mathbf{r}$ is a constant. In other words,
-$\mathbf{r}=\underline{b}$ for some $b\in\mathbb{K}$. Thus, $\mathbf{a}%
-=\mathbf{q}\cdot\left(  x-u\right)  +\underbrace{\mathbf{r}}_{=\underline{b}%
-}=\mathbf{q}\cdot\left(  x-u\right)  +\underline{b}$.
+Now,
+\begin{align*}
+\mathbf{r}  &  \in\mathbb{K}\left[  x\right]  _{\leq1-1}=\mathbb{K}\left[
+x\right]  _{\leq0}=\left\{  \underline{a}\ \mid\ a\in\mathbb{K}\right\}
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by Example \ref{exa.pol.deg.1} \textbf{(a)}%
+}\right) \\
+&  =\left\{  \underline{b}\ \mid\ b\in\mathbb{K}\right\}  .
+\end{align*}
+In other words, $\mathbf{r}=\underline{b}$ for some $b\in\mathbb{K}$. Consider
+this $b$. Thus, $\mathbf{a}=\mathbf{q}\cdot\left(  x-u\right)
++\underbrace{\mathbf{r}}_{=\underline{b}}=\mathbf{q}\cdot\left(  x-u\right)
++\underline{b}$.
 
 We can substitute $u$ for $x$ in this equation (i.e., apply the $\mathbb{K}%
 $-algebra homomorphism $\operatorname*{ev}\nolimits_{u}$ to both sides of it),
@@ -34700,28 +35187,32 @@ $). Thus,
 }_{=\underline{0}}=\mathbf{q}\cdot\left(  x-u\right)
 ,\ \ \ \ \ \ \ \ \ \ \text{and thus }x-u\mid\mathbf{a}.
 \]
-
+Thus, the \textquotedblleft$\Longrightarrow$\textquotedblright\ direction of
+Proposition \ref{prop.pol.root=div} is proven.
 
 $\Longleftarrow:$ Assume that $x-u\mid\mathbf{a}$. We must prove that $u$ is a
 root of $\mathbf{a}$.
 
 We have $x-u\mid\mathbf{a}$. In other words, $\mathbf{a}=\left(  x-u\right)
-\cdot\mathbf{c}$ for some polynomial $\mathbf{c}$. Substituting $x$ for $u$ in
+\cdot\mathbf{c}$ for some polynomial $\mathbf{c}$. Substituting $u$ for $x$ in
 this equation, we obtain%
 \[
 \mathbf{a}\left[  u\right]  =\underbrace{\left(  u-u\right)  }_{=0}%
 \cdot\mathbf{c}\left[  u\right]  =0,
 \]
-so that $u$ is a root of $\mathbf{a}$.
+so that $u$ is a root of $\mathbf{a}$. Thus, the \textquotedblleft%
+$\Longleftarrow$\textquotedblright\ direction of Proposition
+\ref{prop.pol.root=div} is proven.
 \end{proof}
 
 \begin{example}
-Let $\mathbb{K}=\mathbb{Z}/6$ and $\mathbf{a}=x^{2}-x$. Then, the roots of
-$\mathbf{a}$ in $\mathbb{K}$ are precisely the idempotent elements of
-$\mathbb{K}$; these are $0,1,3,4$. So the previous proposition yields that
-$x-0$, $x-1$, $x-3$ and $x-4$ all divide $\mathbf{a}$. However, this does not
-mean that the product $\left(  x-0\right)  \left(  x-1\right)  \left(
-x-3\right)  \left(  x-4\right)  $ divides $\mathbf{a}$. Instead, we have%
+\label{exa.pol.root=div.Z/6}Let $\mathbb{K}=\mathbb{Z}/6$ and $\mathbf{a}%
+=x^{2}-x$. Then, the roots of $\mathbf{a}$ in $\mathbb{K}$ are precisely the
+idempotent elements of $\mathbb{K}$; these are $0,1,3,4$. So the previous
+proposition yields that $x-0$, $x-1$, $x-3$ and $x-4$ all divide $\mathbf{a}$.
+However, this does not mean that the product $\left(  x-0\right)  \left(
+x-1\right)  \left(  x-3\right)  \left(  x-4\right)  $ divides $\mathbf{a}$.
+Instead, we have%
 \[
 \mathbf{a}=\left(  x-0\right)  \left(  x-1\right)  =\left(  x-3\right)
 \left(  x-4\right)  \ \ \ \ \ \ \ \ \ \ \text{in }\mathbb{K}\left[  x\right]
@@ -34737,25 +35228,26 @@ i\right]  $: We have division with remainder by any nonzero polynomial; we
 have gcds; we have a notion of \textquotedblleft primes\textquotedblright%
 \ (which are called irreducible polynomials); and every nonzero polynomial has
 a unique factorization into primes (up to units, which are the nonzero
-constant polynomials). But when $\mathbb{K}$ is a ring, this can all break
-down; in particular, the example that we just gave shows that the
-factorization into primes (when it exists) is not unique.
+constant polynomials). But when $\mathbb{K}$ is merely a commutative ring,
+this can all break down; in particular, Example \ref{exa.pol.root=div.Z/6}
+shows that the factorization into primes (when it exists) is not unique.
+
+The following theorem is often called the \textquotedblleft\textit{easy half
+of the Fundamental Theorem of Algebra}\textquotedblright:
 
 \begin{theorem}
-(Easy half of the Fundamental Theorem of Algebra)
-
-Let $\mathbb{K}$ be a field. Let $n\in\mathbb{N}$. Then, any nonzero
-polynomial $\mathbf{a}\in\mathbb{K}\left[  x\right]  $ of degree $\leq n$ has
-at most $n$ roots in $\mathbb{K}$. (We are not counting the roots with
-multiplicity here.)
+\label{thm.pol.FTA-easy}Let $\mathbb{K}$ be a field. Let $n\in\mathbb{N}$.
+Then, any nonzero polynomial $\mathbf{a}\in\mathbb{K}\left[  x\right]  $ of
+degree $\leq n$ has at most $n$ roots in $\mathbb{K}$. (We are not counting
+the roots with multiplicity here.)
 \end{theorem}
 
 \begin{proof}
-Induction on $n$.
+[Proof of Theorem \ref{thm.pol.FTA-easy}.]Induction on $n$.
 
 The base case ($n=0$) is obvious, since a nonzero constant polynomial has no roots.
 
-Induction step: Let $n$ be a positive integer. Assume (as induction
+\textit{Induction step:} Let $n$ be a positive integer. Assume (as induction
 hypothesis) that any nonzero polynomial of degree $\leq n-1$ has at most $n-1$
 roots in $\mathbb{K}$. We must prove the analogous fact for $n$.
 
@@ -34763,7 +35255,7 @@ Let $\mathbf{a}\in\mathbb{K}\left[  x\right]  $ be a nonzero polynomial of
 degree $\leq n$. We must prove that $\mathbf{a}$ has at most $n$ roots in
 $\mathbb{K}$. If $\mathbf{a}$ has no roots at all, then we are done. So WLOG
 assume that $\mathbf{a}$ has a root $u\in\mathbb{K}$. Then, $x-u\mid
-\mathbf{a}$ (by the Proposition above). Hence,%
+\mathbf{a}$ (by Proposition \ref{prop.pol.root=div}). Hence,%
 \[
 \mathbf{a}=\left(  x-u\right)  \cdot\mathbf{c}\ \ \ \ \ \ \ \ \ \ \text{for
 some }\mathbf{c}\in\mathbb{K}\left[  x\right]  .
@@ -34803,6 +35295,7 @@ $v$ is a root of $\mathbf{c}$. As we claimed.]
 The claim that we just proved shows that $\mathbf{a}$ has at most one more
 root than $\mathbf{c}$. Thus, $\mathbf{a}$ has at most $n$ roots (since
 $\mathbf{c}$ has at most $n-1$ roots). This completes the induction step.
+Hence, Theorem \ref{thm.pol.FTA-easy} is proven.
 \end{proof}
 
 When $\mathbb{K}$ is just an arbitrary field, the number of roots of a
@@ -34818,14 +35311,13 @@ relies on the fact that $\mathbb{C}$ has a topology and is closed in this topolo
 Next comes a little potpourri of properties of polynomials:
 
 \begin{proposition}
-If $\mathbf{a}$ and $\mathbf{b}$ are two polynomials in $\mathbb{K}\left[
-x\right]  $, then%
-\[
-\deg\left(  \mathbf{a}\left[  \mathbf{b}\right]  \right)  \leq\deg
-\mathbf{a}\cdot\deg\mathbf{b}.
-\]
-If $\mathbb{K}$ is a field, then this is actually an equality (when
-$\mathbf{a},\mathbf{b}\neq0$).
+\label{prop.pol.deg-compose}Let $\mathbf{a}$ and $\mathbf{b}$ be two nonzero
+polynomials in $\mathbb{K}\left[  x\right]  $.
+
+\textbf{(a)} We have $\deg\left(  \mathbf{a}\left[  \mathbf{b}\right]
+\right)  \leq\deg\mathbf{a}\cdot\deg\mathbf{b}$.
+
+\textbf{(b)} If $\mathbb{K}$ is a field, then this inequality is an equality.
 \end{proposition}
 
 \begin{proof}
@@ -34833,9 +35325,9 @@ Easy.
 \end{proof}
 
 \begin{proposition}
-Let $U$ and $V$ be two $\mathbb{K}$-algebras. Let $f:U\rightarrow V$ be a
-$\mathbb{K}$-algebra homomorphism. Let $u\in U$ and $\mathbf{a}\in
-\mathbb{K}\left[  x\right]  $. Then,%
+\label{prop.pol.eval-funct}Let $U$ and $V$ be two $\mathbb{K}$-algebras. Let
+$f:U\rightarrow V$ be a $\mathbb{K}$-algebra homomorphism. Let $u\in U$ and
+$\mathbf{a}\in\mathbb{K}\left[  x\right]  $. Then,%
 \[
 f\left(  \mathbf{a}\left[  u\right]  \right)  =\mathbf{a}\left[  f\left(
 u\right)  \right]  .
@@ -34844,18 +35336,24 @@ u\right)  \right]  .
 \end{proposition}
 
 \begin{proof}
-For example, if $\mathbf{a}=x^{3}-2x+5$, then this is saying%
+[Proof of Proposition \ref{prop.pol.eval-funct}.]For example, if
+$\mathbf{a}=x^{3}+2x+5$, then this is saying%
 \[
-f\left(  u^{3}-2u+5\right)  =\left(  f\left(  u\right)  \right)
-^{3}-2f\left(  u\right)  +5.
+f\left(  u^{3}+2u+5\right)  =\left(  f\left(  u\right)  \right)
+^{3}+2f\left(  u\right)  +5.
 \]
 But this is true, since $f$ preserves addition, multiplication, scaling, zero
 and unity (because $f$ is a $\mathbb{K}$-algebra homomorphism).
+
+The proof of Proposition \ref{prop.pol.eval-funct} in the general case follows
+this example. (To see that $f\left(  u^{k}\right)  =\left(  f\left(  u\right)
+\right)  ^{k}$ for all $k\in\mathbb{N}$, it suffices to recall Proposition
+\ref{prop.riho.subtract} \textbf{(h)}, because $f$ is a ring homomorphism.)
 \end{proof}
 
 \begin{proposition}
-Let $U$ be a $\mathbb{K}$-algebra. Let $u\in U$. Let $\mathbf{a},\mathbf{b}%
-\in\mathbb{K}\left[  x\right]  $. Then,%
+\label{prop.pol.eval-assoc}Let $U$ be a $\mathbb{K}$-algebra. Let $u\in U$.
+Let $\mathbf{a},\mathbf{b}\in\mathbb{K}\left[  x\right]  $. Then,%
 \[
 \mathbf{a}\left[  \mathbf{b}\left[  u\right]  \right]  =\left(  \mathbf{a}%
 \left[  \mathbf{b}\right]  \right)  \left[  u\right]  .
@@ -34864,176 +35362,448 @@ Let $U$ be a $\mathbb{K}$-algebra. Let $u\in U$. Let $\mathbf{a},\mathbf{b}%
 \end{proposition}
 
 \begin{proof}
-Exercise (using the previous Proposition and the fact that $\operatorname*{ev}%
-\nolimits_{u}$ is a $\mathbb{K}$-algebra homomorphism).
+Exercise (using Proposition \ref{prop.pol.eval-funct} and the fact that
+$\operatorname*{ev}\nolimits_{u}$ is a $\mathbb{K}$-algebra homomorphism).
 \end{proof}
 
-\begin{proposition}
-Let $\mathbf{a}_{1},\mathbf{a}_{2},\ldots,\mathbf{a}_{k}\in\mathbb{K}\left[
-x\right]  $. Then,%
+One more notation is in order for the next section.
+
+\begin{definition}
+Let $\mathbb{L}$ be a ring that contains $\mathbb{Q}$ as a subring. (For
+example, $\mathbb{L}$ can be $\mathbb{R}$ or $\mathbb{C}$ or $\mathbb{Q}%
+\left[  x\right]  $.)
+
+Recall that in Definition \ref{def.binom.binom}, we have defined the binomial
+coefficient $\dbinom{n}{k}$ for all $n\in\mathbb{Q}$ and $k\in\mathbb{Q}$. We
+extend the very same definition to all $n\in\mathbb{L}$.
+\end{definition}
+
+Thus, in particular, we have a polynomial $\dbinom{x}{k}\in\mathbb{Q}\left[
+x\right]  $ for each $k\in\mathbb{Q}$. This polynomial $\dbinom{x}{k}$ is
+explicitly given by%
+\begin{equation}
+\dbinom{x}{k}=\dfrac{x\left(  x-1\right)  \left(  x-2\right)  \cdots\left(
+x-k+1\right)  }{k!}\ \ \ \ \ \ \ \ \ \ \text{when }k\in\mathbb{N}
+\label{eq.pol.bin-coeff.xk.1}%
+\end{equation}
+(and equals $0$ when $k\notin\mathbb{N}$). More generally, for each polynomial
+$\mathbf{a}\in\mathbb{Q}\left[  x\right]  $ and each $k\in\mathbb{N}$, we have
+a polynomial%
 \[
-\deg\left(  \mathbf{a}_{1}\mathbf{a}_{2}\cdots\mathbf{a}_{k}\right)  \leq
-\deg\left(  \mathbf{a}_{1}\right)  +\deg\left(  \mathbf{a}_{2}\right)
-+\cdots+\deg\left(  \mathbf{a}_{k}\right)  .
+\dbinom{\mathbf{a}}{k}=\dfrac{\mathbf{a}\left(  \mathbf{a}-1\right)  \left(
+\mathbf{a}-2\right)  \cdots\left(  \mathbf{a}-k+1\right)  }{k!}.
 \]
-Again, if $\mathbb{K}$ is a field, then this is an equality.
-\end{proposition}
-
-\begin{proof}
-Induction on $k$.
-\end{proof}
+The following is easy:
 
 \begin{corollary}
-Let $\mathbb{K}=\mathbb{Q}$. Let $n\in\mathbb{N}$. Define a polynomial
-$\dbinom{x}{n}$ by%
-\[
-\dbinom{x}{n}=\dfrac{x\left(  x-1\right)  \left(  x-2\right)  \cdots\left(
-x-n+1\right)  }{n!}.
-\]
-Then, $\dbinom{x}{n}$ is a polynomial of degree $n$.
+\label{cor.pol.xchoosen}Let $k\in\mathbb{N}$.
+
+\textbf{(a)} Then, $\dbinom{x}{k}$ is a polynomial of degree $k$.
+
+\textbf{(b)} For each $u\in\mathbb{N}$, we have $\dbinom{x}{k}\left[
+u\right]  =\dbinom{u}{k}$.
+
+\textbf{(c)} For each $\mathbf{a}\in\mathbb{Q}\left[  x\right]  $ and
+$u\in\mathbb{N}$, we have $\dbinom{\mathbf{a}}{k}\left[  u\right]
+=\dbinom{\mathbf{a}\left[  u\right]  }{k}$.
 \end{corollary}
 
 \begin{proof}
-Follows from the previous Proposition.
+[Proof of Corollary \ref{cor.pol.xchoosen}.]\textbf{(a)} Follows from the
+Proposition \ref{prop.pol.deg-prod-k}.
+
+\textbf{(b)} Evaluating both sides of the equality
+(\ref{eq.pol.bin-coeff.xk.1}) at $u$ (that is, applying the evaluation
+homomorphism $\operatorname*{ev}\nolimits_{u}:\mathbb{Q}\left[  x\right]
+\rightarrow\mathbb{Q}$), we obtain%
+\begin{align*}
+\dbinom{x}{k}\left[  u\right]   &  =\dfrac{x\left(  x-1\right)  \left(
+x-2\right)  \cdots\left(  x-k+1\right)  }{k!}\left[  u\right] \\
+&  =\dfrac{u\left(  u-1\right)  \left(  u-2\right)  \cdots\left(
+u-k+1\right)  }{k!}\ \ \ \ \ \ \ \ \ \ \left(  \text{since }\operatorname*{ev}%
+\nolimits_{u}\text{ is a }\mathbb{Q}\text{-algebra homomorphism}\right) \\
+&  =\dbinom{u}{k}\ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of
+}\dbinom{u}{k}\right)  .
+\end{align*}
+
+
+\textbf{(c)} Similar.
 \end{proof}
 
-\subsection{\label{sec.pol.id}The polynomial identity trick}
+\subsection{\label{sect.pol.id}The polynomial identity trick}
 
 \begin{convention}
 For this whole section, let $\mathbb{K}$ be a field.
 \end{convention}
 
 \begin{corollary}
-Let $\mathbf{a}$ and $\mathbf{b}$ be two polynomials of degree $\leq n$.
-
-Assume that at least $n+1$ many elements $u\in\mathbb{K}$ satisfy
-$\mathbf{a}\left[  u\right]  =\mathbf{b}\left[  u\right]  $.
-
-Then, $\mathbf{a}=\mathbf{b}$.
+\label{cor.pol.id.n+1}Let $\mathbf{a}$ and $\mathbf{b}$ be two polynomials of
+degree $\leq n$ over the field $\mathbb{K}$. Assume that at least $n+1$ many
+elements $u\in\mathbb{K}$ satisfy $\mathbf{a}\left[  u\right]  =\mathbf{b}%
+\left[  u\right]  $. Then, $\mathbf{a}=\mathbf{b}$.
 \end{corollary}
 
 \begin{proof}
-Clearly, $\mathbf{a}-\mathbf{b}$ is a polynomial of degree $\leq n$.
+[Proof of Corollary \ref{cor.pol.id.n+1}.]Clearly, $\mathbf{a}-\mathbf{b}$ is
+a polynomial of degree $\leq n$.
 
 Moreover, at least $n+1$ many elements $u\in\mathbb{K}$ satisfy $\left(
 \mathbf{a}-\mathbf{b}\right)  \left[  u\right]  =0$ (since this is what
 $\mathbf{a}\left[  u\right]  =\mathbf{b}\left[  u\right]  $ means). In other
-words, the polynomial $\mathbf{a}-\mathbf{b}$ must have $\geq n+1$ many roots
+words, the polynomial $\mathbf{a}-\mathbf{b}$ must have at least $n+1$ roots
 in $\mathbb{K}$.
 
-But the Easy half of the Fundamental Theorem of Algebra yields that if
-$\mathbf{a}-\mathbf{b}$ is nonzero, then $\mathbf{a}-\mathbf{b}$ has at most
-$n$ roots in $\mathbb{K}$. This would contradict the preceding sentence. So
-$\mathbf{a}-\mathbf{b}$ cannot be nonzero. In other words, $\mathbf{a}%
--\mathbf{b}=\underline{0}$. In other words, $\mathbf{a}=\mathbf{b}$.
+But Theorem \ref{thm.pol.FTA-easy} (applied to $\mathbf{a}-\mathbf{b}$ instead
+of $\mathbf{a}$) yields that if $\mathbf{a}-\mathbf{b}$ is nonzero, then
+$\mathbf{a}-\mathbf{b}$ has at most $n$ roots in $\mathbb{K}$. This would
+contradict the preceding sentence. So $\mathbf{a}-\mathbf{b}$ cannot be
+nonzero. In other words, $\mathbf{a}-\mathbf{b}=\underline{0}$. In other
+words, $\mathbf{a}=\mathbf{b}$. This proves Corollary \ref{cor.pol.id.n+1}.
 \end{proof}
 
+I like to refer to the following corollary as \textquotedblleft the
+\textit{polynomial identity trick}\textquotedblright:
+
 \begin{corollary}
-(The \textquotedblleft polynomial identity trick\textquotedblright)
-
-Let $\mathbf{a}$ and $\mathbf{b}$ be two polynomials.
-
-Assume that $\infty$ many elements $u\in\mathbb{K}$ satisfy $\mathbf{a}\left[
-u\right]  =\mathbf{b}\left[  u\right]  $.
-
-Then, $\mathbf{a}=\mathbf{b}$.
+\label{cor.pol.id.trick}Let $\mathbf{a}$ and $\mathbf{b}$ be two polynomials
+over the field $\mathbb{K}$. Assume that inifinitely many elements
+$u\in\mathbb{K}$ satisfy $\mathbf{a}\left[  u\right]  =\mathbf{b}\left[
+u\right]  $. Then, $\mathbf{a}=\mathbf{b}$.
 \end{corollary}
 
 \begin{proof}
-Choose an $n\in\mathbb{N}$ such that $\mathbf{a}$ and $\mathbf{b}$ have degree
-$\leq n$. Then, apply the previous Corollary.
+[Proof of Corollary \ref{cor.pol.id.trick}.]Choose an $n\in\mathbb{N}$ such
+that $\mathbf{a}$ and $\mathbf{b}$ have degree $\leq n$. Then, apply Corollary
+\ref{cor.pol.id.n+1}.
 \end{proof}
 
 \begin{center}
 \textbf{2019-04-29 lecture}
 \end{center}
 
-Applying the last Corollary to $\mathbb{K}=\mathbb{Q}$ (and recalling that we
-previously denoted $\mathbf{a}\left[  u\right]  $ by $\mathbf{a}\left(
-u\right)  $), we obtain Proposition 2.17.16.
+We can now prove Proposition \ref{prop.poly.informal.f=g}:
 
-So the proof of Theorem 2.17.14 is complete.
+\begin{proof}
+[Proof of Proposition \ref{prop.poly.informal.f=g}.]The polynomials $P$ and
+$Q$ are polynomials over the field $\mathbb{Q}$. We have assumed that
+infinitely many $u\in\mathbb{Q}$ satisfy $P\left(  u\right)  =Q\left(
+u\right)  $. In other words, infinitely many $u\in\mathbb{Q}$ satisfy
+$P\left[  u\right]  =Q\left[  u\right]  $ (since we are now using the notation
+$\mathbf{a}\left[  u\right]  $ for what we previously denoted by
+$\mathbf{a}\left(  u\right)  $). Hence, Corollary \ref{cor.pol.id.trick}
+(applied to $\mathbb{K}=\mathbb{Q}$, $\mathbf{a}=P$ and $\mathbf{b}=Q$) yields
+$P=Q$. This proves Proposition \ref{prop.poly.informal.f=g}.
+\end{proof}
 
-Furthermore, this justifies Shamir's Secret Sharing Scheme, because it shows
-that a polynomial of degree $\leq k-1$ over a field can be uniquely
-reconstructed from its values at $k$ different (known) elements of the field,
-but knowing only $k-1$ values at nonzero elements does not give any
-information on its constant coefficient.
+We can now finish our proof of Theorem \ref{thm.binom.vandermonde} by putting
+on solid ground everything we used about polynomials in that proof:
+
+\begin{proof}
+[Finishing touches to our proof of Theorem \ref{thm.binom.vandermonde}.]In the
+proof of Lemma \ref{lem.binom.vandermonde.QN}, we defined two polynomials $P$
+and $Q$ by (\ref{pf.lem.binom.vandermonde.NN.P=}) and
+(\ref{pf.lem.binom.vandermonde.NN.Q=}). Both of these $P$ and $Q$ are
+well-defined polynomials in $\mathbb{Q}\left[  x\right]  $, due to Corollary
+\ref{cor.pol.xchoosen}. Moreover, substituting $u$ for $x$ into these
+polynomials works exactly as we claimed in our proof of Lemma
+\ref{lem.binom.vandermonde.QN} (i.e., for example, we have $P\left(  u\right)
+=\dbinom{u+b}{n}$), due to parts \textbf{(b)} and \textbf{(c)} of Corollary
+\ref{cor.pol.xchoosen}. The same holds for the polynomials $P$ and $Q$ defined
+in the proof of Lemma \ref{lem.binom.vandermonde.QQ}. But these two lemmas
+were the only places in which polynomials were used in our above proof of
+Theorem \ref{thm.binom.vandermonde}. Hence, our proof of Theorem
+\ref{thm.binom.vandermonde} is now on solid ground.
+\end{proof}
+
+Corollary \ref{cor.pol.id.n+1} shows that for any $n\in\mathbb{N}$, a
+polynomial of degree $\leq n$ over a field $\mathbb{K}$ is uniquely determined
+by its values on any $n+1$ (given) distinct elements of $\mathbb{K}$. There is
+a matching existence claim to this uniqueness claim: To any choice of values
+at any $n+1$ given distinct elements of $\mathbb{K}$, you can find excatly one
+polynomial of degree $\leq n$ over $\mathbb{K}$ that takes these values at
+these elements. This polynomial can even be determined explicitly, as the
+following theorem shows:
+
+\begin{theorem}
+\label{thm.pol.id.lag}Let $n\in\mathbb{N}$. Let $a_{1},a_{2},\ldots,a_{n+1}$
+be $n+1$ distinct elements of a field $\mathbb{K}$. Let $b_{1},b_{2}%
+,\ldots,b_{n+1}$ be $n+1$ arbitrary elements of $\mathbb{K}$.
+
+\textbf{(a)} There is a unique polynomial $\mathbf{f}\in\mathbb{K}\left[
+x\right]  _{\leq n}$ satisfying $\mathbf{f}\left[  a_{i}\right]  =b_{i}$ for
+all $i\in\left\{  1,2,\ldots,n+1\right\}  $.
+
+\textbf{(b)} This polynomial $\mathbf{f}$ is given by%
+\[
+\mathbf{f}=\sum_{j=1}^{n+1}b_{j}\dfrac{\prod_{k\neq j}\left(  x-a_{k}\right)
+}{\prod_{k\neq j}\left(  a_{j}-a_{k}\right)  }%
+\]
+(where the \textquotedblleft$\prod_{k\neq j}$\textquotedblright\ signs mean
+\textquotedblleft$\prod_{\substack{k\in\left\{  1,2,\ldots,n+1\right\}
+;\\k\neq j}}$\textquotedblright).
+\end{theorem}
+
+Theorem \ref{thm.pol.id.lag} is known as the \textit{Lagrange interpolation
+theorem}. Before we prove it, let us remark that it generalizes (and
+concretizes) Proposition \ref{prop.intro.shamir.quadpol} (which is its
+particular case for $n=2$ and $\mathbb{K}=\mathbb{Q}$ or $\mathbb{K}%
+=\mathbb{R}$). After proving it, we will discuss how it helps make Shamir's
+Secret Sharing Scheme work. We also notice that Theorem \ref{thm.pol.id.lag}
+requires $\mathbb{K}$ to be a field; when $\mathbb{K}$ is merely a commutative
+ring, both the \textquotedblleft existence\textquotedblright\ and
+\textquotedblleft uniqueness\textquotedblright\ parts of Theorem
+\ref{thm.pol.id.lag} \textbf{(a)} may fail, and the fractions appearing in
+Theorem \ref{thm.pol.id.lag} \textbf{(b)} may fail to be well-defined (since
+their denominators $a_{j}-a_{k}$ may fail to be invertible). We have already
+witnessed the failure of the \textquotedblleft existence\textquotedblright%
+\ part of Theorem \ref{thm.pol.id.lag} \textbf{(a)} in the case when
+$\mathbb{K}=\mathbb{Z}$: Indeed, if we set
+\begin{align*}
+n=2,\ \ \ \ \ \ \ \ \ \  &  a_{1}=0,\ \ \ \ \ \ \ \ \ \ a_{2}%
+=1,\ \ \ \ \ \ \ \ \ \ a_{3}=2,\\
+\ \ \ \ \ \ \ \ \ \  &  b_{1}=0,\ \ \ \ \ \ \ \ \ \ b_{2}%
+=0,\ \ \ \ \ \ \ \ \ \ b_{3}=1,
+\end{align*}
+then there exists no polynomial $\mathbf{f}\in\mathbb{Z}\left[  x\right]
+_{\leq2}$ satisfying $\mathbf{f}\left[  a_{i}\right]  =b_{i}$ for all
+$i\in\left\{  1,2,3\right\}  $. (The polynomial $\dbinom{x}{2}$ would satisfy
+this, but it is not a polynomial in $\mathbb{Z}\left[  x\right]  _{\leq2}$,
+since its coefficients are not integers. We have already observed this in
+Example \ref{exa.ivp.ivps1} \textbf{(a)}.)
+
+\begin{proof}
+[Proof of Theorem \ref{thm.pol.id.lag}.]Define a polynomial $\mathbf{g}%
+\in\mathbb{K}\left[  x\right]  $ by%
+\begin{equation}
+\mathbf{g}=\sum_{j=1}^{n+1}b_{j}\dfrac{\prod_{k\neq j}\left(  x-a_{k}\right)
+}{\prod_{k\neq j}\left(  a_{j}-a_{k}\right)  } \label{pf.thm.pol.id.lag.g=}%
+\end{equation}
+(where the \textquotedblleft$\prod_{k\neq j}$\textquotedblright\ signs mean
+\textquotedblleft$\prod_{\substack{k\in\left\{  1,2,\ldots,n+1\right\}
+;\\k\neq j}}$\textquotedblright). Note that $\mathbf{g}$ is well-defined;
+indeed, all the differences $a_{j}-a_{k}$ appearing in the denominators are
+nonzero (because $a_{1},a_{2},\ldots,a_{n+1}$ are distinct) and thus
+invertible (since $\mathbb{K}$ is a field).
+
+Each of the $n+1$ addends $b_{j}\dfrac{\prod_{k\neq j}\left(  x-a_{k}\right)
+}{\prod_{k\neq j}\left(  a_{j}-a_{k}\right)  }$ on the right hand side of
+(\ref{pf.thm.pol.id.lag.g=}) belongs to $\mathbb{K}\left[  x\right]  _{\leq
+n}$\ \ \ \ \footnote{\textit{Proof.} Let $j\in\left\{  1,2,\ldots,n+1\right\}
+$. We must prove that $b_{j}\dfrac{\prod_{k\neq j}\left(  x-a_{k}\right)
+}{\prod_{k\neq j}\left(  a_{j}-a_{k}\right)  }\in\mathbb{K}\left[  x\right]
+_{\leq n}$.
+\par
+Indeed, the product $\prod_{k\neq j}\left(  x-a_{k}\right)  $ has exactly $n$
+factors, each of which is a polynomial of degree $1$. Thus, this product has
+degree $\leq n$ (by Proposition \ref{prop.pol.deg-prod-k} \textbf{(a)}), i.e.,
+belongs to $\mathbb{K}\left[  x\right]  _{\leq n}$. The polynomial
+$b_{j}\dfrac{\prod_{k\neq j}\left(  x-a_{k}\right)  }{\prod_{k\neq j}\left(
+a_{j}-a_{k}\right)  }$ is obtained by scaling this product by $\dfrac{b_{j}%
+}{\prod_{k\neq j}\left(  a_{j}-a_{k}\right)  }\in\mathbb{K}$; thus, it also
+belongs to $\mathbb{K}\left[  x\right]  _{\leq n}$ (since $\mathbb{K}\left[
+x\right]  _{\leq n}$ is a $\mathbb{K}$-module). Qed.}. Hence, their sum must
+belong to $\mathbb{K}\left[  x\right]  _{\leq n}$ as well (since
+$\mathbb{K}\left[  x\right]  _{\leq n}$ is a $\mathbb{K}$-module). In other
+words, $\mathbf{g}$ belongs to $\mathbb{K}\left[  x\right]  _{\leq n}$ (since
+(\ref{pf.thm.pol.id.lag.g=}) shows that the sum of these $n+1$ addends is
+$\mathbf{g}$). In other words, $\mathbf{g}\in\mathbb{K}\left[  x\right]
+_{\leq n}$.
+
+If $i\in\left\{  1,2,\ldots,n+1\right\}  $ and $j\in\left\{  1,2,\ldots
+,n+1\right\}  $ satisfy $j\neq i$, then we have%
+\begin{equation}
+\prod_{k\neq j}\left(  a_{i}-a_{k}\right)  =0 \label{pf.thm.pol.id.lag.2}%
+\end{equation}
+(because in this case, the product $\prod_{k\neq j}\left(  a_{i}-a_{k}\right)
+$ contains the factor $a_{i}-a_{i}$ (since $i\neq j$), but this factor is $0$,
+and therefore the whole product is $0$).
+
+For each $i\in\left\{  1,2,\ldots,n+1\right\}  $, we have%
+\begin{align*}
+\mathbf{g}\left[  a_{i}\right]   &  =\left(  \sum_{j=1}^{n+1}b_{j}\dfrac
+{\prod_{k\neq j}\left(  x-a_{k}\right)  }{\prod_{k\neq j}\left(  a_{j}%
+-a_{k}\right)  }\right)  \left[  a_{i}\right]  \ \ \ \ \ \ \ \ \ \ \left(
+\text{by the definition of }\mathbf{g}\right) \\
+&  =\sum_{j=1}^{n+1}b_{j}\dfrac{\prod_{k\neq j}\left(  a_{i}-a_{k}\right)
+}{\prod_{k\neq j}\left(  a_{j}-a_{k}\right)  }\\
+&  =b_{i}\underbrace{\dfrac{\prod_{k\neq i}\left(  a_{i}-a_{k}\right)  }%
+{\prod_{k\neq i}\left(  a_{i}-a_{k}\right)  }}_{=1}+\sum_{\substack{j\in
+\left\{  1,2,\ldots,n+1\right\}  ;\\j\neq i}}b_{j}\underbrace{\dfrac
+{\prod_{k\neq j}\left(  a_{i}-a_{k}\right)  }{\prod_{k\neq j}\left(
+a_{j}-a_{k}\right)  }}_{\substack{=0\\\text{(by (\ref{pf.thm.pol.id.lag.2}))}%
+}}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{here, we have split off the addend for
+}j=i\text{ from the sum}\right) \\
+&  =b_{i}+\underbrace{\sum_{\substack{j\in\left\{  1,2,\ldots,n+1\right\}
+;\\j\neq i}}b_{j}0}_{=0}=b_{i}.
+\end{align*}
+Hence, $\mathbf{g}$ is a polynomial $\mathbf{f}\in\mathbb{K}\left[  x\right]
+_{\leq n}$ satisfying $\mathbf{f}\left[  a_{i}\right]  =b_{i}$ for all
+$i\in\left\{  1,2,\ldots,n+1\right\}  $ (since we already know that
+$\mathbf{g}\in\mathbb{K}\left[  x\right]  _{\leq n}$).
+
+\textbf{(a)} We need to prove that there is a unique polynomial $\mathbf{f}%
+\in\mathbb{K}\left[  x\right]  _{\leq n}$ satisfying $\mathbf{f}\left[
+a_{i}\right]  =b_{i}$ for all $i\in\left\{  1,2,\ldots,n+1\right\}  $. We
+already know that such an $\mathbf{f}$ exists (because we have just shown that
+$\mathbf{g}$ is such an $\mathbf{f}$); thus, it remains to prove its
+uniqueness. In other words, we need to prove the following claim:
+
+\begin{statement}
+\textit{Claim 1:} Let $\mathbf{f}_{1}$ and $\mathbf{f}_{2}$ be two polynomials
+$\mathbf{f}\in\mathbb{K}\left[  x\right]  _{\leq n}$ satisfying $\mathbf{f}%
+\left[  a_{i}\right]  =b_{i}$ for all $i\in\left\{  1,2,\ldots,n+1\right\}  $.
+Then, $\mathbf{f}_{1}=\mathbf{f}_{2}$.
+\end{statement}
+
+[\textit{Proof of Claim 1:} We have assumed that $\mathbf{f}_{1}$ is a
+polynomial $\mathbf{f}\in\mathbb{K}\left[  x\right]  _{\leq n}$ satisfying
+$\mathbf{f}\left[  a_{i}\right]  =b_{i}$ for all $i\in\left\{  1,2,\ldots
+,n+1\right\}  $. In other words, $\mathbf{f}_{1}\in\mathbb{K}\left[  x\right]
+_{\leq n}$ is a polynomial and satisfies%
+\begin{equation}
+\mathbf{f}_{1}\left[  a_{i}\right]  =b_{i}\ \ \ \ \ \ \ \ \ \ \text{for all
+}i\in\left\{  1,2,\ldots,n+1\right\}  . \label{pf.thm.pol.id.lag.c1.pf.1}%
+\end{equation}
+Similarly, $\mathbf{f}_{2}\in\mathbb{K}\left[  x\right]  _{\leq n}$ is a
+polynomial and satisfies%
+\begin{equation}
+\mathbf{f}_{2}\left[  a_{i}\right]  =b_{i}\ \ \ \ \ \ \ \ \ \ \text{for all
+}i\in\left\{  1,2,\ldots,n+1\right\}  . \label{pf.thm.pol.id.lag.c1.pf.2}%
+\end{equation}
+
+
+The polynomials $\mathbf{f}_{1}$ and $\mathbf{f}_{2}$ belong to $\mathbb{K}%
+\left[  x\right]  _{\leq n}$; in other words, they have degree $\leq n$.
+Moreover, each $i\in\left\{  1,2,\ldots,n+1\right\}  $ satisfies
+$\mathbf{f}_{1}\left[  a_{i}\right]  =\mathbf{f}_{2}\left[  a_{i}\right]  $
+(as we can see by comparing (\ref{pf.thm.pol.id.lag.c1.pf.1}) with
+(\ref{pf.thm.pol.id.lag.c1.pf.2})). Thus, at least $n+1$ many elements
+$u\in\mathbb{K}$ satisfy $\mathbf{f}_{1}\left[  u\right]  =\mathbf{f}%
+_{2}\left[  u\right]  $ (namely, the $n+1$ elements $a_{1},a_{2}%
+,\ldots,a_{n+1}$ satisfy this\footnote{Recall that $a_{1},a_{2},\ldots
+,a_{n+1}$ are distinct (by assumption), so they actually do constitute $n+1$
+many elements $u\in\mathbb{K}$.}). Hence, Corollary \ref{cor.pol.id.n+1}
+(applied to $\mathbf{a}=\mathbf{f}_{1}$ and $\mathbf{b}=\mathbf{f}_{2}$) shows
+that $\mathbf{f}_{1}=\mathbf{f}_{2}$. This proves Claim 1.]
+
+Now, our proof of Theorem \ref{thm.pol.id.lag} \textbf{(a)} is complete.
+
+\textbf{(b)} In our above proof of Theorem \ref{thm.pol.id.lag} \textbf{(a)},
+we have shown not just that there is a unique polynomial $\mathbf{f}%
+\in\mathbb{K}\left[  x\right]  _{\leq n}$ satisfying $\mathbf{f}\left[
+a_{i}\right]  =b_{i}$ for all $i\in\left\{  1,2,\ldots,n+1\right\}  $; we have
+also shown that $\mathbf{g}$ is such a polynomial. But since this $\mathbf{f}$
+is unique, this means that $\mathbf{g}$ is the \textbf{only} such polynomial.
+This proves Theorem \ref{thm.pol.id.lag} \textbf{(b)}.
+\end{proof}
+
+Theorem \ref{thm.pol.id.lag} has multiple applications:
+
+\begin{itemize}
+\item The most obvious one is to treat Theorem \ref{thm.pol.id.lag} as an
+interpolation theorem: Roughly speaking, it says that $n+1$ values (at
+distinct points) in a field can always be fit by a unique polynomial of degree
+$\leq n$. See the Wikipedia pages for
+\href{https://en.wikipedia.org/wiki/Lagrange_polynomial}{Lagrange polynomials}
+and \href{https://en.wikipedia.org/wiki/Polynomial_interpolation}{polynomial
+interpolation}, but beware that this is not the kind of interpolation that is
+a good choice for curve-fitting practical datasets (which rarely follow a
+polynomial rule). It is best suited for interpolating functions when you can
+freely choose the points at which you sample (i.e., the $a_{i}$ in Theorem
+\ref{thm.pol.id.lag}); certain choices of $a_{i}$ fare much better than
+others. Thus, Lagrange interpolation can also be used in designing numerical
+quadrature rules. See \cite{Trefet11} for details.
+
+\item Shamir's Secret Sharing Scheme (as presented in Subsection
+\ref{subsect.intro.shamir.k=3} and fixed in Remark \ref{rmk.finfield.shamir1})
+can now finally be implemented concretely. Indeed, consider the setting of
+Section \ref{sect.intro.shamir} with general $n$ and $k$, and assume that the
+secret $\mathbf{a}$ that we want to distribute is a bitstring of length $N$.
+As in Remark \ref{rmk.finfield.shamir1}, we pick a prime $p$ such that both
+$p\geq2^{N}$ and $p>n$, and we encode $\mathbf{a}$ as a residue class
+$\alpha\in\mathbb{Z}/p$. Pick $k-1$ uniformly random elements $\beta_{1}%
+,\beta_{2},\ldots,\beta_{k-1}$ of $\mathbb{Z}/p$, and define the polynomial%
+\[
+\mathbf{f}=\beta_{k-1}x^{k-1}+\beta_{k-2}x^{k-2}+\cdots+\beta_{1}x^{1}%
++\alpha\in\left(  \mathbb{Z}/p\right)  \left[  x\right]  _{\leq k-1}.
+\]
+Reveal to each person $i\in\left\{  1,2,\ldots,n\right\}  $ the value
+$\mathbf{f}\left[  \left[  i\right]  _{p}\right]  $. Then, Theorem
+\ref{thm.pol.id.lag} (applied to $k-1$ instead of $n$) shows that any $k$ of
+the $n$ people can uniquely reconstruct $\mathbf{f}$ (since they know the
+values of $\mathbf{f}$ at $k$ distinct elements of $\mathbb{Z}/p$%
+\ \ \ \ \footnote{Here we are using the fact that the elements $\left[
+1\right]  _{p},\left[  2\right]  _{p},\ldots,\left[  n\right]  _{p}$ of
+$\mathbb{Z}/p$ are distinct (since $p>n$).}), whereas $k-1$ of the $n$ people
+cannot gain any knowledge about the secret $\mathbf{a}$ (since they only know
+the values of $\mathbf{f}$ at $k-1$ nonzero elements of $\mathbb{Z}%
+/p$\ \ \ \ \footnote{Here we are using the fact that the elements $\left[
+1\right]  _{p},\left[  2\right]  _{p},\ldots,\left[  n\right]  _{p}$ of
+$\mathbb{Z}/p$ are nonzero (since $p>n$).}, and these values could be combined
+with any possible value at $\left[  0\right]  _{p}$ to form a valid polynomial
+in $\left(  \mathbb{Z}/p\right)  \left[  x\right]  _{\leq k-1}$). Thus, both
+Requirements 1 and 2 from Section \ref{sect.intro.shamir} are satisfied. This
+is Shamir's Secret Sharing Scheme in its final form.
+
+Instead of $\mathbb{Z}/p$ we could have used any finite field $\mathbb{F}$
+whose size is $\geq2^{N}$ and $>n$, but we would need to be careful, since the
+elements $\left[  1\right]  _{p},\left[  2\right]  _{p},\ldots,\left[
+n\right]  _{p}$ would no longer necessarily be distinct and nonzero. Thus, we
+would have to use $n$ distinct nonzero elements of $\mathbb{F}$ instead.
+\end{itemize}
 
 TODO:
 
 \begin{itemize}
-\item Corollary: Let $U$ be a $\mathbb{K}$-algebra. Let $u\in U$. Then, the
-map%
-\begin{align*}
-\operatorname*{ev}\nolimits_{u}:\mathbb{K}\left[  x\right]   &  \rightarrow
-U,\\
-\mathbf{a}  &  \mapsto\mathbf{a}\left[  u\right]
-\end{align*}
-is a $\mathbb{K}$-algebra homomorphism. (It is called the \textit{evaluation
-homomorphism at }$u$.)
-
-\item Remark: We could define $\mathbf{a}\left[  u\right]  $ for $\mathbf{a}$
-being an FPS only if the family $\left(  a_{k}u^{k}\right)  _{k\in\mathbb{N}}$
-is summable. This happens, e.g., if $U=\mathbb{K}\left[  \left[  x\right]
-\right]  $ and $u$ itself is an FPS with $x^{0}$-coefficient $0$.
-
-\item Fix all references to old versions (degrees).
-
-\item @Proof of quo\_rem: Cannot take $n=\deg\mathbf{a}$, must $0$ when
-$\deg\mathbf{a}=-\infty$.
-\end{itemize}
-
-\subsection{The polynomial identity trick}
-
-\begin{itemize}
-\item Let $\mathbb{K}$ be a field for this whole section.
-
-\item \textbf{Cor:} If $\mathbf{a},\mathbf{b}$ are polys of degree $\leq n$,
-and $\mathbf{a}\left[  u\right]  =\mathbf{b}\left[  u\right]  $ for at least
-$n+1$ many different $u\in\mathbb{K}$, then $\mathbf{a}=\mathbf{b}$.
-
-\item \textbf{Cor (\textquotedblleft polynomial identity
-trick\textquotedblright):} If $\mathbf{a},\mathbf{b}$ are polys over a field
-$\mathbb{K}$ with $\mathbf{a}\left[  u\right]  =\mathbf{b}\left[  u\right]  $
-for $\infty$ many different $u\in\mathbb{K}$, then $\mathbf{a}=\mathbf{b}$.
-
-\item Apply to Vandermonde (Proposition \ref{prop.poly.informal.f=g}:
-\textquotedblleft Let $P$ and $Q$ be two polynomials in $1$ variable $x$ with
-rational coefficients. Assume that infinitely many $u\in\mathbb{Q}$ satisfy
-$P\left(  u\right)  =Q\left(  u\right)  $. Then, $P=Q$ (as
-polynomials).\textquotedblright)
-
-\item Apply to Shamir Secret Sharing: It relied on the idea that a polynomial
-of degree $\leq k-1$ over a field can be uniquely reconstructed from its
-values at $k$ different elements of the field, but knowing only $k-1$ values
-at nonzero elements does not give any information on its constant coefficient.
-The first claim follows easily from the Cor; the second too with a bit of thought.
-
 \item Apply to Reed--Solomon codes: You want to send digital data over a noisy
 channel (e.g., radio). Encode data as $\mathbf{a}\in\mathbb{K}\left[
 x\right]  $ of degree $\leq d$, and send $e$ values. The resulting encoding of
 the data \textquotedblleft detects $e-d-1$ errors\textquotedblright: i.e., if
 $\leq e-d-1$ of the values have become corrupted along the way, then the
 recipient will see that something has gone wrong. It can be used to correct
-$\leq\dfrac{e-d-1}{2}$ error, too.
+$\leq\dfrac{e-d-1}{2}$ many errors, too. See \cite[Chapter 29]{Childs00} for more.
 
-\item Explicit Lagrange interpolation: If $a_{1},a_{2},\ldots,a_{n}$ are $n$
-distinct elements of a field $\mathbb{K}$, and $b_{1},b_{2},\ldots,b_{n}$ are
-$n$ arbitrary elements of $\mathbb{K}$, then there is a unique polynomial
-$\mathbf{f}\in\mathbb{K}\left[  x\right]  _{\leq n}$ satisfying $\mathbf{f}%
-\left(  a_{i}\right)  =b_{i}$ for all $i$. It is%
+\item Let $u\in\mathbb{Q}$ and $n\in\mathbb{N}$. Then,%
 \[
-\sum_{j=1}^{n}b_{j}\dfrac{\prod_{i\neq j}\left(  x-a_{i}\right)  }%
-{\prod_{i\neq j}\left(  a_{j}-a_{i}\right)  }.
+\sum_{k=0}^{n}\left(  -1\right)  ^{k}\dbinom{u}{k}\dbinom{u}{n-k}=%
+\begin{cases}
+\left(  -1\right)  ^{n/2}\dbinom{u}{n/2}, & \text{if }n\text{ is even};\\
+0, & \text{if }n\text{ is odd}%
+\end{cases}
+.
 \]
 
+
+(\textit{Proof:} First prove this for all $n\in\mathbb{N}$ and $u\in
+\mathbb{N}$ via $\left(  1-x\right)  ^{u}\left(  1+x\right)  ^{u}=\left(
+1-x^{2}\right)  ^{u}$. Then extend to $u\in\mathbb{Q}$ via polynomial identity trick.)
+
+\item Prove Lucas's congruence. No time for general case, but we can do
+$\dbinom{2a+1}{2b+1}\equiv\dbinom{a}{b}\operatorname{mod}2$. For that, just
+need Freshman's dream in $\left(  \mathbb{Z}/p\right)  \left[  x\right]  $.
+
+\item Remark about functoriality:
+
+Let $\mathbb{K}$ and $\mathbb{L}$ be two commutative rings. Let $f:\mathbb{K}%
+\rightarrow\mathbb{L}$ be a ring homomorphism. Then, the map%
+\begin{align*}
+\mathbb{K}\left[  \left[  x\right]  \right]   &  \rightarrow\mathbb{L}\left[
+\left[  x\right]  \right]  ,\\
+\left(  a_{0},a_{1},a_{2},\ldots\right)   &  \mapsto\left(  f\left(
+a_{0}\right)  ,f\left(  a_{1}\right)  ,f\left(  a_{2}\right)  ,\ldots\right)
+\end{align*}
+is a ring homomorphism. Its restriction to $\mathbb{K}\left[  x\right]  $ is a
+ring homomorphism from $\mathbb{K}\left[  x\right]  $ to $\mathbb{L}\left[
+x\right]  $.
 
 \item When is an $\mathbf{f}\in\mathbb{K}\left[  x\right]  $ invertible in
 $\mathbb{K}\left[  x\right]  $ ?
 
 When $\left[  x^{0}\right]  \mathbf{f}$ is invertible in $\mathbb{K}$ and all
-other $\left[  x^{i}\right]  \mathbf{f}$ are nilpotent.
+other $\left[  x^{i}\right]  \mathbf{f}$ are nilpotent. (McCoy's theorem.
+Note: One direction easy! See \url{https://math.stackexchange.com/a/392604/}
+for the other.)
 
 For fields $\mathbb{K}$, this simply means that $\mathbf{f}$ is constant and
 invertible in $\mathbb{K}$.
@@ -35042,40 +35812,67 @@ Stark contrast to FPS invertibility!
 
 For $\mathbb{K}=\mathbb{Z}/4$, you have stuff like $1+2x$.
 
-\item Remark about functoriality.
-
-\item Prove%
-\[
-\sum_{k=0}^{n}\left(  -1\right)  ^{k}\dbinom{u}{k}\dbinom{u}{n-k}=%
-\begin{cases}
-\left(  -1\right)  ^{n/2}\dbinom{u}{n/2}, & \text{if }n\text{ is even};\\
-0, & \text{if }n\text{ is odd}%
-\end{cases}
-\]
-for all $n\in\mathbb{N}$ and $u\in\mathbb{N}$ via $\left(  1-x\right)
-^{u}\left(  1+x\right)  ^{u}=\left(  1-x^{2}\right)  ^{u}$. Then extend to
-$u\in\mathbb{Q}$ via polynomial identity trick.
-
-\item Prove Lucas's congruence.
-
 \item Mention rational functions.
 
 \item \textbf{Def:} monic. (only if needed).
 
 \item \textbf{Cor:} quo\_rem for monic.
-
-\item \textbf{Cor:} quo\_rem for $x-a$.
 \end{itemize}
 
-\subsection{Quotient constructions}
+\section{Quotient constructions}
+
+\subsection{Residue classes in commutative rings}
 
 \begin{itemize}
+\item Divisibility in any commutative ring $\mathbb{K}$ (generalizing
+$\mathbb{Z}$, $\mathbb{Z}\left[  i\right]  $ and $\mathbb{K}\left[  \left[
+x\right]  \right]  $).
+
 \item Congruences modulo an element of $\mathbb{K}$ (generalizing $\mathbb{Z}$
 and $\mathbb{Z}\left[  i\right]  $).
 
-\item $\mathbb{K}/a$ instead of $\mathbb{Z}/n$ (both as ring and a
+\item Quotient $\mathbb{K}/a$ instead of $\mathbb{Z}/n$ (both as ring and a
 $\mathbb{K}$-module).
 
+\item Now, use this to adjoin root to any polynomial over a ring $\mathbb{K}$.
+
+\item Basis of the adjoined.
+
+\item When $\mathbb{K}$ embeds into the adjoined.
+
+\item Example: $\mathbb{C}\cong\mathbb{R}\left[  x\right]  /\left(
+x^{2}+1\right)  $.
+
+\item Example: $\mathbb{Z}\left[  i\right]  \cong\mathbb{Z}\left[  x\right]
+/\left(  x^{2}+1\right)  $.
+
+\item Example: $\mathbb{D}\cong\mathbb{R}\left[  x\right]  /x^{2}$. (Also
+$\cong\mathbb{R}\left[  \left[  x\right]  \right]  /x^{2}$.)
+
+\item Example: $\mathbb{F}_{4}\cong\mathbb{F}_{2}\left[  x\right]  /\left(
+x^{2}+x+1\right)  $ where $\mathbb{F}_{2}=\mathbb{Z}/4$ and $\mathbb{F}_{4}$
+is the $4$-element field we constructed.
+
+\item Example: MT2.exe1.$R_{2}\cong\mathbb{Z}\left[  x\right]  /\left(
+2x+1\right)  $, not a free $\mathbb{Z}$-module, as $2$ is not invertible in
+$\mathbb{Z}$.
+
+Note that $R_{2}$ (the $2$-integers) is commonly called $\mathbb{Z}\left[
+\dfrac{1}{2}\right]  $, in analogy to $\mathbb{Z}\left[  i\right]  $.
+
+\item Example: $\left(  \mathbb{Z}/6\right)  /\left(  2x+1\right)
+\cong\mathbb{Z}/3$, so adjoining can make us smaller!
+
+\item Polynomials over a field form a PID, so irreducible = prime.
+
+\item Thus, irreducible polynomials lead to field extensions.
+
+\item Hence, we may want an irred. poly of degree $d$ over any $\mathbb{Z}/p$.
+\end{itemize}
+
+\subsection{Quotients modulo submodules and ideals}
+
+\begin{itemize}
 \item Congruence $\underset{N}{\equiv}$ modulo a submodule $M$ of $N$.
 
 \item Quotient module $N/M$.
@@ -35098,8 +35895,12 @@ _{\operatorname*{Ker}f}\mapsto f\left(  u\right)  $.
 
 \item Conclude the rank-nullity theorem.
 
-\item Now, use this for field extension.
+\item Universal property of quotient ring.
+
+\item Applying this to one of the isomorphism examples.
 \end{itemize}
+
+\section{Groups and $G$-sets}
 
 ...
 
@@ -36515,8 +37316,8 @@ b\right\vert \right)  =\gcd\left(  a,b\right)  $ (by Exercise
 
 \begin{fineprint}
 \begin{proof}
-[Solution to Exercise \ref{exe.ent.gcd.sa,sb,sc}.]Corollary
-\ref{cor.ent.gcd.sa,sb} yields
+[Solution to Exercise \ref{exe.ent.gcd.sa,sb,sc}.]Theorem
+\ref{thm.ent.gcd.sa,sb} yields
 \begin{equation}
 \gcd\left(  sa,sb\right)  =\left\vert s\right\vert \gcd\left(  a,b\right)  .
 \label{sol.ent.gcd.sa,sb,sc.1}%
@@ -36563,7 +37364,7 @@ a,b\right) \\
 (\ref{sol.ent.gcd.sa,sb,sc.3}))}}}\ \ \ \ \ \ \ \ \ \ \left(
 \begin{array}
 [c]{c}%
-\text{by Corollary \ref{cor.ent.gcd.sa,sb}, applied to }\gcd\left(  a,b\right)
+\text{by Theorem \ref{thm.ent.gcd.sa,sb}, applied to }\gcd\left(  a,b\right)
 \\
 \text{and }c\text{ instead of }a\text{ and }b
 \end{array}
@@ -36650,7 +37451,7 @@ $sa_{i}$ instead of $k$ and $b_{i}$) yields
 ,a_{2},\ldots,a_{j-1}\right)  ,a_{j}\right)  }_{\substack{=\gcd\left(
 a_{1},a_{2},\ldots,a_{j}\right)  \\\text{(by (\ref{sol.ent.gcd.sak.1.pf.5}))}%
 }}\\
-&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Corollary \ref{cor.ent.gcd.sa,sb},
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Theorem \ref{thm.ent.gcd.sa,sb},
 applied to }\gcd\left(  a_{1},a_{2},\ldots,a_{j-1}\right)  \text{ and }%
 a_{j}\text{ instead of }a\text{ and }b\right) \\
 &  =\left\vert s\right\vert \gcd\left(  a_{1},a_{2},\ldots,a_{j}\right)  .
@@ -37074,7 +37875,7 @@ yields
 \end{equation}
 
 
-Corollary \ref{cor.ent.gcd.sa,sb} (applied to $s=u$, $a=x$ and $b=y$) yields%
+Theorem \ref{thm.ent.gcd.sa,sb} (applied to $s=u$, $a=x$ and $b=y$) yields%
 \[
 \gcd\left(  ux,uy\right)  =\left\vert u\right\vert \underbrace{\gcd\left(
 x,y\right)  }_{=g}=\left\vert u\right\vert g=g\left\vert u\right\vert .
@@ -37094,7 +37895,7 @@ x,y\right)  }}\underbrace{\gcd\left(  \left\vert u\right\vert ,\left\vert
 v\right\vert \right)  }_{\substack{=\gcd\left(  u,v\right)  \\\text{(by
 Exercise \ref{exe.ent.gcd.abs} \textbf{(c)},}\\\text{applied to }a=u\text{ and
 }b=v\text{)}}}\\
-&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Corollary \ref{cor.ent.gcd.sa,sb},
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Theorem \ref{thm.ent.gcd.sa,sb},
 applied to }s=g\text{, }a=\left\vert u\right\vert \text{ and }b=\left\vert
 v\right\vert \right) \\
 &  =\gcd\left(  x,y\right)  \cdot\gcd\left(  u,v\right)  =\gcd\left(
@@ -37194,8 +37995,8 @@ a$ if and only if $\dfrac{a}{g}\in\mathbb{Z}$. Hence, we have $\dfrac{a}{g}%
 \in\mathbb{Z}$ (since $g\mid a$). Similarly, $\dfrac{b}{g}\in\mathbb{Z}$.
 Thus, $\dfrac{a}{g}$ and $\dfrac{b}{g}$ are integers.
 
-It remains to prove that $\dfrac{a}{g}\perp\dfrac{b}{g}$. But Corollary
-\ref{cor.ent.gcd.sa,sb} (applied to $g$, $\dfrac{a}{g}$ and $\dfrac{b}{g}$
+It remains to prove that $\dfrac{a}{g}\perp\dfrac{b}{g}$. But Theorem
+\ref{thm.ent.gcd.sa,sb} (applied to $g$, $\dfrac{a}{g}$ and $\dfrac{b}{g}$
 instead of $s$, $a$ and $b$) shows that%
 \[
 \gcd\left(  g\cdot\dfrac{a}{g},g\cdot\dfrac{b}{g}\right)
@@ -37266,9 +38067,9 @@ and $k$ instead of $a$, $b$, $n$ and $m$) yields $\left(  \dfrac{a}{g}\right)
 
 Note that $\left(  \dfrac{a}{g}\right)  ^{k}$ and $\left(  \dfrac{b}%
 {g}\right)  ^{k}$ are integers (since $\dfrac{a}{g}$ and $\dfrac{b}{g}$ are
-integers). Thus, Corollary \ref{cor.ent.gcd.sa,sb} (applied to $g^{k}$,
-$\left(  \dfrac{a}{g}\right)  ^{k}$ and $\left(  \dfrac{b}{g}\right)  ^{k}$
-instead of $s$, $a$ and $b$) yields%
+integers). Thus, Theorem \ref{thm.ent.gcd.sa,sb} (applied to $g^{k}$, $\left(
+\dfrac{a}{g}\right)  ^{k}$ and $\left(  \dfrac{b}{g}\right)  ^{k}$ instead of
+$s$, $a$ and $b$) yields%
 \[
 \gcd\left(  g^{k}\left(  \dfrac{a}{g}\right)  ^{k},g^{k}\left(  \dfrac{b}%
 {g}\right)  ^{k}\right)  =\underbrace{\left\vert g^{k}\right\vert
@@ -37451,7 +38252,7 @@ y,\ldots,a_{k}y\right)  }_{=\left\vert yh\right\vert }\right)  =\gcd\left(
 \gcd\left(  x,y\right)  \ \ \ \ \ \ \ \ \ \ \left(
 \begin{array}
 [c]{c}%
-\text{by Corollary \ref{cor.ent.gcd.sa,sb} (applied to }h\text{, }x\text{ and
+\text{by Theorem \ref{thm.ent.gcd.sa,sb} (applied to }h\text{, }x\text{ and
 }y\\
 \text{instead of }s\text{, }a\text{ and }b\text{)}%
 \end{array}
@@ -37533,7 +38334,7 @@ a_{1}z,a_{2}z,\ldots,a_{k}z\right)  }_{\substack{=h\left\vert z\right\vert
 ,a_{2},\ldots,a_{k}\right)  }}\underbrace{\gcd\left(  \gcd\left(  x,y\right)
 ,\left\vert z\right\vert \right)  }_{\substack{=\gcd\left(  x,y,z\right)
 \\\text{(by (\ref{sol.ent.coprime.gcdgcd1k3.0}))}}}\\
-&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Corollary \ref{cor.ent.gcd.sa,sb}
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Theorem \ref{thm.ent.gcd.sa,sb}
 (applied to }h\text{, }\gcd\left(  x,y\right)  \text{ and }\left\vert
 z\right\vert \text{ instead of }s\text{, }a\text{ and }b\text{)}\right) \\
 &  =\gcd\left(  a_{1},a_{2},\ldots,a_{k}\right)  \cdot\gcd\left(
@@ -38913,7 +39714,7 @@ any gcd and any lcm is a nonnegative integer}). This solves Exercise
 \ref{exe.ent.prime.gcd.distrib} \textbf{(a)}.
 
 \textbf{(b)} Exercise \ref{exe.ent.prime.gcd.distrib} \textbf{(b)} can be
-above in the same way as we solved Exercise \ref{exe.ent.prime.gcd.distrib}
+solved in the same way as we solved Exercise \ref{exe.ent.prime.gcd.distrib}
 \textbf{(a)} above, after making the obvious changes (i.e., all minima should
 be replaced by maxima and vice versa; all inequalities in the proof of Claim 1
 need to be flipped; all gcds should be replaced by lcms and vice versa). For
@@ -38980,7 +39781,7 @@ $0$. Thus, $\gcd\left(  b,c\right)  $ is a positive integer (by Definition
 \ref{def.ent.gcd.gcd}). Hence, $\gcd\left(  b,c\right)  >0$, so that
 $\gcd\left(  b,c\right)  \neq0$.
 
-Corollary \ref{cor.ent.gcd.sa,sb} (applied to $a$, $b$ and $c$ instead of $s$,
+Theorem \ref{thm.ent.gcd.sa,sb} (applied to $a$, $b$ and $c$ instead of $s$,
 $a$ and $b$) yields $\gcd\left(  ab,ac\right)  =\left\vert a\right\vert
 \gcd\left(  b,c\right)  $. But (\ref{eq.ent.div.abs(xy)}) (applied to $x=a$
 and $y=\gcd\left(  b,c\right)  $) yields $\left\vert a\gcd\left(  b,c\right)
@@ -39000,7 +39801,7 @@ On the other hand, Theorem \ref{thm.ent.lcm.gcd*lcm} (applied to $b$ and $c$
 instead of $a$ and $b$) yields $\gcd\left(  b,c\right)  \cdot
 \operatorname{lcm}\left(  b,c\right)  =\left\vert bc\right\vert $.
 
-Now, Corollary \ref{cor.ent.gcd.sa,sb} (applied to $\gcd\left(  b,c\right)  $,
+Now, Theorem \ref{thm.ent.gcd.sa,sb} (applied to $\gcd\left(  b,c\right)  $,
 $a$ and $\operatorname{lcm}\left(  b,c\right)  $ instead of $s$, $a$ and $b$)
 yields%
 \begin{align*}
@@ -39234,7 +40035,7 @@ Theorem \ref{thm.ent.lcm.gcd*lcm} (applied to $c$ instead of $b$) yields
 $\gcd\left(  a,c\right)  \cdot\operatorname{lcm}\left(  a,c\right)
 =\left\vert ac\right\vert $.
 
-Corollary \ref{cor.ent.gcd.sa,sb} (applied to $g$, $\operatorname{lcm}\left(
+Theorem \ref{thm.ent.gcd.sa,sb} (applied to $g$, $\operatorname{lcm}\left(
 a,b\right)  $ and $\operatorname{lcm}\left(  a,c\right)  $ instead of $s$, $a$
 and $b$) yields%
 \begin{align*}
@@ -39265,15 +40066,15 @@ ac\right\vert }\right) \nonumber\\
 \end{align}
 
 
-On the other hand, Corollary \ref{cor.ent.gcd.sa,sb} (applied to $ab$, $c$ and
+On the other hand, Theorem \ref{thm.ent.gcd.sa,sb} (applied to $ab$, $c$ and
 $a$ instead of $s$, $a$ and $b$) yields
 \begin{equation}
 \gcd\left(  abc,aba\right)  =\left\vert ab\right\vert \gcd\left(  c,a\right)
 =\gcd\left(  c,a\right)  \cdot\left\vert ab\right\vert .
 \label{sol.ent.prime.gcd.distrib.2nd.b.5a}%
 \end{equation}
-Also, Corollary \ref{cor.ent.gcd.sa,sb} (applied to $ac$, $a$ and $b$ instead
-of $s$, $a$ and $b$) yields
+Also, Theorem \ref{thm.ent.gcd.sa,sb} (applied to $ac$, $a$ and $b$ instead of
+$s$, $a$ and $b$) yields
 \begin{equation}
 \gcd\left(  aca,acb\right)  =\left\vert ac\right\vert \gcd\left(  a,b\right)
 =\gcd\left(  a,b\right)  \cdot\left\vert ac\right\vert .
@@ -44658,6 +45459,10 @@ congruences}, 10 January 2019.\newline\url{http://www.cip.ifi.lmu.de/~grinberg/l
 \bibitem[Grinbe18]{lina}Darij Grinberg, \textit{Notes on linear algebra},
 version of 13 December 2016.\newline\url{https://github.com/darijgr/lina}
 
+\bibitem[Grinbe19]{regpol}Darij Grinberg, \textit{Regular elements of a ring,
+monic polynomials and \textquotedblleft lcm-coprimality\textquotedblright},
+2019.\newline\url{http://www.cip.ifi.lmu.de/~grinberg/algebra/regpol.pdf}
+
 \bibitem[GrKnPa94]{GKP}Ronald L. Graham, Donald E. Knuth, Oren Patashnik,
 \textit{Concrete Mathematics, Second Edition}, Addison-Wesley 1994.\newline
 See \url{https://www-cs-faculty.stanford.edu/~knuth/gkp.html} for errata.
@@ -44709,6 +45514,10 @@ applications}, 2013.\newline\url{https://neil-strickland.staff.shef.ac.uk/course
 
 \bibitem[Swanso18]{Swanso18}Irena Swanson, \textit{Introduction to Analysis},
 with construction of the number systems, 21 August 2018.\newline\url{http://people.reed.edu/~iswanson/analysisconstructR.pdf}
+
+\bibitem[Trefet11]{Trefet11}Lloyd N. Trefethen, \textit{Six Myths of
+Polynomial Interpolation and Quadrature}, Maths. Today \textbf{47} (2011), pp.
+184--188.\newline\url{http://people.maths.ox.ac.uk/trefethen/publication/PDF/2011_139.pdf}
 
 \bibitem[UspHea39]{Uspensky-Heaslet}J. V. Uspensky, M. A. Heaslet,
 \textit{Elementary Number Theory}, McGraw-Hill 1939.
