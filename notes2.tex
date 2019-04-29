@@ -17,7 +17,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, April 29, 2019 09:51:51}
+%TCIDATA{LastRevised=Monday, April 29, 2019 12:01:17}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -26556,8 +26556,7 @@ Note that the $0$ and the $1$ here are the zero and the unity of $\mathbb{K}$.
 Thus, a zero matrix can be of any size, but an identity matrix has to be a
 square matrix.
 
-The following rules hold for addition, subtraction, multiplication and scaling
-of matrices:
+The following rules hold for addition, subtraction, multiplication and scaling of matrices:
 
 \begin{theorem}
 \label{thm.matrix.rules}Let $n,m,p,q\in\mathbb{N}$.
@@ -35585,17 +35584,38 @@ that $\mathbf{a}$ and $\mathbf{b}$ have degree $\leq n$. Then, apply Corollary
 \ref{cor.pol.id.n+1}.
 \end{proof}
 
+\begin{example}
+Corollary \ref{cor.pol.id.trick} can be false when $\mathbb{K}$ is not a
+field. For an example, pick any infinite set $S$, and let $\mathbb{K}$ be the
+commutative ring $\left(  \mathcal{P}\left(  S\right)  ,\bigtriangleup
+,\cap,\varnothing,S\right)  $ constructed in Section \ref{sect.ring.exa}. Let
+$n=2$, $\mathbf{a}=x^{2}-x$ and $\mathbf{b}=\underline{0}$. Then,
+\textbf{each} $u\in\mathbb{K}$ satisfies $\mathbf{a}\left[  u\right]
+=\mathbf{b}\left[  u\right]  $ (because $\mathbf{a}\left[  u\right]
+=u^{2}-u=\underbrace{u\cap u}_{=u}-u=u-u=\varnothing=0_{\mathbb{K}%
+}=\underline{0}\left[  u\right]  =\mathbf{b}\left[  u\right]  $); thus, in
+particular, infinitely many elements $u\in\mathbb{K}$ satisfy $\mathbf{a}%
+\left[  u\right]  =\mathbf{b}\left[  u\right]  $. But it is not true that
+$\mathbf{a}=\mathbf{b}$.
+\end{example}
+
 \begin{center}
 \textbf{2019-04-29 lecture}
 \end{center}
 
-Corollary \ref{cor.pol.id.n+1} tells us that a polynomial of degree $\leq n$
-over a field $\mathbb{K}$ is uniquely determined by $n+1$ of its values (i.e.,
-by its values on $n+1$ distinct given elements of $\mathbb{K}$). Here is an
-existence statement matching this uniqueness statement:
+With Corollary \ref{cor.pol.id.n+1} proven, we have now fully justified our
+proof of Vandermonde convolution.
+
+\subsubsection{Lagrange interpolation}
+
+Corollary \ref{cor.pol.id.n+1} shows that every polynomial of degree $\leq n$
+over a field $\mathbb{K}$ is uniquely determined by its values on $n+1$ (given
+distinct) points.
+
+Here is an existence statement matching this uniqueness statement:
 
 \begin{theorem}
-(Lagrange interpolation theorem)
+(The Lagrange interpolation theorem)
 
 Let $n\in\mathbb{N}$.
 
@@ -35605,8 +35625,12 @@ $\mathbb{K}$.
 Let $b_{1},b_{2},\ldots,b_{n+1}$ be $n+1$ elements of $\mathbb{K}$.
 
 \textbf{(a)} There is a unique polynomial $\mathbf{f}\in\mathbb{K}\left[
-x\right]  _{\leq n}$ satisfying $\mathbf{f}\left[  a_{i}\right]  =b_{i}$ for
-all $i$.
+x\right]  _{\leq n}$ satisfying%
+\[
+\mathbf{f}\left[  a_{i}\right]  =b_{i}\ \ \ \ \ \ \ \ \ \ \text{for all }%
+i\in\left\{  1,2,\ldots,n+1\right\}  .
+\]
+
 
 \textbf{(b)} This polynomial $\mathbf{f}$ is given by%
 \[
@@ -35617,101 +35641,129 @@ x-a_{k}\right)  }{\prod\limits_{k\neq j}\left(  a_{j}-a_{k}\right)  }.
 \end{theorem}
 
 \begin{proof}
-Define a polynomial $\mathbf{g}\in\mathbb{K}\left[  x\right]  $ by%
+Define a polynomial $\mathbf{g}$ by%
 \[
 \mathbf{g}=\sum_{j=1}^{n+1}b_{j}\dfrac{\prod\limits_{k\neq j}\left(
 x-a_{k}\right)  }{\prod\limits_{k\neq j}\left(  a_{j}-a_{k}\right)  }.
 \]
-This is a polynomial of degree $\leq n$, so it belongs to $\mathbb{K}\left[
-x\right]  _{\leq n}$. Furthermore, for all $i$, we have%
+Then, $\mathbf{g}$ has degree $\leq n$. In other words, $\mathbf{g}%
+\in\mathbb{K}\left[  x\right]  _{\leq n}$. Furthermore, for each $i\in\left\{
+1,2,\ldots,n+1\right\}  $, we have%
 \begin{align*}
 \mathbf{g}\left[  a_{i}\right]    & =\sum_{j=1}^{n+1}b_{j}\dfrac
 {\prod\limits_{k\neq j}\left(  a_{i}-a_{k}\right)  }{\prod\limits_{k\neq
-j}\left(  a_{j}-a_{k}\right)  }\\
-& =b_{i}\underbrace{\dfrac{\prod\limits_{k\neq i}\left(  a_{i}-a_{k}\right)
-}{\prod\limits_{k\neq i}\left(  a_{i}-a_{k}\right)  }}_{=1}+\sum
-_{\substack{j\in\left\{  1,2,\ldots,n+1\right\}  ;\\j\neq i}}b_{j}%
-\underbrace{\dfrac{\prod\limits_{k\neq j}\left(  a_{i}-a_{k}\right)  }%
-{\prod\limits_{k\neq j}\left(  a_{j}-a_{k}\right)  }}%
-_{\substack{=0\\\text{(since the numerator}\\\text{has an }a_{i}-a_{i}=0\text{
-factor)}}}\\
+j}\left(  a_{j}-a_{k}\right)  }=b_{i}\underbrace{\dfrac{\prod\limits_{k\neq
+j}\left(  a_{i}-a_{k}\right)  }{\prod\limits_{k\neq j}\left(  a_{i}%
+-a_{k}\right)  }}_{=1}+\sum_{\substack{j\in\left\{  1,2,\ldots,n+1\right\}
+;\\j\neq i}}b_{j}\underbrace{\dfrac{\prod\limits_{k\neq j}\left(  a_{i}%
+-a_{k}\right)  }{\prod\limits_{k\neq j}\left(  a_{j}-a_{k}\right)  }%
+}_{\substack{=0\\\text{(since the product}\\\text{in the numerator}\\\text{has
+an }a_{i}-a_{i}=0\text{ factor)}}}\\
 & =b_{i}.
 \end{align*}
-This proves the \textquotedblleft Existence\textquotedblright\ part of
-\textbf{(a)}: just take $\mathbf{f}=\mathbf{g}$.
+Thus, we have found a polynomial $\mathbf{f}\in\mathbb{K}\left[  x\right]
+_{\leq n}$ satisfying%
+\[
+\mathbf{f}\left[  a_{i}\right]  =b_{i}\ \ \ \ \ \ \ \ \ \ \text{for all }%
+i\in\left\{  1,2,\ldots,n+1\right\}
+\]
+(namely, $\mathbf{f}=\mathbf{g}$). This proves the \textquotedblleft
+Existence\textquotedblright\ part of \textbf{(a)}.
 
-The \textquotedblleft Uniqueness\textquotedblright\ part of \textbf{(a)}
+The \textquotedblleft uniqueness\textquotedblright\ part of \textbf{(a)}
 follows from Corollary \ref{cor.pol.id.n+1}.
 
-Part \textbf{(b)} follows from how we proved the \textquotedblleft
-Existence\textquotedblright\ of \textbf{(a)}.
+Part \textbf{(b)} is a consequence of how we proved \textbf{(a)}.
 \end{proof}
 
-Lagrange interpolation has several applications. Here are a few:
+Lagrange interpolation has several applications:
 
 \begin{itemize}
-\item Curve fitting. To make this numerically stable, you need to find good
-$a_{i}$'s (not evenly spaced, for example). See reference in the notes.
+\item Curve fitting. As a consequence, quadrature formulas. See notes for a reference.
 
 \item Shamir's Secret Sharing Scheme.
 
-\item Reed--Solomon codes.
+\item Reed--Solomon codes. A very brief introduction to coding theory (see,
+e.g., Paul Garrett's notes or various other sources for more).
 
-Assume we want to transmit digital information (e.g., bitstrings) through a
-noisy channel (e.g., radio). Each bit has a certain probability $p$ of getting
-corrupted. You want to ensure that the recepient gets the correct bits that
-you sent them. Of course, you cannot guarantee this, but you can make this
-arbitrarily likely using \textit{error-correcting codes}.
+Basic problem: Assume you want to send digital data (bitstrings) over a noisy
+channel (e.g., radio). \textquotedblleft Noisy\textquotedblright\ means that
+the transmission has a chance to introduce errors (specifically, data
+corruption). Specifically, any bit you send has a small probability $p$ of
+getting corrupted on its way. You want the receiver to recover the data that
+you sent, i.e., correct the errors introduced by the noise. How can you
+achieve this?
+
+With 100\% surety, you cannot.
+
+There are several schemes that you can use to make it as likely as you wish.
+They are called \textbf{error-correcting codes}. Examples:
 
 \begin{itemize}
-\item Simplest example: Send every bit twice. This lowers the probability that
-the recepient gets a bit wrong to $p^{2}$ (since both copies of the bit need
-to corrupted). However, the recepient will occasionally get two distinct bits,
-which alerts him to the presence of an error but does not help him correct the error.
+\item Send each bit twice in a row. Now, the probability that both copies of a
+bit get corrupted is $p^{2}<p$. Unless this happens, the receiver either
+obtains the correct bit twice, or he obtains two different bits, in which case
+at least he recognizes that something went wrong.
 
-\item Better example: Send every bit thrice. Now, undetectable errors are even
-less likely ($p^{3}$), and furthermore the recepient can correct up to $1$ error.
+\item Send each bit three times in a row. Now, the probability of total
+corruption is even smaller ($p^{3}$), and moreover, if at most $1$ of the $3$
+copies got corrupted, then the receiver can recover the correct bit (majority rule).
 
-\item Another error-correcting code: Follow every four bits $a,b,c,d$ that you
-send with the three bits%
+\item Alternatively, you can follow every four bits $a,b,c,d$ that you are
+sending with the three extra bits%
 \[
 a+b+d,\ \ \ \ \ \ \ \ \ \ a+c+d,\ \ \ \ \ \ \ \ \ \ b+c+d
 \]
-(working modulo $2$). This code detects up to $2$ errors (i.e., if $\leq2$ of
-the $7$ bits get corrupted, the recepient will know that something went wrong)
-and corrects up to $1$ error (i.e., the recepient can guess the correct
-$a,b,c,d$ if $\leq1$ of the $7$ bits got corrupted).
+(where addition is mod $2$). Thus you are sending $7$ bits instead of $4$
+bits, but the transmission has become a lot safe because:
 
-This is the so-called Hamming(7,4) code.
+\begin{itemize}
+\item if $\leq2$ of the $7$ bits got corrupted, then the receiver will know
+something is amiss;
 
-\item Here is the Reed--Solomon code (one of the many versions). Fix two
-integers $d,e\in\mathbb{N}$ with $d<e$. Fix a finite field $\mathbb{K}$ and
-$e$ distinct elements $a_{1},a_{2},\ldots,a_{e}$ of $\mathbb{K}$. Instead of
-transmitting bits, let us transmit elements of $\mathbb{K}$. Now, when you
-want to send $d+1$ elements $u_{0},u_{1},\ldots,u_{d}$ of $\mathbb{K}$ over
-the channel, you instead form the polynomial%
+\item if $\leq1$ of the $7$ bits got corrupted, the receiver will be able to
+recover the correct bits.
+\end{itemize}
+
+This is called the Hamming(7,4) code.
+
+\item Here is another error-correcting code.
+
+Fix two integers $d,e\in\mathbb{N}$ with $d<e$.
+
+Fix a finite field $\mathbb{K}$ and $e$ distinct elements $a_{1},a_{2}%
+,\ldots,a_{e}$ of $\mathbb{K}$.
+
+Now, instead of transmitting bits, you transmit elements of $\mathbb{K}$.
+
+Now, when you want to send $d+1$ elements $u_{0},u_{1},\ldots,u_{d}$ of
+$\mathbb{K}$ over the channel, you instead form the polynomial%
 \[
 \mathbf{f}=u_{0}+u_{1}x+\cdots+u_{d}x^{d}\in\mathbb{K}\left[  x\right]  _{\leq
 d},
 \]
-and transmit the $e$ values $\mathbf{f}\left[  a_{1}\right]  ,\mathbf{f}%
-\left[  a_{2}\right]  ,\ldots,\mathbf{f}\left[  a_{e}\right]  $ of this
-polynomial. The recepient gets $e$ values of a polynomial of degree $\leq d$.
-If no corruption has happened, then he can recover the original polynomial
-$\mathbf{f}$ by Lagrange interpolation, using any $d+1$ of these $e$ values
-(since $d+1\leq e$).
+and transmit its $e$ values $\mathbf{f}\left[  a_{1}\right]  ,\mathbf{f}%
+\left[  a_{2}\right]  ,\ldots,\mathbf{f}\left[  a_{e}\right]  $.
 
-If corruption has changed $\leq e-d-1$ of these $e$ values, then the recepient
-can tell that something went wrong.
+If none of these $e$ values gets corrupted, then the recepient can recover
+$\mathbf{f}$ using Lagrange interpolation, by choosing any $d+1$ of these $e$
+values (since $d+1\leq e$).
 
-If corruption has changed $\leq\left\lfloor \dfrac{e-d-1}{2}\right\rfloor $ of
-these $e$ values, then the recepient can infer the correct $\mathbf{f}$.
+If $\leq e-d-1$ values get corrupted, then the recepient will realize that
+something is wrong. (That is, our code \textbf{detects up to }$e-d-1$
+\textbf{errors}.)
 
-See WP on Reed--Solomon codes. Sample applications: CD/DVD encoding, Voyager spacecraft.
+If $\leq\left\lfloor \dfrac{e-d-1}{2}\right\rfloor $ values get corrupted,
+then the recepient can infer the correct $\mathbf{f}$. (That is, our code
+\textbf{corrects up to }$\left\lfloor \dfrac{e-d-1}{2}\right\rfloor $
+\textbf{errors}.)
+
+This is called a \textbf{Reed--Solomon code} and has been used in the CD/DVD
+format and also in the transmission system of the Voyager spacecraft.
 \end{itemize}
 \end{itemize}
 
-\subsubsection{Lucas's theorem revisited}
+\subsubsection{Lucas's congruence}
 
 Recall Lucas's congruence:
 
@@ -35725,8 +35777,8 @@ $a,b\in\mathbb{Z}$. Let $c,d\in\left\{  0,1,\ldots,p-1\right\}  $. Then,%
 \end{theorem}
 
 \begin{proof}
-[Proof sketch.] We shall only consider the case when $p=2$ and $c=1$ and
-$a\in\mathbb{N}$. So we need to prove%
+[Sketch of proof.] We shall first consider the case $p=2$, $c=1$ and
+$a\in\mathbb{N}$. So we must prove that%
 \[
 \dbinom{2a+1}{2b+1}\equiv\dbinom{a}{b}\operatorname{mod}%
 2\ \ \ \ \ \ \ \ \ \ \text{and}\ \ \ \ \ \ \ \ \ \ \dbinom{2a+1}{2b}%
@@ -35739,126 +35791,104 @@ In this ring, we have%
 \[
 \left(  1+x\right)  ^{2}=1+\underbrace{2}_{=0}x+x^{2}=1+x^{2}.
 \]
-\ Now, the binomial formula yields%
+On the other hand, the binomial formula yields%
 \[
 \left(  1+x\right)  ^{a}=\sum_{k=0}^{a}\dbinom{a}{k}x^{k}=\sum_{k\in
 \mathbb{N}}\dbinom{a}{k}x^{k}%
 \]
-(we have just introduced a lot of $0$ addends). Substituting $x^{2}$ for $x$
-here, we obtain%
-\[
-\left(  1+x^{2}\right)  ^{a}=\sum_{k\in\mathbb{N}}\dbinom{a}{k}%
-\underbrace{\left(  x^{2}\right)  ^{k}}_{=x^{2k}}=\sum_{k\in\mathbb{N}}%
-\dbinom{a}{k}x^{2k}.
-\]
+(here, we are just inserting $0$ addends into the sum). Substituting $x^{2}$
+for $x$ in this equation, we obtain%
+\begin{align*}
+\left(  1+x^{2}\right)  ^{a}  & =\sum_{k\in\mathbb{N}}\dbinom{a}%
+{k}\underbrace{\left(  x^{2}\right)  ^{k}}_{=x^{2k}}=\sum_{k\in\mathbb{N}%
+}\dbinom{a}{k}x^{2k}\\
+& =\dbinom{a}{0}x^{0}+\dbinom{a}{1}x^{2}+\dbinom{a}{2}x^{4}+\dbinom{a}{3}%
+x^{6}+\cdots.
+\end{align*}
 
 
 Now,%
 \begin{align*}
 \left(  1+x\right)  ^{2a+1}  & =\left(  \underbrace{\left(  1+x\right)  ^{2}%
 }_{=1+x^{2}}\right)  ^{a}\left(  1+x\right)  =\underbrace{\left(
-1+x^{2}\right)  ^{a}}_{\substack{=\sum_{k\in\mathbb{N}}\dbinom{a}{k}%
-x^{2k}\\=\dbinom{a}{0}x^{0}+\dbinom{a}{1}x^{2}+\dbinom{a}{2}x^{4}+\cdots
-}}\left(  1+x\right)  \\
-& =\left(  \dbinom{a}{0}x^{0}+\dbinom{a}{1}x^{2}+\dbinom{a}{2}x^{4}%
-+\cdots\right)  \left(  1+x\right)  \\
+1+x^{2}\right)  ^{a}}_{=\dbinom{a}{0}x^{0}+\dbinom{a}{1}x^{2}+\dbinom{a}%
+{2}x^{4}+\dbinom{a}{3}x^{6}+\cdots}\left(  1+x\right)  \\
+& =\left(  \dbinom{a}{0}x^{0}+\dbinom{a}{1}x^{2}+\dbinom{a}{2}x^{4}+\dbinom
+{a}{3}x^{6}+\cdots\right)  \left(  1+x\right)  \\
 & =\dbinom{a}{0}x^{0}+\dbinom{a}{0}x^{1}+\dbinom{a}{1}x^{2}+\dbinom{a}{1}%
 x^{3}+\dbinom{a}{2}x^{4}+\dbinom{a}{2}x^{5}+\cdots.
 \end{align*}
-Compare this to%
-\[
-\left(  1+x\right)  ^{2a+1}=\sum_{k\in\mathbb{N}}\dbinom{2a+1}{k}x^{k}%
-=\dbinom{2a+1}{0}x^{0}+\dbinom{2a+1}{1}x^{1}+\dbinom{2a+1}{2}x^{2}+\cdots.
-\]
-We obtain%
+Comparing this with%
 \begin{align*}
-& \dbinom{a}{0}x^{0}+\dbinom{a}{0}x^{1}+\dbinom{a}{1}x^{2}+\dbinom{a}{1}%
-x^{3}+\dbinom{a}{2}x^{4}+\dbinom{a}{2}x^{5}+\cdots\\
-& =\dbinom{2a+1}{0}x^{0}+\dbinom{2a+1}{1}x^{1}+\dbinom{2a+1}{2}x^{2}+\cdots.
+\left(  1+x\right)  ^{2a+1}  & =\sum_{k\in\mathbb{N}}\dbinom{2a+1}{k}x^{k}\\
+& =\dbinom{2a+1}{0}x^{0}+\dbinom{2a+1}{1}x^{1}+\dbinom{2a+1}{2}x^{2}+\cdots,
 \end{align*}
-This is an equality of FPSs (actually, polynomials), which, as you remember,
-are just sequences of coefficients. So if two FPSs are equal, then their
-$n$-th coefficients are equal for each $n$. Applying this to the two FPSs
-above, we conclude that
-
-\begin{itemize}
-\item for each $b\in\mathbb{N}$, we have $\dbinom{a}{b}=\dbinom{2a+1}{2b}$
-(because the $\left(  2b\right)  $-th coefficients are equal);
-
-\item for each $b\in\mathbb{N}$, we have $\dbinom{a}{b}=\dbinom{2a+1}{2b+1}$
-(because the $\left(  2b+1\right)  $-th coefficients are equal).
-\end{itemize}
-
-Why did we get equalities rather than congruences modulo $2$ ?
-
-We are working over $\mathbb{Z}/2$, not over $\mathbb{Z}$, so the coefficients
-of our polynomials are actually elements of $\mathbb{Z}/2$; we are just
-writing them as if they were integers (abuse of notation). So when we say%
-\[
-\dbinom{a}{b}=\dbinom{2a+1}{2b},
-\]
-we really mean%
+we obtain%
 \begin{align*}
-\dbinom{a}{b}\cdot1_{\mathbb{Z}/2}  & =\dbinom{2a+1}{2b}\cdot1_{\mathbb{Z}%
-/2},\ \ \ \ \ \ \ \ \ \ \text{that is,}\\
-\left[  \dbinom{a}{b}\right]  _{2}  & =\left[  \dbinom{2a+1}{2b}\right]  _{2}.
+& \dbinom{2a+1}{0}x^{0}+\dbinom{2a+1}{1}x^{1}+\dbinom{2a+1}{2}x^{2}+\cdots\\
+& =\dbinom{a}{0}x^{0}+\dbinom{a}{0}x^{1}+\dbinom{a}{1}x^{2}+\dbinom{a}{1}%
+x^{3}+\dbinom{a}{2}x^{4}+\dbinom{a}{2}x^{5}+\cdots.
 \end{align*}
-But this means precisely that $\dbinom{a}{b}\equiv\dbinom{2a+1}{2b}%
-\operatorname{mod}2$. The integers $\dbinom{a}{b}$ and $\dbinom{2a+1}{2b}$ do
-not have to be equal.
+This is an equality between two FPSs (actually, polynomials), so coefficients
+are equal. So, by comparing coefficients before $x^{n}$, we see that%
+\[
+\dbinom{2a+1}{n}=\dbinom{a}{\left\lfloor n/2\right\rfloor }.
+\]
+Applying this to $n=2b$, we find%
+\[
+\dbinom{2a+1}{2b}=\dbinom{a}{b}.
+\]
+Applying this to $n=2b+1$, we find%
+\[
+\dbinom{2a+1}{2b+1}=\dbinom{a}{b}.
+\]
+
+
+But why did we just get equalities? We wanted congruences mod $2$.
+
+The reason is what we abused notation. When we wrote%
+\[
+\dbinom{2a+1}{n}=\dbinom{a}{\left\lfloor n/2\right\rfloor },
+\]
+we really meant%
+\[
+\dbinom{2a+1}{n}\cdot1_{\mathbb{Z}/2}=\dbinom{a}{\left\lfloor n/2\right\rfloor
+}\cdot1_{\mathbb{Z}/2},
+\]
+since the coefficients of our polynomials are in $\mathbb{Z}/2$ rather than in
+$\mathbb{Z}$. We can rewrite this as%
+\begin{align*}
+\left[  \dbinom{2a+1}{n}\right]  _{2}  & =\left[  \dbinom{a}{\left\lfloor
+n/2\right\rfloor }\right]  _{2},\ \ \ \ \ \ \ \ \ \ \text{i.e.,}\\
+\dbinom{2a+1}{n}  & \equiv\dbinom{a}{\left\lfloor n/2\right\rfloor
+}\operatorname{mod}2.
+\end{align*}
+And this is exactly what we want.
 
 So we have proven Lucas's congruence in the case when $p=2$ and $c=1$ and
 $a\in\mathbb{N}$.
 
-Lift the restriction $c=1$ by realizing that the only other possibility is
-$c=0$, and the proof in that case is similar.
+Lift the restriction that $c=1$ by realizing that the other possibility
+($c=0$) can be handled similarly.
 
-Lift the restriction $p=2$ by realizing that an analogue of the $\left(
-1+x\right)  ^{2}=1+x^{2}$ identity holds for any prime $p$: Namely, if $p$ is
-a prime, then%
+Lift the restriction that $p=2$ by realizing that an analogue of $\left(
+1+x\right)  ^{2}=1+x^{2}$ holds for any prime $p$: Namely, if $p$ is a prime,
+then%
 \[
 \left(  1+x\right)  ^{p}=1+x^{p}\ \ \ \ \ \ \ \ \ \ \text{in }\left(
 \mathbb{Z}/p\right)  \left[  x\right]  .
 \]
 More generally, if $p$ is a prime, and if $a,b$ are two elements of a ring
-$\mathbb{K}$ satisfying $ab=ba$, then%
+$\mathbb{K}$ satisfying $ab=ba$ and $p\cdot1_{\mathbb{K}}=0$, then%
 \[
 \left(  a+b\right)  ^{p}=a^{p}+b^{p}\ \ \ \ \ \ \ \ \ \ \left(
 \text{\textquotedblleft Freshman's Dream\textquotedblright\ or
 \textquotedblleft Idiot's Binomial Formula\textquotedblright}\right)  .
 \]
-To prove this, expand $\left(  a+b\right)  ^{p}$ using the binomial formula:%
-\begin{align*}
-\left(  a+b\right)  ^{p}  & =\sum_{k=0}^{p}\dbinom{p}{k}a^{k}b^{p-k}%
-=a^{p}+\sum_{k=1}^{p-1}\underbrace{\dbinom{p}{k}}_{\substack{=0\text{ in
-}\mathbb{Z}/p\\\text{(by Theorem \ref{thm.binom.p|bin})}}}a^{k}b^{p-k}%
-+b^{p}\\
-& =a^{p}+b^{p}.
-\end{align*}
 
 
-(Note: It is not true that $\left(  a+b\right)  ^{4}=a^{4}+b^{4}$ in $\left(
-\mathbb{Z}/4\right)  \left[  x\right]  $. This behavior is unique to prime
-numbers (and $1$).)
-
-Thus we can lift the restriction that $p$ be prime.
-
-Finally, we can lift the restriction that $a\in\mathbb{N}$ in one of two ways:
-
-\begin{itemize}
-\item Use upper negation to reduce the negative case to the positive case.
-
-\item Use FPS instead of polynomials. Recall that the FPS $1+x$ is invertible
-(actually, we proved that $1-x$ is invertible, but this is analogous). Thus,
-$\left(  1+x\right)  ^{a}$ is defined not only for $a\in\mathbb{N}$ but also
-for all $a\in\mathbb{Z}$ (in the same way as we defined negative powers of
-nonzero complex numbers). \textbf{Newton's binomial formula} states that%
-\[
-\left(  1+x\right)  ^{a}=\sum_{k\in\mathbb{N}}\dbinom{a}{k}x^{k}%
-\]
-holds not only for $a\in\mathbb{N}$, but also for all $a\in\mathbb{Z}$. (This
-can be proven by backwards induction, i.e., from $a$ to $a-1$.)
-\end{itemize}
+Finally, we can lift the restriction that $a\in\mathbb{N}$ either by using
+upper negation or using Newton's Binomial Formula.
 \end{proof}
 
 
