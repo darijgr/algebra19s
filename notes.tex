@@ -17,7 +17,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, April 29, 2019 12:17:51}
+%TCIDATA{LastRevised=Monday, April 29, 2019 18:22:15}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -142,7 +142,8 @@
 %BeginExpansion
 \today
 %EndExpansion
-\ at \currenttime}
+\ at \currenttime.\\
+Status: finished up to Section 4.2.4.}
 \maketitle
 \tableofcontents
 
@@ -175,18 +176,18 @@ algebra, thus rather dated, but still as readable as ever).
 
 Of course, any book longer than 200 pages likely goes further than our course
 will (unless it is full of details or solved exercises or printed in really
-large letters). Thus, let me recommend some more introductory sources.
-Siksek's lecture notes \cite{Siksek} are a readable introduction that is a lot
-more amusing than I had ever expected an algebra text to be. Goodman's free
-book \cite{Goodman} combines introductory material with geometric motivation
-and applications, such as the classification of regular polyhedra and
-2-dimensional crystals. In a sense, it is a great complement to our
-ungeometric course. Pinter's \cite{Pinter} often gets used in classes like
-ours. Armstrong's notes \cite{Armstrong} cover a significant part of what we
-do (and he will likely have notes for a second course written up by the end of
-this semester). Childs's \cite{Childs00} comes the closest to what we are
-setting out to do here, that is, give an example-grounded introduction to
-basic abstract algebra.
+large letters, like this one will be once it is finished). Thus, let me
+recommend some more introductory sources. Siksek's lecture notes \cite{Siksek}
+are a readable introduction that is a lot more amusing than I had ever
+expected an algebra text to be. Goodman's free book \cite{Goodman} combines
+introductory material with geometric motivation and applications, such as the
+classification of regular polyhedra and 2-dimensional crystals. In a sense, it
+is a great complement to our ungeometric course. Pinter's \cite{Pinter} often
+gets used in classes like ours. Armstrong's notes \cite{Armstrong} cover a
+significant part of what we do (and he will likely have notes for a second
+course written up by the end of this semester). Childs's \cite{Childs00} comes
+the closest to what we are setting out to do here, that is, give an
+example-grounded introduction to basic abstract algebra.
 
 Keith Conrad's blurbs \cite{Conrad*} are not a book, as they only cover
 selected topics. But at pretty much every topic they cover, they are one of
@@ -28149,6 +28150,135 @@ if the ring $\mathbb{K}$ is trivial (i.e., has only one element). Thus, each
 trivial ring is isomorphic to the zero ring.
 \end{example}
 
+\subsection{Freshman's Dream}
+
+Let us now prove a property of $p$-th powers in rings. At this point, this
+property appears to be a mere curiosity, but it will come useful later (in
+proving Theorem \ref{thm.binom.lucas}).
+
+\begin{theorem}
+\label{thm.ring.freshdream}Let $p$ be a prime. Let $\mathbb{K}$ be a ring such
+that $p\cdot1_{\mathbb{K}}=0$. Let $a,b\in\mathbb{K}$ be such that $ab=ba$.
+Then,%
+\[
+\left(  a+b\right)  ^{p}=a^{p}+b^{p}.
+\]
+
+\end{theorem}
+
+Theorem \ref{thm.ring.freshdream} is often called \textquotedblleft%
+\href{https://en.wikipedia.org/wiki/Freshman's_dream#Prime_characteristic}{Freshman's
+Dream}\textquotedblright\ (in writing) or \textquotedblleft Idiot's Binomial
+Formula\textquotedblright\ (colloquially).
+
+\begin{example}
+\label{exa.ring.freshdream.1}Let $p$ be a prime.
+
+\textbf{(a)} The simplest example of a ring $\mathbb{K}$ in which
+$p\cdot1_{\mathbb{K}}=0$ is the ring $\mathbb{Z}/p$. Unfortunately, this is
+too simple to make a good example for Theorem \ref{thm.ring.freshdream}.
+Indeed, if $\mathbb{K}=\mathbb{Z}/p$, then any $\alpha\in\mathbb{K}$ satisfies
+$\alpha^{p}=\alpha$ (because we can write $\alpha$ as $\left[  a\right]  _{p}$
+for some $a\in\mathbb{Z}$, and then apply Theorem \ref{thm.ent.fermat}
+\textbf{(b)} to this $a$). Thus, as long as we are staying in $\mathbb{K}%
+=\mathbb{Z}/p$, the equality $\left(  a+b\right)  ^{p}=a^{p}+b^{p}$ claimed by
+Theorem \ref{thm.ring.freshdream} boils down to $a+b=a+b$ (since $\left(
+a+b\right)  ^{p}=a+b$ and $a^{p}=a$ and $b^{p}=b$).
+
+\textbf{(b)} In Section \ref{sect.ring.hunting1}, we have taken a prime $p>2$,
+and constructed a finite field $\mathbb{K}_{\eta}^{\prime}$ of size $p^{2}$
+(by picking a non-square $\eta\in\mathbb{Z}/p$ and performing the construction
+in Definition \ref{def.finfield.K'eta}). This field satisfies $p\cdot
+1_{\mathbb{K}_{\eta}^{\prime}}=0$, so we can apply Theorem
+\ref{thm.ring.freshdream} to it as well. This time, $\alpha^{p}=\alpha$ will
+no longer hold for all $\alpha$ in the field, so the result we get will not be obvious.
+
+\textbf{(c)} Here is another example. Let $n\in\mathbb{N}$, and let
+$\mathbb{K}$ be the matrix ring $\left(  \mathbb{Z}/p\right)  ^{n\times n}$.
+This matrix ring $\mathbb{K}$ satisfies $p\cdot1_{\mathbb{K}}=0$ (since
+scaling is defined entrywise on matrices). Thus, Theorem
+\ref{thm.ring.freshdream} yields that any $a,b\in\mathbb{K}$ satisfying
+$ab=ba$ must satisfy $\left(  a+b\right)  ^{p}=a^{p}+b^{p}$. Of course, not
+every two matrices $a,b\in\mathbb{K}$ satisfy $ab=ba$, but there are many
+matrices that do.
+
+A particularly striking situation is the following: Assume that $n\leq p$, and
+let $N\in\mathbb{K}$ be a strictly lower-triangular $n\times n$-matrix. For
+example, if $n=3$, then $N$ has the form $\left(
+\begin{array}
+[c]{ccc}%
+0 & 0 & 0\\
+u & 0 & 0\\
+v & w & 0
+\end{array}
+\right)  $. Then, I claim that
+\begin{equation}
+\left(  I_{n}+N\right)  ^{p}=I_{n}. \label{eq.exa.ring.freshdream.1.c.claim}%
+\end{equation}
+
+
+To prove this, I observe that $I_{n}\cdot N=N=N\cdot I_{n}$. Hence, Theorem
+\ref{thm.ring.freshdream} can be applied to $a=I_{n}$ and $b=N$. As a result,
+we obtain $\left(  I_{n}+N\right)  ^{p}=I_{n}^{p}+N^{p}$. But $N$ is a
+strictly lower-triangular $n\times n$-matrix, and therefore satisfies
+$N^{n}=0_{n\times n}$ (by \cite[Corollary 3.78]{lina}), and therefore
+\begin{align*}
+N^{p} &  =\underbrace{N^{n}}_{=0_{n\times n}}N^{p-n}%
+\ \ \ \ \ \ \ \ \ \ \left(  \text{since }n\leq p\right)  \\
+&  =0_{n\times n}N^{p-n}=0_{n\times n}.
+\end{align*}
+Furthermore, $I_{n}^{p}=I_{n}$ (since $I_{n}$ is the unity of the ring
+$\mathbb{K}$). Hence, $\left(  I_{n}+N\right)  ^{p}=\underbrace{I_{n}^{p}%
+}_{=I_{n}}+\underbrace{N^{p}}_{=0_{n\times n}}=I_{n}+0_{n\times n}=I_{n}$.
+This proves (\ref{eq.exa.ring.freshdream.1.c.claim}).
+\end{example}
+
+\begin{proof}
+[Proof of Theorem \ref{thm.ring.freshdream}.]For each $k\in\left\{
+1,2,\ldots,p-1\right\}  $, we have $p\mid\dbinom{p}{k}$ (by Theorem
+\ref{thm.binom.p|bin}) and thus%
+\begin{equation}
+\dbinom{p}{k}1_{\mathbb{K}}=0 \label{pf.thm.ring.freshdream.1}%
+\end{equation}
+(since $p\cdot1_{\mathbb{K}}=0$)\ \ \ \ \footnote{Here is this argument in
+more detail:
+\par
+Let $k\in\left\{  1,2,\ldots,p-1\right\}  $. Then, $p\mid\dbinom{p}{k}$ (by
+Theorem \ref{thm.binom.p|bin}). Hence, there exists an integer $c$ such that
+$\dbinom{p}{k}=pc$. Consider this $c$. Then,%
+\[
+\underbrace{\dbinom{p}{k}}_{=pc=cp}1_{\mathbb{K}}=c\underbrace{p\cdot
+1_{\mathbb{K}}}_{=0}=c\cdot0=0,
+\]
+qed.}.
+
+But $ab=ba$. Hence, the binomial formula (more precisely, the identity
+(\ref{eq.prop.rings.pow.rules.c.binom}), applied to $p=n$) yields%
+\begin{align*}
+\left(  a+b\right)  ^{p}  &  =\sum_{k=0}^{p}\dbinom{p}{k}a^{k}b^{p-k}\\
+&  =\underbrace{\dbinom{p}{0}}_{=1}\underbrace{a^{0}}_{=1}\underbrace{b^{p-0}%
+}_{=b^{p}}+\sum_{k=1}^{p-1}\dbinom{p}{k}\underbrace{a^{k}}_{=1_{\mathbb{K}%
+}\cdot a^{k}}b^{p-k}+\underbrace{\dbinom{p}{p}}_{=1}a^{p}\underbrace{b^{p-p}%
+}_{=b^{0}=1}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{here, we have split off the addends for }k=0\text{ and for }k=p\\
+\text{from the sum}%
+\end{array}
+\right) \\
+&  =b^{p}+\sum_{k=1}^{p-1}\underbrace{\dbinom{p}{k}1_{\mathbb{K}}%
+}_{\substack{=0\\\text{(by (\ref{pf.thm.ring.freshdream.1}))}}}a^{k}%
+b^{p-k}+a^{p}=b^{p}+\underbrace{\sum_{k=1}^{p-1}0a^{k}b^{p-k}}_{=0}+a^{p}\\
+&  =b^{p}+a^{p}=a^{p}+b^{p}.
+\end{align*}
+This proves Theorem \ref{thm.ring.freshdream}.
+\end{proof}
+
+We note that Theorem \ref{thm.ring.freshdream} would be false if $p$ wasn't
+assumed to be prime. For example, it would be false for $p=4$ (a simple
+counterexample being $\mathbb{K}=\mathbb{Z}/4$, $a=1$ and $b=1$).
+
 \section{\label{chp.la}Linear algebra over commutative rings}
 
 We shall now continue studying rings, but slowly shift our focus. Namely,
@@ -36454,28 +36584,13 @@ a prime, then%
 \left(  1+x\right)  ^{p}=1+x^{p}\ \ \ \ \ \ \ \ \ \ \text{in }\left(
 \mathbb{Z}/p\right)  \left[  x\right]  .
 \]
-More generally, if $p$ is a prime, and if $\mathbb{K}$ is a ring satisfying
-$p\cdot1_{\mathbb{K}}=0$ (for example, $\mathbb{Z}/p$ and $\left(
-\mathbb{Z}/p\right)  \left[  x\right]  $ are two such rings, and so is every
-$\mathbb{Z}/p$-algebra), and if $a,b$ are two elements of $\mathbb{K}$
-satisfying $ab=ba$, then%
-\[
-\left(  a+b\right)  ^{p}=a^{p}+b^{p}\ \ \ \ \ \ \ \ \ \ \left(
-\text{\textquotedblleft Freshman's Dream\textquotedblright\ or
-\textquotedblleft Idiot's Binomial Formula\textquotedblright}\right)  .
-\]
-To prove this, expand $\left(  a+b\right)  ^{p}$ using the binomial formula:%
-\[
-\left(  a+b\right)  ^{p}=\sum_{k=0}^{p}\dbinom{p}{k}a^{k}b^{p-k}=a^{p}%
-+\sum_{k=1}^{p-1}\underbrace{\dbinom{p}{k}}_{\substack{=0\text{ in }%
-\mathbb{Z}/p\\\text{(by Theorem \ref{thm.binom.p|bin})}}}a^{k}b^{p-k}%
-+b^{p}=a^{p}+b^{p}.
-\]
-
+This is a consequence of Theorem \ref{thm.ring.freshdream} (applied to
+$\mathbb{K}=\left(  \mathbb{Z}/p\right)  \left[  x\right]  $, $a=1$ and
+$b=x$), since $p\cdot1_{\left(  \mathbb{Z}/p\right)  \left[  x\right]  }=0$.
 
 (Note: It is important that $p$ is prime here (or $1$). It is not true that
-$\left(  a+b\right)  ^{4}=a^{4}+b^{4}$ in $\left(  \mathbb{Z}/4\right)
-\left[  x\right]  $. This behavior is unique to prime numbers (and $1$).)
+$\left(  1+x\right)  ^{4}=1+x^{4}$ in $\left(  \mathbb{Z}/4\right)  \left[
+x\right]  $. This behavior is unique to prime numbers (and $1$).)
 
 Thus we can lift the restriction that $p=2$.
 
@@ -36484,11 +36599,11 @@ Finally, we can lift the restriction that $a\in\mathbb{N}$ in one of two ways:
 \begin{itemize}
 \item Use upper negation to reduce the negative case to the positive case.
 
-\item Use FPS instead of polynomials. Recall that the FPS $1+x$ is invertible
+\item Use FPSs instead of polynomials. Recall that the FPS $1+x$ is invertible
 (actually, we proved that $1-x$ is invertible, but this is analogous). Thus,
 $\left(  1+x\right)  ^{a}$ is defined not only for $a\in\mathbb{N}$ but also
 for all $a\in\mathbb{Z}$ (in the same way as we defined negative powers of
-nonzero complex numbers). \textbf{Newton's binomial formula} states that%
+nonzero complex numbers). \textit{Newton's binomial formula} states that%
 \[
 \left(  1+x\right)  ^{a}=\sum_{k\in\mathbb{N}}\dbinom{a}{k}x^{k}%
 \]
@@ -36503,6 +36618,12 @@ Thus, when $a\in\mathbb{Z}$, we can replace our references to Lemma
 \ref{lem.binom.psgu} by applications of the above two formulas.
 \end{itemize}
 \end{proof}
+
+\begin{center}
+\textbf{2019-05-01 lecture}
+\end{center}
+
+\subsection{Functoriality of power series and polynomial rings}
 
 TODO:
 
@@ -36520,7 +36641,13 @@ a_{0}\right)  ,f\left(  a_{1}\right)  ,f\left(  a_{2}\right)  ,\ldots\right)
 is a ring homomorphism. Its restriction to $\mathbb{K}\left[  x\right]  $ is a
 ring homomorphism from $\mathbb{K}\left[  x\right]  $ to $\mathbb{L}\left[
 x\right]  $.
+\end{itemize}
 
+\subsection{Invertible and nilpotent polynomials}
+
+TODO:
+
+\begin{itemize}
 \item When is an $\mathbf{f}\in\mathbb{K}\left[  x\right]  $ invertible in
 $\mathbb{K}\left[  x\right]  $ ?
 
