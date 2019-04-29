@@ -17,7 +17,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Sunday, April 28, 2019 16:55:41}
+%TCIDATA{LastRevised=Sunday, April 28, 2019 19:54:52}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -1236,7 +1236,7 @@ later in this course.
 
 Assuming that they can be constructed, we thus obtain a method of solving the
 problem for $k=3$. A similar method works for arbitrary $k$, using polynomials
-of degree $\leq k-1$. This is called \textit{Shamir's secret sharing scheme}.
+of degree $\leq k-1$. This is called \textit{Shamir's Secret Sharing Scheme}.
 
 \begin{center}
 \textbf{2019-01-30 lecture (virtual)}
@@ -32668,6 +32668,100 @@ polynomial or FPS\textquotedblright. This also explains why we refer to the
 entries of an FPS $\left(  a_{0},a_{1},a_{2},\ldots\right)  $ as its
 \textquotedblleft coefficients\textquotedblright.
 
+\begin{exercise}
+\label{exe.pol.coeff-shift}Let $\mathbf{b}\in\mathbb{K}\left[  \left[
+x\right]  \right]  $ and $u,v\in\mathbb{N}$. Prove the following:
+
+\textbf{(a)} If $u\geq v$, then $\left[  x^{u}\right]  \left(  x^{v}%
+\mathbf{b}\right)  =\left[  x^{u-v}\right]  \mathbf{b}$.
+
+\textbf{(b)} If $u<v$, then $\left[  x^{u}\right]  \left(  x^{v}%
+\mathbf{b}\right)  =0$.
+\end{exercise}
+
+\begin{fineprint}
+\begin{proof}
+[Solution to Exercise \ref{exe.pol.coeff-shift}.] \textbf{(a)} Assume that
+$u\geq v$. Then, $v\leq u$, so that $v\in\left\{  0,1,\ldots,u\right\}  $
+(since $v\in\mathbb{N}$). Now, (\ref{eq.pol.fps-mul.1}) (applied to $n=u$ and
+$\mathbf{a}=x^{v}$) yields%
+\begin{align*}
+\left[  x^{u}\right]  \left(  x^{v}\mathbf{b}\right)    & =\sum_{i=0}%
+^{u}\underbrace{\left(  \left[  x^{i}\right]  \left(  x^{v}\right)  \right)
+}_{\substack{=%
+\begin{cases}
+1, & \text{if }i=v;\\
+0, & \text{if }i\neq v
+\end{cases}
+\\\text{(by (\ref{eq.prop.pol.xk.rest}), applied to }n=i\text{ and
+}k=v\text{)}}}\cdot\left(  \left[  x^{u-i}\right]  \mathbf{b}\right)
+=\sum_{i=0}^{u}%
+\begin{cases}
+1, & \text{if }i=v;\\
+0, & \text{if }i\neq v
+\end{cases}
+\cdot\left(  \left[  x^{u-i}\right]  \mathbf{b}\right)  \\
+& =\underbrace{%
+\begin{cases}
+1, & \text{if }v=v;\\
+0, & \text{if }v\neq v
+\end{cases}
+}_{\substack{=1\\\text{(since }v=v\text{)}}}\cdot\left(  \left[
+x^{u-v}\right]  \mathbf{b}\right)  +\sum_{\substack{i\in\left\{
+0,1,\ldots,u\right\}  ;\\i\neq v}}\underbrace{%
+\begin{cases}
+1, & \text{if }i=v;\\
+0, & \text{if }i\neq v
+\end{cases}
+}_{\substack{=0\\\text{(since }i\neq v\text{)}}}\cdot\left(  \left[
+x^{u-i}\right]  \mathbf{b}\right)  \\
+& \ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{here, we have split off the addend for }i=v\text{ from the sum,}\\
+\text{since }v\in\left\{  0,1,\ldots,u\right\}
+\end{array}
+\right)  \\
+& =\left[  x^{u-v}\right]  \mathbf{b}+\underbrace{\sum_{\substack{i\in\left\{
+0,1,\ldots,u\right\}  ;\\i\neq v}}0\cdot\left(  \left[  x^{u-i}\right]
+\mathbf{b}\right)  }_{=0}=\left[  x^{u-v}\right]  \mathbf{b}.
+\end{align*}
+This solves Exercise \ref{exe.pol.coeff-shift} \textbf{(a)}.
+
+\textbf{(b)} Assume that $u<v$. Then, each $i\in\left\{  0,1,\ldots,u\right\}
+$ satisfies $i\neq v$ (since each $i\in\left\{  0,1,\ldots,u\right\}  $
+satisfies $i\leq u<v$ and thus $i\neq v$) and therefore%
+\begin{equation}%
+\begin{cases}
+1, & \text{if }i=v;\\
+0, & \text{if }i\neq v
+\end{cases}
+=0.\label{sol.pol.coeff-shift.b.1}%
+\end{equation}
+Now, (\ref{eq.pol.fps-mul.1}) (applied to $n=u$ and $\mathbf{a}=x^{v}$) yields%
+\begin{align*}
+\left[  x^{u}\right]  \left(  x^{v}\mathbf{b}\right)    & =\sum_{i=0}%
+^{u}\underbrace{\left(  \left[  x^{i}\right]  \left(  x^{v}\right)  \right)
+}_{\substack{=%
+\begin{cases}
+1, & \text{if }i=v;\\
+0, & \text{if }i\neq v
+\end{cases}
+\\\text{(by (\ref{eq.prop.pol.xk.rest}), applied to }n=i\text{ and
+}k=v\text{)}}}\cdot\left(  \left[  x^{u-i}\right]  \mathbf{b}\right)
+=\sum_{i=0}^{u}\underbrace{%
+\begin{cases}
+1, & \text{if }i=v;\\
+0, & \text{if }i\neq v
+\end{cases}
+}_{\substack{=0\\\text{(by (\ref{sol.pol.coeff-shift.b.1}))}}}\cdot\left(
+\left[  x^{u-i}\right]  \mathbf{b}\right)  \\
+& =\sum_{i=0}^{u}0\cdot\left(  \left[  x^{u-i}\right]  \mathbf{b}\right)  =0.
+\end{align*}
+This solves Exercise \ref{exe.pol.coeff-shift} \textbf{(b)}.
+\end{proof}
+\end{fineprint}
+
 \begin{center}
 \textbf{2019-04-24 lecture}
 \end{center}
@@ -33025,7 +33119,7 @@ $\textquotedblright\ and \textquotedblleft$\Longleftarrow$\textquotedblright%
 \ directions of the equivalence (\ref{pf.lem.pol.deg.eq2}) separately:
 
 $\Longrightarrow:$ Assume that $\mathbf{a}$ is a polynomial of degree $\leq
-n$. We must prove that $\left(  a_{k}=0\text{ for all }k>n\right)  $.
+n$. We must prove that \newline$\left(  a_{k}=0\text{ for all }k>n\right)  $.
 
 If all $i\in\mathbb{N}$ satisfy $a_{i}=0$, then this is clearly satisfied.
 Thus, WLOG assume that not all $i\in\mathbb{N}$ satisfy $a_{i}=0$. Hence,
@@ -34343,10 +34437,10 @@ x\right]  _{\leq n}$. Then, Theorem \ref{thm.pol.quorem} \textbf{(a)} says
 that there exists a \textbf{unique} pair $\left(  \mathbf{q},\mathbf{r}%
 \right)  $ of polynomials such that
 \begin{align*}
-\mathbf{a}  & =\mathbf{qb}+\mathbf{r}\ \ \ \ \ \ \ \ \ \ \left(  \text{that
+\mathbf{a}  &  =\mathbf{qb}+\mathbf{r}\ \ \ \ \ \ \ \ \ \ \left(  \text{that
 is, }x^{4}-x^{2}=\mathbf{q}\cdot\left(  x^{2}+x+1\right)  +\mathbf{r}\right)
 \ \ \ \ \ \ \ \ \ \ \text{and}\\
-\mathbf{r}  & \in\mathbb{K}\left[  x\right]  _{\leq m-1}%
+\mathbf{r}  &  \in\mathbb{K}\left[  x\right]  _{\leq m-1}%
 \ \ \ \ \ \ \ \ \ \ \left(  \text{that is, }\deg\mathbf{r}\leq\underbrace{m}%
 _{=2}-1=1\right)  .
 \end{align*}
@@ -34362,7 +34456,7 @@ Consider this, so far unknown, pair. Comparing the coefficients of $x^{4}$ in
 the equality
 \begin{equation}
 x^{4}-x^{2}=\mathbf{q}\cdot\left(  x^{2}+x+1\right)  +\mathbf{r}=\left(
-x^{2}+x+1\right)  \mathbf{q}+\mathbf{r},\label{eq.exa.pol.quorem.1.1}%
+x^{2}+x+1\right)  \mathbf{q}+\mathbf{r}, \label{eq.exa.pol.quorem.1.1}%
 \end{equation}
 we obtain $1=1\cdot\left[  x^{2}\right]  \mathbf{q}$ (because $\deg
 \mathbf{r}\leq1$ and $\deg\mathbf{q}\leq2$, so the only contribution to the
@@ -34381,18 +34475,18 @@ Consider this $\mathbf{q}_{1}$. Now, \eqref{eq.exa.pol.quorem.1.1} can be
 transformed as follows:
 \begin{align}
 &  \ \left(  x^{4}-x^{2}=\left(  x^{2}+x+1\right)  \underbrace{\mathbf{q}%
-}_{=x^{2}+\mathbf{q}_{1}}+\mathbf{r}\right)  \nonumber\\
+}_{=x^{2}+\mathbf{q}_{1}}+\mathbf{r}\right) \nonumber\\
 &  \Longleftrightarrow\ \left(  x^{4}-x^{2}=\underbrace{\left(  x^{2}%
 +x+1\right)  \left(  x^{2}+\mathbf{q}_{1}\right)  }_{=\left(  x^{2}%
-+x+1\right)  x^{2}+\left(  x^{2}+x+1\right)  \mathbf{q}_{1}}+\mathbf{r}%
-\right)  \nonumber\\
++x+1\right)  x^{2}+\left(  x^{2}+x+1\right)  \mathbf{q}_{1}}+\mathbf{r}\right)
+\nonumber\\
 &  \Longleftrightarrow\ \left(  x^{4}-x^{2}=\left(  x^{2}+x+1\right)
-x^{2}+\left(  x^{2}+x+1\right)  \mathbf{q}_{1}+\mathbf{r}\right)  \nonumber\\
+x^{2}+\left(  x^{2}+x+1\right)  \mathbf{q}_{1}+\mathbf{r}\right) \nonumber\\
 &  \Longleftrightarrow\ \left(  \underbrace{x^{4}-x^{2}-\left(  x^{2}%
 +x+1\right)  x^{2}}_{=-x^{3}-2x^{2}}=\left(  x^{2}+x+1\right)  \mathbf{q}%
-_{1}+\mathbf{r}\right)  \nonumber\\
+_{1}+\mathbf{r}\right) \nonumber\\
 &  \Longleftrightarrow\ \left(  -x^{3}-2x^{2}=\left(  x^{2}+x+1\right)
-\mathbf{q}_{1}+\mathbf{r}\right)  .\label{eq.exa.pol.quorem.1.2}%
+\mathbf{q}_{1}+\mathbf{r}\right)  . \label{eq.exa.pol.quorem.1.2}%
 \end{align}
 Comparing the coefficients of $x^{3}$ in the last equality here, we obtain
 $-1=1\cdot\left[  x^{1}\right]  \mathbf{q}_{1}$ (because $\deg\mathbf{r}\leq1$
@@ -34407,19 +34501,19 @@ Consider this $\mathbf{q}_{2}$. Now, the last equality of
 (\ref{eq.exa.pol.quorem.1.2}) can be transformed as follows:
 \begin{align}
 &  \ \left(  -x^{3}-2x^{2}=\left(  x^{2}+x+1\right)  \underbrace{\mathbf{q}%
-_{1}}_{=-x+\mathbf{q}_{2}}+\mathbf{r}\right)  \nonumber\\
+_{1}}_{=-x+\mathbf{q}_{2}}+\mathbf{r}\right) \nonumber\\
 &  \Longleftrightarrow\ \left(  -x^{3}-2x^{2}=\underbrace{\left(
 x^{2}+x+1\right)  \left(  -x+\mathbf{q}_{2}\right)  }_{=\left(  x^{2}%
 +x+1\right)  \left(  -x\right)  +\left(  x^{2}+x+1\right)  \mathbf{q}_{2}%
-}+\mathbf{r}\right)  \nonumber\\
+}+\mathbf{r}\right) \nonumber\\
 &  \Longleftrightarrow\ \left(  -x^{3}-2x^{2}=\left(  x^{2}+x+1\right)
-\left(  -x\right)  +\left(  x^{2}+x+1\right)  \mathbf{q}_{2}+\mathbf{r}%
-\right)  \nonumber\\
+\left(  -x\right)  +\left(  x^{2}+x+1\right)  \mathbf{q}_{2}+\mathbf{r}\right)
+\nonumber\\
 &  \Longleftrightarrow\ \left(  \underbrace{-x^{3}-2x^{2}-\left(
 x^{2}+x+1\right)  \left(  -x\right)  }_{=-x^{2}+x}=\left(  x^{2}+x+1\right)
-\mathbf{q}_{2}+\mathbf{r}\right)  \nonumber\\
+\mathbf{q}_{2}+\mathbf{r}\right) \nonumber\\
 &  \Longleftrightarrow\ \left(  -x^{2}+x=\left(  x^{2}+x+1\right)
-\mathbf{q}_{2}+\mathbf{r}\right)  .\label{eq.exa.pol.quorem.1.3}%
+\mathbf{q}_{2}+\mathbf{r}\right)  . \label{eq.exa.pol.quorem.1.3}%
 \end{align}
 Comparing the coefficients of $x^{2}$ in the last equality here, we obtain
 $-1=1\cdot\left[  x^{0}\right]  \mathbf{q}_{2}$ (because $\deg\mathbf{r}\leq1$
@@ -34435,9 +34529,9 @@ polynomial (that is, $\underline{0}=0_{\mathbb{K}\left[  x\right]  }$), since
 $\deg\mathbf{q}_{3}\leq-1$. Now that we have found $\mathbf{q}_{3}$, we can
 recover $\mathbf{q}_{2},\mathbf{q}_{1},\mathbf{q}$ by back-substitution:%
 \begin{align*}
-\mathbf{q}_{2} &  =-1+\underbrace{\mathbf{q}_{3}}_{=\underline{0}}=-1;\\
-\mathbf{q}_{1} &  =-x+\underbrace{\mathbf{q}_{2}}_{=-1}=-x-1;\\
-\mathbf{q} &  =x^{2}+\underbrace{\mathbf{q}_{1}}_{=-x-1}=x^{2}-x-1.
+\mathbf{q}_{2}  &  =-1+\underbrace{\mathbf{q}_{3}}_{=\underline{0}}=-1;\\
+\mathbf{q}_{1}  &  =-x+\underbrace{\mathbf{q}_{2}}_{=-1}=-x-1;\\
+\mathbf{q}  &  =x^{2}+\underbrace{\mathbf{q}_{1}}_{=-x-1}=x^{2}-x-1.
 \end{align*}
 Finally, we can find $\mathbf{r}$, for instance, by solving the last equality
 (\ref{eq.exa.pol.quorem.1.3}):%
@@ -35751,18 +35845,83 @@ whose size is $\geq2^{N}$ and $>n$, but we would need to be careful, since the
 elements $\left[  1\right]  _{p},\left[  2\right]  _{p},\ldots,\left[
 n\right]  _{p}$ would no longer necessarily be distinct and nonzero. Thus, we
 would have to use $n$ distinct nonzero elements of $\mathbb{F}$ instead.
+
+\item Here is another application. Assume that you want to send digital data
+over a noisy channel (e.g., radio). \textquotedblleft Noisy\textquotedblright%
+\ means that the transmission will introduce errors, and you expect (e.g.)
+that every bit you send has a small probability $p$ of getting corrupted on
+its way\footnote{\textquotedblleft Corrupted\textquotedblright\ means that the
+recepient will receive a $0$ instead of $1$, or a $1$ instead of a $0$. For
+simplicity, we assume that bits will not be lost, and the order in which they
+are received is the order in which they are sent (so, e.g., messenger pigeons
+are not the kind of channel we are considering).}. You want to ensure that the
+recepient gets the correct bits that you sent him. How can you do this?
+
+Of course, you cannot guarantee this with complete surety. But there are
+several schemes that you can use to make it rather likely. They are called
+\textit{\href{https://en.wikipedia.org/wiki/Error_correction_code}{\textit{error-correcting
+codes}}}.
+
+For instance, let us assume you have agreed with your recepient that you will
+be sending each bit \textbf{twice} in a row. Then, if the recepient gets two
+different bits when they expect the same bit sent twice, he can immediately
+tell that a bit got corrupted on its way. He cannot tell which bit you meant
+to send him -- but at least he knows that he cannot trust the ones he
+got.\footnote{If he can talk back to you, this means he can ask you to resend
+the correct one.} Of course, there is a probability that he got the wrong bit
+twice, in which case he is clueless about it being wrong; but this probability
+is $p^{2}$, which is a lot smaller than $p$. This is called \textit{error
+detection}.
+
+An even better scheme is to send each bit \textbf{thrice} in a row. This way,
+your recipient can not only tell if some bit was corrupted (with an even
+smaller probability of falsely believing that everything went right -- namely,
+$p^{3}$); he can also try to guess which bit is the right one, by the
+\textquotedblleft majority rule\textquotedblright\ (i.e., among the $3$ bits
+he obtained, he chooses the one that appears more often). This is called
+\textit{error correction}.
+
+But sending each bit multiple times is not the only thing you can do; you can
+also mix several bits together. For example, you can follow every four bits
+$a,b,c,d$ that you are sending with the three bits
+\[
+a+b+d,\ \ \ \ \ \ \ \ \ \ a+c+d,\ \ \ \ \ \ \ \ \ \ b+c+d,
+\]
+where you are regarding bits as elements of $\mathbb{Z}/2$ (so that, for
+example, $1+1+1=1$). Thus, you are sending $7$ bits instead of $4$ bits, but
+the transmission has become a lot safer, because:
+
+\begin{itemize}
+\item If at most $2$ of the $7$ bits get corrupted along the way, the
+recepient will be able to tell that something went wrong. (In the language of
+coding theory, this is saying that your code \textit{detects up to }$2$
+\textit{errors}.)
+
+\item If at most $1$ of the $7$ bits gets corrupted along the way, the
+recepient will be able to guess the bits you intended to send\footnote{without
+having to ask you to re-send them}. (In the language of coding theory, this is
+saying that your code \textit{corrects up to }$1$ \textit{error}.)
+\end{itemize}
+
+This scheme is called the
+\href{https://en.wikipedia.org/wiki/Hamming(7,4)}{Hamming$\left(  7,4\right)
+$ code}, and was invented by Richard W. Hamming in 1950 as a tool to make
+error-prone punch card readers less likely to fail.
 \end{itemize}
 
 TODO:
 
 \begin{itemize}
 \item Apply to Reed--Solomon codes: You want to send digital data over a noisy
-channel (e.g., radio). Encode data as $\mathbf{a}\in\mathbb{K}\left[
-x\right]  $ of degree $\leq d$, and send $e$ values. The resulting encoding of
-the data \textquotedblleft detects $e-d-1$ errors\textquotedblright: i.e., if
-$\leq e-d-1$ of the values have become corrupted along the way, then the
-recipient will see that something has gone wrong. It can be used to correct
-$\leq\dfrac{e-d-1}{2}$ many errors, too. See \cite[Chapter 29]{Childs00} for more.
+channel (e.g., radio). Instead of bits, you are sending elements of a finite
+field $\mathbb{K}$. Encode data as $\mathbf{a}\in\mathbb{K}\left[  x\right]  $
+of degree $\leq d$, and send $e$ values (at $e$ distinct elements of
+$\mathbb{K}$ you have agreed upon in advance; this requires $\left\vert
+\mathbb{K}\right\vert \geq e$). The resulting encoding of the data
+\textquotedblleft detects $e-d-1$ errors\textquotedblright: i.e., if $\leq
+e-d-1$ of the values have become corrupted along the way, then the recipient
+will see that something has gone wrong. It can be used to correct $\leq
+\dfrac{e-d-1}{2}$ many errors, too. See \cite[Chapter 29]{Childs00} for more.
 
 \item Let $u\in\mathbb{Q}$ and $n\in\mathbb{N}$. Then,%
 \[
