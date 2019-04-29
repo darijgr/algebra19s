@@ -17,7 +17,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Sunday, April 28, 2019 20:00:29}
+%TCIDATA{LastRevised=Monday, April 29, 2019 08:09:59}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -25193,15 +25193,16 @@ This further equals $a^{2}+2ab+b^{2}$ if $\mathbb{K}$ is commutative.
 
 \textbf{(c)} Let $a,b\in\mathbb{K}$ satisfy $ab=ba$. (This holds automatically
 when $\mathbb{K}$ is commutative.) Then:%
-\begin{align*}
-ab^{n}  &  =b^{n}a\ \ \ \ \ \ \ \ \ \ \text{for all }n\in\mathbb{N};\\
-a^{i}b^{j}  &  =b^{j}a^{i}\ \ \ \ \ \ \ \ \ \ \text{for all }i,j\in
-\mathbb{N};\\
-\left(  ab\right)  ^{n}  &  =a^{n}b^{n}\ \ \ \ \ \ \ \ \ \ \text{for all }%
-n\in\mathbb{N};\\
-\left(  a+b\right)  ^{n}  &  =\sum_{k=0}^{n}\dbinom{n}{k}a^{k}b^{n-k}%
-\ \ \ \ \ \ \ \ \ \ \text{for all }n\in\mathbb{N}.
-\end{align*}
+\begin{align}
+ab^{n} &  =b^{n}a\ \ \ \ \ \ \ \ \ \ \text{for all }n\in\mathbb{N};\nonumber\\
+a^{i}b^{j} &  =b^{j}a^{i}\ \ \ \ \ \ \ \ \ \ \text{for all }i,j\in
+\mathbb{N};\nonumber\\
+\left(  ab\right)  ^{n} &  =a^{n}b^{n}\ \ \ \ \ \ \ \ \ \ \text{for all }%
+n\in\mathbb{N};\nonumber\\
+\left(  a+b\right)  ^{n} &  =\sum_{k=0}^{n}\dbinom{n}{k}a^{k}b^{n-k}%
+\ \ \ \ \ \ \ \ \ \ \text{for all }n\in\mathbb{N}%
+.\label{eq.prop.rings.pow.rules.c.binom}%
+\end{align}
 
 
 \textbf{(d)} Let $a,b\in\mathbb{K}$ satisfy $ab=ba$. Then,%
@@ -25678,6 +25679,8 @@ to be the size of its ground set.
 
 \textbf{(d)} A ring is said to be \textit{finite} if its size is finite (i.e.,
 if it has only finitely many elements).
+
+\textbf{(e)} A ring is said to be \textit{trivial} if its size is $1$.
 \end{definition}
 
 We have seen a bunch of finite rings. For example, if $S$ is a finite set,
@@ -28134,6 +28137,17 @@ rings)\textquotedblright\ to say that the rings $\mathbb{K}$ and $\mathbb{L}$
 are isomorphic.
 \end{definition}
 
+\begin{example}
+Let $\mathbb{K}$ be any ring, and let $\mathbb{M}$ be the zero ring $\left\{
+0\right\}  $. In Example \ref{exa.riho.triv}, we saw that the map
+\[
+\mathbb{K}\rightarrow\mathbb{M},\ \ \ \ \ \ \ \ \ \ a\mapsto0
+\]
+is a ring homomorphism.{}This homomorphism is a ring isomorphism if and only
+if the ring $\mathbb{K}$ is trivial (i.e., has only one element). Thus, each
+trivial ring is isomorphic to the zero ring.
+\end{example}
+
 \section{\label{chp.la}Linear algebra over commutative rings}
 
 We shall now continue studying rings, but slowly shift our focus. Namely,
@@ -28304,21 +28318,16 @@ x_{2}\\
 x_{3}\\
 -1
 \end{array}
-\right)  =0\right) \\
-&  \ \ \ \ \ \ \ \ \ \ \left(
-\begin{array}
-[c]{c}%
-\text{since }\left(  A\mid b\right)  \mapsto\left(
+\right)  =0_{3\times1}\right) \\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{since }\left(  A\mid b\right)
+\mapsto\left(
 \begin{array}
 [c]{cccc}%
 1 & 0 & 0 & 2\\
 0 & 1 & 0 & 2\\
 0 & 0 & 1 & 2
 \end{array}
-\right)  \text{ by a series}\\
-\text{of row operations}%
-\end{array}
-\right) \\
+\right)  \text{ by a sequence of row operations}\right) \\
 &  \Longleftrightarrow\ \left(  \left(
 \begin{array}
 [c]{c}%
@@ -28497,13 +28506,13 @@ x_{2}\\
 x_{3}\\
 -1
 \end{array}
-\right)  =0\right) \\
+\right)  =0_{3\times1}\right) \\
 &  \Longleftrightarrow\ \left(  \left(
 \begin{array}
 [c]{c}%
-x_{1}+x_{3}=0\\
-x_{2}+x_{3}=0\\
--1=0
+x_{1}+x_{3}\\
+x_{2}+x_{3}\\
+-1
 \end{array}
 \right)  =\left(
 \begin{array}
@@ -28512,9 +28521,9 @@ x_{2}+x_{3}=0\\
 0\\
 0
 \end{array}
-\right)  \right)  \ \Longleftrightarrow\ \left(  \text{false}\right)  .
+\right)  \right)  \ \Longleftrightarrow\ \left(  \text{false}\right)
 \end{align*}
-So our linear system has no solution.
+(since $-1\neq0$ in $\mathbb{K}$). So our linear system has no solution.
 
 By the way, you could have easily seen this from the system itself:%
 \[
@@ -28539,12 +28548,13 @@ proofs) over any field:
 \begin{theorem}
 \label{thm.field.LA-main}Let $\mathbb{K}$ be a field.
 
-\textbf{(a)} Any matrix over $\mathbb{K}$ has a reduced row echelon form (RREF).
+\textbf{(a)} Any matrix over $\mathbb{K}$ has a reduced row echelon form
+(abbreviated RREF).
 
 \textbf{(b)} If $A\in\mathbb{K}^{n\times m}$ is any matrix and $R$ is its
 RREF, then the row space, kernel (= nullspace) and rank of $A$ are equal to
 those of $R$. (Here, the \textit{row space}, \textit{kernel} and \textit{rank}
-of a matrix is defined as for real/complex matrices.)
+of a matrix are defined in the same way as for real/complex matrices.)
 
 \textbf{(c)} If $A\in\mathbb{K}^{n\times m}$ is any matrix, and if
 $b\in\mathbb{K}^{n\times1}$ is any column vector, then the equation $Ax=b$
@@ -28556,7 +28566,8 @@ the solutions from this RREF by the same method as you learned in Linear Algebra
 \textbf{(d)} If $A\in\mathbb{K}^{n\times m}$ is a matrix with $n<m$, then
 there exists a nonzero $x\in\mathbb{K}^{m\times1}$ such that $Ax=0_{n\times1}%
 $. (\textquotedblleft Nonzero\textquotedblright\ means \textquotedblleft
-distinct from $0_{m\times1}$\textquotedblright\ here.)
+distinct from $0_{m\times1}$\textquotedblright; a nonzero vector can have some
+zero entries.)
 
 \textbf{(e)} Let $A\in\mathbb{K}^{n\times n}$. Then, the following are equivalent:
 
@@ -33192,10 +33203,10 @@ you cannot generally prove that each $i\in\mathbb{N}$ satisfies either
 $a_{i}=0$ or $a_{i}\neq0$). Thus, the notion of \textquotedblleft the degree
 of a polynomial\textquotedblright\ is not well-behaved in constructive
 mathematics. It is also not well-behaved in other ways -- e.g., it is not
-preserved by ring homomorphisms, and leads to nuisances when $\mathbb{K}$ is
-the trivial ring, as witnessed in Theorem \ref{thm.pol.deg-basics}
-\textbf{(d)} below. Thus, I shall avoid this notion whereever I can help it,
-and instead use the notion of $\mathbb{K}\left[  x\right]  _{\leq n}$ (where
+preserved by ring homomorphisms, and leads to nuisances when $\mathbb{K}$ is a
+trivial ring, as witnessed in Theorem \ref{thm.pol.deg-basics} \textbf{(d)}
+below. Thus, I shall avoid this notion whereever I can help it, and instead
+use the notion of $\mathbb{K}\left[  x\right]  _{\leq n}$ (where
 $n\in\mathbb{Z}$). This is a bit less familiar but hopefully more
 \textquotedblleft philosophically right\textquotedblright\ (while being
 essentially equivalent to the notion of degree under classical logic, because
@@ -35530,6 +35541,8 @@ u-k+1\right)  }{k!}\ \ \ \ \ \ \ \ \ \ \left(  \text{since }\operatorname*{ev}%
 For this whole section, let $\mathbb{K}$ be a field.
 \end{convention}
 
+\subsubsection{Enough equal values make polynomials equal}
+
 \begin{corollary}
 \label{cor.pol.id.n+1}Let $\mathbf{a}$ and $\mathbf{b}$ be two polynomials of
 degree $\leq n$ over the field $\mathbb{K}$. Assume that at least $n+1$ many
@@ -35560,7 +35573,7 @@ I like to refer to the following corollary as \textquotedblleft the
 
 \begin{corollary}
 \label{cor.pol.id.trick}Let $\mathbf{a}$ and $\mathbf{b}$ be two polynomials
-over the field $\mathbb{K}$. Assume that inifinitely many elements
+over the field $\mathbb{K}$. Assume that infinitely many elements
 $u\in\mathbb{K}$ satisfy $\mathbf{a}\left[  u\right]  =\mathbf{b}\left[
 u\right]  $. Then, $\mathbf{a}=\mathbf{b}$.
 \end{corollary}
@@ -35608,6 +35621,8 @@ were the only places in which polynomials were used in our above proof of
 Theorem \ref{thm.binom.vandermonde}. Hence, our proof of Theorem
 \ref{thm.binom.vandermonde} is now on solid ground.
 \end{proof}
+
+\subsubsection{Lagrange interpolation}
 
 Corollary \ref{cor.pol.id.n+1} shows that for any $n\in\mathbb{N}$, a
 polynomial of degree $\leq n$ over a field $\mathbb{K}$ is uniquely determined
@@ -35792,10 +35807,11 @@ is unique, this means that $\mathbf{g}$ is the \textbf{only} such polynomial.
 This proves Theorem \ref{thm.pol.id.lag} \textbf{(b)}.
 \end{proof}
 
-Theorem \ref{thm.pol.id.lag} has multiple applications:
+\subsubsection{Application: Curve fitting}
 
-\begin{itemize}
-\item The most obvious one is to treat Theorem \ref{thm.pol.id.lag} as an
+Theorem \ref{thm.pol.id.lag} has multiple applications.
+
+The most obvious one is to treat Theorem \ref{thm.pol.id.lag} as an
 interpolation theorem: Roughly speaking, it says that $n+1$ values (at
 distinct points) in a field can always be fit by a unique polynomial of degree
 $\leq n$. See the Wikipedia pages for
@@ -35809,15 +35825,18 @@ freely choose the points at which you sample (i.e., the $a_{i}$ in Theorem
 others. Thus, Lagrange interpolation can also be used in designing numerical
 quadrature rules. See \cite{Trefet11} for details.
 
-\item Shamir's Secret Sharing Scheme (as presented in Subsection
-\ref{subsect.intro.shamir.k=3} and fixed in Remark \ref{rmk.finfield.shamir1})
-can now finally be implemented concretely. Indeed, consider the setting of
-Section \ref{sect.intro.shamir} with general $n$ and $k$, and assume that the
-secret $\mathbf{a}$ that we want to distribute is a bitstring of length $N$.
-As in Remark \ref{rmk.finfield.shamir1}, we pick a prime $p$ such that both
-$p\geq2^{N}$ and $p>n$, and we encode $\mathbf{a}$ as a residue class
-$\alpha\in\mathbb{Z}/p$. Pick $k-1$ uniformly random elements $\beta_{1}%
-,\beta_{2},\ldots,\beta_{k-1}$ of $\mathbb{Z}/p$, and define the polynomial%
+\subsubsection{Application: Shamir's Secret Sharing Scheme}
+
+Here is another application of Theorem \ref{thm.pol.id.lag}. Shamir's Secret
+Sharing Scheme (as presented in Subsection \ref{subsect.intro.shamir.k=3} and
+fixed in Remark \ref{rmk.finfield.shamir1}) can now finally be implemented
+concretely. Indeed, consider the setting of Section \ref{sect.intro.shamir}
+with general $n$ and $k$, and assume that the secret $\mathbf{a}$ that we want
+to distribute is a bitstring of length $N$. As in Remark
+\ref{rmk.finfield.shamir1}, we pick a prime $p$ such that both $p\geq2^{N}$
+and $p>n$, and we encode $\mathbf{a}$ as a residue class $\alpha\in
+\mathbb{Z}/p$. Pick $k-1$ uniformly random elements $\beta_{1},\beta
+_{2},\ldots,\beta_{k-1}$ of $\mathbb{Z}/p$, and define the polynomial%
 \[
 \mathbf{f}=\beta_{k-1}x^{k-1}+\beta_{k-2}x^{k-2}+\cdots+\beta_{1}x^{1}%
 +\alpha\in\left(  \mathbb{Z}/p\right)  \left[  x\right]  _{\leq k-1}.
@@ -35846,44 +35865,54 @@ elements $\left[  1\right]  _{p},\left[  2\right]  _{p},\ldots,\left[
 n\right]  _{p}$ would no longer necessarily be distinct and nonzero. Thus, we
 would have to use $n$ distinct nonzero elements of $\mathbb{F}$ instead.
 
-\item Here is another application. Assume that you want to send digital data
-over a noisy channel (e.g., radio). \textquotedblleft Noisy\textquotedblright%
-\ means that the transmission will introduce errors, and you expect (e.g.)
-that every bit you send has a small probability $p$ of getting corrupted on
-its way\footnote{\textquotedblleft Corrupted\textquotedblright\ means that the
-recepient will receive a $0$ instead of $1$, or a $1$ instead of a $0$. For
-simplicity, we assume that bits will not be lost, and the order in which they
-are received is the order in which they are sent (so, e.g., messenger pigeons
-are not the kind of channel we are considering).}. You want to ensure that the
-recepient gets the correct bits that you sent him. How can you do this?
+\subsubsection{Application: Reed--Solomon codes}
+
+Finally, here is a far more important application of Theorem
+\ref{thm.pol.id.lag}.
+
+Assume that you want to send digital data over a noisy channel (e.g., radio).
+\textquotedblleft Noisy\textquotedblright\ means that the transmission will
+introduce errors, and you expect (e.g.) that every bit you send has a small
+probability $p$ of getting corrupted on its way\footnote{\textquotedblleft
+Corrupted\textquotedblright\ means that the recepient will receive a $0$
+instead of $1$, or a $1$ instead of a $0$. For simplicity, we assume that bits
+will not be lost, and the order in which they are received is the order in
+which they are sent (so, e.g., messenger pigeons are not the kind of channel
+we are considering).}. You want to ensure that the recepient gets the correct
+bits that you sent him.\footnote{Another, mostly equivalent, version of this
+problem is long-term storage of data on a medium (e.g., a hard drive, a DVD,
+paper or a scroll) that gradually decays. Here, the sender is you when you are
+storing the data; the recepient is you (or whoever wants to read it) in the
+future. That's a noisy channel!} How can you do this?
 
 Of course, you cannot guarantee this with complete surety. But there are
 several schemes that you can use to make it rather likely. They are called
 \textit{\href{https://en.wikipedia.org/wiki/Error_correction_code}{\textit{error-correcting
 codes}}}.
 
-For instance, let us assume you have agreed with your recepient that you will
-be sending each bit \textbf{twice} in a row. Then, if the recepient gets two
-different bits when they expect the same bit sent twice, he can immediately
-tell that a bit got corrupted on its way. He cannot tell which bit you meant
-to send him -- but at least he knows that he cannot trust the ones he
-got.\footnote{If he can talk back to you, this means he can ask you to resend
-the correct one.} Of course, there is a probability that he got the wrong bit
-twice, in which case he is clueless about it being wrong; but this probability
-is $p^{2}$, which is a lot smaller than $p$. This is called \textit{error
-detection}.
+\begin{itemize}
+\item For instance, let us assume you have agreed with your recepient that you
+will be sending each bit \textbf{twice} in a row. Then, if the recepient gets
+two different bits when they expect the same bit sent twice, he can
+immediately tell that a bit got corrupted on its way. He cannot tell which bit
+you meant to send him -- but at least he knows that he cannot trust the ones
+he got.\footnote{If he can talk back to you, this means he can ask you to
+resend the correct one.} Of course, there is a probability that he got the
+wrong bit twice, in which case he is clueless about it being wrong; but this
+probability is $p^{2}$, which is a lot smaller than $p$. This is called
+\textit{error detection}.
 
-An even better scheme is to send each bit \textbf{thrice} in a row. This way,
-your recipient can not only tell if some bit was corrupted (with an even
+\item An even better scheme is to send each bit \textbf{thrice} in a row. This
+way, your recipient can not only tell if some bit was corrupted (with an even
 smaller probability of falsely believing that everything went right -- namely,
 $p^{3}$); he can also try to guess which bit is the right one, by the
 \textquotedblleft majority rule\textquotedblright\ (i.e., among the $3$ bits
 he obtained, he chooses the one that appears more often). This is called
 \textit{error correction}.
 
-But sending each bit multiple times is not the only thing you can do; you can
-also mix several bits together. For example, you can follow every four bits
-$a,b,c,d$ that you are sending with the three bits
+\item But sending each bit multiple times is not the only thing you can do;
+you can also mix several bits together. For example, you can follow every four
+bits $a,b,c,d$ that you are sending with the three bits
 \[
 a+b+d,\ \ \ \ \ \ \ \ \ \ a+c+d,\ \ \ \ \ \ \ \ \ \ b+c+d,
 \]
@@ -35907,23 +35936,139 @@ This scheme is called the
 \href{https://en.wikipedia.org/wiki/Hamming(7,4)}{Hamming$\left(  7,4\right)
 $ code}, and was invented by Richard W. Hamming in 1950 as a tool to make
 error-prone punch card readers less likely to fail.
+
+\item Here is yet another error-correcting code, which makes use of finite
+fields. Fix two integers $d,e\in\mathbb{N}$ such that $d<e$, as well as a
+finite field $\mathbb{K}$ and $e$ distinct elements $a_{1},a_{2},\ldots,a_{e}$
+of $\mathbb{K}$. (You have to agree on these in advance with your recepient.
+Of course, the field must satisfy $\left\vert \mathbb{K}\right\vert \geq e$.)
+Now, instead of transmitting bits, you transmit elements of $\mathbb{K}$.
+(This does not require a different kind of channel; you can always, under the
+hood, re-encode your elements of $\mathbb{K}$ into bitstrings and send those
+as bits via the channel that you have.\footnote{Of course, an element of
+$\mathbb{K}$ is more likely to get corrupted along the way than a single bit
+(if $\left\vert \mathbb{K}\right\vert >2$), because it will be encoded as
+several bits (and each of them can get corrupted). But this is par for the
+course: After all, an element of $\mathbb{K}$ carries more information than a
+bit, too.}) Now, when you want to send $d+1$ elements $u_{0},u_{1}%
+,\ldots,u_{d}$ of $\mathbb{K}$ over the channel, you instead form the
+polynomial%
+\[
+\mathbf{f}=u_{0}+u_{1}x+\cdots+u_{d}x^{d}\in\mathbb{K}\left[  x\right]  _{\leq
+d},
+\]
+and transmit the $e$ values $\mathbf{f}\left[  a_{1}\right]  ,\mathbf{f}%
+\left[  a_{2}\right]  ,\ldots,\mathbf{f}\left[  a_{e}\right]  $ of this
+polynomial. The recepient will then receive $e$ values of the polynomial
+$\mathbf{f}$. If all of these values have been transmitted correctly, then he
+will be able to pick any $d+1$ of these values\footnote{He can do this, since
+$e\geq d+1$.} and use them to reconstruct $\mathbf{f}$ (and therefore, your
+messages $u_{0},u_{1},\ldots,u_{d}$) via Theorem \ref{thm.pol.id.lag}. If at
+most $e-d-1$ of these $e$ values get corrupted along the way, he will be able
+to recognize that something is wrong\footnote{e.g., by attempting to recover
+$\mathbf{f}$ using some $d+1$ of the values, and then checking whether the
+resulting polynomial also fits the remaining $e-d-1$ values}. Thus, this code
+detects up to $e-d-1$ errors. It furthermore corrects up to $\left\lfloor
+\dfrac{e-d-1}{2}\right\rfloor $ errors (i.e., there is a way in which the
+recepient can guess your original messages, and if no more than $\left\lfloor
+\dfrac{e-d-1}{2}\right\rfloor $ of your $e$ values have gotten corrupted, then
+his guess will be right).
+
+This is called a
+\textit{\href{https://en.wikipedia.org/wiki/Reed-Solomon_error_correction}{\textit{Reed--Solomon
+code}}}; such codes were used by the Voyager spacecraft and later in the
+storage of data on CDs and DVDs (as said above, storing data on a decaying
+medium is transmitting it through a noisy channel).
+
+See \cite[Chapter 29]{Childs00} for more about these codes, and see textbooks
+on coding theory (e.g., \cite{Garret07}) for much more.\footnote{Be aware that
+there are several different ways of defining Reed--Solomon codes; the one in
+\cite{Garret07} is not the same as ours.}
 \end{itemize}
 
-TODO:
+\subsubsection{A binomial identity}
 
-\begin{itemize}
-\item Apply to Reed--Solomon codes: You want to send digital data over a noisy
-channel (e.g., radio). Instead of bits, you are sending elements of a finite
-field $\mathbb{K}$. Encode data as $\mathbf{a}\in\mathbb{K}\left[  x\right]  $
-of degree $\leq d$, and send $e$ values (at $e$ distinct elements of
-$\mathbb{K}$ you have agreed upon in advance; this requires $\left\vert
-\mathbb{K}\right\vert \geq e$). The resulting encoding of the data
-\textquotedblleft detects $e-d-1$ errors\textquotedblright: i.e., if $\leq
-e-d-1$ of the values have become corrupted along the way, then the recipient
-will see that something has gone wrong. It can be used to correct $\leq
-\dfrac{e-d-1}{2}$ many errors, too. See \cite[Chapter 29]{Childs00} for more.
+Let me show a further application of the \textquotedblleft polynomial identity
+trick\textquotedblright, which is interesting in that it uses polynomials in
+two different ways.
 
-\item Let $u\in\mathbb{Q}$ and $n\in\mathbb{N}$. Then,%
+Among many properties of Pascal's triangle, one rather famous one is that the
+sum of all entries in the $n$-th row is $2^{n}$. That is,%
+\[
+\sum_{k=0}^{n}\dbinom{n}{k}=2^{n}.
+\]
+This is, in fact, the direct result of applying Theorem \ref{thm.binom.binf}
+to $x=1$ and $y=1$. Likewise, we can apply Theorem \ref{thm.binom.binf} to
+$x=-1$ and $y=1$, and conclude that%
+\[
+\sum_{k=0}^{n}\left(  -1\right)  ^{k}\dbinom{n}{k}=0^{n}=%
+\begin{cases}
+1, & \text{if }n=0;\\
+0, & \text{if }n\neq0.
+\end{cases}
+\]
+In other words, the alternating sum of all entries in the $n$-th row of
+Pascal's triangle is $0$, unless $n=0$ (in which case it is $1$).
+
+One may wonder what happens if we start summing higher powers of the entries
+of a row of Pascal's triangle. For example, the sum of their squares has a
+nice formula:
+
+\begin{proposition}
+\label{prop.binom.sum-squares}Let $n\in\mathbb{N}$. Then,%
+\[
+\sum_{k=0}^{n}\dbinom{n}{k}^{2}=\dbinom{2n}{n}.
+\]
+
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.binom.sum-squares}.]We have%
+\[
+\sum_{k=0}^{n}\underbrace{\dbinom{n}{k}^{2}}_{=\dbinom{n}{k}\dbinom{n}{k}%
+}=\sum_{k=0}^{n}\dbinom{n}{k}\underbrace{\dbinom{n}{k}}_{\substack{=\dbinom
+{n}{n-k}\\\text{(by Theorem \ref{thm.binom.symmetry})}}}=\sum_{k=0}^{n}%
+\dbinom{n}{k}\dbinom{n}{n-k}.
+\]
+Comparing this with%
+\[
+\dbinom{2n}{n}=\dbinom{n+n}{n}=\sum_{k=0}^{n}\dbinom{n}{k}\dbinom{n}%
+{n-k}\ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{by Theorem \ref{thm.binom.vandermonde},}\\
+\text{applied to }x=n\text{ and }y=n
+\end{array}
+\right)  ,
+\]
+we obtain $\sum_{k=0}^{n}\dbinom{n}{k}^{2}=\dbinom{2n}{n}$. This proves
+Proposition \ref{prop.binom.sum-squares}.
+\end{proof}
+
+Now, what about the alternating sum of the squares of the elements of the
+$n$-th row of Pascal's triangle? Here, the formula turns out to be just as
+neat, apart from having two cases to distinguish:
+
+\begin{proposition}
+\label{prop.binom.altsum-squares}Let $n\in\mathbb{N}$. Then,%
+\[
+\sum_{k=0}^{n}\left(  -1\right)  ^{k}\dbinom{n}{k}^{2}=%
+\begin{cases}
+\left(  -1\right)  ^{n/2}\dbinom{n}{n/2}, & \text{if }n\text{ is even};\\
+0, & \text{if }n\text{ is odd}%
+\end{cases}
+.
+\]
+
+\end{proposition}
+
+Just as we derived Proposition \ref{prop.binom.sum-squares} from Theorem
+\ref{thm.binom.vandermonde}, we are going to derive Proposition
+\ref{prop.binom.altsum-squares} from the following fact:
+
+\begin{theorem}
+\label{thm.binom.altsum-squares-u}Let $u\in\mathbb{Q}$ and $n\in\mathbb{N}$.
+Then,%
 \[
 \sum_{k=0}^{n}\left(  -1\right)  ^{k}\dbinom{u}{k}\dbinom{u}{n-k}=%
 \begin{cases}
@@ -35933,11 +36078,264 @@ will see that something has gone wrong. It can be used to correct $\leq
 .
 \]
 
+\end{theorem}
 
-(\textit{Proof:} First prove this for all $n\in\mathbb{N}$ and $u\in
-\mathbb{N}$ via $\left(  1-x\right)  ^{u}\left(  1+x\right)  ^{u}=\left(
-1-x^{2}\right)  ^{u}$. Then extend to $u\in\mathbb{Q}$ via polynomial identity trick.)
+Theorem \ref{thm.binom.altsum-squares-u} can be proven in an elementary,
+computational way (see \cite[Second solution to Exercise 3.22]{detnotes} for
+this proof). Let us, however, prove it by applying polynomials strategically
+(this argument is \cite[First solution to Exercise 3.22]{detnotes}, and is
+folklore). We begin by showing a simple corollary of the binomial formula:
 
+\begin{lemma}
+\label{lem.binom.psgu}Let $u\in\mathbb{N}$. Let $\mathbb{K}$ be any ring, and
+let $a\in\mathbb{K}$. Then,
+\[
+\left(  1+a\right)  ^{u}=\sum_{k\in\mathbb{N}}\dbinom{u}{k}a^{k}.
+\]
+(Here, the sum $\sum_{k\in\mathbb{N}}\dbinom{u}{k}a^{k}$ is well-defined,
+since it has only finitely many nonzero addends.)
+\end{lemma}
+
+\begin{proof}
+[Proof of Lemma \ref{lem.binom.psgu}.] For each $k\in\left\{
+u+1,u+2,u+3,\ldots\right\}  $, we have $k\geq u+1>u$ and thus%
+\begin{equation}
+\dbinom{u}{k}=0\label{pf.lem.binom.psgu.1}%
+\end{equation}
+(by Theorem \ref{thm.binom.k>n0}, applied to $n=u$). Hence, all of the addends
+of the sum $\sum_{k\in\mathbb{N}}\dbinom{u}{k}a^{k}$ with $k\geq u+1$ are $0$.
+Therefore, this sum has only finitely many nonzero addends, and thus is well-defined.
+
+Now, $a\cdot1=a=1\cdot a$. Hence, (\ref{eq.prop.rings.pow.rules.c.binom})
+(applied to $b=1$ and $n=u$) yields
+\[
+\left(  a+1\right)  ^{u}=\sum_{k=0}^{u}\dbinom{u}{k}a^{k}\underbrace{1^{u-k}%
+}_{=1}=\sum_{k=0}^{u}\dbinom{u}{k}a^{k}.
+\]
+Thus,%
+\[
+\left(  \underbrace{1+a}_{=a+1}\right)  ^{u}=\left(  a+1\right)  ^{u}%
+=\sum_{k=0}^{u}\dbinom{u}{k}a^{k}.
+\]
+Comparing this with%
+\[
+\sum_{k\in\mathbb{N}}\dbinom{u}{k}a^{k}=\sum_{k=0}^{u}\dbinom{u}{k}a^{k}%
++\sum_{k=u+1}^{\infty}\underbrace{\dbinom{u}{k}}_{\substack{=0\\\text{(by
+(\ref{pf.lem.binom.psgu.1}))}}}a^{k}=\sum_{k=0}^{u}\dbinom{u}{k}%
+a^{k}+\underbrace{\sum_{k=u+1}^{\infty}0a^{k}}_{=0}=\sum_{k=0}^{u}\dbinom
+{u}{k}a^{k},
+\]
+we obtain $\left(  1+a\right)  ^{u}=\sum_{k\in\mathbb{N}}\dbinom{u}{k}a^{k}$.
+This proves Lemma \ref{lem.binom.psgu}.
+\end{proof}
+
+Next, we prove the particular case of Theorem \ref{thm.binom.altsum-squares-u}
+for $u\in\mathbb{N}$:
+
+\begin{lemma}
+\label{lem.binom.altsum-squares-N}Let $u\in\mathbb{N}$ and $n\in\mathbb{N}$.
+Then,%
+\[
+\sum_{k=0}^{n}\left(  -1\right)  ^{k}\dbinom{u}{k}\dbinom{u}{n-k}=%
+\begin{cases}
+\left(  -1\right)  ^{n/2}\dbinom{u}{n/2}, & \text{if }n\text{ is even};\\
+0, & \text{if }n\text{ is odd}%
+\end{cases}
+.
+\]
+
+\end{lemma}
+
+\begin{proof}
+[Proof of Lemma \ref{lem.binom.altsum-squares-N}.]Let $\mathbb{K}$ be the
+polynomial ring $\mathbb{Q}\left[  x\right]  $. We have%
+\begin{align*}
+\left(  1-x\right)  ^{u}\left(  1+x\right)  ^{u} &  =\left(
+\underbrace{\left(  1-x\right)  \left(  1+x\right)  }_{=1-x^{2}=1+\left(
+-x^{2}\right)  }\right)  ^{u}=\left(  1+\left(  -x^{2}\right)  \right)
+^{u}=\sum_{k\in\mathbb{N}}\dbinom{u}{k}\underbrace{\left(  -x^{2}\right)
+^{k}}_{=\left(  -1\right)  ^{k}x^{2k}}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Lemma \ref{lem.binom.psgu}, applied to
+}a=-x^{2}\right)  \\
+&  =\sum_{k\in\mathbb{N}}\left(  -1\right)  ^{k}\dbinom{u}{k}x^{2k}.
+\end{align*}
+Hence,%
+\begin{align}
+\left[  x^{n}\right]  \left(  \left(  1-x\right)  ^{u}\left(  1+x\right)
+^{u}\right)    & =\left[  x^{n}\right]  \left(  \sum_{k\in\mathbb{N}}\left(
+-1\right)  ^{k}\dbinom{u}{k}x^{2k}\right)  \nonumber\\
+& =%
+\begin{cases}
+\left(  -1\right)  ^{n/2}\dbinom{u}{n/2}, & \text{if }n\text{ is even};\\
+0, & \text{if }n\text{ is odd}%
+\end{cases}
+.\label{pf.lem.binom.altsum-squares-N.1}%
+\end{align}
+
+
+Let us now compute the left hand side in a different way, using
+(\ref{eq.pol.fps-mul.1}). Namely,
+\[
+\left(  \underbrace{1-x}_{=1+\left(  -x\right)  }\right)  ^{u}=\left(
+1+\left(  -x\right)  \right)  ^{u}=\sum_{k\in\mathbb{N}}\dbinom{u}%
+{k}\underbrace{\left(  -x\right)  ^{k}}_{=\left(  -1\right)  ^{k}x^{k}}%
+=\sum_{k\in\mathbb{N}}\left(  -1\right)  ^{k}\dbinom{u}{k}x^{k}.
+\]
+Hence, each $i\in\mathbb{N}$ satisfies%
+\begin{equation}
+\left[  x^{i}\right]  \left(  \left(  1-x\right)  ^{u}\right)  =\left[
+x^{i}\right]  \left(  \sum_{k\in\mathbb{N}}\left(  -1\right)  ^{k}\dbinom
+{u}{k}x^{k}\right)  =\left(  -1\right)  ^{i}\dbinom{u}{i}%
+.\label{pf.lem.binom.altsum-squares-N.2}%
+\end{equation}
+A similar argument (without the \textquotedblleft$-1$\textquotedblright) shows
+that each $i\in\mathbb{N}$ satisfies%
+\begin{equation}
+\left[  x^{i}\right]  \left(  \left(  1+x\right)  ^{u}\right)  =\dbinom{u}%
+{i}.\label{pf.lem.binom.altsum-squares-N.3}%
+\end{equation}
+
+
+Now, (\ref{eq.pol.fps-mul.1}) (applied to $\mathbf{a}=\left(  1-x\right)
+^{u}$ and $\mathbf{b}=\left(  1+x\right)  ^{u}$) yields%
+\begin{align*}
+& \left[  x^{n}\right]  \left(  \left(  1-x\right)  ^{u}\left(  1+x\right)
+^{u}\right)  \\
+& =\sum_{i=0}^{n}\underbrace{\left(  \left[  x^{i}\right]  \left(  \left(
+1-x\right)  ^{u}\right)  \right)  }_{\substack{=\left(  -1\right)  ^{i}%
+\dbinom{u}{i}\\\text{(by (\ref{pf.lem.binom.altsum-squares-N.2}))}}%
+}\cdot\underbrace{\left(  \left[  x^{n-i}\right]  \left(  \left(  1+x\right)
+^{u}\right)  \right)  }_{\substack{=\dbinom{u}{n-i}\\\text{(by
+(\ref{pf.lem.binom.altsum-squares-N.3}), applied to }n-i\\\text{instead of
+}i\text{)}}}\\
+& =\sum_{i=0}^{n}\left(  -1\right)  ^{i}\dbinom{u}{i}\dbinom{u}{n-i}%
+=\sum_{k=0}^{n}\left(  -1\right)  ^{k}\dbinom{u}{k}\dbinom{u}{n-k}%
+\end{align*}
+(here, we have renamed the summation index $i$ as $k$). Comparing this with
+(\ref{pf.lem.binom.altsum-squares-N.1}), we obtain%
+\[
+\sum_{k=0}^{n}\left(  -1\right)  ^{k}\dbinom{u}{k}\dbinom{u}{n-k}=%
+\begin{cases}
+\left(  -1\right)  ^{n/2}\dbinom{u}{n/2}, & \text{if }n\text{ is even};\\
+0, & \text{if }n\text{ is odd}%
+\end{cases}
+.
+\]
+This proves Lemma \ref{lem.binom.altsum-squares-N}.
+\end{proof}
+
+Our proof of Lemma \ref{lem.binom.altsum-squares-N} is an example of the use
+of \textquotedblleft generating functions\textquotedblright: We have proven
+that two sequences $\left(  a_{0},a_{1},a_{2},\ldots\right)  $ and $\left(
+b_{0},b_{1},b_{2},\ldots\right)  $ of numbers were equal\footnote{In our case,
+the two sequences are given by $a_{n}=\sum_{k=0}^{n}\left(  -1\right)
+^{k}\dbinom{u}{k}\dbinom{u}{n-k}$ and $b_{n}=%
+\begin{cases}
+\left(  -1\right)  ^{n/2}\dbinom{u}{n/2}, & \text{if }n\text{ is even};\\
+0, & \text{if }n\text{ is odd}%
+\end{cases}
+$ for all $n\in\mathbb{N}$.} by showing that the two FPSs $\sum_{k\in
+\mathbb{N}}a_{k}x^{k}$ and $\sum_{k\in\mathbb{N}}b_{k}x^{k}$ are equal. (In
+our case, these two FPSs were actually the polynomials $\left(  1-x^{2}%
+\right)  ^{u}$ and $\left(  1-x\right)  ^{u}\left(  1+x\right)  ^{u}$. But
+they don't have to be polynomials in order for the technique of generating
+functions to be applicable.) This technique is central to enumerative
+combinatorics, and also has many uses in pure algebra. See \cite[Chapters 7
+and 8]{Loehr} and \cite{Wilf} for (a lot) more about this technique.
+
+We still need to prove Theorem \ref{thm.binom.altsum-squares-u}, which
+generalizes Lemma \ref{lem.binom.altsum-squares-N} from $u\in\mathbb{N}$ to
+$u\in\mathbb{Q}$. Here, polynomials come useful once again (in the same way as
+they came useful when we were generalizing Lemma
+\ref{lem.binom.vandermonde.NN} to Lemma \ref{lem.binom.vandermonde.QN}):
+
+\begin{proof}
+[Proof of Theorem \ref{thm.binom.altsum-squares-u}.] Forget that we fixed $u$.
+Define the two polynomials%
+\begin{align*}
+\mathbf{a}  & =\sum_{k=0}^{n}\left(  -1\right)  ^{k}\dbinom{x}{k}\dbinom
+{x}{n-k}\ \ \ \ \ \ \ \ \ \ \text{and}\\
+\mathbf{b}  & =%
+\begin{cases}
+\left(  -1\right)  ^{n/2}\dbinom{x}{n/2}, & \text{if }n\text{ is even};\\
+0, & \text{if }n\text{ is odd}%
+\end{cases}
+\end{align*}
+in $1$ variable over the field $\mathbb{Q}$. For each $u\in\mathbb{Q}$, we
+have%
+\begin{align}
+\mathbf{a}\left[  u\right]    & =\sum_{k=0}^{n}\left(  -1\right)  ^{k}%
+\dbinom{u}{k}\dbinom{u}{n-k}\ \ \ \ \ \ \ \ \ \ \text{and}%
+\label{pf.thm.binom.altsum-squares-u.1}\\
+\mathbf{b}\left[  u\right]    & =%
+\begin{cases}
+\left(  -1\right)  ^{n/2}\dbinom{u}{n/2}, & \text{if }n\text{ is even};\\
+0, & \text{if }n\text{ is odd}%
+\end{cases}
+\label{pf.thm.binom.altsum-squares-u.2}%
+\end{align}
+(since the evaluation map $\operatorname*{ev}\nolimits_{u}$ is a $\mathbb{Q}%
+$-algebra homomorphism and satisfies Corollary \ref{cor.pol.xchoosen}
+\textbf{(b)}). Thus, for each $u\in\mathbb{N}$, we have%
+\begin{align*}
+\mathbf{a}\left[  u\right]    & =\sum_{k=0}^{n}\left(  -1\right)  ^{k}%
+\dbinom{u}{k}\dbinom{u}{n-k}\ \ \ \ \ \ \ \ \ \ \left(  \text{by
+(\ref{pf.thm.binom.altsum-squares-u.1})}\right)  \\
+& =%
+\begin{cases}
+\left(  -1\right)  ^{n/2}\dbinom{u}{n/2}, & \text{if }n\text{ is even};\\
+0, & \text{if }n\text{ is odd}%
+\end{cases}
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by Lemma \ref{lem.binom.altsum-squares-N}%
+}\right)  \\
+& =\mathbf{b}\left[  u\right]  \ \ \ \ \ \ \ \ \ \ \left(  \text{by
+(\ref{pf.thm.binom.altsum-squares-u.2})}\right)  .
+\end{align*}
+Hence, infinitely many elements $u\in\mathbb{Q}$ satisfy $\mathbf{a}\left[
+u\right]  =\mathbf{b}\left[  u\right]  $ (since infinitely many elements
+$u\in\mathbb{Q}$ satisfy $u\in\mathbb{N}$). Thus, Corollary
+\ref{cor.pol.id.trick} (applied to $\mathbb{K}=\mathbb{Q}$) yields
+$\mathbf{a}=\mathbf{b}$. Thus, each $u\in\mathbb{Q}$ satisfies%
+\begin{align*}
+\sum_{k=0}^{n}\left(  -1\right)  ^{k}\dbinom{u}{k}\dbinom{u}{n-k}  &
+=\underbrace{\mathbf{a}}_{=\mathbf{b}}\left[  u\right]
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.thm.binom.altsum-squares-u.1}%
+)}\right)  \\
+& =\mathbf{b}\left[  u\right]  =%
+\begin{cases}
+\left(  -1\right)  ^{n/2}\dbinom{u}{n/2}, & \text{if }n\text{ is even};\\
+0, & \text{if }n\text{ is odd}%
+\end{cases}
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.thm.binom.altsum-squares-u.2}%
+)}\right)  .
+\end{align*}
+This proves Theorem \ref{thm.binom.altsum-squares-u}.
+\end{proof}
+
+
+
+\begin{proof}
+[Proof of Proposition \ref{prop.binom.altsum-squares}.] We have%
+\begin{align*}
+\sum_{k=0}^{n}\left(  -1\right)  ^{k}\underbrace{\dbinom{n}{k}^{2}}%
+_{=\dbinom{n}{k}\dbinom{n}{k}}  & =\sum_{k=0}^{n}\left(  -1\right)
+^{k}\dbinom{n}{k}\underbrace{\dbinom{n}{k}}_{\substack{=\dbinom{n}%
+{n-k}\\\text{(by Theorem \ref{thm.binom.symmetry})}}}=\sum_{k=0}^{n}\left(
+-1\right)  ^{k}\dbinom{n}{k}\dbinom{n}{n-k}\\
+& =%
+\begin{cases}
+\left(  -1\right)  ^{n/2}\dbinom{n}{n/2}, & \text{if }n\text{ is even};\\
+0, & \text{if }n\text{ is odd}%
+\end{cases}
+\end{align*}
+(by Theorem \ref{thm.binom.altsum-squares-u}, or just Lemma
+\ref{lem.binom.altsum-squares-N}, applied to $u=n$). This proves Proposition
+\ref{prop.binom.altsum-squares}.
+\end{proof}
+
+TODO:
+
+\begin{itemize}
 \item Prove Lucas's congruence. No time for general case, but we can do
 $\dbinom{2a+1}{2b+1}\equiv\dbinom{a}{b}\operatorname{mod}2$. For that, just
 need Freshman's dream in $\left(  \mathbb{Z}/p\right)  \left[  x\right]  $.
@@ -35972,10 +36370,6 @@ Stark contrast to FPS invertibility!
 For $\mathbb{K}=\mathbb{Z}/4$, you have stuff like $1+2x$.
 
 \item Mention rational functions.
-
-\item \textbf{Def:} monic. (only if needed).
-
-\item \textbf{Cor:} quo\_rem for monic.
 \end{itemize}
 
 \section{Quotient constructions}
@@ -35995,7 +36389,7 @@ $\mathbb{K}$-module).
 
 \item Now, use this to adjoin root to any polynomial over a ring $\mathbb{K}$.
 
-\item Basis of the adjoined.
+\item Basis of the adjoined when the polynomial has invertible leading coefficient.
 
 \item When $\mathbb{K}$ embeds into the adjoined.
 
@@ -45595,6 +45989,9 @@ on Primality Testing And Public Key Cryptography, Part 1}, 27 February
 \bibitem[Garret03]{Garret03}Paul Garrett, \textit{Crypto and Number Theory},
 slides, 2003.\newline\url{http://www-users.math.umn.edu/~garrett/crypto/}
 
+\bibitem[Garret07]{Garret07}Paul Garrett, \textit{The Mathematics of Coding:
+Information, Compression, Error Correction, and Finite Fields}, 2007.\newline\url{http://www-users.math.umn.edu/~garrett/coding/CodingNotes.pdf}
+
 \bibitem[Goodma16]{Goodman}Frederick M. Goodman, \textit{Algebra: Abstract and
 Concrete}, edition 2.6, 12 October 2016.\newline\url{http://homepage.divms.uiowa.edu/~goodman/algebrabook.dir/algebrabook.html}
 
@@ -45691,6 +46088,9 @@ translated 7th edition, Springer 1991.
 
 \bibitem[Waerde91b]{Waerden2}B.L. van der Waerden, \textit{Algebra, Volume
 II}, translated 5th edition, Springer 1991.
+
+\bibitem[Wilf94]{Wilf94}Herbert S. Wilf, \textit{generatingfunctionology},
+1999.\newline\url{https://www.math.upenn.edu/~wilf/DownldGF.html}
 \end{thebibliography}
 
 
