@@ -17,7 +17,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, April 29, 2019 18:22:15}
+%TCIDATA{LastRevised=Monday, April 29, 2019 20:35:30}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -25200,7 +25200,7 @@ ab^{n}  &  =b^{n}a\ \ \ \ \ \ \ \ \ \ \text{for all }n\in\mathbb{N}%
 a^{i}b^{j}  &  =b^{j}a^{i}\ \ \ \ \ \ \ \ \ \ \text{for all }i,j\in
 \mathbb{N};\nonumber\\
 \left(  ab\right)  ^{n}  &  =a^{n}b^{n}\ \ \ \ \ \ \ \ \ \ \text{for all }%
-n\in\mathbb{N};\nonumber\\
+n\in\mathbb{N};\label{eq.prop.rings.pow.rules.c.3}\\
 \left(  a+b\right)  ^{n}  &  =\sum_{k=0}^{n}\dbinom{n}{k}a^{k}b^{n-k}%
 \ \ \ \ \ \ \ \ \ \ \text{for all }n\in\mathbb{N}.
 \label{eq.prop.rings.pow.rules.c.binom}%
@@ -28223,8 +28223,8 @@ we obtain $\left(  I_{n}+N\right)  ^{p}=I_{n}^{p}+N^{p}$. But $N$ is a
 strictly lower-triangular $n\times n$-matrix, and therefore satisfies
 $N^{n}=0_{n\times n}$ (by \cite[Corollary 3.78]{lina}), and therefore
 \begin{align*}
-N^{p} &  =\underbrace{N^{n}}_{=0_{n\times n}}N^{p-n}%
-\ \ \ \ \ \ \ \ \ \ \left(  \text{since }n\leq p\right)  \\
+N^{p}  &  =\underbrace{N^{n}}_{=0_{n\times n}}N^{p-n}%
+\ \ \ \ \ \ \ \ \ \ \left(  \text{since }n\leq p\right) \\
 &  =0_{n\times n}N^{p-n}=0_{n\times n}.
 \end{align*}
 Furthermore, $I_{n}^{p}=I_{n}$ (since $I_{n}$ is the unity of the ring
@@ -28278,6 +28278,46 @@ This proves Theorem \ref{thm.ring.freshdream}.
 We note that Theorem \ref{thm.ring.freshdream} would be false if $p$ wasn't
 assumed to be prime. For example, it would be false for $p=4$ (a simple
 counterexample being $\mathbb{K}=\mathbb{Z}/4$, $a=1$ and $b=1$).
+
+As a consequence of Theorem \ref{thm.ring.freshdream}, we obtain some
+unexpected ring homomorphisms:
+
+\begin{corollary}
+\label{cor.ring.frobenius}Let $p$ be a prime. Let $\mathbb{K}$ be a
+commutative ring such that $p\cdot1_{\mathbb{K}}=0$. Let $F$ be the map%
+\[
+\mathbb{K}\rightarrow\mathbb{K},\ \ \ \ \ \ \ \ \ \ a\mapsto a^{p}.
+\]
+Then, $F$ is a ring homomorphism.
+\end{corollary}
+
+\begin{proof}
+[Proof of Corollary \ref{cor.ring.frobenius}.]According to Definition
+\ref{def.riho.riho}, we must prove that it satisfies the following four axioms:
+
+\textbf{(a)} We have $F\left(  a+b\right)  =F\left(  a\right)  +F\left(
+b\right)  $ for all $a,b\in\mathbb{K}$.
+
+\textbf{(b)} We have $F\left(  0\right)  =0$.
+
+\textbf{(c)} We have $F\left(  ab\right)  =F\left(  a\right)  F\left(
+b\right)  $ for all $a,b\in\mathbb{K}$.
+
+\textbf{(d)} We have $F\left(  1\right)  =1$.
+
+The axiom \textbf{(a)} boils down to $\left(  a+b\right)  ^{p}=a^{p}+b^{p}$,
+which follows from Theorem \ref{thm.ring.freshdream} (since the commutativity
+of $\mathbb{K}$ entails $ab=ba$).
+
+The axiom \textbf{(c)} boils down to $\left(  ab\right)  ^{p}=a^{p}b^{p}$,
+which follows from (\ref{eq.prop.rings.pow.rules.c.3}) (again because $ab=ba$).
+
+The axioms \textbf{(b)} and \textbf{(d)} are obviously satisfied. Thus,
+Corollary \ref{cor.ring.frobenius} is proven.
+\end{proof}
+
+The ring homomorphism $F$ in Corollary \ref{cor.ring.frobenius} is called the
+\textit{Frobenius homomorphism} of $\mathbb{K}$.
 
 \section{\label{chp.la}Linear algebra over commutative rings}
 
@@ -32911,6 +32951,8 @@ This solves Exercise \ref{exe.pol.coeff-shift} \textbf{(b)}.
 \subsection{Inverses in the ring $\mathbb{K}\left[  \left[  x\right]  \right]
 $}
 
+\subsubsection{The invertibility criterion for power series}
+
 The equation (\ref{eq.pol.FPS.ex5}) is not just an example of multiplying two
 FPSs. It is also an example of an inverse in the ring $\mathbb{K}\left[
 \left[  x\right]  \right]  $. Indeed, we can rewrite it as%
@@ -33097,6 +33139,329 @@ multiplicative inverse (namely, $\mathbf{b}$). In other words, $\mathbf{a}$ is
 invertible (in the ring $\mathbb{K}\left[  \left[  x\right]  \right]  $). This
 proves the \textquotedblleft$\Longleftarrow$\textquotedblright\ direction of
 Theorem \ref{thm.pol.FPS-inv}.
+\end{proof}
+
+\subsubsection{Newton's binomial formula}
+
+In Definition \ref{def.CC.CC.power-}, we have defined negative powers (i.e.,
+powers of the form $\alpha^{n}$ with $n$ being a negative integer) of any
+nonzero complex number $\alpha$. All that we needed from $\alpha$ in that
+definition was that $\alpha$ has an inverse $\alpha^{-1}$. Thus, we can
+straightforwardly extend this definition to any invertible element $\alpha$ of
+any ring:
+
+\begin{definition}
+\label{def.ring.power-}Let $\mathbb{L}$ be a ring. Let $\alpha\in\mathbb{L}$
+be invertible. For any negative $n\in\mathbb{Z}$, we define an element
+$\alpha^{n}\in\mathbb{L}$ (called the $n$\textit{-th power of }$\alpha$) by
+$\alpha^{n}=\left(  \alpha^{-1}\right)  ^{-n}$. (This is well-defined, since
+$\left(  \alpha^{-1}\right)  ^{-n}$ is already defined by Definition
+\ref{def.rings.pow} (because $n$ is negative and thus $-n\in\mathbb{N}$).)
+\end{definition}
+
+When the ring $\mathbb{L}$ is commutative, the powers of its elements satisfy
+the same rules as the powers of complex numbers (see Proposition
+\ref{prop.CC.CC.power-rules}), except that we have to replace
+\textquotedblleft nonzero\textquotedblright\ by \textquotedblleft
+invertible\textquotedblright\ (since negative powers are defined only for
+invertible elements of $\mathbb{L}$). For example, if $\mathbb{L}$ is a
+commutative ring, then%
+\[
+\left(  \alpha\beta\right)  ^{n}=\alpha^{n}\beta^{n}%
+\ \ \ \ \ \ \ \ \ \ \text{for all invertible }\alpha,\beta\in\mathbb{L}\text{
+and all }n\in\mathbb{Z}.
+\]
+
+
+We can apply this to $\mathbb{L}=\mathbb{K}\left[  \left[  x\right]  \right]
+$ (which is a commutative ring). Recall that the FPS $1-x$ is invertible, and
+its inverse is
+\[
+\dfrac{1}{1-x}=1+x+x^{2}+x^{3}+\cdots=\sum_{k\in\mathbb{N}}x^{k}.
+\]
+A similar argument shows that the FPS $1+x$ is invertible, and its inverse is
+\[
+\dfrac{1}{1+x}=1-x+x^{2}-x^{3}\pm\cdots=\sum_{k\in\mathbb{N}}\left(
+-1\right)  ^{k}x^{k}.
+\]
+Thus, negative powers of $1+x$ are well-defined. We can explicitly compute not
+just the inverse of $1+x$ (as we just did), but also all powers of $1+x$. As
+far as the nonnegative powers are concerned (that is, $\left(  1+x\right)
+^{u}$ for $u\in\mathbb{N}$), this can easily be done by the binomial formula,
+and the result can be written either as $\sum_{k=0}^{u}\dbinom{u}{k}x^{k}$ or
+as the infinite sum $\sum_{k\in\mathbb{N}}\dbinom{u}{k}x^{k}$. (The second sum
+differs from the first sum only in the presence of addends for $k>u$; but all
+these addends are $0$, and thus do not actually affect the sum.)
+Interestingly, however, the formula%
+\[
+\left(  1+x\right)  ^{u}=\sum_{k\in\mathbb{N}}\dbinom{u}{k}x^{k}%
+\]
+is also valid for negative integers $u$ -- even though there is no binomial
+formula for negative exponents any more! This result is called
+\textit{Newton's (generalized) binomial theorem for integers}; let us state it
+as follows:
+
+\begin{theorem}
+\label{thm.pol.binom-newton}\textbf{(a)} The FPS $1+x$ is invertible (in
+$\mathbb{K}\left[  \left[  x\right]  \right]  $). Thus, $\left(  1+x\right)
+^{u}$ is defined for each $u\in\mathbb{Z}$ (by Definition
+\ref{def.ring.power-}).
+
+\textbf{(b)} In the ring $\mathbb{K}\left[  \left[  x\right]  \right]  $, we
+have%
+\[
+\left(  1+x\right)  ^{u}=\sum_{k\in\mathbb{N}}\dbinom{u}{k}x^{k}%
+\ \ \ \ \ \ \ \ \ \ \text{for each }u\in\mathbb{Z}.
+\]
+In particular, the sum $\sum_{k\in\mathbb{N}}\dbinom{u}{k}x^{k}$ is
+well-defined (i.e., the family $\left(  \dbinom{u}{k}x^{k}\right)
+_{k\in\mathbb{N}}$ is summable) for each $u\in\mathbb{Z}$.
+\end{theorem}
+
+To prove this, we begin by showing a simple corollary of the binomial formula:
+
+\begin{lemma}
+\label{lem.binom.psgu}Let $u\in\mathbb{N}$. Let $\mathbb{K}$ be any ring, and
+let $a\in\mathbb{K}$. Then,
+\[
+\left(  1+a\right)  ^{u}=\sum_{k\in\mathbb{N}}\dbinom{u}{k}a^{k}.
+\]
+(Here, the sum $\sum_{k\in\mathbb{N}}\dbinom{u}{k}a^{k}$ is well-defined,
+since it has only finitely many nonzero addends.)
+\end{lemma}
+
+\begin{proof}
+[Proof of Lemma \ref{lem.binom.psgu}.]For each $k\in\left\{
+u+1,u+2,u+3,\ldots\right\}  $, we have $k\geq u+1>u$ and thus%
+\begin{equation}
+\dbinom{u}{k}=0 \label{pf.lem.binom.psgu.1}%
+\end{equation}
+(by Theorem \ref{thm.binom.k>n0}, applied to $n=u$). Hence, all of the addends
+of the sum $\sum_{k\in\mathbb{N}}\dbinom{u}{k}a^{k}$ with $k\geq u+1$ are $0$.
+Therefore, this sum has only finitely many nonzero addends, and thus is well-defined.
+
+Now, $a\cdot1=a=1\cdot a$. Hence, (\ref{eq.prop.rings.pow.rules.c.binom})
+(applied to $b=1$ and $n=u$) yields
+\[
+\left(  a+1\right)  ^{u}=\sum_{k=0}^{u}\dbinom{u}{k}a^{k}\underbrace{1^{u-k}%
+}_{=1}=\sum_{k=0}^{u}\dbinom{u}{k}a^{k}.
+\]
+Thus,%
+\[
+\left(  \underbrace{1+a}_{=a+1}\right)  ^{u}=\left(  a+1\right)  ^{u}%
+=\sum_{k=0}^{u}\dbinom{u}{k}a^{k}.
+\]
+Comparing this with%
+\[
+\sum_{k\in\mathbb{N}}\dbinom{u}{k}a^{k}=\sum_{k=0}^{u}\dbinom{u}{k}a^{k}%
++\sum_{k=u+1}^{\infty}\underbrace{\dbinom{u}{k}}_{\substack{=0\\\text{(by
+(\ref{pf.lem.binom.psgu.1}))}}}a^{k}=\sum_{k=0}^{u}\dbinom{u}{k}%
+a^{k}+\underbrace{\sum_{k=u+1}^{\infty}0a^{k}}_{=0}=\sum_{k=0}^{u}\dbinom
+{u}{k}a^{k},
+\]
+we obtain $\left(  1+a\right)  ^{u}=\sum_{k\in\mathbb{N}}\dbinom{u}{k}a^{k}$.
+This proves Lemma \ref{lem.binom.psgu}.
+\end{proof}
+
+Lemma \ref{lem.binom.psgu} easily implies that Theorem
+\ref{thm.pol.binom-newton} \textbf{(b)} holds for $u\in\mathbb{N}$; but
+proving Theorem \ref{thm.pol.binom-newton} \textbf{(b)} for negative integers
+$u$ requires more work. Here is ours:
+
+\begin{proof}
+[Proof of Theorem \ref{thm.pol.binom-newton}.]Let $u\in\mathbb{Z}$. Define
+$N_{u}$ to be the FPS%
+\[
+\left(  \dbinom{u}{0},\dbinom{u}{1},\dbinom{u}{2},\ldots\right)  \in
+\mathbb{K}\left[  \left[  x\right]  \right]  .
+\]
+(To be more precise, we mean the FPS $\left(  \dbinom{u}{0}\cdot1_{\mathbb{K}%
+},\dbinom{u}{1}\cdot1_{\mathbb{K}},\dbinom{u}{2}\cdot1_{\mathbb{K}}%
+,\ldots\right)  $, because the binomial coefficients $\dbinom{u}{0},\dbinom
+{u}{1},\dbinom{u}{2},\ldots$ by themselves are integers, not elements of
+$\mathbb{K}$. But we shall abuse notation and drop the \textquotedblleft%
+$\cdot1_{\mathbb{K}}$\textquotedblright; thus, if $r$ is any integer, then we
+will also denote the corresponding element $r\cdot1_{\mathbb{K}}$ of
+$\mathbb{K}$ by $r$, as long as it is clear from the context that we mean an
+element of $\mathbb{K}$.)
+
+Corollary \ref{cor.pol.FPS-as-sum} (applied to $a_{i}=\dbinom{u}{i}$) shows
+that the family $\left(  \dbinom{u}{k}x^{k}\right)  _{k\in\mathbb{N}}$ is
+summable, so that the sum $\sum_{k\in\mathbb{N}}\dbinom{u}{k}x^{k}$ is
+well-defined, and furthermore%
+\[
+\left(  \dbinom{u}{0},\dbinom{u}{1},\dbinom{u}{2},\ldots\right)  =\dbinom
+{u}{0}+\dbinom{u}{1}x+\dbinom{u}{2}x^{2}+\dbinom{u}{3}x^{3}+\cdots=\sum
+_{k\in\mathbb{N}}\dbinom{u}{k}x^{k}.
+\]
+Thus,%
+\begin{equation}
+N_{u}=\left(  \dbinom{u}{0},\dbinom{u}{1},\dbinom{u}{2},\ldots\right)
+=\sum_{k\in\mathbb{N}}\dbinom{u}{k}x^{k}.\label{pf.thm.pol.binom-newton.1}%
+\end{equation}
+
+
+Now, forget that we fixed $u$. Thus, for each $u\in\mathbb{Z}$, we have
+defined an FPS $N_{u}$ and showed that it satisfies
+(\ref{pf.thm.pol.binom-newton.1}), and, in particular, the sum $\sum
+_{k\in\mathbb{N}}\dbinom{u}{k}x^{k}$ is well-defined (i.e., the family
+$\left(  \dbinom{u}{k}x^{k}\right)  _{k\in\mathbb{N}}$ is summable).
+
+Next, let us prove the following:
+
+\begin{statement}
+\textit{Claim 1:} We have $N_{n}=\left(  1+x\right)  N_{n-1}$ for each
+$n\in\mathbb{Z}$.
+\end{statement}
+
+[\textit{Proof of Claim 1:} Let $n\in\mathbb{Z}$. Then,
+(\ref{pf.thm.pol.binom-newton.1}) (applied to $u=n-1$) yields $N_{n-1}%
+=\sum_{k\in\mathbb{N}}\dbinom{n-1}{k}x^{k}$. Multiplying both sides of this
+equality with $1+x$, we find
+\begin{align}
+\left(  1+x\right)  N_{n-1}  &  =\left(  1+x\right)  \sum_{k\in\mathbb{N}%
+}\dbinom{n-1}{k}x^{k}\nonumber\\
+&  =\sum_{k\in\mathbb{N}}\dbinom{n-1}{k}x^{k}+x\sum_{k\in\mathbb{N}}%
+\dbinom{n-1}{k}x^{k}. \label{pf.thm.pol.binom-newton.3}%
+\end{align}
+But%
+\begin{align*}
+x\sum_{k\in\mathbb{N}}\dbinom{n-1}{k}x^{k}  &  =\sum_{k\in\mathbb{N}}%
+\dbinom{n-1}{k}xx^{k}=\sum_{k=1}^{\infty}\dbinom{n-1}{k-1}\underbrace{xx^{k-1}%
+}_{=x^{k}}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{here, we have substituted }k-1\text{ for
+}k\text{ in the sum}\right) \\
+&  =\sum_{k=1}^{\infty}\dbinom{n-1}{k-1}x^{k}.
+\end{align*}
+Comparing this with%
+\begin{align*}
+\sum_{k\in\mathbb{N}}\dbinom{n-1}{k-1}x^{k}  &  =\underbrace{\dbinom{n-1}%
+{0-1}}_{\substack{=0\\\text{(by Definition \ref{def.binom.binom}
+\textbf{(b)},}\\\text{since }0-1=-1\notin\mathbb{N}\text{)}}}x^{0}+\sum
+_{k=1}^{\infty}\dbinom{n-1}{k-1}x^{k}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{here, we have split off the addend for
+}k=0\text{ from the sum}\right) \\
+&  =\sum_{k=1}^{\infty}\dbinom{n-1}{k-1}x^{k},
+\end{align*}
+we obtain%
+\[
+x\sum_{k\in\mathbb{N}}\dbinom{n-1}{k}x^{k}=\sum_{k\in\mathbb{N}}\dbinom
+{n-1}{k-1}x^{k}.
+\]
+Thus, (\ref{pf.thm.pol.binom-newton.3}) becomes%
+\begin{align*}
+\left(  1+x\right)  N_{n-1}  &  =\sum_{k\in\mathbb{N}}\dbinom{n-1}{k}%
+x^{k}+\underbrace{x\sum_{k\in\mathbb{N}}\dbinom{n-1}{k}x^{k}}_{=\sum
+_{k\in\mathbb{N}}\dbinom{n-1}{k-1}x^{k}}=\sum_{k\in\mathbb{N}}\dbinom{n-1}%
+{k}x^{k}+\sum_{k\in\mathbb{N}}\dbinom{n-1}{k-1}x^{k}\\
+&  =\sum_{k\in\mathbb{N}}\underbrace{\left(  \dbinom{n-1}{k}+\dbinom{n-1}%
+{k-1}\right)  }_{\substack{=\dbinom{n}{k}\\\text{(by Theorem
+\ref{thm.binom.rec})}}}x^{k}=\sum_{k\in\mathbb{N}}\dbinom{n}{k}x^{k}.
+\end{align*}
+Comparing this with%
+\[
+N_{n}=\sum_{k\in\mathbb{N}}\dbinom{n}{k}x^{k}\ \ \ \ \ \ \ \ \ \ \left(
+\text{by (\ref{pf.thm.pol.binom-newton.1}), applied to }u=n\right)  ,
+\]
+we obtain $N_{n}=\left(  1+x\right)  N_{n-1}$. This proves Claim 1.]
+
+Also, (\ref{pf.thm.pol.binom-newton.1}) (applied to $u=0$) yields%
+\begin{align*}
+N_{0}  &  =\sum_{k\in\mathbb{N}}\dbinom{0}{k}x^{k}=\underbrace{\dbinom{0}{0}%
+}_{=1}\underbrace{x^{0}}_{=1_{\mathbb{K}\left[  \left[  x\right]  \right]  }%
+}+\sum_{k=1}^{\infty}\underbrace{\dbinom{0}{k}}_{\substack{=0\\\text{(by
+Theorem \ref{thm.binom.k>n0}}\\\text{(applied to }n=0\text{), since
+}k>0\text{)}}}x^{k}=1_{\mathbb{K}\left[  \left[  x\right]  \right]
+}+\underbrace{\sum_{k=1}^{\infty}0x^{k}}_{=0}\\
+&  =1_{\mathbb{K}\left[  \left[  x\right]  \right]  }.
+\end{align*}
+But Claim 1 (applied to $n=0$) yields $N_{0}=\left(  1+x\right)
+N_{0-1}=\left(  1+x\right)  N_{-1}$. Hence, $\left(  1+x\right)  N_{-1}%
+=N_{0}=1_{\mathbb{K}\left[  \left[  x\right]  \right]  }$, so that
+$N_{-1}\left(  1+x\right)  =\left(  1+x\right)  N_{-1}=1_{\mathbb{K}\left[
+\left[  x\right]  \right]  }$. Thus, $\left(  1+x\right)  N_{-1}=N_{-1}\left(
+1+x\right)  =1_{\mathbb{K}\left[  \left[  x\right]  \right]  }$. In other
+words, the FPS $N_{-1}$ is a multiplicative inverse of $1+x$. Hence, the FPS
+$1+x$ has a multiplicative inverse, i.e., is invertible. This proves Theorem
+\ref{thm.pol.binom-newton} \textbf{(a)}.
+
+Next, we claim the following:
+
+\begin{statement}
+\textit{Claim 2:} We have $\left(  1+x\right)  ^{-n}=N_{-n}$ for each
+$n\in\mathbb{N}$.
+\end{statement}
+
+[\textit{Proof of Claim 2:} We shall prove Claim 2 by induction on $n$:
+
+\textit{Induction base:} We have $\left(  1+x\right)  ^{-0}=\left(
+1+x\right)  ^{0}=1_{\mathbb{K}\left[  \left[  x\right]  \right]  }=N_{-0}$
+(since $N_{-0}=N_{0}=1_{\mathbb{K}\left[  \left[  x\right]  \right]  }$). In
+other words, Claim 2 holds for $n=0$. This completes the induction base.
+
+\textit{Induction step:} Let $m\in\mathbb{N}$. Assume that Claim 2 holds for
+$n=m$. We must prove that Claim 2 holds for $n=m+1$.
+
+We have assumed that Claim 2 holds for $n=m$. In other words, we have $\left(
+1+x\right)  ^{-m}=N_{-m}$.
+
+But Claim 1 (applied to $n=-m$) yields%
+\[
+N_{-m}=\left(  1+x\right)  N_{-m-1}=\left(  1+x\right)  N_{-\left(
+m+1\right)  }=N_{-\left(  m+1\right)  }\cdot\left(  1+x\right)  .
+\]
+But $-\left(  m+1\right)  =\left(  -m\right)  +\left(  -1\right)  $, so that%
+\begin{align*}
+\left(  1+x\right)  ^{-\left(  m+1\right)  }  &  =\left(  1+x\right)
+^{\left(  -m\right)  +\left(  -1\right)  }=\underbrace{\left(  1+x\right)
+^{-m}}_{\substack{=N_{-m}\\=N_{-\left(  m+1\right)  }\cdot\left(  1+x\right)
+}}\cdot\left(  1+x\right)  ^{-1}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the basic rules of exponents}\right)
+\\
+&  =N_{-\left(  m+1\right)  }\cdot\underbrace{\left(  1+x\right)  \cdot\left(
+1+x\right)  ^{-1}}_{=1_{\mathbb{K}\left[  \left[  x\right]  \right]  }%
+}=N_{-\left(  m+1\right)  }.
+\end{align*}
+In other words, Claim 2 holds for $n=m+1$. This completes the induction step.
+Thus, Claim 2 is proven by induction.]
+
+\textbf{(b)} Let $u\in\mathbb{Z}$. We have already checked that the sum
+$\sum_{k\in\mathbb{N}}\dbinom{u}{k}x^{k}$ is well-defined (i.e., the family
+$\left(  \dbinom{u}{k}x^{k}\right)  _{k\in\mathbb{N}}$ is summable). It
+remains to prove that $\left(  1+x\right)  ^{u}=\sum_{k\in\mathbb{N}}%
+\dbinom{u}{k}x^{k}$.
+
+We are in one of the following two cases:
+
+\textit{Case 1:} We have $u\geq0$.
+
+\textit{Case 2:} We have $u<0$.
+
+Let us first consider Case 1. In this case, we have $u\geq0$. Thus,
+$u\in\mathbb{N}$. Hence, Lemma \ref{lem.binom.psgu} (applied to $\mathbb{K}%
+\left[  \left[  x\right]  \right]  $ and $x$ instead of $\mathbb{K}$ and $a$)
+yields
+\[
+\left(  1+x\right)  ^{u}=\sum_{k\in\mathbb{N}}\dbinom{u}{k}x^{k}.
+\]
+Thus, Theorem \ref{thm.pol.binom-newton} \textbf{(b)} is proven in Case 1.
+
+Let us now consider Case 2. In this case, we have $u<0$. Hence, $-u>0$, so
+that $-u\in\mathbb{N}$ (since $u\in\mathbb{Z}$). Thus, Claim 2 (applied to
+$n=-u$) yields
+\[
+\left(  1+x\right)  ^{-\left(  -u\right)  }=N_{-\left(  -u\right)  }%
+=N_{u}=\sum_{k\in\mathbb{N}}\dbinom{u}{k}x^{k}\ \ \ \ \ \ \ \ \ \ \left(
+\text{by (\ref{pf.thm.pol.binom-newton.1})}\right)  .
+\]
+In view of $-\left(  -u\right)  =u$, this rewrites as%
+\[
+\left(  1+x\right)  ^{u}=\sum_{k\in\mathbb{N}}\dbinom{u}{k}x^{k}.
+\]
+Thus, Theorem \ref{thm.pol.binom-newton} \textbf{(b)} is proven in Case 2.
+
+We have now proven Theorem \ref{thm.pol.binom-newton} \textbf{(b)} in both
+Cases 1 and 2. Hence, Theorem \ref{thm.pol.binom-newton} \textbf{(b)} always holds.
 \end{proof}
 
 \subsection{Polynomials and their degrees}
@@ -36134,6 +36499,8 @@ there are several different ways of defining Reed--Solomon codes; the one in
 \cite{Garret07} is not the same as ours.}
 \end{itemize}
 
+\subsection{Generating functions}
+
 \subsubsection{A binomial identity}
 
 Let me show a further application of the \textquotedblleft polynomial identity
@@ -36232,53 +36599,8 @@ Theorem \ref{thm.binom.altsum-squares-u} can be proven in an elementary,
 computational way (see \cite[Second solution to Exercise 3.22]{detnotes} for
 this proof). Let us, however, prove it by applying polynomials strategically
 (this argument is \cite[First solution to Exercise 3.22]{detnotes}, and is
-folklore). We begin by showing a simple corollary of the binomial formula:
-
-\begin{lemma}
-\label{lem.binom.psgu}Let $u\in\mathbb{N}$. Let $\mathbb{K}$ be any ring, and
-let $a\in\mathbb{K}$. Then,
-\[
-\left(  1+a\right)  ^{u}=\sum_{k\in\mathbb{N}}\dbinom{u}{k}a^{k}.
-\]
-(Here, the sum $\sum_{k\in\mathbb{N}}\dbinom{u}{k}a^{k}$ is well-defined,
-since it has only finitely many nonzero addends.)
-\end{lemma}
-
-\begin{proof}
-[Proof of Lemma \ref{lem.binom.psgu}.]For each $k\in\left\{
-u+1,u+2,u+3,\ldots\right\}  $, we have $k\geq u+1>u$ and thus%
-\begin{equation}
-\dbinom{u}{k}=0 \label{pf.lem.binom.psgu.1}%
-\end{equation}
-(by Theorem \ref{thm.binom.k>n0}, applied to $n=u$). Hence, all of the addends
-of the sum $\sum_{k\in\mathbb{N}}\dbinom{u}{k}a^{k}$ with $k\geq u+1$ are $0$.
-Therefore, this sum has only finitely many nonzero addends, and thus is well-defined.
-
-Now, $a\cdot1=a=1\cdot a$. Hence, (\ref{eq.prop.rings.pow.rules.c.binom})
-(applied to $b=1$ and $n=u$) yields
-\[
-\left(  a+1\right)  ^{u}=\sum_{k=0}^{u}\dbinom{u}{k}a^{k}\underbrace{1^{u-k}%
-}_{=1}=\sum_{k=0}^{u}\dbinom{u}{k}a^{k}.
-\]
-Thus,%
-\[
-\left(  \underbrace{1+a}_{=a+1}\right)  ^{u}=\left(  a+1\right)  ^{u}%
-=\sum_{k=0}^{u}\dbinom{u}{k}a^{k}.
-\]
-Comparing this with%
-\[
-\sum_{k\in\mathbb{N}}\dbinom{u}{k}a^{k}=\sum_{k=0}^{u}\dbinom{u}{k}a^{k}%
-+\sum_{k=u+1}^{\infty}\underbrace{\dbinom{u}{k}}_{\substack{=0\\\text{(by
-(\ref{pf.lem.binom.psgu.1}))}}}a^{k}=\sum_{k=0}^{u}\dbinom{u}{k}%
-a^{k}+\underbrace{\sum_{k=u+1}^{\infty}0a^{k}}_{=0}=\sum_{k=0}^{u}\dbinom
-{u}{k}a^{k},
-\]
-we obtain $\left(  1+a\right)  ^{u}=\sum_{k\in\mathbb{N}}\dbinom{u}{k}a^{k}$.
-This proves Lemma \ref{lem.binom.psgu}.
-\end{proof}
-
-Next, we prove the particular case of Theorem \ref{thm.binom.altsum-squares-u}
-for $u\in\mathbb{N}$:
+folklore). First, we prove the particular case of Theorem
+\ref{thm.binom.altsum-squares-u} for $u\in\mathbb{N}$:
 
 \begin{lemma}
 \label{lem.binom.altsum-squares-N}Let $u\in\mathbb{N}$ and $n\in\mathbb{N}$.
@@ -36482,7 +36804,7 @@ _{=\dbinom{n}{k}\dbinom{n}{k}}  &  =\sum_{k=0}^{n}\left(  -1\right)
 
 Recall Lucas's congruence (Theorem \ref{thm.binom.lucas}), which we have left
 unproven back when we were studying binomial coefficients. Let us now outline
-how it can be proven using polynomials (and FPSs).
+how it can be proven using FPSs.
 
 \begin{proof}
 [Proof of Theorem \ref{thm.binom.lucas} (sketched).]Let us first consider the
@@ -36494,8 +36816,8 @@ case when $p=2$ and $c=1$ and $a\in\mathbb{N}$. So we need to prove%
 \]
 
 
-Work in the polynomial ring $\left(  \mathbb{Z}/2\right)  \left[  x\right]  $.
-In this ring, we have%
+Work in the polynomial ring $\left(  \mathbb{Z}/2\right)  \left[  x\right]  $
+over $\mathbb{Z}/2$. In this ring, we have%
 \[
 \left(  1+x\right)  ^{2}=1+\underbrace{2}_{=0}x+x^{2}=1+x^{2}.
 \]
@@ -36599,16 +36921,14 @@ Finally, we can lift the restriction that $a\in\mathbb{N}$ in one of two ways:
 \begin{itemize}
 \item Use upper negation to reduce the negative case to the positive case.
 
-\item Use FPSs instead of polynomials. Recall that the FPS $1+x$ is invertible
-(actually, we proved that $1-x$ is invertible, but this is analogous). Thus,
-$\left(  1+x\right)  ^{a}$ is defined not only for $a\in\mathbb{N}$ but also
-for all $a\in\mathbb{Z}$ (in the same way as we defined negative powers of
-nonzero complex numbers). \textit{Newton's binomial formula} states that%
+\item Use FPSs instead of polynomials. Recall that the FPS $1+x$ is
+invertible, and its powers $\left(  1+x\right)  ^{a}$ are defined not only for
+$a\in\mathbb{N}$ but also for all $a\in\mathbb{Z}$. Newton's binomial formula
+(Theorem \ref{thm.pol.binom-newton} \textbf{(b)}) states that%
 \[
 \left(  1+x\right)  ^{a}=\sum_{k\in\mathbb{N}}\dbinom{a}{k}x^{k}%
 \]
-holds not only for $a\in\mathbb{N}$, but also for all $a\in\mathbb{Z}$. (This
-can be proven by backwards induction, i.e., from $a$ to $a-1$.) By
+holds not only for $a\in\mathbb{N}$, but also for all $a\in\mathbb{Z}$. By
 substituting $x^{2}$ for $x$ in this equality, we can obtain%
 \[
 \left(  1+x^{2}\right)  ^{a}=\sum_{k\in\mathbb{N}}\dbinom{a}{k}\left(
