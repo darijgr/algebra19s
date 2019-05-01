@@ -17,7 +17,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Wednesday, May 01, 2019 12:32:36}
+%TCIDATA{LastRevised=Wednesday, May 01, 2019 13:08:19}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -29890,6 +29890,13 @@ a\right)  $ for all $\lambda,\mu\in\mathbb{K}$ and $a\in M$.
 A $\mathbb{K}$-module is often called a \textquotedblleft module over
 $\mathbb{K}$\textquotedblright.
 
+The axioms \textquotedblleft$\lambda\left(  a+b\right)  =\lambda a+\lambda
+b$\textquotedblright\ and \textquotedblleft$\left(  \lambda+\mu\right)
+a=\lambda a+\mu a$\textquotedblright\ are known as the \textit{distributivity
+laws for modules}. The axiom \textquotedblleft$\left(  \lambda\mu\right)
+a=\lambda\left(  \mu a\right)  $\textquotedblright\ is known as the
+\textit{associativity law for modules}.
+
 \begin{definition}
 \label{def.module.vectors}If $\mathbb{K}$ is a commutative ring and $M$ is a
 $\mathbb{K}$-module, then the elements of $M$ are called \textit{vectors},
@@ -31558,11 +31565,11 @@ $\mathbb{K}$-modules (where $\mathbb{K}$ is still an arbitrary commutative ring)
 
 \textbf{(a)} A \textit{linear combination} of $v_{1},v_{2},\ldots,v_{k}$ means
 a vector of the form%
-\[
+\begin{equation}
 \lambda_{1}v_{1}+\lambda_{2}v_{2}+\cdots+\lambda_{k}v_{k}%
 ,\ \ \ \ \ \ \ \ \ \ \text{with }\lambda_{1},\lambda_{2},\ldots,\lambda_{k}%
-\in\mathbb{K}.
-\]
+\in\mathbb{K}.\label{eq.def.module.lincomb.a.lc}%
+\end{equation}
 
 
 \textbf{(b)} The \textit{span} of $v_{1},v_{2},\ldots,v_{k}$ is defined to be
@@ -31603,6 +31610,181 @@ you can insert it into this terminology to make it unambiguous: e.g., say
 $\mathbb{K}$-span\textquotedblright\ instead of \textquotedblleft
 span\textquotedblright.
 \end{definition}
+
+The following proposition gives an equivalent criterion for a list of vectors
+to be a basis of a $\mathbb{K}$-module:
+
+\begin{proposition}
+\label{prop.module.basis-unique} Let $M$ be a $\mathbb{K}$-module. Let
+$v_{1},v_{2},\ldots,v_{k}$ be some vectors in $M$. Then, $\left(  v_{1}%
+,v_{2},\ldots,v_{k}\right)  $ is a basis of $M$ if and only if each vector in
+$M$ can be \textbf{uniquely} written in the form
+(\ref{eq.def.module.lincomb.a.lc}).\footnotemark
+\end{proposition}
+
+\footnotetext{We say that a vector $v\in M$ can be \textbf{uniquely} written
+in the form (\ref{eq.def.module.lincomb.a.lc}) if there is a \textbf{unique}
+$k$-tuple $\left(  \lambda_{1},\lambda_{2},\ldots,\lambda_{k}\right)
+\in\mathbb{K}^{k}$ satisfying $v=\lambda_{1}v_{1}+\lambda_{2}v_{2}%
++\cdots+\lambda_{k}v_{k}$.}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.module.basis-unique}.] The following proof is
+long, but not much is happening in it (and you may already have seen this
+argument in a good Linear Algebra class).
+
+$\Longrightarrow:$ Assume that $\left(  v_{1},v_{2},\ldots,v_{k}\right)  $ is
+a basis of $M$. We must prove that each vector in $M$ can be \textbf{uniquely}
+written in the form (\ref{eq.def.module.lincomb.a.lc}).
+
+We have assumed that $\left(  v_{1},v_{2},\ldots,v_{k}\right)  $ is a basis of
+$M$. In other words, the vectors $v_{1},v_{2},\ldots,v_{k}$ are linearly
+independent and their span is $M$ (by the definition of \textquotedblleft
+basis\textquotedblright).
+
+Now, let $v\in M$ be any vector. Then, $v$ lies in the span of the vectors
+$v_{1},v_{2},\ldots,v_{k}$ (since the span of these vectors $v_{1}%
+,v_{2},\ldots,v_{k}$ is $M$, but $v$ lies in $M$). In other words,%
+\[
+v\in\left\{  \lambda_{1}v_{1}+\lambda_{2}v_{2}+\cdots+\lambda_{k}v_{k}%
+\ \mid\ \lambda_{1},\lambda_{2},\ldots,\lambda_{k}\in\mathbb{K}\right\}
+\]
+(by the definition of the span). In other words, $v$ can be written in the
+form (\ref{eq.def.module.lincomb.a.lc}). We shall now show that this way of
+writing $v$ is unique.
+
+Let $\left(  \alpha_{1},\alpha_{2},\ldots,\alpha_{k}\right)  $ and $\left(
+\beta_{1},\beta_{2},\ldots,\beta_{k}\right)  $ be two $k$-tuples $\left(
+\lambda_{1},\lambda_{2},\ldots,\lambda_{k}\right)  \in\mathbb{K}^{k}$
+satisfying $v=\lambda_{1}v_{1}+\lambda_{2}v_{2}+\cdots+\lambda_{k}v_{k}$. We
+will show that $\left(  \alpha_{1},\alpha_{2},\ldots,\alpha_{k}\right)
+=\left(  \beta_{1},\beta_{2},\ldots,\beta_{k}\right)  $.
+
+Indeed, $\left(  \alpha_{1},\alpha_{2},\ldots,\alpha_{k}\right)  $ is a
+$k$-tuple $\left(  \lambda_{1},\lambda_{2},\ldots,\lambda_{k}\right)
+\in\mathbb{K}^{k}$ satisfying $v=\lambda_{1}v_{1}+\lambda_{2}v_{2}%
++\cdots+\lambda_{k}v_{k}$. In other words, $\left(  \alpha_{1},\alpha
+_{2},\ldots,\alpha_{k}\right)  $ is a $k$-tuple of elements of $\mathbb{K}$
+such that $v=\alpha_{1}v_{1}+\alpha_{2}v_{2}+\cdots+\alpha_{k}v_{k}$.
+Similarly, $\left(  \beta_{1},\beta_{2},\ldots,\beta_{k}\right)  $ is a
+$k$-tuple of elements of $\mathbb{K}$ such that $v=\beta_{1}v_{1}+\beta
+_{2}v_{2}+\cdots+\beta_{k}v_{k}$. Now, multiple uses of the distributivity law
+yield%
+\begin{align}
+& \left(  \alpha_{1}-\beta_{1}\right)  v_{1}+\left(  \alpha_{2}-\beta
+_{2}\right)  v_{2}+\cdots+\left(  \alpha_{k}-\beta_{k}\right)  v_{k}%
+\nonumber\\
+& =\left(  \alpha_{1}v-\beta_{1}v\right)  +\left(  \alpha_{2}v-\beta
+_{2}v\right)  +\cdots+\left(  \alpha_{k}v-\beta_{k}v\right)  \nonumber\\
+& =\underbrace{\left(  \alpha_{1}v_{1}+\alpha_{2}v_{2}+\cdots+\alpha_{k}%
+v_{k}\right)  }_{=v}-\underbrace{\left(  \beta_{1}v_{1}+\beta_{2}v_{2}%
++\cdots+\beta_{k}v_{k}\right)  }_{=v}\nonumber\\
+& =v-v=0.\label{pf.prop.module.basis-unique.1}%
+\end{align}
+But the only $k$-tuple $\left(  \lambda_{1},\lambda_{2},\ldots,\lambda
+_{k}\right)  \in\mathbb{K}^{k}$ satisfying $\lambda_{1}v_{1}+\lambda_{2}%
+v_{2}+\cdots+\lambda_{k}v_{k}=0$ is $\left(  \underbrace{0,0,\ldots
+,0}_{k\text{ times}}\right)  $ (since the vectors $v_{1},v_{2},\ldots,v_{k}$
+are linearly independent). Hence, the $k$-tuple $\left(  \alpha_{1}-\beta
+_{1},\alpha_{2}-\beta_{2},\ldots,\alpha_{k}-\beta_{k}\right)  \in
+\mathbb{K}^{k}$ must be $\left(  \underbrace{0,0,\ldots,0}_{k\text{ times}%
+}\right)  $ (since this $k$-tuple satisfies
+(\ref{pf.prop.module.basis-unique.1})). In other words, $\alpha_{i}-\beta
+_{i}=0$ for each $i\in\left\{  1,2,\ldots,k\right\}  $. In other words,
+$\alpha_{i}=\beta_{i}$ for each $i\in\left\{  1,2,\ldots,k\right\}  $. In
+other words, $\left(  \alpha_{1},\alpha_{2},\ldots,\alpha_{k}\right)  =\left(
+\beta_{1},\beta_{2},\ldots,\beta_{k}\right)  $.
+
+Now, forget that we fixed $\left(  \alpha_{1},\alpha_{2},\ldots,\alpha
+_{k}\right)  $ and $\left(  \beta_{1},\beta_{2},\ldots,\beta_{k}\right)  $. We
+thus have shown that if $\left(  \alpha_{1},\alpha_{2},\ldots,\alpha
+_{k}\right)  $ and $\left(  \beta_{1},\beta_{2},\ldots,\beta_{k}\right)  $ are
+two $k$-tuples $\left(  \lambda_{1},\lambda_{2},\ldots,\lambda_{k}\right)
+\in\mathbb{K}^{k}$ satisfying $v=\lambda_{1}v_{1}+\lambda_{2}v_{2}%
++\cdots+\lambda_{k}v_{k}$, then $\left(  \alpha_{1},\alpha_{2},\ldots
+,\alpha_{k}\right)  =\left(  \beta_{1},\beta_{2},\ldots,\beta_{k}\right)  $.
+In other words, there is at most one such $k$-tuple. In other words, $v$ can
+be written in the form (\ref{eq.def.module.lincomb.a.lc}) in at most one way.
+Thus, $v$ can be \textbf{uniquely} written in the form
+(\ref{eq.def.module.lincomb.a.lc}) (because we have previously shown that $v$
+can be written in this from). This proves the \textquotedblleft%
+$\Longrightarrow$\textquotedblright\ direction of Proposition
+\ref{prop.module.basis-unique}.
+
+$\Longleftarrow:$ Assume that each vector in $M$ can be \textbf{uniquely}
+written in the form (\ref{eq.def.module.lincomb.a.lc}). We must prove that
+$\left(  v_{1},v_{2},\ldots,v_{k}\right)  $ is a basis of $M$.
+
+We have assumed that each vector in $M$ can be \textbf{uniquely} written in
+the form (\ref{eq.def.module.lincomb.a.lc}). Thus, in particular, each vector
+in $M$ can be written in this form. In other words, for each $v\in M$, there
+exist $\lambda_{1},\lambda_{2},\ldots,\lambda_{k}\in\mathbb{K}$ such that
+$v=\lambda_{1}v_{1}+\lambda_{2}v_{2}+\cdots+\lambda_{k}v_{k}$. In other words,
+each $v\in M$ is a linear combination of the vectors $v_{1},v_{2},\ldots
+,v_{k}$. In other words, each $v\in M$ belongs to the span of the vectors
+$v_{1},v_{2},\ldots,v_{k}$ (by the definition of a span). In other words, $M$
+is a subset of the span of the vectors $v_{1},v_{2},\ldots,v_{k}$. Hence, the
+span of the vectors $v_{1},v_{2},\ldots,v_{k}$ is $M$ (since this span is
+clearly a subset of $M$).
+
+On the other hand, we have assumed that each vector in $M$ can be
+\textbf{uniquely} written in the form (\ref{eq.def.module.lincomb.a.lc}).
+Thus, if $v\in M$, then $v$ can be \textbf{uniquely} written in this form;
+thus, in particular, any two ways of writing $v$ in this form must be
+identical. In other words, if $v\in M$, and if $\left(  \alpha_{1},\alpha
+_{2},\ldots,\alpha_{k}\right)  $ and $\left(  \beta_{1},\beta_{2},\ldots
+,\beta_{k}\right)  $ are two $k$-tuples $\left(  \lambda_{1},\lambda
+_{2},\ldots,\lambda_{k}\right)  \in\mathbb{K}^{k}$ satisfying $v=\lambda
+_{1}v_{1}+\lambda_{2}v_{2}+\cdots+\lambda_{k}v_{k}$, then
+\begin{equation}
+\left(  \alpha_{1},\alpha_{2},\ldots,\alpha_{k}\right)  =\left(  \beta
+_{1},\beta_{2},\ldots,\beta_{k}\right)  .\label{pf.prop.module.basis-unique.6}%
+\end{equation}
+
+
+Now, let us prove that the vectors $v_{1},v_{2},\ldots,v_{k}$ are linearly
+independent. Indeed, let $\left(  \rho_{1},\rho_{2},\ldots,\rho_{k}\right)
+\in\mathbb{K}^{k}$ be a $k$-tuple satisfying $\rho_{1}v_{1}+\rho_{2}%
+v_{2}+\cdots+\rho_{k}v_{k}=0$. We shall show that $\left(  \rho_{1},\rho
+_{2},\ldots,\rho_{k}\right)  =\left(  \underbrace{0,0,\ldots,0}_{k\text{
+times}}\right)  $.
+
+We notice that $\left(  \rho_{1},\rho_{2},\ldots,\rho_{k}\right)  $ and
+$\left(  \underbrace{0,0,\ldots,0}_{k\text{ times}}\right)  $ are two
+$k$-tuples $\left(  \lambda_{1},\lambda_{2},\ldots,\lambda_{k}\right)
+\in\mathbb{K}^{k}$ satisfying $0=\lambda_{1}v_{1}+\lambda_{2}v_{2}%
++\cdots+\lambda_{k}v_{k}$ (since $\rho_{1}v_{1}+\rho_{2}v_{2}+\cdots+\rho
+_{k}v_{k}=0$ and $0v_{1}+0v_{2}+\cdots+0v_{k}=0$). Hence,
+(\ref{pf.prop.module.basis-unique.6}) (applied to $v=0$, $\left(  \alpha
+_{1},\alpha_{2},\ldots,\alpha_{k}\right)  =\left(  \rho_{1},\rho_{2}%
+,\ldots,\rho_{k}\right)  $ and $\left(  \beta_{1},\beta_{2},\ldots,\beta
+_{k}\right)  =\left(  \underbrace{0,0,\ldots,0}_{k\text{ times}}\right)  $)
+yields
+\[
+\left(  \rho_{1},\rho_{2},\ldots,\rho_{k}\right)  =\left(
+\underbrace{0,0,\ldots,0}_{k\text{ times}}\right)  .
+\]
+
+
+Now, forget that we fixed $\left(  \rho_{1},\rho_{2},\ldots,\rho_{k}\right)
+$. We thus have shown that if $\left(  \rho_{1},\rho_{2},\ldots,\rho
+_{k}\right)  \in\mathbb{K}^{k}$ is any $k$-tuple satisfying $\rho_{1}%
+v_{1}+\rho_{2}v_{2}+\cdots+\rho_{k}v_{k}=0$, then $\left(  \rho_{1},\rho
+_{2},\ldots,\rho_{k}\right)  =\left(  \underbrace{0,0,\ldots,0}_{k\text{
+times}}\right)  $. In other words, the only $k$-tuple $\left(  \lambda
+_{1},\lambda_{2},\ldots,\lambda_{k}\right)  \in\mathbb{K}^{k}$ satisfying
+$\lambda_{1}v_{1}+\lambda_{2}v_{2}+\cdots+\lambda_{k}v_{k}=0$ is $\left(
+\underbrace{0,0,\ldots,0}_{k\text{ times}}\right)  $. In other words, the
+vectors $v_{1},v_{2},\ldots,v_{k}$ are linearly independent (by the definition
+of \textquotedblleft linearly independent\textquotedblright).
+
+Now we know that the vectors $v_{1},v_{2},\ldots,v_{k}$ are linearly
+independent and their span is $M$. In other words, $\left(  v_{1},v_{2}%
+,\ldots,v_{k}\right)  $ is a basis of $M$ (by the definition of
+\textquotedblleft basis\textquotedblright). This proves the \textquotedblleft%
+$\Longleftarrow$\textquotedblright\ direction of Proposition
+\ref{prop.module.basis-unique}.
+\end{proof}
 
 \begin{definition}
 \label{def.module.fingen} Let $M$ be a $\mathbb{K}$-module. Then, we say that
@@ -37976,7 +38158,7 @@ is an $\mathbb{L}$-algebra homomorphism.
 \end{theorem}
 
 \begin{proof}
-[Proof of Theorem \ref{thm.quot.ring/w.wd}.] All of this is analogous to the
+[Proof of Theorem \ref{thm.quot.ring/w.wd}.]All of this is analogous to the
 proofs we did for integers (but $\mathbb{Z}$ and $n$ have to become
 $\mathbb{L}$ and $w$).
 \end{proof}
@@ -38048,7 +38230,7 @@ Let $\mathbf{b}\in\mathbb{K}\left[  x\right]  $ be a polynomial.
 \begin{align*}
 \pi_{\mathbf{b}}:\mathbb{K}\left[  x\right]   &  \rightarrow\mathbb{K}\left[
 x\right]  /\mathbf{b},\\
-\mathbf{a} &  \mapsto\left[  \mathbf{a}\right]  _{\mathbf{b}}%
+\mathbf{a}  &  \mapsto\left[  \mathbf{a}\right]  _{\mathbf{b}}%
 \end{align*}
 is a $\mathbb{K}\left[  x\right]  $-algebra homomorphism and thus a
 $\mathbb{K}$-algebra homomorphism.
@@ -38069,8 +38251,8 @@ x\right]  /\mathbf{b}$ is a root of $\mathbf{b}$.
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.quot.ring/w.root-in-L/w}.] \textbf{(a)} This
-is a particular case of Theorem \ref{thm.quot.ring/w.wd} \textbf{(e)}.
+[Proof of Proposition \ref{prop.quot.ring/w.root-in-L/w}.]\textbf{(a)} This is
+a particular case of Theorem \ref{thm.quot.ring/w.wd} \textbf{(e)}.
 
 \textbf{(b)} This map is a composition of the projection map $\pi_{\mathbf{b}%
 }$ from part \textbf{(a)} with the map $\mathbb{K}\rightarrow\mathbb{K}\left[
@@ -38082,7 +38264,7 @@ $\mathbb{K}$-algebra homomorphism as well.
 \begin{align*}
 \pi_{\mathbf{b}}:\mathbb{K}\left[  x\right]   &  \rightarrow\mathbb{K}\left[
 x\right]  /\mathbf{b},\\
-\mathbf{a} &  \mapsto\left[  \mathbf{a}\right]  _{\mathbf{b}}%
+\mathbf{a}  &  \mapsto\left[  \mathbf{a}\right]  _{\mathbf{b}}%
 \end{align*}
 is a $\mathbb{K}$-algebra homomorphism (by part \textbf{(a)}). Now, let
 $\mathbf{a}\in\mathbb{K}\left[  x\right]  $. The definition of $\pi
@@ -38093,12 +38275,11 @@ _{\mathbf{b}}$ and $\pi_{\mathbf{b}}\left(  \mathbf{a}\right)  =\left[
 /\mathbf{b}$, $\pi_{\mathbf{b}}$ and $x$ instead of $U$, $V$, $f$ and $u$)
 yields%
 \begin{align*}
-\pi_{\mathbf{b}}\left(  \mathbf{a}\left[  x\right]  \right)    &
+\pi_{\mathbf{b}}\left(  \mathbf{a}\left[  x\right]  \right)   &
 =\mathbf{a}\left[  \underbrace{\pi_{\mathbf{b}}\left(  x\right)  }_{=\left[
 x\right]  _{\mathbf{b}}}\right]  \ \ \ \ \ \ \ \ \ \ \left(  \text{since }%
-\pi_{\mathbf{b}}\text{ is a }\mathbb{K}\text{-algebra homomorphism}\right)
-\\
-& =\mathbf{a}\left[  \left[  x\right]  _{\mathbf{b}}\right]  .
+\pi_{\mathbf{b}}\text{ is a }\mathbb{K}\text{-algebra homomorphism}\right) \\
+&  =\mathbf{a}\left[  \left[  x\right]  _{\mathbf{b}}\right]  .
 \end{align*}
 Hence,%
 \[
@@ -38114,11 +38295,11 @@ _{\mathbf{b}}\right]  =0_{\mathbb{K}\left[  x\right]  /\mathbf{b}}$.
 
 Applying part \textbf{(c)} to $\mathbf{a}=\mathbf{b}$, we obtain
 \begin{align*}
-\mathbf{b}\left[  \left[  x\right]  _{\mathbf{b}}\right]    & =\left[
+\mathbf{b}\left[  \left[  x\right]  _{\mathbf{b}}\right]   &  =\left[
 \mathbf{b}\right]  _{\mathbf{b}}=\left[  0\right]  _{\mathbf{b}}%
 \ \ \ \ \ \ \ \ \ \ \left(  \text{since }\mathbf{b}\equiv0\operatorname{mod}%
-\mathbf{b}\right)  \\
-& =0_{\mathbb{K}\left[  x\right]  /\mathbf{b}},
+\mathbf{b}\right) \\
+&  =0_{\mathbb{K}\left[  x\right]  /\mathbf{b}},
 \end{align*}
 and this shows that $\left[  x\right]  _{\mathbf{b}}$ is a root of
 $\mathbf{b}$.
@@ -38158,7 +38339,7 @@ x\right]  /\mathbf{b}$.
 \end{theorem}
 
 \begin{proof}
-[Proof of Theorem \ref{thm.quot.ring/w.basis-of-quot}.] \textbf{(a)} Let
+[Proof of Theorem \ref{thm.quot.ring/w.basis-of-quot}.]\textbf{(a)} Let
 $\alpha\in\mathbb{K}\left[  x\right]  /\mathbf{b}$. Then, $\alpha=\left[
 \mathbf{a}\right]  _{\mathbf{b}}$ for \textbf{some} polynomial $\mathbf{a}%
 \in\mathbb{K}\left[  x\right]  $. Consider this $\mathbf{a}$. Theorem
@@ -38194,17 +38375,16 @@ _{\mathbf{b}}\ \ \ \ \ \ \ \ \ \ \text{with }\lambda_{0},\lambda_{1}%
 It remains to prove that this way is unique. This is LTTR (use the uniqueness
 part of Theorem \ref{thm.pol.quorem} \textbf{(a)}).
 
-\textbf{(b)} This easily follows from part \textbf{(a)}, because if $M$ is an
-arbitrary $\mathbb{K}$-module, and $\left(  v_{0},v_{1},\ldots,v_{k}\right)  $
-is a list of vectors of $M$ such that each vector $v\in M$ can be uniquely
-written as a $\mathbb{K}$-linear combination of $v_{0},v_{1},\ldots,v_{k}$,
-then $\left(  v_{0},v_{1},\ldots,v_{k}\right)  $ is a basis of $M$.
+\textbf{(b)} Proposition \ref{prop.module.basis-unique} shows that Theorem
+\ref{thm.quot.ring/w.basis-of-quot} \textbf{(b)} is a restatement of Theorem
+\ref{thm.quot.ring/w.basis-of-quot} \textbf{(a)}. Thus, Theorem
+\ref{thm.quot.ring/w.basis-of-quot} \textbf{(b)} holds.
 
 \textbf{(c)} We already know (from Proposition
 \ref{prop.quot.ring/w.root-in-L/w} \textbf{(b)}) that the map%
 \begin{align*}
-\mathbb{K} &  \rightarrow\mathbb{K}\left[  x\right]  /\mathbf{b},\\
-a &  \mapsto\left[  \underline{a}\right]  _{\mathbf{b}}%
+\mathbb{K}  &  \rightarrow\mathbb{K}\left[  x\right]  /\mathbf{b},\\
+a  &  \mapsto\left[  \underline{a}\right]  _{\mathbf{b}}%
 \end{align*}
 is a $\mathbb{K}$-algebra homomorphism. We just need to show that it is
 injective. In other words, we need to show that if $a,b\in\mathbb{K}$ satisfy
@@ -38214,9 +38394,9 @@ _{\mathbf{b}}$, then $a=b$.
 So let $a,b\in\mathbb{K}$ satisfy $\left[  \underline{a}\right]  _{\mathbf{b}%
 }=\left[  \underline{b}\right]  _{\mathbf{b}}$. Note that%
 \begin{align*}
-\left[  \underline{a}\right]  _{\mathbf{b}} &  =\left[  ax^{0}\right]
+\left[  \underline{a}\right]  _{\mathbf{b}}  &  =\left[  ax^{0}\right]
 _{\mathbf{b}}\ \ \ \ \ \ \ \ \ \ \left(  \text{since }\underline{a}%
-=a\cdot\underbrace{\underline{1}}_{=x^{0}}=ax^{0}\right)  \\
+=a\cdot\underbrace{\underline{1}}_{=x^{0}}=ax^{0}\right) \\
 &  =a\left[  x^{0}\right]  _{\mathbf{b}},
 \end{align*}
 and similarly $\left[  \underline{b}\right]  _{\mathbf{b}}=b\left[
@@ -38295,7 +38475,7 @@ multiplication of $\mathbb{D}$ satisfies $\varepsilon^{2}=0$.
 We have $\mathbb{D}\cong\mathbb{R}\left[  x\right]  /x^{2}$ (as rings). More
 precisely, the map%
 \begin{align*}
-\mathbb{D} &  \rightarrow\mathbb{R}\left[  x\right]  /x^{2},\\
+\mathbb{D}  &  \rightarrow\mathbb{R}\left[  x\right]  /x^{2},\\
 \left(  a,b\right)  =a+b\varepsilon &  \mapsto\left[  a+bx\right]  _{x^{2}}%
 \end{align*}
 is a ring isomorphism.
@@ -38331,13 +38511,13 @@ This ring $R_{m}$ is isomorphic to the ring $\mathbb{Z}\left[  x\right]
 /\left(  mx-1\right)  $. Indeed, we have a ring homomorphism%
 \begin{align*}
 \mathbb{Z}\left[  x\right]  /\left(  mx-1\right)   &  \rightarrow R_{m},\\
-\left[  \mathbf{a}\right]  _{mx-1} &  \mapsto\mathbf{a}\left[  \dfrac{1}%
+\left[  \mathbf{a}\right]  _{mx-1}  &  \mapsto\mathbf{a}\left[  \dfrac{1}%
 {m}\right]  ,
 \end{align*}
 and this is invertible, with inverse%
 \begin{align*}
-R_{m} &  \rightarrow\mathbb{Z}\left[  x\right]  /\left(  mx-1\right)  ,\\
-\dfrac{a}{m^{k}} &  \mapsto\left[  ax^{k}\right]  _{mx-1}%
+R_{m}  &  \rightarrow\mathbb{Z}\left[  x\right]  /\left(  mx-1\right)  ,\\
+\dfrac{a}{m^{k}}  &  \mapsto\left[  ax^{k}\right]  _{mx-1}%
 \ \ \ \ \ \ \ \ \ \ \left(  \text{for }a\in\mathbb{Z}\text{ and }%
 m\in\mathbb{N}\right)
 \end{align*}
