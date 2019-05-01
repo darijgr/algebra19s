@@ -17,7 +17,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Wednesday, May 01, 2019 12:06:58}
+%TCIDATA{LastRevised=Wednesday, May 01, 2019 12:05:22}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -37766,65 +37766,45 @@ We have defined
 \item what it means for a \textbf{polynomial} to divide a polynomial.
 \end{itemize}
 
-The definitions were exactly the same, differing only in what kind of
-\textquotedblleft numbers\textquotedblright\ we were using. So let us
-generalize them all together:
+The definitions were exactly the same, up to what kind of numbers we were
+using. So let us generalize them all together:
 
 \begin{definition}
-\label{def.quot.ring-div}Let $\mathbb{L}$ be a commutative ring. Let $a$ and
-$b$ be two elements of $\mathbb{L}$. We say that $a\mid b$ \textit{in
-}$\mathbb{L}$ (or \textquotedblleft$a$ \textit{divides} $b$ \textit{in}
-$\mathbb{L}$\textquotedblright\ or \textquotedblleft$b$ is \textit{divisible
-by }$a$ \textit{in} $\mathbb{L}$\textquotedblright\ or \textquotedblleft$b$ is
-a \textit{multiple} of $a$ \textit{in} $\mathbb{L}$\textquotedblright) if
-there exists a $c\in\mathbb{L}$ such that $b=ac$.
-
-We furthermore say that $a\nmid b$ \textit{in} $\mathbb{L}$ if $a$ does not
-divide $b$ \textit{in} $\mathbb{L}$.
+Let $\mathbb{L}$ be a commutative ring. Let $a,b\in\mathbb{L}$. We say that
+$a\mid b$ \textbf{in }$\mathbb{L}$ if there exists a $c\in\mathbb{L}$ such
+that $b=ac$.
 \end{definition}
 
 We shall omit the words \textquotedblleft in $\mathbb{L}$\textquotedblright%
-\ whenever $\mathbb{L}$ is clear. But keep in mind that $\mathbb{L}$ matters.
-For example, $2\nmid1$ in $\mathbb{Z}$, but $2\mid1$ in $\mathbb{Q}$ (since
-$1=2\cdot\dfrac{1}{2}$). Of course, when we speak of divisibility between
-integers, we mean \textquotedblleft in $\mathbb{Z}$\textquotedblright, since
-divisibility in $\mathbb{Q}$ is boring.
+\ whenever this does not cause ambiguity. But $\mathbb{L}$ matters. For
+example, $2\nmid1$ in $\mathbb{Z}$, but $2\mid1$ in $\mathbb{Q}$ (since
+$1=2\cdot\dfrac{1}{2}$).
 
-Most of the standard properties of divisibility still work for any commutative
-ring $\mathbb{L}$. For example:
+Most standard properties of divisibility hold for any commutative ring
+$\mathbb{L}$. For example:
 
 \begin{itemize}
-\item $a\mid a$ for all $a\in\mathbb{L}$;
+\item we have $a\mid a$ for each $a\in\mathbb{L}$;
 
 \item if $a\mid b$ and $b\mid c$, then $a\mid c$,
 \end{itemize}
 
-and so on. (But in general, we cannot conclude $a\mid b$ from $ac\mid bc$ even
-if $c\neq0$.)
+etc.. (But it is not true that $ac\mid bc$ and $c\neq0$ imply $a\mid b$.)
 
-We can furthermore generalize the concept of congruence to arbitrary
-commutative rings:
+We can next generalize the concept of congruence to rings:
 
 \begin{definition}
-\label{def.quot.ring-cong}Let $\mathbb{L}$ be a commutative ring. Let
-$w,a,b\in\mathbb{L}$. We say that $a$ \textit{is congruent to }$b$
-\textit{modulo }$w$ (\textit{in }$\mathbb{L}$\textit{)} if and only if $w\mid
-a-b$. We shall use the notation \textquotedblleft$a\equiv b\operatorname{mod}%
-w$\textquotedblright\ for \textquotedblleft$a$ is congruent to $b$ modulo
-$w$\textquotedblright.
-
-We furthermore shall use the notation \textquotedblleft$a\not \equiv
-b\operatorname{mod}w$\textquotedblright\ for \textquotedblleft$a$ is not
-congruent to $b$ modulo $w$\textquotedblright.
+Let $\mathbb{L}$ be a commutative ring. Let $w,a,b\in\mathbb{L}$. We say that
+$a$ \textbf{is congruent to }$b$ \textbf{modulo }$w$ if and only if $w\mid
+a-b$. We shall write $a\equiv b\operatorname{mod}w$ for this.
 \end{definition}
 
-Again, the standard properties of congruence all hold. For example, the
-following analogue of Proposition \ref{prop.ent.mod.basics} holds (and is
-proven in the same way as Proposition \ref{prop.ent.mod.basics}):
+Again, the basic properties of congruence all hold. For example:
 
 \begin{proposition}
-\label{prop.quot.ring-cong.nice}Let $\mathbb{L}$ be a commutative ring. Let
-$w\in\mathbb{L}$.
+Let $\mathbb{L}$ be a commutative ring. Let $w\in\mathbb{L}$.
+
+Let $w\in\mathbb{L}$.
 
 \textbf{(a)} We have $a\equiv a\operatorname{mod}w$ for every $a\in\mathbb{L}$.
 
@@ -37837,9 +37817,9 @@ then $b\equiv a\operatorname{mod}w$.
 \textbf{(d)} If $a_{1},a_{2},b_{1},b_{2}\in\mathbb{L}$ satisfy $a_{1}\equiv
 b_{1}\operatorname{mod}w$ and $a_{2}\equiv b_{2}\operatorname{mod}w$, then%
 \begin{align}
-a_{1}+a_{2}  &  \equiv b_{1}+b_{2}\operatorname{mod}w;\\
-a_{1}-a_{2}  &  \equiv b_{1}-b_{2}\operatorname{mod}w;\\
-a_{1}a_{2}  &  \equiv b_{1}b_{2}\operatorname{mod}w.
+a_{1}+a_{2} &  \equiv b_{1}+b_{2}\operatorname{mod}w;\\
+a_{1}-a_{2} &  \equiv b_{1}-b_{2}\operatorname{mod}w;\\
+a_{1}a_{2} &  \equiv b_{1}b_{2}\operatorname{mod}w.
 \end{align}
 
 
@@ -37848,9 +37828,8 @@ a_{1}a_{2}  &  \equiv b_{1}b_{2}\operatorname{mod}w.
 b\operatorname{mod}m$.
 \end{proposition}
 
-Now, we can define the straightforward generalization of residue classes
-(Definition \ref{def.eqrel.Z/n.res-class} and Definition
-\ref{def.eqrel.Z/n.Z/n}):
+Now, we can define the straightforward generalization of residue classes and
+of the standard operations on them:
 
 \begin{definition}
 Fix a commutative ring $\mathbb{L}$ and an element $w\in\mathbb{L}$.
@@ -37861,13 +37840,11 @@ by
 \left(  a\underset{w}{\equiv}b\right)  \Longleftrightarrow\left(  a\equiv
 b\operatorname{mod}w\right)  .
 \]
+This $\underset{w}{\equiv}$ is an equivalence relation. (This is proven just
+as for integers.)
 
-
-This $\underset{w}{\equiv}$ is an equivalence relation. (The proof of this is
-analogous to the proof of Example \ref{exa.eqrel.eqrel.eqrelmodn}.)
-
-\textbf{(b)} A \textit{residue class modulo}\textbf{ }$w$ means an equivalence
-class of the relation $\underset{w}{\equiv}$.
+\textbf{(b)} A \textbf{residue class modulo }$w$ means an equivalence class of
+this relation $\underset{w}{\equiv}$.
 
 \textbf{(c)} If $a\in\mathbb{L}$, then we denote the residue class $\left[
 a\right]  _{\underset{w}{\equiv}}$ by $\left[  a\right]  _{w}$.
@@ -37875,22 +37852,24 @@ a\right]  _{\underset{w}{\equiv}}$ by $\left[  a\right]  _{w}$.
 \textbf{(d)} The set $\mathbb{L}/\underset{w}{\equiv}$ of all residue classes
 modulo $w$ is called $\mathbb{L}/w$.
 
-\textbf{(e)} We define a binary operation $+$ on $\mathbb{L}/w$ by%
+\textbf{(e)} We define a binary operation $+$ on $\mathbb{L}/w$ by setting%
 \[
-\left[  a\right]  _{w}+\left[  b\right]  _{w}=\left[  a+b\right]  _{w}.
+\left[  a\right]  _{w}+\left[  b\right]  _{w}=\left[  a+b\right]
+_{w}\ \ \ \ \ \ \ \ \ \ \text{for all }a,b\in\mathbb{L}.
 \]
 
 
-\textbf{(f)} We define a binary operation $\cdot$ on $\mathbb{L}/w$ by%
+\textbf{(f)} We define a binary operation $\cdot$ on $\mathbb{L}/w$ by setting%
 \[
-\left[  a\right]  _{w}\cdot\left[  b\right]  _{w}=\left[  ab\right]  _{w}.
+\left[  a\right]  _{w}\cdot\left[  b\right]  _{w}=\left[  a\cdot b\right]
+_{w}\ \ \ \ \ \ \ \ \ \ \text{for all }a,b\in\mathbb{L}.
 \]
 
 
-\textbf{(g)} For any $\lambda\in\mathbb{L}$ and $\left[  a\right]  _{w}%
-\in\mathbb{L}/w$, we set%
+\textbf{(g)} For any $r\in\mathbb{L}$ and $\left[  a\right]  _{w}\in
+\mathbb{L}/w$, we set%
 \[
-\lambda\cdot\left[  a\right]  _{w}=\left[  \lambda a\right]  _{w}.
+r\cdot\left[  a\right]  _{w}=\left[  ra\right]  _{w}.
 \]
 
 \end{definition}
@@ -37898,59 +37877,55 @@ modulo $w$ is called $\mathbb{L}/w$.
 \begin{theorem}
 Fix a commutative ring $\mathbb{L}$ and an element $w\in\mathbb{L}$.
 
-\textbf{(a)} The above operations $+$ and $\cdot$ and the \textquotedblleft
-scaling map\textquotedblright\ $\cdot$ are well-defined.
+\textbf{(a)} The binary operations $+$ and $\cdot$ and the scaling map $\cdot$
+are well-defined.
 
-\textbf{(b)} The set $\mathbb{L}/w$, equipped with the binary operations $+$
-and $\cdot$ and the zero $\left[  0\right]  _{w}$ and the unity $\left[
-1\right]  _{w}$, is a commutative ring.
+\textbf{(b)} The set $\mathbb{L}/w$, equipped with these things and the zero
+$\left[  0\right]  _{w}$ and the unity $\left[  1\right]  _{w}$, is a
+commutative $\mathbb{L}$-algebra (= a commutative ring and a $\mathbb{L}%
+$-module, and satisfies the \textquotedblleft Scale-invariance of
+multiplication\textquotedblright\ property).
 
-\textbf{(c)} The set $\mathbb{L}/w$, equipped with the addition $+$, the
-scaling $\cdot$ and the zero vector $\left[  0\right]  _{w}$, is an
-$\mathbb{L}$-module.
-
-\textbf{(d)} The set $\mathbb{L}/w$, equipped with all of these items, is a
-commutative $\mathbb{L}$-algebra.
-
-\textbf{(e)} The map%
+\textbf{(c)} The map%
 \begin{align*}
-\pi_{w}:\mathbb{L}  &  \rightarrow\mathbb{L}/w,\\
-a  &  \mapsto\left[  a\right]  _{w}%
+\pi_{w}:\mathbb{L}  & \rightarrow\mathbb{L}/w,\\
+a  & \mapsto\left[  a\right]  _{w}%
 \end{align*}
 is an $\mathbb{L}$-algebra homomorphism.
 \end{theorem}
 
 \begin{proof}
-All of this is analogous to the proofs we did for integers (but $\mathbb{Z}$
-and $n$ have to become $\mathbb{L}$ and $w$).
+All of this is analogous to what we did for integers.
 \end{proof}
 
-This generalizes not just the $\mathbb{Z}$-algebras $\mathbb{Z}/n$, but also
+This generalizes not only the $\mathbb{Z}$-algebras $\mathbb{Z}/n$, but also
 the $\mathbb{Z}\left[  i\right]  $-algebras $\mathbb{Z}\left[  i\right]
-/\alpha$ (where $\alpha$ is a Gaussian integer). But we can apply it to other
-rings $\mathbb{L}$ as well. It turns out to be particularly useful to apply
-this to $\mathbb{L}=\mathbb{K}\left[  x\right]  $, where $\mathbb{K}$ is a
-commutative ring. In particular, this will prove useful to adjoin a root of a
-polynomial to a commutative ring $\mathbb{K}$.
+/\alpha$ for Gaussian integers $\alpha$.
+
+The $\mathbb{L}$-algebra $\mathbb{L}/w$ is called \textquotedblleft%
+$\mathbb{L}$ \textbf{modulo }$w$\textquotedblright\ or \textquotedblleft%
+$\mathbb{L}$ \textbf{divided by }$w$\textquotedblright\ or \textquotedblleft%
+$\mathbb{L}$ \textbf{quotiented by} $w$\textquotedblright.
 
 \begin{convention}
 Let $\mathbb{K}$ be a commutative ring.
 
-\textbf{(a)} If $M$ is a $\mathbb{K}\left[  x\right]  $-module, then $M$
-automatically becomes a $\mathbb{K}$-module, just by letting each
-$a\in\mathbb{K}$ \textquotedblleft act as\textquotedblright\ $\underline{a}%
-\in\mathbb{K}\left[  x\right]  $ (in other words, we define a scaling map
-$\mathbb{K}\times M\rightarrow M$ by setting%
+\textbf{(a)} Any $\mathbb{K}\left[  x\right]  $-module automatically becomes a
+$\mathbb{K}$-module: In fact, if $M$ is a $\mathbb{K}\left[  x\right]
+$-module, then $\mathbf{a}m$ is defined for each $\mathbf{a}\in\mathbb{K}%
+\left[  x\right]  $ and each $m\in M$. But we have identified elements
+$a\in\mathbb{K}$ with constant polynomials $\underline{a}\in\mathbb{K}\left[
+x\right]  $. Thus, $am$ is also defined for each $a\in\mathbb{K}$ and each
+$m\in M$. Thus, $M$ is a $\mathbb{K}$-module. Explicitly, its scaling is given
+by%
 \[
-a\cdot m=\underline{a}\cdot m\ \ \ \ \ \ \ \ \ \ \text{for all }a\in
-\mathbb{K}\text{ and }m\in M
+am=\underline{a}m\ \ \ \ \ \ \ \ \ \ \text{for all }a\in\mathbb{K}\text{ and
+}m\in M.
 \]
-).
 
-\textbf{(b)} If $M$ is a $\mathbb{K}\left[  x\right]  $-algebra, then $M$
-automatically becomes a $\mathbb{K}$-algebra (because we just defined a
-$\mathbb{K}$-module structure on $M$, and this structure is easily seen to
-harmonize with the ring structure in a way that yields a $\mathbb{K}$-algebra).
+
+\textbf{(b)} In this way, any $\mathbb{K}\left[  x\right]  $-algebra becomes a
+$\mathbb{K}$-algebra.
 
 \textbf{(c)} Any $\mathbb{K}\left[  x\right]  $-module homomorphism is
 automatically a $\mathbb{K}$-module homomorphism.
@@ -37961,78 +37936,75 @@ automatically a $\mathbb{K}$-algebra homomorphism.
 
 Thus, in particular, if $\mathbf{b}\in\mathbb{K}\left[  x\right]  $ is any
 polynomial, then the $\mathbb{K}\left[  x\right]  $-algebra $\mathbb{K}\left[
-x\right]  /\mathbf{b}$ automatically becomes a $\mathbb{K}$-algebra as well.
+x\right]  /\mathbf{b}$ becomes a $\mathbb{K}$-algebra as well.
 
 \begin{proposition}
 Let $\mathbb{K}$ be a commutative ring. Let $\mathbf{b}\in\mathbb{K}\left[
 x\right]  $ be a polynomial.
 
-\textbf{(a)} The projection map%
+\textbf{(a)} The map%
 \begin{align*}
-\pi_{\mathbf{b}}:\mathbb{K}\left[  x\right]   &  \rightarrow\mathbb{K}\left[
+\pi_{\mathbf{b}}:\mathbb{K}\left[  x\right]    & \rightarrow\mathbb{K}\left[
 x\right]  /\mathbf{b},\\
-\mathbf{a}  &  \mapsto\left[  \mathbf{a}\right]  _{\mathbf{b}}%
+\mathbf{a}  & \mapsto\left[  \mathbf{a}\right]  _{\mathbf{b}}%
 \end{align*}
-is a $\mathbb{K}\left[  x\right]  $-algebra homomorphism.
+is a $\mathbb{K}\left[  x\right]  $-algebra homomorphism and thus a
+$\mathbb{K}$-algebra homomorphism.
 
-\textbf{(b)} The map%
+\textbf{(b)} The map
 \begin{align*}
-\mathbb{K}  &  \rightarrow\mathbb{K}\left[  x\right]  /\mathbf{b},\\
-a  &  \mapsto\left[  \underline{a}\right]  _{\mathbf{b}}%
+\mathbb{K}  & \rightarrow\mathbb{K}\left[  x\right]  /\mathbf{b},\\
+a  & \mapsto\left[  \underline{a}\right]  _{\mathbf{b}}%
 \end{align*}
 is a $\mathbb{K}$-algebra homomorphism.
 
-\textbf{(c)} The element $\left[  x\right]  _{\mathbf{b}}\in\mathbb{K}\left[
+\textbf{(c)} For any $\mathbf{a}\in\mathbb{K}\left[  x\right]  $, we have
+$\mathbf{a}\left[  \left[  x\right]  _{\mathbf{b}}\right]  =\left[
+\mathbf{a}\right]  _{\mathbf{b}}$.
+
+\textbf{(d)} The element $\left[  x\right]  _{\mathbf{b}}\in\mathbb{K}\left[
 x\right]  /\mathbf{b}$ is a root of $\mathbf{b}$.
 \end{proposition}
 
 \begin{proof}
-\textbf{(a)} This is a particular case of part \textbf{(e)} of the previous theorem.
+\textbf{(a)} follows from part \textbf{(c)} above.
 
-\textbf{(b)} This map is a composition of the projection map $\pi_{\mathbf{b}%
-}$ from part \textbf{(a)} with the map $\mathbb{K}\rightarrow\mathbb{K}\left[
-x\right]  ,\ a\mapsto\underline{a}$. Since both of the maps we are composing
-are $\mathbb{K}$-algebra homomorphisms, their composition is therefore a
-$\mathbb{K}$-algebra homomorphism as well.
+\textbf{(b)} LTTR.
 
-\textbf{(c)} We must prove that $\mathbf{b}\left[  \left[  x\right]
-_{\mathbf{b}}\right]  =0_{\mathbb{K}\left[  x\right]  /\mathbf{b}}$.
-
-We claim that $\mathbf{a}\left[  \left[  x\right]  _{\mathbf{b}}\right]
-=\left[  \mathbf{a}\right]  _{\mathbf{b}}$ for any $\mathbf{a}\in
-\mathbb{K}\left[  x\right]  $. To see this, we set $u=\left[  x\right]
-_{\mathbf{b}}$ and $U=\mathbb{K}\left[  x\right]  /\mathbf{b}$. The projection
-map%
+\textbf{(c)} The projection map%
 \begin{align*}
-\pi_{\mathbf{b}}:\mathbb{K}\left[  x\right]   &  \rightarrow\mathbb{K}\left[
+\pi_{\mathbf{b}}:\mathbb{K}\left[  x\right]    & \rightarrow\mathbb{K}\left[
 x\right]  /\mathbf{b},\\
-\mathbf{a}  &  \mapsto\left[  \mathbf{a}\right]  _{\mathbf{b}}%
+\mathbf{a}  & \mapsto\left[  \mathbf{a}\right]  _{\mathbf{b}}%
 \end{align*}
-is a $\mathbb{K}\left[  x\right]  $-algebra homomorphism (by part
-\textbf{(a)}). Hence, Proposition \ref{prop.pol.eval-funct} (applied to
-$\mathbb{K}\left[  x\right]  $, $U$, $\pi_{\mathbf{b}}$, $x$ and $\mathbf{a}$
-instead of $U$, $V$, $f$, $u$ and $\mathbf{a}$) yields%
+is a $\mathbb{K}$-algebra homomorphism. Proposition 7.6.12 (applied to
+$\mathbb{K}\left[  x\right]  $, $U$, $\pi_{\mathbf{b}}$ and $x$ instead of
+$U$, $V$, $f$ and $\mathbf{a}$) yields%
 \[
 \pi_{\mathbf{b}}\left(  \mathbf{a}\left[  x\right]  \right)  =\mathbf{a}%
-\left[  \pi_{\mathbf{b}}\left(  x\right)  \right]  .
+\left[  \underbrace{\pi_{\mathbf{b}}\left(  x\right)  }_{=\left[  x\right]
+_{\mathbf{b}}}\right]  =\mathbf{a}\left[  \left[  x\right]  _{\mathbf{b}%
+}\right]  ,
 \]
-Since%
-\begin{align*}
-\pi_{\mathbf{b}}\left(  \underbrace{\mathbf{a}\left[  x\right]  }%
-_{=\mathbf{a}}\right)   &  =\pi_{\mathbf{b}}\left(  \mathbf{a}\right)
-=\left[  \mathbf{a}\right]  _{\mathbf{b}}\ \ \ \ \ \ \ \ \ \ \text{and}\\
-\mathbf{a}\left[  \underbrace{\pi_{\mathbf{b}}\left(  x\right)  }_{=\left[
-x\right]  _{\mathbf{b}}}\right]   &  =\mathbf{a}\left[  \left[  x\right]
-_{\mathbf{b}}\right]  ,
-\end{align*}
-this rewrites as $\left[  \mathbf{a}\right]  _{\mathbf{b}}=\mathbf{a}\left[
-\left[  x\right]  _{\mathbf{b}}\right]  $. So this proves our claim that
-$\mathbf{a}\left[  \left[  x\right]  _{\mathbf{b}}\right]  =\left[
-\mathbf{a}\right]  _{\mathbf{b}}$ for any $\mathbf{a}\in\mathbb{K}\left[
-x\right]  $. Applying this to $\mathbf{a}=\mathbf{b}$, we obtain
-$\mathbf{b}\left[  \left[  x\right]  _{\mathbf{b}}\right]  =\left[
-\mathbf{b}\right]  _{\mathbf{b}}=\left[  0\right]  _{\mathbf{b}}=0$, and this
-shows that $\left[  x\right]  _{\mathbf{b}}$ is a root of $\mathbf{b}$.
+so that%
+\[
+\mathbf{a}\left[  \left[  x\right]  _{\mathbf{b}}\right]  =\pi_{\mathbf{b}%
+}\left(  \underbrace{\mathbf{a}\left[  x\right]  }_{=\mathbf{a}}\right)
+=\pi_{\mathbf{b}}\left(  \mathbf{a}\right)  =\left[  \mathbf{a}\right]
+_{\mathbf{b}},
+\]
+qed.
+
+\textbf{(d)} We must prove that $\mathbf{b}\left[  \left[  x\right]
+_{\mathbf{b}}\right]  =0_{\mathbb{K}\left[  x\right]  /\mathbf{b}}$.
+
+Part \textbf{(c)} (applied to $\mathbf{a}=\mathbf{b}$) yields%
+\[
+\mathbf{b}\left[  \left[  x\right]  _{\mathbf{b}}\right]  =\left[
+\mathbf{b}\right]  _{\mathbf{b}}=\left[  0\right]  _{\mathbf{b}}%
+=0_{\mathbb{K}\left[  x\right]  /\mathbf{b}},
+\]
+qed.
 \end{proof}
 
 \begin{theorem}
@@ -38044,22 +38016,21 @@ be such that $\left[  x^{m}\right]  \mathbf{b}$ is invertible. Then:
 \textbf{(a)} Each element of $\mathbb{K}\left[  x\right]  /\mathbf{b}$ can be
 uniquely written in the form%
 \[
-q_{0}\left[  x^{0}\right]  _{\mathbf{b}}+q_{1}\left[  x^{1}\right]
-_{\mathbf{b}}+\cdots+q_{m-1}\left[  x^{m-1}\right]  _{\mathbf{b}%
-}\ \ \ \ \ \ \ \ \ \ \text{with }q_{0},q_{1},\ldots,q_{m-1}\in\mathbb{K}.
+\lambda_{0}\left[  x^{0}\right]  _{\mathbf{b}}+\lambda_{1}\left[
+x^{1}\right]  _{\mathbf{b}}+\cdots+\lambda_{m-1}\left[  x^{m-1}\right]
+_{\mathbf{b}}\ \ \ \ \ \ \ \ \ \ \text{with }\lambda_{0},\lambda_{1}%
+,\ldots,\lambda_{m-1}\in\mathbb{K}.
 \]
 
 
 \textbf{(b)} The $m$ vectors $\left[  x^{0}\right]  _{\mathbf{b}},\left[
 x^{1}\right]  _{\mathbf{b}},\ldots,\left[  x^{m-1}\right]  _{\mathbf{b}}$ form
 a basis of the $\mathbb{K}$-module $\mathbb{K}\left[  x\right]  /\mathbf{b}$.
-(See Definition \ref{def.module.lincomb} \textbf{(d)} for what
-\textquotedblleft basis\textquotedblright\ means.)
 
 \textbf{(c)} Assume that $m>0$. Then, the $\mathbb{K}$-algebra homomorphism%
 \begin{align*}
-\mathbb{K}  &  \rightarrow\mathbb{K}\left[  x\right]  /\mathbf{b},\\
-a  &  \mapsto\left[  \underline{a}\right]  _{\mathbf{b}}%
+\mathbb{K}  & \rightarrow\mathbb{K}\left[  x\right]  /\mathbf{b},\\
+a  & \mapsto\left[  \underline{a}\right]  _{\mathbf{b}}%
 \end{align*}
 is injective. Thus, $\mathbb{K}$ can be viewed as a $\mathbb{K}$-subalgebra of
 $\mathbb{K}\left[  x\right]  /\mathbf{b}$ if we identify each $a\in\mathbb{K}$
@@ -38067,63 +38038,89 @@ with the $\left[  \underline{a}\right]  _{\mathbf{b}}\in\mathbb{K}\left[
 x\right]  /\mathbf{b}$.
 \end{theorem}
 
+This theorem (along with the previous Proposition) shows that if we have a
+polynomial $\mathbf{b}$ whose leading coefficient is invertible, then we can
+\textquotedblleft extend\textquotedblright\ the ring $\mathbb{K}$ by
+\textquotedblleft adjoining\textquotedblright\ a root of $\mathbf{b}$. To do
+so, just form the ring $\mathbb{K}\left[  x\right]  /\mathbf{b}$, which has a
+root $\left[  x\right]  _{\mathbf{b}}$ of $\mathbf{b}$, and identify
+$\mathbb{K}$ with a subring (actually, a $\mathbb{K}$-subalgebra) of
+$\mathbb{K}\left[  x\right]  /\mathbf{b}$.
+
 \begin{proof}
 \textbf{(a)} Let $\alpha\in\mathbb{K}\left[  x\right]  /\mathbf{b}$. Then,
 $\alpha=\left[  \mathbf{a}\right]  _{\mathbf{b}}$ for \textbf{some} polynomial
-$\mathbf{a}\in\mathbb{K}\left[  x\right]  $. Recall the \textquotedblleft
-division with remainder theorem\textquotedblright\ for polynomials. This
-yields that there is a unique pair $\left(  \mathbf{q},\mathbf{r}\right)  $ of
-polynomials with $\mathbf{a}=\mathbf{qb}+\mathbf{r}$ and $\mathbf{r}%
-\in\mathbb{K}\left[  x\right]  _{\leq m-1}$. Consider this pair $\left(
-\mathbf{q},\mathbf{r}\right)  $. Then, $\mathbf{a}=\underbrace{\mathbf{qb}%
-}_{\equiv0\operatorname{mod}\mathbf{b}}+\mathbf{r}\equiv\mathbf{r}%
-\operatorname{mod}\mathbf{b}$, so that $\left[  \mathbf{a}\right]
-_{\mathbf{b}}=\left[  \mathbf{r}\right]  _{\mathbf{b}}$.
-
-Write $\mathbf{r}$ in the form $\mathbf{r}=q_{0}x^{0}+q_{1}x^{1}%
-+\cdots+q_{m-1}x^{m-1}$ with $q_{0},q_{1},\ldots,q_{m-1}\in\mathbb{K}$ (this
-can be done, since $\mathbf{r}\in\mathbb{K}\left[  x\right]  _{\leq m-1}$).
+$\mathbf{a}\in\mathbb{K}\left[  x\right]  $. The \textquotedblleft division
+with remainder\textquotedblright\ theorem tells us that there is a unique pair
+$\left(  \mathbf{q,r}\right)  $ of polynomials with $\mathbf{a=qb+r}$ and
+$\mathbf{r}\in\mathbb{K}\left[  x\right]  _{\leq m-1}$. Consider this pair.
 Then,%
-\begin{align*}
-\alpha &  =\left[  \mathbf{a}\right]  _{\mathbf{b}}=\left[  \mathbf{r}\right]
-_{\mathbf{b}}=\left[  q_{0}x^{0}+q_{1}x^{1}+\cdots+q_{m-1}x^{m-1}\right]
-_{\mathbf{b}}\\
-&  =q_{0}\left[  x^{0}\right]  _{\mathbf{b}}+q_{1}\left[  x^{1}\right]
-_{\mathbf{b}}+\cdots+q_{m-1}\left[  x^{m-1}\right]  _{\mathbf{b}}.
-\end{align*}
-So we have found a way to write $\alpha$ in the form
 \[
-q_{0}\left[  x^{0}\right]  _{\mathbf{b}}+q_{1}\left[  x^{1}\right]
-_{\mathbf{b}}+\cdots+q_{m-1}\left[  x^{m-1}\right]  _{\mathbf{b}%
-}\ \ \ \ \ \ \ \ \ \ \text{with }q_{0},q_{1},\ldots,q_{m-1}\in\mathbb{K}.
+\mathbf{a=}\underbrace{\mathbf{qb}}_{\equiv0\operatorname{mod}\mathbf{b}%
+}\mathbf{+r\equiv r}\operatorname{mod}\mathbf{b.}%
 \]
+In other words, $\left[  \mathbf{a}\right]  _{\mathbf{b}}=\left[
+\mathbf{r}\right]  _{\mathbf{b}}$.
 
-
-It remains to prove that this way is unique. This is LTTR (use the uniqueness
+Write $\mathbf{r}$ in the form $\mathbf{r}=r_{0}x^{0}+r_{1}x^{1}%
++\cdots+r_{m-1}x^{m-1}$ with $r_{0},r_{1},\ldots,r_{m-1}\in\mathbb{K}$. Then,%
+\begin{align*}
+\alpha & =\left[  \mathbf{a}\right]  _{\mathbf{b}}=\left[  \mathbf{r}\right]
+_{\mathbf{b}}=\left[  r_{0}x^{0}+r_{1}x^{1}+\cdots+r_{m-1}x^{m-1}\right]
+_{\mathbf{b}}\\
+& =r_{0}\left[  x^{0}\right]  _{\mathbf{b}}+r_{1}\left[  x^{1}\right]
+_{\mathbf{b}}+\cdots+r_{m-1}\left[  x^{m-1}\right]  _{\mathbf{b}}.
+\end{align*}
+So we have found a way to write $\alpha$ in the form%
+\[
+\lambda_{0}\left[  x^{0}\right]  _{\mathbf{b}}+\lambda_{1}\left[
+x^{1}\right]  _{\mathbf{b}}+\cdots+\lambda_{m-1}\left[  x^{m-1}\right]
+_{\mathbf{b}}\ \ \ \ \ \ \ \ \ \ \text{with }\lambda_{0},\lambda_{1}%
+,\ldots,\lambda_{m-1}\in\mathbb{K}.
+\]
+Furthermore, it can be proven that this way is unique (using the uniqueness
 part of division with remainder).
 
-\textbf{(b)} This easily follows from part \textbf{(a)}, because if $M$ is an
-arbitrary $\mathbb{K}$-module, and $\left(  v_{0},v_{1},\ldots,v_{k}\right)  $
-is a list of vectors of $M$ such that each vector $v\in M$ can be uniquely
-written as a $\mathbb{K}$-linear combination of $v_{0},v_{1},\ldots,v_{k}$,
-then $\left(  v_{0},v_{1},\ldots,v_{k}\right)  $ is a basis of $M$.
+\textbf{(b)} This easily follows from part \textbf{(a)}.
 
-\textbf{(c)} We already know that this map is a $\mathbb{K}$-algebra
-homomorphism. We just need to show that it is injective.
+\textbf{(c)} We already know that the map%
+\begin{align*}
+\mathbb{K}  & \rightarrow\mathbb{K}\left[  x\right]  /\mathbf{b},\\
+a  & \mapsto\left[  \underline{a}\right]  _{\mathbf{b}}%
+\end{align*}
+is a $\mathbb{K}$-algebra homorphism. We just need to show that it is
+injective. In other words, we need to show that if $a,b\in\mathbb{K}$ satisfy
+$\left[  \underline{a}\right]  _{\mathbf{b}}=\left[  \underline{b}\right]
+_{\mathbf{b}}$, then $a=b$.
 
-So let $a,b\in\mathbb{K}$ be such that $\left[  \underline{a}\right]
-_{\mathbf{b}}=\left[  \underline{b}\right]  _{\mathbf{b}}$. We must prove that
-$a=b$.
-
-Rewrite $\left[  \underline{a}\right]  _{\mathbf{b}}=\left[  \underline{b}%
-\right]  _{\mathbf{b}}$ as $a\cdot\left[  x^{0}\right]  _{\mathbf{b}}%
-=b\cdot\left[  x^{0}\right]  _{\mathbf{b}}$. Then, apply the \textquotedblleft
-uniqueness\textquotedblright\ part of \textbf{(a)} to conclude $a=b$.
+So let $a,b\in\mathbb{K}$ satisfy $\left[  \underline{a}\right]  _{\mathbf{b}%
+}=\left[  \underline{b}\right]  _{\mathbf{b}}$. Note that%
+\begin{align*}
+\left[  \underline{a}\right]  _{\mathbf{b}}  & =\left[  ax^{0}\right]
+_{\mathbf{b}}\ \ \ \ \ \ \ \ \ \ \left(  \text{since }\underline{a}%
+=a\cdot\underline{1}=ax^{0}\right)  \\
+& =a\left[  x^{0}\right]  _{\mathbf{b}},
+\end{align*}
+and similarly $\left[  \underline{b}\right]  _{\mathbf{b}}=b\left[
+x^{0}\right]  _{\mathbf{b}}$. Hence, the equality $\left[  \underline{a}%
+\right]  _{\mathbf{b}}=\left[  \underline{b}\right]  _{\mathbf{b}}$ rewrites
+as%
+\[
+a\left[  x^{0}\right]  _{\mathbf{b}}=b\left[  x^{0}\right]  _{\mathbf{b}}.
+\]
+But these are two ways of representing an element of $\mathbb{K}\left[
+x\right]  /\mathbf{b}$ in the form%
+\[
+\lambda_{0}\left[  x^{0}\right]  _{\mathbf{b}}+\lambda_{1}\left[
+x^{1}\right]  _{\mathbf{b}}+\cdots+\lambda_{m-1}\left[  x^{m-1}\right]
+_{\mathbf{b}}\ \ \ \ \ \ \ \ \ \ \text{with }\lambda_{0},\lambda_{1}%
+,\ldots,\lambda_{m-1}\in\mathbb{K}%
+\]
+(actually, with $\lambda_{i}=0$ for all $i>0$). But the \textquotedblleft
+uniqueness\textquotedblright\ statement in part \textbf{(a)} yields that there
+is only one way to represent an element in this form. Hence, these two ways
+must be equal. Therefore, $a=b$.
 \end{proof}
-
-We now understand the quotient rings $\mathbb{K}\left[  x\right]  /\mathbf{b}$
-well enough at least in the case when the leading coefficient of $\mathbf{b}$
-is invertible. Let us use this to see some examples:
 
 \begin{example}
 We have a ring isomorphism%
@@ -38134,20 +38131,17 @@ We have a ring isomorphism%
 
 Indeed, the map%
 \begin{align*}
-\mathbb{C}  &  \rightarrow\mathbb{R}\left[  x\right]  /\left(  x^{2}+1\right)
+\mathbb{C}  & \rightarrow\mathbb{R}\left[  x\right]  /\left(  x^{2}+1\right)
 ,\\
-\left(  a,b\right)  =a+bi  &  \mapsto\left[  a+bx\right]  _{x^{2}+1}%
+a+bi  & \mapsto\left[  a+bx\right]  _{x^{2}+1}%
 \end{align*}
 is a ring homomorphism, and is invertible, with inverse%
 \begin{align*}
-\mathbb{R}\left[  x\right]  /\left(  x^{2}+1\right)   &  \rightarrow
+\mathbb{R}\left[  x\right]  /\left(  x^{2}+1\right)    & \rightarrow
 \mathbb{C},\\
-\left[  \mathbf{a}\right]  _{x^{2}+1}  &  \mapsto\mathbf{a}\left[  i\right]  .
+\left[  \mathbf{a}\right]  _{x^{2}+1}  & \mapsto\mathbf{a}\left[  i\right]  .
 \end{align*}
-To see that the latter inverse is well-defined, you have to check that if
-$\mathbf{a}$ and $\mathbf{b}$ are two polynomials in $\mathbb{R}\left[
-x\right]  $ satisfying $\mathbf{a}\equiv\mathbf{b}\operatorname{mod}x^{2}+1$,
-then $\mathbf{a}\left[  i\right]  =\mathbf{b}\left[  i\right]  $. (LTTR.)
+
 \end{example}
 
 \begin{example}
@@ -38168,17 +38162,19 @@ We have a ring isomorphism%
 \[
 \mathbb{D}\cong\mathbb{R}\left[  x\right]  /x^{2}.
 \]
+
+
 We also have a ring isomorphism%
 \[
 \mathbb{D}\cong\mathbb{R}\left[  \left[  x\right]  \right]  /x^{2}.
 \]
-(No such thing exists for $\mathbb{C}$. The ring $\mathbb{R}\left[  \left[
+(No such thing exists for $\mathbb{C}$: the ring $\mathbb{R}\left[  \left[
 x\right]  \right]  /\left(  x^{2}+1\right)  $ is trivial!)
 \end{example}
 
 \begin{example}
 We constructed a field with $4$ elements by adjoining a $j$ satisfying
-$j^{2}=j+1$ to $\mathbb{Z}/2$. This field is isomorphic to
+$j^{2}=j+1$ to $\mathbb{Z}/2$. This field is isomorphic to%
 \[
 \left(  \mathbb{Z}/2\right)  \left[  x\right]  /\left(  x^{2}-x-1\right)  .
 \]
@@ -38191,50 +38187,49 @@ set of all $m$-integers (= rational numbers that can be turned into integers
 by multiplying with $m$ often enough). We proved that $R_{m}$ is a ring.
 
 This ring $R_{m}$ is isomorphic to the ring $\mathbb{Z}\left[  x\right]
-/\left(  mx-1\right)  $. Indeed, we have a ring homomorphism%
-\begin{align*}
-\mathbb{Z}\left[  x\right]  /\left(  mx-1\right)   &  \rightarrow R_{m},\\
-\left[  \mathbf{a}\right]  _{mx-1}  &  \mapsto\mathbf{a}\left[  \dfrac{1}%
-{m}\right]  ,
-\end{align*}
-and this is invertible, with inverse%
-\begin{align*}
-R_{m}  &  \rightarrow\mathbb{Z}\left[  x\right]  /\left(  mx-1\right)  ,\\
-\dfrac{a}{m^{k}}  &  \mapsto\left[  ax^{k}\right]  _{mx-1}%
-\ \ \ \ \ \ \ \ \ \ \left(  \text{for }a\in\mathbb{Z}\text{ and }%
-m\in\mathbb{N}\right)
-\end{align*}
-(you have to check that this is well-defined).
+/\left(  mx-1\right)  $.
 \end{example}
 
-When do we get a field by adjoining a root? In other words, what must a
-polynomial $\mathbf{b}$ satisfy in order for $\mathbb{K}\left[  x\right]
-/\mathbf{b}$ to be a field?
+\begin{example}
+We have a ring isomorphism%
+\[
+\left(  \mathbb{Z}/6\right)  \left[  x\right]  /\left(  2x+1\right)
+\cong\mathbb{Z}/3.
+\]
+So we get a smaller ring by adjoining a root of $2x+1$ to $\mathbb{Z}/6$. No
+surprise, since $\left[  x^{1}\right]  \left(  2x+1\right)  =\left[  2\right]
+_{6}$ is not invertible in $\mathbb{Z}/6$.
+
+This is similar to how dividing by $0$ makes all numbers equal:%
+\[
+\mathbb{Z}\left[  x\right]  /\left(  0x-1\right)  \cong\left\{  0\right\}  .
+\]
+
+\end{example}
+
+When does adjoining a root of a polynomial to a field yield a field?
+
+Not always: e.g., $\mathbb{R}\left[  x\right]  /\left(  x^{2}+1\right)  $ is a
+field ($\mathbb{C}$), but $\mathbb{R}\left[  x\right]  /x^{2}$ is not a field
+($\mathbb{D}$).
 
 \begin{definition}
-Let $\mathbb{F}$ be a field.
-
-A polynomial $\mathbf{a}\in\mathbb{F}\left[  x\right]  $ is said to be
-\textit{irreducible} if $\deg\mathbf{a}>0$ and there exist no two polynomials
-$\mathbf{b},\mathbf{c}\in\mathbb{F}\left[  x\right]  $ with $\mathbf{a}%
-=\mathbf{bc}$ and $\deg\mathbf{b}>0$ and $\deg\mathbf{c}>0$.
+Let $\mathbb{F}$ be a field. Let $\mathbf{a}\in\mathbb{F}\left[  x\right]  $.
+We say that $\mathbf{a}$ is \textbf{irreducible} if $\mathbf{a}$ is
+non-constant (i.e., $\deg\mathbf{a}>0$) but cannot be factored as a product of
+two non-constant polynomials.
 \end{definition}
 
-Irreducible polynomials over a field $\mathbb{F}$ are an analogue of prime
-numbers (or, to be more precise, of integers of the form $\pm p$ where $p$ is
-a prime).
-
 \begin{theorem}
-Let $\mathbb{F}$ be a field. Let $\mathbf{a}\in\mathbb{F}\left[  x\right]  $
-be a polynomial.
-
-Then, the ring $\mathbb{F}\left[  x\right]  /\mathbf{a}$ is a field if and
-only if $\mathbf{a}$ is irreducible.
+Let $\mathbb{F}$ be a field. The ring $\mathbb{F}\left[  x\right]
+/\mathbf{a}$ is a field if and only if $\mathbf{a}$ is irreducible.
 \end{theorem}
 
-So, for example, the irreducible polynomial $x^{2}+1$ over $\mathbb{R}$ yields
-the field $\mathbb{R}\left[  x\right]  /\left(  x^{2}+1\right)  $ (which is
-$\cong\mathbb{C}$), but the non-irreducible polynomial $x^{2}$ over
-$\mathbb{R}$ yields the non-field $\mathbb{R}\left[  x\right]  /x^{2}$ (which
-is $\cong\mathbb{D}$).
+Note that $x^{2}+1\in\mathbb{R}\left[  x\right]  $ is irreducible, but $x^{2}$
+is not ($x^{2}=x\cdot x$). Thus, $\mathbb{R}\left[  x\right]  /\left(
+x^{2}+1\right)  $ is a field, while $\mathbb{R}\left[  x\right]  /x^{2}$ is not.
+
+
+
+
 \end{document}
