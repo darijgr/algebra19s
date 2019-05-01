@@ -17,7 +17,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, April 29, 2019 20:35:30}
+%TCIDATA{LastRevised=Wednesday, May 01, 2019 08:18:43}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -2825,6 +2825,30 @@ positive integer.
 
 \textbf{(b)} Prove that $\left(  u+v\right)  //n-u//n-v//n\in\left\{
 0,1\right\}  $.
+\end{exercise}
+
+\begin{exercise}
+\label{exe.ent.quo-rem.bijs}Let $n$ be a positive integer. Prove the following:
+
+\textbf{(a)} The map%
+\begin{align*}
+\mathbb{Z}\times\left\{  0,1,\ldots,n-1\right\}   &  \rightarrow\mathbb{Z},\\
+\left(  q,r\right)   &  \mapsto qn+r
+\end{align*}
+is a bijection.
+
+\textbf{(b)} The map%
+\begin{align*}
+\mathbb{N}\times\left\{  0,1,\ldots,n-1\right\}   &  \rightarrow\mathbb{N},\\
+\left(  q,r\right)   &  \mapsto qn+r
+\end{align*}
+is a bijection.
+
+\textbf{(c)} Any $q\in\mathbb{Z}$ and $r\in\left\{  0,1,\ldots,n-1\right\}  $
+satisfy $\left(  qn+r\right)  //n=q$.
+
+\textbf{(d)} Any $q\in\mathbb{Z}$ and $r\in\left\{  0,1,\ldots,n-1\right\}  $
+satisfy $\left(  qn+r\right)  \%n=r$.
 \end{exercise}
 
 \subsection{Even and odd numbers}
@@ -25225,7 +25249,9 @@ to the six possible constellations of signs of $n,m,n+m$.
 
 \textbf{(c)} Induction.
 
-\textbf{(d)} Analogous to the proof for rationals.
+\textbf{(d)} For $\mathbb{K}=\mathbb{Q}$, this was proven in Exercise 1 on
+\href{http://www-users.math.umn.edu/~dgrinber/19s/hw0s.pdf}{homework set \#0}.
+The proof in the case of general rings $\mathbb{K}$ is analogous.
 \end{proof}
 
 \subsection{\label{sect.ring.inv}Multiplicative inverses and fields}
@@ -25667,6 +25693,22 @@ This contradiction shows that our assumption was false. Hence, Exercise
 \end{proof}
 \end{fineprint}
 
+\begin{exercise}
+\label{exe.ring.invertible.indirect}Let $\mathbb{K}$ be a ring. Let
+$a,b,c\in\mathbb{K}$ be such that $ab=1$ and $bc=1$.\ Prove that the element
+$b$ is invertible and its multiplicative inverse satisfies $b^{-1}=a=c$.
+\end{exercise}
+
+\begin{proof}
+[Solution to Exercise \ref{exe.ring.invertible.indirect}.] Comparing
+$abc=\underbrace{\left(  ab\right)  }_{=1}c=c$ with $abc=a\underbrace{\left(
+bc\right)  }_{=1}=a$, we obtain $a=c$. Furthermore, $a$ is a multiplicative
+inverse of $b$ (since $ab=1$ and $b\underbrace{a}_{=c}=bc=1$). Thus, the
+element $b$ has a multiplicative inverse, i.e., is invertible. Furthermore, we
+have $b^{-1}=a$ (since $a$ is a multiplicative inverse of $b$), thus
+$b^{-1}=a=c$. This solves Exercise \ref{exe.ring.invertible.indirect}.
+\end{proof}
+
 \subsection{\label{sect.ring.hunting1}Hunting for finite fields I}
 
 \begin{definition}
@@ -25907,8 +25949,9 @@ $\mathbb{K}^{\prime}$ is a field, then Condition 1 holds (because if $\left(
 x,y\right)  \in\mathbb{K}\times\mathbb{K}$ satisfies $\left(  x,y\right)
 \neq\left(  0,0\right)  $, then $\left(  x,y\right)  \left(  x,-y\right)
 =\left(  x^{2}+y^{2},0\right)  $ would have to be $\neq\left(  0,0\right)  $
-in order for $\mathbb{K}^{\prime}$ to be a field). So $\mathbb{K}^{\prime}$ is
-a field if and only if Condition 1 holds.
+in order for $\mathbb{K}^{\prime}$ to be a field\footnote{by Exercise
+\ref{exe.field.xy=0}}). So $\mathbb{K}^{\prime}$ is a field if and only if
+Condition 1 holds.
 
 If $\mathbb{K}=\mathbb{Z}/p$ for some prime $p$, then Condition 1 can be
 restated as follows:
@@ -25948,10 +25991,12 @@ field for $p=3$. Thus we have found a field with $3^{2}=9$ elements.
 This suggests that the following:
 
 \begin{proposition}
-A prime $p$ satisfies Condition 2 if and only if $p\equiv3\operatorname{mod}4$.
+\label{prop.finfield.K'.prime-p-cond2}A prime $p$ satisfies Condition 2 if and
+only if $p\equiv3\operatorname{mod}4$.
 \end{proposition}
 
 \begin{proof}
+[Proof of Proposition \ref{prop.finfield.K'.prime-p-cond2} (sketched).]
 $\Longrightarrow:$ Assume that a prime $p$ satisfies Condition 2. Assume (for
 contradiction) that $p\not \equiv 3\operatorname{mod}4$. So $p$ is a prime of
 Type 1 or 2. Thus, $p=x^{2}+y^{2}$ for two integers $x,y$ (by Theorem
@@ -25959,6 +26004,8 @@ Type 1 or 2. Thus, $p=x^{2}+y^{2}$ for two integers $x,y$ (by Theorem
 a pair in $\mathbb{Z}\times\mathbb{Z}$ such that \textbf{not both} $x$ and $y$
 are divisible by $p$ (why not?), but the sum $x^{2}+y^{2}=p$ is divisible by
 $p$. So Condition 2 fails for $\left(  a,b\right)  =\left(  x,y\right)  $.
+This proves the \textquotedblleft$\Longrightarrow$\textquotedblright%
+\ direction of Proposition \ref{prop.finfield.K'.prime-p-cond2}.
 
 $\Longleftarrow:$ Assume that a prime $p$ satisfies $p\equiv
 3\operatorname{mod}4$. Thus, $\left(  p-1\right)  /2$ is an odd nonnegative integer.
@@ -25979,8 +26026,9 @@ $a^{2}+b^{2}\equiv0^{2}+b^{2}=b^{2}\operatorname{mod}p$, so that $b^{2}\equiv
 a^{2}+b^{2}\equiv0\operatorname{mod}p$ and thus $p\mid b^{2}$ and therefore
 $p\mid b$; but this would contradict our assumption that \textbf{not both} $a$
 and $b$ are divisible by $p$. Hence, we cannot have $p\mid a$. Thus, we have
-$p\nmid a$. Hence, Fermat's little theorem yields $a^{p-1}\equiv
-1\operatorname{mod}p$. Similarly, $b^{p-1}\equiv1\operatorname{mod}p$.
+$p\nmid a$. Hence, Fermat's Little Theorem (Theorem \ref{thm.ent.fermat}
+\textbf{(a)}) yields $a^{p-1}\equiv1\operatorname{mod}p$. Similarly,
+$b^{p-1}\equiv1\operatorname{mod}p$.
 
 From $a^{2}+b^{2}\equiv0\operatorname{mod}p$, we get $a^{2}\equiv
 -b^{2}\operatorname{mod}p$. Taking this congruence to the $\left(  p-1\right)
@@ -25991,8 +26039,7 @@ nonnegative integer.}, we find%
 ^{\left(  p-1\right)  /2}=\underbrace{\left(  -1\right)  ^{\left(  p-1\right)
 /2}}_{\substack{=-1\\\text{(since }\left(  p-1\right)  /2\text{ is odd)}%
 }}\underbrace{\left(  b^{2}\right)  ^{\left(  p-1\right)  /2}}%
-_{\substack{=b^{p-1}\\\equiv1\operatorname{mod}p}}\equiv-1\operatorname{mod}%
-p.
+_{\substack{=b^{p-1}\\\equiv1\operatorname{mod}p}}\equiv-1\operatorname{mod}p.
 \]
 Hence,%
 \[
@@ -26001,7 +26048,9 @@ Hence,%
 \]
 Hence, $p\mid\left(  -1\right)  -1=-2\mid2$, so $p=2$ (since $p$ is prime).
 This contradicts $p\equiv3\operatorname{mod}4$. This contradiction shows that
-our assumption was false; thus, Condition 2 holds.
+our assumption was false; thus, Condition 2 holds. This proves the
+\textquotedblleft$\Longleftarrow$\textquotedblright\ direction of Proposition
+\ref{prop.finfield.K'.prime-p-cond2}.
 \end{proof}
 
 Thus, if we set $\mathbb{K}=\mathbb{Z}/p$ where $p$ is a prime of Type 3, then
@@ -26013,8 +26062,8 @@ We can try to vary the construction above: Instead of adjoining a square root
 of $-1$, we adjoin a square root of some other element $\eta\in\mathbb{Z}/p$.
 
 \begin{definition}
-Let $\mathbb{K}$ be a ring. A \textit{square} (in $\mathbb{K}$) means an
-element of the form $a^{2}$ for some $a\in\mathbb{K}$.
+\label{def.ring.square}Let $\mathbb{K}$ be a ring. A \textit{square} (in
+$\mathbb{K}$) means an element of the form $a^{2}$ for some $a\in\mathbb{K}$.
 \end{definition}
 
 Now, we generalize Definition \ref{def.finfield.K'} as follows:
@@ -26128,7 +26177,8 @@ We cannot get such a field by adjoining a square root to $\mathbb{Z}/2$. So
 let us instead try to adjoin an element $j$ such that $j^{2}=j+1$. So we
 define $\mathbb{K}^{\prime\prime}$ as the set of all pairs $\left(
 a,b\right)  \in\left(  \mathbb{Z}/2\right)  \times\left(  \mathbb{Z}/2\right)
-$, and we define $+,-,\cdot$ on $\mathbb{K}^{\prime\prime}$ by%
+$, and we define three operations $+$, $-$ and $\cdot$ on $\mathbb{K}%
+^{\prime\prime}$ by%
 \begin{align*}
 \left(  a,b\right)  +\left(  c,d\right)   &  =\left(  a+c,b+d\right)  ,\\
 \left(  a,b\right)  -\left(  c,d\right)   &  =\left(  a-c,b-d\right)
@@ -26170,19 +26220,19 @@ illustrates a general idea: that residue classes make sense not only for integer
 \textbf{2019-04-03 lecture}
 \end{center}
 
-\textbf{Warning:} When $p$ is a prime, $\mathbb{Z}/p^{2}$ is \textbf{not} a
-field; thus, the field with $p^{2}$ elements that we constructed is not
-$\mathbb{Z}/p^{2}$.
+\textbf{Warning:} When $p$ is a prime, the ring $\mathbb{Z}/p^{2}$ is
+\textbf{not} a field; thus, the field with $p^{2}$ elements that we
+constructed is not $\mathbb{Z}/p^{2}$.
 
 Now, what about finite fields of size $p^{3},p^{4},\ldots$ ? What about finite
 fields of size $6$ ?
 
 \textbf{Spoiler:} It turns out that the former exist, while the latter do not.
 We will hopefully prove this later. More generally, for an integer $n>1$,
-there exists a field of size $n$ if and only if $n$ is a prime power (= power
-of a prime). Even better, if $n$ is a prime power, then a field of size $n$ is
-unique up to relabeling. We hope to see a proof of this (at least of the
-existence part) further on in this class.
+there exists a field of size $n$ if and only if $n$ is a prime power (= a
+positive power of a prime). Even better, if $n$ is a prime power, then a field
+of size $n$ is unique up to relabeling. We hope to see a proof of this (at
+least of the existence part) further on in this class.
 
 \subsection{\label{sect.ring.cart-prod}Cartesian products}
 
@@ -31824,7 +31874,7 @@ $\mathbb{K}$ have a special name; they are called the \textit{ideals} of
 $\mathbb{K}$. So the kernel of a ring homomorphism is always an ideal. (And
 conversely, every ideal can be written as the kernel of a ring homomorphism.)
 
-\section{\label{chp.pol}Polynomials}
+\section{\label{chp.pol}Polynomials and formal power series}
 
 \subsection{\label{sect.pol.motiv}Motivation}
 
@@ -32948,14 +32998,15 @@ This solves Exercise \ref{exe.pol.coeff-shift} \textbf{(b)}.
 \textbf{2019-04-24 lecture}
 \end{center}
 
-\subsection{Inverses in the ring $\mathbb{K}\left[  \left[  x\right]  \right]
-$}
+\subsection{\label{sect.FPS.inv}Inverses in the ring $\mathbb{K}\left[
+\left[  x\right]  \right]  $}
 
-\subsubsection{The invertibility criterion for power series}
+\subsubsection{\label{subsect.FPS.inv.crit}The invertibility criterion for
+power series}
 
 The equation (\ref{eq.pol.FPS.ex5}) is not just an example of multiplying two
-FPSs. It is also an example of an inverse in the ring $\mathbb{K}\left[
-\left[  x\right]  \right]  $. Indeed, we can rewrite it as%
+FPSs. It is also an example of a multiplicative inverse in the ring
+$\mathbb{K}\left[  \left[  x\right]  \right]  $. Indeed, we can rewrite it as%
 \[
 \left(  1-x\right)  \cdot\left(  1+x+x^{2}+x^{3}+\cdots\right)  =\underline{1}%
 \]
@@ -32971,7 +33022,8 @@ have $\left(  1-x\right)  \cdot\left(  1+x+x^{2}+x^{3}+\cdots\right)  =\left(
 Since $\underline{1}$ is the unity $1_{\mathbb{K}\left[  \left[  x\right]
 \right]  }$ of the ring $\mathbb{K}\left[  \left[  x\right]  \right]  $, we
 thus conclude that the FPS $1+x+x^{2}+x^{3}+\cdots$ is a multiplicative
-inverse of $1-x$. Thus, the FPS $1-x$ is invertible, and its inverse is%
+inverse of $1-x$. Thus, the FPS $1-x$ is invertible, and its multiplicative
+inverse is%
 \[
 \dfrac{1}{1-x}=1+x+x^{2}+x^{3}+\cdots.
 \]
@@ -33146,9 +33198,9 @@ Theorem \ref{thm.pol.FPS-inv}.
 In Definition \ref{def.CC.CC.power-}, we have defined negative powers (i.e.,
 powers of the form $\alpha^{n}$ with $n$ being a negative integer) of any
 nonzero complex number $\alpha$. All that we needed from $\alpha$ in that
-definition was that $\alpha$ has an inverse $\alpha^{-1}$. Thus, we can
-straightforwardly extend this definition to any invertible element $\alpha$ of
-any ring:
+definition was that $\alpha$ has a multiplicative inverse $\alpha^{-1}$. Thus,
+we can straightforwardly extend this definition to any invertible element
+$\alpha$ of any ring:
 
 \begin{definition}
 \label{def.ring.power-}Let $\mathbb{L}$ be a ring. Let $\alpha\in\mathbb{L}$
@@ -33175,24 +33227,25 @@ and all }n\in\mathbb{Z}.
 
 We can apply this to $\mathbb{L}=\mathbb{K}\left[  \left[  x\right]  \right]
 $ (which is a commutative ring). Recall that the FPS $1-x$ is invertible, and
-its inverse is
+its multiplicative inverse is
 \[
 \dfrac{1}{1-x}=1+x+x^{2}+x^{3}+\cdots=\sum_{k\in\mathbb{N}}x^{k}.
 \]
-A similar argument shows that the FPS $1+x$ is invertible, and its inverse is
+A similar argument shows that the FPS $1+x$ is invertible, and its
+multiplicative inverse is
 \[
 \dfrac{1}{1+x}=1-x+x^{2}-x^{3}\pm\cdots=\sum_{k\in\mathbb{N}}\left(
 -1\right)  ^{k}x^{k}.
 \]
 Thus, negative powers of $1+x$ are well-defined. We can explicitly compute not
-just the inverse of $1+x$ (as we just did), but also all powers of $1+x$. As
-far as the nonnegative powers are concerned (that is, $\left(  1+x\right)
-^{u}$ for $u\in\mathbb{N}$), this can easily be done by the binomial formula,
-and the result can be written either as $\sum_{k=0}^{u}\dbinom{u}{k}x^{k}$ or
-as the infinite sum $\sum_{k\in\mathbb{N}}\dbinom{u}{k}x^{k}$. (The second sum
-differs from the first sum only in the presence of addends for $k>u$; but all
-these addends are $0$, and thus do not actually affect the sum.)
-Interestingly, however, the formula%
+just the multiplicative inverse of $1+x$ (as we just did), but also all powers
+of $1+x$. As far as the nonnegative powers are concerned (that is, $\left(
+1+x\right)  ^{u}$ for $u\in\mathbb{N}$), this can easily be done by the
+binomial formula, and the result can be written either as $\sum_{k=0}%
+^{u}\dbinom{u}{k}x^{k}$ or as the infinite sum $\sum_{k\in\mathbb{N}}%
+\dbinom{u}{k}x^{k}$. (The second sum differs from the first sum only in the
+presence of addends for $k>u$; but all these addends are $0$, and thus do not
+actually affect the sum.) Interestingly, however, the formula%
 \[
 \left(  1+x\right)  ^{u}=\sum_{k\in\mathbb{N}}\dbinom{u}{k}x^{k}%
 \]
@@ -33297,7 +33350,7 @@ _{k\in\mathbb{N}}\dbinom{u}{k}x^{k}.
 Thus,%
 \begin{equation}
 N_{u}=\left(  \dbinom{u}{0},\dbinom{u}{1},\dbinom{u}{2},\ldots\right)
-=\sum_{k\in\mathbb{N}}\dbinom{u}{k}x^{k}.\label{pf.thm.pol.binom-newton.1}%
+=\sum_{k\in\mathbb{N}}\dbinom{u}{k}x^{k}. \label{pf.thm.pol.binom-newton.1}%
 \end{equation}
 
 
@@ -34416,18 +34469,19 @@ If $\lambda\in\mathbb{K}$ and if $\mathbf{a}\in\mathbb{K}\left[  x\right]  $,
 then $\lambda\mathbf{a}\in\mathbb{K}\left[  x\right]  $%
 \ \ \ \ \footnote{\textit{Proof.} Let $\lambda\in\mathbb{K}$ and let
 $\mathbf{a}\in\mathbb{K}\left[  x\right]  $. We must prove that $\lambda
-\mathbf{a}\in\mathbb{K}\left[  x\right]  $. But there exists some
-$n\in\mathbb{N}$ such that $\mathbf{a}\in\mathbb{K}\left[  x\right]  _{\leq
-n}$ (by Theorem \ref{thm.pol.pol-basics} \textbf{(c)}). Consider this $n$.
-Then, Lemma \ref{lem.pol.addition} \textbf{(c)} yields $\lambda\mathbf{a}%
-\in\mathbb{K}\left[  x\right]  _{\leq n}$. On the other hand, Theorem
-\ref{thm.pol.pol-basics} \textbf{(a)} yields that $\mathbb{K}\left[  x\right]
-_{\leq n}$ is a $\mathbb{K}$-submodule of $\mathbb{K}\left[  x\right]  $.
-Thus, $\mathbb{K}\left[  x\right]  _{\leq n}\subseteq\mathbb{K}\left[
-x\right]  $. Hence, $\lambda\mathbf{a}\in\mathbb{K}\left[  x\right]  _{\leq
-n}\subseteq\mathbb{K}\left[  x\right]  $. Qed.}. In other words, the subset
-$\mathbb{K}\left[  x\right]  $ of $\mathbb{K}\left[  \left[  x\right]
-\right]  $ is closed under scaling.
+\mathbf{a}\in\mathbb{K}\left[  x\right]  $.
+\par
+There exists some $n\in\mathbb{N}$ such that $\mathbf{a}\in\mathbb{K}\left[
+x\right]  _{\leq n}$ (by Theorem \ref{thm.pol.pol-basics} \textbf{(c)}).
+Consider this $n$. Then, Lemma \ref{lem.pol.addition} \textbf{(c)} yields
+$\lambda\mathbf{a}\in\mathbb{K}\left[  x\right]  _{\leq n}$. On the other
+hand, Theorem \ref{thm.pol.pol-basics} \textbf{(b)} yields that $\mathbb{K}%
+\left[  x\right]  _{\leq n}$ is a $\mathbb{K}$-submodule of $\mathbb{K}\left[
+x\right]  $. Thus, $\mathbb{K}\left[  x\right]  _{\leq n}\subseteq
+\mathbb{K}\left[  x\right]  $. Hence, $\lambda\mathbf{a}\in\mathbb{K}\left[
+x\right]  _{\leq n}\subseteq\mathbb{K}\left[  x\right]  $. Qed.}. In other
+words, the subset $\mathbb{K}\left[  x\right]  $ of $\mathbb{K}\left[  \left[
+x\right]  \right]  $ is closed under scaling.
 
 The subset $\mathbb{K}\left[  x\right]  $ of $\mathbb{K}\left[  \left[
 x\right]  \right]  $ contains $0_{\mathbb{K}\left[  \left[  x\right]  \right]
@@ -34448,15 +34502,16 @@ Now, the subset $\mathbb{K}\left[  x\right]  $ is both a subring and a
 $\mathbb{K}$-submodule of $\mathbb{K}\left[  \left[  x\right]  \right]  $. In
 other words, $\mathbb{K}\left[  x\right]  $ is a $\mathbb{K}$-subalgebra of
 $\mathbb{K}\left[  \left[  x\right]  \right]  $. This proves Corollary
-\ref{cor.pol.pol-subal} \textbf{(d)}.
+\ref{cor.pol.pol-subal} \textbf{(a)}.
 \end{proof}
 \end{fineprint}
 
 \begin{definition}
-Corollary \ref{cor.pol.pol-subal} \textbf{(a)} yields that $\mathbb{K}\left[
-x\right]  $ is a $\mathbb{K}$-algebra. This $\mathbb{K}$-algebra is called the
-\textit{polynomial ring over }$\mathbb{K}$ \textit{in the indeterminate }$x$
-(or the \textit{algebra of polynomials in }$x$ \textit{over }$\mathbb{K}$).
+\label{def.pol.polyring}Corollary \ref{cor.pol.pol-subal} \textbf{(a)} yields
+that $\mathbb{K}\left[  x\right]  $ is a $\mathbb{K}$-algebra. This
+$\mathbb{K}$-algebra is called the \textit{polynomial ring over }$\mathbb{K}$
+\textit{in the indeterminate }$x$ (or the \textit{algebra of polynomials in
+}$x$ \textit{over }$\mathbb{K}$).
 \end{definition}
 
 We can restate some of Theorem \ref{thm.pol.pol-basics} in terms of degrees:
@@ -36800,195 +36855,907 @@ _{=\dbinom{n}{k}\dbinom{n}{k}}  &  =\sum_{k=0}^{n}\left(  -1\right)
 \ref{prop.binom.altsum-squares}.
 \end{proof}
 
-\subsubsection{Lucas's congruence}
+\subsubsection{Proving Lucas's congruence}
 
 Recall Lucas's congruence (Theorem \ref{thm.binom.lucas}), which we have left
 unproven back when we were studying binomial coefficients. Let us now outline
-how it can be proven using FPSs.
+how it can be proven using polynomials and FPSs. We first shall prove a
+particular case:
+
+\begin{lemma}
+\label{lem.binom.lucas.21N}Let $a\in\mathbb{N}$ and $b\in\mathbb{N}$. Then, we
+have the four congruences%
+\begin{align*}
+\dbinom{2a}{2b}  &  \equiv\dbinom{a}{b}\operatorname{mod}%
+2;\ \ \ \ \ \ \ \ \ \ \dbinom{2a}{2b+1}\equiv0\operatorname{mod}2;\\
+\dbinom{2a+1}{2b}  &  \equiv\dbinom{a}{b}\operatorname{mod}%
+2;\ \ \ \ \ \ \ \ \ \ \dbinom{2a+1}{2b+1}\equiv\dbinom{a}{b}\operatorname{mod}%
+2.
+\end{align*}
+
+\end{lemma}
+
+Lemma \ref{lem.binom.lucas.21N} is a very particular case of Theorem
+\ref{thm.binom.lucas} -- namely, the one when $p=2$ and $a\in\mathbb{N}$ and
+$b\in\mathbb{N}$. (The four congruences correspond to the four different
+options for the pair $\left(  c,d\right)  \in\left\{  0,1,\ldots,p-1\right\}
+^{2}$.) Nevertheless, it is already the reason for a curious pattern: If you
+plot the first $2^{n}$ rows of Pascal's triangle (for some $n\in\mathbb{N}$),
+and color all odd entries black and all even entries white, then
+\href{https://en.wikipedia.org/wiki/Pascal's_triangle#Overall_patterns_and_properties}{you
+obtain an (approximation to) Sierpinski's triangle (the fractal)}. Lemma
+\ref{lem.binom.lucas.21N} can be used to prove this (by induction on $n$).
 
 \begin{proof}
-[Proof of Theorem \ref{thm.binom.lucas} (sketched).]Let us first consider the
-case when $p=2$ and $c=1$ and $a\in\mathbb{N}$. So we need to prove%
+[Proof of Lemma \ref{lem.binom.lucas.21N} (sketched).]Work in the polynomial
+ring $\left(  \mathbb{Z}/2\right)  \left[  x\right]  $ over $\mathbb{Z}/2$. In
+this ring, we have%
 \[
-\dbinom{2a+1}{2b+1}\equiv\dbinom{a}{b}\operatorname{mod}%
-2\ \ \ \ \ \ \ \ \ \ \text{and}\ \ \ \ \ \ \ \ \ \ \dbinom{2a+1}{2b}%
-\equiv\dbinom{a}{b}\operatorname{mod}2.
-\]
-
-
-Work in the polynomial ring $\left(  \mathbb{Z}/2\right)  \left[  x\right]  $
-over $\mathbb{Z}/2$. In this ring, we have%
-\[
-\left(  1+x\right)  ^{2}=1+\underbrace{2}_{=0}x+x^{2}=1+x^{2}.
+\left(  1+x\right)  ^{2}=1+\underbrace{2x}_{\substack{=0\\\text{(since
+}2=0\text{ in }\mathbb{Z}/2\text{)}}}+x^{2}=1+x^{2}.
 \]
 \ Lemma \ref{lem.binom.psgu} (applied to $\left(  \mathbb{Z}/2\right)  \left[
 x\right]  $, $a$ and $x^{2}$ instead of $\mathbb{K}$, $u$ and $a$) yields%
-\begin{align*}
+\begin{align}
 \left(  1+x^{2}\right)  ^{a}  &  =\sum_{k\in\mathbb{N}}\dbinom{a}%
-{k}\underbrace{\left(  x^{2}\right)  ^{k}}_{=x^{2k}}=\sum_{k\in\mathbb{N}%
-}\dbinom{a}{k}x^{2k}\\
-&  =\dbinom{a}{0}x^{0}+\dbinom{a}{1}x^{2}+\dbinom{a}{2}x^{4}+\cdots.
-\end{align*}
+{k}\underbrace{\left(  x^{2}\right)  ^{k}}_{=x^{2k}}%
+\label{pf.lem.binom.lucas.21N.bin1}\\
+&  =\sum_{k\in\mathbb{N}}\dbinom{a}{k}x^{2k}=\dbinom{a}{0}x^{0}+\dbinom{a}%
+{1}x^{2}+\dbinom{a}{2}x^{4}+\dbinom{a}{3}x^{6}+\cdots.\nonumber
+\end{align}
 
 
 Now,%
-\begin{align*}
-\left(  1+x\right)  ^{2a+1}  &  =\left(  \underbrace{\left(  1+x\right)  ^{2}%
-}_{=1+x^{2}}\right)  ^{a}\left(  1+x\right)  =\underbrace{\left(
-1+x^{2}\right)  ^{a}}_{=\dbinom{a}{0}x^{0}+\dbinom{a}{1}x^{2}+\dbinom{a}%
-{2}x^{4}+\cdots}\left(  1+x\right) \\
+\begin{align}
+\left(  1+x\right)  ^{2a+1}  &  =\underbrace{\left(  1+x\right)  ^{2a}%
+}_{=\left(  \left(  1+x\right)  ^{2}\right)  ^{a}}\left(  1+x\right)  =\left(
+\underbrace{\left(  1+x\right)  ^{2}}_{=1+x^{2}}\right)  ^{a}\left(
+1+x\right) \nonumber\\
+&  =\underbrace{\left(  1+x^{2}\right)  ^{a}}_{=\dbinom{a}{0}x^{0}+\dbinom
+{a}{1}x^{2}+\dbinom{a}{2}x^{4}+\dbinom{a}{3}x^{6}+\cdots\cdots}\left(
+1+x\right) \nonumber\\
 &  =\left(  \dbinom{a}{0}x^{0}+\dbinom{a}{1}x^{2}+\dbinom{a}{2}x^{4}%
-+\cdots\right)  \left(  1+x\right) \\
++\dbinom{a}{3}x^{6}+\cdots\right)  \left(  1+x\right) \nonumber\\
+&  =\left(  \dbinom{a}{0}x^{0}+\dbinom{a}{1}x^{2}+\dbinom{a}{2}x^{4}%
++\dbinom{a}{3}x^{6}+\cdots\right) \nonumber\\
+&  \ \ \ \ \ \ \ \ \ \ +\left(  \dbinom{a}{0}x^{0}+\dbinom{a}{1}x^{2}%
++\dbinom{a}{2}x^{4}+\dbinom{a}{3}x^{6}+\cdots\right)  x\nonumber\\
 &  =\dbinom{a}{0}x^{0}+\dbinom{a}{0}x^{1}+\dbinom{a}{1}x^{2}+\dbinom{a}%
-{1}x^{3}+\dbinom{a}{2}x^{4}+\dbinom{a}{2}x^{5}+\cdots.
-\end{align*}
+{1}x^{3}+\dbinom{a}{2}x^{4}+\dbinom{a}{2}x^{5}+\cdots\nonumber\\
+&  =\sum_{k\in\mathbb{N}}\dbinom{a}{k//2}x^{k}
+\label{pf.lem.binom.lucas.21N.0}%
+\end{align}
+(where we are using Definition \ref{def.ent.quorem}).
+
 Comparing this to%
-\begin{align*}
+\begin{align}
 \left(  1+x\right)  ^{2a+1}  &  =\sum_{k\in\mathbb{N}}\dbinom{2a+1}{k}%
-x^{k}\ \ \ \ \ \ \ \ \ \ \left(
+x^{k}\label{pf.lem.binom.lucas.21N.bin2}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(
 \begin{array}
 [c]{c}%
 \text{by Lemma \ref{lem.binom.psgu}, applied to }\left(  \mathbb{Z}/2\right)
 \left[  x\right]  \text{, }2a+1\text{ and }x\\
 \text{instead of }\mathbb{K}\text{, }u\text{ and }u
 \end{array}
-\right) \\
-&  =\dbinom{2a+1}{0}x^{0}+\dbinom{2a+1}{1}x^{1}+\dbinom{2a+1}{2}x^{2}+\cdots,
-\end{align*}
+\right)  ,\nonumber
+\end{align}
 we obtain%
+\begin{equation}
+\sum_{k\in\mathbb{N}}\dbinom{2a+1}{k}x^{k}=\sum_{k\in\mathbb{N}}\dbinom
+{a}{k//2}x^{k}. \label{pf.lem.binom.lucas.21N.1}%
+\end{equation}
+This is an equality of FPSs (actually, polynomials). But recall that FPSs are
+just sequences of elements of $\mathbb{K}$ (where in our case, $\mathbb{K}%
+=\mathbb{Z}/2$). Hence, if two FPSs are equal, then the coefficients in
+$x^{n}$ in these two FPSs are equal (whenever $n\in\mathbb{N}$). Hence, from
+(\ref{pf.lem.binom.lucas.21N.1}), we conclude that
+\[
+\left[  x^{n}\right]  \left(  \sum_{k\in\mathbb{N}}\dbinom{2a+1}{k}%
+x^{k}\right)  =\left[  x^{n}\right]  \left(  \sum_{k\in\mathbb{N}}\dbinom
+{a}{k//2}x^{k}\right)
+\]
+for each $n\in\mathbb{N}$. In view of
+\begin{equation}
+\left[  x^{n}\right]  \left(  \sum_{k\in\mathbb{N}}\dbinom{2a+1}{k}%
+x^{k}\right)  =\dbinom{2a+1}{n} \label{pf.lem.binom.lucas.21N.co1}%
+\end{equation}
+(by the definition of $\left[  x^{n}\right]  \mathbf{a}$ for an FPS
+$\mathbf{a}$) and
+\begin{equation}
+\left[  x^{n}\right]  \left(  \sum_{k\in\mathbb{N}}\dbinom{a}{k//2}%
+x^{k}\right)  =\dbinom{a}{n//2}, \label{pf.lem.binom.lucas.21N.co2}%
+\end{equation}
+this rewrites as%
+\begin{equation}
+\dbinom{2a+1}{n}=\dbinom{a}{n//2}. \label{pf.lem.binom.lucas.21N.2}%
+\end{equation}
+
+
+Thus, we have proven (\ref{pf.lem.binom.lucas.21N.2}) for each $n\in
+\mathbb{N}$. Applying (\ref{pf.lem.binom.lucas.21N.2}) to $n=2b$, we obtain%
+\[
+\dbinom{2a+1}{2b}=\dbinom{a}{\left(  2b\right)  //2}=\dbinom{a}{b}%
+\ \ \ \ \ \ \ \ \ \ \left(  \text{since }\left(  2b\right)  //2=b\right)  .
+\]
+This proves the third of the four congruences that are claimed in Lemma
+\ref{lem.binom.lucas.21N}... except that something is amiss: Why did we get an
+equality rather than a congruence? As an equality between two integers,
+$\dbinom{2a+1}{2b}=\dbinom{a}{b}$ is clearly wrong (e.g., if $a=1$ and $b=1$,
+then it claims that $3=1$). What did we do wrong?
+
+The culprit is our abuse of notation which lets us use the same symbol for an
+integer $w$ and the corresponding element $w\cdot1_{\mathbb{Z}/2}=\left[
+w\right]  _{2}$ of $\mathbb{Z}/2$. For example, the coefficients of the FPS
+$\sum_{k\in\mathbb{N}}\dbinom{2a+1}{k}x^{k}$ on the left hand side of
+(\ref{pf.lem.binom.lucas.21N.co2}) are not the \textbf{integers}
+$\dbinom{2a+1}{k}$, but rather the corresponding elements $\dbinom{2a+1}%
+{k}\cdot1_{\mathbb{Z}/2}$ of $\mathbb{Z}/2$ (since $\lambda x^{k}=\left(
+\lambda\cdot1_{\mathbb{Z}/2}\right)  \cdot x^{k}$ for each $\lambda
+\in\mathbb{Z}$). Thus, the \textquotedblleft$\dbinom{2a+1}{n}$%
+\textquotedblright\ on the right hand side of
+(\ref{pf.lem.binom.lucas.21N.co2}) should be understood not as the
+\textbf{integer} $\dbinom{2a+1}{n}$, but rather as the corresponding element
+$\dbinom{2a+1}{n}\cdot1_{\mathbb{Z}/2}$ of $\mathbb{Z}/2$. Hence, the equality
+(\ref{pf.lem.binom.lucas.21N.2}) that we obtained is not actually an equality
+between integers (despite looking like one), but rather an equality between
+the corresponding elements of $\mathbb{Z}/2$, namely%
+\begin{equation}
+\dbinom{2a+1}{n}\cdot1_{\mathbb{Z}/2}=\dbinom{a}{n//2}\cdot1_{\mathbb{Z}/2}.
+\label{pf.lem.binom.lucas.21N.2-corr}%
+\end{equation}
+Such an equality can be translated into a congruence modulo $2$ between the
+integers: Indeed, if $u$ and $v$ are two integers satisfying $u\cdot
+1_{\mathbb{Z}/2}=v\cdot1_{\mathbb{Z}/2}$, then $\left[  u\right]  _{2}%
+=u\cdot1_{\mathbb{Z}/2}=v\cdot1_{\mathbb{Z}/2}=\left[  v\right]  _{2}$ and
+thus $u\equiv v\operatorname{mod}2$. Hence,
+(\ref{pf.lem.binom.lucas.21N.2-corr}) yields%
+\[
+\dbinom{2a+1}{n}\equiv\dbinom{a}{n//2}\operatorname{mod}2.
+\]
+By applying this to $n=2b$, we obtain the third of the four congruences that
+are claimed in Lemma \ref{lem.binom.lucas.21N}. Likewise, we can apply it to
+$n=2b+1$, and thus obtain the fourth of these four congruences.
+
+In order to prove the first two of these four congruences, we have to consider
+$\left(  1+x\right)  ^{2a}$ instead of $\left(  1+x\right)  ^{2a+1}$. Thus,
+the computation (\ref{pf.lem.binom.lucas.21N.0}) is replaced by%
 \begin{align*}
-&  \dbinom{2a+1}{0}x^{0}+\dbinom{2a+1}{1}x^{1}+\dbinom{2a+1}{2}x^{2}+\cdots\\
-&  =\dbinom{a}{0}x^{0}+\dbinom{a}{0}x^{1}+\dbinom{a}{1}x^{2}+\dbinom{a}%
-{1}x^{3}+\dbinom{a}{2}x^{4}+\dbinom{a}{2}x^{5}+\cdots.
+\left(  1+x\right)  ^{2a}  &  =\left(  \underbrace{\left(  1+x\right)  ^{2}%
+}_{=1+x^{2}}\right)  ^{a}=\left(  1+x^{2}\right)  ^{a}\\
+&  =\dbinom{a}{0}x^{0}+\dbinom{a}{1}x^{2}+\dbinom{a}{2}x^{4}+\dbinom{a}%
+{3}x^{6}+\cdots\\
+&  =\dbinom{a}{0}x^{0}+0x^{1}+\dbinom{a}{1}x^{2}+0x^{3}+\dbinom{a}{2}%
+x^{4}+0x^{5}+\cdots\\
+&  =\sum_{k\in\mathbb{N}}%
+\begin{cases}
+\dbinom{a}{k//2}, & \text{if }k\text{ is even;}\\
+0, & \text{if }k\text{ is odd}%
+\end{cases}
+x^{k}.
 \end{align*}
-This is an equality of FPSs (actually, polynomials), which, as you remember,
-are just sequences of coefficients. So if two FPSs are equal, then their
-$n$-th coefficients are equal for each $n$. Applying this to the two FPSs
-above, we conclude that
+The rest of the argument is similar to the argument we used above to prove the
+third and fourth congruences; we leave this to the reader. Thus, Lemma
+\ref{lem.binom.lucas.21N} is proven.
+\end{proof}
+
+Now, how can we extend this proof to a full proof of Theorem
+\ref{thm.binom.lucas}? As we know, Lemma \ref{lem.binom.lucas.21N} is the
+particular case of Theorem \ref{thm.binom.lucas} for $p=2$ and $a\in
+\mathbb{N}$ and $b\in\mathbb{N}$. Thus, we need to lift the three restrictions
+$p=2$, $a\in\mathbb{N}$ and $b\in\mathbb{N}$. Here is a rough plan:
 
 \begin{itemize}
-\item for each $b\in\mathbb{N}$, we have $\dbinom{2a+1}{2b}=\dbinom{a}{b}$
-(because the $\left(  2b\right)  $-th coefficients are equal);
+\item To lift the restriction $b\in\mathbb{N}$, we simply observe that Theorem
+\ref{thm.binom.lucas} is trivial in the case when $b\in\mathbb{Z}$ is
+negative. Indeed, if $b\in\mathbb{Z}$ is negative, then both $pb+d$ and $b$
+are negative (since $d\in\left\{  0,1,\ldots,p-1\right\}  $ yields $d<p$, but
+$b<0$ yields $pb\leq-p$), and therefore Theorem \ref{thm.binom.lucas} boils
+down to the obvious congruence $0\equiv0\dbinom{c}{d}\operatorname{mod}p$.
 
-\item for each $b\in\mathbb{N}$, we have $\dbinom{2a+1}{2b+1}=\dbinom{a}{b}$
-(because the $\left(  2b+1\right)  $-th coefficients are equal).
-\end{itemize}
+\item To lift the restriction $a\in\mathbb{N}$, we have to tweak our above
+proof so that it works for negative $a$ as well. Of course, the first step is
+to use FPSs instead of polynomials. There are only two places in our proof
+where we have used the nonnegativity of $a$ -- namely, the two places where we
+applied Lemma \ref{lem.binom.psgu}. The first place was
+(\ref{pf.lem.binom.lucas.21N.bin1}); the second was
+(\ref{pf.lem.binom.lucas.21N.bin2}). So we have to prove
+(\ref{pf.lem.binom.lucas.21N.bin1}) and (\ref{pf.lem.binom.lucas.21N.bin2})
+without using the requirement that $a\in\mathbb{N}$. But this is easy using
+Newton's binomial theorem. In fact, (\ref{pf.lem.binom.lucas.21N.bin2})
+follows directly from Theorem \ref{thm.pol.binom-newton} \textbf{(b)} (applied
+to $u=2a+1$), whereas (\ref{pf.lem.binom.lucas.21N.bin1}) follows by first
+applying Theorem \ref{thm.pol.binom-newton} \textbf{(b)} to $u=a$ and then
+substituting $x^{2}$ for $x$. (As we explained in Remark
+\ref{rmk.pol.eval.FPS}, not every element of a $\mathbb{K}$-algebra can be
+substituted into an FPS; but $x^{2}$ can always be substituted into an FPS,
+and the usual properties of substitution -- such as it being a $\mathbb{K}%
+$-algebra homomorphism -- are satisfied.)
 
-Why did we get equalities rather than congruences modulo $2$ ?
-
-We are working over $\mathbb{Z}/2$, not over $\mathbb{Z}$, so the coefficients
-of our polynomials are actually elements of $\mathbb{Z}/2$; we are just
-writing them as if they were integers (abuse of notation). So when we say%
-\[
-\dbinom{2a+1}{2b}=\dbinom{a}{b},
-\]
-we really mean%
-\begin{align*}
-\dbinom{2a+1}{2b}\cdot1_{\mathbb{Z}/2}  &  =\dbinom{a}{b}\cdot1_{\mathbb{Z}%
-/2},\ \ \ \ \ \ \ \ \ \ \text{that is,}\\
-\left[  \dbinom{2a+1}{2b}\right]  _{2}  &  =\left[  \dbinom{a}{b}\right]
-_{2}.
-\end{align*}
-But this means precisely that $\dbinom{2a+1}{2b}\equiv\dbinom{a}%
-{b}\operatorname{mod}2$. The integers $\dbinom{2a+1}{2b}$ and $\dbinom{a}{b}$
-do not have to be equal.
-
-So we have proven Lucas's congruence in the case when $p=2$ and $c=1$ and
-$a\in\mathbb{N}$.
-
-Lift the restriction $c=1$ by realizing that the only other possibility is
-$c=0$, and the proof in that case is similar.
-
-Lift the restriction $p=2$ by realizing that an analogue of the $\left(
-1+x\right)  ^{2}=1+x^{2}$ identity holds for any prime $p$: Namely, if $p$ is
-a prime, then%
+\item Finally, how can we lift the restriction that $p$ be a prime? Recall
+that we used the identity $\left(  1+x\right)  ^{2}=1+x^{2}$ (in $\left(
+\mathbb{Z}/p\right)  \left[  x\right]  $) in our above proof. This has to be
+replaced by the identity%
 \[
 \left(  1+x\right)  ^{p}=1+x^{p}\ \ \ \ \ \ \ \ \ \ \text{in }\left(
 \mathbb{Z}/p\right)  \left[  x\right]  .
 \]
-This is a consequence of Theorem \ref{thm.ring.freshdream} (applied to
-$\mathbb{K}=\left(  \mathbb{Z}/p\right)  \left[  x\right]  $, $a=1$ and
+This identity is a consequence of Theorem \ref{thm.ring.freshdream} (applied
+to $\mathbb{K}=\left(  \mathbb{Z}/p\right)  \left[  x\right]  $, $a=1$ and
 $b=x$), since $p\cdot1_{\left(  \mathbb{Z}/p\right)  \left[  x\right]  }=0$.
-
-(Note: It is important that $p$ is prime here (or $1$). It is not true that
-$\left(  1+x\right)  ^{4}=1+x^{4}$ in $\left(  \mathbb{Z}/4\right)  \left[
-x\right]  $. This behavior is unique to prime numbers (and $1$).)
-
-Thus we can lift the restriction that $p=2$.
-
-Finally, we can lift the restriction that $a\in\mathbb{N}$ in one of two ways:
-
-\begin{itemize}
-\item Use upper negation to reduce the negative case to the positive case.
-
-\item Use FPSs instead of polynomials. Recall that the FPS $1+x$ is
-invertible, and its powers $\left(  1+x\right)  ^{a}$ are defined not only for
-$a\in\mathbb{N}$ but also for all $a\in\mathbb{Z}$. Newton's binomial formula
-(Theorem \ref{thm.pol.binom-newton} \textbf{(b)}) states that%
-\[
-\left(  1+x\right)  ^{a}=\sum_{k\in\mathbb{N}}\dbinom{a}{k}x^{k}%
-\]
-holds not only for $a\in\mathbb{N}$, but also for all $a\in\mathbb{Z}$. By
-substituting $x^{2}$ for $x$ in this equality, we can obtain%
-\[
-\left(  1+x^{2}\right)  ^{a}=\sum_{k\in\mathbb{N}}\dbinom{a}{k}\left(
-x^{2}\right)  ^{k}.
-\]
-Thus, when $a\in\mathbb{Z}$, we can replace our references to Lemma
-\ref{lem.binom.psgu} by applications of the above two formulas.
 \end{itemize}
+
+\begin{noncompile}
+An alternative way of lifting the restriction $a\in\mathbb{N}$ is to reduce
+the \textquotedblleft negative $a$\textquotedblright\ case to the
+\textquotedblleft nonnegative $a$\textquotedblright\ case using Theorem
+\ref{thm.binom.upneg-n}; but this is laborious and painful (some cases need to
+be distinguished).
+\end{noncompile}
+
+Thus, we obtain the following proof of Theorem \ref{thm.binom.lucas} in full generality:
+
+\begin{proof}
+[Proof of Theorem \ref{thm.binom.lucas} (sketched).]If $b<0$, then both $pb+d$
+and $b$ are negative\footnote{The proof of this is left to the reader.
+(\textbf{Hint:} From $b<0$, we obtain $b\leq-1$ and thus $pb\leq-p$; but from
+$d\in\left\{  0,1,\ldots,p-1\right\}  $, we obtain $d\leq p-1<p$.)}, and
+therefore both $\dbinom{pa+c}{pb+d}$ and $\dbinom{a}{b}$ equal $0$. Thus, if
+$b<0$, then the claim of Theorem \ref{thm.binom.lucas} rewrites as
+$0\equiv0\dbinom{c}{d}\operatorname{mod}p$, which is obvious. Hence, for the
+rest of this proof, we WLOG assume that we don't have $b<0$. Thus, $b\geq0$,
+so that $b\in\mathbb{N}$ and therefore $pb+d\in\mathbb{N}$.
+
+Let us work in the ring $\left(  \mathbb{Z}/p\right)  \left[  \left[
+x\right]  \right]  $. In this ring, we have%
+\[
+p\cdot\underbrace{1_{\left(  \mathbb{Z}/p\right)  \left[  \left[  x\right]
+\right]  }}_{=1_{\mathbb{Z}/p}\cdot1_{\left(  \mathbb{Z}/p\right)  \left[
+\left[  x\right]  \right]  }}=\underbrace{p\cdot1_{\mathbb{Z}/p}}_{=\left[
+p\right]  _{p}=\left[  0\right]  _{p}=0}\cdot1_{\left(  \mathbb{Z}/p\right)
+\left[  \left[  x\right]  \right]  }=0\cdot1_{\left(  \mathbb{Z}/p\right)
+\left[  \left[  x\right]  \right]  }=0.
+\]
+Thus, Theorem \ref{thm.ring.freshdream} (applied to $\mathbb{K}=\left(
+\mathbb{Z}/p\right)  \left[  x\right]  $, $a=1$ and $b=x$) yields%
+\begin{equation}
+\left(  1+x\right)  ^{p}=\underbrace{1^{p}}_{=1}+x^{p}=1+x^{p}%
+\ \ \ \ \ \ \ \ \ \ \text{in }\left(  \mathbb{Z}/p\right)  \left[  \left[
+x\right]  \right]  . \label{pf.thm.binom.lucas.freshman}%
+\end{equation}
+
+
+Theorem \ref{thm.pol.binom-newton} \textbf{(b)} (applied to $\mathbb{K}%
+=\mathbb{Z}/p$ and $u=a$) yields%
+\[
+\left(  1+x\right)  ^{a}=\sum_{k\in\mathbb{N}}\dbinom{a}{k}x^{k}.
+\]
+We can substitute $x^{p}$ for $x$ in this equality\footnote{Rigorously
+speaking, this means that we apply the map
+\begin{align*}
+\mathbb{K}\left[  \left[  x\right]  \right]   &  \rightarrow\mathbb{K}\left[
+\left[  x\right]  \right]  ,\\
+\mathbf{a}  &  \mapsto\mathbf{a}\left[  x^{p}\right]
+\end{align*}
+to both sides of this equality. This map is well-defined because of Remark
+\ref{rmk.pol.eval.FPS} (since $p$ is a positive integer), and it is not hard
+to see that this map is a $\mathbb{K}$-algebra homomorphism (this is proven
+just as Corollary \ref{cor.pol.eval.evu} was proven, except that we are now
+working with FPSs instead of polynomials) that furthermore respects not just
+finite sums but also infinite sums (of summable families). Thus, applying this
+map to $\left(  1+x\right)  ^{a}$ yields $\left(  1+x^{p}\right)  ^{a}$, and
+applying it to $\sum_{k\in\mathbb{N}}\dbinom{a}{k}x^{k}$ yields $\sum
+_{k\in\mathbb{N}}\dbinom{a}{k}\left(  x^{p}\right)  ^{k}$.}, and thus obtain%
+\begin{align}
+\left(  1+x^{p}\right)  ^{a}  &  =\sum_{k\in\mathbb{N}}\dbinom{a}%
+{k}\underbrace{\left(  x^{p}\right)  ^{k}}_{=x^{pk}=x^{kp}}=\sum
+_{k\in\mathbb{N}}\dbinom{a}{k}x^{kp}\nonumber\\
+&  =\sum_{q\in\mathbb{N}}\dbinom{a}{q}x^{qp} \label{pf.thm.binom.lucas.q-part}%
+\end{align}
+(here, we have renamed the summation index $k$ as $q$).
+
+On the other hand, $c\in\left\{  0,1,\ldots,p-1\right\}  $ and thus $c\leq
+p-1<p$. Hence, for each $k\in\left\{  p,p+1,p+2,\ldots\right\}  $, we have
+$k\geq p>c$ and thus%
+\begin{equation}
+\dbinom{c}{k}=0 \label{pf.thm.binom.lucas.0}%
+\end{equation}
+(by Theorem \ref{thm.binom.k>n0}, applied to $n=c$). Now, Theorem
+\ref{thm.pol.binom-newton} \textbf{(b)} (applied to $\mathbb{K}=\mathbb{Z}/p$
+and $u=c$) yields
+\begin{align}
+\left(  1+x\right)  ^{c}  &  =\sum_{k\in\mathbb{N}}\dbinom{c}{k}x^{k}%
+=\sum_{k=0}^{p-1}\dbinom{c}{k}x^{k}+\sum_{k=p}^{\infty}\underbrace{\dbinom
+{c}{k}}_{\substack{=0\\\text{(by (\ref{pf.thm.binom.lucas.0}))}}}x^{k}%
+=\sum_{k=0}^{p-1}\dbinom{c}{k}x^{k}+\underbrace{\sum_{k=p}^{\infty}0x^{k}%
+}_{=0}\nonumber\\
+&  =\sum_{k=0}^{p-1}\dbinom{c}{k}x^{k}=\sum_{r=0}^{p-1}\dbinom{c}{r}x^{r}
+\label{pf.thm.binom.lucas.r-part}%
+\end{align}
+(here, we have renamed the summation index $k$ as $r$).
+
+Now,%
+\begin{align*}
+\left(  1+x\right)  ^{pa+c}  &  =\underbrace{\left(  1+x\right)  ^{pa}%
+}_{=\left(  \left(  1+x\right)  ^{p}\right)  ^{a}}\left(  1+x\right)
+^{c}=\left(  \underbrace{\left(  1+x\right)  ^{p}}_{\substack{=1+x^{p}%
+\\\text{(by (\ref{pf.thm.binom.lucas.freshman}))}}}\right)  ^{a}\left(
+1+x\right)  ^{c}\\
+&  =\underbrace{\left(  1+x^{p}\right)  ^{a}}_{\substack{=\sum_{q\in
+\mathbb{N}}\dbinom{a}{q}x^{qp}\\\text{(by (\ref{pf.thm.binom.lucas.q-part}))}%
+}}\ \ \underbrace{\left(  1+x\right)  ^{c}}_{\substack{=\sum_{r=0}%
+^{p-1}\dbinom{c}{r}x^{r}\\\text{(by (\ref{pf.thm.binom.lucas.r-part}))}}}\\
+&  =\left(  \sum_{q\in\mathbb{N}}\dbinom{a}{q}x^{qp}\right)  \left(
+\sum_{r=0}^{p-1}\dbinom{c}{r}x^{r}\right)  =\sum_{q\in\mathbb{N}}\sum
+_{r=0}^{p-1}\dbinom{a}{q}\dbinom{c}{r}x^{qp}x^{r}.
+\end{align*}
+Comparing this with%
+\begin{align*}
+&  \sum_{k\in\mathbb{N}}\dbinom{a}{k//p}\dbinom{c}{k\%p}x^{k}\\
+&  =\underbrace{\sum_{\left(  q,r\right)  \in\mathbb{N}\times\left\{
+0,1,\ldots,n-1\right\}  }}_{=\sum_{q\in\mathbb{N}}\sum_{r\in\left\{
+0,1,\ldots,p-1\right\}  }}\dbinom{a}{\left(  qp+r\right)  //p}\dbinom
+{c}{\left(  qp+r\right)  \%p}\underbrace{x^{qp+r}}_{=x^{qp}x^{r}}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{here, we have substituted }qp+r\text{ for }k\text{ in the sum, since}\\
+\text{the map }\mathbb{N}\times\left\{  0,1,\ldots,n-1\right\}  \rightarrow
+\mathbb{N},\ \left(  q,r\right)  \mapsto qp+r\text{ is a}\\
+\text{bijection (by Exercise \ref{exe.ent.quo-rem.bijs} \textbf{(b)}, applied
+to }n=p\text{)}%
+\end{array}
+\right) \\
+&  =\sum_{q\in\mathbb{N}}\underbrace{\sum_{r\in\left\{  0,1,\ldots
+,p-1\right\}  }}_{=\sum_{r=0}^{p-1}}\underbrace{\dbinom{a}{\left(
+qp+r\right)  //p}}_{\substack{=\dbinom{a}{q}\\\text{(since Exercise
+\ref{exe.ent.quo-rem.bijs} \textbf{(c)}}\\\text{(applied to }n=p\text{)}%
+\\\text{yields }\left(  qp+r\right)  //p=q\text{)}}}\ \ \underbrace{\dbinom
+{c}{\left(  qp+r\right)  \%p}}_{\substack{=\dbinom{c}{r}\\\text{(since
+Exercise \ref{exe.ent.quo-rem.bijs} \textbf{(d)}}\\\text{(applied to
+}n=p\text{)}\\\text{yields }\left(  qp+r\right)  \%p=r\text{)}}}x^{qp}x^{r}\\
+&  =\sum_{q\in\mathbb{N}}\sum_{r=0}^{p-1}\dbinom{a}{q}\dbinom{c}{r}x^{qp}%
+x^{r},
+\end{align*}
+we obtain%
+\begin{equation}
+\left(  1+x\right)  ^{pa+c}=\sum_{k\in\mathbb{N}}\dbinom{a}{k//p}\dbinom
+{c}{k\%p}x^{k}. \label{pf.thm.binom.lucas.pa+c}%
+\end{equation}
+But Theorem \ref{thm.pol.binom-newton} \textbf{(b)} (applied to $\mathbb{K}%
+=\mathbb{Z}/p$ and $u=pa+c$) yields%
+\[
+\left(  1+x\right)  ^{pa+c}=\sum_{k\in\mathbb{N}}\dbinom{pa+c}{k}x^{k}.
+\]
+Comparing this with (\ref{pf.thm.binom.lucas.pa+c}), we find%
+\[
+\sum_{k\in\mathbb{N}}\dbinom{pa+c}{k}x^{k}=\sum_{k\in\mathbb{N}}\dbinom
+{a}{k//p}\dbinom{c}{k\%p}x^{k}.
+\]
+Thus, for each $n\in\mathbb{N}$, we have%
+\begin{align}
+\left[  x^{n}\right]  \left(  \sum_{k\in\mathbb{N}}\dbinom{pa+c}{k}%
+x^{k}\right)   &  =\left[  x^{n}\right]  \left(  \sum_{k\in\mathbb{N}}%
+\dbinom{a}{k//p}\dbinom{c}{k\%p}x^{k}\right) \nonumber\\
+&  =\dbinom{a}{n//p}\dbinom{c}{n\%p}\cdot1_{\mathbb{Z}/p}
+\label{pf.thm.binom.lucas.uL}%
+\end{align}
+(by the definition of $\left[  x^{n}\right]  \mathbf{a}$ for an FPS
+$\mathbf{a}$). Here, the \textquotedblleft$1_{\mathbb{Z}/p}$\textquotedblright%
+\ factor on the right hand side stems from the fact that our FPSs are over
+$\mathbb{Z}/p$, so their coefficients are not the integers they seem to be but
+rather the corresponding elements of $\mathbb{Z}/p$. On the other hand, for
+each $n\in\mathbb{N}$, we have%
+\begin{equation}
+\left[  x^{n}\right]  \left(  \sum_{k\in\mathbb{N}}\dbinom{pa+c}{k}%
+x^{k}\right)  =\dbinom{pa+c}{n}\cdot1_{\mathbb{Z}/p}
+\label{pf.thm.binom.lucas.uR}%
+\end{equation}
+(by the definition of $\left[  x^{n}\right]  \mathbf{a}$ for an FPS
+$\mathbf{a}$). Comparing this with (\ref{pf.thm.binom.lucas.uL}), we conclude
+that%
+\[
+\dbinom{a}{n//p}\dbinom{c}{n\%p}\cdot1_{\mathbb{Z}/p}=\dbinom{pa+c}{n}%
+\cdot1_{\mathbb{Z}/p}%
+\]
+for each $n\in\mathbb{N}$. In other words,%
+\begin{equation}
+\dbinom{a}{n//p}\dbinom{c}{n\%p}\equiv\dbinom{pa+c}{n}\operatorname{mod}p
+\label{pf.thm.binom.lucas.cong}%
+\end{equation}
+for each $n\in\mathbb{N}$ (because if $u$ and $v$ are two integers satisfying
+$u\cdot1_{\mathbb{Z}/p}=v\cdot1_{\mathbb{Z}/p}$, then $\left[  u\right]
+_{p}=u\cdot1_{\mathbb{Z}/p}=v\cdot1_{\mathbb{Z}/p}=\left[  v\right]  _{p}$ and
+thus $u\equiv v\operatorname{mod}p$).
+
+We can apply this to $n=pb+d$. Thus, we obtain%
+\[
+\dbinom{a}{\left(  pb+d\right)  //p}\dbinom{c}{\left(  pb+d\right)  \%p}%
+\equiv\dbinom{pa+c}{pb+d}\operatorname{mod}p.
+\]
+Hence,%
+\begin{align*}
+\dbinom{pa+c}{pb+d}  &  \equiv\underbrace{\dbinom{a}{\left(  pb+d\right)
+//p}}_{\substack{=\dbinom{a}{\left(  bp+d\right)  //p}=\dbinom{a}%
+{b}\\\text{(since Exercise \ref{exe.ent.quo-rem.bijs} \textbf{(c)}%
+}\\\text{(applied to }n=p\text{, }q=b\text{ and }r=d\text{)}\\\text{yields
+}\left(  bp+d\right)  //p=b\text{)}}}\ \ \underbrace{\dbinom{c}{\left(
+pb+d\right)  \%p}}_{\substack{=\dbinom{c}{\left(  bp+d\right)  \%p}=\dbinom
+{c}{d}\\\text{(since Exercise \ref{exe.ent.quo-rem.bijs} \textbf{(d)}%
+}\\\text{(applied to }n=p\text{, }q=b\text{ and }r=d\text{)}\\\text{yields
+}\left(  bp+d\right)  \%p=d\text{)}}}\\
+&  =\dbinom{a}{b}\dbinom{c}{d}\operatorname{mod}p.
+\end{align*}
+This proves Theorem \ref{thm.binom.lucas}.
 \end{proof}
 
-\begin{center}
-\textbf{2019-05-01 lecture}
-\end{center}
+\subsection{Invertible and nilpotent polynomials}
+
+In Subsection \ref{subsect.FPS.inv.crit}, we have seen when an FPS
+$\mathbf{a}\in\mathbb{K}\left[  \left[  x\right]  \right]  $ is invertible in
+the ring $\mathbb{K}\left[  \left[  x\right]  \right]  $. When is a polynomial
+$\mathbf{a}\in\mathbb{K}\left[  x\right]  $ invertible in the ring
+$\mathbb{K}\left[  x\right]  $ ?
+
+The first hint that the answer is different comes from the example of $1+x$.
+As we know, the FPS $1+x$ is invertible in $\mathbb{K}\left[  \left[
+x\right]  \right]  $. Since this FPS is actually a polynomial, we might wonder
+whether it is invertible in $\mathbb{K}\left[  x\right]  $ as well. The answer
+is \textquotedblleft no\textquotedblright, unless the ring $\mathbb{K}$ is
+trivial.\footnote{Indeed, if it was invertible in $\mathbb{K}\left[  x\right]
+$, then its multiplicative inverse in $\mathbb{K}\left[  x\right]  $ would
+also be its multiplicative inverse in $\mathbb{K}\left[  \left[  x\right]
+\right]  $; but we already know that the latter is $1-x+x^{2}-x^{3}\pm\cdots$
+and therefore does not belong to $\mathbb{K}\left[  x\right]  $ unless
+$\mathbb{K}$ is trivial.} More generally, we can easily characterize the
+invertible elements of $\mathbb{K}\left[  x\right]  $ when $\mathbb{K}$ is a field:
+
+\begin{proposition}
+\label{prop.pol.invertible.field}Let $\mathbb{K}$ be a field. Let
+$\mathbf{a}\in\mathbb{K}\left[  x\right]  $ be a polynomial. Then,
+$\mathbf{a}$ is invertible in $\mathbb{K}\left[  x\right]  $ if and only if
+$\deg\mathbf{a}=0$ (that is, $\mathbf{a}$ is a nonzero constant polynomial).
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.pol.invertible.field} (sketched).]%
+$\Longleftarrow:$ Assume that $\deg\mathbf{a}=0$. Then, $\mathbf{a}%
+=\underline{a}$ for some $a\in\mathbb{K}$. This $a$ is nonzero (since
+otherwise, we would have $\mathbf{a}=\underline{0}$ and thus $\deg
+\mathbf{a}=-\infty$, which contradicts $\deg\mathbf{a}=0$), and thus
+invertible (since $\mathbb{K}$ is a field). Now, it is easy to see that
+$\underline{a^{-1}}$ is a multiplicative inverse of $\mathbf{a}$ in
+$\mathbb{K}\left[  x\right]  $. Hence, $\mathbf{a}$ is invertible in
+$\mathbb{K}\left[  x\right]  $. This proves the \textquotedblleft%
+$\Longleftarrow$\textquotedblright\ direction of Proposition
+\ref{prop.pol.invertible.field}.
+
+$\Longrightarrow:$ Assume that $\mathbf{a}$ is invertible in $\mathbb{K}%
+\left[  x\right]  $. Then, $\mathbf{a}$ has a multiplicative inverse
+$\mathbf{a}^{-1}\in\mathbb{K}\left[  x\right]  $. Clearly, $\mathbf{aa}%
+^{-1}=1_{\mathbb{K}\left[  x\right]  }=\underline{1}$, so that $\deg\left(
+\mathbf{aa}^{-1}\right)  =0$. Also, from $\mathbf{aa}^{-1}=\underline{1}\neq
+0$, we conclude that $\mathbf{a}$ and $\mathbf{a}^{-1}$ are nonzero. Thus,
+$\deg\mathbf{a}$ and $\deg\left(  \mathbf{a}^{-1}\right)  $ are nonnegative
+integers. Theorem \ref{thm.pol.deg-basics} \textbf{(f)} (applied to
+$\mathbf{b}=\mathbf{a}^{-1}$) yields $\deg\left(  \mathbf{aa}^{-1}\right)
+=\deg\mathbf{a}+\underbrace{\deg\left(  \mathbf{a}^{-1}\right)  }_{\geq0}%
+\geq\deg\mathbf{a}$, thus $\deg\mathbf{a}\leq\deg\left(  \mathbf{aa}%
+^{-1}\right)  =0$. Hence, $\deg\mathbf{a}=0$ (since $\deg\mathbf{a}$ is a
+nonnegative integer). This proves the \textquotedblleft$\Longrightarrow
+$\textquotedblright\ direction of Proposition \ref{prop.pol.invertible.field}.
+\end{proof}
+
+If the ring $\mathbb{K}$ is not a field, the situation becomes more
+interesting: As we have already seen, the polynomial $1+2x$ is invertible when
+$\mathbb{K}=\mathbb{Z}/4$, despite its degree not being $0$, so Proposition
+\ref{prop.pol.invertible.field} would no longer hold here. Instead, we can
+give a necessary and sufficient criterion based on the notion of
+\textit{nilpotent elements}. Let us define this notion:
+
+\begin{definition}
+Let $\mathbb{L}$ be a ring. Let $a\in\mathbb{L}$. We say that $a$ is
+\textit{nilpotent} if there exists an $r\in\mathbb{N}$ satisfying $a^{r}=0$.
+\end{definition}
+
+In other words, an element $a$ of a ring $\mathbb{L}$ is nilpotent if one of
+its powers is $0$.
+
+For example:
+
+\begin{itemize}
+\item The element $0$ of any ring $\mathbb{L}$ is nilpotent, since $0^{r}=0$
+holds for $r=1$.
+
+\item If $m\in\mathbb{N}$ and $k\in\mathbb{N}$, then the element $\left[
+m\right]  _{m^{k}}$ of $\mathbb{Z}/m^{k}$ is nilpotent, since its $k$-th power
+is $\left[  m^{k}\right]  _{m^{k}}=0$.
+
+\item The nilpotent elements of a matrix ring $\mathbb{K}^{n\times n}$ are
+exactly the \href{https://en.wikipedia.org/wiki/Nilpotent_matrix}{nilpotent
+$n\times n$-matrices}. It is well-known that any nilpotent $n\times n$-matrix
+$A$ over a field $\mathbb{K}$ satisfies $A^{n}=0$; but this is not always true
+when $\mathbb{K}$ is not a field.
+\end{itemize}
+
+If $\mathbb{K}$ is a field, then the only nilpotent element of $\mathbb{K}$ is
+$0$ (this can be easily proven using Exercise \ref{exe.field.xy=0}).
+
+Let us state two basic and simple properties of nilpotent elements:
+
+\begin{proposition}
+\label{prop.ring.nilp.a+b}Let $\mathbb{L}$ be a ring. Let $a$ and $b$ be two
+nilpotent elements of $\mathbb{L}$ such that $ab=ba$. Then, $a+b$ is also nilpotent.
+\end{proposition}
+
+The requirement $ab=ba$ in Proposition \ref{prop.ring.nilp.a+b} cannot be
+removed: e.g., the two matrices $\left(
+\begin{array}
+[c]{cc}%
+0 & 1\\
+0 & 0
+\end{array}
+\right)  $ and $\left(
+\begin{array}
+[c]{cc}%
+0 & 0\\
+1 & 0
+\end{array}
+\right)  $ in $\mathbb{Q}^{2\times2}$ are nilpotent, but their sum $\left(
+\begin{array}
+[c]{cc}%
+0 & 1\\
+0 & 0
+\end{array}
+\right)  +\left(
+\begin{array}
+[c]{cc}%
+0 & 0\\
+1 & 0
+\end{array}
+\right)  =\left(
+\begin{array}
+[c]{cc}%
+0 & 1\\
+1 & 0
+\end{array}
+\right)  $ is not.
+
+\begin{proof}
+[Proof of Proposition \ref{prop.ring.nilp.a+b}.]We know that $a$ is nilpotent.
+In other words, there exists a $p\in\mathbb{N}$ satisfying $a^{p}=0$ (by the
+definition of \textquotedblleft nilpotent\textquotedblright). Similarly, there
+exists a $q\in\mathbb{N}$ such that $b^{q}=0$ (since $b$ is nilpotent).
+Consider these $p$ and $q$.
+
+Now, every $k\in\left\{  0,1,\ldots,p\right\}  $ satisfies%
+\begin{equation}
+b^{p+q-k}=0. \label{pf.prop.ring.nilp.a+b.1}%
+\end{equation}
+
+
+[\textit{Proof of (\ref{pf.prop.ring.nilp.a+b.1}):} Let $k\in\left\{
+0,1,\ldots,p\right\}  $. Then, $k\leq p$, so that $p-k\in\mathbb{N}$. Now,
+$p+q-k=q+\left(  p-k\right)  $, so that%
+\begin{align*}
+b^{p+q-k}  &  =b^{q+\left(  p-k\right)  }=\underbrace{b^{q}}_{=0}%
+b^{p-k}\ \ \ \ \ \ \ \ \ \ \left(  \text{since }p-k\in\mathbb{N}\right) \\
+&  =0b^{p-k}=0.
+\end{align*}
+This proves (\ref{pf.prop.ring.nilp.a+b.1}).]
+
+Furthermore, every $k\in\left\{  p+1,p+2,\ldots,p+q\right\}  $ satisfies%
+\begin{equation}
+a^{k}=0. \label{pf.prop.ring.nilp.a+b.2}%
+\end{equation}
+
+
+[\textit{Proof of (\ref{pf.prop.ring.nilp.a+b.2}):} Let $k\in\left\{
+p+1,p+2,\ldots,p+q\right\}  $. Then, $k\geq p+1\geq p$, so that $k-p\in
+\mathbb{N}$. Now, $k=p+\left(  k-p\right)  $, so that%
+\begin{align*}
+a^{k}  &  =a^{p+\left(  k-p\right)  }=\underbrace{a^{p}}_{=0}a^{k-p}%
+\ \ \ \ \ \ \ \ \ \ \left(  \text{since }k-p\in\mathbb{N}\right) \\
+&  =0a^{k-p}=0.
+\end{align*}
+This proves (\ref{pf.prop.ring.nilp.a+b.2}).]
+
+Now, $ab=ba$. Thus, (\ref{eq.prop.rings.pow.rules.c.binom}) (applied to
+$\mathbb{K}=\mathbb{L}$ and $n=p+q$) yields%
+\begin{align*}
+\left(  a+b\right)  ^{p+q}  &  =\sum_{k=0}^{p+q}\dbinom{n}{k}a^{k}%
+b^{p+q-k}=\sum_{k=0}^{p}\dbinom{n}{k}a^{k}\underbrace{b^{p+q-k}}%
+_{\substack{=0\\\text{(by (\ref{pf.prop.ring.nilp.a+b.1}))}}}+\sum
+_{k=p+1}^{p+q}\dbinom{n}{k}\underbrace{a^{k}}_{\substack{=0\\\text{(by
+(\ref{pf.prop.ring.nilp.a+b.2}))}}}b^{p+q-k}\\
+&  =\underbrace{\sum_{k=0}^{p}\dbinom{n}{k}a^{k}0}_{=0}+\underbrace{\sum
+_{k=p+1}^{p+q}\dbinom{n}{k}0b^{p+q-k}}_{=0}=0.
+\end{align*}
+Thus, there exists an $r\in\mathbb{N}$ satisfying $\left(  a+b\right)  ^{r}=0$
+(namely, $r=p+q$). In other words, $a+b$ is nilpotent (by the definition of
+\textquotedblleft nilpotent\textquotedblright). This proves Proposition
+\ref{prop.ring.nilp.a+b}.
+\end{proof}
+
+\begin{proposition}
+\label{prop.ring.nilp.u-a}Let $\mathbb{L}$ be a ring. Let $u$ be an invertible
+element of $\mathbb{L}$. Let $a$ be a nilpotent element of $\mathbb{L}$ such
+that $ua=au$. Then, the element $u-a$ of $\mathbb{L}$ is invertible.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.ring.nilp.u-a} (sketched).]The element $u$ is
+invertible. Thus, it has a multiplicative inverse $u^{-1}\in\mathbb{L}$. We
+have $uu^{-1}=1_{\mathbb{L}}=u^{-1}u$.
+
+We know that $a$ is nilpotent. In other words, there exists an $r\in
+\mathbb{N}$ satisfying $a^{r}=0$ (by the definition of \textquotedblleft
+nilpotent\textquotedblright). Consider this $r$.
+
+Applying (\ref{eq.prop.rings.pow.rules.c.3}) to $\mathbb{K}=\mathbb{L}$,
+$a=u$, $b=u^{-1}$ and $n=r$, we obtain $\left(  uu^{-1}\right)  ^{r}%
+=u^{r}\left(  u^{-1}\right)  ^{r}$ (since $uu^{-1}=u^{-1}u$). Thus,
+$u^{r}\left(  u^{-1}\right)  ^{r}=\left(  \underbrace{uu^{-1}}_{=1_{\mathbb{L}%
+}}\right)  ^{r}=\left(  1_{\mathbb{L}}\right)  ^{r}=1_{\mathbb{L}}$.
+
+Furthermore, $ua=au$. Hence, Proposition \ref{prop.rings.pow.rules}
+\textbf{(d)} (applied to $\mathbb{L}$, $u$, $a$ and $r$ instead of
+$\mathbb{K}$, $a$, $b$ and $n$) yields%
+\[
+u^{r}-a^{r}=\left(  u-a\right)  \left(  u^{r-1}+u^{r-2}a+\cdots+ua^{r-2}%
++a^{r-1}\right)  .
+\]
+Comparing this with $u^{r}-\underbrace{a^{r}}_{=0}=u^{r}$, we obtain%
+\[
+\left(  u-a\right)  \left(  u^{r-1}+u^{r-2}a+\cdots+ua^{r-2}+a^{r-1}\right)
+=u^{r}.
+\]
+Multiplying both sides of this equality with $\left(  u^{-1}\right)  ^{r}$, we
+obtain%
+\[
+\left(  u-a\right)  \left(  u^{r-1}+u^{r-2}a+\cdots+ua^{r-2}+a^{r-1}\right)
+\left(  u^{-1}\right)  ^{r}=u^{r}\left(  u^{-1}\right)  ^{r}=1_{\mathbb{L}}.
+\]
+A similar argument (but using products in the opposite order\footnote{and,
+accordingly, relying on a variant of Proposition \ref{prop.rings.pow.rules}
+\textbf{(d)} that says%
+\[
+a^{n}-b^{n}=\left(  a^{n-1}+a^{n-2}b+\cdots+ab^{n-2}+b^{n-1}\right)  \left(
+a-b\right)
+\]
+instead of
+\[
+a^{n}-b^{n}=\left(  a-b\right)  \left(  a^{n-1}+a^{n-2}b+\cdots+ab^{n-2}%
++b^{n-1}\right)
+\]
+}) shows that%
+\[
+\left(  u^{-1}\right)  ^{r}\left(  u^{r-1}+u^{r-2}a+\cdots+ua^{r-2}%
++a^{r-1}\right)  \left(  u-a\right)  =1_{\mathbb{L}}.
+\]
+Hence, Exercise \ref{exe.ring.invertible.indirect} (applied to $\mathbb{L}$,
+$\left(  u^{-1}\right)  ^{r}\left(  u^{r-1}+u^{r-2}a+\cdots+ua^{r-2}%
++a^{r-1}\right)  $, $u-a$ and $\left(  u^{r-1}+u^{r-2}a+\cdots+ua^{r-2}%
++a^{r-1}\right)  \left(  u^{-1}\right)  ^{r}$ instead of $\mathbb{K}$, $a$,
+$b$ and $c$) shows that the element $u-a$ is invertible and its multiplicative
+inverse satisfies%
+\begin{align*}
+\left(  u-a\right)  ^{-1}  & =\left(  u^{-1}\right)  ^{r}\left(
+u^{r-1}+u^{r-2}a+\cdots+ua^{r-2}+a^{r-1}\right)  \\
+& =\left(  u^{r-1}+u^{r-2}a+\cdots+ua^{r-2}+a^{r-1}\right)  \left(
+u^{-1}\right)  ^{r}.
+\end{align*}
+This proves Proposition \ref{prop.ring.nilp.u-a}.
+\end{proof}
+
+Now, when is a polynomial $\mathbf{a}\in\mathbb{K}\left[  x\right]  $
+invertible in $\mathbb{K}\left[  x\right]  $ ? The answer is given by the
+following result:
+
+\begin{theorem}
+\label{thm.pol.invertible-as-pol}Let $\mathbf{a}\in\mathbb{K}\left[  x\right]
+$ (where $\mathbb{K}$, still, is a commutative ring). Then, $\mathbf{a}$ is
+invertible in $\mathbb{K}\left[  x\right]  $ if and only if
+
+\begin{itemize}
+\item its coefficient $\left[  x^{0}\right]  \mathbf{a}$ is invertible in
+$\mathbb{K}$, \textbf{and}
+
+\item its coefficients $\left[  x^{n}\right]  \mathbf{a}$ are nilpotent for
+all positive integers $n$.
+\end{itemize}
+\end{theorem}
+
+For example, the polynomial $\mathbf{a}=1+2x$ over $\mathbb{K}=\mathbb{Z}/4$
+satisfies this condition, since its coefficient $\left[  x^{0}\right]
+\mathbf{a}=\left[  1\right]  _{4}$ is invertible in $\mathbb{Z}/4$ whereas its
+other coefficients (which are $\left[  2\right]  _{4},\left[  0\right]
+_{4},\left[  0\right]  _{4},\left[  0\right]  _{4},\ldots$) are nilpotent.
+
+We will not prove Theorem \ref{thm.pol.invertible-as-pol} here. We only notice
+that its \textquotedblleft$\Longleftarrow$\textquotedblright\ direction is
+fairly easy (using Proposition \ref{prop.ring.nilp.a+b} and Proposition
+\ref{prop.ring.nilp.u-a}), while its \textquotedblleft$\Longrightarrow
+$\textquotedblright\ direction is proven in
+\url{https://math.stackexchange.com/a/392604/} .
+
+Note the stark contrast between Theorem \ref{thm.pol.invertible-as-pol} and
+Theorem \ref{thm.pol.FPS-inv}.
+
+Now that we have introduced nilpotent elements, we might also wonder when a
+polynomial is nilpotent. This can also be answered:
+
+\begin{theorem}
+\label{thm.pol.nilp}Let $\mathbf{a}\in\mathbb{K}\left[  x\right]  $ (where
+$\mathbb{K}$, still, is a commutative ring). Then, $\mathbf{a}$ is nilpotent
+if and only if its coefficients $\left[  x^{n}\right]  \mathbf{a}$ are
+nilpotent for all $n\in\mathbb{N}$.
+\end{theorem}
+
+Again, we omit the proof of this theorem.
+
+Note that Theorem \ref{thm.pol.nilp} has no analogue for FPSs: An FPS can fail
+to be nilpotent even if all its coefficients are nilpotent.
+
+Let us briefly note that the non-invertibility of most polynomials over a
+field can be amended: We can introduce formal fractions of polynomials over a
+field in the same way as formal fractions of integers (also known as
+\textquotedblleft rational numbers\textquotedblright) were defined. These
+fractions are called \textit{rational functions}\footnote{This is a confusing
+name, because polynomials are not functions. It is an artefact of the history
+of the subject.}.
 
 \subsection{Functoriality of power series and polynomial rings}
 
-TODO:
+The polynomial ring $\mathbb{K}\left[  x\right]  $, and the ring
+$\mathbb{K}\left[  \left[  x\right]  \right]  $ of FPSs, are defined for every
+ring $\mathbb{K}$. How do they depend on $\mathbb{K}$ ? For example, does
+$\mathbb{Z}\left[  x\right]  $ lie in $\mathbb{Q}\left[  x\right]  $ in the
+same way $\mathbb{Z}$ lies in $\mathbb{Q}$ ? The answer is a \textquotedblleft
+yes\textquotedblright, for fairly simple reasons:
 
-\begin{itemize}
-\item Remark about functoriality:
+\begin{proposition}
+\label{prop.pol.subring}Let $\mathbb{K}$ be a subring of a commutative ring
+$\mathbb{L}$. Then:
 
-Let $\mathbb{K}$ and $\mathbb{L}$ be two commutative rings. Let $f:\mathbb{K}%
-\rightarrow\mathbb{L}$ be a ring homomorphism. Then, the map%
+\textbf{(a)} The polynomial ring $\mathbb{K}\left[  x\right]  $ is a subring
+of $\mathbb{L}\left[  x\right]  $.
+
+\textbf{(b)} The ring $\mathbb{K}\left[  \left[  x\right]  \right]  $ is a
+subring of $\mathbb{L}\left[  \left[  x\right]  \right]  $.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.pol.subring} (sketched).]\textbf{(b)} This is
+easy: The elements of $\mathbb{K}\left[  \left[  x\right]  \right]  $ are
+sequences of elements of $\mathbb{K}$. But any sequence of elements of
+$\mathbb{K}$ is a sequence of elements of $\mathbb{L}$ (since $\mathbb{K}%
+\subseteq\mathbb{L}$), and thus belongs to $\mathbb{L}\left[  \left[
+x\right]  \right]  $. Hence, $\mathbb{K}\left[  \left[  x\right]  \right]
+\subseteq\mathbb{L}\left[  \left[  x\right]  \right]  $. The rest of the proof
+is straightforward.
+
+\textbf{(a)} LTTR.
+\end{proof}
+
+So being a subring is \textquotedblleft inherited\textquotedblright\ to
+polynomial rings and rings of FPSs.
+
+Does a homomorphism between two commutative rings also yield a homomorphism
+between their polynomial rings or a homomorphism between their FPS rings? The
+next theorem shows that the answer is \textquotedblleft yes\textquotedblright%
+\ to both questions:
+
+\begin{theorem}
+\label{thm.pol.functorial}Let $\mathbb{K}$ and $\mathbb{L}$ be two commutative
+rings. Let $f:\mathbb{K}\rightarrow\mathbb{L}$ be a ring homomorphism.
+
+\textbf{(a)} Then, the map%
 \begin{align*}
 \mathbb{K}\left[  \left[  x\right]  \right]   &  \rightarrow\mathbb{L}\left[
 \left[  x\right]  \right]  ,\\
 \left(  a_{0},a_{1},a_{2},\ldots\right)   &  \mapsto\left(  f\left(
 a_{0}\right)  ,f\left(  a_{1}\right)  ,f\left(  a_{2}\right)  ,\ldots\right)
 \end{align*}
-is a ring homomorphism. Its restriction to $\mathbb{K}\left[  x\right]  $ is a
-ring homomorphism from $\mathbb{K}\left[  x\right]  $ to $\mathbb{L}\left[
+is a ring homomorphism.
+
+\textbf{(b)} Its restriction to $\mathbb{K}\left[  x\right]  $ is a ring
+homomorphism from $\mathbb{K}\left[  x\right]  $ to $\mathbb{L}\left[
 x\right]  $.
-\end{itemize}
+\end{theorem}
 
-\subsection{Invertible and nilpotent polynomials}
+\begin{proof}
+[Proof of Theorem \ref{thm.pol.functorial}.]\textbf{(a)} Let us denote this
+map by $F$. We must then prove that $F$ is a ring homomorphism.
 
-TODO:
+Let us only prove that $F\left(  \mathbf{ab}\right)  =F\left(  \mathbf{a}%
+\right)  F\left(  \mathbf{b}\right)  $ for all $\mathbf{a},\mathbf{b}%
+\in\mathbb{K}\left[  \left[  x\right]  \right]  $. (This is axiom \textbf{(c)}
+in Definition \ref{def.riho.riho}; the other three axioms are proven similarly.)
 
-\begin{itemize}
-\item When is an $\mathbf{f}\in\mathbb{K}\left[  x\right]  $ invertible in
-$\mathbb{K}\left[  x\right]  $ ?
+Let $\mathbf{a},\mathbf{b}\in\mathbb{K}\left[  \left[  x\right]  \right]  $.
+Write the FPSs $\mathbf{a}$ and $\mathbf{b}$ as $\mathbf{a}=\left(
+a_{0},a_{1},a_{2},\ldots\right)  $ and $\mathbf{b}=\left(  b_{0},b_{1}%
+,b_{2},\ldots\right)  $. Then, their images $F\left(  \mathbf{a}\right)  $ and
+$F\left(  \mathbf{b}\right)  $ under $F$ are%
+\[
+F\left(  \mathbf{a}\right)  =\left(  f\left(  a_{0}\right)  ,f\left(
+a_{1}\right)  ,f\left(  a_{2}\right)  ,\ldots\right)
+\ \ \ \ \ \ \ \ \ \ \text{and}\ \ \ \ \ \ \ \ \ \ F\left(  \mathbf{b}\right)
+=\left(  f\left(  b_{0}\right)  ,f\left(  b_{1}\right)  ,f\left(
+b_{2}\right)  ,\ldots\right)
+\]
+(by the definition of $F$). Hence, the definition of the multiplication on
+$\mathbb{L}\left[  \left[  x\right]  \right]  $ yields%
+\begin{equation}
+F\left(  \mathbf{a}\right)  F\left(  \mathbf{b}\right)  =\left(  d_{0}%
+,d_{1},d_{2},\ldots\right)  , \label{pf.thm.pol.functorial.FaFb=}%
+\end{equation}
+where%
+\begin{equation}
+d_{n}=\sum_{i=0}^{n}f\left(  a_{i}\right)  f\left(  b_{n-i}\right)
+\ \ \ \ \ \ \ \ \ \ \text{for all }n\in\mathbb{N}.
+\label{pf.thm.pol.functorial.dn=}%
+\end{equation}
+Consider these $d_{n}$.
 
-When $\left[  x^{0}\right]  \mathbf{f}$ is invertible in $\mathbb{K}$ and all
-other $\left[  x^{i}\right]  \mathbf{f}$ are nilpotent. (McCoy's theorem.
-Note: One direction easy! See \url{https://math.stackexchange.com/a/392604/}
-for the other.)
+On the other hand, $\mathbf{a}=\left(  a_{0},a_{1},a_{2},\ldots\right)  $ and
+$\mathbf{b}=\left(  b_{0},b_{1},b_{2},\ldots\right)  $. Hence, the definition
+of the multiplication on $\mathbb{K}\left[  \left[  x\right]  \right]  $
+yields%
+\begin{equation}
+\mathbf{ab}=\left(  c_{0},c_{1},c_{2},\ldots\right)  ,
+\label{pf.thm.pol.functorial.ab=}%
+\end{equation}
+where%
+\begin{equation}
+c_{n}=\sum_{i=0}^{n}a_{i}b_{n-i}\ \ \ \ \ \ \ \ \ \ \text{for all }%
+n\in\mathbb{N}. \label{pf.thm.pol.functorial.cn=}%
+\end{equation}
+Consider these $c_{n}$. From (\ref{pf.thm.pol.functorial.ab=}), we obtain%
+\begin{equation}
+F\left(  \mathbf{ab}\right)  =\left(  f\left(  c_{0}\right)  ,f\left(
+c_{1}\right)  ,f\left(  c_{2}\right)  ,\ldots\right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of }F\right)  .
+\label{pf.thm.pol.functorial.Fab=}%
+\end{equation}
 
-For fields $\mathbb{K}$, this simply means that $\mathbf{f}$ is constant and
-invertible in $\mathbb{K}$.
 
-Stark contrast to FPS invertibility!
+But for each $n\in\mathbb{N}$, we have%
+\begin{align*}
+f\left(  c_{n}\right)   &  =f\left(  \sum_{i=0}^{n}a_{i}b_{n-i}\right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.thm.pol.functorial.cn=})}\right)
+\\
+&  =\sum_{i=0}^{n}\underbrace{f\left(  a_{i}b_{n-i}\right)  }%
+_{\substack{=f\left(  a_{i}\right)  f\left(  b_{n-i}\right)  \\\text{(since
+}f\text{ is a ring}\\\text{homomorphism)}}}\ \ \ \ \ \ \ \ \ \ \left(
+\text{by Proposition \ref{prop.riho.subtract} \textbf{(e)}}\right) \\
+&  =\sum_{i=0}^{n}f\left(  a_{i}\right)  f\left(  b_{n-i}\right)
+=d_{n}\ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.thm.pol.functorial.dn=}%
+)}\right)  .
+\end{align*}
+Hence, $\left(  f\left(  c_{0}\right)  ,f\left(  c_{1}\right)  ,f\left(
+c_{2}\right)  ,\ldots\right)  =\left(  d_{0},d_{1},d_{2},\ldots\right)  $.
+Thus, the right hand sides of the equalities (\ref{pf.thm.pol.functorial.Fab=}%
+) and (\ref{pf.thm.pol.functorial.FaFb=}) are equal. Hence, their left hand
+sides are equal as well. In other words, we have $F\left(  \mathbf{ab}\right)
+=F\left(  \mathbf{a}\right)  F\left(  \mathbf{b}\right)  $. Thus, the map $F$
+satisfies axiom \textbf{(c)} in Definition \ref{def.riho.riho}. As we have
+said, the other three axioms are proven similarly; thus, $F$ is a ring
+homomorphism. This proves Theorem \ref{thm.pol.functorial} \textbf{(a)}.
 
-For $\mathbb{K}=\mathbb{Z}/4$, you have stuff like $1+2x$.
-
-\item Mention rational functions.
-\end{itemize}
+\textbf{(b)} LTTR.
+\end{proof}
 
 \section{Quotient constructions}
 
+\begin{center}
+\textbf{2019-05-01 lecture}
+\end{center}
+
 \subsection{Residue classes in commutative rings}
+
+TODO:
 
 \begin{itemize}
 \item Divisibility in any commutative ring $\mathbb{L}$ (generalizing
@@ -37845,6 +38612,177 @@ u+v\right)  \%n\right)  -\left(  u-u\%n\right)  -\left(  v-v\%n\right)
 {1}{n}0=0\text{ and }\dfrac{1}{n}n=1\right)  .
 \end{align*}
 This solves Exercise \ref{exe.ent.quo-rem.u+v} \textbf{(b)}.
+\end{proof}
+\end{fineprint}
+
+\subsection{Solution to Exercise \ref{exe.ent.quo-rem.bijs}}
+
+\begin{fineprint}
+\begin{proof}
+[Solution to Exercise \ref{exe.ent.quo-rem.bijs}.]\textbf{(a)} The map%
+\begin{align*}
+\mathbb{Z}\times\left\{  0,1,\ldots,n-1\right\}   &  \rightarrow\mathbb{Z},\\
+\left(  q,r\right)   &  \mapsto qn+r
+\end{align*}
+is clearly well-defined. Let us denote this map by $A$. Then, in order to
+solve Exercise \ref{exe.ent.quo-rem.bijs} \textbf{(a)}, we must prove that
+this map $A$ is a bijection.
+
+We shall achieve this by showing that $A$ is injective and surjective:
+
+[\textit{Proof of the injectivity of }$A$\textit{:} Let $x$ and $y$ be two
+elements of $\mathbb{Z}\times\left\{  0,1,\ldots,n-1\right\}  $ such that
+$A\left(  x\right)  =A\left(  y\right)  $. We shall show that $x=y$.
+
+Define a $u\in\mathbb{Z}$ by $u=A\left(  x\right)  $. Then, $u=A\left(
+x\right)  =A\left(  y\right)  $.
+
+Now, $x$ is an element of $\mathbb{Z}\times\left\{  0,1,\ldots,n-1\right\}  $.
+In other words, $x$ is a pair $\left(  q,r\right)  \in\mathbb{Z}\times\left\{
+0,1,\ldots,n-1\right\}  $. Moreover, if we write $x$ in the form $x=\left(
+q,r\right)  $ for some $\left(  q,r\right)  \in\mathbb{Z}\times\left\{
+0,1,\ldots,n-1\right\}  $, then
+\[
+u=A\left(  \underbrace{x}_{=\left(  q,r\right)  }\right)  =A\left(  \left(
+q,r\right)  \right)  =qn+r\ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition
+of }A\right)  .
+\]
+Hence, $x$ is a pair $\left(  q,r\right)  \in\mathbb{Z}\times\left\{
+0,1,\ldots,n-1\right\}  $ such that $u=qn+r$. Similarly, $y$ is a pair
+$\left(  q,r\right)  \in\mathbb{Z}\times\left\{  0,1,\ldots,n-1\right\}  $
+such that $u=qn+r$ (since $u=A\left(  y\right)  $).
+
+But Lemma \ref{lem.ent.quorem.unique} shows that there exists \textbf{at most
+one} pair $\left(  q,r\right)  \in\mathbb{Z}\times\left\{  0,1,\ldots
+,n-1\right\}  $ such that $u=qn+r$. Hence, any two such pairs $\left(
+q,r\right)  $ must be equal. Thus, $x$ and $y$ must be equal (since $x$ and
+$y$ are two pairs $\left(  q,r\right)  \in\mathbb{Z}\times\left\{
+0,1,\ldots,n-1\right\}  $ such that $u=qn+r$). In other words, $x=y$.
+
+Now, forget that we fixed $x$ and $y$. We thus have shown that if $x$ and $y$
+are two elements of $\mathbb{Z}\times\left\{  0,1,\ldots,n-1\right\}  $ such
+that $A\left(  x\right)  =A\left(  y\right)  $, then $x=y$. In other words,
+the map $A$ is injective.]
+
+[\textit{Proof of the surjectivity of }$A$\textit{:} Let $u\in\mathbb{Z}$. We
+shall find an $x\in\mathbb{Z}\times\left\{  0,1,\ldots,n-1\right\}  $ such
+that $u=A\left(  x\right)  $.
+
+Indeed, Lemma \ref{lem.ent.quorem.exist} shows that there exists \textbf{at
+least one} pair $\left(  q,r\right)  \in\mathbb{Z}\times\left\{
+0,1,\ldots,n-1\right\}  $ such that $u=qn+r$. Consider this $\left(
+q,r\right)  $. Now, the definition of $A$ yields $A\left(  \left(  q,r\right)
+\right)  =qn+r=u$. Hence, $u=A\left(  \left(  q,r\right)  \right)  $. Thus,
+there exists an $x\in\mathbb{Z}\times\left\{  0,1,\ldots,n-1\right\}  $ such
+that $u=A\left(  x\right)  $ (namely, $x=\left(  q,r\right)  $).
+
+Now, forget that we fixed $u$. We thus have shown that for each $u\in
+\mathbb{Z}$, there exists an $x\in\mathbb{Z}\times\left\{  0,1,\ldots
+,n-1\right\}  $ such that $u=A\left(  x\right)  $. In other words, the map $A$
+is surjective.]
+
+We have now shown that the map $A$ is injective and surjective. Hence, $A$ is
+bijective. In other words, $A$ is a bijection. As we explained above, this
+solves Exercise \ref{exe.ent.quo-rem.bijs} \textbf{(a)}.
+
+\textbf{(b)} The map%
+\begin{align*}
+\mathbb{N}\times\left\{  0,1,\ldots,n-1\right\}   &  \rightarrow\mathbb{N},\\
+\left(  q,r\right)   &  \mapsto qn+r
+\end{align*}
+is clearly well-defined\footnote{since $qn+r\in\mathbb{N}$ for each $\left(
+q,r\right)  \in\mathbb{N}\times\left\{  0,1,\ldots,n-1\right\}  $ (because $n$
+is positive)}. Let us denote this map by $B$. Then, in order to solve Exercise
+\ref{exe.ent.quo-rem.bijs} \textbf{(b)}, we must prove that this map $B$ is a bijection.
+
+We shall achieve this by showing that $B$ is injective and surjective:
+
+[\textit{Proof of the injectivity of }$B$\textit{:} In our solution to
+Exercise \ref{exe.ent.quo-rem.bijs} \textbf{(a)}, we have defined a map $A$
+and proven that this map $A$ is injective. The very same argument (with $A$
+replaced by $B$, and $\mathbb{Z}$ replaced by $\mathbb{N}$) shows that the map
+$B$ is injective.]
+
+[\textit{Proof of the surjectivity of }$B$\textit{:} Let $u\in\mathbb{N}$. We
+shall find an $x\in\mathbb{N}\times\left\{  0,1,\ldots,n-1\right\}  $ such
+that $u=B\left(  x\right)  $.
+
+Indeed, Lemma \ref{lem.ent.quorem.exist} shows that there exists \textbf{at
+least one} pair $\left(  q,r\right)  \in\mathbb{Z}\times\left\{
+0,1,\ldots,n-1\right\}  $ such that $u=qn+r$. Consider this $\left(
+q,r\right)  $. From $\left(  q,r\right)  \in\mathbb{Z}\times\left\{
+0,1,\ldots,n-1\right\}  $, we obtain $q\in\mathbb{Z}$ and $r\in\left\{
+0,1,\ldots,n-1\right\}  $. From $r\in\left\{  0,1,\ldots,n-1\right\}  $, we
+obtain $r\leq n-1<n$, so that $u=qn+\underbrace{r}_{<n}<qn+n=\left(
+q+1\right)  n$. Thus, $\left(  q+1\right)  n>u\geq0$ (since $u\in\mathbb{N}$).
+But if we had $q+1\leq0$, then we would have $\underbrace{\left(  q+1\right)
+}_{\leq0}n\leq0$ (since $n$ is positive), which would contradict $\left(
+q+1\right)  n>0$. Thus, we cannot have $q+1\leq0$. Hence, we have $q+1>0$, and
+therefore $q+1\geq1$ (since $q+1$ is an integer), so that $q\geq0$. In other
+words, $q\in\mathbb{N}$. Combining this with $r\in\left\{  0,1,\ldots
+,n-1\right\}  $, we obtain $\left(  q,r\right)  \in\mathbb{N}\times\left\{
+0,1,\ldots,n-1\right\}  $. Thus, $B\left(  \left(  q,r\right)  \right)  $ is
+well-defined. The definition of $B$ yields $B\left(  \left(  q,r\right)
+\right)  =qn+r=u$. Hence, $u=B\left(  \left(  q,r\right)  \right)  $. Thus,
+there exists an $x\in\mathbb{N}\times\left\{  0,1,\ldots,n-1\right\}  $ such
+that $u=B\left(  x\right)  $ (namely, $x=\left(  q,r\right)  $).
+
+Now, forget that we fixed $u$. We thus have shown that for each $u\in
+\mathbb{N}$, there exists an $x\in\mathbb{N}\times\left\{  0,1,\ldots
+,n-1\right\}  $ such that $u=B\left(  x\right)  $. In other words, the map $B$
+is surjective.]
+
+We have now shown that the map $B$ is injective and surjective. Hence, $B$ is
+bijective. In other words, $B$ is a bijection. As we explained above, this
+solves Exercise \ref{exe.ent.quo-rem.bijs} \textbf{(b)}.
+
+\textbf{(c)} Let $a\in\mathbb{Z}$ and $b\in\left\{  0,1,\ldots,n-1\right\}  $.
+We shall show that $\left(  an+b\right)  //n=a$. (This is, of course, the
+claim of Exercise \ref{exe.ent.quo-rem.bijs} \textbf{(c)} with $q$ and $r$
+renamed as $a$ and $b$.)
+
+Let $u=an+b$. Then, $u\in\mathbb{Z}$ (since $a$, $n$ and $b$ are integers). We
+have $\left(  a,b\right)  \in\mathbb{Z}\times\left\{  0,1,\ldots,n-1\right\}
+$ (since $a\in\mathbb{Z}$ and $b\in\left\{  0,1,\ldots,n-1\right\}  $) and
+$u=an+b$. Hence, $\left(  a,b\right)  $ is a pair $\left(  q,r\right)
+\in\mathbb{Z}\times\left\{  0,1,\ldots,n-1\right\}  $ such that $u=qn+r$. But
+Theorem \ref{thm.ent.quorem.full} shows that there exists a unique pair
+$\left(  q,r\right)  \in\mathbb{Z}\times\left\{  0,1,\ldots,n-1\right\}  $
+such that $u=qn+r$. This unique pair $\left(  q,r\right)  $ must be $\left(
+a,b\right)  $ (because we have just shown that $\left(  a,b\right)  $ is such
+a pair). Hence, Definition \ref{def.ent.quorem} \textbf{(a)} yields $u//n=a$.
+In view of $u=an+b$, this rewrites as $\left(  an+b\right)  //n=a$.
+
+Now, forget that we fixed $a$ and $b$. We thus have shown that any
+$a\in\mathbb{Z}$ and $b\in\left\{  0,1,\ldots,n-1\right\}  $ satisfy $\left(
+an+b\right)  //n=a$. Renaming $a$ and $b$ as $q$ and $r$ in this statement, we
+obtain the following: Any $q\in\mathbb{Z}$ and $r\in\left\{  0,1,\ldots
+,n-1\right\}  $ satisfy $\left(  qn+r\right)  //n=q$. This solves Exercise
+\ref{exe.ent.quo-rem.bijs} \textbf{(c)}.
+
+\textbf{(d)} Let $a\in\mathbb{Z}$ and $b\in\left\{  0,1,\ldots,n-1\right\}  $.
+We shall show that $\left(  an+b\right)  \%n=b$. (This is, of course, the
+claim of Exercise \ref{exe.ent.quo-rem.bijs} \textbf{(d)} with $q$ and $r$
+renamed as $a$ and $b$.)
+
+Let $u=an+b$. Then, $u\in\mathbb{Z}$ (since $a$, $n$ and $b$ are integers). We
+have $\left(  a,b\right)  \in\mathbb{Z}\times\left\{  0,1,\ldots,n-1\right\}
+$ (since $a\in\mathbb{Z}$ and $b\in\left\{  0,1,\ldots,n-1\right\}  $) and
+$u=an+b$. Hence, $\left(  a,b\right)  $ is a pair $\left(  q,r\right)
+\in\mathbb{Z}\times\left\{  0,1,\ldots,n-1\right\}  $ such that $u=qn+r$. But
+Theorem \ref{thm.ent.quorem.full} shows that there exists a unique pair
+$\left(  q,r\right)  \in\mathbb{Z}\times\left\{  0,1,\ldots,n-1\right\}  $
+such that $u=qn+r$. This unique pair $\left(  q,r\right)  $ must be $\left(
+a,b\right)  $ (because we have just shown that $\left(  a,b\right)  $ is such
+a pair). Hence, Definition \ref{def.ent.quorem} \textbf{(b)} yields $u\%n=b$.
+In view of $u=an+b$, this rewrites as $\left(  an+b\right)  \%n=b$.
+
+Now, forget that we fixed $a$ and $b$. We thus have shown that any
+$a\in\mathbb{Z}$ and $b\in\left\{  0,1,\ldots,n-1\right\}  $ satisfy $\left(
+an+b\right)  \%n=b$. Renaming $a$ and $b$ as $q$ and $r$ in this statement, we
+obtain the following: Any $q\in\mathbb{Z}$ and $r\in\left\{  0,1,\ldots
+,n-1\right\}  $ satisfy $\left(  qn+r\right)  \%n=r$. This solves Exercise
+\ref{exe.ent.quo-rem.bijs} \textbf{(d)}.
 \end{proof}
 \end{fineprint}
 
