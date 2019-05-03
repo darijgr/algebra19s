@@ -17,7 +17,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Thursday, May 02, 2019 21:34:44}
+%TCIDATA{LastRevised=Friday, May 03, 2019 10:16:48}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -8399,8 +8399,8 @@ that }a_{i}=p\right)  =v_{p}\left(  n\right)
 \begin{align*}
 n  &  =a_{1}a_{2}\cdots a_{k}=\prod_{i\in\left\{  1,2,\ldots,k\right\}  }%
 a_{i}\\
-&  =\prod_{p\text{ prime}}\prod_{\substack{i\in\left\{  1,2,\ldots,k\right\}
-;\\a_{i}=p}}\underbrace{a_{i}}_{=p}\\
+&  =\prod_{p\text{ prime}}\ \ \prod_{\substack{i\in\left\{  1,2,\ldots
+,k\right\}  ;\\a_{i}=p}}\underbrace{a_{i}}_{=p}\\
 &  \ \ \ \ \ \ \ \ \ \ \left(
 \begin{array}
 [c]{c}%
@@ -8601,8 +8601,8 @@ satisfies $v_{p}\left(  n\right)  \leq v_{p}\left(  m\right)  $.
 So let $p$ be a prime. Recall that $n\mid m$. In other words, there exists
 some integer $b$ such that $m=nb$. Consider this $b$. Now,%
 \begin{align*}
-v_{p}\left(  \underbrace{m}_{=nb}\right)   &  =v_{p}\left(  nb\right)
-=v_{p}\left(  n\right)  +\underbrace{v_{p}\left(  b\right)  }_{\geq
+v_{p}\left(  \underbrace{m}_{=nb}\right)   &  =v_{p}\left(  nb\right) \\
+&  =v_{p}\left(  n\right)  +\underbrace{v_{p}\left(  b\right)  }_{\geq
 0}\ \ \ \ \ \ \ \ \ \ \left(  \text{by Theorem \ref{thm.ent.prime.vp-ring}
 \textbf{(a)}, applied to }a=n\right) \\
 &  \geq v_{p}\left(  n\right)  ,
@@ -10240,11 +10240,11 @@ $u^{\prime}=a$). Hence, Theorem \ref{thm.ent.coprime.modinv} \textbf{(c)}
 $u\perp n$.
 
 Now, Corollary \ref{cor.ent.quo-rem.remmod} \textbf{(a)} (applied to $ui$
-instead of $u$) shows that $\left(  ui\right)  \%n\in\left\{  0,1,\ldots
-,n-1\right\}  $ and $\left(  ui\right)  \%n\equiv ui\operatorname{mod}n$. Set
-$j=\left(  ui\right)  \%n$. Thus, $j=\left(  ui\right)  \%n\in\left\{
-0,1,\ldots,n-1\right\}  $ and $j=\left(  ui\right)  \%n\equiv
-ui\operatorname{mod}n$. Multiplying the congruences $a\equiv
+instead of $u$) shows that \newline$\left(  ui\right)  \%n\in\left\{
+0,1,\ldots,n-1\right\}  $ and $\left(  ui\right)  \%n\equiv
+ui\operatorname{mod}n$. Set $j=\left(  ui\right)  \%n$. Thus, $j=\left(
+ui\right)  \%n\in\left\{  0,1,\ldots,n-1\right\}  $ and $j=\left(  ui\right)
+\%n\equiv ui\operatorname{mod}n$. Multiplying the congruences $a\equiv
 a\operatorname{mod}n$ and $j\equiv ui\operatorname{mod}n$, we obtain%
 \[
 aj\equiv\underbrace{au}_{\equiv1\operatorname{mod}n}i\equiv
@@ -27324,6 +27324,9 @@ whenever $S$ is a finite set and $a_{s}\in\mathbb{K}$ for all $s\in S$.
 
 \textbf{(h)} We have $f\left(  a^{n}\right)  =\left(  f\left(  a\right)
 \right)  ^{n}$ for each $a\in\mathbb{K}$ and each $n\in\mathbb{N}$.
+
+\textbf{(i)} We have $f\left(  na\right)  =nf\left(  a\right)  $ for each
+$a\in\mathbb{K}$ and each $n\in\mathbb{Z}$.
 \end{proposition}
 
 \begin{proof}
@@ -27348,20 +27351,23 @@ inverse of $f\left(  a\right)  $. Thus, $f\left(  a\right)  $ is invertible,
 and $f\left(  a^{-1}\right)  =\left(  f\left(  a\right)  \right)  ^{-1}$. This
 proves part \textbf{(b)}.
 
-\textbf{(a)} Repeat the proof we gave for part \textbf{(b)}, but replace
-multiplication and $1$ by addition and $0$ (and forget about invertibility,
-because every element of $\mathbb{K}$ or $\mathbb{L}$ has an additive inverse).
+\textbf{(a)} Repeat the proof we just gave for Proposition
+\ref{prop.riho.subtract} \textbf{(b)}, but replace multiplication and $1$ by
+addition and $0$ (and forget about invertibility, because every element of
+$\mathbb{K}$ or $\mathbb{L}$ has an additive inverse).
 
-\textbf{(c)} Let $a,b\in\mathbb{K}$. Then,%
+\textbf{(c)} Let $a,b\in\mathbb{K}$. Then, $a-b=a+\left(  -b\right)  $ (by the
+definition of subtraction). Thus,%
 \begin{align*}
 f\left(  a-b\right)   &  =f\left(  a+\left(  -b\right)  \right)  =f\left(
 a\right)  +\underbrace{f\left(  -b\right)  }_{\substack{=-f\left(  b\right)
 \\\text{(by Proposition \ref{prop.riho.subtract} \textbf{(a)})}}%
 }\ \ \ \ \ \ \ \ \ \ \left(  \text{by axiom \textbf{(a)}}\right) \\
 &  =f\left(  a\right)  +\left(  -f\left(  b\right)  \right)  =f\left(
-a\right)  -f\left(  b\right)  .
+a\right)  -f\left(  b\right)
 \end{align*}
-
+(since the definition of subtraction yields $f\left(  a\right)  -f\left(
+b\right)  =f\left(  a\right)  +\left(  -f\left(  b\right)  \right)  $).
 
 \textbf{(d)} Similar to part \textbf{(c)}, but addition is replaced by multiplication.
 
@@ -27375,6 +27381,15 @@ induction step uses axiom \textbf{(c)}.
 axiom \textbf{(d)}; the induction step uses axiom \textbf{(c)}.
 
 \textbf{(h)} Follows from \textbf{(f)}, applied to $k=n$ and $a_{i}=a$.
+
+\textbf{(i)} If $n\geq0$, then Definition \ref{def.rings.na} yields
+$na=\underbrace{a+a+\cdots+a}_{n\text{ times}}$ and $nf\left(  a\right)
+=\underbrace{f\left(  a\right)  +f\left(  a\right)  +\cdots+f\left(  a\right)
+}_{n\text{ times}}$. Thus, if $n\geq0$, then Proposition
+\ref{prop.riho.subtract} \textbf{(i)} follows from Proposition
+\ref{prop.riho.subtract} \textbf{(e)} (applied to $S=\left\{  1,2,\ldots
+,n\right\}  $ and $a_{s}=a$). The case when $n<0$ can be reduced to the case
+when $n\geq0$ by using Proposition \ref{prop.riho.subtract} \textbf{(a)}.
 \end{proof}
 
 The composition of two ring homomorphisms is again a ring homomorphism, as the
@@ -30497,6 +30512,132 @@ $\mathbb{K}$ defined in Example \ref{exa.module.K}), then the maps
 $L_{\lambda}$ (for $\lambda\in\mathbb{K}$) that we just defined are the only
 $\mathbb{K}$-linear maps from $M$ to $M$.
 \end{example}
+
+\begin{proof}
+[Proof of Example \ref{exa.module.moho.id}.]\textbf{(b)} Let $\lambda
+\in\mathbb{K}$. We must prove that the map $L_{\lambda}:M\rightarrow
+M,\ a\mapsto\lambda a$ is $\mathbb{K}$-linear. Thus, we must prove that it
+satisfies the three axioms \textbf{(a)}, \textbf{(b)} and \textbf{(c)} of
+Definition \ref{def.module.moho}. In other words, we must prove the following:
+
+\begin{statement}
+\textit{Claim 1:} We have $L_{\lambda}\left(  a+b\right)  =L_{\lambda}\left(
+a\right)  +L_{\lambda}\left(  b\right)  $ for all $a,b\in M$.
+
+\textit{Claim 2:} We have $L_{\lambda}\left(  0\right)  =0$.
+
+\textit{Claim 3:} We have $L_{\lambda}\left(  \mu a\right)  =\mu L_{\lambda
+}\left(  a\right)  $ for all $\mu\in\mathbb{K}$ and $a\in M$. (Note that we
+are using the letter \textquotedblleft$\mu$\textquotedblright\ for what was
+called \textquotedblleft$\lambda$\textquotedblright\ in Definition
+\ref{def.module.moho}, since the letter \textquotedblleft$\lambda
+$\textquotedblright\ is already taken.)
+\end{statement}
+
+[\textit{Proof of Claim 1:} Let $a,b\in M$. Then, the definition of
+$L_{\lambda}$ yields $L_{\lambda}\left(  a+b\right)  =\lambda\left(
+a+b\right)  $ and $L_{\lambda}\left(  a\right)  =\lambda a$ and $L_{\lambda
+}\left(  b\right)  =\lambda b$. But axiom \textbf{(e)} in Definition
+\ref{def.module.module} yields $\lambda\left(  a+b\right)  =\lambda a+\lambda
+b$. Hence,
+\[
+L_{\lambda}\left(  a+b\right)  =\lambda\left(  a+b\right)
+=\underbrace{\lambda a}_{=L_{\lambda}\left(  a\right)  }+\underbrace{\lambda
+b}_{=L_{\lambda}\left(  b\right)  }=L_{\lambda}\left(  a\right)  +L_{\lambda
+}\left(  b\right)  .
+\]
+This proves Claim 1.]
+
+[\textit{Proof of Claim 2:} We leave this proof to the reader.]
+
+[\textit{Proof of Claim 3:} Let $\mu\in\mathbb{K}$ and $a\in M$. Now, axiom
+\textbf{(h)} in Definition \ref{def.module.module} yields $\left(  \lambda
+\mu\right)  a=\lambda\left(  \mu a\right)  $. The same argument (with the
+roles of $\lambda$ and $\mu$ swapped) yields $\left(  \mu\lambda\right)
+a=\mu\left(  \lambda a\right)  $. But $\mathbb{K}$ is commutative; thus,
+$\lambda\mu=\mu\lambda$. Now, the definition of $L_{\lambda}$ yields
+$L_{\lambda}\left(  a\right)  =\lambda a$. Furthermore, the definition of
+$L_{\lambda}$ yields%
+\[
+L_{\lambda}\left(  \mu a\right)  =\lambda\left(  \mu a\right)
+=\underbrace{\left(  \lambda\mu\right)  }_{=\mu\lambda}a=\left(  \mu
+\lambda\right)  a=\mu\underbrace{\left(  \lambda a\right)  }_{=L_{\lambda
+}\left(  a\right)  }=\mu L_{\lambda}\left(  a\right)  .
+\]
+This proves Claim 3.]
+
+Thus, all three Claims 1, 2 and 3 have been proven. Hence, the map
+$L_{\lambda}:M\rightarrow M,\ a\mapsto\lambda a$ is $\mathbb{K}$-linear; this
+completes the proof of Example \ref{exa.module.moho.id} \textbf{(b)}.{}
+
+\textbf{(a)} In Example \ref{exa.module.moho.id} \textbf{(b)}, we have defined
+a map $L_{\lambda}:M\rightarrow M,\ a\mapsto\lambda a$ for each $\lambda
+\in\mathbb{K}$. Applying this to $\lambda=1$, we obtain a map $L_{1}%
+:M\rightarrow M,\ a\mapsto1a$. This map $L_{1}:M\rightarrow M$ is $\mathbb{K}%
+$-linear (by Example \ref{exa.module.moho.id} \textbf{(b)}, applied to
+$\lambda=1$). But each $a\in M$ satisfies
+\begin{align*}
+L_{1}\left(  a\right)   &  =1a\ \ \ \ \ \ \ \ \ \ \left(  \text{by the
+definition of }L_{1}\right) \\
+&  =a\ \ \ \ \ \ \ \ \ \ \left(  \text{by axiom \textbf{(i)} in Definition
+\ref{def.module.module}}\right) \\
+&  =\operatorname*{id}\left(  a\right)  .
+\end{align*}
+In other words, $L_{1}=\operatorname*{id}$. Hence, the map $\operatorname*{id}%
+:M\rightarrow M$ is $\mathbb{K}$-linear (since the map $L_{1}:M\rightarrow M$
+is $\mathbb{K}$-linear). This proves Example \ref{exa.module.moho.id}
+\textbf{(a)}.{}
+
+\textbf{(c)} Assume that $M=\mathbb{K}$ (specifically, the $\mathbb{K}$-module
+$\mathbb{K}$ defined in Example \ref{exa.module.K}). We must prove that the
+maps $L_{\lambda}$ (for $\lambda\in\mathbb{K}$) that we just defined are the
+only $\mathbb{K}$-linear maps from $M$ to $M$. We already have shown that
+these maps $L_{\lambda}$ are $\mathbb{K}$-linear (see Example
+\ref{exa.module.moho.id} \textbf{(b)}); thus, it remains to prove that there
+are no other $\mathbb{K}$-linear maps from $M$ to $M$. In other words, it
+remains to prove that if $f$ is a $\mathbb{K}$-linear map from $M$ to $M$,
+then $f=L_{\lambda}$ for some $\lambda\in\mathbb{K}$.
+
+So let $f$ be a $\mathbb{K}$-linear map from $M$ to $M$. Set $\rho=f\left(
+1\right)  $. Then, $\rho\in M=\mathbb{K}$. Thus, a map $L_{\rho}:M\rightarrow
+M$ is well-defined.
+
+Recall that our $\mathbb{K}$-module $M$ is $\mathbb{K}$ itself, and its
+scaling map is exactly the multiplication operation of $\mathbb{K}$.
+
+Now, let $a\in M$. Then, $a\in M=\mathbb{K}$, so that $a=a\cdot1$ (by the
+\textquotedblleft Neutrality of one\textquotedblright\ axiom in the ring
+$\mathbb{K}$). Hence,%
+\begin{align*}
+f\left(  a\right)   &  =f\left(  a\cdot1\right)  =a\cdot\underbrace{f\left(
+1\right)  }_{=\rho}\ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{by the axiom \textbf{(c)} in Definition \ref{def.module.moho},}\\
+\text{applied to }a\text{ and }1\text{ instead of }\lambda\text{ and }a
+\end{array}
+\right) \\
+&  =a\cdot\rho=\rho\cdot a\\
+&  \ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{since both }a\text{ and }\rho\text{ are elements of }\mathbb{K}\text{,
+and since }\mathbb{K}\text{ is commutative}\\
+\text{(and since the scaling map of }M\text{ is the multiplication operation
+of }\mathbb{K}\text{)}%
+\end{array}
+\right) \\
+&  =L_{\rho}\left(  a\right)
+\end{align*}
+(since the definition of $L_{\rho}$ yields $L_{\rho}\left(  a\right)
+=\rho\cdot a$).
+
+Now, forget that we fixed $a$. We thus have proven that $f\left(  a\right)
+=L_{\rho}\left(  a\right)  $ for each $a\in M$. In other words, $f=L_{\rho}$.
+Hence, $f=L_{\lambda}$ for some $\lambda\in\mathbb{K}$ (namely, for
+$\lambda=\rho$). As we said, this proves Example \ref{exa.module.moho.id}
+\textbf{(c)}.
+\end{proof}
 
 Next comes a less basic example:
 
@@ -35804,6 +35945,78 @@ x^{2}\right)  ^{k}=\sum_{k\in\mathbb{N}}a_{k}x^{2k}=\left(  a_{0}%
 
 \end{example}
 
+In Definition \ref{def.pol.eval}, we have rigorously defined the value
+$\mathbf{a}\left[  u\right]  $ of a polynomial $\mathbf{a}$ at an element $u$
+of a $\mathbb{K}$-algebra. In practice, this value is best understood through
+the following slogan:
+
+\begin{statement}
+\textit{Substitution slogan: }Let $U$ be a $\mathbb{K}$-algebra, and let $u\in
+U$. Let $\mathbf{a}\in\mathbb{K}\left[  x\right]  $ be a polynomial. Then,
+$\mathbf{a}\left[  u\right]  $ is, roughly speaking, the result of
+\textquotedblleft substituting $u$ for $x$\textquotedblright\ into
+$\mathbf{a}$.
+\end{statement}
+
+For example,%
+\begin{align}
+\left(  1+3x+8x^{2}\right)  \left[  u\right]   &  =1+3u+8u^{2}%
+\ \ \ \ \ \ \ \ \ \ \text{and}\label{eq.exa.pol.eval.1.1}\\
+\left(  x^{9}-2x\right)  \left[  u\right]   &  =u^{9}%
+-2u\ \ \ \ \ \ \ \ \ \ \text{and}\label{eq.exa.pol.eval.1.2}\\
+\left(  x^{4}-\left(  x-1\right)  ^{2}\left(  x+1\right)  ^{2}\right)  \left[
+u\right]   &  =u^{4}-\left(  u-1\right)  ^{2}\left(  u+1\right)  ^{2}.
+\label{eq.exa.pol.eval.1.3}%
+\end{align}
+However, strictly speaking, this is not all obvious at this point yet. While
+(\ref{eq.exa.pol.eval.1.1}) and (\ref{eq.exa.pol.eval.1.2}) can easily be
+checked using Definition \ref{def.pol.eval}\footnote{Namely: Write the
+polynomial $1+3x+8x^{2}$ in the form $\left(  a_{0},a_{1},a_{2},\ldots\right)
+$ for some $a_{0},a_{1},a_{2},\ldots\in\mathbb{K}$. Then, $a_{0}=1$ and
+$a_{1}=3$ and $a_{2}=8$ and $a_{k}=0$ for all $k>2$. But Definition
+\ref{def.pol.eval} (applied to $\mathbf{a}=1+3x+8x^{2}$) yields%
+\begin{align*}
+\left(  1+3x+8x^{2}\right)  \left[  u\right]   &  =\sum_{k\in\mathbb{N}}%
+a_{k}u^{k}=\underbrace{a_{0}}_{=1}\underbrace{u^{0}}_{=1}+\underbrace{a_{1}%
+}_{=3}\underbrace{u^{1}}_{=u}+\underbrace{a_{2}}_{=8}u^{2}+\sum_{k>2}%
+\underbrace{a_{k}}_{=0}u^{k}\\
+&  =1+3u+8u^{2}+\underbrace{\sum_{k>2}0u^{k}}_{=0}=1+3u+8u^{2}.
+\end{align*}
+This proves (\ref{eq.exa.pol.eval.1.1}). A similar argument can be used to
+prove (\ref{eq.exa.pol.eval.1.2}).}, it is not so clear how to obtain
+(\ref{eq.exa.pol.eval.1.3}) from Definition \ref{def.pol.eval} without
+multiplying out both sides\footnote{Of course, if you multiply them out, then
+(\ref{eq.exa.pol.eval.1.3}) becomes obvious: We have $x^{4}-\left(
+x-1\right)  ^{2}\left(  x+1\right)  ^{2}=2x^{2}-1$, so that%
+\[
+\left(  x^{4}-\left(  x-1\right)  ^{2}\left(  x+1\right)  ^{2}\right)  \left[
+u\right]  =\left(  2x^{2}-1\right)  \left[  u\right]  =2u^{2}-1
+\]
+(this follows from Definition \ref{def.pol.eval} in the same way as
+(\ref{eq.exa.pol.eval.1.1}) did). Comparing this with%
+\[
+u^{4}-\left(  u-1\right)  ^{2}\left(  u+1\right)  ^{2}=2u^{2}-1,
+\]
+we obtain $\left(  x^{4}-\left(  x-1\right)  ^{2}\left(  x+1\right)
+^{2}\right)  \left[  u\right]  =u^{4}-\left(  u-1\right)  ^{2}\left(
+u+1\right)  ^{2}$, and thus (\ref{eq.exa.pol.eval.1.3}) is proven.
+\par
+But multiplying out is not always viable. Let's say we want to prove that%
+\[
+\left(  x^{2n}-\left(  x-1\right)  ^{n}\left(  x+1\right)  ^{n}\right)
+\left[  u\right]  =u^{2n}-\left(  u-1\right)  ^{n}\left(  u+1\right)  ^{n}%
+\]
+for all $n\in\mathbb{N}$. This can no longer be proven as easily, since the
+coefficients of the polynomial $x^{2n}-\left(  x-1\right)  ^{n}\left(
+x+1\right)  ^{n}$ will grow more complicated as $n$ grows larger.}. Definition
+\ref{def.pol.eval} only justifies the Substitution slogan when the
+substitution happens in the \textbf{expanded form} of $\mathbf{a}$ (that is,
+in the form $\mathbf{a}=a_{0}x^{0}+a_{1}x^{1}+a_{2}x^{2}+\cdots$), but not
+when it happens in some other form like $\left(  1+x\right)  \left(
+1-x\right)  $ or $x^{2}-\left(  x-1\right)  ^{2}$. We shall soon convince
+ourselves that the Substitution slogan is true for the latter forms as well.
+First, we need to prove some basic properties of values of polynomials:
+
 \begin{theorem}
 \label{thm.pol.eval.a+b}Let $U$ be a $\mathbb{K}$-algebra. Let $u\in U$.
 
@@ -35826,14 +36039,106 @@ x\right]  $ satisfy%
 
 
 \textbf{(c)} Any $a\in\mathbb{K}$ satisfies $\underline{a}\left[  u\right]
-=a\cdot1_{U}$. (This is often written $\underline{a}\left[  u\right]  =a$, but
-keep in mind that the $a$ on the right hand side is understood to be
-\textquotedblleft coerced into $U$\textquotedblright, so it actually means the
-element of $U$ \textquotedblleft corresponding to $a$\textquotedblright.)
+=a\cdot1_{U}$. (This is often written as \textquotedblleft$\underline{a}%
+\left[  u\right]  =a$\textquotedblright, but keep in mind that the
+\textquotedblleft$a$\textquotedblright\ on the right hand side of this
+equality is understood to be \textquotedblleft coerced into $U$%
+\textquotedblright, so it actually means \textquotedblleft the element of $U$
+corresponding to $a$\textquotedblright, which is $a\cdot1_{U}$.)
+
+\textbf{(d)} We have $x\left[  u\right]  =u$.
+
+\textbf{(e)} We have $x^{i}\left[  u\right]  =u^{i}$ for each $i\in\mathbb{N}$.
 \end{theorem}
 
 \begin{proof}
-[Proof of Theorem \ref{thm.pol.eval.a+b}.]\textbf{(b)} and \textbf{(c)} are easy.
+[Proof of Theorem \ref{thm.pol.eval.a+b}.]For each $\mathbf{a}\in
+\mathbb{K}\left[  x\right]  $, we have $\mathbf{a}=\left(  \left[
+x^{0}\right]  \mathbf{a},\left[  x^{1}\right]  \mathbf{a},\left[
+x^{2}\right]  \mathbf{a},\ldots\right)  $ (by (\ref{eq.pol.fps-a=()})) and
+therefore%
+\begin{equation}
+\mathbf{a}\left[  u\right]  =\sum_{k\in\mathbb{N}}\left(  \left[
+x^{k}\right]  \mathbf{a}\right)  u^{k}.\label{pf.thm.pol.eval.a+b.au=}%
+\end{equation}
+
+
+\textbf{(e)} Let $i\in\mathbb{N}$. Then, (\ref{pf.thm.pol.eval.a+b.au=})
+(applied to $\mathbf{a}=x^{i}$) yields%
+\begin{align*}
+x^{i}\left[  u\right]    & =\sum_{k\in\mathbb{N}}\underbrace{\left(  \left[
+x^{k}\right]  \left(  x^{i}\right)  \right)  }_{\substack{=%
+\begin{cases}
+1, & \text{if }k=i;\\
+0, & \text{if }k\neq i
+\end{cases}
+\\\text{(by (\ref{eq.prop.pol.xk.rest}), applied}\\\text{to }k\text{ and
+}i\text{ instead of }n\text{ and }k\text{)}}}u^{k}=\sum_{k\in\mathbb{N}}%
+\begin{cases}
+1, & \text{if }k=i;\\
+0, & \text{if }k\neq i
+\end{cases}
+u^{k}\\
+& =\underbrace{%
+\begin{cases}
+1, & \text{if }i=i;\\
+0, & \text{if }i\neq i
+\end{cases}
+}_{\substack{=1\\\text{(since }i=i\text{)}}}u^{i}+\sum_{\substack{k\in
+\mathbb{N};\\k\neq i}}\underbrace{%
+\begin{cases}
+1, & \text{if }k=i;\\
+0, & \text{if }k\neq i
+\end{cases}
+}_{\substack{=0\\\text{(since }k\neq i\text{)}}}u^{k}\\
+& \ \ \ \ \ \ \ \ \ \ \left(  \text{here, we have split off the addend for
+}k=i\text{ from the sum}\right)  \\
+& =u^{i}+\underbrace{\sum_{\substack{k\in\mathbb{N};\\k\neq i}}0u^{k}}%
+_{=0}=u^{i}.
+\end{align*}
+This proves Theorem \ref{thm.pol.eval.a+b} \textbf{(e)}.
+
+\textbf{(d)} Theorem \ref{thm.pol.eval.a+b} \textbf{(e)} (applied to $i=1$)
+yields $x^{1}\left[  u\right]  =u^{1}=u$. In view of $x^{1}=x$, this rewrites
+as $x\left[  u\right]  =u$. This proves Theorem \ref{thm.pol.eval.a+b}
+\textbf{(d)}.
+
+\textbf{(c)} Let $a\in\mathbb{K}$. Then, (\ref{pf.thm.pol.eval.a+b.au=})
+(applied to $\mathbf{a}=\underline{a}$) yields%
+\begin{align*}
+\underline{a}\left[  u\right]    & =\sum_{k\in\mathbb{N}}\underbrace{\left(
+\left[  x^{k}\right]  \left(  \underline{a}\right)  \right)  }_{\substack{=%
+\begin{cases}
+a, & \text{if }k=0;\\
+0, & \text{if }k\neq0
+\end{cases}
+\\\text{(by (\ref{eq.pol.fps-cst.1}), applied to }n=k\text{)}}}u^{k}%
+=\sum_{k\in\mathbb{N}}%
+\begin{cases}
+a, & \text{if }k=0;\\
+0, & \text{if }k\neq0
+\end{cases}
+u^{k}\\
+& =\underbrace{%
+\begin{cases}
+a, & \text{if }0=0;\\
+0, & \text{if }0\neq0
+\end{cases}
+}_{\substack{=a\\\text{(since }0=0\text{)}}}\underbrace{u^{0}}_{=1_{U}}%
++\sum_{\substack{k\in\mathbb{N};\\k\neq0}}\underbrace{%
+\begin{cases}
+a, & \text{if }k=0;\\
+0, & \text{if }k\neq0
+\end{cases}
+}_{\substack{=0\\\text{(since }k\neq0\text{)}}}u^{k}\\
+& \ \ \ \ \ \ \ \ \ \ \left(  \text{here, we have split off the addend for
+}k=0\text{ from the sum}\right)  \\
+& =a\cdot1_{U}+\underbrace{\sum_{\substack{k\in\mathbb{N};\\k\neq0}}0u^{k}%
+}_{=0}=a\cdot1_{U}.
+\end{align*}
+This proves Theorem \ref{thm.pol.eval.a+b} \textbf{(c)}.
+
+\textbf{(c)} This is easy and left to the reader.
 
 \textbf{(a)} Let $\mathbf{a},\mathbf{b}\in\mathbb{K}\left[  x\right]  $. It is
 easy to see that $\left(  \mathbf{a+b}\right)  \left[  u\right]
@@ -35865,9 +36170,11 @@ b_{j}\underbrace{u^{i+j}}_{=u^{i}u^{j}}=\sum\limits_{i\in\mathbb{N}}%
 \sum\limits_{j\in\mathbb{N}}a_{i}b_{j}u^{i}u^{j}=\sum\limits_{i\in\mathbb{N}%
 }a_{i}u^{i}\sum\limits_{j\in\mathbb{N}}b_{j}u^{j}\\
 &  =\underbrace{\left(  \sum\limits_{i\in\mathbb{N}}a_{i}u^{i}\right)
-}_{=\mathbf{a}\left[  u\right]  }\underbrace{\left(  \sum\limits_{j\in
-\mathbb{N}}b_{j}u^{j}\right)  }_{=\mathbf{b}\left[  u\right]  }=\mathbf{a}%
-\left[  u\right]  \cdot\mathbf{b}\left[  u\right]  .
+}_{\substack{=\sum\limits_{k\in\mathbb{N}}a_{k}u^{k}\\=\mathbf{a}\left[
+u\right]  }}\ \ \underbrace{\left(  \sum\limits_{j\in\mathbb{N}}b_{j}%
+u^{j}\right)  }_{\substack{=\sum\limits_{k\in\mathbb{N}}b_{k}u^{k}%
+\\=\mathbf{b}\left[  u\right]  }}=\mathbf{a}\left[  u\right]  \cdot
+\mathbf{b}\left[  u\right]  .
 \end{align*}
 (These manipulations with infinite sums are all kosher, because only finitely
 many pairs $\left(  i,j\right)  \in\mathbb{N}\times\mathbb{N}$ satisfy
@@ -35886,22 +36193,94 @@ is a $\mathbb{K}$-algebra homomorphism.
 \end{corollary}
 
 \begin{proof}
-[Proof of Corollary \ref{cor.pol.eval.evu}.]This follows straight from Theorem
-\ref{thm.pol.eval.a+b}. For example,%
-\[
-\left(  \mathbf{ab}\right)  \left[  u\right]  =\mathbf{a}\left[  u\right]
-\cdot\mathbf{b}\left[  u\right]
-\]
-rewrites as%
-\[
-\operatorname*{ev}\nolimits_{u}\left(  \mathbf{ab}\right)  =\operatorname*{ev}%
-\nolimits_{u}\left(  \mathbf{a}\right)  \cdot\operatorname*{ev}\nolimits_{u}%
-\left(  \mathbf{b}\right)  ,
-\]
-and this is one of the axioms that it takes for $\operatorname*{ev}%
-\nolimits_{u}$ to be a $\mathbb{K}$-algebra homomorphism. (Theorem
-\ref{thm.pol.eval.a+b} \textbf{(c)} yields that $\operatorname*{ev}%
-\nolimits_{u}$ preserves $0$ and $1$.)
+[Proof of Corollary \ref{cor.pol.eval.evu}.]We must prove that
+$\operatorname*{ev}\nolimits_{u}$ is a $\mathbb{K}$-algebra homomorphism. In
+other words, we must prove that $\operatorname*{ev}\nolimits_{u}$ is a ring
+homomorphism and a $\mathbb{K}$-module homomorphism (by the definition of a
+$\mathbb{K}$-algebra homomorphism).
+
+In order to prove that $\operatorname*{ev}\nolimits_{u}$ is a ring
+homomorphism, we must prove the following four claims:
+
+\begin{statement}
+\textit{Claim 1:} We have $\operatorname*{ev}\nolimits_{u}\left(
+\mathbf{a}+\mathbf{b}\right)  =\operatorname*{ev}\nolimits_{u}\left(
+\mathbf{a}\right)  +\operatorname*{ev}\nolimits_{u}\left(  \mathbf{b}\right)
+$ for all $\mathbf{a},\mathbf{b}\in\mathbb{\mathbb{K}}\left[  x\right]  $.
+\end{statement}
+
+\begin{statement}
+\textit{Claim 2:} We have $\operatorname*{ev}\nolimits_{u}\left(  0\right)
+=0$.
+\end{statement}
+
+\begin{statement}
+\textit{Claim 3:} We have $\operatorname*{ev}\nolimits_{u}\left(
+\mathbf{ab}\right)  =\operatorname*{ev}\nolimits_{u}\left(  \mathbf{a}\right)
+\operatorname*{ev}\nolimits_{u}\left(  \mathbf{b}\right)  $ for all
+$\mathbf{a},\mathbf{b}\in\mathbb{\mathbb{K}}\left[  x\right]  $.
+\end{statement}
+
+\begin{statement}
+\textit{Claim 4:} We have $\operatorname*{ev}\nolimits_{u}\left(  1\right)
+=1$.
+\end{statement}
+
+\noindent Indeed, these four claims are the axioms in the definition of a ring homomorphism.
+
+In order to prove that $\operatorname*{ev}\nolimits_{u}$ is a $\mathbb{K}%
+$-module homomorphism, we must prove the following four claims:
+
+\begin{statement}
+\textit{Claim 5:} We have $\operatorname*{ev}\nolimits_{u}\left(
+\mathbf{a}+\mathbf{b}\right)  =\operatorname*{ev}\nolimits_{u}\left(
+\mathbf{a}\right)  +\operatorname*{ev}\nolimits_{u}\left(  \mathbf{b}\right)
+$ for all $\mathbf{a},\mathbf{b}\in\mathbb{\mathbb{K}}\left[  x\right]  $.
+\end{statement}
+
+\begin{statement}
+\textit{Claim 6:} We have $\operatorname*{ev}\nolimits_{u}\left(  0\right)
+=0$.
+\end{statement}
+
+\begin{statement}
+\textit{Claim 7:} We have $\operatorname*{ev}\nolimits_{u}\left(
+\lambda\mathbf{a}\right)  =\lambda\operatorname*{ev}\nolimits_{u}\left(
+\mathbf{a}\right)  $ for all $\lambda\in\mathbb{K}$ and $\mathbf{a}%
+\in\mathbb{\mathbb{K}}\left[  x\right]  $.
+\end{statement}
+
+\noindent Indeed, these three claims are the axioms in the definition of a
+$\mathbb{K}$-module homomorphism.
+
+Let us first prove Claim 3:
+
+[\textit{Proof of Claim 3:} Let $\mathbf{a},\mathbf{b}\in\mathbb{\mathbb{K}%
+}\left[  x\right]  $. We must prove that $\operatorname*{ev}\nolimits_{u}%
+\left(  \mathbf{ab}\right)  =\operatorname*{ev}\nolimits_{u}\left(
+\mathbf{a}\right)  \cdot\operatorname*{ev}\nolimits_{u}\left(  \mathbf{b}%
+\right)  $. But the definition of $\operatorname*{ev}\nolimits_{u}$ yields
+$\operatorname*{ev}\nolimits_{u}\left(  \mathbf{ab}\right)  =\left(
+\mathbf{ab}\right)  \left[  u\right]  $ and $\operatorname*{ev}\nolimits_{u}%
+\left(  \mathbf{a}\right)  =\mathbf{a}\left[  u\right]  $ and
+$\operatorname*{ev}\nolimits_{u}\left(  \mathbf{b}\right)  =\mathbf{b}\left[
+u\right]  $. Hence, proving that $\operatorname*{ev}\nolimits_{u}\left(
+\mathbf{ab}\right)  =\operatorname*{ev}\nolimits_{u}\left(  \mathbf{a}\right)
+\cdot\operatorname*{ev}\nolimits_{u}\left(  \mathbf{b}\right)  $ is tantamount
+to proving that $\left(  \mathbf{ab}\right)  \left[  u\right]  =\mathbf{a}%
+\left[  u\right]  \cdot\mathbf{b}\left[  u\right]  $. But the latter equality
+follows from Theorem \ref{thm.pol.eval.a+b} \textbf{(a)}. Hence,
+$\operatorname*{ev}\nolimits_{u}\left(  \mathbf{ab}\right)
+=\operatorname*{ev}\nolimits_{u}\left(  \mathbf{a}\right)  \cdot
+\operatorname*{ev}\nolimits_{u}\left(  \mathbf{b}\right)  $ is proven. This
+proves Claim 3.]
+
+Claim 1 is proven in the same way as Claim 3. Claims 2 and 4 follow easily
+from Theorem \ref{thm.pol.eval.a+b} \textbf{(c)}. Claims 5 and 6 are just
+Claims 1 and 2, repeated. Claim 7 follows easily from Theorem
+\ref{thm.pol.eval.a+b} \textbf{(b)}. Thus, we have proven all seven Claims 1,
+2, ..., 7. As we explained, this shows that $\operatorname*{ev}\nolimits_{u}$
+is a $\mathbb{K}$-algebra homomorphism. Thus, Corollary \ref{cor.pol.eval.evu} holds.
 \end{proof}
 
 The map $\operatorname*{ev}\nolimits_{u}$ in Corollary \ref{cor.pol.eval.evu}
@@ -35909,10 +36288,136 @@ is called an \textit{evaluation homomorphism} (specifically, the
 \textit{evaluation homomorphism at }$u$), since it \textquotedblleft
 evaluates\textquotedblright\ each polynomial at $u$.
 
-Thanks to Corollary \ref{cor.pol.eval.evu}, the polynomial ring $\mathbb{K}%
-\left[  x\right]  $ is a sort of \textquotedblleft forge\textquotedblright%
-\ for identities that concern an arbitrary element $u$ of an arbitrary
-$\mathbb{K}$-algebra $U$. For example, if you want to prove the identity%
+\begin{corollary}
+\label{cor.pol.eval.concs}Let $U$ be a $\mathbb{K}$-algebra. Let $u\in U$. Then:
+
+\textbf{(a)} We have $\left(  -\mathbf{a}\right)  \left[  u\right]
+=-\mathbf{a}\left[  u\right]  $ for each $\mathbf{a}\in\mathbb{K}\left[
+x\right]  $.
+
+\textbf{(b)} We have $\left(  \mathbf{a}-\mathbf{b}\right)  \left[  u\right]
+=\mathbf{a}\left[  u\right]  -\mathbf{b}\left[  u\right]  $ for each
+$\mathbf{a},\mathbf{b}\in\mathbb{K}\left[  x\right]  $.
+
+\textbf{(c)} We have $\left(  \sum_{s\in S}\mathbf{a}_{s}\right)  \left[
+u\right]  =\sum_{s\in S}\left(  \mathbf{a}_{s}\left[  u\right]  \right)  $
+whenever $S$ is a finite set and $\mathbf{a}_{s}\in\mathbb{K}\left[  x\right]
+$ for all $s\in S$.
+
+\textbf{(d)} We have $\left(  \mathbf{a}_{1}\mathbf{a}_{2}\cdots\mathbf{a}%
+_{k}\right)  \left[  u\right]  =\mathbf{a}_{1}\left[  u\right]  \cdot
+\mathbf{a}_{2}\left[  u\right]  \cdot\cdots\cdot\mathbf{a}_{k}\left[
+u\right]  $ whenever $\mathbf{a}_{1},\mathbf{a}_{2},\ldots,\mathbf{a}_{k}%
+\in\mathbb{K}\left[  x\right]  $.
+
+\textbf{(e)} If the ring $U$ is commutative, then $\left(  \prod_{s\in
+S}\mathbf{a}_{s}\right)  \left[  u\right]  =\prod_{s\in S}\left(
+\mathbf{a}_{s}\left[  u\right]  \right)  $ whenever $S$ is a finite set and
+$\mathbf{a}_{s}\in\mathbb{K}\left[  x\right]  $ for all $s\in S$.
+
+\textbf{(f)} We have $\mathbf{a}^{n}\left[  u\right]  =\left(  \mathbf{a}%
+\left[  u\right]  \right)  ^{n}$ for each $\mathbf{a}\in\mathbb{K}\left[
+x\right]  $ and each $n\in\mathbb{N}$.
+
+\textbf{(g)} We have $\left(  n\mathbf{a}\right)  \left[  u\right]
+=n\cdot\mathbf{a}\left[  u\right]  $ for each $\mathbf{a}\in\mathbb{K}\left[
+x\right]  $ and each $n\in\mathbb{Z}$.
+\end{corollary}
+
+\begin{proof}
+[Proof of Corollary \ref{cor.pol.eval.concs}.] Consider the map
+$\operatorname*{ev}\nolimits_{u}$ in Corollary \ref{cor.pol.eval.evu}. This
+map is a $\mathbb{K}$-algebra homomorphism (by Corollary
+\ref{cor.pol.eval.evu}), and thus is a ring homomorphism. Hence, each part of
+Corollary \ref{cor.pol.eval.concs} follows from a corresponding part of
+Proposition \ref{prop.riho.subtract} (applied to $\mathbb{K}\left[  x\right]
+$, $U$ and $\operatorname*{ev}\nolimits_{u}$ instead of $\mathbb{K}$,
+$\mathbb{L}$ and $f$). For example, let us show how Corollary
+\ref{cor.pol.eval.concs} \textbf{(d)} follows from Proposition
+\ref{prop.riho.subtract} \textbf{(f)}:
+
+\textbf{(d)} Let $\mathbf{a}_{1},\mathbf{a}_{2},\ldots,\mathbf{a}_{k}%
+\in\mathbb{K}\left[  x\right]  $. Then, Proposition \ref{prop.riho.subtract}
+\textbf{(f)} (applied to $\mathbb{K}\left[  x\right]  $, $U$,
+$\operatorname*{ev}\nolimits_{u}$ and $\mathbf{a}_{i}$ instead of $\mathbb{K}%
+$, $\mathbb{L}$, $f$ and $a_{i}$) yields%
+\[
+\operatorname*{ev}\nolimits_{u}\left(  \mathbf{a}_{1}\mathbf{a}_{2}%
+\cdots\mathbf{a}_{k}\right)  =\operatorname*{ev}\nolimits_{u}\left(
+\mathbf{a}_{1}\right)  \operatorname*{ev}\nolimits_{u}\left(  \mathbf{a}%
+_{2}\right)  \cdots\operatorname*{ev}\nolimits_{u}\left(  \mathbf{a}%
+_{k}\right)  .
+\]
+Since each $\mathbf{b}\in\mathbb{K}\left[  x\right]  $ satisfies
+$\operatorname*{ev}\nolimits_{u}\left(  \mathbf{b}\right)  =\mathbf{b}\left[
+u\right]  $ (by the definition of $\operatorname*{ev}\nolimits_{u}$), this
+equality rewrites as
+\[
+\left(  \mathbf{a}_{1}\mathbf{a}_{2}\cdots\mathbf{a}_{k}\right)  \left[
+u\right]  =\mathbf{a}_{1}\left[  u\right]  \cdot\mathbf{a}_{2}\left[
+u\right]  \cdot\cdots\cdot\mathbf{a}_{k}\left[  u\right]  .
+\]
+This proves Corollary \ref{cor.pol.eval.concs} \textbf{(d)}. As we said, all
+the other parts of Corollary \ref{cor.pol.eval.concs} follow similarly from
+other parts of Proposition \ref{prop.riho.subtract}.
+\end{proof}
+
+Theorem \ref{thm.pol.eval.a+b} and Corollary \ref{cor.pol.eval.concs} (or,
+more abstractly, Corollary \ref{cor.pol.eval.evu}) justify the Substitution
+slogan in general. For example, we can now prove (\ref{eq.exa.pol.eval.1.3})
+directly, without multiplying out anything, as follows:%
+\begin{align*}
+& \left(  x^{4}-\left(  x-1\right)  ^{2}\left(  x+1\right)  ^{2}\right)
+\left[  u\right]  \\
+& =\underbrace{x^{4}\left[  u\right]  }_{\substack{=\left(  x\left[  u\right]
+\right)  ^{4}\\\text{(by Corollary \ref{cor.pol.eval.concs} \textbf{(f)})}%
+}}-\underbrace{\left(  \left(  x-1\right)  ^{2}\left(  x+1\right)
+^{2}\right)  \left[  u\right]  }_{\substack{=\left(  x-1\right)  ^{2}\left[
+u\right]  \cdot\left(  x+1\right)  ^{2}\left[  u\right]  \\\text{(by the
+second equality of}\\\text{Theorem \ref{thm.pol.eval.a+b} \textbf{(a)})}%
+}}\ \ \ \ \ \ \ \ \ \ \left(  \text{by Corollary \ref{cor.pol.eval.concs}
+\textbf{(b)}}\right)  \\
+& =\left(  \underbrace{x\left[  u\right]  }_{\substack{=u\\\text{(by Theorem
+\ref{thm.pol.eval.a+b} \textbf{(d)})}}}\right)  ^{4}-\underbrace{\left(
+x-1\right)  ^{2}\left[  u\right]  }_{\substack{=\left(  \left(  x-1\right)
+\left[  u\right]  \right)  ^{2}\\\text{(by Corollary \ref{cor.pol.eval.concs}
+\textbf{(f)})}}}\cdot\underbrace{\left(  x+1\right)  ^{2}\left[  u\right]
+}_{\substack{=\left(  \left(  x+1\right)  \left[  u\right]  \right)
+^{2}\\\text{(by Corollary \ref{cor.pol.eval.concs} \textbf{(f)})}}}\\
+& =u^{4}-\left(  \underbrace{\left(  x-1\right)  \left[  u\right]
+}_{\substack{=x\left[  u\right]  -1\left[  u\right]  \\\text{(by Corollary
+\ref{cor.pol.eval.concs} \textbf{(b)})}}}\right)  ^{2}\cdot\left(
+\underbrace{\left(  x+1\right)  \left[  u\right]  }_{\substack{=x\left[
+u\right]  +1\left[  u\right]  \\\text{(by the first equality of}%
+\\\text{Theorem \ref{thm.pol.eval.a+b} \textbf{(a)})}}}\right)  ^{2}\\
+& =u^{4}-\left(  x\left[  u\right]  -1\left[  u\right]  \right)  ^{2}%
+\cdot\left(  x\left[  u\right]  +1\left[  u\right]  \right)  ^{2}\\
+& =u^{4}-\left(  \underbrace{x\left[  u\right]  }_{\substack{=u\\\text{(by
+Theorem \ref{thm.pol.eval.a+b} \textbf{(d)})}}}-\underbrace{\underline{1}%
+\left[  u\right]  }_{\substack{=1\\\text{(by Theorem \ref{thm.pol.eval.a+b}
+\textbf{(c)})}}}\right)  ^{2}\cdot\left(  \underbrace{x\left[  u\right]
+}_{\substack{=u\\\text{(by Theorem \ref{thm.pol.eval.a+b} \textbf{(d)})}%
+}}+\underbrace{\underline{1}\left[  u\right]  }_{\substack{=1\\\text{(by
+Theorem \ref{thm.pol.eval.a+b} \textbf{(c)})}}}\right)  ^{2}\\
+& \ \ \ \ \ \ \ \ \ \ \left(  \text{since our \textquotedblleft}%
+1\text{\textquotedblright\ here really means \textquotedblleft}\underline{1}%
+\text{\textquotedblright}\right)  \\
+& =u^{4}-\left(  u-1\right)  ^{2}\left(  u+1\right)  ^{2}.
+\end{align*}
+This argument was completely straightforward (despite its length); all we did
+was \textquotedblleft opening the parentheses\textquotedblright\footnote{more
+formally: rewriting an expression of the form \textquotedblleft$\left(
+\text{something complicated}\right)  \left[  u\right]  $\textquotedblright\ in
+terms of one or several expressions of the form \textquotedblleft$\left(
+\text{something simpler}\right)  \left[  u\right]  $\textquotedblright} using
+whatever part of Theorem \ref{thm.pol.eval.a+b} or Corollary
+\ref{cor.pol.eval.concs} would let us do that.
+
+Thanks to Corollary \ref{cor.pol.eval.evu} (or the Substitution slogan), the
+polynomial ring $\mathbb{K}\left[  x\right]  $ is a sort of \textquotedblleft
+forge\textquotedblright\ for identities that concern an arbitrary element $u$
+of an arbitrary $\mathbb{K}$-algebra $U$. For example, if you want to prove
+the identity%
 \[
 u^{3}-u=u\left(  u-1\right)  \left(  u+1\right)  \ \ \ \ \ \ \ \ \ \ \text{for
 any }\mathbb{K}\text{-algebra }U\text{ and any }u\in U,
@@ -35922,13 +36427,15 @@ then it suffices to prove the identity%
 x^{3}-x=x\left(  x-1\right)  \left(  x+1\right)  \ \ \ \ \ \ \ \ \ \ \text{in
 }\mathbb{K}\left[  x\right]
 \]
-and then apply $\operatorname*{ev}\nolimits_{u}$ to both sides of it. Indeed,
-$\operatorname*{ev}\nolimits_{u}$ sends $x$ to $u$ and is a $\mathbb{K}%
-$-algebra homomorphism, whence it also sends $x^{3}-x$ to $u^{3}-u$ and sends
-$x\left(  x-1\right)  \left(  x+1\right)  $ to $u\left(  u-1\right)  \left(
-u+1\right)  $. In other words, applying $\operatorname*{ev}\nolimits_{u}$ to a
-polynomial in $\mathbb{K}\left[  x\right]  $ is tantamount to
-\textquotedblleft substituting $u$ for $x$\textquotedblright\ in this polynomial.
+and then apply $\operatorname*{ev}\nolimits_{u}$ to both sides of it (or, less
+formally, take the values of both sides at $u$, and simplify them using the
+Substitution slogan). Indeed, the map $\operatorname*{ev}\nolimits_{u}$ sends
+$x$ to $u$ and is a $\mathbb{K}$-algebra homomorphism, whence it also sends
+$x^{3}-x$ to $u^{3}-u$ and sends $x\left(  x-1\right)  \left(  x+1\right)  $
+to $u\left(  u-1\right)  \left(  u+1\right)  $. The Substitution slogan is
+saying this at a more concrete level: Indeed, applying the map
+$\operatorname*{ev}\nolimits_{u}$ is tantamount to \textquotedblleft
+substituting $u$ for $x$\textquotedblright\ in a polynomial.
 
 \begin{remark}
 \label{rmk.pol.eval.FPS}Let $U$ be a $\mathbb{K}$-algebra. Let $u\in U$. We
