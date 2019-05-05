@@ -17,7 +17,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Friday, May 03, 2019 10:16:48}
+%TCIDATA{LastRevised=Saturday, May 04, 2019 22:28:41}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -24009,11 +24009,13 @@ Many of the \textquotedblleft number systems\textquotedblright\ seen above,
 and several others, are examples of rings:
 
 \begin{itemize}
-\item The sets $\mathbb{Z}$, $\mathbb{Q}$, $\mathbb{R}$ and $\mathbb{C}$
-(endowed with the usual addition, multiplication, $0$ and $1$) are commutative
-rings. In each case, the additive inverse of an element $a$ is what we know as
-$-a$ from high school (or undergraduate mathematics, in the case of
-$\mathbb{C}$).
+\item The sets $\mathbb{Z}$, $\mathbb{Q}$ and $\mathbb{R}$ (each endowed with
+the usual addition, multiplication, $0$ and $1$) are commutative rings. In
+each case, the additive inverse of an element $a$ is what we know as $-a$ from
+high school. (Rigorous proofs of the ring axioms, as well as rigorous
+definitions of $\mathbb{Z}$, $\mathbb{Q}$ and $\mathbb{R}$, can be found in
+textbooks and lecture notes on the construction of the number system -- such
+as \cite[Chapter 3]{Swanso18}.)
 
 \item The set $\mathbb{N}$ (again endowed with the usual addition,
 multiplication, $0$ and $1$) is not a ring. Indeed, the \textquotedblleft
@@ -25465,6 +25467,15 @@ which is too burdensome a requirement to make it useful in constructive logic).
 \label{exa.field.fields}\textbf{(a)} The rings $\mathbb{Q}$, $\mathbb{R}$ and
 $\mathbb{C}$ are fields.
 
+\begin{fineprint}
+If you work in constructive logic, then you cannot prove that $\mathbb{R}$ and
+$\mathbb{C}$ are fields, because constructively there is no way to tell
+whether a real number is $0$ or not. This is not a big issue for us, since we
+never truly use $\mathbb{R}$ and $\mathbb{C}$ in these notes (and when we do,
+we can replace them by smaller subrings of $\mathbb{C}$ that can be shown to
+be fields constructively -- such as the Gaussian rationals).
+\end{fineprint}
+
 \textbf{(b)} The rings $\mathbb{Z}$, $\mathbb{Z}\left[  i\right]  $ and
 $\mathbb{Z}\left[  \sqrt{2}\right]  $ are not fields (since, for example, $2$
 is not invertible in any of these rings). However, $\mathbb{Z}\left[
@@ -25725,6 +25736,7 @@ $a,b,c\in\mathbb{K}$ be such that $ab=1$ and $bc=1$.\ Prove that the element
 $b$ is invertible and its multiplicative inverse satisfies $b^{-1}=a=c$.
 \end{exercise}
 
+\begin{fineprint}
 \begin{proof}
 [Solution to Exercise \ref{exe.ring.invertible.indirect}.]Comparing
 $abc=\underbrace{\left(  ab\right)  }_{=1}c=c$ with $abc=a\underbrace{\left(
@@ -25734,6 +25746,7 @@ element $b$ has a multiplicative inverse, i.e., is invertible. Furthermore, we
 have $b^{-1}=a$ (since $a$ is a multiplicative inverse of $b$), thus
 $b^{-1}=a=c$. This solves Exercise \ref{exe.ring.invertible.indirect}.
 \end{proof}
+\end{fineprint}
 
 \subsection{\label{sect.ring.hunting1}Hunting for finite fields I}
 
@@ -25820,9 +25833,11 @@ multiplication on this Cartesian product entrywise\footnote{That is,%
 \left(  a,b\right)  -\left(  c,d\right)   &  =\left(  a-c,b-d\right)  ;\\
 \left(  a,b\right)  \left(  c,d\right)   &  =\left(  ac,bd\right)
 \end{align*}
-}. This will yield a commutative ring with zero $\left(  \left[  0\right]
-_{p},\left[  0\right]  _{p}\right)  $ and unity $\left(  \left[  1\right]
-_{p},\left[  1\right]  _{p}\right)  $.
+for all $\left(  a,b\right)  ,\left(  c,d\right)  \in\left(  \mathbb{Z}%
+/p\right)  \times\left(  \mathbb{Z}/p\right)  $.}. This will yield a
+commutative ring with zero $\left(  \left[  0\right]  _{p},\left[  0\right]
+_{p}\right)  $ and unity $\left(  \left[  1\right]  _{p},\left[  1\right]
+_{p}\right)  $.
 
 However, the element $\left(  \left[  0\right]  _{p},\left[  1\right]
 _{p}\right)  $ of this ring is nonzero (because it is not $\left(  \left[
@@ -27349,7 +27364,7 @@ Similarly, $f\left(  a\right)  f\left(  a^{-1}\right)  =1$. These two
 equations are saying that $f\left(  a^{-1}\right)  $ is a multiplicative
 inverse of $f\left(  a\right)  $. Thus, $f\left(  a\right)  $ is invertible,
 and $f\left(  a^{-1}\right)  =\left(  f\left(  a\right)  \right)  ^{-1}$. This
-proves part \textbf{(b)}.
+proves Proposition \ref{prop.riho.subtract} \textbf{(b)}.
 
 \textbf{(a)} Repeat the proof we just gave for Proposition
 \ref{prop.riho.subtract} \textbf{(b)}, but replace multiplication and $1$ by
@@ -27367,7 +27382,8 @@ a\right)  +\underbrace{f\left(  -b\right)  }_{\substack{=-f\left(  b\right)
 a\right)  -f\left(  b\right)
 \end{align*}
 (since the definition of subtraction yields $f\left(  a\right)  -f\left(
-b\right)  =f\left(  a\right)  +\left(  -f\left(  b\right)  \right)  $).
+b\right)  =f\left(  a\right)  +\left(  -f\left(  b\right)  \right)  $). This
+proves Proposition \ref{prop.riho.subtract} \textbf{(c)}.
 
 \textbf{(d)} Similar to part \textbf{(c)}, but addition is replaced by multiplication.
 
@@ -27380,16 +27396,23 @@ induction step uses axiom \textbf{(c)}.
 \textbf{(g)} Induction on $\left\vert S\right\vert $. The induction base uses
 axiom \textbf{(d)}; the induction step uses axiom \textbf{(c)}.
 
-\textbf{(h)} Follows from \textbf{(f)}, applied to $k=n$ and $a_{i}=a$.
+\textbf{(h)} Follows from Proposition \ref{prop.riho.subtract} \textbf{(f)},
+applied to $k=n$ and $a_{i}=a$.
 
 \textbf{(i)} If $n\geq0$, then Definition \ref{def.rings.na} yields
 $na=\underbrace{a+a+\cdots+a}_{n\text{ times}}$ and $nf\left(  a\right)
 =\underbrace{f\left(  a\right)  +f\left(  a\right)  +\cdots+f\left(  a\right)
 }_{n\text{ times}}$. Thus, if $n\geq0$, then Proposition
-\ref{prop.riho.subtract} \textbf{(i)} follows from Proposition
-\ref{prop.riho.subtract} \textbf{(e)} (applied to $S=\left\{  1,2,\ldots
-,n\right\}  $ and $a_{s}=a$). The case when $n<0$ can be reduced to the case
-when $n\geq0$ by using Proposition \ref{prop.riho.subtract} \textbf{(a)}.
+\ref{prop.riho.subtract} \textbf{(i)} boils down to%
+\[
+f\left(  \underbrace{a+a+\cdots+a}_{n\text{ times}}\right)
+=\underbrace{f\left(  a\right)  +f\left(  a\right)  +\cdots+f\left(  a\right)
+}_{n\text{ times}},
+\]
+which follows from Proposition \ref{prop.riho.subtract} \textbf{(e)} (applied
+to $S=\left\{  1,2,\ldots,n\right\}  $ and $a_{s}=a$). The case when $n<0$ can
+be reduced to the case when $n\geq0$ by using Proposition
+\ref{prop.riho.subtract} \textbf{(a)}.
 \end{proof}
 
 The composition of two ring homomorphisms is again a ring homomorphism, as the
@@ -28267,15 +28290,15 @@ Formula\textquotedblright\ (colloquially).
 \label{exa.ring.freshdream.1}Let $p$ be a prime.
 
 \textbf{(a)} The simplest example of a ring $\mathbb{K}$ in which
-$p\cdot1_{\mathbb{K}}=0$ is the ring $\mathbb{Z}/p$. Unfortunately, this is
-too simple to make a good example for Theorem \ref{thm.ring.freshdream}.
-Indeed, if $\mathbb{K}=\mathbb{Z}/p$, then any $\alpha\in\mathbb{K}$ satisfies
-$\alpha^{p}=\alpha$ (because we can write $\alpha$ as $\left[  a\right]  _{p}$
-for some $a\in\mathbb{Z}$, and then apply Theorem \ref{thm.ent.fermat}
-\textbf{(b)} to this $a$). Thus, as long as we are staying in $\mathbb{K}%
-=\mathbb{Z}/p$, the equality $\left(  a+b\right)  ^{p}=a^{p}+b^{p}$ claimed by
-Theorem \ref{thm.ring.freshdream} boils down to $a+b=a+b$ (since $\left(
-a+b\right)  ^{p}=a+b$ and $a^{p}=a$ and $b^{p}=b$).
+$p\cdot1_{\mathbb{K}}=0$ (apart from the zero ring) is the ring $\mathbb{Z}%
+/p$. Unfortunately, this is too simple to make a good example for Theorem
+\ref{thm.ring.freshdream}. Indeed, if $\mathbb{K}=\mathbb{Z}/p$, then any
+$\alpha\in\mathbb{K}$ satisfies $\alpha^{p}=\alpha$ (because we can write
+$\alpha$ as $\left[  a\right]  _{p}$ for some $a\in\mathbb{Z}$, and then apply
+Theorem \ref{thm.ent.fermat} \textbf{(b)} to this $a$). Thus, as long as we
+are staying in $\mathbb{K}=\mathbb{Z}/p$, the equality $\left(  a+b\right)
+^{p}=a^{p}+b^{p}$ claimed by Theorem \ref{thm.ring.freshdream} boils down to
+$a+b=a+b$ (since $\left(  a+b\right)  ^{p}=a+b$ and $a^{p}=a$ and $b^{p}=b$).
 
 \textbf{(b)} In Section \ref{sect.ring.hunting1}, we have taken a prime $p>2$,
 and constructed a finite field $\mathbb{K}_{\eta}^{\prime}$ of size $p^{2}$
@@ -28309,7 +28332,7 @@ v & w & 0
 \end{equation}
 
 
-To prove this, I observe that $I_{n}\cdot N=N=N\cdot I_{n}$. Hence, Theorem
+To prove this, we observe that $I_{n}\cdot N=N=N\cdot I_{n}$. Hence, Theorem
 \ref{thm.ring.freshdream} can be applied to $a=I_{n}$ and $b=N$. As a result,
 we obtain $\left(  I_{n}+N\right)  ^{p}=I_{n}^{p}+N^{p}$. But $N$ is a
 strictly lower-triangular $n\times n$-matrix, and therefore satisfies
@@ -28345,7 +28368,7 @@ $\dbinom{p}{k}=pc$. Consider this $c$. Then,%
 qed.}.
 
 But $ab=ba$. Hence, the binomial formula (more precisely, the identity
-(\ref{eq.prop.rings.pow.rules.c.binom}), applied to $p=n$) yields%
+(\ref{eq.prop.rings.pow.rules.c.binom}), applied to $n=p$) yields%
 \begin{align*}
 \left(  a+b\right)  ^{p}  &  =\sum_{k=0}^{p}\dbinom{p}{k}a^{k}b^{p-k}\\
 &  =\underbrace{\dbinom{p}{0}}_{=1}\underbrace{a^{0}}_{=1}\underbrace{b^{p-0}%
@@ -30452,7 +30475,7 @@ subset $\left\{  0_{M}\right\}  $ are $\mathbb{K}$-submodules of $M$ (this is
 easily checked); the more interesting submodules are the ones that lie in
 between these two extremes.
 
-\subsection{\label{sect.la.liho}Linear maps}
+\subsection{\label{sect.la.liho}Linear maps, aka module homomorphisms}
 
 Recall Definition \ref{def.riho.riho}. In a similar way, we define
 $\mathbb{K}$\textit{-module homomorphisms}, also known as $\mathbb{K}%
@@ -30664,7 +30687,8 @@ $a,b\in\mathbb{K}^{m\times1}$. Indeed: Comparing%
 \begin{align*}
 L_{A}\left(  a+b\right)   &  =A\left(  a+b\right)
 =Aa+Ab\ \ \ \ \ \ \ \ \ \ \text{with}\\
-L_{A}\left(  a\right)  +L_{A}\left(  b\right)   &  =Aa+Ab,
+\underbrace{L_{A}\left(  a\right)  }_{=Aa}+\underbrace{L_{A}\left(  b\right)
+}_{=Ab}  &  =Aa+Ab,
 \end{align*}
 we obtain $L_{A}\left(  a+b\right)  =L_{A}\left(  a\right)  +L_{A}\left(
 b\right)  $. Thus, axiom \textbf{(a)} has been verified.
@@ -30810,8 +30834,12 @@ combinations\textquotedblright.)
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.module.f-pres-lc}.]\textbf{(a)} Let
-$\lambda,\mu\in\mathbb{K}$ and $a,b\in M$. Then,%
+[Proof of Proposition \ref{prop.module.f-pres-lc}.]The map $f$ is $\mathbb{K}%
+$-linear, and thus satisfies the axioms \textbf{(a)}, \textbf{(b)} and
+\textbf{(c)} of Definition \ref{def.module.moho}. We shall use these axioms in
+the following.
+
+\textbf{(a)} Let $\lambda,\mu\in\mathbb{K}$ and $a,b\in M$. Then,%
 \begin{align*}
 f\left(  \lambda a+\mu b\right)   &  =\underbrace{f\left(  \lambda a\right)
 }_{\substack{=\lambda f\left(  a\right)  \\\text{(by axiom \textbf{(c)})}%
@@ -30820,12 +30848,12 @@ f\left(  \lambda a+\mu b\right)   &  =\underbrace{f\left(  \lambda a\right)
 \textbf{(a)}}\right) \\
 &  =\lambda f\left(  a\right)  +\mu f\left(  b\right)  .
 \end{align*}
-This proves part \textbf{(a)}.
+This proves Proposition \ref{prop.module.f-pres-lc} \textbf{(a)}.
 
-\textbf{(b)} This is proven by induction on $k$. The induction base follows
-from axiom \textbf{(b)}; the induction step uses Proposition
-\ref{prop.module.f-pres-lc} \textbf{(a)} (or axioms \textbf{(a)} and
-\textbf{(c)}, if you wish). Details are left to the reader.
+\textbf{(b)} This is proven by induction on $k$. The induction base (i.e., the
+case $k=0$) follows from axiom \textbf{(b)}; the induction step uses
+Proposition \ref{prop.module.f-pres-lc} \textbf{(a)} (or axioms \textbf{(a)}
+and \textbf{(c)}, if you wish). Details are left to the reader.
 \end{proof}
 
 Proposition \ref{prop.module.f-pres-lc} \textbf{(a)} has a converse:
@@ -30938,6 +30966,8 @@ v_{3}\\
 v_{m}%
 \end{array}
 \right)  }_{=v_{m}e_{m}}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{since matrices are added entrywise}%
+\right) \\
 &  =v_{1}e_{1}+v_{2}e_{2}+v_{3}e_{3}+\cdots+v_{m}e_{m}=\sum_{i=1}^{m}%
 v_{i}e_{i}.
 \end{align*}
@@ -31394,9 +31424,22 @@ and $f^{-1}$ are $\mathbb{K}$-module homomorphisms.
 \end{definition}
 
 \begin{example}
-Let $M$ be a $\mathbb{K}$-module. The identity map $\operatorname*{id}%
-:M\rightarrow M$ is a $\mathbb{K}$-module isomorphism.
+\label{exa.modiso.id}Let $M$ be a $\mathbb{K}$-module. The identity map
+$\operatorname*{id}:M\rightarrow M$ is a $\mathbb{K}$-module isomorphism.
 \end{example}
+
+\begin{proof}
+[Proof of Example \ref{exa.modiso.id}.]We already know that the map
+$\operatorname*{id}:M\rightarrow M$ is a $\mathbb{K}$-module homomorphism.
+Furthermore, it is invertible, and its inverse $\operatorname*{id}%
+\nolimits^{-1}$ is $\operatorname*{id}$ itself. Hence, this inverse
+$\operatorname*{id}\nolimits^{-1}$ is also a $\mathbb{K}$-module homomorphism
+(since $\operatorname*{id}$ is a $\mathbb{K}$-module homomorphism). Thus, the
+map $\operatorname*{id}$ is invertible and both $\operatorname*{id}$ and
+$\operatorname*{id}\nolimits^{-1}$ are $\mathbb{K}$-module homomorphisms. In
+other words, $\operatorname*{id}$ is a $\mathbb{K}$-module isomorphism (by
+Definition \ref{def.modiso.modiso}). This proves Example \ref{exa.modiso.id}.
+\end{proof}
 
 More generally:
 
@@ -31502,16 +31545,16 @@ is a $\mathbb{K}$-module isomorphism.
 $\mathbb{K}$-linear and invertible. The $\mathbb{K}$-linearity follows from
 the formulas%
 \begin{align*}
-\left(  A+B\right)  ^{T}  &  =A^{T}+B^{T};\\
-\left(  \lambda A\right)  ^{T}  &  =\lambda A^{T};\\
-\left(  0_{n\times m}\right)  ^{T}  &  =0_{m\times n}%
+\left(  A+B\right)  ^{T} &  =A^{T}+B^{T};\\
+\left(  0_{n\times m}\right)  ^{T} &  =0_{m\times n};\\
+\left(  \lambda A\right)  ^{T} &  =\lambda A^{T},
 \end{align*}
 which hold for arbitrary $A,B\in\mathbb{K}^{n\times m}$ and $\lambda
-\in\mathbb{K}$. The invertibility follows by constructing its inverse, which
-is the map%
+\in\mathbb{K}$ (see \cite[Exercise 6.5]{detnotes}). The invertibility follows
+by constructing its inverse, which is the map%
 \begin{align*}
-\mathbb{K}^{m\times n}  &  \rightarrow\mathbb{K}^{n\times m},\\
-A  &  \mapsto A^{T}.
+\mathbb{K}^{m\times n} &  \rightarrow\mathbb{K}^{n\times m},\\
+A &  \mapsto A^{T}.
 \end{align*}
 
 \end{proof}
@@ -32082,7 +32125,7 @@ under $f$}, and is written $f^{-1}\left(  V\right)  $.
 
 \begin{proof}
 [Proof of Proposition \ref{prop.modhom.ker}.]\textbf{(b)} Let us denote the
-subset $\left\{  v\in M\ \mid\ f\left(  v\right)  \in V\right\}  $ by
+subset $\left\{  v\in M\ \mid\ f\left(  v\right)  \in V\right\}  $ of $M$ by
 $f^{-1}\left(  V\right)  $. We must prove that this subset $f^{-1}\left(
 V\right)  $ is a $\mathbb{K}$-submodule of $M$.
 
@@ -36059,14 +36102,14 @@ x^{2}\right]  \mathbf{a},\ldots\right)  $ (by (\ref{eq.pol.fps-a=()})) and
 therefore%
 \begin{equation}
 \mathbf{a}\left[  u\right]  =\sum_{k\in\mathbb{N}}\left(  \left[
-x^{k}\right]  \mathbf{a}\right)  u^{k}.\label{pf.thm.pol.eval.a+b.au=}%
+x^{k}\right]  \mathbf{a}\right)  u^{k}. \label{pf.thm.pol.eval.a+b.au=}%
 \end{equation}
 
 
 \textbf{(e)} Let $i\in\mathbb{N}$. Then, (\ref{pf.thm.pol.eval.a+b.au=})
 (applied to $\mathbf{a}=x^{i}$) yields%
 \begin{align*}
-x^{i}\left[  u\right]    & =\sum_{k\in\mathbb{N}}\underbrace{\left(  \left[
+x^{i}\left[  u\right]   &  =\sum_{k\in\mathbb{N}}\underbrace{\left(  \left[
 x^{k}\right]  \left(  x^{i}\right)  \right)  }_{\substack{=%
 \begin{cases}
 1, & \text{if }k=i;\\
@@ -36079,7 +36122,7 @@ x^{k}\right]  \left(  x^{i}\right)  \right)  }_{\substack{=%
 0, & \text{if }k\neq i
 \end{cases}
 u^{k}\\
-& =\underbrace{%
+&  =\underbrace{%
 \begin{cases}
 1, & \text{if }i=i;\\
 0, & \text{if }i\neq i
@@ -36091,9 +36134,9 @@ u^{k}\\
 0, & \text{if }k\neq i
 \end{cases}
 }_{\substack{=0\\\text{(since }k\neq i\text{)}}}u^{k}\\
-& \ \ \ \ \ \ \ \ \ \ \left(  \text{here, we have split off the addend for
-}k=i\text{ from the sum}\right)  \\
-& =u^{i}+\underbrace{\sum_{\substack{k\in\mathbb{N};\\k\neq i}}0u^{k}}%
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{here, we have split off the addend for
+}k=i\text{ from the sum}\right) \\
+&  =u^{i}+\underbrace{\sum_{\substack{k\in\mathbb{N};\\k\neq i}}0u^{k}}%
 _{=0}=u^{i}.
 \end{align*}
 This proves Theorem \ref{thm.pol.eval.a+b} \textbf{(e)}.
@@ -36106,7 +36149,7 @@ as $x\left[  u\right]  =u$. This proves Theorem \ref{thm.pol.eval.a+b}
 \textbf{(c)} Let $a\in\mathbb{K}$. Then, (\ref{pf.thm.pol.eval.a+b.au=})
 (applied to $\mathbf{a}=\underline{a}$) yields%
 \begin{align*}
-\underline{a}\left[  u\right]    & =\sum_{k\in\mathbb{N}}\underbrace{\left(
+\underline{a}\left[  u\right]   &  =\sum_{k\in\mathbb{N}}\underbrace{\left(
 \left[  x^{k}\right]  \left(  \underline{a}\right)  \right)  }_{\substack{=%
 \begin{cases}
 a, & \text{if }k=0;\\
@@ -36119,7 +36162,7 @@ a, & \text{if }k=0;\\
 0, & \text{if }k\neq0
 \end{cases}
 u^{k}\\
-& =\underbrace{%
+&  =\underbrace{%
 \begin{cases}
 a, & \text{if }0=0;\\
 0, & \text{if }0\neq0
@@ -36131,9 +36174,9 @@ a, & \text{if }k=0;\\
 0, & \text{if }k\neq0
 \end{cases}
 }_{\substack{=0\\\text{(since }k\neq0\text{)}}}u^{k}\\
-& \ \ \ \ \ \ \ \ \ \ \left(  \text{here, we have split off the addend for
-}k=0\text{ from the sum}\right)  \\
-& =a\cdot1_{U}+\underbrace{\sum_{\substack{k\in\mathbb{N};\\k\neq0}}0u^{k}%
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{here, we have split off the addend for
+}k=0\text{ from the sum}\right) \\
+&  =a\cdot1_{U}+\underbrace{\sum_{\substack{k\in\mathbb{N};\\k\neq0}}0u^{k}%
 }_{=0}=a\cdot1_{U}.
 \end{align*}
 This proves Theorem \ref{thm.pol.eval.a+b} \textbf{(c)}.
@@ -36325,7 +36368,7 @@ x\right]  $ and each $n\in\mathbb{Z}$.
 \end{corollary}
 
 \begin{proof}
-[Proof of Corollary \ref{cor.pol.eval.concs}.] Consider the map
+[Proof of Corollary \ref{cor.pol.eval.concs}.]Consider the map
 $\operatorname*{ev}\nolimits_{u}$ in Corollary \ref{cor.pol.eval.evu}. This
 map is a $\mathbb{K}$-algebra homomorphism (by Corollary
 \ref{cor.pol.eval.evu}), and thus is a ring homomorphism. Hence, each part of
@@ -36367,42 +36410,42 @@ more abstractly, Corollary \ref{cor.pol.eval.evu}) justify the Substitution
 slogan in general. For example, we can now prove (\ref{eq.exa.pol.eval.1.3})
 directly, without multiplying out anything, as follows:%
 \begin{align*}
-& \left(  x^{4}-\left(  x-1\right)  ^{2}\left(  x+1\right)  ^{2}\right)
-\left[  u\right]  \\
-& =\underbrace{x^{4}\left[  u\right]  }_{\substack{=\left(  x\left[  u\right]
-\right)  ^{4}\\\text{(by Corollary \ref{cor.pol.eval.concs} \textbf{(f)})}%
-}}-\underbrace{\left(  \left(  x-1\right)  ^{2}\left(  x+1\right)
-^{2}\right)  \left[  u\right]  }_{\substack{=\left(  x-1\right)  ^{2}\left[
-u\right]  \cdot\left(  x+1\right)  ^{2}\left[  u\right]  \\\text{(by the
-second equality of}\\\text{Theorem \ref{thm.pol.eval.a+b} \textbf{(a)})}%
-}}\ \ \ \ \ \ \ \ \ \ \left(  \text{by Corollary \ref{cor.pol.eval.concs}
-\textbf{(b)}}\right)  \\
-& =\left(  \underbrace{x\left[  u\right]  }_{\substack{=u\\\text{(by Theorem
+&  \left(  x^{4}-\left(  x-1\right)  ^{2}\left(  x+1\right)  ^{2}\right)
+\left[  u\right] \\
+&  =\underbrace{x^{4}\left[  u\right]  }_{\substack{=\left(  x\left[
+u\right]  \right)  ^{4}\\\text{(by Corollary \ref{cor.pol.eval.concs}
+\textbf{(f)})}}}-\underbrace{\left(  \left(  x-1\right)  ^{2}\left(
+x+1\right)  ^{2}\right)  \left[  u\right]  }_{\substack{=\left(  x-1\right)
+^{2}\left[  u\right]  \cdot\left(  x+1\right)  ^{2}\left[  u\right]
+\\\text{(by the second equality of}\\\text{Theorem \ref{thm.pol.eval.a+b}
+\textbf{(a)})}}}\ \ \ \ \ \ \ \ \ \ \left(  \text{by Corollary
+\ref{cor.pol.eval.concs} \textbf{(b)}}\right) \\
+&  =\left(  \underbrace{x\left[  u\right]  }_{\substack{=u\\\text{(by Theorem
 \ref{thm.pol.eval.a+b} \textbf{(d)})}}}\right)  ^{4}-\underbrace{\left(
 x-1\right)  ^{2}\left[  u\right]  }_{\substack{=\left(  \left(  x-1\right)
 \left[  u\right]  \right)  ^{2}\\\text{(by Corollary \ref{cor.pol.eval.concs}
 \textbf{(f)})}}}\cdot\underbrace{\left(  x+1\right)  ^{2}\left[  u\right]
 }_{\substack{=\left(  \left(  x+1\right)  \left[  u\right]  \right)
 ^{2}\\\text{(by Corollary \ref{cor.pol.eval.concs} \textbf{(f)})}}}\\
-& =u^{4}-\left(  \underbrace{\left(  x-1\right)  \left[  u\right]
+&  =u^{4}-\left(  \underbrace{\left(  x-1\right)  \left[  u\right]
 }_{\substack{=x\left[  u\right]  -1\left[  u\right]  \\\text{(by Corollary
 \ref{cor.pol.eval.concs} \textbf{(b)})}}}\right)  ^{2}\cdot\left(
 \underbrace{\left(  x+1\right)  \left[  u\right]  }_{\substack{=x\left[
 u\right]  +1\left[  u\right]  \\\text{(by the first equality of}%
 \\\text{Theorem \ref{thm.pol.eval.a+b} \textbf{(a)})}}}\right)  ^{2}\\
-& =u^{4}-\left(  x\left[  u\right]  -1\left[  u\right]  \right)  ^{2}%
+&  =u^{4}-\left(  x\left[  u\right]  -1\left[  u\right]  \right)  ^{2}%
 \cdot\left(  x\left[  u\right]  +1\left[  u\right]  \right)  ^{2}\\
-& =u^{4}-\left(  \underbrace{x\left[  u\right]  }_{\substack{=u\\\text{(by
+&  =u^{4}-\left(  \underbrace{x\left[  u\right]  }_{\substack{=u\\\text{(by
 Theorem \ref{thm.pol.eval.a+b} \textbf{(d)})}}}-\underbrace{\underline{1}%
 \left[  u\right]  }_{\substack{=1\\\text{(by Theorem \ref{thm.pol.eval.a+b}
 \textbf{(c)})}}}\right)  ^{2}\cdot\left(  \underbrace{x\left[  u\right]
 }_{\substack{=u\\\text{(by Theorem \ref{thm.pol.eval.a+b} \textbf{(d)})}%
 }}+\underbrace{\underline{1}\left[  u\right]  }_{\substack{=1\\\text{(by
 Theorem \ref{thm.pol.eval.a+b} \textbf{(c)})}}}\right)  ^{2}\\
-& \ \ \ \ \ \ \ \ \ \ \left(  \text{since our \textquotedblleft}%
-1\text{\textquotedblright\ here really means \textquotedblleft}\underline{1}%
-\text{\textquotedblright}\right)  \\
-& =u^{4}-\left(  u-1\right)  ^{2}\left(  u+1\right)  ^{2}.
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{since our \textquotedblleft%
+}1\text{\textquotedblright\ here really means \textquotedblleft}%
+\underline{1}\text{\textquotedblright}\right) \\
+&  =u^{4}-\left(  u-1\right)  ^{2}\left(  u+1\right)  ^{2}.
 \end{align*}
 This argument was completely straightforward (despite its length); all we did
 was \textquotedblleft opening the parentheses\textquotedblright\footnote{more
@@ -38330,7 +38373,7 @@ field can be amended: We can introduce formal fractions of polynomials over a
 field in the same way as formal fractions of integers (also known as
 \textquotedblleft rational numbers\textquotedblright) were defined. These
 fractions are called \textit{rational functions}\footnote{This is a confusing
-name, because polynomials are not functions. It is an artefact of the history
+name, because polynomials are not functions. It is an artifact of the history
 of the subject.}.
 
 \subsection{Functoriality of power series and polynomial rings}
