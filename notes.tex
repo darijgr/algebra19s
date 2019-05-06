@@ -17,7 +17,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, May 06, 2019 14:02:33}
+%TCIDATA{LastRevised=Monday, May 06, 2019 14:26:18}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -9335,6 +9335,11 @@ are known}.
 \label{exe.ent.prime.aa-1}Let $p$ be a prime. Let $a\in\mathbb{Z}$ be such
 that $a^{2}\equiv1\operatorname{mod}p$. Prove that $a\equiv1\operatorname{mod}%
 p$ or $a\equiv-1\operatorname{mod}p$.
+\end{exercise}
+
+\begin{exercise}
+\label{exe.ent.prime.pkdivs}Let $p$ be a prime. Let $k\in\mathbb{N}$. Prove
+that the nonnegative divisors of $p^{k}$ are $p^{0},p^{1},\ldots,p^{k}$.
 \end{exercise}
 
 \subsection{Euler's totient function ($\phi$-function)}
@@ -43748,6 +43753,99 @@ this rewrites as follows: $a\equiv1\operatorname{mod}p$ or $a\equiv
 \end{proof}
 \end{fineprint}
 
+\subsection{Solution to Exercise \ref{exe.ent.prime.pkdivs}}
+
+\begin{fineprint}
+\begin{proof}
+[Solution to Exercise \ref{exe.ent.prime.pkdivs}.] The number $p$ is a prime,
+and thus is a positive integer. Hence, $p^{k}$ is a positive integer as well
+(since $k\in\mathbb{N}$).
+
+For each $i\in\left\{  0,1,\ldots,k\right\}  $, the integer $p^{i}$ is a
+nonnegative divisor of $p^{k}$\ \ \ \ \footnote{\textit{Proof.} Let
+$i\in\left\{  0,1,\ldots,k\right\}  $. We must show that the integer $p^{i}$
+is a nonnegative divisor of $p^{k}$.
+\par
+The number $p$ is a positive integer. Thus, $p^{i}$ is a positive integer
+(since $i\in\left\{  0,1,\ldots,k\right\}  \subseteq\mathbb{N}$). Hence,
+$p^{i}$ is a nonnegative integer. Furthermore, $i\leq k$ (since $i\in\left\{
+0,1,\ldots,k\right\}  $). Hence, Exercise \ref{exe.ent.div.powers} (applied to
+$n=p$, $a=i$ and $b=k$) yields $p^{i}\mid p^{k}$. Thus, $p^{i}$ is a divisor
+of $p^{k}$. Hence, $p^{i}$ is a nonnegative divisor of $p^{k}$ (since $p^{i}$
+is nonnegative). Qed.}. In other words, the integers $p^{0},p^{1},\ldots
+,p^{k}$ are nonnegative divisors of $p^{k}$. In other words, we have%
+\begin{equation}
+\left\{  p^{0},p^{1},\ldots,p^{k}\right\}  \subseteq\left\{  \text{the
+nonnegative divisors of }p^{k}\right\}  .\label{sol.ent.prime.pkdivs.easyhalf}%
+\end{equation}
+
+
+Now we shall show that $\left\{  \text{the nonnegative divisors of }%
+p^{k}\right\}  \subseteq\left\{  p^{0},p^{1},\ldots,p^{k}\right\}  $.
+
+Indeed, let $d\in\left\{  \text{the nonnegative divisors of }p^{k}\right\}  $.
+Thus, $d$ is a nonnegative divisor of $p^{k}$. Hence, in particular, $d$ is a
+divisor of $p^{k}$; thus, $d\mid p^{k}$. In other words, there exists an
+integer $c$ such that $p^{k}=dc$. Consider this $c$. If we had $d=0$, then we
+would have $p^{k}=\underbrace{d}_{=0}c=0c=0$, which would contradict the fact
+that $p^{k}$ is positive. Hence, we cannot have $d=0$. Thus, we have $d\neq0$.
+Hence, $d$ is nonzero. Therefore, Lemma \ref{lem.ent.prime.vp-copr}
+\textbf{(a)} (applied to $n=d$) shows that there exists a nonzero integer $u$
+such that $u\perp p$ and $d=up^{v_{p}\left(  d\right)  }$. Consider this $u$.
+From $d=up^{v_{p}\left(  d\right)  }$, we obtain $u=d/p^{v_{p}\left(
+d\right)  }$, and thus $u$ is nonnegative (since $d$ is nonnegative and $p$ is positive).
+
+Let $i=v_{p}\left(  d\right)  $. Then, $i=v_{p}\left(  d\right)  \in
+\mathbb{N}$ (since $d$ is nonzero). Moreover, from $i=v_{p}\left(  d\right)
+$, we obtain $up^{i}=up^{v_{p}\left(  d\right)  }=d$ (since $d=up^{v_{p}%
+\left(  d\right)  }$). Moreover, $u$ is an integer; thus,
+\[
+p^{i}\mid up^{i}=d\mid p^{k}.
+\]
+But Lemma \ref{lem.ent.prime.vp-def} (applied to $n=p^{k}$) yields that
+$p^{i}\mid p^{k}$ if and only if $v_{p}\left(  p^{k}\right)  \geq i$. Hence,
+$v_{p}\left(  p^{k}\right)  \geq i$ (since $p^{i}\mid p^{k}$).
+
+However, Theorem \ref{thm.ent.prime.vp-ring} \textbf{(d)} (applied to $q=p$)
+yields $v_{p}\left(  p\right)  =%
+\begin{cases}
+1, & \text{if }p=p;\\
+0, & \text{if }p\neq p
+\end{cases}
+=1$ (since $p=p$). But Exercise \ref{exe.ent.prime.vp-pow} (applied to $a=p$)
+yields $v_{p}\left(  p^{k}\right)  =k\underbrace{v_{p}\left(  p\right)  }%
+_{=1}=k\cdot1=k$. Hence, $k=v_{p}\left(  p^{k}\right)  \geq i$, so that $i\leq
+k$ and thus $i\in\left\{  0,1,\ldots,k\right\}  $ (since $i\in\mathbb{N}$).
+
+We have $u\perp p$. Thus, Exercise \ref{exe.ent.coprime.powers} (applied to
+$a=u$, $b=p$, $n=1$ and $m=k$) yields $u^{1}\perp p^{k}$. In other words,
+$u\perp p^{k}$ (since $u^{1}=u$). In other words, $\gcd\left(  u,p^{k}\right)
+=1$ (by the definition of coprimality).
+
+But $u\mid up^{i}\mid p^{k}$ (as we have shown above). Hence, Proposition
+\ref{prop.ent.gcd.props1} \textbf{(i)} (applied to $a=u$ and $b=p^{k}$) yields
+$\gcd\left(  u,p^{k}\right)  =\left\vert u\right\vert =u$ (since $u$ is
+nonnegative). Thus, $u=\gcd\left(  u,p^{k}\right)  =1$. Therefore, from
+$up^{i}=d$, we obtain $d=\underbrace{u}_{=1}p^{i}=p^{i}\in\left\{  p^{0}%
+,p^{1},\ldots,p^{k}\right\}  $ (since $i\in\left\{  0,1,\ldots,k\right\}  $).
+
+Now, forget that we fixed $d$. We thus have shown that $d\in\left\{
+p^{0},p^{1},\ldots,p^{k}\right\}  $ for each $d\in\left\{  \text{the
+nonnegative divisors of }p^{k}\right\}  $. In other words,%
+\[
+\left\{  \text{the nonnegative divisors of }p^{k}\right\}  \subseteq\left\{
+p^{0},p^{1},\ldots,p^{k}\right\}  .
+\]
+Combining this with (\ref{sol.ent.prime.pkdivs.easyhalf}), we obtain%
+\[
+\left\{  \text{the nonnegative divisors of }p^{k}\right\}  =\left\{
+p^{0},p^{1},\ldots,p^{k}\right\}  .
+\]
+In other words, the nonnegative divisors of $p^{k}$ are $p^{0},p^{1}%
+,\ldots,p^{k}$. This solves Exercise \ref{exe.ent.prime.pkdivs}.
+\end{proof}
+\end{fineprint}
+
 \subsection{Solution to Exercise \ref{exe.ent.phi.pk}}
 
 \begin{fineprint}
@@ -43773,8 +43871,8 @@ Now, forget that we fixed $m$. We thus have shown that $m\in\left\{
 \begin{equation}
 \left\vert \left\{  1,2,\ldots,p^{k}\right\}  \setminus M\right\vert
 =\underbrace{\left\vert \left\{  1,2,\ldots,p^{k}\right\}  \right\vert
-}_{=p^{k}}-\underbrace{\left\vert M\right\vert }_{=p^{k-1}}=p^{k}-p^{k-1}.
-\label{sol.ent.phi.pk.0}%
+}_{=p^{k}}-\underbrace{\left\vert M\right\vert }_{=p^{k-1}}=p^{k}%
+-p^{k-1}.\label{sol.ent.phi.pk.0}%
 \end{equation}
 
 
