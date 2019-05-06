@@ -17,7 +17,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Saturday, May 04, 2019 22:28:41}
+%TCIDATA{LastRevised=Monday, May 06, 2019 14:02:33}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -21140,6 +21140,14 @@ equivalence $\left(  \alpha\mid\gamma\right)  \Longleftrightarrow\left(
 \beta\mid\delta\right)  $.
 \end{exercise}
 
+Another useful and easily proven fact is the following:
+
+\begin{exercise}
+\label{exe.Z[i].div.proper}Let $\alpha$ and $\beta$ be Gaussian integers such
+that $\alpha\mid\beta$ and $\operatorname*{N}\left(  \alpha\right)
+=\operatorname*{N}\left(  \beta\right)  $. Prove that $\alpha\sim\beta$.
+\end{exercise}
+
 \begin{center}
 \textbf{2019-03-06 lecture}
 \end{center}
@@ -22453,52 +22461,48 @@ Let us search for Gaussian primes. So we know that $2$ is not a Gaussian
 prime. What about $3$?
 
 \begin{example}
-The Gaussian integer $3$ is a Gaussian prime.
+\label{exa.Z[i].gauss.prime.3-not}The Gaussian integer $3$ is a Gaussian prime.
 \end{example}
 
 \begin{proof}
-Assume the contrary. Thus, there exists a Gaussian divisor $\alpha$ of $3$
-that is neither a unit nor unit-equivalent to $3$ (since $3$ is a nonzero
-Gaussian integer that is not a unit). Consider this $\alpha$. We have
-$3=\alpha\gamma$ for some Gaussian integer $\gamma$ (since $\alpha$ is a
-Gaussian divisor $\gamma$ of $3$). Consider this $\gamma$.
+[Proof of Example \ref{exa.Z[i].gauss.prime.3-not}.]Assume the contrary. Thus,
+there exists a Gaussian divisor $\alpha$ of $3$ that is neither a unit nor
+unit-equivalent to $3$ (since $3$ is a nonzero Gaussian integer that is not a
+unit). Consider this $\alpha$. Then, $\alpha$ is a Gaussian integer and
+satisfies $\alpha\mid3$ (since $\alpha$ is a Gaussian divisor of $3$). Hence,
+Proposition \ref{prop.Z[i].gauss.div.1} \textbf{(a)} (applied to $\beta=3$)
+yields $\operatorname*{N}\left(  \alpha\right)  \mid\operatorname*{N}\left(
+3\right)  =3^{2}+0^{2}=9$. Also, $\operatorname*{N}\left(  \alpha\right)
+\in\mathbb{N}$ (by Proposition \ref{prop.Z[i].gauss.Norm-N}). Hence,
+$\operatorname*{N}\left(  \alpha\right)  $ is a nonnegative integer. Thus,
+$\operatorname*{N}\left(  \alpha\right)  $ is a nonnegative divisor of $9$
+(because $\operatorname*{N}\left(  \alpha\right)  \mid9$).
 
-If $\gamma$ was a unit, then we would have $3\sim\alpha$ (since $3=\alpha
-\gamma$); but this would contradict the fact that $\alpha$ is not
-unit-equivalent to $3$. Hence, $\gamma$ is not a unit. Thus,
-$\operatorname*{N}\left(  \gamma\right)  \neq1$ (by Proposition
-\ref{prop.Z[i].gauss.norm1} \textbf{(b)}). Also, $\alpha$ is not a unit;
-hence, $\operatorname*{N}\left(  \alpha\right)  \neq1$ (by Proposition
-\ref{prop.Z[i].gauss.norm1} \textbf{(b)}).
+If we had $\operatorname*{N}\left(  \alpha\right)  =\operatorname*{N}\left(
+3\right)  $, then we would have $\alpha\sim3$ (by Exercise
+\ref{exe.Z[i].div.proper}, applied to $\beta=3$); but this would contradict
+the fact that $\alpha$ is not unit-equivalent to $3$. Hence, we cannot have
+$\operatorname*{N}\left(  \alpha\right)  =\operatorname*{N}\left(  3\right)
+$. Thus, we have $\operatorname*{N}\left(  \alpha\right)  \neq
+\operatorname*{N}\left(  3\right)  =9$.
 
-We have $3=\alpha\gamma$. Thus, $\operatorname*{N}\left(  3\right)
-=\operatorname*{N}\left(  \alpha\gamma\right)  =\operatorname*{N}\left(
-\alpha\right)  \cdot\operatorname*{N}\left(  \gamma\right)  $ (by Proposition
-\ref{prop.CC.conj.hom} \textbf{(d)}). Hence, $\operatorname*{N}\left(
-\alpha\right)  \cdot\operatorname*{N}\left(  \gamma\right)  =\operatorname*{N}%
-\left(  3\right)  =3^{2}+0^{2}=9$. Since $\operatorname*{N}\left(
-\alpha\right)  $ and $\operatorname*{N}\left(  \gamma\right)  $ are
-nonnegative integers, this would mean that
+If we had $\operatorname*{N}\left(  \alpha\right)  =1$, then $\alpha$ would be
+a unit (by Proposition \ref{prop.Z[i].gauss.norm1} \textbf{(b)}); but this
+would contradict the fact that $\alpha$ is not a unit. Hence, we cannot have
+$\operatorname*{N}\left(  \alpha\right)  =1$. Thus, we have $\operatorname*{N}%
+\left(  \alpha\right)  \neq1$.
 
-\begin{itemize}
-\item \textbf{either} $\operatorname*{N}\left(  \alpha\right)  =1$ and
-$\operatorname*{N}\left(  \gamma\right)  =9$,
+But the only nonnegative divisors of $9$ are $1,3,9$. Hence,
+$\operatorname*{N}\left(  \alpha\right)  $ must be either $1$ or $3$ or $9$
+(since $\operatorname*{N}\left(  \alpha\right)  $ is a nonnegative divisor of
+$9$). Since we have shown that $\operatorname*{N}\left(  \alpha\right)  \neq1$
+and $\operatorname*{N}\left(  \alpha\right)  \neq9$, we thus conclude that
+$\operatorname*{N}\left(  \alpha\right)  =3$.
 
-\item \textbf{or }$\operatorname*{N}\left(  \alpha\right)  =3$ and
-$\operatorname*{N}\left(  \gamma\right)  =3$,
-
-\item \textbf{or }$\operatorname*{N}\left(  \alpha\right)  =9$ and
-$\operatorname*{N}\left(  \gamma\right)  =1$.
-\end{itemize}
-
-The first and the third of these three options are impossible, since
-$\operatorname*{N}\left(  \alpha\right)  \neq1$ and $\operatorname*{N}\left(
-\gamma\right)  \neq1$. So the second option must be true. Thus,
-$\operatorname*{N}\left(  \alpha\right)  =3$ and $\operatorname*{N}\left(
-\gamma\right)  =3$. But let us write the Gaussian integer $\alpha$ as $\left(
-a,b\right)  $ for some $a,b\in\mathbb{Z}$. Thus, $\operatorname*{N}\left(
-\alpha\right)  =a^{2}+b^{2}$, so that $a^{2}+b^{2}=\operatorname*{N}\left(
-\alpha\right)  =3\equiv3\operatorname{mod}4$. This contradicts Exercise
+But let us write the Gaussian integer $\alpha$ as $\left(  a,b\right)  $ for
+some $a,b\in\mathbb{Z}$. Thus, $\operatorname*{N}\left(  \alpha\right)
+=a^{2}+b^{2}$, so that $a^{2}+b^{2}=\operatorname*{N}\left(  \alpha\right)
+=3\equiv3\operatorname{mod}4$. This contradicts Exercise
 \ref{exe.ent.even-odd-sumsq} \textbf{(c)}. This contradiction shows that our
 assumption was false. So $3$ is a Gaussian prime.
 \end{proof}
@@ -22510,7 +22514,8 @@ assumption was false. So $3$ is a Gaussian prime.
 So we know that $3$ is a Gaussian prime, but $2$ is not. Is there a way to
 tell which integers are Gaussian primes, without checking all Gaussian divisors?
 
-Let us first state a positive criterion:
+Let us first state a positive criterion, which generalizes Example
+\ref{exa.Z[i].gauss.prime.3-not}:
 
 \begin{lemma}
 \label{lem.Z[i].gauss.prime.3mod4}Let $p$ be a prime such that $p\equiv
@@ -22518,46 +22523,50 @@ Let us first state a positive criterion:
 \end{lemma}
 
 \begin{proof}
-Assume the contrary. Thus, $p$ has a Gaussian divisor $\delta$ that is neither
-a unit nor unit-equivalent to $p$. Consider this $\delta$. Thus, there exists
-a Gaussian integer $\varepsilon$ such that $p=\delta\varepsilon$. Consider
-this $\varepsilon$.
+[Proof of Lemma \ref{lem.Z[i].gauss.prime.3mod4}.]Assume the contrary. Thus,
+there exists a Gaussian divisor $\alpha$ of $p$ that is neither a unit nor
+unit-equivalent to $p$ (since $p$ is a nonzero Gaussian integer that is not a
+unit\footnote{Why is $p$ not a unit? Because the units are $1,-1,i,-i$, and
+none of these numbers is $p$.}). Consider this $\alpha$. Then, $\alpha$ is a
+Gaussian integer and satisfies $\alpha\mid p$ (since $\alpha$ is a Gaussian
+divisor of $p$). Hence, Proposition \ref{prop.Z[i].gauss.div.1} \textbf{(a)}
+(applied to $\beta=p$) yields $\operatorname*{N}\left(  \alpha\right)
+\mid\operatorname*{N}\left(  p\right)  =p^{2}+0^{2}=p^{2}$. Also,
+$\operatorname*{N}\left(  \alpha\right)  \in\mathbb{N}$ (by Proposition
+\ref{prop.Z[i].gauss.Norm-N}). Hence, $\operatorname*{N}\left(  \alpha\right)
+$ is a nonnegative integer. Thus, $\operatorname*{N}\left(  \alpha\right)  $
+is a nonnegative divisor of $p^{2}$ (because $\operatorname*{N}\left(
+\alpha\right)  \mid p^{2}$).
 
-From $p=\delta\varepsilon$, we obtain $\operatorname*{N}\left(  p\right)
-=\operatorname*{N}\left(  \delta\varepsilon\right)  =\operatorname*{N}\left(
-\delta\right)  \cdot\operatorname*{N}\left(  \varepsilon\right)  $. Hence,
-$\operatorname*{N}\left(  \delta\right)  \cdot\operatorname*{N}\left(
-\varepsilon\right)  =\operatorname*{N}\left(  p\right)  =p^{2}+0^{2}=p^{2}$.
-Since $\operatorname*{N}\left(  \delta\right)  $ and $\operatorname*{N}\left(
-\varepsilon\right)  $ are nonnegative integers (and $p$ is prime), this leaves
-only three options:
+If we had $\operatorname*{N}\left(  \alpha\right)  =\operatorname*{N}\left(
+p\right)  $, then we would have $\alpha\sim p$ (by Exercise
+\ref{exe.Z[i].div.proper}, applied to $\beta=p$); but this would contradict
+the fact that $\alpha$ is not unit-equivalent to $p$. Hence, we cannot have
+$\operatorname*{N}\left(  \alpha\right)  =\operatorname*{N}\left(  p\right)
+$. Thus, we have $\operatorname*{N}\left(  \alpha\right)  \neq
+\operatorname*{N}\left(  p\right)  =p^{2}$.
 
-\begin{itemize}
-\item \textbf{either} $\operatorname*{N}\left(  \delta\right)  =1$ and
-$\operatorname*{N}\left(  \varepsilon\right)  =p^{2}$,
+If we had $\operatorname*{N}\left(  \alpha\right)  =1$, then $\alpha$ would be
+a unit (by Proposition \ref{prop.Z[i].gauss.norm1} \textbf{(b)}); but this
+would contradict the fact that $\alpha$ is not a unit. Hence, we cannot have
+$\operatorname*{N}\left(  \alpha\right)  =1$. Thus, we have $\operatorname*{N}%
+\left(  \alpha\right)  \neq1$.
 
-\item \textbf{or }$\operatorname*{N}\left(  \delta\right)  =p$ and
-$\operatorname*{N}\left(  \varepsilon\right)  =p$,
+But the only nonnegative divisors of $p^{2}$ are $1,p,p^{2}$ (indeed, this can
+be easily derived from Lemma \ref{lem.ent.divs-bijs}, or just from prime
+factorization). Hence, $\operatorname*{N}\left(  \alpha\right)  $ must be
+either $1$ or $p$ or $p^{2}$ (since $\operatorname*{N}\left(  \alpha\right)  $
+is a nonnegative divisor of $p^{2}$). Since we have shown that
+$\operatorname*{N}\left(  \alpha\right)  \neq1$ and $\operatorname*{N}\left(
+\alpha\right)  \neq p^{2}$, we thus conclude that $\operatorname*{N}\left(
+\alpha\right)  =p$.
 
-\item \textbf{or }$\operatorname*{N}\left(  \delta\right)  =p^{2}$ and
-$\operatorname*{N}\left(  \varepsilon\right)  =1$.
-\end{itemize}
-
-The first of these three options would cause $\delta$ to be a unit, which is
-impossible (by the definition of $\delta$).
-
-The third of these three options would cause $\delta$ to be unit-equivalent to
-$p$ (since $\varepsilon$ would be a unit, and $p=\delta\varepsilon$), which is
-impossible (by the definition of $\delta$).
-
-Thus, the second of these three options must hold. In other words,
-$\operatorname*{N}\left(  \delta\right)  =p$ and $\operatorname*{N}\left(
-\varepsilon\right)  =p$. Now, write the Gaussian integer $\delta$ as
-$\delta=\left(  a,b\right)  $ with integers $a,b$. Then, $\operatorname*{N}%
-\left(  \delta\right)  =a^{2}+b^{2}$, so that $a^{2}+b^{2}=\operatorname*{N}%
-\left(  \delta\right)  =p\equiv3\operatorname{mod}4$. This contradicts
-Exercise \ref{exe.ent.even-odd-sumsq} \textbf{(c)}. Thus, Lemma
-\ref{lem.Z[i].gauss.prime.3mod4} is proven.
+But let us write the Gaussian integer $\alpha$ as $\left(  a,b\right)  $ for
+some $a,b\in\mathbb{Z}$. Thus, $\operatorname*{N}\left(  \alpha\right)
+=a^{2}+b^{2}$, so that $a^{2}+b^{2}=\operatorname*{N}\left(  \alpha\right)
+=p\equiv3\operatorname{mod}4$. This contradicts Exercise
+\ref{exe.ent.even-odd-sumsq} \textbf{(c)}. This contradiction shows that our
+assumption was false. Thus, Lemma \ref{lem.Z[i].gauss.prime.3mod4} is proven.
 \end{proof}
 
 It is clear that no prime is divisible by $4$. Thus, there are three types of primes:
@@ -22684,37 +22693,36 @@ is a Gaussian prime, but $\operatorname*{N}\left(  3\right)  =9$ is not prime).
 Assume the contrary. Thus, $\alpha$ is not a Gaussian prime, but $\alpha$ is
 neither zero nor a unit (since $\operatorname*{N}\left(  \alpha\right)  $ is
 prime and therefore $>1$). Hence, $\alpha$ has a Gaussian divisor $\delta$
-that is neither a unit nor unit-equivalent to $\alpha$. Consider this $\delta
-$. Thus, there exists a Gaussian integer $\varepsilon$ such that
-$\alpha=\delta\varepsilon$. Consider this $\varepsilon$.
+that is neither a unit nor unit-equivalent to $\alpha$. Consider this $\delta$.
 
-From $\alpha=\delta\varepsilon$, we obtain $\operatorname*{N}\left(
-\alpha\right)  =\operatorname*{N}\left(  \delta\varepsilon\right)
-=\operatorname*{N}\left(  \delta\right)  \cdot\operatorname*{N}\left(
-\varepsilon\right)  $. Hence, $\operatorname*{N}\left(  \delta\right)
-\cdot\operatorname*{N}\left(  \varepsilon\right)  =\operatorname*{N}\left(
-\alpha\right)  $. Since $\operatorname*{N}\left(  \delta\right)  $ and
-$\operatorname*{N}\left(  \varepsilon\right)  $ are nonnegative integers and
-$\operatorname*{N}\left(  \alpha\right)  $ is prime, this leaves only two options:
-
-\begin{itemize}
-\item \textbf{either} $\operatorname*{N}\left(  \delta\right)  =1$ and
-$\operatorname*{N}\left(  \varepsilon\right)  =\operatorname*{N}\left(
-\alpha\right)  $,
-
-\item \textbf{or }$\operatorname*{N}\left(  \delta\right)  =\operatorname*{N}%
-\left(  \alpha\right)  $ and $\operatorname*{N}\left(  \varepsilon\right)  =1$.
-\end{itemize}
-
-The first of these two options would cause $\delta$ to be a unit, which is
-impossible (by the definition of $\delta$). Thus, the second option must be
-true. In other words, we have $\operatorname*{N}\left(  \delta\right)
-=\operatorname*{N}\left(  \alpha\right)  $ and $\operatorname*{N}\left(
-\varepsilon\right)  =1$. But $\operatorname*{N}\left(  \varepsilon\right)  =1$
-shows that $\varepsilon$ is a unit, and thus $\alpha\sim\delta$ (since
-$\alpha=\delta\varepsilon$). This contradicts the assumption that $\delta$ is
-not unit-equivalent to $\alpha$. This contradiction proves that our assumption
-was wrong. Lemma \ref{lem.Z[i].prime.Nprime} is proven.
+Now, $\delta$ is a Gaussian divisor of $\alpha$; in other words, $\delta$ is a
+Gaussian integer and satisfies $\delta\mid\alpha$. Hence, Proposition
+\ref{prop.Z[i].gauss.div.1} \textbf{(a)} (applied to $\delta$ and $\alpha$
+instead of $\alpha$ and $\beta$) yields $\operatorname*{N}\left(
+\delta\right)  \mid\operatorname*{N}\left(  \alpha\right)  $. Also,
+$\operatorname*{N}\left(  \delta\right)  \in\mathbb{N}$ (by Proposition
+\ref{prop.Z[i].gauss.Norm-N}, applied to $\delta$ instead of $\alpha$). Hence,
+$\operatorname*{N}\left(  \delta\right)  $ is a nonnegative integer. Thus,
+$\operatorname*{N}\left(  \delta\right)  $ is a nonnegative divisor of
+$\operatorname*{N}\left(  \alpha\right)  $ (because $\operatorname*{N}\left(
+\delta\right)  \mid\operatorname*{N}\left(  \alpha\right)  $). But the only
+nonnegative divisors of $\operatorname*{N}\left(  \alpha\right)  $ are $1$ and
+$\operatorname*{N}\left(  \alpha\right)  $ (since $\operatorname*{N}\left(
+\alpha\right)  $ is prime). Thus, $\operatorname*{N}\left(  \delta\right)  $
+equals either $1$ or $\operatorname*{N}\left(  \alpha\right)  $ (since
+$\operatorname*{N}\left(  \delta\right)  $ is a nonnegative divisor of
+$\operatorname*{N}\left(  \alpha\right)  $). But if we had $\operatorname*{N}%
+\left(  \delta\right)  =1$, then $\delta$ would be a unit, which is impossible
+(by the definition of $\delta$). Thus, we cannot have $\operatorname*{N}%
+\left(  \delta\right)  =1$. Hence, we must have $\operatorname*{N}\left(
+\delta\right)  =\operatorname*{N}\left(  \alpha\right)  $ (since
+$\operatorname*{N}\left(  \delta\right)  $ equals either $1$ or
+$\operatorname*{N}\left(  \alpha\right)  $). Hence, Exercise
+\ref{exe.Z[i].div.proper} (applied to $\delta$ and $\alpha$ instead of
+$\alpha$ and $\beta$) shows that $\delta\sim\alpha$. This contradicts the
+assumption that $\delta$ is not unit-equivalent to $\alpha$. This
+contradiction proves that our assumption was wrong. Lemma
+\ref{lem.Z[i].prime.Nprime} is proven.
 \end{proof}
 
 Next, let us show that conjugation does not change Gaussian primeness:
@@ -31545,16 +31553,16 @@ is a $\mathbb{K}$-module isomorphism.
 $\mathbb{K}$-linear and invertible. The $\mathbb{K}$-linearity follows from
 the formulas%
 \begin{align*}
-\left(  A+B\right)  ^{T} &  =A^{T}+B^{T};\\
-\left(  0_{n\times m}\right)  ^{T} &  =0_{m\times n};\\
-\left(  \lambda A\right)  ^{T} &  =\lambda A^{T},
+\left(  A+B\right)  ^{T}  &  =A^{T}+B^{T};\\
+\left(  0_{n\times m}\right)  ^{T}  &  =0_{m\times n};\\
+\left(  \lambda A\right)  ^{T}  &  =\lambda A^{T},
 \end{align*}
 which hold for arbitrary $A,B\in\mathbb{K}^{n\times m}$ and $\lambda
 \in\mathbb{K}$ (see \cite[Exercise 6.5]{detnotes}). The invertibility follows
 by constructing its inverse, which is the map%
 \begin{align*}
-\mathbb{K}^{m\times n} &  \rightarrow\mathbb{K}^{n\times m},\\
-A &  \mapsto A^{T}.
+\mathbb{K}^{m\times n}  &  \rightarrow\mathbb{K}^{n\times m},\\
+A  &  \mapsto A^{T}.
 \end{align*}
 
 \end{proof}
@@ -48628,6 +48636,58 @@ $). Hence, we obtain the following chain of equivalences:%
 \delta\right)  \Longleftrightarrow\left(  \beta\mid\delta\right)  .
 \]
 This solves Exercise \ref{exe.Z[i].div.uneq} \textbf{(c)}.
+\end{proof}
+\end{fineprint}
+
+\subsection{Solution to Exercise \ref{exe.Z[i].div.proper}}
+
+\begin{fineprint}
+\begin{proof}
+[Solution to Exercise \ref{exe.Z[i].div.proper}.]Proposition
+\ref{prop.Z[i].gauss.uniteq.eqrel} shows that the relation $\sim$ on
+$\mathbb{Z}\left[  i\right]  $ is an equivalence relation. Thus, this relation
+is reflexive and symmetric.
+
+We have $\alpha\mid\beta$. In other words, there exists a Gaussian integer
+$\gamma$ such that $\beta=\alpha\gamma$ (by Definition
+\ref{def.Z[i].gauss.div}). Consider this $\gamma$, and denote it by $\delta$.
+Thus, $\delta$ is a Gaussian integer and satisfies $\beta=\alpha\delta$.
+
+We must prove that $\alpha\sim\beta$. If $\operatorname*{N}\left(
+\alpha\right)  =0$, then this is easy to see\footnote{\textit{Proof.} Assume
+that $\operatorname*{N}\left(  \alpha\right)  =0$. Thus, Proposition
+\ref{prop.CC.norm.basics} \textbf{(b)} yields $\alpha=0$. Hence,
+$\beta=\underbrace{\alpha}_{=0}\delta=0\delta=0=\alpha$. But the relation
+$\sim$ on $\mathbb{Z}\left[  i\right]  $ is reflexive. Hence, $\alpha
+\sim\alpha$. This rewrites as $\alpha\sim\beta$ (since $\beta=\alpha$). Thus,
+we have proven that $\alpha\sim\beta$ under the assumption that
+$\operatorname*{N}\left(  \alpha\right)  =0$.}. Thus, for the rest of this
+proof, we WLOG assume that we don't have $\operatorname*{N}\left(
+\alpha\right)  =0$. Hence, $\operatorname*{N}\left(  \alpha\right)  \neq0$.
+
+Proposition \ref{prop.CC.conj.hom} \textbf{(d)} (applied to $\delta$ instead
+of $\beta$) yields $\operatorname*{N}\left(  \alpha\delta\right)
+=\operatorname*{N}\left(  \alpha\right)  \cdot\operatorname*{N}\left(
+\delta\right)  $. In view of $\beta=\alpha\delta$, this rewrites as
+$\operatorname*{N}\left(  \beta\right)  =\operatorname*{N}\left(
+\alpha\right)  \cdot\operatorname*{N}\left(  \delta\right)  $. Thus,
+$\operatorname*{N}\left(  \alpha\right)  \cdot\operatorname*{N}\left(
+\delta\right)  =\operatorname*{N}\left(  \beta\right)  =\operatorname*{N}%
+\left(  \alpha\right)  $. We can divide both sides of this equality by
+$\operatorname*{N}\left(  \alpha\right)  $ (since $\operatorname*{N}\left(
+\alpha\right)  \neq0$). Thus, we find $\operatorname*{N}\left(  \delta\right)
+=1$.
+
+But Proposition \ref{prop.Z[i].gauss.norm1} \textbf{(b)} (applied to $\delta$
+instead of $\alpha$) shows that we have $\operatorname*{N}\left(
+\delta\right)  =1$ if and only if $\delta$ is a unit. Hence, $\delta$ is a
+unit (since $\operatorname*{N}\left(  \delta\right)  =1$). This unit $\delta$
+satisfies $\beta=\alpha\delta=\delta\alpha$. Thus, we have $\beta=\gamma
+\alpha$ for some unit $\gamma\in\mathbb{Z}\left[  i\right]  $ (namely, for
+$\gamma=\delta$). In other words, we have $\beta\sim\alpha$ (by the definition
+of the relation $\sim$ on $\mathbb{Z}\left[  i\right]  $). Hence, $\alpha
+\sim\beta$ (since the relation $\sim$ on $\mathbb{Z}\left[  i\right]  $ is
+symmetric). This solves Exercise \ref{exe.Z[i].div.proper}.
 \end{proof}
 \end{fineprint}
 
