@@ -17,7 +17,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, May 06, 2019 16:46:27}
+%TCIDATA{LastRevised=Tuesday, May 07, 2019 23:32:43}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -24596,7 +24596,7 @@ $\mathcal{P}\left(  T\right)  $ is a subset of $\mathcal{P}\left(  S\right)
 $; its addition is a restriction of the addition of $\mathcal{P}\left(
 S\right)  $ (indeed, both of these additions turn two sets $A$ and $B$ into
 $A\bigtriangleup B$); its multiplication is a restriction of the
-multiplication of $\mathcal{P}\left(  S\right)  $, its zero is the zero of
+multiplication of $\mathcal{P}\left(  S\right)  $; its zero is the zero of
 $\mathcal{P}\left(  S\right)  $. But its unity is not the unity of
 $\mathcal{P}\left(  S\right)  $ (unless $T=S$); indeed, the former unity is
 $T$, while the latter unity is $S$. Thus, $\mathcal{P}\left(  T\right)  $ is
@@ -25212,9 +25212,15 @@ all }a\in\mathbb{K}\text{ and }n,m\in\mathbb{Z}%
 n\left(  ab\right)   &  =\left(  na\right)  b=a\left(  nb\right)
 \ \ \ \ \ \ \ \ \ \ \text{for all }a,b\in\mathbb{K}\text{ and }n\in
 \mathbb{Z};\label{eq.prop.rings.pow.rules.3}\\
-1a  &  =a\ \ \ \ \ \ \ \ \ \ \text{for all }a\in\mathbb{K};\\
+1a  &  =a\ \ \ \ \ \ \ \ \ \ \text{for all }a\in\mathbb{K}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{here, the \textquotedblleft%
+}1\text{\textquotedblright\ means the unity of }\mathbb{K}\right)
+;\nonumber\\
 \left(  -1\right)  a  &  =-a\ \ \ \ \ \ \ \ \ \ \text{for all }a\in
 \mathbb{K};\label{eq.prop.rings.pow.rules.4}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{here, the \textquotedblleft%
+}1\text{\textquotedblright\ means the unity of }\mathbb{K}\right)
+;\nonumber\\
 1^{n}  &  =1\ \ \ \ \ \ \ \ \ \ \text{for all }n\in\mathbb{N}\\
 &  \ \ \ \ \ \ \ \ \ \ \left(  \text{here, the \textquotedblleft%
 }1\text{\textquotedblright\ means the unity of }\mathbb{K}\right)
@@ -25322,10 +25328,9 @@ inverse} of $a$ means an element $a^{\prime}$ of $\mathbb{K}$ such that
 $aa^{\prime}=a^{\prime}a=1$.
 \end{definition}
 
-Of course, multiplicative inverses don't always exist. In the ring
-$\mathbb{Q}$, the number $0$ has none. In the ring $\mathbb{Z}$, the number
-$2$ has none (since $\dfrac{1}{2}\notin\mathbb{Z}$). But when they do exist,
-they are unique:
+Multiplicative inverses don't always exist. In the ring $\mathbb{Q}$, the
+number $0$ has none. In the ring $\mathbb{Z}$, the number $2$ has none (since
+$\dfrac{1}{2}\notin\mathbb{Z}$). But when they do exist, they are unique:
 
 \begin{theorem}
 \label{thm.rings.inv-mul.uni}Let $a\in\mathbb{K}$. Then, $a$ has \textbf{at
@@ -27449,7 +27454,9 @@ $g\circ f:\mathbb{K}\rightarrow\mathbb{M}$ is also a ring homomorphism.
 \end{proposition}
 
 \begin{proof}
-HW6 exercise 4 \textbf{(a)}.
+[Proof of Proposition \ref{prop.riho.compose}.]This is exercise 4 \textbf{(a)}
+on \href{http://www-users.math.umn.edu/~dgrinber/19s/hw6s.pdf}{homework set
+\#6}.
 \end{proof}
 
 \subsection{\label{sect.ring.riiso}Ring isomorphisms}
@@ -27677,10 +27684,11 @@ $f^{-1}:\mathbb{L}\rightarrow\mathbb{K}$ is also a ring isomorphism.
 \end{proposition}
 
 \begin{proof}
-Clearly, $f^{-1}$ is a ring homomorphism (since $f$ is a ring isomorphism).
-Furthermore, $f^{-1}$ is invertible (with inverse $\left(  f^{-1}\right)
-^{-1}=f$) and its inverse $\left(  f^{-1}\right)  ^{-1}=f$ is a ring
-homomorphism as well. Thus, $f^{-1}$ is a ring isomorphism.
+[Proof of Proposition \ref{prop.riiso.inverse}.]Clearly, $f^{-1}$ is a ring
+homomorphism (since $f$ is a ring isomorphism). Furthermore, $f^{-1}$ is
+invertible (with inverse $\left(  f^{-1}\right)  ^{-1}=f$) and its inverse
+$\left(  f^{-1}\right)  ^{-1}=f$ is a ring homomorphism as well. Thus,
+$f^{-1}$ is a ring isomorphism.
 \end{proof}
 
 Let me attempt to discuss the use of ring isomorphisms; unfortunately, I will
@@ -28079,13 +28087,14 @@ mn\right)  =\phi\left(  m\right)  \cdot\phi\left(  n\right)  $. So Theorem
 The next exercise offers another example of the same strategy:
 
 \begin{exercise}
-Let $p$ and $q$ be two distinct primes. How many idempotent elements does the
-ring $\mathbb{Z}/\left(  pq\right)  $ have?
+\label{exe.riiso.idpZpq}Let $p$ and $q$ be two distinct primes. How many
+idempotent elements does the ring $\mathbb{Z}/\left(  pq\right)  $ have?
 \end{exercise}
 
 \begin{proof}
-[Solution.]The primes $p$ and $q$ are distinct, so they are coprime. Hence,
-Example \ref{exa.riiso.CRT} (applied to $m=p$ and $n=q$) says that the map%
+[Solution to Exercise \ref{exe.riiso.idpZpq} (sketched).]The primes $p$ and
+$q$ are distinct, so they are coprime. Hence, Example \ref{exa.riiso.CRT}
+(applied to $m=p$ and $n=q$) says that the map%
 \begin{align*}
 S_{p,q}:\mathbb{Z}/\left(  pq\right)   &  \rightarrow\left(  \mathbb{Z}%
 /p\right)  \times\left(  \mathbb{Z}/q\right)  ,\\
@@ -28278,8 +28287,9 @@ are isomorphic.
 \end{definition}
 
 \begin{example}
-Let $\mathbb{K}$ be any ring, and let $\mathbb{M}$ be the zero ring $\left\{
-0\right\}  $. In Example \ref{exa.riho.triv}, we saw that the map
+\label{exa.riiso.0}Let $\mathbb{K}$ be any ring, and let $\mathbb{M}$ be the
+zero ring $\left\{  0\right\}  $. In Example \ref{exa.riho.triv}, we saw that
+the map
 \[
 \mathbb{K}\rightarrow\mathbb{M},\ \ \ \ \ \ \ \ \ \ a\mapsto0
 \]
@@ -28459,19 +28469,19 @@ The ring homomorphism $F$ in Corollary \ref{cor.ring.frobenius} is called the
 
 \section{\label{chp.la}Linear algebra over commutative rings}
 
-We shall now continue studying rings, but slowly shift our focus. Namely,
-while we so far have been studying rings themselves, we are now going to move
-towards structures \textquotedblleft over\textquotedblright\ rings -- such as
-matrices and $\mathbb{K}$-modules (a generalization of vector spaces). The
-rings will no longer be the place where everything happens, but rather they
-will \textquotedblleft act\textquotedblright\ on our structures in the way
-scalars act on vectors in linear algebra.
+We shall now continue studying rings, but slowly shift our focus: So far, we
+have been studying rings themselves, but now we are going to move towards
+structures \textquotedblleft over\textquotedblright\ rings, such as matrices
+and $\mathbb{K}$-modules (a generalization of vector spaces). The rings will
+no longer be the place where everything happens, but rather they will
+\textquotedblleft act\textquotedblright\ on our structures in the way scalars
+act on vectors in linear algebra.
 
 \subsection{\label{sect.la.matrix-review}An overview of matrix algebra over
 fields}
 
-I assume you have all seen some basic matrix algebra: Gaussian elimination,
-ranks of matrices, inverses of matrices, determinants, etc. (If not, see
+I assume you have seen some basic matrix algebra: Gaussian elimination, ranks
+of matrices, inverses of matrices, determinants, etc. (If not, see
 \cite{Hefferon}.)
 
 Usually, these things are done for matrices over $\mathbb{R}$ or $\mathbb{C}$.
@@ -28489,7 +28499,8 @@ Let us first study the situation when $\mathbb{K}$ is a field.
 1 & 0 & 1\\
 1 & 1 & 0
 \end{array}
-\right)  \in\mathbb{K}^{3\times3}$. (Here, of course, $0$ and $1$ mean
+\right)  \in\mathbb{K}^{3\times3}$. (Here, of course, \textquotedblleft%
+$0$\textquotedblright\ and \textquotedblleft$1$\textquotedblright\ mean
 $\left[  0\right]  _{3}$ and $\left[  1\right]  _{3}$.) Let $b=\left(
 \begin{array}
 [c]{c}%
@@ -28528,7 +28539,7 @@ Now, we shall transform this matrix into reduced row echelon form (see
 \cite[\S 5]{Strickland} or \cite[Chapter One, \S III]{Hefferon}\footnote{The
 reduced row echelon form is called \textquotedblleft reduced echelon
 form\textquotedblright\ in \cite{Hefferon}.}) by a series of row operations
-(this is called \textit{Gauss-Jordan reduction} in \cite[Chapter One,
+(this is called \textit{Gauss--Jordan reduction} in \cite[Chapter One,
 \S III]{Hefferon}, and also appears as Method 6.3 in \cite{Strickland}):%
 \begin{align*}
 \left(  A\mid b\right)   &  =\left(
@@ -28692,7 +28703,8 @@ Thus, let $\mathbb{K}=\mathbb{Z}/2$, and let $A=\left(
 1 & 0 & 1\\
 1 & 1 & 0
 \end{array}
-\right)  \in\mathbb{K}^{3\times3}$. (Here, of course, $0$ and $1$ mean
+\right)  \in\mathbb{K}^{3\times3}$. (Here, of course, \textquotedblleft%
+$0$\textquotedblright\ and \textquotedblleft$1$\textquotedblright\ mean
 $\left[  0\right]  _{2}$ and $\left[  1\right]  _{2}$.) Let $b=\left(
 \begin{array}
 [c]{c}%
@@ -30706,15 +30718,22 @@ $N=\mathbb{K}^{n\times1}$ and $f=L_{A}$.
 
 \textit{Proof of axiom \textbf{(a)}:} We must prove that $L_{A}\left(
 a+b\right)  =L_{A}\left(  a\right)  +L_{A}\left(  b\right)  $ for all
-$a,b\in\mathbb{K}^{m\times1}$. Indeed: Comparing%
+$a,b\in\mathbb{K}^{m\times1}$. Indeed: If $a,b\in\mathbb{K}^{m\times1}$, then
+we can compare the equalities%
 \begin{align*}
-L_{A}\left(  a+b\right)   &  =A\left(  a+b\right)
-=Aa+Ab\ \ \ \ \ \ \ \ \ \ \text{with}\\
-\underbrace{L_{A}\left(  a\right)  }_{=Aa}+\underbrace{L_{A}\left(  b\right)
-}_{=Ab}  &  =Aa+Ab,
+L_{A}\left(  a+b\right)   &  =A\left(  a+b\right)  \ \ \ \ \ \ \ \ \ \ \left(
+\text{by the definition of }L_{A}\right) \\
+&  =Aa+Ab\ \ \ \ \ \ \ \ \ \ \left(  \text{by Theorem \ref{thm.matrix.rules}
+\textbf{(g)}}\right)
 \end{align*}
-we obtain $L_{A}\left(  a+b\right)  =L_{A}\left(  a\right)  +L_{A}\left(
-b\right)  $. Thus, axiom \textbf{(a)} has been verified.
+and%
+\[
+\underbrace{L_{A}\left(  a\right)  }_{\substack{=Aa\\\text{(by the definition
+of }L_{A}\text{)}}}+\underbrace{L_{A}\left(  b\right)  }%
+_{\substack{=Ab\\\text{(by the definition of }L_{A}\text{)}}}=Aa+Ab,
+\]
+and thus obtain $L_{A}\left(  a+b\right)  =L_{A}\left(  a\right)
++L_{A}\left(  b\right)  $. Thus, axiom \textbf{(a)} has been verified.
 
 The axioms \textbf{(b)} and \textbf{(c)} are proven similarly (details are
 left to the reader).
@@ -30822,6 +30841,27 @@ matrices}\right) \\
 0, & \text{if }k\neq j
 \end{cases}
 \\
+&  =\left(  \text{the }\left(  i,j\right)  \text{-th entry of }A\right)
+\cdot\underbrace{%
+\begin{cases}
+1, & \text{if }j=j;\\
+0, & \text{if }j\neq j
+\end{cases}
+}_{\substack{=1\\\text{(since }j=j\text{)}}}\\
+&  \ \ \ \ \ \ \ \ \ \ +\sum_{\substack{k\in\left\{  1,2,\ldots,m\right\}
+;\\k\neq j}}\left(  \text{the }\left(  i,k\right)  \text{-th entry of
+}A\right)  \cdot\underbrace{%
+\begin{cases}
+1, & \text{if }k=j;\\
+0, & \text{if }k\neq j
+\end{cases}
+}_{\substack{=0\\\text{(since }k\neq j\text{)}}}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{here, we have split off the addend for
+}k=j\text{ from the sum}\right) \\
+&  =\left(  \text{the }\left(  i,j\right)  \text{-th entry of }A\right)
++\underbrace{\sum_{\substack{k\in\left\{  1,2,\ldots,m\right\}  ;\\k\neq
+j}}\left(  \text{the }\left(  i,k\right)  \text{-th entry of }A\right)
+\cdot0}_{=0}\\
 &  =\left(  \text{the }\left(  i,j\right)  \text{-th entry of }A\right)
 =\left(  \text{the }i\text{-th entry of the }j\text{-th column of }A\right)  .
 \end{align*}
@@ -33112,13 +33152,255 @@ restriction as we have just seen.
 \end{itemize}
 \end{proposition}
 
+\begin{proof}
+[Proof of Proposition \ref{prop.pol.summable.rules} (sketched).] This is
+boring yet fairly straightforward: Each of these rules can be derived from the
+analogous rule for \textbf{finite} sums, once you fix an $n\in\mathbb{N}$ and
+look at the $x^{n}$-coefficients on both sides of the rule.
+
+\begin{fineprint}
+For example, let us prove the rule
+(\ref{eq.prop.pol.summable.rules.fubini-full}). Assume that $\left(
+\mathbf{a}_{i,j}\right)  _{\left(  i,j\right)  \in I\times J}$ is a summable
+family of FPSs indexed by \textbf{pairs} $\left(  i,j\right)  \in I\times J$.
+Fix $n\in\mathbb{N}$. Then, only finitely many $\left(  i,j\right)  \in
+I\times J$ satisfy $\left[  x^{n}\right]  \left(  \mathbf{a}_{i,j}\right)
+\neq0$ (since the family $\left(  \mathbf{a}_{i,j}\right)  _{\left(
+i,j\right)  \in I\times J}$ is summable). In other words, there exists a
+finite subset $S$ of $I\times J$ such that
+\begin{equation}
+\text{all }\left(  i,j\right)  \in\left(  I\times J\right)  \setminus S\text{
+satisfy }\left[  x^{n}\right]  \left(  \mathbf{a}_{i,j}\right)
+=0.\label{pf.prop.pol.summable.rules.fubini-full.S}%
+\end{equation}
+Consider this $S$. (Note that $S$ can depend on $n$.)
+
+Let $I^{\prime}$ be the subset $\left\{  i\ \mid\ \left(  i,j\right)  \in
+S\right\}  $ of $I$. Let $J^{\prime}$ be the subset $\left\{  j\ \mid\ \left(
+i,j\right)  \in S\right\}  $ of $J$. Both of these subsets $I^{\prime}$ and
+$J^{\prime}$ are finite (since $S$ is finite). Moreover, $I^{\prime}\times
+J^{\prime}\subseteq I\times J$ (since $I^{\prime}\subseteq I$ and $J^{\prime
+}\subseteq J$) and $S\subseteq I^{\prime}\times J^{\prime}$%
+\ \ \ \ \footnote{\textit{Proof.} Let $s\in S$. Then, $s\in S\subseteq I\times
+J$; thus, we can write $s$ in the form $s=\left(  u,v\right)  $ for some $u\in
+I$ and $v\in J$. Consider these $u$ and $v$. We have $\left(  u,v\right)
+=s\in S$. Hence, $u$ has the form $i$ for some $\left(  i,j\right)  \in S$
+(namely, for $\left(  i,j\right)  =\left(  u,v\right)  $). Thus, $u\in\left\{
+i\ \mid\ \left(  i,j\right)  \in S\right\}  =I^{\prime}$ (since $I^{\prime}$
+was defined as $\left\{  i\ \mid\ \left(  i,j\right)  \in S\right\}  $).
+Similarly, $v\in J^{\prime}$. From $u\in I^{\prime}$ and $v\in J^{\prime}$, we
+obtain $\left(  u,v\right)  \in I^{\prime}\times J^{\prime}$. Hence,
+$s=\left(  u,v\right)  \in I^{\prime}\times J^{\prime}$.
+\par
+Now, forget that we fixed $s$. We thus have shown that $s\in I^{\prime}\times
+J^{\prime}$ for each $s\in S$. In other words, $S\subseteq I^{\prime}\times
+J^{\prime}$.}. Thus, if a pair $\left(  i,j\right)  \in I\times J$ satisfies
+$\left(  i,j\right)  \notin I^{\prime}\times J^{\prime}$, then it must also
+satisfy $\left(  i,j\right)  \notin S$\ \ \ \ \footnote{since otherwise, it
+would satisfy $\left(  i,j\right)  \in S\subseteq I^{\prime}\times J^{\prime}%
+$, which would contradict $\left(  i,j\right)  \notin I^{\prime}\times
+J^{\prime}$} and therefore $\left(  i,j\right)  \in\left(  I\times J\right)
+\setminus S$ (since $\left(  i,j\right)  \in I\times J$ and $\left(
+i,j\right)  \notin S$) and therefore
+\begin{equation}
+\left[  x^{n}\right]  \left(  \mathbf{a}_{i,j}\right)
+=0\label{pf.prop.pol.summable.rules.fubini-full.0}%
+\end{equation}
+(by (\ref{pf.prop.pol.summable.rules.fubini-full.S})).
+
+The sets $I^{\prime}$ and $J^{\prime}$ are finite. Hence, Fubini's theorem for
+finite sums (see, e.g., \cite[\S 1.4.2, \textquotedblleft Fubini's
+theorem\textquotedblright]{detnotes}) yields%
+\begin{equation}
+\sum_{i\in I^{\prime}}\sum_{j\in J^{\prime}}\left[  x^{n}\right]  \left(
+\mathbf{a}_{i,j}\right)  =\sum_{\left(  i,j\right)  \in I^{\prime}\times
+J^{\prime}}\left[  x^{n}\right]  \left(  \mathbf{a}_{i,j}\right)  =\sum_{j\in
+J^{\prime}}\sum_{i\in I^{\prime}}\left[  x^{n}\right]  \left(  \mathbf{a}%
+_{i,j}\right)  .\label{pf.prop.pol.summable.rules.fubini-full.1}%
+\end{equation}
+
+
+The sum $\sum_{\left(  i,j\right)  \in I\times J}\left[  x^{n}\right]  \left(
+\mathbf{a}_{i,j}\right)  $ is well-defined (since only finitely many $\left(
+i,j\right)  \in I\times J$ satisfy $\left[  x^{n}\right]  \left(
+\mathbf{a}_{i,j}\right)  \neq0$). Hence,
+\begin{align}
+\sum_{\left(  i,j\right)  \in I\times J}\left[  x^{n}\right]  \left(
+\mathbf{a}_{i,j}\right)    & =\underbrace{\sum_{\substack{\left(  i,j\right)
+\in I\times J;\\\left(  i,j\right)  \in I^{\prime}\times J^{\prime}}%
+}}_{\substack{=\sum_{\left(  i,j\right)  \in I^{\prime}\times J^{\prime}%
+}\\\text{(since }I^{\prime}\times J^{\prime}\subseteq I\times J\text{)}%
+}}\left[  x^{n}\right]  \left(  \mathbf{a}_{i,j}\right)  +\sum
+_{\substack{\left(  i,j\right)  \in I\times J;\\\left(  i,j\right)  \notin
+I^{\prime}\times J^{\prime}}}\underbrace{\left[  x^{n}\right]  \left(
+\mathbf{a}_{i,j}\right)  }_{\substack{=0\\\text{(by
+(\ref{pf.prop.pol.summable.rules.fubini-full.0}))}}}\nonumber\\
+& \ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{since each }\left(  i,j\right)  \in I\times J\text{ satisfies either
+}\left(  i,j\right)  \in I^{\prime}\times J^{\prime}\\
+\text{but }\left(  i,j\right)  \notin I^{\prime}\times J^{\prime}\text{ (but
+never both at the same time)}%
+\end{array}
+\right)  \nonumber\\
+& =\sum_{\left(  i,j\right)  \in I^{\prime}\times J^{\prime}}\left[
+x^{n}\right]  \left(  \mathbf{a}_{i,j}\right)  +\underbrace{\sum
+_{\substack{\left(  i,j\right)  \in I\times J;\\\left(  i,j\right)  \notin
+I^{\prime}\times J^{\prime}}}0}_{=0}=\sum_{\left(  i,j\right)  \in I^{\prime
+}\times J^{\prime}}\left[  x^{n}\right]  \left(  \mathbf{a}_{i,j}\right)
+\nonumber\\
+& =\sum_{i\in I^{\prime}}\sum_{j\in J^{\prime}}\left[  x^{n}\right]  \left(
+\mathbf{a}_{i,j}\right)  \label{pf.prop.pol.summable.rules.fubini-full.2}%
+\end{align}
+(by (\ref{pf.prop.pol.summable.rules.fubini-full.1})).
+
+Moreover, if $i\in I$, then the sum $\sum_{j\in J}\left[  x^{n}\right]
+\left(  \mathbf{a}_{i,j}\right)  $ is well-defined and satisfies%
+\begin{equation}
+\sum_{j\in J}\left[  x^{n}\right]  \left(  \mathbf{a}_{i,j}\right)
+=\sum_{j\in J^{\prime}}\left[  x^{n}\right]  \left(  \mathbf{a}_{i,j}\right)
+.\label{pf.prop.pol.summable.rules.fubini-full.ins}%
+\end{equation}
+
+
+[\textit{Proof:} Let $i\in I$. If $j\in J$ satisfies $j\notin J^{\prime}$,
+then $\left(  i,j\right)  \notin I^{\prime}\times J^{\prime}$ (since $j\notin
+J^{\prime}$) and thus $\left[  x^{n}\right]  \left(  \mathbf{a}_{i,j}\right)
+=0$ (by (\ref{pf.prop.pol.summable.rules.fubini-full.0})). Thus, all but
+finitely many $j\in J$ satisfy $\left[  x^{n}\right]  \left(  \mathbf{a}%
+_{i,j}\right)  =0$ (since all but finitely many $j\in J$ satisfy $j\notin
+J^{\prime}$ (because the set $J^{\prime}$ is finite)). In other words, only
+finitely many $j\in J$ satisfy $\left[  x^{n}\right]  \left(  \mathbf{a}%
+_{i,j}\right)  \neq0$. Therefore, the sum $\sum_{j\in J}\left[  x^{n}\right]
+\left(  \mathbf{a}_{i,j}\right)  $ is well-defined (having only finitely many
+nonzero addends). Moreover, each $j\in J$ satisfies either $j\in J^{\prime}$
+or $j\notin J^{\prime}$ (but not both at once); thus,%
+\begin{align*}
+\sum_{j\in J}\left[  x^{n}\right]  \left(  \mathbf{a}_{i,j}\right)    &
+=\underbrace{\sum_{\substack{j\in J;\\j\in J^{\prime}}}}_{\substack{=\sum
+_{j\in J^{\prime}}\\\text{(since }J^{\prime}\subseteq J\text{)}}}\left[
+x^{n}\right]  \left(  \mathbf{a}_{i,j}\right)  +\sum_{\substack{j\in
+J;\\j\notin J^{\prime}}}\underbrace{\left[  x^{n}\right]  \left(
+\mathbf{a}_{i,j}\right)  }_{\substack{=0\\\text{(by
+(\ref{pf.prop.pol.summable.rules.fubini-full.0}) (since }j\notin J^{\prime
+}\\\text{leads to }\left(  i,j\right)  \notin I^{\prime}\times J^{\prime
+}\text{))}}}=\sum_{j\in J^{\prime}}\left[  x^{n}\right]  \left(
+\mathbf{a}_{i,j}\right)  +\underbrace{\sum_{\substack{j\in J;\\j\notin
+J^{\prime}}}0}_{=0}\\
+& =\sum_{j\in J^{\prime}}\left[  x^{n}\right]  \left(  \mathbf{a}%
+_{i,j}\right)  .
+\end{align*}
+This proves (\ref{pf.prop.pol.summable.rules.fubini-full.ins}).]
+
+Furthermore, if $i\in I$ satisfies $i\notin I^{\prime}$, then
+\[
+\sum_{j\in J}\underbrace{\left[  x^{n}\right]  \left(  \mathbf{a}%
+_{i,j}\right)  }_{\substack{=0\\\text{(by
+(\ref{pf.prop.pol.summable.rules.fubini-full.0}) (since }i\notin I^{\prime
+}\\\text{leads to }\left(  i,j\right)  \notin I^{\prime}\times J^{\prime
+}\text{))}}}=\sum_{j\in J}0=0.
+\]
+Thus, all but finitely many $i\in I$ satisfy $\sum_{j\in J}\left[
+x^{n}\right]  \left(  \mathbf{a}_{i,j}\right)  =0$ (since all but finitely
+many $i\in I$ satisfy $i\notin I^{\prime}$ (because the set $I^{\prime}$ is
+finite)). In other words, only finitely many $i\in I$ satisfy $\sum_{j\in
+J}\left[  x^{n}\right]  \left(  \mathbf{a}_{i,j}\right)  \neq0$. Therefore,
+the sum $\sum_{i\in I}\sum_{j\in J}\left[  x^{n}\right]  \left(
+\mathbf{a}_{i,j}\right)  $ is well-defined (having only finitely many nonzero
+addends). Moreover, each $i\in I$ satisfies either $i\in I^{\prime}$ or
+$i\notin I^{\prime}$ (but not both at once); thus,%
+\begin{align*}
+\sum_{i\in I}\sum_{j\in J}\left[  x^{n}\right]  \left(  \mathbf{a}%
+_{i,j}\right)    & =\underbrace{\sum_{\substack{i\in I;\\i\in I^{\prime}}%
+}}_{\substack{=\sum_{i\in I^{\prime}}\\\text{(since }I^{\prime}\subseteq
+I\text{)}}}\underbrace{\sum_{j\in J}\left[  x^{n}\right]  \left(
+\mathbf{a}_{i,j}\right)  }_{\substack{=\sum_{j\in J^{\prime}}\left[
+x^{n}\right]  \left(  \mathbf{a}_{i,j}\right)  \\\text{(by
+(\ref{pf.prop.pol.summable.rules.fubini-full.ins}))}}}+\sum_{\substack{i\in
+I;\\i\notin I^{\prime}}}\sum_{j\in J}\underbrace{\left[  x^{n}\right]  \left(
+\mathbf{a}_{i,j}\right)  }_{\substack{=0\\\text{(by
+(\ref{pf.prop.pol.summable.rules.fubini-full.0}) (since }i\notin I^{\prime
+}\\\text{leads to }\left(  i,j\right)  \notin I^{\prime}\times J^{\prime
+}\text{))}}}\\
+& =\sum_{i\in I^{\prime}}\sum_{j\in J^{\prime}}\left[  x^{n}\right]  \left(
+\mathbf{a}_{i,j}\right)  +\underbrace{\sum_{\substack{i\in I;\\i\notin
+I^{\prime}}}\sum_{j\in J}0}_{=0}=\sum_{i\in I^{\prime}}\sum_{j\in J^{\prime}%
+}\left[  x^{n}\right]  \left(  \mathbf{a}_{i,j}\right)  .
+\end{align*}
+Comparing this with (\ref{pf.prop.pol.summable.rules.fubini-full.2}), we
+obtain%
+\begin{equation}
+\sum_{i\in I}\sum_{j\in J}\left[  x^{n}\right]  \left(  \mathbf{a}%
+_{i,j}\right)  =\sum_{\left(  i,j\right)  \in I\times J}\left[  x^{n}\right]
+\left(  \mathbf{a}_{i,j}\right)
+.\label{pf.prop.pol.summable.rules.fubini-full.left-at}%
+\end{equation}
+
+
+Now, forget that we fixed $n$. We thus have proven the equality
+(\ref{pf.prop.pol.summable.rules.fubini-full.left-at}) for each $n\in
+\mathbb{N}$. We have also proven that all the sums appearing in this equality
+are well-defined (having only finitely many nonzero addends).
+
+It is now easy to see that for each $i\in I$, the family $\left(
+\mathbf{a}_{i,j}\right)  _{j\in J}$ of FPSs is
+summable\footnote{\textit{Proof.} Fix $i\in I$. For each $n\in\mathbb{N}$, the
+sum $\sum_{j\in J}\left[  x^{n}\right]  \left(  \mathbf{a}_{i,j}\right)  $ has
+only finitely many nonzero addends (as we have proven above). In other words,
+for each $n\in\mathbb{N}$, only finitely many $j\in J$ satisfy $\left[
+x^{n}\right]  \left(  \mathbf{a}_{i,j}\right)  \neq0$. In other words, the
+family $\left(  \mathbf{a}_{i,j}\right)  _{j\in J}$ of FPSs is summable (by
+the definition of \textquotedblleft summable\textquotedblright).}, and
+therefore the sum $\sum_{j\in J}\mathbf{a}_{i,j}$ is well-defined. Moreover,
+the family $\left(  \sum_{j\in J}\mathbf{a}_{i,j}\right)  _{i\in I}$ of FPSs
+is summable\footnote{\textit{Proof.} For each $n\in\mathbb{N}$, only finitely
+many $i\in I$ satisfy $\sum_{j\in J}\left[  x^{n}\right]  \left(
+\mathbf{a}_{i,j}\right)  \neq0$ (as we have proven above). In other words, for
+each $n\in\mathbb{N}$, only finitely many $i\in I$ satisfy $\left[
+x^{n}\right]  \left(  \sum_{j\in J}\mathbf{a}_{i,j}\right)  \neq0$ (since
+$\left[  x^{n}\right]  \left(  \sum_{j\in J}\mathbf{a}_{i,j}\right)
+=\sum_{j\in J}\left[  x^{n}\right]  \left(  \mathbf{a}_{i,j}\right)  $). In
+other words, the family $\left(  \sum_{j\in J}\mathbf{a}_{i,j}\right)  _{i\in
+I}$ of FPSs is summable (by the definition of \textquotedblleft
+summable\textquotedblright).}. Hence, the sum $\sum_{i\in I}\sum_{j\in
+J}\mathbf{a}_{i,j}$ is well-defined. Finally, recall that the sum of a
+summable family of FPSs is defined entrywise; thus, for each $n\in\mathbb{N}$,
+we have%
+\begin{align*}
+\left[  x^{n}\right]  \left(  \sum_{i\in I}\sum_{j\in J}\mathbf{a}%
+_{i,j}\right)    & =\sum_{i\in I}\underbrace{\left[  x^{n}\right]  \left(
+\sum_{j\in J}\mathbf{a}_{i,j}\right)  }_{=\sum_{j\in J}\left[  x^{n}\right]
+\left(  \mathbf{a}_{i,j}\right)  }=\sum_{i\in I}\sum_{j\in J}\left[
+x^{n}\right]  \left(  \mathbf{a}_{i,j}\right)  =\sum_{\left(  i,j\right)  \in
+I\times J}\left[  x^{n}\right]  \left(  \mathbf{a}_{i,j}\right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by
+(\ref{pf.prop.pol.summable.rules.fubini-full.left-at})}\right)  \\
+& =\left[  x^{n}\right]  \left(  \sum_{\left(  i,j\right)  \in I\times
+J}\mathbf{a}_{i,j}\right)  .
+\end{align*}
+In other words, each entry of the FPS $\sum_{i\in I}\sum_{j\in J}%
+\mathbf{a}_{i,j}$ equals the corresponding entry of the FPS $\sum_{\left(
+i,j\right)  \in I\times J}\mathbf{a}_{i,j}$. Thus, these two FPSs are
+identical. In other words, $\sum_{i\in I}\sum_{j\in J}\mathbf{a}_{i,j}%
+=\sum_{\left(  i,j\right)  \in I\times J}\mathbf{a}_{i,j}$. This proves the
+first equality sign of (\ref{eq.prop.pol.summable.rules.fubini-full}). The
+second equality sign of (\ref{eq.prop.pol.summable.rules.fubini-full}) is
+proven similarly (but with the roles of $I$ and $J$ interchanged).
+\end{fineprint}
+\end{proof}
+
 We shall use standard notations for infinite sums over certain subsets of
 $\mathbb{Z}$. For instance, the summation sign \textquotedblleft$\sum
 _{i=0}^{\infty}$\textquotedblright\ shall mean \textquotedblleft$\sum
 _{i\in\mathbb{N}}$\textquotedblright; more generally, if $a\in\mathbb{Z}$,
 then the summation sign \textquotedblleft$\sum_{i=a}^{\infty}$%
 \textquotedblright\ shall mean \textquotedblleft$\sum_{i\in\left\{
-a,a+1,a+2,\ldots\right\}  }$\textquotedblright.
+a,a+1,a+2,\ldots\right\}  }$\textquotedblright. Also, the summation sign
+\textquotedblleft$\sum_{i>0}$\textquotedblright\ shall mean \textquotedblleft%
+$\sum_{i=1}^{\infty}$\textquotedblright, which is the same as
+\textquotedblleft$\sum_{i\in\left\{  1,2,3,\ldots\right\}  }$%
+\textquotedblright.
 
 \begin{definition}
 \label{def.pol.x}We let $x$ denote the FPS $\left(
@@ -34801,28 +35083,30 @@ $\mathbf{ab}\in\mathbb{K}\left[  x\right]  _{\leq n+m}$. Thus, Theorem
 \end{proof}
 \end{fineprint}
 
-Using parts \textbf{(b)} and \textbf{(c)} of Theorem \ref{thm.pol.pol-basics},
-we can easily see that%
-\[
-\mathbb{K}\left[  x\right]  =\bigcup_{n\in\mathbb{N}}\mathbb{K}\left[
-x\right]  _{\leq n}.
-\]
-Here, $\bigcup_{n\in\mathbb{N}}\mathbb{K}\left[  x\right]  _{\leq n}$ means
-the union of the set $\mathbb{K}\left[  x\right]  _{\leq n}$ over all
-$n\in\mathbb{N}$; in other words,%
-\[
-\bigcup_{n\in\mathbb{N}}\mathbb{K}\left[  x\right]  _{\leq n}=\mathbb{K}%
-\left[  x\right]  _{\leq0}\cup\mathbb{K}\left[  x\right]  _{\leq1}%
-\cup\mathbb{K}\left[  x\right]  _{\leq2}\cup\cdots.
-\]
-
-
 \begin{corollary}
 \label{cor.pol.pol-subal}\textbf{(a)} The subset $\mathbb{K}\left[  x\right]
 $ of $\mathbb{K}\left[  \left[  x\right]  \right]  $ is a $\mathbb{K}%
 $-subalgebra of $\mathbb{K}\left[  \left[  x\right]  \right]  $.
 
 \textbf{(b)} We have $x\in\mathbb{K}\left[  x\right]  $.
+
+\textbf{(c)} We have
+\[
+\mathbb{K}\left[  x\right]  =\bigcup_{n\in\mathbb{N}}\mathbb{K}\left[
+x\right]  _{\leq n}.
+\]
+Here, $\bigcup_{n\in\mathbb{N}}\mathbb{K}\left[  x\right]  _{\leq n}$ means
+the union of the sets $\mathbb{K}\left[  x\right]  _{\leq n}$ over all
+$n\in\mathbb{N}$ (in other words,%
+\begin{align*}
+\bigcup_{n\in\mathbb{N}}\mathbb{K}\left[  x\right]  _{\leq n}  &
+=\mathbb{K}\left[  x\right]  _{\leq0}\cup\mathbb{K}\left[  x\right]  _{\leq
+1}\cup\mathbb{K}\left[  x\right]  _{\leq2}\cup\cdots\\
+&  =\left\{  \mathbf{a}\ \mid\ \text{there exists some }n\in\mathbb{N}\text{
+such that }\mathbf{a}\in\mathbb{K}\left[  x\right]  _{\leq n}\right\}  \text{
+).}%
+\end{align*}
+
 \end{corollary}
 
 \begin{exercise}
@@ -34931,6 +35215,31 @@ $\mathbb{K}$-submodule of $\mathbb{K}\left[  \left[  x\right]  \right]  $. In
 other words, $\mathbb{K}\left[  x\right]  $ is a $\mathbb{K}$-subalgebra of
 $\mathbb{K}\left[  \left[  x\right]  \right]  $. This proves Corollary
 \ref{cor.pol.pol-subal} \textbf{(a)}.
+
+\textbf{(c)} If $n\in\mathbb{N}$, then $\mathbb{K}\left[  x\right]  _{\leq n}$
+is a $\mathbb{K}$-submodule of $\mathbb{K}\left[  x\right]  $ (by Theorem
+\ref{thm.pol.pol-basics} \textbf{(b)}), and thus satisfies $\mathbb{K}\left[
+x\right]  _{\leq n}\subseteq\mathbb{K}\left[  x\right]  $. Hence,%
+\begin{equation}
+\bigcup_{n\in\mathbb{N}}\underbrace{\mathbb{K}\left[  x\right]  _{\leq n}%
+}_{\subseteq\mathbb{K}\left[  x\right]  }\subseteq\bigcup_{n\in\mathbb{N}%
+}\mathbb{K}\left[  x\right]  \subseteq\mathbb{K}\left[  x\right]  .
+\label{pf.cor.pol.pol-subal.c.1}%
+\end{equation}
+
+
+On the other hand, let $\mathbf{a}\in\mathbb{K}\left[  x\right]  $. Then,
+Theorem \ref{thm.pol.pol-basics} \textbf{(c)} shows that there exists some
+$n\in\mathbb{N}$ such that $\mathbf{a}\in\mathbb{K}\left[  x\right]  _{\leq
+n}$. In other words, we have $\mathbf{a}\in\bigcup_{n\in\mathbb{N}}%
+\mathbb{K}\left[  x\right]  _{\leq n}$. Now, forget that we fixed $\mathbf{a}%
+$. We thus have shown that $\mathbf{a}\in\bigcup_{n\in\mathbb{N}}%
+\mathbb{K}\left[  x\right]  _{\leq n}$ for each $\mathbf{a}\in\mathbb{K}%
+\left[  x\right]  $. In other words, $\mathbb{K}\left[  x\right]
+\subseteq\bigcup_{n\in\mathbb{N}}\mathbb{K}\left[  x\right]  _{\leq n}$.
+Combining this with (\ref{pf.cor.pol.pol-subal.c.1}), we obtain $\mathbb{K}%
+\left[  x\right]  =\bigcup_{n\in\mathbb{N}}\mathbb{K}\left[  x\right]  _{\leq
+n}$. This proves Corollary \ref{cor.pol.pol-subal} \textbf{(c)}.
 \end{proof}
 \end{fineprint}
 
@@ -34941,6 +35250,170 @@ $\mathbb{K}$-algebra is called the \textit{polynomial ring over }$\mathbb{K}$
 \textit{in the indeterminate }$x$ (or the \textit{algebra of polynomials in
 }$x$ \textit{over }$\mathbb{K}$).
 \end{definition}
+
+\begin{exercise}
+\label{exe.pol.basis}Let $n\in\left\{  -1,0,1,\ldots\right\}  $. Theorem
+\ref{thm.pol.pol-basics} \textbf{(b)} shows that $\mathbb{K}\left[  x\right]
+_{\leq n}$ is a $\mathbb{K}$-submodule of $\mathbb{K}\left[  x\right]  $.
+Prove that the list $\left(  x^{0},x^{1},\ldots,x^{n}\right)  $ is a basis of
+this $\mathbb{K}$-submodule $\mathbb{K}\left[  x\right]  _{\leq n}$. (See
+Definition \ref{def.module.lincomb} \textbf{(d)} for the definition of a basis
+of a $\mathbb{K}$-submodule.)
+\end{exercise}
+
+\begin{fineprint}
+\begin{proof}
+[Solution to Exercise \ref{exe.pol.basis}.]Each $i\in\left\{  0,1,\ldots
+,n\right\}  $ satisfies $i\in\mathbb{N}$ and $i\leq n$ (since $i\in\left\{
+0,1,\ldots,n\right\}  $) and thus $x^{i}\in\mathbb{K}\left[  x\right]  _{\leq
+n}$ (by Lemma \ref{lem.pol.addition} \textbf{(f)}). In other words, the $n+1$
+vectors $x^{0},x^{1},\ldots,x^{n}$ all belong to $\mathbb{K}\left[  x\right]
+_{\leq n}$.
+
+Hence, Proposition \ref{prop.module.basis-unique} (applied to $\mathbb{K}%
+\left[  x\right]  _{\leq n}$, $n+1$ and $\left(  x^{0},x^{1},\ldots
+,x^{n}\right)  $ instead of $M$, $k$ and $\left(  v_{1},v_{2},\ldots
+,v_{k}\right)  $) shows that $\left(  x^{0},x^{1},\ldots,x^{n}\right)  $ is a
+basis of $\mathbb{K}\left[  x\right]  _{\leq n}$ if and only if each vector in
+$\mathbb{K}\left[  x\right]  _{\leq n}$ can be \textbf{uniquely} written in
+the form
+\begin{equation}
+\lambda_{1}x^{0}+\lambda_{2}x^{1}+\cdots+\lambda_{n+1}x^{n}%
+,\ \ \ \ \ \ \ \ \ \ \text{with }\lambda_{1},\lambda_{2},\ldots,\lambda
+_{n+1}\in\mathbb{K}. \label{sol.pol.basis.form}%
+\end{equation}
+We are now going to prove that each vector in $\mathbb{K}\left[  x\right]
+_{\leq n}$ can be uniquely written in this form.
+
+Indeed, let $\mathbf{a}\in\mathbb{K}\left[  x\right]  _{\leq n}$. We are going
+to show that $\mathbf{a}$ can be uniquely written in the form
+(\ref{sol.pol.basis.form}). In order to show this, we must prove the following
+two claims:
+
+\begin{statement}
+\textit{Claim 1:} There exists \textbf{at least} one $\left(  n+1\right)
+$-tuple $\left(  \lambda_{1},\lambda_{2},\ldots,\lambda_{n+1}\right)
+\in\mathbb{K}^{n+1}$ such that $\mathbf{a}=\lambda_{1}x^{0}+\lambda_{2}%
+x^{1}+\cdots+\lambda_{n+1}x^{n}$.
+\end{statement}
+
+\begin{statement}
+\textit{Claim 2:} There exists \textbf{at most} one $\left(  n+1\right)
+$-tuple $\left(  \lambda_{1},\lambda_{2},\ldots,\lambda_{n+1}\right)
+\in\mathbb{K}^{n+1}$ such that $\mathbf{a}=\lambda_{1}x^{0}+\lambda_{2}%
+x^{1}+\cdots+\lambda_{n+1}x^{n}$.
+\end{statement}
+
+[\textit{Proof of Claim 1:} Write the FPS $\mathbf{a}$ in the form
+$\mathbf{a}=\left(  a_{0},a_{1},a_{2},\ldots\right)  $. Then, $\left(
+a_{0},a_{1},a_{2},\ldots\right)  =\mathbf{a}\in\mathbb{K}\left[  x\right]
+_{\leq n}$. Hence, Theorem \ref{thm.pol.pol-as-sum} shows that
+\[
+\left(  a_{0},a_{1},a_{2},\ldots\right)  =a_{0}+a_{1}x+a_{2}x^{2}+\cdots
++a_{n}x^{n}=\sum_{k=0}^{n}a_{k}x^{k}.
+\]
+Thus,
+\[
+\mathbf{a}=\sum_{k=0}^{n}a_{k}x^{k}=a_{0}x^{0}+a_{1}x^{1}+\cdots+a_{n}x^{n}.
+\]
+Thus, there exists \textbf{at least} one $\left(  n+1\right)  $-tuple $\left(
+\lambda_{1},\lambda_{2},\ldots,\lambda_{n+1}\right)  \in\mathbb{K}^{n+1}$ such
+that $\mathbf{a}=\lambda_{1}x^{0}+\lambda_{2}x^{1}+\cdots+\lambda_{n+1}x^{n}$
+(namely, $\left(  \lambda_{1},\lambda_{2},\ldots,\lambda_{n+1}\right)
+=\left(  a_{0},a_{1},\ldots,a_{n}\right)  $). This proves Claim 1.]
+
+[\textit{Proof of Claim 2:} Let $\left(  u_{0},u_{1},\ldots,u_{n}\right)  $
+and $\left(  v_{0},v_{1},\ldots,v_{n}\right)  $ be two $\left(  n+1\right)
+$-tuples $\left(  \lambda_{1},\lambda_{2},\ldots,\lambda_{n+1}\right)
+\in\mathbb{K}^{n+1}$ such that $\mathbf{a}=\lambda_{1}x^{0}+\lambda_{2}%
+x^{1}+\cdots+\lambda_{n+1}x^{n}$. We shall show that $\left(  u_{0}%
+,u_{1},\ldots,u_{n}\right)  =\left(  v_{0},v_{1},\ldots,v_{n}\right)  $.
+
+Indeed, $\left(  u_{0},u_{1},\ldots,u_{n}\right)  $ is an $\left(  n+1\right)
+$-tuple $\left(  \lambda_{1},\lambda_{2},\ldots,\lambda_{n+1}\right)
+\in\mathbb{K}^{n+1}$ such that $\mathbf{a}=\lambda_{1}x^{0}+\lambda_{2}%
+x^{1}+\cdots+\lambda_{n+1}x^{n}$. In other words, $\left(  u_{0},u_{1}%
+,\ldots,u_{n}\right)  $ is an $\left(  n+1\right)  $-tuple in $\mathbb{K}%
+^{n+1}$ and satisfies $\mathbf{a}=u_{0}x^{0}+u_{1}x^{1}+\cdots+u_{n}x^{n}$.
+Extend this $\left(  n+1\right)  $-tuple to an infinite sequence $\left(
+u_{0},u_{1},u_{2},\ldots\right)  $ by setting%
+\begin{equation}
+u_{k}=0\ \ \ \ \ \ \ \ \ \ \text{for all integers }k>n.
+\label{sol.pol.basis.C2.pf.1}%
+\end{equation}
+Then, $\left(  u_{0},u_{1},u_{2},\ldots\right)  $ is an FPS. Corollary
+\ref{cor.pol.FPS-as-sum} (applied to $a_{i}=u_{i}$) thus shows that the family
+$\left(  u_{k}x^{k}\right)  _{k\in\mathbb{N}}$ is summable, so that the sum
+$\sum_{k\in\mathbb{N}}u_{k}x^{k}$ is well-defined, and moreover,
+\[
+\left(  u_{0},u_{1},u_{2},\ldots\right)  =u_{0}+u_{1}x+u_{2}x^{2}+u_{3}%
+x^{3}+\cdots=\sum_{k\in\mathbb{N}}u_{k}x^{k}.
+\]
+Hence,%
+\begin{align*}
+\left(  u_{0},u_{1},u_{2},\ldots\right)   &  =\sum_{k\in\mathbb{N}}u_{k}%
+x^{k}=\sum_{k=0}^{n}u_{k}x^{k}+\sum_{k=n+1}^{\infty}\underbrace{u_{k}%
+}_{\substack{=0\\\text{(by (\ref{sol.pol.basis.C2.pf.1}),}\\\text{since }k\geq
+n+1>n\text{)}}}x^{k}\\
+&  =\sum_{k=0}^{n}u_{k}x^{k}+\underbrace{\sum_{k=n+1}^{\infty}0x^{k}}%
+_{=0}=\sum_{k=0}^{n}u_{k}x^{k}=u_{0}x^{0}+u_{1}x^{1}+\cdots+u_{n}x^{n}.
+\end{align*}
+Comparing this with $\mathbf{a}=u_{0}x^{0}+u_{1}x^{1}+\cdots+u_{n}x^{n}$, we
+obtain $\mathbf{a}=\left(  u_{0},u_{1},u_{2},\ldots\right)  $. Hence, each
+$k\in\mathbb{N}$ satisfies $\left[  x^{k}\right]  \mathbf{a}=u_{k}$ (by the
+definition of $\left[  x^{k}\right]  \mathbf{a}$). Thus, in particular, each
+$k\in\left\{  0,1,\ldots,n\right\}  $ satisfies
+\begin{equation}
+\left[  x^{k}\right]  \mathbf{a}=u_{k}. \label{sol.pol.basis.C2.pf.3}%
+\end{equation}
+The same argument (applied to $\left(  v_{0},v_{1},\ldots,v_{n}\right)  $
+instead of $\left(  u_{0},u_{1},\ldots,u_{n}\right)  $) yields that each
+$k\in\left\{  0,1,\ldots,n\right\}  $ satisfies
+\begin{equation}
+\left[  x^{k}\right]  \mathbf{a}=v_{k}. \label{sol.pol.basis.C2.pf.4}%
+\end{equation}
+Hence, each $k\in\left\{  0,1,\ldots,n\right\}  $ satisfies%
+\begin{align*}
+u_{k}  &  =\left[  x^{k}\right]  \mathbf{a}\ \ \ \ \ \ \ \ \ \ \left(
+\text{by (\ref{sol.pol.basis.C2.pf.3})}\right) \\
+&  =v_{k}\ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{sol.pol.basis.C2.pf.4}%
+)}\right)  .
+\end{align*}
+In other words, $\left(  u_{0},u_{1},\ldots,u_{n}\right)  =\left(  v_{0}%
+,v_{1},\ldots,v_{n}\right)  $.
+
+Now, forget that we fixed $\left(  u_{0},u_{1},\ldots,u_{n}\right)  $ and
+$\left(  v_{0},v_{1},\ldots,v_{n}\right)  $. We thus have shown that if
+$\left(  u_{0},u_{1},\ldots,u_{n}\right)  $ and $\left(  v_{0},v_{1}%
+,\ldots,v_{n}\right)  $ are two $\left(  n+1\right)  $-tuples $\left(
+\lambda_{1},\lambda_{2},\ldots,\lambda_{n+1}\right)  \in\mathbb{K}^{n+1}$ such
+that $\mathbf{a}=\lambda_{1}x^{0}+\lambda_{2}x^{1}+\cdots+\lambda_{n+1}x^{n}$,
+then $\left(  u_{0},u_{1},\ldots,u_{n}\right)  =\left(  v_{0},v_{1}%
+,\ldots,v_{n}\right)  $. In other words, there exists \textbf{at most} one
+$\left(  n+1\right)  $-tuple $\left(  \lambda_{1},\lambda_{2},\ldots
+,\lambda_{n+1}\right)  \in\mathbb{K}^{n+1}$ such that $\mathbf{a}=\lambda
+_{1}x^{0}+\lambda_{2}x^{1}+\cdots+\lambda_{n+1}x^{n}$. This proves Claim 2.]
+
+Combining Claim 1 and Claim 2, we now conclude that there exists a
+\textbf{unique} $\left(  n+1\right)  $-tuple $\left(  \lambda_{1},\lambda
+_{2},\ldots,\lambda_{n+1}\right)  \in\mathbb{K}^{n+1}$ such that
+$\mathbf{a}=\lambda_{1}x^{0}+\lambda_{2}x^{1}+\cdots+\lambda_{n+1}x^{n}$. In
+other words, $\mathbf{a}$ can be uniquely written in the form
+(\ref{sol.pol.basis.form}).
+
+Now, forget that we fixed $\mathbf{a}$. We thus have shown that each
+$\mathbf{a}\in\mathbb{K}\left[  x\right]  _{\leq n}$ can be uniquely written
+in the form (\ref{sol.pol.basis.form}). In other words, each vector in
+$\mathbb{K}\left[  x\right]  _{\leq n}$ can be \textbf{uniquely} written in
+the form (\ref{sol.pol.basis.form}). Thus, the list $\left(  x^{0}%
+,x^{1},\ldots,x^{n}\right)  $ is a basis of $\mathbb{K}\left[  x\right]
+_{\leq n}$ (because we have seen that the list $\left(  x^{0},x^{1}%
+,\ldots,x^{n}\right)  $ is a basis of $\mathbb{K}\left[  x\right]  _{\leq n}$
+if and only if each vector in $\mathbb{K}\left[  x\right]  _{\leq n}$ can be
+\textbf{uniquely} written in the form (\ref{sol.pol.basis.form})). This solves
+Exercise \ref{exe.pol.basis}.
+\end{proof}
+\end{fineprint}
 
 We can restate some of Theorem \ref{thm.pol.pol-basics} in terms of degrees:
 
@@ -37911,7 +38384,8 @@ p\right]  _{p}=\left[  0\right]  _{p}=0}\cdot1_{\left(  \mathbb{Z}/p\right)
 \left[  \left[  x\right]  \right]  }=0.
 \]
 Thus, Theorem \ref{thm.ring.freshdream} (applied to $\mathbb{K}=\left(
-\mathbb{Z}/p\right)  \left[  x\right]  $, $a=1$ and $b=x$) yields%
+\mathbb{Z}/p\right)  \left[  \left[  x\right]  \right]  $, $a=1$ and $b=x$)
+yields%
 \begin{equation}
 \left(  1+x\right)  ^{p}=\underbrace{1^{p}}_{=1}+x^{p}=1+x^{p}%
 \ \ \ \ \ \ \ \ \ \ \text{in }\left(  \mathbb{Z}/p\right)  \left[  \left[
@@ -37937,9 +38411,11 @@ to see that this map is a $\mathbb{K}$-algebra homomorphism (this is proven
 just as Corollary \ref{cor.pol.eval.evu} was proven, except that we are now
 working with FPSs instead of polynomials) that furthermore respects not just
 finite sums but also infinite sums (of summable families). Thus, applying this
-map to $\left(  1+x\right)  ^{a}$ yields $\left(  1+x^{p}\right)  ^{a}$, and
-applying it to $\sum_{k\in\mathbb{N}}\dbinom{a}{k}x^{k}$ yields $\sum
-_{k\in\mathbb{N}}\dbinom{a}{k}\left(  x^{p}\right)  ^{k}$.}, and thus obtain%
+map to $\left(  1+x\right)  ^{a}$ yields $\left(  1+x^{p}\right)  ^{a}$
+(because it is a ring homomorphism), and applying it to $\sum_{k\in\mathbb{N}%
+}\dbinom{a}{k}x^{k}$ yields $\sum_{k\in\mathbb{N}}\dbinom{a}{k}\left(
+x^{p}\right)  ^{k}$ (because it respects infinite sums of summable
+families).}, and thus obtain%
 \begin{align}
 \left(  1+x^{p}\right)  ^{a}  &  =\sum_{k\in\mathbb{N}}\dbinom{a}%
 {k}\underbrace{\left(  x^{p}\right)  ^{k}}_{=x^{pk}=x^{kp}}=\sum
@@ -37974,11 +38450,11 @@ Now,%
 }_{=\left(  \left(  1+x\right)  ^{p}\right)  ^{a}}\left(  1+x\right)
 ^{c}=\left(  \underbrace{\left(  1+x\right)  ^{p}}_{\substack{=1+x^{p}%
 \\\text{(by (\ref{pf.thm.binom.lucas.freshman}))}}}\right)  ^{a}\left(
-1+x\right)  ^{c}\\
-&  =\underbrace{\left(  1+x^{p}\right)  ^{a}}_{\substack{=\sum_{q\in
-\mathbb{N}}\dbinom{a}{q}x^{qp}\\\text{(by (\ref{pf.thm.binom.lucas.q-part}))}%
-}}\ \ \underbrace{\left(  1+x\right)  ^{c}}_{\substack{=\sum_{r=0}%
-^{p-1}\dbinom{c}{r}x^{r}\\\text{(by (\ref{pf.thm.binom.lucas.r-part}))}}}\\
+1+x\right)  ^{c}=\underbrace{\left(  1+x^{p}\right)  ^{a}}_{\substack{=\sum
+_{q\in\mathbb{N}}\dbinom{a}{q}x^{qp}\\\text{(by
+(\ref{pf.thm.binom.lucas.q-part}))}}}\ \ \underbrace{\left(  1+x\right)  ^{c}%
+}_{\substack{=\sum_{r=0}^{p-1}\dbinom{c}{r}x^{r}\\\text{(by
+(\ref{pf.thm.binom.lucas.r-part}))}}}\\
 &  =\left(  \sum_{q\in\mathbb{N}}\dbinom{a}{q}x^{qp}\right)  \left(
 \sum_{r=0}^{p-1}\dbinom{c}{r}x^{r}\right)  =\sum_{q\in\mathbb{N}}\sum
 _{r=0}^{p-1}\dbinom{a}{q}\dbinom{c}{r}x^{qp}x^{r}.
@@ -37987,14 +38463,14 @@ Comparing this with%
 \begin{align*}
 &  \sum_{k\in\mathbb{N}}\dbinom{a}{k//p}\dbinom{c}{k\%p}x^{k}\\
 &  =\underbrace{\sum_{\left(  q,r\right)  \in\mathbb{N}\times\left\{
-0,1,\ldots,n-1\right\}  }}_{=\sum_{q\in\mathbb{N}}\sum_{r\in\left\{
+0,1,\ldots,p-1\right\}  }}_{=\sum_{q\in\mathbb{N}}\sum_{r\in\left\{
 0,1,\ldots,p-1\right\}  }}\dbinom{a}{\left(  qp+r\right)  //p}\dbinom
 {c}{\left(  qp+r\right)  \%p}\underbrace{x^{qp+r}}_{=x^{qp}x^{r}}\\
 &  \ \ \ \ \ \ \ \ \ \ \left(
 \begin{array}
 [c]{c}%
 \text{here, we have substituted }qp+r\text{ for }k\text{ in the sum, since}\\
-\text{the map }\mathbb{N}\times\left\{  0,1,\ldots,n-1\right\}  \rightarrow
+\text{the map }\mathbb{N}\times\left\{  0,1,\ldots,p-1\right\}  \rightarrow
 \mathbb{N},\ \left(  q,r\right)  \mapsto qp+r\text{ is a}\\
 \text{bijection (by Exercise \ref{exe.ent.quo-rem.bijs} \textbf{(b)}, applied
 to }n=p\text{)}%
@@ -38884,14 +39360,14 @@ homomorphism as well.
 x\right]  /\mathbf{b},\\
 \mathbf{a}  &  \mapsto\left[  \mathbf{a}\right]  _{\mathbf{b}}%
 \end{align*}
-is a $\mathbb{K}$-algebra homomorphism (by part \textbf{(a)}). Now, let
-$\mathbf{a}\in\mathbb{K}\left[  x\right]  $. The definition of $\pi
-_{\mathbf{b}}$ yields $\pi_{\mathbf{b}}\left(  x\right)  =\left[  x\right]
-_{\mathbf{b}}$ and $\pi_{\mathbf{b}}\left(  \mathbf{a}\right)  =\left[
-\mathbf{a}\right]  _{\mathbf{b}}$. But Proposition \ref{prop.pol.eval-funct}
-(applied to $\mathbb{K}\left[  x\right]  $, $\mathbb{K}\left[  x\right]
-/\mathbf{b}$, $\pi_{\mathbf{b}}$ and $x$ instead of $U$, $V$, $f$ and $u$)
-yields%
+is a $\mathbb{K}$-algebra homomorphism (by Proposition
+\ref{prop.quot.ring/w.root-in-L/w} \textbf{(a)}). Now, let $\mathbf{a}%
+\in\mathbb{K}\left[  x\right]  $. The definition of $\pi_{\mathbf{b}}$ yields
+$\pi_{\mathbf{b}}\left(  x\right)  =\left[  x\right]  _{\mathbf{b}}$ and
+$\pi_{\mathbf{b}}\left(  \mathbf{a}\right)  =\left[  \mathbf{a}\right]
+_{\mathbf{b}}$. But Proposition \ref{prop.pol.eval-funct} (applied to
+$\mathbb{K}\left[  x\right]  $, $\mathbb{K}\left[  x\right]  /\mathbf{b}$,
+$\pi_{\mathbf{b}}$ and $x$ instead of $U$, $V$, $f$ and $u$) yields%
 \begin{align*}
 \pi_{\mathbf{b}}\left(  \mathbf{a}\left[  x\right]  \right)   &
 =\mathbf{a}\left[  \underbrace{\pi_{\mathbf{b}}\left(  x\right)  }_{=\left[
@@ -38906,12 +39382,13 @@ Hence,%
 =\pi_{\mathbf{b}}\left(  \mathbf{a}\right)  =\left[  \mathbf{a}\right]
 _{\mathbf{b}}.
 \]
-This proves part \textbf{(c)}.
+This proves Proposition \ref{prop.quot.ring/w.root-in-L/w} \textbf{(c)}.
 
 \textbf{(d)} We must prove that $\mathbf{b}\left[  \left[  x\right]
 _{\mathbf{b}}\right]  =0_{\mathbb{K}\left[  x\right]  /\mathbf{b}}$.
 
-Applying part \textbf{(c)} to $\mathbf{a}=\mathbf{b}$, we obtain
+Applying Proposition \ref{prop.quot.ring/w.root-in-L/w} \textbf{(c)} to
+$\mathbf{a}=\mathbf{b}$, we obtain
 \begin{align*}
 \mathbf{b}\left[  \left[  x\right]  _{\mathbf{b}}\right]   &  =\left[
 \mathbf{b}\right]  _{\mathbf{b}}=\left[  0\right]  _{\mathbf{b}}%
@@ -38920,7 +39397,8 @@ Applying part \textbf{(c)} to $\mathbf{a}=\mathbf{b}$, we obtain
 &  =0_{\mathbb{K}\left[  x\right]  /\mathbf{b}},
 \end{align*}
 and this shows that $\left[  x\right]  _{\mathbf{b}}$ is a root of
-$\mathbf{b}$.
+$\mathbf{b}$. This proves Proposition \ref{prop.quot.ring/w.root-in-L/w}
+\textbf{(d)}.
 \end{proof}
 
 \begin{theorem}
@@ -38977,6 +39455,8 @@ Then,%
 \alpha &  =\left[  \mathbf{a}\right]  _{\mathbf{b}}=\left[  \mathbf{r}\right]
 _{\mathbf{b}}=\left[  r_{0}x^{0}+r_{1}x^{1}+\cdots+r_{m-1}x^{m-1}\right]
 _{\mathbf{b}}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{since }\mathbf{r}=r_{0}x^{0}+r_{1}%
+x^{1}+\cdots+r_{m-1}x^{m-1}\right) \\
 &  =r_{0}\left[  x^{0}\right]  _{\mathbf{b}}+r_{1}\left[  x^{1}\right]
 _{\mathbf{b}}+\cdots+r_{m-1}\left[  x^{m-1}\right]  _{\mathbf{b}}.
 \end{align*}
@@ -39036,9 +39516,10 @@ _{\mathbf{b}}\ \ \ \ \ \ \ \ \ \ \text{with }\lambda_{0},\lambda_{1}%
 \]
 one way uses $\lambda_{0}=a$ and $\lambda_{i}=0$ for all $i>0$; the other way
 uses $\lambda_{0}=b$ and $\lambda_{i}=0$ for all $i>0$. But the
-\textquotedblleft uniqueness\textquotedblright\ statement in part \textbf{(a)}
-yields that there is only one way to represent an element in this form. Hence,
-these two ways must be equal. Therefore, $a=b$.
+\textquotedblleft uniqueness\textquotedblright\ statement in Theorem
+\ref{thm.quot.ring/w.basis-of-quot} \textbf{(a)} yields that there is only one
+way to represent an element in this form. Hence, these two ways must be equal.
+Therefore, $a=b$.
 \end{proof}
 
 Note that Theorem \ref{thm.quot.ring/w.basis-of-quot} \textbf{(c)} really
@@ -39108,8 +39589,9 @@ and thus any two FPSs are congruent to each other modulo $x^{2}+1$).
 \end{example}
 
 \begin{example}
-We constructed a field with $4$ elements by adjoining a $j$ satisfying
-$j^{2}=j+1$ to $\mathbb{Z}/2$. This field is isomorphic to
+In Section \ref{sect.ring.hunting1}, we constructed a field with $4$ elements
+by adjoining a $j$ satisfying $j^{2}=j+1$ to $\mathbb{Z}/2$. This field is
+isomorphic to
 \[
 \left(  \mathbb{Z}/2\right)  \left[  x\right]  /\left(  x^{2}-x-1\right)  .
 \]
@@ -39117,9 +39599,14 @@ $j^{2}=j+1$ to $\mathbb{Z}/2$. This field is isomorphic to
 \end{example}
 
 \begin{example}
-Let $m\in\mathbb{Z}$. On midterm \#2 exercise 1, we defined $R_{m}$ to be the
-set of all $m$-integers (= rational numbers that can be turned into integers
-by multiplying with $m$ often enough). We proved that $R_{m}$ is a ring.
+Let $m\in\mathbb{Z}$ be nonzero. On
+\href{http://www-users.math.umn.edu/~dgrinber/19s/mt2s.pdf}{midterm \#2}
+exercise 1, we defined $R_{m}$ to be the set of all $m$-integers (= rational
+numbers that can be turned into integers by multiplying with $m$ often
+enough). We proved that $R_{m}$ is a ring. Each element of $R_{m}$ can be
+written in the form $\dfrac{a}{m^{k}}$ for some $a\in\mathbb{Z}$ and some
+$k\in\mathbb{N}$ (but these $a$ and $k$ are not unique, since $\dfrac{a}%
+{m^{k}}=\dfrac{am}{m^{k+1}}=\dfrac{am^{2}}{m^{k+2}}=\cdots$).
 
 This ring $R_{m}$ is isomorphic to the ring $\mathbb{Z}\left[  x\right]
 /\left(  mx-1\right)  $. Indeed, we have a ring homomorphism%
@@ -39133,13 +39620,13 @@ and this is invertible, with inverse%
 R_{m}  &  \rightarrow\mathbb{Z}\left[  x\right]  /\left(  mx-1\right)  ,\\
 \dfrac{a}{m^{k}}  &  \mapsto\left[  ax^{k}\right]  _{mx-1}%
 \ \ \ \ \ \ \ \ \ \ \left(  \text{for }a\in\mathbb{Z}\text{ and }%
-m\in\mathbb{N}\right)
+k\in\mathbb{N}\right)
 \end{align*}
 (you have to check that this is well-defined).
 
 Note that Theorem \ref{thm.quot.ring/w.basis-of-quot} does not apply here
 (unless $m\in\left\{  1,-1\right\}  $), and the $\mathbb{Z}$-module $R_{m}$
-has no basis.
+has no basis (again, unless $m\in\left\{  1,-1\right\}  $).
 
 Note that $R_{m}$ (the ring of $m$-integers) is commonly called $\mathbb{Z}%
 \left[  \dfrac{1}{m}\right]  $, in analogy to $\mathbb{Z}\left[  i\right]  $.
