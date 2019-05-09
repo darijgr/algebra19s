@@ -17,7 +17,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Wednesday, May 08, 2019 23:02:51}
+%TCIDATA{LastRevised=Thursday, May 09, 2019 12:25:08}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -24907,8 +24907,14 @@ following, \textquotedblleft$a-b-c$\textquotedblright\ should be read as
 \textbf{(h)} We have $a\left(  b-c\right)  =ab-ac$ and $\left(  a-b\right)
 c=ac-bc$.
 
-\textbf{(i)} We have $\left(  -1\right)  a=-a$. (Here, the \textquotedblleft%
+\textbf{(i)} We have $-\left(  a-b\right)  =b-a$.
+
+\textbf{(j)} We have $a-\left(  -b\right)  =a+b$.
+
+\textbf{(k)} We have $\left(  -1\right)  a=-a$. (Here, the \textquotedblleft%
 $1$\textquotedblright\ on the left hand side means the unity of $\mathbb{K}$.)
+
+\textbf{(l)} If $-a=-b$, then $a=b$.
 \end{proposition}
 
 \begin{proof}
@@ -25035,7 +25041,7 @@ c=a\left(  -c\right)  $.
 
 The definition of subtraction yields $b-c=b+\left(  -c\right)  $ and%
 \begin{align*}
-ab-ac &  =ab+\underbrace{\left(  -\left(  ac\right)  \right)  }_{=a\left(
+ab-ac  &  =ab+\underbrace{\left(  -\left(  ac\right)  \right)  }_{=a\left(
 -c\right)  }=ab+a\left(  -c\right)  =a\underbrace{\left(  b+\left(  -c\right)
 \right)  }_{=b-c}\ \ \ \ \ \ \ \ \ \ \left(  \text{by distributivity}\right)
 \\
@@ -25045,11 +25051,43 @@ Thus, $a\left(  b-c\right)  =ab-ac$. A similar argument show that $\left(
 a-b\right)  c=ac-bc$. This proves Proposition \ref{prop.rings.inv-add.rules}
 \textbf{(h)}.
 
-\textbf{(i)} Proposition \ref{prop.rings.inv-add.rules} \textbf{(f)} (applied
+\textbf{(i)} Proposition \ref{prop.rings.inv-add.rules} \textbf{(e)} (applied
+to $b$ instead of $a$) yields $-\left(  -b\right)  =b$. But the definition of
+subtraction yields $a-b=a+\left(  -b\right)  $. Hence,%
+\begin{align*}
+-\left(  a-b\right)   &  =-\left(  a+\left(  -b\right)  \right)  =\left(
+-a\right)  +\underbrace{\left(  -\left(  -b\right)  \right)  }_{=b}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition
+\ref{prop.rings.inv-add.rules} \textbf{(b)}, applied to }-b\text{ instead of
+}b\right) \\
+&  =\left(  -a\right)  +b=b+\left(  -a\right)  \ \ \ \ \ \ \ \ \ \ \left(
+\text{by commutativity of addition}\right) \\
+&  =b-a
+\end{align*}
+(since $b-a$ is defined to be $b+\left(  -1\right)  $). This proves
+Proposition \ref{prop.rings.inv-add.rules} \textbf{(i)}.
+
+\textbf{(j)} Proposition \ref{prop.rings.inv-add.rules} \textbf{(e)} (applied
+to $b$ instead of $a$) yields $-\left(  -b\right)  =b$. The definition of
+subtraction yields%
+\[
+a-\left(  -b\right)  =a+\underbrace{\left(  -\left(  -b\right)  \right)
+}_{=b}=a+b.
+\]
+This proves Proposition \ref{prop.rings.inv-add.rules} \textbf{(j)}.
+
+\textbf{(k)} Proposition \ref{prop.rings.inv-add.rules} \textbf{(f)} (applied
 to $1$ and $a$ instead of $a$ and $b$) yields $-\left(  1a\right)  =\left(
 -1\right)  a=1\left(  -a\right)  $. Hence, $\left(  -1\right)
 a=-\underbrace{\left(  1a\right)  }_{=a}=-a$. This proves Proposition
-\ref{prop.rings.inv-add.rules} \textbf{(i)}.
+\ref{prop.rings.inv-add.rules} \textbf{(k)}.
+
+\textbf{(l)} Assume that $-a=-b$. Proposition \ref{prop.rings.inv-add.rules}
+\textbf{(e)} (applied to $b$ instead of $a$) yields $-\left(  -b\right)  =b$.
+Proposition \ref{prop.rings.inv-add.rules} \textbf{(e)} yields $-\left(
+-a\right)  =a$. Thus, $a=-\underbrace{\left(  -a\right)  }_{=-b}=-\left(
+-b\right)  =b$. This proves Proposition \ref{prop.rings.inv-add.rules}
+\textbf{(l)}.
 \end{proof}
 
 If $a,b\in\mathbb{K}$, then the expression \textquotedblleft$-ab$%
@@ -25183,66 +25221,84 @@ such an operation to have:
 \begin{proposition}
 \label{prop.rings.Zscal.rules}We have%
 \begin{align}
-\left(  n+m\right)  a &  =na+ma\ \ \ \ \ \ \ \ \ \ \text{for all }%
-a\in\mathbb{K}\text{ and }n,m\in\mathbb{Z};\label{eq.prop.rings.pow.rules.d1}%
-\\
+\left(  n+m\right)  a  &  =na+ma\ \ \ \ \ \ \ \ \ \ \text{for all }%
+a\in\mathbb{K}\text{ and }n,m\in\mathbb{Z}%
+;\label{eq.prop.rings.Zscal.rules.(n+m)a}\\
 n\left(  a+b\right)   &  =na+nb\ \ \ \ \ \ \ \ \ \ \text{for all }%
-a,b\in\mathbb{K}\text{ and }n\in\mathbb{Z};\label{eq.prop.rings.pow.rules.d2}%
-\\
+a,b\in\mathbb{K}\text{ and }n\in\mathbb{Z}%
+;\label{eq.prop.rings.Zscal.rules.n(a+b)}\\
 -\left(  na\right)   &  =\left(  -n\right)  a=n\left(  -a\right)
 \ \ \ \ \ \ \ \ \ \ \text{for all }a\in\mathbb{K}\text{ and }n\in
-\mathbb{Z};\label{eq.prop.rings.pow.rules.d3}\\
-\left(  nm\right)  a &  =n\left(  ma\right)  \ \ \ \ \ \ \ \ \ \ \text{for all
-}a\in\mathbb{K}\text{ and }n,m\in\mathbb{Z};\label{eq.prop.rings.pow.rules.2}%
-\\
+\mathbb{Z};\label{eq.prop.rings.Zscal.rules.-na}\\
+\left(  nm\right)  a  &  =n\left(  ma\right)  \ \ \ \ \ \ \ \ \ \ \text{for
+all }a\in\mathbb{K}\text{ and }n,m\in\mathbb{Z}%
+;\label{eq.prop.rings.Zscal.rules.nma}\\
 n\left(  ab\right)   &  =\left(  na\right)  b=a\left(  nb\right)
 \ \ \ \ \ \ \ \ \ \ \text{for all }a,b\in\mathbb{K}\text{ and }n\in
-\mathbb{Z};\label{eq.prop.rings.pow.rules.3}\\
-1a &  =a\ \ \ \ \ \ \ \ \ \ \text{for all }a\in\mathbb{K}%
-\label{eq.prop.rings.pow.rules.1a}\\
+\mathbb{Z};\label{eq.prop.rings.Zscal.rules.nab}\\
+n0_{\mathbb{K}}  &  =0_{\mathbb{K}}\ \ \ \ \ \ \ \ \ \ \text{for all }%
+n\in\mathbb{Z};\label{eq.prop.rings.Zscal.rules.n0}\\
+1a  &  =a\ \ \ \ \ \ \ \ \ \ \text{for all }a\in\mathbb{K}%
+\label{eq.prop.rings.Zscal.rules.1a}\\
 &  \ \ \ \ \ \ \ \ \ \ \left(  \text{here, the \textquotedblleft%
 }1\text{\textquotedblright\ means the integer }1\right)  ;\nonumber\\
-0a &  =0\ \ \ \ \ \ \ \ \ \ \text{for all }a\in\mathbb{K}%
-\label{eq.prop.rings.pow.rules.0a}\\
-&  \ \ \ \ \ \ \ \ \ \ \left(
-\begin{array}
-[c]{c}%
-\text{here, the \textquotedblleft}0\text{\textquotedblright\ on the left hand
-side means the integer }0\text{,}\\
-\text{while the \textquotedblleft}0\text{\textquotedblright\ on the right hand
-side means the zero of }\mathbb{K}%
-\end{array}
-\right)  ;\nonumber\\
-\left(  -1\right)  a &  =-a\ \ \ \ \ \ \ \ \ \ \text{for all }a\in
-\mathbb{K};\label{eq.prop.rings.pow.rules.-1a}\\
+0a  &  =0_{\mathbb{K}}\ \ \ \ \ \ \ \ \ \ \text{for all }a\in\mathbb{K}%
+\label{eq.prop.rings.Zscal.rules.0a}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{here, the \textquotedblleft%
+}0\text{\textquotedblright\ on the left hand side means the integer }0\right)
+;\nonumber\\
+\left(  -1\right)  a  &  =-a\ \ \ \ \ \ \ \ \ \ \text{for all }a\in
+\mathbb{K};\label{eq.prop.rings.Zscal.rules.-1a}\\
 &  \ \ \ \ \ \ \ \ \ \ \left(  \text{here, the \textquotedblleft%
 }-1\text{\textquotedblright\ means the integer }-1\right)  .\nonumber
 \end{align}
 In particular:
 
 \begin{itemize}
-\item The equality (\ref{eq.prop.rings.pow.rules.d3}) shows that the
+\item The equality (\ref{eq.prop.rings.Zscal.rules.-na}) shows that the
 expression \textquotedblleft$-na$\textquotedblright\ (with $a\in\mathbb{K}$
 and $n\in\mathbb{Z}$) is unambiguous (since its two possible interpretations,
 namely $-\left(  na\right)  $ and $\left(  -n\right)  a$, yield equal results).
 
-\item The equality (\ref{eq.prop.rings.pow.rules.2}) shows that the expression
-\textquotedblleft$nma$\textquotedblright\ (with $a\in\mathbb{K}$ and
-$n,m\in\mathbb{Z}$) is unambiguous.
+\item The equality (\ref{eq.prop.rings.Zscal.rules.nma}) shows that the
+expression \textquotedblleft$nma$\textquotedblright\ (with $a\in\mathbb{K}$
+and $n,m\in\mathbb{Z}$) is unambiguous.
 
-\item The equality (\ref{eq.prop.rings.pow.rules.3}) shows that the expression
-\textquotedblleft$nab$\textquotedblright\ (with $a,b\in\mathbb{K}$ and
-$n\in\mathbb{Z}$) is unambiguous.
+\item The equality (\ref{eq.prop.rings.Zscal.rules.nab}) shows that the
+expression \textquotedblleft$nab$\textquotedblright\ (with $a,b\in\mathbb{K}$
+and $n\in\mathbb{Z}$) is unambiguous.
 \end{itemize}
 \end{proposition}
 
-\begin{proof}
-[Proof of Proposition \ref{prop.rings.Zscal.rules}.]The proofs of these rules
-are analogous to the proofs of the corresponding rules for rationals -- at
-least if you know the right proofs of the latter. For example, one way to
-prove (\ref{eq.prop.rings.pow.rules.d1}) is by considering six cases
-corresponding to the six possible constellations of signs of $n,m,n+m$.
-\end{proof}
+\begin{exercise}
+\label{exe.rings.Zscal.rules}Prove Proposition \ref{prop.rings.Zscal.rules}.
+
+[\textbf{Hint:} The proofs of the rules in Proposition
+\ref{prop.rings.Zscal.rules} are analogous to the proofs of the corresponding
+rules for rationals -- at least if you know the right proofs of the latter.
+One way is to start by proving the equalities
+(\ref{eq.prop.rings.Zscal.rules.0a}), (\ref{eq.prop.rings.Zscal.rules.1a}) and
+(\ref{eq.prop.rings.Zscal.rules.-1a}), which follow almost immediately from
+Definition \ref{def.rings.na}; then, prove
+(\ref{eq.prop.rings.Zscal.rules.(n+m)a}) for $n,m\in\mathbb{N}$; then, prove
+(\ref{eq.prop.rings.Zscal.rules.n0}) and
+(\ref{eq.prop.rings.Zscal.rules.n(a+b)}) for $n\in\mathbb{N}$; then, prove
+(\ref{eq.prop.rings.Zscal.rules.nma}) for $n,m\in\mathbb{N}$; then, prove
+(\ref{eq.prop.rings.Zscal.rules.nab}) for $n\in\mathbb{N}$; then, show that
+$\left(  -n\right)  a=-\left(  na\right)  $ for all $a\in\mathbb{K}$ and
+$n\in\mathbb{Z}$ (by distinguishing between the cases $n>0$, $n=0$ and $n<0$);
+and then extend the identities that have already been shown for elements of
+$\mathbb{N}$ to elements of $\mathbb{Z}$ (using Proposition
+\ref{prop.rings.inv-add.rules}). Note that this is rather similar to the
+process by which we proved Proposition \ref{prop.CC.CC.power-rules} in the
+solution to Exercise \ref{exe.CC.CC.power-rules}, with the main difference
+being that we now are studying multiples instead of powers (and addition
+instead of multiplication). Our solution to Exercise
+\ref{exe.CC.CC.power-rules} cannot be copied literally, however, because the
+way we defiend $na$ for negative $n$ in Definition \ref{def.rings.na} is
+somewhat different from the way we defined $\alpha^{n}$ for negative $n$ in
+Definition \ref{def.CC.CC.power-}.]
+\end{exercise}
 
 \begin{center}
 \textbf{2019-03-29 lecture}
@@ -25807,7 +25863,7 @@ This contradiction shows that our assumption was false. Hence, Exercise
 
 \begin{exercise}
 \label{exe.ring.invertible.indirect}Let $\mathbb{K}$ be a ring. Let
-$a,b,c\in\mathbb{K}$ be such that $ab=1$ and $bc=1$.\ Prove that the element
+$a,b,c\in\mathbb{K}$ be such that $ab=1$ and $bc=1$. Prove that the element
 $b$ is invertible and its multiplicative inverse satisfies $b^{-1}=a=c$.
 \end{exercise}
 
@@ -30321,6 +30377,15 @@ following, \textquotedblleft$a-b-c$\textquotedblright\ should be read as
 \textbf{(h)} We have $\lambda\left(  b-c\right)  =\lambda b-\lambda c$ and
 $\left(  \lambda-\mu\right)  a=\lambda a-\mu a$ for all $\lambda,\mu
 \in\mathbb{K}$.
+
+\textbf{(i)} We have $-\left(  a-b\right)  =b-a$.
+
+\textbf{(j)} We have $a-\left(  -b\right)  =a+b$.
+
+\textbf{(k)} We have $\left(  -1\right)  a=-a$. (Here, the \textquotedblleft%
+$1$\textquotedblright\ on the left hand side means the unity of $\mathbb{K}$.)
+
+\textbf{(l)} If $-a=-b$, then $a=b$.
 \end{proposition}
 
 \begin{proof}
@@ -30366,20 +30431,21 @@ $-module; namely, we have the following:
 \begin{proposition}
 \label{prop.module.na.rules}We have%
 \begin{align}
-\left(  n+m\right)  a &  =na+ma\ \ \ \ \ \ \ \ \ \ \text{for all }a\in M\text{
-and }n,m\in\mathbb{Z};\\
+\left(  n+m\right)  a  &  =na+ma\ \ \ \ \ \ \ \ \ \ \text{for all }a\in
+M\text{ and }n,m\in\mathbb{Z};\\
 n\left(  a+b\right)   &  =na+nb\ \ \ \ \ \ \ \ \ \ \text{for all }a,b\in
 M\text{ and }n\in\mathbb{Z};\\
 -\left(  na\right)   &  =\left(  -n\right)  a=n\left(  -a\right)
 \ \ \ \ \ \ \ \ \ \ \text{for all }a\in M\text{ and }n\in\mathbb{Z};\\
-\left(  nm\right)  a &  =n\left(  ma\right)  \ \ \ \ \ \ \ \ \ \ \text{for all
-}a\in M\text{ and }n,m\in\mathbb{Z};\\
+\left(  nm\right)  a  &  =n\left(  ma\right)  \ \ \ \ \ \ \ \ \ \ \text{for
+all }a\in M\text{ and }n,m\in\mathbb{Z};\\
 n\left(  \lambda a\right)   &  =\left(  n\lambda\right)  a=\lambda\left(
 na\right)  \ \ \ \ \ \ \ \ \ \ \text{for all }a\in M\text{ and }\lambda
 \in\mathbb{K}\text{ and }n\in\mathbb{Z};\\
-1a &  =a\ \ \ \ \ \ \ \ \ \ \text{for all }a\in M;\\
-0a &  =0\ \ \ \ \ \ \ \ \ \ \text{for all }a\in M;\\
-\left(  -1\right)  a &  =-a\ \ \ \ \ \ \ \ \ \ \text{for all }a\in M.
+n0_{M}  &  =0_{M}\ \ \ \ \ \ \ \ \ \ \text{for all }n\in\mathbb{Z};\\
+1a  &  =a\ \ \ \ \ \ \ \ \ \ \text{for all }a\in M;\\
+0a  &  =0_{M}\ \ \ \ \ \ \ \ \ \ \text{for all }a\in M;\\
+\left(  -1\right)  a  &  =-a\ \ \ \ \ \ \ \ \ \ \text{for all }a\in M.
 \end{align}
 (Here, \textquotedblleft$1$\textquotedblright\ stands for the integer
 $1\in\mathbb{Z}$, not for the scalar $1\in\mathbb{K}$. Likewise, the
@@ -31460,9 +31526,60 @@ any $n\in\mathbb{N}$.
 
 \item The ring $\mathbb{R}$ is a $\mathbb{Q}$-algebra.
 
-\item The polynomial ring $\mathbb{K}\left[  x\right]  $ (see below for
-details) is a $\mathbb{K}$-algebra.
+\item The polynomial ring $\mathbb{K}\left[  x\right]  $ (introduced in
+Definition \ref{def.pol.polyring}) is a $\mathbb{K}$-algebra.
 \end{itemize}
+
+Particularly common are the $\mathbb{Z}$-algebras: In fact, every ring
+$\mathbb{K}$ is a $\mathbb{Z}$-algebra in a natural way! To see this, we just
+need to equip every ring $\mathbb{K}$ with a scaling map $\cdot:\mathbb{Z}%
+\times\mathbb{K}\rightarrow\mathbb{K}$ that satisfies the module axioms and
+the \textquotedblleft Scale-invariance of multiplication\textquotedblright%
+\ axiom. This is done as follows:
+
+\begin{example}
+\label{exa.K-alg.rings-are-Zalgs}Let $\mathbb{K}$ be any ring. Consider the
+map $\cdot:\mathbb{Z}\times\mathbb{K}\rightarrow\mathbb{K}$ sending each pair
+$\left(  n,a\right)  \in\mathbb{Z}\times\mathbb{K}$ to the element
+$na\in\mathbb{K}$ defined in Definition \ref{def.rings.na}. (This map $\cdot$
+is not the multiplication operation of $\mathbb{K}$ (unless $\mathbb{K}%
+=\mathbb{Z}$), but we still use the same notation for it, since both of these
+maps are \textquotedblleft multiplications\textquotedblright\ in a wide
+sense.) Then, the set $\mathbb{K}$, equipped with the binary operations $+$
+and $\cdot$ (the multiplication operation of $\mathbb{K}$), the scaling map
+$\cdot$ we just defined, and the elements $0_{\mathbb{K}}$ and $1_{\mathbb{K}%
+}$ is a $\mathbb{Z}$-algebra.
+\end{example}
+
+\begin{proof}
+[Proof of Example \ref{exa.K-alg.rings-are-Zalgs}.]We must prove that
+$\mathbb{K}$ satisfies the ring axioms, the module axioms and the
+\textquotedblleft Scale-invariance of multiplication\textquotedblright\ axiom
+(but we need to be careful, since the roles of the $\mathbb{K}$ and the $M$ in
+Definition \ref{def.K-alg.K-alg.short-def} are now being played by
+$\mathbb{Z}$ and $\mathbb{K}$). Let us do this:
+
+\begin{itemize}
+\item The ring axioms are clearly satisfied, since $\mathbb{K}$ is a ring.
+
+\item The module axioms are satisfied. In fact, the axioms \textbf{(a)},
+\textbf{(b)}, \textbf{(c)} and \textbf{(d)} in Definition
+\ref{def.module.module} are satisfied because $\mathbb{K}$ is a ring; the
+axiom \textbf{(e)} follows from (\ref{eq.prop.rings.Zscal.rules.n(a+b)}); the
+axiom \textbf{(f)} follows from (\ref{eq.prop.rings.Zscal.rules.(n+m)a}); the
+axiom \textbf{(g)} follows from (\ref{eq.prop.rings.Zscal.rules.0a}); the
+axiom \textbf{(h)} follows from (\ref{eq.prop.rings.Zscal.rules.nma}); the
+axiom \textbf{(i)} follows from (\ref{eq.prop.rings.Zscal.rules.1a}); the
+axiom \textbf{(j)} follows from (\ref{eq.prop.rings.Zscal.rules.n0}).
+
+\item The \textquotedblleft Scale-invariance of
+multiplication\textquotedblright\ axiom is satisfied, because of
+(\ref{eq.prop.rings.Zscal.rules.nab}).
+\end{itemize}
+
+\noindent Thus, $\mathbb{K}$ is a $\mathbb{Z}$-algebra. This proves Example
+\ref{exa.K-alg.rings-are-Zalgs}.
+\end{proof}
 
 \begin{convention}
 \label{conv.K-alg.forget-coerce}If $M$ is a $\mathbb{K}$-algebra, then $M$
@@ -49557,6 +49674,731 @@ i\right]  $) are the $n^{2}$ classes $\left[  a+bi\right]
 _{\underset{n}{\equiv}}$ for $\left(  a,b\right)  \in\left\{  0,1,\ldots
 ,n-1\right\}  ^{2}$, and that these $n^{2}$ classes are all distinct. This
 solves Exercise \ref{exe.Z[i].modn.classes}.
+\end{proof}
+\end{fineprint}
+
+\subsection{Solution to Exercise \ref{exe.rings.Zscal.rules}}
+
+\begin{fineprint}
+In order to solve Exercise \ref{exe.rings.Zscal.rules}, we need to prove
+Proposition \ref{prop.rings.Zscal.rules}.
+
+\begin{proof}
+[Proof of Proposition \ref{prop.rings.Zscal.rules}.]The proofs of these rules
+are analogous to the proofs of the corresponding rules for rationals -- at
+least if you know the right proofs of the latter.
+
+Here are the proofs in detail:
+
+First of all, let us prove (\ref{eq.prop.rings.Zscal.rules.0a}). Indeed, each
+$a\in\mathbb{K}$ satisfies%
+\begin{align*}
+0a  &  =\underbrace{a+a+\cdots+a}_{0\text{ times}}\ \ \ \ \ \ \ \ \ \ \left(
+\text{by the definition of }0a\text{, since }0\geq0\right) \\
+&  =\left(  \text{empty sum}\right)  =0_{\mathbb{K}}%
+\ \ \ \ \ \ \ \ \ \ \left(  \text{since empty sums of elements of }%
+\mathbb{K}\text{ are defined to be }0_{\mathbb{K}}\right)  .
+\end{align*}
+Thus, (\ref{eq.prop.rings.Zscal.rules.0a}) is proven.
+
+Next, let us prove (\ref{eq.prop.rings.Zscal.rules.1a}). Indeed, each
+$a\in\mathbb{K}$ satisfies%
+\begin{align*}
+1a  &  =\underbrace{a+a+\cdots+a}_{1\text{ times}}\ \ \ \ \ \ \ \ \ \ \left(
+\text{by the definition of }1a\text{, since }1\geq0\right) \\
+&  =a.
+\end{align*}
+Thus, (\ref{eq.prop.rings.Zscal.rules.1a}) is proven.
+
+Next, let us prove (\ref{eq.prop.rings.Zscal.rules.-1a}). Indeed, each
+$a\in\mathbb{K}$ satisfies%
+\begin{align*}
+\left(  -1\right)  a  &  =-\left(  \underbrace{a+a+\cdots+a}_{-\left(
+-1\right)  \text{ times}}\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the
+definition of }\left(  -1\right)  a\text{, since }-1<0\right) \\
+&  =-\underbrace{\left(  \underbrace{a+a+\cdots+a}_{1\text{ times}}\right)
+}_{=a}\ \ \ \ \ \ \ \ \ \ \left(  \text{since }-\left(  -1\right)  =1\right)
+\\
+&  =a.
+\end{align*}
+Thus, (\ref{eq.prop.rings.Zscal.rules.-1a}) is proven.
+
+Next, recall that Proposition \ref{prop.rings.inv-add.rules} \textbf{(c)}
+yields $-0=0$; in other words, $-0_{\mathbb{K}}=0_{\mathbb{K}}$.
+
+We organize the rest of the proof of Proposition \ref{prop.rings.Zscal.rules}
+as a sequence of claims, each bringing us one step further to the goals:
+
+\begin{statement}
+\textit{Claim 1:} We have $na=-\left(  \left(  -n\right)  a\right)  $ for all
+$a\in\mathbb{K}$ and all negative $n\in\mathbb{Z}$.
+\end{statement}
+
+[\textit{Proof of Claim 1:} Let $a\in\mathbb{K}$. Let $n\in\mathbb{Z}$ be
+negative. Thus, $n<0$; hence, the definition of $na$ yields%
+\begin{equation}
+na=-\left(  \underbrace{a+a+\cdots+a}_{-n\text{ times}}\right)  .
+\label{pf.prop.rings.Zscal.rules.c1.pf.1}%
+\end{equation}
+But $-n>0$ (since $n<0$) and thus $-n\in\mathbb{N}$. Hence, the definition of
+$\left(  -n\right)  a$ yields%
+\[
+\left(  -n\right)  a=\underbrace{a+a+\cdots+a}_{-n\text{ times}}.
+\]
+Thus,%
+\[
+-\left(  \left(  -n\right)  a\right)  =-\left(  \underbrace{a+a+\cdots
++a}_{-n\text{ times}}\right)  =na\ \ \ \ \ \ \ \ \ \ \left(  \text{by
+(\ref{pf.prop.rings.Zscal.rules.c1.pf.1})}\right)  .
+\]
+This proves Claim 1.]
+
+\begin{statement}
+\textit{Claim 2:} We have $\left(  -n\right)  a=-\left(  na\right)  $ for all
+$a\in\mathbb{K}$ and $n\in\mathbb{Z}$.
+\end{statement}
+
+[\textit{Proof of Claim 2:} Let $a\in\mathbb{K}$ and $n\in\mathbb{Z}$. We are
+in one of the following three cases:
+
+\textit{Case 1:} We have $n>0$.
+
+\textit{Case 2:} We have $n=0$.
+
+\textit{Case 3:} We have $n<0$.
+
+Let us first consider Case 1. In this case, we have $n>0$. Hence, $-n<0$. In
+other words, $-n$ is negative. Thus, Claim 1 (applied to $-n$ instead of $n$)
+yields $\left(  -n\right)  a=-\left(  \underbrace{\left(  -\left(  -n\right)
+\right)  }_{=n}a\right)  =-\left(  na\right)  $. Thus, Claim 2 is proven in
+Case 1.
+
+Let us next consider Case 2. In this case, we have $n=0$. Thus,
+$na=0a=0_{\mathbb{K}}$ (by (\ref{eq.prop.rings.Zscal.rules.0a})). Hence,
+$-\left(  na\right)  =-0_{\mathbb{K}}=0_{\mathbb{K}}$. Comparing this with
+$\left(  -\underbrace{n}_{=0}\right)  a=\underbrace{\left(  -0\right)  }%
+_{=0}a=0a=0_{\mathbb{K}}$, we obtain $\left(  -n\right)  a=-\left(  na\right)
+$. Thus, Claim 2 is proven in Case 2.
+
+Let us finally consider Case 3. In this case, we have $n<0$. Thus, $n$ is
+negative. Hence, Claim 1 yields $na=-\left(  \left(  -n\right)  a\right)  $.
+Thus, $-\left(  na\right)  =-\left(  -\left(  \left(  -n\right)  a\right)
+\right)  =\left(  -n\right)  a$ (by Proposition \ref{prop.rings.inv-add.rules}
+\textbf{(e)}, applied to $\left(  -n\right)  a$, $0$ and $0$ instead of $a$,
+$b$ and $c$). Thus, $\left(  -n\right)  a=-\left(  na\right)  $. Hence, Claim
+2 is proven in Case 3.
+
+Thus, we have proven Claim 2 in all three Cases 1, 2 and 3. Hence, Claim 2 is proven.]
+
+\begin{statement}
+\textit{Claim 3:} We have $\left(  n+m\right)  a=na+ma$ for all $a\in
+\mathbb{K}$ and $n,m\in\mathbb{N}$.
+\end{statement}
+
+[\textit{Proof of Claim 3:} Let $a\in\mathbb{K}$ and $n,m\in\mathbb{N}$. We
+have $n\in\mathbb{N}$ and thus $n\geq0$; thus, the definition of $na$ yields%
+\[
+na=\underbrace{a+a+\cdots+a}_{n\text{ times}}.
+\]
+The same argument (applied to $m$ instead of $n$) yields%
+\[
+ma=\underbrace{a+a+\cdots+a}_{m\text{ times}}.
+\]
+Adding these two equalities together, we find%
+\begin{equation}
+na+ma=\underbrace{a+a+\cdots+a}_{n\text{ times}}+\underbrace{a+a+\cdots
++a}_{m\text{ times}}=\underbrace{a+a+\cdots+a}_{n+m\text{ times}}.
+\label{pf.prop.rings.Zscal.rules.c3.pf.2}%
+\end{equation}
+
+
+On the other hand, $n+m\in\mathbb{N}$ (since $n\in\mathbb{N}$ and
+$m\in\mathbb{N}$); thus, the definition of $\left(  n+m\right)  a$ yields%
+\[
+\left(  n+m\right)  a=\underbrace{a+a+\cdots+a}_{n+m\text{ times}}.
+\]
+Comparing this with (\ref{pf.prop.rings.Zscal.rules.c3.pf.2}), we obtain
+$\left(  n+m\right)  a=na+ma$. This proves Claim 3.]
+
+\begin{statement}
+\textit{Claim 4:} We have $\left(  n-m\right)  a=na-ma$ for all $a\in
+\mathbb{K}$ and $n,m\in\mathbb{N}$.
+\end{statement}
+
+[\textit{Proof of Claim 4:} Let $a\in\mathbb{K}$ and $n,m\in\mathbb{N}$. We
+are in one of the following two cases:
+
+\textit{Case 1:} We have $n\geq m$.
+
+\textit{Case 2:} We have $n<m$.
+
+Let us first consider Case 1. In this case, we have $n\geq m$. Thus,
+$n-m\geq0$. Hence, $n-m\in\mathbb{N}$. Thus, Claim 3 (applied to $n-m$ instead
+of $n$) yields
+\[
+\left(  \left(  n-m\right)  +m\right)  a=\left(  n-m\right)  a+ma=ma+\left(
+n-m\right)  a.
+\]
+In view of $\left(  n-m\right)  +m=n$, this rewrites as $na=ma+\left(
+n-m\right)  a$. But Proposition \ref{prop.rings.inv-add.rules} \textbf{(a)}
+(applied to $na$, $ma$ and $\left(  n-m\right)  a$ instead of $a$, $b$ and
+$c$) yields that we have $na-ma=\left(  n-m\right)  a$ if and only if
+$na=ma+\left(  n-m\right)  a$. Hence, we have $na-ma=\left(  n-m\right)  a$
+(since $na=ma+\left(  n-m\right)  a$). In other words, $\left(  n-m\right)
+a=na-ma$. Thus, Claim 4 is proven in Case 1.
+
+Let us now consider Case 2. In this case, we have $n<m$. Thus, $m-n>0$. Hence,
+$m-n\in\mathbb{N}$. Thus, Claim 3 (applied to $m-n$ instead of $m$) yields
+$\left(  n+\left(  m-n\right)  \right)  a=na+\left(  m-n\right)  a$. In view
+of $n+\left(  m-n\right)  =m$, this rewrites as $ma=na+\left(  m-n\right)  a$.
+But Proposition \ref{prop.rings.inv-add.rules} \textbf{(a)} (applied to $ma$,
+$na$ and $\left(  m-n\right)  a$ instead of $a$, $b$ and $c$) yields that we
+have $ma-na=\left(  m-n\right)  a$ if and only if $ma=na+\left(  m-n\right)
+a$. Hence, we have
+\begin{equation}
+ma-na=\left(  m-n\right)  a \label{pf.prop.rings.Zscal.rules.c4.pf.5}%
+\end{equation}
+(since $ma=na+\left(  m-n\right)  a$).
+
+But Claim 2 (applied to $m-n$ instead of $n$) yields%
+\[
+\left(  -\left(  m-n\right)  \right)  a=-\underbrace{\left(  \left(
+m-n\right)  a\right)  }_{\substack{=ma-na\\\text{(by
+(\ref{pf.prop.rings.Zscal.rules.c4.pf.5}))}}}=-\left(  ma-na\right)  =na-ma
+\]
+(by Proposition \ref{prop.rings.inv-add.rules} \textbf{(i)}, applied to $ma$,
+$na$ and $0$ instead of $a$, $b$ and $c$). In view of $-\left(  m-n\right)
+=n-m$, this rewrites as $\left(  n-m\right)  a=na-ma$. Hence, Claim 4 is
+proven in Case 2.
+
+We have now proven Claim 4 in both Cases 1 and 2. Hence, Claim 4 is proven.]
+
+Next let us generalize Claim 3 by allowing $m$ to be negative:
+
+\begin{statement}
+\textit{Claim 5:} We have $\left(  n+m\right)  a=na+ma$ for all $a\in
+\mathbb{K}$ and $n\in\mathbb{N}$ and $m\in\mathbb{Z}$.
+\end{statement}
+
+[\textit{Proof of Claim 5:} Let $a\in\mathbb{K}$ and $n\in\mathbb{N}$ and
+$m\in\mathbb{Z}$. We must prove that $\left(  n+m\right)  a=na+ma$. If
+$m\in\mathbb{N}$, then this follows from Claim 3. Hence, for the rest of this
+proof, we WLOG assume that we don't have $m\in\mathbb{N}$. Thus, we have
+$m\in\mathbb{Z}$ but not $m\in\mathbb{N}$. Hence, $m\in\mathbb{Z}%
+\setminus\mathbb{N}=\left\{  -1,-2,-3,\ldots\right\}  $. In other words,
+$m<0$. Hence, $-m>0$, so that $-m\in\mathbb{N}$. Hence, Claim 4 (applied to
+$-m$ instead of $m$) yields $\left(  n-\left(  -m\right)  \right)
+a=na-\left(  -m\right)  a$. In view of $n-\left(  -m\right)  =n+m$, this
+rewrites as $\left(  n+m\right)  a=na-\left(  -m\right)  a$. But Claim 2
+(applied to $m$ instead of $n$) yields $\left(  -m\right)  a=-\left(
+ma\right)  $. Hence,%
+\begin{align*}
+\left(  n+m\right)  a  &  =na-\underbrace{\left(  -m\right)  a}_{=-\left(
+-ma\right)  }=na-\left(  -\left(  ma\right)  \right)  =na+\underbrace{\left(
+-\left(  -\left(  ma\right)  \right)  \right)  }_{\substack{=ma\\\text{(by
+Proposition \ref{prop.rings.inv-add.rules} \textbf{(e)},}\\\text{applied to
+}ma\text{, }0\text{ and }0\text{ instead of }a\text{, }b\text{ and }c\text{)}%
+}}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of subtraction}\right)
+\\
+&  =na+ma.
+\end{align*}
+This proves Claim 5.]
+
+Finally, we can generalize this further by allowing $n$ to be negative as well:
+
+\begin{statement}
+\textit{Claim 6:} We have $\left(  n+m\right)  a=na+ma$ for all $a\in
+\mathbb{K}$ and $n,m\in\mathbb{Z}$.
+\end{statement}
+
+[\textit{Proof of Claim 6:} Let $a\in\mathbb{K}$ and $n,m\in\mathbb{Z}$. We
+must prove that $\left(  n+m\right)  a=na+ma$. If $n\in\mathbb{N}$, then this
+follows from Claim 5. Hence, for the rest of this proof, we WLOG assume that
+we don't have $n\in\mathbb{N}$. Thus, we have $n\in\mathbb{Z}$ but not
+$n\in\mathbb{N}$. Hence, $n\in\mathbb{Z}\setminus\mathbb{N}=\left\{
+-1,-2,-3,\ldots\right\}  $. In other words, $n<0$. Hence, $-n>0$, so that
+$-n\in\mathbb{N}$. Hence, Claim 5 (applied to $-n$ and $-m$ instead of $n$ and
+$m$) yields $\left(  \left(  -n\right)  +\left(  -m\right)  \right)  a=\left(
+-n\right)  a+\left(  -m\right)  a$. In view of $\left(  -n\right)  +\left(
+-m\right)  =-\left(  n+m\right)  $, this rewrites as%
+\begin{equation}
+\left(  -\left(  n+m\right)  \right)  a=\left(  -n\right)  a+\left(
+-m\right)  a. \label{pf.prop.rings.Zscal.rules.c6.pf.1}%
+\end{equation}
+
+
+But Claim 2 yields $\left(  -n\right)  a=-\left(  na\right)  $. Also, Claim 2
+(applied to $m$ instead of $n$) yields $\left(  -m\right)  a=-\left(
+ma\right)  $. Hence, (\ref{pf.prop.rings.Zscal.rules.c6.pf.1}) becomes%
+\[
+\left(  -\left(  n+m\right)  \right)  a=\underbrace{\left(  -n\right)
+a}_{=-\left(  na\right)  }+\underbrace{\left(  -m\right)  a}_{=-\left(
+ma\right)  }=\left(  -\left(  na\right)  \right)  +\left(  -\left(  ma\right)
+\right)  .
+\]
+Hence,%
+\begin{align}
+-\underbrace{\left(  \left(  -\left(  n+m\right)  \right)  a\right)
+}_{=\left(  -\left(  na\right)  \right)  +\left(  -\left(  ma\right)  \right)
+}  &  =-\left(  \left(  -\left(  na\right)  \right)  +\left(  -\left(
+ma\right)  \right)  \right) \nonumber\\
+&  =\underbrace{\left(  -\left(  -\left(  na\right)  \right)  \right)
+}_{\substack{=na\\\text{(by Proposition \ref{prop.rings.inv-add.rules}
+\textbf{(e)},}\\\text{applied to }na\text{, }0\text{ and }0\text{ instead of
+}a\text{, }b\text{ and }c\text{)}}}+\underbrace{\left(  -\left(  -\left(
+ma\right)  \right)  \right)  }_{\substack{=ma\\\text{(by Proposition
+\ref{prop.rings.inv-add.rules} \textbf{(e)},}\\\text{applied to }ma\text{,
+}0\text{ and }0\text{ instead of }a\text{, }b\text{ and }c\text{)}%
+}}\nonumber\\
+&  \ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{by Proposition \ref{prop.rings.inv-add.rules} \textbf{(b)}, applied to
+}na\text{, }ma\text{ and }0\\
+\text{instead of }a\text{, }b\text{ and }c
+\end{array}
+\right) \nonumber\\
+&  =na+ma. \label{pf.prop.rings.Zscal.rules.c6.pf.2}%
+\end{align}
+Also, Claim 2 (applied to $n+m$ instead of $n$) yields $\left(  -\left(
+n+m\right)  \right)  a=-\left(  \left(  n+m\right)  a\right)  $. Thus,%
+\[
+-\underbrace{\left(  \left(  -\left(  n+m\right)  \right)  a\right)
+}_{=-\left(  \left(  n+m\right)  a\right)  }=-\left(  -\left(  \left(
+n+m\right)  a\right)  \right)  =\left(  n+m\right)  a
+\]
+(by Proposition \ref{prop.rings.inv-add.rules} \textbf{(e)}, applied to
+$\left(  n+m\right)  a$, $0$ and $0$ instead of $a$, $b$ and $c$). Comparing
+this with (\ref{pf.prop.rings.Zscal.rules.c6.pf.2}), we find $\left(
+n+m\right)  a=na+ma$. This proves Claim 6.]
+
+Claim 6 is precisely the statement of (\ref{eq.prop.rings.Zscal.rules.(n+m)a}%
+). Thus, (\ref{eq.prop.rings.Zscal.rules.(n+m)a}) is now proven.
+
+\begin{statement}
+\textit{Claim 7:} We have $\left(  nm\right)  a=n\left(  ma\right)  $ for all
+$a\in\mathbb{K}$ and $n\in\mathbb{N}$ and $m\in\mathbb{Z}$.
+\end{statement}
+
+[\textit{Proof of Claim 7:} We shall prove Claim 7 by induction on $n$:
+
+\textit{Induction base:} We have $\left(  0m\right)  a=0\left(  ma\right)  $
+for all $a\in\mathbb{K}$ and $m\in\mathbb{Z}$ (because if $a\in\mathbb{K}$ and
+$m\in\mathbb{Z}$, then
+\[
+\underbrace{\left(  0m\right)  }_{=0}a=0a=0_{\mathbb{K}}%
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{eq.prop.rings.Zscal.rules.0a}%
+)}\right)
+\]
+and
+\[
+0\left(  ma\right)  =0_{\mathbb{K}}\ \ \ \ \ \ \ \ \ \ \left(  \text{by
+(\ref{eq.prop.rings.Zscal.rules.0a}), applied to }ma\text{ instead of
+}a\right)
+\]
+and thus $\left(  0m\right)  a=0_{\mathbb{K}}=0\left(  ma\right)  $). In other
+words, Claim 7 holds for $n=0$. This completes the induction base.
+
+\textit{Induction step:} Let $k\in\mathbb{N}$. Assume that Claim 7 holds for
+$n=k$. We must prove that Claim 7 holds for $n=k+1$.
+
+We have assumed that Claim 7 holds for $n=k$. In other words, we have
+\begin{equation}
+\left(  km\right)  a=k\left(  ma\right)  \ \ \ \ \ \ \ \ \ \ \text{for all
+}a\in\mathbb{K}\text{ and }m\in\mathbb{Z}.
+\label{pf.prop.rings.Zscal.rules.c7.pf.IH}%
+\end{equation}
+
+
+Now, let $a\in\mathbb{K}$ and $m\in\mathbb{Z}$. Then,%
+\begin{align*}
+\underbrace{\left(  \left(  k+1\right)  m\right)  }_{=km+m}a  &  =\left(
+km+m\right)  a=\underbrace{\left(  km\right)  a}_{\substack{=k\left(
+ma\right)  \\\text{(by (\ref{pf.prop.rings.Zscal.rules.c7.pf.IH}))}%
+}}+ma\ \ \ \ \ \ \ \ \ \ \left(  \text{by Claim 6, applied to }n=km\right) \\
+&  =k\left(  ma\right)  +ma.
+\end{align*}
+Comparing this with%
+\begin{align*}
+\left(  k+1\right)  \left(  ma\right)   &  =k\left(  ma\right)
++\underbrace{1\left(  ma\right)  }_{\substack{=ma\\\text{(by
+(\ref{eq.prop.rings.Zscal.rules.1a}), applied}\\\text{to }ma\text{ instead of
+}a\text{)}}}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Claim 6, applied to }k\text{, }1\text{
+and }ma\text{ instead of }n\text{, }m\text{ and }a\right) \\
+&  =k\left(  ma\right)  +ma,
+\end{align*}
+we find $\left(  \left(  k+1\right)  m\right)  a=\left(  k+1\right)  \left(
+ma\right)  $.
+
+Now, forget that we fixed $a$ and $m$. We thus have shown that $\left(
+\left(  k+1\right)  m\right)  a=\left(  k+1\right)  \left(  ma\right)  $ for
+all $a\in\mathbb{K}$ and $m\in\mathbb{Z}$. In other words, Claim 7 holds for
+$n=k+1$. This completes the induction step. Thus, Claim 7 is proven.]
+
+\begin{statement}
+\textit{Claim 8:} We have $\left(  nm\right)  a=n\left(  ma\right)  $ for all
+$a\in\mathbb{K}$ and $n,m\in\mathbb{Z}$.
+\end{statement}
+
+[\textit{Proof of Claim 8:} Let $a\in\mathbb{K}$ and $n,m\in\mathbb{Z}$. We
+must prove that $\left(  nm\right)  a=n\left(  ma\right)  $. If $n\in
+\mathbb{N}$, then this follows from Claim 7. Hence, for the rest of this
+proof, we WLOG assume that we don't have $n\in\mathbb{N}$. Thus, we have
+$n\in\mathbb{Z}$ but not $n\in\mathbb{N}$. Hence, $n\in\mathbb{Z}%
+\setminus\mathbb{N}=\left\{  -1,-2,-3,\ldots\right\}  $. In other words,
+$n<0$. Hence, $-n>0$, so that $-n\in\mathbb{N}$. Hence, Claim 7 (applied to
+$-n$ instead of $n$) yields $\left(  \left(  -n\right)  m\right)  a=\left(
+-n\right)  \left(  ma\right)  $. Thus,%
+\begin{equation}
+\underbrace{\left(  -nm\right)  }_{=\left(  -n\right)  m}a=\left(  \left(
+-n\right)  m\right)  a=\left(  -n\right)  \left(  ma\right)  =-\left(
+n\left(  ma\right)  \right)  \label{pf.prop.rings.Zscal.rules.c8.pf.1}%
+\end{equation}
+(by Claim 2, applied to $ma$ instead of $a$). On the other hand, Claim 2
+(applied to $nm$ instead of $n$) yields $\left(  -nm\right)  a=-\left(
+\left(  nm\right)  a\right)  $. Comparing this with
+(\ref{pf.prop.rings.Zscal.rules.c8.pf.1}), we obtain $-\left(  \left(
+nm\right)  a\right)  =-\left(  n\left(  ma\right)  \right)  $. Thus,
+Proposition \ref{prop.rings.inv-add.rules} \textbf{(l)} (applied to $\left(
+nm\right)  a$, $n\left(  ma\right)  $ and $0$ instead of $a$, $b$ and $c$)
+yields $\left(  nm\right)  a=n\left(  ma\right)  $. Thus, Claim 8 is proven.]
+
+Claim 8 is precisely (\ref{eq.prop.rings.Zscal.rules.nma}). Thus, we have now
+proven (\ref{eq.prop.rings.Zscal.rules.nma}).
+
+\begin{statement}
+\textit{Claim 9:} We have $n\left(  a+b\right)  =na+nb$ for all $a,b\in
+\mathbb{K}$ and $n\in\mathbb{N}$.
+\end{statement}
+
+[\textit{Proof of Claim 9:} We shall prove Claim 9 by induction on $n$:
+
+\textit{Induction base:} If $a,b\in\mathbb{K}$, then
+\[
+\underbrace{0a}_{\substack{=0_{\mathbb{K}}\\\text{(by
+(\ref{eq.prop.rings.Zscal.rules.0a}))}}}+\underbrace{0b}%
+_{\substack{=0_{\mathbb{K}}\\\text{(by (\ref{eq.prop.rings.Zscal.rules.0a}),
+applied}\\\text{to }b\text{ instead of }a\text{)}}}=0_{\mathbb{K}%
+}+0_{\mathbb{K}}=0_{\mathbb{K}}=0\left(  a+b\right)
+\]
+(since (\ref{eq.prop.rings.Zscal.rules.0a}) (applied to $a+b$ instead of $a$)
+yields $0\left(  a+b\right)  =0_{\mathbb{K}}$). Hence, we have $0\left(
+a+b\right)  =0a+0b$ for all $a,b\in\mathbb{K}$. In other words, Claim 9 holds
+for $n=0$. This completes the induction base.
+
+\textit{Induction step:} Let $k\in\mathbb{N}$. Assume that Claim 9 holds for
+$n=k$. We must prove that Claim 9 holds for $n=k+1$.
+
+We have assumed that Claim 9 holds for $n=k$. In other words, we have%
+\begin{equation}
+k\left(  a+b\right)  =ka+kb\ \ \ \ \ \ \ \ \ \ \text{for all }a,b\in
+\mathbb{K}. \label{pf.prop.rings.Zscal.rules.c9.pf.IH}%
+\end{equation}
+
+
+Now, let $a,b\in\mathbb{K}$. Then,%
+\begin{align}
+\left(  k+1\right)  \left(  a+b\right)   &  =\underbrace{k\left(  a+b\right)
+}_{\substack{=ka+kb\\\text{(by (\ref{pf.prop.rings.Zscal.rules.c9.pf.IH}))}%
+}}+\underbrace{1\left(  a+b\right)  }_{\substack{=a+b\\\text{(by
+(\ref{eq.prop.rings.Zscal.rules.1a})}\\\text{(applied to }a+b\text{ instead of
+}a\text{))}}}\nonumber\\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Claim 3, applied to }k\text{, }1\text{
+and }a+b\text{ instead of }n\text{, }m\text{ and }a\right) \nonumber\\
+&  =ka+kb+a+b=ka+a+kb+b. \label{pf.prop.rings.Zscal.rules.c9.pf.2}%
+\end{align}
+On the other hand, Claim 3 (applied to $n=k$ and $b=1$) yields $\left(
+k+1\right)  a=ka+\underbrace{1a}_{\substack{=a\\\text{(by
+(\ref{eq.prop.rings.Zscal.rules.1a}))}}}=ka+a$. The same argument (applied to
+$b$ instead of $a$) yields $\left(  k+1\right)  b=kb+b$. Adding these two
+equalities together, we obtain%
+\[
+\left(  k+1\right)  a+\left(  k+1\right)  b=\left(  ka+a\right)  +\left(
+kb+b\right)  =ka+a+kb+b.
+\]
+Comparing this with (\ref{pf.prop.rings.Zscal.rules.c9.pf.2}), we find
+$\left(  k+1\right)  \left(  a+b\right)  =\left(  k+1\right)  a+\left(
+k+1\right)  b$.
+
+Now, forget that we fixed $a,b$. We thus have proven that%
+\[
+\left(  k+1\right)  \left(  a+b\right)  =\left(  k+1\right)  a+\left(
+k+1\right)  b\ \ \ \ \ \ \ \ \ \ \text{for all }a,b\in\mathbb{K}.
+\]
+In other words, Claim 9 holds for $n=k+1$. This completes the induction step.
+Thus, Claim 9 is proven.]
+
+\begin{statement}
+\textit{Claim 10:} We have $n\left(  a+b\right)  =na+nb$ for all
+$a,b\in\mathbb{K}$ and $n\in\mathbb{Z}$.
+\end{statement}
+
+[\textit{Proof of Claim 10:} Let $a,b\in\mathbb{K}$ and $n\in\mathbb{Z}$. We
+must prove that $n\left(  a+b\right)  =na+nb$. If $n\in\mathbb{N}$, then this
+follows from Claim 9. Hence, for the rest of this proof, we WLOG assume that
+we don't have $n\in\mathbb{N}$. Thus, we have $n\in\mathbb{Z}$ but not
+$n\in\mathbb{N}$. Hence, $n\in\mathbb{Z}\setminus\mathbb{N}=\left\{
+-1,-2,-3,\ldots\right\}  $. In other words, $n<0$. Hence, $-n>0$, so that
+$-n\in\mathbb{N}$. Hence, Claim 9 (applied to $-n$ instead of $n$) yields
+\[
+\left(  -n\right)  \left(  a+b\right)  =\underbrace{\left(  -n\right)
+a}_{\substack{=-\left(  na\right)  \\\text{(by Claim 2)}}}+\underbrace{\left(
+-n\right)  b}_{\substack{=-\left(  nb\right)  \\\text{(by Claim 2,}%
+\\\text{applied to }b\text{ instead of }a\text{)}}}=\left(  -\left(
+na\right)  \right)  +\left(  -\left(  nb\right)  \right)  .
+\]
+Comparing this with%
+\[
+\left(  -n\right)  \left(  a+b\right)  =-\left(  n\left(  a+b\right)  \right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by Claim 2, applied to }a+b\text{ instead of
+}a\right)  ,
+\]
+we find
+\[
+-\left(  n\left(  a+b\right)  \right)  =\left(  -\left(  na\right)  \right)
++\left(  -\left(  nb\right)  \right)  .
+\]
+On the other hand, Proposition \ref{prop.rings.inv-add.rules} \textbf{(b)}
+(applied to $na$ and $nb$ instead of $a$ and $b$) yields%
+\[
+-\left(  na+nb\right)  =\left(  -\left(  na\right)  \right)  +\left(  -\left(
+nb\right)  \right)  .
+\]
+Comparing these two equalities, we obtain $-\left(  n\left(  a+b\right)
+\right)  =-\left(  na+nb\right)  $. Thus, Proposition
+\ref{prop.rings.inv-add.rules} \textbf{(l)} (applied to $n\left(  a+b\right)
+$, $na+nb$ and $0$ instead of $a$, $b$ and $c$) yields $n\left(  a+b\right)
+=na+nb$. Thus, Claim 10 is proven.]
+
+Claim 10 is precisely (\ref{eq.prop.rings.Zscal.rules.n(a+b)}). Thus, we have
+proven (\ref{eq.prop.rings.Zscal.rules.n(a+b)}).
+
+\begin{statement}
+\textit{Claim 11:} We have $n0_{\mathbb{K}}=0_{\mathbb{K}}$ for all
+$n\in\mathbb{N}$.
+\end{statement}
+
+[\textit{Proof of Claim 11:} We shall prove Claim 11 by induction on $n$:
+
+\textit{Induction base:} The equality (\ref{eq.prop.rings.Zscal.rules.0a})
+(applied to $a=0_{\mathbb{K}}$) yields $0\cdot0_{\mathbb{K}}=0_{\mathbb{K}}$.
+In other words, Claim 11 holds for $n=0$. This completes the induction base.
+
+\textit{Induction step:} Let $k\in\mathbb{N}$. Assume that Claim 11 holds for
+$n=k$. We must prove that Claim 11 holds for $n=k+1$.
+
+We have assumed that Claim 11 holds for $n=k$. In other words, we have
+$k0_{\mathbb{K}}=0_{\mathbb{K}}$. Now, Claim 3 (applied to $n=k$, $m=1$ and
+$a=0_{\mathbb{K}}$) yields $\left(  k+1\right)  0_{\mathbb{K}}=k0_{\mathbb{K}%
+}+0_{\mathbb{K}}=k0_{\mathbb{K}}=0_{\mathbb{K}}$. In other words, Claim 11
+holds for $n=k+1$. This completes the induction step. Thus, Claim 11 is proven.]
+
+\begin{statement}
+\textit{Claim 12:} We have $n0_{\mathbb{K}}=0_{\mathbb{K}}$ for all
+$n\in\mathbb{Z}$.
+\end{statement}
+
+[\textit{Proof of Claim 12:} Let $n\in\mathbb{Z}$. We must prove that
+$n0_{\mathbb{K}}=0_{\mathbb{K}}$. If $n\in\mathbb{N}$, then this follows from
+Claim 12. Hence, for the rest of this proof, we WLOG assume that we don't have
+$n\in\mathbb{N}$. Thus, we have $n\in\mathbb{Z}$ but not $n\in\mathbb{N}$.
+Hence, $n\in\mathbb{Z}\setminus\mathbb{N}=\left\{  -1,-2,-3,\ldots\right\}  $.
+In other words, $n<0$. Hence, $-n>0$, so that $-n\in\mathbb{N}$. Hence, Claim
+12 (applied to $-n$ instead of $n$) yields $\left(  -n\right)  0_{\mathbb{K}%
+}=0_{\mathbb{K}}$. But Claim 2 (applied to $a=0_{\mathbb{K}}$) yields $\left(
+-n\right)  0_{\mathbb{K}}=-\left(  n0_{\mathbb{K}}\right)  $. Hence, $-\left(
+n0_{\mathbb{K}}\right)  =\left(  -n\right)  0_{\mathbb{K}}=0_{\mathbb{K}}$.
+Thus, $-\left(  -\left(  n0_{\mathbb{K}}\right)  \right)  =-0_{\mathbb{K}%
+}=0_{\mathbb{K}}$. But Proposition \ref{prop.rings.inv-add.rules} \textbf{(e)}
+(applied to $n0_{\mathbb{K}}$, $0$ and $0$ instead of $a$, $b$ and $c$) yields
+$-\left(  -\left(  n0_{\mathbb{K}}\right)  \right)  =n0_{\mathbb{K}}$. Hence,
+$n0_{\mathbb{K}}=-\left(  -\left(  n0_{\mathbb{K}}\right)  \right)
+=0_{\mathbb{K}}$. This proves Claim 12.]
+
+Claim 12 is precisely (\ref{eq.prop.rings.Zscal.rules.n0}). Thus,
+(\ref{eq.prop.rings.Zscal.rules.n0}) is now proven.
+
+\begin{statement}
+\textit{Claim 13:} We have $\left(  -n\right)  a=n\left(  -a\right)  $ for all
+$a\in\mathbb{K}$ and $n\in\mathbb{Z}$.
+\end{statement}
+
+[\textit{Proof of Claim 13:} Let $a\in\mathbb{K}$ and $n\in\mathbb{Z}$. Then,
+Claim 10 (applied to $b=-a$) yields $n\left(  a+\left(  -a\right)  \right)
+=na+n\left(  -a\right)  $. Comparing this with%
+\[
+n\underbrace{\left(  a+\left(  -a\right)  \right)  }_{=0_{\mathbb{K}}%
+}=n0_{\mathbb{K}}=0_{\mathbb{K}}\ \ \ \ \ \ \ \ \ \ \left(  \text{by Claim
+12}\right)  ,
+\]
+we obtain $na+n\left(  -a\right)  =0_{\mathbb{K}}$. Subtracting $na$ from both
+sides of this equality, we find $n\left(  -a\right)  =0_{\mathbb{K}%
+}-na=0-na=-\left(  na\right)  $ (by Proposition \ref{prop.rings.inv-add.rules}
+\textbf{(d)}, applied to $na$ instead of $a$). But Claim 2 yields $\left(
+-n\right)  a=-\left(  na\right)  =n\left(  -a\right)  $ (since $n\left(
+-a\right)  =-\left(  na\right)  $). This proves Claim 13.]
+
+Now, any $a\in\mathbb{K}$ and $n\in\mathbb{Z}$ satisfy%
+\begin{align*}
+-\left(  na\right)   &  =\left(  -n\right)  a\ \ \ \ \ \ \ \ \ \ \left(
+\text{by Claim 2}\right) \\
+&  =n\left(  -a\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Claim 13}\right)
+.
+\end{align*}
+This proves (\ref{eq.prop.rings.Zscal.rules.-na}).
+
+\begin{statement}
+\textit{Claim 14:} We have $n\left(  ab\right)  =\left(  na\right)  b=a\left(
+nb\right)  $ for all $a,b\in\mathbb{K}$ and $n\in\mathbb{N}$.
+\end{statement}
+
+[\textit{Proof of Claim 14:} We shall prove Claim 14 by induction on $n$:
+
+\textit{Induction base:} It is easy to see that $0\left(  ab\right)  =\left(
+0a\right)  b=a\left(  0b\right)  $ for all $a,b\in\mathbb{K}$%
+\ \ \ \ \footnote{\textit{Proof.} Let $a,b\in\mathbb{K}$. Then,
+$0a=0_{\mathbb{K}}$ (by (\ref{eq.prop.rings.Zscal.rules.0a})). Thus, $\left(
+0a\right)  b=0_{\mathbb{K}}b=0_{\mathbb{K}}$ (by the \textquotedblleft
+Annihilation\textquotedblright\ axiom for the ring $\mathbb{K}$). Furthermore,
+$0b=0_{\mathbb{K}}$ (by (\ref{eq.prop.rings.Zscal.rules.0a}), applied to $b$
+instead of $a$). Thus, $a\left(  0b\right)  =a0_{\mathbb{K}}=0_{\mathbb{K}}$
+(by the \textquotedblleft Annihilation\textquotedblright\ axiom for the ring
+$\mathbb{K}$). Finally, $0\left(  a+b\right)  =0_{\mathbb{K}}$ (by
+(\ref{eq.prop.rings.Zscal.rules.0a}), applied to $a+b$ instead of $a$). Thus,
+$0\left(  ab\right)  =0_{\mathbb{K}}$ (by the \textquotedblleft
+Annihilation\textquotedblright\ axiom for the ring $\mathbb{K}$). Comparing
+this equality with the equalities $\left(  0a\right)  b=0_{\mathbb{K}}$ and
+$a\left(  0b\right)  =0_{\mathbb{K}}$, we obtain $0\left(  ab\right)  =\left(
+0a\right)  b=a\left(  0b\right)  $. Qed.}. In other words, Claim 14 holds for
+$n=0$.
+
+\textit{Induction step:} Let $k\in\mathbb{N}$. Assume that Claim 14 holds for
+$n=k$. We must prove that Claim 14 holds for $n=k+1$.
+
+We have assumed that Claim 14 holds for $n=k$. In other words, we have%
+\begin{equation}
+k\left(  ab\right)  =\left(  ka\right)  b=a\left(  kb\right)
+\ \ \ \ \ \ \ \ \ \ \text{for all }a,b\in\mathbb{K}.
+\label{pf.prop.rings.Zscal.rules.c14.pf.IH}%
+\end{equation}
+
+
+Now, let $a,b\in\mathbb{K}$. Then, (\ref{pf.prop.rings.Zscal.rules.c14.pf.IH})
+yields $k\left(  ab\right)  =\left(  ka\right)  b=a\left(  kb\right)  $.
+
+Claim 3 (applied to $n=k$ and $m=1$) yields $\left(  k+1\right)
+a=ka+\underbrace{1a}_{\substack{=a\\\text{(by
+(\ref{eq.prop.rings.Zscal.rules.1a}))}}}=ka+a$. The same argument (applied to
+$b$ instead of $a$) yields $\left(  k+1\right)  b=kb+b$. Also, the same
+argument that we used to prove $\left(  k+1\right)  a=ka+a$ can be applied to
+$ab$ instead of $a$; it then shows that $\left(  k+1\right)  \left(
+ab\right)  =k\left(  ab\right)  +ab$.
+
+Now,%
+\[
+\underbrace{\left(  \left(  k+1\right)  a\right)  }_{=ka+a}b=\left(
+ka+a\right)  b=\left(  ka\right)  b+ab\ \ \ \ \ \ \ \ \ \ \left(  \text{by the
+distributivity axiom}\right)  .
+\]
+Comparing this with%
+\[
+\left(  k+1\right)  \left(  ab\right)  =\underbrace{k\left(  ab\right)
+}_{=\left(  ka\right)  b}+ab=\left(  ka\right)  b+ab,
+\]
+we obtain%
+\begin{equation}
+\left(  k+1\right)  \left(  ab\right)  =\left(  \left(  k+1\right)  a\right)
+b. \label{pf.prop.rings.Zscal.rules.c14.pf.1}%
+\end{equation}
+
+
+Furthermore,%
+\[
+a\underbrace{\left(  \left(  k+1\right)  b\right)  }_{=kb+b}=a\left(
+kb+b\right)  =a\left(  kb\right)  +ab\ \ \ \ \ \ \ \ \ \ \left(  \text{by the
+distributivity axiom}\right)  .
+\]
+Comparing this with%
+\[
+\left(  k+1\right)  \left(  ab\right)  =\underbrace{k\left(  ab\right)
+}_{=a\left(  kb\right)  }+ab=a\left(  kb\right)  +ab,
+\]
+we obtain%
+\[
+\left(  k+1\right)  \left(  ab\right)  =a\left(  \left(  k+1\right)  b\right)
+.
+\]
+Combining this equality with (\ref{pf.prop.rings.Zscal.rules.c14.pf.1}), we
+obtain%
+\[
+\left(  k+1\right)  \left(  ab\right)  =\left(  \left(  k+1\right)  a\right)
+b=a\left(  \left(  k+1\right)  b\right)  .
+\]
+
+
+Now, forget that we fixed $a,b$. We thus have proven that $\left(  k+1\right)
+\left(  ab\right)  =\left(  \left(  k+1\right)  a\right)  b=a\left(  \left(
+k+1\right)  b\right)  $ for all $a,b\in\mathbb{K}$. In other words, Claim 14
+holds for $n=k+1$. This completes the induction step. Thus, Claim 14 is proven.]
+
+\begin{statement}
+\textit{Claim 15:} We have $n\left(  ab\right)  =\left(  na\right)  b=a\left(
+nb\right)  $ for all $a,b\in\mathbb{K}$ and $n\in\mathbb{Z}$.
+\end{statement}
+
+[\textit{Proof of Claim 15:} Let $a,b\in\mathbb{K}$ and $n\in\mathbb{Z}$. We
+must prove that $n\left(  ab\right)  =\left(  na\right)  b=a\left(  nb\right)
+$. If $n\in\mathbb{N}$, then this follows from Claim 14. Hence, for the rest
+of this proof, we WLOG assume that we don't have $n\in\mathbb{N}$. Thus, we
+have $n\in\mathbb{Z}$ but not $n\in\mathbb{N}$. Hence, $n\in\mathbb{Z}%
+\setminus\mathbb{N}=\left\{  -1,-2,-3,\ldots\right\}  $. In other words,
+$n<0$. Hence, $-n>0$, so that $-n\in\mathbb{N}$. Hence, Claim 14 (applied to
+$-n$ instead of $n$) yields $\left(  -n\right)  \left(  ab\right)  =\left(
+\left(  -n\right)  a\right)  b=a\left(  \left(  -n\right)  b\right)  $.
+
+Proposition \ref{prop.rings.inv-add.rules} \textbf{(f)} (applied to $na$ and
+$0$ instead of $a$ and $c$) yields $-\left(  \left(  na\right)  b\right)
+=\left(  -\left(  na\right)  \right)  b=\left(  na\right)  \left(  -b\right)
+$. Proposition \ref{prop.rings.inv-add.rules} \textbf{(f)} (applied to $nb$
+and $0$ instead of $b$ and $c$) yields $-\left(  a\left(  nb\right)  \right)
+=\left(  -a\right)  \left(  nb\right)  =a\left(  -\left(  nb\right)  \right)
+$.
+
+But Claim 2 (applied to $ab$ instead of $a$) yields $\left(  -n\right)
+\left(  ab\right)  =-\left(  n\left(  ab\right)  \right)  $. Thus,%
+\[
+-\left(  n\left(  ab\right)  \right)  =\left(  -n\right)  \left(  ab\right)
+=\underbrace{\left(  \left(  -n\right)  a\right)  }_{\substack{=-\left(
+na\right)  \\\text{(by Claim 2)}}}b=\left(  -\left(  na\right)  \right)
+b=-\left(  \left(  na\right)  b\right)
+\]
+(since $-\left(  \left(  na\right)  b\right)  =\left(  -\left(  na\right)
+\right)  b$). Hence, Proposition \ref{prop.rings.inv-add.rules} \textbf{(l)}
+(applied to $n\left(  ab\right)  $, $\left(  na\right)  b$ and $0$ instead of
+$a$, $b$ and $c$) yields $n\left(  ab\right)  =\left(  na\right)  b$.
+
+Also,
+\[
+-\left(  n\left(  ab\right)  \right)  =\left(  -n\right)  \left(  ab\right)
+=a\underbrace{\left(  \left(  -n\right)  b\right)  }_{\substack{-\left(
+nb\right)  \\\text{(by Claim 2, applied}\\\text{to }b\text{ instead of
+}a\text{)}}}=a\left(  -\left(  nb\right)  \right)  =-\left(  a\left(
+nb\right)  \right)
+\]
+(since $-\left(  a\left(  nb\right)  \right)  =a\left(  -\left(  nb\right)
+\right)  $). Hence, Proposition \ref{prop.rings.inv-add.rules} \textbf{(l)}
+(applied to $n\left(  ab\right)  $, $a\left(  nb\right)  $ and $0$ instead of
+$a$, $b$ and $c$) yields $n\left(  ab\right)  =a\left(  nb\right)  $.
+
+Combining the equalities $n\left(  ab\right)  =\left(  na\right)  b$ and
+$n\left(  ab\right)  =a\left(  nb\right)  $, we obtain $n\left(  ab\right)
+=\left(  na\right)  b=a\left(  nb\right)  $. This proves Claim 15.]
+
+But Claim 15 is precisely (\ref{eq.prop.rings.Zscal.rules.nab}). Hence,
+(\ref{eq.prop.rings.Zscal.rules.nab}) is proven. Thus, our proof of
+Proposition \ref{prop.rings.Zscal.rules} is complete.
 \end{proof}
 \end{fineprint}
 
