@@ -17,7 +17,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Tuesday, May 07, 2019 23:32:43}
+%TCIDATA{LastRevised=Wednesday, May 08, 2019 23:02:51}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -24906,6 +24906,9 @@ following, \textquotedblleft$a-b-c$\textquotedblright\ should be read as
 
 \textbf{(h)} We have $a\left(  b-c\right)  =ab-ac$ and $\left(  a-b\right)
 c=ac-bc$.
+
+\textbf{(i)} We have $\left(  -1\right)  a=-a$. (Here, the \textquotedblleft%
+$1$\textquotedblright\ on the left hand side means the unity of $\mathbb{K}$.)
 \end{proposition}
 
 \begin{proof}
@@ -25032,7 +25035,7 @@ c=a\left(  -c\right)  $.
 
 The definition of subtraction yields $b-c=b+\left(  -c\right)  $ and%
 \begin{align*}
-ab-ac  &  =ab+\underbrace{\left(  -\left(  ac\right)  \right)  }_{=a\left(
+ab-ac &  =ab+\underbrace{\left(  -\left(  ac\right)  \right)  }_{=a\left(
 -c\right)  }=ab+a\left(  -c\right)  =a\underbrace{\left(  b+\left(  -c\right)
 \right)  }_{=b-c}\ \ \ \ \ \ \ \ \ \ \left(  \text{by distributivity}\right)
 \\
@@ -25041,6 +25044,12 @@ ab-ac  &  =ab+\underbrace{\left(  -\left(  ac\right)  \right)  }_{=a\left(
 Thus, $a\left(  b-c\right)  =ab-ac$. A similar argument show that $\left(
 a-b\right)  c=ac-bc$. This proves Proposition \ref{prop.rings.inv-add.rules}
 \textbf{(h)}.
+
+\textbf{(i)} Proposition \ref{prop.rings.inv-add.rules} \textbf{(f)} (applied
+to $1$ and $a$ instead of $a$ and $b$) yields $-\left(  1a\right)  =\left(
+-1\right)  a=1\left(  -a\right)  $. Hence, $\left(  -1\right)
+a=-\underbrace{\left(  1a\right)  }_{=a}=-a$. This proves Proposition
+\ref{prop.rings.inv-add.rules} \textbf{(i)}.
 \end{proof}
 
 If $a,b\in\mathbb{K}$, then the expression \textquotedblleft$-ab$%
@@ -25158,7 +25167,7 @@ The \textquotedblleft$na$\textquotedblright\ that we have just defined has
 nothing to do with the multiplication $\cdot$ of $\mathbb{K}$, since $n$ is
 not (generally) an element of $\mathbb{K}$. However, when $\mathbb{K}$ is one
 of the usual rings of numbers (like $\mathbb{Z}$, $\mathbb{Q}$, $\mathbb{R}$,
-$\mathbb{C}$), then this kind of multiplication coincides with the
+$\mathbb{C}$), then this kind of multiplication is a restriction of the
 multiplication $\cdot$ of $\mathbb{K}$ (that is, $na$ means the same thing).
 Indeed, Definition \ref{def.rings.na} clearly generalizes the definition of
 $na$ for rational numbers $a$. Furthermore, when $\mathbb{K}=\mathbb{Z}/n$ for
@@ -25166,6 +25175,74 @@ some integer $n$, Definition \ref{def.rings.na} agrees with Definition
 \ref{def.eqrel.Z/n.scaling} (in the sense that both definitions yield the same
 result for $r\alpha$ when $r\in\mathbb{Z}$ and $\alpha\in\mathbb{Z}/n$). (This
 is easy to prove by induction.)
+
+The \textquotedblleft$na$\textquotedblright\ multiplication introduced in
+Definition \ref{def.rings.na} has several properties that you would expect
+such an operation to have:
+
+\begin{proposition}
+\label{prop.rings.Zscal.rules}We have%
+\begin{align}
+\left(  n+m\right)  a &  =na+ma\ \ \ \ \ \ \ \ \ \ \text{for all }%
+a\in\mathbb{K}\text{ and }n,m\in\mathbb{Z};\label{eq.prop.rings.pow.rules.d1}%
+\\
+n\left(  a+b\right)   &  =na+nb\ \ \ \ \ \ \ \ \ \ \text{for all }%
+a,b\in\mathbb{K}\text{ and }n\in\mathbb{Z};\label{eq.prop.rings.pow.rules.d2}%
+\\
+-\left(  na\right)   &  =\left(  -n\right)  a=n\left(  -a\right)
+\ \ \ \ \ \ \ \ \ \ \text{for all }a\in\mathbb{K}\text{ and }n\in
+\mathbb{Z};\label{eq.prop.rings.pow.rules.d3}\\
+\left(  nm\right)  a &  =n\left(  ma\right)  \ \ \ \ \ \ \ \ \ \ \text{for all
+}a\in\mathbb{K}\text{ and }n,m\in\mathbb{Z};\label{eq.prop.rings.pow.rules.2}%
+\\
+n\left(  ab\right)   &  =\left(  na\right)  b=a\left(  nb\right)
+\ \ \ \ \ \ \ \ \ \ \text{for all }a,b\in\mathbb{K}\text{ and }n\in
+\mathbb{Z};\label{eq.prop.rings.pow.rules.3}\\
+1a &  =a\ \ \ \ \ \ \ \ \ \ \text{for all }a\in\mathbb{K}%
+\label{eq.prop.rings.pow.rules.1a}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{here, the \textquotedblleft%
+}1\text{\textquotedblright\ means the integer }1\right)  ;\nonumber\\
+0a &  =0\ \ \ \ \ \ \ \ \ \ \text{for all }a\in\mathbb{K}%
+\label{eq.prop.rings.pow.rules.0a}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{here, the \textquotedblleft}0\text{\textquotedblright\ on the left hand
+side means the integer }0\text{,}\\
+\text{while the \textquotedblleft}0\text{\textquotedblright\ on the right hand
+side means the zero of }\mathbb{K}%
+\end{array}
+\right)  ;\nonumber\\
+\left(  -1\right)  a &  =-a\ \ \ \ \ \ \ \ \ \ \text{for all }a\in
+\mathbb{K};\label{eq.prop.rings.pow.rules.-1a}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{here, the \textquotedblleft%
+}-1\text{\textquotedblright\ means the integer }-1\right)  .\nonumber
+\end{align}
+In particular:
+
+\begin{itemize}
+\item The equality (\ref{eq.prop.rings.pow.rules.d3}) shows that the
+expression \textquotedblleft$-na$\textquotedblright\ (with $a\in\mathbb{K}$
+and $n\in\mathbb{Z}$) is unambiguous (since its two possible interpretations,
+namely $-\left(  na\right)  $ and $\left(  -n\right)  a$, yield equal results).
+
+\item The equality (\ref{eq.prop.rings.pow.rules.2}) shows that the expression
+\textquotedblleft$nma$\textquotedblright\ (with $a\in\mathbb{K}$ and
+$n,m\in\mathbb{Z}$) is unambiguous.
+
+\item The equality (\ref{eq.prop.rings.pow.rules.3}) shows that the expression
+\textquotedblleft$nab$\textquotedblright\ (with $a,b\in\mathbb{K}$ and
+$n\in\mathbb{Z}$) is unambiguous.
+\end{itemize}
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.rings.Zscal.rules}.]The proofs of these rules
+are analogous to the proofs of the corresponding rules for rationals -- at
+least if you know the right proofs of the latter. For example, one way to
+prove (\ref{eq.prop.rings.pow.rules.d1}) is by considering six cases
+corresponding to the six possible constellations of signs of $n,m,n+m$.
+\end{proof}
 
 \begin{center}
 \textbf{2019-03-29 lecture}
@@ -25191,37 +25268,16 @@ result for $\alpha^{k}$ when $\alpha\in\mathbb{Z}/n$ and $k\in\mathbb{N}$).
 Furthermore, when $\mathbb{K}=\mathbb{C}$, Definition \ref{def.rings.pow}
 agrees with Definition \ref{def.CC.CC.power}.
 
-Standard rules for addition, subtraction, multiplication and taking powers
-hold in every ring:
+Powers of elements of a ring satisfy some properties you would expect but fail
+to satisfy some others:
 
 \begin{proposition}
 \label{prop.rings.pow.rules}\textbf{(a)} We have%
 \begin{align}
-\left(  n+m\right)  a  &  =na+ma\ \ \ \ \ \ \ \ \ \ \text{for all }%
-a\in\mathbb{K}\text{ and }n,m\in\mathbb{Z}; \label{eq.prop.rings.pow.rules.d1}%
-\\
-n\left(  a+b\right)   &  =na+nb\ \ \ \ \ \ \ \ \ \ \text{for all }%
-a,b\in\mathbb{K}\text{ and }n\in\mathbb{Z}; \label{eq.prop.rings.pow.rules.d2}%
-\\
--\left(  na\right)   &  =\left(  -n\right)  a=n\left(  -a\right)
-\ \ \ \ \ \ \ \ \ \ \text{for all }a\in\mathbb{K}\text{ and }n\in
-\mathbb{Z};\label{eq.prop.rings.pow.rules.d3}\\
-\left(  nm\right)  a  &  =n\left(  ma\right)  \ \ \ \ \ \ \ \ \ \ \text{for
-all }a\in\mathbb{K}\text{ and }n,m\in\mathbb{Z}%
-;\label{eq.prop.rings.pow.rules.2}\\
-n\left(  ab\right)   &  =\left(  na\right)  b=a\left(  nb\right)
-\ \ \ \ \ \ \ \ \ \ \text{for all }a,b\in\mathbb{K}\text{ and }n\in
-\mathbb{Z};\label{eq.prop.rings.pow.rules.3}\\
-1a  &  =a\ \ \ \ \ \ \ \ \ \ \text{for all }a\in\mathbb{K}\\
-&  \ \ \ \ \ \ \ \ \ \ \left(  \text{here, the \textquotedblleft%
-}1\text{\textquotedblright\ means the unity of }\mathbb{K}\right)
-;\nonumber\\
-\left(  -1\right)  a  &  =-a\ \ \ \ \ \ \ \ \ \ \text{for all }a\in
-\mathbb{K};\label{eq.prop.rings.pow.rules.4}\\
-&  \ \ \ \ \ \ \ \ \ \ \left(  \text{here, the \textquotedblleft%
-}1\text{\textquotedblright\ means the unity of }\mathbb{K}\right)
-;\nonumber\\
-1^{n}  &  =1\ \ \ \ \ \ \ \ \ \ \text{for all }n\in\mathbb{N}\\
+a^{0}  &  =1\ \ \ \ \ \ \ \ \ \ \text{for all }a\in\mathbb{K}%
+;\label{eq.prop.rings.pow.rules.a-to-0}\\
+1^{n}  &  =1\ \ \ \ \ \ \ \ \ \ \text{for all }n\in\mathbb{N}%
+\label{eq.prop.rings.pow.rules.1-to-n}\\
 &  \ \ \ \ \ \ \ \ \ \ \left(  \text{here, the \textquotedblleft%
 }1\text{\textquotedblright\ means the unity of }\mathbb{K}\right)
 ;\nonumber\\
@@ -25238,25 +25294,9 @@ n\left(  ab\right)   &  =\left(  na\right)  b=a\left(  nb\right)
 a^{n+m}  &  =a^{n}a^{m}\ \ \ \ \ \ \ \ \ \ \text{for all }a\in\mathbb{K}\text{
 and }n,m\in\mathbb{N};\label{eq.prop.rings.pow.rules.7}\\
 \left(  a^{n}\right)  ^{m}  &  =a^{nm}\ \ \ \ \ \ \ \ \ \ \text{for all }%
-a\in\mathbb{K}\text{ and }n,m\in\mathbb{N};\label{eq.prop.rings.pow.rules.8}\\
-a^{0}  &  =1\ \ \ \ \ \ \ \ \ \ \text{for all }a\in\mathbb{K}.
+a\in\mathbb{K}\text{ and }n,m\in\mathbb{N}. \label{eq.prop.rings.pow.rules.8}%
 \end{align}
-In particular:
 
-\begin{itemize}
-\item The equality (\ref{eq.prop.rings.pow.rules.d3}) shows that the
-expression \textquotedblleft$-na$\textquotedblright\ (with $a\in\mathbb{K}$
-and $n\in\mathbb{Z}$) is unambiguous (since its two possible interpretations,
-namely $-\left(  na\right)  $ and $\left(  -n\right)  a$, yield equal results).
-
-\item The equality (\ref{eq.prop.rings.pow.rules.2}) shows that the expression
-\textquotedblleft$nma$\textquotedblright\ (with $a\in\mathbb{K}$ and
-$n,m\in\mathbb{Z}$) is unambiguous.
-
-\item The equality (\ref{eq.prop.rings.pow.rules.3}) shows that the expression
-\textquotedblleft$nab$\textquotedblright\ (with $a,b\in\mathbb{K}$ and
-$n\in\mathbb{Z}$) is unambiguous.
-\end{itemize}
 
 \textbf{(b)} For any $a,b\in\mathbb{K}$, we have
 \begin{align*}
@@ -25290,10 +25330,17 @@ a^{n}-b^{n}=\left(  a-b\right)  \left(  a^{n-1}+a^{n-2}b+\cdots+ab^{n-2}%
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.rings.pow.rules} (sketched).]\textbf{(a)}
-Analogous to the proofs for rationals (at least if you know the right proofs).
-For example, to prove (\ref{eq.prop.rings.pow.rules.d1}), consider six cases
-corresponding to the six possible constellations of signs of $n,m,n+m$.
+[Proof of Proposition \ref{prop.rings.pow.rules} (sketched).]\textbf{(a)} The
+equality (\ref{eq.prop.rings.pow.rules.a-to-0}) follows from the definition of
+products (specifically, the part when empty products were defined to be $1$).
+The proof of (\ref{eq.prop.rings.pow.rules.1-to-n}) is analogous to the proof
+of Proposition \ref{prop.CC.CC.power-rules} \textbf{(e)}. The proof of
+(\ref{eq.prop.rings.pow.rules.5}) is almost obvious (just observe that
+$0^{n}=0\cdot0^{n-1}=0$ whenever $n>0$). The proof of
+(\ref{eq.prop.rings.pow.rules.7}) is analogous to the proof of Proposition
+\ref{prop.CC.CC.power-rules} \textbf{(b)}. The proof of
+(\ref{eq.prop.rings.pow.rules.8}) is analogous to the proof of Proposition
+\ref{prop.CC.CC.power-rules} \textbf{(d)}.
 
 \textbf{(b)} Expand using distributivity.
 
@@ -30288,7 +30335,7 @@ $\lambda\in\mathbb{K}$ and $a\in M$) are unambiguous.
 Theorem \ref{thm.rings.sum.wd} holds for the $\mathbb{K}$-module $M$ just as
 it holds for the ring $\mathbb{K}$. Thus, we have a notion of finite sums of
 elements of $M$; it behaves exactly like finite sums of elements of
-$\mathbb{K}$ do. However, Theorem \ref{thm.rings.prod.wd} has no analogue for
+$\mathbb{K}$ do. But Theorem \ref{thm.rings.prod.wd} has no analogue for
 $\mathbb{K}$-modules. (However, you can get something similar to Theorem
 \ref{thm.rings.prod.wd} \textbf{(b)} by defining finite products of the form
 $\lambda_{1}\lambda_{2}\cdots\lambda_{k}a$ with $\lambda_{1},\lambda
@@ -30313,31 +30360,35 @@ na=%
 
 We cannot define $a^{n}$ for $a\in M$ and $n\in\mathbb{N}$.
 
-Some parts of Proposition \ref{prop.rings.pow.rules} \textbf{(a)} have
-analogues for a $\mathbb{K}$-module; namely, we have the following:
+Proposition \ref{prop.rings.Zscal.rules} has an analogue for a $\mathbb{K}%
+$-module; namely, we have the following:
 
 \begin{proposition}
 \label{prop.module.na.rules}We have%
 \begin{align}
-\left(  n+m\right)  a  &  =na+ma\ \ \ \ \ \ \ \ \ \ \text{for all }a\in
-M\text{ and }n,m\in\mathbb{Z};\\
+\left(  n+m\right)  a &  =na+ma\ \ \ \ \ \ \ \ \ \ \text{for all }a\in M\text{
+and }n,m\in\mathbb{Z};\\
 n\left(  a+b\right)   &  =na+nb\ \ \ \ \ \ \ \ \ \ \text{for all }a,b\in
 M\text{ and }n\in\mathbb{Z};\\
 -\left(  na\right)   &  =\left(  -n\right)  a=n\left(  -a\right)
 \ \ \ \ \ \ \ \ \ \ \text{for all }a\in M\text{ and }n\in\mathbb{Z};\\
-\left(  nm\right)  a  &  =n\left(  ma\right)  \ \ \ \ \ \ \ \ \ \ \text{for
-all }a\in M\text{ and }n,m\in\mathbb{Z};\\
+\left(  nm\right)  a &  =n\left(  ma\right)  \ \ \ \ \ \ \ \ \ \ \text{for all
+}a\in M\text{ and }n,m\in\mathbb{Z};\\
 n\left(  \lambda a\right)   &  =\left(  n\lambda\right)  a=\lambda\left(
 na\right)  \ \ \ \ \ \ \ \ \ \ \text{for all }a\in M\text{ and }\lambda
 \in\mathbb{K}\text{ and }n\in\mathbb{Z};\\
-1a  &  =a\ \ \ \ \ \ \ \ \ \ \text{for all }a\in M;\\
-\left(  -1\right)  a  &  =-a\ \ \ \ \ \ \ \ \ \ \text{for all }a\in M.
+1a &  =a\ \ \ \ \ \ \ \ \ \ \text{for all }a\in M;\\
+0a &  =0\ \ \ \ \ \ \ \ \ \ \text{for all }a\in M;\\
+\left(  -1\right)  a &  =-a\ \ \ \ \ \ \ \ \ \ \text{for all }a\in M.
 \end{align}
-(Here, \textquotedblleft$1$\textquotedblright\ stands for the number
-$1\in\mathbb{Z}$, not for the scalar $1\in\mathbb{K}$.) In particular, these
-equalities show that certain expressions (like \textquotedblleft%
-$nma$\textquotedblright\ and \textquotedblleft$n\lambda a$\textquotedblright)
-are unambiguous.
+(Here, \textquotedblleft$1$\textquotedblright\ stands for the integer
+$1\in\mathbb{Z}$, not for the scalar $1\in\mathbb{K}$. Likewise, the
+\textquotedblleft$0$\textquotedblright\ in \textquotedblleft$0a$%
+\textquotedblright, and the \textquotedblleft$-1$\textquotedblright\ in
+\textquotedblleft$\left(  -1\right)  a$\textquotedblright\ stand for
+integers.) In particular, these equalities show that certain expressions (like
+\textquotedblleft$nma$\textquotedblright\ and \textquotedblleft$n\lambda
+a$\textquotedblright) are unambiguous.
 \end{proposition}
 
 \textbf{Upshot:} All the rules relating to addition that we know from rings
@@ -33153,8 +33204,8 @@ restriction as we have just seen.
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.pol.summable.rules} (sketched).] This is
-boring yet fairly straightforward: Each of these rules can be derived from the
+[Proof of Proposition \ref{prop.pol.summable.rules} (sketched).]This is boring
+yet fairly straightforward: Each of these rules can be derived from the
 analogous rule for \textbf{finite} sums, once you fix an $n\in\mathbb{N}$ and
 look at the $x^{n}$-coefficients on both sides of the rule.
 
@@ -33170,8 +33221,8 @@ i,j\right)  \in I\times J}$ is summable). In other words, there exists a
 finite subset $S$ of $I\times J$ such that
 \begin{equation}
 \text{all }\left(  i,j\right)  \in\left(  I\times J\right)  \setminus S\text{
-satisfy }\left[  x^{n}\right]  \left(  \mathbf{a}_{i,j}\right)
-=0.\label{pf.prop.pol.summable.rules.fubini-full.S}%
+satisfy }\left[  x^{n}\right]  \left(  \mathbf{a}_{i,j}\right)  =0.
+\label{pf.prop.pol.summable.rules.fubini-full.S}%
 \end{equation}
 Consider this $S$. (Note that $S$ can depend on $n$.)
 
@@ -33203,8 +33254,8 @@ J^{\prime}$} and therefore $\left(  i,j\right)  \in\left(  I\times J\right)
 \setminus S$ (since $\left(  i,j\right)  \in I\times J$ and $\left(
 i,j\right)  \notin S$) and therefore
 \begin{equation}
-\left[  x^{n}\right]  \left(  \mathbf{a}_{i,j}\right)
-=0\label{pf.prop.pol.summable.rules.fubini-full.0}%
+\left[  x^{n}\right]  \left(  \mathbf{a}_{i,j}\right)  =0
+\label{pf.prop.pol.summable.rules.fubini-full.0}%
 \end{equation}
 (by (\ref{pf.prop.pol.summable.rules.fubini-full.S})).
 
@@ -33216,7 +33267,7 @@ theorem\textquotedblright]{detnotes}) yields%
 \mathbf{a}_{i,j}\right)  =\sum_{\left(  i,j\right)  \in I^{\prime}\times
 J^{\prime}}\left[  x^{n}\right]  \left(  \mathbf{a}_{i,j}\right)  =\sum_{j\in
 J^{\prime}}\sum_{i\in I^{\prime}}\left[  x^{n}\right]  \left(  \mathbf{a}%
-_{i,j}\right)  .\label{pf.prop.pol.summable.rules.fubini-full.1}%
+_{i,j}\right)  . \label{pf.prop.pol.summable.rules.fubini-full.1}%
 \end{equation}
 
 
@@ -33226,7 +33277,7 @@ i,j\right)  \in I\times J$ satisfy $\left[  x^{n}\right]  \left(
 \mathbf{a}_{i,j}\right)  \neq0$). Hence,
 \begin{align}
 \sum_{\left(  i,j\right)  \in I\times J}\left[  x^{n}\right]  \left(
-\mathbf{a}_{i,j}\right)    & =\underbrace{\sum_{\substack{\left(  i,j\right)
+\mathbf{a}_{i,j}\right)   &  =\underbrace{\sum_{\substack{\left(  i,j\right)
 \in I\times J;\\\left(  i,j\right)  \in I^{\prime}\times J^{\prime}}%
 }}_{\substack{=\sum_{\left(  i,j\right)  \in I^{\prime}\times J^{\prime}%
 }\\\text{(since }I^{\prime}\times J^{\prime}\subseteq I\times J\text{)}%
@@ -33235,7 +33286,7 @@ _{\substack{\left(  i,j\right)  \in I\times J;\\\left(  i,j\right)  \notin
 I^{\prime}\times J^{\prime}}}\underbrace{\left[  x^{n}\right]  \left(
 \mathbf{a}_{i,j}\right)  }_{\substack{=0\\\text{(by
 (\ref{pf.prop.pol.summable.rules.fubini-full.0}))}}}\nonumber\\
-& \ \ \ \ \ \ \ \ \ \ \left(
+&  \ \ \ \ \ \ \ \ \ \ \left(
 \begin{array}
 [c]{c}%
 \text{since each }\left(  i,j\right)  \in I\times J\text{ satisfies either
@@ -33243,14 +33294,14 @@ I^{\prime}\times J^{\prime}}}\underbrace{\left[  x^{n}\right]  \left(
 \text{but }\left(  i,j\right)  \notin I^{\prime}\times J^{\prime}\text{ (but
 never both at the same time)}%
 \end{array}
-\right)  \nonumber\\
-& =\sum_{\left(  i,j\right)  \in I^{\prime}\times J^{\prime}}\left[
+\right) \nonumber\\
+&  =\sum_{\left(  i,j\right)  \in I^{\prime}\times J^{\prime}}\left[
 x^{n}\right]  \left(  \mathbf{a}_{i,j}\right)  +\underbrace{\sum
 _{\substack{\left(  i,j\right)  \in I\times J;\\\left(  i,j\right)  \notin
 I^{\prime}\times J^{\prime}}}0}_{=0}=\sum_{\left(  i,j\right)  \in I^{\prime
 }\times J^{\prime}}\left[  x^{n}\right]  \left(  \mathbf{a}_{i,j}\right)
 \nonumber\\
-& =\sum_{i\in I^{\prime}}\sum_{j\in J^{\prime}}\left[  x^{n}\right]  \left(
+&  =\sum_{i\in I^{\prime}}\sum_{j\in J^{\prime}}\left[  x^{n}\right]  \left(
 \mathbf{a}_{i,j}\right)  \label{pf.prop.pol.summable.rules.fubini-full.2}%
 \end{align}
 (by (\ref{pf.prop.pol.summable.rules.fubini-full.1})).
@@ -33260,7 +33311,7 @@ Moreover, if $i\in I$, then the sum $\sum_{j\in J}\left[  x^{n}\right]
 \begin{equation}
 \sum_{j\in J}\left[  x^{n}\right]  \left(  \mathbf{a}_{i,j}\right)
 =\sum_{j\in J^{\prime}}\left[  x^{n}\right]  \left(  \mathbf{a}_{i,j}\right)
-.\label{pf.prop.pol.summable.rules.fubini-full.ins}%
+. \label{pf.prop.pol.summable.rules.fubini-full.ins}%
 \end{equation}
 
 
@@ -33277,7 +33328,7 @@ _{i,j}\right)  \neq0$. Therefore, the sum $\sum_{j\in J}\left[  x^{n}\right]
 nonzero addends). Moreover, each $j\in J$ satisfies either $j\in J^{\prime}$
 or $j\notin J^{\prime}$ (but not both at once); thus,%
 \begin{align*}
-\sum_{j\in J}\left[  x^{n}\right]  \left(  \mathbf{a}_{i,j}\right)    &
+\sum_{j\in J}\left[  x^{n}\right]  \left(  \mathbf{a}_{i,j}\right)   &
 =\underbrace{\sum_{\substack{j\in J;\\j\in J^{\prime}}}}_{\substack{=\sum
 _{j\in J^{\prime}}\\\text{(since }J^{\prime}\subseteq J\text{)}}}\left[
 x^{n}\right]  \left(  \mathbf{a}_{i,j}\right)  +\sum_{\substack{j\in
@@ -33288,7 +33339,7 @@ J;\\j\notin J^{\prime}}}\underbrace{\left[  x^{n}\right]  \left(
 }\text{))}}}=\sum_{j\in J^{\prime}}\left[  x^{n}\right]  \left(
 \mathbf{a}_{i,j}\right)  +\underbrace{\sum_{\substack{j\in J;\\j\notin
 J^{\prime}}}0}_{=0}\\
-& =\sum_{j\in J^{\prime}}\left[  x^{n}\right]  \left(  \mathbf{a}%
+&  =\sum_{j\in J^{\prime}}\left[  x^{n}\right]  \left(  \mathbf{a}%
 _{i,j}\right)  .
 \end{align*}
 This proves (\ref{pf.prop.pol.summable.rules.fubini-full.ins}).]
@@ -33312,7 +33363,7 @@ addends). Moreover, each $i\in I$ satisfies either $i\in I^{\prime}$ or
 $i\notin I^{\prime}$ (but not both at once); thus,%
 \begin{align*}
 \sum_{i\in I}\sum_{j\in J}\left[  x^{n}\right]  \left(  \mathbf{a}%
-_{i,j}\right)    & =\underbrace{\sum_{\substack{i\in I;\\i\in I^{\prime}}%
+_{i,j}\right)   &  =\underbrace{\sum_{\substack{i\in I;\\i\in I^{\prime}}%
 }}_{\substack{=\sum_{i\in I^{\prime}}\\\text{(since }I^{\prime}\subseteq
 I\text{)}}}\underbrace{\sum_{j\in J}\left[  x^{n}\right]  \left(
 \mathbf{a}_{i,j}\right)  }_{\substack{=\sum_{j\in J^{\prime}}\left[
@@ -33323,7 +33374,7 @@ I;\\i\notin I^{\prime}}}\sum_{j\in J}\underbrace{\left[  x^{n}\right]  \left(
 (\ref{pf.prop.pol.summable.rules.fubini-full.0}) (since }i\notin I^{\prime
 }\\\text{leads to }\left(  i,j\right)  \notin I^{\prime}\times J^{\prime
 }\text{))}}}\\
-& =\sum_{i\in I^{\prime}}\sum_{j\in J^{\prime}}\left[  x^{n}\right]  \left(
+&  =\sum_{i\in I^{\prime}}\sum_{j\in J^{\prime}}\left[  x^{n}\right]  \left(
 \mathbf{a}_{i,j}\right)  +\underbrace{\sum_{\substack{i\in I;\\i\notin
 I^{\prime}}}\sum_{j\in J}0}_{=0}=\sum_{i\in I^{\prime}}\sum_{j\in J^{\prime}%
 }\left[  x^{n}\right]  \left(  \mathbf{a}_{i,j}\right)  .
@@ -33333,8 +33384,8 @@ obtain%
 \begin{equation}
 \sum_{i\in I}\sum_{j\in J}\left[  x^{n}\right]  \left(  \mathbf{a}%
 _{i,j}\right)  =\sum_{\left(  i,j\right)  \in I\times J}\left[  x^{n}\right]
-\left(  \mathbf{a}_{i,j}\right)
-.\label{pf.prop.pol.summable.rules.fubini-full.left-at}%
+\left(  \mathbf{a}_{i,j}\right)  .
+\label{pf.prop.pol.summable.rules.fubini-full.left-at}%
 \end{equation}
 
 
@@ -33369,14 +33420,14 @@ summable family of FPSs is defined entrywise; thus, for each $n\in\mathbb{N}$,
 we have%
 \begin{align*}
 \left[  x^{n}\right]  \left(  \sum_{i\in I}\sum_{j\in J}\mathbf{a}%
-_{i,j}\right)    & =\sum_{i\in I}\underbrace{\left[  x^{n}\right]  \left(
+_{i,j}\right)   &  =\sum_{i\in I}\underbrace{\left[  x^{n}\right]  \left(
 \sum_{j\in J}\mathbf{a}_{i,j}\right)  }_{=\sum_{j\in J}\left[  x^{n}\right]
 \left(  \mathbf{a}_{i,j}\right)  }=\sum_{i\in I}\sum_{j\in J}\left[
 x^{n}\right]  \left(  \mathbf{a}_{i,j}\right)  =\sum_{\left(  i,j\right)  \in
 I\times J}\left[  x^{n}\right]  \left(  \mathbf{a}_{i,j}\right)
 \ \ \ \ \ \ \ \ \ \ \left(  \text{by
-(\ref{pf.prop.pol.summable.rules.fubini-full.left-at})}\right)  \\
-& =\left[  x^{n}\right]  \left(  \sum_{\left(  i,j\right)  \in I\times
+(\ref{pf.prop.pol.summable.rules.fubini-full.left-at})}\right) \\
+&  =\left[  x^{n}\right]  \left(  \sum_{\left(  i,j\right)  \in I\times
 J}\mathbf{a}_{i,j}\right)  .
 \end{align*}
 In other words, each entry of the FPS $\sum_{i\in I}\sum_{j\in J}%
