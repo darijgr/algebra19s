@@ -17,7 +17,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, May 13, 2019 14:59:08}
+%TCIDATA{LastRevised=Monday, May 13, 2019 20:11:31}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -1072,9 +1072,9 @@ The next simple case is when $k=2$. So we want to ensure that any $2$ of our
 $n$ people can together recover the secret, but no $1$ person can learn
 anything about it alone.
 
-A really nice approach was suggested by Nathan in class: We pick $n$ random
-bitstrings $\mathbf{x}_{1},\mathbf{x}_{2},\ldots,\mathbf{x}_{n-1}$ of the same
-length as $\mathbf{a}$. Set
+A really nice approach was suggested by Nathan (a student in class): We pick
+$n$ random bitstrings $\mathbf{x}_{1},\mathbf{x}_{2},\ldots,\mathbf{x}_{n-1}$
+of the same length as $\mathbf{a}$. Set
 \[
 \mathbf{x}_{n}=\mathbf{a}\operatorname*{XOR}\mathbf{x}_{1}\operatorname*{XOR}%
 \mathbf{x}_{2}\operatorname*{XOR}\cdots\operatorname*{XOR}\mathbf{x}_{n-1};
@@ -1109,7 +1109,7 @@ the $k=n$ case). So again, the problem is solved in this case.
 \subsubsection{\label{subsect.intro.shamir.k=3}The $k=3$ case}
 
 Now, let us come to the case when $k=3$. Here, I think, the usefulness of the
-$\operatorname*{XOR}$ approach has come to its end: at least I don't know how
+$\operatorname*{XOR}$ approach has come to its end: at least, I don't know how
 to make it work here. Instead, out of the blue, I will invoke something
 completely different: polynomials (let's say with rational coefficients).
 
@@ -1587,10 +1587,10 @@ once we have properly introduced division with remainder. See Exercise
 
 \href{https://en.wikipedia.org/wiki/Modulo_(jargon)}{The word
 \textquotedblleft modulo\textquotedblright}\ in the phrase \textquotedblleft%
-$a$ is congruent to $b$ modulo $n$\textquotedblright\ is due to Gauss and
-means something like \textquotedblleft with respect to\textquotedblright. You
-should think of \textquotedblleft$a$ is congruent to $b$ modulo $n$%
-\textquotedblright\ as a relation between all three of the numbers $a$, $b$
+$a$ is congruent to $b$ modulo $n$\textquotedblright\ originates with Gauss
+and means something like \textquotedblleft with respect to\textquotedblright.
+You should think of \textquotedblleft$a$ is congruent to $b$ modulo
+$n$\textquotedblright\ as a relation between all three of the numbers $a$, $b$
 and $n$, but $a$ and $b$ are the \textquotedblleft main
 characters\textquotedblright\ and $n$ sets the scene.
 
@@ -1799,9 +1799,7 @@ $a\equiv b\operatorname{mod}n$. Prove that $a^{k}\equiv b^{k}%
 (Note that the \textquotedblleft$n$\textquotedblright\ is not being taken to
 the $k$-th power here.)
 
-We can add not just two, but any number of congruences (where
-\textquotedblleft number\textquotedblright\ means \textquotedblleft finite
-number\textquotedblright):
+We can add not just two, but any finite number of congruences:
 
 \begin{exercise}
 \label{exe.ent.mod.k-sum}Let $n$ be an integer. Let $S$ be a finite set. For
@@ -2021,14 +2019,14 @@ an integer $n$ can be chained together like equalities. A further important
 feature of congruences is the principle of \textit{substitutivity for
 congruences}. This is yet another way in which congruences behave like
 equalities. We are not going to state it fully formally (as it is a
-meta-mathematical principle), but merely explain its meaning. Later on, once
-we understand what the rings $\mathbb{Z}/n$ (for integer $n$) are, we will no
-longer need this principle, since it will just boil down to \textquotedblleft
-equal things can be substituted for one another\textquotedblright\ (the whole
-point of $\mathbb{Z}/n$ is to \textquotedblleft make congruent numbers
-equal\textquotedblright); but for now, we cannot treat \textquotedblleft
-congruent modulo $n$\textquotedblright\ as \textquotedblleft
-equal\textquotedblright, so we have to state it.
+meta-mathematical principle), but will merely explain its meaning. Later on,
+once we understand what the rings $\mathbb{Z}/n$ (for integer $n$) are, we
+will no longer need this principle, since it will just boil down to
+\textquotedblleft equal things can be substituted for one
+another\textquotedblright\ (the whole point of $\mathbb{Z}/n$ is to
+\textquotedblleft make congruent numbers equal\textquotedblright); but for
+now, we cannot treat \textquotedblleft congruent modulo $n$\textquotedblright%
+\ as \textquotedblleft equal\textquotedblright, so we have to state it.
 
 You are probably used to making computations like these:%
 \begin{align*}
@@ -3591,10 +3589,12 @@ $\operatorname*{Div}\left(  {}\right)  =\mathbb{Z}$.
 \begin{proof}
 [Proof of Lemma \ref{lem.ent.Div.props1}.]\textbf{(a)} Here is a sketch of the
 proof: The number $0$ is a \textquotedblleft joker\textquotedblright\ when it
-comes to common divisors: For example, if $a\in\mathbb{Z}$, then the common
-divisors of $a$ and $0$ are the same as the divisors of $a$, because every
-integer divides $0$. But this is saying precisely that $\operatorname*{Div}%
-\left(  a,0\right)  =\operatorname*{Div}\left(  a\right)  $.
+comes to common divisors, in the sense that inserting it into a list of
+integers does not change the common divisors of that list. For example, if
+$a\in\mathbb{Z}$, then the common divisors of $a$ and $0$ are the same as the
+divisors of $a$, because every integer divides $0$. But this is saying
+precisely that $\operatorname*{Div}\left(  a,0\right)  =\operatorname*{Div}%
+\left(  a\right)  $.
 
 For the sake of completeness, let us give a detailed proof of Lemma
 \ref{lem.ent.Div.props1} \textbf{(a)}:
@@ -3722,7 +3722,7 @@ divisor of $a$ (by the definition of a \textquotedblleft common
 divisor\textquotedblright). In other words, $x\in\operatorname*{Div}\left(
 a\right)  $ (by the definition of $\operatorname*{Div}\left(  a\right)  $).
 
-Now, forget that we fixed $x$. We thus have shownt hat $x\in
+Now, forget that we fixed $x$. We thus have shown that $x\in
 \operatorname*{Div}\left(  a\right)  $ for each $x\in\operatorname*{Div}%
 \left(  a,b\right)  $. In other words, $\operatorname*{Div}\left(  a,b\right)
 \subseteq\operatorname*{Div}\left(  a\right)  $. A similar argument shows that
@@ -4512,9 +4512,9 @@ sa,sb\right)  =\left\vert s\right\vert \gcd\left(  a,b\right)  $, and we will
 be done. (This trick is actually a common strategy for proving equalities
 between gcds.)
 
-For the sake of brevity, let us set $g=\gcd\left(  sa,sb\right)  $ and
-$h=s\gcd\left(  a,b\right)  $. So our first goal is to prove that $g\mid h$
-and $h\mid g$.
+Here is the argument in detail. For the sake of brevity, let us set
+$g=\gcd\left(  sa,sb\right)  $ and $h=s\gcd\left(  a,b\right)  $. So our first
+goal is to prove that $g\mid h$ and $h\mid g$.
 
 \textit{Proof of }$g\mid h$\textit{:} Theorem \ref{thm.ent.gcd.bezout} yields
 that there exist integers $x\in\mathbb{Z}$ and $y\in\mathbb{Z}$ such that
@@ -4920,7 +4920,7 @@ a,b,c\right)  $.
 \end{exercise}
 
 More generally, Theorem \ref{thm.ent.gcd.sa,sb} can be generalized to any
-number of integers:
+finite number of integers:
 
 \begin{exercise}
 \label{exe.ent.gcd.sak}Let $s\in\mathbb{Z}$, and let $a_{1},a_{2},\ldots
@@ -39659,8 +39659,8 @@ $\mathbf{m}=\mu_{0}x^{0}+\mu_{1}x^{1}+\cdots+\mu_{m-1}x^{m-1}$. Then,
 $\mathbf{m}\in\mathbb{K}\left[  x\right]  _{\leq m-1}$ and%
 \begin{equation}
 \left[  x^{i}\right]  \mathbf{m}=\mu_{i}\ \ \ \ \ \ \ \ \ \ \text{for each
-}i\in\left\{  0,1,\ldots,m-1\right\}
-.\label{pf.thm.quot.ring/w.basis-of-quot.fn1.coeffm}%
+}i\in\left\{  0,1,\ldots,m-1\right\}  .
+\label{pf.thm.quot.ring/w.basis-of-quot.fn1.coeffm}%
 \end{equation}
 \par
 We know that $\left(  \mu_{0},\mu_{1},\ldots,\mu_{m-1}\right)  $ is an
@@ -39705,11 +39705,11 @@ m-1}$), and thus obtain $\left(  \mathbf{c},\mathbf{m}\right)  =\left(
 $\mathbf{m}=\mathbf{r}$. Now, for each $i\in\left\{  0,1,\ldots,m-1\right\}
 $, we have%
 \begin{align}
-\mu_{i}  & =\left[  x^{i}\right]  \underbrace{\mathbf{m}}_{=\mathbf{r}%
+\mu_{i}  &  =\left[  x^{i}\right]  \underbrace{\mathbf{m}}_{=\mathbf{r}%
 }\ \ \ \ \ \ \ \ \ \ \left(  \text{by
-(\ref{pf.thm.quot.ring/w.basis-of-quot.fn1.coeffm})}\right)  \nonumber\\
-& =\left[  x^{i}\right]  \mathbf{r}%
-.\label{pf.thm.quot.ring/w.basis-of-quot.fn1.mui=}%
+(\ref{pf.thm.quot.ring/w.basis-of-quot.fn1.coeffm})}\right) \nonumber\\
+&  =\left[  x^{i}\right]  \mathbf{r}.
+\label{pf.thm.quot.ring/w.basis-of-quot.fn1.mui=}%
 \end{align}
 The same argument (applied to $\left(  \rho_{0},\rho_{1},\ldots,\rho
 _{m-1}\right)  $ instead of $\left(  \mu_{0},\mu_{1},\ldots,\mu_{m-1}\right)
@@ -39755,8 +39755,8 @@ is unique.} Thus, Theorem \ref{thm.quot.ring/w.basis-of-quot} \textbf{(a)} is pr
 \textbf{(c)} We already know (from Proposition
 \ref{prop.quot.ring/w.root-in-L/w} \textbf{(b)}) that the map%
 \begin{align*}
-\mathbb{K} &  \rightarrow\mathbb{K}\left[  x\right]  /\mathbf{b},\\
-a &  \mapsto\left[  \underline{a}\right]  _{\mathbf{b}}%
+\mathbb{K}  &  \rightarrow\mathbb{K}\left[  x\right]  /\mathbf{b},\\
+a  &  \mapsto\left[  \underline{a}\right]  _{\mathbf{b}}%
 \end{align*}
 is a $\mathbb{K}$-algebra homomorphism. We just need to show that it is
 injective. In other words, we need to show that if $a,b\in\mathbb{K}$ satisfy
@@ -39766,9 +39766,9 @@ _{\mathbf{b}}$, then $a=b$.
 So let $a,b\in\mathbb{K}$ satisfy $\left[  \underline{a}\right]  _{\mathbf{b}%
 }=\left[  \underline{b}\right]  _{\mathbf{b}}$. Note that%
 \begin{align*}
-\left[  \underline{a}\right]  _{\mathbf{b}} &  =\left[  ax^{0}\right]
+\left[  \underline{a}\right]  _{\mathbf{b}}  &  =\left[  ax^{0}\right]
 _{\mathbf{b}}\ \ \ \ \ \ \ \ \ \ \left(  \text{since }\underline{a}%
-=a\cdot\underbrace{\underline{1}}_{=x^{0}}=ax^{0}\right)  \\
+=a\cdot\underbrace{\underline{1}}_{=x^{0}}=ax^{0}\right) \\
 &  =a\left[  x^{0}\right]  _{\mathbf{b}},
 \end{align*}
 and similarly $\left[  \underline{b}\right]  _{\mathbf{b}}=b\left[
