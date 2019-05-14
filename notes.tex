@@ -17,7 +17,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Thursday, May 09, 2019 12:25:08}
+%TCIDATA{LastRevised=Monday, May 13, 2019 14:59:08}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -39227,7 +39227,10 @@ We shall omit the words \textquotedblleft in $\mathbb{L}$\textquotedblright%
 For example, $2\nmid1$ in $\mathbb{Z}$, but $2\mid1$ in $\mathbb{Q}$ (since
 $1=2\cdot\dfrac{1}{2}$). Of course, when we speak of divisibility between
 integers, we mean \textquotedblleft in $\mathbb{Z}$\textquotedblright, since
-divisibility in $\mathbb{Q}$ is boring.
+divisibility in $\mathbb{Q}$ is boring\footnote{More generally: If
+$\mathbb{F}$ is any field, then divisibility in $\mathbb{F}$ is boring
+(because $a\mid b$ holds for any $a,b\in\mathbb{F}$ unless we have $a=0$ and
+$b\neq0$).}.
 
 Most of the standard properties of divisibility still work for any commutative
 ring $\mathbb{L}$. For example:
@@ -39638,8 +39641,111 @@ _{\mathbf{b}}\ \ \ \ \ \ \ \ \ \ \text{with }\lambda_{0},\lambda_{1}%
 (namely, with $\left(  \lambda_{0},\lambda_{1},\ldots,\lambda_{m-1}\right)
 =\left(  r_{0},r_{1},\ldots,r_{m-1}\right)  $).
 
-It remains to prove that this way is unique. This is LTTR (use the uniqueness
-part of Theorem \ref{thm.pol.quorem} \textbf{(a)}).
+It remains to prove that this way is unique. This can easily be done using the
+uniqueness part of Theorem \ref{thm.pol.quorem} \textbf{(a)}.\footnote{Here is
+the argument in detail:
+\par
+Let $\left(  \mu_{0},\mu_{1},\ldots,\mu_{m-1}\right)  $ and $\left(  \rho
+_{0},\rho_{1},\ldots,\rho_{m-1}\right)  $ be two $m$-tuples $\left(
+\lambda_{0},\lambda_{1},\ldots,\lambda_{m-1}\right)  \in\mathbb{K}^{m}$
+satisfying $\alpha=\lambda_{0}\left[  x^{0}\right]  _{\mathbf{b}}+\lambda
+_{1}\left[  x^{1}\right]  _{\mathbf{b}}+\cdots+\lambda_{m-1}\left[
+x^{m-1}\right]  _{\mathbf{b}}$. We shall show that $\left(  \mu_{0},\mu
+_{1},\ldots,\mu_{m-1}\right)  =\left(  \rho_{0},\rho_{1},\ldots,\rho
+_{m-1}\right)  $.
+\par
+Define a polynomial $\mathbf{m}\in\mathbb{K}\left[  x\right]  $ by
+$\mathbf{m}=\mu_{0}x^{0}+\mu_{1}x^{1}+\cdots+\mu_{m-1}x^{m-1}$. Then,
+$\mathbf{m}\in\mathbb{K}\left[  x\right]  _{\leq m-1}$ and%
+\begin{equation}
+\left[  x^{i}\right]  \mathbf{m}=\mu_{i}\ \ \ \ \ \ \ \ \ \ \text{for each
+}i\in\left\{  0,1,\ldots,m-1\right\}
+.\label{pf.thm.quot.ring/w.basis-of-quot.fn1.coeffm}%
+\end{equation}
+\par
+We know that $\left(  \mu_{0},\mu_{1},\ldots,\mu_{m-1}\right)  $ is an
+$m$-tuple $\left(  \lambda_{0},\lambda_{1},\ldots,\lambda_{m-1}\right)
+\in\mathbb{K}^{m}$ satisfying $\alpha=\lambda_{0}\left[  x^{0}\right]
+_{\mathbf{b}}+\lambda_{1}\left[  x^{1}\right]  _{\mathbf{b}}+\cdots
++\lambda_{m-1}\left[  x^{m-1}\right]  _{\mathbf{b}}$. In other words, $\left(
+\mu_{0},\mu_{1},\ldots,\mu_{m-1}\right)  $ is an $m$-tuple in $\mathbb{K}^{m}$
+and satisfies $\alpha=\mu_{0}\left[  x^{0}\right]  _{\mathbf{b}}+\mu
+_{1}\left[  x^{1}\right]  _{\mathbf{b}}+\cdots+\mu_{m-1}\left[  x^{m-1}%
+\right]  _{\mathbf{b}}$. Thus, from $\alpha=\left[  \mathbf{a}\right]
+_{\mathbf{b}}$, we obtain%
+\[
+\left[  \mathbf{a}\right]  _{\mathbf{b}}=\alpha=\mu_{0}\left[  x^{0}\right]
+_{\mathbf{b}}+\mu_{1}\left[  x^{1}\right]  _{\mathbf{b}}+\cdots+\mu
+_{m-1}\left[  x^{m-1}\right]  _{\mathbf{b}}=\left[  \mu_{0}x^{0}+\mu_{1}%
+x^{1}+\cdots+\mu_{m-1}x^{m-1}\right]  _{\mathbf{b}}=\left[  \mathbf{m}\right]
+_{\mathbf{b}}%
+\]
+(since $\mu_{0}x^{0}+\mu_{1}x^{1}+\cdots+\mu_{m-1}x^{m-1}=\mathbf{m}$). In
+other words, $\mathbf{a}\equiv\mathbf{m}\operatorname{mod}\mathbf{b}$. In
+other words, $\mathbf{b}\mid\mathbf{a}-\mathbf{m}.$In other words, there
+exists a polynomial $\mathbf{c}\in\mathbb{K}\left[  x\right]  $ such that
+$\mathbf{a}-\mathbf{m}=\mathbf{bc}$. Consider this $\mathbf{c}$. From
+$\mathbf{a}-\mathbf{m}=\mathbf{bc}$, we obtain $\mathbf{a}=\mathbf{m}%
++\mathbf{bc}=\mathbf{cb}+\mathbf{m}$.
+\par
+Now, recall that $\left(  \mathbf{q},\mathbf{r}\right)  $ was defined as the
+\textbf{unique} pair $\left(  \mathbf{q},\mathbf{r}\right)  $ of polynomials
+with $\mathbf{a}=\mathbf{qb}+\mathbf{r}$ and $\mathbf{r}\in\mathbb{K}\left[
+x\right]  _{\leq m-1}$. Thus, in particular, it is the only such pair. In
+other words, if $\left(  \widetilde{\mathbf{q}},\widetilde{\mathbf{r}}\right)
+$ is a pair of polynomials with $\mathbf{a}=\widetilde{\mathbf{q}}%
+\mathbf{b}+\widetilde{\mathbf{r}}$ and $\widetilde{\mathbf{r}}\in
+\mathbb{K}\left[  x\right]  _{\leq m-1}$, then $\left(  \widetilde{\mathbf{q}%
+},\widetilde{\mathbf{r}}\right)  =\left(  \mathbf{q},\mathbf{r}\right)  $. We
+can apply this fact to $\left(  \widetilde{\mathbf{q}},\widetilde{\mathbf{r}%
+}\right)  =\left(  \mathbf{c},\mathbf{m}\right)  $ (since $\mathbf{a}%
+=\mathbf{cb}+\mathbf{m}$ and $\mathbf{m}\in\mathbb{K}\left[  x\right]  _{\leq
+m-1}$), and thus obtain $\left(  \mathbf{c},\mathbf{m}\right)  =\left(
+\mathbf{q},\mathbf{r}\right)  $. In other words, $\mathbf{c}=\mathbf{q}$ and
+$\mathbf{m}=\mathbf{r}$. Now, for each $i\in\left\{  0,1,\ldots,m-1\right\}
+$, we have%
+\begin{align}
+\mu_{i}  & =\left[  x^{i}\right]  \underbrace{\mathbf{m}}_{=\mathbf{r}%
+}\ \ \ \ \ \ \ \ \ \ \left(  \text{by
+(\ref{pf.thm.quot.ring/w.basis-of-quot.fn1.coeffm})}\right)  \nonumber\\
+& =\left[  x^{i}\right]  \mathbf{r}%
+.\label{pf.thm.quot.ring/w.basis-of-quot.fn1.mui=}%
+\end{align}
+The same argument (applied to $\left(  \rho_{0},\rho_{1},\ldots,\rho
+_{m-1}\right)  $ instead of $\left(  \mu_{0},\mu_{1},\ldots,\mu_{m-1}\right)
+$) shows that for each $i\in\left\{  0,1,\ldots,m-1\right\}  $, we have%
+\[
+\rho_{i}=\left[  x^{i}\right]  \mathbf{r}.
+\]
+Comparing this with (\ref{pf.thm.quot.ring/w.basis-of-quot.fn1.mui=}), we
+conclude that for each $i\in\left\{  0,1,\ldots,m-1\right\}  $, we have
+$\mu_{i}=\rho_{i}$. In other words, $\left(  \mu_{0},\mu_{1},\ldots,\mu
+_{m-1}\right)  =\left(  \rho_{0},\rho_{1},\ldots,\rho_{m-1}\right)  $.
+\par
+Now, forget that we fixed $\left(  \mu_{0},\mu_{1},\ldots,\mu_{m-1}\right)  $
+and $\left(  \rho_{0},\rho_{1},\ldots,\rho_{m-1}\right)  $. We thus have shown
+that if $\left(  \mu_{0},\mu_{1},\ldots,\mu_{m-1}\right)  $ and $\left(
+\rho_{0},\rho_{1},\ldots,\rho_{m-1}\right)  $ are two $m$-tuples $\left(
+\lambda_{0},\lambda_{1},\ldots,\lambda_{m-1}\right)  \in\mathbb{K}^{m}$
+satisfying $\alpha=\lambda_{0}\left[  x^{0}\right]  _{\mathbf{b}}+\lambda
+_{1}\left[  x^{1}\right]  _{\mathbf{b}}+\cdots+\lambda_{m-1}\left[
+x^{m-1}\right]  _{\mathbf{b}}$, then $\left(  \mu_{0},\mu_{1},\ldots,\mu
+_{m-1}\right)  =\left(  \rho_{0},\rho_{1},\ldots,\rho_{m-1}\right)  $. In
+other words, any two $m$-tuples $\left(  \lambda_{0},\lambda_{1}%
+,\ldots,\lambda_{m-1}\right)  \in\mathbb{K}^{m}$ satisfying $\alpha
+=\lambda_{0}\left[  x^{0}\right]  _{\mathbf{b}}+\lambda_{1}\left[
+x^{1}\right]  _{\mathbf{b}}+\cdots+\lambda_{m-1}\left[  x^{m-1}\right]
+_{\mathbf{b}}$ must be identical. In other words, there exists at most one
+such $m$-tuple. In other words, there is at most one way to write $\alpha$ in
+the form
+\[
+\lambda_{0}\left[  x^{0}\right]  _{\mathbf{b}}+\lambda_{1}\left[
+x^{1}\right]  _{\mathbf{b}}+\cdots+\lambda_{m-1}\left[  x^{m-1}\right]
+_{\mathbf{b}}\ \ \ \ \ \ \ \ \ \ \text{with }\lambda_{0},\lambda_{1}%
+,\ldots,\lambda_{m-1}\in\mathbb{K}.
+\]
+Since we already know that such a way exists, we thus conclude that such a way
+is unique.} Thus, Theorem \ref{thm.quot.ring/w.basis-of-quot} \textbf{(a)} is proven.
 
 \textbf{(b)} Proposition \ref{prop.module.basis-unique} shows that Theorem
 \ref{thm.quot.ring/w.basis-of-quot} \textbf{(b)} is a restatement of Theorem
@@ -39649,8 +39755,8 @@ part of Theorem \ref{thm.pol.quorem} \textbf{(a)}).
 \textbf{(c)} We already know (from Proposition
 \ref{prop.quot.ring/w.root-in-L/w} \textbf{(b)}) that the map%
 \begin{align*}
-\mathbb{K}  &  \rightarrow\mathbb{K}\left[  x\right]  /\mathbf{b},\\
-a  &  \mapsto\left[  \underline{a}\right]  _{\mathbf{b}}%
+\mathbb{K} &  \rightarrow\mathbb{K}\left[  x\right]  /\mathbf{b},\\
+a &  \mapsto\left[  \underline{a}\right]  _{\mathbf{b}}%
 \end{align*}
 is a $\mathbb{K}$-algebra homomorphism. We just need to show that it is
 injective. In other words, we need to show that if $a,b\in\mathbb{K}$ satisfy
@@ -39660,9 +39766,9 @@ _{\mathbf{b}}$, then $a=b$.
 So let $a,b\in\mathbb{K}$ satisfy $\left[  \underline{a}\right]  _{\mathbf{b}%
 }=\left[  \underline{b}\right]  _{\mathbf{b}}$. Note that%
 \begin{align*}
-\left[  \underline{a}\right]  _{\mathbf{b}}  &  =\left[  ax^{0}\right]
+\left[  \underline{a}\right]  _{\mathbf{b}} &  =\left[  ax^{0}\right]
 _{\mathbf{b}}\ \ \ \ \ \ \ \ \ \ \left(  \text{since }\underline{a}%
-=a\cdot\underbrace{\underline{1}}_{=x^{0}}=ax^{0}\right) \\
+=a\cdot\underbrace{\underline{1}}_{=x^{0}}=ax^{0}\right)  \\
 &  =a\left[  x^{0}\right]  _{\mathbf{b}},
 \end{align*}
 and similarly $\left[  \underline{b}\right]  _{\mathbf{b}}=b\left[

@@ -487,6 +487,41 @@ ab\right)  !}{1}=\dfrac{1}{a!}\cdot\dfrac{1}{\left(  b!\right)  ^{a}}%
 \end{align*}
 This solves the exercise.
 
+\subsection{Remark}
+
+Proposition 2.17.12 in
+\href{http://www-users.math.umn.edu/~dgrinber/19s/notes.pdf}{the class notes}
+says that $\dbinom{n}{k}$ is an integer for all
+$n \in \ZZ$ and $k \in \QQ$.
+In other words,
+\begin{align}
+\dbinom{n}{k} \in \ZZ
+\qquad \text{for all } n \in \ZZ \text{ and } k \in \QQ .
+\label{sol.binom.102.rmk.nkinZ}
+\end{align}
+Using this fact and the above exercise, we can show the
+following:
+
+\begin{corollary}
+\label{cor.binom.102.rmk.div}
+Let $a \in \NN$. Let $b$ be a positive integer.
+Then, $a! \tup{b!}^a \mid \tup{ab}!$.
+\end{corollary}
+
+\begin{proof}[Proof of Corollary \ref{cor.binom.102.rmk.div}.]
+The exercise yields
+\[
+\dfrac{\left(  ab \right)  !}{a! \left(  b! \right)  ^{a}}
+= \prod_{k=1}^{a} \underbrack{\dbinom{kb-1}{b-1}}{\in \ZZ \\ \text{(by \eqref{sol.binom.102.rmk.nkinZ}, applied to $kb-1$ and $b-1$} \\ \text{instead of $n$ and $k$)}}
+\in \ZZ .
+\]
+In other words, $a! \tup{b!}^a \mid \tup{ab}!$.
+This proves Corollary \ref{cor.binom.102.rmk.div}.
+\end{proof}
+
+We refer to \cite[Chapter 5]{GKP} for further properties
+of binomial coefficients.
+
 %----------------------------------------------------------------------------------------
 %	EXERCISE 6
 %----------------------------------------------------------------------------------------
