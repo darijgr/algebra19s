@@ -5,9 +5,9 @@ course I am giving at UMN in Spring 2019. The notes are being
 written as the course progresses.
 
 The
-[class website](http://www-users.math.umn.edu/~dgrinber/19s/index.html)
+[class website](http://www.cip.ifi.lmu.de/~grinberg/t/19s/index.html)
 contains
-[a PDF of the lecture notes](http://www-users.math.umn.edu/~dgrinber/19s/notes.pdf)
+[a PDF of the lecture notes](http://www.cip.ifi.lmu.de/~grinberg/t/19s/notes.pdf)
 as well as homework sets with solutions.
 
 -- Darij Grinberg (*firstname***lastname**@gmail.com)
