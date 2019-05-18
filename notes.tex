@@ -17,7 +17,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Saturday, May 18, 2019 14:02:47}
+%TCIDATA{LastRevised=Saturday, May 18, 2019 18:16:41}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -149,19 +149,26 @@ Status: finished up to Section 4.2.4.}
 
 \section{Introduction}
 
-This file will contain the notes from the Math 4281 class (``Introduction to
-Modern Algebra'') I am teaching at UMN in Spring 2019. I will type the first
-draft directly in the classroom, and subsequently expand it into proper
-writing. Occasionally, I will also add extra sections not covered in class.
+This file contains notes for the Math 4281 class (\textquotedblleft
+Introduction to Modern Algebra\textquotedblright) I have taught at the
+University of Minnesota in Spring 2019. Occasionally, it also includes
+material that did not appear in the lectures.
 
 The website of the class is
 \url{http://www.cip.ifi.lmu.de/~grinberg/t/19s/index.html} ; you will find
-homework sets there.
+homework sets and midterms there.
 
-\subsection{Organisation}
+\subsection{Status}
+
+The first few chapters of these notes are finished. The rest are at various
+degrees of completion (mostly readable, but sometimes not completely polished).
+
+\begin{noncompile}
+subsection: Organisation
 
 See \href{http://www.cip.ifi.lmu.de/~grinberg/t/19s/syll.pdf}{the syllabus}
 for the organization of this class and for the homework.
+\end{noncompile}
 
 \subsection{Literature}
 
@@ -28675,6 +28682,12 @@ act on vectors in linear algebra.
 \subsection{\label{sect.la.matrix-review}An overview of matrix algebra over
 fields}
 
+Next I shall give a quick review of matrix algebra adapted to the situation in
+which the entries of the vectors belong to an arbitrary field. This review
+will be quick and terse, but can be skipped, since the rest of this course
+will not depend on it. It does, however, provide context and examples for
+several constructions we will do further on.
+
 I assume you have seen some basic matrix algebra: Gaussian elimination, ranks
 of matrices, inverses of matrices, determinants, etc. (If not, see
 \cite{Hefferon}.)
@@ -28886,7 +28899,7 @@ x=\left(
 \]
 
 
-Next, try doing the same for $\mathbb{K}=\mathbb{Z}/2$, with the
+Next, let us try doing the same for $\mathbb{K}=\mathbb{Z}/2$, with the
 \textquotedblleft same\textquotedblright\ matrix. (It will not be literally
 the same matrix, of course, since $0$ and $1$ will now mean $\left[  0\right]
 _{2}$ and $\left[  1\right]  _{2}$.)
@@ -28922,8 +28935,8 @@ $x_{1},x_{2},x_{3}\in\mathbb{K}$ such that%
 \]
 
 
-Can we do this? Again, we can try: Augment the matrix $A$ with the column $b$,
-obtaining%
+Can we do this? We can try as before: Augment the matrix $A$ with the column
+$b$, obtaining%
 \[
 \left(  A\mid b\right)  =\left(
 \begin{array}
@@ -29064,8 +29077,8 @@ proofs) over any field:
 \begin{theorem}
 \label{thm.field.LA-main}Let $\mathbb{K}$ be a field.
 
-\textbf{(a)} Any matrix over $\mathbb{K}$ has a reduced row echelon form
-(abbreviated RREF).
+\textbf{(a)} Any matrix over $\mathbb{K}$ has a unique reduced row echelon
+form (abbreviated RREF).
 
 \textbf{(b)} If $A\in\mathbb{K}^{n\times m}$ is any matrix and $R$ is its
 RREF, then the row space, kernel (= nullspace) and rank of $A$ are equal to
@@ -29096,8 +29109,8 @@ operations: swapping rows, scaling rows and adding a multiple of one row to anot
 
 \item The matrix $A$ is column-equivalent to $I_{n}$. (The definition of
 \textquotedblleft\textit{column-equivalent}\textquotedblright\ is the same as
-of \textquotedblleft row-equivalent\textquotedblright, but with columns
-instead of rows.)
+of \textquotedblleft row-equivalent\textquotedblright, but with columns being
+used instead of rows.)
 
 \item The RREF of $A$ is $I_{n}$.
 
@@ -29127,6 +29140,30 @@ unique solution.
 (Matrices satisfying these equivalent conditions are called
 \textit{nonsingular}.)
 \end{theorem}
+
+\begin{noncompile}
+\begin{proof}
+[Proof of Theorem \ref{thm.field.LA-main} (sketched).]I shall give references
+to places where these facts are proven. Most of these places only consider
+matrices with real or complex entries, but the proofs still work for an
+arbitrary field $\mathbb{K}$.
+
+\textbf{(a)} See \cite[\S 6, proof of Theorem 6.2 (a)]{Strickland} for the
+proof that any matrix has a RREF; see \cite[Section One.III, Theorem
+2.6]{Hefferon} for a proof that this RREF is unique.
+
+\textbf{(b)} The RREF $R$ of $A$ is obtained from $A$ by a sequence of row
+operations. Thus, it suffices to show that the row space, the kernel and the
+rank of a matrix are preserved under row operations. This is well-known and
+simple. (See, e.g., \cite[Lemma 9.15]{Strickland} for a proof that the row
+space is preserved under row operations.)
+
+\textbf{(c)} See \cite[Method 6.9]{Strickland} or \cite[Example before
+Proposition 1.26]{Knapp1}.
+
+\textbf{TODO:} Finish this.
+\end{proof}
+\end{noncompile}
 
 \subsubsection{What if $\mathbb{K}$ is not a field?}
 
