@@ -17,7 +17,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Saturday, May 18, 2019 00:57:48}
+%TCIDATA{LastRevised=Saturday, May 18, 2019 13:10:33}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -30178,7 +30178,7 @@ module. Let us see some other examples:
 \label{exa.module.K}Let $\mathbb{K}$ be a commutative ring. Then, $\mathbb{K}$
 itself is a $\mathbb{K}$-module (with the addition given by the addition
 $+_{\mathbb{K}}$ of $\mathbb{K}$, and with the scaling given by the
-multiplication $\cdot_{\mathbb{K}}$ of $\mathbb{K}$, and with zero vector
+multiplication $\cdot_{\mathbb{K}}$ of $\mathbb{K}$, and with the zero vector
 given by the zero $0_{\mathbb{K}}$ of $\mathbb{K}$).
 \end{example}
 
@@ -30199,8 +30199,8 @@ map $\cdot:\mathbb{K}\times\mathbb{K}^{n}\rightarrow\mathbb{K}^{n}$ defined by%
 a_{2},\ldots,\lambda a_{n}\right)
 \]
 for all $\lambda\in\mathbb{K}$ and $\left(  a_{1},a_{2},\ldots,a_{n}\right)
-\in\mathbb{K}^{n}$) and the zero vector $\left(  0,0,\ldots,0\right)  $. Then,
-$\mathbb{K}^{n}$ becomes a $\mathbb{K}$-module.
+\in\mathbb{K}^{n}$) and the zero vector $\left(  0,0,\ldots,0\right)
+\in\mathbb{K}^{n}$. Then, $\mathbb{K}^{n}$ becomes a $\mathbb{K}$-module.
 \end{example}
 
 \begin{example}
@@ -30311,6 +30311,14 @@ of Proposition \ref{prop.ring.dirprod.ring}.
 ,M_{n}$.
 \end{definition}
 
+The $\mathbb{K}$-module $\mathbb{K}^{n}$ introduced in Example
+\ref{exa.module.Kn} is actually a particular case of Definition
+\ref{def.module.dirprod2}; in fact, it is precisely the Cartesian product
+$\underbrace{\mathbb{K}\times\mathbb{K}\times\cdots\times\mathbb{K}}_{n\text{
+times}}$ of the $\mathbb{K}$-modules $\mathbb{K},\mathbb{K},\ldots,\mathbb{K}$
+(that is, $n$ copies of the $\mathbb{K}$-module $\mathbb{K}$ defined in
+Example \ref{exa.module.K}).
+
 \subsection{\label{sect.la.rules}Features and rules}
 
 Again, we shall follow the PEMDAS convention for addition and scaling. For
@@ -30323,18 +30331,23 @@ Definition \ref{def.module.module} follow from the others.
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.module.redundant-1}.]\textit{Proof of axiom
-\textbf{(g)}:} Let $a\in M$. Then, axiom \textbf{(f)} (applied to $\lambda=0$
-and $\mu=0$) yields%
+[Proof of Proposition \ref{prop.module.redundant-1}.]Assume that all axioms in
+Definition \ref{def.module.module} are satisfied except for axioms
+\textbf{(g)} and \textbf{(j)}. We must now show that axioms \textbf{(g)} and
+\textbf{(j)} are also satisfied.
+
+\textit{Proof of axiom \textbf{(g)}:} Let $a\in M$. Then, axiom \textbf{(f)}
+(applied to $\lambda=0$ and $\mu=0$) yields%
 \[
 \left(  0+0\right)  a=0a+0a.
 \]
-This rewrites as $0a=0a+0a$. We can cancel $0a$ from this equation by adding
-an additive inverse of $0a$ to both sides (such an inverse exists because of
-axiom \textbf{(d)}); we thus get $0_{M}=0a$. This proves axiom \textbf{(g)}.
+This rewrites as $0a=0a+0a$ (since $0+0=0$). We can cancel $0a$ from this
+equation by adding an additive inverse of $0a$ to both sides (such an inverse
+exists because of axiom \textbf{(d)}); we thus get $0_{M}=0a$. In other words,
+$0a=0_{M}$. This proves axiom \textbf{(g)}.
 
-The proof of axiom \textbf{(j)} is analogous, with use of \textbf{(e)} instead
-of \textbf{(f)}.
+The proof of axiom \textbf{(j)} is analogous, with use of axiom \textbf{(e)}
+instead of axiom \textbf{(f)}.
 \end{proof}
 
 \begin{proposition}
@@ -30343,8 +30356,11 @@ of \textbf{(f)}.
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.module.redundant-2}.]Let $a\in M$. We must
-prove that $a$ has an additive inverse.
+[Proof of Proposition \ref{prop.module.redundant-2}.]Assume that all axioms in
+Definition \ref{def.module.module} are satisfied except for axiom
+\textbf{(d)}. We must now show that axiom \textbf{(d)} is also satisfied.
+
+Let $a\in M$. We must prove that $a$ has an additive inverse.
 
 Axiom \textbf{(f)} in Definition \ref{def.module.module} (applied to
 $\lambda=1$ and $\mu=-1$) yields $\left(  1+\left(  -1\right)  \right)
@@ -30409,8 +30425,9 @@ operation $-$ on $M$ is called \textquotedblleft\textit{subtraction}%
 \end{definition}
 
 \begin{remark}
-The subtraction we just defined for an arbitrary $\mathbb{K}$-module
-generalizes both
+\label{rmk.module.inv-add.generalizes}The subtraction we just defined (in
+Definition \ref{def.module.inv-add-a} \textbf{(b)}) for an arbitrary
+$\mathbb{K}$-module generalizes both
 
 \begin{itemize}
 \item the subtraction of matrices (when the $\mathbb{K}$-module is
@@ -30421,9 +30438,9 @@ $\mathbb{K}$-module is $\mathbb{Z}/n$).
 \end{itemize}
 \end{remark}
 
-\begin{proof}
-This is easy to see from the definitions of these subtractions.
-\end{proof}
+Remark \ref{rmk.module.inv-add.generalizes} is easy to prove, but we delay the
+proof until later, since it will become even easier after Proposition
+\ref{prop.module.inv-add.rules} has been proven.
 
 Using Definition \ref{def.module.inv-add-a} \textbf{(a)}, we can rewrite
 Theorem \ref{thm.module.inv-add.uni} \textbf{(b)} as follows:%
@@ -30480,6 +30497,59 @@ $1$\textquotedblright\ on the left hand side means the unity of $\mathbb{K}$.)
 Again, Proposition \ref{prop.module.inv-add.rules} shows that certain
 expressions (such as \textquotedblleft$-\lambda a$\textquotedblright\ for
 $\lambda\in\mathbb{K}$ and $a\in M$) are unambiguous.
+
+\begin{proof}
+[Proof of Remark \ref{rmk.module.inv-add.generalizes}.] Let us prove that the
+subtraction we defined (in Definition \ref{def.module.inv-add-a} \textbf{(b)})
+for an arbitrary $\mathbb{K}$-module generalizes the subtraction of matrices
+(when the $\mathbb{K}$-module is $\mathbb{K}^{n\times m}$).
+
+The rough idea of the proof is \textquotedblleft this is true, because both of
+these subtractions undo the same addition\textquotedblright. Here is the
+argument in detail: Let $n,m\in\mathbb{N}$. Let $M$ be the $\mathbb{K}$-module
+$\mathbb{K}^{n\times m}$. Let $A,B\in M$. Our goal is then to show that the
+difference $A-B$ defined as in Definition \ref{def.module.inv-add-a}
+\textbf{(b)} equals the difference $A-B$ defined as in Definition
+\ref{def.matrix.+-} \textbf{(b)}. Let us denote the former difference by
+$D_{1}$ and the latter difference by $D_{2}$. Our goal is thus to prove that
+$D_{1}=D_{2}$.
+
+We know that $D_{1}$ is the difference $A-B$ defined as in Definition
+\ref{def.module.inv-add-a} \textbf{(b)}. In other words, $A-B=D_{1}$, where
+the minus sign refers to the subtraction defined in Definition
+\ref{def.module.inv-add-a} \textbf{(b)}.
+
+But Proposition \ref{prop.module.inv-add.rules} \textbf{(a)} (applied to
+$a=A$, $b=B$ and $c=D_{1}$) shows that we have $A-B=D_{1}$ if and only if
+$A=B+D_{1}$, where the minus sign refers to the subtraction defined in
+Definition \ref{def.module.inv-add-a} \textbf{(b)}. Hence, $A=B+D_{1}$ (since
+$A-B=D_{1}$). Note that the plus sign is unambiguous here: We have defined
+subtraction on $M$ in two different ways (and still have to prove that these
+two definitions are equivalent), but we have defined addition on $M$ only once.
+
+But Theorem \ref{thm.matrix.rules} \textbf{(i)} (applied to $C=D_{1}$) yields
+that we have the equivalence $\left(  A-B=D_{1}\right)  \ \Longleftrightarrow
+\ \left(  A=B+D_{1}\right)  $, where the minus sign refers to the subtraction
+defined in Definition \ref{def.matrix.+-} \textbf{(b)}. Hence, we have
+$A-B=D_{1}$ (since we have $A=B+D_{1}$), where the minus sign refers to the
+subtraction defined in Definition \ref{def.matrix.+-} \textbf{(b)}. In other
+words, $D_{1}$ is the difference $A-B$ defined as in Definition
+\ref{def.matrix.+-} \textbf{(b)}.
+
+In other words, we have $D_{1}=D_{2}$ (since $D_{2}$ was defined to be the
+difference $A-B$ defined as in Definition \ref{def.matrix.+-} \textbf{(b)}).
+This is precisely what we set out to prove.
+
+Thus, we have shown that the subtraction we defined (in Definition
+\ref{def.module.inv-add-a} \textbf{(b)}) for an arbitrary $\mathbb{K}$-module
+generalizes the subtraction of matrices (when the $\mathbb{K}$-module is
+$\mathbb{K}^{n\times m}$). A similar argument (but using Theorem
+\ref{thm.eqrel.Z/n.rules} \textbf{(i)} instead of Theorem
+\ref{thm.matrix.rules} \textbf{(i)}) shows that the former subtraction
+generalizes the subtraction in $\mathbb{Z}/n$ (when $\mathbb{K}=\mathbb{Z}$
+and the $\mathbb{K}$-module is $\mathbb{Z}/n$). Thus, Remark
+\ref{rmk.module.inv-add.generalizes} is proven.
+\end{proof}
 
 Theorem \ref{thm.rings.sum.wd} holds for the $\mathbb{K}$-module $M$ just as
 it holds for the ring $\mathbb{K}$. Thus, we have a notion of finite sums of
@@ -44803,7 +44873,6 @@ Combining (\ref{sol.ent.phi.pk.1}) with (\ref{sol.ent.phi.pk.2}), we obtain%
 \left\{  i\in\left\{  1,2,\ldots,p^{k}\right\}  \ \mid\ i\perp p^{k}\right\}
 =\left\{  1,2,\ldots,p^{k}\right\}  \setminus M.
 \]
-
 
 Now, (\ref{eq.def.ent.phi.phi.1}) (applied to $n=p^{k}$) yields%
 \begin{align*}
