@@ -17,7 +17,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, May 13, 2019 20:11:31}
+%TCIDATA{LastRevised=Saturday, May 18, 2019 00:57:48}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -5664,8 +5664,8 @@ x^{d}-y^{d}$. This proves Lemma \ref{lem.ent.xd-yd} \textbf{(a)}.
 for every $a,b\in\mathbb{Q}$ and $k\in\mathbb{N}$. (This is a well-known
 identity, and it appears (with $k$ renamed as $n$) as the first half of
 Exercise 1 on
-\href{http://www.cip.ifi.lmu.de/~grinberg/t/19s/hw0s.pdf}{homework set
-\#0}.) Applying this identity to $a=x$, $b=y$ and $k=d$, we obtain%
+\href{http://www.cip.ifi.lmu.de/~grinberg/t/19s/hw0s.pdf}{homework set \#0}.)
+Applying this identity to $a=x$, $b=y$ and $k=d$, we obtain%
 \[
 \left(  x-y\right)  \left(  x^{d-1}+x^{d-2}y+x^{d-3}y^{2}+\cdots
 +xy^{d-2}+y^{d-1}\right)  =x^{d}-y^{d}.
@@ -11685,8 +11685,7 @@ when applying it!
 
 \begin{proof}
 [Proof of Theorem \ref{thm.binom.symmetry}.]This was Exercise 3 \textbf{(c)}
-on \href{http://www.cip.ifi.lmu.de/~grinberg/t/19s/hw0s.pdf}{homework set
-\#0}.
+on \href{http://www.cip.ifi.lmu.de/~grinberg/t/19s/hw0s.pdf}{homework set \#0}.
 \end{proof}
 
 \begin{theorem}
@@ -12453,8 +12452,8 @@ Proposition \ref{prop.binom.Z->Z} shows that binomial coefficients $\dbinom
 {n}{k}$ are integers whenever $n$ is an integer. This allows us to study
 divisibilities and congruences between binomial coefficients (and you have
 seen a few of them on
-\href{http://www.cip.ifi.lmu.de/~grinberg/t/19s/hw1s.pdf}{homework set
-\#1}). One of the most important such divisibilities is the following fact:
+\href{http://www.cip.ifi.lmu.de/~grinberg/t/19s/hw1s.pdf}{homework set \#1}).
+One of the most important such divisibilities is the following fact:
 
 \begin{theorem}
 \label{thm.binom.p|bin}Let $p$ be a prime. Let $k\in\left\{  1,2,\ldots
@@ -24333,8 +24332,8 @@ $A\cap A=A$, which means (in the language of ring operations) that its square
 is itself. Thus, $\mathcal{P}\left(  S\right)  $ is what is called a
 \textit{\href{https://en.wikipedia.org/wiki/Boolean_ring}{\textit{Boolean
 ring}}}. (See Exercise 2 on
-\href{http://www.cip.ifi.lmu.de/~grinberg/t/19s/mt2s.pdf}{midterm \#2} for
-the precise definition and a few properties of Boolean rings.)
+\href{http://www.cip.ifi.lmu.de/~grinberg/t/19s/mt2s.pdf}{midterm \#2} for the
+precise definition and a few properties of Boolean rings.)
 \end{itemize}
 
 Let us now see some non-examples -- i.e., examples of things that are not rings:
@@ -25401,17 +25400,103 @@ $0^{n}=0\cdot0^{n-1}=0$ whenever $n>0$). The proof of
 \textbf{(b)} Expand using distributivity.
 
 \textbf{(c)} First prove (\ref{eq.prop.rings.pow.rules.c.1}) by induction on
-$n$. Then, prove (\ref{eq.prop.rings.pow.rules.c.2}) by induction on $j$
-(using (\ref{eq.prop.rings.pow.rules.c.1}) in the induction step). Then, prove
+$n$\ \ \ \ \footnote{Here are the details:
+\par
+\textit{Proof of (\ref{eq.prop.rings.pow.rules.c.1}):} We shall prove
+(\ref{eq.prop.rings.pow.rules.c.1}) by induction on $n$:
+\par
+\textit{Induction base:} Applying (\ref{eq.prop.rings.pow.rules.a-to-0}) to
+$b$ instead of $a$, we conclude that $b^{0}=1$. Thus, $a\underbrace{b^{0}%
+}_{=1}=a$ and $\underbrace{b^{0}}_{=1}a=a$. Comparing these two equalities, we
+find $ab^{0}=b^{0}a$. In other words, (\ref{eq.prop.rings.pow.rules.c.1})
+holds for $n=0$. This completes the induction base.
+\par
+\textit{Induction step:} Let $m\in\mathbb{N}$. Assume that
+(\ref{eq.prop.rings.pow.rules.c.1}) holds for $n=m$. We must prove that
+(\ref{eq.prop.rings.pow.rules.c.1}) holds for $n=m+1$.
+\par
+We have assumed that (\ref{eq.prop.rings.pow.rules.c.1}) holds for $n=m$. In
+other words, we have $ab^{m}=b^{m}a$. But the definition of $b^{1}$ yields
+$b^{1}=\underbrace{b\cdot b\cdot\cdots\cdot b}_{1\text{ times}}=b$. Now,
+(\ref{eq.prop.rings.pow.rules.7}) (applied to $b$, $m$ and $1$ instead of $a$,
+$n$ and $m$) yields $b^{m+1}=b^{m}\underbrace{b^{1}}_{=b}=b^{m}b$. Hence,%
+\[
+a\underbrace{b^{m+1}}_{=b^{m}b}=\underbrace{ab^{m}}_{=b^{m}a}b=b^{m}%
+\underbrace{ab}_{=ba}=\underbrace{b^{m}b}_{=b^{m+1}}a=b^{m+1}a.
+\]
+In other words, (\ref{eq.prop.rings.pow.rules.c.1}) holds for $n=m+1$. This
+completes the induction step. Hence, the induction proof of
+(\ref{eq.prop.rings.pow.rules.c.1}) is complete.}. Then, prove
+(\ref{eq.prop.rings.pow.rules.c.2}) by induction on $j$ (using
+(\ref{eq.prop.rings.pow.rules.c.1}) in the induction
+step)\footnote{Alternatively, you can prove (\ref{eq.prop.rings.pow.rules.c.2}%
+) as follows:
+\par
+Let $i,j\in\mathbb{N}$. We must prove that $a^{i}b^{j}=b^{j}a^{i}$.
+\par
+We have $ab=ba$, thus $ba=ab$. Hence, (\ref{eq.prop.rings.pow.rules.c.1})
+(applied to $b$, $a$ and $i$ instead of $a$, $b$ and $n$) yields $ba^{i}%
+=a^{i}b$. In other words, $a^{i}b=ba^{i}$. Thus,
+(\ref{eq.prop.rings.pow.rules.c.1}) (applied to $a^{i}$ and $j$ instead of $a$
+and $n$) yields $a^{i}b^{j}=b^{j}a^{i}$. Thus,
+(\ref{eq.prop.rings.pow.rules.c.2}) is proven.}. Then, prove
 (\ref{eq.prop.rings.pow.rules.c.3}) by induction on $n$ (using
-(\ref{eq.prop.rings.pow.rules.c.1}) in the induction step). Finally, prove
+(\ref{eq.prop.rings.pow.rules.c.1}) in the induction step)\footnote{Here is
+the argument in detail:
+\par
+\textit{Proof of (\ref{eq.prop.rings.pow.rules.c.3}):} We shall prove
+(\ref{eq.prop.rings.pow.rules.c.3}) by induction on $n$:
+\par
+\textit{Induction base:} From (\ref{eq.prop.rings.pow.rules.a-to-0}), we
+obtain $a^{0}=1$. Similarly, $b^{0}=1$ and $\left(  ab\right)  ^{0}=1$. Hence,
+$\left(  ab\right)  ^{0}=1=\underbrace{1}_{=a^{0}}\cdot\underbrace{1}_{=b^{0}%
+}=a^{0}b^{0}$. In other words, (\ref{eq.prop.rings.pow.rules.c.3}) holds for
+$n=0$. This completes the induction base.
+\par
+\textit{Induction step:} Let $m\in\mathbb{N}$. Assume that
+(\ref{eq.prop.rings.pow.rules.c.3}) holds for $n=m$. We must prove that
+(\ref{eq.prop.rings.pow.rules.c.3}) holds for $n=m+1$.
+\par
+We have assumed that (\ref{eq.prop.rings.pow.rules.c.3}) holds for $n=m$. In
+other words, we have $\left(  ab\right)  ^{m}=a^{m}b^{m}$. But the definition
+of $b^{1}$ yields $b^{1}=\underbrace{b\cdot b\cdot\cdots\cdot b}_{1\text{
+times}}=b$. Now, (\ref{eq.prop.rings.pow.rules.7}) (applied to $b$, $m$ and
+$1$ instead of $a$, $n$ and $m$) yields $b^{m+1}=b^{m}\underbrace{b^{1}}%
+_{=b}=b^{m}b$. Similarly, $a^{m+1}=a^{m}a$.
+\par
+But (\ref{eq.prop.rings.pow.rules.c.1}) (applied to $n=m$) yields
+$ab^{m}=b^{m}a$. Now,%
+\begin{equation}
+\underbrace{a^{m+1}}_{=a^{m}a}\underbrace{b^{m+1}}_{=b^{m}b}=a^{m}%
+\underbrace{ab^{m}}_{=b^{m}a}b=a^{m}b^{m}ab.
+\label{pf.prop.rings.pow.rules.c.3.pf.1}%
+\end{equation}
+\par
+But the same argument that we used to show that $b^{m+1}=b^{m}b$ can be
+applied to $ab$ instead of $b$. We thus obtain%
+\[
+\left(  ab\right)  ^{m+1}=\underbrace{\left(  ab\right)  ^{m}}_{=a^{m}b^{m}%
+}\left(  ab\right)  =a^{m}b^{m}\left(  ab\right)  =a^{m}b^{m}ab.
+\]
+Comparing this with (\ref{pf.prop.rings.pow.rules.c.3.pf.1}), we obtain
+$\left(  ab\right)  ^{m+1}=a^{m+1}b^{m+1}$. In other words,
+(\ref{eq.prop.rings.pow.rules.c.3}) holds for $n=m+1$. This completes the
+induction step. Hence, the induction proof of
+(\ref{eq.prop.rings.pow.rules.c.3}) is complete.}. Finally, prove
 (\ref{eq.prop.rings.pow.rules.c.binom}) by induction on $n$, just as Theorem
 \ref{thm.binom.binf} is proven (but using (\ref{eq.prop.rings.pow.rules.c.2})
 in the induction step in order to move powers of $a$ past powers of $b$).
 
 \textbf{(d)} For $\mathbb{K}=\mathbb{Q}$, this was proven in Exercise 1 on
 \href{http://www.cip.ifi.lmu.de/~grinberg/t/19s/hw0s.pdf}{homework set \#0}.
-The proof in the case of general rings $\mathbb{K}$ is analogous.
+The proof in the case of general rings $\mathbb{K}$ is
+analogous\footnote{There is only one minor complication: We need to justify
+that $\left(  a-b\right)  a=a\left(  a-b\right)  $ (since this was used in the
+proof). Luckily, this is very easy: Just note that
+\[
+\left(  a-b\right)  a=aa-\underbrace{ba}_{=ab}=aa-ab=a\left(  a-b\right)  .
+\]
+}.
 \end{proof}
 
 \subsection{\label{sect.ring.inv}Multiplicative inverses and fields}
@@ -27558,8 +27643,7 @@ $g\circ f:\mathbb{K}\rightarrow\mathbb{M}$ is also a ring homomorphism.
 
 \begin{proof}
 [Proof of Proposition \ref{prop.riho.compose}.]This is exercise 4 \textbf{(a)}
-on \href{http://www.cip.ifi.lmu.de/~grinberg/t/19s/hw6s.pdf}{homework set
-\#6}.
+on \href{http://www.cip.ifi.lmu.de/~grinberg/t/19s/hw6s.pdf}{homework set \#6}.
 \end{proof}
 
 \subsection{\label{sect.ring.riiso}Ring isomorphisms}
@@ -28353,8 +28437,8 @@ a & a+b
 \]
 This is a subring of the matrix ring $\mathbb{Z}^{2\times2}$.
 
-On \href{http://www.cip.ifi.lmu.de/~grinberg/t/19s/hw5s.pdf}{homework set
-\#5} exercise 5, you have encountered the ring%
+On \href{http://www.cip.ifi.lmu.de/~grinberg/t/19s/hw5s.pdf}{homework set \#5}
+exercise 5, you have encountered the ring%
 \[
 \mathbb{Z}\left[  \phi\right]  =\left\{  a+b\phi\ \mid\ a,b\in\mathbb{Z}%
 \right\}  ,
