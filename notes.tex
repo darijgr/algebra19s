@@ -17,7 +17,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Saturday, May 18, 2019 13:10:33}
+%TCIDATA{LastRevised=Saturday, May 18, 2019 13:29:19}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -24023,6 +24023,10 @@ unital ring\textquotedblright\ for a ring that does come equipped with a $1$
 that satisfies the \textquotedblleft Neutrality of one\textquotedblright%
 \ axiom; i.e., they call \textquotedblleft unital ring\textquotedblright\ what
 we call \textquotedblleft ring\textquotedblright.)
+
+The variant of the notion of rings in which the element $1$ is not required is
+most commonly called a \textit{nonunital ring}; it appears in Exercises 1 and
+2 of \href{http://www.cip.ifi.lmu.de/~grinberg/t/19s/mt3s.pdf}{midterm \#3}.
 \end{itemize}
 
 \subsection{\label{sect.ring.exa}Examples of rings}
@@ -25058,12 +25062,12 @@ subtraction yields $a-b=a+\left(  -b\right)  $. Hence,%
 -a\right)  +\underbrace{\left(  -\left(  -b\right)  \right)  }_{=b}\\
 &  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition
 \ref{prop.rings.inv-add.rules} \textbf{(b)}, applied to }-b\text{ instead of
-}b\right) \\
+}b\right)  \\
 &  =\left(  -a\right)  +b=b+\left(  -a\right)  \ \ \ \ \ \ \ \ \ \ \left(
-\text{by commutativity of addition}\right) \\
+\text{by commutativity of addition}\right)  \\
 &  =b-a
 \end{align*}
-(since $b-a$ is defined to be $b+\left(  -1\right)  $). This proves
+(since $b-a$ is defined to be $b+\left(  -a\right)  $). This proves
 Proposition \ref{prop.rings.inv-add.rules} \textbf{(i)}.
 
 \textbf{(j)} Proposition \ref{prop.rings.inv-add.rules} \textbf{(e)} (applied
@@ -25880,13 +25884,14 @@ numbers, with addition and subtraction defined entrywise, and with
 multiplication given by%
 \begin{align*}
 &  \left(  x_{1},x_{2},x_{3},x_{4}\right)  \cdot\left(  y_{1},y_{2}%
-,y_{3},y_{4}\right) \\
+,y_{3},y_{4}\right)  \\
 &  =\left(  x_{1}y_{1}-x_{2}y_{2}-x_{3}y_{3}-x_{4}y_{4},x_{1}y_{2}+x_{2}%
-y_{1}+x_{3}y_{4}-x_{4}y_{3},\right. \\
+y_{1}+x_{3}y_{4}-x_{4}y_{3},\right.  \\
 &  \ \ \ \ \ \ \ \ \ \ \left.  x_{1}y_{3}-x_{2}y_{4}+x_{3}y_{1}+x_{4}%
 y_{2},x_{1}y_{4}+x_{2}y_{3}-x_{3}y_{2}+x_{4}y_{1}\right)  .
 \end{align*}
-
+(The $4$-tuple $\left(  a,b,c,d\right)  $ is a rigorous model for the
+\textquotedblleft number\textquotedblright\ $a+bi+cj+dij$.)
 
 These new numbers are known as
 \href{https://en.wikipedia.org/wiki/Quaternion}{the \textit{quaternions}}. It
@@ -25909,8 +25914,8 @@ b_{3}%
 \end{array}
 \right)  \in\mathbb{R}^{3}$ are two vectors, then the quaternion%
 \begin{align*}
-&  \left(  0,a_{1},a_{2},a_{3}\right)  \cdot\left(  0,b_{1},b_{2},b_{3}\right)
-\\
+&  \left(  0,a_{1},a_{2},a_{3}\right)  \cdot\left(  0,b_{1},b_{2}%
+,b_{3}\right)  \\
 &  =\left(  \underbrace{-a_{1}b_{1}-a_{2}b_{2}-a_{3}b_{3}}%
 _{\substack{=-\mathbf{a}\cdot\mathbf{b}\\\text{(where }\cdot\text{ stands
 for}\\\text{the dot product)}}},\underbrace{a_{2}b_{3}-a_{3}b_{2},a_{3}%
@@ -25920,7 +25925,8 @@ coordinates}\\\text{of the cross product }\mathbf{a}\times\mathbf{b}}}\right)
 \end{align*}
 Also,
 \href{https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation}{the
-quaternions can be used to encode rotations in 3-dimensional space}.
+quaternions can be used to encode rotations in 3-dimensional space} (see,
+e.g., \cite{Jia13}).
 \end{example}
 
 \begin{exercise}
@@ -27188,21 +27194,23 @@ $n$.
 \textit{ring homomorphism} from $\mathbb{K}$ to $\mathbb{L}$ means a map
 $f:\mathbb{K}\rightarrow\mathbb{L}$ that satisfies the following four axioms:
 
-\textbf{(a)} We have $f\left(  a+b\right)  =f\left(  a\right)  +f\left(
+\begin{itemize}
+\item \textbf{(a)} We have $f\left(  a+b\right)  =f\left(  a\right)  +f\left(
 b\right)  $ for all $a,b\in\mathbb{K}$. (This is called \textquotedblleft$f$
 respects addition\textquotedblright\ or \textquotedblleft$f$ preserves
 addition\textquotedblright.)
 
-\textbf{(b)} We have $f\left(  0\right)  =0$. (This, of course, means
+\item \textbf{(b)} We have $f\left(  0\right)  =0$. (This, of course, means
 $f\left(  0_{\mathbb{K}}\right)  =0_{\mathbb{L}}$.)
 
-\textbf{(c)} We have $f\left(  ab\right)  =f\left(  a\right)  f\left(
+\item \textbf{(c)} We have $f\left(  ab\right)  =f\left(  a\right)  f\left(
 b\right)  $ for all $a,b\in\mathbb{K}$. (This is called \textquotedblleft$f$
 respects multiplication\textquotedblright\ or \textquotedblleft$f$ preserves
 multiplication\textquotedblright.)
 
-\textbf{(d)} We have $f\left(  1\right)  =1$. (This, of course, means
+\item \textbf{(d)} We have $f\left(  1\right)  =1$. (This, of course, means
 $f\left(  1_{\mathbb{K}}\right)  =1_{\mathbb{L}}$.)
+\end{itemize}
 \end{definition}
 
 \begin{remark}
@@ -27875,7 +27883,8 @@ $f^{-1}:\mathbb{L}\rightarrow\mathbb{K}$ is also a ring isomorphism.
 homomorphism (since $f$ is a ring isomorphism). Furthermore, $f^{-1}$ is
 invertible (with inverse $\left(  f^{-1}\right)  ^{-1}=f$) and its inverse
 $\left(  f^{-1}\right)  ^{-1}=f$ is a ring homomorphism as well. Thus,
-$f^{-1}$ is a ring isomorphism.
+$f^{-1}$ is a ring isomorphism. This proves Proposition
+\ref{prop.riiso.inverse}.
 \end{proof}
 
 Let me attempt to discuss the use of ring isomorphisms; unfortunately, I will
@@ -29298,11 +29307,14 @@ $\mathbb{K}^{1\times n}$ is the set of all row vectors of size $n$.
 A \textit{subspace} of $\mathbb{K}^{1\times n}$ means a subset $S\subseteq
 \mathbb{K}^{1\times n}$ satisfying the following axioms:
 
-\textbf{(a)} We have $0_{1\times n}\in S$.
+\begin{itemize}
+\item \textbf{(a)} We have $0_{1\times n}\in S$.
 
-\textbf{(b)} If $a,b\in S$, then $a+b\in S$.
+\item \textbf{(b)} If $a,b\in S$, then $a+b\in S$.
 
-\textbf{(c)} If $a\in S$ and $\lambda\in\mathbb{K}$, then $\lambda a\in S$.
+\item \textbf{(c)} If $a\in S$ and $\lambda\in\mathbb{K}$, then $\lambda a\in
+S$.
+\end{itemize}
 \end{definition}
 
 In other words, a subspace of $\mathbb{K}^{1\times n}$ is a subset of
@@ -30499,7 +30511,7 @@ expressions (such as \textquotedblleft$-\lambda a$\textquotedblright\ for
 $\lambda\in\mathbb{K}$ and $a\in M$) are unambiguous.
 
 \begin{proof}
-[Proof of Remark \ref{rmk.module.inv-add.generalizes}.] Let us prove that the
+[Proof of Remark \ref{rmk.module.inv-add.generalizes}.]Let us prove that the
 subtraction we defined (in Definition \ref{def.module.inv-add-a} \textbf{(b)})
 for an arbitrary $\mathbb{K}$-module generalizes the subtraction of matrices
 (when the $\mathbb{K}$-module is $\mathbb{K}^{n\times m}$).
@@ -30792,18 +30804,20 @@ $\textit{-linear maps}:
 $\mathbb{K}$\textit{-module homomorphism} from $M$ to $N$ means a map
 $f:M\rightarrow N$ that satisfies the following three axioms:
 
-\textbf{(a)} We have $f\left(  a+b\right)  =f\left(  a\right)  +f\left(
+\begin{itemize}
+\item \textbf{(a)} We have $f\left(  a+b\right)  =f\left(  a\right)  +f\left(
 b\right)  $ for all $a,b\in M$. (This is called \textquotedblleft$f$ respects
 addition\textquotedblright\ or \textquotedblleft$f$ preserves
 addition\textquotedblright.)
 
-\textbf{(b)} We have $f\left(  0\right)  =0$. (This, of course, means
+\item \textbf{(b)} We have $f\left(  0\right)  =0$. (This, of course, means
 $f\left(  0_{M}\right)  =0_{N}$.)
 
-\textbf{(c)} We have $f\left(  \lambda a\right)  =\lambda f\left(  a\right)  $
-for all $\lambda\in\mathbb{K}$ and $a\in M$. (This is called \textquotedblleft%
-$f$ respects scaling\textquotedblright\ or \textquotedblleft$f$ preserves
-scaling\textquotedblright.)
+\item \textbf{(c)} We have $f\left(  \lambda a\right)  =\lambda f\left(
+a\right)  $ for all $\lambda\in\mathbb{K}$ and $a\in M$. (This is called
+\textquotedblleft$f$ respects scaling\textquotedblright\ or \textquotedblleft%
+$f$ preserves scaling\textquotedblright.)
+\end{itemize}
 
 Instead of \textquotedblleft$\mathbb{K}$-module homomorphism\textquotedblright%
 , we can also say \textquotedblleft$\mathbb{K}$\textit{-linear map}%
@@ -30897,7 +30911,7 @@ This proves Claim 3.]
 
 Thus, all three Claims 1, 2 and 3 have been proven. Hence, the map
 $L_{\lambda}:M\rightarrow M,\ a\mapsto\lambda a$ is $\mathbb{K}$-linear; this
-completes the proof of Example \ref{exa.module.moho.id} \textbf{(b)}.{}
+completes the proof of Example \ref{exa.module.moho.id} \textbf{(b)}.
 
 \textbf{(a)} In Example \ref{exa.module.moho.id} \textbf{(b)}, we have defined
 a map $L_{\lambda}:M\rightarrow M,\ a\mapsto\lambda a$ for each $\lambda
@@ -30907,15 +30921,15 @@ $-linear (by Example \ref{exa.module.moho.id} \textbf{(b)}, applied to
 $\lambda=1$). But each $a\in M$ satisfies
 \begin{align*}
 L_{1}\left(  a\right)   &  =1a\ \ \ \ \ \ \ \ \ \ \left(  \text{by the
-definition of }L_{1}\right) \\
+definition of }L_{1}\right)  \\
 &  =a\ \ \ \ \ \ \ \ \ \ \left(  \text{by axiom \textbf{(i)} in Definition
-\ref{def.module.module}}\right) \\
+\ref{def.module.module}}\right)  \\
 &  =\operatorname*{id}\left(  a\right)  .
 \end{align*}
 In other words, $L_{1}=\operatorname*{id}$. Hence, the map $\operatorname*{id}%
 :M\rightarrow M$ is $\mathbb{K}$-linear (since the map $L_{1}:M\rightarrow M$
 is $\mathbb{K}$-linear). This proves Example \ref{exa.module.moho.id}
-\textbf{(a)}.{}
+\textbf{(a)}.
 
 \textbf{(c)} Assume that $M=\mathbb{K}$ (specifically, the $\mathbb{K}$-module
 $\mathbb{K}$ defined in Example \ref{exa.module.K}). We must prove that the
@@ -44874,6 +44888,7 @@ Combining (\ref{sol.ent.phi.pk.1}) with (\ref{sol.ent.phi.pk.2}), we obtain%
 =\left\{  1,2,\ldots,p^{k}\right\}  \setminus M.
 \]
 
+
 Now, (\ref{eq.def.ent.phi.phi.1}) (applied to $n=p^{k}$) yields%
 \begin{align*}
 \phi\left(  p^{k}\right)   &  =\left\vert \underbrace{\left\{  i\in\left\{
@@ -50790,6 +50805,9 @@ edition 2018.\newline\url{http://www.people.vcu.edu/~rhammack/BookOfProof/}
 \bibitem[Heffer17]{Hefferon}Jim Hefferon, \textit{Linear Algebra}, 3rd edition
 2017.\newline\url{http://joshua.smcvt.edu/linearalgebra/}
 
+\bibitem[Jia13]{Jia13}Yan-Bin Jia, \textit{Quaternions and Rotations (Com S
+477/577 Notes)}, 10 September 2013.\newline\url{http://graphics.stanford.edu/courses/cs348a-17-winter/Papers/quaternion.pdf}
+
 \bibitem[Knapp16a]{Knapp1}Anthony W. Knapp, \textit{Basic Algebra}, digital
 2nd edition 2016. \newline\url{http://www.math.stonybrook.edu/~aknapp/download.html}
 
@@ -50853,6 +50871,4 @@ II}, translated 5th edition, Springer 1991.
 \bibitem[Wilf94]{Wilf94}Herbert S. Wilf, \textit{generatingfunctionology},
 1999.\newline\url{https://www.math.upenn.edu/~wilf/DownldGF.html}
 \end{thebibliography}
-
-
 \end{document}
