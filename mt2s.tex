@@ -1,0 +1,1918 @@
+% The LaTeX below is mostly computer-generated (for reasons of speed); don't expect it to be very readable. Sorry.
+
+\documentclass[paper=a4, fontsize=12pt]{scrartcl}%
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{amsmath,amsfonts,amsthm,amssymb}
+\usepackage{mathrsfs}
+\usepackage{sectsty}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{framed}
+\usepackage{ifthen}
+\usepackage{lastpage}
+\usepackage[headsepline,footsepline,manualmark]{scrlayer-scrpage}
+\usepackage[height=10in,a4paper,hmargin={1in,0.8in}]{geometry}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{tikz}
+\usepackage{verbatim}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}%
+\setcounter{MaxMatrixCols}{30}
+%TCIDATA{OutputFilter=latex2.dll}
+%TCIDATA{Version=5.50.0.2960}
+%TCIDATA{LastRevised=Saturday, May 11, 2019 19:35:23}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{BibliographyScheme=Manual}
+%BeginMSIPreambleData
+\providecommand{\U}[1]{\protect\rule{.1in}{.1in}}
+%EndMSIPreambleData
+\allsectionsfont{\centering \normalfont\scshape}
+\setlength\parindent{20pt}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\KK}{\mathbb{K}}
+\newcommand{\Z}[1]{\mathbb{Z}/#1\mathbb{Z}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\lcm}{\operatorname{lcm}}
+\newcommand{\set}[1]{\left\{ #1 \right\}}
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\tup}[1]{\left( #1 \right)}
+\newcommand{\ive}[1]{\left[ #1 \right]}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\underbrack}[2]{\underbrace{#1}_{\substack{#2}}}
+\newcommand{\powset}[2][]{\ifthenelse{\equal{#2}{}}{\mathcal{P}\left(#1\right)}{\mathcal{P}_{#1}\left(#2\right)}}
+\newcommand{\calF}{\mathcal{F}}
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}}
+\newcommand{\nnn}{\nonumber\\}
+\iffalse
+\newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\newenvironment{question}[1][Question]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\newenvironment{teachingnote}[1][Teaching note]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\fi
+\let\sumnonlimits\sum
+\let\prodnonlimits\prod
+\let\cupnonlimits\bigcup
+\let\capnonlimits\bigcap
+\renewcommand{\sum}{\sumnonlimits\limits}
+\renewcommand{\prod}{\prodnonlimits\limits}
+\renewcommand{\bigcup}{\cupnonlimits\limits}
+\renewcommand{\bigcap}{\capnonlimits\limits}
+\newtheoremstyle{plainsl}
+{8pt plus 2pt minus 4pt}
+{8pt plus 2pt minus 4pt}
+{\slshape}
+{0pt}
+{\bfseries}
+{.}
+{5pt plus 1pt minus 1pt}
+{}
+\theoremstyle{plainsl}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{examples}[theorem]{Examples}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{question}[theorem]{Question}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newenvironment{statement}{\begin{quote}}{\end{quote}}
+\newenvironment{fineprint}{\begin{small}}{\end{small}}
+\newcommand{\myname}{Darij Grinberg}
+\newcommand{\myid}{00000000}
+\newcommand{\mymail}{dgrinber@umn.edu}
+\newcommand{\psetnumber}{2}
+\ihead{Solutions to midterm \#\psetnumber}
+\ohead{page \thepage\ of \pageref{LastPage}}
+\ifoot{\myname, \myid}
+\ofoot{\mymail}
+\begin{document}
+
+\title{ \normalfont {\normalsize \textsc{University of Minnesota, School of
+Mathematics} }\\[25pt] \rule{\linewidth}{0.5pt} \\[0.4cm] {\huge Math 4281: Introduction to Modern Algebra, }\\Spring 2019: Midterm 2\\\rule{\linewidth}{2pt} \\[0.5cm] }
+\author{Darij Grinberg}
+\maketitle
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 1
+%----------------------------------------------------------------------------------------
+\rule{0pt}{0.3pt} \\[0.4cm]
+
+\section{Exercise 1: Not-quite-all-rationals}
+
+\subsection{Problem}
+
+Fix an integer $m$. An \textit{$m$-integer} shall mean a rational number $r$
+such that there exists a $k \in\mathbb{N}$ satisfying $m^{k} r \in\mathbb{Z}$.
+
+For example\footnote{You don't need to prove these.}:
+
+\begin{itemize}
+\item Each integer $r$ is an $m$-integer (since $m^{k} r \in\mathbb{Z}$ for $k
+= 0$).
+
+\item The rational number $\dfrac{5}{12}$ is a $6$-integer (since $6^{k}
+\cdot\dfrac{5}{12} \in\mathbb{Z}$ for $k = 2$), but neither a $2$-integer nor
+a $3$-integer (since multiplying it by a power of $2$ will not ``get rid of''
+the prime factor $3$ in the denominator, and vice versa\footnote{You would
+have to be more rigorous than this in your solution, if you were to make an
+argument like this.}).
+
+\item The $1$-integers are the integers (since $1^{k} r = r$ for all $r$).
+
+\item Every rational number $r$ is a $0$-integer (since $0^{k} r \in
+\mathbb{Z}$ for $k = 1$).
+\end{itemize}
+
+Let $R_{m}$ denote the set of all $m$-integers. Prove the following:
+
+\begin{enumerate}
+\item[\textbf{(a)}] The set $R_{m}$ (endowed with the usual addition, the
+usual multiplication, the usual integer $0$ as zero, and the usual integer $1$
+as unity) is a commutative ring. \newline(You don't need to prove axioms like
+commutativity of multiplication, since these follow from the corresponding
+facts about rational numbers, which are well-known. You only need to check
+that $R_{m}$ is closed under addition and multiplication\footnote{This means
+that every $a, b \in R_{m}$ satisfy $a + b \in R_{m}$ and $a b \in R_{m}$.},
+and contains additive inverses of all its elements.)
+
+\item[\textbf{(b)}] Let $x\in\mathbb{Q}$ be nonzero. Then, $x\in R_{m}$ if and
+only if every prime $p$ satisfying $w_{p}\left(  x\right)  <0$ satisfies
+$p\mid m$. Here, we are using the notation $w_{p}\left(  r\right)  $ defined
+in Exercise 3.4.1 of the
+\href{http://www.cip.ifi.lmu.de/~grinberg/t/19s/notes.pdf}{class notes}.
+\end{enumerate}
+
+\subsection{Remark}
+
+Roughly speaking, an $m$-integer is a rational number that can be turned into
+an integer by multiplying it with $m$ several times. So a rational number,
+written as a reduced fraction, is an $m$-integer if and only if a sufficiently
+large power of $m$ can cancel all the primes in its denominator.
+
+The ring $R_{m}$ is an example of a ring \textquotedblleft between
+$\mathbb{Z}$ and $\mathbb{Q}$\textquotedblright. It is commonly denoted by
+$\mathbb{Z}\left[  \dfrac{1}{m}\right]  $ and pronounced \textquotedblleft%
+$\mathbb{Z}$ adjoined $1$ over $m$\textquotedblright.
+
+Note that $R_{1}=\mathbb{Z}$ and $R_{0}=\mathbb{Q}$, whereas $R_{2}%
+=R_{4}=R_{8}=\cdots$ is the ring of all rational numbers that can be written
+in the form $a/2^{k}$ with $a\in\mathbb{Z}$ and $k\in\mathbb{N}$.
+
+The ring $R_{10}$ is the ring of all
+\textit{\href{https://en.wikipedia.org/wiki/Decimal}{decimal fractions}} --
+i.e., of all rational numbers that can be written in decimal notation with
+only finitely many digits after the comma.
+
+\subsection{Solution}
+
+For each rational number $r$, we have the following chain of logical
+equivalences:%
+\begin{align}
+\left(  r\in R_{m}\right)  \  &  \Longleftrightarrow\ \left(  r\text{ is an
+}m\text{-integer}\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{since }R_{m}\text{
+is the set of all }m\text{-integers}\right) \nonumber\\
+&  \Longleftrightarrow\ \left(  \text{there exists a }k\in\mathbb{N}\text{
+satisfying }m^{k}r\in\mathbb{Z}\right)  \label{sol.ring.m-int.equiv}%
+\end{align}
+(by the definition of an $m$-integer).
+
+\bigskip
+
+\textbf{(a)} We begin by proving the following claims:
+
+\begin{statement}
+\textit{Claim 1:} We have $r\in R_{m}$ for each integer $r$.
+\end{statement}
+
+\begin{statement}
+\textit{Claim 2:} If $a\in R_{m}$ and $b\in R_{m}$, then $a+b\in R_{m}$ and
+$a\cdot b\in R_{m}$.
+\end{statement}
+
+\begin{statement}
+\textit{Claim 3:} If $a\in R_{m}$, then $-a\in R_{m}$.
+\end{statement}
+
+[\textit{Proof of Claim 1:} Let $r$ be an integer. Then, $\underbrace{m^{0}%
+}_{=1}r=r\in\mathbb{Z}$. Hence, there exists a $k\in\mathbb{N}$ satisfying
+$m^{k}r\in\mathbb{Z}$ (namely, $k=0$). But (\ref{sol.ring.m-int.equiv}) yields
+the equivalence
+\[
+\left(  r\in R_{m}\right)  \ \Longleftrightarrow\ \left(  \text{there exists a
+}k\in\mathbb{N}\text{ satisfying }m^{k}r\in\mathbb{Z}\right)  .
+\]
+Hence, $r\in R_{m}$ (since there exists a $k\in\mathbb{N}$ satisfying
+$m^{k}r\in\mathbb{Z}$). This proves Claim 1.]
+
+[\textit{Proof of Claim 2:} Let $a\in R_{m}$ and $b\in R_{m}$. We must show
+that $a+b\in R_{m}$ and $a\cdot b\in R_{m}$.
+
+But (\ref{sol.ring.m-int.equiv}) (applied to $r=a$) yields the equivalence
+\[
+\left(  a\in R_{m}\right)  \ \Longleftrightarrow\ \left(  \text{there exists a
+}k\in\mathbb{N}\text{ satisfying }m^{k}a\in\mathbb{Z}\right)  .
+\]
+Hence, there exists a $k\in\mathbb{N}$ satisfying $m^{k}a\in\mathbb{Z}$ (since
+$a\in R_{m}$). Consider this $k$, and denote it by $x$. Thus, $x\in\mathbb{N}$
+and $m^{x}a\in\mathbb{Z}$.
+
+Furthermore, (\ref{sol.ring.m-int.equiv}) (applied to $r=b$) yields the
+equivalence
+\[
+\left(  b\in R_{m}\right)  \ \Longleftrightarrow\ \left(  \text{there exists a
+}k\in\mathbb{N}\text{ satisfying }m^{k}b\in\mathbb{Z}\right)  .
+\]
+Hence, there exists a $k\in\mathbb{N}$ satisfying $m^{k}b\in\mathbb{Z}$ (since
+$b\in R_{m}$). Consider this $k$, and denote it by $y$. Thus, $y\in\mathbb{N}$
+and $m^{y}b\in\mathbb{Z}$.
+
+Note that $m^{x}$ is an integer (since $m$ is an integer and $x\in\mathbb{N}%
+$). In other words, $m^{x}\in\mathbb{Z}$. Similarly, $m^{y}\in\mathbb{Z}$.
+
+Now,
+\[
+\underbrace{m^{x+y}}_{=m^{x}m^{y}}\left(  a+b\right)  =m^{x}m^{y}\left(
+a+b\right)  =m^{x}m^{y}a+m^{x}m^{y}b=\underbrace{m^{y}}_{\in\mathbb{Z}%
+}\underbrace{m^{x}a}_{\in\mathbb{Z}}+\underbrace{m^{x}}_{\in\mathbb{Z}%
+}\underbrace{m^{y}b}_{\in\mathbb{Z}}\in\mathbb{Z}.
+\]
+Thus, there exists a $k\in\mathbb{N}$ satisfying $m^{k}\left(  a+b\right)
+\in\mathbb{Z}$ (namely, $k=x+y$). (Note that with a little bit more work, we
+could have also shown this for $k=\max\left\{  x,y\right\}  $ instead of
+$k=x+y$; we were just being lazy.)
+
+But (\ref{sol.ring.m-int.equiv}) (applied to $r=a+b$) yields the equivalence
+\[
+\left(  a+b\in R_{m}\right)  \ \Longleftrightarrow\ \left(  \text{there exists
+a }k\in\mathbb{N}\text{ satisfying }m^{k}\left(  a+b\right)  \in
+\mathbb{Z}\right)  .
+\]
+Hence, $a+b\in R_{m}$ (since there exists a $k\in\mathbb{N}$ satisfying
+$m^{k}\left(  a+b\right)  \in\mathbb{Z}$).
+
+Furthermore,%
+\[
+\underbrace{m^{x+y}}_{=m^{x}m^{y}}\left(  a\cdot b\right)  =m^{x}m^{y}\left(
+a\cdot b\right)  =\underbrace{m^{x}a}_{\in\mathbb{Z}}\underbrace{m^{y}b}%
+_{\in\mathbb{Z}}\in\mathbb{Z}.
+\]
+Thus, there exists a $k\in\mathbb{N}$ satisfying $m^{k}\left(  a\cdot
+b\right)  \in\mathbb{Z}$ (namely, $k=x+y$).
+
+But (\ref{sol.ring.m-int.equiv}) (applied to $r=a\cdot b$) yields the
+equivalence
+\[
+\left(  a\cdot b\in R_{m}\right)  \ \Longleftrightarrow\ \left(  \text{there
+exists a }k\in\mathbb{N}\text{ satisfying }m^{k}\left(  a\cdot b\right)
+\in\mathbb{Z}\right)  .
+\]
+Hence, $a\cdot b\in R_{m}$ (since there exists a $k\in\mathbb{N}$ satisfying
+$m^{k}\left(  a\cdot b\right)  \in\mathbb{Z}$).
+
+We have now proven that $a+b\in R_{m}$ and $a\cdot b\in R_{m}$. This proves
+Claim 2.]
+
+[\textit{Proof of Claim 3:} Let $a\in R_{m}$. We shall show that $-a\in R_{m}$.
+
+We could do this similarly to our proof of Claim 2, but let us take a shortcut
+instead: We have $-1\in R_{m}$ (by Claim 1, applied to $r=-1$). Hence, Claim 2
+(applied to $b=-1$) yields $a+\left(  -1\right)  \in R_{m}$ and $a\cdot\left(
+-1\right)  \in R_{m}$. Now, $-a=a\cdot\left(  -1\right)  \in R_{m}$. This
+proves Claim 3.]
+
+Now, consider the set $R_{m}$. We have $0\in R_{m}$ (by Claim 1, applied to
+$r=0$) and $1\in R_{m}$ (by Claim 1, applied to $r=1$). Thus, the set $R_{m}$
+contains the elements $0$ and $1$.
+
+Furthermore, every $a\in R_{m}$ and $b\in R_{m}$ satisfy $a+b\in R_{m}$ (by
+Claim 2). Thus, we can define a binary operation $+$ on the set $R_{m}$ by
+restricting the usual addition $+$ on $\mathbb{Q}$ to the subset $R_{m}$.
+
+Moreover, every $a\in R_{m}$ and $b\in R_{m}$ satisfy $a\cdot b\in R_{m}$ (by
+Claim 2). Thus, we can define a binary operation $\cdot$ on the set $R_{m}$ by
+restricting the usual multiplication $\cdot$ on $\mathbb{Q}$ to the subset
+$R_{m}$.
+
+Now, the exercise demands us to prove that the set $R_{m}$ equipped with these
+two binary operations $+$ and $\cdot$ and the two elements $0$ and $1$ is a
+commutative ring. In order to do so, we must verify that the ring axioms and
+the \textquotedblleft Commutativity of multiplication\textquotedblright\ axiom
+are satisfied.
+
+But all of these axioms, except for the \textquotedblleft Existence of
+additive inverses\textquotedblright\ axiom, are clearly satisfied because they
+are satisfied for $\mathbb{Q}$ (and because our $R_{m}$ is a subset of
+$\mathbb{Q}$, and because we endowed $R_{m}$ with operations $+$ and $\cdot$
+that are restrictions of the corresponding operations of $\mathbb{Q}$). It
+thus remains to prove that the \textquotedblleft Existence of additive
+inverses\textquotedblright\ axiom is satisfied.
+
+But this is easy: If $a\in R_{m}$, then $-a\in R_{m}$ (by Claim 3), and thus
+there exists an element $a^{\prime}\in R_{m}$ satisfying $a+a^{\prime
+}=a^{\prime}+a=0$ (namely, $a^{\prime}=-a$).
+
+Thus, we have proven that $R_{m}$ is a commutative ring. This solves part
+\textbf{(a)} of the exercise.
+
+\bigskip
+
+\textbf{(b)} From (\ref{sol.ring.m-int.equiv}) (applied to $r=x$), we obtain
+the logical equivalence
+\[
+\left(  x\in R_{m}\right)  \ \Longleftrightarrow\ \left(  \text{there exists a
+}k\in\mathbb{N}\text{ satisfying }m^{k}x\in\mathbb{Z}\right)  .
+\]
+But Exercise 3.4.2 \textbf{(d)} in the
+\href{http://www.cip.ifi.lmu.de/~grinberg/t/19s/notes.pdf}{class notes}
+(applied to $r=x$) yields the logical equivalence%
+\begin{align*}
+&  \ \left(  \text{there exists a }k\in\mathbb{N}\text{ satisfying }m^{k}%
+x\in\mathbb{Z}\right) \\
+&  \Longleftrightarrow\ \left(  \text{every prime }p\text{ satisfying }%
+w_{p}\left(  x\right)  <0\text{ satisfies }p\mid m\right)  .
+\end{align*}
+Hence, we have the following chain of equivalences:%
+\begin{align*}
+\left(  x\in R_{m}\right)  \  &  \Longleftrightarrow\ \left(  \text{there
+exists a }k\in\mathbb{N}\text{ satisfying }m^{k}x\in\mathbb{Z}\right) \\
+&  \Longleftrightarrow\ \left(  \text{every prime }p\text{ satisfying }%
+w_{p}\left(  x\right)  <0\text{ satisfies }p\mid m\right)  .
+\end{align*}
+This solves part \textbf{(b)} of the exercise.
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 2
+%----------------------------------------------------------------------------------------
+\rule{\linewidth}{0.3pt} \\[0.4cm]
+
+\section{Exercise 2: Rings with $x^{2} = x$}
+
+\subsection{Problem}
+
+Let $\mathbb{K}$ be a ring with the property that
+\begin{equation}
+u^{2}=u\qquad\text{ for all }u\in\mathbb{K}. \label{eq.exe.ring.xx=x.cond}%
+\end{equation}
+
+
+(Examples of such rings are $\mathbb{Z}/2$ as well as the \textquotedblleft
+power set\textquotedblright\ ring $\left(  \mathcal{P}\left(  S\right)
+,\triangle,\cap,\varnothing,S\right)  $ constructed from any given set $S$.)
+
+Prove the following:
+
+\begin{enumerate}
+\item[\textbf{(a)}] We have $2x = 0$ for each $x \in\mathbb{K}$.
+
+\item[\textbf{(b)}] We have $-x = x$ for each $x \in\mathbb{K}$.
+
+\item[\textbf{(c)}] We have $xy = yx$ for all $x, y \in\mathbb{K}$. (In other
+words, the ring $\mathbb{K}$ is commutative.)
+\end{enumerate}
+
+(As usual, ``$0$'' stands for the zero of the ring $\mathbb{K}$.)
+
+[\textbf{Hint:} For part \textbf{(a)}, apply \eqref{eq.exe.ring.xx=x.cond} to
+$u=x$ but also to $u=2x=x+x$, and see what comes out. For part \textbf{(c)},
+apply \eqref{eq.exe.ring.xx=x.cond} to $u=x+y$.]
+
+\subsection{Remark}
+
+Rings $\mathbb{K}$ satisfying \eqref{eq.exe.ring.xx=x.cond} are known as
+\textit{Boolean rings} (although some people do not require them to have a
+unity). Thus, the exercise proves various properties of Boolean rings,
+including the fact that they are always commutative.
+
+You might wonder what happens if we replace \eqref{eq.exe.ring.xx=x.cond} by
+the requirement that
+\begin{equation}
+u^{3}=u\qquad\text{ for all }u\in\mathbb{K}. \label{eq.exe.ring.xx=x.cond3}%
+\end{equation}
+This no longer leads to $2x=0$ (nor to $3x=0$ as you might perhaps expect).
+Instead, it can be shown that $6x=0$ for all $x\in\mathbb{K}$. It can also be
+shown that it leads to $xy=yx$. See, for example,
+\url{https://math.stackexchange.com/questions/67148} .
+
+More generally, fix an integer $n\geq2$, and replace
+\eqref{eq.exe.ring.xx=x.cond} by the requirement that
+\begin{equation}
+u^{n}=u\qquad\text{ for all }u\in\mathbb{K}. \label{eq.exe.ring.xx=x.condn}%
+\end{equation}
+Then, it still can be proven that $\mathbb{K}$ is commutative! See
+\url{https://mathoverflow.net/questions/29590/} for this result.
+
+Even more generally, we don't need to fix $n$ in advance! In other words,
+instead of requiring \eqref{eq.exe.ring.xx=x.cond} or
+\eqref{eq.exe.ring.xx=x.cond3} or \eqref{eq.exe.ring.xx=x.condn}, we merely
+require that for each $u\in\mathbb{K}$, there exists an integer $n\geq2$
+(which may depend on $u$) such that $u^{n}=u$. This is a more general setting;
+nevertheless it still follows that $\mathbb{K}$ is commutative! This is a
+result of Jacobson; see \cite{Rogers71} for a proof.
+
+\subsection{Solution}
+
+\textbf{(a)} \textit{First solution to part \textbf{(a)}:} Let $x\in
+\mathbb{K}$. Then, \eqref{eq.exe.ring.xx=x.cond} (applied to $u=x$) yields
+$x^{2}=x$. But \eqref{eq.exe.ring.xx=x.cond} (applied to $u=x+x$) yields
+$\left(  x+x\right)  ^{2}=x+x=2x$. Thus,%
+\begin{align*}
+2x  &  =x+x=\left(  x+x\right)  ^{2}=\left(  x+x\right)  \left(  x+x\right) \\
+&  =\underbrace{x\left(  x+x\right)  }_{\substack{=xx+xx\\\text{(by
+distributivity)}}}+\underbrace{x\left(  x+x\right)  }%
+_{\substack{=xx+xx\\\text{(by distributivity)}}}\qquad\left(  \text{by
+distributivity}\right) \\
+&  =xx+xx+xx+xx=4\underbrace{xx}_{=x^{2}=x}=4x.
+\end{align*}
+Subtracting $2x$ from both sides of this equality, we obtain $0=4x-2x=2x$.
+Hence, $2x=0$. This solves part \textbf{(a)} of the exercise.
+
+\textit{Second solution to part \textbf{(a)}:} Let $x\in\mathbb{K}$. Then,
+\eqref{eq.exe.ring.xx=x.cond} (applied to $u=x$) yields $x^{2}=x$. But
+\eqref{eq.exe.ring.xx=x.cond} (applied to $u=-x$) yields $\left(  -x\right)
+^{2}=-x$. Hence,%
+\[
+-x=\left(  -x\right)  ^{2}=\left(  -x\right)  \left(  -x\right)
+=-\underbrace{\left(  x\cdot\left(  -x\right)  \right)  }_{=-\left(
+xx\right)  }=-\left(  -\left(  xx\right)  \right)  =xx=x^{2}=x.
+\]
+Adding $x$ to both sides of this equality, we find $\left(  -x\right)
++x=x+x=2x$. Thus, $2x=\left(  -x\right)  +x=0$. This solves part \textbf{(a)}
+of the exercise.
+
+\bigskip
+
+\textbf{(b)} \textit{First solution to part \textbf{(b)}:} Let $x\in
+\mathbb{K}$. Part \textbf{(a)} of this exercise yields $2x=0$. Subtracting $x$
+from both sides of this equality, we obtain $2x-x=0-x=-x$. Hence,
+$-x=\underbrace{2x}_{=x+x}-x=\left(  x+x\right)  -x=x$. This solves part
+\textbf{(b)} of this exercise.
+
+\textit{Second solution to part \textbf{(b)}:} Let $x\in\mathbb{K}$. We have
+already shown the equality $-x=x$ in our Second solution to part \textbf{(a)}.
+Thus, part \textbf{(b)} of the exercise is solved.
+
+\bigskip
+
+\textbf{(c)} Let $x,y\in\mathbb{K}$. Then, \eqref{eq.exe.ring.xx=x.cond}
+(applied to $u=x$) yields $x^{2}=x$. Also, \eqref{eq.exe.ring.xx=x.cond}
+(applied to $u=y$) yields $y^{2}=y$. But \eqref{eq.exe.ring.xx=x.cond}
+(applied to $u=x+y$) yields $\left(  x+y\right)  ^{2}=x+y$. Hence,%
+\begin{align*}
+x+y  &  =\left(  x+y\right)  ^{2}=\left(  x+y\right)  \left(  x+y\right) \\
+&  =\underbrace{x\left(  x+y\right)  }_{\substack{=xx+xy\\\text{(by
+distributivity)}}}+\underbrace{y\left(  x+y\right)  }%
+_{\substack{=yx+yy\\\text{(by distributivity)}}}\qquad\left(  \text{by
+distributivity}\right) \\
+&  =\underbrace{xx}_{=x^{2}=x}+xy+yx+\underbrace{yy}_{=y^{2}=y}=x+xy+yx+y.
+\end{align*}
+Subtracting $x+y$ from both sides of this equality, we obtain%
+\[
+0=\left(  x+xy+yx+y\right)  -\left(  x+y\right)  =xy+yx.
+\]
+Thus, $xy=-yx$. But part \textbf{(b)} of this exercise (applied to $yx$
+instead of $x$) yields $-yx=yx$. Hence, $xy=-yx=yx$. This solves part
+\textbf{(c)} of the exercise.
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 3
+%----------------------------------------------------------------------------------------
+\rule{\linewidth}{0.3pt} \\[0.4cm]
+
+\section{Exercise 3: A matrix of gcds}
+
+\subsection{Problem}
+
+In this exercise, we shall again use
+\href{https://en.wikipedia.org/wiki/Iverson_bracket}{the \textit{Iverson
+bracket notation}}:
+
+Let $n \in\mathbb{N}$. Let $G$ be the $n \times n$-matrix
+\[
+\left(  \gcd\left(  i, j \right)  \right)  _{1 \leq i \leq n, \ 1 \leq j \leq
+n } =
+\begin{pmatrix}
+\gcd\left(  1, 1 \right)  & \gcd\left(  1, 2 \right)  & \cdots & \gcd\left(
+1, n \right) \\
+\gcd\left(  2, 1 \right)  & \gcd\left(  2, 2 \right)  & \cdots & \gcd\left(
+2, n \right) \\
+\vdots & \vdots & \ddots & \vdots\\
+\gcd\left(  n, 1 \right)  & \gcd\left(  n, 2 \right)  & \cdots & \gcd\left(
+n, n \right)
+\end{pmatrix}
+.
+\]
+
+
+Let $L$ be the $n \times n$-matrix
+\[
+\left(  \left[  j \mid i \right]  \right)  _{1 \leq i \leq n, \ 1 \leq j \leq
+n } =
+\begin{pmatrix}
+\left[  1 \mid1 \right]  & \left[  2 \mid1 \right]  & \cdots & \left[  n \mid1
+\right] \\
+\left[  1 \mid2 \right]  & \left[  2 \mid2 \right]  & \cdots & \left[  n \mid2
+\right] \\
+\vdots & \vdots & \ddots & \vdots\\
+\left[  1 \mid n \right]  & \left[  2 \mid n \right]  & \cdots & \left[  n
+\mid n \right]
+\end{pmatrix}
+.
+\]
+
+
+Let $D$ be the $n \times n$-matrix
+\[
+\left(  \left[  i = j \right]  \phi\left(  i \right)  \right)  _{1 \leq i \leq
+n, \ 1 \leq j \leq n } =
+\begin{pmatrix}
+\phi\left(  1 \right)  & 0 & 0 & \cdots & 0\\
+0 & \phi\left(  2 \right)  & 0 & \cdots & 0\\
+0 & 0 & \phi\left(  3 \right)  & \cdots & 0\\
+\vdots & \vdots & \vdots & \ddots & \vdots\\
+0 & 0 & 0 & \cdots & \phi\left(  n \right)
+\end{pmatrix}
+.
+\]
+
+
+Prove that\footnote{We are using the standard notation $A^{T}$ for the
+\textit{transpose} of a matrix $A$. This transpose is defined as follows: If
+$A = \left(  a_{i, j} \right)  _{1 \leq i \leq n, \ 1 \leq j \leq m }$, then
+$A^{T} = \left(  a_{j, i} \right)  _{1 \leq i \leq m, \ 1 \leq j \leq n }$.}
+$G = LDL^{T}$.
+
+\subsection{Remark}
+
+As the names suggest, the matrix $L$ is lower-triangular\footnote{because two
+positive integers $i$ and $j$ satisfying $i<j$ always satisfy $\left[  j\mid
+i\right]  =0$} (so that the matrix $L^{T}$ is upper-triangular), and the
+matrix $D$ is diagonal. Thus, $G=LDL^{T}$ is an instance of an
+\href{https://en.wikipedia.org/wiki/LU_decomposition#LDU_decomposition}{\textit{LDU
+decomposition}}.
+
+The matrix $G$ is an example of what is called a \textit{gcd-matrix} (duh);
+see, e.g., \url{https://math.stackexchange.com/questions/1278871} for some
+references on it.
+
+\subsection{Solution}
+
+We recall the following fundamental property of matrices in general:
+
+\begin{lemma}
+\label{lem.sol.matrix.gcd-LDU.row-mult}Let $n,m\in\mathbb{N}$. Let
+$\mathbb{K}$ be a ring. Let $\mathbf{D}=\left(  \left[  i=j\right]
+d_{i}\right)  _{1\leq i\leq n,\ 1\leq j\leq n}$ be a diagonal matrix over
+$\mathbb{K}$ (where $d_{1},d_{2},\ldots,d_{n}$ are $n$ elements of
+$\mathbb{K}$). Let $\mathbf{A}=\left(  a_{i,j}\right)  _{1\leq i\leq n,\ 1\leq
+j\leq m}$ be an arbitrary $n\times m$-matrix over $\mathbb{K}$. Then, the
+product $\mathbf{D}\mathbf{A}$ is simply given by
+\begin{equation}
+\mathbf{D}\mathbf{A}=\left(  d_{i}a_{i,j}\right)  _{1\leq i\leq n,\ 1\leq
+j\leq m}. \label{eq.matrix.gcd-LDU.row-mult}%
+\end{equation}
+(That is, multiplying a matrix $\mathbf{A}$ by a diagonal matrix $\mathbf{D}$
+on the left is tantamount to rescaling each row of $\mathbf{A}$ by the
+corresponding diagonal entry of $\mathbf{D}$.)
+\end{lemma}
+
+\begin{proof}
+[Proof of Lemma \ref{lem.sol.matrix.gcd-LDU.row-mult}.]We have $\mathbf{D}%
+=\left(  \left[  i=j\right]  d_{i}\right)  _{1\leq i\leq n,\ 1\leq j\leq n}$
+and $\mathbf{A}=\left(  a_{i,j}\right)  _{1\leq i\leq n,\ 1\leq j\leq m}$.
+Hence, the definition of the product of two matrices yields%
+\begin{equation}
+\mathbf{DA}=\left(  \sum_{k=1}^{n}\left[  i=k\right]  d_{i}a_{k,j}\right)
+_{1\leq i\leq n,\ 1\leq j\leq m}. \label{pf.lem.sol.matrix.gcd-LDU.row-mult.1}%
+\end{equation}
+Now, fix some $i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{
+1,2,\ldots,m\right\}  $. Then,%
+\begin{align*}
+\sum_{k=1}^{n}\left[  i=k\right]  d_{i}a_{k,j}  &  =\sum_{k\in\left\{
+1,2,\ldots,n\right\}  }\left[  i=k\right]  d_{i}a_{k,j}=\underbrace{\left[
+i=i\right]  }_{\substack{=1\\\text{(since }i=i\text{)}}}d_{i}a_{i,j}%
++\sum_{\substack{k\in\left\{  1,2,\ldots,n\right\}  ;\\k\neq i}%
+}\underbrace{\left[  i=k\right]  }_{\substack{=0\\\text{(since }i\neq
+k\\\text{(because }k\neq i\text{))}}}d_{i}a_{k,j}\\
+&  \qquad\left(  \text{here, we have split off the addend for }k=i\text{ from
+the sum}\right) \\
+&  =d_{i}a_{i,j}+\underbrace{\sum_{\substack{k\in\left\{  1,2,\ldots
+,n\right\}  ;\\k\neq i}}0d_{i}a_{k,j}}_{=0}=d_{i}a_{i,j}.
+\end{align*}
+Now, forget that we fixed $i$ and $j$. We thus have shown that $\sum_{k=1}%
+^{n}\left[  i=k\right]  d_{i}a_{k,j}=d_{i}a_{i,j}$ for all $i\in\left\{
+1,2,\ldots,n\right\}  $ and $j\in\left\{  1,2,\ldots,m\right\}  $. Therefore,
+the equality \eqref{pf.lem.sol.matrix.gcd-LDU.row-mult.1} rewrites as
+$\mathbf{D}\mathbf{A}=\left(  d_{i}a_{i,j}\right)  _{1\leq i\leq n,\ 1\leq
+j\leq m}$. This proves Lemma \ref{lem.sol.matrix.gcd-LDU.row-mult}.
+\end{proof}
+
+Now, let us return to solving the exercise.
+
+Recall that $L=\left(  \left[  j\mid i\right]  \right)  _{1\leq i\leq
+n,\ 1\leq j\leq n}$; thus, the definition of the transpose of a matrix yields
+$L^{T}=\left(  \left[  i\mid j\right]  \right)  _{1\leq i\leq n,\ 1\leq j\leq
+n}$. Also, recall that $D=\left(  \left[  i=j\right]  \phi\left(  i\right)
+\right)  _{1\leq i\leq n,\ 1\leq j\leq n}$. Hence,
+\eqref{eq.matrix.gcd-LDU.row-mult} (applied to $\mathbb{K}=\mathbb{Z}$, $m=n$,
+$d_{i}=\phi\left(  i\right)  $, $\mathbf{D}=D$, $a_{i,j}=\left[  i\mid
+j\right]  $ and $\mathbf{A}=L^{T}$) yields%
+\begin{equation}
+DL^{T}=\left(  \phi\left(  i\right)  \cdot\left[  i\mid j\right]  \right)
+_{1\leq i\leq n,\ 1\leq j\leq n}. \label{sol.matrix.gcd-LDU.1}%
+\end{equation}
+
+
+Now, we have $L=\left(  \left[  j\mid i\right]  \right)  _{1\leq i\leq
+n,\ 1\leq j\leq n}$ and $DL^{T}=\left(  \phi\left(  i\right)  \cdot\left[
+i\mid j\right]  \right)  _{1\leq i\leq n,\ 1\leq j\leq n}$. Thus, the
+definition of the product of two matrices yields%
+\begin{equation}
+L\left(  DL^{T}\right)  =\left(  \sum_{k=1}^{n}\left[  k\mid i\right]
+\cdot\phi\left(  k\right)  \cdot\left[  k\mid j\right]  \right)  _{1\leq i\leq
+n,\ 1\leq j\leq n}. \label{sol.matrix.gcd-LDU.2}%
+\end{equation}
+
+
+Let us now recall a basic property of the Iverson bracket: If $\mathcal{A}$
+and $\mathcal{B}$ are two logical statements, then
+\begin{equation}
+\left[  \mathcal{A}\wedge\mathcal{B}\right]  =\left[  \mathcal{A}\right]
+\cdot\left[  \mathcal{B}\right]  . \label{sol.matrix.gcd-LDU.iverAB}%
+\end{equation}
+Furthermore, if $\mathcal{A}$ and $\mathcal{B}$ are two equivalent logical
+statements, then%
+\begin{equation}
+\left[  \mathcal{A}\right]  =\left[  \mathcal{B}\right]  .
+\label{sol.matrix.gcd-LDU.iverA=B}%
+\end{equation}
+
+
+Now, fix $i,j\in\left\{  1,2,\ldots,n\right\}  $. Hence, $i$ and $j$ are
+positive integers; thus, $\gcd\left(  i,j\right)  $ is a positive integer as
+well. Also, $\gcd\left(  i,j\right)  \mid i$, so that $\gcd\left(  i,j\right)
+\leq i$ (since $\gcd\left(  i,j\right)  $ and $i$ are positive integers) and
+therefore $\gcd\left(  i,j\right)  \leq i\leq n$ (since $i\in\left\{
+1,2,\ldots,n\right\}  $).
+
+Theorem 2.14.6 in the
+\href{http://www.cip.ifi.lmu.de/~grinberg/t/19s/notes.pdf}{class notes}
+(applied to $\gcd\left(  i,j\right)  $ instead of $n$) yields%
+\begin{equation}
+\sum_{d\mid\gcd\left(  i,j\right)  }\phi\left(  d\right)  =\gcd\left(
+i,j\right)  . \label{sol.matrix.gcd-LDU.sum-phi}%
+\end{equation}
+Here, the summation sign \textquotedblleft$\sum_{d\mid\gcd\left(  i,j\right)
+}$\textquotedblright\ means a sum over all positive divisors $d$ of
+$\gcd\left(  i,j\right)  $.
+
+Also, fix $k\in\left\{  1,2,\ldots,n\right\}  $. Then, Theorem 2.9.15
+\textbf{(a)} in the
+\href{http://www.cip.ifi.lmu.de/~grinberg/t/19s/notes.pdf}{class notes}
+(applied to $k$, $i$ and $j$ instead of $a$, $b$ and $m$) shows that we have
+the following logical equivalence:%
+\[
+\left(  k\mid i\text{ and }k\mid j\right)  \Longleftrightarrow\left(
+k\mid\gcd\left(  i,j\right)  \right)  .
+\]
+Thus, the logical statements $\left(  k\mid\gcd\left(  i,j\right)  \right)  $
+and $\left(  k\mid i\text{ and }k\mid j\right)  $ are equivalent. Hence,
+\eqref{sol.matrix.gcd-LDU.iverA=B} (applied to $\mathcal{A}=\left(  k\mid
+\gcd\left(  i,j\right)  \right)  $ and $\mathcal{B}=\left(  k\mid i\text{ and
+}k\mid j\right)  $) yields%
+\begin{align}
+\left[  k\mid\gcd\left(  i,j\right)  \right]   &  =\left[  k\mid i\text{ and
+}k\mid j\right]  =\left[  \left(  k\mid i\right)  \wedge\left(  k\mid
+j\right)  \right] \nonumber\\
+&  =\left[  k\mid i\right]  \cdot\left[  k\mid j\right]
+\label{sol.matrix.gcd-LDU.3}%
+\end{align}
+(by \eqref{sol.matrix.gcd-LDU.iverAB}, applied to $\mathcal{A}=\left(  k\mid
+i\right)  $ and $\mathcal{B}=\left(  k\mid j\right)  $).
+
+Now, forget that we fixed $k$. We thus have proven
+\eqref{sol.matrix.gcd-LDU.3} for each $k\in\left\{  1,2,\ldots,n\right\}  $.
+Now,%
+\begin{align}
+&  \sum_{k=1}^{n}\left[  k\mid i\right]  \cdot\phi\left(  k\right)
+\cdot\left[  k\mid j\right] \nonumber\\
+&  =\underbrace{\sum_{k=1}^{n}}_{=\sum_{k\in\left\{  1,2,\ldots,n\right\}  }%
+}\underbrace{\left[  k\mid i\right]  \cdot\left[  k\mid j\right]
+}_{\substack{=\left[  k\mid\gcd\left(  i,j\right)  \right]  \\\text{(by
+\eqref{sol.matrix.gcd-LDU.3})}}}\cdot\phi\left(  k\right)  =\sum_{k\in\left\{
+1,2,\ldots,n\right\}  }\left[  k\mid\gcd\left(  i,j\right)  \right]  \cdot
+\phi\left(  k\right) \nonumber\\
+&  =\sum_{\substack{k\in\left\{  1,2,\ldots,n\right\}  ;\\k\mid\gcd\left(
+i,j\right)  }}\underbrace{\left[  k\mid\gcd\left(  i,j\right)  \right]
+}_{\substack{=1\\\text{(since }k\mid\gcd\left(  i,j\right)  \text{)}}%
+}\cdot\phi\left(  k\right)  +\sum_{\substack{k\in\left\{  1,2,\ldots
+,n\right\}  ;\\k\nmid\gcd\left(  i,j\right)  }}\underbrace{\left[  k\mid
+\gcd\left(  i,j\right)  \right]  }_{\substack{=0\\\text{(since }k\nmid
+\gcd\left(  i,j\right)  \text{)}}}\cdot\phi\left(  k\right) \nonumber\\
+&  \qquad\left(
+\begin{array}
+[c]{c}%
+\text{since each }k\in\left\{  1,2,\ldots,n\right\}  \text{ satisfies either
+}k\mid\gcd\left(  i,j\right) \\
+\text{or }k\nmid\gcd\left(  i,j\right)  \text{ (but not both)}%
+\end{array}
+\right) \nonumber\\
+&  =\sum_{\substack{k\in\left\{  1,2,\ldots,n\right\}  ;\\k\mid\gcd\left(
+i,j\right)  }}\phi\left(  k\right)  +\underbrace{\sum_{\substack{k\in\left\{
+1,2,\ldots,n\right\}  ;\\k\nmid\gcd\left(  i,j\right)  }}0\cdot\phi\left(
+k\right)  }_{=0}=\sum_{\substack{k\in\left\{  1,2,\ldots,n\right\}
+;\\k\mid\gcd\left(  i,j\right)  }}\phi\left(  k\right) \nonumber\\
+&  =\sum_{\substack{d\in\left\{  1,2,\ldots,n\right\}  ;\\d\mid\gcd\left(
+i,j\right)  }}\phi\left(  d\right)  \label{sol.matrix.gcd-LDU.5}%
+\end{align}
+(here, we have renamed the summation index $k$ as $d$).
+
+But each positive divisor of $\gcd\left(  i,j\right)  $ is $\leq\gcd\left(
+i,j\right)  $ and therefore $\leq n$ (since $\gcd\left(  i,j\right)  \leq n$).
+Thus, each positive divisor of $\gcd\left(  i,j\right)  $ belongs to the set
+$\left\{  1,2,\ldots,n\right\}  $. Hence, each positive divisor of
+$\gcd\left(  i,j\right)  $ is a $d\in\left\{  1,2,\ldots,n\right\}  $
+satisfying $d\mid\gcd\left(  i,j\right)  $. In other words,%
+\[
+\left\{  \text{positive divisors of }\gcd\left(  i,j\right)  \right\}
+\subseteq\left\{  d\in\left\{  1,2,\ldots,n\right\}  \text{ such that }%
+d\mid\gcd\left(  i,j\right)  \right\}  .
+\]
+Combining this with the relation%
+\[
+\left\{  d\in\left\{  1,2,\ldots,n\right\}  \text{ such that }d\mid\gcd\left(
+i,j\right)  \right\}  \subseteq\left\{  \text{positive divisors of }%
+\gcd\left(  i,j\right)  \right\}
+\]
+(which is obvious), we obtain%
+\[
+\left\{  d\in\left\{  1,2,\ldots,n\right\}  \text{ such that }d\mid\gcd\left(
+i,j\right)  \right\}  =\left\{  \text{positive divisors of }\gcd\left(
+i,j\right)  \right\}  .
+\]
+Thus, the summation sign \textquotedblleft$\sum_{\substack{d\in\left\{
+1,2,\ldots,n\right\}  ;\\d\mid\gcd\left(  i,j\right)  }}$\textquotedblright%
+\ is equivalent to \textquotedblleft$\sum_{d\mid\gcd\left(  i,j\right)  }%
+$\textquotedblright\ (since the latter summation sign means a sum over all
+positive divisors of $\gcd\left(  i,j\right)  $). Hence,
+\eqref{sol.matrix.gcd-LDU.5} becomes%
+\[
+\sum_{k=1}^{n}\left[  k\mid i\right]  \cdot\phi\left(  k\right)  \cdot\left[
+k\mid j\right]  =\underbrace{\sum_{\substack{d\in\left\{  1,2,\ldots
+,n\right\}  ;\\d\mid\gcd\left(  i,j\right)  }}}_{=\sum_{d\mid\gcd\left(
+i,j\right)  }}\phi\left(  d\right)  =\sum_{d\mid\gcd\left(  i,j\right)  }%
+\phi\left(  d\right)  =\gcd\left(  i,j\right)  \qquad\qquad\left(  \text{by
+\eqref{sol.matrix.gcd-LDU.sum-phi}}\right)  .
+\]
+
+
+Now, forget that we fixed $i,j$. We thus have proven that
+\[
+\sum_{k=1}^{n}\left[  k\mid i\right]  \cdot\phi\left(  k\right)  \cdot\left[
+k\mid j\right]  =\gcd\left(  i,j\right)  \qquad\text{for all }i,j\in\left\{
+1,2,\ldots,n\right\}  .
+\]
+In other words,%
+\[
+\left(  \sum_{k=1}^{n}\left[  k\mid i\right]  \cdot\phi\left(  k\right)
+\cdot\left[  k\mid j\right]  \right)  _{1\leq i\leq n,\ 1\leq j\leq n}=\left(
+\gcd\left(  i,j\right)  \right)  _{1\leq i\leq n,\ 1\leq j\leq n}.
+\]
+Hence, \eqref{sol.matrix.gcd-LDU.2} becomes%
+\[
+L\left(  DL^{T}\right)  =\left(  \sum_{k=1}^{n}\left[  k\mid i\right]
+\cdot\phi\left(  k\right)  \cdot\left[  k\mid j\right]  \right)  _{1\leq i\leq
+n,\ 1\leq j\leq n}=\left(  \gcd\left(  i,j\right)  \right)  _{1\leq i\leq
+n,\ 1\leq j\leq n}=G
+\]
+(by the definition of $G$). Consequently, $G=L\left(  DL^{T}\right)  =LDL^{T}%
+$. The exercise is now solved.
+
+\subsection{Remark}
+
+If you know about determinants, you will easily see how to compute $\det G$
+using the claim of the exercise. (\textbf{Hint:} Use the formula $\det\left(
+AB\right)  =\det A\cdot\det B$ that holds for any two $n\times n$-matrices $A$
+and $B$ over any commutative ring $\mathbb{K}$.)
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 4
+%----------------------------------------------------------------------------------------
+\rule{\linewidth}{0.3pt} \\[0.4cm]
+
+\section{Exercise 4: Idempotent and involutive elements}
+
+\subsection{Problem}
+
+Let $\mathbb{K}$ be a ring.
+
+An element $a$ of $\mathbb{K}$ is said to be \textit{idempotent} if it
+satisfies $a^{2} = a$.
+
+An element $a$ of $\mathbb{K}$ is said to be \textit{involutive} if it
+satisfies $a^{2} = 1$.
+
+\begin{enumerate}
+\item[\textbf{(a)}] Let $a \in\mathbb{K}$. Prove that if $a$ is idempotent,
+then $1 - 2a$ is involutive.
+
+\item[\textbf{(b)}] Now, assume that $2$ is \textit{cancellable} in
+$\mathbb{K}$; this means that if $u$ and $v$ are two elements of $\mathbb{K}$
+satisfying $2u=2v$, then $u=v$. Prove that the converse of the claim of part
+\textbf{(a)} holds: If $a\in\mathbb{K}$ is such that $1-2a$ is involutive,
+then $a$ is idempotent.
+
+\item[\textbf{(c)}] Now, let $\mathbb{K}=\mathbb{Z}/4$. Find an element
+$a\in\mathbb{K}$ such that $1-2a$ is involutive, but $a$ is not idempotent.
+\end{enumerate}
+
+\subsection{Remark}
+
+The idempotent elements of $\mathbb{R}$ are $0$ and $1$. The involutive
+elements of $\mathbb{R}$ are $1$ and $-1$. A matrix ring like $\mathbb{R}%
+^{n\times n}$ usually has infinitely many idempotent elements (viz., all
+projection matrices on subspaces of $\mathbb{R}^{n}$) and infinitely many
+involutive elements (viz., all matrices $A$ satisfying $A^{2}=I_{n}$; for
+instance, all reflections across hyperplanes are represented by such matrices).
+
+Part \textbf{(a)} of this exercise assigns an involutive element to each
+idempotent element of $\mathbb{K}$. If $2$ is invertible in $\mathbb{K}$ (that
+is, if the element $2\cdot1_{\mathbb{K}}$ has a multiplicative inverse), then
+this assignment is a bijection (as can be easily derived from part
+\textbf{(b)}). Part \textbf{(c)} shows that we cannot drop the
+\textquotedblleft$2$ is cancellable\textquotedblright\ condition in part
+\textbf{(b)}.
+
+\subsection{Solution}
+
+Using the ring axioms and the basic rules for rings, it is easy to see that
+every $a\in\mathbb{K}$ satisfies%
+\begin{equation}
+\left(  1-2a\right)  ^{2}=1-4a+4a^{2}. \label{sol.ring.idp-inv.1}%
+\end{equation}
+
+
+[Here is a more pedantic \textit{proof} of this fact: Let $a\in\mathbb{K}$.
+For any $b\in\mathbb{K}$, we have%
+\begin{align*}
+\left(  1+b\right)  ^{2}  &  =\left(  1+b\right)  \left(  1+b\right)
+=\underbrace{1\left(  1+b\right)  }_{=1+b}+\underbrace{b\left(  1+b\right)
+}_{\substack{=b\cdot1+b\cdot b\\\text{(by distributivity)}}}\qquad\left(
+\text{by distributivity}\right) \\
+&  =1+b+\underbrace{b\cdot1}_{=b}+\underbrace{b\cdot b}_{=b^{2}}%
+=1+b+b+b^{2}=1+2b+b^{2}.
+\end{align*}
+Applying this to $b=-2a$, we obtain%
+\begin{align*}
+\left(  1+\left(  -2a\right)  \right)  ^{2}  &  =1+\underbrace{2\left(
+-2a\right)  }_{=2\cdot\left(  -2\right)  a}+\underbrace{\left(  -2a\right)
+^{2}}_{\substack{=\left(  -2a\right)  \cdot\left(  -2a\right)  \\=\left(
+-2\right)  \cdot\left(  -2a\right)  \cdot a}}=1+\underbrace{2\cdot\left(
+-2\right)  }_{=-4}a+\left(  -2\right)  \cdot\underbrace{\left(  -2a\right)
+}_{=\left(  -2\right)  a}\cdot a\\
+&  =1+\underbrace{\left(  -4\right)  a}_{=-4a}+\underbrace{\left(  -2\right)
+\cdot\left(  \left(  -2\right)  a\right)  }_{=\left(  \left(  -2\right)
+\cdot\left(  -2\right)  \right)  \cdot a}\cdot a=\underbrace{1+\left(
+-4a\right)  }_{=1-4a}+\underbrace{\left(  \left(  -2\right)  \cdot\left(
+-2\right)  \right)  }_{=4}\cdot\underbrace{a\cdot a}_{=a^{2}}\\
+&  =1-4a+4a^{2}.
+\end{align*}
+In view of $1+\left(  -2a\right)  =1-2a$, this rewrites as $\left(
+1-2a\right)  ^{2}=1-4a+4a^{2}$. Thus, \eqref{sol.ring.idp-inv.1} is proven.]
+
+\bigskip
+
+\textbf{(a)} Assume that $a$ is idempotent. We must prove that $1-2a$ is involutive.
+
+We have assumed that $a$ is idempotent. In other words, $a^{2}=a$ (by the
+definition of \textquotedblleft idempotent\textquotedblright). Thus,
+\eqref{sol.ring.idp-inv.1} becomes $\left(  1-2a\right)  ^{2}%
+=1-4a+4\underbrace{a^{2}}_{=a}=1-4a+4a=1$. In other words, $1-2a$ is
+involutive (by the definition of \textquotedblleft
+involutive\textquotedblright). This solves part \textbf{(a)} of the exercise.
+
+\bigskip
+
+\textbf{(b)} Let $a\in\mathbb{K}$ be such that $1-2a$ is involutive. We must
+prove that $a$ is idempotent.
+
+We know that $2$ is cancellable in $\mathbb{K}$. In other words, if $u$ and
+$v$ are two elements of $\mathbb{K}$ satisfying $2u=2v$, then
+\begin{equation}
+u=v. \label{sol.ring.idp-inv.b.u=v}%
+\end{equation}
+
+
+We have assumed that $1-2a$ is involutive. In other words, $\left(
+1-2a\right)  ^{2}=1$. Comparing this with \eqref{sol.ring.idp-inv.1}, we
+obtain $1-4a+4a^{2}=1$. Hence, $4a^{2}=1-1+4a=4a$. This rewrites as
+$2\cdot2a^{2}=2\cdot2a$ (since $\underbrace{2\cdot2}_{=4}a^{2}=4a^{2}$ and
+$\underbrace{2\cdot2}_{=4}a=4a$). Hence, \eqref{sol.ring.idp-inv.b.u=v}
+(applied to $u=2a^{2}$ and $v=2a$) yields $2a^{2}=2a$. Thus,
+\eqref{sol.ring.idp-inv.b.u=v} (applied to $u=a^{2}$ and $v=a$) yields
+$a^{2}=a$. In other words, $a$ is idempotent. This solves part \textbf{(b)} of
+the exercise.
+
+\bigskip
+
+\textbf{(c)} We claim that $a=\left[  2\right]  _{4}$ is such an element.
+Indeed, $1-2\cdot\left[  2\right]  _{4}$ is involutive\footnote{Keep in mind
+that the \textquotedblleft$1$\textquotedblright\ here stands for the unity of
+the ring $\mathbb{K}=\mathbb{Z}/4$; this is the residue class $\left[
+1\right]  _{4}$.} (since $\underbrace{1}_{=\left[  1\right]  _{4}%
+}-\underbrace{2\cdot\left[  2\right]  _{4}}_{=\left[  2\cdot2\right]
+_{4}=\left[  4\right]  _{4}=\left[  0\right]  _{4}}=\left[  1\right]
+_{4}-\left[  0\right]  _{4}=\left[  1\right]  _{4}$ and thus $\left(
+1-2\cdot\left[  2\right]  _{4}\right)  ^{2}=\left(  \left[  1\right]
+_{4}\right)  ^{2}=\left[  1^{2}\right]  _{4}=\left[  1\right]  _{4}=1$), but
+$\left[  2\right]  _{4}$ is not idempotent (since $\left(  \left[  2\right]
+_{4}\right)  ^{2}=\left[  2^{2}\right]  _{4}=\left[  4\right]  _{4}\neq\left[
+2\right]  _{4}$).
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 5
+%----------------------------------------------------------------------------------------
+\rule{\linewidth}{0.3pt} \\[0.4cm]
+
+\section{Exercise 5: The matrix approach to Fibonacci numbers}
+
+\subsection{Problem}
+
+Let $A$ be the $2 \times2$-matrix $%
+\begin{pmatrix}
+0 & 1\\
+1 & 1
+\end{pmatrix}
+$ over $\mathbb{Z}$. Consider also the identity matrix $I_{2}$.
+
+Let $\mathcal{F}$ be the subset
+\[
+\left\{  aA+bI_{2}\mid a,b\in\mathbb{Z}\right\}  =\left\{
+\begin{pmatrix}
+b & a\\
+a & a+b
+\end{pmatrix}
+\mid a,b\in\mathbb{Z}\right\}
+\]
+of the matrix ring $\mathbb{Z}^{2\times2}$.
+
+\begin{enumerate}
+\item[\textbf{(a)}] Prove that $A^{2} = A + I_{2}$.
+
+\item[\textbf{(b)}] Prove that the set $\mathcal{F}$ (equipped with the
+addition of matrices, the multiplication of matrices, the zero $0_{2 \times2}$
+and the unity $I_{2}$) is a commutative ring. \newline(Again, you don't need
+to check the ring axioms, as we already know that they hold for arbitrary
+matrices and thus all the more for matrices in $\mathcal{F}$. But you do need
+to check commutativity of multiplication in $\mathcal{F}$, since it does not
+hold for arbitrary matrices. You also need to check that $\mathcal{F}$ is
+closed under addition and multiplication and has additive inverses.)
+\end{enumerate}
+
+Let $\left(  f_{0},f_{1},f_{2},\ldots\right)  $ be the Fibonacci sequence
+(which we have already encountered on
+\href{http://www.cip.ifi.lmu.de/~grinberg/t/19s/hw5s.pdf}{homework set
+\#5}). Recall that it is defined recursively by
+\[
+f_{0}=0,\qquad f_{1}=1,\qquad\text{and}\qquad f_{n}=f_{n-1}+f_{n-2}\text{ for
+all }n\geq2.
+\]
+
+
+\begin{enumerate}
+\item[\textbf{(c)}] Prove that $A^{n} = f_{n} A + f_{n-1} I_{2}$ for all
+positive integers $n$.
+
+\item[\textbf{(d)}] Prove that $f_{n+m}=f_{n}f_{m+1}+f_{n-1}f_{m}$ for all
+positive integers $n$ and all $m\in\mathbb{N}$.
+\end{enumerate}
+
+Now, define a further matrix $B \in\mathcal{F}$ by $B = \left(  -1 \right)  A
++ 1I_{2} = I_{2} - A$.
+
+\begin{enumerate}
+\item[\textbf{(e)}] Prove that $B^{2} = B + I_{2}$ and $B^{n} = f_{n} B +
+f_{n-1} I_{2}$ for all positive integers $n$.
+
+\item[\textbf{(f)}] Prove that $A^{n} - B^{n} = f_{n} \left(  A - B \right)  $
+for all $n \in\mathbb{N}$.
+
+\item[\textbf{(g)}] Prove (again!) that $f_{d}\mid f_{dn}$ for any nonnegative
+integers $d$ and $n$.
+\end{enumerate}
+
+[\textbf{Hint:} One way to prove \textbf{(d)} is by comparing the $\left(  1,
+1 \right)  $-th entries of the two (equal) matrices $A^{n} A^{m+1}$ and
+$A^{n+m+1}$, after first using part \textbf{(c)} to expand these matrices.
+
+For part \textbf{(g)}, compare the $\left(  1, 1 \right)  $-th entries of the
+matrices $A^{d} - B^{d}$ and $A^{dn} - B^{dn}$, after first proving that
+$A^{d} - B^{d} \mid A^{dn} - B^{dn}$ in the commutative ring $\mathcal{F}$.
+Note that divisibility is a tricky concept in general rings, but $\mathcal{F}$
+is a commutative ring, which lets many arguments from the integer setting go
+through unchanged.]
+
+\subsection{Remark}
+
+Contrast the ring $\mathcal{F}$ with the ring $\mathbb{Z}\left[  \phi\right]
+$ from Exercise 5 on
+\href{http://www.cip.ifi.lmu.de/~grinberg/t/19s/hw5s.pdf}{homework set \#5}.
+Both of these rings, as we see, can be used to prove that $f_{d}\mid f_{dn}$
+for any nonnegative integers $d$ and $n$. It turns out that these rings have
+more in common: they are isomorphic! More precisely, the map%
+\begin{align*}
+\mathbb{Z}\left[  \phi\right]   &  \rightarrow\mathcal{F},\\
+a+b\phi &  \mapsto bA+aI_{2}\qquad\left(  \text{for }a,b\in\mathbb{Z}\right)
+\end{align*}
+is a ring isomorphism. This makes it less surprising that these rings can
+substitute for one another in proving $f_{d}\mid f_{dn}$.
+
+\subsection{Solution sketch}
+
+We first recall that $\mathcal{F}=\left\{  aA+bI_{2}\mid a,b\in\mathbb{Z}%
+\right\}  $ (by the definition of $\mathcal{F}$). Hence,%
+\begin{equation}
+aA+bI_{2}\in\mathcal{F}\qquad\text{for all }a,b\in\mathbb{Z}.
+\label{sol.ring.fibonacci.F.aA+binF}%
+\end{equation}
+
+
+\bigskip
+
+\textbf{(a)} This is an easy exercise in multiplying matrices: From $A=%
+\begin{pmatrix}
+0 & 1\\
+1 & 1
+\end{pmatrix}
+$, we obtain%
+\[
+A^{2}=%
+\begin{pmatrix}
+0 & 1\\
+1 & 1
+\end{pmatrix}
+^{2}=%
+\begin{pmatrix}
+0 & 1\\
+1 & 1
+\end{pmatrix}%
+\begin{pmatrix}
+0 & 1\\
+1 & 1
+\end{pmatrix}
+=%
+\begin{pmatrix}
+1 & 1\\
+1 & 2
+\end{pmatrix}
+.
+\]
+Comparing this with%
+\[
+\underbrace{A}_{=%
+\begin{pmatrix}
+0 & 1\\
+1 & 1
+\end{pmatrix}
+}+\underbrace{I_{2}}_{=%
+\begin{pmatrix}
+1 & 0\\
+0 & 1
+\end{pmatrix}
+}=%
+\begin{pmatrix}
+0 & 1\\
+1 & 1
+\end{pmatrix}
++%
+\begin{pmatrix}
+1 & 0\\
+0 & 1
+\end{pmatrix}
+=%
+\begin{pmatrix}
+1 & 1\\
+1 & 2
+\end{pmatrix}
+,
+\]
+we obtain $A^{2}=A+I_{2}$. This solves part \textbf{(a)} of the exercise.
+
+\bigskip
+
+\textbf{(b)} Let us show the following claims:
+
+\begin{statement}
+\textit{Claim 1:} We have $0_{2\times2}\in\mathcal{F}$.
+\end{statement}
+
+\begin{statement}
+\textit{Claim 2:} We have $I_{2}\in\mathcal{F}$.
+\end{statement}
+
+\begin{statement}
+\textit{Claim 3:} For any $U,V\in\mathcal{F}$, we have $U+V\in\mathcal{F}$ and
+$UV\in\mathcal{F}$ and $UV=VU$.
+\end{statement}
+
+\begin{statement}
+\textit{Claim 4:} For any $U\in\mathcal{F}$, we have $-U\in\mathcal{F}$.
+\end{statement}
+
+[\textit{Proof of Claim 1:} We have $\underbrace{0A}_{=0_{2\times2}%
+}+\underbrace{0I_{2}}_{=0_{2\times2}}=0_{2\times2}$, so that $0_{2\times
+2}=0A+0I_{2}\in\mathcal{F}$ (by \eqref{sol.ring.fibonacci.F.aA+binF}, applied
+to $a=0$ and $b=0$). This proves Claim 1.]
+
+[\textit{Proof of Claim 2:} We have $\underbrace{0A}_{=0_{2\times2}%
+}+\underbrace{1I_{2}}_{=I_{2}}=I_{2}$, so that $I_{2}=0A+1I_{2}\in\mathcal{F}$
+(by \eqref{sol.ring.fibonacci.F.aA+binF}, applied to $a=0$ and $b=1$). This
+proves Claim 2.]
+
+[\textit{Proof of Claim 3:} Let $U,V\in\mathcal{F}$. We must prove that
+$U+V\in\mathcal{F}$ and $UV\in\mathcal{F}$ and $UV=VU$.
+
+We have $V\in\mathcal{F}=\left\{  aA+bI_{2}\mid a,b\in\mathbb{Z}\right\}
+=\left\{  cA+dI_{2}\mid c,d\in\mathbb{Z}\right\}  $ (here, we have renamed the
+indices $a$ and $b$ as $c$ and $d$). In other words, there exist some
+$c,d\in\mathbb{Z}$ such that $V=cA+dI_{2}$. Consider these $c,d$.
+
+We have $U\in\mathcal{F}=\left\{  aA+bI_{2}\mid a,b\in\mathbb{Z}\right\}  $.
+In other words, there exist some $a,b\in\mathbb{Z}$ such that $U=aA+bI_{2}$.
+Consider these $a,b$.
+
+From $a,b,c,d\in\mathbb{Z}$, we obtain $a+c\in\mathbb{Z}$ and $b+d\in
+\mathbb{Z}$ and $ad+bc+ac\in\mathbb{Z}$ and $ac+bd\in\mathbb{Z}$.
+
+We have $a,b,c,d\in\mathbb{Z}$. Adding the equalities $U=aA+bI_{2}$ and
+$V=cA+dI_{2}$ together, we obtain%
+\[
+U+V=\left(  aA+bI_{2}\right)  +\left(  cA+dI_{2}\right)  =\left(  a+c\right)
+A+\left(  b+d\right)  I_{2}\in\mathcal{F}%
+\]
+(by \eqref{sol.ring.fibonacci.F.aA+binF}, applied to $a+c$ and $b+d$ instead
+of $a$ and $b$).
+
+We have $AA=A^{2}=A+I_{2}$ (by part \textbf{(a)} of the exercise).
+
+Multiplying the equalities $U=aA+bI_{2}$ and $V=cA+dI_{2}$ together, we obtain%
+\begin{align*}
+UV  &  =\left(  aA+bI_{2}\right)  \left(  cA+dI_{2}\right)  =ac\underbrace{AA}%
+_{\substack{=A+I_{2}}}+ad\underbrace{AI_{2}}_{=A}+bc\underbrace{I_{2}A}%
+_{=A}+bd\underbrace{I_{2}I_{2}}_{=I_{2}}\\
+&  =ac\left(  A+I_{2}\right)  +adA+bcA+bdI_{2}=\left(  ad+bc+ac\right)
+A+\left(  ac+bd\right)  I_{2}\in\mathcal{F}%
+\end{align*}
+(by \eqref{sol.ring.fibonacci.F.aA+binF}, applied to $ad+bc+ac$ and $ac+bd$
+instead of $a$ and $b$).
+
+Multiplying the equalities $V=cA+dI_{2}$ and $U=aA+bI_{2}$ together, we obtain%
+\begin{align*}
+VU  &  =\left(  cA+dI_{2}\right)  \left(  aA+bI_{2}\right)  =\underbrace{ca}%
+_{=ac}\underbrace{AA}_{\substack{=A+I_{2}}}+\underbrace{cb}_{=bc}%
+\underbrace{AI_{2}}_{=A}+\underbrace{da}_{=ad}\underbrace{I_{2}A}%
+_{=A}+\underbrace{db}_{=bd}\underbrace{I_{2}I_{2}}_{=I_{2}}\\
+&  =ac\left(  A+I_{2}\right)  +bcA+adA+bdI_{2}=\left(  ad+bc+ac\right)
+A+\left(  ac+bd\right)  I_{2}.
+\end{align*}
+Comparing this equality with $UV=\left(  ad+bc+ac\right)  A+\left(
+ac+bd\right)  I_{2}$, we obtain $UV=VU$.
+
+Thus, we have proven that $U+V\in\mathcal{F}$ and $UV\in\mathcal{F}$ and
+$UV=VU$. This proves Claim 3.]
+
+[\textit{Proof of Claim 4:} Let $U\in\mathcal{F}$. We have $U\in
+\mathcal{F}=\left\{  aA+bI_{2}\mid a,b\in\mathbb{Z}\right\}  $. In other
+words, there exist some $a,b\in\mathbb{Z}$ such that $U=aA+bI_{2}$. Consider
+these $a,b$. Hence,%
+\[
+-\underbrace{U}_{=aA+bI_{2}}=-\left(  aA+bI_{2}\right)  =\left(  -a\right)
+A+\left(  -b\right)  I_{2}\in\mathcal{F}%
+\]
+(by \eqref{sol.ring.fibonacci.F.aA+binF}, applied to $-a$ and $-b$ instead of
+$a$ and $b$). This proves Claim 4.]
+
+Let us now resume solving part \textbf{(b)} of the exercise. Claim 3 shows
+that for every $U,V\in\mathcal{F}$, we have $U+V\in\mathcal{F}$. Thus,
+addition of matrices defines a binary operation $+$ on $\mathcal{F}$.
+Furthermore, Claim 3 shows that for every $U,V\in\mathcal{F}$, we have
+$UV\in\mathcal{F}$. Thus, multiplication of matrices defines a binary
+operation $\cdot$ on $\mathcal{F}$. Furthermore, $0_{2\times2}\in\mathcal{F}$
+(by Claim 1) and $I_{2}\in\mathcal{F}$ (by Claim 2). Hence, we can endow the
+set $\mathcal{F}$ with the binary operation $+$ (as addition), the binary
+operation $\cdot$ (as multiplication), the element $0_{2\times2}$ (as zero)
+and the element $I_{2}$ (as unity). Now, we must prove that the result is a
+commutative ring.
+
+Indeed, let us first prove that $\mathcal{F}$ is a ring. To that end, we shall
+check all the ring axioms:
+
+\begin{itemize}
+\item The \textquotedblleft Existence of additive inverses\textquotedblright%
+\ axiom is satisfied, because for every $U\in\mathcal{F}$, there exists an
+$U^{\prime}\in\mathcal{F}$ such that $U+U^{\prime}=U^{\prime}+U=0_{2\times2}$.
+(Namely, we can set $U^{\prime}=-U$, which is an element of $\mathcal{F}$
+because of Claim 4.)
+
+\item All the remaining ring axioms are satisfied, since they are particular
+cases of the rules for addition and multiplication of matrices. (For example,
+associativity of multiplication holds in $\mathcal{F}$ because it holds for
+arbitrary matrices.)
+\end{itemize}
+
+\noindent Thus, $\mathcal{F}$ is a ring. Furthermore, every $U,V\in
+\mathcal{F}$ satisfy $UV=VU$ (by Claim 3). Hence, the ring $\mathcal{F}$ is
+commutative. This solves part \textbf{(b)} of the exercise.
+
+\bigskip
+
+\textbf{(c)} We shall solve part \textbf{(c)} of the exercise by induction on
+$n$:
+
+\textit{Induction base:} We have $A^{1}=f_{1}A+f_{1-1}I_{2}$ (since
+$\underbrace{f_{1}}_{=1}A+\underbrace{f_{1-1}}_{=f_{0}=0}I_{2}=1A+0I_{2}%
+=1A=A=A^{1}$). In other words, part \textbf{(c)} of the exercise holds for
+$n=1$. This completes the induction base.
+
+\textit{Induction step:} Let $k$ be a positive integer. Assume that part
+\textbf{(c)} of the exercise holds for $n=k$. We must now prove that part
+\textbf{(c)} of the exercise holds for $n=k+1$.
+
+We have assumed that part \textbf{(c)} of the exercise holds for $n=k$. In
+other words, $A^{k}=f_{k}A+f_{k-1}I_{2}$. But the recursive definition of the
+Fibonacci sequence yields $f_{k+1}=f_{k}+f_{k-1}$. Now,%
+\begin{align*}
+A^{k+1}  &  =A\underbrace{A^{k}}_{=f_{k}A+f_{k-1}I_{2}}=A\left(
+f_{k}A+f_{k-1}I_{2}\right)  =f_{k}\underbrace{AA}_{\substack{=A^{2}%
+=A+I_{2}\\\text{(by part \textbf{(a)}}\\\text{of the exercise)}}%
+}+f_{k-1}\underbrace{AI_{2}}_{=A}=f_{k}\left(  A+I_{2}\right)  +f_{k-1}A\\
+&  =\underbrace{\left(  f_{k}+f_{k-1}\right)  }_{=f_{k+1}}A+\underbrace{f_{k}%
+}_{=f_{\left(  k+1\right)  -1}}I_{2}=f_{k+1}A+f_{\left(  k+1\right)  -1}I_{2}.
+\end{align*}
+In other words, part \textbf{(c)} of the exercise holds for $n=k+1$. This
+completes the induction step. Hence, part \textbf{(c)} of the exercise is
+proven by induction.
+
+\bigskip
+
+\textbf{(d)} Let $n$ be a positive integer. Let $m\in\mathbb{N}$. Part
+\textbf{(c)} of the exercise (applied to $n+m+1$ instead of $n$) yields%
+\begin{equation}
+A^{n+m+1}=f_{n+m+1}A+\underbrace{f_{\left(  n+m+1\right)  -1}}_{=f_{n+m}}%
+I_{2}=f_{n+m+1}A+f_{n+m}I_{2}. \label{sol.ring.fibonacci.F.d.1}%
+\end{equation}
+
+
+But part \textbf{(c)} of the exercise (applied to $m+1$ instead of $n$) yields%
+\[
+A^{m+1}=f_{m+1}A+\underbrace{f_{\left(  m+1\right)  -1}}_{=f_{m}}I_{2}%
+=f_{m+1}A+f_{m}I_{2}.
+\]
+Furthermore, part \textbf{(c)} of the exercise yields%
+\[
+A^{n}=f_{n}A+f_{n-1}I_{2}.
+\]
+Multiplying the last two equalities, we obtain%
+\begin{align*}
+A^{m+1}A^{n}  &  =\left(  f_{m+1}A+f_{m}I_{2}\right)  \left(  f_{n}%
+A+f_{n-1}I_{2}\right) \\
+&  =\underbrace{f_{m+1}f_{n}}_{=f_{n}f_{m+1}}\underbrace{AA}_{\substack{=A^{2}%
+=A+I_{2}\\\text{(by part \textbf{(a)}}\\\text{of the exercise)}}%
+}+f_{m+1}f_{n-1}\underbrace{AI_{2}}_{=A}+f_{m}f_{n}\underbrace{I_{2}A}%
+_{=A}+\underbrace{f_{m}f_{n-1}}_{=f_{n-1}f_{m}}\underbrace{I_{2}I_{2}}%
+_{=I_{2}}\\
+&  =f_{n}f_{m+1}\left(  A+I_{2}\right)  +f_{m+1}f_{n-1}A+f_{m}f_{n}%
+A+f_{n-1}f_{m}I_{2}\\
+&  =\left(  f_{n}f_{m+1}+f_{m+1}f_{n-1}+f_{m}f_{n}\right)  A+\left(
+f_{n}f_{m+1}+f_{n-1}f_{m}\right)  I_{2}.
+\end{align*}
+Comparing this with%
+\begin{align*}
+A^{m+1}A^{n}  &  =A^{\left(  m+1\right)  +n}\qquad\left(  \text{by the rules
+for exponents in the ring }\mathbb{K}^{2\times2}\right) \\
+&  =A^{n+m+1}\qquad\left(  \text{since }\left(  m+1\right)  +n=n+m+1\right) \\
+&  =f_{n+m+1}A+f_{n+m}I_{2}\qquad\left(  \text{by
+\eqref{sol.ring.fibonacci.F.d.1}}\right)  ,
+\end{align*}
+we obtain%
+\begin{equation}
+f_{n+m+1}A+f_{n+m}I_{2}=\left(  f_{n}f_{m+1}+f_{m+1}f_{n-1}+f_{m}f_{n}\right)
+A+\left(  f_{n}f_{m+1}+f_{n-1}f_{m}\right)  I_{2}.
+\label{sol.ring.fibonacci.F.d.3}%
+\end{equation}
+
+
+We now would certainly want to \textquotedblleft compare the coefficients of
+$I_{2}$\textquotedblright\ in this equality, thus concluding that
+$f_{n+m}=f_{n}f_{m+1}+f_{n-1}f_{m}$. But why can we do this?
+
+The simplest way to justify this is by comparing the $\left(  1,1\right)  $-th
+entries of both matrices. Indeed, for any $u,v\in\mathbb{Z}$, we have%
+\[
+u\underbrace{A}_{=%
+\begin{pmatrix}
+0 & 1\\
+1 & 1
+\end{pmatrix}
+}+v\underbrace{I_{2}}_{=%
+\begin{pmatrix}
+1 & 0\\
+0 & 1
+\end{pmatrix}
+}=u%
+\begin{pmatrix}
+0 & 1\\
+1 & 1
+\end{pmatrix}
++v%
+\begin{pmatrix}
+1 & 0\\
+0 & 1
+\end{pmatrix}
+=%
+\begin{pmatrix}
+v & u\\
+u & u+v
+\end{pmatrix}
+\]
+and thus%
+\begin{equation}
+\left(  \text{the }\left(  1,1\right)  \text{-th entry of the matrix
+}uA+vI_{2}\right)  =v. \label{sol.ring.fibonacci.F.d.uv}%
+\end{equation}
+Applying this equality to $u=f_{n+m+1}$ and $v=f_{n+m}$, we obtain%
+\begin{equation}
+\left(  \text{the }\left(  1,1\right)  \text{-th entry of the matrix
+}f_{n+m+1}A+f_{n+m}I_{2}\right)  =f_{n+m}. \label{sol.ring.fibonacci.F.d.r1}%
+\end{equation}
+But applying \eqref{sol.ring.fibonacci.F.d.uv} to $u=f_{n}f_{m+1}%
++f_{m+1}f_{n-1}+f_{m}f_{n}$ and $v=f_{n}f_{m+1}+f_{n-1}f_{m}$, we obtain%
+\begin{align}
+&  \left(  \text{the }\left(  1,1\right)  \text{-th entry of the matrix
+}\left(  f_{n}f_{m+1}+f_{m+1}f_{n-1}+f_{m}f_{n}\right)  A+\left(  f_{n}%
+f_{m+1}+f_{n-1}f_{m}\right)  I_{2}\right) \nonumber\\
+&  =f_{n}f_{m+1}+f_{n-1}f_{m}. \label{sol.ring.fibonacci.F.d.r2}%
+\end{align}
+But the left hand sides of the equalities \eqref{sol.ring.fibonacci.F.d.r1}
+and \eqref{sol.ring.fibonacci.F.d.r2} are equal (because of
+\eqref{sol.ring.fibonacci.F.d.3}). Thus, their right hand sides must also be
+equal. In other words, we have%
+\[
+f_{n+m}=f_{n}f_{m+1}+f_{n-1}f_{m}.
+\]
+This solves part \textbf{(d)} of the exercise.
+
+[\textit{Remark:} There are many other ways to solve this part of the
+exercise. For example, if we rename $n$ as $n+1$, then it takes the more
+symmetric form $f_{n+m+1}=f_{n+1}f_{m+1}+f_{n}f_{m}$; but this is a well-known
+identity (see, e.g., Exercise 3 \textbf{(e)} in
+\href{http://www.cip.ifi.lmu.de/~grinberg/t/18s/mt1s.pdf}{UMN Spring 2018 Math
+4707 midterm \#1}) and a particular case of \cite[Theorem 2.26 \textbf{(a)}%
+]{detnotes}. It can be easily proven by induction on $n$ (or on $m$). Binet's
+formula for the Fibonacci numbers also leads to a straightforward solution to
+part \textbf{(d)} of the exercise.]
+
+\bigskip
+
+\textbf{(e)} First, we shall show that $B^{2}=B+I_{2}$. Indeed, $B=I_{2}-A$
+and thus%
+\begin{align*}
+B^{2}  &  =\left(  I_{2}-A\right)  ^{2}=\left(  I_{2}-A\right)  \left(
+I_{2}-A\right)  =\underbrace{I_{2}\left(  I_{2}-A\right)  }_{=I_{2}%
+-A}-\underbrace{A\left(  I_{2}-A\right)  }_{=AI_{2}-AA}\\
+&  =I_{2}-A-\left(  AI_{2}-AA\right)  =I_{2}-A-\underbrace{AI_{2}}%
+_{=A}+\underbrace{AA}_{\substack{=A^{2}=A+I_{2}\\\text{(by part \textbf{(a)}%
+}\\\text{of the exercise)}}}\\
+&  =I_{2}-A-A+\left(  A+I_{2}\right)  =2I_{2}-A=\underbrace{\left(
+I_{2}-A\right)  }_{=B}+I_{2}=B+I_{2}.
+\end{align*}
+
+
+It remains to prove that $B^{n}=f_{n}B+f_{n-1}I_{2}$ for all positive integers
+$n$.
+
+Here is the laziest (but perfectly legitimate) way of doing this: In our
+solution to part \textbf{(c)} of this exercise, we have proven that
+$A^{n}=f_{n}A+f_{n-1}I_{2}$ for all positive integers $n$. Our proof of this
+fact did not use anything specific about the matrix $A$, other than the fact
+that $A$ satisfies $A^{2}=A+I_{2}$. Therefore, we can replace each appearance
+of \textquotedblleft$A$\textquotedblright\ by \textquotedblleft$B$%
+\textquotedblright\ in this proof, and thus obtain a proof of the fact that
+$B^{n}=f_{n}B+f_{n-1}I_{2}$ for all positive integers $n$ (because $B$
+satisfies $B^{2}=B+I_{2}$). This completes the solution of part \textbf{(e)}
+of the exercise.
+
+\bigskip
+
+\textbf{(f)} Let $n\in\mathbb{N}$. We must prove that $A^{n}-B^{n}%
+=f_{n}\left(  A-B\right)  $.
+
+If $n=0$, then this is easy\footnote{\textit{Proof.} Assume that $n=0$. Thus,
+$A^{n}-B^{n}=\underbrace{A^{0}}_{=I_{2}}-\underbrace{B^{0}}_{=I_{2}}%
+=I_{2}-I_{2}=0_{2\times2}$. On the other hand, from $n=0$, we obtain
+$f_{n}=f_{0}=0$ and thus $f_{n}\left(  A-B\right)  =0\left(  A-B\right)
+=0_{2\times2}$. Comparing this with $A^{n}-B^{n}=0_{2\times2}$, we obtain
+$A^{n}-B^{n}=f_{n}\left(  A-B\right)  $. Hence, we have proven that
+$A^{n}-B^{n}=f_{n}\left(  A-B\right)  $ under the assumption that $n=0$.}.
+Hence, for the rest of this proof, we WLOG assume that $n\neq0$. Thus, $n$ is
+a positive integer (since $n\in\mathbb{N}$). Hence, part \textbf{(c)} of this
+exercise yields $A^{n}=f_{n}A+f_{n-1}I_{2}$. But part \textbf{(e)} of this
+exercise yields $B^{n}=f_{n}B+f_{n-1}I_{2}$. Subtracting the last two
+equalities, we obtain%
+\[
+A^{n}-B^{n}=\left(  f_{n}A+f_{n-1}I_{2}\right)  -\left(  f_{n}B+f_{n-1}%
+I_{2}\right)  =f_{n}\left(  A-B\right)  .
+\]
+This solves part \textbf{(f)} of the exercise.
+
+\bigskip
+
+\textbf{(g)} Given two elements $\alpha$ and $\beta$ of $\mathcal{F}$, we say
+that $\alpha\mid\beta$ \textit{in }$\mathcal{F}$ if and only if there exists
+some $\gamma\in\mathcal{F}$ such that $\beta=\alpha\gamma$. Thus, we have
+defined divisibility in $\mathcal{F}$. Basic properties of divisibility of
+integers (such as Proposition 2.2.4 in
+\href{http://www.cip.ifi.lmu.de/~grinberg/t/19s/notes.pdf}{the class notes})
+still apply to divisibility in $\mathcal{F}$ (with the same proofs), since
+$\mathcal{F}$ is a \textbf{commutative} ring.
+
+We recall the following fact (Lemma 2.10.11 \textbf{(a)} in
+\href{http://www.cip.ifi.lmu.de/~grinberg/t/19s/notes.pdf}{the class notes}):
+
+\begin{statement}
+\textit{Claim 5:} Let $d\in\mathbb{N}$. Let $x$ and $y$ be integers. Then,
+$x-y\mid x^{d}-y^{d}$.
+\end{statement}
+
+This fact has an analogue for elements of $\mathcal{F}$ instead of integers:
+
+\begin{statement}
+\textit{Claim 6:} Let $d\in\mathbb{N}$. Let $x$ and $y$ be elements of
+$\mathcal{F}$. Then, $x-y\mid x^{d}-y^{d}$ in $\mathcal{F}$.
+\end{statement}
+
+[\textit{Proof of Claim 6:} Both proofs we gave for Claim 5 in the class notes
+can be modified in an obvious way to yield proofs of Claim 6, because
+$\mathcal{F}$ is a \textbf{commutative} ring.]
+
+Now, let $d$ and $n$ be nonnegative integers. We must prove that $f_{d}\mid
+f_{dn}$.
+
+Part \textbf{(f)} of this exercise (applied to $d$ instead of $n$) yields
+$A^{d}-B^{d}=f_{d}\left(  A-B\right)  $.
+
+Part \textbf{(f)} of this exercise (applied to $dn$ instead of $n$) yields
+$A^{dn}-B^{dn}=f_{dn}\left(  A-B\right)  $.
+
+But $A$ and $B$ are elements of $\mathcal{F}$. Thus, their powers $A^{d}$,
+$B^{d}$, $A^{dn}$ and $B^{dn}$ are elements of $\mathcal{F}$ as well (since
+$\mathcal{F}$ is a ring). Hence, Claim 2 (applied to $n$, $A^{d}$ and $B^{d}$
+instead of $d$, $x$ and $y$) yields $A^{d}-B^{d}\mid\left(  A^{d}\right)
+^{n}-\left(  B^{d}\right)  ^{n}$ in $\mathcal{F}$. In view of
+\[
+A^{d}-B^{d}=f_{d}\left(  A-B\right)  \qquad\text{and}\qquad\left(
+A^{d}\right)  ^{n}-\left(  B^{d}\right)  ^{n}=A^{dn}-B^{dn}=f_{dn}\left(
+A-B\right)  ,
+\]
+this rewrites as follows:%
+\[
+f_{d}\left(  A-B\right)  \mid f_{dn}\left(  A-B\right)  \qquad\text{in
+}\mathcal{F}.
+\]
+
+
+Now, it is tempting to \textquotedblleft cancel\textquotedblright\ $A-B$ from
+this divisibility, and conclude that $f_{d}\mid f_{dn}$ in $\mathbb{Z}$. To
+justify this rigorously, we proceed as follows:
+
+We have $f_{d}\left(  A-B\right)  \mid f_{dn}\left(  A-B\right)  $ in
+$\mathcal{F}$. In other words, there exists a matrix $\gamma\in\mathcal{F}$
+such that
+\begin{equation}
+f_{dn}\left(  A-B\right)  =f_{d}\left(  A-B\right)  \gamma
+\label{sol.ring.fibonacci.F.g.2}%
+\end{equation}
+(by the definition of divisibility in $\mathcal{F}$). Consider this $\gamma$.
+
+We have $B=I_{2}-A$ and thus
+\[
+A-B=A-\left(  I_{2}-A\right)  =2\underbrace{A}_{=%
+\begin{pmatrix}
+0 & 1\\
+1 & 1
+\end{pmatrix}
+}-\underbrace{I_{2}}_{=%
+\begin{pmatrix}
+1 & 0\\
+0 & 1
+\end{pmatrix}
+}=2%
+\begin{pmatrix}
+0 & 1\\
+1 & 1
+\end{pmatrix}
+-%
+\begin{pmatrix}
+1 & 0\\
+0 & 1
+\end{pmatrix}
+=%
+\begin{pmatrix}
+-1 & 2\\
+2 & 1
+\end{pmatrix}
+.
+\]
+Hence,%
+\begin{equation}
+\left(  \text{the }\left(  2,2\right)  \text{-th entry of the matrix
+}A-B\right)  =1. \label{sol.ring.fibonacci.F.g.3}%
+\end{equation}
+Since matrices are scaled entrywise, we now have%
+\begin{align}
+&  \left(  \text{the }\left(  2,2\right)  \text{-th entry of the matrix
+}f_{dn}\left(  A-B\right)  \right) \nonumber\\
+&  =f_{dn}\cdot\underbrace{\left(  \text{the }\left(  2,2\right)  \text{-th
+entry of the matrix }A-B\right)  }_{=1}=f_{dn}.
+\label{sol.ring.fibonacci.F.g.5}%
+\end{align}
+On the other hand, the matrices $A-B$ and $\gamma$ belong to $\mathcal{F}$;
+thus, their product $\left(  A-B\right)  \gamma$ belongs to $\mathcal{F}$ as
+well, and therefore belongs to $\mathbb{Z}^{2\times2}$ (since $\mathcal{F}%
+\subseteq\mathbb{Z}^{2\times2}$). In other words, $\left(  A-B\right)  \gamma$
+is a $2\times2$-matrix with integer entries. Hence, each entry of $\left(
+A-B\right)  \gamma$ is an integer, i.e., belongs to $\mathbb{Z}$. Thus, in
+particular,%
+\[
+\left(  \text{the }\left(  2,2\right)  \text{-th entry of the matrix
+}A-B\right)  \gamma\in\mathbb{Z}.
+\]
+Now, \eqref{sol.ring.fibonacci.F.g.5} yields%
+\begin{align*}
+f_{dn}  &  =\left(  \text{the }\left(  2,2\right)  \text{-th entry of the
+matrix }\underbrace{f_{dn}\left(  A-B\right)  }_{=f_{d}\left(  A-B\right)
+\gamma}\right) \\
+&  =\left(  \text{the }\left(  2,2\right)  \text{-th entry of the matrix
+}f_{d}\left(  A-B\right)  \gamma\right) \\
+&  =f_{d}\cdot\left(  \text{the }\left(  2,2\right)  \text{-th entry of the
+matrix }\left(  A-B\right)  \gamma\right)
+\end{align*}
+(since matrices are scaled entrywise). This yields that $f_{d}\mid f_{dn}$ (in
+the classical sense of divisibility of integers), because we know that
+$\left(  \text{the }\left(  2,2\right)  \text{-th entry of the matrix }\left(
+A-B\right)  \gamma\right)  \in\mathbb{Z}$. This solves part \textbf{(g)} of
+the exercise.
+
+[\textit{Remark:} Once again, there are other ways to solve this part of the
+exercise. For example, it can be restated as \textquotedblleft Prove that
+$f_{u}\mid f_{v}$ whenever $u$ and $v$ are nonnegative integers satisfying
+$u\mid v$\textquotedblright; but in this form, it is clearly a particular case
+of \cite[Theorem 2.26 \textbf{(c)}]{detnotes}.]
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 6
+%----------------------------------------------------------------------------------------
+\rule{\linewidth}{0.3pt} \\[0.4cm]
+
+\section{Exercise 6: ISBNs vs. fat fingers}
+
+\subsection{Problem}
+
+An \textit{ISBN} shall mean a $10$-tuple $\left(  a_{1},a_{2},\ldots
+,a_{10}\right)  \in\left\{  0,1,\ldots,10\right\}  ^{10}$ such that
+\[
+1a_{1}+2a_{2}+\cdots+10a_{10}\equiv0\operatorname{mod}11.
+\]
+
+
+\noindent(For example, the $10$-tuple $\left(  1, 1, \ldots, 1 \right)  $ is
+an ISBN.)
+
+Prove the following:
+
+\begin{enumerate}
+\item[\textbf{(a)}] If $\mathbf{a} = \left(  a_{1}, a_{2}, \ldots, a_{10}
+\right)  $ and $\mathbf{b} = \left(  b_{1}, b_{2}, \ldots, b_{10} \right)  $
+are two ISBNs that are equal in all but one entry (i.e., there exists some $k
+\in\left\{  1, 2, \ldots, 10 \right\}  $ such that $a_{i} = b_{i}$ for all $i
+\neq k$), then $\mathbf{a} = \mathbf{b}$.
+
+\item[\textbf{(b)}] If an ISBN $\mathbf{a} = \left(  a_{1}, a_{2}, \ldots,
+a_{10} \right)  $ is obtained from an ISBN $\mathbf{b} = \left(  b_{1}, b_{2},
+\ldots, b_{10} \right)  $ by swapping two entries (i.e., there exist $k,
+\ell\in\left\{  1, 2, \ldots, 10 \right\}  $ such that $a_{k} = b_{\ell}$ and
+$a_{\ell}= b_{k}$ and $a_{i} = b_{i}$ for all $i \notin\left\{  k,
+\ell\right\}  $), then $\mathbf{a} = \mathbf{b}$.
+\end{enumerate}
+
+\subsection{Remark}
+
+What we called ISBN here is essentially the definition of an
+\href{https://en.wikipedia.org/wiki/International_Standard_Book_Number#ISBN-10_check_digits}{ISBN-10}
+-- an international standard for book identifiers used from the 1970s until
+2007. For example, the ISBN-10 of the Graham/Knuth/Patashnik book ``Concrete
+Mathematics'' is ``0-201-55802-5'', which corresponds to $\left(  0, 2, 0, 1,
+5, 5, 8, 0, 2, 5 \right)  $; you can check that this is indeed an ISBN
+according to our definition.
+
+(An ``X'' in a real-life ISBN stands for an entry that is $10$.)
+
+As this exercise shows, ISBNs have an error-detection property: If you make a
+typo in a single digit or accidentally swap two digits, the result will not be
+an ISBN, so you will know that something has gone wrong. This helps you avoid
+ordering the wrong book from a bookstore or library.
+\href{https://en.wikipedia.org/wiki/Luhn_algorithm}{Credit card numbers have a
+similar error-detection feature}.
+
+This is one of the simplest examples of an
+\href{https://en.wikipedia.org/wiki/Error_correction_code}{error correction
+code}. We may or may not see more of them in class. For now, you can think
+about how to define ``ISBNs''
+
+\begin{itemize}
+\item in $\left\{  0, 1, \ldots, 4 \right\}  ^{4}$;
+
+\item in $\left\{  0, 1, \ldots, 6 \right\}  ^{6}$;
+
+\item in $\left\{  0, 1, \ldots, 8 \right\}  ^{8}$ (this is harder!).
+\end{itemize}
+
+\subsection{Solution sketch}
+
+Before we solve the exercise, let us prove a simple claim which our solution
+will rest upon:
+
+\begin{statement}
+\textit{Claim 1:} Let $u$ and $v$ be two elements of $\left\{  -10,-9,\ldots
+,10\right\}  $ such that $uv\equiv0\operatorname{mod}11$ and $u\neq0$. Then,
+$v=0$.
+\end{statement}
+
+[\textit{Proof of Claim 1:} Assume the contrary. Thus, $v\neq0$.
+
+We have $u\in\left\{  -10,-9,\ldots,10\right\}  $, thus $-10\leq u\leq10$ and
+therefore $\left\vert u\right\vert \leq10$. In other words, $10\geq\left\vert
+u\right\vert $.
+
+If we had $11\mid u$, then Proposition 2.2.3 \textbf{(b)} in
+\href{http://www.cip.ifi.lmu.de/~grinberg/t/19s/notes.pdf}{the class notes}
+(applied to $a=11$ and $b=u$) would yield $\left\vert 11\right\vert
+\leq\left\vert u\right\vert $ (since $u\neq0$); but this would contradict
+$\left\vert 11\right\vert =11>10\geq\left\vert u\right\vert $. Hence, we
+cannot have $11\mid u$. The same argument (applied to $v$ instead of $u$)
+shows that we cannot have $11\mid v$ (since $v\neq0$). Thus, neither $11\mid
+u$ nor $11\mid v$ holds.
+
+But $11$ is a prime, and we have $11\mid uv$ (since $uv\equiv
+0\operatorname{mod}11$). Thus, Theorem 2.13.6 in
+\href{http://www.cip.ifi.lmu.de/~grinberg/t/19s/notes.pdf}{the class notes}
+(applied to $p=11$, $a=u$ and $b=v$) shows that $11\mid u$ or $11\mid v$. This
+contradicts the fact that neither $11\mid u$ nor $11\mid v$ holds. This
+contradiction shows that our assumption was false. Hence, Claim 1 is proven.]
+
+\bigskip
+
+\textbf{(a)} Let $\mathbf{a}=\left(  a_{1},a_{2},\ldots,a_{10}\right)  $ and
+$\mathbf{b}=\left(  b_{1},b_{2},\ldots,b_{10}\right)  $ be two ISBNs that are
+equal in all but one entry. We must prove that $\mathbf{a}=\mathbf{b}$.
+
+We have assumed that $\mathbf{a}$ and $\mathbf{b}$ are equal in all but one
+entry. In other words, there exists some $k\in\left\{  1,2,\ldots,10\right\}
+$ such that
+\begin{equation}
+a_{i}=b_{i}\qquad\text{for all }i\neq k. \label{sol.ent.isbn.a.ass}%
+\end{equation}
+Consider this $k$.
+
+We have assumed that $\mathbf{a}$ is an ISBN. In other words, $\left(
+a_{1},a_{2},\ldots,a_{10}\right)  \in\left\{  0,1,\ldots,10\right\}  ^{10}$
+and $1a_{1}+2a_{2}+\cdots+10a_{10}\equiv0\operatorname{mod}11$.
+
+Thus,%
+\begin{equation}
+\sum_{i\in\left\{  1,2,\ldots,10\right\}  }ia_{i}=1a_{1}+2a_{2}+\cdots
++10a_{10}\equiv0\operatorname{mod}11. \label{sol.ent.isbn.a.sum-iai}%
+\end{equation}
+Similarly,%
+\begin{equation}
+\sum_{i\in\left\{  1,2,\ldots,10\right\}  }ib_{i}\equiv0\operatorname{mod}11.
+\label{sol.ent.isbn.a.sum-ibi}%
+\end{equation}
+But%
+\begin{align*}
+\sum_{i\in\left\{  1,2,\ldots,10\right\}  }ia_{i}  &  =ka_{k}+\sum
+_{\substack{i\in\left\{  1,2,\ldots,10\right\}  ;\\i\neq k}}i\underbrace{a_{i}%
+}_{\substack{=b_{i}\\\text{(by \eqref{sol.ent.isbn.a.ass})}}}\\
+&  \qquad\left(  \text{here, we have split off the addend for }i=k\text{ from
+the sum}\right) \\
+&  =ka_{k}+\sum_{\substack{i\in\left\{  1,2,\ldots,10\right\}  ;\\i\neq
+k}}ib_{i},
+\end{align*}
+so that \eqref{sol.ent.isbn.a.sum-iai} rewrites as%
+\begin{equation}
+ka_{k}+\sum_{\substack{i\in\left\{  1,2,\ldots,10\right\}  ;\\i\neq k}%
+}ib_{i}\equiv0\operatorname{mod}11. \label{sol.ent.isbn.a.sum-iai2}%
+\end{equation}
+Furthermore,%
+\begin{align*}
+\sum_{i\in\left\{  1,2,\ldots,10\right\}  }ib_{i}  &  =kb_{k}+\sum
+_{\substack{i\in\left\{  1,2,\ldots,10\right\}  ;\\i\neq k}}ib_{i}\\
+&  \qquad\left(  \text{here, we have split off the addend for }i=k\text{ from
+the sum}\right)  ,
+\end{align*}
+so that \eqref{sol.ent.isbn.a.sum-ibi} rewrites as%
+\[
+kb_{k}+\sum_{\substack{i\in\left\{  1,2,\ldots,10\right\}  ;\\i\neq k}%
+}ib_{i}\equiv0\operatorname{mod}11.
+\]
+Subtracting this congruence from the congruence
+\eqref{sol.ent.isbn.a.sum-iai2}, we obtain
+\[
+\left(  ka_{k}+\sum_{\substack{i\in\left\{  1,2,\ldots,10\right\}  ;\\i\neq
+k}}ib_{i}\right)  -\left(  kb_{k}+\sum_{\substack{i\in\left\{  1,2,\ldots
+,10\right\}  ;\\i\neq k}}ib_{i}\right)  \equiv0-0=0\operatorname{mod}11.
+\]
+In view of
+\[
+\left(  ka_{k}+\sum_{\substack{i\in\left\{  1,2,\ldots,10\right\}  ;\\i\neq
+k}}ib_{i}\right)  -\left(  kb_{k}+\sum_{\substack{i\in\left\{  1,2,\ldots
+,10\right\}  ;\\i\neq k}}ib_{i}\right)  =ka_{k}-kb_{k}=k\left(  a_{k}%
+-b_{k}\right)  ,
+\]
+this rewrites as $k\left(  a_{k}-b_{k}\right)  \equiv0\operatorname{mod}11$.
+
+We have $a_{k}\in\left\{  0,1,\ldots,10\right\}  $ (since $\left(  a_{1}%
+,a_{2},\ldots,a_{10}\right)  \in\left\{  0,1,\ldots,10\right\}  ^{10}$) and
+$b_{k}\in\left\{  0,1,\ldots,10\right\}  $ (similarly). Hence, $a_{k}-b_{k}%
+\in\left\{  -10,-9,\ldots,10\right\}  $. Furthermore, $k\in\left\{
+1,2,\ldots,10\right\}  \subseteq\left\{  -10,-9,\ldots,10\right\}  $ and
+$k\neq0$. Thus, Claim 1 (applied to $u=k$ and $v=a_{k}-b_{k}$) yields
+$a_{k}-b_{k}=0$. In other words, $a_{k}=b_{k}$.
+
+Now, \eqref{sol.ent.isbn.a.ass} shows that any entry of the $10$-tuple
+$\mathbf{a}$ is equal to the corresponding entry of the $10$-tuple
+$\mathbf{b}$, except perhaps the $k$-th entry. But the equality $a_{k}=b_{k}$
+shows that the $k$-th entries of these two $10$-tuples $\mathbf{a}$ and
+$\mathbf{b}$ are also equal to each other. Thus, each entry of $\mathbf{a}$ is
+equal to the corresponding entry of $\mathbf{b}$. In other words,
+$\mathbf{a}=\mathbf{b}$. This solves part \textbf{(a)} of the exercise.
+
+\bigskip
+
+\textbf{(b)} Let $\mathbf{a}=\left(  a_{1},a_{2},\ldots,a_{10}\right)  $ and
+$\mathbf{b}=\left(  b_{1},b_{2},\ldots,b_{10}\right)  $ be two ISBNs such that
+$\mathbf{a}$ is obtained from $\mathbf{b}$ by swapping two entries. We must
+prove that $\mathbf{a}=\mathbf{b}$.
+
+We have assumed that $\mathbf{a}$ is obtained from $\mathbf{b}$ by swapping
+two entries. In other words, there exist $k,\ell\in\left\{  1,2,\ldots
+,10\right\}  $ such that $a_{k}=b_{\ell}$ and $a_{\ell}=b_{k}$ and
+\begin{equation}
+a_{i}=b_{i}\qquad\text{for all }i\notin\left\{  k,\ell\right\}  .
+\label{sol.ent.isbn.b.ass}%
+\end{equation}
+Consider these $k,\ell$.
+
+We must prove that $\mathbf{a}=\mathbf{b}$. If $a_{k}=a_{\ell}$, then this is
+true\footnote{\textit{Proof.} Assume that $a_{k}=a_{\ell}$. Thus,
+$a_{k}=a_{\ell}=b_{k}$ and $a_{\ell}=a_{k}=b_{\ell}$. Now, from
+\eqref{sol.ent.isbn.b.ass}, we know that the equality $a_{i}=b_{i}$ holds for
+all $i\notin\left\{  k,\ell\right\}  $. But this equality also holds for $i=k$
+(since $a_{k}=b_{k}$) and for $i=\ell$ (since $a_{\ell}=b_{\ell}$). Thus, this
+equality holds for all $i\in\left\{  1,2,\ldots,10\right\}  $. In other words,
+$\mathbf{a}=\mathbf{b}$, qed.}. Hence, for the rest of this solution, we WLOG
+assume that $a_{k}\neq a_{\ell}$. Thus, $k\neq\ell$, so that $k-\ell\neq0$.
+
+Also, we have $a_{k}\neq a_{\ell}$. In view of $a_{k}=b_{\ell}$ and $a_{\ell
+}=b_{k}$, this rewrites as $b_{\ell}\neq b_{k}$.
+
+We have assumed that $\mathbf{a}$ is an ISBN. In other words, $\left(
+a_{1},a_{2},\ldots,a_{10}\right)  \in\left\{  0,1,\ldots,10\right\}  ^{10}$
+and $1a_{1}+2a_{2}+\cdots+10a_{10}\equiv0\operatorname{mod}11$.
+
+Thus,%
+\begin{equation}
+\sum_{i\in\left\{  1,2,\ldots,10\right\}  }ia_{i}=1a_{1}+2a_{2}+\cdots
++10a_{10}\equiv0\operatorname{mod}11. \label{sol.ent.isbn.b.sum-iai}%
+\end{equation}
+Similarly,%
+\begin{equation}
+\sum_{i\in\left\{  1,2,\ldots,10\right\}  }ib_{i}\equiv0\operatorname{mod}11.
+\label{sol.ent.isbn.b.sum-ibi}%
+\end{equation}
+But%
+\begin{align*}
+\sum_{i\in\left\{  1,2,\ldots,10\right\}  }ia_{i}  &  =k\underbrace{a_{k}%
+}_{=b_{\ell}}+\ell\underbrace{a_{\ell}}_{=b_{k}}+\sum_{\substack{i\in\left\{
+1,2,\ldots,10\right\}  ;\\i\notin\left\{  k,\ell\right\}  }}i\underbrace{a_{i}%
+}_{\substack{=b_{i}\\\text{(by \eqref{sol.ent.isbn.b.ass})}}}\\
+&  \qquad\left(
+\begin{array}
+[c]{c}%
+\text{here, we have split off the addends for }i=k\text{ and for }i=\ell\text{
+from the}\\
+\text{sum (and these were indeed two different addends, since }k\neq
+\ell\text{)}%
+\end{array}
+\right) \\
+&  =kb_{\ell}+\ell b_{k}+\sum_{\substack{i\in\left\{  1,2,\ldots,10\right\}
+;\\i\notin\left\{  k,\ell\right\}  }}ib_{i},
+\end{align*}
+so that \eqref{sol.ent.isbn.b.sum-iai} rewrites as%
+\begin{equation}
+kb_{\ell}+\ell b_{k}+\sum_{\substack{i\in\left\{  1,2,\ldots,10\right\}
+;\\i\notin\left\{  k,\ell\right\}  }}ib_{i}\equiv0\operatorname{mod}11.
+\label{sol.ent.isbn.b.sum-iai2}%
+\end{equation}
+Furthermore,%
+\begin{align*}
+\sum_{i\in\left\{  1,2,\ldots,10\right\}  }ia_{i}  &  =kb_{k}+\ell b_{\ell
+}+\sum_{\substack{i\in\left\{  1,2,\ldots,10\right\}  ;\\i\notin\left\{
+k,\ell\right\}  }}ib_{i}\\
+&  \qquad\left(
+\begin{array}
+[c]{c}%
+\text{here, we have split off the addends for }i=k\text{ and for }i=\ell\text{
+from the}\\
+\text{sum (and these were indeed two different addends, since }k\neq
+\ell\text{)}%
+\end{array}
+\right)  ,
+\end{align*}
+so that \eqref{sol.ent.isbn.b.sum-ibi} rewrites as%
+\[
+kb_{k}+\ell b_{\ell}+\sum_{\substack{i\in\left\{  1,2,\ldots,10\right\}
+;\\i\notin\left\{  k,\ell\right\}  }}ib_{i}\equiv0\operatorname{mod}11.
+\]
+Subtracting this congruence from the congruence
+\eqref{sol.ent.isbn.b.sum-iai2}, we obtain
+\[
+\left(  kb_{\ell}+\ell b_{k}+\sum_{\substack{i\in\left\{  1,2,\ldots
+,10\right\}  ;\\i\notin\left\{  k,\ell\right\}  }}ib_{i}\right)  -\left(
+kb_{k}+\ell b_{\ell}+\sum_{\substack{i\in\left\{  1,2,\ldots,10\right\}
+;\\i\notin\left\{  k,\ell\right\}  }}ib_{i}\right)  \equiv
+0-0=0\operatorname{mod}11.
+\]
+In view of
+\begin{align*}
+\left(  kb_{\ell}+\ell b_{k}+\sum_{\substack{i\in\left\{  1,2,\ldots
+,10\right\}  ;\\i\notin\left\{  k,\ell\right\}  }}ib_{i}\right)  -\left(
+kb_{k}+\ell b_{\ell}+\sum_{\substack{i\in\left\{  1,2,\ldots,10\right\}
+;\\i\notin\left\{  k,\ell\right\}  }}ib_{i}\right)   &  =kb_{\ell}+\ell
+b_{k}-kb_{k}-\ell b_{\ell}\\
+&  =\left(  k-\ell\right)  \left(  b_{\ell}-b_{k}\right)  ,
+\end{align*}
+this rewrites as $\left(  k-\ell\right)  \left(  b_{\ell}-b_{k}\right)
+\equiv0\operatorname{mod}11$.
+
+But $\mathbf{b}$ is an ISBN; thus, $\left(  b_{1},b_{2},\ldots,b_{10}\right)
+\in\left\{  0,1,\ldots,10\right\}  ^{10}$. Hence, $b_{k}\in\left\{
+0,1,\ldots,10\right\}  $ and $b_{\ell}\in\left\{  0,1,\ldots,10\right\}  $.
+Therefore, $b_{\ell}-b_{k}\in\left\{  -10,-9,\ldots,10\right\}  $.
+Furthermore, $k-\ell\in\left\{  -10,-9,\ldots,10\right\}  $ (since both $k$
+and $\ell$ belong to the set $\left\{  1,2,\ldots,10\right\}  $) and
+$k-\ell\neq0$ (since $k\neq\ell$). Thus, Claim 1 (applied to $u=k-\ell$ and
+$v=b_{\ell}-b_{k}$) yields $b_{\ell}-b_{k}=0$. In other words, $b_{\ell}%
+=b_{k}$. This contradicts $b_{\ell}\neq b_{k}$. Thus, $\mathbf{a}=\mathbf{b}$
+(because \textit{ex falso quodlibet})\footnote{Of course, this shows that the
+case we are considering doesn't ever happen -- i.e., our WLOG assumption left
+us only an impossible case to consider. But it was not clear a priori that
+this case was impossible; we had to work to reach this conclusion.}. This
+solves part \textbf{(b)} of the exercise.
+
+\begin{thebibliography}{99999999}                                                                                         %
+
+
+\bibitem[Grinbe19]{detnotes}Darij Grinberg, \textit{Notes on the combinatorial
+fundamentals of algebra}, 10 January 2019. \newline%
+\url{http://www.cip.ifi.lmu.de/~grinberg/primes2015/sols.pdf} \newline The
+numbering of theorems and formulas in this link might shift when the project
+gets updated; for a \textquotedblleft frozen\textquotedblright\ version whose
+numbering is guaranteed to match that in the citations above, see
+\url{https://github.com/darijgr/detnotes/releases/tag/2019-01-10} .
+
+\bibitem[Rogers71]{Rogers71}\href{https://doi.org/10.1007/BF02993626}{Kenneth
+Rogers, \textit{An elementary proof of a theorem of Jacobson}, Abhandlungen
+Aus Dem Mathematischen Seminar Der Universit\"{a}t Hamburg, \textbf{35} (3-4),
+1971, pp. 223--229. doi:10.1007/bf02993626}.
+
+\bibitem[Vorobi02]{Vorobi02}%
+\href{https://doi.org/10.1007/978-3-0348-8107-4}{Nicolai N. Vorobiev,
+\textit{Fibonacci Numbers}, Translated from the Russian by Mircea Martin,
+Springer 2002 (translation of the 6th Russian edition)}.
+\end{thebibliography}
+
+
+\end{document}

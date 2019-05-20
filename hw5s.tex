@@ -1,0 +1,1328 @@
+% The LaTeX below is mostly computer-generated (for reasons of speed); don't expect it to be very readable. Sorry.
+
+\documentclass[paper=a4, fontsize=12pt]{scrartcl}%
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{amsmath,amsfonts,amsthm,amssymb}
+\usepackage{mathrsfs}
+\usepackage{sectsty}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{framed}
+\usepackage{ifthen}
+\usepackage{lastpage}
+\usepackage[headsepline,footsepline,manualmark]{scrlayer-scrpage}
+\usepackage[height=10in,a4paper,hmargin={1in,0.8in}]{geometry}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{tikz}
+\usepackage{verbatim}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}%
+\setcounter{MaxMatrixCols}{30}
+%TCIDATA{OutputFilter=latex2.dll}
+%TCIDATA{Version=5.50.0.2960}
+%TCIDATA{LastRevised=Tuesday, April 16, 2019 02:13:34}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{BibliographyScheme=Manual}
+%BeginMSIPreambleData
+\providecommand{\U}[1]{\protect\rule{.1in}{.1in}}
+%EndMSIPreambleData
+\allsectionsfont{\centering \normalfont\scshape}
+\setlength\parindent{20pt}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\DD}{{\mathbb{D}}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\Z}[1]{\mathbb{Z}/#1\mathbb{Z}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\lcm}{\operatorname{lcm}}
+\newcommand{\set}[1]{\left\{ #1 \right\}}
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\tup}[1]{\left( #1 \right)}
+\newcommand{\ive}[1]{\left[ #1 \right]}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\underbrack}[2]{\underbrace{#1}_{\substack{#2}}}
+\newcommand{\powset}[2][]{\ifthenelse{\equal{#2}{}}{\mathcal{P}\left(#1\right)}{\mathcal{P}_{#1}\left(#2\right)}}
+\newcommand{\mapeq}[1]{\underset{#1}{\equiv}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\N}{\operatorname{N}}
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}}
+\newcommand{\nnn}{\nonumber\\}
+\newcommand{\st}{\sqrt{-3}}
+\newcommand{\Zst}{\ZZ\ive{\sqrt{-3}}}
+\newcommand{\No}{\operatorname{N}}
+\let\sumnonlimits\sum
+\let\prodnonlimits\prod
+\let\cupnonlimits\bigcup
+\let\capnonlimits\bigcap
+\renewcommand{\sum}{\sumnonlimits\limits}
+\renewcommand{\prod}{\prodnonlimits\limits}
+\renewcommand{\bigcup}{\cupnonlimits\limits}
+\renewcommand{\bigcap}{\capnonlimits\limits}
+\newtheoremstyle{plainsl}
+{8pt plus 2pt minus 4pt}
+{8pt plus 2pt minus 4pt}
+{\slshape}
+{0pt}
+{\bfseries}
+{.}
+{5pt plus 1pt minus 1pt}
+{}
+\theoremstyle{plainsl}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{examples}[theorem]{Examples}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{question}[theorem]{Question}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newenvironment{statement}{\begin{quote}}{\end{quote}}
+\newenvironment{fineprint}{\begin{small}}{\end{small}}
+\newcommand{\myname}{Darij Grinberg}
+\newcommand{\myid}{00000000}
+\newcommand{\mymail}{dgrinber@umn.edu}
+\newcommand{\psetnumber}{5}
+\ihead{Solutions to homework set \#\psetnumber}
+\ohead{page \thepage\ of \pageref{LastPage}}
+\ifoot{\myname, \myid}
+\ofoot{\mymail}
+\begin{document}
+
+\title{ \normalfont {\normalsize \textsc{University of Minnesota, School of
+Mathematics} }\\[25pt] \rule{\linewidth}{0.5pt} \\[0.4cm] {\huge Math 4281: Introduction to Modern Algebra, }\\Spring 2019: Homework 5\\\rule{\linewidth}{2pt} \\[0.5cm] }
+\author{Darij Grinberg}
+\maketitle
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 1
+%----------------------------------------------------------------------------------------
+\rule{\linewidth}{0.3pt} \\[0.4cm]
+
+\section{Exercise 1: Sums of powers of divisors}
+
+\subsection{Problem}
+
+Let $n$ be a positive integer. Let $k \in\mathbb{N}$. Prove that
+\[
+\sum_{d \mid n} d^{k} = \prod_{p \text{ prime}} \left(  p^{0k} + p^{1k} +
+\cdots+ p^{v_{p}\left(  n \right)  \cdot k} \right)  .
+\]
+Here, the summation sign ``$\sum_{d \mid n}$'' means a sum over all
+\textbf{positive} divisors $d$ of $n$.
+
+\subsection{Solution}
+
+See \href{http://www.cip.ifi.lmu.de/~grinberg/t/19s/notes.pdf}{the class
+notes}, where this is Exercise 2.18.1 \textbf{(b)}. (The numbering may shift;
+it is one of the exercises in the \textquotedblleft Counting
+divisors\textquotedblright\ section.)
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 2
+%----------------------------------------------------------------------------------------
+\rule{\linewidth}{0.3pt} \\[0.4cm]
+
+\section{Exercise 2: Another version of Jacobi's two-squares theorem}
+
+\subsection{Problem}
+
+Let $n$ be a positive integer. Prove that
+\begin{align*}
+&  \left(  \text{the number of pairs $\left(  x, y \right)  \in\mathbb{Z}^{2}$
+such that $n = x^{2} + y^{2}$} \right) \\
+&  = 4 \left(  \text{the number of positive divisors $d$ of $n$ such that $d
+\equiv1 \mod 4$} \right) \\
+&  \qquad- 4 \left(  \text{the number of positive divisors $d$ of $n$ such
+that $d \equiv3 \mod 4$} \right)  .
+\end{align*}
+
+
+[\textbf{Hint:} The formula for the left hand side that we proved in class can
+be freely used.]
+
+\subsection{Solution sketch}
+
+Let
+\begin{align}
+z  &  =\left(  \text{the number of positive divisors $d$ of $n$ such that
+$d\equiv1\mod 4$}\right) \nonumber\\
+&  \ \ \ \ \ \ \ \ \ \ -\left(  \text{the number of positive divisors $d$ of
+$n$ such that $d\equiv3\mod 4$}\right)  . \label{sol.Z[i].xx+yy.jac-num.z=}%
+\end{align}
+We shall prove that%
+\begin{equation}
+\left(  \text{the number of pairs }\left(  x,y\right)  \in\mathbb{Z}^{2}\text{
+such that }n=x^{2}+y^{2}\right)  =4z. \label{sol.Z[i].xx+yy.jac-num.goal}%
+\end{equation}
+
+
+First, we recall some results from the class notes.
+
+Exercise 2.18.2 in
+\href{http://www.cip.ifi.lmu.de/~grinberg/t/19s/notes.pdf}{the class
+notes}\footnote{The numbering may shift; it is one of the exercises in the
+\textquotedblleft Counting divisors\textquotedblright\ section.} says the following:
+
+\begin{statement}
+\textit{Claim 1:} \textbf{(a)} If there exists a prime $p$ satisfying
+$p\equiv3\operatorname{mod}4$ and $v_{p}\left(  n\right)  \equiv
+1\operatorname{mod}2$, then $z=0$.
+
+\textbf{(b)} If there exists no prime $p$ satisfying $p\equiv
+3\operatorname{mod}4$ and $v_{p}\left(  n\right)  \equiv1\operatorname{mod}2$,
+then
+\[
+z=\prod_{\substack{p\text{ prime;}\\p\equiv1\operatorname{mod}4}}\left(
+v_{p}\left(  n\right)  +1\right)  .
+\]
+
+\end{statement}
+
+On the other hand, a result we proved in class (currently Theorem 4.2.62 in
+\href{http://www.cip.ifi.lmu.de/~grinberg/t/19s/notes.pdf}{the class notes},
+but this is likely to shift) states the following:
+
+\begin{statement}
+\textit{Claim 2:} \textbf{(a)} If there is at least one prime $p\equiv
+3\operatorname{mod}4$ such that $v_{p}\left(  n\right)  $ is odd, then there
+is \textbf{no} pair $\left(  x,y\right)  \in\mathbb{Z}^{2}$ such that
+$n=x^{2}+y^{2}$.
+
+\textbf{(b)} Assume that for each prime $p\equiv3\operatorname{mod}4$, the
+number $v_{p}\left(  n\right)  $ is even. Then,%
+\[
+\left(  \text{the number of pairs }\left(  x,y\right)  \in\mathbb{Z}^{2}\text{
+such that }n=x^{2}+y^{2}\right)  =4\cdot\prod_{\substack{p\text{
+prime;}\\p\equiv1\operatorname{mod}4}}\left(  v_{p}\left(  n\right)
++1\right)  .
+\]
+
+\end{statement}
+
+Now, we are in one of the following two cases:
+
+\textit{Case 1:} There exists a prime $p$ satisfying $p\equiv
+3\operatorname{mod}4$ and $v_{p}\left(  n\right)  \equiv1\operatorname{mod}2$.
+
+\textit{Case 2:} There exists no prime $p$ satisfying $p\equiv
+3\operatorname{mod}4$ and $v_{p}\left(  n\right)  \equiv1\operatorname{mod}2$.
+
+Let us first consider Case 1. In this case, there exists a prime $p$
+satisfying $p\equiv3\operatorname{mod}4$ and $v_{p}\left(  n\right)
+\equiv1\operatorname{mod}2$. In other words, there is at least one prime
+$p\equiv3\operatorname{mod}4$ such that $v_{p}\left(  n\right)  $ is odd.
+Thus, Claim 2 \textbf{(a)} shows that there is \textbf{no} pair $\left(
+x,y\right)  \in\mathbb{Z}^{2}$ such that $n=x^{2}+y^{2}$. Hence,%
+\begin{equation}
+\left(  \text{the number of pairs }\left(  x,y\right)  \in\mathbb{Z}^{2}\text{
+such that }n=x^{2}+y^{2}\right)  =0. \label{sol.Z[i].xx+yy.jac-num.1}%
+\end{equation}
+On the other hand, Claim 1 \textbf{(a)} yields $z=0$, so that $4z=0$.
+Comparing this with \eqref{sol.Z[i].xx+yy.jac-num.1}, we obtain%
+\[
+\left(  \text{the number of pairs }\left(  x,y\right)  \in\mathbb{Z}^{2}\text{
+such that }n=x^{2}+y^{2}\right)  =4z.
+\]
+Hence, \eqref{sol.Z[i].xx+yy.jac-num.goal} is proven in Case 1.
+
+Let us next consider Case 2. In this case, there exists no prime $p$
+satisfying $p\equiv3\operatorname{mod}4$ and $v_{p}\left(  n\right)
+\equiv1\operatorname{mod}2$. In other words, there exists no prime
+$p\equiv3\operatorname{mod}4$ for which $v_{p}\left(  n\right)  $ is odd. In
+other words, for each prime $p\equiv3\operatorname{mod}4$, the number
+$v_{p}\left(  n\right)  $ is even. Hence, Claim 2 \textbf{(b)} shows that%
+\[
+\left(  \text{the number of pairs }\left(  x,y\right)  \in\mathbb{Z}^{2}\text{
+such that }n=x^{2}+y^{2}\right)  =4\cdot\prod_{\substack{p\text{
+prime;}\\p\equiv1\operatorname{mod}4}}\left(  v_{p}\left(  n\right)
++1\right)  .
+\]
+On the other hand,%
+\[
+4\underbrace{z}_{\substack{=\prod_{\substack{p\text{ prime;}\\p\equiv
+1\operatorname{mod}4}}\left(  v_{p}\left(  n\right)  +1\right)  \\\text{(by
+Claim 1 \textbf{(b)})}}}=4\cdot\prod_{\substack{p\text{ prime;}\\p\equiv
+1\operatorname{mod}4}}\left(  v_{p}\left(  n\right)  +1\right)  .
+\]
+Comparing these two equalities, we obtain%
+\[
+\left(  \text{the number of pairs }\left(  x,y\right)  \in\mathbb{Z}^{2}\text{
+such that }n=x^{2}+y^{2}\right)  =4z.
+\]
+Hence, \eqref{sol.Z[i].xx+yy.jac-num.goal} is proven in Case 2.
+
+We have now proven \eqref{sol.Z[i].xx+yy.jac-num.goal} in each of the two
+Cases 1 and 2. Thus, \eqref{sol.Z[i].xx+yy.jac-num.goal} always holds.
+
+Now, \eqref{sol.Z[i].xx+yy.jac-num.goal} becomes%
+\begin{align*}
+&  \left(  \text{the number of pairs $\left(  x,y\right)  \in\mathbb{Z}^{2}$
+such that $n=x^{2}+y^{2}$}\right) \\
+&  =4z\\
+&  =4\left(  \left(  \text{the number of positive divisors $d$ of $n$ such
+that $d\equiv1\mod 4$}\right)  \right. \\
+&  \qquad\qquad\qquad-\left.  \left(  \text{the number of positive divisors
+$d$ of $n$ such that $d\equiv3\mod 4$}\right)  \right) \\
+&  \qquad\left(  \text{by \eqref{sol.Z[i].xx+yy.jac-num.z=}}\right) \\
+&  =4\left(  \text{the number of positive divisors $d$ of $n$ such that
+$d\equiv1\mod 4$}\right) \\
+&  \qquad-4\left(  \text{the number of positive divisors $d$ of $n$ such that
+$d\equiv3\mod 4$}\right)  .
+\end{align*}
+This solves the exercise.
+
+\subsection{Remark}
+
+For some completely different solutions of the above exercise (using formal
+power series instead of Gaussian integers), see Hirschhorn's \cite[Theorem
+1]{Hirsch85} and \cite[Chapter 2]{Hirsch17}. See also \cite[Chapter
+XIII]{Uspensky-Heaslet} for related results.
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 3
+%----------------------------------------------------------------------------------------
+\rule{\linewidth}{0.3pt} \\[0.4cm]
+
+\section{Exercise 3: Characterizing Gaussian primes}
+
+\subsection{Problem}
+
+Let $\pi$ be a Gaussian prime.
+
+Prove the following:
+
+\begin{enumerate}
+\item[\textbf{(a)}] If $\pi$ is unit-equivalent to an integer, then $\pi$ is
+unit-equivalent to a prime\footnote{The unqualified word ``prime'' always
+means a prime in the original sense, i.e., an integer $p > 1$ whose only
+positive divisors are $1$ and $p$.} of Type 3.
+\end{enumerate}
+
+\noindent(Recall that a prime $p$ is said to be \textit{of Type 3} if it is
+congruent to $3$ modulo $4$.)
+
+Assume, from now on, that $\pi$ is \textbf{not} unit-equivalent to any
+integer. Let $\left(  p_{1}, p_{2}, \ldots, p_{k} \right)  $ be a prime
+factorization of the positive integer $\operatorname{N}\left(  \pi\right)  $.
+(Thus, $p_{1}, p_{2}, \ldots, p_{k}$ are primes such that $\operatorname{N}%
+\left(  \pi\right)  = p_{1} p_{2} \cdots p_{k}$.)
+
+\begin{enumerate}
+\item[\textbf{(b)}] Prove that $\pi\mid p_{i}$ for some $i \in\left\{  1, 2,
+\ldots, k \right\}  $.
+\end{enumerate}
+
+Fix an $i \in\left\{  1, 2, \ldots, k \right\}  $ such that $\pi\mid p_{i}$.
+
+\begin{enumerate}
+\item[\textbf{(c)}] Prove that $p_{i} = \pi\overline{\pi}$.
+
+\item[\textbf{(d)}] Prove that $p_{i}$ is a prime of Type 1 or of Type 2.
+\end{enumerate}
+
+\noindent(Recall that a prime $p$ is said to be \textit{of Type 1} if it is
+congruent to $1$ modulo $4$, and is said to be \textit{of Type 2} if it equals
+$2$.)
+
+\subsection{Remark}
+
+This exercise yields that the Gaussian primes are the primes of Type 3 and the
+Gaussian prime divisors of the primes of Types 1 and 2 (up to
+unit-equivalence). Conversely, any of the latter are indeed Gaussian primes
+(as we proved in class). This completes the characterization of Gaussian
+primes. See also \cite[Theorem 9.9]{Conrad-Gauss} for a different proof of
+this fact.
+
+\subsection{Solution sketch}
+
+First, we notice that $\pi$ is neither zero nor a unit (since $\pi$ is a
+Gaussian prime); thus, $\operatorname*{N}\left(  \pi\right)  $ is neither $0$
+nor $1$. Hence, $\operatorname*{N}\left(  \pi\right)  >1$ (since
+$\operatorname*{N}\left(  \pi\right)  \in\mathbb{N}$). In particular,
+$\operatorname*{N}\left(  \pi\right)  $ is a positive integer and
+$\operatorname*{N}\left(  \pi\right)  \neq1$.
+
+\bigskip
+
+\textbf{(a)} Assume that $\pi$ is unit-equivalent to an integer. In other
+words, $\pi\sim g$ for some $g\in\mathbb{Z}$. Consider this $g$.
+
+We have $\pi\sim g\sim-g$. Thus, $\pi$ is unit-equivalent to both $g$ and
+$-g$. Hence, we can WLOG assume that $g\geq0$ (since otherwise, we can simply
+replace $g$ by $-g$). Assume this.
+
+The integer $g$ is a Gaussian integer;
+it is unit-equivalent to a Gaussian prime (namely, to $\pi$),
+and thus itself is a Gaussian prime\footnote{because any
+Gaussian integer that is unit-equivalent to a Gaussian prime must
+itself be a Gaussian prime}.
+Thus, each Gaussian divisor of $g$ is either a unit or unit-equivalent to
+$g$ (by the definition of a Gaussian prime).
+
+We know from class (Proposition 4.2.15 in
+\href{http://www.cip.ifi.lmu.de/~grinberg/t/19s/notes.pdf}{the class notes})
+that unit-equivalent Gaussian integers have equal norms. Hence, from $\pi\sim
+g$, we obtain $\operatorname*{N}\left(  \pi\right)  =\operatorname*{N}\left(
+g\right)  =g^{2}$ (since $g\in\mathbb{Z}\subseteq\mathbb{R}$). Thus,
+$g^{2}=\operatorname*{N}\left(  \pi\right)  >1$, so that $g>1$ (since $g\geq0$).
+
+Hence, if $g$ was not a prime, then $g$ would have a positive divisor other than $1$
+and $g$. This positive divisor would then be a Gaussian divisor of $g$,
+but it would not be a unit (since it is a
+positive integer distinct from $1$);
+therefore, it would be unit-equivalent to $g$
+(since each Gaussian divisor of $g$ is either a unit or unit-equivalent to
+$g$).
+But this would contradict the fact that its norm is smaller than the norm of
+$g$ (indeed, it is a positive integer smaller than $g$, so that its norm
+is smaller than the norm of $g$), whereas unit-equivalent Gaussian integers
+must have equal norms.
+Hence, we would obtain a contradiction. This shows that $g$ must be a prime.
+
+But we know (from what is currently Theorem 4.2.42 \textbf{(d)} in
+\href{http://www.cip.ifi.lmu.de/~grinberg/t/19s/notes.pdf}{the class notes})
+that if $p$ is a prime of Type 2 or Type 1, then $p$ is not a Gaussian prime.
+Hence, $g$ cannot be a prime of Type 2 or Type 1 (because $g$ is a Gaussian
+prime). Thus, $g$ must be a prime of Type 3 (since $g$ is a prime). Thus,
+$\pi$ is unit-equivalent to a prime of Type 3 (namely, to $g$). This solves
+part \textbf{(a)} of the exercise.
+
+\bigskip
+
+\textbf{(b)} We have $\operatorname*{N}\left(  \pi\right)  =p_{1}p_{2}\cdots
+p_{k}$ (since $\left(  p_{1},p_{2},\ldots,p_{k}\right)  $ is a prime
+factorization of $\operatorname*{N}\left(  \pi\right)  $). But
+$\operatorname*{N}\left(  \pi\right)  =\pi\overline{\pi}$. Hence, $\pi\mid
+\pi\overline{\pi}=\operatorname*{N}\left(  \pi\right)  =p_{1}p_{2}\cdots
+p_{k}$.
+
+Proposition 2.13.7 in
+\href{http://www.cip.ifi.lmu.de/~grinberg/t/19s/notes.pdf}{the class notes}
+says that if a prime $p$ divides a product $a_{1}a_{2}\cdots a_{k}$ of $k$
+integers $a_{1},a_{2},\ldots,a_{k}$, then $p$ must divide (at least) one of
+these integers $a_{1},a_{2},\ldots,a_{k}$. The same argument can be used to
+prove the analogous fact about Gaussian primes: Namely, if a Gaussian prime
+$\psi$ divides a product $\alpha_{1}\alpha_{2}\cdots\alpha_{k}$ of $k$
+Gaussian integers $\alpha_{1},\alpha_{2},\ldots,\alpha_{k}$, then $\psi$ must
+divide (at least) one of these Gaussian integers $\alpha_{1},\alpha_{2}%
+,\ldots,\alpha_{k}$. Applying this to $\psi=\pi$ and $\alpha_{i}=p_{i}$, we
+conclude that $\pi$ must divide (at least) one of these Gaussian integers
+$p_{1},p_{2},\ldots,p_{k}$ (since $\pi$ divides their product $p_{1}%
+p_{2}\cdots p_{k}$). In other words, $\pi\mid p_{i}$ for some $i\in\left\{
+1,2,\ldots,k\right\}  $. This solves part \textbf{(b)} of the exercise.
+
+\bigskip
+
+\textbf{(c)} We have $\pi\mid p_{i}$. Thus, $p_{i}=\pi\alpha$ for some
+Gaussian integer $\alpha$. Consider this $\alpha$. From $p_{i}=\pi\alpha$, we
+obtain $\operatorname*{N}\left(  p_{i}\right)  =\operatorname*{N}\left(
+\pi\alpha\right)  =\operatorname*{N}\left(  \pi\right)  \operatorname*{N}%
+\left(  \alpha\right)  $, so that $\operatorname*{N}\left(  \pi\right)
+\operatorname*{N}\left(  \alpha\right)  =\operatorname*{N}\left(
+p_{i}\right)  =p_{i}^{2}$ (since $p_{i}\in\mathbb{Z}\subseteq\mathbb{R}$).
+Thus, $p_{i}^{2}=\operatorname*{N}\left(  \pi\right)  \operatorname*{N}\left(
+\alpha\right)  $, so that $\operatorname*{N}\left(  \pi\right)  \mid p_{i}%
+^{2}$. Hence, $\operatorname*{N}\left(  \pi\right)  $ is a positive divisor of
+$p_{i}^{2}$ (since $\operatorname*{N}\left(  \pi\right)  $ is a positive integer).
+
+We assumed that $\pi$ is \textbf{not} unit-equivalent to any integer. Thus, in
+particular, $\pi$ is not unit-equivalent to $p_{i}$. In other words, we don't
+have $\pi\sim p_{i}$. In other words, we don't have $p_{i}\sim\pi$.
+
+If we had $\operatorname*{N}\left(  \alpha\right)  =1$, then $\alpha$ would be
+a unit, and thus we would have $p_{i}\sim\pi$ (since $p_{i}=\pi\alpha$); but
+this would contradict the fact that we don't have $p_{i}\sim\pi$. Hence, we
+don't have $\operatorname*{N}\left(  \alpha\right)  =1$. Thus,
+$\operatorname*{N}\left(  \alpha\right)  \neq1$.
+
+If we had $\operatorname*{N}\left(  \pi\right)  =p_{i}^{2}$, then we would
+have $p_{i}^{2}=\underbrace{\operatorname*{N}\left(  \pi\right)  }_{=p_{i}%
+^{2}}\operatorname*{N}\left(  \alpha\right)  =p_{i}^{2}\operatorname*{N}%
+\left(  \alpha\right)  $ and thus $\operatorname*{N}\left(  \alpha\right)
+=1$, which would contradict $\operatorname*{N}\left(  \alpha\right)  \neq1$.
+Hence, we have $\operatorname*{N}\left(  \pi\right)  \neq p_{i}^{2}$.
+
+But the positive divisors of $p_{i}^{2}$ are $1$, $p_{i}$ and $p_{i}^{2}$
+(since $p_{i}$ is a prime). Hence, $\operatorname*{N}\left(  \pi\right)  $
+must be either $1$ or $p_{i}$ or $p_{i}^{2}$ (since $\operatorname*{N}\left(
+\pi\right)  $ is a positive divisor of $p_{i}^{2}$). Since $\operatorname*{N}%
+\left(  \pi\right)  $ cannot be $1$ or $p_{i}^{2}$ (because $\operatorname*{N}%
+\left(  \pi\right)  \neq1$ and $\operatorname*{N}\left(  \pi\right)  \neq
+p_{i}^{2}$), we thus have $\operatorname*{N}\left(  \pi\right)  =p_{i}$.
+Hence, $p_{i}=\operatorname*{N}\left(  \pi\right)  =\pi\overline{\pi}$. This
+solves part \textbf{(c)} of the exercise.
+
+\bigskip
+
+\textbf{(d)} Assume the contrary. Thus, $p_{i}$ is a prime of Type 3 (since
+$p_{i}$ is a prime). Hence, $p_{i}\equiv3\operatorname{mod}4$.
+
+However, write the Gaussian integer $\pi$ as $\pi=\left(  a,b\right)  $ with
+$a,b\in\mathbb{Z}$. Part \textbf{(c)} of this exercise yields $p_{i}%
+=\pi\overline{\pi}=\operatorname*{N}\left(  \pi\right)  =a^{2}+b^{2}$ (since
+$\pi=\left(  a,b\right)  $). Thus, $a^{2}+b^{2}=p_{i}\equiv3\operatorname{mod}%
+4$.
+
+But recall that no two integers $x$ and $y$ satisfy $x^{2}+y^{2}%
+\equiv3\operatorname{mod}4$ (by Exercise 2.7.2 \textbf{(c)} in
+\href{http://www.cip.ifi.lmu.de/~grinberg/t/19s/notes.pdf}{the class
+notes}). This contradicts the fact that the two integers $a$ and $b$ do
+satisfy $a^{2}+b^{2}\equiv3\operatorname{mod}4$. This contradiction shows that
+our assumption was wrong. This solves part \textbf{(d)} of the exercise.
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 4
+%----------------------------------------------------------------------------------------
+\rule{\linewidth}{0.3pt} \\[0.4cm]
+
+\section{Exercise 4: Gaussian integers modulo a Gaussian integer}
+
+\subsection{Problem}
+
+For any Gaussian integer $\tau$, we let $\underset{\tau}{\equiv}$ be the
+binary relation on $\mathbb{Z}\left[  i \right]  $ defined by
+\[
+\left(  \alpha\underset{\tau}{\equiv} \beta\right)  \ \iff\ \left(
+\alpha\equiv\beta\mod \tau \right)  .
+\]
+It is straightforward to see (just as in the case of integers) that this
+relation $\underset{\tau}{\equiv}$ is an equivalence relation. (You don't need
+to prove this.) We shall refer to the equivalence classes of this relation
+$\underset{\tau}{\equiv}$ as the \textit{Gaussian residue classes modulo
+$\tau$}; let $\mathbb{Z}\left[  i \right]  / \tau$ be the set of all these classes.
+
+Let $n$ be a nonzero integer.
+
+Prove that the equivalence classes of the relation $\underset{n}{\equiv}$ (on
+$\mathbb{Z}\left[  i \right]  $) are the $n^{2}$ classes $\left[  a + bi
+\right]  _{\underset{n}{\equiv}}$ for $a, b \in\left\{  0, 1, \ldots, \left|
+n \right|  -1 \right\}  $, and that these $n^{2}$ classes are all distinct.
+
+\subsection{Remark}
+
+This exercise yields $\left|  \mathbb{Z}\left[  i \right]  / n \right|  =
+n^{2} = \operatorname{N}\left(  n \right)  $ for any nonzero integer $n$. This
+is \cite[Lemma 7.15]{Conrad-Gauss}. (Conrad proves this ``by example''; you
+can follow the argument but you should write it up in full generality.)
+
+More generally, $\left|  \mathbb{Z}\left[  i \right]  / \tau\right|  =
+\operatorname{N}\left(  \tau\right)  $ for any nonzero Gaussian integer $\tau
+$. This is proven in \cite[Theorem 7.14]{Conrad-Gauss} (using the above
+exercise as a stepping stone).
+
+\subsection{Solution sketch}
+
+We shall use the following fact (which is Exercise 4.2.11 \textbf{(b)} in
+\href{http://www.cip.ifi.lmu.de/~grinberg/t/19s/notes.pdf}{the class notes}):
+
+\begin{statement}
+\textit{Claim 1:} Let $n$ be a positive integer. Then, the equivalence classes
+of the relation $\underset{n}{\equiv}$ (on $\mathbb{Z}\left[  i\right]  $) are
+the $n^{2}$ classes $\left[  a+bi\right]  _{\underset{n}{\equiv}}$ for
+$a,b\in\left\{  0,1,\ldots,n-1\right\}  $, and these $n^{2}$ classes are all distinct.
+\end{statement}
+
+Claim 1 is precisely the statement of our exercise in the case when $n$ is
+positive (because in this case, we have $\left\vert n\right\vert =n$). Thus,
+the exercise is solved in this case. Hence, for the rest of this solution, we
+WLOG assume that $n$ is not positive. Hence, $n$ is negative (since $n$ is
+nonzero). Thus, $-n$ is positive, and $\left\vert n\right\vert =-n$.
+
+We notice that the relations $\underset{n}{\equiv}$ (on $\mathbb{Z}\left[
+i\right]  $) and $\underset{-n}{\equiv}$ (on $\mathbb{Z}\left[  i\right]  $)
+are identical\footnote{\textit{Proof.} In order to see this, we merely need to
+check that for any two Gaussian integers $\alpha$ and $\beta$, the two
+statements $\left(  \alpha\underset{n}{\equiv}\beta\right)  $ and $\left(
+\alpha\underset{-n}{\equiv}\beta\right)  $ are equivalent. Let us do this now:
+Let $\alpha$ and $\beta$ be two Gaussian integers. We have the logical
+implication $\left(  n\mid\alpha-\beta\right)  \ \Longrightarrow\ \left(
+-n\mid\alpha-\beta\right)  $ (because if we have $n\mid\alpha-\beta$, then
+$-n\mid n\mid\alpha-\beta$) and the logical implication $\left(  -n\mid
+\alpha-\beta\right)  \ \Longrightarrow\ \left(  n\mid\alpha-\beta\right)  $
+(because if we have $-n\mid\alpha-\beta$, then $n\mid-n\mid\alpha-\beta$).
+Combining these two implications, we obtain the equivalence $\left(
+n\mid\alpha-\beta\right)  \ \Longleftrightarrow\ \left(  -n\mid\alpha
+-\beta\right)  $.
+\par
+Now, we have the following chain of equivalences:%
+\begin{align*}
+& \ \left(  \alpha\underset{n}{\equiv}\beta\right)  \\
+& \Longleftrightarrow\ \left(  \alpha\equiv\beta\operatorname{mod}n\right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of the relation
+}\underset{n}{\equiv}\right)  \\
+& \Longleftrightarrow\ \left(  n\mid\alpha-\beta\right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of congruence}\right)  \\
+& \Longleftrightarrow\ \left(  -n\mid\alpha-\beta\right)  \\
+& \Longleftrightarrow\ \left(  \alpha\equiv\beta\operatorname{mod}-n\right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of congruence}\right)  \\
+& \Longleftrightarrow\ \left(  \alpha\underset{-n}{\equiv}\beta\right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of the relation
+}\underset{-n}{\equiv}\right)  .
+\end{align*}
+In other words, the two statements $\left(  \alpha\underset{n}{\equiv}%
+\beta\right)  $ and $\left(  \alpha\underset{-n}{\equiv}\beta\right)  $ are
+equivalent. Qed.}. But Claim 1 (applied to $-n$ instead of $n$) shows that the
+equivalence classes of the relation $\underset{-n}{\equiv}$ (on $\mathbb{Z}%
+\left[  i\right]  $) are the $\left(  -n\right)  ^{2}$ classes $\left[
+a+bi\right]  _{\underset{-n}{\equiv}}$ for $a,b\in\left\{  0,1,\ldots,\left(
+-n\right)  -1\right\}  $, and these $\left(  -n\right)  ^{2}$ classes are all
+distinct. In view of $\left(  -n\right)  ^{2}=n^{2}$ and $\underbrace{\left(
+-n\right)  }_{=\left\vert n\right\vert }-1=\left\vert n\right\vert -1$, this
+rewrites as follows: The equivalence classes of the relation
+$\underset{-n}{\equiv}$ (on $\mathbb{Z}\left[  i\right]  $) are the $n^{2}$
+classes $\left[  a+bi\right]  _{\underset{-n}{\equiv}}$ for $a,b\in\left\{
+0,1,\ldots,\left\vert n\right\vert -1\right\}  $, and these $n^{2}$ classes
+are all distinct. Since the relations $\underset{n}{\equiv}$ (on
+$\mathbb{Z}\left[  i\right]  $) and $\underset{-n}{\equiv}$ (on $\mathbb{Z}%
+\left[  i\right]  $) are identical, we can further rewrite this as follows:
+The equivalence classes of the relation $\underset{n}{\equiv}$ (on
+$\mathbb{Z}\left[  i\right]  $) are the $n^{2}$ classes $\left[  a+bi\right]
+_{\underset{n}{\equiv}}$ for $a,b\in\left\{  0,1,\ldots,\left\vert
+n\right\vert -1\right\}  $, and these $n^{2}$ classes are all distinct. This
+solves the exercise.
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 5
+%----------------------------------------------------------------------------------------
+\rule{\linewidth}{0.3pt} \\[0.4cm]
+
+\section{Exercise 5: A Fibonacci divisibility}
+
+\subsection{Problem}
+
+Let $\phi= \dfrac{1+\sqrt5}{2}$ and $\psi= \dfrac{1-\sqrt5}{2}$ be the two
+(real) roots of the polynomial $x^{2} - x - 1$. (The number $\phi$ is known as
+the \textit{golden ratio}.) It is easy to see that $\phi+ \psi= 1$ and
+$\phi\cdot\psi= -1$.
+
+Let $\mathbb{Z}\left[  \phi\right]  $ be the set of all reals of the form $a +
+b \phi$ with $a, b \in\mathbb{Z}$.
+
+\begin{enumerate}
+\item[\textbf{(a)}] Prove that any $\alpha, \beta\in\mathbb{Z}\left[
+\phi\right]  $ satisfy $\alpha+ \beta\in\mathbb{Z}\left[  \phi\right]  $ and
+$\alpha- \beta\in\mathbb{Z}\left[  \phi\right]  $ and $\alpha\beta
+\in\mathbb{Z}\left[  \phi\right]  $.
+\end{enumerate}
+
+(In the terminology of abstract algebra, this is saying that $\mathbb{Z}%
+\left[  \phi\right]  $ is a subring of $\mathbb{R}$.)
+
+\begin{enumerate}
+\item[\textbf{(b)}] Prove that every element of $\mathbb{Z}\left[
+\phi\right]  $ can be written as $a + b \phi$ for a \textbf{unique} pair
+$\left(  a, b \right)  $ of integers. (In other words, if four integers $a, b,
+c, d$ satisfy $a + b \phi= c + d \phi$, then $a = c$ and $b = d$.)
+\end{enumerate}
+
+Given two elements $\alpha$ and $\beta$ of $\mathbb{Z}\left[  \phi\right]  $,
+we say that \textit{$\alpha\mid\beta$ in $\mathbb{Z}\left[  \phi\right]  $} if
+and only if there exists some $\gamma\in\mathbb{Z}\left[  \phi\right]  $ such
+that $\beta= \alpha\gamma$. Thus, we have defined divisibility in
+$\mathbb{Z}\left[  \phi\right]  $. Basic properties of divisibility of
+integers (such as Proposition 2.2.4) still apply to divisibility in
+$\mathbb{Z}\left[  \phi\right]  $ (with the same proofs).
+
+\begin{enumerate}
+\item[\textbf{(c)}] If $a$ and $b$ are two elements of $\mathbb{Z}$ such that
+$a \mid b$ in $\mathbb{Z}\left[  \phi\right]  $, then prove that $a \mid b $
+in $\mathbb{Z}$.
+\end{enumerate}
+
+Let $\left(  f_{0}, f_{1}, f_{2}, \ldots\right)  $ be the sequence of
+nonnegative integers defined recursively by
+\[
+f_{0} = 0, \qquad f_{1} = 1, \qquad\text{and} \qquad f_{n} = f_{n-1} + f_{n-2}
+\text{ for all } n \geq2 .
+\]
+This is the so-called \textit{Fibonacci sequence} (and continues with $f_{2} =
+1$, $f_{3} = 2$, $f_{4} = 3$, $f_{5} = 5$ etc.).
+
+It is well-known (\textit{Binet's formula}) that
+\begin{equation}
+f_{n}=\dfrac{\phi^{n}-\psi^{n}}{\sqrt{5}}\qquad\text{for all }n\geq
+0.\label{exe.Zphi.basics.binet}%
+\end{equation}
+(You don't need to prove this; there is a completely straightforward proof by
+induction on $n$.)
+
+\begin{enumerate}
+\item[\textbf{(d)}] Prove that $f_{d} \mid f_{dn}$ for any nonnegative
+integers $d$ and $n$.
+\end{enumerate}
+
+[\textbf{Hint:} Lemma 2.10.11 \textbf{(a)} holds not just for integers.]
+
+\subsection{Remark}
+
+This exercise (specifically its part \textbf{(d)}) is an example of how a
+property of integers (here, $f_{d} \mid f_{dn}$) can often be proved by
+working in a larger domain (in our case, $\mathbb{Z}\left[  \phi\right]  $).
+Another example is our study of sums of two perfect squares using Gaussian
+integers (done in class). There are various others. While part \textbf{(d)} of
+this exercise has fairly simple solutions using integer arithmetic alone, some
+other properties of Fibonacci numbers are best understood by means of working
+in $\mathbb{Z}\left[  \phi\right]  $. For example, if $p \neq5$ is a prime,
+then one of the two Fibonacci numbers $f_{p-1}$ and $f_{p+1}$ is divisible by
+$p$, while the other is $\equiv1 \mod p$.
+
+\subsection{Solution sketch}
+
+\textbf{(a)} This solution will be very similar to the solution of Exercise 4
+\textbf{(a)} on
+\href{http://www.cip.ifi.lmu.de/~grinberg/t/19s/hw4s.pdf}{homework set \#4}.
+The main difference is that $\sqrt{2}$ gets replaced by $\phi$, which behaves
+slightly differently when being squared.
+
+It is easy to see (from the definition of $\phi$) that $\phi^{2}=\phi+1$.
+
+Let $\alpha,\beta\in\mathbb{Z}\left[  \phi\right]  $. We must prove that
+$\alpha+\beta\in\mathbb{Z}\left[  \phi\right]  $ and $\alpha-\beta
+\in\mathbb{Z}\left[  \phi\right]  $ and $\alpha\beta\in\mathbb{Z}\left[
+\phi\right]  $.
+
+We have $\alpha\in\mathbb{Z}\left[  \phi\right]  $. In other words, $\alpha$
+is a real of the form $a+b\phi$ with $a,b\in\mathbb{Z}$ (by the definition of
+$\mathbb{Z}\left[  \phi\right]  $). In other words, there exist two integers
+$x_{1},x_{2}\in\mathbb{Z}$ such that $\alpha=x_{1}+x_{2}\phi$. Similarly,
+there exist two integers $y_{1},y_{2}\in\mathbb{Z}$ such that $\beta
+=y_{1}+y_{2}\phi$. Consider these four integers $x_{1},x_{2},y_{1},y_{2}$.
+
+We have%
+\[
+\underbrace{\alpha}_{=x_{1}+x_{2}\phi}+\underbrace{\beta}_{=y_{1}+y_{2}\phi
+}=\left(  x_{1}+x_{2}\phi\right)  +\left(  y_{1}+y_{2}\phi\right)  =\left(
+x_{1}+y_{1}\right)  +\left(  x_{2}+y_{2}\right)  \phi.
+\]
+Hence, $\alpha+\beta$ is a real of the form $a+b\phi$ with $a,b\in\mathbb{Z}$
+(namely, with $a=x_{1}+y_{1}$ and $b=x_{2}+y_{2}$). In other words,
+$\alpha+\beta\in\mathbb{Z}\left[  \phi\right]  $ (by the definition of
+$\mathbb{Z}\left[  \phi\right]  $).
+
+We have%
+\[
+\underbrace{\alpha}_{=x_{1}+x_{2}\phi}-\underbrace{\beta}_{=y_{1}+y_{2}\phi
+}=\left(  x_{1}+x_{2}\phi\right)  -\left(  y_{1}+y_{2}\phi\right)  =\left(
+x_{1}-y_{1}\right)  +\left(  x_{2}-y_{2}\right)  \phi.
+\]
+Hence, $\alpha-\beta$ is a real of the form $a+b\phi$ with $a,b\in\mathbb{Z}$
+(namely, with $a=x_{1}-y_{1}$ and $b=x_{2}-y_{2}$). In other words,
+$\alpha-\beta\in\mathbb{Z}\left[  \phi\right]  $ (by the definition of
+$\mathbb{Z}\left[  \phi\right]  $).
+
+We have%
+\begin{align}
+\underbrace{\alpha}_{=x_{1}+x_{2}\phi}\underbrace{\beta}_{=y_{1}+y_{2}\phi} &
+=\left(  x_{1}+x_{2}\phi\right)  \left(  y_{1}+y_{2}\phi\right)  =x_{1}%
+y_{1}+x_{1}y_{2}\phi+x_{2}\phi y_{1}+x_{2}\phi y_{2}\phi\nonumber\\
+&  =x_{1}y_{1}+x_{1}y_{2}\phi+x_{2}\underbrace{\phi y_{1}}_{=y_{1}\phi}%
++x_{2}\underbrace{\phi y_{2}}_{=y_{2}\phi}\phi\nonumber\\
+&  =x_{1}y_{1}+x_{1}y_{2}\phi+x_{2}y_{1}\phi+x_{2}y_{2}\underbrace{\phi\phi
+}_{=\phi^{2}=\phi+1}\nonumber\\
+&  =x_{1}y_{1}+x_{1}y_{2}\phi+x_{2}y_{1}\phi+x_{2}y_{2}\left(  \phi+1\right)
+\nonumber\\
+&  =\left(  x_{1}y_{1}+x_{2}y_{2}\right)  +\left(  x_{1}y_{2}+x_{2}y_{1}%
++x_{2}y_{2}\right)  \phi.\label{sol.Zphi.basics.a.ab}%
+\end{align}
+Hence, $\alpha\beta$ is a real of the form $a+b\phi$ with $a,b\in\mathbb{Z}$
+(namely, with $a=x_{1}y_{1}+x_{2}y_{2}$ and $b=x_{1}y_{2}+x_{2}y_{1}%
++x_{2}y_{2}$). In other words, $\alpha\beta\in\mathbb{Z}\left[  \phi\right]  $
+(by the definition of $\mathbb{Z}\left[  \phi\right]  $).
+
+We have now shown that $\alpha+\beta\in\mathbb{Z}\left[  \phi\right]  $ and
+$\alpha-\beta\in\mathbb{Z}\left[  \phi\right]  $ and $\alpha\beta\in
+\mathbb{Z}\left[  \phi\right]  $. This solves part \textbf{(a)} of the
+exercise.\\[0.4cm]
+
+\textbf{(b)} This solution will be very similar to the solution of Exercise 4
+\textbf{(b)} on
+\href{http://www.cip.ifi.lmu.de/~grinberg/t/19s/hw4s.pdf}{homework set \#4}.
+The main difference is that $\sqrt{2}$ gets replaced by $\phi$, which has a
+slightly different reason to be irrational.
+
+Let $\alpha$ be an element of $\mathbb{Z}\left[  \phi\right]  $. We must prove
+that $\alpha$ can be written as $a+b\phi$ for a \textbf{unique} pair $\left(
+a,b\right)  $ of integers.
+
+Clearly, $\alpha$ can be written as $a+b\phi$ for \textbf{at least one} pair
+$\left(  a,b\right)  $ of integers (because this is what it means for $\alpha$
+to belong to $\mathbb{Z}\left[  \phi\right]  $). Thus, it remains to prove
+that $\alpha$ can be written as $a+b\phi$ for \textbf{at most one} pair
+$\left(  a,b\right)  $ of integers. In other words, we must prove that if
+$\left(  a_{1},b_{1}\right)  $ and $\left(  a_{2},b_{2}\right)  $ are two
+pairs $\left(  a,b\right)  $ of integers such that $\alpha=a+b\phi$, then
+$\left(  a_{1},b_{1}\right)  =\left(  a_{2},b_{2}\right)  $.
+
+Let us prove this. Let $\left(  a_{1},b_{1}\right)  $ and $\left(  a_{2}%
+,b_{2}\right)  $ be two pairs $\left(  a,b\right)  $ of integers such that
+$\alpha=a+b\phi$. We must show that $\left(  a_{1},b_{1}\right)  =\left(
+a_{2},b_{2}\right)  $.
+
+Assume the contrary. Thus, $\left(  a_{1},b_{1}\right)  \neq\left(
+a_{2},b_{2}\right)  $.
+
+It is easy to check that $5$ is not a perfect square\footnote{\textit{Proof.}
+Assume the contrary. Thus, $5$ is a perfect square. In other words, $5=u^{2}$
+for some $u\in\mathbb{Z}$. Consider this $u$. If we had $\left\vert
+u\right\vert \geq3$, then we would have $\left\vert u\right\vert ^{2}\geq
+3^{2}=9>5$, which would contradict $\left\vert u\right\vert ^{2}=u^{2}=5$.
+Hence, we cannot have $\left\vert u\right\vert \geq3$. Thus, $\left\vert
+u\right\vert <3$, so that $u\in\left\{  -2,-1,0,1,2\right\}  $ (since $u$ is
+an integer). Hence, $u^{2}\in\left\{  \left(  -2\right)  ^{2},\left(
+-1\right)  ^{2},0^{2},1^{2},2^{2}\right\}  =\left\{  4,1,0,1,4\right\}  $.
+This contradicts $u^{2}=5$. This contradiction shows that our assumption was
+false, qed.}. Exercise 2.10.15 \textbf{(a)} in
+\href{http://www.cip.ifi.lmu.de/~grinberg/t/19s/notes.pdf}{the class notes}
+shows that if a positive integer $u$ is not a perfect square, then $\sqrt{u}$
+is irrational. Applying this to $u=5$, we conclude that $\sqrt{5}$ is
+irrational (since $5$ is not a perfect square).
+
+From $\phi=\dfrac{1+\sqrt{5}}{2}$, we obtain $2\phi=1+\sqrt{5}$, so that
+$\sqrt{5}=2\phi-1$. Hence, if the number $\phi$ was rational, then $\sqrt{5}$
+would be rational as well, which would contradict the fact that $\sqrt{5}$ is
+irrational. Hence, the number $\phi$ cannot be rational. In other words,
+$\phi$ is irrational.
+
+But $\left(  a_{1},b_{1}\right)  $ is a pair $\left(  a,b\right)  $ of
+integers such that $\alpha=a+b\phi$. In other words, $\left(  a_{1}%
+,b_{1}\right)  $ is a pair of integers and satisfies $\alpha=a_{1}+b_{1}\phi$.
+Similarly, $\left(  a_{2},b_{2}\right)  $ is a pair of integers and satisfies
+$\alpha=a_{2}+b_{2}\phi$. Hence, $a_{2}+b_{2}\phi=\alpha=a_{1}+b_{1}\phi$, so
+that%
+\begin{equation}
+a_{2}-a_{1}=b_{1}\phi-b_{2}\phi=\left(  b_{1}-b_{2}\right)  \phi
+.\label{sol.Zsqrt2.basics.b.2}%
+\end{equation}
+If we had $b_{1}=b_{2}$, then this would yield $a_{2}-a_{1}%
+=\underbrace{\left(  b_{1}-b_{2}\right)  }_{\substack{=0\\\text{(since }%
+b_{1}=b_{2}\text{)}}}\phi=0$, which would lead to $a_{1}=a_{2}$ and therefore
+$\left(  \underbrace{a_{1}}_{=a_{2}},\underbrace{b_{1}}_{=b_{2}}\right)
+=\left(  a_{2},b_{2}\right)  $; but this would contradict $\left(  a_{1}%
+,b_{1}\right)  \neq\left(  a_{2},b_{2}\right)  $. Hence, we cannot have
+$b_{1}=b_{2}$. Thus, we have $b_{1}\neq b_{2}$. In other words, $b_{1}%
+-b_{2}\neq0$. Hence, we can divide both sides of the equality
+(\ref{sol.Zsqrt2.basics.b.2}) by $b_{1}-b_{2}$. We thus obtain $\dfrac
+{a_{2}-a_{1}}{b_{1}-b_{2}}=\phi$. Hence, the number $\dfrac{a_{2}-a_{1}}%
+{b_{1}-b_{2}}$ is irrational (since $\phi$ is irrational). But this
+contradicts the fact that $\dfrac{a_{2}-a_{1}}{b_{1}-b_{2}}$ is rational
+(which is clear, since $a_{1},a_{2},b_{1},b_{2}$ are integers). This
+contradiction shows that our assumption was wrong. Hence, $\left(  a_{1}%
+,b_{1}\right)  =\left(  a_{2},b_{2}\right)  $ is proven. This completes our
+solution of part \textbf{(b)} of the exercise.\\[0.4cm]
+
+\textbf{(c)} Let $a$ and $b$ be two elements of $\mathbb{Z}$ such that $a\mid
+b$ in $\mathbb{Z}\left[  \phi\right]  $. We must prove that $a\mid b$ in
+$\mathbb{Z}$.
+
+We WLOG assume that $b\neq0$, since otherwise this follows trivially from
+$b=0=a\cdot0$.
+
+We have $a\mid b$ in $\mathbb{Z}\left[  \phi\right]  $. In other words, there
+exists some $\gamma\in\mathbb{Z}\left[  \phi\right]  $ such that $b=a\gamma$
+(by the definition of divisibility in $\mathbb{Z}\left[  \phi\right]  $).
+Consider this $\gamma$. From $a\gamma=b\neq0$, we obtain $a\neq0$.
+
+We have $\gamma\in\mathbb{Z}\left[  \phi\right]  $. In other words, $\gamma$
+is a real of the form $x_{1}+x_{2}\phi$ with $x_{1},x_{2}\in\mathbb{Z}$ (by
+the definition of $\mathbb{Z}\left[  \phi\right]  $). Consider these $x_{1}$
+and $x_{2}$. We have%
+\[
+b=a\underbrace{\gamma}_{=x_{1}+x_{2}\phi}=a\left(  x_{1}+x_{2}\phi\right)
+=ax_{1}+ax_{2}\phi.
+\]
+If we had $ax_{2}\neq0$, then we could solve this equality for $\phi$ and
+obtain $\phi=\dfrac{b-ax_{1}}{ax_{2}}$; this would yield that $\phi$ is
+rational (since $b,a,x_{1},x_{2}$ are integers), and this would contradict the
+fact that $\phi$ is irrational (as we have shown in our above solution to part
+\textbf{(b)} of this exercise). Hence, we cannot have $ax_{2}\neq0$. Thus, we
+have $ax_{2}=0$. Since $a\neq0$, this leads to $x_{2}=0$. Hence, $\gamma
+=x_{1}+\underbrace{x_{2}}_{=0}\phi=x_{1}\in\mathbb{Z}$. Thus, from $b=a\gamma
+$, we obtain $a\mid b$ in $\mathbb{Z}$. This solves part \textbf{(c)} of the
+exercise.\\[0.4cm]
+
+\textbf{(d)} We have $\phi+\psi=1$, thus $\psi=1-\phi=1+\left(  -1\right)
+\phi$. Hence, $\psi\in\mathbb{Z}\left[  \phi\right]  $.
+
+In part \textbf{(a)} of this exercise, we have shown that the product of two
+elements of $\mathbb{Z}\left[  \phi\right]  $ belongs to $\mathbb{Z}\left[
+\phi\right]  $ again. Thus, by induction, we can easily see that a product of
+any (finite) number of elements of  $\mathbb{Z}\left[  \phi\right]  $ belongs
+to  $\mathbb{Z}\left[  \phi\right]  $ again. Hence, in particular, if
+$\alpha\in\mathbb{Z}\left[  \phi\right]  $ and $k\in\mathbb{N}$, then
+$\alpha^{k}\in\mathbb{Z}\left[  \phi\right]  $. Thus, the powers $\phi^{d}$,
+$\phi^{dn}$, $\psi^{d}$ and $\psi^{dn}$ belong to $\mathbb{Z}\left[
+\phi\right]  $ (since $\phi$ and $\psi$ belong to $\mathbb{Z}\left[
+\phi\right]  $).
+
+We recall the following fact (Lemma 2.10.11 \textbf{(a)} in
+\href{http://www.cip.ifi.lmu.de/~grinberg/t/19s/notes.pdf}{the class notes}):
+
+\begin{statement}
+\textit{Claim 1:} Let $d\in\mathbb{N}$. Let $x$ and $y$ be integers. Then,
+$x-y\mid x^{d}-y^{d}$.
+\end{statement}
+
+This fact has an analogue for elements of $\mathbb{Z}\left[  \phi\right]  $
+instead of integers:
+
+\begin{statement}
+\textit{Claim 2:} Let $d\in\mathbb{N}$. Let $x$ and $y$ be elements of
+$\mathbb{Z}\left[  \phi\right]  $. Then, $x-y\mid x^{d}-y^{d}$ in
+$\mathbb{Z}\left[  \phi\right]  $.
+\end{statement}
+
+[\textit{Proof of Claim 2:} Both proofs we gave for Claim 1 in the class notes
+can be modified in an obvious way to yield proofs of Claim 2.]
+
+Now, let $d$ and $n$ be nonnegative integers. We must prove that $f_{d}\mid
+f_{dn}$.
+
+Applying (\ref{exe.Zphi.basics.binet}) to $d$ instead of $n$, we find%
+\[
+f_{d}=\dfrac{\phi^{d}-\psi^{d}}{\sqrt{5}}.
+\]
+Multiplying both sides of this equality with $\sqrt{5}$, we obtain
+\begin{equation}
+\sqrt{5} \cdot f_{d} = \phi^{d}-\psi^{d}.
+\label{sol.Zsqrt2.basics.d.fd=}
+\end{equation}
+The same argument (applied to $dn$ instead of $n$) yields
+\begin{equation}
+\sqrt{5} \cdot f_{dn} = \phi^{dn}-\psi^{dn} .
+\label{sol.Zsqrt2.basics.d.fdn=}
+\end{equation}
+
+Now, $\phi^{d}$ and $\psi^{d}$ are elements of $\mathbb{Z}\left[  \phi\right]
+$ (as we know). Hence, Claim 2 (applied to $n$, $\phi^{d}$ and $\psi^{d}$
+instead of $d$, $x$ and $y$) yields $\phi^{d}-\psi^{d}\mid\left(  \phi
+^{d}\right)  ^{n}-\left(  \psi^{d}\right)  ^{n}$ in $\mathbb{Z}\left[
+\phi\right]  $. In view of
+\[
+ \phi^{d}-\psi^{d} = \sqrt{5} \cdot f_{d}
+ \qquad \tup{\text{by \eqref{sol.Zsqrt2.basics.d.fd=}}}
+\]
+and
+\[
+ \left(  \phi ^{d}\right)  ^{n}-\left(  \psi^{d}\right)  ^{n}
+ = \phi^{dn}-\psi^{dn} = \sqrt{5} \cdot f_{dn}
+ \qquad \tup{\text{by \eqref{sol.Zsqrt2.basics.d.fdn=}}} ,
+\]
+this rewrites as
+$\sqrt{5} \cdot f_{d} \mid \sqrt{5} \cdot f_{dn}$ in $\ZZ\ive{\phi}$.
+In other words, there exists a $\delta \in \ZZ\ive{\phi}$ such that
+$\sqrt{5} \cdot f_{dn} = \sqrt{5} \cdot f_{d} \cdot \delta$
+(by the definition of divisibility in $\ZZ\ive{\phi}$).
+Consider this $\delta$.
+Cancelling $\sqrt{5}$ from the equation
+$\sqrt{5} \cdot f_{dn} = \sqrt{5} \cdot f_{d} \cdot \delta$,
+we obtain
+$f_{dn} = f_{d} \cdot \delta$.
+Since $\delta \in \ZZ\ive{\phi}$,
+this shows that $f_d \mid f_{dn}$ in $\ZZ\ive{\phi}$
+(by the definition of divisibility in $\ZZ\ive{\phi}$).
+Thus, part \textbf{(c)} of this exercise (applied to $a = f_d$
+and $b = f_{dn}$) shows that $f_d \mid f_{dn}$ in $\ZZ$ (since $f_d$
+and $f_{dn}$ are elements of $\ZZ$).
+This solves part \textbf{(d)} of the exercise.
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 6
+%----------------------------------------------------------------------------------------
+\rule{\linewidth}{0.3pt} \\[0.4cm]
+
+\section{Exercise 6: Non-unique factorization in $\mathbb{Z}\left[  \sqrt{-3}
+\right]  $}
+
+\subsection{Problem}
+
+We let $\sqrt{-3}$ denote the complex number $\sqrt3 i$.
+
+Let $\mathbb{Z}\left[  \sqrt{-3} \right]  $ be the set of all complex numbers
+of the form $a + b \sqrt{-3}$ with $a, b \in\mathbb{Z}$. These complex numbers
+are called the \textit{$3$-Gaussian integers}.
+
+It is easy to see that the set $\mathbb{Z}\left[  \sqrt{-3} \right]  $ is
+closed under addition, subtraction and multiplication (i.e., that any $\alpha,
+\beta\in\mathbb{Z}\left[  \sqrt{-3} \right]  $ satisfy $\alpha+ \beta
+\in\mathbb{Z}\left[  \sqrt{-3} \right]  $ and $\alpha- \beta\in\mathbb{Z}%
+\left[  \sqrt{-3} \right]  $ and $\alpha\beta\in\mathbb{Z}\left[  \sqrt{-3}
+\right]  $). (In the terminology of abstract algebra, this is saying that
+$\mathbb{Z}\left[  \sqrt{-3} \right]  $ is a subring of $\mathbb{C}$.)
+
+It is also easy to see that each element of $\mathbb{Z}\left[  \sqrt{-3}
+\right]  $ can be written as $a + b \sqrt{-3}$ for a \textbf{unique} pair
+$\left(  a, b \right)  $ of integers.
+
+\begin{enumerate}
+\item[\textbf{(a)}] Prove that each $3$-Gaussian integer $\alpha$ satisfies
+$\operatorname{N}\left(  \alpha\right)  \in\mathbb{N}$ and $\operatorname{N}%
+\left(  \alpha\right)  \not \equiv 2 \mod 3$.
+\end{enumerate}
+
+\noindent(Recall that $\operatorname{N}\left(  \alpha\right)  $ is defined for
+every complex number $\alpha$, and thus for every $3$-Gaussian integer
+$\alpha$, since $3$-Gaussian integers are complex numbers.)
+
+Given two elements $\alpha$ and $\beta$ of $\mathbb{Z}\left[  \sqrt{-3}
+\right]  $, we say that \textit{$\alpha\mid\beta$ in $\mathbb{Z}\left[
+\sqrt{-3} \right]  $} if and only if there exists some $\gamma\in
+\mathbb{Z}\left[  \sqrt{-3} \right]  $ such that $\beta= \alpha\gamma$. Thus,
+we have defined divisibility in $\mathbb{Z}\left[  \sqrt{-3} \right]  $. Basic
+properties of divisibility of integers (such as Proposition 2.2.4) still apply
+to divisibility in $\mathbb{Z}\left[  \sqrt{-3} \right]  $ (with the same proofs).
+
+If $\alpha\in\mathbb{Z}\left[  \sqrt{-3} \right]  $, then a \textit{$3$%
+-Gaussian divisor of $\alpha$} shall mean a $\beta\in\mathbb{Z}\left[
+\sqrt{-3} \right]  $ such that $\beta\mid\alpha$ in $\mathbb{Z}\left[
+\sqrt{-3} \right]  $.
+
+We define the notions of ``inverse'', ``unit'' and ``unit-equivalent'' for $3
+$-Gaussian integers as we did for Gaussian integers.
+
+A nonzero $3$-Gaussian integer $\pi$ that is not a unit is called a
+\textit{$3$-Gaussian prime} if each $3$-Gaussian divisor of $\pi$ is either a
+unit or unit-equivalent to $\pi$.
+
+\begin{enumerate}
+\item[\textbf{(b)}] List all the $3$-Gaussian integers having norms $< 4$.
+
+\item[\textbf{(c)}] List all units in $\mathbb{Z}\left[  \sqrt{-3} \right]  $.
+
+\item[\textbf{(d)}] Prove that $2$, $1 + \sqrt{-3}$ and $1 - \sqrt{-3}$ are
+$3$-Gaussian primes.
+
+\item[\textbf{(e)}] Prove that $2 \cdot2 = \left(  1 + \sqrt{-3} \right)
+\cdot\left(  1 - \sqrt{-3} \right)  $.
+
+\item[\textbf{(f)}] Define two $3$-Gaussian integers $\alpha$ and $\beta$ by
+$\alpha= 2$ and $\beta= 1 + \sqrt{-3}$. Prove that there exist no $3$-Gaussian
+integers $\gamma$ and $\rho$ such that $\alpha= \gamma\beta+ \rho$ and
+$\operatorname{N}\left(  \rho\right)  < \operatorname{N}\left(  \beta\right)
+$.
+\end{enumerate}
+
+[\textbf{Hint:} Your list in part \textbf{(b)} should contain $5$ entries.
+Your list in part \textbf{(c)} should contain $2$ entries: Unlike the ring
+$\mathbb{Z}\left[  i \right]  $ with its $4$ units, the ring $\mathbb{Z}%
+\left[  \sqrt{-3} \right]  $ has only $2$ units.
+
+For \textbf{(d)}, discuss the norm of any possible $3$-Gaussian divisor.]
+
+\subsection{Remark}
+
+Parts \textbf{(d)} and \textbf{(e)} of this exercise show that unique
+factorization into primes is not automatically preserved when we extend a
+number system. Neither is division with remainder, as part \textbf{(f)}
+illustrates (though we already have seen the geometric reason for this in
+class). (Neither is the existence of a well-behaved greatest common divisor.)
+
+\subsection{Solution sketch}
+
+\textbf{(a)} Let $\alpha$ be a $3$-Gaussian integer.
+Thus, $\alpha = a + b\st$ for some $a, b \in \ZZ$ (by the definition
+of a $3$-Gaussian integer). Consider these $a$ and $b$.
+We have $\alpha = a + b \underbrace{\st}_{= \sqrt{3} i}
+= a + b \sqrt{3} i = \tup{a, b \sqrt{3}}$ (regarded as a complex number).
+Hence, the definition of the norm of a complex number yields
+$\No \tup{\alpha} = a^2 + \underbrace{\tup{b \sqrt{3}}^2}_{= 3b^2}
+= a^2 + 3b^2 \in \NN$ (since $a^2$ and $b^2$ are squares of
+integers and therefore belong to $\NN$).
+It remains to prove that $\No \tup{\alpha} \not\equiv 2 \mod 3$.
+
+Corollary 2.6.9 \textbf{(a)} in
+\href{http://www.cip.ifi.lmu.de/~grinberg/t/19s/notes.pdf}{the class notes}
+(applied to $u = a$ and $n = 3$)
+shows that $a \% 3 \in \set{0, 1, \ldots, 3-1}$
+and $a \% 3 \equiv a \mod 3$.
+Thus, $a \% 3 \in \set{0, 1, \ldots, 3-1} = \set{0, 1, 2}$, so that
+$a \% 3$ is either $0$ or $1$ or $2$.
+Thus, we are in one of the following three cases:
+
+\textit{Case 1:} We have $a \% 3 = 0$.
+
+\textit{Case 2:} We have $a \% 3 = 1$.
+
+\textit{Case 3:} We have $a \% 3 = 2$.
+
+Let us first consider Case 3. In this case, we have $a \% 3 = 2$.
+But we can take the congruence $a \% 3 \equiv a \mod 3$ to the $2$-nd power;
+thus we obtain $\tup{a \% 3}^2 \equiv a^2 \mod 3$. In view of $a \% 3 = 2$,
+this rewrites as $2^2 \equiv a^2 \mod 3$.
+Hence, $a^2 \equiv 2^2 = 4 \mod 3$.
+Now, $\No \tup{\alpha} = a^2 + \underbrace{3b^2}_{\equiv 0 \mod 3} \equiv a^2
+\equiv 4 \not\equiv 2 \mod 3$.
+Thus, our claim $\No \tup{\alpha} \not\equiv 2 \mod 3$ is proven in Case 3.
+
+Similarly, this claim can be proven in Case 1 and in Case 2.
+Thus, the claim is proven in all cases.
+This completes the solution of part \textbf{(a)} of this exercise.
+\\[0.4cm]
+
+\textbf{(b)} We claim that:
+
+\begin{itemize}
+ \item The only $3$-Gaussian integer having norm $0$ is $0$.
+ \item The only $3$-Gaussian integers having norm $1$ are $1$ and $-1$.
+ \item There are no $3$-Gaussian integers having norm $2$.
+ \item The only $3$-Gaussian integers having norm $3$ are $\st$ and $-\st$.
+\end{itemize}
+
+More generally:
+If $N$ is a nonnegative integer, then we can find all $3$-Gaussian
+integers $\alpha$ having norm $N$ by a straightforward exhaustive
+check of all possible cases.
+Indeed, if $\alpha$ is a $3$-Gaussian integer having norm $N$,
+then we can write $\alpha$ in the form $\alpha = a + b \st$ for some
+$a, b \in \ZZ$ (since $\alpha$ is a $3$-Gaussian integer), and then
+we have $N = \No\tup{\alpha} = a^2 + 3 b^2$ (as we have seen in the
+solution to part \textbf{(a)} of this exercise); but this entails
+that both integers $a$ and $b$ lie between $-\sqrt{N}$ and $\sqrt{N}$
+(since $N = a^2 + 3 \underbrace{b^2}_{\geq 0} \geq a^2$ and
+$N = \underbrace{a^2}_{\geq 0} + 3 b^2 \geq 3 b^2
+= 2 \underbrace{b^2}_{\geq 0} + b^2 \geq b^2$), and this leaves
+only finitely many possibilities for $a$ and $b$, which can all
+be directly checked.
+Thus our above four claims can be proven. \\[0.4cm]
+
+\textbf{(c)}
+We claim that the units in $\Zst$ are $1$ and $-1$.
+
+[\textit{Proof.} It is clear that $1$ and $-1$ are units in $\Zst$
+(since each of the numbers $1$ and $-1$ is its own inverse, and
+thus has an inverse in $\Zst$, which means that it is a unit in
+$\Zst$).
+Thus, it remains to show that there are no other units.
+In other words, it remains to show that each unit in $\Zst$ is
+either $1$ or $-1$.
+In other words, it remains to show that if $\alpha$ is a unit
+in $\Zst$, then $\alpha = 1$ or $\alpha = -1$.
+
+So let $\alpha$ be a unit in $\Zst$.
+We must show that $\alpha = 1$ or $\alpha = -1$.
+
+We know that $\alpha$ is a unit in $\Zst$.
+In other words, $\alpha$ has an inverse in $\Zst$.
+Consider this inverse $\alpha^{-1} \in \Zst$.
+Thus, $\alpha^{-1}$ is a $3$-Gaussian integer.
+
+Part \textbf{(a)} of this exercise yields
+$\No\tup{\alpha} \in \NN$. The same argument (applied to $\alpha^{-1}$
+instead of $\alpha$) yields $\No\tup{\alpha^{-1}} \in \NN$
+(since $\alpha^{-1}$ is a $3$-Gaussian integer).
+
+But $\alpha \alpha^{-1} = 1$ and thus
+$\No\tup{\alpha \alpha^{-1}} = \No\tup{1} = 1^2 = 1$,
+so that
+$1 = \No\tup{\alpha \alpha^{-1}}
+= \No\tup{\alpha} \cdot \No\tup{\alpha^{-1}}$.
+This leads to $\No\tup{\alpha} \mid 1$ (since $\No\tup{\alpha^{-1}} \in \NN$).
+Therefore, $\No\tup{\alpha} = 1$
+(since $\No\tup{\alpha} \in \NN$).
+In other words, $\alpha$ is a $3$-Gaussian integer having norm
+$1$.
+Since we already know (from our solution to part \textbf{(b)}
+of this exercise) that the
+only $3$-Gaussian integers having norm $1$ are $1$ and $-1$,
+we thus conclude that $\alpha$ is either $1$ or $-1$
+\ \ \ \ \footnote{Here is a simpler way of proving this:
+We know that $\alpha$ is a $3$-Gaussian integer.
+Thus, $\alpha = a + b\st$ for some $a, b \in \ZZ$ (by the definition
+of a $3$-Gaussian integer). Consider these $a$ and $b$.
+We have $\No \tup{\alpha} = a^2 + 3 b^2$
+(as we have already shown when solving part \textbf{(a)} of
+this exercise), so that $a^2 + 3 b^2 = \No\tup{\alpha} = 1$.
+If the integer $b$ was nonzero, then its square $b^2$ would be
+$\geq 1$ (since the square of a nonzero integer is always $\geq 1$),
+and thus we would have
+$\underbrace{a^2}_{\geq 0} + 3 \underbrace{b^2}_{\geq 1}
+\geq 0 + 3 \cdot 1 = 3 > 1$,
+which would contradict $a^2 + 3 b^2 = 1$.
+Hence, $b$ cannot be nonzero.
+In other words, $b = 0$. Hence $a^2 + 3 b^2 = a^2 + 3 \cdot 0^2
+= a^2$, so that $a^2 = a^2 + 3 b^2 = 1$. Thus, $a$ is either $1$
+or $-1$.
+But $\alpha = a + \underbrace{b}_{= 0} \st = a$.
+Thus, $\alpha$ is either $1$ or $-1$ (since $a$ is either $1$
+or $-1$).}.
+In other words, $\alpha = 1$ or $\alpha = -1$.
+This completes our proof.]
+\\[0.4cm]
+
+\textbf{(d)} Let us first prove that $2$ is a $3$-Gaussian prime:
+
+\begin{statement}
+ \textit{Claim 1:} The $3$-Gaussian integer $2$ is a $3$-Gaussian prime.
+\end{statement}
+
+[\textit{Proof of Claim 1:}
+Indeed, $2$ is clearly a nonzero $3$-Gaussian integer that is
+not a unit\footnote{Indeed, in part \textbf{(c)} of this
+exercise, we have seen what the units are; $2$ is clearly
+none of them.}.
+Thus, in order to prove Claim 1,
+we only need to check that each $3$-Gaussian divisor of $2$ is either a
+unit or unit-equivalent to $2$.
+
+So let us prove this. Let $\delta$ be a $3$-Gaussian divisor of
+$2$. We must prove that $\delta$ is either a unit or unit-equivalent to $2$.
+
+We have seen (in the solution to part \textbf{(c)} of this
+exercise) that the only $3$-Gaussian integers having norm $1$ are $1$ and $-1$.
+Thus, all $3$-Gaussian integers having norm $1$ are units
+(since $1$ and $-1$ are units).
+
+We know that $\delta$ is a $3$-Gaussian divisor of $2$.
+In other words, there exists a $3$-Gaussian integer $\gamma$
+such that $2 = \delta \gamma$. Consider this $\gamma$.
+From $2 = \delta \gamma$, we obtain
+$\No\tup{2} = \No\tup{\delta \gamma}
+= \No\tup{\delta} \cdot \No\tup{\gamma}$,
+so that
+$\No\tup{\delta} \cdot \No\tup{\gamma} = \No\tup{2} = 2^2 = 4$.
+
+Part \textbf{(a)} of this exercise (applied to $\alpha = \delta$)
+yields $\No\tup{\delta} \in \NN$ and
+$\No\tup{\delta} \not\equiv 2 \mod 3$.
+The same argument (applied to $\gamma$ instead of $\delta$)
+yields $\No\tup{\gamma} \in \NN$ and
+$\No\tup{\gamma} \not\equiv 2 \mod 3$.
+Now, the equality
+$\No\tup{\delta} \cdot \No\tup{\gamma} = 4$
+leads to $\No\tup{\delta} \mid 4$
+(since $\No\tup{\gamma} \in \NN$).
+Thus, $\No\tup{\delta}$ must be $1$, $2$ or $4$
+(since the only divisors of $4$ in $\NN$ are
+$1$, $2$ and $4$).
+Since $\No\tup{\delta} \neq 2$ (because
+$\No\tup{\delta} \not\equiv 2 \mod 3$), the second of these
+three possibilities is ruled out;
+thus, $\No\tup{\delta}$ must be $1$ or $4$.
+So we must be in one of the following two cases:
+
+\textit{Case 1:} We have $\No\tup{\delta} = 1$.
+
+\textit{Case 2:} We have $\No\tup{\delta} = 4$.
+
+Let us first consider Case 1.
+In this case, we have $\No\tup{\delta} = 1$.
+In other words, $\delta$ has norm $1$.
+Hence, $\delta$ is a unit
+(since all $3$-Gaussian integers having norm $1$ are units).
+Thus, our claim (that $\delta$ is either a unit or unit-equivalent to $2$)
+is proven in Case 1.
+
+Let us now consider Case 2.
+In this case, we have $\No\tup{\delta} = 4$.
+Comparing $\No\tup{\delta} \cdot \No\tup{\gamma} = 4$
+with $\underbrace{\No\tup{\delta}}_{=4} \cdot \No\tup{\gamma} = 4 \cdot \No\tup{\gamma}$,
+we obtain $4 \cdot \No\tup{\gamma} = 4$, so that
+$\No\tup{\gamma} = 1$. Thus, $\gamma$ has
+norm $1$, and therefore $\gamma$ is a unit (since
+all $3$-Gaussian integers having norm $1$ are units).
+Hence, $2$ is unit-equivalent to $\delta$
+(since $2 = \delta \gamma = \gamma \delta$).
+In other words, $\delta$ is unit-equivalent
+to $2$ (since unit-equivalence is an equivalence relation).
+Thus, our claim (that $\delta$ is either a unit or unit-equivalent to $2$)
+is proven in Case 2.
+
+We have now proven (in both Cases 1 and 2) that
+$\delta$ is either a unit or unit-equivalent to $2$.
+As we know, this completes the proof of Claim 1.]
+
+Thus, we have proven that $2$ is a $3$-Gaussian prime.
+The same argument can be used to show that $1 + \st$
+and $1 - \st$ are $3$-Gaussian primes (since both
+$1 + \st$ and $1 - \st$ have norm $4$).
+Thus, part \textbf{(d)} of the exercise is solved.
+ \\[0.4cm]
+
+\textbf{(e)} This is a straightforward computation. \\[0.4cm]
+
+\textbf{(f)} Assume the contrary. Thus, there exist
+$3$-Gaussian
+integers $\gamma$ and $\rho$ such that $\alpha= \gamma\beta+ \rho$ and
+$\operatorname{N}\left(  \rho\right)  < \operatorname{N}\left(  \beta\right)
+$.
+Consider these $\gamma$ and $\rho$.
+Solving the equation $\alpha= \gamma\beta+ \rho$ for $\gamma$,
+we obtain $\gamma = \dfrac{\alpha - \rho}{\beta}$
+(since $\beta \neq 0$).
+
+A straightforward computation reveals that
+$\No\tup{\beta} = 4$. Hence,
+$\No\tup{\rho} < \No\tup{\beta} = 4$.
+Thus, $\rho$ is a $3$-Gaussian integer having norm $< 4$.
+But in part \textbf{(b)} of this exercise, we have
+found all such $3$-Gaussian integers; namely, they are
+$0$, $1$, $-1$, $\st$ and $-\st$.
+Thus, $\rho$ must be one of the numbers
+$0$, $1$, $-1$, $\st$ and $-\st$.
+This gives five possible cases to check.
+In each of these five cases, we can compute
+$\gamma$ from $\gamma = \dfrac{\alpha - \rho}{\beta}$.
+We thus obtain the following table of values of $\gamma$:
+\[%
+\begin{tabular}
+[c]{|c||c|c|c|c|c|}\hline
+$\vphantom{\dfrac{1}{1}} \rho$ & $0$ & $1$ & $-1$ & $\sqrt{-3}$ & $-\sqrt{-3}$\\\hline
+$\vphantom{\dfrac{\dfrac{1}{1}}{\dfrac{1}{1}}} \gamma$ & $\dfrac{1}{2}-\dfrac{1}{2}\sqrt{-3}$ & $\dfrac{1}{4}-\dfrac{1}{4}\sqrt{-3}$ & $\dfrac{3}{4}-\dfrac{3}{4}\sqrt{-3}$ & $\dfrac{-1}{4}-\dfrac{3}{4}\sqrt{-3}$ & $\dfrac{5}{4}-\dfrac{1}{4}\sqrt{-3}$\\\hline
+\end{tabular}
+\ \ .
+\]
+(We have used the standard strategy of rationalizing
+denominators in order to compute these values of $\gamma$.)
+This table makes it clear that (in each of the five cases)
+$\gamma$ can be written in the form $\gamma = a + b \st$
+with some numbers $a, b \in \QQ$ that are not both integers.
+But we also know that $\gamma$ can be written in the form
+$\gamma = a + b \st$ with some $a, b \in \ZZ$
+(because $\gamma \in \Zst$).
+Thus, there are (at least) \textbf{two} different ways to
+write $\gamma$ in the form $\gamma = a + b \st$
+with some numbers $a, b \in \QQ$
+\ \ \ \ \footnote{Indeed, the first way uses two numbers
+$a, b$ that are not both integers, while the second way
+uses two numbers $a, b \in \ZZ$, that is, two numbers
+$a, b$ that are both integers.
+Thus, the two ways are indeed different.}.
+But this is impossible, since each element $z$ of $\CC$
+can be
+\textbf{uniquely} written as $z = a + b \st$ with $a, b \in \RR$
+(namely, $a = \operatorname{Re} z$ and $b = \operatorname{Im} z / \sqrt{3}$).
+This contradiction shows that our assumption was false.
+Hence, part \textbf{(f)} of the exercise is solved.
+
+\begin{thebibliography}{99999999}                                                                                         %
+
+
+\bibitem[ConradG]{Conrad-Gauss}Keith Conrad, \textit{The Gaussian
+integers}.\newline\url{http://www.math.uconn.edu/~kconrad/blurbs/ugradnumthy/Zinotes.pdf}
+
+\bibitem[Hirsch17]{Hirsch17}%
+\href{https://doi.org/10.1007/978-3-319-57762-3}{Michael D. Hirschhorn,
+\textit{The power of }$q$\textit{: a personal journey}, Springer 2017}.
+
+\bibitem[Hirsch85]{Hirsch85}%
+\href{https://web.maths.unsw.edu.au/~mikeh/webpapers/paper21.pdf}{Michael D.
+Hirschhorn, \textit{A simple proof of Jacobi's two-square theorem}, Amer.
+Math. Monthly 92, pp. 579--580 (1985)}.
+
+\bibitem[UspHea39]{Uspensky-Heaslet}J. V. Uspensky, M. A. Heaslet,
+\textit{Elementary Number Theory}, McGraw-Hill 1939.
+\end{thebibliography}
+
+
+\end{document}

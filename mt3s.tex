@@ -1,0 +1,4057 @@
+% The LaTeX below is mostly computer-generated (for reasons of speed); don't expect it to be very readable. Sorry.
+
+\documentclass[paper=a4, fontsize=12pt]{scrartcl}%
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{amsmath,amsfonts,amsthm,amssymb}
+\usepackage{mathrsfs}
+\usepackage{sectsty}
+\usepackage{hyperref}
+\usepackage{comment}
+\usepackage{framed}
+\usepackage{ifthen}
+\usepackage{lastpage}
+\usepackage[headsepline,footsepline,manualmark]{scrlayer-scrpage}
+\usepackage[height=10in,a4paper,hmargin={1in,0.8in}]{geometry}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{tikz}
+\usepackage{verbatim}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}%
+\setcounter{MaxMatrixCols}{30}
+%TCIDATA{OutputFilter=latex2.dll}
+%TCIDATA{Version=5.50.0.2960}
+%TCIDATA{LastRevised=Monday, May 20, 2019 09:33:00}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{BibliographyScheme=Manual}
+%BeginMSIPreambleData
+\providecommand{\U}[1]{\protect\rule{.1in}{.1in}}
+%EndMSIPreambleData
+\allsectionsfont{\centering \normalfont\scshape}
+\setlength\parindent{20pt}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\DD}{{\mathbb{D}}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\KK}{\mathbb{K}}
+\newcommand{\LL}{\mathbb{L}}
+\newcommand{\MM}{\mathbb{M}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\Z}[1]{\mathbb{Z}/#1\mathbb{Z}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\op}{\operatorname{op}}
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\lcm}{\operatorname{lcm}}
+\newcommand{\Int}{\operatorname{Int}}
+\newcommand{\set}[1]{\left\{ #1 \right\}}
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\tup}[1]{\left( #1 \right)}
+\newcommand{\ive}[1]{\left[ #1 \right]}
+\newcommand{\ivee}[1]{\left[ \left[ #1 \right] \right]}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\underbrack}[2]{\underbrace{#1}_{\substack{#2}}}
+\newcommand{\powset}[2][]{\ifthenelse{\equal{#2}{}}{\mathcal{P}\left(#1\right)}{\mathcal{P}_{#1}\left(#2\right)}}
+\newcommand{\calF}{\mathcal{F}}
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}}
+\newcommand{\nnn}{\nonumber\\}
+\let\sumnonlimits\sum
+\let\prodnonlimits\prod
+\let\cupnonlimits\bigcup
+\let\capnonlimits\bigcap
+\renewcommand{\sum}{\sumnonlimits\limits}
+\renewcommand{\prod}{\prodnonlimits\limits}
+\renewcommand{\bigcup}{\cupnonlimits\limits}
+\renewcommand{\bigcap}{\capnonlimits\limits}
+\newtheoremstyle{plainsl}
+{8pt plus 2pt minus 4pt}
+{8pt plus 2pt minus 4pt}
+{\slshape}
+{0pt}
+{\bfseries}
+{.}
+{5pt plus 1pt minus 1pt}
+{}
+\theoremstyle{plainsl}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{examples}[theorem]{Examples}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{question}[theorem]{Question}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newenvironment{statement}{\begin{quote}}{\end{quote}}
+\newenvironment{fineprint}{\begin{small}}{\end{small}}
+\iffalse
+\newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\newenvironment{question}[1][Question]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\newenvironment{teachingnote}[1][Teaching note]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\fi
+\newcommand{\myname}{Darij Grinberg}
+\newcommand{\myid}{00000000}
+\newcommand{\mymail}{dgrinber@umn.edu}
+\newcommand{\psetnumber}{3}
+\ihead{Solutions to midterm \#\psetnumber}
+\ohead{page \thepage\ of \pageref{LastPage}}
+\ifoot{\myname, \myid}
+\ofoot{\mymail}
+\begin{document}
+
+\title{ \normalfont {\normalsize \textsc{University of Minnesota, School of
+Mathematics} }\\[25pt] \rule{\linewidth}{0.5pt} \\[0.4cm] {\huge Math 4281: Introduction to Modern Algebra, }\\Spring 2019: Midterm 3\\\rule{\linewidth}{2pt} \\[0.5cm] }
+\author{Darij Grinberg}
+\maketitle
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 1
+%----------------------------------------------------------------------------------------
+\rule{\linewidth}{0.3pt} \\[0.4cm]
+
+\section{Exercise 1: Nonunital rings and local unities}
+
+\subsection{Problem}
+
+A \textit{nonunital ring} is defined in the same way as we defined a ring,
+except that we don't require it to be endowed with an element $1$ (and,
+correspondingly, we omit the ``Neutrality of one'' axiom). This does not mean
+that a nonunital ring must not contain an element $1$ that would satisfy the
+``Neutrality of one'' axiom; it simply means that such an element is not
+required (and not considered part of the ring structure). So, formally
+speaking, a nonunital ring is a $4$-tuple $\left(  \mathbb{K}, +, \cdot, 0
+\right)  $ (while a ring in the usual sense is a $5$-tuple $\left(
+\mathbb{K}, +, \cdot, 0, 1 \right)  $) that satisfies all the ring axioms
+except for ``Neutrality of one''.
+
+Thus, every ring becomes a nonunital ring if we forget its unity (i.e., if
+$\left(  \mathbb{K}, +, \cdot, 0, 1 \right)  $ is a ring, then $\left(
+\mathbb{K}, +, \cdot, 0 \right)  $ is a nonunital ring). But there are other
+examples as well: For instance, if $n \in\mathbb{Z}$ is arbitrary, then $n
+\mathbb{Z} := \left\{  nz \mid z \in\mathbb{Z} \right\}  = \left\{  \text{all
+multiples of } n \right\}  $ is a nonunital ring (when endowed with the usual
+$+$, $\cdot$ and $0$).
+
+An element $z$ of a nonunital ring $\mathbb{K}$ is said to be a \textit{unity}
+of $\mathbb{K}$ if every $a \in\mathbb{K}$ satisfies $az = za = a$. In other
+words, an element $z$ of a nonunital ring $\mathbb{K}$ is said to be a
+\textit{unity} of $\mathbb{K}$ if equipping $\mathbb{K}$ with the unity $z$
+results in a ring (in the usual sense of this word).
+
+Prove the following:
+
+\begin{enumerate}
+\item[\textbf{(a)}] If $n \in\mathbb{Z}$, then the nonunital ring $n
+\mathbb{Z}$ has a unity if and only if $n \in\left\{  1, 0, -1 \right\}  $.
+
+\item[\textbf{(b)}] Any nonunital ring has \textbf{at most one} unity.
+\end{enumerate}
+
+Now, let $\mathbb{K}$ be a nonunital ring. As usual, we write $+$ and $\cdot$
+for its two operations, and $0$ for its zero.
+
+Let $z \in\mathbb{K}$. Define a subset $U_{z}$ of $\mathbb{K}$ by
+\[
+U_{z} = \left\{  r \in\mathbb{K} \mid rz = zr = r \right\}  .
+\]
+
+
+\begin{enumerate}
+\item[\textbf{(c)}] Prove that $0 \in U_{z}$, and that every $a, b \in U_{z}$
+satisfy $a + b \in U_{z}$ and $ab \in U_{z}$.
+\end{enumerate}
+
+Thus, we can turn $U_{z}$ into a nonunital ring by endowing $U_{z}$ with the
+binary operations $+$ and $\cdot$ (inherited from $\mathbb{K}$) and the
+element $0$. Consider this nonunital ring $U_{z}$.
+
+\begin{enumerate}
+\item[\textbf{(d)}] Assume that $z^{2} = z$. Prove that $z$ is a unity of the
+nonunital ring $U_{z}$.
+\end{enumerate}
+
+[\textbf{Hint:} In \textbf{(b)}, what would the product of two unities be?]
+
+\subsection{Solution sketch}
+
+\textbf{(a)} Let $n\in\mathbb{Z}$. We must prove that the nonunital ring
+$n\mathbb{Z}$ has a unity if and only if $n\in\left\{  1,0,-1\right\}  $.
+
+This is an \textquotedblleft if and only if\textquotedblright\ statement. We
+are going to prove its \textquotedblleft$\Longrightarrow$\textquotedblright%
+\ and \textquotedblleft$\Longleftarrow$\textquotedblright\ directions separately:
+
+$\Longrightarrow:$ Assume that the nonunital ring $n\mathbb{Z}$ has a unity.
+We must prove that $n\in\left\{  1,0,-1\right\}  $.
+
+Assume the contrary. Thus, $n\notin\left\{  1,0,-1\right\}  $. Hence,
+$\left\vert n\right\vert >1$ (since $n$ is an integer) and $n\neq0$.
+
+Clearly, the integer $n$ is a multiple of $n$ (since $n=n\cdot1$). Thus, $n\in
+n\mathbb{Z}$.
+
+We have assumed that the the nonunital ring $n\mathbb{Z}$ has a unity. Let us
+denote this unity by $u$. Then, every $a\in n\mathbb{Z}$ satisfies $au=ua=a$
+(by the definition of a unity). Applying this to $a=n$, we obtain $nu=un=n$
+(since $n\in n\mathbb{Z}$). We can divide both sides of the equality $nu=n$ by
+$n$ (since $n\neq0$), and thus obtain $u=1$. Thus, $1=u\in n\mathbb{Z}$ (since
+$u$ is a unity of $n\mathbb{Z}$); in other words, $1$ is a multiple of $n$ (by
+the definition of $n\mathbb{Z}$). In other words, $n\mid1$. Thus, Proposition
+2.2.3 \textbf{(b)} in
+\href{http://www.cip.ifi.lmu.de/~grinberg/t/19s/notes.pdf}{the class notes}
+(applied to $a=n$ and $b=1$) yields $\left\vert n\right\vert \leq\left\vert
+1\right\vert $ (since $1\neq0$). Thus, $\left\vert n\right\vert \leq1=1$. This
+contradicts $\left\vert n\right\vert >1$. This contradiction shows that our
+assumption was false. Thus, the \textquotedblleft$\Longrightarrow
+$\textquotedblright\ direction of part \textbf{(a)} of this exercise is proven.
+
+$\Longleftarrow:$ Assume that $n\in\left\{  1,0,-1\right\}  $. We must prove
+that the nonunital ring $n\mathbb{Z}$ has a unity.
+
+We have $n\in\left\{  1,0,-1\right\}  $. Thus, we are in one of the following
+three cases:
+
+\textit{Case 1:} We have $n=1$.
+
+\textit{Case 2:} We have $n=0$.
+
+\textit{Case 3:} We have $n=-1$.
+
+Let us first consider Case 1. In this case, we have $n=1$. Hence,%
+\begin{align*}
+n\mathbb{Z}  &  =1\mathbb{Z}=\left\{  \text{all multiples of }1\right\}
+=\left\{  \text{all integers}\right\}  \qquad\left(  \text{since all integers
+are multiples of }1\right) \\
+&  =\mathbb{Z}.
+\end{align*}
+But the nonunital ring $\mathbb{Z}$ has a unity (namely, $1$), since
+$\mathbb{Z}$ equipped with the unity $1$ is a ring. In other words, the
+nonunital ring $n\mathbb{Z}$ has a unity (since $n\mathbb{Z}=\mathbb{Z}$).
+Thus, we have proven in Case 1 that the nonunital ring $n\mathbb{Z}$ has a unity.
+
+Let us next consider Case 2. In this case, we have $n=0$. Hence,%
+\[
+n\mathbb{Z}=0\mathbb{Z}=\left\{  \text{all multiples of }0\right\}  =\left\{
+0\right\}  \qquad\left(  \text{since the only multiple of }0\text{ is }0\text{
+itself}\right)  .
+\]
+But the nonunital ring $\left\{  0\right\}  $ has a unity (namely, $0$), since
+$\left\{  0\right\}  $ equipped with the unity $0$ is a ring (viz., the zero
+ring). In other words, the nonunital ring $n\mathbb{Z}$ has a unity (since
+$n\mathbb{Z}=\left\{  0\right\}  $). Thus, we have proven in Case 2 that the
+nonunital ring $n\mathbb{Z}$ has a unity.
+
+Let us finally consider Case 3. In this case, we have $n=-1$. Hence,%
+\begin{align*}
+n\mathbb{Z}  &  =\left(  -1\right)  \mathbb{Z}=\left\{  \text{all multiples of
+}-1\right\}  =\left\{  \text{all integers}\right\} \\
+&  \qquad\left(
+\begin{array}
+[c]{c}%
+\text{since all integers are multiples of }-1\\
+\text{(because each integer }a\text{ satisfies }a=\left(  -1\right)  \left(
+-a\right)  \text{)}%
+\end{array}
+\right) \\
+&  =\mathbb{Z}.
+\end{align*}
+But the nonunital ring $\mathbb{Z}$ has a unity (namely, $1$), since
+$\mathbb{Z}$ equipped with the unity $1$ is a ring. In other words, the
+nonunital ring $n\mathbb{Z}$ has a unity (since $n\mathbb{Z}=\mathbb{Z}$).
+Thus, we have proven in Case 3 that the nonunital ring $n\mathbb{Z}$ has a unity.
+
+Now, in each of the three Cases 1, 2 and 3, we have shown that the nonunital
+ring $n\mathbb{Z}$ has a unity. Hence, this always holds. Thus, the
+\textquotedblleft$\Longleftarrow$\textquotedblright\ direction of part
+\textbf{(a)} of this exercise is solved.
+
+\bigskip
+
+\textbf{(b)} Let $\mathbb{K}$ be a nonunital ring. We must prove that
+$\mathbb{K}$ has \textbf{at most one} unity. In other words, we must prove
+that any two unities of $\mathbb{K}$ are equal. In other words, we must prove
+that if $u$ and $v$ are two unities of $\mathbb{K}$, then $u=v$.
+
+So let $u$ and $v$ be two unities of $\mathbb{K}$. We must prove that $u=v$.
+
+We have assumed that $u$ is a unity of $\mathbb{K}$. In other words, $u$ is an
+element of $\mathbb{K}$ such that every $a\in\mathbb{K}$ satisfies $au=ua=a$
+(by the definition of a unity).
+
+We have assumed that $v$ is a unity of $\mathbb{K}$. In other words, $v$ is an
+element of $\mathbb{K}$ such that every $a\in\mathbb{K}$ satisfies $av=va=a$
+(by the definition of a unity).
+
+We know that every $a\in\mathbb{K}$ satisfies $au=ua=a$. Applying this to
+$a=v$, we obtain $vu=uv=v$.
+
+We know that every $a\in\mathbb{K}$ satisfies $av=va=a$. Applying this to
+$a=u$, we obtain $uv=vu=u$.
+
+Comparing $uv=u$ with $uv=v$, we obtain $u=v$. This completes our proof. Thus,
+part \textbf{(b)} of the exercise is solved.
+
+\bigskip
+
+\textbf{(c)} We have $0z=0$ and $z0=0$, thus $0z=z0=0$.
+
+The element $0$ of $\mathbb{K}$ is an $r\in\mathbb{K}$ satisfying $rz=zr=r$
+(since $0\in\mathbb{K}$ and $0z=z0=0$). In other words, $0\in\left\{
+r\in\mathbb{K}\mid rz=zr=r\right\}  $. This rewrites as $0\in U_{z}$ (since
+$U_{z}=\left\{  r\in\mathbb{K}\mid rz=zr=r\right\}  $).
+
+Hence, it remains to prove that every $a,b\in U_{z}$ satisfy $a+b\in U_{z}$
+and $ab\in U_{z}$.
+
+So let $a,b\in U_{z}$. We must show that $a+b\in U_{z}$ and $ab\in U_{z}$.
+
+We have $a\in U_{z}=\left\{  r\in\mathbb{K}\mid rz=zr=r\right\}  $. In other
+words, $a$ is an $r\in\mathbb{K}$ satisfying $rz=zr=r$. In other words, $a$ is
+an element of $\mathbb{K}$ and satisfies $az=za=a$. The same argument (applied
+to $b$ instead of $a$) yields that $b$ is an element of $\mathbb{K}$ and
+satisfies $bz=zb=b$. Now, using the distributivity axiom, we find%
+\[
+\left(  a+b\right)  z=\underbrace{az}_{=za}+\underbrace{bz}_{=zb}%
+=za+zb=z\left(  a+b\right)  =\underbrace{za}_{=a}+\underbrace{zb}_{=b}=a+b.
+\]
+Thus, $a+b$ is an element of $\mathbb{K}$ and satisfies $\left(  a+b\right)
+z=z\left(  a+b\right)  =a+b$. In other words, $a+b$ is an $r\in\mathbb{K}$
+satisfying $rz=zr=r$. In other words, $a+b\in\left\{  r\in\mathbb{K}\mid
+rz=zr=r\right\}  $. This rewrites as $a+b\in U_{z}$ (since $U_{z}=\left\{
+r\in\mathbb{K}\mid rz=zr=r\right\}  $).
+
+Also, using the associativity axiom, we find%
+\[
+\left(  ab\right)  z=a\underbrace{\left(  bz\right)  }_{=zb}=a\left(
+zb\right)  =\underbrace{\left(  az\right)  }_{=za}b=\left(  za\right)
+b=z\left(  ab\right)  =\underbrace{\left(  za\right)  }_{=a}b=ab.
+\]
+Thus, $ab$ is an element of $\mathbb{K}$ and satisfies $\left(  ab\right)
+z=z\left(  ab\right)  =ab$. In other words, $ab$ is an $r\in\mathbb{K}$
+satisfying $rz=zr=r$. In other words, $ab\in\left\{  r\in\mathbb{K}\mid
+rz=zr=r\right\}  $. This rewrites as $ab\in U_{z}$ (since $U_{z}=\left\{
+r\in\mathbb{K}\mid rz=zr=r\right\}  $).
+
+So we have shown that $a+b\in U_{z}$ and $ab\in U_{z}$. This completes the
+solution to part \textbf{(c)} of the exercise.
+
+\bigskip
+
+\textbf{(d)} The element $z$ of $\mathbb{K}$ is an $r\in\mathbb{K}$ satisfying
+$rz=zr=r$ (since $zz=z^{2}=z$). In other words, $z\in\left\{  r\in
+\mathbb{K}\mid rz=zr=r\right\}  $. This rewrites as $z\in U_{z}$ (since
+$U_{z}=\left\{  r\in\mathbb{K}\mid rz=zr=r\right\}  $). Thus, $z$ is an
+element of $U_{z}$. This element has the property that every $a\in U_{z}$
+satisfies $az=za=a$\ \ \ \ \footnote{\textit{Proof.} Let $a\in U_{z}$. We must
+prove that $az=za=a$.
+\par
+We have $a\in U_{z}=\left\{  r\in\mathbb{K}\mid rz=zr=r\right\}  $. In other
+words, $a$ is an $r\in\mathbb{K}$ satisfying $rz=zr=r$. In other words, $a$ is
+an element of $\mathbb{K}$ and satisfies $az=za=a$. Qed.}. In other words, $z$
+is a unity of the nonunital ring $U_{z}$ (by the definition of a unity). This
+solves part \textbf{(d)} of the exercise.
+
+\subsection{Remark}
+
+In the solution to part \textbf{(d)}, we have used the assumption $z^{2}=z$
+only in order to prove that $z$ is an element of $U_{z}$. This is easy to
+overlook but nevertheless important: A unity of a nonunital ring must, first
+of all, be an element of this ring!
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 2
+%----------------------------------------------------------------------------------------
+\rule{\linewidth}{0.3pt} \\[0.4cm]
+
+\section{Exercise 2: Rings from nonunital rings}
+
+\subsection{Problem}
+
+Let $\mathbb{K}$ be a nonunital ring. (See Exercise 1 for the definition of
+this notion.) Let $\mathbb{L}$ be the Cartesian product $\mathbb{Z}
+\times\mathbb{K}$ (so far, just a set). Define a binary operation $+$ on
+$\mathbb{L}$ by setting
+\[
+\left(  n, a \right)  + \left(  m, b \right)  = \left(  n+m, a+b \right)
+\qquad\text{for all } \left(  n, a \right)  , \left(  m, b \right)
+\in\mathbb{L} .
+\]
+(This is an entrywise addition.) Define a binary operation $\cdot$ on
+$\mathbb{L}$ by
+\[
+\left(  n, a \right)  \left(  m, b \right)  = \left(  nm, nb + ma + ab
+\right)  \qquad\text{for all } \left(  n, a \right)  , \left(  m, b \right)
+\in\mathbb{L} .
+\]
+(Here, $nb$ and $ma$ are defined in the usual way: If $n \in\mathbb{Z}$ and $a
+\in\mathbb{K}$, then $na \in\mathbb{K}$ is defined by
+\[
+na=
+\begin{cases}
+\underbrace{a+a+\cdots+a}_{n \text{ times}}, & \text{if } n \geq0;\\
+- \left(  \underbrace{a+a+\cdots+a}_{-n \text{ times}} \right)  , & \text{if }
+n < 0
+\end{cases}
+.
+\]
+This does not require $\mathbb{K}$ to have a unity.)
+
+Prove that $\mathbb{L}$, endowed with these two operations $+$ and $\cdot$ and
+the zero $\left(  0, 0 \right)  $ and the unity $\left(  1, 0 \right)  $, is a
+ring (in the usual sense of this word).
+
+[\textbf{Hint:} You can use rules like $n \left(  a + b \right)  = na + nb$
+and $\left(  n + m \right)  a = na + ma$ and $\left(  nm \right)  a = n
+\left(  ma \right)  $ (for $n, m \in\mathbb{Z}$ and $a, b \in\mathbb{K}$)
+without proof; they can be proven just as for usual rings. You can also use
+the fact that finite sums of elements of $\mathbb{K}$ are well-defined and
+behave as we would expect them to (we already tacitly used that in writing
+``$\underbrace{a+a+\cdots+a}_{n \text{ times}}$'' without parentheses).
+
+You don't need to check the ``additive'' axioms (associativity of addition,
+commutativity of addition, neutrality of zero, and existence of additive
+inverses); as far as addition and zero are concerned, $\mathbb{L}$ is just a
+Cartesian product.]
+
+\subsection{Remark}
+
+This exercise gives a way to \textquotedblleft embed\textquotedblright\ any
+nonunital ring $\mathbb{K}$ into a ring $\mathbb{L}$. This helps proving
+properties of nonunital rings, assuming that you can prove them for rings. The
+ring $\mathbb{L}$ is called the \textit{Dorroh extension} of $\mathbb{K}$ (or,
+more precisely, the $\mathbb{Z}$\textit{-Dorroh extension} of $\mathbb{K}$,
+since there are other possibilities as well).
+
+There is also a much simpler notion of a Cartesian product of two nonunital
+rings (in which both addition and multiplication are defined entrywise). This
+lets us define a nonunital ring $\mathbb{Z} \times\mathbb{K}$. But this is
+\textbf{not} the ring $\mathbb{L}$; it does not generally have a unity.
+
+\subsection{Solution sketch}
+
+We first state a few basic rules for computing inside $\mathbb{K}$:
+
+\begin{proposition}
+\label{prop.rings.Zscal.rules-nonunital}We have%
+\begin{align}
+\left(  n+m\right)  a  &  =na+ma\ \ \ \ \ \ \ \ \ \ \text{for all }%
+a\in\mathbb{K}\text{ and }n,m\in\mathbb{Z}%
+;\label{eq.prop.rings.Zscal.rules.(n+m)a}\\
+n\left(  a+b\right)   &  =na+nb\ \ \ \ \ \ \ \ \ \ \text{for all }%
+a,b\in\mathbb{K}\text{ and }n\in\mathbb{Z}%
+;\label{eq.prop.rings.Zscal.rules.n(a+b)}\\
+-\left(  na\right)   &  =\left(  -n\right)  a=n\left(  -a\right)
+\ \ \ \ \ \ \ \ \ \ \text{for all }a\in\mathbb{K}\text{ and }n\in
+\mathbb{Z};\label{eq.prop.rings.Zscal.rules.-na}\\
+\left(  nm\right)  a  &  =n\left(  ma\right)  \ \ \ \ \ \ \ \ \ \ \text{for
+all }a\in\mathbb{K}\text{ and }n,m\in\mathbb{Z}%
+;\label{eq.prop.rings.Zscal.rules.nma}\\
+n\left(  ab\right)   &  =\left(  na\right)  b=a\left(  nb\right)
+\ \ \ \ \ \ \ \ \ \ \text{for all }a,b\in\mathbb{K}\text{ and }n\in
+\mathbb{Z};\label{eq.prop.rings.Zscal.rules.nab}\\
+n0_{\mathbb{K}}  &  =0_{\mathbb{K}}\ \ \ \ \ \ \ \ \ \ \text{for all }%
+n\in\mathbb{Z};\label{eq.prop.rings.Zscal.rules.n0}\\
+1a  &  =a\ \ \ \ \ \ \ \ \ \ \text{for all }a\in\mathbb{K}%
+\label{eq.prop.rings.Zscal.rules.1a}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{here, the \textquotedblleft%
+}1\text{\textquotedblright\ means the integer }1\right)  ;\nonumber\\
+0a  &  =0_{\mathbb{K}}\ \ \ \ \ \ \ \ \ \ \text{for all }a\in\mathbb{K}%
+\label{eq.prop.rings.Zscal.rules.0a}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{here, the \textquotedblleft%
+}0\text{\textquotedblright\ on the left hand side means the integer }0\right)
+;\nonumber\\
+\left(  -1\right)  a  &  =-a\ \ \ \ \ \ \ \ \ \ \text{for all }a\in
+\mathbb{K};\label{eq.prop.rings.Zscal.rules.-1a}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{here, the \textquotedblleft%
+}-1\text{\textquotedblright\ means the integer }-1\right)  .\nonumber
+\end{align}
+In particular:
+
+\begin{itemize}
+\item The equality (\ref{eq.prop.rings.Zscal.rules.-na}) shows that the
+expression \textquotedblleft$-na$\textquotedblright\ (with $a\in\mathbb{K}$
+and $n\in\mathbb{Z}$) is unambiguous (since its two possible interpretations,
+namely $-\left(  na\right)  $ and $\left(  -n\right)  a$, yield equal results).
+
+\item The equality (\ref{eq.prop.rings.Zscal.rules.nma}) shows that the
+expression \textquotedblleft$nma$\textquotedblright\ (with $a\in\mathbb{K}$
+and $n,m\in\mathbb{Z}$) is unambiguous.
+
+\item The equality (\ref{eq.prop.rings.Zscal.rules.nab}) shows that the
+expression \textquotedblleft$nab$\textquotedblright\ (with $a,b\in\mathbb{K}$
+and $n\in\mathbb{Z}$) is unambiguous.
+\end{itemize}
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.rings.Zscal.rules-nonunital}.]If $\mathbb{K}$
+is a ring (with a unity), then Proposition
+\ref{prop.rings.Zscal.rules-nonunital} is precisely Proposition 5.4.9 in
+\href{http://www.cip.ifi.lmu.de/~grinberg/t/19s/notes.pdf}{the class notes}.
+But the proof of Proposition 5.4.9 in
+\href{http://www.cip.ifi.lmu.de/~grinberg/t/19s/notes.pdf}{the class notes}
+nowhere uses the unity of $\mathbb{K}$. Thus, this proof still applies to the
+case where $\mathbb{K}$ is a nonunital ring. This proves Proposition
+\ref{prop.rings.Zscal.rules-nonunital}.
+\end{proof}
+
+Now, let us return to the solution of the exercise. We have to prove that the
+set $\mathbb{L}$ (endowed with the two operations $+$ and $\cdot$ defined in
+the exercise, and with the zero $\left(  0,0\right)  $ and the unity $\left(
+1,0\right)  $) is a ring. By our definition of a ring, this means that we have
+to verify the ring axioms. Here is a list of these axioms (specialized to the
+case of $\mathbb{L}$):
+
+\begin{itemize}
+\item \textbf{Commutativity of addition:} We have $a+b=b+a$ for all
+$a,b\in\mathbb{L}$.
+
+\item \textbf{Associativity of addition:} We have $a+\left(  b+c\right)
+=\left(  a+b\right)  +c$ for all $a,b,c\in\mathbb{L}$.
+
+\item \textbf{Neutrality of zero:} We have $a+\left(  0,0 \right)  =\left(
+0,0 \right)  +a=a$ for all $a\in\mathbb{L}$.
+
+\item \textbf{Existence of additive inverses:} For any $a\in\mathbb{L}$, there
+exists an element $a^{\prime}\in\mathbb{L}$ such that $a+a^{\prime}=a^{\prime
+}+a=\left(  0,0 \right)  $.
+
+\item \textbf{Associativity of multiplication:} We have $a\left(  bc\right)
+=\left(  ab\right)  c$ for all $a,b,c\in\mathbb{L}$.
+
+\item \textbf{Neutrality of one:} We have $a \left(  1,0 \right)  = \left(
+1,0 \right)  a=a$ for all $a\in\mathbb{L}$.
+
+\item \textbf{Annihilation:} We have $a\left(  0,0 \right)  = \left(  0,0
+\right)  a = \left(  0,0 \right)  $ for all $a\in\mathbb{L}$.
+
+\item \textbf{Distributivity:} We have%
+\[
+a\left(  b+c\right)  =ab+ac\ \ \ \ \ \ \ \ \ \ \text{and}%
+\ \ \ \ \ \ \ \ \ \ \left(  a+b\right)  c=ac+bc
+\]
+for all $a,b,c\in\mathbb{L}$.
+\end{itemize}
+
+Here, we are already using the standard notations (such as the abbreviation
+``$ab$'' for $a\cdot b$, and the PEMDAS conventions), even before showing that
+$\mathbb{L}$ is indeed a ring.
+
+So it remains to prove that the eight ring axioms listed above are indeed
+satisfied. Let us do this now:
+
+[\textit{Proof of the \textquotedblleft Commutativity of
+addition\textquotedblright\ axiom:} Let $a,b\in\mathbb{L}$. We must prove that
+$a+b=b+a$.
+
+We have $a\in\mathbb{L}=\mathbb{Z}\times\mathbb{K}$. Thus, we can write $a$ in
+the form $a=\left(  n,x\right)  $ for some $n\in\mathbb{Z}$ and $x\in
+\mathbb{K}$. Consider these $n$ and $x$.
+
+We have $b\in\mathbb{L}=\mathbb{Z}\times\mathbb{K}$. Thus, we can write $b$ in
+the form $b=\left(  m,y\right)  $ for some $m\in\mathbb{Z}$ and $y\in
+\mathbb{K}$. Consider these $m$ and $y$.
+
+We have the two equalities%
+\begin{align*}
+\underbrace{a}_{=\left(  n,x\right)  }+\underbrace{b}_{=\left(  m,y\right)  }
+&  =\left(  n,x\right)  +\left(  m,y\right) \\
+&  =\left(  n+m,x+y\right)  \qquad\left(  \text{by the definition of the
+addition on }\mathbb{L}\right)
+\end{align*}
+and%
+\begin{align*}
+\underbrace{b}_{=\left(  m,y\right)  }+\underbrace{a}_{=\left(  n,x\right)  }
+&  =\left(  m,y\right)  +\left(  n,x\right) \\
+&  =\left(  m+n,y+x\right)  \qquad\left(  \text{by the definition of the
+addition on }\mathbb{L}\right)  .
+\end{align*}
+Thus, in order to prove that $a+b=b+a$, it suffices to prove that $\left(
+n+m,x+y\right)  =\left(  m+n,y+x\right)  $. But this is easy: The
+commutativity of addition of integers yields $n+m=m+n$, whereas the
+commutativity of addition in $\mathbb{K}$ (which holds because $\mathbb{K}$ is
+a nonunital ring) yields $x+y=y+x$. Thus,
+\[
+\left(  \underbrace{n+m}_{=m+n},\underbrace{x+y}_{=y+x}\right)  =\left(
+m+n,y+x\right)  .
+\]
+In view of $a+b=\left(  n+m,x+y\right)  $ and $b+a=\left(  m+n,y+x\right)  $,
+this rewrites as $a+b=b+a$. Thus, the \textquotedblleft Commutativity of
+addition\textquotedblright\ axiom is proven for $\mathbb{L}$.]
+
+[\textit{Proof of the \textquotedblleft Associativity of
+addition\textquotedblright\ axiom:} This proof is analogous to the proof of
+the \textquotedblleft Commutativity of addition\textquotedblright\ axiom, and
+thus is left to the reader.]
+
+[\textit{Proof of the \textquotedblleft Neutrality of zero\textquotedblright%
+\ axiom:} This proof is analogous to the proof of the \textquotedblleft
+Commutativity of addition\textquotedblright\ axiom, and thus is left to the reader.]
+
+[\textit{Proof of the \textquotedblleft Existence of additive
+inverses\textquotedblright\ axiom:} Let $a\in\mathbb{L}$. We must prove that
+there exists an $a^{\prime}\in\mathbb{L}$ such that $a+a^{\prime}=a^{\prime
+}+a=\left(  0,0\right)  $.
+
+We have $a\in\mathbb{L}=\mathbb{Z}\times\mathbb{K}$. Thus, we can write $a$ in
+the form $a=\left(  n,x\right)  $ for some $n\in\mathbb{Z}$ and $x\in
+\mathbb{K}$. Consider these $n$ and $x$.
+
+Now, a straightforward computation (using $a=\left(  n,x\right)  $) shows that
+the element $\left(  -n,-x\right)  $ of $\mathbb{L}$ satisfies $a+\left(
+-n,-x\right)  =\left(  -n,-x\right)  +a=\left(  0,0\right)  $. Hence, there
+exists an $a^{\prime}\in\mathbb{L}$ such that $a+a^{\prime}=a^{\prime
+}+a=\left(  0,0\right)  $ (namely, $a^{\prime}=\left(  -n,-x\right)  $).
+Hence, the \textquotedblleft Existence of additive inverses\textquotedblright%
+\ axiom is proven for $\mathbb{L}$.]
+
+[\textit{Proof of the \textquotedblleft Associativity of
+multiplication\textquotedblright\ axiom:} Let $a,b,c\in\mathbb{L}$. We must
+prove that $a\left(  bc\right)  =\left(  ab\right)  c$.
+
+We have $a\in\mathbb{L}=\mathbb{Z}\times\mathbb{K}$. Thus, we can write $a$ in
+the form $a=\left(  n,x\right)  $ for some $n\in\mathbb{Z}$ and $x\in
+\mathbb{K}$. Consider these $n$ and $x$.
+
+We have $b\in\mathbb{L}=\mathbb{Z}\times\mathbb{K}$. Thus, we can write $b$ in
+the form $b=\left(  m,y\right)  $ for some $m\in\mathbb{Z}$ and $y\in
+\mathbb{K}$. Consider these $m$ and $y$.
+
+We have $c\in\mathbb{L}=\mathbb{Z}\times\mathbb{K}$. Thus, we can write $c$ in
+the form $c=\left(  p,z\right)  $ for some $p\in\mathbb{Z}$ and $z\in
+\mathbb{K}$. Consider these $p$ and $z$.
+
+Let us first notice that every $r\in\mathbb{Z}$ and $u,v,w\in\mathbb{K}$
+satisfy
+\begin{equation}
+r\left(  u+v+w\right)  =ru+rv+rw.
+\label{sol.ring.dorroh.assoc-mul.pf.r(u+v+w)}%
+\end{equation}
+(Indeed, this follows from%
+\begin{align*}
+r\underbrace{\left(  u+v+w\right)  }_{=\left(  u+v\right)  +w}  &  =r\left(
+\left(  u+v\right)  +w\right)  =\underbrace{r\left(  u+v\right)
+}_{\substack{=ru+rv\\\text{(by \eqref{eq.prop.rings.Zscal.rules.n(a+b)})}%
+}}+rw\qquad\left(  \text{by \eqref{eq.prop.rings.Zscal.rules.n(a+b)}}\right)
+\\
+&  =ru+rv+rw.
+\end{align*}
+)
+
+We have
+\[
+\underbrace{a}_{=\left(  n,x\right)  }\underbrace{b}_{=\left(  m,y\right)
+}=\left(  n,x\right)  \left(  m,y\right)  =\left(  nm,ny+mx+xy\right)
+\]
+(by the definition of the multiplication on $\mathbb{L}$) and thus%
+\begin{align}
+&  \underbrace{\left(  ab\right)  }_{=\left(  nm,ny+mx+xy\right)
+}\underbrace{c}_{=\left(  p,z\right)  }\nonumber\\
+&  =\left(  nm,ny+mx+xy\right)  \left(  p,z\right) \nonumber\\
+&  =\left(  \left(  nm\right)  p,\left(  nm\right)  z+p\left(
+ny+mx+xy\right)  +\left(  ny+mx+xy\right)  z\right)
+\label{sol.ring.dorroh.assoc-mul.pf.1}%
+\end{align}
+(by the definition of the multiplication on $\mathbb{L}$). Also, we have%
+\[
+\underbrace{b}_{=\left(  m,y\right)  }\underbrace{c}_{=\left(  p,z\right)
+}=\left(  m,y\right)  \left(  p,z\right)  =\left(  mp,mz+py+yz\right)
+\]
+(by the definition of the multiplication on $\mathbb{L}$) and thus%
+\begin{align}
+&  \underbrace{a}_{=\left(  n,x\right)  }\underbrace{\left(  bc\right)
+}_{=\left(  mp,mz+py+yz\right)  }\nonumber\\
+&  =\left(  n,x\right)  \left(  mp,mz+py+yz\right) \nonumber\\
+&  =\left(  n\left(  mp\right)  ,n\left(  mz+py+yz\right)  +\left(  mp\right)
+x+x\left(  mz+py+yz\right)  \right)  \label{sol.ring.dorroh.assoc-mul.pf.2}%
+\end{align}
+(by the definition of the multiplication on $\mathbb{L}$).
+
+The equalities \eqref{sol.ring.dorroh.assoc-mul.pf.1} and
+\eqref{sol.ring.dorroh.assoc-mul.pf.2} are explicit formulas for $\left(
+ab\right)  c$ and $a\left(  bc\right)  $ in terms of $n,x,m,y,p,z$. Thus, in
+order to prove that $a\left(  bc\right)  =\left(  ab\right)  c$, it suffices
+to prove that
+\begin{align*}
+&  \left(  \left(  nm\right)  p,\left(  nm\right)  z+p\left(  ny+mx+xy\right)
++\left(  ny+mx+xy\right)  z\right) \\
+&  =\left(  n\left(  mp\right)  ,n\left(  mz+py+yz\right)  +\left(  mp\right)
+x+x\left(  mz+py+yz\right)  \right)  .
+\end{align*}
+But this is easy: The associativity of multiplication of integers yields
+$\left(  nm\right)  p=n\left(  mp\right)  $. Meanwhile, comparing the
+equalities\footnote{See Proposition \ref{prop.rings.Zscal.rules-nonunital} for
+the reason why we are able to write expressions like \textquotedblleft%
+$nmz$\textquotedblright\ and \textquotedblleft$nyz$\textquotedblright\ without
+parentheses. The expression \textquotedblleft$xyz$\textquotedblright\ can be
+written without parentheses because of the associativity of multiplication in
+$\mathbb{K}$.}%
+\begin{align*}
+&  \underbrace{\left(  nm\right)  z}_{=nmz}+\underbrace{p\left(
+ny+mx+xy\right)  }_{\substack{=pny+pmx+pxy\\\text{(by
+\eqref{sol.ring.dorroh.assoc-mul.pf.r(u+v+w)})}}}+\underbrace{\left(
+ny+mx+xy\right)  z}_{\substack{=nyz+mxz+xyz\\\text{(by distributivity in
+}\mathbb{K}\text{)}}}\\
+&  =nmz+pny+pmx+pxy+nyz+mxz+xyz
+\end{align*}
+and%
+\begin{align*}
+&  \underbrace{n\left(  mz+py+yz\right)  }_{\substack{=nmz+npy+nyz\\\text{(by
+\eqref{sol.ring.dorroh.assoc-mul.pf.r(u+v+w)})}}}+\underbrace{\left(
+mp\right)  x}_{=mpx}+\underbrace{x\left(  mz+py+yz\right)  }%
+_{\substack{=x\left(  mz\right)  +x\left(  py\right)  +xyz\\\text{(by
+distributivity in }\mathbb{K}\text{)}}}\\
+&  =nmz+\underbrace{np}_{\substack{=pn\\\text{(by the commutativity}\\\text{of
+multiplication in }\mathbb{Z}\text{)}}}y+nyz+\underbrace{mp}%
+_{\substack{=pm\\\text{(by the commutativity}\\\text{of multiplication in
+}\mathbb{Z}\text{)}}}x+\underbrace{x\left(  mz\right)  }%
+_{\substack{=mxz\\\text{(by \eqref{eq.prop.rings.Zscal.rules.nab})}%
+}}+\underbrace{x\left(  py\right)  }_{\substack{=pxy\\\text{(by
+\eqref{eq.prop.rings.Zscal.rules.nab})}}}+xyz\\
+&  =nmz+pny+nyz+pmx+mxz+pxy+xyz\\
+&  =nmz+pny+pmx+pxy+nyz+mxz+xyz,
+\end{align*}
+we obtain%
+\begin{align*}
+&  \left(  nm\right)  z+p\left(  ny+mx+xy\right)  +\left(  ny+mx+xy\right)
+z\\
+&  =n\left(  mz+py+yz\right)  +\left(  mp\right)  x+x\left(  mz+py+yz\right)
+.
+\end{align*}
+Thus,%
+\begin{align*}
+&  \left(  \underbrace{\left(  nm\right)  p}_{=n\left(  mp\right)
+},\underbrace{\left(  nm\right)  z+p\left(  ny+mx+xy\right)  +\left(
+ny+mx+xy\right)  z}_{=n\left(  mz+py+yz\right)  +\left(  mp\right)  x+x\left(
+mz+py+yz\right)  }\right) \\
+&  =\left(  n\left(  mp\right)  ,n\left(  mz+py+yz\right)  +\left(  mp\right)
+x+x\left(  mz+py+yz\right)  \right)  .
+\end{align*}
+In view of \eqref{sol.ring.dorroh.assoc-mul.pf.1} and
+\eqref{sol.ring.dorroh.assoc-mul.pf.2}, this rewrites as $a\left(  bc\right)
+=\left(  ab\right)  c$. Thus, the \textquotedblleft Associativity of
+multiplication\textquotedblright\ axiom is proven for $\mathbb{L}$.]
+
+[\textit{Proof of the \textquotedblleft Neutrality of one\textquotedblright%
+\ axiom:} Let $a\in\mathbb{L}$. We must prove that $a\left(  1,0\right)
+=\left(  1,0\right)  a=a$. Note that the symbol \textquotedblleft%
+$0$\textquotedblright\ will always stand for \textquotedblleft$0_{\mathbb{K}}%
+$\textquotedblright\ in this proof (rather than for the integer $0$).
+
+We have $a\in\mathbb{L}=\mathbb{Z}\times\mathbb{K}$. Thus, we can write $a$ in
+the form $a=\left(  n,x\right)  $ for some $n\in\mathbb{Z}$ and $x\in
+\mathbb{K}$. Consider these $n$ and $x$.
+
+We have
+\[
+\underbrace{a}_{=\left(  n,x\right)  }\left(  1,0\right)  =\left(  n,x\right)
+\left(  1,0\right)  =\left(  n1,n0+1x+x0\right)
+\]
+(by the definition of the multiplication on $\mathbb{L}$). In view of $n1=n$
+and
+\[
+\underbrace{n0}_{\substack{=0\\\text{(by
+\eqref{eq.prop.rings.Zscal.rules.n0})}}}+\underbrace{1x}%
+_{\substack{=x\\\text{(by \eqref{eq.prop.rings.Zscal.rules.1a})}%
+}}+\underbrace{x0}_{=0}=0+x+0=x,
+\]
+this rewrites as
+\[
+a\left(  1,0\right)  =\left(  n,x\right)  .
+\]
+
+
+We also have%
+\[
+\left(  1,0\right)  \underbrace{a}_{=\left(  n,x\right)  }=\left(  1,0\right)
+\left(  n,x\right)  =\left(  1n,1x+n0+0x\right)
+\]
+(by the definition of the multiplication on $\mathbb{L}$). In view of $1n=n$
+and
+\[
+\underbrace{1x}_{\substack{=x\\\text{(by
+\eqref{eq.prop.rings.Zscal.rules.1a})}}}+\underbrace{n0}%
+_{\substack{=0\\\text{(by \eqref{eq.prop.rings.Zscal.rules.n0})}%
+}}+\underbrace{0x}_{=0}=x+0+0=x,
+\]
+this rewrites as
+\[
+\left(  1,0\right)  a=\left(  n,x\right)  .
+\]
+Now, comparing the three equalities $a\left(  1,0\right)  =\left(  n,x\right)
+$ and $\left(  1,0\right)  a=\left(  n,x\right)  $ and $a=\left(  n,x\right)
+$, we obtain $a\left(  1,0\right)  =\left(  1,0\right)  a=a$. Thus, the
+\textquotedblleft Neutrality of one\textquotedblright\ axiom is proven for
+$\mathbb{L}$.]
+
+[\textit{Proof of the \textquotedblleft Annihilation\textquotedblright%
+\ axiom:} Let $a\in\mathbb{L}$. We must prove that $a\left(  0,0\right)
+=\left(  0,0\right)  a=\left(  0,0\right)  $. In order to avoid confusion, we
+shall write \textquotedblleft$0_{\mathbb{Z}}$\textquotedblright\ for the
+integer $0$ and write \textquotedblleft$0_{\mathbb{K}}$\textquotedblright\ for
+the zero of the nonunital ring $\mathbb{K}$. Thus, the element $\left(
+0,0\right)  $ of $\mathbb{L}$ rewrites as $\left(  0_{\mathbb{Z}%
+},0_{\mathbb{K}}\right)  $. Hence, we must prove $a\left(  0_{\mathbb{Z}%
+},0_{\mathbb{K}}\right)  =\left(  0_{\mathbb{Z}},0_{\mathbb{K}}\right)
+a=\left(  0_{\mathbb{Z}},0_{\mathbb{K}}\right)  $.
+
+We have $a\in\mathbb{L}=\mathbb{Z}\times\mathbb{K}$. Thus, we can write $a$ in
+the form $a=\left(  n,x\right)  $ for some $n\in\mathbb{Z}$ and $x\in
+\mathbb{K}$. Consider these $n$ and $x$.
+
+We have
+\[
+\underbrace{a}_{=\left(  n,x\right)  }\left(  0_{\mathbb{Z}},0_{\mathbb{K}%
+}\right)  =\left(  n,x\right)  \left(  0_{\mathbb{Z}},0_{\mathbb{K}}\right)
+=\left(  n0_{\mathbb{Z}},n0_{\mathbb{K}}+0_{\mathbb{Z}}x+x0_{\mathbb{K}%
+}\right)
+\]
+(by the definition of the multiplication on $\mathbb{L}$). In view of
+$n0_{\mathbb{Z}}=0_{\mathbb{Z}}$ and
+\[
+\underbrace{n0_{\mathbb{K}}}_{\substack{=0_{\mathbb{K}}\\\text{(by
+\eqref{eq.prop.rings.Zscal.rules.n0})}}}+\underbrace{0_{\mathbb{Z}}%
+x}_{\substack{=0_{\mathbb{K}}\\\text{(by
+\eqref{eq.prop.rings.Zscal.rules.0a})}}}+\underbrace{x0_{\mathbb{K}}%
+}_{=0_{\mathbb{K}}}=0_{\mathbb{K}}+0_{\mathbb{K}}+0_{\mathbb{K}}%
+=0_{\mathbb{K}},
+\]
+this rewrites as
+\[
+a\left(  0_{\mathbb{Z}},0_{\mathbb{K}}\right)  =\left(  0_{\mathbb{Z}%
+},0_{\mathbb{K}}\right)  .
+\]
+
+
+We also have%
+\[
+\left(  0_{\mathbb{Z}},0_{\mathbb{K}}\right)  \underbrace{a}_{=\left(
+n,x\right)  }=\left(  0_{\mathbb{Z}},0_{\mathbb{K}}\right)  \left(
+n,x\right)  =\left(  0_{\mathbb{Z}}n,0_{\mathbb{Z}}x+n0_{\mathbb{K}%
+}+0_{\mathbb{K}}x\right)
+\]
+(by the definition of the multiplication on $\mathbb{L}$). In view of
+$0_{\mathbb{Z}}n=0_{\mathbb{Z}}$ and
+\[
+\underbrace{0_{\mathbb{Z}}x}_{\substack{=0_{\mathbb{K}}\\\text{(by
+\eqref{eq.prop.rings.Zscal.rules.0a})}}}+\underbrace{n0_{\mathbb{K}}%
+}_{\substack{=0_{\mathbb{K}}\\\text{(by \eqref{eq.prop.rings.Zscal.rules.n0})}%
+}}+\underbrace{0_{\mathbb{K}}x}_{=0_{\mathbb{K}}}=0_{\mathbb{K}}%
++0_{\mathbb{K}}+0_{\mathbb{K}}=0_{\mathbb{K}},
+\]
+this rewrites as
+\[
+\left(  0_{\mathbb{Z}},0_{\mathbb{K}}\right)  a=\left(  0_{\mathbb{Z}%
+},0_{\mathbb{K}}\right)  .
+\]
+Now, combining the two equalities $a\left(  0_{\mathbb{Z}},0_{\mathbb{K}%
+}\right)  =\left(  0_{\mathbb{Z}},0_{\mathbb{K}}\right)  $ and $\left(
+0_{\mathbb{Z}},0_{\mathbb{K}}\right)  a=\left(  0_{\mathbb{Z}},0_{\mathbb{K}%
+}\right)  $, we obtain $a\left(  0_{\mathbb{Z}},0_{\mathbb{K}}\right)
+=\left(  0_{\mathbb{Z}},0_{\mathbb{K}}\right)  a=\left(  0_{\mathbb{Z}%
+},0_{\mathbb{K}}\right)  $. In other words, $a\left(  0,0\right)  =\left(
+0,0\right)  a=\left(  0,0\right)  $ (since $\left(  0_{\mathbb{Z}%
+},0_{\mathbb{K}}\right)  =\left(  0,0\right)  $). Thus, the \textquotedblleft
+Annihilation\textquotedblright\ axiom is proven for $\mathbb{L}$.]
+
+[\textit{Proof of the \textquotedblleft Distributivity\textquotedblright%
+\ axiom:} Let $a,b,c\in\mathbb{L}$. We must prove that $a\left(  b+c\right)
+=ab+ac$ and $\left(  a+b\right)  c=ac+bc$.
+
+We have $a\in\mathbb{L}=\mathbb{Z}\times\mathbb{K}$. Thus, we can write $a$ in
+the form $a=\left(  n,x\right)  $ for some $n\in\mathbb{Z}$ and $x\in
+\mathbb{K}$. Consider these $n$ and $x$.
+
+We have $b\in\mathbb{L}=\mathbb{Z}\times\mathbb{K}$. Thus, we can write $b$ in
+the form $b=\left(  m,y\right)  $ for some $m\in\mathbb{Z}$ and $y\in
+\mathbb{K}$. Consider these $m$ and $y$.
+
+We have $c\in\mathbb{L}=\mathbb{Z}\times\mathbb{K}$. Thus, we can write $c$ in
+the form $c=\left(  p,z\right)  $ for some $p\in\mathbb{Z}$ and $z\in
+\mathbb{K}$. Consider these $p$ and $z$.
+
+Recall that $\mathbb{K}$ is a nonunital ring; thus, the distributivity axiom
+holds in $\mathbb{K}$. Hence, $x\left(  y+z\right)  =xy+xz$ and $\left(
+x+y\right)  z=xz+yz$.
+
+We have
+\begin{equation}
+\underbrace{a}_{=\left(  n,x\right)  }\underbrace{b}_{=\left(  m,y\right)
+}=\left(  n,x\right)  \left(  m,y\right)  =\left(  nm,ny+mx+xy\right)
+\label{sol.ring.dorroh.dist.pf.ab=}%
+\end{equation}
+(by the definition of the multiplication on $\mathbb{L}$). Similarly, using
+$c=\left(  p,z\right)  $, we obtain%
+\begin{equation}
+ac=\left(  np,nz+px+xz\right)  \label{sol.ring.dorroh.dist.pf.ac=}%
+\end{equation}
+and%
+\begin{equation}
+bc=\left(  mp,mz+py+yz\right)  . \label{sol.ring.dorroh.dist.pf.bc=}%
+\end{equation}
+
+
+Furthermore,%
+\[
+\underbrace{b}_{=\left(  m,y\right)  }+\underbrace{c}_{=\left(  p,z\right)
+}=\left(  m,y\right)  +\left(  p,z\right)  =\left(  m+p,y+z\right)
+\]
+(by the definition of the addition on $\mathbb{L}$) and thus%
+\[
+\underbrace{a}_{=\left(  n,x\right)  }\underbrace{\left(  b+c\right)
+}_{=\left(  m+p,y+z\right)  }=\left(  n,x\right)  \left(  m+p,y+z\right)
+=\left(  n\left(  m+p\right)  ,n\left(  y+z\right)  +\left(  m+p\right)
+x+x\left(  y+z\right)  \right)
+\]
+(by the definition of the multiplication on $\mathbb{L}$). In view of%
+\[
+n\left(  m+p\right)  =nm+np\qquad\left(  \text{since distributivity holds for
+integers}\right)
+\]
+and%
+\[
+\underbrace{n\left(  y+z\right)  }_{\substack{=ny+nz\\\text{(by
+\eqref{eq.prop.rings.Zscal.rules.n(a+b)})}}}+\underbrace{\left(  m+p\right)
+x}_{\substack{=mx+px\\\text{(by \eqref{eq.prop.rings.Zscal.rules.(n+m)a})}%
+}}+\underbrace{x\left(  y+z\right)  }_{=xy+xz}=ny+nz+mx+px+xy+xz,
+\]
+this rewrites as%
+\begin{equation}
+a\left(  b+c\right)  =\left(  nm+np,ny+nz+mx+px+xy+xz\right)  .
+\label{sol.ring.dorroh.dist.pf.a(b+c)=}%
+\end{equation}
+
+
+On the other hand, adding the equalities \eqref{sol.ring.dorroh.dist.pf.ab=}
+and \eqref{sol.ring.dorroh.dist.pf.ac=} together, we obtain%
+\begin{align*}
+ab+ac  &  =\left(  nm,ny+mx+xy\right)  +\left(  np,nz+px+xz\right) \\
+&  =\left(  nm+np,\underbrace{ny+mx+xy+nz+px+xz}_{=ny+nz+mx+px+xy+xz}\right)
+\\
+&  \qquad\left(  \text{by the definition of addition in }\mathbb{L}\right) \\
+&  =\left(  nm+np,ny+nz+mx+px+xy+xz\right)  .
+\end{align*}
+Comparing this with \eqref{sol.ring.dorroh.dist.pf.a(b+c)=}, we obtain
+$a\left(  b+c\right)  =ab+ac$.
+
+Moreover,%
+\[
+\underbrace{a}_{=\left(  n,x\right)  }+\underbrace{b}_{=\left(  m,y\right)
+}=\left(  n,x\right)  +\left(  m,y\right)  =\left(  n+m,x+y\right)
+\]
+(by the definition of the addition on $\mathbb{L}$) and thus%
+\[
+\underbrace{\left(  a+b\right)  }_{=\left(  n+m,x+y\right)  }\underbrace{c}%
+_{=\left(  p,z\right)  }=\left(  n+m,x+y\right)  \left(  p,z\right)  =\left(
+\left(  n+m\right)  p,\left(  n+m\right)  z+p\left(  x+y\right)  +\left(
+x+y\right)  z\right)
+\]
+(by the definition of the multiplication on $\mathbb{L}$). In view of%
+\[
+\left(  n+m\right)  p=np+mp\qquad\left(  \text{since distributivity holds for
+integers}\right)
+\]
+and%
+\[
+\underbrace{\left(  n+m\right)  z}_{\substack{=nz+mz\\\text{(by
+\eqref{eq.prop.rings.Zscal.rules.(n+m)a})}}}+\underbrace{p\left(  x+y\right)
+}_{\substack{=px+py\\\text{(by \eqref{eq.prop.rings.Zscal.rules.n(a+b)})}%
+}}+\underbrace{\left(  x+y\right)  z}_{=xz+yz}=nz+mz+px+py+xz+yz,
+\]
+this rewrites as%
+\begin{equation}
+\left(  a+b\right)  c=\left(  np+mp,nz+pz+px+py+xz+yz\right)  .
+\label{sol.ring.dorroh.dist.pf.(a+b)c=}%
+\end{equation}
+
+
+On the other hand, adding the equalities \eqref{sol.ring.dorroh.dist.pf.ac=}
+and \eqref{sol.ring.dorroh.dist.pf.bc=} together, we obtain%
+\begin{align*}
+ac+bc  &  =\left(  np,nz+px+xz\right)  +\left(  mp,mz+py+yz\right) \\
+&  =\left(  np+mp,\underbrace{nz+px+xz+mz+py+yz}_{=nz+mz+px+py+xz+yz}\right)
+\\
+&  \qquad\left(  \text{by the definition of addition in }\mathbb{L}\right) \\
+&  =\left(  np+mp,nz+pz+px+py+xz+yz\right)  .
+\end{align*}
+Comparing this with \eqref{sol.ring.dorroh.dist.pf.(a+b)c=}, we obtain
+$\left(  a+b\right)  c=ac+bc$.
+
+Now, we have proven that%
+\[
+a\left(  b+c\right)  =ab+ac\ \ \ \ \ \ \ \ \ \ \text{and}%
+\ \ \ \ \ \ \ \ \ \ \left(  a+b\right)  c=ac+bc.
+\]
+Thus, the \textquotedblleft Distributivity\textquotedblright\ axiom is proven
+for $\mathbb{L}$.]
+
+We have now proven all eight ring axioms for $\mathbb{L}$. Thus, $\mathbb{L}$
+is a ring. The exercise is solved.
+
+\subsection{Remark}
+
+\textbf{1.} The construction of $\mathbb{L}$ can be viewed as a way of
+\textquotedblleft adjoining\textquotedblright\ a unity to a nonunital ring
+$\mathbb{K}$. What happens if our original ring $\mathbb{K}$ already had a
+unity $1_{\mathbb{K}}$ to begin with? Is $\mathbb{L}$ then going to have two
+different unities?
+
+No, because the original unity $1_{\mathbb{K}}$ of $\mathbb{K}$ will
+\textbf{not} in any way become a unity of $\mathbb{L}$. The unity $\left(
+1_{\mathbb{Z}},0_{\mathbb{K}}\right)  $ of $\mathbb{L}$ has nothing to do with
+$1_{\mathbb{K}}$. So we gain a new unity when we go from $\mathbb{K}$ to
+$\mathbb{L}$, but we \textquotedblleft lose\textquotedblright\ our old unity
+in the process.
+
+\bigskip
+
+\textbf{2.} More can be said about the case when $\mathbb{K}$ has a unity
+$1_{\mathbb{K}}$. Indeed, in this case, the map%
+\begin{align*}
+\mathbb{Z}\times\mathbb{K}  &  \rightarrow\mathbb{L},\\
+\left(  n,a\right)   &  \mapsto\left(  n,a-n1_{\mathbb{K}}\right)
+\end{align*}
+is a ring isomorphism (where the ring structure on $\mathbb{Z}\times
+\mathbb{K}$ is entrywise -- i.e., we regard $\mathbb{Z}\times\mathbb{K}$ as
+the Cartesian product of the two rings $\mathbb{Z}$ and $\mathbb{K}$). This
+can be checked straightforwardly (we leave this to the reader).
+
+\bigskip
+
+\textbf{3.} The exercise can be generalized. Indeed, fix a further commutative
+ring $\mathbb{B}$, and assume that $\mathbb{K}$ is not just a nonunital ring
+but also a nonunital $\mathbb{B}$-algebra.\footnote{A \textit{nonunital
+}$\mathbb{B}$\textit{-algebra} means exactly what you think: Take the
+definition of a $\mathbb{B}$-algebra that we gave in class, and remove the
+unity along with the \textquotedblleft Neutrality of one\textquotedblright%
+\ axiom.} Then, we can replace $\mathbb{Z}$ by $\mathbb{B}$ in the above
+definition of $\mathbb{L}$, and the result will still be a well-defined ring,
+and furthermore (this is not hard to check) a well-defined $\mathbb{B}%
+$-algebra (in the original sense, i.e., with a unity that satisfies the
+\textquotedblleft Neutrality of one\textquotedblright\ axiom). Thus, any
+nonunital $\mathbb{B}$-algebra can be embedded into a $\mathbb{B}$-algebra.
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 3
+%----------------------------------------------------------------------------------------
+\rule{\linewidth}{0.3pt} \\[0.4cm]
+
+\section{Exercise 3: More sums from number theory}
+
+\subsection{Problem}
+
+\begin{enumerate}
+\item[\textbf{(a)}] Let $n$ be a positive integer. Prove that
+\begin{equation}
+\sum_{j=1}^{n}\gcd\left(  j,n\right)  =\sum_{d\mid n}d\phi\left(  \dfrac{n}%
+{d}\right)  . \label{eq.exe.ent.more-sums.a.1}%
+\end{equation}
+More generally, if $\left(  a_{1},a_{2},a_{3},\ldots\right)  $ is a sequence
+of reals, then prove that
+\begin{equation}
+\sum_{j=1}^{n}a_{\gcd\left(  j,n\right)  }=\sum_{d\mid n}a_{d}\phi\left(
+\dfrac{n}{d}\right)  . \label{eq.exe.ent.more-sums.a.2}%
+\end{equation}
+
+
+\item[\textbf{(b)}] Let $n \in\mathbb{N}$. Prove that
+\begin{align*}
+&  \left(  \text{the number of $\left(  x, y \right)  \in\mathbb{Z}^{2}$
+satisfying $x^{2} + y^{2} \leq n$} \right) \\
+&  = 1 + 4\sum_{k \in\mathbb{N}} \left(  -1 \right)  ^{k} \left\lfloor
+\dfrac{n}{2k+1} \right\rfloor \\
+&  = 1 + 4 \left(  \left\lfloor \dfrac{n}{1} \right\rfloor - \left\lfloor
+\dfrac{n}{3} \right\rfloor + \left\lfloor \dfrac{n}{5} \right\rfloor -
+\left\lfloor \dfrac{n}{7} \right\rfloor + \left\lfloor \dfrac{n}{9}
+\right\rfloor - \left\lfloor \dfrac{n}{11} \right\rfloor \pm\cdots\right)  .
+\end{align*}
+(The infinite sums in this equality have only finitely many nonzero addends,
+and thus are well-defined.)
+\end{enumerate}
+
+[\textbf{Hint:} Parts \textbf{(a)} and \textbf{(b)} have nothing to do with
+each other.
+
+This is a good place for a reminder that results proven in the notes, as well
+as problems from previous homework sets and midterms, can be freely used. Both
+parts have rather short solutions if you remember the right results to use!]
+
+\subsection{Remark}
+
+Part \textbf{(b)} of this exercise is a ``discrete'' version of the famous
+Madhava--Gregory--Leibniz series
+\[
+\dfrac{\pi}{4} = \dfrac{1}{1} - \dfrac{1}{3} + \dfrac{1}{5} - \dfrac{1}{7} +
+\dfrac{1}{9} - \dfrac{1}{11} \pm\cdots
+\]
+(where $\pi$, at last, does denote the area of the unit circle). Indeed, if we
+divide the number of $\left(  x, y \right)  \in\mathbb{Z}^{2}$ satisfying
+$x^{2} + y^{2} \leq n$ by $n$, then we obtain an approximation to the area of
+the unit circle that gets better as $n$ grows\footnote{Just observe that the
+pairs $\left(  x, y \right)  \in\mathbb{Z}^{2}$ satisfying $x^{2} + y^{2} \leq
+n$, regarded as points in the Euclidean plane, are precisely the lattice
+points inside the circle with center $0$ and radius $\sqrt{n}$. Thus, by
+counting these pairs, we are approximating the area of this circle. See
+\cite[Theorem 12.1]{Clark18} for a rigorous proof.}. On the other hand, it
+appears reasonable that dividing
+\[
+1 + 4 \left(  \left\lfloor \dfrac{n}{1} \right\rfloor - \left\lfloor \dfrac
+{n}{3} \right\rfloor + \left\lfloor \dfrac{n}{5} \right\rfloor - \left\lfloor
+\dfrac{n}{7} \right\rfloor + \left\lfloor \dfrac{n}{9} \right\rfloor -
+\left\lfloor \dfrac{n}{11} \right\rfloor \pm\cdots\right)
+\]
+by $n$, we obtain an approximation to $4 \left(  \dfrac{1}{1} - \dfrac{1}{3} +
+\dfrac{1}{5} - \dfrac{1}{7} + \dfrac{1}{9} - \dfrac{1}{11} \pm\cdots\right)
+$. I am not sure whether this can be rigorously proven, however.\footnote{Of
+course, for any given $k \in\mathbb{N}$, the number $\dfrac{1}{n}\left(
+\left\lfloor \dfrac{n}{2k+1} \right\rfloor - \dfrac{n}{2k+1} \right)  $ does
+converge to $0$ when $n \to\infty$. But here we are taking an alternating sum
+of infinitely many such numbers; we can ignore all but the first $n$, but even
+the first $n$ may no longer converge to $0$ when summed together.}
+
+\subsection{Solution sketch}
+
+\textbf{(a)} Let $\left(  a_{1},a_{2},a_{3},\ldots\right)  $ be a sequence of
+reals. We shall prove \eqref{eq.exe.ent.more-sums.a.2}.
+
+Indeed, we recall the following fact (which is Lemma 2.14.8 in
+\href{http://www.cip.ifi.lmu.de/~grinberg/t/19s/notes.pdf}{the class notes}):
+
+\begin{lemma}
+\label{lem.ent.phi.sum-div.n/d}Let $n$ be a positive integer. Let $d$ be a
+positive divisor of $n$. Then,%
+\[
+\left(  \text{the number of }i\in\left\{  1,2,\ldots,n\right\}  \text{ such
+that }\gcd\left(  i,n\right)  =d\right)  =\phi\left(  n/d\right)  .
+\]
+
+\end{lemma}
+
+Now, we have the following equality of summation signs:%
+\[
+\sum_{i=1}^{n}=\sum_{i\in\left\{  1,2,\ldots,n\right\}  }=\sum_{d\mid
+n}\ \ \sum_{\substack{i\in\left\{  1,2,\ldots,n\right\}  ;\\\gcd\left(
+i,n\right)  =d}}
+\]
+(because if $i\in\left\{  1,2,\ldots,n\right\}  $, then $\gcd\left(
+i,n\right)  $ is a positive divisor of $n$). Thus,%
+\begin{align*}
+\underbrace{\sum_{i=1}^{n}}_{=\sum_{d\mid n}\sum_{\substack{i\in\left\{
+1,2,\ldots,n\right\}  ;\\\gcd\left(  i,n\right)  =d}}}a_{\gcd\left(
+i,n\right)  }  &  =\sum_{d\mid n}\sum_{\substack{i\in\left\{  1,2,\ldots
+,n\right\}  ;\\\gcd\left(  i,n\right)  =d}}\underbrace{a_{\gcd\left(
+i,n\right)  }}_{\substack{=a_{d}\\\text{(since }\gcd\left(  i,n\right)
+=d\text{)}}}\\
+&  =\sum_{d\mid n}\underbrace{\sum_{\substack{i\in\left\{  1,2,\ldots
+,n\right\}  ;\\\gcd\left(  i,n\right)  =d}}a_{d}}_{=\left(  \text{the number
+of }i\in\left\{  1,2,\ldots,n\right\}  \text{ such that }\gcd\left(
+i,n\right)  =d\right)  \cdot a_{d}}\\
+&  =\sum_{d\mid n}\underbrace{\left(  \text{the number of }i\in\left\{
+1,2,\ldots,n\right\}  \text{ such that }\gcd\left(  i,n\right)  =d\right)
+}_{\substack{=\phi\left(  n/d\right)  \\\text{(by Lemma
+\ref{lem.ent.phi.sum-div.n/d})}}}\cdot a_{d}\\
+&  =\sum_{d\mid n}\phi\left(  \underbrace{n/d}_{=\dfrac{n}{d}}\right)
+a_{d}=\sum_{d\mid n}\phi\left(  \dfrac{n}{d}\right)  a_{d}=\sum_{d\mid n}%
+a_{d}\phi\left(  \dfrac{n}{d}\right)  .
+\end{align*}
+Hence,%
+\begin{align*}
+\sum_{j=1}^{n}a_{\gcd\left(  j,n\right)  }  &  =\sum_{i=1}^{n}a_{\gcd\left(
+i,n\right)  }\qquad\left(  \text{here, we have renamed the summation index
+}j\text{ as }i\right) \\
+&  =\sum_{d\mid n}a_{d}\phi\left(  \dfrac{n}{d}\right)  .
+\end{align*}
+This proves \eqref{eq.exe.ent.more-sums.a.2}.
+
+Now, forget that we fixed $\left(  a_{1},a_{2},a_{3},\ldots\right)  $. We have
+proven \eqref{eq.exe.ent.more-sums.a.2} for each sequence $\left(  a_{1}%
+,a_{2},a_{3},\ldots\right)  $ of reals. Hence, we can apply
+\eqref{eq.exe.ent.more-sums.a.2} to $a_{i}=i$. We thus obtain%
+\[
+\sum_{j=1}^{n}\gcd\left(  j,n\right)  =\sum_{d\mid n}d\phi\left(  \dfrac{n}%
+{d}\right)  .
+\]
+This proves \eqref{eq.exe.ent.more-sums.a.1}. Hence, part \textbf{(a)} of the
+exercise is solved.
+
+\bigskip
+
+\textbf{(b)} Forget that we fixed $n$. We recall the following result
+(Proposition 2.8.3 in
+\href{http://www.cip.ifi.lmu.de/~grinberg/t/19s/notes.pdf}{the class notes}):
+
+\begin{proposition}
+\label{prop.ent.floor.quorem}Let $a$ and $b$ be integers such that $b>0$.
+Then, $\left\lfloor \dfrac{a}{b}\right\rfloor $ is well-defined and equals
+$a//b$.
+\end{proposition}
+
+Let us use the Iverson bracket notation. We also recall the following result
+(Exercise 2.17.2 \textbf{(a)} in
+\href{http://www.cip.ifi.lmu.de/~grinberg/t/19s/notes.pdf}{the class notes}):
+
+\begin{proposition}
+\label{prop.ent.n//k-as-sum}We have $n//k=\sum_{i=1}^{n}\left[  k\mid
+i\right]  $ for any $n\in\mathbb{N}$ and any positive integer $k$.
+\end{proposition}
+
+Combining these two propositions, we easily obtain the following:
+
+\begin{corollary}
+\label{cor.ent.floor-mj-as-sum}Let $j$ be a positive integer. Let
+$n\in\mathbb{N}$. Then,%
+\[
+\sum_{m=1}^{n}\left[  j\mid m\right]  =\left\lfloor \dfrac{n}{j}\right\rfloor
+.
+\]
+
+\end{corollary}
+
+\begin{proof}
+[Proof of Corollary \ref{cor.ent.floor-mj-as-sum}.]Proposition
+\ref{prop.ent.floor.quorem} (applied to $a=n$ and $b=j$) yields that
+$\left\lfloor \dfrac{n}{j}\right\rfloor $ is well-defined and equals $n//j$.
+Thus,
+\begin{align*}
+\left\lfloor \dfrac{n}{j}\right\rfloor  &  =n//j=\sum_{i=1}^{n}\left[  j\mid
+i\right]  \qquad\left(  \text{by Proposition \ref{prop.ent.n//k-as-sum},
+applied to }k=j\right) \\
+&  =\sum_{m=1}^{n}\left[  j\mid m\right]  \qquad\left(  \text{here, we have
+renamed the summation index }i\text{ as }m\right)  .
+\end{align*}
+This proves Corollary \ref{cor.ent.floor-mj-as-sum}.
+\end{proof}
+
+Finally, we recall the following result (Exercise 2 on
+\href{http://www.cip.ifi.lmu.de/~grinberg/t/19s/hw5s.pdf}{homework set \#5}):
+
+\begin{proposition}
+\label{prop.Z[i].xx+yy.jac-num}Let $n$ be a positive integer. Then,%
+\begin{align*}
+&  \left(  \text{the number of pairs $\left(  x,y\right)  \in\mathbb{Z}^{2}$
+such that $n=x^{2}+y^{2}$}\right) \\
+&  =4\left(  \text{the number of positive divisors $d$ of $n$ such that
+$d\equiv1\operatorname{mod}4$}\right) \\
+&  \qquad-4\left(  \text{the number of positive divisors $d$ of $n$ such that
+$d\equiv3\operatorname{mod}4$}\right)  .
+\end{align*}
+
+\end{proposition}
+
+Let us restate this proposition in a more convenient (for our current goals) form:
+
+\begin{corollary}
+\label{cor.Z[i].xx+yy.jac-num-sum}Let $n$ be a positive integer. Then,%
+\[
+\left(  \text{the number of pairs $\left(  x,y\right)  \in\mathbb{Z}^{2}$ such
+that $n=x^{2}+y^{2}$}\right)  =4\sum_{i\in\mathbb{N}}\left(  -1\right)
+^{i}\left[  2i+1\mid n\right]  .
+\]
+(In particular, the sum $\sum_{i\in\mathbb{N}}\left(  -1\right)  ^{i}\left[
+2i+1\mid n\right]  $ is well-defined, since all but finitely many of its
+addends are $0$.)
+\end{corollary}
+
+\begin{proof}
+[Proof of Corollary \ref{cor.Z[i].xx+yy.jac-num-sum}.]Every $i\in\mathbb{N}$
+satisfying $i\geq n$ must satisfy $\left(  -1\right)  ^{i}\left[  2i+1\mid
+n\right]  =0$\ \ \ \ \footnote{\textit{Proof.} Let $i\in\mathbb{N}$ be such
+that $i\geq n$. We must prove that $\left(  -1\right)  ^{i}\left[  2i+1\mid
+n\right]  =0$.
+\par
+The integer $2i+1$ is positive (since $i\in\mathbb{N}$); thus, $\left\vert
+2i+1\right\vert =2i+1$. The integer $n$ is positive as well; thus, $\left\vert
+n\right\vert =n$. Thus,
+\[
+\left\vert 2i+1\right\vert =2i+1=i+\underbrace{\left(  i+1\right)
+}_{\substack{>0\\\text{(since }i\in\mathbb{N}\text{)}}}>i\geq n=\left\vert
+n\right\vert .
+\]
+But if we had $2i+1\mid n$, then Proposition 2.2.3 \textbf{(b)} in
+\href{http://www.cip.ifi.lmu.de/~grinberg/t/19s/notes.pdf}{the class notes}
+(applied to $a=2i+1$ and $b=n$) would yield $\left\vert 2i+1\right\vert
+\leq\left\vert n\right\vert $, which would contradict $\left\vert
+2i+1\right\vert >\left\vert n\right\vert $. Hence, we cannot have $2i+1\mid
+n$. Thus, $\left[  2i+1\mid n\right]  =0$ and therefore $\left(  -1\right)
+^{i}\underbrace{\left[  2i+1\mid n\right]  }_{=0}=0$. Qed.}. Hence, all but
+finitely many $i\in\mathbb{N}$ must satisfy $\left(  -1\right)  ^{i}\left[
+2i+1\mid n\right]  =0$ (since all but finitely many $i\in\mathbb{N}$ satisfy
+$i\geq n$). Thus, all but finitely many addends of the sum $\sum
+_{i\in\mathbb{N}}\left(  -1\right)  ^{i}\left[  2i+1\mid n\right]  $ are $0$.
+Thus, this sum is well-defined.
+
+Each $i\in\mathbb{N}$ is either even or odd (but never both simultaneously).
+Thus, we can split the sum $\sum_{i\in\mathbb{N}}\left(  -1\right)
+^{i}\left[  2i+1\mid n\right]  $ as follows:%
+\begin{align}
+\sum_{i\in\mathbb{N}}\left(  -1\right)  ^{i}\left[  2i+1\mid n\right]   &
+=\sum_{\substack{i\in\mathbb{N};\\i\text{ is even}}}\ \ \underbrace{\left(
+-1\right)  ^{i}}_{\substack{=1\\\text{(since }i\text{ is even)}}}\left[
+2i+1\mid n\right]  +\sum_{\substack{i\in\mathbb{N};\\i\text{ is odd}%
+}}\ \ \underbrace{\left(  -1\right)  ^{i}}_{\substack{=-1\\\text{(since
+}i\text{ is odd)}}}\left[  2i+1\mid n\right] \nonumber\\
+&  =\sum_{\substack{i\in\mathbb{N};\\i\text{ is even}}}\left[  2i+1\mid
+n\right]  +\underbrace{\sum_{\substack{i\in\mathbb{N};\\i\text{ is odd}%
+}}\left(  -1\right)  \left[  2i+1\mid n\right]  }_{=-\sum_{\substack{i\in
+\mathbb{N};\\i\text{ is odd}}}\left[  2i+1\mid n\right]  }\nonumber\\
+&  =\sum_{\substack{i\in\mathbb{N};\\i\text{ is even}}}\left[  2i+1\mid
+n\right]  -\sum_{\substack{i\in\mathbb{N};\\i\text{ is odd}}}\left[  2i+1\mid
+n\right]  . \label{pf.cor.Z[i].xx+yy.jac-num-sum.2}%
+\end{align}
+
+
+Exercise 2.7.3 \textbf{(b)} in
+\href{http://www.cip.ifi.lmu.de/~grinberg/t/19s/notes.pdf}{the class notes}
+shows that that the map%
+\begin{align*}
+\left\{  i\in\mathbb{N}\ \mid\ i\text{ is odd}\right\}   &  \rightarrow
+\left\{  d\in\mathbb{N}\ \mid\ d\equiv3\operatorname{mod}4\right\}  ,\\
+i  &  \mapsto2i+1
+\end{align*}
+is well-defined and is a bijection.\footnote{This map sends $1,3,5,7,9,\ldots$
+to $3,7,11,15,19,\ldots$, respectively.}
+
+\begin{comment}
+\footnote{\textit{Proof (sketched):} Let us first show that this map is
+well-defined. Indeed, if $i\in\mathbb{N}$ is odd, then $i=2q+1$ for some
+integer $q$; thus, this integer $q$ satisfies $2\underbrace{i}_{=2q+1}%
++1=2\left(  2q+1\right)  +1=\underbrace{4q}_{\equiv0\operatorname{mod}%
+4}+3\equiv3\operatorname{mod}4$. Hence, the map
+\begin{align*}
+\left\{  i\in\mathbb{N}\ \mid\ i\text{ is odd}\right\}   &  \rightarrow
+\left\{  d\in\mathbb{N}\ \mid\ d\equiv3\operatorname{mod}4\right\}  ,\\
+i  &  \mapsto2i+1
+\end{align*}
+is well-defined. In order to see that this map is a bijection, we only need to
+construct an inverse. This is easily done: An inverse to this map is%
+\begin{align*}
+\left\{  d\in\mathbb{N}\ \mid\ d\equiv3\operatorname{mod}4\right\}   &
+\rightarrow\left\{  i\in\mathbb{N}\ \mid\ i\text{ is odd}\right\}  ,\\
+d  &  \mapsto\left(  d-1\right)  /2
+\end{align*}
+(again, it is straightforward to see that this is well-defined).}
+\end{comment}
+
+
+Hence, we can substitute $d$ for $2i+1$ in the sum $\sum_{\substack{i\in
+\mathbb{N};\\i\text{ is odd}}}\left[  2i+1\mid n\right]  $, and thus obtain%
+\begin{align}
+&  \sum_{\substack{i\in\mathbb{N};\\i\text{ is odd}}}\left[  2i+1\mid n\right]
+\nonumber\\
+&  =\sum_{\substack{d\in\mathbb{N};\\d\equiv3\operatorname{mod}4}}\left[
+d\mid n\right]  =\sum_{\substack{d\in\mathbb{N};\\d\equiv3\operatorname{mod}%
+4;\\d\mid n}}\ \ \underbrace{\left[  d\mid n\right]  }%
+_{\substack{=1\\\text{(since }d\mid n\text{)}}}+\sum_{\substack{d\in
+\mathbb{N};\\d\equiv3\operatorname{mod}4;\\d\nmid n}}\ \ \underbrace{\left[
+d\mid n\right]  }_{\substack{=0\\\text{(since }d\nmid n\text{)}}}\nonumber\\
+&  \qquad\left(
+\begin{array}
+[c]{c}%
+\text{since each }d\in\mathbb{N}\text{ satisfies either }d\mid n\text{ or
+}d\nmid n\\
+\text{(but never both at the same time)}%
+\end{array}
+\right) \nonumber\\
+&  =\sum_{\substack{d\in\mathbb{N};\\d\equiv3\operatorname{mod}4;\\d\mid
+n}}1+\underbrace{\sum_{\substack{d\in\mathbb{N};\\d\equiv3\operatorname{mod}%
+4;\\d\nmid n}}0}_{=0}=\sum_{\substack{d\in\mathbb{N};\\d\equiv
+3\operatorname{mod}4;\\d\mid n}}1\nonumber\\
+&  =\left(  \text{the number of all }d\in\mathbb{N}\text{ satisfying }%
+d\equiv3\operatorname{mod}4\text{ and }d\mid n\right)  \cdot1\nonumber\\
+&  =\left(  \text{the number of all }d\in\mathbb{N}\text{ satisfying }%
+d\equiv3\operatorname{mod}4\text{ and }d\mid n\right) \nonumber\\
+&  =\left(  \text{the number of all positive integers }d\text{ satisfying
+}d\equiv3\operatorname{mod}4\text{ and }d\mid n\right) \nonumber\\
+&  \qquad\left(
+\begin{array}
+[c]{c}%
+\text{since each }d\in\mathbb{N}\text{ satisfying }d\equiv3\operatorname{mod}%
+4\text{ must be a}\\
+\text{positive integer (because }0\text{ does not satisfy }0\equiv
+3\operatorname{mod}4\text{)}%
+\end{array}
+\right) \nonumber\\
+&  =\left(  \text{the number of all positive integers }d\text{ satisfying
+}d\mid n\text{ and }d\equiv3\operatorname{mod}4\right) \nonumber\\
+&  =\left(  \text{the number of all positive divisors }d\text{ of }n\text{
+such that }d\equiv3\operatorname{mod}4\right)
+\label{pf.cor.Z[i].xx+yy.jac-num-sum.4o}%
+\end{align}
+(since the positive integers $d$ satisfying $d\mid n$ are precisely the
+positive divisors $d$ of $n$). A similar argument (but with the word
+\textquotedblleft odd\textquotedblright\ replaced by \textquotedblleft
+even\textquotedblright, and with each appearance of \textquotedblleft%
+$3$\textquotedblright\ replaced by \textquotedblleft$1$\textquotedblright%
+\ \ \ \ \footnote{and with \textquotedblleft Exercise 2.7.3 \textbf{(b)} in
+\href{http://www.cip.ifi.lmu.de/~grinberg/t/19s/notes.pdf}{the class
+notes}\textquotedblright\ replaced by \textquotedblleft Exercise 2.7.3
+\textbf{(a)} in \href{http://www.cip.ifi.lmu.de/~grinberg/t/19s/notes.pdf}{the
+class notes}\textquotedblright}) shows that%
+\begin{align}
+&  \sum_{\substack{i\in\mathbb{N};\\i\text{ is even}}}\left[  2i+1\mid
+n\right] \nonumber\\
+&  =\left(  \text{the number of all positive divisors }d\text{ of }n\text{
+such that }d\equiv1\operatorname{mod}4\right)  .
+\label{pf.cor.Z[i].xx+yy.jac-num-sum.4e}%
+\end{align}
+Now, if we multiply both sides of the equality
+\eqref{pf.cor.Z[i].xx+yy.jac-num-sum.2} by $4$, then we obtain%
+\begin{align*}
+&  4\sum_{i\in\mathbb{N}}\left(  -1\right)  ^{i}\left[  2i+1\mid n\right] \\
+&  =4\left(  \sum_{\substack{i\in\mathbb{N};\\i\text{ is even}}}\left[
+2i+1\mid n\right]  -\sum_{\substack{i\in\mathbb{N};\\i\text{ is odd}}}\left[
+2i+1\mid n\right]  \right) \\
+&  =4\underbrace{\sum_{\substack{i\in\mathbb{N};\\i\text{ is even}}}\left[
+2i+1\mid n\right]  }_{\substack{=\left(  \text{the number of all positive
+divisors }d\text{ of }n\text{ such that }d\equiv1\operatorname{mod}4\right)
+\\\text{(by \eqref{pf.cor.Z[i].xx+yy.jac-num-sum.4e})}}}\\
+&  \qquad-4\underbrace{\sum_{\substack{i\in\mathbb{N};\\i\text{ is odd}%
+}}\left[  2i+1\mid n\right]  }_{\substack{=\left(  \text{the number of all
+positive divisors }d\text{ of }n\text{ such that }d\equiv3\operatorname{mod}%
+4\right)  \\\text{(by \eqref{pf.cor.Z[i].xx+yy.jac-num-sum.4o})}}}\\
+&  =4\left(  \text{the number of positive divisors $d$ of $n$ such that
+$d\equiv1\operatorname{mod}4$}\right) \\
+&  \qquad-4\left(  \text{the number of positive divisors $d$ of $n$ such that
+$d\equiv3\operatorname{mod}4$}\right)  .
+\end{align*}
+Comparing this with%
+\begin{align*}
+&  \left(  \text{the number of pairs $\left(  x,y\right)  \in\mathbb{Z}^{2}$
+such that $n=x^{2}+y^{2}$}\right) \\
+&  =4\left(  \text{the number of positive divisors $d$ of $n$ such that
+$d\equiv1\operatorname{mod}4$}\right) \\
+&  \qquad-4\left(  \text{the number of positive divisors $d$ of $n$ such that
+$d\equiv3\operatorname{mod}4$}\right) \\
+&  \qquad\qquad\left(  \text{by Proposition \ref{prop.Z[i].xx+yy.jac-num}%
+}\right)  ,
+\end{align*}
+we obtain%
+\[
+\left(  \text{the number of pairs $\left(  x,y\right)  \in\mathbb{Z}^{2}$ such
+that $n=x^{2}+y^{2}$}\right)  =4\sum_{i\in\mathbb{N}}\left(  -1\right)
+^{i}\left[  2i+1\mid n\right]  .
+\]
+Thus, the proof of Corollary \ref{cor.Z[i].xx+yy.jac-num-sum} is complete.
+\end{proof}
+
+Now, let $n\in\mathbb{N}$. Let $m\in\left\{  1,2,\ldots,n\right\}  $. Then,
+$m$ is a positive integer. Hence, Corollary \ref{cor.Z[i].xx+yy.jac-num-sum}
+(applied to $m$ instead of $n$) shows that%
+\begin{align}
+&  \left(  \text{the number of pairs $\left(  x,y\right)  \in\mathbb{Z}^{2}$
+such that $m=x^{2}+y^{2}$}\right) \nonumber\\
+&  =4\sum_{i\in\mathbb{N}}\left(  -1\right)  ^{i}\left[  2i+1\mid m\right]
+\label{sol.ent.more-sums.b.4}%
+\end{align}
+(and that the sum $\sum_{i\in\mathbb{N}}\left(  -1\right)  ^{i}\left[
+2i+1\mid m\right]  $ is well-defined).
+
+Forget that we fixed $m$. We thus have proven that for each $m\in\left\{
+1,2,\ldots,n\right\}  $, the equality \eqref{sol.ent.more-sums.b.4} holds (and
+the sum $\sum_{i\in\mathbb{N}}\left(  -1\right)  ^{i}\left[  2i+1\mid
+m\right]  $ is well-defined).
+
+Hence, we know that the sum $\sum_{i\in\mathbb{N}}\left(  -1\right)
+^{i}\left[  2i+1\mid m\right]  $ is well-defined for each $m\in\left\{
+1,2,\ldots,n\right\}  $. Thus, the sum of these $n$ many sums can be rewritten
+as follows:%
+\begin{align}
+\sum_{m=1}^{n}\sum_{i\in\mathbb{N}}\left(  -1\right)  ^{i}\left[  2i+1\mid
+m\right]   &  =\sum_{i\in\mathbb{N}}\underbrace{\sum_{m=1}^{n}\left(
+-1\right)  ^{i}\left[  2i+1\mid m\right]  }_{=\left(  -1\right)  ^{i}%
+\sum_{m=1}^{n}\left[  2i+1\mid m\right]  }=\sum_{i\in\mathbb{N}}\left(
+-1\right)  ^{i}\underbrace{\sum_{m=1}^{n}\left[  2i+1\mid m\right]
+}_{\substack{=\left\lfloor \dfrac{n}{2i+1}\right\rfloor \\\text{(by Corollary
+\ref{cor.ent.floor-mj-as-sum},}\\\text{applied to }j=2i+1\text{)}}}\nonumber\\
+&  =\sum_{i\in\mathbb{N}}\left(  -1\right)  ^{i}\left\lfloor \dfrac{n}%
+{2i+1}\right\rfloor . \label{sol.ent.more-sums.b.sumswap}%
+\end{align}
+
+
+But
+\begin{align*}
+&  \left(  \text{the number of $\left(  x,y\right)  \in\mathbb{Z}^{2}$
+satisfying $x^{2}+y^{2}\leq n$}\right) \\
+&  =\left(  \text{the number of $\left(  x,y\right)  \in\mathbb{Z}^{2}$
+satisfying $x^{2}+y^{2}\in\left\{  0,1,\ldots,n\right\}  $}\right) \\
+&  \qquad\left(
+\begin{array}
+[c]{c}%
+\text{because for any }\left(  x,y\right)  \in\mathbb{Z}^{2}\text{, the
+statement \textquotedblleft}x^{2}+y^{2}\leq n\text{\textquotedblright\ is}\\
+\text{equivalent to \textquotedblleft}x^{2}+y^{2}\in\left\{  0,1,\ldots
+,n\right\}  \text{\textquotedblright\ (since }x^{2}+y^{2}\text{ is an
+integer)}%
+\end{array}
+\right) \\
+&  =\sum_{m=0}^{n}\left(  \text{the number of $\left(  x,y\right)
+\in\mathbb{Z}^{2}$ satisfying $x^{2}+y^{2}=m$}\right) \\
+&  =\underbrace{\left(  \text{the number of $\left(  x,y\right)  \in
+\mathbb{Z}^{2}$ satisfying $x^{2}+y^{2}=0$}\right)  }%
+_{\substack{=1\\\text{(since there exists only one }\left(  x,y\right)
+\in\mathbb{Z}^{2}\text{ satisfying }x^{2}+y^{2}=0\\\text{(namely, }\left(
+x,y\right)  =\left(  0,0\right)  \text{))}}}\\
+&  \qquad+\sum_{m=1}^{n}\underbrace{\left(  \text{the number of $\left(
+x,y\right)  \in\mathbb{Z}^{2}$ satisfying $x^{2}+y^{2}=m$}\right)
+}_{\substack{=4\sum_{i\in\mathbb{N}}\left(  -1\right)  ^{i}\left[  2i+1\mid
+m\right]  \\\text{(by \eqref{sol.ent.more-sums.b.4})}}}\\
+&  =1+\underbrace{\sum_{m=1}^{n}4\sum_{i\in\mathbb{N}}\left(  -1\right)
+^{i}\left[  2i+1\mid m\right]  }_{=4\sum_{m=1}^{n}\sum_{i\in\mathbb{N}}\left(
+-1\right)  ^{i}\left[  2i+1\mid m\right]  }=1+4\underbrace{\sum_{m=1}^{n}%
+\sum_{i\in\mathbb{N}}\left(  -1\right)  ^{i}\left[  2i+1\mid m\right]
+}_{\substack{=\sum_{i\in\mathbb{N}}\left(  -1\right)  ^{i}\left\lfloor
+\dfrac{n}{2i+1}\right\rfloor \\\text{(by \eqref{sol.ent.more-sums.b.sumswap})}%
+}}\\
+&  =1+4\sum_{i\in\mathbb{N}}\left(  -1\right)  ^{i}\left\lfloor \dfrac
+{n}{2i+1}\right\rfloor =1+4\sum_{k\in\mathbb{N}}\left(  -1\right)
+^{k}\left\lfloor \dfrac{n}{2k+1}\right\rfloor \\
+&  \qquad\left(  \text{here, we have renamed the summation index }i\text{ as
+}k\right) \\
+&  =1+4\left(  \left\lfloor \dfrac{n}{1}\right\rfloor -\left\lfloor \dfrac
+{n}{3}\right\rfloor +\left\lfloor \dfrac{n}{5}\right\rfloor -\left\lfloor
+\dfrac{n}{7}\right\rfloor +\left\lfloor \dfrac{n}{9}\right\rfloor
+-\left\lfloor \dfrac{n}{11}\right\rfloor \pm\cdots\right)
+\end{align*}
+(since
+\[
+\sum_{k\in\mathbb{N}}\left(  -1\right)  ^{k}\left\lfloor \dfrac{n}%
+{2k+1}\right\rfloor =\left\lfloor \dfrac{n}{1}\right\rfloor -\left\lfloor
+\dfrac{n}{3}\right\rfloor +\left\lfloor \dfrac{n}{5}\right\rfloor
+-\left\lfloor \dfrac{n}{7}\right\rfloor +\left\lfloor \dfrac{n}{9}%
+\right\rfloor -\left\lfloor \dfrac{n}{11}\right\rfloor \pm\cdots
+\]
+). This solves part \textbf{(b)} of the exercise.
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 4
+%----------------------------------------------------------------------------------------
+\rule{\linewidth}{0.3pt} \\[0.4cm]
+
+\section{Exercise 4: Squares in finite fields II}
+
+\subsection{Problem}
+
+Let $\mathbb{F}$ be a finite field such that $2\cdot1_{\mathbb{F}}%
+\neq0_{\mathbb{F}}$. In Exercise 5 of
+\href{http://www.cip.ifi.lmu.de/~grinberg/t/19s/hw6s.pdf}{homework set \#6},
+we have seen that $\left\vert \mathbb{F}\right\vert $ is odd, and that the
+number of squares in $\mathbb{F}$ is $\dfrac{1}{2}\left(  \left\vert
+\mathbb{F}\right\vert +1\right)  $.
+
+In the following, the word ``square'' shall always mean ``square in
+$\mathbb{F}$''.
+
+A \textit{nonsquare} shall mean an element of $\mathbb{F}$ that is not a square.
+
+Prove the following:
+
+\begin{enumerate}
+\item[\textbf{(a)}] The product of two squares is always a square.
+
+\item[\textbf{(b)}] The product of a nonzero square with a nonsquare is always
+a nonsquare.
+
+\item[\textbf{(c)}] The product of two nonsquares is always a square.
+\end{enumerate}
+
+[\textbf{Hint:} It is easiest to solve the three parts in this exact order.
+For \textbf{(c)}, recall that if a subset $Y$ of a finite set $X$ satisfies
+$\left\vert Y\right\vert \geq\left\vert X\right\vert $, then $Y=X$.]
+
+\subsection{Remark}
+
+If $\mathbb{F}$ is the field $\mathbb{Z}/p$ for some prime $p>2$, then the
+nonzero squares in $\mathbb{F}$ are called
+\textit{\href{https://en.wikipedia.org/wiki/Quadratic_residue}{\textit{quadratic
+residues}} modulo }$p$, while the nonsquares in $\mathbb{F}$ are called the
+\textit{quadratic nonresidues modulo }$p$. These two types of residue classes
+have a long history; in particular, one of the most famous results in
+mathematics --
+\href{https://en.wikipedia.org/wiki/Quadratic_reciprocity}{Gauss's law of
+quadratic reciprocity} -- is concerned with them
+(\href{http://www.rzuser.uni-heidelberg.de/~hb3/fchrono.html}{Franz
+Lemmermeyer's website} lists 246 different proofs of this law). Quadratic
+residues also have applications; they are involved in the Solovay-Strassen
+primality test \cite[Chapter 6]{Gallier-RSA}, and
+\href{https://en.wikipedia.org/wiki/Diffusion_(acoustics)#Quadratic-residue_diffusors}{have
+been used to build diffusors} (architectural features of a room that cause
+sound to spread evenly through the room -- used, e.g., in concert halls).
+
+\subsection{Solution sketch}
+
+Recall that a square in $\mathbb{F}$ is defined to be an element of the form
+$a^{2}$ for some $a\in\mathbb{F}$.
+
+An element of $\mathbb{F}$ is a nonsquare if and only if it is not a square
+(because this is how nonsquares were defined). Thus, each element of
+$\mathbb{F}$ is either a square or a nonsquare (but never both at the same time).
+
+The ring $\mathbb{F}$ is a field, and thus is a commutative skew field. Every
+nonzero element of $\mathbb{F}$ is invertible (since $\mathbb{F}$ is a skew field).
+
+\bigskip
+
+\textbf{(a)} We must prove that if $u\in\mathbb{F}$ and $v\in\mathbb{F}$ are
+two squares, then $uv$ is a square.
+
+Let $u\in\mathbb{F}$ and $v\in\mathbb{F}$ be two squares. We thus must prove
+that $uv$ is a square.
+
+The element $u\in\mathbb{F}$ is a square. In other words, $u=a^{2}$ for some
+$a\in\mathbb{F}$ (by the definition of a square). Similarly, $v=b^{2}$ for
+some $b\in\mathbb{F}$. Consider these $a$ and $b$. Now, multiplying the
+equalities $u=a^{2}$ and $v=b^{2}$, we obtain
+\[
+uv=a^{2}b^{2}=\left(  ab\right)  ^{2}\qquad\left(  \text{since }%
+\mathbb{F}\text{ is commutative}\right)  .
+\]
+Hence, $uv=c^{2}$ for some $c\in\mathbb{F}$ (namely, for $c=ab$). In other
+words, $uv$ is a square (by the definition of a square). This solves part
+\textbf{(a)} of the exercise.
+
+[\textit{Remark:} So far we have not used that $\mathbb{F}$ is a finite field
+satisfying $2\cdot1_{\mathbb{F}}\neq0_{\mathbb{F}}$; we only used that
+$\mathbb{F}$ is a commutative ring.]
+
+\bigskip
+
+\textbf{(b)} We must prove that if $u\in\mathbb{F}$ is a nonzero square and
+$v\in\mathbb{F}$ is a nonsquare, then $uv$ is a nonsquare.
+
+Let $u\in\mathbb{F}$ be a nonzero square, and let $v\in\mathbb{F}$ be a
+nonsquare. We thus must prove that $uv$ is a nonsquare.
+
+Assume the contrary. Thus, $uv$ is a square (since each element of
+$\mathbb{F}$ is either a square or a nonsquare). In other words, $uv=c^{2}$
+for some $c\in\mathbb{F}$. Also, $u=a^{2}$ for some $a\in\mathbb{F}$ (since
+$u$ is a square). Consider these $c$ and $a$.
+
+We have $aa=a^{2}=u\neq0$ (since $u$ is nonzero) and thus $a\neq0$ (since
+$a=0$ would lead to $aa=0\cdot0=0$, which would contradict $aa\neq0$). Hence,
+the element $a$ of $\mathbb{F}$ is nonzero, and therefore invertible (since
+every nonzero element of $\mathbb{F}$ is invertible). Thus, the quotient
+$\dfrac{c}{a}\in\mathbb{F}$ is well-defined (since $\mathbb{F}$ is
+commutative). Denote this quotient by $q$. Thus, $q=\dfrac{c}{a}\in\mathbb{F}%
+$. From $q=\dfrac{c}{a}$, we obtain $qa=c$. Moreover,%
+\begin{align*}
+q^{2}\underbrace{u}_{=a^{2}}  &  =q^{2}a^{2}=\left(  \underbrace{qa}%
+_{=c}\right)  ^{2}\qquad\left(  \text{since }\mathbb{F}\text{ is
+commutative}\right) \\
+&  =c^{2}=uv.
+\end{align*}
+The element $u$ of $\mathbb{F}$ is nonzero and thus invertible (since every
+nonzero element of $\mathbb{F}$ is invertible). Hence, we can divide the
+equality $q^{2}u=uv$ by $u$. We thus obtain $q^{2}=v$. Hence, $v=q^{2}$. Thus,
+$v$ is a square (by the definition of a square). This contradicts the fact
+that $v$ is a nonsquare. This contradiction shows that our assumption was
+false; hence, $uv$ is a nonsquare. This solves part \textbf{(b)} of the exercise.
+
+[\textit{Remark:} So far we have not used that $\mathbb{F}$ is finite; nor
+have we used that $2\cdot1_{\mathbb{F}}\neq0_{\mathbb{F}}$.]
+
+\bigskip
+
+\textbf{(c)} We must prove that if $u\in\mathbb{F}$ and $v\in\mathbb{F}$ are
+two nonsquares, then $uv$ is a square.
+
+Let $u\in\mathbb{F}$ and $v\in\mathbb{F}$ be two nonsquares. We thus must
+prove that $uv$ is a square.
+
+In the statement of the exercise, it was said that the number of squares in
+$\mathbb{F}$ is $\dfrac{1}{2}\left(  \left\vert \mathbb{F}\right\vert
++1\right)  $. In other words,
+\[
+\left(  \text{the number of all squares in }\mathbb{F}\right)  = \dfrac{1}%
+{2}\left(  \left\vert \mathbb{F}\right\vert +1\right)  .
+\]
+
+
+Clearly, $0\in\mathbb{F}$ is a square (since $0=0^{2}$). Thus, if we had
+$u=0$, then $u$ would be a square, which would contradict the fact that $u$ is
+a nonsquare. Hence, we cannot have $u=0$. Thus, $u\neq0$. Hence, the element
+$u$ of $\mathbb{F}$ is nonzero and thus invertible (since every nonzero
+element of $\mathbb{F}$ is invertible). Thus, it has an inverse $u^{-1}$.
+
+Let $f:\mathbb{F}\rightarrow\mathbb{F}$ be the map sending each $a\in
+\mathbb{F}$ to $ua$. Then, it is easy to see that the map $f$ is invertible
+(indeed, its inverse sends each $a\in\mathbb{F}$ to $u^{-1}a$). Hence, $f$ is
+bijective and thus injective. Therefore, $f$ satisfies%
+\begin{equation}
+\left\vert f\left(  S\right)  \right\vert =\left\vert S\right\vert
+\qquad\text{for each subset }S\text{ of }\mathbb{F}.
+\label{sol.finfield.squares2.c.1}%
+\end{equation}
+
+
+Let $N$ be the set of all nonsquares in $\mathbb{F}$. Thus,%
+\begin{align*}
+\left\vert N\right\vert  &  =\left(  \text{the number of all nonsquares in
+}\mathbb{F}\right) \\
+&  =\left\vert \mathbb{F}\right\vert -\underbrace{\left(  \text{the number of
+all squares in }\mathbb{F}\right)  }_{=\dfrac{1}{2}\left(  \left\vert
+\mathbb{F}\right\vert +1\right)  }\\
+&  \qquad\left(  \text{because the nonsquares in }\mathbb{F}\text{ are
+precisely the elements of }\mathbb{F}\text{ that are not squares}\right) \\
+&  =\left\vert \mathbb{F}\right\vert -\dfrac{1}{2}\left(  \left\vert
+\mathbb{F}\right\vert +1\right)  =\dfrac{1}{2}\left(  \left\vert
+\mathbb{F}\right\vert -1\right)  .
+\end{align*}
+
+
+Recall that $0 \in\mathbb{F}$ is a square in $\mathbb{F}$. Thus, the nonzero
+squares in $\mathbb{F}$ differ from the squares in $\mathbb{F}$ only in that
+$0$ belongs to the latter but not to the former. Hence,
+\begin{align*}
+&  \left(  \text{the number of all nonzero squares in } \mathbb{F} \right) \\
+&  = \underbrace{\left(  \text{the number of all squares in } \mathbb{F}
+\right)  }_{= \dfrac{1}{2}\left(  \left|  \mathbb{F} \right|  +1 \right)  } -
+1 = \dfrac{1}{2}\left(  \left|  \mathbb{F} \right|  +1 \right)  - 1 =
+\dfrac{1}{2}\left(  \left|  \mathbb{F} \right|  -1 \right)  .
+\end{align*}
+
+
+Let $S$ be the set of all nonzero squares in $\mathbb{F}$. Thus,
+\[
+\left\vert S\right\vert =\left(  \text{the number of all nonzero squares in
+}\mathbb{F}\right)  =\dfrac{1}{2}\left(  \left\vert \mathbb{F}\right\vert
+-1\right)  =\left\vert N\right\vert
+\]
+(since $\left\vert N\right\vert =\dfrac{1}{2}\left(  \left\vert \mathbb{F}%
+\right\vert -1\right)  $).
+
+Let $w\in S$. Then, $w$ is a nonzero square (by the definition of $S$). Hence,
+the product $wu$ is a product of a nonzero square with a nonsquare (since $u$
+is a nonsquare), and thus itself is a nonsquare (by part \textbf{(b)} of this
+exercise). In other words, $wu\in N$ (by the definition of $N$). Now, the
+definition of $f$ yields $f\left(  w\right)  =uw = wu \in N$.
+
+Now, forget that we fixed $w$. We thus have shown that $f\left(  w\right)  \in
+N$ for each $w\in S$. In other words, $f\left(  S\right)  \subseteq N$. In
+other words, $f\left(  S\right)  $ is a subset of $N$.
+
+But \eqref{sol.finfield.squares2.c.1} yields $\left\vert f\left(  S\right)
+\right\vert =\left\vert S\right\vert = \left|  N \right|  $. Hence,
+$\left\vert f\left(  S\right)  \right\vert \geq\left\vert N\right\vert $.
+
+Now, recall the following fundamental fact: If a subset $Y$ of a finite set
+$X$ satisfies $\left\vert Y\right\vert \geq\left\vert X\right\vert $, then
+$Y=X$. Applying this to $Y=f\left(  S\right)  $ and $X=N$, we obtain $f\left(
+S\right)  =N$ (since $f\left(  S\right)  $ is a subset of the finite set $N$
+and satisfies $\left\vert f\left(  S\right)  \right\vert \geq\left\vert
+N\right\vert $).
+
+Recall that we must show that $uv$ is a square. Assume the contrary. Thus,
+$uv$ is a nonsquare (by the definition of \textquotedblleft
+nonsquare\textquotedblright). In other words, $uv\in N$ (by the definition of
+$N$). Hence, $uv\in N=f\left(  S\right)  $ (since $f\left(  S\right)  =N$). In
+other words, $uv=f\left(  q\right)  $ for some $q\in S$. Consider this $q$.
+But the definition of $f$ yields $f\left(  v\right)  =uv=f\left(  q\right)  $.
+Therefore, $v=q$ (since $f$ is injective). Thus, $v=q\in S$. In other words,
+$v$ is a nonzero square (by the definition of $S$). Thus, $v$ is a square; but
+this contradicts the fact that $v$ is a nonsquare. This contradiction shows
+that our assumption was false. Hence, we have shown that $uv$ is a square.
+This solves part \textbf{(c)} of the exercise.
+
+\subsection{Remark}
+
+The condition \textquotedblleft$2\cdot1_{\mathbb{F}}\neq0_{\mathbb{F}}%
+$\textquotedblright\ in the above exercise is necessary in order to ensure
+that $\left\vert \mathbb{F}\right\vert $ is odd, and that the number of
+squares in $\mathbb{F}$ is $\dfrac{1}{2}\left(  \left\vert \mathbb{F}%
+\right\vert +1\right)  $. This was used in our solution of part \textbf{(c)}
+of the exercise. However, it turns out that all three parts of the exercise
+(including part \textbf{(c)}) still hold if we drop the condition
+\textquotedblleft$2\cdot1_{\mathbb{F}}\neq0_{\mathbb{F}}$\textquotedblright.
+In other words, the following holds:
+
+\begin{theorem}
+\label{thm.sol.finfield.squares2.gen}Let $\mathbb{F}$ be a finite field (which
+may and may not satisfy $2\cdot1_{\mathbb{F}}\neq0_{\mathbb{F}}$). In the
+following, the word \textquotedblleft square\textquotedblright\ shall always
+mean \textquotedblleft square in $\mathbb{F}$\textquotedblright. A
+\textit{nonsquare} shall mean an element of $\mathbb{F}$ that is not a square. Then:
+
+\textbf{(a)} The product of two squares is always a square.
+
+\textbf{(b)} The product of a nonzero square with a nonsquare is always a nonsquare.
+
+\textbf{(c)} The product of two nonsquares is always a square.
+\end{theorem}
+
+We are going to prove this theorem -- it turns out that the bulk of the work
+has already been done in our above solution. All we need is to prove Theorem
+\ref{thm.sol.finfield.squares2.gen} \textbf{(c)} in the case when
+$2\cdot1_{\mathbb{F}}=0_{\mathbb{F}}$. This will rely on the following fact:
+
+\begin{proposition}
+\label{prop.sol.finfields.squares2.2}Let $\mathbb{F}$ be a finite field such
+that $2\cdot1_{\mathbb{F}}=0_{\mathbb{F}}$. Then, every element of
+$\mathbb{F}$ is a square.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.sol.finfields.squares2.2}.]The ring
+$\mathbb{F}$ is a field, and thus is a commutative skew field. Every nonzero
+element of $\mathbb{F}$ is invertible (since $\mathbb{F}$ is a skew field).
+
+Let $F:\mathbb{F}\rightarrow\mathbb{F}$ be the map defined by%
+\[
+\left(  F\left(  a\right)  =a^{2}\qquad\text{for all }a\in\mathbb{F}\right)
+.
+\]
+
+
+We shall now show that the map $F$ is injective.
+
+Indeed, let $a,b\in\mathbb{F}$ satisfy $F\left(  a\right)  =F\left(  b\right)
+$. We want to show that $a=b$.
+
+Assume the contrary. Thus, $a\neq b$. In other words, $a-b\neq0_{\mathbb{F}}$.
+Thus, the element $a-b$ of $\mathbb{F}$ is nonzero, and therefore invertible
+(since every nonzero element of $\mathbb{F}$ is invertible). Hence, its
+inverse $\left(  a-b\right)  ^{-1}\in\mathbb{F}$ is well-defined.
+
+The definition of $F$ yields $F\left(  b\right)  =b^{2}$ and $F\left(
+a\right)  =a^{2}$. Thus, $a^{2}=F\left(  a\right)  =F\left(  b\right)  =b^{2}%
+$. In other words, $a^{2}-b^{2}=0_{\mathbb{F}}$. Hence,%
+\[
+0_{\mathbb{F}}=a^{2}-b^{2}=\left(  a+b\right)  \left(  a-b\right)
+\qquad\left(  \text{since }\mathbb{F}\text{ is commutative}\right)  .
+\]
+We can multiply both sides of this equality by $\left(  a-b\right)  ^{-1}$
+(since $\left(  a-b\right)  ^{-1}$ is well-defined). We thus obtain%
+\[
+0_{\mathbb{F}}\cdot\left(  a-b\right)  ^{-1}=\left(  a+b\right)
+\underbrace{\left(  a-b\right)  \cdot\left(  a-b\right)  ^{-1}}%
+_{=1_{\mathbb{F}}}=\left(  a+b\right)  1_{\mathbb{F}}=a+b.
+\]
+Hence, $a+b=0_{\mathbb{F}}\cdot\left(  a-b\right)  ^{-1}=0_{\mathbb{F}}$, so
+that $a=-b$. But $b+b=2\underbrace{b}_{=1_{\mathbb{F}}b}=\underbrace{2\cdot
+1_{\mathbb{F}}}_{=0_{\mathbb{F}}}b=0_{\mathbb{F}}b=0_{\mathbb{F}}$ and thus
+$b=-b$. Comparing this with $a=-b$, we obtain $a=b$; this contradicts $a\neq
+b$. Hence, we have found a contradiction. Thus, our assumption was wrong;
+hence, $a=b$.
+
+Now, forget that we fixed $a,b$. We thus have proven that if $a,b\in
+\mathbb{F}$ satisfy $F\left(  a\right)  =F\left(  b\right)  $, then $a=b$. In
+other words, the map $F$ is injective.
+
+But $F$ is a map from the finite set $\mathbb{F}$ to the finite set
+$\mathbb{F}$, and these two finite sets satisfy $\left\vert \mathbb{F}%
+\right\vert \geq\left\vert \mathbb{F}\right\vert $. Hence, Theorem 2.15.5 in
+\href{http://www.cip.ifi.lmu.de/~grinberg/t/19s/notes.pdf}{the class
+notes}\footnote{This is the Pigeonhole Principle for Injections.} (applied to
+$A=\mathbb{F}$, $B=\mathbb{F}$ and $f=F$) shows that the map $F$ is bijective
+(since $F$ is injective). Thus, $F$ is surjective. In other words,
+$\mathbb{F}=F\left(  \mathbb{F}\right)  $.
+
+Now, let $u\in\mathbb{F}$. Then, $u\in\mathbb{F}=F\left(  \mathbb{F}\right)
+$. In other words, there exists some $a\in\mathbb{F}$ such that $u=F\left(
+a\right)  $. Consider this $a$. Now, $u=F\left(  a\right)  =a^{2}$ (by the
+definition of $F$). Hence, $u$ is a square (by the definition of a square).
+
+Forget that we fixed $u$. We thus have shown that each $u\in\mathbb{F}$ is a
+square. In other words, every element of $\mathbb{F}$ is a square. This proves
+Proposition \ref{prop.sol.finfields.squares2.2}.
+\end{proof}
+
+\begin{remark}
+The map $F$ we constructed in the proof of Proposition
+\ref{prop.sol.finfields.squares2.2} is actually a ring isomorphism. Indeed, it
+is easy to show that $F$ is a ring homomorphism (because $2\cdot1_{\mathbb{F}%
+}=0_{\mathbb{F}}$ yields $\left(  a+b\right)  ^{2}=a^{2}+b^{2}$ for all
+$a,b\in\mathbb{F}$ -- this is a particular case of
+\href{https://en.wikipedia.org/wiki/Freshman's_dream#Prime_characteristic}{Freshman's
+Dream}), and then the bijectivity of $F$ entails that $F$ is a ring isomorphism.
+\end{remark}
+
+Now, we are ready to prove Theorem \ref{thm.sol.finfield.squares2.gen}:
+
+\begin{proof}
+[Proof of Theorem \ref{thm.sol.finfield.squares2.gen}.]When solving parts
+\textbf{(a)} and \textbf{(b)} of our above exercise, we never used the
+assumption that $2\cdot1_{\mathbb{F}}\neq0_{\mathbb{F}}$. Hence, our solutions
+to these two parts still apply if this assumption is omitted. Thus, these
+solutions qualify as proofs of parts \textbf{(a)} and \textbf{(b)} of Theorem
+\ref{thm.sol.finfield.squares2.gen}. It therefore remains to prove Theorem
+\ref{thm.sol.finfield.squares2.gen} \textbf{(c)}.
+
+\textbf{(c)} If $2\cdot1_{\mathbb{F}}\neq0_{\mathbb{F}}$, then Theorem
+\ref{thm.sol.finfield.squares2.gen} \textbf{(c)} holds (by part \textbf{(c)}
+of the above exercise). Thus, for the rest of this proof of Theorem
+\ref{thm.sol.finfield.squares2.gen} \textbf{(c)}, we WLOG assume that we don't
+have $2\cdot1_{\mathbb{F}}\neq0_{\mathbb{F}}$. Hence, we have $2\cdot
+1_{\mathbb{F}}=0_{\mathbb{F}}$. Thus, Proposition
+\ref{prop.sol.finfields.squares2.2} shows that every element of $\mathbb{F}$
+is a square. Hence, there exist no nonsquares in $\mathbb{F}$ (since a
+nonsquare is defined as an element of $\mathbb{F}$ that is not a square).
+Thus, the claim of Theorem \ref{thm.sol.finfield.squares2.gen} \textbf{(c)} is
+vacuously true (since this claim only concerns nonsquares). This proves
+Theorem \ref{thm.sol.finfield.squares2.gen} \textbf{(c)}.
+\end{proof}
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 5
+%----------------------------------------------------------------------------------------
+\rule{\linewidth}{0.3pt} \\[0.4cm]
+
+\section{Exercise 5: Formal differential calculus}
+
+\subsection{Problem}
+
+Let $\mathbb{K}$ be a commutative ring. For each FPS\footnote{Just as in
+class, the abbreviation ``FPS'' stands for ``formal power series''. All FPSs
+and polynomials in this exercise are in $1$ indeterminate over $\mathbb{K}$;
+the indeterminate is called $x$.}
+\[
+f = \sum_{k \in\mathbb{N}} a_{k} x^{k} = a_{0} x^{0} + a_{1} x^{1} + a_{2}
+x^{2} + \cdots\in\mathbb{K}\left[  \left[  x \right]  \right]  \qquad
+\text{(where $a_{i} \in\mathbb{K}$),}%
+\]
+we define the \textit{derivative} $f^{\prime}$ of $f$ to be the FPS
+\[
+\sum_{k > 0} k a_{k} x^{k-1} = 1 a_{1} x^{0} + 2 a_{2} x^{1} + 3 a_{3} x^{2} +
+\cdots\in\mathbb{K}\left[  \left[  x \right]  \right]  .
+\]
+(This definition imitates the standard procedure for differentiating power
+series in analysis, but it does not require any analysis or topology itself.
+In particular, $\mathbb{K}$ may be any commutative ring -- e.g., a finite field.)
+
+Let $D : \mathbb{K}\left[  \left[  x \right]  \right]  \to\mathbb{K}\left[
+\left[  x \right]  \right]  $ be the map sending each FPS $f$ to its
+derivative $f^{\prime}$. We refer to $D$ as \textit{(formal) differentiation}.
+As usual, for any $n \in\mathbb{N}$, we let $D^{n}$ denote $\underbrace{D
+\circ D \circ\cdots\circ D}_{n \text{ times}}$ (which means $\operatorname{id}%
+$ if $n = 0 $).
+
+Prove the following:
+
+\begin{enumerate}
+\item[\textbf{(a)}] If $f \in\mathbb{K}\left[  x \right]  $, then $f^{\prime
+}\in\mathbb{K}\left[  x \right]  $ and $\deg\left(  f^{\prime}\right)
+\leq\deg f - 1$. (In other words, the derivative of a polynomial is again a
+polynomial of degree at least $1$ less.)
+
+\item[\textbf{(b)}] The map $D : \mathbb{K}\left[  \left[  x \right]  \right]
+\to\mathbb{K}\left[  \left[  x \right]  \right]  $ is $\mathbb{K}$-linear
+(with respect to the $\mathbb{K}$-module structure on $\mathbb{K}\left[
+\left[  x \right]  \right]  $ defined in class -- i.e., both addition and
+scaling of FPSs are defined entrywise).
+
+\item[\textbf{(c)}] We have $\left(  fg \right)  ^{\prime}= f^{\prime}g + f
+g^{\prime}$ for any two FPSs $f$ and $g$. (This is called the \textit{Leibniz
+rule}.)
+
+\item[\textbf{(d)}] We have $D^{n} \left(  x^{k} \right)  = n! \dbinom{k}{n}
+x^{k-n}$ for all $n \in\mathbb{N}$ and $k \in\mathbb{N}$. Here, the expression
+``$\dbinom{k}{n} x^{k-n}$'' is to be understood as $0$ when $k < n $.
+
+\item[\textbf{(e)}] If $\mathbb{Q}$ is a subring of $\mathbb{K}$, then every
+polynomial $f\in\mathbb{K}\left[  x\right]  $ satisfies\footnote{Just as in
+class, I am using the notation \textquotedblleft$f\left[  u\right]
+$\textquotedblright\ for the evaluation of $f$ at $u$. The more common
+notation for this is $f\left(  u\right)  $, but is too easily mistaken for a
+product. \newline Note also that we need to require $f$ to be a polynomial
+here, since $f\left[  x+a\right]  $ would not be defined if $f$ was merely an
+FPS.}
+\[
+f\left[  x+a\right]  =\sum_{n\in\mathbb{N}}\dfrac{1}{n!}\left(  D^{n}\left(
+f\right)  \right)  \left[  a\right]  \cdot x^{n}\qquad\text{for all
+$a\in\mathbb{K}$}.
+\]
+(The infinite sum on the right hand side has only finitely many nonzero addends.)
+
+\item[\textbf{(f)}] If $p$ is a prime such that $p\cdot1_{\mathbb{K}}=0$ (for
+example, this happens if $\mathbb{K}=\mathbb{Z}/p$), then $D^{p}\left(
+f\right)  =0$ for each $f\in\mathbb{K}\left[  \left[  x\right]  \right]  $.
+\end{enumerate}
+
+Now, assume that $\mathbb{Q}$ is a subring of $\mathbb{K}$. For each FPS
+\[
+f = \sum_{k \in\mathbb{N}} a_{k} x^{k} = a_{0} x^{0} + a_{1} x^{1} + a_{2}
+x^{2} + \cdots\in\mathbb{K}\left[  \left[  x \right]  \right]  \qquad
+\text{(where $a_{i} \in\mathbb{K}$),}%
+\]
+we define the \textit{integral} $\int f$ of $f$ to be the FPS
+\[
+\sum_{k \geq0} \dfrac{1}{k+1} a_{k} x^{k+1} = \dfrac{1}{1} a_{0} x^{1} +
+\dfrac{1}{2} a_{1} x^{2} + \dfrac{1}{3} a_{2} x^{3} + \cdots\in\mathbb{K}%
+\left[  \left[  x \right]  \right]  .
+\]
+(This definition imitates the standard procedure for integrating power series
+in analysis, but again works for any commutative ring $\mathbb{K}$ that
+contains $\mathbb{Q}$ as subring.)
+
+Let $J : \mathbb{K}\left[  \left[  x \right]  \right]  \to\mathbb{K}\left[
+\left[  x \right]  \right]  $ be the map sending each FPS $f$ to its integral
+$\int f$. Prove the following:
+
+\begin{enumerate}
+\item[\textbf{(g)}] The map $J : \mathbb{K}\left[  \left[  x \right]  \right]
+\to\mathbb{K}\left[  \left[  x \right]  \right]  $ is $\mathbb{K}$-linear.
+
+\item[\textbf{(h)}] We have $D \circ J = \operatorname{id}$.
+
+\item[\textbf{(i)}] We have $J \circ D \neq\operatorname{id}$.
+\end{enumerate}
+
+[\textbf{Hint:} Don't give too much detail; workable outlines are sufficient.
+Feel free to interchange summation signs without justification. For part
+\textbf{(c)}, it is easiest to first prove it in the particular case when $f =
+x^{a}$ and $g = x^{b}$ for some $f$ and $g$, and then obtain the general case
+by interchanging summations.]
+
+\subsection{Remark}
+
+This exercise is just the beginning of \textquotedblleft algebraic
+calculus\textquotedblright. A lot more can be done: Differentiation can be
+extended to rational functions; partial derivatives can be defined for
+multivariate polynomials and FPSs; differential equations can be solved
+formally in FPSs (rather than functions); even a purely algebraic analogue of
+the classical $f^{\prime}\left(  x\right)  =\lim\limits_{\varepsilon
+\rightarrow0}\dfrac{f\left(  x+\varepsilon\right)  -f\left(  x\right)
+}{\varepsilon}$ definition exists\footnote{See Theorem 5 in
+\url{https://math.stackexchange.com/a/2974977/} .}. These algebraic
+derivatives play crucial roles in the study of fields (including finite
+fields!), in algebraic geometry (where they help define what a
+\textquotedblleft singularity\textquotedblright\ of an algebraic variety is)
+and in enumerative combinatorics (where they aid in computing generating
+functions\footnote{see \cite[\S 7.8 and further on]{Loehr-BC}, \cite{Wilf94}
+and \cite[\S 7.2 and further on]{GKP} for examples}).
+
+Part \textbf{(e)} is an algebraic counterpart of
+\href{https://en.wikipedia.org/wiki/Taylor_series}{the well-known Taylor
+series from calculus} (and it is much easier than the latter: no error terms,
+no smoothness requirements, no convergence issues).
+
+The ``integral'' $\int f$ we defined above is, of course, only one possible
+choice of an FPS $g$ satisfying $g^{\prime}= f$. Just as in calculus, you can
+add any constant to it, and you get another. Part \textbf{(h)} is an algebraic
+version of one half of the Fundamental Theorem of Calculus. You can easily
+prove the other half: For each FPS $f$, the FPS $\left(  J \circ D \right)
+\left(  f \right)  $ differs from $f$ only in its constant term.
+
+If $\mathbb{K}$ contains $\mathbb{Q}$ as a subring, then both $J$ and $D$ are
+elements of the $\mathbb{K}$-algebra $\operatorname{End}\left(  \mathbb{K}%
+\left[  \left[  x\right]  \right]  \right)  $ (by parts \textbf{(b)} and
+\textbf{(g)} of this exercise). Part \textbf{(h)} of this exercise shows that
+$J$ is a right inverse of $D$; but part \textbf{(i)} shows that $J$ is not a
+left inverse (and thus not an inverse) of $D$. This yields an example of a
+left inverse that is not a right inverse. Of course, part \textbf{(h)} is an
+algebraic analogue of the
+\href{https://en.wikipedia.org/wiki/Fundamental_theorem_of_calculus#First_part}{first
+Fundamental Theorem of Calculus}.
+
+\subsection{Solution sketch}
+
+We recall the following notation (which we introduced in the class notes): For
+each $n\in\mathbb{Z}$, we define a subset $\mathbb{K}\left[  x\right]  _{\leq
+n}$ of $\mathbb{K}\left[  \left[  x\right]  \right]  $ by%
+\begin{align*}
+\mathbb{K}\left[  x\right]  _{\leq n}  &  =\left\{  \left(  a_{0},a_{1}%
+,a_{2},\ldots\right)  \in\mathbb{K}\left[  \left[  x\right]  \right]
+\ \mid\ a_{k}=0\text{ for all }k>n\right\} \\
+&  =\left\{  \mathbf{a}\in\mathbb{K}\left[  \left[  x\right]  \right]
+\ \mid\ \left[  x^{k}\right]  \mathbf{a}=0\text{ for all }k>n\right\}  .
+\end{align*}
+We know that a FPS $\mathbf{a}\in\mathbb{K}\left[  \left[  x\right]  \right]
+$ belongs to $\mathbb{K}\left[  x\right]  _{\leq n}$ (for a given
+$n\in\mathbb{Z}$) if and only if $\mathbf{a}$ is a polynomial of degree $\leq
+n$. We also know that $\mathbb{K}\left[  x\right]  _{\leq n}$ is a
+$\mathbb{K}$-submodule of $\mathbb{K}\left[  \left[  x\right]  \right]  $ (for
+each $n\in\mathbb{N}$).
+
+\bigskip
+
+\textbf{(a)} Let $f\in\mathbb{K}\left[  x\right]  $. Write the FPS $f$ in the
+form $f=\sum_{k\in\mathbb{N}}a_{k}x^{k}$ with $a_{0},a_{1},a_{2},\ldots
+\in\mathbb{K}$. Thus,%
+\begin{equation}
+\left[  x^{i}\right]  f=a_{i}\qquad\text{for each }i\in\mathbb{N}
+\label{sol.pol.diff1.a.1}%
+\end{equation}
+(by the definition of $\left[  x^{i}\right]  f$). Furthermore, the definition
+of $f^{\prime}$ yields $f^{\prime}=\sum_{k>0}ka_{k}x^{k-1}$.
+
+We WLOG assume that $f\neq0$ (because otherwise, we have $f=0$ and thus
+$f^{\prime}=0^{\prime}=0\in\mathbb{K}\left[  x\right]  $ and $\deg
+\underbrace{\left(  f^{\prime}\right)  }_{=0}=\deg0=-\infty\leq\deg f-1$).
+
+Define an $m\in\mathbb{N}$ by $m=\deg f$. (This is well-defined, since
+$f\neq0$.) From $m=\deg f$, we conclude that $\left[  x^{i}\right]  f=0$ for
+all integers $i>m$ (by the definition of degree). Hence, each integer $i>m$
+satisfies%
+\begin{align}
+a_{i}  &  =\left[  x^{i}\right]  f\qquad\left(  \text{by
+\eqref{sol.pol.diff1.a.1}}\right) \nonumber\\
+&  =0. \label{sol.pol.diff1.a.2}%
+\end{align}
+Renaming $i$ as $k$ in this statement, we obtain that%
+\begin{equation}
+\text{each integer }k>m\text{ satisfies }a_{k}=0\text{.}
+\label{sol.pol.diff1.a.3}%
+\end{equation}
+Now,%
+\begin{align*}
+f^{\prime}  &  =\sum_{k>0}ka_{k}x^{k-1}=\sum_{k=1}^{m}ka_{k}x^{k-1}%
++\sum_{k=m+1}^{\infty}k\underbrace{a_{k}}_{\substack{=0\\\text{(by
+\eqref{sol.pol.diff1.a.3})}}}x^{k-1}=\sum_{k=1}^{m}ka_{k}x^{k-1}%
++\underbrace{\sum_{k=m+1}^{\infty}k0x^{k-1}}_{=0}\\
+&  =\sum_{k=1}^{m}ka_{k}x^{k-1}=1a_{1}x^{1-1}+2a_{2}x^{2-1}+\cdots
++ma_{m}x^{m-1}.
+\end{align*}
+Hence, $f^{\prime}$ is a $\mathbb{K}$-linear combination of the $m$
+polynomials $x^{1-1},x^{2-1},\ldots,x^{m-1}$ (since the coefficients $ka_{k}$
+belong to $\mathbb{K}$). But these $m$ polynomials $x^{1-1},x^{2-1}%
+,\ldots,x^{m-1}$ all belong to $\mathbb{K}\left[  x\right]  _{\leq m-1}$.
+Thus, their $\mathbb{K}$-linear combination $f^{\prime}$ also belongs to
+$\mathbb{K}\left[  x\right]  _{\leq m-1}$ (since $\mathbb{K}\left[  x\right]
+_{\leq m-1}$ is a $\mathbb{K}$-module). In other words, $f^{\prime}%
+\in\mathbb{K}\left[  x\right]  _{\leq m-1}$. In other words, $f^{\prime}$ is a
+polynomial of degree $\leq m-1$. Hence, $f^{\prime}$ is a polynomial and
+satisfies $\deg\left(  f^{\prime}\right)  \leq\underbrace{m}_{=\deg f}-1=\deg
+f-1$. This solves part \textbf{(a)} of the exercise.
+
+[\textit{Remark:} It is not guaranteed that $\deg\left(  f^{\prime}\right)
+=\deg f-1$. First of all, this equality is false when $\deg f=0$ (because in
+this case, $f^{\prime}=0$ and thus $\deg f^{\prime}=-\infty\neq0-1$). But even
+when $\deg f$ is positive, the equality $\deg\left(  f^{\prime}\right)  =\deg
+f-1$ may fail. For example, if $\mathbb{K}=\mathbb{Z}/2$ and $f=x^{2}+x$, then
+$f^{\prime}=\underbrace{2}_{=0\text{ in }\mathbb{K}}x+1=1$ has degree
+$\deg\left(  f^{\prime}\right)  =0<2-1$.
+
+It is easy to see that $\deg\left(  f^{\prime}\right)  =\deg f-1$ holds when
+$\mathbb{K}$ is a field satisfying $\left(  \deg f\right)  \cdot1_{\mathbb{K}%
+}\neq0$.]
+
+\bigskip
+
+\textbf{(b)} According to the definition of a $\mathbb{K}$-linear map (also
+known as a $\mathbb{K}$-module homomorphism), we must prove the following
+three statements:
+
+\begin{statement}
+\textit{Statement 1:} We have $D\left(  a+b\right)  =D\left(  a\right)
++D\left(  b\right)  $ for all $a,b\in\mathbb{K}\left[  \left[  x\right]
+\right]  $.
+\end{statement}
+
+\begin{statement}
+\textit{Statement 2:} We have $D\left(  0\right)  =0$.
+\end{statement}
+
+\begin{statement}
+\textit{Statement 3:} We have $D\left(  \lambda a\right)  =\lambda D\left(
+a\right)  $ for all $\lambda\in\mathbb{K}$ and $a\in\mathbb{K}\left[  \left[
+x\right]  \right]  $.
+\end{statement}
+
+We shall only prove the first of these three statements; the other two are similar.
+
+[\textit{Proof of Statement 1:} Let $a,b\in\mathbb{K}\left[  \left[  x\right]
+\right]  $. We must prove that $D\left(  a+b\right)  =D\left(  a\right)
++D\left(  b\right)  $.
+
+Write the FPS $a$ in the form $a=\sum_{k\in\mathbb{N}}a_{k}x^{k}$ with
+$a_{0},a_{1},a_{2},\ldots\in\mathbb{K}$. Then, the definition of $a^{\prime}$
+yields $a^{\prime}=\sum_{k>0}ka_{k}x^{k-1}$.
+
+Write the FPS $b$ in the form $b=\sum_{k\in\mathbb{N}}b_{k}x^{k}$ with
+$b_{0},b_{1},b_{2},\ldots\in\mathbb{K}$. Then, the definition of $b^{\prime}$
+yields $b^{\prime}=\sum_{k>0}kb_{k}x^{k-1}$.
+
+Now, adding the equalities $a=\sum_{k\in\mathbb{N}}a_{k}x^{k}$ and
+$b=\sum_{k\in\mathbb{N}}b_{k}x^{k}$ together, we obtain
+\[
+a+b=\sum_{k\in\mathbb{N}}a_{k}x^{k}+\sum_{k\in\mathbb{N}}b_{k}x^{k}=\sum
+_{k\in\mathbb{N}}\underbrace{\left(  a_{k}x^{k}+b_{k}x^{k}\right)  }_{=\left(
+a_{k}+b_{k}\right)  x^{k}}=\sum_{k\in\mathbb{N}}\left(  a_{k}+b_{k}\right)
+x^{k}.
+\]
+(and the coefficients $a_{0}+b_{0},a_{1}+b_{1},a_{2}+b_{2},\ldots$ appearing
+on the right hand side of this equality all belong to $\mathbb{K}$). Thus, the
+definition of $\left(  a+b\right)  ^{\prime}$ yields%
+\[
+\left(  a+b\right)  ^{\prime}=\sum_{k>0}\underbrace{k\left(  a_{k}%
++b_{k}\right)  x^{k-1}}_{=ka_{k}x^{k-1}+kb_{k}x^{k-1}}=\sum_{k>0}\left(
+ka_{k}x^{k-1}+kb_{k}x^{k-1}\right)  =\sum_{k>0}ka_{k}x^{k-1}+\sum_{k>0}%
+kb_{k}x^{k-1}.
+\]
+Comparing this with%
+\[
+\underbrace{a^{\prime}}_{=\sum_{k>0}ka_{k}x^{k-1}}+\underbrace{b^{\prime}%
+}_{=\sum_{k>0}kb_{k}x^{k-1}}=\sum_{k>0}ka_{k}x^{k-1}+\sum_{k>0}kb_{k}x^{k-1},
+\]
+we obtain $\left(  a+b\right)  ^{\prime}=a^{\prime}+b^{\prime}$. But the
+definition of $D$ yields $D\left(  a\right)  =a^{\prime}$ and $D\left(
+b\right)  =b^{\prime}$ and $D\left(  a+b\right)  =\left(  a+b\right)
+^{\prime}$. In light of these three equalities, we can rewrite our result
+$\left(  a+b\right)  ^{\prime}=a^{\prime}+b^{\prime}$ as $D\left(  a+b\right)
+=D\left(  a\right)  +D\left(  b\right)  $. This proves Statement 1.]
+
+Thus, we have proven Statement 1. The proofs of Statement 2 and Statement 3
+are similar (but easier). This completes our solution of part \textbf{(b)}.
+
+\bigskip
+
+Before we move on to the next parts of the exercise, let us prove several
+auxiliary statements. The first is a mere restatement of the definition of the
+derivative $f^{\prime}$ of an FPS $f$:
+
+\begin{statement}
+\textit{Statement 4:} Let $f\in\mathbb{K}\left[  \left[  x\right]  \right]  $.
+Then,%
+\[
+\left[  x^{n}\right]  \left(  f^{\prime}\right)  =\left(  n+1\right)  \left[
+x^{n+1}\right]  f\qquad\text{for each }n\in\mathbb{N}\text{.}%
+\]
+
+\end{statement}
+
+[\textit{Proof of Statement 4:} We have $f=\sum_{k\in\mathbb{N}}\left(
+\left[  x^{k}\right]  f\right)  x^{k}$ (since the $\left[  x^{k}\right]  f$
+are the coefficients of $f$). Hence, the definition of $f^{\prime}$ yields%
+\[
+f^{\prime}=\sum_{k>0}k\left(  \left[  x^{k}\right]  f\right)  x^{k-1}%
+=\sum_{k\in\mathbb{N}}\left(  k+1\right)  \left(  \left[  x^{k+1}\right]
+f\right)  x^{k}%
+\]
+(here, we have substituted $k+1$ for $k$ in the sum). Hence, $\left[
+x^{n}\right]  \left(  f^{\prime}\right)  =\left(  n+1\right)  \left(  \left[
+x^{n+1}\right]  f\right)  $ for each $n\in\mathbb{N}$ (by the definition of
+$\left[  x^{n}\right]  \left(  f^{\prime}\right)  $). This proves Statement 4.]
+
+\bigskip
+
+Our next auxiliary statement is an extension of Statement 1 (which we proved
+above, in our solution to part \textbf{(b)}) to arbitrary (possibly infinite)
+sums of summable families:
+
+\begin{statement}
+\textit{Statement 5:} Let $\left(  f_{i}\right)  _{i\in I}$ be a summable
+family of FPSs in $\mathbb{K}\left[  \left[  x\right]  \right]  $. Then, we
+have $D\left(  \sum_{i\in I}f_{i}\right)  =\sum_{i\in I}D\left(  f_{i}\right)
+$. (In particular, the family $\left(  D\left(  f_{i}\right)  \right)  _{i\in
+I}$ is summable.)
+\end{statement}
+
+[\textit{Proof of Statement 5 (sketched):} For each $i\in I$ and
+$n\in\mathbb{N}$, we have%
+\begin{equation}
+\left[  x^{n}\right]  \underbrace{\left(  D\left(  f_{i}\right)  \right)
+}_{\substack{=\left(  f_{i}\right)  ^{\prime}\\\text{(by the definition of
+}D\text{)}}}=\left[  x^{n}\right]  \left(  \left(  f_{i}\right)  ^{\prime
+}\right)  =\left(  n+1\right)  \left(  \left[  x^{n+1}\right]  \left(
+f_{i}\right)  \right)  \label{sol.pol.diff1.s5.a.pf.2}%
+\end{equation}
+(by Statement 4, applied to $f=f_{i}$).
+
+We shall now prove that the family $\left(  D\left(  f_{i}\right)  \right)
+_{i\in I}$ is summable.
+
+Indeed, the family $\left(  f_{i}\right)  _{i\in I}$ is summable. In other
+words, for each $n\in\mathbb{N}$, the following requirement holds:%
+\begin{equation}
+\text{only finitely many }i\in I\text{ satisfy }\left[  x^{n}\right]  \left(
+f_{i}\right)  \neq0. \label{sol.pol.diff1.s5.a.pf.sable1}%
+\end{equation}
+
+
+Now, let $n\in\mathbb{N}$. Then, only finitely many $i\in I$ satisfy $\left[
+x^{n+1}\right]  \left(  f_{i}\right)  \neq0$ (by
+\eqref{sol.pol.diff1.s5.a.pf.sable1}, applied to $n+1$ instead of $n$). Thus,
+only finitely many $i\in I$ satisfy $\left(  n+1\right)  \left(  \left[
+x^{n+1}\right]  \left(  f_{i}\right)  \right)  \neq0$ (because $\left(
+n+1\right)  \left(  \left[  x^{n+1}\right]  \left(  f_{i}\right)  \right)
+\neq0$ can only hold if $\left[  x^{n+1}\right]  \left(  f_{i}\right)  \neq
+0$). In view of \eqref{sol.pol.diff1.s5.a.pf.2}, this rewrites as follows:
+Only finitely many $i\in I$ satisfy $\left[  x^{n}\right]  \left(  D\left(
+f_{i}\right)  \right)  \neq0$.
+
+Now, forget that we fixed $n$. We thus have shown that for each $n\in
+\mathbb{N}$, only finitely many $i\in I$ satisfy $\left[  x^{n}\right]
+\left(  D\left(  f_{i}\right)  \right)  \neq0$. In other words, the family
+$\left(  D\left(  f_{i}\right)  \right)  _{i\in I}$ is summable.
+
+The sum of a summable family is defined entrywise. Thus, each $n\in\mathbb{N}$
+satisfies%
+\begin{equation}
+\left[  x^{n}\right]  \left(  \sum_{i\in I}D\left(  f_{i}\right)  \right)
+=\sum_{i\in I}\underbrace{\left[  x^{n}\right]  \left(  D\left(  f_{i}\right)
+\right)  }_{\substack{=\left(  n+1\right)  \left(  \left[  x^{n+1}\right]
+\left(  f_{i}\right)  \right)  \\\text{(by \eqref{sol.pol.diff1.s5.a.pf.2})}%
+}}=\sum_{i\in I}\left(  n+1\right)  \left(  \left[  x^{n+1}\right]  \left(
+f_{i}\right)  \right)  . \label{sol.pol.diff1.s5.a.pf.5}%
+\end{equation}
+Also, Statement 4 (applied to $f=\sum_{i\in I}f_{i}$) shows that each
+$n\in\mathbb{N}$ satisfies%
+\begin{align*}
+\left[  x^{n}\right]  \left(  \left(  \sum_{i\in I}f_{i}\right)  ^{\prime
+}\right)   &  =\left(  n+1\right)  \underbrace{\left[  x^{n+1}\right]  \left(
+\sum_{i\in I}f_{i}\right)  }_{\substack{=\sum_{i\in I}\left[  x^{n+1}\right]
+\left(  f_{i}\right)  \\\text{(since the sum of a summable}\\\text{family is
+defined entrywise)}}}=\left(  n+1\right)  \sum_{i\in I}\left[  x^{n+1}\right]
+\left(  f_{i}\right) \\
+&  =\sum_{i\in I}\left(  n+1\right)  \left(  \left[  x^{n+1}\right]  \left(
+f_{i}\right)  \right)  .
+\end{align*}
+Comparing this with \eqref{sol.pol.diff1.s5.a.pf.5}, we obtain that%
+\[
+\left[  x^{n}\right]  \left(  \left(  \sum_{i\in I}f_{i}\right)  ^{\prime
+}\right)  =\left[  x^{n}\right]  \left(  \sum_{i\in I}D\left(  f_{i}\right)
+\right)  \qquad\text{for each }n\in\mathbb{N}\text{.}%
+\]
+In other words, $\left(  \sum_{i\in I}f_{i}\right)  ^{\prime}=\sum_{i\in
+I}D\left(  f_{i}\right)  $. But the definition of $D$ yields $D\left(
+\sum_{i\in I}f_{i}\right)  =\left(  \sum_{i\in I}f_{i}\right)  ^{\prime}%
+=\sum_{i\in I}D\left(  f_{i}\right)  $. This completes the proof of Statement 5.]
+
+\bigskip
+
+Our next auxiliary statement extends Statement 5 from sums of FPSs to
+$\mathbb{K}$-linear combinations of FPSs:
+
+\begin{statement}
+\textit{Statement 6:} Let $\left(  f_{i}\right)  _{i\in I}$ be a summable
+family of FPSs in $\mathbb{K}\left[  \left[  x\right]  \right]  $. Let
+$\left(  \lambda_{i}\right)  _{i\in I}\in\mathbb{K}^{I}$ be any family of
+scalars. Then, we have $D\left(  \sum_{i\in I}\lambda_{i}f_{i}\right)
+=\sum_{i\in I}\lambda_{i}D\left(  f_{i}\right)  $. (In particular, the
+families $\left(  \lambda_{i}f_{i}\right)  _{i\in I}$ and $\left(  \lambda
+_{i}D\left(  f_{i}\right)  \right)  _{i\in I}$ are summable.)
+\end{statement}
+
+[\textit{Proof of Statement 6 (sketched):} The map $D$ is $\mathbb{K}$-linear
+(by part \textbf{(b)} of this exercise).
+
+The family $\left(  f_{i}\right)  _{i\in I}$ is summable. Thus, it is easy to
+see that the family $\left(  \lambda_{i}f_{i}\right)  _{i\in I}$ is
+summable\footnote{because if some $i\in I$ and $n\in\mathbb{N}$ satisfy
+$\left[  x^{n}\right]  \left(  \lambda_{i}f_{i}\right)  \neq0$, then they must
+also satisfy $\left[  x^{n}\right]  \left(  f_{i}\right)  \neq0$ (because
+$\lambda_{i}\cdot\left[  x^{n}\right]  \left(  f_{i}\right)  =\left[
+x^{n}\right]  \left(  \lambda_{i}f_{i}\right)  \neq0$)}. Hence, Statement 5
+(applied to $\lambda_{i}f_{i}$ instead of $f_{i}$) yields that we have
+$D\left(  \sum_{i\in I}\lambda_{i}f_{i}\right)  =\sum_{i\in I}D\left(
+\lambda_{i}f_{i}\right)  $, and the family $\left(  D\left(  \lambda_{i}%
+f_{i}\right)  \right)  _{i\in I}$ is summable. Since each $i\in I$ satisfies
+$D\left(  \lambda_{i}f_{i}\right)  =\lambda_{i}D\left(  f_{i}\right)  $
+(because $D$ is a $\mathbb{K}$-linear map), we can rewrite this as follows: We
+have $D\left(  \sum_{i\in I}\lambda_{i}f_{i}\right)  =\sum_{i\in I}\lambda
+_{i}D\left(  f_{i}\right)  $, and that the family $\left(  \lambda_{i}D\left(
+f_{i}\right)  \right)  _{i\in I}$ is summable. This completes the proof of
+Statement 6.]
+
+\bigskip
+
+Furthermore, let us generalize Statement 6 from $D$ to all powers $D^{k}$ of
+$D$:
+
+\begin{statement}
+\textit{Statement 7:} Let $\left(  f_{i}\right)  _{i\in I}$ be a summable
+family of FPSs in $\mathbb{K}\left[  \left[  x\right]  \right]  $. Let
+$\left(  \lambda_{i}\right)  _{i\in I}\in\mathbb{K}^{I}$ be any family of
+scalars. Let $k\in\mathbb{N}$. Then, we have $D^{k}\left(  \sum_{i\in
+I}\lambda_{i}f_{i}\right)  =\sum_{i\in I}\lambda_{i}D^{k}\left(  f_{i}\right)
+$. (In particular, the families $\left(  \lambda_{i}f_{i}\right)  _{i\in I}$
+and $\left(  \lambda_{i}D^{k}\left(  f_{i}\right)  \right)  _{i\in I}$ are summable.)
+\end{statement}
+
+[\textit{Proof of Statement 7 (sketched):} Statement 7 is easy to prove by
+induction on $k$. The induction base (i.e., the case $k=0$) is obvious, and
+the induction step uses Statement 6.]
+
+\bigskip
+
+Finally, let us describe the derivative of a monomial:
+
+\begin{statement}
+\textit{Statement 8:} Let $m\in\mathbb{N}$. Then, $D\left(  x^{m}\right)
+=mx^{m-1}$. (Here, the expression \textquotedblleft$mx^{m-1}$%
+\textquotedblright\ is to be understood as $0$ when $m=0$.)
+\end{statement}
+
+[\textit{Proof of Statement 8 (sketched):} We have%
+\begin{equation}
+\left[  x^{n}\right]  \left(  x^{m}\right)  =%
+\begin{cases}
+1, & \text{if }n=m;\\
+0, & \text{if }n\neq m
+\end{cases}
+\qquad\text{for each }n\in\mathbb{N}. \label{sol.pol.diff1.s8.pf.1}%
+\end{equation}
+Also, we have%
+\begin{equation}
+\left[  x^{n}\right]  \left(  mx^{m-1}\right)  =%
+\begin{cases}
+m, & \text{if }n=m-1;\\
+0, & \text{if }n\neq m-1
+\end{cases}
+\qquad\text{for each }n\in\mathbb{N}. \label{sol.pol.diff1.s8.pf.2}%
+\end{equation}
+(This is clearly true when $m>0$, but also holds for $m=0$ by our definition
+of $mx^{m-1}$ in that case.)
+
+Now, for each $n\in\mathbb{N}$, we have%
+\begin{align*}
+&  \left[  x^{n}\right]  \left(  \left(  x^{m}\right)  ^{\prime}\right) \\
+&  =\left(  n+1\right)  \underbrace{\left[  x^{n+1}\right]  \left(
+x^{m}\right)  }_{\substack{=%
+\begin{cases}
+1, & \text{if }n+1=m;\\
+0, & \text{if }n+1\neq m
+\end{cases}
+\\\text{(by \eqref{sol.pol.diff1.s8.pf.1}, applied to }n+1\text{ instead of
+}n\text{)}}}\qquad\left(  \text{by Statement 4, applied to }f=x^{m}\right) \\
+&  =\left(  n+1\right)  \cdot%
+\begin{cases}
+1, & \text{if }n+1=m;\\
+0, & \text{if }n+1\neq m
+\end{cases}
+\\
+&  =%
+\begin{cases}
+\left(  n+1\right)  \cdot1, & \text{if }n+1=m;\\
+\left(  n+1\right)  \cdot0, & \text{if }n+1\neq m
+\end{cases}
+=%
+\begin{cases}
+n+1, & \text{if }n+1=m;\\
+0, & \text{if }n+1\neq m
+\end{cases}
+\\
+&  =%
+\begin{cases}
+m, & \text{if }n+1=m;\\
+0, & \text{if }n+1\neq m
+\end{cases}
+\qquad\left(  \text{since we have }n+1=m\text{ in the case when }n+1=m\right)
+\\
+&  =%
+\begin{cases}
+m, & \text{if }n=m-1;\\
+0, & \text{if }n\neq m-1
+\end{cases}
+\\
+&  \qquad\left(
+\begin{array}
+[c]{c}%
+\text{since the condition \textquotedblleft}n+1=m\text{\textquotedblright\ is
+equivalent to \textquotedblleft}n=m-1\text{\textquotedblright,}\\
+\text{and the condition \textquotedblleft}n+1\neq m\text{\textquotedblright%
+\ is equivalent to \textquotedblleft}n\neq m-1\text{\textquotedblright}%
+\end{array}
+\right) \\
+&  =\left[  x^{n}\right]  \left(  mx^{m-1}\right)  \qquad\left(  \text{by
+\eqref{sol.pol.diff1.s8.pf.2}}\right)  .
+\end{align*}
+In other words, we have $\left(  x^{m}\right)  ^{\prime}=mx^{m-1}$. But the
+definition of $D$ yields $D\left(  x^{m}\right)  =\left(  x^{m}\right)
+^{\prime}=mx^{m-1}$. This proves Statement 8.]
+
+\bigskip
+
+Let us now resume solving the exercise.
+
+\bigskip
+
+\textbf{(c)} Here is one possible way to solve this. (Another can be found in
+\cite[proof of Proposition 0.2 \textbf{(c)}]{Grinbe18}.)
+
+We shall follow the same convention that we used in Statement 8: Namely, the
+expression \textquotedblleft$mx^{m-1}$\textquotedblright\ is to be understood
+as $0$ when $m=0$.
+
+Let $f,g\in\mathbb{K}\left[  \left[  x\right]  \right]  $ be two FPSs.
+
+Write the FPS $f$ in the form $f=\sum_{k\in\mathbb{N}}a_{k}x^{k}$ with
+$a_{0},a_{1},a_{2},\ldots\in\mathbb{K}$.
+
+Write the FPS $g$ in the form $g=\sum_{k\in\mathbb{N}}b_{k}x^{k}$ with
+$b_{0},b_{1},b_{2},\ldots\in\mathbb{K}$.
+
+Multiplying the equalities $f=\sum_{k\in\mathbb{N}}a_{k}x^{k}=\sum
+_{i\in\mathbb{N}}a_{i}x^{i}$ and $g=\sum_{k\in\mathbb{N}}b_{k}x^{k}=\sum
+_{j\in\mathbb{N}}b_{j}x^{j}$, we obtain%
+\begin{equation}
+fg=\left(  \sum_{i\in\mathbb{N}}a_{i}x^{i}\right)  \left(  \sum_{j\in
+\mathbb{N}}b_{j}x^{j}\right)  =\sum_{i\in\mathbb{N}}\sum_{j\in\mathbb{N}}%
+a_{i}\underbrace{x^{i}b_{j}x^{j}}_{=b_{j}x^{i+j}}=\sum_{i\in\mathbb{N}}%
+\sum_{j\in\mathbb{N}}a_{i}b_{j}x^{i+j}. \label{sol.pol.diff1.c.pf.1}%
+\end{equation}
+Applying the map $D$ to both sides of this equality, we obtain%
+\begin{equation}
+D\left(  fg\right)  =D\left(  \sum_{i\in\mathbb{N}}\sum_{j\in\mathbb{N}}%
+a_{i}b_{j}x^{i+j}\right)  =\sum_{i\in\mathbb{N}}D\left(  \sum_{j\in\mathbb{N}%
+}a_{i}b_{j}x^{i+j}\right)  \label{sol.pol.diff1.c.pf.2}%
+\end{equation}
+(by Statement 5, applied to the set $I=\mathbb{N}$ and the summable family
+\newline$\left(  f_{i}\right)  _{i\in I}=\left(  \sum_{j\in\mathbb{N}}%
+a_{i}b_{j}x^{i+j}\right)  _{i\in\mathbb{N}}$ of FPSs). But each $i\in
+\mathbb{N}$ satisfies%
+\begin{equation}
+D\left(  \sum_{j\in\mathbb{N}}a_{i}b_{j}x^{i+j}\right)  =\sum_{j\in\mathbb{N}%
+}a_{i}b_{j}D\left(  x^{i+j}\right)  \label{sol.pol.diff1.c.pf.3}%
+\end{equation}
+(by Statement 6, applied to the set $I=\mathbb{N}$, the family\footnote{We are
+using \textquotedblleft$j$\textquotedblright\ instead of \textquotedblleft%
+$i$\textquotedblright\ for the index of our families now, because the letter
+\textquotedblleft$i$\textquotedblright\ already means something else.}
+$\left(  \lambda_{j}\right)  _{j\in I}=\left(  a_{i}b_{j}\right)
+_{j\in\mathbb{N}}$ of scalars and the summable family $\left(  f_{j}\right)
+_{j\in I}=\left(  x^{i+j}\right)  _{j\in\mathbb{N}}$ of FPSs). Thus,
+\eqref{sol.pol.diff1.c.pf.2} becomes%
+\[
+D\left(  fg\right)  =\sum_{i\in\mathbb{N}}\underbrace{D\left(  \sum
+_{j\in\mathbb{N}}a_{i}b_{j}x^{i+j}\right)  }_{\substack{=\sum_{j\in\mathbb{N}%
+}a_{i}b_{j}D\left(  x^{i+j}\right)  \\\text{(by \eqref{sol.pol.diff1.c.pf.3})}%
+}}=\sum_{i\in\mathbb{N}}\sum_{j\in\mathbb{N}}a_{i}b_{j}\underbrace{D\left(
+x^{i+j}\right)  }_{\substack{=\left(  i+j\right)  x^{i+j-1}\\\text{(by
+Statement 8,}\\\text{applied to }m=i+j\text{)}}}=\sum_{i\in\mathbb{N}}%
+\sum_{j\in\mathbb{N}}a_{i}b_{j}\left(  i+j\right)  x^{i+j-1}.
+\]
+Comparing this with
+\[
+D\left(  fg\right)  =\left(  fg\right)  ^{\prime}\qquad\left(  \text{by the
+definition of }D\right)  ,
+\]
+we obtain%
+\begin{equation}
+\left(  fg\right)  ^{\prime}=\sum_{i\in\mathbb{N}}\sum_{j\in\mathbb{N}}%
+a_{i}b_{j}\left(  i+j\right)  x^{i+j-1}. \label{sol.pol.diff1.c.pf.L=}%
+\end{equation}
+
+
+On the other hand, from $f=\sum_{k\in\mathbb{N}}a_{k}x^{k}$, we obtain%
+\[
+f^{\prime}=\sum_{k>0}ka_{k}x^{k-1}\qquad\left(  \text{by the definition of
+}f^{\prime}\right)  .
+\]
+Comparing this with%
+\begin{align*}
+\sum_{k\in\mathbb{N}}a_{k}kx^{k-1}  &  =a_{0}\underbrace{0x^{0-1}%
+}_{\substack{=0\\\text{(since we understand \textquotedblleft}mx^{m-1}%
+\text{\textquotedblright}\\\text{to mean }0\text{ when }m=0\text{)}}%
+}+\sum_{k>0}\underbrace{a_{k}k}_{=ka_{k}}x^{k-1}\\
+&  \qquad\left(  \text{here, we have split off the addend for }k=0\text{ from
+the sum}\right) \\
+&  =\underbrace{a_{0}0}_{=0}+\sum_{k>0}ka_{k}x^{k-1}=\sum_{k>0}ka_{k}x^{k-1},
+\end{align*}
+we obtain%
+\begin{equation}
+f^{\prime}=\sum_{k\in\mathbb{N}}a_{k}kx^{k-1}. \label{sol.pol.diff1.c.pf.f'=}%
+\end{equation}
+The same argument (applied to $g$ and $b_{k}$ instead of $f$ and $a_{k}$)
+yields%
+\begin{equation}
+g^{\prime}=\sum_{k\in\mathbb{N}}b_{k}kx^{k-1}. \label{sol.pol.diff1.c.pf.g'=}%
+\end{equation}
+
+
+Multiplying the equalities $f^{\prime}=\sum_{k\in\mathbb{N}}a_{k}kx^{k-1}%
+=\sum_{i\in\mathbb{N}}a_{i}ix^{i-1}$ and $g=\sum_{k\in\mathbb{N}}b_{k}%
+x^{k}=\sum_{j\in\mathbb{N}}b_{j}x^{j}$, we obtain%
+\begin{align}
+f^{\prime}g  &  =\left(  \sum_{i\in\mathbb{N}}a_{i}ix^{i-1}\right)  \left(
+\sum_{j\in\mathbb{N}}b_{j}x^{j}\right)  =\sum_{i\in\mathbb{N}}\sum
+_{j\in\mathbb{N}}a_{i}\underbrace{ix^{i-1}b_{j}x^{j}}_{=b_{j}ix^{i-1}x^{j}%
+}=\sum_{i\in\mathbb{N}}\sum_{j\in\mathbb{N}}a_{i}b_{j}i\underbrace{x^{i-1}%
+x^{j}}_{=x^{\left(  i-1\right)  +j}=x^{i+j-1}}\nonumber\\
+&  =\sum_{i\in\mathbb{N}}\sum_{j\in\mathbb{N}}a_{i}b_{j}ix^{i+j-1}.
+\label{sol.pol.diff1.c.pf.f'g=}%
+\end{align}
+Multiplying the equalities $f=\sum_{k\in\mathbb{N}}a_{k}x^{k}=\sum
+_{i\in\mathbb{N}}a_{i}x^{i}$ and $g^{\prime}=\sum_{k\in\mathbb{N}}%
+b_{k}kx^{k-1}=\sum_{j\in\mathbb{N}}b_{j}jx^{j-1}$, we obtain%
+\begin{align*}
+fg^{\prime}  &  =\left(  \sum_{i\in\mathbb{N}}a_{i}x^{i}\right)  \left(
+\sum_{j\in\mathbb{N}}b_{j}jx^{j-1}\right)  =\sum_{i\in\mathbb{N}}\sum
+_{j\in\mathbb{N}}a_{i}\underbrace{x^{i}b_{j}jx^{j-1}}_{=b_{j}jx^{i}x^{j-1}%
+}=\sum_{i\in\mathbb{N}}\sum_{j\in\mathbb{N}}a_{i}b_{j}j\underbrace{x^{i}%
+x^{j-1}}_{=x^{i+\left(  j-1\right)  }=x^{i+j-1}}\\
+&  =\sum_{i\in\mathbb{N}}\sum_{j\in\mathbb{N}}a_{i}b_{j}jx^{i+j-1}.
+\end{align*}
+Adding this equality to the equality \eqref{sol.pol.diff1.c.pf.f'g=}, we
+obtain%
+\begin{align*}
+f^{\prime}g+fg^{\prime}  &  =\sum_{i\in\mathbb{N}}\sum_{j\in\mathbb{N}}%
+a_{i}b_{j}ix^{i+j-1}+\sum_{i\in\mathbb{N}}\sum_{j\in\mathbb{N}}a_{i}%
+b_{j}jx^{i+j-1}=\sum_{i\in\mathbb{N}}\sum_{j\in\mathbb{N}}\underbrace{\left(
+a_{i}b_{j}ix^{i+j-1}+a_{i}b_{j}jx^{i+j-1}\right)  }_{=a_{i}b_{j}\left(
+i+j\right)  x^{i+j-1}}\\
+&  =\sum_{i\in\mathbb{N}}\sum_{j\in\mathbb{N}}a_{i}b_{j}\left(  i+j\right)
+x^{i+j-1}.
+\end{align*}
+Comparing this with \eqref{sol.pol.diff1.c.pf.L=}, we find $\left(  fg\right)
+^{\prime}=f^{\prime}g+fg^{\prime}$. This solves part \textbf{(c)} of the exercise.
+
+\bigskip
+
+\textbf{(d)} We shall solve part \textbf{(d)} of the exercise by induction on
+$n$:
+
+\textit{Induction base:} We have $D^{0}=\operatorname*{id}$. Thus,
+\[
+\underbrace{D^{0}}_{=\operatorname*{id}}\left(  x^{k}\right)
+=\operatorname*{id}\left(  x^{k}\right)  =x^{k}=0!\dbinom{k}{0}x^{k}%
+\qquad\left(  \text{since }\underbrace{0!}_{=1}\underbrace{\dbinom{k}{0}}%
+_{=1}x^{k}=x^{k}\right)
+\]
+for each $k\in\mathbb{N}$. In other words, part \textbf{(d)} of the exercise
+holds for $n=0$. This completes the induction base.
+
+\textit{Induction step:} Let $i\in\mathbb{N}$. Assume that part \textbf{(d)}
+of the exercise holds for $n=i$. We must prove that part \textbf{(d)} of the
+exercise holds for $n=i+1$.
+
+We have assumed that part \textbf{(d)} of the exercise holds for $n=i$. In
+other words, we have%
+\begin{equation}
+D^{i}\left(  x^{k}\right)  =i!\dbinom{k}{i}x^{k-i}\qquad\text{for all }%
+k\in\mathbb{N}. \label{sol.pol.diff1.d.pf.IH}%
+\end{equation}
+
+
+Now, let $k\in\mathbb{N}$. Then, $D^{i+1}=D\circ D^{i}$. Applying both sides
+of this equality to $x^{k}$, we obtain%
+\begin{equation}
+D^{i+1}\left(  x^{k}\right)  =\left(  D\circ D^{i}\right)  \left(
+x^{k}\right)  =D\left(  \underbrace{D^{i}\left(  x^{k}\right)  }%
+_{\substack{=i!\dbinom{k}{i}x^{k-i}\\\text{(by \eqref{sol.pol.diff1.d.pf.IH})}%
+}}\right)  =D\left(  i!\dbinom{k}{i}x^{k-i}\right)  .
+\label{sol.pol.diff1.d.pf.1}%
+\end{equation}
+
+
+We shall now show that
+\begin{equation}
+D^{i+1}\left(  x^{k}\right)  =\left(  i+1\right)  !\dbinom{k}{i+1}x^{k-\left(
+i+1\right)  }. \label{sol.pol.diff1.d.pf.g}%
+\end{equation}
+
+
+Indeed, three cases are possible:
+
+\textit{Case 1:} We have $k<i$.
+
+\textit{Case 2:} We have $k=i$.
+
+\textit{Case 3:} We have $k>i$.
+
+Let us first consider Case 1. In this case, we have $k<i$. Thus, $\dbinom
+{k}{i}x^{k-i}=0$ (according to our convention that the expression
+\textquotedblleft$\dbinom{k}{n}x^{k-n}$\textquotedblright\ is to be understood
+as $0$ when $k<n$). For the same reason, we have $\dbinom{k}{i+1}x^{k-\left(
+i+1\right)  }=0$ (since $k<i<i+1$). Now, \eqref{sol.pol.diff1.d.pf.1} becomes%
+\begin{align*}
+D^{i+1}\left(  x^{k}\right)   &  =D\left(  i!\underbrace{\dbinom{k}{i}x^{k-i}%
+}_{=0}\right)  =D\left(  \underbrace{i!0}_{=0}\right)  =D\left(  0\right)
+=0\qquad\left(  \text{since }D\text{ is }\mathbb{K}\text{-linear}\right) \\
+&  =\left(  i+1\right)  !\dbinom{k}{i+1}x^{k-\left(  i+1\right)  }%
+\qquad\left(  \text{since }\left(  i+1\right)  !\underbrace{\dbinom{k}%
+{i+1}x^{k-\left(  i+1\right)  }}_{=0}=0\right)  .
+\end{align*}
+Thus, \eqref{sol.pol.diff1.d.pf.g} is proven in Case 1.
+
+Let us next consider Case 2. In this case, we have $k=i$. Thus, $k=i<i+1$, so
+that $\dbinom{k}{i+1}x^{k-\left(  i+1\right)  }=0$ (according to our
+convention that the expression \textquotedblleft$\dbinom{k}{n}x^{k-n}%
+$\textquotedblright\ is to be understood as $0$ when $k<n$). Also, from $k=i$,
+we obtain $\dbinom{k}{i}=\dbinom{i}{i}=1$ and $x^{k-i}=x^{i-i}=x^{0}$. Now,
+\eqref{sol.pol.diff1.d.pf.1} becomes%
+\begin{align*}
+&  D^{i+1}\left(  x^{k}\right) \\
+&  =D\left(  i!\underbrace{\dbinom{k}{i}}_{=1}\underbrace{x^{k-i}}_{=x^{0}%
+}\right)  =D\left(  i!x^{0}\right)  =i!\underbrace{D\left(  x^{0}\right)
+}_{\substack{=0x^{0-1}\\\text{(by Statement 8,}\\\text{applied to }%
+m=0\text{)}}}\qquad\left(  \text{since }D\text{ is }\mathbb{K}\text{-linear}%
+\right) \\
+&  =\underbrace{i!0x^{0-1}}_{=0}=0=\left(  i+1\right)  !\dbinom{k}%
+{i+1}x^{k-\left(  i+1\right)  }\qquad\left(  \text{since }\left(  i+1\right)
+!\underbrace{\dbinom{k}{i+1}x^{k-\left(  i+1\right)  }}_{=0}=0\right)  .
+\end{align*}
+Thus, \eqref{sol.pol.diff1.d.pf.g} is proven in Case 2.
+
+Finally, let us consider Case 3. In this case, we have $k>i$. It is easy to
+see that
+\begin{equation}
+\left(  k-i\right)  \dbinom{k}{i}=\left(  i+1\right)  \dbinom{k}{i+1}.
+\label{sol.pol.diff1.d.pf.bin-abs}%
+\end{equation}
+(Indeed, both sides of \eqref{sol.pol.diff1.d.pf.bin-abs} can be simplified to
+$\dfrac{k\left(  k-1\right)  \left(  k-2\right)  \cdots\left(  k-i\right)
+}{i!}$ by applying the definition of binomial coefficients and the fact that
+$\left(  i+1\right)  !=\left(  i+1\right)  \cdot i!$. An alternative way to
+prove \eqref{sol.pol.diff1.d.pf.bin-abs} is by expanding both binomial
+coefficients $\dbinom{k}{i}$ and $\dbinom{k}{i+1}$ using Exercise 3
+\textbf{(a)} on
+\href{http://www.cip.ifi.lmu.de/~grinberg/t/19s/index.html}{homework set \#0}.)
+
+Now, $k>i$, so that $k-i\in\mathbb{N}$. The equality
+\eqref{sol.pol.diff1.d.pf.1} becomes%
+\begin{align*}
+&  D^{i+1}\left(  x^{k}\right) \\
+&  =D\left(  i!\dbinom{k}{i}x^{k-i}\right)  =i!\dbinom{k}{i}%
+\underbrace{D\left(  x^{k-i}\right)  }_{\substack{=\left(  k-i\right)
+x^{k-i-1}\\\text{(by Statement 8,}\\\text{applied to }m=k-i\text{)}}%
+}\qquad\left(  \text{since }D\text{ is }\mathbb{K}\text{-linear}\right) \\
+&  =i!\underbrace{\dbinom{k}{i}\left(  k-i\right)  }_{\substack{=\left(
+k-i\right)  \dbinom{k}{i}\\=\left(  i+1\right)  \dbinom{k}{i+1}\\\text{(by
+\eqref{sol.pol.diff1.d.pf.bin-abs})}}}\underbrace{x^{k-i-1}}_{=x^{k-\left(
+i+1\right)  }}=\underbrace{i!\cdot\left(  i+1\right)  }_{=\left(  i+1\right)
+!}\dbinom{k}{i+1}x^{k-\left(  i+1\right)  }=\left(  i+1\right)  !\dbinom
+{k}{i+1}x^{k-\left(  i+1\right)  }.
+\end{align*}
+Thus, \eqref{sol.pol.diff1.d.pf.g} is proven in Case 3.
+
+We have now proven \eqref{sol.pol.diff1.d.pf.g} in each of the three Cases 1,
+2 and 3. Thus, \eqref{sol.pol.diff1.d.pf.g} always holds.
+
+Now, forget that we fixed $k$. Thus, we have proven that
+\eqref{sol.pol.diff1.d.pf.g} holds for each $k\in\mathbb{N}$. In other words,
+part \textbf{(d)} of the exercise holds for $n=i+1$. This completes the
+induction step. Thus, part \textbf{(d)} of the exercise is proven by induction.
+
+\bigskip
+
+\textbf{(e)} Let us first show two auxiliary statements:
+
+\begin{statement}
+\textit{Statement 9:} Let $m\in\mathbb{N}$. Let $f\in\mathbb{K}\left[
+x\right]  $ be a polynomial of degree $\leq m$. Then, for each $n\in
+\mathbb{N}$, we have $D^{n}\left(  f\right)  \in\mathbb{K}\left[  x\right]  $
+and $\deg\left(  D^{n}\left(  f\right)  \right)  \leq m-n$.
+\end{statement}
+
+[\textit{Proof of Statement 9 (sketched):} This can be straightforwardly
+proven by induction on $n$. The induction base (i.e., the case $n=0$) is
+obvious. The induction step proceeds by observing that if $n$ is a positive
+integer, then%
+\[
+\underbrace{D^{n}}_{=D\circ D^{n-1}}\left(  f\right)  =\left(  D\circ
+D^{n-1}\left(  f\right)  \right)  =D\left(  D^{n-1}\left(  f\right)  \right)
+=\left(  D^{n-1}\left(  f\right)  \right)  ^{\prime}\qquad\left(  \text{by the
+definition of }D\right)  ,
+\]
+and applying part \textbf{(a)} of the exercise to $D^{n-1}\left(  f\right)  $
+instead of $f$. Thus, Statement 9 is proven.]
+
+\begin{statement}
+\textit{Statement 10:} Let $m\in\mathbb{N}$. Let $f\in\mathbb{K}\left[
+x\right]  $ be a polynomial of degree $\leq m$. Then, $D^{n}\left(  f\right)
+=0$ for all integers $n>m$.
+\end{statement}
+
+[\textit{Proof of Statement 10 (sketched):} Let $n$ be an integer such that
+$n>m$. Then, Statement 9 yields $D^{n}\left(  f\right)  \in\mathbb{K}\left[
+x\right]  $ and $\deg\left(  D^{n}\left(  f\right)  \right)  \leq m-n$. Hence,
+$\deg\left(  D^{n}\left(  f\right)  \right)  \leq m-n<0$ (since $n>m$), so
+that $D^{n}\left(  f\right)  =0$. This proves Statement 10.]
+
+Now, assume that $\mathbb{Q}$ is a subring of $\mathbb{K}$. Let $f\in
+\mathbb{K}\left[  x\right]  $ be a polynomial. Let $m=\deg f$. Then, $f$ has
+degree $\leq m$. Hence, Statement 10 shows that $D^{n}\left(  f\right)  =0$
+for all integers $n>m$. Thus, $\dfrac{1}{n!}\underbrace{\left(  D^{n}\left(
+f\right)  \right)  }_{=0}\left[  a\right]  \cdot x^{n}=\dfrac{1}%
+{n!}\underbrace{0\left[  a\right]  }_{=0}\cdot x^{n}=0$ for all integers
+$n>m$. Hence, all but finitely many addends of the sum $\sum_{n\in\mathbb{N}%
+}\dfrac{1}{n!}\left(  D^{n}\left(  f\right)  \right)  \left[  a\right]  \cdot
+x^{n}$ are $0$. Therefore, this sum is well-defined.
+
+In the following, we shall use the same convention as we did in part
+\textbf{(d)} of this exercise: Namely, the expression \textquotedblleft%
+$\dbinom{k}{n}x^{k-n}$\textquotedblright\ is to be understood as $0$ when
+$k<n$. Thus,%
+\begin{equation}
+\dbinom{k}{n}x^{k-n}=0\qquad\text{for all }k\in\mathbb{N}\text{ and }%
+n\in\mathbb{N}\text{ satisfying }k<n. \label{sol.pol.diff1.e.pf.conv}%
+\end{equation}
+
+
+Write the polynomial $f$ in the form $f=\sum_{k=0}^{m}b_{k}x^{k}$ with
+$b_{0},b_{1},\ldots,b_{m}\in\mathbb{K}$. (We can do this, since $\deg f=m$.)
+Then, for each $n\in\mathbb{N}$, we have%
+\begin{align}
+D^{n}\left(  f\right)   &  =D^{n}\left(  \sum_{k=0}^{m}b_{k}x^{k}\right)
+\qquad\left(  \text{since }f=\sum_{k=0}^{m}b_{k}x^{k}\right) \nonumber\\
+&  =\underbrace{\sum_{k=0}^{m}}_{=\sum_{k\in\left\{  0,1,\ldots,m\right\}  }%
+}b_{k}\underbrace{D^{n}\left(  x^{k}\right)  }_{\substack{=n!\dbinom{k}%
+{n}x^{k-n}\\\text{(by part \textbf{(d)}}\\\text{of this exercise)}%
+}}\nonumber\\
+&  \qquad\left(  \text{since the map }D^{n}\text{ is }\mathbb{K}\text{-linear
+(because the map }D\text{ is }\mathbb{K}\text{-linear)}\right) \nonumber\\
+&  =\sum_{k\in\left\{  0,1,\ldots,m\right\}  }b_{k}n!\dbinom{k}{n}x^{k-n}%
+=\sum_{\substack{k\in\left\{  0,1,\ldots,m\right\}  ;\\k<n}}b_{k}%
+n!\underbrace{\dbinom{k}{n}x^{k-n}}_{\substack{=0\\\text{(by
+\eqref{sol.pol.diff1.e.pf.conv})}}}+\underbrace{\sum_{\substack{k\in\left\{
+0,1,\ldots,m\right\}  ;\\k\geq n}}}_{=\sum_{k=n}^{m}}b_{k}n!\dbinom{k}%
+{n}x^{k-n}\nonumber\\
+&  \qquad\left(
+\begin{array}
+[c]{c}%
+\text{since each }k\in\left\{  0,1,\ldots,m\right\}  \text{ satisfies either
+}k<n\text{ or }k\geq n\\
+\text{(but never both at the same time)}%
+\end{array}
+\right) \nonumber\\
+&  =\underbrace{\sum_{\substack{k\in\left\{  0,1,\ldots,m\right\}
+;\\k<n}}b_{k}n!0}_{=0}+\sum_{k=n}^{m}b_{k}n!\dbinom{k}{n}x^{k-n}=\sum
+_{k=n}^{m}b_{k}n!\dbinom{k}{n}x^{k-n}. \label{sol.pol.diff1.e.pf.Dnf}%
+\end{align}
+
+
+Let $a\in\mathbb{K}$. Then, for each $n\in\mathbb{N}$, we have%
+\begin{align*}
+\left(  D^{n}\left(  f\right)  \right)  \left[  a\right]   &  =\left(
+\sum_{k=n}^{m}b_{k}n!\dbinom{k}{n}x^{k-n}\right)  \left[  a\right] \\
+&  \qquad\left(  \text{here, we have substituted }a\text{ for }x\text{ in the
+equality \eqref{sol.pol.diff1.e.pf.Dnf}}\right) \\
+&  =\sum_{k=n}^{m}b_{k}n!\dbinom{k}{n}a^{k-n}%
+\end{align*}
+and thus%
+\begin{equation}
+\dfrac{1}{n!}\underbrace{\left(  D^{n}\left(  f\right)  \right)  \left[
+a\right]  }_{=\sum_{k=n}^{m}b_{k}n!\dbinom{k}{n}a^{k-n}}=\dfrac{1}{n!}%
+\sum_{k=n}^{m}b_{k}n!\dbinom{k}{n}a^{k-n}=\sum_{k=n}^{m}b_{k}\dbinom{k}%
+{n}a^{k-n}. \label{sol.pol.diff1.e.pf.3}%
+\end{equation}
+
+
+But substituting $x+a$ for $x$ in the equality $f=\sum_{k=0}^{m}b_{k}x^{k}$,
+we find
+\begin{align*}
+f\left[  x+a\right]   &  =\left(  \sum_{k=0}^{m}b_{k}x^{k}\right)  \left[
+x+a\right]  =\sum_{k=0}^{m}b_{k}\underbrace{\left(  x+a\right)  ^{k}%
+}_{\substack{=\sum_{n=0}^{k}\dbinom{k}{n}x^{n}a^{k-n}\\\text{(by the binomial
+formula,}\\\text{since }xa=ax\text{)}}}=\sum_{k=0}^{m}b_{k}\sum_{n=0}%
+^{k}\dbinom{k}{n}x^{n}a^{k-n}\\
+&  =\underbrace{\sum_{k=0}^{m}\sum_{n=0}^{k}}_{=\sum_{n\in\mathbb{N}}%
+\sum_{k=n}^{m}}b_{k}\dbinom{k}{n}\underbrace{x^{n}a^{k-n}}_{=a^{k-n}\cdot
+x^{n}}=\sum_{n\in\mathbb{N}}\underbrace{\sum_{k=n}^{m}b_{k}\dbinom{k}%
+{n}a^{k-n}}_{\substack{=\dfrac{1}{n!}\left(  D^{n}\left(  f\right)  \right)
+\left[  a\right]  \\\text{(by \eqref{sol.pol.diff1.e.pf.3})}}}\cdot x^{n}%
+=\sum_{n\in\mathbb{N}}\dfrac{1}{n!}\left(  D^{n}\left(  f\right)  \right)
+\left[  a\right]  \cdot x^{n}.
+\end{align*}
+This solves part \textbf{(e)} of the exercise.
+
+\bigskip
+
+\textbf{(f)} Let $p$ be a prime such that $p\cdot1_{\mathbb{K}}=0$. Let
+$f\in\mathbb{K}\left[  \left[  x\right]  \right]  $.
+
+Note that $p$ is a positive integer (since $p$ is a prime); thus,
+$p!=p\cdot\left(  p-1\right)  !=\left(  p-1\right)  !\cdot p$. Hence,
+\[
+\underbrace{p!}_{=\left(  p-1\right)  !\cdot p}\cdot1_{\mathbb{K}}=\left(
+p-1\right)  !\cdot\underbrace{p\cdot1_{\mathbb{K}}}_{=0}=\left(  p-1\right)
+!\cdot0=0.
+\]
+Thus, each $u\in\mathbb{K}\left[  \left[  x\right]  \right]  $ satisfies%
+\begin{equation}
+p!\underbrace{u}_{\substack{=1_{\mathbb{K}}\cdot u\\\text{(since }%
+\mathbb{K}\left[  \left[  x\right]  \right]  \text{ is a }\mathbb{K}%
+\text{-module)}}}=\underbrace{p!\cdot1_{\mathbb{K}}}_{=0}\cdot u=0u=0.
+\label{sol.pol.diff1.f.pf.0gen}%
+\end{equation}
+
+
+Write the FPS $f$ in the form $f=\sum_{i\in\mathbb{N}}a_{i}x^{i}$ with
+$a_{0},a_{1},a_{2},\ldots\in\mathbb{K}$. Then, the family $\left(
+x^{i}\right)  _{i\in\mathbb{N}}$ of FPSs is summable. Hence, Statement 7
+(applied to $k=p$, $I=\mathbb{N}$, $\left(  \lambda_{i}\right)  _{i\in
+I}=\left(  a_{i}\right)  _{i\in\mathbb{N}}$ and $\left(  f_{i}\right)  _{i\in
+I}=\left(  x^{i}\right)  _{i\in\mathbb{N}}$) yields that $D^{p}\left(
+\sum_{i\in\mathbb{N}}a_{i}x^{i}\right)  =\sum_{i\in\mathbb{N}}a_{i}%
+D^{p}\left(  x^{i}\right)  $. In view of $f=\sum_{i\in\mathbb{N}}a_{i}x^{i}$,
+this rewrites as
+\begin{equation}
+D^{p}\left(  f\right)  =\sum_{i\in\mathbb{N}}a_{i}D^{p}\left(  x^{i}\right)  .
+\label{sol.pol.diff1.f.pf.1}%
+\end{equation}
+
+
+But let $i\in\mathbb{N}$. Then, part \textbf{(d)} of this exercise (applied to
+$k=i$ and $n=p$) yields
+\begin{equation}
+D^{p}\left(  x^{i}\right)  =p!\dbinom{i}{p}x^{i-p}=0\qquad\left(  \text{by
+\eqref{sol.pol.diff1.f.pf.0gen}, applied to }u=\dbinom{i}{p}x^{i-p}\right)  .
+\label{sol.pol.diff1.f.pf.0}%
+\end{equation}
+
+
+Forget that we fixed $i$. We thus have proven the equality
+\eqref{sol.pol.diff1.f.pf.0} for each $i\in\mathbb{N}$. Thus,
+\eqref{sol.pol.diff1.f.pf.1} becomes%
+\[
+D^{p}\left(  f\right)  =\sum_{i\in\mathbb{N}}a_{i}\underbrace{D^{p}\left(
+x^{i}\right)  }_{\substack{=0\\\text{(by \eqref{sol.pol.diff1.f.pf.0})}}%
+}=\sum_{i\in\mathbb{N}}a_{i}0=0.
+\]
+This solves part \textbf{(f)} of the exercise.
+
+\bigskip
+
+\textbf{(g)} This can be solved in the same way as we solved part \textbf{(b)}
+of the exercise (since the definition of $J$ is similar to the definition of
+$D$).
+
+\bigskip
+
+\textbf{(h)} Let $f\in\mathbb{K}\left[  \left[  x\right]  \right]  $. We shall
+prove that $\left(  D\circ J\right)  \left(  f\right)  =f$.
+
+Write the FPS $f$ in the form $f=\sum_{k\in\mathbb{N}}a_{k}x^{k}$ with
+$a_{0},a_{1},a_{2},\ldots\in\mathbb{K}$. Thus, the definition of $\int f$
+yields%
+\begin{align*}
+\int f  &  =\sum_{k\geq0}\dfrac{1}{k+1}a_{k}x^{k+1}\\
+&  =\sum_{i\in\left\{  1,2,3,\ldots\right\}  }\dfrac{1}{i}a_{i-1}x^{i}%
+\qquad\left(  \text{here, we have substituted }i-1\text{ for }k\text{ in the
+sum}\right)  .
+\end{align*}
+Applying the map $D$ to both sides of this equality, we find%
+\begin{align*}
+D\left(  \int f\right)   &  =D\left(  \sum_{i\in\left\{  1,2,3,\ldots\right\}
+}\dfrac{1}{i}a_{i-1}x^{i}\right)  =\sum_{i\in\left\{  1,2,3,\ldots\right\}
+}\dfrac{1}{i}a_{i-1}\underbrace{D\left(  x^{i}\right)  }_{\substack{=ix^{i-1}%
+\\\text{(by Statement 8, applied to }m=i\text{)}}}\\
+&  \qquad\left(
+\begin{array}
+[c]{c}%
+\text{by Statement 6, applied to the set }I=\left\{  1,2,3,\ldots\right\}
+\text{,}\\
+\text{the family }\left(  \lambda_{i}\right)  _{i\in I}=\left(  \dfrac{1}%
+{i}a_{i-1}\right)  _{i\in\left\{  1,2,3,\ldots\right\}  }\text{ of scalars,}\\
+\text{and the summable family }\left(  f_{i}\right)  _{i\in I}=\left(
+x^{i}\right)  _{i\in\left\{  1,2,3,\ldots\right\}  }\text{ of FPSs}%
+\end{array}
+\right) \\
+&  =\sum_{i\in\left\{  1,2,3,\ldots\right\}  }\underbrace{\dfrac{1}{i}%
+a_{i-1}ix^{i-1}}_{=a_{i-1}x^{i-1}}=\sum_{i\in\left\{  1,2,3,\ldots\right\}
+}a_{i-1}x^{i-1}=\sum_{k\in\mathbb{N}}a_{k}x^{k}%
+\end{align*}
+(here, we have substituted $k$ for $i-1$ in the sum). But the definition of
+$J$ yields $J\left(  f\right)  =\int f$. Thus,%
+\[
+\left(  D\circ J\right)  \left(  f\right)  =D\left(  \underbrace{J\left(
+f\right)  }_{=\int f}\right)  =D\left(  \int f\right)  =\sum_{k\in\mathbb{N}%
+}a_{k}x^{k}=f=\operatorname*{id}\left(  f\right)  .
+\]
+
+
+Now, forget that we fixed $f$. We thus have shown that $\left(  D\circ
+J\right)  \left(  f\right)  =\operatorname*{id}\left(  f\right)  $ for each
+$f\in\mathbb{K}\left[  \left[  x\right]  \right]  $. In other words, $D\circ
+J=\operatorname*{id}$. This solves part \textbf{(h)} of the exercise.
+
+\bigskip
+
+\textbf{(i)} It is easy to check that $\left(  J\circ D\right)  \left(
+1\right)  =0\neq1=\operatorname*{id}\left(  1\right)  $, and thus $J\circ
+D=\operatorname*{id}$. This solves part \textbf{(i)} of the exercise.
+
+\subsection{Remark}
+
+As we have mentioned above, $f$ needs to be a polynomial in part \textbf{(e)}
+of this exercise in order for $f\left[  x+a\right]  $ to be well-defined. But
+in the particular case when $a=0$, the evaluation $f\left[  x+a\right]  $ is
+well-defined for all $f\in\mathbb{K}\left[  \left[  x\right]  \right]  $
+(indeed, in this case, we have $f\left[  x+a\right]  =f\left[  x+0\right]
+=f\left[  x\right]  =f$). Thus, it is reasonable to ask whether the claim of
+part \textbf{(e)} holds for all FPSs $f\in\mathbb{K}\left[  \left[  x\right]
+\right]  $ (rather than just for polynomials) when $a=0$. The answer is
+\textquotedblleft yes\textquotedblright: We have%
+\[
+f=\sum_{n\in\mathbb{N}}\dfrac{1}{n!}\left(  D^{n}\left(  f\right)  \right)
+\left[  0\right]  \cdot x^{n}\qquad\text{for all }f\in\mathbb{K}\left[
+\left[  x\right]  \right]
+\]
+(when $\mathbb{Q}$ is a subring of $\mathbb{K}$). This is an algebraic
+counterpart of the Maclaurin series; its proof is left to the reader (who can
+also look it up in \cite[Theorem 7.55]{Loehr-BC}).
+
+\bigskip
+
+The number $p$ does not have to be a prime in part \textbf{(f)} of the
+exercise. It perfectly suffices that $p$ is a positive integer. (The solution
+we gave above works perfectly in this generality.)
+
+\bigskip
+
+Part \textbf{(i)} of the exercise is a \textquotedblleft
+near-miss\textquotedblright: $J\circ D$ is not too far away from
+$\operatorname*{id}$. Indeed, every $f\in\mathbb{K}\left[  \left[  x\right]
+\right]  $ satisfies%
+\[
+\left(  J\circ D\right)  \left(  f\right)  =f-a_{0},\qquad\text{where }%
+a_{0}=\left[  x^{0}\right]  f.
+\]
+This is the algebraic version of
+\href{https://en.wikipedia.org/wiki/Fundamental_theorem_of_calculus#Second_part}{the
+second part of the Fundamental Theorem of Calculus}. We leave the easy proof
+to the reader.
+
+\bigskip
+
+Most textbooks that are serious about introducing FPSs and their derivatives
+prove some parts of this exercise in some form (or leave the proofs to the
+reader). For example, \cite[Theorem 7.54 \textbf{(a)} and \textbf{(b)}%
+]{Loehr-BC} is part \textbf{(b)} of the above exercise; \cite[Theorem 7.54
+\textbf{(d)}]{Loehr-BC} is Statement 8 in our solution above; \cite[Theorem
+7.54 \textbf{(e)}]{Loehr-BC} is part \textbf{(c)} of the above exercise;
+\cite[Theorem 7.54 \textbf{(g)}]{Loehr-BC} is a particular case of Statement 5
+in our solution above.
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 6
+%----------------------------------------------------------------------------------------
+\rule{\linewidth}{0.3pt} \\[0.4cm]
+
+\section{Exercise 6: Formal difference calculus and integer-valued
+polynomials}
+
+\subsection{Problem}
+
+Let $\mathbb{K}$ be a commutative ring.
+
+For any polynomial $f \in\mathbb{K}\left[  x \right]  $, we define the
+\textit{first finite difference} $f^{\Delta}$ of $f$ to be the polynomial
+\[
+f \left[  x+1 \right]  - f \left[  x \right]  \in\mathbb{K}\left[  x \right]
+.
+\]
+(This is a ``discrete analogue'' of the derivative, in case the analysis-free
+derivative from Exercise 5 was not discrete enough for you. It cannot be
+extended to FPSs, however, since you cannot substitute $x+1$ for $x $ in an FPS.)
+
+Let $\Delta: \mathbb{K}\left[  x \right]  \to\mathbb{K}\left[  x \right]  $ be
+the map sending each polynomial $f$ to $f^{\Delta}$. As usual, for any $n
+\in\mathbb{N}$, we let $\Delta^{n}$ denote $\underbrace{\Delta\circ\Delta
+\circ\cdots\circ\Delta}_{n \text{ times}}$ (which means $\operatorname{id}$ if
+$n = 0$).
+
+Prove the following:
+
+\begin{enumerate}
+\item[\textbf{(a)}] The map $\Delta: \mathbb{K}\left[  x \right]
+\to\mathbb{K}\left[  x \right]  $ is $\mathbb{K}$-linear (with respect to the
+$\mathbb{K}$-module structure on $\mathbb{K}\left[  x \right]  $ defined in
+class -- i.e., both addition and scaling of polynomials are defined entrywise).
+
+\item[\textbf{(b)}] We have $\left(  fg \right)  ^{\Delta}= f^{\Delta}g +
+f\left[  x+1 \right]  g^{\Delta}$ for any two polynomials $f$ and $g$.
+\end{enumerate}
+
+Now, assume that $\mathbb{Q}$ is a subring of $\mathbb{K}$.
+
+For any $n \in\mathbb{N}$, we define a polynomial\footnote{Note that we are
+within our rights to divide by $n!$ here, since $\mathbb{Q}$ is a subring of
+$\mathbb{K}$.}
+\[
+\dbinom{x}{n} := \dfrac{x\left(  x-1 \right)  \left(  x-2 \right)
+\cdots\left(  x-n+1 \right)  }{n!} \in\mathbb{K}\left[  x \right]  .
+\]
+We also set $\dbinom{x}{n} := 0$ for every negative $n$.
+
+Prove the following:
+
+\begin{enumerate}
+\item[\textbf{(c)}] We have $\Delta^{n}\left(  \dbinom{x}{k}\right)
+=\dbinom{x}{k-n}$ for all $n\in\mathbb{N}$ and $k\in\mathbb{Z}$.
+
+\item[\textbf{(d)}] If $m \in\mathbb{N}$, and if $f \in\mathbb{K}\left[  x
+\right]  $ is a polynomial of degree $\leq m$, then there exist elements
+$a_{0}, a_{1}, \ldots, a_{m} \in\mathbb{K}$ such that $f = \sum_{i=0}^{m}
+a_{i} \dbinom{x}{i}$.
+
+\item[\textbf{(e)}] Every polynomial $f\in\mathbb{K}\left[  x\right]  $
+satisfies
+\[
+f\left[  x+a\right]  =\sum_{n\in\mathbb{N}}\left(  \Delta^{n}\left(  f\right)
+\right)  \left[  a\right]  \cdot\dbinom{x}{n}\qquad\text{for all
+$a\in\mathbb{K}$}.
+\]
+(The infinite sum on the right hand side has only finitely many nonzero addends.)
+
+\item[\textbf{(f)}] Let $m\in\mathbb{N}$, and let $f\in\mathbb{K}\left[
+x\right]  $ be a polynomial of degree $\leq m$. Assume that $f\left[
+k\right]  \in\mathbb{Z}$ for each $k\in\left\{  0,1,\ldots,m\right\}  $. Then,
+there exist integers $a_{0},a_{1},\ldots,a_{m}$ such that $f=\sum_{i=0}%
+^{m}a_{i}\dbinom{x}{i}$.
+\end{enumerate}
+
+[\textbf{Hint:} Part \textbf{(d)} is easiest to prove by induction on $m$. You
+can then prove part \textbf{(e)} for $f = \dbinom{x}{i}$ first (where $i
+\in\mathbb{N}$), and then extend it to arbitrary $f$ by means of part
+\textbf{(d)}. Part \textbf{(f)}, in turn, can be derived from part
+\textbf{(e)} through a strategic choice of $a$.]
+
+\subsection{Remark}
+
+Just as $\Delta$ is an analogue of the differentiation operator $D$ from
+Exercise 5, we can define an analogue of the integration operator $J$ from
+Exercise 5. This will be a $\mathbb{K}$-linear map $\Sigma: \mathbb{K}\left[
+x \right]  \to\mathbb{K}\left[  x \right]  $ that sends each polynomial
+$\sum_{i=0}^{m} a_{i} \dbinom{x}{i}$ to $\sum_{i=0}^{m} a_{i} \dbinom{x}{i+1}$
+(this definition makes sense, because part \textbf{(d)} of this exercise shows
+that each polynomial can be written in the form $\sum_{i=0}^{m} a_{i}
+\dbinom{x}{i}$, uniquely except for ``leading zeroes''). Again, we have
+$\Delta\circ\Sigma= \operatorname{id}$ but $\Sigma\circ\Delta\neq
+\operatorname{id}$.
+
+Moreover, if $f \in\mathbb{K}\left[  x \right]  $ is a polynomial, then
+$\left(  \Sigma\left(  f \right)  \right)  \left[  0 \right]  = 0$ and
+$\left(  \Sigma\left(  f \right)  \right)  \left[  n \right]  = \left(
+\Sigma\left(  f \right)  \right)  \left[  n-1 \right]  + f \left[  n-1
+\right]  $ for each $n \in\mathbb{Z}$ (indeed, the former equality follows
+easily from the definition of $\Sigma$, while the latter follows from
+$\Delta\circ\Sigma= \operatorname{id}$). Hence, by induction, we can see that
+\[
+\left(  \Sigma\left(  f \right)  \right)  \left[  n \right]  = f\left[  0
+\right]  + f\left[  1 \right]  + \cdots+ f\left[  n-1 \right]  \qquad\text{for
+each polynomial $f \in\mathbb{K}\left[  x \right]  $ and each $n \in
+\mathbb{N}$}.
+\]
+In other words, the value of $\Sigma\left(  f \right)  $ at an $n
+\in\mathbb{N} $ is the sum of the first $n$ values of $f$ on nonnegative
+integers! (Whence the notation $\Sigma$.) For example, if we set $f = x^{2}$,
+then it is easy to see that $\Sigma\left(  f \right)  = 2 \dbinom{x}{3} +
+\dbinom{x}{2}$ (to see this, just expand $f$ in the form $\sum_{i=0}^{m} a_{i}
+\dbinom{x}{i}$ -- namely, $f = x^{2} = 2 \dbinom{x}{2} + \dbinom{x}{1}$ --,
+and then apply the definition of $\Sigma$); thus we obtain
+\[
+2 \dbinom{n}{3} + \dbinom{n}{2} = 0^{2} + 1^{2} + \cdots+ \left(  n-1 \right)
+^{2} .
+\]
+Similarly you can find a formula for $0^{k} + 1^{k} + \cdots+ \left(  n-1
+\right)  ^{k}$ whenever $k \in\mathbb{N}$.
+
+Part \textbf{(e)} of this exercise is a result of Newton.
+
+\subsection{Solution sketch}
+
+We recall the following notation (which we introduced in the class notes): For
+each $n\in\mathbb{Z}$, we define a subset $\mathbb{K}\left[  x\right]  _{\leq
+n}$ of $\mathbb{K}\left[  \left[  x\right]  \right]  $ by%
+\begin{align*}
+\mathbb{K}\left[  x\right]  _{\leq n}  &  =\left\{  \left(  a_{0},a_{1}%
+,a_{2},\ldots\right)  \in\mathbb{K}\left[  \left[  x\right]  \right]
+\ \mid\ a_{k}=0\text{ for all }k>n\right\} \\
+&  =\left\{  \mathbf{a}\in\mathbb{K}\left[  \left[  x\right]  \right]
+\ \mid\ \left[  x^{k}\right]  \mathbf{a}=0\text{ for all }k>n\right\}  .
+\end{align*}
+We know that a FPS $\mathbf{a}\in\mathbb{K}\left[  \left[  x\right]  \right]
+$ belongs to $\mathbb{K}\left[  x\right]  _{\leq n}$ (for a given
+$n\in\mathbb{Z}$) if and only if $\mathbf{a}$ is a polynomial of degree $\leq
+n$. We also know that $\mathbb{K}\left[  x\right]  _{\leq n}$ is a
+$\mathbb{K}$-submodule of $\mathbb{K}\left[  \left[  x\right]  \right]  $ (for
+each $n\in\mathbb{N}$).
+
+\bigskip
+
+\textbf{(a)} According to the definition of a $\mathbb{K}$-linear map (also
+known as a $\mathbb{K}$-module homomorphism), we must prove the following
+three statements:
+
+\begin{statement}
+\textit{Statement 1:} We have $\Delta\left(  a+b\right)  =\Delta\left(
+a\right)  +\Delta\left(  b\right)  $ for all $a,b\in\mathbb{K}\left[
+x\right]  $.
+\end{statement}
+
+\begin{statement}
+\textit{Statement 2:} We have $\Delta\left(  0\right)  =0$.
+\end{statement}
+
+\begin{statement}
+\textit{Statement 3:} We have $\Delta\left(  \lambda a\right)  =\lambda
+\Delta\left(  a\right)  $ for all $\lambda\in\mathbb{K}$ and $a\in
+\mathbb{K}\left[  x\right]  $.
+\end{statement}
+
+We shall only prove the first of these three statements; the other two are similar.
+
+[\textit{Proof of Statement 1:} Let $a,b\in\mathbb{K}\left[  x\right]  $. We
+must prove that $\Delta\left(  a+b\right)  =\Delta\left(  a\right)
++\Delta\left(  b\right)  $.
+
+The definition of $\Delta$ yields%
+\begin{align*}
+\Delta\left(  a+b\right)   &  =\left(  a+b\right)  ^{\Delta}%
+=\underbrace{\left(  a+b\right)  \left[  x+1\right]  }_{\substack{=a\left[
+x+1\right]  +b\left[  x+1\right]  \\\text{(by one of the basic}%
+\\\text{properties of evaluation)}}}-\underbrace{\left(  a+b\right)  \left[
+x\right]  }_{\substack{=a\left[  x\right]  +b\left[  x\right]  \\\text{(by one
+of the basic}\\\text{properties of evaluation)}}}\\
+&  \qquad\left(  \text{by the definition of }\left(  a+b\right)  ^{\Delta
+}\right) \\
+&  =\left(  a\left[  x+1\right]  +b\left[  x+1\right]  \right)  -\left(
+a\left[  x\right]  +b\left[  x\right]  \right)  =\left(  a\left[  x+1\right]
+-a\left[  x\right]  \right)  +\left(  b\left[  x+1\right]  -b\left[  x\right]
+\right)  .
+\end{align*}
+Comparing this with%
+\begin{align*}
+\underbrace{\Delta\left(  a\right)  }_{\substack{=a^{\Delta}\\\text{(by the
+definition of }\Delta\text{)}}}+\underbrace{\Delta\left(  b\right)
+}_{\substack{=b^{\Delta}\\\text{(by the definition of }\Delta\text{)}}}  &
+=\underbrace{a^{\Delta}}_{\substack{=a\left[  x+1\right]  -a\left[  x\right]
+\\\text{(by the definition of }a^{\Delta}\text{)}}}+\underbrace{b^{\Delta}%
+}_{\substack{=b\left[  x+1\right]  -b\left[  x\right]  \\\text{(by the
+definition of }b^{\Delta}\text{)}}}\\
+&  =\left(  a\left[  x+1\right]  -a\left[  x\right]  \right)  +\left(
+b\left[  x+1\right]  -b\left[  x\right]  \right)  ,
+\end{align*}
+we obtain $\Delta\left(  a+b\right)  =\Delta\left(  a\right)  +\Delta\left(
+b\right)  $. This proves Statement 1.]
+
+Thus, we have proven Statement 1. The proofs of Statement 2 and Statement 3
+are similar (but easier). This completes our solution of part \textbf{(a)} of
+the exercise.
+
+\bigskip
+
+\textbf{(b)} Let $f$ and $g$ be two polynomials. Then,%
+\begin{align*}
+&  \underbrace{f^{\Delta}}_{\substack{=f\left[  x+1\right]  -f\left[
+x\right]  \\\text{(by the definition of }f^{\Delta}\text{)}}}\underbrace{g}%
+_{\substack{=g\left[  x\right]  \\\text{(since }g\left[  x\right]  =g\text{)}%
+}}+f\left[  x+1\right]  \underbrace{g^{\Delta}}_{\substack{=g\left[
+x+1\right]  -g\left[  x\right]  \\\text{(by the definition of }g^{\Delta
+}\text{)}}}\\
+&  =\left(  f\left[  x+1\right]  -f\left[  x\right]  \right)  g\left[
+x\right]  +f\left[  x+1\right]  \left(  g\left[  x+1\right]  -g\left[
+x\right]  \right) \\
+&  =f\left[  x+1\right]  g\left[  x\right]  -f\left[  x\right]  g\left[
+x\right]  +f\left[  x+1\right]  g\left[  x+1\right]  -f\left[  x+1\right]
+g\left[  x\right] \\
+&  =f\left[  x+1\right]  g\left[  x+1\right]  -f\left[  x\right]  g\left[
+x\right]  .
+\end{align*}
+Comparing this with%
+\begin{align*}
+\left(  fg\right)  ^{\Delta}  &  =\underbrace{\left(  fg\right)  \left[
+x+1\right]  }_{\substack{=f\left[  x+1\right]  g\left[  x+1\right]
+\\\text{(by one of the basic}\\\text{properties of evaluation)}}%
+}-\underbrace{\left(  fg\right)  \left[  x\right]  }_{\substack{=f\left[
+x\right]  g\left[  x\right]  \\\text{(by one of the basic}\\\text{properties
+of evaluation)}}}\qquad\left(  \text{by the definition of }\left(  fg\right)
+^{\Delta}\right) \\
+&  =f\left[  x+1\right]  g\left[  x+1\right]  -f\left[  x\right]  g\left[
+x\right]  ,
+\end{align*}
+we obtain $\left(  fg\right)  ^{\Delta}=f^{\Delta}g+f\left[  x+1\right]
+g^{\Delta}$. Thus, part \textbf{(b)} of the exercise is solved.
+
+\bigskip
+
+Before we solve the rest of the exercise, let us lay some more groundwork.
+First, let us show a simple property of the $\Delta$ operator:
+
+\begin{statement}
+\textit{Statement 4:} Let $f\in\mathbb{\mathbb{K}}\left[  x\right]  $. Then,
+$\deg\left(  \Delta\left(  f\right)  \right)  \leq\deg f-1$.
+\end{statement}
+
+[\textit{Proof of Statement 4:} This is obvious in the case when $f=0$. Thus,
+we WLOG assume that $f\neq0$. Hence, $\deg f\in\mathbb{N}$. Define
+$m\in\mathbb{N}$ by $m=\deg f$.
+
+Write the polynomial $f$ in the form $f=\sum_{k=0}^{m}b_{k}x^{k}$ with
+$b_{0},b_{1},\ldots,b_{m}\in\mathbb{K}$. (We can do this, since $\deg f=m$.)
+Thus,%
+\begin{equation}
+f\left[  x\right]  =f=\sum_{k=0}^{m}b_{k}x^{k}=\sum_{i=0}^{m}b_{i}x^{i}.
+\label{sol.pol.fin-differences.c.s4.pf.1}%
+\end{equation}
+Substituting $x+1$ for $x$ in the equality $f=\sum_{k=0}^{m}b_{k}x^{k}$, we
+obtain%
+\begin{align*}
+f\left[  x+1\right]   &  =\left(  \sum_{k=0}^{m}b_{k}x^{k}\right)  \left[
+x+1\right]  =\sum_{k=0}^{m}b_{k}\underbrace{\left(  x+1\right)  ^{k}%
+}_{\substack{=\sum_{i=0}^{k}\dbinom{k}{i}x^{i}1^{k-i}\\\text{(by the binomial
+formula)}}}=\sum_{k=0}^{m}b_{k}\sum_{i=0}^{k}\dbinom{k}{i}x^{i}%
+\underbrace{1^{k-i}}_{=1}\\
+&  =\sum_{k=0}^{m}b_{k}\sum_{i=0}^{k}\dbinom{k}{i}x^{i}=\underbrace{\sum
+_{k=0}^{m}\sum_{i=0}^{k}}_{=\sum_{i=0}^{m}\sum_{k=i}^{m}}\dbinom{k}{i}%
+b_{k}x^{i}=\sum_{i=0}^{m}\underbrace{\sum_{k=i}^{m}\dbinom{k}{i}b_{k}x^{i}%
+}_{\substack{=\dbinom{i}{i}b_{i}x^{i}+\sum_{k=i+1}^{m}\dbinom{k}{i}b_{k}%
+x^{i}\\\text{(here, we have split off the addend}\\\text{for }k=i\text{ from
+the sum)}}}\\
+&  =\sum_{i=0}^{m}\left(  \dbinom{i}{i}b_{i}x^{i}+\sum_{k=i+1}^{m}\dbinom
+{k}{i}b_{k}x^{i}\right)  =\sum_{i=0}^{m}\underbrace{\dbinom{i}{i}}_{=1}%
+b_{i}x^{i}+\sum_{i=0}^{m}\sum_{k=i+1}^{m}\dbinom{k}{i}b_{k}x^{i}\\
+&  =\underbrace{\sum_{i=0}^{m}b_{i}x^{i}}_{\substack{=f\left[  x\right]
+\\\text{(by \eqref{sol.pol.fin-differences.c.s4.pf.1})}}}+\sum_{i=0}^{m}%
+\sum_{k=i+1}^{m}\dbinom{k}{i}b_{k}x^{i}=f\left[  x\right]  +\sum_{i=0}^{m}%
+\sum_{k=i+1}^{m}\dbinom{k}{i}b_{k}x^{i}.
+\end{align*}
+Subtracting $f\left[  x\right]  $ from both sides of this equality, we obtain%
+\begin{equation}
+f\left[  x+1\right]  -f\left[  x\right]  =\sum_{i=0}^{m}\sum_{k=i+1}%
+^{m}\dbinom{k}{i}b_{k}x^{i}. \label{sol.pol.fin-differences.c.s4.pf.2}%
+\end{equation}
+But the definition of $\Delta$ yields%
+\begin{align}
+\Delta\left(  f\right)   &  =f^{\Delta}=f\left[  x+1\right]  -f\left[
+x\right]  \qquad\left(  \text{by the definition of }f^{\Delta}\right)
+\nonumber\\
+&  =\sum_{i=0}^{m}\sum_{k=i+1}^{m}\dbinom{k}{i}b_{k}x^{i}\qquad\left(
+\text{by \eqref{sol.pol.fin-differences.c.s4.pf.2}}\right)  .
+\label{sol.pol.fin-differences.c.s4.pf.3}%
+\end{align}
+But if $i\in\left\{  0,1,\ldots,m\right\}  $ and $k\in\left\{  i+1,i+2,\ldots
+,m\right\}  $, then $x^{i}\in\mathbb{K}\left[  x\right]  _{\leq m-1}%
+$\ \ \ \ \footnote{\textit{Proof.} Let $i\in\left\{  0,1,\ldots,m\right\}  $
+and $k\in\left\{  i+1,i+2,\ldots,m\right\}  $. Then, from $k\in\left\{
+i+1,i+2,\ldots,m\right\}  $, we obtain $i+1\leq k\leq m$, so that $i\leq m-1$
+and therefore $x^{i}\in\mathbb{K}\left[  x\right]  _{\leq m-1}$. Qed.}. Hence,
+the sum $\sum_{i=0}^{m}\sum_{k=i+1}^{m}\dbinom{k}{i}b_{k}x^{i}$ is a
+$\mathbb{K}$-linear combination of elements of $\mathbb{K}\left[  x\right]
+_{\leq m-1}$ (since the coefficients $\dbinom{k}{i}b_{k}$ belong to
+$\mathbb{K}$), and thus itself lies in $\mathbb{K}\left[  x\right]  _{\leq
+m-1}$ (since $\mathbb{K}\left[  x\right]  _{\leq m-1}$ is a $\mathbb{K}%
+$-module). In view of \eqref{sol.pol.fin-differences.c.s4.pf.3}, this rewrites
+as follows: The polynomial $\Delta\left(  f\right)  $ lies in $\mathbb{K}%
+\left[  x\right]  _{\leq m-1}$. In other words, the polynomial $\Delta\left(
+f\right)  $ has degree $\leq m-1$. Hence, $\deg\left(  \Delta\left(  f\right)
+\right)  \leq\underbrace{m}_{=\deg f}-1=\deg f-1$. This proves Statement 4.]
+
+\bigskip
+
+From Statement 4, we can easily derive the following consequences:
+
+\begin{statement}
+\textit{Statement 5:} Let $m\in\mathbb{N}$. Let $f\in\mathbb{K}\left[
+x\right]  $ be a polynomial of degree $\leq m$. Then, for each $n\in
+\mathbb{N}$, we have $\deg\left(  \Delta^{n}\left(  f\right)  \right)  \leq
+m-n$.
+\end{statement}
+
+[\textit{Proof of Statement 5 (sketched):} This can be straightforwardly
+proven by induction on $n$. The induction base (i.e., the case $n=0$) is
+obvious. The induction step proceeds by observing that if $n$ is a positive
+integer, then%
+\[
+\underbrace{\Delta^{n}}_{=\Delta\circ\Delta^{n-1}}\left(  f\right)  =\left(
+\Delta\circ\Delta^{n-1}\left(  f\right)  \right)  =\Delta\left(  \Delta
+^{n-1}\left(  f\right)  \right)  ,
+\]
+and applying Statement 4 to $\Delta^{n-1}\left(  f\right)  $ instead of $f$.
+Thus, Statement 5 is proven.]
+
+\begin{statement}
+\textit{Statement 6:} Let $m\in\mathbb{N}$. Let $f\in\mathbb{K}\left[
+x\right]  $ be a polynomial of degree $\leq m$. Then, $\Delta^{n}\left(
+f\right)  =0$ for all integers $n>m$.
+\end{statement}
+
+[\textit{Proof of Statement 6 (sketched):} Let $n$ be an integer such that
+$n>m$. Then, Statement 5 yields $\deg\left(  \Delta^{n}\left(  f\right)
+\right)  \leq m-n$. Hence, $\deg\left(  \Delta^{n}\left(  f\right)  \right)
+\leq m-n<0$ (since $n>m$), so that $\Delta^{n}\left(  f\right)  =0$. This
+proves Statement 6.]
+
+\bigskip
+
+From now on, we assume that $\mathbb{Q}$ is a subring of $\mathbb{K}$. Let us
+generalize our definition of the binomial coefficients $\dbinom{n}{k}$ to the
+case when $n$ is not a rational number but a polynomial over $\mathbb{K}$
+(that is, an element of $\mathbb{K}\left[  x\right]  $). This generalization
+goes as follows:
+
+\begin{definition}
+\label{def.pol.general-binom}Let $n\in\mathbb{\mathbb{K}}\left[  x\right]  $
+and $k\in\mathbb{Q}$. Then, we define the \textit{binomial coefficient}
+$\dbinom{n}{k}$ as follows:
+
+\textbf{(a)} If $k\in\mathbb{N}$, then we set
+\[
+\dbinom{n}{k}=\dfrac{n\left(  n-1\right)  \left(  n-2\right)  \cdots\left(
+n-k+1\right)  }{k!}=\dfrac{\prod_{i=0}^{k-1}\left(  n-i\right)  }{k!}.
+\]
+
+
+\textbf{(b)} If $k\notin\mathbb{N}$, then we set $\dbinom{n}{k}=0$.
+\end{definition}
+
+This definition generalizes both
+
+\begin{itemize}
+\item the definition of $\dbinom{n}{k}$ in the case when $n\in\mathbb{Q}$ that
+we gave in class (Definition 2.17.1 in
+\href{http://www.cip.ifi.lmu.de/~grinberg/t/19s/notes.pdf}{the class notes}), and
+
+\item the definition of $\dbinom{x}{n}$ given in the above exercise (indeed,
+this is the particular case of Definition \ref{def.pol.general-binom} when $n$
+and $k$ are set to be $x$ and $n$).
+\end{itemize}
+
+Now, we state a simple property of these generalized binomial coefficients:
+
+\begin{proposition}
+\label{prop.pol.general-binom.rec}Any $n\in\mathbb{K}\left[  x\right]  $ and
+$k\in\mathbb{Q}$ satisfy
+\[
+\dbinom{n}{k}=\dbinom{n-1}{k}+\dbinom{n-1}{k-1}.
+\]
+
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.pol.general-binom.rec}.]Proposition
+\ref{prop.pol.general-binom.rec} can be proven using the same argument that
+was used to prove Theorem 2.17.8 in
+\href{http://www.cip.ifi.lmu.de/~grinberg/t/19s/notes.pdf}{the class notes}.
+(The only difference is that $n$ is now an element of $\mathbb{K}\left[
+x\right]  $ and not of $\mathbb{Q}$.)
+\end{proof}
+
+Another property of these generalized binomial coefficients is a
+generalization of the Vandermonde convolution identity:
+
+\begin{proposition}
+\label{prop.pol.general-binom.vander}Let $a,b\in\mathbb{\mathbb{\mathbb{K}}%
+}\left[  x\right]  $ and $n\in\mathbb{N}$. Then,%
+\[
+\dbinom{a+b}{n}=\sum_{k=0}^{n}\dbinom{a}{k}\dbinom{b}{n-k}.
+\]
+
+\end{proposition}
+
+Proposition \ref{prop.pol.general-binom.vander} generalizes the well-known
+Vandermonde convolution identity (Theorem 2.17.14 in
+\href{http://www.cip.ifi.lmu.de/~grinberg/t/19s/notes.pdf}{the class notes});
+in fact, the latter is obtained if we require $a$ and $b$ to be rational
+numbers (rather than polynomials in $\mathbb{K}\left[  x\right]  $).
+
+\begin{proof}
+[Proof of Proposition \ref{prop.pol.general-binom.vander}.]This is a bit
+tricky to derive from what we have done in class. The conceptually easiest
+proof is probably to say \textquotedblleft read \cite[First proof of Theorem
+3.29]{detnotes}, and replace each appearance of \textquotedblleft$\mathbb{Q}%
+$\textquotedblright\ by \textquotedblleft$\mathbb{K}\left[  x\right]
+$\textquotedblright, each appearance of \textquotedblleft$x$\textquotedblright%
+\ by \textquotedblleft$a$\textquotedblright, and each appearance of
+\textquotedblleft$y$\textquotedblright\ by \textquotedblleft$b$%
+\textquotedblright\textquotedblright. (The latter proof depends on a few
+results proven in \cite[\S 3.1]{detnotes}, which too need to be generalized to
+elements of $\mathbb{K}\left[  x\right]  $ instead of $\mathbb{Q}$. But all
+this generalizing is straightforward.)
+
+Unfortunately, the proof of the Vandermonde convolution identity that we gave
+in class cannot be generalized this easily. Indeed, $\mathbb{K}\left[
+x\right]  $ is not necessarily a field, so we cannot directly apply the
+\textquotedblleft polynomial identity trick\textquotedblright. The easiest way
+out is by using polynomials in two indeterminates (even though I did not
+define them in class) and the corresponding analogue of the \textquotedblleft
+polynomial identity trick\textquotedblright. Here is this argument in a
+nutshell: Consider the two polynomials%
+\[
+P=\dbinom{u+v}{n}\qquad\text{and}\ \ \ \ \ \ \ \ \ \ Q=\sum_{k=0}^{n}%
+\dbinom{u}{k}\dbinom{v}{n-k}%
+\]
+in two indeterminates $u$ and $v$ over the ring $\mathbb{Q}$ (not over the
+ring $\mathbb{K}$). Now, the Vandermonde convolution identity (Theorem 2.17.14
+in \href{http://www.cip.ifi.lmu.de/~grinberg/t/19s/notes.pdf}{the class
+notes}) shows that $P\left[  \alpha,\beta\right]  =Q\left[  \alpha
+,\beta\right]  $ for all $\alpha,\beta\in\mathbb{N}$ (where \textquotedblleft%
+$P\left[  \alpha,\beta\right]  $\textquotedblright\ means the result of
+substituting $u=\alpha$ and $v=\beta$ in the polynomial $P$, and similarly for
+\textquotedblleft$Q\left[  \alpha,\beta\right]  $\textquotedblright). Using a
+two-variable version of the \textquotedblleft polynomial identity
+trick\textquotedblright, we can thus conclude that $P=Q$ as polynomials.
+Substituting $u=a$ and $v=b$ in this equality, we obtain $P\left[  a,b\right]
+=Q\left[  a,b\right]  $; but this rewrites as $\dbinom{a+b}{n}=\sum_{k=0}%
+^{n}\dbinom{a}{k}\dbinom{b}{n-k}$. Thus, Proposition
+\ref{prop.pol.general-binom.vander} is proven (modulo the groundwork that we
+have skipped: defining two-variable polynomials and proving that they still
+satisfy a version of the \textquotedblleft polynomial identity
+trick\textquotedblright).
+\end{proof}
+
+\bigskip
+
+Let us furthermore state two utterly obvious properties of the polynomials
+$\dbinom{x}{n}$:
+
+\begin{statement}
+\textit{Statement 7:} Let $n\in\mathbb{N}$. Then, the polynomial $\dbinom
+{x}{n}\in\mathbb{K}\left[  x\right]  $ satisfies
+\[
+\deg\dbinom{x}{n}=n\qquad\text{and}\qquad\left[  x^{n}\right]  \left(
+\dbinom{x}{n}\right)  =\dfrac{1}{n!}.
+\]
+
+\end{statement}
+
+[\textit{Proof of Statement 7 (sketched):} The definition of $\dbinom{x}{n}$
+yields%
+\[
+\dbinom{x}{n}=\dfrac{x\left(  x-1\right)  \left(  x-2\right)  \cdots\left(
+x-n+1\right)  }{n!}.
+\]
+If we multiply out the numerator of this fraction, then we obtain
+$x^{n}+\left(  \text{lower-degree terms}\right)  $. Thus,%
+\[
+\dbinom{x}{n}=\dfrac{x^{n}+\left(  \text{lower-degree terms}\right)  }%
+{n!}=\dfrac{1}{n!}x^{n}+\left(  \text{lower-degree terms}\right)  .
+\]
+Thus, the polynomial $\dbinom{x}{n}$ has degree $n$, and its $x^{n}%
+$-coefficient is $\dfrac{1}{n!}$. In other words, $\deg\dbinom{x}{n}=n$ and
+$\left[  x^{n}\right]  \left(  \dbinom{x}{n}\right)  =\dfrac{1}{n!}$.
+
+(An alternative proof of Statement 7 proceeds by induction on $n$. The
+induction step relies on observing that $\dbinom{x}{n}=\dfrac{x-n+1}{n}%
+\dbinom{x}{n-1}$ when $n$ is positive.)]
+
+\begin{statement}
+\textit{Statement 8:} Let $u\in\mathbb{K}\left[  x\right]  $ and
+$i\in\mathbb{Q}$. Then,%
+\[
+\dbinom{x}{i}\left[  u\right]  =\dbinom{u}{i}.
+\]
+
+\end{statement}
+
+[\textit{Proof of Statement 8 (sketched):} If $i\notin\mathbb{N}$, then this
+equality boils down to $0\left[  u\right]  =0$ (since both $\dbinom{x}{i}$ and
+$\dbinom{u}{i}$ are defined to be $0$ in this case), which is clearly true.
+Hence, for the rest of this proof, we WLOG assume that $i\in\mathbb{N}$. Thus,
+the definition of $\dbinom{u}{i}$ yields $\dbinom{u}{i}=\dfrac{u\left(
+u-1\right)  \left(  u-2\right)  \cdots\left(  u-i+1\right)  }{i!}$. But the
+definition of $\dbinom{x}{i}$ yields%
+\[
+\dbinom{x}{i}=\dfrac{x\left(  x-1\right)  \left(  x-2\right)  \cdots\left(
+x-i+1\right)  }{i!}.
+\]
+Substituting $u$ for $x$ in this equality, we find%
+\begin{align*}
+\dbinom{x}{i}\left[  u\right]   &  =\dfrac{x\left(  x-1\right)  \left(
+x-2\right)  \cdots\left(  x-i+1\right)  }{i!}\left[  u\right] \\
+&  =\dfrac{u\left(  u-1\right)  \left(  u-2\right)  \cdots\left(
+u-i+1\right)  }{i!}\qquad\left(
+\begin{array}
+[c]{c}%
+\text{since evaluation of polynomials at }u\\
+\text{respects scaling and multiplication}%
+\end{array}
+\right) \\
+&  =\dbinom{u}{i}.
+\end{align*}
+This proves Statement 8.]
+
+\bigskip
+
+Finally, we shall use the following fact (proven as an exercise in the class notes):
+
+\begin{lemma}
+\label{lem.sol.pol.fin-differences.deg-reduce}Let $n\in\mathbb{N}$. Let
+$\mathbf{a}\in\mathbb{K}\left[  x\right]  _{\leq n}$. If $\left[
+x^{n}\right]  \mathbf{a}=0$, then $\mathbf{a}\in\mathbb{K}\left[  x\right]
+_{\leq n-1}$.
+\end{lemma}
+
+\bigskip
+
+We now resume solving the exercise.
+
+\bigskip
+
+\textbf{(c)} We first prove that
+\begin{equation}
+\Delta\left(  \dbinom{x}{k}\right)  =\dbinom{x}{k-1}\qquad\text{for each }%
+k\in\mathbb{Z}\text{.} \label{sol.pol.fin-differences.Deltaxk}%
+\end{equation}
+
+
+[\textit{Proof of \eqref{sol.pol.fin-differences.Deltaxk}:} Let $k\in
+\mathbb{Z}$. Then, Proposition \ref{prop.pol.general-binom.rec} (applied to
+$n=x+1$) yields%
+\[
+\dbinom{x+1}{k}=\dbinom{\left(  x+1\right)  -1}{k}+\dbinom{\left(  x+1\right)
+-1}{k-1}=\dbinom{x}{k}+\dbinom{x}{k-1}%
+\]
+(since $\left(  x+1\right)  -1=x$). Thus,%
+\begin{equation}
+\dbinom{x+1}{k}-\dbinom{x}{k}=\dbinom{x}{k-1}.
+\label{sol.pol.fin-differences.Deltaxk.pf.2}%
+\end{equation}
+
+
+The definition of $\Delta$ shows that each $f\in\mathbb{K}\left[  x\right]  $
+satisfies%
+\[
+\Delta\left(  f\right)  =f^{\Delta}=f\left[  x+1\right]  -f\left[  x\right]
+\qquad\left(  \text{by the definition of }f^{\Delta}\right)  .
+\]
+Applying this to $f=\dbinom{x}{k}$, we obtain%
+\[
+\Delta\left(  \dbinom{x}{k}\right)  =\underbrace{\dbinom{x}{k}\left[
+x+1\right]  }_{\substack{_{\substack{=\dbinom{x+1}{k}}}\\\text{(by Statement
+8,}\\\text{applied to }i=k\text{ and }u=x+1\text{)}}}-\underbrace{\dbinom
+{x}{k}\left[  x\right]  }_{=\dbinom{x}{k}}=\dbinom{x+1}{k}-\dbinom{x}%
+{k}=\dbinom{x}{k-1}%
+\]
+(by \eqref{sol.pol.fin-differences.Deltaxk.pf.2}). This proves \eqref{sol.pol.fin-differences.Deltaxk}.]
+
+Now, we can solve part \textbf{(c)} of the exercise by induction on $n$:
+
+\textit{Induction base:} For each $k\in\mathbb{Z}$, we have%
+\[
+\underbrace{\Delta^{0}}_{=\operatorname*{id}}\left(  \dbinom{x}{k}\right)
+=\operatorname*{id}\left(  \dbinom{x}{k}\right)  =\dbinom{x}{k}=\dbinom
+{x}{k-0}\qquad\left(  \text{since }k=k-0\right)  .
+\]
+In other words, part \textbf{(c)} of the exercise holds for $n=0$. This
+completes the induction base.
+
+\textit{Induction step:} Let $m\in\mathbb{N}$. Assume that part \textbf{(c)}
+of the exercise holds for $n=m$. We must prove that part \textbf{(c)} of the
+exercise holds for $n=m+1$.
+
+We have assumed that part \textbf{(c)} of the exercise holds for $n=m$. In
+other words, we have%
+\begin{equation}
+\Delta^{m}\left(  \dbinom{x}{k}\right)  =\dbinom{x}{k-m}\qquad\text{for all
+}k\in\mathbb{Z}. \label{sol.pol.fin-differences.c.pf.IH}%
+\end{equation}
+
+
+Now, for all $k\in\mathbb{Z}$, we have
+\begin{align*}
+\underbrace{\Delta^{m+1}}_{=\Delta\circ\Delta^{m}}\left(  \dbinom{x}%
+{k}\right)   &  =\left(  \Delta\circ\Delta^{m}\right)  \left(  \dbinom{x}%
+{k}\right)  =\Delta\left(  \underbrace{\Delta^{m}\left(  \dbinom{x}{k}\right)
+}_{\substack{=\dbinom{x}{k-m}\\\text{(by
+\eqref{sol.pol.fin-differences.c.pf.IH})}}}\right)  =\Delta\left(  \dbinom
+{x}{k-m}\right) \\
+&  =\dbinom{x}{k-m-1}\qquad\left(  \text{by
+\eqref{sol.pol.fin-differences.Deltaxk}, applied to }k-m\text{ instead of
+}k\right) \\
+&  =\dbinom{x}{k-\left(  m+1\right)  }\qquad\left(  \text{since }%
+k-m-1=k-\left(  m+1\right)  \right)  .
+\end{align*}
+In other words, part \textbf{(c)} of the exercise holds for $n=m+1$. This
+completes the induction step. Thus, part \textbf{(c)} of the exercise is
+solved by induction.
+
+\bigskip
+
+\textbf{(d)} We shall prove the following statement:
+
+\begin{statement}
+\textit{Statement 9:} Let $m\in\left\{  -1,0,1,\ldots\right\}  $. For each
+$f\in\mathbb{K}\left[  x\right]  _{\leq m}$, there exist elements $a_{0}%
+,a_{1},\ldots,a_{m}\in\mathbb{K}$ such that $f=\sum_{i=0}^{m}a_{i}\dbinom
+{x}{i}$.
+\end{statement}
+
+[\textit{Proof of Statement 9:} We shall prove Statement 9 by induction on
+$m$:
+
+\textit{Induction base:} For each $f\in\mathbb{K}\left[  x\right]  _{\leq-1}$,
+there exist elements $a_{0},a_{1},\ldots,a_{-1}\in\mathbb{K}$ such that
+$f=\sum_{i=0}^{-1}a_{i}\dbinom{x}{i}$\ \ \ \ \footnote{\textit{Proof.} Let
+$f\in\mathbb{K}\left[  x\right]  _{\leq-1}$. Then, $f\in\mathbb{K}\left[
+x\right]  _{\leq-1}=\left\{  0\right\}  =0$, so that $f=0$. Thus,
+$f=\sum_{i=0}^{-1}0\dbinom{x}{i}$ (since $\sum_{i=0}^{-1}0\dbinom{x}%
+{i}=\left(  \text{empty sum}\right)  =0=f$). Hence, there exist elements
+$a_{0},a_{1},\ldots,a_{-1}\in\mathbb{K}$ such that $f=\sum_{i=0}^{-1}%
+a_{i}\dbinom{x}{i}$ (namely, $a_{i}=0$). Qed.}. In other words, Statement 9
+holds for $m=-1$. This completes the (extremely pedantic) induction base.
+
+\textit{Induction step:} Let $n\in\left\{  -1,0,1,\ldots\right\}  $ be such
+that $n>-1$. Assume that Statement 9 holds for $m=n-1$. We must prove that
+Statement 9 holds for $m=n$.
+
+We note that $n\geq0$ (since $n$ is an integer satisfying $n>-1$), thus
+$n\in\mathbb{N}$.
+
+Now, let $f\in\mathbb{K}\left[  x\right]  _{\leq n}$. We shall construct
+elements $a_{0},a_{1},\ldots,a_{n}\in\mathbb{K}$ such that $f=\sum_{i=0}%
+^{n}a_{i}\dbinom{x}{i}$.
+
+Indeed, Statement 7 shows that the polynomial $\dbinom{x}{n}\in\mathbb{K}%
+\left[  x\right]  $ satisfies $\deg\dbinom{x}{n}=n$ and $\left[  x^{n}\right]
+\left(  \dbinom{x}{n}\right)  =\dfrac{1}{n!}$. From $\deg\dbinom{x}{n}=n\leq
+n$, we obtain $\dbinom{x}{n}\in\mathbb{K}\left[  x\right]  _{\leq n}$.
+
+Now, define a scalar $\lambda\in\mathbb{K}$ by $\lambda=n!\cdot\left[
+x^{n}\right]  f$. Then, $f-\lambda\dbinom{x}{n}$ is a $\mathbb{K}$-linear
+combination of the polynomials $f$ and $\dbinom{x}{n}$. Since both of these
+polynomials $f$ and $\dbinom{x}{n}$ belong to $\mathbb{K}\left[  x\right]
+_{\leq n}$ (because $f\in\mathbb{K}\left[  x\right]  _{\leq n}$ and
+$\dbinom{x}{n}\in\mathbb{K}\left[  x\right]  _{\leq n}$), we thus conclude
+that their $\mathbb{K}$-linear combination $f-\lambda\dbinom{x}{n}$ also
+belongs to $\mathbb{K}\left[  x\right]  _{\leq n}$ (since $\mathbb{K}\left[
+x\right]  _{\leq n}$ is a $\mathbb{K}$-module). Furthermore, since subtraction
+and scaling of polynomials are defined entrywise, we have%
+\begin{align*}
+\left[  x^{n}\right]  \left(  f-\lambda\dbinom{x}{n}\right)   &  =\left[
+x^{n}\right]  f-\underbrace{\lambda}_{=n!\cdot\left[  x^{n}\right]
+f}\underbrace{\left[  x^{n}\right]  \left(  \dbinom{x}{n}\right)  }%
+_{=\dfrac{1}{n!}}\\
+&  =\left[  x^{n}\right]  f-n!\cdot\left(  \left[  x^{n}\right]  f\right)
+\cdot\dfrac{1}{n!}=\left[  x^{n}\right]  f-\left[  x^{n}\right]  f=0.
+\end{align*}
+Hence, Lemma \ref{lem.sol.pol.fin-differences.deg-reduce} (applied to
+$\mathbf{a}=f-\lambda\dbinom{x}{n}$) yields $f-\lambda\dbinom{x}{n}%
+\in\mathbb{K}\left[  x\right]  _{\leq n-1}$. Thus, we can apply Statement 9
+to $n-1$ and $f-\lambda\dbinom{x}{n}$ instead of $m$ and $f$ (because we have
+assumed that Statement 9 holds for $m=n-1$). We thus conclude that there
+exist elements $a_{0},a_{1},\ldots,a_{n-1}\in\mathbb{K}$ such that
+\begin{equation}
+f-\lambda\dbinom{x}{n}=\sum_{i=0}^{n-1}a_{i}\dbinom{x}{i}.
+\label{sol.pol.fin-differences.s8.pf.1}%
+\end{equation}
+Consider these elements $a_{0},a_{1},\ldots,a_{n-1}$. We thus have obtained an
+$n$-tuple $\left(  a_{0},a_{1},\ldots,a_{n-1}\right)  \in\mathbb{K}^{n}$. We
+extend this $n$-tuple $\left(  a_{0},a_{1},\ldots,a_{n-1}\right)  $ to an
+$\left(  n+1\right)  $-tuple $\left(  a_{0},a_{1},\ldots,a_{n}\right)
+\in\mathbb{K}^{n+1}$ by setting $a_{n}=\lambda$. Then,%
+\begin{align*}
+\sum_{i=0}^{n}a_{i}\dbinom{x}{i}  &  =\sum_{i=0}^{n-1}a_{i}\dbinom{x}%
+{i}+\underbrace{a_{n}}_{=\lambda}\dbinom{x}{n}\qquad\left(
+\begin{array}
+[c]{c}%
+\text{here, we have split off the}\\
+\text{addend for }i=n\text{ from the sum}%
+\end{array}
+\right) \\
+&  =\sum_{i=0}^{n-1}a_{i}\dbinom{x}{i}+\lambda\dbinom{x}{n}=f\qquad\left(
+\text{by \eqref{sol.pol.fin-differences.s8.pf.1}}\right)  .
+\end{align*}
+In other words, $f=\sum_{i=0}^{n}a_{i}\dbinom{x}{i}$.
+
+Now, forget that we defined $a_{0},a_{1},\ldots,a_{n}$. We thus have found
+$n+1$ elements $a_{0},a_{1},\ldots,a_{n}\in\mathbb{K}$ such that $f=\sum
+_{i=0}^{n}a_{i}\dbinom{x}{i}$. Hence, we have shown that such elements exist.
+In other words, there exist elements $a_{0},a_{1},\ldots,a_{n}\in\mathbb{K}$
+such that $f=\sum_{i=0}^{n}a_{i}\dbinom{x}{i}$.
+
+Now, forget that we fixed $f$. We thus have shown that for each $f\in
+\mathbb{K}\left[  x\right]  _{\leq n}$, there exist elements $a_{0}%
+,a_{1},\ldots,a_{n}\in\mathbb{K}$ such that $f=\sum_{i=0}^{n}a_{i}\dbinom
+{x}{i}$. In other words, Statement 9 holds for $m=n$. This completes the
+induction step. Thus, Statement 9 is proven by induction.]
+
+Now, let $m\in\mathbb{N}$, and let $f\in\mathbb{K}\left[  x\right]  $ be a
+polynomial of degree $\leq m$. Then, $m\in\mathbb{N}\subseteq\left\{
+-1,0,1,\ldots\right\}  $. Furthermore, $f\in\mathbb{K}\left[  x\right]  _{\leq
+m}$ (since $f\in\mathbb{K}\left[  x\right]  $ is a polynomial of degree $\leq
+m$). Hence, Statement 9 shows that there exist elements $a_{0},a_{1}%
+,\ldots,a_{m}\in\mathbb{K}$ such that $f=\sum_{i=0}^{m}a_{i}\dbinom{x}{i}$.
+This solves part \textbf{(d)} of the exercise.
+
+\bigskip
+
+\textbf{(e)} Let $f\in\mathbb{K}\left[  x\right]  $ be a polynomial.
+
+Let $m=\deg f$. Thus, $f$ is a polynomial of degree $\leq m$ (since $\deg
+f=m\leq m$). Hence, part \textbf{(d)} of this exercise shows that there exist
+elements $a_{0},a_{1},\ldots,a_{m}\in\mathbb{K}$ such that $f=\sum_{i=0}%
+^{m}a_{i}\dbinom{x}{i}$. Consider these $a_{0},a_{1},\ldots,a_{m}$.
+Substituting $x+a$ for $x$ in the equality $f=\sum_{i=0}^{m}a_{i}\dbinom{x}%
+{i}$, we obtain%
+\begin{align}
+f\left[  x+a\right]   &  =\left(  \sum_{i=0}^{m}a_{i}\dbinom{x}{i}\right)
+\left[  x+a\right]  =\sum_{i=0}^{m}a_{i}\underbrace{\dbinom{x}{i}\left[
+x+a\right]  }_{\substack{=\dbinom{x+a}{i}\\\text{(by Statement 8,}%
+\\\text{applied to }u=x+a\text{)}}}\nonumber\\
+&  =\sum_{i=0}^{m}a_{i}\dbinom{x+a}{i}. \label{sol.pol.fin-differences.e.1}%
+\end{align}
+
+
+Now, we claim that%
+\begin{equation}
+\dbinom{x+a}{i}=\sum_{n=0}^{m}\dbinom{a}{i-n}\cdot\dbinom{x}{n}
+\label{sol.pol.fin-differences.e.2}%
+\end{equation}
+for each $i\in\left\{  0,1,\ldots,m\right\}  $.
+
+[\textit{Proof of \eqref{sol.pol.fin-differences.e.2}:} Let $i\in\left\{
+0,1,\ldots,m\right\}  $. Then, $0\leq i\leq m$. We have%
+\begin{align}
+&  \sum_{n=0}^{m}\dbinom{a}{i-n}\cdot\dbinom{x}{n}\nonumber\\
+&  =\sum_{n=0}^{i}\underbrace{\dbinom{a}{i-n}\cdot\dbinom{x}{n}}_{=\dbinom
+{x}{n}\dbinom{a}{i-n}}+\sum_{n=i+1}^{m}\underbrace{\dbinom{a}{i-n}%
+}_{\substack{=0\\\text{(since }i-n<0\\\text{(because }n\geq i+1>i\text{))}%
+}}\cdot\dbinom{x}{n}\nonumber\\
+&  \qquad\left(  \text{here, we have split our sum at }n=i\text{, since }0\leq
+i\leq m\right) \nonumber\\
+&  =\sum_{n=0}^{i}\dbinom{x}{n}\dbinom{a}{i-n}+\underbrace{\sum_{n=i+1}%
+^{m}0\cdot\dbinom{x}{n}}_{=0}=\sum_{n=0}^{i}\dbinom{x}{n}\dbinom{a}{i-n}.
+\label{sol.pol.fin-differences.e.2.pf.3}%
+\end{align}
+But $x\in\mathbb{K}\left[  x\right]  $ and $a\in\mathbb{K}\subseteq
+\mathbb{K}\left[  x\right]  $. Hence, Proposition
+\ref{prop.pol.general-binom.vander} (applied to $x$, $a$ and $i$ instead of
+$a$, $b$ and $n$) yields%
+\[
+\dbinom{x+a}{i}=\sum_{k=0}^{i}\dbinom{x}{k}\dbinom{a}{i-k}=\sum_{n=0}%
+^{i}\dbinom{x}{n}\dbinom{a}{i-n}%
+\]
+(here, we have renamed the summation index $k$ as $n$). Comparing this with
+\eqref{sol.pol.fin-differences.e.2.pf.3}, we obtain $\dbinom{x+a}{i}%
+=\sum_{n=0}^{m}\dbinom{a}{i-n}\cdot\dbinom{x}{n}$. This proves \eqref{sol.pol.fin-differences.e.2}.]
+
+But each $n\in\mathbb{N}$ satisfies%
+\begin{align*}
+\Delta^{n}\left(  f\right)   &  =\Delta^{n}\left(  \sum_{i=0}^{m}a_{i}%
+\dbinom{x}{i}\right)  \qquad\left(  \text{since }f=\sum_{i=0}^{m}a_{i}%
+\dbinom{x}{i}\right)  \\
+&  =\sum_{i=0}^{m}a_{i}\underbrace{\left(  \Delta^{n}\left(  \dbinom{x}%
+{i}\right)  \right)  }_{\substack{=\dbinom{x}{i-n}\\\text{(by part
+\textbf{(c)} of this exercise,}\\\text{applied to }k=i\text{)}}}\qquad\left(
+\begin{array}
+[c]{c}%
+\text{since the map }\Delta^{n}\text{ is }\mathbb{K}\text{-linear}\\
+\text{(since the map }\Delta\text{ is }\mathbb{K}\text{-linear)}%
+\end{array}
+\right)  \\
+&  =\sum_{i=0}^{m}a_{i}\dbinom{x}{i-n}%
+\end{align*}
+and thus%
+\begin{align}
+&  \underbrace{\left(  \Delta^{n}\left(  f\right)  \right)  }_{=\sum_{i=0}%
+^{m}a_{i}\dbinom{x}{i-n}}\left[  a\right]  \nonumber\\
+&  =\left(  \sum_{i=0}^{m}a_{i}\dbinom{x}{i-n}\right)  \left[  a\right]
+=\sum_{i=0}^{m}a_{i}\underbrace{\dbinom{x}{i-n}\left[  a\right]
+}_{\substack{=\dbinom{a}{i-n}\\\text{(by Statement 8,}\\\text{applied to
+}i-n\text{ and }a\\\text{instead of }i\text{ and }u\text{)}}}\nonumber\\
+&  \qquad\left(  \text{since evaluation of polynomials at }a\text{ respects
+}\mathbb{K}\text{-linear combinations}\right)  \nonumber\\
+&  =\sum_{i=0}^{m}a_{i}\dbinom{a}{i-n}%
+.\label{sol.pol.fin-differences.e.Delnfa}%
+\end{align}
+
+
+On the other hand, Statement 6 shows that $\Delta^{n}\left(  f\right)  =0$ for
+all integers $n>m$. Hence,
+\begin{equation}
+\underbrace{\left(  \Delta^{n}\left(  f\right)  \right)  }_{=0}\left[
+a\right]  \cdot\dbinom{x}{n}=\underbrace{0\left[  a\right]  }_{=0}\cdot
+\dbinom{x}{n}=0 \label{sol.pol.fin-differences.e.0out}%
+\end{equation}
+for all integers $n>m$. Thus, all but finitely many addends of the sum
+$\sum_{n\in\mathbb{N}}\left(  \Delta^{n}\left(  f\right)  \right)  \left[
+a\right]  \cdot\dbinom{x}{n}$ are $0$. In other words, this sum $\sum
+_{n\in\mathbb{N}}\left(  \Delta^{n}\left(  f\right)  \right)  \left[
+a\right]  \cdot\dbinom{x}{n}$ has only finitely many nonzero addends; thus, it
+is well-defined. Furthermore, we can split this sum at $n=m$; we thus find%
+\begin{align*}
+&  \sum_{n\in\mathbb{N}}\left(  \Delta^{n}\left(  f\right)  \right)  \left[
+a\right]  \cdot\dbinom{x}{n}\\
+&  =\sum_{n=0}^{m}\underbrace{\left(  \Delta^{n}\left(  f\right)  \right)
+\left[  a\right]  }_{\substack{=\sum_{i=0}^{m}a_{i}\dbinom{a}{i-n}\\\text{(by
+\eqref{sol.pol.fin-differences.e.Delnfa})}}}\cdot\dbinom{x}{n}+\sum
+_{n=m+1}^{\infty}\underbrace{\left(  \Delta^{n}\left(  f\right)  \right)
+\left[  a\right]  \cdot\dbinom{x}{n}}_{\substack{=0\\\text{(by
+\eqref{sol.pol.fin-differences.e.0out}, since }n\geq m+1>m\text{)}}}\\
+&  =\sum_{n=0}^{m}\sum_{i=0}^{m}a_{i}\dbinom{a}{i-n}\cdot\dbinom{x}%
+{n}+\underbrace{\sum_{n=m+1}^{\infty}0}_{=0}=\sum_{n=0}^{m}\sum_{i=0}^{m}%
+a_{i}\dbinom{a}{i-n}\cdot\dbinom{x}{n}\\
+&  =\sum_{i=0}^{m}a_{i}\underbrace{\sum_{n=0}^{m}\dbinom{a}{i-n}\cdot
+\dbinom{x}{n}}_{\substack{=\dbinom{x+a}{i}\\\text{(by
+\eqref{sol.pol.fin-differences.e.2})}}}=\sum_{i=0}^{m}a_{i}\dbinom{x+a}{i}.
+\end{align*}
+Comparing this with \eqref{sol.pol.fin-differences.e.1}, we obtain%
+\[
+f\left[  x+a\right]  =\sum_{n\in\mathbb{N}}\left(  \Delta^{n}\left(  f\right)
+\right)  \left[  a\right]  \cdot\dbinom{x}{n}.
+\]
+This completes the solution of part \textbf{(e)} of this exercise.
+
+\bigskip
+
+\textbf{(f)} We have assumed that%
+\begin{equation}
+f\left[  k\right]  \in\mathbb{Z}\qquad\text{for each }k\in\left\{
+0,1,\ldots,m\right\}  . \label{sol.pol.fin-differences.f.ass}%
+\end{equation}
+
+
+Next, we claim that for each $n\in\left\{  0,1,\ldots,m\right\}  $, we have%
+\begin{equation}
+\left(  \Delta^{n}\left(  f\right)  \right)  \left[  k\right]  \in
+\mathbb{Z}\qquad\text{for all }k\in\left\{  0,1,\ldots,m-n\right\}  .
+\label{sol.pol.fin-differences.f.1}%
+\end{equation}
+
+
+[\textit{Proof of \eqref{sol.pol.fin-differences.f.1}:} We shall prove
+\eqref{sol.pol.fin-differences.f.1} by induction on $n$:
+
+\textit{Induction base:} For each $k\in\left\{  0,1,\ldots,m-0\right\}  $, we
+have
+\[
+\left(  \underbrace{\Delta^{0}}_{=\operatorname*{id}}\left(  f\right)
+\right)  \left[  k\right]  =\underbrace{\left(  \operatorname*{id}\left(
+f\right)  \right)  }_{=f}\left[  k\right]  =f\left[  k\right]  \in\mathbb{Z}%
+\]
+(by \eqref{sol.pol.fin-differences.f.ass}, since $k\in\left\{  0,1,\ldots
+,m-0\right\}  =\left\{  0,1,\ldots,m\right\}  $). Thus, we have shown that
+$\left(  \Delta^{0}\left(  f\right)  \right)  \left[  k\right]  \in\mathbb{Z}$
+for all $k\in\left\{  0,1,\ldots,m-0\right\}  $. In other words,
+\eqref{sol.pol.fin-differences.f.1} holds for $n=0$. This completes the
+induction base.
+
+\textit{Induction step:} Let $N\in\left\{  0,1,\ldots,m\right\}  $ be
+positive. Assume that \eqref{sol.pol.fin-differences.f.1} holds for $n=N-1$.
+We must prove that \eqref{sol.pol.fin-differences.f.1} holds for $n=N$.
+
+We have assumed that \eqref{sol.pol.fin-differences.f.1} holds for $n=N-1$. In
+other words, we have%
+\begin{equation}
+\left(  \Delta^{N-1}\left(  f\right)  \right)  \left[  k\right]  \in
+\mathbb{Z}\qquad\text{for all }k\in\left\{  0,1,\ldots,m-\left(  N-1\right)
+\right\}  . \label{sol.pol.fin-differences.f.1.pf.IH}%
+\end{equation}
+
+
+Now, let $k\in\left\{  0,1,\ldots,m-N\right\}  $. Then, $k\in\left\{
+0,1,\ldots,m-N\right\}  \subseteq\left\{  0,1,\ldots,m-\left(  N-1\right)
+\right\}  $ (since $m-N\leq m-\left(  N-1\right)  $). Thus,
+\eqref{sol.pol.fin-differences.f.1.pf.IH} yields $\left(  \Delta^{N-1}\left(
+f\right)  \right)  \left[  k\right]  \in\mathbb{Z}$. Furthermore, from
+$k\in\left\{  0,1,\ldots,m-N\right\}  $, we obtain
+\[
+k+1\in\left\{  1,2,\ldots,m-N+1\right\}  \subseteq\left\{  0,1,\ldots
+,m-N+1\right\}  =\left\{  0,1,\ldots,m-\left(  N-1\right)  \right\}
+\]
+(since $m-N+1=m-\left(  N-1\right)  $). Thus,
+\eqref{sol.pol.fin-differences.f.1.pf.IH} (applied to $k+1$ instead of $k$)
+yields $\left(  \Delta^{N-1}\left(  f\right)  \right)  \left[  k+1\right]
+\in\mathbb{Z}$. But
+\begin{align*}
+\underbrace{\Delta^{N}}_{=\Delta\circ\Delta^{N-1}}\left(  f\right)   &
+=\left(  \Delta\circ\Delta^{N-1}\right)  \left(  f\right)  =\Delta\left(
+\Delta^{N-1}\left(  f\right)  \right)  =\left(  \Delta^{N-1}\left(  f\right)
+\right)  ^{\Delta}\qquad\left(  \text{by the definition of }\Delta\right) \\
+&  =\left(  \Delta^{N-1}\left(  f\right)  \right)  \left[  x+1\right]
+-\left(  \Delta^{N-1}\left(  f\right)  \right)  \left[  x\right]
+\qquad\left(  \text{by the definition of }\left(  \Delta^{N-1}\left(
+f\right)  \right)  ^{\Delta}\right)  .
+\end{align*}
+Evaluating both sides of this equality at $k$, we find%
+\begin{align*}
+\left(  \Delta^{N}\left(  f\right)  \right)  \left[  k\right]   &  =\left(
+\left(  \Delta^{N-1}\left(  f\right)  \right)  \left[  x+1\right]  -\left(
+\Delta^{N-1}\left(  f\right)  \right)  \left[  x\right]  \right)  \left[
+k\right] \\
+&  =\underbrace{\left(  \left(  \Delta^{N-1}\left(  f\right)  \right)  \left[
+x+1\right]  \right)  \left[  k\right]  }_{=\left(  \Delta^{N-1}\left(
+f\right)  \right)  \left[  k+1\right]  \in\mathbb{Z}}-\underbrace{\left(
+\left(  \Delta^{N-1}\left(  f\right)  \right)  \left[  x\right]  \right)
+\left[  k\right]  }_{=\left(  \Delta^{N-1}\left(  f\right)  \right)  \left[
+k\right]  \in\mathbb{Z}}\in\mathbb{Z}%
+\end{align*}
+(since the difference of two elements of $\mathbb{Z}$ must always belong to
+$\mathbb{Z}$).
+
+Now, forget that we fixed $k$. We thus have shown that $\left(  \Delta
+^{N}\left(  f\right)  \right)  \left[  k\right]  \in\mathbb{Z}$ for all
+$k\in\left\{  0,1,\ldots,m-N\right\}  $. In other words,
+\eqref{sol.pol.fin-differences.f.1} holds for $n=N$. This completes the
+induction step. Thus, \eqref{sol.pol.fin-differences.f.1} is proven by induction.]
+
+For each $n\in\left\{  0,1,\ldots,m\right\}  $, we have $0\in\left\{
+0,1,\ldots,m-n\right\}  $ (since $n\in\left\{  0,1,\ldots,m\right\}  $ yields
+$n\leq m$ and thus $m-n\geq0$) and thus%
+\[
+\left(  \Delta^{n}\left(  f\right)  \right)  \left[  0\right]  \in\mathbb{Z}%
+\]
+(by \eqref{sol.pol.fin-differences.f.1}, applied to $k=0$). Renaming the index
+$n$ as $i$ in this statement, we obtain the following: For each $i\in\left\{
+0,1,\ldots,m\right\}  $, we have%
+\begin{equation}
+\left(  \Delta^{i}\left(  f\right)  \right)  \left[  0\right]  \in\mathbb{Z}.
+\label{sol.pol.fin-differences.f.2}%
+\end{equation}
+
+
+On the other hand, Statement 6 shows that $\Delta^{n}\left(  f\right)  =0$ for
+all integers $n>m$. Hence,
+\begin{equation}
+\underbrace{\left(  \Delta^{n}\left(  f\right)  \right)  }_{=0}\left[
+0\right]  \cdot\dbinom{x}{n}=\underbrace{0\left[  0\right]  }_{=0}\cdot
+\dbinom{x}{n}=0 \label{sol.pol.fin-differences.f.0out}%
+\end{equation}
+for all integers $n>m$.
+
+Now, part \textbf{(e)} of this exercise (applied to $a=0$) yields%
+\begin{align*}
+f\left[  x+0\right]   &  =\sum_{n\in\mathbb{N}}\left(  \Delta^{n}\left(
+f\right)  \right)  \left[  0\right]  \cdot\dbinom{x}{n}\\
+&  =\sum_{n=0}^{m}\left(  \Delta^{n}\left(  f\right)  \right)  \left[
+0\right]  \cdot\dbinom{x}{n}+\sum_{n=m+1}^{\infty}\underbrace{\left(
+\Delta^{n}\left(  f\right)  \right)  \left[  0\right]  \cdot\dbinom{x}{n}%
+}_{\substack{=0\\\text{(by \eqref{sol.pol.fin-differences.f.0out}, since
+}n\geq m+1>m\text{)}}}\\
+&  \qquad\left(  \text{here, we have split the sum at }n=m\right) \\
+&  =\sum_{n=0}^{m}\left(  \Delta^{n}\left(  f\right)  \right)  \left[
+0\right]  \cdot\dbinom{x}{n}+\underbrace{\sum_{n=m+1}^{\infty}0}_{=0}%
+=\sum_{n=0}^{m}\left(  \Delta^{n}\left(  f\right)  \right)  \left[  0\right]
+\cdot\dbinom{x}{n}=\sum_{i=0}^{m}\left(  \Delta^{i}\left(  f\right)  \right)
+\left[  0\right]  \cdot\dbinom{x}{i}%
+\end{align*}
+(here, we have renamed the summation index $n$ as $i$). Comparing this with
+$f\left[  x+0\right]  =f\left[  x\right]  =f$, we obtain%
+\[
+f=\sum_{i=0}^{m}\left(  \Delta^{i}\left(  f\right)  \right)  \left[  0\right]
+\cdot\dbinom{x}{i}.
+\]
+The coefficients $\left(  \Delta^{i}\left(  f\right)  \right)  \left[
+0\right]  $ appearing in this sum are integers (because of
+\eqref{sol.pol.fin-differences.f.2}). Hence, there exist integers $a_{0}%
+,a_{1},\ldots,a_{m}$ such that $f=\sum_{i=0}^{m}a_{i}\dbinom{x}{i}$ (namely,
+$a_{i}=\left(  \Delta^{i}\left(  f\right)  \right)  \left[  0\right]  $). This
+solves part \textbf{(f)} of the exercise.
+
+\begin{thebibliography}{99999999}                                                                                         %
+
+
+\bibitem[Clark18]{Clark18}Pete L. Clark, \textit{Number Theory: A Contemporary
+Introduction}, 8 January 2018. \newline\url{http://math.uga.edu/~pete/4400FULL.pdf}
+
+\bibitem[GalQua17]{Gallier-RSA}Jean Gallier, Jocelyn Quaintance, \textit{Notes
+on Primality Testing And Public Key Cryptography, Part 1}, 27 February
+2019.\newline\url{https://www.cis.upenn.edu/~jean/RSA-primality-testing.pdf}
+
+\bibitem[GrKnPa94]{GKP}Ronald L. Graham, Donald E. Knuth, Oren Patashnik,
+\textit{Concrete Mathematics, Second Edition}, Addison-Wesley 1994.\newline
+See \url{https://www-cs-faculty.stanford.edu/~knuth/gkp.html} for errata.
+
+\bibitem[Grinbe15]{detnotes}Darij Grinberg, \textit{Notes on the combinatorial
+fundamentals of algebra}, 10 January 2019.\newline%
+\url{http://www.cip.ifi.lmu.de/~grinberg/primes2015/sols.pdf} \newline The
+numbering of theorems and formulas in this link might shift when the project
+gets updated; for a \textquotedblleft frozen\textquotedblright\ version whose
+numbering is guaranteed to match that in the citations above, see
+\url{https://github.com/darijgr/detnotes/releases/tag/2019-01-10} .
+
+\bibitem[Grinbe18]{Grinbe18}Darij Grinberg, \textit{Why the log and exp series
+are mutually inverse}, May 11, 2018.\newline\url{http://www.cip.ifi.lmu.de/~grinberg/t/17f/logexp.pdf}
+
+\bibitem[Loehr11]{Loehr-BC}%
+\href{http://www.math.vt.edu/people/nloehr/bijbook.html}{Nicholas A. Loehr,
+\textit{Bijective Combinatorics}, Chapman \& Hall/CRC 2011.}
+
+\bibitem[Wilf94]{Wilf94}Herbert S. Wilf, \textit{generatingfunctionology},
+1999.\newline\url{https://www.math.upenn.edu/~wilf/DownldGF.html}
+\end{thebibliography}
+
+
+\end{document}

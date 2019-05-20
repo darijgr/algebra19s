@@ -1,0 +1,624 @@
+% Like most advanced LaTeX files, this one begins with a lot of
+% boilerplate. You don't need to understand (or even read) most of it.
+% All you need to do is fill in your name, UMN ID, email address,
+% and the number of the pset. (Search for "METADATA" to find the place
+% for this.) Then, you can go straight to the "EXERCISE 1"
+% section and start writing your solutions.
+% The "VARIOUS USEFUL COMMANDS" section is probably worth taking a
+% look at at some point.
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+\documentclass[paper=a4, fontsize=12pt]{scrartcl} % A4 paper and 12pt font size
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm,amssymb} % Math packages
+\usepackage{mathrsfs}    % More math packages
+\usepackage{sectsty}  % Allows customizing section commands
+\allsectionsfont{\centering \normalfont\scshape} % Make all section titles centered, the default font and small caps %remove this to left align section tites
+\usepackage{hyperref} % Turns cross-references into hyperlinks,
+                      % and defines \url and \href commands.
+\usepackage{graphicx} % For embedding graphics files.
+\usepackage{framed}   % For the "leftbar" environment used below.
+\usepackage{ifthen}   % Used for the \powset command below.
+\usepackage{lastpage} % for counting the number of pages
+\usepackage[headsepline,footsepline,manualmark]{scrlayer-scrpage}
+\usepackage[height=10in,a4paper,hmargin={1in,0.8in}]{geometry}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{tikz}     % This is a powerful tool to draw vector
+                      % graphics inside LaTeX. In particular, you can
+                      % use it to draw graphs.
+\usepackage{verbatim} % For the "verbatim" environment, in which
+                      % special symbols can be used freely without
+                      % confusing the compiler. (And it's typeset in
+                      % a constant-width font.)
+                      % Useful, e.g., for quoting code (or ASCII art).
+
+%\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+
+\setlength\parindent{20pt} % Makes indentation for paragraphs longer.
+                           % This makes paragraphs stand out more.
+
+%----------------------------------------------------------------------------------------
+%	VARIOUS USEFUL COMMANDS
+%----------------------------------------------------------------------------------------
+% The commands below might be convenient. For example, you probably
+% prefer to write $\powset[2]{V}$ for the set of $2$-element subsets
+% of $V$, rather than writing $\mathcal{P}_2(V)$.
+% Notice that you can easily define your own commands like this.
+% Caveat: Some of these commands need to be properly "guarded" when
+% they occur in subscripts or superscripts. So you should not write
+% $K_\CC$, but rather $K_{\CC}$.
+\newcommand{\CC}{\mathbb{C}} % complex numbers
+\newcommand{\RR}{\mathbb{R}} % real numbers
+\newcommand{\QQ}{\mathbb{Q}} % rational numbers
+\newcommand{\NN}{\mathbb{N}} % nonnegative integers
+\newcommand{\DD}{{\mathbb{D}}} % dual numbers
+\newcommand{\PP}{\mathbb{P}} % positive integers
+\newcommand{\Z}[1]{\mathbb{Z}/#1\mathbb{Z}} % integers modulo k
+                                            % (syntax: "\Z{k}")
+\newcommand{\ZZ}{\mathbb{Z}} % integers
+\newcommand{\id}{\operatorname{id}} % identity map
+\newcommand{\lcm}{\operatorname{lcm}}
+% Lowest common multiple. For historical reasons, LaTeX has a \gcd
+% command built in, but not an \lcm command. The preceding line
+% rectifies that.
+\newcommand{\set}[1]{\left\{ #1 \right\}}
+% $\set{...}$ compiles to {...} (set-brackets).
+\newcommand{\abs}[1]{\left| #1 \right|}
+% $\abs{...}$ compiles to |...| (absolute value, or size of a set).
+\newcommand{\tup}[1]{\left( #1 \right)}
+% $\tup{...}$ compiles to (...) (parentheses, or tuple-brackets).
+\newcommand{\ive}[1]{\left[ #1 \right]}
+% $\ive{...}$ compiles to [...] (Iverson bracket, aka truth value; also, set of first n integers).
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+% $\floor{...}$ compiles to |_..._| (floor function).
+\newcommand{\underbrack}[2]{\underbrace{#1}_{\substack{#2}}}
+% $\underbrack{...1}{...2}$ yields
+% $\underbrace{...1}_{\substack{...2}}$. This is useful for doing
+% local rewriting transformations on mathematical expressions with
+% justifications. For example, try this out:
+% $ \underbrack{(a+b)^2}{= a^2 + 2ab + b^2 \\ \text{(by the binomial formula)}} $
+\newcommand{\powset}[2][]{\ifthenelse{\equal{#2}{}}{\mathcal{P}\left(#1\right)}{\mathcal{P}_{#1}\left(#2\right)}}
+% $\powset[k]{S}$ stands for the set of all $k$-element subsets of
+% $S$. The argument $k$ is optional, and if not provided, the result
+% is the whole powerset of $S$.
+\newcommand{\mapeq}[1]{\underset{#1}{\equiv}}
+% $\mapeq{f}$ yields $\underset{f}{\equiv}$.
+% This is the "equality upon applying $f$" relation.
+\newcommand{\eps}{\varepsilon}
+% Just a shorthand for a commonly-used symbol.
+\newcommand{\N}{\operatorname{N}} % norm of a complex number
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command with 1 argument of height
+\newcommand{\nnn}{\nonumber\\} % Don't number this line in an "align" environment, and move on to the next line.
+
+%----------------------------------------------------------------------------------------
+%	MAKING SUMMATION SIGNS ALWAYS PUT THEIR BOUNDS ABOVE AND BELOW
+%	THE SIGN
+%----------------------------------------------------------------------------------------
+% The following are hacks to ensure that sums (such as
+% $\sum_{k=1}^n k$) always put their bounds (i.e., the $k=1$ and the
+% $n$) underneath and above the sign, as opposed to on its right.
+% Same for products (\prod), set unions (\bigcup) and set
+% intersections (\bigcap). Remove the 8 lines below if you do not want
+% this behavior.
+\let\sumnonlimits\sum
+\let\prodnonlimits\prod
+\let\cupnonlimits\bigcup
+\let\capnonlimits\bigcap
+\renewcommand{\sum}{\sumnonlimits\limits}
+\renewcommand{\prod}{\prodnonlimits\limits}
+\renewcommand{\bigcup}{\cupnonlimits\limits}
+\renewcommand{\bigcap}{\capnonlimits\limits}
+
+%----------------------------------------------------------------------------------------
+%	ENVIRONMENTS
+%----------------------------------------------------------------------------------------
+% The incantations below define how theorem environments
+% (\begin{theorem} ... \end{theorem}) and their likes will look like.
+\newtheoremstyle{plainsl}% <name>
+  {8pt plus 2pt minus 4pt}% <Space above>
+  {8pt plus 2pt minus 4pt}% <Space below>
+  {\slshape}% <Body font>
+  {0pt}% <Indent amount>
+  {\bfseries}% <Theorem head font>
+  {.}% <Punctuation after theorem head>
+  {5pt plus 1pt minus 1pt}% <Space after theorem headi>
+  {}% <Theorem head spec (can be left empty, meaning `normal')>
+
+% Environments which make the text inside them slanted:
+\theoremstyle{plainsl}
+  \newtheorem{theorem}{Theorem}[section]
+  \newtheorem{proposition}[theorem]{Proposition}
+  \newtheorem{lemma}[theorem]{Lemma}
+  \newtheorem{corollary}[theorem]{Corollary}
+  \newtheorem{conjecture}[theorem]{Conjecture}
+% Environments that don't:
+\theoremstyle{definition}
+  \newtheorem{definition}[theorem]{Definition}
+  \newtheorem{example}[theorem]{Example}
+  \newtheorem{exercise}[theorem]{Exercise}
+  \newtheorem{examples}[theorem]{Examples}
+  \newtheorem{algorithm}[theorem]{Algorithm}
+  \newtheorem{question}[theorem]{Question}
+ \theoremstyle{remark}
+  \newtheorem{remark}[theorem]{Remark}
+\newenvironment{statement}{\begin{quote}}{\end{quote}}
+\newenvironment{fineprint}{\begin{small}}{\end{small}}
+
+%----------------------------------------------------------------------------------------
+%	METADATA
+%----------------------------------------------------------------------------------------
+\newcommand{\myname}{Darij Grinberg} % ENTER YOUR NAME HERE
+\newcommand{\myid}{00000000} % ENTER YOUR UMN ID HERE
+\newcommand{\mymail}{dgrinber@umn.edu} % ENTER YOUR EMAIL HERE
+\newcommand{\psetnumber}{5} % ENTER THE NUMBER OF THIS PSET HERE
+
+%----------------------------------------------------------------------------------------
+%	HEADER AND FOOTER
+%----------------------------------------------------------------------------------------
+\ihead{Solutions to homework set \#\psetnumber} % Page header left
+\ohead{page \thepage\ of \pageref{LastPage}} % Page header right
+\ifoot{\myname, \myid} % left footer
+\ofoot{\mymail} % right footer
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+\title{	
+\normalfont \normalsize 
+\textsc{University of Minnesota, School of Mathematics} \\ [25pt] % Your university, school and/or department name(s)
+\horrule{0.5pt} \\[0.4cm] % Thin top horizontal rule
+\huge Math 4281: Introduction to Modern Algebra, \\
+Spring 2019:
+Homework \psetnumber\\% The assignment title
+\horrule{2pt} \\[0.5cm] % Thick bottom horizontal rule
+}
+\author{\myname}
+
+\begin{document}
+
+\maketitle % Print the title
+
+\begin{center} % Delete this if you want to save space!
+{\large due date: \textbf{Monday, 1 April 2019} at the beginning of class, \\
+or before that by email or canvas.
+
+Please solve \textbf{at most 3 of the 6 exercises}!}
+\end{center}
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 1
+%----------------------------------------------------------------------------------------
+\horrule{0.3pt} \\[0.4cm]
+
+\section{Exercise 1: Sums of powers of divisors}
+
+\subsection{Problem}
+
+Let $n$ be a positive integer. Let $k \in \NN$.
+Prove that
+\[
+\sum_{d \mid n} d^k
+= \prod_{p \text{ prime}} \tup{p^{0k} + p^{1k} + \cdots + p^{v_p\tup{n}\cdot k} }.
+\]
+Here, the summation sign ``$\sum_{d \mid n}$'' means a sum over
+all \textbf{positive} divisors $d$ of $n$.
+
+\subsection{Solution}
+
+[...]
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 2
+%----------------------------------------------------------------------------------------
+\horrule{0.3pt} \\[0.4cm]
+
+\section{Exercise 2: Another version of Jacobi's two-squares theorem}
+
+\subsection{Problem}
+
+Let $n$ be a positive integer.
+Prove that
+\begin{align*}
+& \tup{\text{the number of pairs $\tup{x, y} \in \ZZ^2$ such that $n = x^2 + y^2$}} \\
+& = 4 \tup{\text{the number of positive divisors $d$ of $n$ such that $d \equiv 1 \mod 4$}} \\
+& \qquad - 4 \tup{\text{the number of positive divisors $d$ of $n$ such that $d \equiv 3 \mod 4$}} .
+\end{align*}
+
+[\textbf{Hint:} The formula for the left hand side
+that we proved in class can be freely used.]
+
+\subsection{Solution}
+
+[...]
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 3
+%----------------------------------------------------------------------------------------
+\horrule{0.3pt} \\[0.4cm]
+
+\section{Exercise 3: Characterizing Gaussian primes}
+
+\subsection{Problem}
+
+Let $\pi$ be a Gaussian prime.
+
+Prove the following:
+
+\begin{enumerate}
+
+\item[\textbf{(a)}]
+If $\pi$ is unit-equivalent to an integer, then $\pi$
+is unit-equivalent to a prime\footnote{%
+The unqualified word ``prime'' always means a prime in the
+original sense, i.e., an integer $p > 1$ whose only positive
+divisors are $1$ and $p$.}
+of Type 3.
+
+\end{enumerate}
+
+\noindent
+(Recall that a prime $p$ is said to be \textit{of Type 3}
+if it is congruent to $3$ modulo $4$.)
+
+Assume, from now on, that $\pi$ is \textbf{not}
+unit-equivalent to any integer.
+Let $\tup{p_1, p_2, \ldots, p_k}$ be a prime factorization
+of the positive integer $\N\tup{\pi}$.
+(Thus, $p_1, p_2, \ldots, p_k$ are primes such that
+$\N\tup{\pi} = p_1 p_2 \cdots p_k$.)
+
+\begin{enumerate}
+
+\item[\textbf{(b)}]
+Prove that $\pi \mid p_i$ for some $i \in \set{1, 2, \ldots, k}$.
+
+\end{enumerate}
+
+Fix an $i \in \set{1, 2, \ldots, k}$ such that $\pi \mid p_i$.
+
+\begin{enumerate}
+
+\item[\textbf{(c)}]
+Prove that $p_i = \pi \overline{\pi}$.
+
+\item[\textbf{(d)}]
+Prove that $p_i$ is a prime of Type 1 or of Type 2.
+
+\end{enumerate}
+
+\noindent
+(Recall that a prime $p$ is said to be \textit{of Type 1} if
+it is congruent to $1$ modulo $4$,
+and is said to be \textit{of Type 2} if it
+equals $2$.)
+
+\subsection{Remark}
+
+This exercise yields that the Gaussian primes are the
+primes of Type 3 and the Gaussian prime divisors of the
+primes of Types 1 and 2 (up to unit-equivalence).
+Conversely, any of the latter are indeed Gaussian primes
+(as we proved in class).
+This completes the characterization of Gaussian primes.
+
+\subsection{Solution}
+
+[...]
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 4
+%----------------------------------------------------------------------------------------
+\horrule{0.3pt} \\[0.4cm]
+
+\section{Exercise 4: Gaussian integers modulo a Gaussian integer}
+
+\subsection{Problem}
+
+For any Gaussian integer $\tau$, we
+let $\mapeq{\tau}$ be the binary relation on
+$\ZZ\ive{i}$ defined by
+\[
+\tup{\alpha \mapeq{\tau} \beta}
+\ \iff \ \tup{\alpha \equiv \beta \mod \tau} .
+\]
+It is straightforward to see (just as in the case of
+integers) that this relation $\mapeq{\tau}$ is an
+equivalence relation.
+(You don't need to prove this.)
+We shall refer to the equivalence classes of this
+relation $\mapeq{\tau}$ as the \textit{Gaussian
+residue classes modulo $\tau$};
+let $\ZZ\ive{i} / \tau$ be the set of all these classes.
+
+Let $n$ be a nonzero integer.
+
+Prove that the equivalence classes of the relation
+$\mapeq{n}$ (on $\ZZ\ive{i}$) are the $n^2$ classes
+$\ive{a + bi}_{\mapeq{n}}$ for
+$a, b \in \set{0, 1, \ldots, \abs{n}-1}$,
+and that these $n^2$ classes are all distinct.
+
+\subsection{Remark}
+
+This exercise yields
+$\abs{\ZZ\ive{i} / n} = n^2 = \N\tup{n}$ for any nonzero
+integer $n$.
+This is \cite[Lemma 7.15]{Conrad-Gauss}.
+(Conrad proves this ``by example''; you can follow the
+argument but you should write it up in full generality.)
+
+More generally,
+$\abs{\ZZ\ive{i} / \tau} = \N\tup{\tau}$
+for any nonzero Gaussian integer $\tau$.
+This is proven in \cite[Theorem 7.14]{Conrad-Gauss}
+(using the above exercise as a stepping stone).
+
+\subsection{Solution}
+
+[...]
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 5
+%----------------------------------------------------------------------------------------
+\horrule{0.3pt} \\[0.4cm]
+
+\section{Exercise 5: A Fibonacci divisibility}
+
+\subsection{Problem}
+
+Let $\phi = \dfrac{1+\sqrt5}{2}$ and $\psi = \dfrac{1-\sqrt5}{2}$
+be the two (real) roots of the polynomial $x^2 - x - 1$.
+(The number $\phi$ is known as the \textit{golden ratio}.)
+It is easy to see that $\phi + \psi = 1$ and $\phi \cdot \psi = -1$.
+
+Let $\ZZ\ive{\phi}$ be the set of all reals of the form
+$a + b \phi$ with $a, b \in \ZZ$.
+
+\begin{enumerate}
+
+\item[\textbf{(a)}]
+Prove that any $\alpha, \beta \in \ZZ\ive{\phi}$ satisfy
+$\alpha + \beta \in \ZZ\ive{\phi}$ and
+$\alpha - \beta \in \ZZ\ive{\phi}$ and
+$\alpha \beta \in \ZZ\ive{\phi}$.
+
+\end{enumerate}
+
+(In the terminology of abstract algebra, this is saying
+that $\ZZ\ive{\phi}$ is a subring of $\RR$.)
+
+\begin{enumerate}
+
+\item[\textbf{(b)}]
+Prove that every element of $\ZZ\ive{\phi}$ can be
+written as $a + b \phi$ for a \textbf{unique} pair
+$\tup{a, b}$ of integers.
+(In other words, if four integers $a, b, c, d$
+satisfy $a + b \phi = c + d \phi$, then $a = c$
+and $b = d$.)
+
+\end{enumerate}
+
+Given two elements $\alpha$ and $\beta$ of $\ZZ\ive{\phi}$,
+we say that \textit{$\alpha \mid \beta$ in $\ZZ\ive{\phi}$}
+if and only if there exists some $\gamma \in \ZZ\ive{\phi}$
+such that $\beta = \alpha \gamma$.
+Thus, we have defined divisibility in $\ZZ\ive{\phi}$.
+Basic properties of divisibility of integers (such as
+Proposition 2.2.4) still apply
+to divisibility in $\ZZ\ive{\phi}$ (with the same proofs).
+
+\begin{enumerate}
+
+\item[\textbf{(c)}]
+If $a$ and $b$ are two elements of
+$\ZZ$ such that $a \mid b$ in $\ZZ\ive{\phi}$,
+then prove that $a \mid b$ in $\ZZ$.
+
+\end{enumerate}
+
+Let $\tup{f_0, f_1, f_2, \ldots}$ be the sequence of nonnegative
+integers defined recursively by
+\[
+f_0 = 0, \qquad
+f_1 = 1, \qquad \text{and} \qquad
+f_n = f_{n-1} + f_{n-2} \text{ for all } n \geq 2 .
+\]
+This is the so-called \textit{Fibonacci sequence} (and continues
+with $f_2 = 1$, $f_3 = 2$, $f_4 = 3$, $f_5 = 5$ etc.).
+
+It is well-known (\textit{Binet's formula}) that
+\[
+f_n = \dfrac{\phi^n - \psi^n}{\sqrt5}
+\qquad \text{for all } n \geq 0 .
+\]
+(You don't need to prove this; there is a completely
+straightforward proof by induction on $n$.)
+
+\begin{enumerate}
+
+\item[\textbf{(d)}]
+Prove that $f_d \mid f_{dn}$ for any nonnegative integers
+$d$ and $n$.
+
+\end{enumerate}
+
+[\textbf{Hint:} Lemma 2.10.11 \textbf{(a)} holds not just
+for integers.]
+
+\subsection{Remark}
+
+This exercise (specifically its part \textbf{(d)}) is an
+example of how a property of integers (here, $f_d \mid f_{dn}$)
+can often be proved by working in a larger domain
+(in our case, $\ZZ\ive{\phi}$).
+Another example is our study of sums of two perfect squares
+using Gaussian integers (done in class).
+There are various others.
+While part \textbf{(d)} of this exercise has fairly simple
+solutions using integer arithmetic alone, some other properties
+of Fibonacci numbers are best understood by means of working
+in $\ZZ\ive{\phi}$.
+For example, if $p \neq 5$ is a prime, then one of the two
+Fibonacci numbers $f_{p-1}$ and $f_{p+1}$ is divisible by
+$p$, while the other is $\equiv 1 \mod p$.
+
+\subsection{Solution}
+
+[...]
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 6
+%----------------------------------------------------------------------------------------
+\horrule{0.3pt} \\[0.4cm]
+
+\section{Exercise 6: Non-unique factorization in $\ZZ\ive{\sqrt{-3}}$}
+
+\subsection{Problem}
+
+We let $\sqrt{-3}$ denote the complex number $\sqrt3 i$.
+
+Let $\ZZ\ive{\sqrt{-3}}$ be the set of all complex numbers
+of the form $a + b \sqrt{-3}$ with $a, b \in \ZZ$.
+These complex numbers are called the
+\textit{$3$-Gaussian integers}.
+
+It is easy to see that the set $\ZZ\ive{\sqrt{-3}}$
+is closed under addition, subtraction and multiplication
+(i.e., that any $\alpha, \beta \in \ZZ\ive{\sqrt{-3}}$ satisfy
+$\alpha + \beta \in \ZZ\ive{\sqrt{-3}}$ and
+$\alpha - \beta \in \ZZ\ive{\sqrt{-3}}$ and
+$\alpha \beta \in \ZZ\ive{\sqrt{-3}}$).
+(In the terminology of abstract algebra, this is saying
+that $\ZZ\ive{\sqrt{-3}}$ is a subring of $\CC$.)
+
+It is also easy to see that each element of $\ZZ\ive{\sqrt{-3}}$
+can be written as $a + b \sqrt{-3}$ for a \textbf{unique} pair
+$\tup{a, b}$ of integers.
+
+\begin{enumerate}
+
+\item[\textbf{(a)}]
+Prove that each $3$-Gaussian integer $\alpha$ satisfies
+$\N\tup{\alpha} \in \NN$ and
+$\N\tup{\alpha} \not\equiv 2 \mod 3$.
+
+\end{enumerate}
+
+\noindent
+(Recall that $\N\tup{\alpha}$ is defined for every complex
+number $\alpha$, and thus for every $3$-Gaussian integer
+$\alpha$, since $3$-Gaussian integers are complex numbers.)
+
+Given two elements $\alpha$ and $\beta$ of $\ZZ\ive{\sqrt{-3}}$,
+we say that \textit{$\alpha \mid \beta$ in $\ZZ\ive{\sqrt{-3}}$}
+if and only if there exists some $\gamma \in \ZZ\ive{\sqrt{-3}}$
+such that $\beta = \alpha \gamma$.
+Thus, we have defined divisibility in $\ZZ\ive{\sqrt{-3}}$.
+Basic properties of divisibility of integers (such as
+Proposition 2.2.4) still apply
+to divisibility in $\ZZ\ive{\sqrt{-3}}$ (with the same proofs).
+
+If $\alpha \in \ZZ\ive{\sqrt{-3}}$, then a
+\textit{$3$-Gaussian divisor of $\alpha$} shall mean a
+$\beta \in \ZZ\ive{\sqrt{-3}}$ such that $\beta \mid \alpha$
+in $\ZZ\ive{\sqrt{-3}}$.
+
+We define the notions of ``inverse'', ``unit'' and
+``unit-equivalent'' for $3$-Gaussian integers
+as we did for Gaussian integers.
+
+A nonzero $3$-Gaussian integer $\pi$ that is not a unit is
+called a \textit{$3$-Gaussian prime} if each $3$-Gaussian
+divisor of $\pi$ is either a unit or unit-equivalent to $\pi$.
+
+\begin{enumerate}
+
+\item[\textbf{(b)}]
+List all the $3$-Gaussian integers having norms $< 4$.
+
+\item[\textbf{(c)}]
+List all units in $\ZZ\ive{\sqrt{-3}}$.
+
+\item[\textbf{(d)}]
+Prove that $2$, $1 + \sqrt{-3}$ and $1 - \sqrt{-3}$ are
+$3$-Gaussian primes.
+
+\item[\textbf{(e)}]
+Prove that
+$2 \cdot 2 = \tup{1 + \sqrt{-3}} \cdot \tup{1 - \sqrt{-3}}$.
+
+\item[\textbf{(f)}]
+Define two $3$-Gaussian integers $\alpha$ and $\beta$
+by $\alpha = 2$ and $\beta = 1 + \sqrt{-3}$.
+Prove that there exist no $3$-Gaussian integers $\gamma$
+and $\rho$ such that $\alpha = \gamma \beta + \rho$
+and $\N\tup{\rho} < \N\tup{\beta}$.
+
+\end{enumerate}
+
+[\textbf{Hint:} Your list in part \textbf{(b)} should
+contain $5$ entries.
+Your list in part \textbf{(c)} should contain $2$
+entries: Unlike the ring $\ZZ\ive{i}$ with its $4$ units,
+the ring $\ZZ\ive{\sqrt{-3}}$
+has only $2$ units.
+
+For \textbf{(d)}, discuss the norm
+of any possible $3$-Gaussian divisor.]
+
+\subsection{Remark}
+
+Parts \textbf{(d)} and \textbf{(e)} of this exercise
+show that unique factorization into primes is not
+automatically preserved when we extend a number system.
+Neither is division with remainder, as part \textbf{(f)}
+illustrates (though we already have seen the geometric
+reason for this in class).
+(Neither is the existence of a well-behaved greatest
+common divisor.)
+
+\subsection{Solution}
+
+[...]
+
+\begin{thebibliography}{99999999}                                                                                         %
+
+% Feel free to add your sources -- or copy some from the source code
+% of the class notes ( http://www.cip.ifi.lmu.de/~grinberg/t/19s/notes.tex ).
+
+% This is the bibliography: The list of papers/books/articles/blogs/...
+% cited. The syntax is: "\bibitem[name]{tag}Reference",
+% where "name" is the name that will appear in the compiled
+% bibliography, and "tag" is the tag by which you will refer to
+% the source in the TeX file. For example, the following source
+% has name "GrKnPa94" (so you will see it referenced as
+% "[GrKnPa94]" in the compiled PDF) and tag "GKP" (so you
+% can cite it by writing "\cite{GKP}").
+
+% I've commented the below references out, since I'm not citing
+% them above.
+
+% \bibitem[GrKnPa94]{GKP}Ronald L. Graham, Donald E. Knuth, Oren Patashnik,
+% \textit{Concrete Mathematics, Second Edition}, Addison-Wesley 1994.\\
+% See \url{https://www-cs-faculty.stanford.edu/~knuth/gkp.html} for errata.
+
+% \bibitem[Grinbe19]{detnotes}Darij Grinberg,
+% \textit{Notes on the combinatorial fundamentals of algebra},
+% 10 January 2019. \\
+% \url{http://www.cip.ifi.lmu.de/~grinberg/primes2015/sols.pdf}
+% \\
+% The numbering of theorems and formulas in this link might shift
+% when the project gets updated; for a ``frozen'' version whose
+% numbering is guaranteed to match that in the citations above, see
+% \url{https://github.com/darijgr/detnotes/releases/tag/2019-01-10} .
+
+\bibitem[ConradG]{Conrad-Gauss}Keith Conrad, \textit{The Gaussian
+integers}.\newline\url{http://www.math.uconn.edu/~kconrad/blurbs/ugradnumthy/Zinotes.pdf}
+
+\end{thebibliography}
+
+\end{document}

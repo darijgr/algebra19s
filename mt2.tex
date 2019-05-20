@@ -1,0 +1,679 @@
+% Like most advanced LaTeX files, this one begins with a lot of
+% boilerplate. You don't need to understand (or even read) most of it.
+% All you need to do is fill in your name, UMN ID, email address,
+% and the number of the pset. (Search for "METADATA" to find the place
+% for this.) Then, you can go straight to the "EXERCISE 1"
+% section and start writing your solutions.
+% The "VARIOUS USEFUL COMMANDS" section is probably worth taking a
+% look at at some point.
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+\documentclass[paper=a4, fontsize=12pt]{scrartcl} % A4 paper and 12pt font size
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm,amssymb} % Math packages
+\usepackage{mathrsfs}    % More math packages
+\usepackage{sectsty}  % Allows customizing section commands
+\allsectionsfont{\centering \normalfont\scshape} % Make all section titles centered, the default font and small caps %remove this to left align section tites
+\usepackage{hyperref} % Turns cross-references into hyperlinks,
+                      % and defines \url and \href commands.
+\usepackage{graphicx} % For embedding graphics files.
+\usepackage{framed}   % For the "leftbar" environment used below.
+\usepackage{ifthen}   % Used for the \powset command below.
+\usepackage{lastpage} % for counting the number of pages
+\usepackage[headsepline,footsepline,manualmark]{scrlayer-scrpage}
+\usepackage[height=10in,a4paper,hmargin={1in,0.8in}]{geometry}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{tikz}     % This is a powerful tool to draw vector
+                      % graphics inside LaTeX. In particular, you can
+                      % use it to draw graphs.
+\usepackage{verbatim} % For the "verbatim" environment, in which
+                      % special symbols can be used freely without
+                      % confusing the compiler. (And it's typeset in
+                      % a constant-width font.)
+                      % Useful, e.g., for quoting code (or ASCII art).
+
+%\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+
+\setlength\parindent{20pt} % Makes indentation for paragraphs longer.
+                           % This makes paragraphs stand out more.
+
+%----------------------------------------------------------------------------------------
+%	VARIOUS USEFUL COMMANDS
+%----------------------------------------------------------------------------------------
+% The commands below might be convenient. For example, you probably
+% prefer to write $\powset[2]{V}$ for the set of $2$-element subsets
+% of $V$, rather than writing $\mathcal{P}_2(V)$.
+% Notice that you can easily define your own commands like this.
+% Caveat: Some of these commands need to be properly "guarded" when
+% they occur in subscripts or superscripts. So you should not write
+% $K_\CC$, but rather $K_{\CC}$.
+\newcommand{\CC}{\mathbb{C}} % complex numbers
+\newcommand{\RR}{\mathbb{R}} % real numbers
+\newcommand{\QQ}{\mathbb{Q}} % rational numbers
+\newcommand{\NN}{\mathbb{N}} % nonnegative integers
+\newcommand{\PP}{\mathbb{P}} % positive integers
+\newcommand{\KK}{\mathbb{K}} % my favorite notation for a commutative ring
+\newcommand{\Z}[1]{\mathbb{Z}/#1\mathbb{Z}} % integers modulo k
+                                            % (syntax: "\Z{k}")
+\newcommand{\ZZ}{\mathbb{Z}} % integers
+\newcommand{\id}{\operatorname{id}} % identity map
+\newcommand{\lcm}{\operatorname{lcm}}
+% Lowest common multiple. For historical reasons, LaTeX has a \gcd
+% command built in, but not an \lcm command. The preceding line
+% rectifies that.
+\newcommand{\set}[1]{\left\{ #1 \right\}}
+% $\set{...}$ compiles to {...} (set-brackets).
+\newcommand{\abs}[1]{\left| #1 \right|}
+% $\abs{...}$ compiles to |...| (absolute value, or size of a set).
+\newcommand{\tup}[1]{\left( #1 \right)}
+% $\tup{...}$ compiles to (...) (parentheses, or tuple-brackets).
+\newcommand{\ive}[1]{\left[ #1 \right]}
+% $\ive{...}$ compiles to [...] (Iverson bracket, aka truth value; also, set of first n integers).
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+% $\floor{...}$ compiles to |_..._| (floor function).
+\newcommand{\underbrack}[2]{\underbrace{#1}_{\substack{#2}}}
+% $\underbrack{...1}{...2}$ yields
+% $\underbrace{...1}_{\substack{...2}}$. This is useful for doing
+% local rewriting transformations on mathematical expressions with
+% justifications. For example, try this out:
+% $ \underbrack{(a+b)^2}{= a^2 + 2ab + b^2 \\ \text{(by the binomial formula)}} $
+\newcommand{\powset}[2][]{\ifthenelse{\equal{#2}{}}{\mathcal{P}\left(#1\right)}{\mathcal{P}_{#1}\left(#2\right)}}
+% $\powset[k]{S}$ stands for the set of all $k$-element subsets of
+% $S$. The argument $k$ is optional, and if not provided, the result
+% is the whole powerset of $S$.
+\newcommand{\calF}{\mathcal{F}}
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command with 1 argument of height
+\newcommand{\nnn}{\nonumber\\} % Don't number this line in an "align" environment, and move on to the next line.
+
+%----------------------------------------------------------------------------------------
+%	MAKING SUMMATION SIGNS ALWAYS PUT THEIR BOUNDS ABOVE AND BELOW
+%	THE SIGN
+%----------------------------------------------------------------------------------------
+% The following are hacks to ensure that sums (such as
+% $\sum_{k=1}^n k$) always put their bounds (i.e., the $k=1$ and the
+% $n$) underneath and above the sign, as opposed to on its right.
+% Same for products (\prod), set unions (\bigcup) and set
+% intersections (\bigcap). Remove the 8 lines below if you do not want
+% this behavior.
+\let\sumnonlimits\sum
+\let\prodnonlimits\prod
+\let\cupnonlimits\bigcup
+\let\capnonlimits\bigcap
+\renewcommand{\sum}{\sumnonlimits\limits}
+\renewcommand{\prod}{\prodnonlimits\limits}
+\renewcommand{\bigcup}{\cupnonlimits\limits}
+\renewcommand{\bigcap}{\capnonlimits\limits}
+
+%----------------------------------------------------------------------------------------
+%	ENVIRONMENTS
+%----------------------------------------------------------------------------------------
+% The incantations below define how theorem environments
+% (\begin{theorem} ... \end{theorem}) and their likes will look like.
+\newtheoremstyle{plainsl}% <name>
+  {8pt plus 2pt minus 4pt}% <Space above>
+  {8pt plus 2pt minus 4pt}% <Space below>
+  {\slshape}% <Body font>
+  {0pt}% <Indent amount>
+  {\bfseries}% <Theorem head font>
+  {.}% <Punctuation after theorem head>
+  {5pt plus 1pt minus 1pt}% <Space after theorem headi>
+  {}% <Theorem head spec (can be left empty, meaning `normal')>
+
+% Environments which make the text inside them slanted:
+\theoremstyle{plainsl}
+  \newtheorem{theorem}{Theorem}[section]
+  \newtheorem{proposition}[theorem]{Proposition}
+  \newtheorem{lemma}[theorem]{Lemma}
+  \newtheorem{corollary}[theorem]{Corollary}
+  \newtheorem{conjecture}[theorem]{Conjecture}
+% Environments that don't:
+\theoremstyle{definition}
+  \newtheorem{definition}[theorem]{Definition}
+  \newtheorem{example}[theorem]{Example}
+  \newtheorem{exercise}[theorem]{Exercise}
+  \newtheorem{examples}[theorem]{Examples}
+  \newtheorem{algorithm}[theorem]{Algorithm}
+  \newtheorem{question}[theorem]{Question}
+ \theoremstyle{remark}
+  \newtheorem{remark}[theorem]{Remark}
+\newenvironment{statement}{\begin{quote}}{\end{quote}}
+\newenvironment{fineprint}{\begin{small}}{\end{small}}
+
+%----------------------------------------------------------------------------------------
+%	METADATA
+%----------------------------------------------------------------------------------------
+\newcommand{\myname}{Darij Grinberg} % ENTER YOUR NAME HERE
+\newcommand{\myid}{00000000} % ENTER YOUR UMN ID HERE
+\newcommand{\mymail}{dgrinber@umn.edu} % ENTER YOUR EMAIL HERE
+\newcommand{\psetnumber}{2} % ENTER THE NUMBER OF THIS PSET HERE
+
+%----------------------------------------------------------------------------------------
+%	HEADER AND FOOTER
+%----------------------------------------------------------------------------------------
+\ihead{Solutions to midterm \#\psetnumber} % Page header left
+\ohead{page \thepage\ of \pageref{LastPage}} % Page header right
+\ifoot{\myname, \myid} % left footer
+\ofoot{\mymail} % right footer
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+\title{	
+\normalfont \normalsize 
+\textsc{University of Minnesota, School of Mathematics} \\ [25pt] % Your university, school and/or department name(s)
+\horrule{0.5pt} \\[0.4cm] % Thin top horizontal rule
+\huge Math 4281: Introduction to Modern Algebra, \\
+Spring 2019:
+Midterm \psetnumber\\% The assignment title
+\horrule{2pt} \\[0.5cm] % Thick bottom horizontal rule
+}
+\author{\myname}
+
+\begin{document}
+
+\maketitle % Print the title
+
+\begin{center} % Delete this if you want to save space!
+{\large due date: \textbf{Friday, 12 April 2019} at the beginning of class, \\
+or before that through Canvas.
+
+\textbf{No collaboration allowed} -- this is a midterm.
+
+Please solve \textbf{at most 3 of the 6 exercises}!}
+\end{center}
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 1
+%----------------------------------------------------------------------------------------
+\horrule{0.3pt} \\[0.4cm]
+
+\section{Exercise 1: Not-quite-all-rationals}
+
+\subsection{Problem}
+
+Fix an integer $m$.
+An \textit{$m$-integer} shall mean a rational number
+$r$ such that there exists a $k \in \NN$ satisfying
+$m^k r \in \ZZ$.
+
+For example\footnote{You don't need to prove these.}:
+\begin{itemize}
+ \item Each integer $r$ is an $m$-integer (since $m^k r \in \ZZ$
+       for $k = 0$).
+ \item The rational number $\dfrac{5}{12}$
+       is a $6$-integer (since $6^k \cdot \dfrac{5}{12} \in \ZZ$
+       for $k = 2$), but neither a $2$-integer nor a $3$-integer
+       (since multiplying it by a power of $2$ will not ``get
+       rid of'' the prime factor $3$ in the denominator, and
+       vice versa\footnote{You would have to be more rigorous
+       than this in your solution, if you were to make an
+       argument like this.}).
+ \item The $1$-integers are the integers (since $1^k r = r$
+       for all $r$).
+ \item Every rational number $r$ is a $0$-integer (since
+       $0^k r \in \ZZ$ for $k = 1$).
+\end{itemize}
+
+Let $R_m$ denote the set of all $m$-integers.
+Prove the following:
+
+\begin{enumerate}
+
+\item[\textbf{(a)}] The set $R_m$ (endowed with the usual
+addition, the usual multiplication, the usual integer $0$
+as zero, and the usual integer $1$ as unity) is a
+commutative ring. \\
+(You don't need to prove axioms like commutativity of
+multiplication, since these follow from the corresponding
+facts about rational numbers, which are well-known.
+You only need to check that $R_m$ is
+closed under addition and multiplication\footnote{This
+means that every $a, b \in R_m$ satisfy $a + b \in R_m$
+and $a b \in R_m$.}, and contains
+additive inverses of all its elements.)
+
+\item[\textbf{(b)}] Let $x \in \QQ$ be nonzero.
+Then, $x \in R_m$ if and only if every prime $p$ satisfying
+$w_p\tup{x} < 0$ satisfies $p \mid m$.
+Here, we are using the notation $w_p\tup{r}$ defined
+in Exercise 3.4.1 of the
+\href{http://www.cip.ifi.lmu.de/~grinberg/t/19s/notes.pdf}{class notes}.
+
+\end{enumerate}
+
+\subsection{Remark}
+
+The ring $R_m$ is an example of a ring ``between $\ZZ$ and $\QQ$''.
+Note that $R_1 = \ZZ$ and $R_0 = \QQ$, whereas $R_2 = R_4 = R_8 = \cdots$
+is the ring of all rational numbers that can be written in the form
+$a / 2^k$ with $a \in \ZZ$ and $k \in \NN$.
+
+\subsection{Solution}
+
+[...]
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 2
+%----------------------------------------------------------------------------------------
+\horrule{0.3pt} \\[0.4cm]
+
+\section{Exercise 2: Rings with $x^2 = x$}
+
+\subsection{Problem}
+
+Let $\KK$ be a ring with the property that
+\begin{align}
+ u^2 = u \qquad \text{ for all } u \in \KK .
+ \label{eq.exe.ring.xx=x.cond}
+\end{align}
+
+(Examples of such rings are $\ZZ / 2$ as well as the
+``power set'' ring $\tup{\powset{S}, \triangle, \cap, \varnothing, S}$
+constructed from any given set $S$.)
+
+Prove the following:
+
+\begin{enumerate}
+
+\item[\textbf{(a)}]
+We have $2x = 0$ for each $x \in \KK$.
+
+\item[\textbf{(b)}]
+We have $-x = x$ for each $x \in \KK$.
+
+\item[\textbf{(c)}]
+We have $xy = yx$ for all $x, y \in \KK$.
+(In other words, the ring $\KK$ is commutative.)
+
+\end{enumerate}
+
+(As usual, ``$0$'' stands for the zero of the ring $\KK$.)
+
+[\textbf{Hint:}
+For part \textbf{(a)},
+apply \eqref{eq.exe.ring.xx=x.cond} to $u = x$
+but also to $u = 2x = x + x$, and see what comes out.
+For part \textbf{(c)},
+apply \eqref{eq.exe.ring.xx=x.cond} to $u = x + y$.]
+
+\subsection{Remark}
+
+You might wonder what happens if we replace
+\eqref{eq.exe.ring.xx=x.cond} by
+\begin{align}
+ u^3 = u \qquad \text{ for all } u \in \KK .
+ \label{eq.exe.ring.xx=x.cube}
+\end{align}
+This no longer leads to $2x = 0$ (nor to $3x = 0$ as you
+might perhaps expect).
+Instead, it can be shown that $6x = 0$ for all $x \in \KK$.
+It can also be shown that it leads to $xy = yx$.
+
+\subsection{Solution}
+
+[...]
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 3
+%----------------------------------------------------------------------------------------
+\horrule{0.3pt} \\[0.4cm]
+
+\section{Exercise 3: A matrix of gcds}
+
+\subsection{Problem}
+
+In this exercise, we shall again use
+\href{https://en.wikipedia.org/wiki/Iverson_bracket}{the \textit{Iverson bracket notation}}:
+
+Let $n \in \NN$.
+Let $G$ be the $n \times n$-matrix
+\[
+ \tup{ \gcd\tup{i, j} }_{1 \leq i \leq n, \ 1 \leq j \leq n }
+ =
+ \begin{pmatrix}   % "pmatrix" stands for "parenthesis-bounded matrix".
+                   % That's how we write matrices in this class.
+  \gcd\tup{1, 1} & \gcd\tup{1, 2} & \cdots & \gcd\tup{1, n} \\
+  \gcd\tup{2, 1} & \gcd\tup{2, 2} & \cdots & \gcd\tup{2, n} \\
+  \vdots & \vdots & \ddots & \vdots \\
+  \gcd\tup{n, 1} & \gcd\tup{n, 2} & \cdots & \gcd\tup{n, n}
+ \end{pmatrix} .
+\]
+
+Let $L$ be the $n \times n$-matrix
+\[
+ \tup{ \ive{j \mid i} }_{1 \leq i \leq n, \ 1 \leq j \leq n }
+ =
+ \begin{pmatrix}
+  \ive{1 \mid 1} & \ive{2 \mid 1} & \cdots & \ive{n \mid 1} \\
+  \ive{1 \mid 2} & \ive{2 \mid 2} & \cdots & \ive{n \mid 2} \\
+  \vdots & \vdots & \ddots & \vdots \\
+  \ive{1 \mid n} & \ive{2 \mid n} & \cdots & \ive{n \mid n}
+ \end{pmatrix} .
+\]
+
+Let $D$ be the $n \times n$-matrix
+\[
+ \tup{ \ive{i = j} \phi\tup{i} }_{1 \leq i \leq n, \ 1 \leq j \leq n }
+ =
+ \begin{pmatrix}
+  \phi\tup{1} & 0 & 0 & \cdots & 0 \\
+  0 & \phi\tup{2} & 0 & \cdots & 0 \\
+  0 & 0 & \phi\tup{3} & \cdots & 0 \\
+  \vdots & \vdots & \vdots & \ddots & \vdots \\
+  0 & 0 & 0 & \cdots & \phi\tup{n}
+ \end{pmatrix} .
+\]
+
+Prove that\footnote{We are using the standard notation $A^T$ for
+the \textit{transpose} of a matrix $A$. This transpose is defined
+as follows:
+If $A = \tup{ a_{i, j} }_{1 \leq i \leq n, \ 1 \leq j \leq m }$,
+then
+$A^T = \tup{ a_{j, i} }_{1 \leq i \leq m, \ 1 \leq j \leq n }$.}
+$G = LDL^T$.
+
+[\textbf{Hint:} Diagonal matrices are particularly easy
+to multiply with other matrices. For example, given a
+diagonal matrix
+$\mathbf{D} = \tup{ \ive{i = j} d_i }_{1 \leq i \leq n, \ 1 \leq j \leq n }$
+(where $d_1, d_2, \ldots, d_n$ are $n$ elements of a ring $\KK$)
+and an arbitrary matrix
+$\mathbf{A} = \tup{ a_{i, j} }_{1 \leq i \leq n, \ 1 \leq j \leq m }$
+(over the same ring $\KK$),
+the product $\mathbf{D} \mathbf{A}$ is simply given by
+\begin{align}
+ \mathbf{D} \mathbf{A} =
+ \tup{ d_i a_{i, j} }_{1 \leq i \leq n, \ 1 \leq j \leq m } .
+ \label{eq.matrix.gcd-LDU.row-mult}
+\end{align}
+(That is, multiplying by a diagonal matrix on the left is tantamount
+to rescaling each row by the corresponding entry of the diagonal
+matrix.)
+You can use the formula \eqref{eq.matrix.gcd-LDU.row-mult} without
+proof (though its easy proof is instructive).]
+
+\subsection{Remark}
+
+As the names suggest, the matrix $L$ is lower-triangular
+(so that the matrix $L^T$ is upper-triangular),
+and the matrix $D$ is diagonal.
+Thus, $G = LDL^T$ is an instance of an
+\href{https://en.wikipedia.org/wiki/LU_decomposition#LDU_decomposition}{\textit{LDU decomposition}}.
+
+\subsection{Solution}
+
+[...]
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 4
+%----------------------------------------------------------------------------------------
+\horrule{0.3pt} \\[0.4cm]
+
+\section{Exercise 4: Idempotent and involutive elements}
+
+\subsection{Problem}
+
+Let $\KK$ be a ring.
+
+An element $a$ of $\KK$ is said to be \textit{idempotent}
+if it satisfies $a^2 = a$.
+
+An element $a$ of $\KK$ is said to be \textit{involutive}
+if it satisfies $a^2 = 1$.
+
+\begin{enumerate}
+ \item[\textbf{(a)}] Let $a \in \KK$.
+ Prove that if $a$ is idempotent, then $1 - 2a$ is
+ involutive.
+ 
+ \item[\textbf{(b)}] Now, assume that $2$ is
+ \textit{cancellable} in $\KK$; this means that if
+ $u$ and $v$ are two elements of $\KK$ satisfying
+ $2u = 2v$, then $u = v$.
+ Prove that the converse of the claim of part
+ \textbf{(a)} holds:
+ If $a \in \KK$ is such that $1 - 2a$ is involutive,
+ then $a$ is idempotent.
+ 
+ \item[\textbf{(c)}] Now, let $\KK = \ZZ / 4$.
+ Find an element $a \in \KK$ such that $1 - 2a$
+ is involutive, but $a$ is not idempotent.
+\end{enumerate}
+
+\subsection{Remark}
+
+The idempotent elements of $\RR$ are $0$ and $1$.
+The involutive elements of $\RR$ are $1$ and $-1$.
+A matrix ring like $\RR^{n \times n}$ usually has
+infinitely many idempotent elements (viz., all
+projection matrices on subspaces of $\RR^n$) and
+infinitely many involutive elements (viz., all
+matrices $A$ satisfying $A^2 = I_n$; for instance,
+all reflections across hyperplanes are represented
+by such matrices).
+
+Part \textbf{(a)} of this exercise assigns an involutive
+element to each idempotent element of $\KK$.
+If $2$ is invertible in $\KK$ (that is, if the element
+$2 \cdot 1_{\KK}$ has a multiplicative inverse), then this
+assignment is a bijection (as can be easily derived from
+part \textbf{(b)}).
+Part \textbf{(c)} shows that we cannot drop the
+``$2$ is cancellable'' condition in part \textbf{(b)}.
+
+\subsection{Solution}
+
+[...]
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 5
+%----------------------------------------------------------------------------------------
+\horrule{0.3pt} \\[0.4cm]
+
+\section{Exercise 5: The matrix approach to Fibonacci numbers}
+
+\subsection{Problem}
+
+Let $A$ be the $2 \times 2$-matrix
+$\begin{pmatrix}
+  0 & 1 \\
+  1 & 1
+ \end{pmatrix}$
+over $\ZZ$.
+Consider also the identity matrix $I_2$.
+
+Let $\calF$ % I have defined \calF to mean \mathcal{F} for this problem.
+be the subset
+\[
+ \set{ aA + bI_2 \mid a, b \in \ZZ }
+ =
+ \set{ \begin{pmatrix} b & a \\ a & a+b \end{pmatrix} \mid a, b \in \ZZ }
+\]
+of the matrix ring $\ZZ^{2 \times 2}$.
+
+\begin{enumerate}
+
+\item[\textbf{(a)}]
+Prove that $A^2 = A + I_2$.
+
+\item[\textbf{(b)}]
+Prove that the set $\calF$ (equipped with the addition of matrices,
+the multiplication of matrices, the zero $0_{2 \times 2}$ and
+the unity $I_2$) is a commutative ring. \\
+(Again, you don't need to check the ring axioms, as we already
+know that they hold for arbitrary matrices and thus all the more
+for matrices in $\calF$.
+But you do need to check commutativity of multiplication in
+$\calF$, since it does not hold for arbitrary matrices.
+You also need to check that $\calF$ is closed under addition
+and multiplication and has additive inverses.)
+
+\end{enumerate}
+
+Let $\tup{f_0, f_1, f_2, \ldots}$ be the Fibonacci sequence (which
+we have already encountered on
+\href{http://www.cip.ifi.lmu.de/~grinberg/t/19s/hw5s.pdf}{homework set \#5}).
+Recall that it is defined recursively by
+\[
+f_0 = 0, \qquad
+f_1 = 1, \qquad \text{and} \qquad
+f_n = f_{n-1} + f_{n-2} \text{ for all } n \geq 2 .
+\]
+
+\begin{enumerate}
+
+\item[\textbf{(c)}]
+Prove that $A^n = f_n A + f_{n-1} I_2$ for all positive
+integers $n$.
+
+\item[\textbf{(d)}]
+Prove that
+$f_{n+m} = f_n f_{m+1} + f_{n-1} f_m$ for all positive
+integers $n$ and all $m \in \NN$.
+
+\end{enumerate}
+
+Now, define a further matrix $B \in \calF$ by
+$B = \tup{-1}A + 1I_2 = I_2 - A$.
+
+\begin{enumerate}
+
+\item[\textbf{(e)}]
+Prove that $B^2 = B + I_2$ and
+$B^n = f_n B + f_{n-1} I_2$ for all positive
+integers $n$.
+
+\item[\textbf{(f)}]
+Prove that
+$A^n - B^n = f_n \tup{A - B}$ for all $n \in \NN$.
+
+\item[\textbf{(g)}]
+Prove (again!) that $f_d \mid f_{dn}$ for any nonnegative
+integers $d$ and $n$.
+
+% Prove that
+% \[
+%  A^n \begin{pmatrix} 0 \\ 1 \end{pmatrix}
+%  = \begin{pmatrix} f_n \\ f_{n+1} \end{pmatrix}
+%  \qquad \text{ for all } n \in \NN .
+% \]
+\end{enumerate}
+
+[\textbf{Hint:} One way to prove \textbf{(d)} is by
+comparing the $\tup{1, 1}$-th entries of the two
+(equal) matrices $A^n A^{m+1}$ and $A^{n+m+1}$, after
+first using part \textbf{(c)} to expand these matrices.
+
+For part \textbf{(g)}, compare the $\tup{1, 1}$-th
+entries of the matrices $A^d - B^d$ and $A^{dn} - B^{dn}$,
+after first proving that $A^d - B^d \mid A^{dn} - B^{dn}$ in
+the commutative ring $\calF$.
+Note that divisibility is a tricky concept in general
+rings, but $\calF$ is a commutative ring, which lets
+many arguments from the integer setting go
+through unchanged.]
+
+\subsection{Remark}
+
+Contrast the ring $\calF$ with the ring $\ZZ\ive{\phi}$
+from Exercise 5 on
+\href{http://www.cip.ifi.lmu.de/~grinberg/t/19s/hw5s.pdf}{homework set \#5}.
+Both of these rings, as we see, can be used to prove that $f_d \mid f_{dn}$
+for any nonnegative integers $d$ and $n$.
+What else do these rings have in common?
+
+\subsection{Solution}
+
+[...]
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 6
+%----------------------------------------------------------------------------------------
+\horrule{0.3pt} \\[0.4cm]
+
+\section{Exercise 6: ISBNs vs. fat fingers}
+
+\subsection{Problem}
+
+An \textit{ISBN} shall mean a $10$-tuple
+$\tup{a_1, a_2, \ldots, a_{10}} \in \set{0, 1, \ldots, 10}^{10}$
+such that
+\[
+1 a_1 + 2 a_2 + \cdots + 10 a_{10} \equiv 0 \mod 11 .
+\]
+
+\noindent
+(For example, the $10$-tuple $\tup{1, 1, \ldots, 1}$ is an ISBN.)
+
+Prove the following:
+
+\begin{enumerate}
+
+\item[\textbf{(a)}]
+If $\mathbf{a} = \tup{a_1, a_2, \ldots, a_{10}}$ and
+$\mathbf{b} = \tup{b_1, b_2, \ldots, b_{10}}$ are two ISBNs
+that are equal in all but one entry (i.e.,
+there exists some $k \in \set{1, 2, \ldots, 10}$
+such that $a_i = b_i$ for all $i \neq k$),
+then $\mathbf{a} = \mathbf{b}$.
+
+\item[\textbf{(b)}]
+If an ISBN $\mathbf{a} = \tup{a_1, a_2, \ldots, a_{10}}$ is
+obtained from an ISBN
+$\mathbf{b} = \tup{b_1, b_2, \ldots, b_{10}}$ by swapping
+two entries (i.e., there exist $k, \ell \in \set{1, 2, \ldots, 10}$
+such that $a_k = b_\ell$ and $a_\ell = b_k$ and
+$a_i = b_i$ for all $i \notin \set{k, \ell}$),
+then $\mathbf{a} = \mathbf{b}$.
+
+\end{enumerate}
+
+\subsection{Remark}
+
+What we called ISBN here is essentially the definition
+of an \href{https://en.wikipedia.org/wiki/International_Standard_Book_Number#ISBN-10_check_digits}{ISBN-10}
+-- an international standard for book identifiers used from the
+1970s until 2007.
+For example, the ISBN-10 of the Graham/Knuth/Patashnik
+book ``Concrete Mathematics'' is ``0-201-55802-5'', which corresponds
+to $\tup{0, 2, 0, 1, 5, 5, 8, 0, 2, 5}$; you can check
+that this is indeed an ISBN according to our definition.
+
+(An ``X'' in a real-life ISBN stands for an entry that
+is $10$.)
+
+As this exercise shows, ISBNs have an error-detection
+property:
+If you make a typo in a single digit or accidentally swap
+two digits, the result will not be an ISBN, so you will
+know that something has gone wrong.
+This helps you avoid ordering the wrong book from a bookstore
+or library.
+\href{https://en.wikipedia.org/wiki/Luhn_algorithm}{Credit card numbers have a similar error-detection feature}.
+
+This is one of the simplest examples of an
+\href{https://en.wikipedia.org/wiki/Error_correction_code}{error correction code}.
+We may or may not see more of them in class.
+For now, you can think about how to define ``ISBNs''
+\begin{itemize}
+\item in $\set{0, 1, \ldots, 4}^4$;
+\item in $\set{0, 1, \ldots, 6}^6$;
+\item in $\set{0, 1, \ldots, 8}^8$ (this is harder!).
+\end{itemize}
+
+\subsection{Solution}
+
+[...]
+
+\begin{thebibliography}{99999999}                                                                                         %
+
+% Feel free to add your sources -- or copy some from the source code
+% of the class notes ( http://www.cip.ifi.lmu.de/~grinberg/t/19s/notes.tex ).
+
+\end{thebibliography}
+
+\end{document}
+

@@ -1,0 +1,830 @@
+% Like most advanced LaTeX files, this one begins with a lot of
+% boilerplate. You don't need to understand (or even read) most of it.
+% All you need to do is fill in your name, UMN ID, email address,
+% and the number of the pset. (Search for "METADATA" to find the place
+% for this.) Then, you can go straight to the "EXERCISE 1"
+% section and start writing your solutions.
+% The "VARIOUS USEFUL COMMANDS" section is probably worth taking a
+% look at at some point.
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+\documentclass[paper=a4, fontsize=12pt]{scrartcl} % A4 paper and 12pt font size
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm,amssymb} % Math packages
+\usepackage{mathrsfs}    % More math packages
+\usepackage{sectsty}  % Allows customizing section commands
+\allsectionsfont{\centering \normalfont\scshape} % Make all section titles centered, the default font and small caps %remove this to left align section tites
+\usepackage{hyperref} % Turns cross-references into hyperlinks,
+                      % and defines \url and \href commands.
+\usepackage{graphicx} % For embedding graphics files.
+\usepackage{framed}   % For the "leftbar" environment used below.
+\usepackage{ifthen}   % Used for the \powset command below.
+\usepackage{lastpage} % for counting the number of pages
+\usepackage[headsepline,footsepline,manualmark]{scrlayer-scrpage}
+\usepackage[height=10in,a4paper,hmargin={1in,0.8in}]{geometry}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{tikz}     % This is a powerful tool to draw vector
+                      % graphics inside LaTeX. In particular, you can
+                      % use it to draw graphs.
+\usepackage{verbatim} % For the "verbatim" environment, in which
+                      % special symbols can be used freely without
+                      % confusing the compiler. (And it's typeset in
+                      % a constant-width font.)
+                      % Useful, e.g., for quoting code (or ASCII art).
+
+%\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+
+\setlength\parindent{20pt} % Makes indentation for paragraphs longer.
+                           % This makes paragraphs stand out more.
+
+%----------------------------------------------------------------------------------------
+%	VARIOUS USEFUL COMMANDS
+%----------------------------------------------------------------------------------------
+% The commands below might be convenient. For example, you probably
+% prefer to write $\powset[2]{V}$ for the set of $2$-element subsets
+% of $V$, rather than writing $\mathcal{P}_2(V)$.
+% Notice that you can easily define your own commands like this.
+% Caveat: Some of these commands need to be properly "guarded" when
+% they occur in subscripts or superscripts. So you should not write
+% $K_\CC$, but rather $K_{\CC}$.
+\newcommand{\CC}{\mathbb{C}} % complex numbers
+\newcommand{\RR}{\mathbb{R}} % real numbers
+\newcommand{\QQ}{\mathbb{Q}} % rational numbers
+\newcommand{\NN}{\mathbb{N}} % nonnegative integers
+\newcommand{\DD}{{\mathbb{D}}} % dual numbers
+\newcommand{\PP}{\mathbb{P}} % positive integers
+\newcommand{\KK}{\mathbb{K}} % notation for a ring
+\newcommand{\LL}{\mathbb{L}} % notation for a ring
+\newcommand{\MM}{\mathbb{M}} % notation for a ring
+\newcommand{\FF}{\mathbb{F}} % notation for a field
+\newcommand{\Z}[1]{\mathbb{Z}/#1\mathbb{Z}} % integers modulo k
+                                            % (syntax: "\Z{k}")
+\newcommand{\ZZ}{\mathbb{Z}} % integers
+\newcommand{\id}{\operatorname{id}} % identity map
+\newcommand{\op}{\operatorname{op}} % opposite ring
+\newcommand{\End}{\operatorname{End}} % endomorphism ring
+\newcommand{\lcm}{\operatorname{lcm}}
+% Lowest common multiple. For historical reasons, LaTeX has a \gcd
+% command built in, but not an \lcm command. The preceding line
+% rectifies that.
+\newcommand{\Int}{\operatorname{Int}} % integer-valued polynomials
+\newcommand{\set}[1]{\left\{ #1 \right\}}
+% $\set{...}$ compiles to {...} (set-brackets).
+\newcommand{\abs}[1]{\left| #1 \right|}
+% $\abs{...}$ compiles to |...| (absolute value, or size of a set).
+\newcommand{\tup}[1]{\left( #1 \right)}
+% $\tup{...}$ compiles to (...) (parentheses, or tuple-brackets).
+\newcommand{\ive}[1]{\left[ #1 \right]}
+% $\ive{...}$ compiles to [...] (Iverson bracket, aka truth value; also, set of first n integers; also, polynomial).
+\newcommand{\ivee}[1]{\left[ \left[ #1 \right] \right]}
+% $\ivee{...}$ compiles to [[...]] (formal power series).
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+% $\floor{...}$ compiles to |_..._| (floor function).
+\newcommand{\underbrack}[2]{\underbrace{#1}_{\substack{#2}}}
+% $\underbrack{...1}{...2}$ yields
+% $\underbrace{...1}_{\substack{...2}}$. This is useful for doing
+% local rewriting transformations on mathematical expressions with
+% justifications. For example, try this out:
+% $ \underbrack{(a+b)^2}{= a^2 + 2ab + b^2 \\ \text{(by the binomial formula)}} $
+\newcommand{\powset}[2][]{\ifthenelse{\equal{#2}{}}{\mathcal{P}\left(#1\right)}{\mathcal{P}_{#1}\left(#2\right)}}
+% $\powset[k]{S}$ stands for the set of all $k$-element subsets of
+% $S$. The argument $k$ is optional, and if not provided, the result
+% is the whole powerset of $S$.
+\newcommand{\calF}{\mathcal{F}}
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command with 1 argument of height
+\newcommand{\nnn}{\nonumber\\} % Don't number this line in an "align" environment, and move on to the next line.
+
+%----------------------------------------------------------------------------------------
+%	MAKING SUMMATION SIGNS ALWAYS PUT THEIR BOUNDS ABOVE AND BELOW
+%	THE SIGN
+%----------------------------------------------------------------------------------------
+% The following are hacks to ensure that sums (such as
+% $\sum_{k=1}^n k$) always put their bounds (i.e., the $k=1$ and the
+% $n$) underneath and above the sign, as opposed to on its right.
+% Same for products (\prod), set unions (\bigcup) and set
+% intersections (\bigcap). Remove the 8 lines below if you do not want
+% this behavior.
+\let\sumnonlimits\sum
+\let\prodnonlimits\prod
+\let\cupnonlimits\bigcup
+\let\capnonlimits\bigcap
+\renewcommand{\sum}{\sumnonlimits\limits}
+\renewcommand{\prod}{\prodnonlimits\limits}
+\renewcommand{\bigcup}{\cupnonlimits\limits}
+\renewcommand{\bigcap}{\capnonlimits\limits}
+
+%----------------------------------------------------------------------------------------
+%	ENVIRONMENTS
+%----------------------------------------------------------------------------------------
+% The incantations below define how theorem environments
+% (\begin{theorem} ... \end{theorem}) and their likes will look like.
+\newtheoremstyle{plainsl}% <name>
+  {8pt plus 2pt minus 4pt}% <Space above>
+  {8pt plus 2pt minus 4pt}% <Space below>
+  {\slshape}% <Body font>
+  {0pt}% <Indent amount>
+  {\bfseries}% <Theorem head font>
+  {.}% <Punctuation after theorem head>
+  {5pt plus 1pt minus 1pt}% <Space after theorem headi>
+  {}% <Theorem head spec (can be left empty, meaning `normal')>
+
+% Environments which make the text inside them slanted:
+\theoremstyle{plainsl}
+  \newtheorem{theorem}{Theorem}[section]
+  \newtheorem{proposition}[theorem]{Proposition}
+  \newtheorem{lemma}[theorem]{Lemma}
+  \newtheorem{corollary}[theorem]{Corollary}
+  \newtheorem{conjecture}[theorem]{Conjecture}
+% Environments that don't:
+\theoremstyle{definition}
+  \newtheorem{definition}[theorem]{Definition}
+  \newtheorem{example}[theorem]{Example}
+  \newtheorem{exercise}[theorem]{Exercise}
+  \newtheorem{examples}[theorem]{Examples}
+  \newtheorem{algorithm}[theorem]{Algorithm}
+  \newtheorem{question}[theorem]{Question}
+ \theoremstyle{remark}
+  \newtheorem{remark}[theorem]{Remark}
+\newenvironment{statement}{\begin{quote}}{\end{quote}}
+\newenvironment{fineprint}{\begin{small}}{\end{small}}
+
+%----------------------------------------------------------------------------------------
+%	METADATA
+%----------------------------------------------------------------------------------------
+\newcommand{\myname}{Darij Grinberg} % ENTER YOUR NAME HERE
+\newcommand{\myid}{00000000} % ENTER YOUR UMN ID HERE
+\newcommand{\mymail}{dgrinber@umn.edu} % ENTER YOUR EMAIL HERE
+\newcommand{\psetnumber}{3} % ENTER THE NUMBER OF THIS PSET HERE
+
+%----------------------------------------------------------------------------------------
+%	HEADER AND FOOTER
+%----------------------------------------------------------------------------------------
+\ihead{Solutions to midterm \#\psetnumber} % Page header left
+\ohead{page \thepage\ of \pageref{LastPage}} % Page header right
+\ifoot{\myname, \myid} % left footer
+\ofoot{\mymail} % right footer
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+\title{	
+\normalfont \normalsize 
+\textsc{University of Minnesota, School of Mathematics} \\ [25pt] % Your university, school and/or department name(s)
+\horrule{0.5pt} \\[0.4cm] % Thin top horizontal rule
+\huge Math 4281: Introduction to Modern Algebra, \\
+Spring 2019:
+Midterm \psetnumber\\% The assignment title
+\horrule{2pt} \\[0.5cm] % Thick bottom horizontal rule
+}
+\author{\myname}
+
+\begin{document}
+
+\maketitle % Print the title
+
+\begin{center} % Delete this if you want to save space!
+{\large due date: \textbf{Monday, 6 May 2019 at 20:00} on Canvas or by email. \\
+
+\textbf{No collaboration allowed} -- this is a midterm.
+
+Please solve \textbf{at most 3 of the 6 exercises}!}
+\end{center}
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 1
+%----------------------------------------------------------------------------------------
+\horrule{0.3pt} \\[0.4cm]
+
+\section{Exercise 1: Nonunital rings and local unities}
+
+\subsection{Problem}
+
+A \textit{nonunital ring} is defined in the same way as we defined a ring,
+except that we don't require it to be endowed with an element $1$ (and,
+correspondingly, we omit the ``Neutrality of one'' axiom).
+This does not mean that a nonunital ring must not contain an element $1$
+that would satisfy the ``Neutrality of one'' axiom; it simply means that
+such an element is not required (and not considered part of the ring
+structure).
+So, formally speaking, a nonunital ring is a
+$4$-tuple $\tup{\KK, +, \cdot, 0}$
+(while a ring in the usual sense is a $5$-tuple
+$\tup{\KK, +, \cdot, 0, 1}$)
+that satisfies all the ring axioms except for ``Neutrality of one''.
+
+Thus, every ring becomes a nonunital ring if we forget its unity (i.e., if
+$\tup{\KK, +, \cdot, 0, 1}$ is a ring, then $\tup{\KK, +, \cdot, 0}$
+is a nonunital ring).
+But there are other examples as well:
+For instance, if $n \in \ZZ$ is arbitrary, then
+$n \ZZ := \set{ nz \mid z \in \ZZ }
+= \set{ \text{all multiples of } n }$ is a nonunital ring
+(when endowed with the usual $+$, $\cdot$ and $0$).
+
+An element $z$ of a nonunital ring $\KK$ is said to be a \textit{unity}
+of $\KK$ if every $a \in \KK$ satisfies $az = za = a$.
+In other words, an element $z$ of a nonunital ring $\KK$ is said
+to be a \textit{unity} of $\KK$ if equipping $\KK$ with the unity
+$z$ results in a ring (in the usual sense of this word).
+
+Prove the following:
+
+\begin{enumerate}
+
+\item[\textbf{(a)}] If $n \in \ZZ$, then the nonunital ring $n \ZZ$
+has a unity if and only if $n \in \set{1, 0, -1}$.
+
+\item[\textbf{(b)}] Any nonunital ring has \textbf{at most one} unity.
+
+\end{enumerate}
+
+Now, let $\KK$ be a nonunital ring.
+As usual, we write $+$ and $\cdot$ for its two operations,
+and $0$ for its zero.
+
+Let $z \in \KK$. Define a subset $U_z$ of $\KK$ by
+\[
+U_z = \set{ r \in \KK \mid rz = zr = r }.
+\]
+
+\begin{enumerate}
+
+\item[\textbf{(c)}] Prove that $0 \in U_z$, and that every
+$a, b \in U_z$ satisfy $a + b \in U_z$ and $ab \in U_z$.
+
+\end{enumerate}
+
+Thus, we can turn $U_z$ into a nonunital ring by endowing $U_z$
+with the binary operations $+$ and $\cdot$ (inherited from $\KK$) and
+the element $0$. Consider this nonunital ring $U_z$.
+
+\begin{enumerate}
+
+\item[\textbf{(d)}]
+Assume that $z^2 = z$.
+Prove that $z$ is a unity of the nonunital ring $U_z$.
+
+\end{enumerate}
+
+[\textbf{Hint:} In \textbf{(b)}, what would the product of two unities be?]
+
+\subsection{Solution}
+
+[...]
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 2
+%----------------------------------------------------------------------------------------
+\horrule{0.3pt} \\[0.4cm]
+
+\section{Exercise 2: Rings from nonunital rings}
+
+\subsection{Problem}
+
+Let $\KK$ be a nonunital ring.
+(See Exercise 1 for the definition of this notion.)
+Let $\LL$ be the Cartesian product $\ZZ \times \KK$ (so far, just a set).
+Define a binary operation $+$ on $\LL$ by setting
+\[
+\tup{n, a} + \tup{m, b} = \tup{n+m, a+b}
+\qquad
+\text{for all } \tup{n, a}, \tup{m, b} \in \LL .
+\]
+(This is an entrywise addition.)
+Define a binary operation $\cdot$ on $\LL$ by
+\[
+\tup{n, a} \tup{m, b} = \tup{nm, nb + ma + ab}
+\qquad
+\text{for all } \tup{n, a}, \tup{m, b} \in \LL .
+\]
+(Here, $nb$ and $ma$ are defined in the usual way:
+If $n \in \ZZ$ and $a \in \KK$, then $na \in \KK$ is defined by
+\[
+na=
+\begin{cases}
+\underbrace{a+a+\cdots+a}_{n \text{ times}},           & \text{if } n \geq 0;\\
+- \tup{\underbrace{a+a+\cdots+a}_{-n \text{ times}}} , & \text{if } n < 0
+\end{cases}
+.
+\]
+This does not require $\KK$ to have a unity.)
+
+Prove that $\LL$, endowed with these two operations $+$ and $\cdot$ and
+the zero $\tup{0, 0}$ and the unity $\tup{1, 0}$, is a ring
+(in the usual sense of this word).
+
+[\textbf{Hint:} You can use rules like $n \tup{a + b} = na + nb$ and
+$\tup{n + m} a = na + ma$ and $\tup{nm} a = n \tup{ma}$
+(for $n, m \in \ZZ$ and $a, b \in \KK$) without proof; they can be
+proven just as for usual rings.
+You can also use the fact that finite sums of elements of $\KK$ are
+well-defined and behave as we would expect them to
+(we already tacitly used that in writing
+``$\underbrace{a+a+\cdots+a}_{n \text{ times}}$'' without parentheses).
+
+You don't need to check the ``additive'' axioms (associativity of
+addition, commutativity of addition, neutrality of zero, and
+existence of additive inverses); as far as addition and zero are
+concerned, $\LL$ is just a Cartesian product.]
+
+\subsection{Remark}
+
+This exercise gives a way to ``embed'' any nonunital ring $\KK$
+into a ring $\LL$.
+This helps proving properties of nonunital rings, assuming that
+you can prove them for rings.
+
+There is also a much simpler notion of a Cartesian product of two nonunital
+rings (in which both addition and multiplication are defined entrywise). This
+lets us define a nonunital ring $\ZZ \times \KK$. But this is
+\textbf{not} the ring $\LL$; it does not generally have a unity.
+
+\subsection{Solution}
+
+[...]
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 3
+%----------------------------------------------------------------------------------------
+\horrule{0.3pt} \\[0.4cm]
+
+\section{Exercise 3: More sums from number theory}
+
+\subsection{Problem}
+
+\begin{enumerate}
+
+\item[\textbf{(a)}]
+Let $n$ be a positive integer.
+Prove that
+\[
+\sum_{j=1}^{n} \gcd \tup{j, n}
+= \sum_{d \mid n} d \phi\tup{ \dfrac{n}{d} }.
+\]
+More generally, if $\tup{a_1, a_2, a_3, \ldots}$ is a sequence
+of reals, then prove that
+\[
+\sum_{j=1}^{n} a_{\gcd \tup{j, n}}
+= \sum_{d \mid n} a_d \phi\tup{ \dfrac{n}{d} }.
+\]
+
+\item[\textbf{(b)}]
+Let $n \in \NN$. Prove that
+\begin{align*}
+& \tup{ \text{the number of $\tup{x, y} \in \ZZ^2$ satisfying
+              $x^2 + y^2 \leq n$} } \\
+& = 1 + 4\sum_{k \in \NN} \tup{-1}^k \floor{ \dfrac{n}{2k+1} } \\
+& = 1 + 4 \tup{   \floor{\dfrac{n}{1}} - \floor{\dfrac{n}{3}} 
+                + \floor{\dfrac{n}{5}} - \floor{\dfrac{n}{7}}
+                + \floor{\dfrac{n}{9}} - \floor{\dfrac{n}{11}}
+                \pm \cdots } .
+\end{align*}
+(The infinite sums in this equality have only finitely many nonzero addends,
+and thus are well-defined.)
+
+\end{enumerate}
+
+[\textbf{Hint:} Parts \textbf{(a)} and \textbf{(b)} have nothing to do with
+each other.
+
+This is a good place for a reminder that results proven in the notes, as well
+as problems from previous homework sets and midterms, can be freely used. Both
+parts have rather short solutions if you remember the right results to use!]
+
+\subsection{Remark}
+
+Part \textbf{(b)} of this exercise is a ``discrete'' version of the
+famous Madhava--Gregory--Leibniz series
+\[
+\dfrac{\pi}{4}
+= \dfrac{1}{1} - \dfrac{1}{3} + \dfrac{1}{5} - \dfrac{1}{7}
+  + \dfrac{1}{9} - \dfrac{1}{11} \pm \cdots
+\]
+(where $\pi$, at last, does denote the area of the unit circle).
+Indeed, if we divide the number of $\tup{x, y} \in \ZZ^2$ satisfying
+$x^2 + y^2 \leq n$ by $n$, then we obtain an approximation to
+the area of the unit circle that gets better as $n$
+grows\footnote{Just observe that the pairs
+$\tup{x, y} \in \ZZ^2$ satisfying $x^2 + y^2 \leq n$, regarded
+as points in the Euclidean plane, are precisely the lattice points
+inside the circle with center $0$ and radius $\sqrt{n}$.
+Thus, by counting these pairs, we are approximating the area of this
+circle. See \cite[Theorem 12.1]{Clark18} for a rigorous proof.}.
+On the other hand, it appears reasonable that dividing
+\[
+1 + 4 \tup{   \floor{\dfrac{n}{1}} - \floor{\dfrac{n}{3}} 
+                + \floor{\dfrac{n}{5}} - \floor{\dfrac{n}{7}}
+                + \floor{\dfrac{n}{9}} - \floor{\dfrac{n}{11}}
+                \pm \cdots }
+\]
+by $n$, we obtain an approximation to
+$4 \tup{\dfrac{1}{1} - \dfrac{1}{3} + \dfrac{1}{5} - \dfrac{1}{7}
+        + \dfrac{1}{9} - \dfrac{1}{11} \pm \cdots}$.
+I am not sure whether this can be rigorously proven,
+however.\footnote{Of course, for any given $k \in \NN$,
+the number
+$\dfrac{1}{n}\tup{\floor{\dfrac{n}{2k+1}} - \dfrac{n}{2k+1}}$
+does converge to $0$ when $n \to \infty$.
+But here we are taking an alternating sum of infinitely many
+such numbers; we can ignore all but the first $n$, but even
+the first $n$ may no longer converge to $0$ when summed
+together.}
+
+\subsection{Solution}
+
+[...]
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 4
+%----------------------------------------------------------------------------------------
+\horrule{0.3pt} \\[0.4cm]
+
+\section{Exercise 4: Squares in finite fields II}
+
+\subsection{Problem}
+
+Let $\FF$ be a finite field such that
+$2 \cdot 1_{\FF} \neq 0_{\FF}$.
+In Exercise 5 of
+\href{http://www.cip.ifi.lmu.de/~grinberg/t/19s/hw6s.pdf}{homework set \#6},
+we have seen that
+$\abs{\FF}$ is odd, and that the number of squares in $\FF$ is
+$\dfrac{1}{2} \tup{ \abs{\FF} + 1 }$.
+
+In the following, the word ``square'' shall always mean
+``square in $\FF$''.
+
+A \textit{nonsquare} shall mean an element of $\FF$ that is not
+a square.
+
+Prove the following:
+
+\begin{enumerate}
+
+\item[\textbf{(a)}]
+The product of two squares is always a square.
+
+\item[\textbf{(b)}]
+The product of a nonzero square with a nonsquare is always
+a nonsquare.
+
+\item[\textbf{(c)}]
+The product of two nonsquares is always a square.
+
+\end{enumerate}
+
+[\textbf{Hint:} It is easiest to solve the three parts in
+this exact order.
+For \textbf{(c)}, recall that if a subset
+$Y$ of a finite set $X$ satisfies $\abs{Y} \geq \abs{X}$,
+then $Y = X$.]
+
+\subsection{Solution}
+
+[...]
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 5
+%----------------------------------------------------------------------------------------
+\horrule{0.3pt} \\[0.4cm]
+
+\section{Exercise 5: Formal differential calculus}
+
+\subsection{Problem}
+
+Let $\KK$ be a commutative ring.
+For each FPS\footnote{Just as in class, the abbreviation ``FPS''
+stands for ``formal power series''.
+All FPSs and polynomials in this exercise are in $1$ indeterminate
+over $\KK$; the indeterminate is called $x$.}
+\[
+f = \sum_{k \in \NN} a_k x^k = a_0 x^0 + a_1 x^1 + a_2 x^2 + \cdots \in \KK\ivee{x}
+\qquad
+\text{(where $a_i \in \KK$),}
+\]
+we define the \textit{derivative} $f'$ of $f$ to be the FPS
+\[
+\sum_{k > 0} k a_k x^{k-1}
+= 1 a_1 x^0 + 2 a_2 x^1 + 3 a_3 x^2 + \cdots \in \KK\ivee{x} .
+\]
+(This definition imitates the standard procedure for differentiating
+power series in analysis, but it does not require any analysis or
+topology itself. In particular, $\KK$ may be any commutative ring
+-- e.g., a finite field.)
+
+Let $D : \KK\ivee{x} \to \KK\ivee{x}$ be the map sending
+each FPS $f$ to its derivative $f'$.
+We refer to $D$ as \textit{(formal) differentiation}.
+As usual, for any $n \in \NN$, we let $D^n$ denote
+$\underbrace{D \circ D \circ \cdots \circ D}_{n \text{ times}}$
+(which means $\id$ if $n = 0$).
+
+Prove the following:
+
+\begin{enumerate}
+
+\item[\textbf{(a)}]
+If $f \in \KK\ive{x}$, then $f' \in \KK\ive{x}$ and
+$\deg \tup{f'} \leq \deg f - 1$.
+(In other words, the derivative of a polynomial is again
+a polynomial of degree at least $1$ less.)
+
+\item[\textbf{(b)}]
+The map $D : \KK\ivee{x} \to \KK\ivee{x}$ is $\KK$-linear
+(with respect to the $\KK$-module structure on $\KK\ivee{x}$
+defined in class -- i.e., both addition and scaling of FPSs
+are defined entrywise).
+
+\item[\textbf{(c)}]
+We have $\tup{fg}' = f' g + f g'$ for any two FPSs
+$f$ and $g$.
+(This is called the \textit{Leibniz rule}.)
+
+\item[\textbf{(d)}]
+We have $D^n \tup{x^k} = n! \dbinom{k}{n} x^{k-n}$
+for all $n \in \NN$ and $k \in \NN$.
+Here, the expression ``$\dbinom{k}{n} x^{k-n}$'' is
+to be understood as $0$ when $k < n$.
+
+\item[\textbf{(e)}]
+If $\QQ$ is a subring of $\KK$, then
+every polynomial $f \in \KK\ive{x}$ satisfies%
+\footnote{Just as in class, I am using the notation
+``$f \ive{u}$'' for the evaluation of $f$ at $u$.
+The more common notation for this is $f \tup{u}$,
+but is too easily mistaken for a product. \\
+Note also that we need to require $f$ to be a
+polynomial here, since $f \ive{x+a}$ would not
+be defined if $f$ was merely an FPS.}
+\[
+f \ive{x+a} = \sum_{n \in \NN} \dfrac{1}{n!} \tup{D^n \tup{f}} \ive{a} \cdot x^n
+\qquad \text{for all $a \in \KK$} .
+\]
+(The infinite sum on the right hand side has only
+finitely many nonzero addends.)
+
+\item[\textbf{(f)}]
+If $p$ is a prime such that $p \cdot 1_\KK = 0$
+(for example, this happens if $\KK = \ZZ / p$),
+then $D^p \tup{f} = 0$ for each $f \in \KK\ivee{x}$.
+
+\end{enumerate}
+
+Now, assume that $\QQ$ is a subring of $\KK$.
+For each FPS
+\[
+f = \sum_{k \in \NN} a_k x^k = a_0 x^0 + a_1 x^1 + a_2 x^2 + \cdots \in \KK\ivee{x}
+\qquad
+\text{(where $a_i \in \KK$),}
+\]
+we define the \textit{integral} $\int f$ of $f$ to be the FPS
+\[
+\sum_{k \geq 0} \dfrac{1}{k+1} a_k x^{k+1}
+= \dfrac{1}{1} a_0 x^1 + \dfrac{1}{2} a_1 x^2 + \dfrac{1}{3} a_2 x^3 + \cdots \in \KK\ivee{x} .
+\]
+(This definition imitates the standard procedure for integrating
+power series in analysis, but again works for any commutative
+ring $\KK$ that contains $\QQ$ as subring.)
+
+Let $J : \KK\ivee{x} \to \KK\ivee{x}$ be the map sending
+each FPS $f$ to its integral $\int f$.
+Prove the following:
+
+\begin{enumerate}
+
+\item[\textbf{(g)}]
+The map $J : \KK\ivee{x} \to \KK\ivee{x}$ is $\KK$-linear.
+
+\item[\textbf{(h)}]
+We have $D \circ J = \id$.
+
+\item[\textbf{(i)}]
+We have $J \circ D \neq \id$.
+
+\end{enumerate}
+
+[\textbf{Hint:} Don't give too much detail; workable outlines
+are sufficient.
+Feel free to interchange summation signs without justification.
+For part \textbf{(c)}, it is easiest to first prove it
+in the particular case when $f = x^a$ and $g = x^b$ for some
+$f$ and $g$, and then obtain the general case by interchanging
+summations.]
+
+\subsection{Remark}
+
+This exercise is just the beginning of ``algebraic calculus''.
+A lot more can be done: Differentiation can be extended to
+rational functions; partial derivatives can be defined for
+multivariate polynomials and FPSs; differential equations can
+be solved formally in FPSs (rather than functions); even a
+purely algebraic analogue of the classical
+$f'\tup{x} = \lim\limits_{\varepsilon\to 0} \dfrac{f\tup{x+\varepsilon} - f\tup{x}}{\varepsilon}$
+definition exists\footnote{See Theorem 5 in
+\url{https://math.stackexchange.com/a/2974977/} .}.
+These algebraic derivatives play crucial roles in the
+study of fields (including finite fields!), in algebraic
+geometry (where they help define what a
+``singularity'' of an algebraic variety is) and in
+enumerative combinatorics (where they aid in computing
+generating functions).
+
+Part \textbf{(e)} is perhaps the easiest instance of
+the well-known Taylor formula (no error terms, no
+smoothness requirements, no convergence issues).
+
+The ``integral'' $\int f$ we defined above is, of course,
+only one possible choice of an FPS $g$ satisfying $g' = f$.
+Just as in calculus, you can add any constant to it, and
+you get another.
+Part \textbf{(h)} is an algebraic version of one half of
+the Fundamental Theorem of Calculus.
+You can easily prove the other half: For each FPS $f$,
+the FPS $\tup{J \circ D} \tup{f}$ differs from $f$ only
+in its constant term.
+
+If $\KK$ contains $\QQ$ as a subring, then both $J$ and $D$ are
+elements of the $\KK$-algebra $\End \tup{\KK\ivee{x}}$
+(by parts \textbf{(b)} and \textbf{(g)} of this exercise).
+Part \textbf{(h)} of this exercise shows that $J$ is a right
+inverse of $D$; but part \textbf{(i)} shows that $J$ is not a
+left inverse (and thus not an inverse) of $D$.
+This yields an example of a left inverse that is not a right
+inverse.
+
+\subsection{Solution}
+
+[...]
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 6
+%----------------------------------------------------------------------------------------
+\horrule{0.3pt} \\[0.4cm]
+
+\section{Exercise 6: Formal difference calculus and integer-valued polynomials}
+
+\subsection{Problem}
+
+Let $\KK$ be a commutative ring.
+
+For any polynomial $f \in \KK\ive{x}$,
+we define the \textit{first finite difference} $f^\Delta$ of $f$
+to be the polynomial
+\[
+f \ive{x+1} - f \ive{x} \in \KK\ive{x} .
+\]
+(This is a ``discrete analogue'' of the derivative,
+in case the analysis-free derivative from Exercise 5
+was not discrete enough for you.
+It cannot be extended to FPSs, however, since you cannot
+substitute $x+1$ for $x$ in an FPS.)
+
+Let $\Delta : \KK\ive{x} \to \KK\ive{x}$ be the map sending
+each polynomial $f$ to $f^\Delta$.
+As usual, for any $n \in \NN$, we let $\Delta^n$ denote
+$\underbrace{\Delta \circ \Delta \circ \cdots \circ \Delta}_{n \text{ times}}$
+(which means $\id$ if $n = 0$).
+
+Prove the following:
+
+\begin{enumerate}
+
+\item[\textbf{(a)}]
+The map $\Delta : \KK\ive{x} \to \KK\ive{x}$ is $\KK$-linear
+(with respect to the $\KK$-module structure on $\KK\ive{x}$
+defined in class -- i.e., both addition and scaling of
+polynomials are defined entrywise).
+
+\item[\textbf{(b)}]
+We have $\tup{fg}^\Delta = f^\Delta g + f\ive{x+1} g^\Delta$
+for any two polynomials $f$ and $g$.
+
+\end{enumerate}
+
+Now, assume that $\QQ$ is a subring of $\KK$.
+
+For any $n \in \NN$, we define a polynomial%
+\footnote{Note that we are within our rights to divide
+by $n!$ here, since $\QQ$ is a subring of $\KK$.}
+\[
+\dbinom{x}{n} := \dfrac{x\tup{x-1}\tup{x-2}\cdots\tup{x-n+1}}{n!}
+\in \KK\ive{x} .
+\]
+We also set $\dbinom{x}{n} := 0$ for every negative $n$.
+
+Prove the following:
+
+\begin{enumerate}
+
+\item[\textbf{(c)}]
+We have $\Delta^n \tup{\dbinom{x}{k}} = \dbinom{x}{k-n}$
+for all $n \in \NN$ and $k \in \ZZ$.
+
+\item[\textbf{(d)}]
+If $m \in \NN$, and if $f \in \KK\ive{x}$ is a polynomial
+of degree $\leq m$,
+then there exist elements $a_0, a_1, \ldots, a_m \in \KK$
+such that $f = \sum_{i=0}^m a_i \dbinom{x}{i}$.
+
+\item[\textbf{(e)}]
+Every polynomial $f \in \KK\ive{x}$ satisfies
+\[
+f \ive{x+a} = \sum_{n \in \NN} \tup{\Delta^n \tup{f}} \ive{a} \cdot \dbinom{x}{n}
+\qquad \text{for all $a \in \KK$} .
+\]
+(The infinite sum on the right hand side has only
+finitely many nonzero addends.)
+
+\item[\textbf{(f)}]
+Let $m \in \NN$, and let $f \in \KK\ive{x}$ be a polynomial
+of degree $\leq m$.
+Assume that $f\ive{k} \in \ZZ$ for each $k \in \set{0, 1, \ldots, m}$.
+Then, there exist integers $a_0, a_1, \ldots, a_m$
+such that $f = \sum_{i=0}^m a_i \dbinom{x}{i}$.
+
+\end{enumerate}
+
+[\textbf{Hint:} Part \textbf{(d)} is easiest to prove by
+induction on $m$.
+You can then prove part \textbf{(e)} for $f = \dbinom{x}{i}$
+first (where $i \in \NN$), and then extend it to arbitrary $f$
+by means of part \textbf{(d)}.
+Part \textbf{(f)}, in turn, can be derived from part
+\textbf{(e)} through a strategic choice of $a$.]
+
+\subsection{Remark}
+
+Just as $\Delta$ is an analogue of the differentiation
+operator $D$ from Exercise 5,
+we can define an analogue of the integration operator
+$J$ from Exercise 5.
+This will be a $\KK$-linear map $\Sigma : \KK\ive{x} \to \KK\ive{x}$
+that sends each polynomial
+$\sum_{i=0}^m a_i \dbinom{x}{i}$ to
+$\sum_{i=0}^m a_i \dbinom{x}{i+1}$
+(this definition makes sense, because part \textbf{(d)}
+of this exercise
+shows that each polynomial can be written in the form
+$\sum_{i=0}^m a_i \dbinom{x}{i}$, uniquely except for
+``leading zeroes'').
+Again, we have $\Delta \circ \Sigma = \id$ but
+$\Sigma \circ \Delta \neq \id$.
+
+Moreover, if $f \in \KK\ive{x}$ is a polynomial, then
+$\tup{\Sigma\tup{f}} \ive{0} = 0$
+and
+$\tup{\Sigma\tup{f}} \ive{n}
+ = \tup{\Sigma\tup{f}} \ive{n-1} + f \ive{n-1}$
+for each $n \in \ZZ$ (indeed, the former equality
+follows easily from the definition of $\Sigma$,
+while the latter follows from $\Delta \circ \Sigma = \id$).
+Hence, by induction, we can see that
+\[
+\tup{\Sigma\tup{f}} \ive{n}
+= f\ive{0} + f\ive{1} + \cdots + f\ive{n-1}
+\qquad \text{for each polynomial $f \in \KK\ive{x}$
+             and each $n \in \NN$}.
+\]
+In other words, the value of $\Sigma\tup{f}$ at an
+$n \in \NN$ is the sum of the first $n$ values of
+$f$ on nonnegative integers! (Whence the notation $\Sigma$.)
+For example, if we set $f = x^2$, then it is easy to see
+that $\Sigma\tup{f} = 2 \dbinom{x}{3} + \dbinom{x}{2}$
+(to see this, just expand $f$ in the form
+$\sum_{i=0}^m a_i \dbinom{x}{i}$ -- namely,
+$f = x^2 = 2 \dbinom{x}{2} + \dbinom{x}{1}$ --, and
+then apply the definition of $\Sigma$); thus we obtain
+\[
+2 \dbinom{n}{3} + \dbinom{n}{2}
+= 0^2 + 1^2 + \cdots + \tup{n-1}^2 .
+\]
+Similarly you can find a formula for
+$0^k + 1^k + \cdots + \tup{n-1}^k$ whenever $k \in \NN$.    
+
+Part \textbf{(e)} of this exercise is a result of Newton.
+
+\subsection{Solution}
+
+[...]
+
+\begin{thebibliography}{99999999}                                                                                         %
+
+% Feel free to add your sources -- or copy some from the source code
+% of the class notes ( http://www.cip.ifi.lmu.de/~grinberg/t/19s/notes.tex ).
+
+% \bibitem[Clark07]{Clark07}
+% Pete Clark, \textit{Gauss's circle problem},
+% \url{http://math.uga.edu/~pete/4400gausscircle.pdf} .
+
+\bibitem[Clark18]{Clark18}
+Pete L. Clark, \textit{Number Theory: A Contemporary Introduction},
+8 January 2018. \\
+\url{http://math.uga.edu/~pete/4400FULL.pdf}
+
+\end{thebibliography}
+
+\end{document}
+

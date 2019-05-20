@@ -17,7 +17,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Saturday, May 18, 2019 18:16:41}
+%TCIDATA{LastRevised=Monday, May 20, 2019 09:16:25}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -2914,6 +2914,29 @@ Exercise \ref{exe.ent.even-odd-sumsq} \textbf{(c)} establishes our previous
 experimental observation that an integer of the form $4k+3$ with integer $k$
 (that is, an integer that is larger by $3$ than a multiple of $4$) can never
 be written as a sum of two perfect squares.
+
+\begin{exercise}
+\label{exe.ent.13mod4}\textbf{(a)} Prove that the map%
+\begin{align*}
+\left\{  i\in\mathbb{N}\ \mid\ i\text{ is even}\right\}   &  \rightarrow
+\left\{  d\in\mathbb{N}\ \mid\ d\equiv1\operatorname{mod}4\right\}  ,\\
+i  &  \mapsto2i+1
+\end{align*}
+is well-defined and is a bijection.
+
+\textbf{(b)} Prove that the map%
+\begin{align*}
+\left\{  i\in\mathbb{N}\ \mid\ i\text{ is odd}\right\}   &  \rightarrow
+\left\{  d\in\mathbb{N}\ \mid\ d\equiv3\operatorname{mod}4\right\}  ,\\
+i  &  \mapsto2i+1
+\end{align*}
+is well-defined and is a bijection.
+\end{exercise}
+
+Note that the map defined in Exercise \ref{exe.ent.13mod4} \textbf{(a)} sends
+$0,2,4,6,8,\ldots$ to $1,5,9,13,17,\ldots$, while the map defined in Exercise
+\ref{exe.ent.13mod4} \textbf{(b)} sends $1,3,5,7,9,\ldots$ to
+$3,7,11,15,19,\ldots$.
 
 \begin{teachingnote}
 At this point, as an application of division with remainder, it would be
@@ -41471,6 +41494,224 @@ Exercise \ref{exe.ent.even-odd-sumsq} \textbf{(c)}.
 \ref{exe.ent.even-odd-sumsq} \textbf{(c)} (indeed, we have to consider the
 same four cases, but this time we don't get a contradiction in Case 4) and is
 left to the reader.
+\end{proof}
+\end{fineprint}
+
+\subsection{Solution to Exercise \ref{exe.ent.13mod4}}
+
+\begin{fineprint}
+\begin{proof}
+[Solution to Exercise \ref{exe.ent.13mod4}.]\textbf{(a)} Define two sets $A$
+and $B$ by%
+\begin{equation}
+A=\left\{  i\in\mathbb{N}\ \mid\ i\text{ is even}\right\}
+\label{sol.ent.13mod4.a.defA}%
+\end{equation}
+and%
+\begin{equation}
+B=\left\{  d\in\mathbb{N}\ \mid\ d\equiv1\operatorname{mod}4\right\}
+.\label{sol.ent.13mod4.a.defB}%
+\end{equation}
+
+
+For each $u\in A$, we have $2u+1\in B$\ \ \ \ \footnote{\textit{Proof.} Let
+$u\in A$. Thus, $u\in A=\left\{  i\in\mathbb{N}\ \mid\ i\text{ is
+even}\right\}  $. In other words, $u$ is an $i\in\mathbb{N}$ such that $i$ is
+even. In other words, $u$ is an element of $\mathbb{N}$ and is even. Thus,
+$u\in\mathbb{N}$, so that $2u+1\in\mathbb{N}$. Moreover, $u$ is even; in other
+words, $u\equiv0\operatorname{mod}2$ (by Exercise \ref{exe.ent.even-odd.1}
+\textbf{(c)}). In other words, $2\mid u-0$. In other words, there exists an
+integer $c$ such that $u-0=2c$. Consider this $c$. Now, $u=u-0=2c$, so that
+$2\underbrace{u}_{=2c}=2\cdot2c=4c\equiv0\operatorname{mod}4$ (since we
+clearly have $4\mid4c$). Hence,%
+\[
+\underbrace{2u}_{\equiv0\operatorname{mod}4}+1\equiv0+1=1\operatorname{mod}4.
+\]
+Hence, $2u+1$ is an element of $\mathbb{N}$ (since $2u+1\in\mathbb{N}$) and
+satisfies $2u+1\equiv1\operatorname{mod}4$. In other words, $2u+1$ is a
+$d\in\mathbb{N}$ satisfying $d\equiv1\operatorname{mod}4$. In other words,
+$2u+1\in\left\{  d\in\mathbb{N}\ \mid\ d\equiv1\operatorname{mod}4\right\}  $.
+In view of (\ref{sol.ent.13mod4.a.defB}), this rewrites as $2u+1\in B$. Qed.}.
+Renaming the variable $u$ as $i$ in this statement, we obtain the following:
+For each $i\in A$, we have $2i+1\in B$. Thus, the map%
+\begin{align*}
+A  &  \rightarrow B,\\
+i  &  \mapsto2i+1
+\end{align*}
+is well-defined. Let us denote this map by $f$.
+
+For each $v\in B$, we have $\left(  v-1\right)  /2\in A$%
+\ \ \ \ \footnote{\textit{Proof.} Let $v\in B$. Thus, $v\in B=\left\{
+d\in\mathbb{N}\ \mid\ d\equiv1\operatorname{mod}4\right\}  $. In other words,
+$v$ is a $d\in\mathbb{N}$ satisfying $d\equiv1\operatorname{mod}4$. In other
+words, $v$ is an element of $\mathbb{N}$ and satisfies $v\equiv
+1\operatorname{mod}4$. Thus, in particular, $v\equiv1\operatorname{mod}4$; in
+other words, $4\mid v-1$. In other words, there exists an integer $w$ such
+that $v-1=4w$. Consider this $w$. We have $v\geq0$ (since $v$ is an element of
+$\mathbb{N}$) and thus $\underbrace{v}_{\geq0}-1\geq-1$. If we had $w\leq-1$,
+then we would have $v-1=4\underbrace{w}_{\leq-1}\leq4\left(  -1\right)
+=-4<-1$, which would contradict $v-1\geq-1$. Thus, we cannot have $w\leq-1$.
+Hence, we have $w>-1$. Thus, $w\geq0$ (since $w$ is an integer), so that
+$w\in\mathbb{N}$. Hence, $2w\in\mathbb{N}$. Moreover, $2\mid2w$ (since $w$ is
+an integer). Thus, $2w$ is even. Hence, $2w$ is an $i\in\mathbb{N}$ such that
+$i$ is even (since $2w\in\mathbb{N}$). In other words, $2w\in\left\{
+i\in\mathbb{N}\ \mid\ i\text{ is even}\right\}  $. In view of
+(\ref{sol.ent.13mod4.a.defA}), this rewrites as $2w\in A$. But $v-1=4w=2\cdot
+2w$, so that $\left(  v-1\right)  /2=2w\in A$. Qed.}. Hence, the map%
+\begin{align*}
+B  &  \rightarrow A,\\
+v  &  \mapsto\left(  v-1\right)  /2
+\end{align*}
+is well-defined. Let us denote this map by $g$.
+
+We have $f\circ g=\operatorname*{id}$\ \ \ \ \footnote{\textit{Proof.} Let
+$v\in B$. Then, the definition of $g$ yields $g\left(  v\right)  =\left(
+v-1\right)  /2$. But the definition of $f$ yields $f\left(  g\left(  v\right)
+\right)  =2\underbrace{g\left(  v\right)  }_{=\left(  v-1\right)
+/2}+1=2\left(  v-1\right)  /2+1=v=\operatorname*{id}\left(  v\right)  $.
+Comparing this with $f\left(  g\left(  v\right)  \right)  =\left(  f\circ
+g\right)  \left(  v\right)  $, we obtain $\left(  f\circ g\right)  \left(
+v\right)  =\operatorname*{id}\left(  v\right)  $.
+\par
+Now, forget that we fixed $v$. We thus have proven that $\left(  f\circ
+g\right)  \left(  v\right)  =\operatorname*{id}\left(  v\right)  $ for each
+$v\in B$. In other words, $f\circ g=\operatorname*{id}$.} and $g\circ
+f=\operatorname*{id}$\ \ \ \ \footnote{\textit{Proof.} Let $i\in A$. Then, the
+definition of $f$ yields $f\left(  i\right)  =2i+1$. But the definition of $g$
+yields $g\left(  f\left(  i\right)  \right)  =\left(  \underbrace{f\left(
+i\right)  }_{=2i+1}-1\right)  /2=\left(  2i+1-1\right)
+/2=i=\operatorname*{id}\left(  i\right)  $. Comparing this with $g\left(
+f\left(  i\right)  \right)  =\left(  g\circ f\right)  \left(  i\right)  $, we
+obtain $\left(  g\circ f\right)  \left(  i\right)  =\operatorname*{id}\left(
+i\right)  $.
+\par
+Now, forget that we fixed $i$. We thus have proven that $\left(  g\circ
+f\right)  \left(  i\right)  =\operatorname*{id}\left(  i\right)  $ for each
+$i\in A$. In other words, $g\circ f=\operatorname*{id}$.}. Thus, the maps $f$
+and $g$ are mutually inverse. Hence, the map $f$ is invertible, i.e.,
+bijective. In other words, the map $f$ is a bijection.
+
+So we have proven that the map $f$ is well-defined and is a bijection. In
+other words, the map%
+\begin{align*}
+A  &  \rightarrow B,\\
+i  &  \mapsto2i+1
+\end{align*}
+is well-defined and is a bijection\footnote{since the map $f$ is the map
+\begin{align*}
+A  &  \rightarrow B,\\
+i  &  \mapsto2i+1
+\end{align*}
+}. Using (\ref{sol.ent.13mod4.a.defA}) and (\ref{sol.ent.13mod4.a.defB}), we
+can rewrite this as follows: The map%
+\begin{align*}
+\left\{  i\in\mathbb{N}\ \mid\ i\text{ is even}\right\}   &  \rightarrow
+\left\{  d\in\mathbb{N}\ \mid\ d\equiv1\operatorname{mod}4\right\}  ,\\
+i  &  \mapsto2i+1
+\end{align*}
+is well-defined and is a bijection. This solves Exercise \ref{exe.ent.13mod4}
+\textbf{(a)}.
+
+\textbf{(b)} Define two sets $A$ and $B$ by%
+\begin{equation}
+A=\left\{  i\in\mathbb{N}\ \mid\ i\text{ is odd}\right\}
+\label{sol.ent.13mod4.b.defA}%
+\end{equation}
+and%
+\begin{equation}
+B=\left\{  d\in\mathbb{N}\ \mid\ d\equiv3\operatorname{mod}4\right\}  .
+\label{sol.ent.13mod4.b.defB}%
+\end{equation}
+
+
+For each $u\in A$, we have $2u+1\in B$\ \ \ \ \footnote{\textit{Proof.} Let
+$u\in A$. Thus, $u\in A=\left\{  i\in\mathbb{N}\ \mid\ i\text{ is
+odd}\right\}  $. In other words, $u$ is an $i\in\mathbb{N}$ such that $i$ is
+odd. In other words, $u$ is an element of $\mathbb{N}$ and is odd. Thus,
+$u\in\mathbb{N}$, so that $2u+1\in\mathbb{N}$. Moreover, $u$ is odd; in other
+words, $u\equiv1\operatorname{mod}2$ (by Exercise \ref{exe.ent.even-odd.1}
+\textbf{(d)}). In other words, $2\mid u-1$. In other words, there exists an
+integer $c$ such that $u-1=2c$. Consider this $c$. Now,
+$2u-2=2\underbrace{\left(  u-1\right)  }_{=2c}=2\cdot2c=4c\equiv
+0\operatorname{mod}4$ (since we clearly have $4\mid4c$). Hence,%
+\[
+2u+1=\underbrace{2u-2}_{\equiv0\operatorname{mod}4}+3\equiv
+0+3=3\operatorname{mod}4.
+\]
+Hence, $2u+1$ is an element of $\mathbb{N}$ (since $2u+1\in\mathbb{N}$) and
+satisfies $2u+1\equiv3\operatorname{mod}4$. In other words, $2u+1$ is a
+$d\in\mathbb{N}$ satisfying $d\equiv3\operatorname{mod}4$. In other words,
+$2u+1\in\left\{  d\in\mathbb{N}\ \mid\ d\equiv3\operatorname{mod}4\right\}  $.
+In view of (\ref{sol.ent.13mod4.b.defB}), this rewrites as $2u+1\in B$. Qed.}.
+Renaming the variable $u$ as $i$ in this statement, we obtain the following:
+For each $i\in A$, we have $2i+1\in B$. Thus, the map%
+\begin{align*}
+A  &  \rightarrow B,\\
+i  &  \mapsto2i+1
+\end{align*}
+is well-defined. Let us denote this map by $f$.
+
+For each $v\in B$, we have $\left(  v-1\right)  /2\in A$%
+\ \ \ \ \footnote{\textit{Proof.} Let $v\in B$. Thus, $v\in B=\left\{
+d\in\mathbb{N}\ \mid\ d\equiv3\operatorname{mod}4\right\}  $. In other words,
+$v$ is a $d\in\mathbb{N}$ satisfying $d\equiv3\operatorname{mod}4$. In other
+words, $v$ is an element of $\mathbb{N}$ and satisfies $v\equiv
+3\operatorname{mod}4$. Thus, in particular, $v\equiv3\operatorname{mod}4$; in
+other words, $4\mid v-3$. In other words, there exists an integer $w$ such
+that $v-3=4w$. Consider this $w$. We have $v\geq0$ (since $v$ is an element of
+$\mathbb{N}$) and thus $\underbrace{v}_{\geq0}-3\geq-3$. If we had $w\leq-1$,
+then we would have $v-3=4\underbrace{w}_{\leq-1}\leq4\left(  -1\right)
+=-4<-3$, which would contradict $v-3\geq-3$. Thus, we cannot have $w\leq-1$.
+Hence, we have $w>-1$. Thus, $w\geq0$ (since $w$ is an integer), so that
+$w\in\mathbb{N}$. Hence, $2w+1\in\mathbb{N}$. Moreover, $\underbrace{2}%
+_{\equiv0\operatorname{mod}2}w+1\equiv0w+1=1\operatorname{mod}2$. But Exercise
+\ref{exe.ent.even-odd.1} \textbf{(d)} (applied to $u=2w+1$) shows that $2w+1$
+is odd if and only if $2w+1\equiv1\operatorname{mod}2$. Hence, $2w+1$ is odd
+(since $2w+1\equiv1\operatorname{mod}2$). Hence, $2w+1$ is an $i\in\mathbb{N}$
+such that $i$ is odd (since $2w+1\in\mathbb{N}$). In other words,
+$2w+1\in\left\{  i\in\mathbb{N}\ \mid\ i\text{ is odd}\right\}  $. In view of
+(\ref{sol.ent.13mod4.b.defA}), this rewrites as $2w+1\in A$. But
+$v-1=\underbrace{v-3}_{=4w}+2=4w+2=2\left(  2w+1\right)  $, so that $\left(
+v-1\right)  /2=2w+1\in A$. Qed.}. Hence, the map%
+\begin{align*}
+B  &  \rightarrow A,\\
+v  &  \mapsto\left(  v-1\right)  /2
+\end{align*}
+is well-defined. Let us denote this map by $g$.
+
+The maps $f$ and $g$ are mutually inverse\footnote{This can be proven in the
+exact same way as the analogous statement was shown in our above solution to
+Exercise \ref{exe.ent.13mod4} \textbf{(a)}. In fact, the maps $f$ and $g$ here
+act in the exact same way as the maps $f$ and $g$ in our solution to Exercise
+\ref{exe.ent.13mod4} \textbf{(a)}; the only thing that is different are their
+domains and codomains $A$ and $B$.}. Hence, the map $f$ is invertible, i.e.,
+bijective. In other words, the map $f$ is a bijection.
+
+So we have proven that the map $f$ is well-defined and is a bijection. In
+other words, the map%
+\begin{align*}
+A  &  \rightarrow B,\\
+i  &  \mapsto2i+1
+\end{align*}
+is well-defined and is a bijection\footnote{since the map $f$ is the map
+\begin{align*}
+A  &  \rightarrow B,\\
+i  &  \mapsto2i+1
+\end{align*}
+}. Using (\ref{sol.ent.13mod4.b.defA}) and (\ref{sol.ent.13mod4.b.defB}), we
+can rewrite this as follows: The map%
+\begin{align*}
+\left\{  i\in\mathbb{N}\ \mid\ i\text{ is odd}\right\}   &  \rightarrow
+\left\{  d\in\mathbb{N}\ \mid\ d\equiv3\operatorname{mod}4\right\}  ,\\
+i  &  \mapsto2i+1
+\end{align*}
+is well-defined and is a bijection. This solves Exercise \ref{exe.ent.13mod4}
+\textbf{(b)}.
+
+[\textit{Remark:} The reader can easily find an alternative solution to
+Exercise \ref{exe.ent.13mod4}, which proceeds by restricting the bijection
+from Exercise \ref{exe.ent.quo-rem.bijs} \textbf{(b)}. We chose to give the
+above solution instead since it is more explicit.]
 \end{proof}
 \end{fineprint}
 

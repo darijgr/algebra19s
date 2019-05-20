@@ -1,0 +1,1740 @@
+% The LaTeX below is mostly computer-generated (for reasons of speed); don't expect it to be very readable. Sorry.
+
+\documentclass[paper=a4, fontsize=12pt]{scrartcl}%
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{amsmath,amsfonts,amsthm,amssymb}
+\usepackage{mathrsfs}
+\usepackage{sectsty}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{framed}
+\usepackage{ifthen}
+\usepackage{lastpage}
+\usepackage{mathdots}
+\usepackage[headsepline,footsepline,manualmark]{scrlayer-scrpage}
+\usepackage[height=10in,a4paper,hmargin={1in,0.8in}]{geometry}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{tikz}
+\usepackage{verbatim}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}%
+\setcounter{MaxMatrixCols}{30}
+%TCIDATA{OutputFilter=latex2.dll}
+%TCIDATA{Version=5.50.0.2960}
+%TCIDATA{LastRevised=Thursday, May 09, 2019 19:19:28}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{BibliographyScheme=Manual}
+%BeginMSIPreambleData
+\providecommand{\U}[1]{\protect\rule{.1in}{.1in}}
+%EndMSIPreambleData
+\allsectionsfont{\centering \normalfont\scshape}
+\setlength\parindent{20pt}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\DD}{{\mathbb{D}}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\KK}{\mathbb{K}}
+\newcommand{\LL}{\mathbb{L}}
+\newcommand{\MM}{\mathbb{M}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\Z}[1]{\mathbb{Z}/#1\mathbb{Z}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\op}{\operatorname{op}}
+\newcommand{\tildot}{\left. \widetilde{\cdot} \right.}
+\newcommand{\lcm}{\operatorname{lcm}}
+\newcommand{\set}[1]{\left\{ #1 \right\}}
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\tup}[1]{\left( #1 \right)}
+\newcommand{\ive}[1]{\left[ #1 \right]}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\underbrack}[2]{\underbrace{#1}_{\substack{#2}}}
+\newcommand{\powset}[2][]{\ifthenelse{\equal{#2}{}}{\mathcal{P}\left(#1\right)}{\mathcal{P}_{#1}\left(#2\right)}}
+\newcommand{\mapeq}[1]{\underset{#1}{\equiv}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\N}{\operatorname{N}}
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}}
+\newcommand{\nnn}{\nonumber\\}
+\let\sumnonlimits\sum
+\let\prodnonlimits\prod
+\let\cupnonlimits\bigcup
+\let\capnonlimits\bigcap
+\renewcommand{\sum}{\sumnonlimits\limits}
+\renewcommand{\prod}{\prodnonlimits\limits}
+\renewcommand{\bigcup}{\cupnonlimits\limits}
+\renewcommand{\bigcap}{\capnonlimits\limits}
+\newtheoremstyle{plainsl}
+{8pt plus 2pt minus 4pt}
+{8pt plus 2pt minus 4pt}
+{\slshape}
+{0pt}
+{\bfseries}
+{.}
+{5pt plus 1pt minus 1pt}
+{}
+\theoremstyle{plainsl}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{examples}[theorem]{Examples}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{question}[theorem]{Question}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newenvironment{statement}{\begin{quote}}{\end{quote}}
+\newenvironment{fineprint}{\begin{small}}{\end{small}}
+\newcommand{\myname}{Darij Grinberg}
+\newcommand{\myid}{00000000}
+\newcommand{\mymail}{dgrinber@umn.edu}
+\newcommand{\psetnumber}{6}
+\ihead{Solutions to homework set \#\psetnumber}
+\ohead{page \thepage\ of \pageref{LastPage}}
+\ifoot{\myname, \myid}
+\ofoot{\mymail}
+\begin{document}
+
+\title{ \normalfont {\normalsize \textsc{University of Minnesota, School of
+Mathematics} }\\[25pt] \rule{\linewidth}{0.5pt} \\[0.4cm] {\huge Math 4281: Introduction to Modern Algebra, }\\Spring 2019: Homework 6\\\rule{\linewidth}{2pt} \\[0.5cm] }
+\author{Darij Grinberg}
+\maketitle
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 1
+%----------------------------------------------------------------------------------------
+\rule{\linewidth}{0.3pt} \\[0.4cm]
+
+\section{Exercise 1: The opposite ring}
+
+Let $\mathbb{K}$ be a ring. We define a new binary operation $\left.
+\widetilde{\cdot} \right.  $ on $\mathbb{K}$ by setting
+\[
+a \left.  \widetilde{\cdot} \right.  b = ba \qquad\text{for all } a, b
+\in\mathbb{K} .
+\]
+(Thus, $\left.  \widetilde{\cdot} \right.  $ is the multiplication of
+$\mathbb{K}$, but with the arguments switched.)
+
+\begin{enumerate}
+\item[\textbf{(a)}] Prove that the set $\mathbb{K}$, equipped with the
+addition $+$, the multiplication $\left.  \widetilde{\cdot} \right.  $, the
+zero $0_{\mathbb{K}}$ and the unity $1_{\mathbb{K}}$, is a ring.
+\end{enumerate}
+
+\noindent This new ring is called the \textit{opposite ring} of $\mathbb{K}$,
+and is denoted by $\mathbb{K}^{\operatorname{op}}$.
+
+Note that the \textbf{sets} $\mathbb{K}$ and $\mathbb{K}^{\operatorname{op}}$
+are identical (so a map from $\mathbb{K}$ to $\mathbb{K}$ is the same as a map
+from $\mathbb{K}$ to $\mathbb{K}^{\operatorname{op}}$); but the \textbf{rings}
+$\mathbb{K}$ and $\mathbb{K}^{\operatorname{op}}$ are generally not the same
+(so a ring homomorphism from $\mathbb{K}$ to $\mathbb{K}$ is not the same as a
+ring homomorphism from $\mathbb{K}$ to $\mathbb{K}^{\operatorname{op}}$).
+
+\begin{enumerate}
+\item[\textbf{(b)}] Prove that the identity map $\operatorname{id} :
+\mathbb{K} \to\mathbb{K}$ is a ring isomorphism from $\mathbb{K}$ to
+$\mathbb{K}^{\operatorname{op}}$ if and only if $\mathbb{K}$ is commutative.
+
+\item[\textbf{(c)}] Now, assume that $\mathbb{K}$ is the matrix ring
+$\mathbb{L}^{n \times n}$ for some commutative ring $\mathbb{L}$ and some $n
+\in\mathbb{N}$. Prove that the map
+\[
+\mathbb{K} \to\mathbb{K}^{\operatorname{op}}, \qquad A \mapsto A^{T}
+\]
+(where $A^{T}$, as usual, denotes the transpose of a matrix $A$) is a ring isomorphism.
+\end{enumerate}
+
+[\textbf{Hint:} In \textbf{(a)}, you only have to check the ring axioms that
+have to do with multiplication. Similarly, in \textbf{(b)}, you are free to
+check the one axiom relating to multiplication only. In \textbf{(c)}, you can
+use \cite[Exercise 6.5]{detnotes} without proof.]
+
+\subsection{Remark}
+
+This exercise gives some examples of rings $\mathbb{K}$ that are isomorphic to
+their opposite rings $\mathbb{K}^{\operatorname{op}}$. See
+\url{https://mathoverflow.net/questions/64370/} for examples of rings that are not.
+
+\subsection{Solution}
+
+We shall follow the PEMDAS convention for the order of operations, treating
+the new multiplication $\left.  \widetilde{\cdot}\right.  $ operation as a
+multiplicative operation. Thus, the expression \textquotedblleft$a\left.
+\widetilde{\cdot}\right.  b+c\left.  \widetilde{\cdot}\right.  d$%
+\textquotedblright\ will mean \textquotedblleft$\left(  a\left.
+\widetilde{\cdot}\right.  b\right)  +\left(  c\left.  \widetilde{\cdot
+}\right.  d\right)  $\textquotedblright\ rather than \textquotedblleft%
+$a\left.  \widetilde{\cdot}\right.  \left(  b+c\right)  \left.
+\widetilde{\cdot}\right.  d$\textquotedblright.
+
+We are in the slightly confusing situation of having two different
+\textquotedblleft multiplications\textquotedblright\ on one and the same set
+$\mathbb{K}$: the original multiplication $\cdot$ of the ring $\mathbb{K}$,
+and the new multiplication $\left.  \widetilde{\cdot}\right.  $ of the ring
+$\mathbb{K}^{\operatorname*{op}}$ (although we still have not shown that
+$\mathbb{K}^{\operatorname*{op}}$ is actually a ring). Let us agree that if
+$a,b\in\mathbb{K}$, then the notation \textquotedblleft$ab$\textquotedblright%
+\ shall always mean \textquotedblleft$a\cdot b$\textquotedblright\ (that is,
+the image of the pair $\left(  a,b\right)  $ under the original multiplication
+$\cdot$, not under the new multiplication $\left.  \widetilde{\cdot}\right.  $).
+
+The original ring $\mathbb{K}$ satisfies all eight ring axioms (since it is a ring).
+
+\bigskip
+
+\textbf{(a)} Clearly, the addition $+$ and the multiplication $\left.
+\widetilde{\cdot}\right.  $ are binary operations on $\mathbb{K}$, and the
+elements $0_{\mathbb{K}}$ and $1_{\mathbb{K}}$ indeed belong to $\mathbb{K}$.
+It remains to prove that these two operations and these two elements make
+$\mathbb{K}$ into a ring. In order to do so, we need to verify the ring
+axioms. These axioms are the following:
+
+\begin{itemize}
+\item \textbf{Commutativity of addition:} We have $a+b=b+a$ for all
+$a,b\in\mathbb{K}$.
+
+\item \textbf{Associativity of addition:} We have $a+\left(  b+c\right)
+=\left(  a+b\right)  +c$ for all $a,b,c\in\mathbb{K}$.
+
+\item \textbf{Neutrality of zero:} We have $a+0_{\mathbb{K}}=0_{\mathbb{K}%
+}+a=a$ for all $a\in\mathbb{K}$.
+
+\item \textbf{Existence of additive inverses:} For any $a\in\mathbb{K}$, there
+exists an element $a^{\prime}\in\mathbb{K}$ such that $a+a^{\prime}=a^{\prime
+}+a=0_{\mathbb{K}}$.
+
+\item \textbf{Associativity of multiplication:} We have $a\left.
+\widetilde{\cdot}\right.  \left(  b\left.  \widetilde{\cdot}\right.  c\right)
+=\left(  a\left.  \widetilde{\cdot}\right.  b\right)  \left.  \widetilde{\cdot
+}\right.  c$ for all $a,b,c\in\mathbb{K}$. (Of course, we \textbf{cannot} use
+\textquotedblleft$ab$\textquotedblright\ as an abbreviation for
+\textquotedblleft$a\left.  \widetilde{\cdot}\right.  b$\textquotedblright,
+since \textquotedblleft$ab$\textquotedblright\ already stands for the
+different product $a\cdot b$.)
+
+\item \textbf{Neutrality of one:} We have $a\left.  \widetilde{\cdot}\right.
+1_{\mathbb{K}}=1_{\mathbb{K}}\left.  \widetilde{\cdot}\right.  a=a$ for all
+$a\in\mathbb{K}$.
+
+\item \textbf{Annihilation:} We have $a\left.  \widetilde{\cdot}\right.
+0_{\mathbb{K}}=0_{\mathbb{K}}\left.  \widetilde{\cdot}\right.  a=0_{\mathbb{K}%
+}$ for all $a\in\mathbb{K}$.
+
+\item \textbf{Distributivity:} We have%
+\[
+a\left.  \widetilde{\cdot}\right.  \left(  b+c\right)  =a\left.
+\widetilde{\cdot}\right.  b+a\left.  \widetilde{\cdot}\right.
+c\ \ \ \ \ \ \ \ \ \ \text{and}\ \ \ \ \ \ \ \ \ \ \left(  a+b\right)  \left.
+\widetilde{\cdot}\right.  c=a\left.  \widetilde{\cdot}\right.  c+b\left.
+\widetilde{\cdot}\right.  c
+\]
+for all $a,b,c\in\mathbb{K}$.
+\end{itemize}
+
+The first four of these eight axioms do not involve the new multiplication
+$\left.  \widetilde{\cdot}\right.  $. Thus, they say exactly the same thing as
+the corresponding axioms for the original ring $\mathbb{K}$ (with the original
+operations $+$ and $\cdot$). Hence, they are satisfied (since the
+corresponding axioms for the original ring $\mathbb{K}$ are satisfied). It
+thus remains to prove that the remaining four axioms are satisfied. Let us
+check this:
+
+[\textit{Proof of the \textquotedblleft Associativity of
+multiplication\textquotedblright\ axiom:} Let $a,b,c\in\mathbb{K}$. We must
+prove that $a\left.  \widetilde{\cdot}\right.  \left(  b\left.
+\widetilde{\cdot}\right.  c\right)  =\left(  a\left.  \widetilde{\cdot
+}\right.  b\right)  \left.  \widetilde{\cdot}\right.  c$.
+
+The definition of the operation $\left.  \widetilde{\cdot}\right.  $ yields
+$b\left.  \widetilde{\cdot}\right.  c=cb$ and $a\left.  \widetilde{\cdot
+}\right.  b=ba$ and%
+\begin{equation}
+a\left.  \widetilde{\cdot}\right.  \left(  b\left.  \widetilde{\cdot}\right.
+c\right)  =\underbrace{\left(  b\left.  \widetilde{\cdot}\right.  c\right)
+}_{=cb}a=\left(  cb\right)  a \label{sol.ring.op.a.ass.1}%
+\end{equation}
+and%
+\begin{equation}
+\left(  a\left.  \widetilde{\cdot}\right.  b\right)  \left.  \widetilde{\cdot
+}\right.  c=c\underbrace{\left(  a\left.  \widetilde{\cdot}\right.  b\right)
+}_{=ba}=c\left(  ba\right)  . \label{sol.ring.op.a.ass.2}%
+\end{equation}
+But the original ring $\mathbb{K}$ satisfies the \textquotedblleft
+Associativity of multiplication\textquotedblright\ axiom (since it is a ring);
+thus, $\left(  cb\right)  a=c\left(  ba\right)  $. In other words, the right
+hand sides of the two equalities \eqref{sol.ring.op.a.ass.1} and
+\eqref{sol.ring.op.a.ass.2} are equal. Thus, their left hand sides are also
+equal. In other words, $a\left.  \widetilde{\cdot}\right.  \left(  b\left.
+\widetilde{\cdot}\right.  c\right)  =\left(  a\left.  \widetilde{\cdot
+}\right.  b\right)  \left.  \widetilde{\cdot}\right.  c$. Thus, the
+\textquotedblleft Associativity of multiplication\textquotedblright\ axiom is proven.]
+
+[\textit{Proof of the \textquotedblleft Neutrality of one\textquotedblright%
+\ axiom:} Let $a\in\mathbb{K}$. We must prove that $a\left.  \widetilde{\cdot
+}\right.  1_{\mathbb{K}}=1_{\mathbb{K}}\left.  \widetilde{\cdot}\right.  a=a$.
+
+But the original ring $\mathbb{K}$ satisfies the \textquotedblleft Neutrality
+of one\textquotedblright\ axiom (since it is a ring); thus, $a1_{\mathbb{K}%
+}=1_{\mathbb{K}}a=a$.
+
+The definition of the operation $\left.  \widetilde{\cdot}\right.  $ yields
+$a\left.  \widetilde{\cdot}\right.  1_{\mathbb{K}}=1_{\mathbb{K}}a=a$ and
+$1_{\mathbb{K}}\left.  \widetilde{\cdot}\right.  a=a1_{\mathbb{K}}=a$.
+Combining these two equalities, we find $a\left.  \widetilde{\cdot}\right.
+1_{\mathbb{K}}=1_{\mathbb{K}}\left.  \widetilde{\cdot}\right.  a=a$. Thus, the
+\textquotedblleft Neutrality of one\textquotedblright\ axiom is proven.]
+
+[\textit{Proof of the \textquotedblleft Annihilation\textquotedblright%
+\ axiom:} Let $a\in\mathbb{K}$. We must prove that $a\left.  \widetilde{\cdot
+}\right.  0_{\mathbb{K}}=0_{\mathbb{K}}\left.  \widetilde{\cdot}\right.
+a=0_{\mathbb{K}}$.
+
+But the original ring $\mathbb{K}$ satisfies the \textquotedblleft
+Annihilation\textquotedblright\ axiom (since it is a ring); thus,
+$a0_{\mathbb{K}}=0_{\mathbb{K}}a=0_{\mathbb{K}}$.
+
+The definition of the operation $\left.  \widetilde{\cdot}\right.  $ yields
+$a\left.  \widetilde{\cdot}\right.  0_{\mathbb{K}}=0_{\mathbb{K}%
+}a=0_{\mathbb{K}}$ and $0_{\mathbb{K}}\left.  \widetilde{\cdot}\right.
+a=a0_{\mathbb{K}}=0_{\mathbb{K}}$. Combining these two equalities, we find
+$a\left.  \widetilde{\cdot}\right.  0_{\mathbb{K}}=0_{\mathbb{K}}\left.
+\widetilde{\cdot}\right.  a=0_{\mathbb{K}}$. Thus, the \textquotedblleft
+Annihilation\textquotedblright\ axiom is proven.]
+
+[\textit{Proof of the \textquotedblleft Distributivity\textquotedblright%
+\ axiom:} Let $a,b,c\in\mathbb{K}$. We must prove that%
+\[
+a\left.  \widetilde{\cdot}\right.  \left(  b+c\right)  =a\left.
+\widetilde{\cdot}\right.  b+a\left.  \widetilde{\cdot}\right.
+c\ \ \ \ \ \ \ \ \ \ \text{and}\ \ \ \ \ \ \ \ \ \ \left(  a+b\right)  \left.
+\widetilde{\cdot}\right.  c=a\left.  \widetilde{\cdot}\right.  c+b\left.
+\widetilde{\cdot}\right.  c.
+\]
+
+
+But the original ring $\mathbb{K}$ satisfies the \textquotedblleft
+Distributivity\textquotedblright\ axiom (since it is a ring); thus,%
+\[
+c\left(  a+b\right)  =ca+cb\ \ \ \ \ \ \ \ \ \ \text{and}%
+\ \ \ \ \ \ \ \ \ \ \left(  b+c\right)  a=ba+ca.
+\]
+
+
+The definition of the operation $\left.  \widetilde{\cdot}\right.  $ yields
+$a\left.  \widetilde{\cdot}\right.  \left(  b+c\right)  =\left(  b+c\right)
+a$ and $a\left.  \widetilde{\cdot}\right.  b=ba$ and $a\left.
+\widetilde{\cdot}\right.  c=ca$. Thus,%
+\[
+a\left.  \widetilde{\cdot}\right.  \left(  b+c\right)  =\left(  b+c\right)
+a=ba+ca.
+\]
+Comparing this with $\underbrace{a\left.  \widetilde{\cdot}\right.  b}%
+_{=ba}+\underbrace{a\left.  \widetilde{\cdot}\right.  c}_{=ca}=ba+ca$, we
+obtain $a\left.  \widetilde{\cdot}\right.  \left(  b+c\right)  =a\left.
+\widetilde{\cdot}\right.  b+a\left.  \widetilde{\cdot}\right.  c$.
+
+The definition of the operation $\left.  \widetilde{\cdot}\right.  $ yields
+$\left(  a+b\right)  \left.  \widetilde{\cdot}\right.  c=c\left(  a+b\right)
+$ and $a\left.  \widetilde{\cdot}\right.  c=ca$ and $b\left.  \widetilde{\cdot
+}\right.  c=cb$. Thus,%
+\[
+\left(  a+b\right)  \left.  \widetilde{\cdot}\right.  c=c\left(  a+b\right)
+=ca+cb.
+\]
+Comparing this with $\underbrace{a\left.  \widetilde{\cdot}\right.  c}%
+_{=ca}+\underbrace{b\left.  \widetilde{\cdot}\right.  c}_{=cb}=ca+cb$, we
+obtain $\left(  a+b\right)  \left.  \widetilde{\cdot}\right.  c=a\left.
+\widetilde{\cdot}\right.  c+b\left.  \widetilde{\cdot}\right.  c$.
+
+Thus, we have proven the equalities%
+\[
+a\left.  \widetilde{\cdot}\right.  \left(  b+c\right)  =a\left.
+\widetilde{\cdot}\right.  b+a\left.  \widetilde{\cdot}\right.
+c\ \ \ \ \ \ \ \ \ \ \text{and}\ \ \ \ \ \ \ \ \ \ \left(  a+b\right)  \left.
+\widetilde{\cdot}\right.  c=a\left.  \widetilde{\cdot}\right.  c+b\left.
+\widetilde{\cdot}\right.  c.
+\]
+Hence, the \textquotedblleft Associativity of multiplication\textquotedblright%
+\ axiom is proven.]
+
+We have now shown that the set $\mathbb{K}$, equipped with the addition $+$,
+the multiplication $\left.  \widetilde{\cdot}\right.  $, the zero
+$0_{\mathbb{K}}$ and the unity $1_{\mathbb{K}}$, satisfies all the eight ring
+axioms. Hence, it is a ring. This solves part \textbf{(a)} of the problem.
+
+\bigskip
+
+\textbf{(b)} $\Longrightarrow:$ Assume that $\operatorname{id}:\mathbb{K}%
+\rightarrow\mathbb{K}$ is a ring isomorphism from $\mathbb{K}$ to
+$\mathbb{K}^{\operatorname{op}}$. We must prove that $\mathbb{K}$ is commutative.
+
+We have assumed that $\operatorname*{id}$ is a ring isomorphism from
+$\mathbb{K}$ to $\mathbb{K}^{\operatorname{op}}$. Thus, in particular,
+$\operatorname*{id}$ is a ring homomorphism from $\mathbb{K}$ to
+$\mathbb{K}^{\operatorname{op}}$ (since any ring isomorphism must be a ring homomorphism).
+
+Recall that if $\mathbb{U}$ and $\mathbb{V}$ are two rings, and if $f$ is a
+ring homomorphism from $\mathbb{U}$ to $\mathbb{V}$, then%
+\begin{equation}
+f\left(  a\cdot b\right)  =f\left(  a\right)  \cdot f\left(  b\right)
+\ \ \ \ \ \ \ \ \ \ \text{for all }a,b\in\mathbb{U}.
+\label{sol.ring.op.b.fwd.1}%
+\end{equation}
+(Indeed, this is one of the four axioms in our definition of a ring
+homomorphism.) But keep in mind that the two \textquotedblleft$\cdot
+$\textquotedblright\ signs in the equality \eqref{sol.ring.op.b.fwd.1} have
+different meanings: The \textquotedblleft$\cdot$\textquotedblright\ sign on
+the left hand side stands for the multiplication of the ring $\mathbb{U}$,
+whereas the \textquotedblleft$\cdot$\textquotedblright\ sign on the right hand
+side stands for the multiplication of the ring $\mathbb{V}$. Thus,
+\eqref{sol.ring.op.b.fwd.1} (applied to $\mathbb{U}=\mathbb{K}$,
+$\mathbb{V}=\mathbb{K}^{\operatorname*{op}}$ and $f=\operatorname*{id}$)
+yields%
+\begin{equation}
+\operatorname*{id}\left(  a\cdot b\right)  =\operatorname*{id}\left(
+a\right)  \left.  \widetilde{\cdot}\right.  \operatorname*{id}\left(
+b\right)  \ \ \ \ \ \ \ \ \ \ \text{for all }a,b\in\mathbb{K}
+\label{sol.ring.op.b.fwd.2}%
+\end{equation}
+(since $\operatorname*{id}$ is a ring homomorphism from $\mathbb{K}$ to
+$\mathbb{K}^{\operatorname{op}}$, and since the multiplication of the ring
+$\mathbb{K}$ is denoted by \textquotedblleft$\cdot$\textquotedblright\ whereas
+the multiplication of the ring $\mathbb{K}^{\operatorname*{op}}$ is denoted by
+\textquotedblleft$\left.  \widetilde{\cdot}\right.  $\textquotedblright).
+
+Now, if $a,b\in\mathbb{K}$, then%
+\begin{align*}
+ab  &  =a\cdot b=\operatorname*{id}\left(  a\cdot b\right)
+=\underbrace{\operatorname*{id}\left(  a\right)  }_{=a}\left.
+\widetilde{\cdot}\right.  \underbrace{\operatorname*{id}\left(  b\right)
+}_{=b}\qquad\left(  \text{by \eqref{sol.ring.op.b.fwd.2}}\right) \\
+&  =a\left.  \widetilde{\cdot}\right.  b=ba\qquad\left(  \text{by the
+definition of the operation }\left.  \widetilde{\cdot}\right.  \right)  .
+\end{align*}
+In other words, the ring $\mathbb{K}$ satisfies the \textquotedblleft
+Commutativity of multiplication\textquotedblright\ axiom. In other words, the
+ring $\mathbb{K}$ is commutative. This proves the \textquotedblleft%
+$\Longrightarrow$\textquotedblright\ direction of part \textbf{(b)}.
+
+$\Longleftarrow:$ Assume that $\mathbb{K}$ is commutative. We must prove that
+$\operatorname{id}:\mathbb{K}\rightarrow\mathbb{K}$ is a ring isomorphism from
+$\mathbb{K}$ to $\mathbb{K}^{\operatorname{op}}$.
+
+If $a,b\in\mathbb{K}$, then%
+\begin{align*}
+a\left.  \widetilde{\cdot}\right.  b  &  =ba\qquad\left(  \text{by the
+definition of the operation }\left.  \widetilde{\cdot}\right.  \right) \\
+&  =ab\qquad\left(  \text{since the ring }\mathbb{K}\text{ is commutative}%
+\right) \\
+&  =a\cdot b.
+\end{align*}
+Thus, the binary operation $\left.  \widetilde{\cdot}\right.  $ is identical
+with the binary operation $\cdot$.
+
+But the only difference between the rings $\mathbb{K}$ and $\mathbb{K}%
+^{\operatorname*{op}}$ is that $\mathbb{K}^{\operatorname*{op}}$ has the
+multiplication $\left.  \widetilde{\cdot}\right.  $ while $\mathbb{K}$ has the
+multiplication $\cdot$. (All the remaining structure of $\mathbb{K}$ and
+$\mathbb{K}^{\operatorname*{op}}$ is the same.) But since we have shown that
+$\left.  \widetilde{\cdot}\right.  $ is identical with $\cdot$, we see that
+this difference is not actually a difference either; the multiplications of
+$\mathbb{K}$ and $\mathbb{K}^{\operatorname*{op}}$ are also the same. Hence,
+the ring $\mathbb{K}^{\operatorname*{op}}$ is completely identical to the ring
+$\mathbb{K}$ (not just as sets, but as rings with all their structure).
+
+But recall that $\operatorname*{id}:\mathbb{K}\rightarrow\mathbb{K}$ is a ring
+isomorphism from $\mathbb{K}$ to $\mathbb{K}$. Since the ring $\mathbb{K}%
+^{\operatorname*{op}}$ is completely identical to the ring $\mathbb{K}$, we
+can replace the last \textquotedblleft$\mathbb{K}$\textquotedblright\ in this
+sentence by \textquotedblleft$\mathbb{K}^{\operatorname*{op}}$%
+\textquotedblright\ without changing its meaning. Thus, we obtain that
+$\operatorname*{id}:\mathbb{K}\rightarrow\mathbb{K}$ is a ring isomorphism
+from $\mathbb{K}$ to $\mathbb{K}^{\operatorname*{op}}$. This proves the
+\textquotedblleft$\Longleftarrow$\textquotedblright\ direction of part
+\textbf{(b)}.
+
+\bigskip
+
+\textbf{(c)} Let us quote the following fact from \cite[Exercise
+6.5]{detnotes} (except that we are replacing $\mathbb{K}$ by $\mathbb{L}$):
+
+\begin{proposition}
+\label{prop.sol.ring.op.c.transp.helper}Let $\mathbb{L}$ be a commutative
+ring. In this proposition, all matrices are over $\mathbb{L}$.
+
+\textbf{(a)} If $u$, $v$ and $w$ are three nonnegative integers, if $P$ is a
+$u\times v$-matrix, and if $Q$ is a $v\times w$-matrix, then%
+\[
+\left(  PQ\right)  ^{T}=Q^{T}P^{T}.
+\]
+
+
+\textbf{(b)} Every $u\in\mathbb{N}$ satisfies%
+\[
+\left(  I_{u}\right)  ^{T}=I_{u}.
+\]
+
+
+\textbf{(c)} If $u$ and $v$ are two nonnegative integers, if $P$ is a $u\times
+v$-matrix, and if $\lambda\in\mathbb{L}$, then%
+\[
+\left(  \lambda P\right)  ^{T}=\lambda P^{T}.
+\]
+
+
+\textbf{(d)} If $u$ and $v$ are two nonnegative integers, and if $P$ and $Q$
+are two $u\times v$-matrices, then%
+\[
+\left(  P+Q\right)  ^{T}=P^{T}+Q^{T}.
+\]
+
+
+\textbf{(e)} If $u$ and $v$ are two nonnegative integers, and if $P$ is a
+$u\times v$-matrix, then%
+\[
+\left(  P^{T}\right)  ^{T}=P.
+\]
+
+\end{proposition}
+
+Now, let $\mathbf{T}$ be the map%
+\[
+\mathbb{K}\rightarrow\mathbb{K}^{\operatorname{op}},\qquad A\mapsto A^{T}.
+\]
+We must prove that $\mathbf{T}$ is a ring isomorphism.
+
+In class\footnote{specifically, Proposition 5.10.5 in
+\href{http://www.cip.ifi.lmu.de/~grinberg/t/19s/notes.pdf}{the class notes};
+but the numbering may change}, we have proven that any invertible ring
+homomorphism is a ring isomorphism. Hence, it suffices to prove that
+$\mathbf{T}$ is an invertible ring homomorphism.
+
+Let us first prove that $\mathbf{T}$ is a ring homomorphism. In order to do
+so, we need to verify the following four claims:
+
+\begin{statement}
+\textit{Claim 1:} We have $\mathbf{T}\left(  a+b\right)  =\mathbf{T}\left(
+a\right)  +\mathbf{T}\left(  b\right)  $ for all $a,b\in\mathbb{K}$.
+\end{statement}
+
+\begin{statement}
+\textit{Claim 2:} We have $\mathbf{T}\left(  0_{\mathbb{K}}\right)
+=0_{\mathbb{K}^{\operatorname*{op}}}$.
+\end{statement}
+
+\begin{statement}
+\textit{Claim 3:} We have $\mathbf{T}\left(  ab\right)  =\mathbf{T}\left(
+a\right)  \left.  \widetilde{\cdot}\right.  \mathbf{T}\left(  b\right)  $ for
+all $a,b\in\mathbb{K}$.
+\end{statement}
+
+\begin{statement}
+\textit{Claim 4:} We have $\mathbf{T}\left(  1_{\mathbb{K}}\right)
+=1_{\mathbb{K}^{\operatorname*{op}}}$.
+\end{statement}
+
+(Note the \textquotedblleft$\left.  \widetilde{\cdot}\right.  $%
+\textquotedblright\ sign on the right hand side of Claim 3; this is because
+$\mathbf{T}\left(  a\right)  $ and $\mathbf{T}\left(  b\right)  $ are being
+considered as elements of $\mathbb{K}^{\operatorname*{op}}$, and the
+multiplication of the ring $\mathbb{K}^{\operatorname*{op}}$ is $\left.
+\widetilde{\cdot}\right.  $.)
+
+Let us now prove these claims:
+
+[\textit{Proof of Claim 3:} Let $a,b\in\mathbb{K}$. Then, $a\in\mathbb{K}%
+=\mathbb{L}^{n\times n}$ and $b\in\mathbb{K}=\mathbb{L}^{n\times n}$. Hence,
+$a$ and $b$ are two $n\times n$-matrices over $\mathbb{L}$. The definition of
+$\mathbf{T}$ yields $\mathbf{T}\left(  ab\right)  =\left(  ab\right)  ^{T}$
+and $\mathbf{T}\left(  a\right)  =a^{T}$ and $\mathbf{T}\left(  b\right)
+=b^{T}$. The definition of the operation $\left.  \widetilde{\cdot}\right.  $
+yields $\mathbf{T}\left(  a\right)  \left.  \widetilde{\cdot}\right.
+\mathbf{T}\left(  b\right)  =\underbrace{\mathbf{T}\left(  b\right)  }%
+_{=b^{T}}\underbrace{\mathbf{T}\left(  a\right)  }_{=a^{T}}=b^{T}a^{T}$. But
+$\mathbf{T}\left(  ab\right)  =\left(  ab\right)  ^{T}=b^{T}a^{T}$ (by
+Proposition \ref{prop.sol.ring.op.c.transp.helper} \textbf{(a)}, applied to
+$u=n$, $v=n$, $w=n$, $P=a$ and $Q=b$). Comparing these two equalities, we
+obtain $\mathbf{T}\left(  ab\right)  =\mathbf{T}\left(  a\right)  \left.
+\widetilde{\cdot}\right.  \mathbf{T}\left(  b\right)  $. This proves Claim 3.]
+
+[\textit{Proof of Claim 1:} Let $a,b\in\mathbb{K}$. Then, $a\in\mathbb{K}%
+=\mathbb{L}^{n\times n}$ and $b\in\mathbb{K}=\mathbb{L}^{n\times n}$. Hence,
+$a$ and $b$ are two $n\times n$-matrices over $\mathbb{L}$. The definition of
+$\mathbf{T}$ yields $\mathbf{T}\left(  a+b\right)  =\left(  a+b\right)  ^{T}$
+and $\mathbf{T}\left(  a\right)  =a^{T}$ and $\mathbf{T}\left(  b\right)
+=b^{T}$. But $\underbrace{\mathbf{T}\left(  a\right)  }_{=a^{T}}%
++\underbrace{\mathbf{T}\left(  b\right)  }_{=b^{T}}=a^{T}b^{T}$. But
+$\mathbf{T}\left(  a+b\right)  =\left(  a+b\right)  ^{T}=a^{T}+b^{T}$ (by
+Proposition \ref{prop.sol.ring.op.c.transp.helper} \textbf{(d)}, applied to
+$u=n$, $v=n$, $P=a$ and $Q=b$). Comparing these two equalities, we obtain
+$\mathbf{T}\left(  a+b\right)  =\mathbf{T}\left(  a\right)  +\mathbf{T}\left(
+b\right)  $. This proves Claim 1.]
+
+[\textit{Proof of Claim 2:} We have $0_{\mathbb{K}}=0_{n\times n}$ (by the
+definition of the ring $\mathbb{K}=\mathbb{L}^{n\times n}$). Applying the map
+$\mathbf{T}$ to both sides of this equality, we obtain $\mathbf{T}\left(
+0_{\mathbb{K}}\right)  =\mathbf{T}\left(  0_{n\times n}\right)  =\left(
+0_{n\times n}\right)  ^{T}$ (by the definition of $\mathbf{T}$). But the
+definition of the transpose of a matrix easily yields $\left(  0_{n\times
+n}\right)  ^{T}=0_{n\times n}$. Hence, $\mathbf{T}\left(  0_{\mathbb{K}%
+}\right)  =\left(  0_{n\times n}\right)  ^{T}=0_{n\times n}$. But the
+definition of the ring $\mathbb{K}^{\operatorname*{op}}$ yields $0_{\mathbb{K}%
+^{\operatorname*{op}}}=0_{\mathbb{K}}=0_{n\times n}$. Comparing the latter two
+equalities, we obtain $\mathbf{T}\left(  0_{\mathbb{K}}\right)  =0_{\mathbb{K}%
+^{\operatorname*{op}}}$. This proves Claim 2.]
+
+[\textit{Proof of Claim 4:} We have $1_{\mathbb{K}}=I_{n}$ (by the definition
+of the ring $\mathbb{K}=\mathbb{L}^{n\times n}$). Applying the map
+$\mathbf{T}$ to both sides of this equality, we obtain $\mathbf{T}\left(
+1_{\mathbb{K}}\right)  =\mathbf{T}\left(  I_{n}\right)  =\left(  I_{n}\right)
+^{T}$ (by the definition of $\mathbf{T}$). But Proposition
+\ref{prop.sol.ring.op.c.transp.helper} \textbf{(b)} (applied to $u=n$) yields
+$\left(  I_{n}\right)  ^{T}=I_{n}$. Hence, $\mathbf{T}\left(  1_{\mathbb{K}%
+}\right)  =\left(  I_{n}\right)  ^{T}=I_{n}$. But the definition of the ring
+$\mathbb{K}^{\operatorname*{op}}$ yields $1_{\mathbb{K}^{\operatorname*{op}}%
+}=1_{\mathbb{K}}=I_{n}$. Comparing the latter two equalities, we obtain
+$\mathbf{T}\left(  1_{\mathbb{K}}\right)  =1_{\mathbb{K}^{\operatorname*{op}}%
+}$. This proves Claim 4.]
+
+We have now proven all four Claims 1, 2, 3 and 4. Hence, $\mathbf{T}$ is a
+ring homomorphism from $\mathbb{K}$ to $\mathbb{K}^{\operatorname*{op}}$ (by
+the definition of a ring homomorphism).
+
+Let us next prove that the map $\mathbf{T}$ is invertible. In proving this, we
+do not need to concern ourselves with the ring structures (i.e., the
+additions, multiplications, zeroes and unities) of $\mathbb{K}$ and
+$\mathbb{K}^{\operatorname*{op}}$, but can simply consider $\mathbb{K}$ and
+$\mathbb{K}^{\operatorname*{op}}$ as sets (because the invertibility of a map
+has nothing to do with any ring structures).
+
+Recall that $\mathbb{K}^{\operatorname*{op}}=\mathbb{K}$ \textbf{as sets}.
+Thus, the map $\mathbf{T}$ is a map from $\mathbb{K}$ to $\mathbb{K}$ (since
+$\mathbf{T}$ is a map from $\mathbb{K}$ to $\mathbb{K}^{\operatorname*{op}}$).
+Hence, the map $\mathbf{T}\circ\mathbf{T}:\mathbb{K}\rightarrow\mathbb{K}$ is
+well-defined. Moreover, each $P\in\mathbb{K}$ satisfies%
+\begin{align*}
+\left(  \mathbf{T}\circ\mathbf{T}\right)  \left(  P\right)   &  =\mathbf{T}%
+\left(  \underbrace{\mathbf{T}\left(  P\right)  }_{\substack{=P^{T}\\\text{(by
+the definition of }\mathbf{T}\text{)}}}\right)  =\mathbf{T}\left(
+P^{T}\right)  =\left(  P^{T}\right)  ^{T}\qquad\left(  \text{by the definition
+of }\mathbf{T}\right) \\
+&  =P\qquad\left(  \text{by Proposition \ref{prop.sol.ring.op.c.transp.helper}
+\textbf{(e)} (applied to }u=n\text{ and }v=n\text{)}\right) \\
+&  =\operatorname*{id}\left(  P\right)  .
+\end{align*}
+In other words, $\mathbf{T}\circ\mathbf{T}=\operatorname*{id}$. Hence, the
+maps $\mathbf{T}:\mathbb{K}\rightarrow\mathbb{K}$ and $\mathbf{T}%
+:\mathbb{K}\rightarrow\mathbb{K}$ are mutually inverse. Thus, the map
+$\mathbf{T}:\mathbb{K}\rightarrow\mathbb{K}$ is invertible. In other words,
+the map $\mathbf{T}:\mathbb{K}\rightarrow\mathbb{K}^{\operatorname*{op}}$ is
+invertible (since $\mathbb{K}=\mathbb{K}^{\operatorname*{op}}$ as sets).
+
+So we have proven that the map $\mathbf{T}:\mathbb{K}\rightarrow
+\mathbb{K}^{\operatorname*{op}}$ is an invertible ring homomorphism from
+$\mathbb{K}$ to $\mathbb{K}^{\operatorname*{op}}$. Thus, this map $\mathbf{T}$
+is a ring isomorphism from $\mathbb{K}$ to $\mathbb{K}^{\operatorname*{op}}$
+(since any invertible ring homomorphism is a ring isomorphism). This solves
+part \textbf{(c)} of the exercise.
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 2
+%----------------------------------------------------------------------------------------
+\rule{\linewidth}{0.3pt} \\[0.4cm]
+
+\section{Exercise 2: More ring isomorphisms}
+
+\subsection{Problem}
+
+\begin{enumerate}
+\item[\textbf{(a)}] Let $\mathbb{L}$ be a ring. Let $w \in\mathbb{L}$ be an
+invertible element. Prove that the map
+\[
+\mathbb{L} \to\mathbb{L} , \qquad a \mapsto waw^{-1}
+\]
+is a ring isomorphism.
+
+\item[\textbf{(b)}] Let $\mathbb{K}$ be a ring. Let $W$ be the $n \times
+n$-matrix
+\[
+\left(  \left[  i + j = n + 1 \right]  \right)  _{1\leq i\leq n,\ 1\leq j\leq
+n} =
+\begin{pmatrix}
+0 & \cdots & 0 & 0 & 1\\
+0 & \cdots & 0 & 1 & 0\\
+0 & \cdots & 1 & 0 & 0\\
+\vdots & \iddots & \vdots & \vdots & \vdots\\
+1 & \cdots & 0 & 0 & 0
+\end{pmatrix}
+\in\mathbb{K}^{n \times n}
+\]
+(where we are using \href{https://en.wikipedia.org/wiki/Iverson_bracket}{the
+Iverson bracket notation} again).
+
+Prove that $W = W^{-1}$.
+
+\item[\textbf{(c)}] Let $A = \left(  a_{i,j} \right)  _{1\leq i\leq n,\ 1\leq
+j\leq n} \in\mathbb{K}^{n \times n}$ be any $n \times n$-matrix. Prove that
+\[
+WAW^{-1} = \left(  a_{n+1-i,n+1-j} \right)  _{1\leq i\leq n,\ 1\leq j\leq n}.
+\]
+(In other words, $WAW^{-1}$ is the $n \times n$-matrix obtained from $A$ by
+reversing the order of the rows and also reversing the order of the columns.)
+\end{enumerate}
+
+\subsection{Remark}
+
+The map
+\[
+\mathbb{L} \to\mathbb{L} , \qquad a \mapsto waw^{-1}
+\]
+in part \textbf{(a)} of this exercise is called \textit{conjugation by $w$}.
+It is best known in the case of a matrix ring, where it corresponds to a
+change of basis for an endomorphism of a vector space. When $\mathbb{K}$ is a
+field, the \textbf{only} ring isomorphisms $\mathbb{K}^{n \times n}
+\to\mathbb{K}^{n \times n}$ are conjugations by invertible matrices; this is
+the Noether--Skolem theorem (in one of its less general variants).
+
+\subsection{Solution}
+
+\textbf{(a)} Let $f$ be the map%
+\[
+\mathbb{L}\rightarrow\mathbb{L},\qquad a\mapsto waw^{-1}.
+\]
+We must prove that $f$ is a ring isomorphism.
+
+In class, we have proven that any invertible ring homomorphism is a ring
+isomorphism. Hence, it suffices to prove that $f$ is an invertible ring homomorphism.
+
+Let us first prove that $f$ is a ring homomorphism. In order to do so, we need
+to verify the following four claims:
+
+\begin{statement}
+\textit{Claim 1:} We have $f\left(  a+b\right)  =f\left(  a\right)  +f\left(
+b\right)  $ for all $a,b\in\mathbb{L}$.
+\end{statement}
+
+\begin{statement}
+\textit{Claim 2:} We have $f\left(  0\right)  =0$.
+\end{statement}
+
+\begin{statement}
+\textit{Claim 3:} We have $f\left(  ab\right)  =f\left(  a\right)  f\left(
+b\right)  $ for all $a,b\in\mathbb{L}$.
+\end{statement}
+
+\begin{statement}
+\textit{Claim 4:} We have $f\left(  1\right)  =1$.
+\end{statement}
+
+Let us now prove these claims:
+
+[\textit{Proof of Claim 1:} Let $a,b\in\mathbb{L}$. The definition of $f$
+yields $f\left(  a\right)  =waw^{-1}$ and $f\left(  b\right)  =wbw^{-1}$ and
+$f\left(  a+b\right)  =w\left(  a+b\right)  w^{-1}$. Hence,%
+\begin{align*}
+f\left(  a+b\right)   &  =w\underbrace{\left(  a+b\right)  w^{-1}%
+}_{\substack{=aw^{-1}+bw^{-1}\\\text{(by distributivity)}}}=w\left(
+aw^{-1}+bw^{-1}\right)  =\underbrace{waw^{-1}}_{=f\left(  a\right)
+}+\underbrace{wbw^{-1}}_{=f\left(  b\right)  }\qquad\left(  \text{by
+distributivity}\right) \\
+&  =f\left(  a\right)  +f\left(  b\right)  .
+\end{align*}
+This proves Claim 1.]
+
+[\textit{Proof of Claim 2:} The definition of $f$ yields $f\left(  0\right)
+=w\underbrace{0w^{-1}}_{=0}=w0=0$. This proves Claim 2.]
+
+[\textit{Proof of Claim 3:} Let $a,b\in\mathbb{L}$. The definition of $f$
+yields $f\left(  a\right)  =waw^{-1}$ and $f\left(  b\right)  =wbw^{-1}$ and
+$f\left(  ab\right)  =w\left(  ab\right)  w^{-1}$. Hence,%
+\[
+\underbrace{f\left(  a\right)  }_{=waw^{-1}}\ \ \underbrace{f\left(  b\right)
+}_{=wbw^{-1}}=wa\underbrace{w^{-1}w}_{=1}bw^{-1}=wabw^{-1}=w\left(  ab\right)
+w^{-1}=f\left(  ab\right)  .
+\]
+In other words, $f\left(  ab\right)  =f\left(  a\right)  f\left(  b\right)  $.
+This proves Claim 3.]
+
+[\textit{Proof of Claim 4:} The definition of $f$ yields $f\left(  1\right)
+=w\underbrace{1w^{-1}}_{=w^{-1}}=ww^{-1}=1$. This proves Claim 4.]
+
+We have now proven all four Claims 1, 2, 3 and 4. Hence, $f$ is a ring
+homomorphism from $\mathbb{L}$ to $\mathbb{L}$ (by the definition of a ring homomorphism).
+
+Let us next prove that the map $f$ is invertible.
+
+Indeed, let $g$ be the map%
+\[
+\mathbb{L}\rightarrow\mathbb{L},\qquad a\mapsto w^{-1}aw.
+\]
+
+
+Then, each $a\in\mathbb{L}$ satisfies%
+\begin{align*}
+\left(  g\circ f\right)  \left(  a\right)   &  =g\left(  f\left(  a\right)
+\right)  =w^{-1}\underbrace{f\left(  a\right)  }_{\substack{=waw^{-1}%
+\\\text{(by the definition of }f\text{)}}}w\qquad\left(  \text{by the
+definition of }g\right) \\
+&  =\underbrace{w^{-1}w}_{=1}a\underbrace{w^{-1}w}_{=1}=a=\operatorname*{id}%
+\left(  a\right)  .
+\end{align*}
+In other words, $g\circ f=\operatorname*{id}$.
+
+Also, each $a\in\mathbb{L}$ satisfies%
+\begin{align*}
+\left(  f\circ g\right)  \left(  a\right)   &  =f\left(  g\left(  a\right)
+\right)  =w\underbrace{g\left(  a\right)  }_{\substack{=w^{-1}aw\\\text{(by
+the definition of }g\text{)}}}w^{-1}\qquad\left(  \text{by the definition of
+}f\right) \\
+&  =\underbrace{ww^{-1}}_{=1}a\underbrace{ww^{-1}}_{=1}=a=\operatorname*{id}%
+\left(  a\right)  .
+\end{align*}
+In other words, $f\circ g=\operatorname*{id}$.
+
+Now, the two maps $f$ and $g$ are mutually inverse (since $f\circ
+g=\operatorname*{id}$ and $g\circ f=\operatorname*{id}$). Thus, the map $f$ is invertible.
+
+So we have proven that the map $f$ is an invertible ring homomorphism. Thus,
+this map $f$ is a ring isomorphism (since any invertible ring homomorphism is
+a ring isomorphism). This solves part \textbf{(a)} of the exercise.
+
+\bigskip
+
+\textbf{(b)} We first show two auxiliary claims about how multiplication by
+$W$ changes a matrix:
+
+\begin{statement}
+\textit{Claim 5:} Let $A=\left(  a_{i,j}\right)  _{1\leq i\leq n,\ 1\leq j\leq
+n}\in\mathbb{K}^{n\times n}$ be any $n\times n$-matrix. Then,%
+\[
+WA=\left(  a_{n+1-i,j}\right)  _{1\leq i\leq n,\ 1\leq j\leq n}.
+\]
+
+\end{statement}
+
+\begin{statement}
+\textit{Claim 6:} Let $A=\left(  a_{i,j}\right)  _{1\leq i\leq n,\ 1\leq j\leq
+n}\in\mathbb{K}^{n\times n}$ be any $n\times n$-matrix. Then,%
+\[
+AW=\left(  a_{i,n+1-j}\right)  _{1\leq i\leq n,\ 1\leq j\leq n}.
+\]
+
+\end{statement}
+
+[\textit{Proof of Claim 5:} We have $W=\left(  \left[  i+j=n+1\right]
+\right)  _{1\leq i\leq n,\ 1\leq j\leq n}$ and $A=\left(  a_{i,j}\right)
+_{1\leq i\leq n,\ 1\leq j\leq n}$. Hence, the definition of the multiplication
+of matrices yields%
+\begin{equation}
+WA=\left(  \sum_{k=1}^{n}\left[  i+k=n+1\right]  a_{k,j}\right)  _{1\leq i\leq
+n,\ 1\leq j\leq n}. \label{sol.ring.matrix.W-conj.b.c5.pf.1}%
+\end{equation}
+
+
+Now, let $\left(  i,j\right)  \in\left\{  1,2,\ldots,n\right\}  ^{2}$. Thus,
+$i,j\in\left\{  1,2,\ldots,n\right\}  $. From $i\in\left\{  1,2,\ldots
+,n\right\}  $, we obtain $n+1-i\in\left\{  1,2,\ldots,n\right\}  $. Now,%
+\begin{align}
+&  \sum_{k=1}^{n}\left[  i+k=n+1\right]  a_{k,j}\nonumber\\
+&  =\sum_{k\in\left\{  1,2,\ldots,n\right\}  }\left[  i+k=n+1\right]
+a_{k,j}\nonumber\\
+&  =\underbrace{\left[  i+\left(  n+1-i\right)  =n+1\right]  }%
+_{\substack{=1\\\text{(since }i+\left(  n+1-i\right)  =n+1\text{)}%
+}}a_{n+1-i,j}+\sum_{\substack{k\in\left\{  1,2,\ldots,n\right\}  ;\\k\neq
+n+1-i}}\underbrace{\left[  i+k=n+1\right]  }_{\substack{=0\\\text{(since
+}i+k\neq n+1\\\text{(because }k\neq n+1-i\text{))}}}a_{k,j}\nonumber\\
+&  \qquad\qquad\left(
+\begin{array}
+[c]{c}%
+\text{here, we have split off the addend for }k=n+1-i\text{ from the sum}\\
+\text{(since }n+1-i\in\left\{  1,2,\ldots,n\right\}  \text{)}%
+\end{array}
+\right) \nonumber\\
+&  =a_{n+1-i,j}+\underbrace{\sum_{\substack{k\in\left\{  1,2,\ldots,n\right\}
+;\\k\neq n+1-i}}0a_{k,j}}_{=0}=a_{n+1-i,j}.
+\label{sol.ring.matrix.W-conj.b.c5.pf.2}%
+\end{align}
+
+
+Now, forget that we fixed $\left(  i,j\right)  $. We thus have proven
+\eqref{sol.ring.matrix.W-conj.b.c5.pf.2} for each $\left(  i,j\right)
+\in\left\{  1,2,\ldots,n\right\}  ^{2}$. Thus, we have%
+\[
+\left(  \sum_{k=1}^{n}\left[  i+k=n+1\right]  a_{k,j}\right)  _{1\leq i\leq
+n,\ 1\leq j\leq n}=\left(  a_{n+1-i,j}\right)  _{1\leq i\leq n,\ 1\leq j\leq
+n}.
+\]
+Hence, \eqref{sol.ring.matrix.W-conj.b.c5.pf.2} becomes%
+\[
+WA=\left(  \sum_{k=1}^{n}\left[  i+k=n+1\right]  a_{k,j}\right)  _{1\leq i\leq
+n,\ 1\leq j\leq n}=\left(  a_{n+1-i,j}\right)  _{1\leq i\leq n,\ 1\leq j\leq
+n}.
+\]
+This proves Claim 5.]
+
+[\textit{Proof of Claim 6:} We have $A=\left(  a_{i,j}\right)  _{1\leq i\leq
+n,\ 1\leq j\leq n}$ and $W=\left(  \left[  i+j=n+1\right]  \right)  _{1\leq
+i\leq n,\ 1\leq j\leq n}$. Hence, the definition of the multiplication of
+matrices yields%
+\begin{equation}
+AW=\left(  \sum_{k=1}^{n}a_{i,k}\left[  k+j=n+1\right]  \right)  _{1\leq i\leq
+n,\ 1\leq j\leq n}. \label{sol.ring.matrix.W-conj.b.c6.pf.1}%
+\end{equation}
+
+
+Now, let $\left(  i,j\right)  \in\left\{  1,2,\ldots,n\right\}  ^{2}$. Thus,
+$i,j\in\left\{  1,2,\ldots,n\right\}  $. From $j\in\left\{  1,2,\ldots
+,n\right\}  $, we obtain $n+1-j\in\left\{  1,2,\ldots,n\right\}  $. Now,%
+\begin{align}
+&  \sum_{k=1}^{n}a_{i,k}\left[  k+j=n+1\right] \nonumber\\
+&  =\sum_{k\in\left\{  1,2,\ldots,n\right\}  }a_{i,k}\left[  k+j=n+1\right]
+\nonumber\\
+&  =a_{i,n+1-j}\underbrace{\left[  \left(  n+1-j\right)  +j=n+1\right]
+}_{\substack{=1\\\text{(since }\left(  n+1-j\right)  +j=n+1\text{)}}%
+}+\sum_{\substack{k\in\left\{  1,2,\ldots,n\right\}  ;\\k\neq n+1-j}%
+}a_{i,k}\underbrace{\left[  k+j=n+1\right]  }_{\substack{=0\\\text{(since
+}k+j\neq n+1\\\text{(because }k\neq n+1-j\text{))}}}\nonumber\\
+&  \qquad\qquad\left(
+\begin{array}
+[c]{c}%
+\text{here, we have split off the addend for }k=n+1-j\text{ from the sum}\\
+\text{(since }n+1-j\in\left\{  1,2,\ldots,n\right\}  \text{)}%
+\end{array}
+\right) \nonumber\\
+&  =a_{i,n+1-j}+\underbrace{\sum_{\substack{k\in\left\{  1,2,\ldots,n\right\}
+;\\k\neq n+1-j}}a_{i,k}0}_{=0}=a_{i,n+1-j}.
+\label{sol.ring.matrix.W-conj.b.c6.pf.2}%
+\end{align}
+
+
+Now, forget that we fixed $\left(  i,j\right)  $. We thus have proven
+\eqref{sol.ring.matrix.W-conj.b.c6.pf.2} for each $\left(  i,j\right)
+\in\left\{  1,2,\ldots,n\right\}  ^{2}$. Thus, we have%
+\[
+\left(  \sum_{k=1}^{n}a_{i,k}\left[  k+j=n+1\right]  \right)  _{1\leq i\leq
+n,\ 1\leq j\leq n}=\left(  a_{i,n+1-j}\right)  _{1\leq i\leq n,\ 1\leq j\leq
+n}.
+\]
+Hence, \eqref{sol.ring.matrix.W-conj.b.c6.pf.2} becomes%
+\[
+AW=\left(  \sum_{k=1}^{n}a_{i,k}\left[  k+j=n+1\right]  \right)  _{1\leq i\leq
+n,\ 1\leq j\leq n}=\left(  a_{i,n+1-j}\right)  _{1\leq i\leq n,\ 1\leq j\leq
+n}.
+\]
+This proves Claim 6.]
+
+Let us now come back to part \textbf{(b)} of this exercise. Recall the
+definition of the identity matrix $I_{n}\in\mathbb{K}^{n\times n}$. Namely,
+$I_{n}$ is defined by
+\[
+I_{n}=\left(  \delta_{i,j}\right)  _{1\leq i\leq n,\ 1\leq j\leq n}%
+,\qquad\text{where }\delta_{i,j}=%
+\begin{cases}
+1, & \text{if }i=j;\\
+0, & \text{if }i\neq j
+\end{cases}
+.
+\]
+(Note that $\delta_{i,j}$ can also be written as $\left[  i=j\right]  $ using
+the Iverson bracket notation.)
+
+Now, $W=\left(  \left[  i+j=n+1\right]  \right)  _{1\leq i\leq n,\ 1\leq j\leq
+n}$. Hence, Claim 6 (applied to $A=W$ and $a_{i,j}=\left[  i+j=n+1\right]  $)
+yields%
+\begin{equation}
+WW=\left(  \left[  \left(  n+1-i\right)  +j=n+1\right]  \right)  _{1\leq i\leq
+n,\ 1\leq j\leq n}. \label{sol.ring.matrix.W-conj.b.WW=}%
+\end{equation}
+Now, let $\left(  i,j\right)  \in\left\{  1,2,\ldots,n\right\}  ^{2}$. Thus,
+$i,j\in\left\{  1,2,\ldots,n\right\}  $. Now, the statement \textquotedblleft%
+$\left(  n+1-i\right)  +j=n+1$\textquotedblright\ is equivalent to
+\textquotedblleft$i=j$\textquotedblright\ (since $\left(  \left(
+n+1-i\right)  +j\right)  -\left(  n+1\right)  =j-i$). Thus,%
+\begin{align}
+\left[  \left(  n+1-i\right)  +j=n+1\right]   &  =\left[  i=j\right]  =%
+\begin{cases}
+1, & \text{if }i=j\text{ is true;}\\
+0, & \text{if }i=j\text{ is false}%
+\end{cases}
+\nonumber\\
+&  \qquad\left(  \text{by the definition of the Iverson bracket notation}%
+\right) \nonumber\\
+&  =%
+\begin{cases}
+1, & \text{if }i=j;\\
+0, & \text{if }i\neq j
+\end{cases}
+=\delta_{i,j}. \label{sol.ring.matrix.W-conj.b.1}%
+\end{align}
+
+
+Forget that we fixed $\left(  i,j\right)  $. We thus have proven
+\eqref{sol.ring.matrix.W-conj.b.1} for each $\left(  i,j\right)  \in\left\{
+1,2,\ldots,n\right\}  ^{2}$. Thus, we have%
+\[
+\left(  \left[  \left(  n+1-i\right)  +j=n+1\right]  \right)  _{1\leq i\leq
+n,\ 1\leq j\leq n}=\left(  \delta_{i,j}\right)  _{1\leq i\leq n,\ 1\leq j\leq
+n}.
+\]
+Hence, \eqref{sol.ring.matrix.W-conj.b.WW=} becomes%
+\[
+WW=\left(  \left[  \left(  n+1-i\right)  +j=n+1\right]  \right)  _{1\leq i\leq
+n,\ 1\leq j\leq n}=\left(  \delta_{i,j}\right)  _{1\leq i\leq n,\ 1\leq j\leq
+n}=I_{n}.
+\]
+
+
+Now, the matrix $W$ is an inverse of $W$ (since $WW=I_{n}$ and $WW=I_{n}$).
+Thus, the matrix $W$ is invertible, and its inverse is $W^{-1}=W$. This solves
+part \textbf{(b)} of the exercise.
+
+\bigskip
+
+\textbf{(c)} We have $A=\left(  a_{i,j}\right)  _{1\leq i\leq n,\ 1\leq j\leq
+n}$. Thus, Claim 5 yields%
+\[
+WA=\left(  a_{n+1-i,j}\right)  _{1\leq i\leq n,\ 1\leq j\leq n}.
+\]
+Hence, Claim 6 (applied to $WA$ and $a_{n+1-i,j}$ instead of $A$ and $a_{i,j}%
+$) yields%
+\[
+WAW=\left(  a_{n+1-i,n+1-j}\right)  _{1\leq i\leq n,\ 1\leq j\leq n}.
+\]
+But part \textbf{(b)} of this exercise yields $W=W^{-1}$. Hence,
+$WA\underbrace{W}_{=W^{-1}}=WAW^{-1}$, so that
+\[
+WAW^{-1}=WAW=\left(  a_{n+1-i,n+1-j}\right)  _{1\leq i\leq n,\ 1\leq j\leq
+n}.
+\]
+This solves part \textbf{(c)} of the exercise.
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 3
+%----------------------------------------------------------------------------------------
+\rule{\linewidth}{0.3pt} \\[0.4cm]
+
+\section{Exercise 3: Entangled inverses}
+
+Let $\mathbb{K}$ be a ring.
+
+A \textit{left inverse} of an element $x \in\mathbb{K}$ is defined to be a $y
+\in\mathbb{K}$ such that $yx = 1$.
+
+A \textit{right inverse} of an element $x \in\mathbb{K}$ is defined to be a $y
+\in\mathbb{K}$ such that $xy = 1$.
+
+Let $a$ and $b$ be two elements of $\mathbb{K}$. Prove the following:
+
+\begin{enumerate}
+\item[\textbf{(a)}] If $c$ is a left inverse of $1 - ab$, then $1 + bca$ is a
+left inverse of $1 - ba$.
+
+\item[\textbf{(b)}] If $c$ is a right inverse of $1 - ab$, then $1 + bca$ is a
+right inverse of $1 - ba$.
+
+\item[\textbf{(c)}] If $c$ is an inverse of $1 - ab$, then $1 + bca$ is an
+inverse of $1 - ba$.
+\end{enumerate}
+
+Here and in the following, the word ``\textit{inverse}'' (unless qualified
+with an adjective) means ``multiplicative inverse''.
+
+\subsection{Solution}
+
+\textbf{(a)} Assume that $c$ is a left inverse of $1-ab$. Thus, $c\left(
+1-ab\right)  =1$ (by the definition of a left inverse).
+
+Now, the laws of distributivity\footnote{When we say \textquotedblleft the
+laws of distributivity\textquotedblright\ here, we mean not just the axiom of
+distributivity (which says that $u\left(  v+w\right)  =uv+uw$ and $\left(
+u+v\right)  w=uw+vw$ for all $u,v,w\in\mathbb{K}$), but also its analogue for
+subtraction (which says that $u\left(  v-w\right)  =uv-uw$ and $\left(
+u-v\right)  w=uw-vw$ for all $u,v,w\in\mathbb{K}$). The latter analogue is not
+one of the ring axioms, but follows easily from them.} yield%
+\[
+a\left(  1-ba\right)  =a-aba=\left(  1-ab\right)  a,
+\]
+thus%
+\[
+c\underbrace{a\left(  1-ba\right)  }_{=\left(  1-ab\right)  a}%
+=\underbrace{c\left(  1-ab\right)  }_{=1}a=1a=a.
+\]
+Hence, using the distributivity axiom, we obtain%
+\[
+\left(  1+bca\right)  \left(  1-ba\right)  =\left(  1-ba\right)
++b\underbrace{ca\left(  1-ba\right)  }_{=a}=\left(  1-ba\right)  +ba=1.
+\]
+In other words, $1+bca$ is a left inverse of $1-ba$ (by the definition of a
+left inverse). This solves part \textbf{(a)} of the exercise.
+
+\bigskip
+
+\textbf{(b)} Assume that $c$ is a right inverse of $1-ab$. Thus, $\left(
+1-ab\right)  c=1$ (by the definition of a right inverse).
+
+Now, the laws of distributivity yield%
+\[
+\left(  1-ba\right)  b=b-bab=b\left(  1-ab\right)  ,
+\]
+thus%
+\[
+\underbrace{\left(  1-ba\right)  b}_{=b\left(  1-ab\right)  }%
+c=b\underbrace{\left(  1-ab\right)  c}_{=1}=b1=b.
+\]
+Hence, using the distributivity axiom, we obtain%
+\[
+\left(  1-ba\right)  \left(  1+bca\right)  =\left(  1-ba\right)
++\underbrace{\left(  1-ba\right)  bc}_{=b}a=\left(  1-ba\right)  +ba=1.
+\]
+In other words, $1+bca$ is a right inverse of $1-ba$ (by the definition of a
+right inverse). This solves part \textbf{(b)} of the exercise.
+
+\bigskip
+
+\textbf{(c)} Assume that $c$ is an inverse of $1-ab$. In other words, $c$ is a
+multiplicative inverse of $1-ab$. Thus, $\left(  1-ab\right)  c=c\left(
+1-ab\right)  =1$ (by the definition of a multiplicative inverse).
+
+From $c\left(  1-ab\right)  =1$, we conclude that $c$ is a left inverse of
+$1-ab$. Hence, part \textbf{(a)} of this exercise shows that $1+bca$ is a left
+inverse of $1-ba$. In other words, $\left(  1+bca\right)  \left(  1-ba\right)
+=1$.
+
+From $\left(  1-ab\right)  c=1$, we conclude that $c$ is a right inverse of
+$1-ab$. Hence, part \textbf{(b)} of this exercise shows that $1+bca$ is a
+right inverse of $1-ba$. In other words, $\left(  1-ba\right)  \left(
+1+bca\right)  =1$.
+
+Combining $\left(  1+bca\right)  \left(  1-ba\right)  =1$ with $\left(
+1-ba\right)  \left(  1+bca\right)  =1$, we obtain
+\[
+\left(  1-ba\right)  \left(  1+bca\right)  =\left(  1+bca\right)  \left(
+1-ba\right)  =1.
+\]
+In other words, $1+bca$ is a multiplicative inverse of $1-ba$ (by the
+definition of a multiplicative inverse). In other words, $1+bca$ is an inverse
+of $1-ba$. This solves part \textbf{(c)} of the exercise.
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 4
+%----------------------------------------------------------------------------------------
+\rule{\linewidth}{0.3pt} \\[0.4cm]
+
+\section{Exercise 4: Composition of ring homomorphisms}
+
+\subsection{Problem}
+
+Let $\mathbb{K}$, $\mathbb{L}$ and $\mathbb{M}$ be three rings. Prove the following:
+
+\begin{enumerate}
+\item[\textbf{(a)}] If $f : \mathbb{K} \to\mathbb{L}$ and $g : \mathbb{L}
+\to\mathbb{M}$ are two ring homomorphisms, then $g \circ f : \mathbb{K}
+\to\mathbb{M}$ is a ring homomorphism.
+
+\item[\textbf{(b)}] If $f : \mathbb{K} \to\mathbb{L}$ and $g : \mathbb{L}
+\to\mathbb{M}$ are two ring isomorphisms, then $g \circ f : \mathbb{K}
+\to\mathbb{M}$ is a ring isomorphism.
+\end{enumerate}
+
+\subsection{Solution}
+
+\textbf{(a)} Let $f:\mathbb{K}\rightarrow\mathbb{L}$ and $g:\mathbb{L}%
+\rightarrow\mathbb{M}$ be two ring homomorphisms. We must prove that $g\circ
+f:\mathbb{K}\rightarrow\mathbb{M}$ is a ring homomorphism.
+
+We have assumed that $f:\mathbb{K}\rightarrow\mathbb{L}$ is a ring
+homomorphism. In other words, $f$ satisfies the four axioms in our definition
+of a ring homomorphism. In other words, the following four claims hold:
+
+\begin{statement}
+\textit{Claim 1:} We have $f\left(  a+b\right)  =f\left(  a\right)  +f\left(
+b\right)  $ for all $a,b\in\mathbb{K}$.
+\end{statement}
+
+\begin{statement}
+\textit{Claim 2:} We have $f\left(  0\right)  =0$.
+\end{statement}
+
+\begin{statement}
+\textit{Claim 3:} We have $f\left(  ab\right)  =f\left(  a\right)  f\left(
+b\right)  $ for all $a,b\in\mathbb{K}$.
+\end{statement}
+
+\begin{statement}
+\textit{Claim 4:} We have $f\left(  1\right)  =1$.
+\end{statement}
+
+Similarly, from the assumption that $g:\mathbb{L}\rightarrow\mathbb{M}$ is a
+ring homomorphism, we conclude that the following four claims hold:
+
+\begin{statement}
+\textit{Claim 5:} We have $g\left(  a+b\right)  =g\left(  a\right)  +g\left(
+b\right)  $ for all $a,b\in\mathbb{L}$.
+\end{statement}
+
+\begin{statement}
+\textit{Claim 6:} We have $g\left(  0\right)  =0$.
+\end{statement}
+
+\begin{statement}
+\textit{Claim 7:} We have $g\left(  ab\right)  =g\left(  a\right)  g\left(
+b\right)  $ for all $a,b\in\mathbb{L}$.
+\end{statement}
+
+\begin{statement}
+\textit{Claim 8:} We have $g\left(  1\right)  =1$.
+\end{statement}
+
+Now, we must prove that $g\circ f:\mathbb{K}\rightarrow\mathbb{M}$ is a ring
+homomorphism. In other words, we must prove that $g\circ f$ satisfies the four
+axioms in our definition of a ring homomorphism. In other words, we must prove
+that the following four claims hold:
+
+\begin{statement}
+\textit{Claim 9:} We have $\left(  g\circ f\right)  \left(  a+b\right)
+=\left(  g\circ f\right)  \left(  a\right)  +\left(  g\circ f\right)  \left(
+b\right)  $ for all $a,b\in\mathbb{K}$.
+\end{statement}
+
+\begin{statement}
+\textit{Claim 10:} We have $\left(  g\circ f\right)  \left(  0\right)  =0$.
+\end{statement}
+
+\begin{statement}
+\textit{Claim 11:} We have $\left(  g\circ f\right)  \left(  ab\right)
+=\left(  g\circ f\right)  \left(  a\right)  \left(  g\circ f\right)  \left(
+b\right)  $ for all $a,b\in\mathbb{K}$.
+\end{statement}
+
+\begin{statement}
+\textit{Claim 12:} We have $\left(  g\circ f\right)  \left(  1\right)  =1$.
+\end{statement}
+
+But this is straightforward:
+
+[\textit{Proof of Claim 9:} For all $a,b\in\mathbb{K}$, we have%
+\begin{align*}
+\left(  g\circ f\right)  \left(  a+b\right)   &  =g\left(
+\underbrace{f\left(  a+b\right)  }_{\substack{=f\left(  a\right)  +f\left(
+b\right)  \\\text{(by Claim 1)}}}\right)  =g\left(  f\left(  a\right)
++f\left(  b\right)  \right)  =\underbrace{g\left(  f\left(  a\right)  \right)
+}_{=\left(  g\circ f\right)  \left(  a\right)  }+\underbrace{g\left(  f\left(
+b\right)  \right)  }_{=\left(  g\circ f\right)  \left(  b\right)  }\\
+&  \qquad\left(  \text{by Claim 5, applied to }f\left(  a\right)  \text{ and
+}f\left(  b\right)  \text{ instead of }a\text{ and }b\right) \\
+&  =\left(  g\circ f\right)  \left(  a\right)  +\left(  g\circ f\right)
+\left(  b\right)  .
+\end{align*}
+Thus, Claim 9 is proven.]
+
+[\textit{Proof of Claim 10:} We have $\left(  g\circ f\right)  \left(
+0\right)  =g\left(  \underbrace{f\left(  0\right)  }_{\substack{=0\\\text{(by
+Claim 2)}}}\right)  =g\left(  0\right)  =0$ (by Claim 6). Thus, Claim 10 is proven.]
+
+[\textit{Proof of Claim 11:} The proof of Claim 11 is analogous to the proof
+of Claim 9, except that we need to use Claims 3 and 7 instead of Claims 1 and 5.]
+
+[\textit{Proof of Claim 12:} The proof of Claim 12 is analogous to the proof
+of Claim 10, except that we need to use Claims 4 and 8 instead of Claims 2 and 6.]
+
+Thus, all four Claims 9, 10, 11 and 12 are proven. As we explained, this shows
+that $g\circ f$ is a ring homomorphism. Hence, part \textbf{(a)} of the
+exercise is solved.
+
+\bigskip
+
+\textbf{(b)} Let $f:\mathbb{K}\rightarrow\mathbb{L}$ and $g:\mathbb{L}%
+\rightarrow\mathbb{M}$ be two ring isomorphisms. We must show that $g\circ
+f:\mathbb{K}\rightarrow\mathbb{M}$ is a ring isomorphism.
+
+The map $f$ is a ring isomorphism. In other words, $f$ is invertible and both
+$f$ and $f^{-1}$ are ring homomorphisms (by the definition of a ring isomorphism).
+
+The map $g$ is a ring isomorphism. In other words, $g$ is invertible and both
+$g$ and $g^{-1}$ are ring homomorphisms (by the definition of a ring isomorphism).
+
+Now we know that $f:\mathbb{K}\rightarrow\mathbb{L}$ and $g:\mathbb{L}%
+\rightarrow\mathbb{M}$ are two ring homomorphisms. Hence, part \textbf{(a)} of
+this exercise shows that $g\circ f:\mathbb{K}\rightarrow\mathbb{M}$ is a ring homomorphism.
+
+Also, we know that $g^{-1}:\mathbb{M}\rightarrow\mathbb{L}$ and $f^{-1}%
+:\mathbb{L}\rightarrow\mathbb{K}$ are two ring homomorphisms. Hence, part
+\textbf{(a)} of this exercise (applied to $\mathbb{M}$, $\mathbb{K}$, $g^{-1}$
+and $f^{-1}$ instead of $\mathbb{K}$, $\mathbb{M}$, $f$ and $g$) shows that
+$f^{-1}\circ g^{-1}:\mathbb{M}\rightarrow\mathbb{K}$ is a ring homomorphism.
+
+But the maps $f$ and $g$ are invertible. Hence, it is well-known that their
+composition $g\circ f$ is invertible as well, and its inverse is $\left(
+g\circ f\right)  ^{-1}=f^{-1}\circ g^{-1}$. Hence, $\left(  g\circ f\right)
+^{-1}$ is a ring homomorphism (since $f^{-1}\circ g^{-1}$ is a ring homomorphism).
+
+Now, we know that the map $g\circ f$ is invertible and both $g\circ f$ and
+$\left(  g\circ f\right)  ^{-1}$ are ring homomorphisms. In other words,
+$g\circ f$ is a ring isomorphism (by the definition of a ring isomorphism).
+This solves part \textbf{(b)} of the exercise.
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 5
+%----------------------------------------------------------------------------------------
+\rule{\linewidth}{0.3pt} \\[0.4cm]
+
+\section{Exercise 5: Squares in finite fields I}
+
+\subsection{Problem}
+
+Let $\mathbb{F}$ be a field.
+
+\begin{enumerate}
+\item[\textbf{(a)}] Prove that if $a, b \in\mathbb{F}$ satisfy $ab = 0$, then
+$a = 0$ or $b = 0$.
+
+\item[\textbf{(b)}] Prove that if $a, b \in\mathbb{F}$ satisfy $a^{2} = b^{2}%
+$, then $a = b$ or $a = -b$.
+\end{enumerate}
+
+Recall that an element $\eta\in\mathbb{F}$ is called a \textit{square} if
+there exists some $\alpha\in\mathbb{F}$ such that $\eta= \alpha^{2}$.
+
+From now on, assume that $2 \cdot1_{\mathbb{F}} \neq0_{\mathbb{F}}$ (that is,
+$1_{\mathbb{F}} + 1_{\mathbb{F}} \neq0_{\mathbb{F}}$). Note that this is
+satisfied whenever $\mathbb{F} = \mathbb{Z} / p$ for a prime $p > 2$ (but also
+for various other finite fields), but fails when $\mathbb{F} = \mathbb{Z} / 2$.
+
+\begin{enumerate}
+\item[\textbf{(c)}] Prove that $a \neq-a$ for every nonzero $a \in\mathbb{F}$.
+\end{enumerate}
+
+From now on, assume that $\mathbb{F}$ is finite.
+
+\begin{enumerate}
+\item[\textbf{(d)}] Prove that the number of squares in $\mathbb{F}$ is
+$\dfrac{1}{2} \left(  \left|  \mathbb{F} \right|  + 1 \right)  $.
+
+\item[\textbf{(e)}] Conclude that $\left|  \mathbb{F} \right|  $ is odd.
+\end{enumerate}
+
+[\textbf{Hint:} For part \textbf{(d)}, argue that each nonzero square in
+$\mathbb{F}$ can be written as $\alpha^{2}$ for exactly two $\alpha
+\in\mathbb{F}$.]
+
+\subsection{Solution}
+
+We have assumed that $\mathbb{F}$ is a field. Hence, $\mathbb{F}$ is a
+commutative skew field (by the definition of a field). Every nonzero element
+of $\mathbb{F}$ is invertible (since $\mathbb{F}$ is a skew field).
+
+\bigskip
+
+\textbf{(a)} Let $a,b\in\mathbb{F}$ be such that $ab=0$. We must prove that
+$a=0$ or $b=0$.
+
+Assume the contrary. Thus, neither $a=0$ nor $b=0$ holds. In other words, we
+have $a\neq0$ and $b\neq0$. Thus, the elements $a$ and $b$ of $\mathbb{F}$ are
+nonzero, and therefore invertible (since every nonzero element of $\mathbb{F}$
+is invertible). Hence, their inverses $a^{-1}$ and $b^{-1}$ are well-defined.
+Comparing the equalities $\underbrace{a^{-1}a}_{=1}b=b$ and $a^{-1}%
+\underbrace{ab}_{=0}=a^{-1}0=0$, we obtain $b=0$. This contradicts $b\neq0$.
+This contradiction shows that our assumption was false. This completes the
+solution to part \textbf{(a)} of the exercise.
+
+\bigskip
+
+\textbf{(b)} Let $a,b\in\mathbb{F}$ satisfy $a^{2}=b^{2}$. We must prove that
+$a=b$ or $a=-b$.
+
+Since $\mathbb{F}$ is commutative, we have $ab=ba$. Now, multiplying out
+$\left(  a-b\right)  \left(  a+b\right)  $ (by applying the distributivity
+laws several times), we obtain%
+\[
+\left(  a-b\right)  \left(  a+b\right)  =\underbrace{aa}_{=a^{2}=b^{2}%
+}+\underbrace{ab}_{=ba}-ba-\underbrace{bb}_{=b^{2}}=b^{2}+ba-ba-b^{2}=0.
+\]
+Thus, part \textbf{(a)} of this exercise (applied to $a-b$ and $a+b$ instead
+of $a$ and $b$) shows that $a-b=0$ or $a+b=0$. In other words, $a=b$ or
+$a=-b$. Thus, part \textbf{(b)} of the exercise is solved.
+
+\bigskip
+
+\textbf{(c)} Let $a\in\mathbb{F}$ be nonzero. We must prove that $a\neq-a$.
+
+Assume the contrary. Thus, $a=-a$, so that $a+a=0$. Now,%
+\[
+\underbrace{\left(  2\cdot1_{\mathbb{F}}\right)  }_{=1_{\mathbb{F}%
+}+1_{\mathbb{F}}}a=\left(  1_{\mathbb{F}}+1_{\mathbb{F}}\right)
+a=\underbrace{1_{\mathbb{F}}a}_{=a}+\underbrace{1_{\mathbb{F}}a}_{=a}=a+a=0.
+\]
+
+
+The element $2\cdot1_{\mathbb{F}}$ of $\mathbb{F}$ is nonzero (since
+$2\cdot1_{\mathbb{F}}\neq0_{\mathbb{F}}$), and thus invertible (since every
+nonzero element of $\mathbb{F}$ is invertible). Hence, it has a well-defined
+inverse $\left(  2\cdot1_{\mathbb{F}}\right)  ^{-1}$.
+
+Now,%
+\[
+\left(  2\cdot1_{\mathbb{F}}\right)  ^{-1}\cdot\underbrace{\left(
+2\cdot1_{\mathbb{F}}\right)  a}_{=0}=\left(  2\cdot1_{\mathbb{F}}\right)
+^{-1}\cdot0=0.
+\]
+Comparing this with $\underbrace{\left(  2\cdot1_{\mathbb{F}}\right)
+^{-1}\cdot\left(  2\cdot1_{\mathbb{F}}\right)  }_{=1}a=1a=a$, we obtain $a=0$.
+This contradicts the fact that $a$ is nonzero. This contradiction shows that
+our assumption was false. Hence, $a\neq-a$. Thus, part \textbf{(c)} of the
+exercise is solved.
+
+\bigskip
+
+\textbf{(d)} We have the following:
+
+\begin{statement}
+\textit{Claim 1:} Let $c\in\mathbb{F}$. Then:
+
+\textbf{(i)} If $c$ is a nonzero square, then%
+\[
+\left\vert \left\{  d\in\mathbb{F}\ \mid\ c=d^{2}\right\}  \right\vert =2.
+\]
+
+
+\textbf{(ii)} If $c$ is not a square, then%
+\[
+\left\vert \left\{  d\in\mathbb{F}\ \mid\ c=d^{2}\right\}  \right\vert =0.
+\]
+
+
+\textbf{(iii)} If $c=0$, then%
+\[
+\left\vert \left\{  d\in\mathbb{F}\ \mid\ c=d^{2}\right\}  \right\vert =1.
+\]
+
+\end{statement}
+
+[\textit{Proof of Claim 1:} \textbf{(i)} Assume that $c$ is a nonzero square.
+Thus, there exists a $g\in\mathbb{F}$ such that $c=g^{2}$ (since $c$ is a
+square). Consider this $g$. Moreover,
+\[
+\left(  -g\right)  ^{2}=\left(  -g\right)  \left(  -g\right)
+=-\underbrace{\left(  \left(  -g\right)  g\right)  }_{=-gg}=-\left(
+-gg\right)  =gg=g^{2}=c
+\]
+(since $c=g^{2}$). Hence, $c=\left(  -g\right)  ^{2}$.
+
+If we had $g=0$, then we would have $c=\underbrace{g}_{=0}\ ^{2}=0^{2}=0$,
+which would contradict our assumption that $c$ is nonzero. Hence, we cannot
+have $g=0$. Thus, $g$ is nonzero. Therefore, $g\neq-g$ (by part \textbf{(c)}
+of this exercise, applied to $a=g$). Hence, the elements $g$ and $-g$ of
+$\mathbb{F}$ are distinct. Thus, $\left\vert \left\{  g,-g\right\}
+\right\vert =2$.
+
+But $g\in\left\{  d\in\mathbb{F}\ \mid\ c=d^{2}\right\}  $ (since
+$g\in\mathbb{F}$ and $c=g^{2}$) and $-g\in\left\{  d\in\mathbb{F}%
+\ \mid\ c=d^{2}\right\}  $ (since $-g\in\mathbb{F}$ and $c=\left(  -g\right)
+^{2}$). Combining these two facts, we obtain
+\begin{equation}
+\left\{  g,-g\right\}  \subseteq\left\{  d\in\mathbb{F}\ \mid\ c=d^{2}%
+\right\}  . \label{sol.ffields.squares1.c1.pf.1}%
+\end{equation}
+
+
+On the other hand, let us prove that $\left\{  d\in\mathbb{F}\ \mid
+\ c=d^{2}\right\}  \subseteq\left\{  g,-g\right\}  $. Indeed, let
+$a\in\left\{  d\in\mathbb{F}\ \mid\ c=d^{2}\right\}  $. Thus, $a$ is a
+$d\in\mathbb{F}$ such that $c=d^{2}$. In other words, $a$ is an element of
+$\mathbb{F}$ and satisfies $c=a^{2}$. Hence, $a^{2}=c=g^{2}$. Thus, part
+\textbf{(b)} of this exercise (applied to $b=g$) yields that $a=g$ or $a=-g$.
+In other words, $a\in\left\{  g,-g\right\}  $. Now, forget that we fixed $a$.
+We thus have shown that $a\in\left\{  g,-g\right\}  $ for each $a\in\left\{
+d\in\mathbb{F}\ \mid\ c=d^{2}\right\}  $. In other words, $\left\{
+d\in\mathbb{F}\ \mid\ c=d^{2}\right\}  \subseteq\left\{  g,-g\right\}  $.
+Combining this with \eqref{sol.ffields.squares1.c1.pf.1}, we obtain%
+\[
+\left\{  d\in\mathbb{F}\ \mid\ c=d^{2}\right\}  =\left\{  g,-g\right\}  .
+\]
+Hence,%
+\[
+\left\vert \left\{  d\in\mathbb{F}\ \mid\ c=d^{2}\right\}  \right\vert
+=\left\vert \left\{  g,-g\right\}  \right\vert =2.
+\]
+This proves Claim 1 \textbf{(i)}.
+
+\textbf{(ii)} Assume that $c$ is not a square. Then, there exists no
+$\alpha\in\mathbb{F}$ such that $c=\alpha^{2}$ (by the definition of a
+square). In other words, there exists no $d\in\mathbb{F}$ such that $c=d^{2}$
+(here, we have renamed the index $\alpha$ as $d$). In other words, $\left\{
+d\in\mathbb{F}\ \mid\ c=d^{2}\right\}  =\varnothing$. Hence, $\left\vert
+\left\{  d\in\mathbb{F}\ \mid\ c=d^{2}\right\}  \right\vert =\left\vert
+\varnothing\right\vert =0$. This proves Claim 1 \textbf{(ii)}.
+
+\textbf{(iii)} Assume that $c=0$. Then, $0\in\left\{  d\in\mathbb{F}%
+\ \mid\ c=d^{2}\right\}  $ (since $g\in\mathbb{F}$ and $c=0=0^{2}$) and thus
+$\left\{  0\right\}  \subseteq\left\{  d\in\mathbb{F}\ \mid\ c=d^{2}\right\}
+$.
+
+On the other hand, let us show that $\left\{  d\in\mathbb{F}\ \mid
+\ c=d^{2}\right\}  \subseteq\left\{  0\right\}  $.
+
+Indeed, let $a\in\left\{  d\in\mathbb{F}\ \mid\ c=d^{2}\right\}  $. Then, $a$
+is a $d\in\mathbb{F}$ such that $c=d^{2}$. In other words, $a$ is an element
+of $\mathbb{F}$ and satisfies $c=a^{2}$. Hence, $aa=a^{2}=c=0$. Thus, part
+\textbf{(a)} of this exercise (applied to $b=a$) yields that $a=0$ or $a=0$.
+In other words, $a=0$. In other words, $a\in\left\{  0\right\}  $. Now, forget
+that we fixed $a$. We thus have shown that $a\in\left\{  0\right\}  $ for each
+$a\in\left\{  d\in\mathbb{F}\ \mid\ c=d^{2}\right\}  $. In other words,
+$\left\{  d\in\mathbb{F}\ \mid\ c=d^{2}\right\}  \subseteq\left\{  0\right\}
+$. Combining this with $\left\{  0\right\}  \subseteq\left\{  d\in
+\mathbb{F}\ \mid\ c=d^{2}\right\}  $, we obtain $\left\{  d\in\mathbb{F}%
+\ \mid\ c=d^{2}\right\}  =\left\{  0\right\}  $. Hence, $\left\vert \left\{
+d\in\mathbb{F}\ \mid\ c=d^{2}\right\}  \right\vert =\left\vert \left\{
+0\right\}  \right\vert =1$. This proves Claim 1 \textbf{(iii)}.]
+
+Now, let us count all pairs $\left(  c,d\right)  \in\mathbb{F}\times
+\mathbb{F}$ satisfying $c=d^{2}$. We shall count these pairs in two ways:
+
+\begin{itemize}
+\item The first way is to split this count according to the value of $c$ (that
+is, first count all such pairs $\left(  c,d\right)  $ with a given $c$, and
+then sum the result up over all $c\in\mathbb{F}$). Thus, we find%
+\begin{align*}
+&  \left(  \text{the number of all }\left(  c,d\right)  \in\mathbb{F}%
+\times\mathbb{F}\text{ such that }c=d^{2}\right) \\
+&  =\sum_{c\in\mathbb{F}}\underbrace{\left(  \text{the number of all }%
+d\in\mathbb{F}\text{ such that }c=d^{2}\right)  }_{=\left\vert \left\{
+d\in\mathbb{F}\ \mid\ c=d^{2}\right\}  \right\vert }\\
+&  =\sum_{c\in\mathbb{F}}\left\vert \left\{  d\in\mathbb{F}\ \mid
+\ c=d^{2}\right\}  \right\vert \\
+&  =\sum_{\substack{c\in\mathbb{F};\\c=0}}\underbrace{\left\vert \left\{
+d\in\mathbb{F}\ \mid\ c=d^{2}\right\}  \right\vert }_{\substack{=1\\\text{(by
+Claim 1 \textbf{(iii)})}}}+\sum_{\substack{c\in\mathbb{F};\\c\text{ is a
+nonzero}\\\text{square}}}\underbrace{\left\vert \left\{  d\in\mathbb{F}%
+\ \mid\ c=d^{2}\right\}  \right\vert }_{\substack{=2\\\text{(by Claim 1
+\textbf{(i)})}}}\\
+&  \qquad+\sum_{\substack{c\in\mathbb{F};\\c\text{ is not a}\\\text{square}%
+}}\underbrace{\left\vert \left\{  d\in\mathbb{F}\ \mid\ c=d^{2}\right\}
+\right\vert }_{\substack{=0\\\text{(by Claim 1 \textbf{(ii)})}}}\\
+&  \qquad\left(
+\begin{array}
+[c]{c}%
+\text{because each }c\in\mathbb{F}\text{ satisfies exactly one of the three
+statements}\\
+\text{\textquotedblleft}c=0\text{\textquotedblright, \textquotedblleft}c\text{
+is a nonzero square\textquotedblright\ and \textquotedblleft}c\text{ is not a
+square\textquotedblright}%
+\end{array}
+\right) \\
+&  =\underbrace{\sum_{\substack{c\in\mathbb{F};\\c=0}}1}%
+_{\substack{=1\\\text{(since this sum has}\\\text{exactly one addend)}%
+}}+\underbrace{\sum_{\substack{c\in\mathbb{F};\\c\text{ is a nonzero}%
+\\\text{square}}}2}_{=2\cdot\left(  \text{the number of nonzero squares in
+}\mathbb{F}\right)  }+\underbrace{\sum_{\substack{c\in\mathbb{F};\\c\text{ is
+not a}\\\text{square}}}0}_{=0}\\
+&  =1+2\cdot\left(  \text{the number of nonzero squares in }\mathbb{F}\right)
++0\\
+&  =1+2\cdot\left(  \text{the number of nonzero squares in }\mathbb{F}\right)
+.
+\end{align*}
+
+
+\item The second way is to split this count according to the value of $d$
+(that is, first count all such pairs $\left(  c,d\right)  $ with a given $d$,
+and then sum the result up over all $d\in\mathbb{F}$). Thus, we find%
+\begin{align*}
+&  \left(  \text{the number of all }\left(  c,d\right)  \in\mathbb{F}%
+\times\mathbb{F}\text{ such that }c=d^{2}\right) \\
+&  =\sum_{d\in\mathbb{F}}\underbrace{\left(  \text{the number of all }%
+c\in\mathbb{F}\text{ such that }c=d^{2}\right)  }_{\substack{=1\\\text{(since
+there is exactly one }c\in\mathbb{F}\text{ such that }c=d^{2}\text{ (namely,
+}c=d^{2}\text{))}}}\\
+&  =\sum_{d\in\mathbb{F}}1=\left\vert \mathbb{F}\right\vert \cdot1=\left\vert
+\mathbb{F}\right\vert .
+\end{align*}
+
+\end{itemize}
+
+Comparing these two equalities, we obtain%
+\[
+\left\vert \mathbb{F}\right\vert =1+2\cdot\left(  \text{the number of nonzero
+squares in }\mathbb{F}\right)  .
+\]
+Solving this for $\left(  \text{the number of nonzero squares in }%
+\mathbb{F}\right)  $, we find%
+\[
+\left(  \text{the number of nonzero squares in }\mathbb{F}\right)
+=\dfrac{\left\vert \mathbb{F}\right\vert -1}{2}.
+\]
+
+
+Now, there are two kinds of squares in $\mathbb{F}$: namely, the nonzero
+squares (of which there are exactly $\dfrac{\left\vert \mathbb{F}\right\vert
+-1}{2}$ many, as we just proved) and the zero squares (of which there is only
+$1$, namely $0^{2}=0$). Thus, the total number of squares in $\mathbb{F}$ is
+$\dfrac{\left\vert \mathbb{F}\right\vert -1}{2}+1=\dfrac{\left\vert
+\mathbb{F}\right\vert +1}{2}=\dfrac{1}{2}\left(  \left\vert \mathbb{F}%
+\right\vert +1\right)  $. This solves part \textbf{(d)} of the exercise.
+
+\bigskip
+
+\textbf{(e)} Part \textbf{(d)} of this exercise shows that the number of
+squares in $\mathbb{F}$ is $\dfrac{1}{2}\left(  \left\vert \mathbb{F}%
+\right\vert +1\right)  $. Thus,%
+\[
+\dfrac{1}{2}\left(  \left\vert \mathbb{F}\right\vert +1\right)  =\left(
+\text{the number of squares in }\mathbb{F}\right)  \in\mathbb{N}%
+\]
+(since a number that counts something is always $\in\mathbb{N}$). Therefore,
+$\dfrac{1}{2}\left(  \left\vert \mathbb{F}\right\vert +1\right)  \in
+\mathbb{N}\subseteq\mathbb{Z}$, so that the integer $\left\vert \mathbb{F}%
+\right\vert +1$ is even. This shows that $\left\vert \mathbb{F}\right\vert $
+is odd. This solves part \textbf{(e)} of the exercise.
+
+%----------------------------------------------------------------------------------------
+%	EXERCISE 6
+%----------------------------------------------------------------------------------------
+\rule{\linewidth}{0.3pt} \\[0.4cm]
+
+\section{Exercise 6: The characteristic of a field}
+
+\subsection{Problem}
+
+Let $\mathbb{F}$ be a field. Recall that we have defined $na$ to mean
+$\underbrace{a + a + \cdots+ a}_{n \text{ times}}$ whenever $n \in\mathbb{N}$
+and $a \in\mathbb{F}$.
+
+Assume that there exists a positive integer $n$ such that $n \cdot
+1_{\mathbb{F}} = 0$. Let $p$ be the \textbf{smallest} such $n$.
+
+Prove that $p$ is prime.
+
+[\textbf{Hint:} $\left(  a \cdot1_{\mathbb{F}} \right)  \cdot\left(  b
+\cdot1_{\mathbb{F}} \right)  = ab \cdot1_{\mathbb{F}}$ for all $a, b
+\in\mathbb{N}$.]
+
+\subsection{Remark}
+
+The $p$ we just defined is called the \textit{characteristic} of the field
+$\mathbb{F}$ when it exists. (Otherwise, the characteristic of the field
+$\mathbb{F}$ is defined to be $0$.)
+
+Thus, for each prime $p$, the finite field $\mathbb{Z} / p$, as well as the
+finite field of size $p^{2}$ that we constructed in class, have characteristic
+$p$.
+
+\subsection{Solution sketch}
+
+We have assumed that $\mathbb{F}$ is a field. Hence, $\mathbb{F}$ is a
+commutative skew field (by the definition of a field). We have $0_{\mathbb{F}%
+}\neq1_{\mathbb{F}}$ (since $\mathbb{F}$ is a skew field).
+
+We have defined $p$ to be the \textbf{smallest} positive integer $n$ such that
+$n\cdot1_{\mathbb{F}}=0$. Thus, $p$ is a positive integer which itself
+satisfies $p\cdot1_{\mathbb{F}}=0$. Furthermore, if $n$ is a positive integer
+such that $n\cdot1_{\mathbb{F}}=0$, then%
+\begin{equation}
+n\geq p \label{sol.field.char.prime.1}%
+\end{equation}
+(since $p$ is the \textbf{smallest} positive integer $n$ such that
+$n\cdot1_{\mathbb{F}}=0$).
+
+If we had $p=1$, then we would have $p\cdot1_{\mathbb{F}}=1\cdot1_{\mathbb{F}%
+}=1_{\mathbb{F}}\neq0_{\mathbb{F}}$ (since $0_{\mathbb{F}}\neq1_{\mathbb{F}}%
+$), which would contradict $p\cdot1_{\mathbb{F}}=0=0_{\mathbb{F}}$. Thus, we
+cannot have $p=1$. Therefore, we have $p>1$ (since $p$ is a positive integer).
+
+We shall now show that the only positive divisors of $p$ are $1$ and $p$.
+Indeed, assume the contrary. Thus, $p$ has a positive divisor other than $1$
+and $p$. Consider such a divisor, and denote it by $d$. Thus, $d$ is a
+positive divisor of $p$ that is distinct from $1$ and $p$. In other words, $d$
+is a positive divisor of $p$ and satisfies $d\neq1$ and $d\neq p$. We have
+$d\leq p$ (since $d$ is a positive divisor of the positive integer $p$).
+Combining this with $d\neq p$, we obtain $d<p$. Also, $d\in\mathbb{Z}$ (since
+$d$ is an integer) and $\dfrac{p}{d}\in\mathbb{Z}$ (since $d$ is a divisor of
+$p$).
+
+Now, for all $a,b\in\mathbb{Z}$, we have%
+\[
+\left(  a\cdot1_{\mathbb{F}}\right)  \cdot\left(  b\cdot1_{\mathbb{F}}\right)
+=a\cdot\underbrace{\left(  1_{\mathbb{F}}\cdot\left(  b\cdot1_{\mathbb{F}%
+}\right)  \right)  }_{=b\cdot1_{\mathbb{F}}}=a\cdot\left(  b\cdot
+1_{\mathbb{F}}\right)  =ab\cdot1_{\mathbb{F}}.
+\]
+Applying this to $a=d$ and $b=\dfrac{p}{d}$, we obtain%
+\[
+\left(  d\cdot1_{\mathbb{F}}\right)  \cdot\left(  \dfrac{p}{d}\cdot
+1_{\mathbb{F}}\right)  =\underbrace{d\cdot\dfrac{p}{d}}_{=p}\cdot
+1_{\mathbb{F}}=p\cdot1_{\mathbb{F}}=0.
+\]
+Thus, Exercise 5 \textbf{(a)} (applied to $a=d\cdot1_{\mathbb{F}}$ and
+$b=\dfrac{p}{d}\cdot1_{\mathbb{F}}$) shows that $d\cdot1_{\mathbb{F}}=0$ or
+$\dfrac{p}{d}\cdot1_{\mathbb{F}}=0$.
+
+If we had $d\cdot1_{\mathbb{F}}=0$, then we would have $d\geq p$ (by
+\eqref{sol.field.char.prime.1}, applied to $n=d$), which would contradict
+$d<p$. Hence, we cannot have $d\cdot1_{\mathbb{F}}=0$. Thus, we have
+$\dfrac{p}{d}\cdot1_{\mathbb{F}}=0$ (since $d\cdot1_{\mathbb{F}}=0$ or
+$\dfrac{p}{d}\cdot1_{\mathbb{F}}=0$). But $\dfrac{p}{d}$ is an integer (since
+$\dfrac{p}{d}\in\mathbb{Z}$) and is positive (since $p$ and $d$ are positive);
+thus, $\dfrac{p}{d}$ is a positive integer. Hence,
+\eqref{sol.field.char.prime.1} (applied to $n=\dfrac{p}{d}$) yields $\dfrac
+{p}{d}\geq p$ (since $\dfrac{p}{d}\cdot1_{\mathbb{F}}=0$). Since $d$ is
+positive, we can multiply this inequality by $d$, and thus obtain $p\geq pd$.
+Since $p$ is positive, we can divide this inequality by $p$, and thus obtain
+$1\geq d$. Hence, $d=1$ (since $d$ is a positive integer). This contradicts
+$d\neq1$.
+
+This contradiction shows that our assumption was false. Hence, the only
+positive divisors of $p$ are $1$ and $p$. Thus, $p$ is a prime (since $p$ is
+an integer satisfying $p>1$). Qed.
+
+\subsection{Remark}
+
+We have never used the commutativity of multiplication (in $\mathbb{F}$) in
+the above proof. Thus, we can replace \textquotedblleft
+field\textquotedblright\ by \textquotedblleft skew field\textquotedblright\ in
+this exercise.
+
+\begin{thebibliography}{99999999}                                                                                         %
+
+
+%Feel free to add your sources -- or copy some from the source code
+%of the class notes ( http://www.cip.ifi.lmu.de/~grinberg/t/19s/notes.tex ).
+
+
+%This is the bibliography: The list of papers/books/articles/blogs/...
+%cited. The syntax is: "\bibitem[name]{tag}Reference",
+%where "name" is the name that will appear in the compiled
+%bibliography, and "tag" is the tag by which you will refer to
+%the source in the TeX file. For example, the following source
+%has name "GrKnPa94" (so you will see it referenced as
+%"[GrKnPa94]" in the compiled PDF) and tag "GKP" (so you
+%can cite it by writing "\cite{GKP}").
+
+
+%I've commented the below references out, since I'm not citing
+%them above.
+
+
+%\bibitem[GrKnPa94]{GKP}Ronald L. Graham, Donald E. Knuth, Oren Patashnik,
+%\textit{Concrete Mathematics, Second Edition}, Addison-Wesley 1994.\\
+%See \url{https://www-cs-faculty.stanford.edu/~knuth/gkp.html} for errata.
+
+
+\bibitem[Grinbe19]{detnotes}Darij Grinberg, \textit{Notes on the combinatorial
+fundamentals of algebra}, 10 January 2019. \newline%
+\url{http://www.cip.ifi.lmu.de/~grinberg/primes2015/sols.pdf} \newline The
+numbering of theorems and formulas in this link might shift when the project
+gets updated; for a ``frozen'' version whose numbering is guaranteed to match
+that in the citations above, see
+\url{https://github.com/darijgr/detnotes/releases/tag/2019-01-10} .
+\end{thebibliography}
+
+
+\end{document}
