@@ -17,7 +17,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Wednesday, May 22, 2019 00:45:21}
+%TCIDATA{LastRevised=Thursday, May 23, 2019 00:58:43}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -26067,12 +26067,14 @@ notion in Chapter \ref{chp.pol}.
 
 Finite fields have many uses -- not just in making Shamir's Secret Sharing
 Scheme work. One great source of applications is \textit{coding theory}, which
-we might see later.
+we will briefly encounter in Subsection \ref{subsect.pol.id.app-RS}.
 \end{remark}
 
 Let us take some first steps towards addressing Question
 \ref{quest.finfield.nonprime}. We have found a field of size $p$ for each
-prime $p$. Are there fields of other sizes?
+prime $p$. Are there fields of other finite sizes? Let us first focus on the
+probably simplest case beyond $\mathbb{Z}/p$: Given a prime $p$, can we
+construct a field of size $p^{2}$ ?
 
 \textbf{First idea:} Let us try to get such a field by \textquotedblleft
 duplicating\textquotedblright\ the known field $\mathbb{Z}/p$. Thus, we fix a
@@ -26161,7 +26163,8 @@ complex numbers, but built upon $\mathbb{K}$ instead of $\mathbb{R}$.
 \label{prop.finfield.K'.cring}\textbf{(a)} The set $\mathbb{K}^{\prime}$
 defined in Definition \ref{def.finfield.K'} (equipped with the operations $+$
 and $\cdot$ and the elements $0_{\mathbb{K}^{\prime}}$ and $1_{\mathbb{K}%
-^{\prime}}$) is a commutative ring.
+^{\prime}}$) is a commutative ring. Its subtraction is the binary operation
+$-$ defined in Definition \ref{def.finfield.K'} \textbf{(d)}.
 
 \textbf{(b)} Furthermore, the ring $\mathbb{K}$ is a subring of $\mathbb{K}%
 ^{\prime}$ (where we regard $\mathbb{K}$ as a subset of $\mathbb{K}^{\prime}$
@@ -26401,7 +26404,9 @@ in how the multiplication is defined. Note also that $\mathbb{K}_{-1}^{\prime
 \label{thm.finfield.K'eta.cring}\textbf{(a)} The set $\mathbb{K}_{\eta
 }^{\prime}$ defined in Definition \ref{def.finfield.K'eta} (equipped with the
 operations $+$ and $\cdot$ and the elements $0_{\mathbb{K}_{\eta}^{\prime}}$
-and $1_{\mathbb{K}_{\eta}^{\prime}}$) is a commutative ring.
+and $1_{\mathbb{K}_{\eta}^{\prime}}$) is a commutative ring. Its subtraction
+is the operation $-$ defined in Definition \ref{def.finfield.K'eta}
+\textbf{(d)}.
 
 \textbf{(b)} If $\mathbb{K}$ is a field and $\eta$ is not a square in
 $\mathbb{K}$, then $\mathbb{K}_{\eta}^{\prime}$ is a field.
@@ -26467,11 +26472,11 @@ shows that $\mathbb{K}_{\eta}^{\prime}$ is a field where $\mathbb{K}%
 Is there a field of size $4$, too?
 
 We cannot get such a field by adjoining a square root to $\mathbb{Z}/2$. So
-let us instead try to adjoin an element $j$ such that $j^{2}=j+1$. So we
-define $\mathbb{K}^{\prime\prime}$ as the set of all pairs $\left(
-a,b\right)  \in\left(  \mathbb{Z}/2\right)  \times\left(  \mathbb{Z}/2\right)
-$, and we define three operations $+$, $-$ and $\cdot$ on $\mathbb{K}%
-^{\prime\prime}$ by%
+let us instead try to adjoin an element $j$ such that $j^{2}=j+1$. Formally,
+we can do this as follows: We define $\mathbb{K}^{\prime\prime}$ as the set of
+all pairs $\left(  a,b\right)  \in\left(  \mathbb{Z}/2\right)  \times\left(
+\mathbb{Z}/2\right)  $, and we define three operations $+$, $-$ and $\cdot$ on
+$\mathbb{K}^{\prime\prime}$ by%
 \begin{align*}
 \left(  a,b\right)  +\left(  c,d\right)   &  =\left(  a+c,b+d\right)  ,\\
 \left(  a,b\right)  -\left(  c,d\right)   &  =\left(  a-c,b-d\right)
@@ -26602,12 +26607,15 @@ $\left(  -a_{1},-a_{2},\ldots,-a_{n}\right)  $.
 ,\ldots,\mathbb{K}_{n}$.
 \end{definition}
 
-We have already seen a Cartesian product. Indeed, recall the binary operations
-$\operatorname*{XOR}$ defined back in Subsection \ref{subsect.intro.XOR}. We
-first defined an operation $\operatorname*{XOR}$ on bits (Definition
-\ref{def.intro.XOR.XOR01}), and then defined an operation $\operatorname*{XOR}%
-$ on bitstrings (Definition \ref{def.intro.XOR.XOR01m}). It is easy to see
-that
+\begin{example}
+\label{exa.ring.dirprod.XOR}We have already seen a Cartesian product. Indeed,
+recall the binary operations $\operatorname*{XOR}$ defined back in Subsection
+\ref{subsect.intro.XOR}.
+
+\textbf{(a)} We first defined an operation $\operatorname*{XOR}$ on bits
+(Definition \ref{def.intro.XOR.XOR01}), and then defined an operation
+$\operatorname*{XOR}$ on bitstrings (Definition \ref{def.intro.XOR.XOR01m}).
+It is easy to see that
 \[
 \left(  \left\{  0,1\right\}  ,\operatorname*{XOR},\cdot,0,1\right)
 \]
@@ -26619,24 +26627,24 @@ order to get $\mathbb{X}$); for example, the correspondence between the
 $\operatorname*{XOR}$ operation on $\mathbb{X}$ and the addition on
 $\mathbb{Z}/2$ can be seen by comparing their results face to face:%
 \begin{align*}
-0\operatorname*{XOR}0  &  =0\ \ \ \ \ \ \ \ \ \ \text{and}%
+0\operatorname*{XOR}0 &  =0\ \ \ \ \ \ \ \ \ \ \text{and}%
 \ \ \ \ \ \ \ \ \ \ \left[  0\right]  _{2}+\left[  0\right]  _{2}=\left[
 0\right]  _{2},\\
-0\operatorname*{XOR}1  &  =1\ \ \ \ \ \ \ \ \ \ \text{and}%
+0\operatorname*{XOR}1 &  =1\ \ \ \ \ \ \ \ \ \ \text{and}%
 \ \ \ \ \ \ \ \ \ \ \left[  0\right]  _{2}+\left[  1\right]  _{2}=\left[
 1\right]  _{2},\\
-1\operatorname*{XOR}0  &  =1\ \ \ \ \ \ \ \ \ \ \text{and}%
+1\operatorname*{XOR}0 &  =1\ \ \ \ \ \ \ \ \ \ \text{and}%
 \ \ \ \ \ \ \ \ \ \ \left[  1\right]  _{2}+\left[  0\right]  _{2}=\left[
 1\right]  _{2},\\
-1\operatorname*{XOR}1  &  =0\ \ \ \ \ \ \ \ \ \ \text{and}%
+1\operatorname*{XOR}1 &  =0\ \ \ \ \ \ \ \ \ \ \text{and}%
 \ \ \ \ \ \ \ \ \ \ \left[  1\right]  _{2}+\left[  1\right]  _{2}=\left[
 0\right]  _{2}.
 \end{align*}
 
 
-In Definition \ref{def.intro.XOR.XOR01m}, we defined a binary operation
-$\operatorname*{XOR}$ on $\left\{  0,1\right\}  ^{m}$, i.e., on bitstrings.
-This gives a ring%
+\textbf{(b)} Let $m\in\mathbb{N}$. In Definition \ref{def.intro.XOR.XOR01m},
+we defined a binary operation $\operatorname*{XOR}$ on $\left\{  0,1\right\}
+^{m}$, i.e., on length-$m$ bitstrings. This gives a ring%
 \[
 \left(  \left\{  0,1\right\}  ^{m},\operatorname*{XOR},\text{entrywise
 multiplication},00\cdots0,11\cdots1\right)
@@ -26647,6 +26655,7 @@ of bitstrings. This ring is precisely the Cartesian product%
 times}}.
 \]
 
+\end{example}
 
 \subsection{\label{sect.ring.matrix}Matrices and matrix rings}
 
@@ -26835,6 +26844,9 @@ liberty to neglect the \textquotedblleft right scaling\textquotedblright%
 \ operation. (Its properties are analogous to the corresponding properties of
 \textquotedblleft left scaling\textquotedblright\ anyway.)
 
+Let us now define an operation on matrices that is \textbf{not} computed
+entrywise: their product.
+
 \begin{definition}
 \label{def.matrix.AB}Let $n,m,p\in\mathbb{N}$. Let $A=\left(  a_{i,j}\right)
 _{1\leq i\leq n,\ 1\leq j\leq m}$ be an $n\times m$-matrix. Let $B=\left(
@@ -26850,6 +26862,8 @@ This is an $n\times p$-matrix.
 So you can add together two $n\times m$-matrices, but only multiply an
 $n\times m$-matrix with an $m\times p$-matrix. (You cannot multiply two
 $n\times m$-matrices, unless $n=m$.)
+
+Next, we define two special families of matrices:
 
 \begin{definition}
 \label{def.matrix.01}\textbf{(a)} If $n,m\in\mathbb{N}$, then the $n\times m$
@@ -26890,7 +26904,8 @@ where%
 .
 \]
 (Note that using the Iverson bracket notation we introduced in Exercise
-\ref{exe.binom.legendre}, we have $\delta_{i,j}=\left[  i=j\right]  $.)
+\ref{exe.binom.legendre}, we have $\delta_{i,j}=\left[  i=j\right]
+\cdot1_{\mathbb{K}}$.)
 
 The $n\times n$ identity matrix is called $I_{n}$.
 \end{definition}
@@ -26899,6 +26914,9 @@ Note that the $0$ and the $1$ here are the zero and the unity of $\mathbb{K}$.
 
 Thus, a zero matrix can be of any size, but an identity matrix has to be a
 square matrix.
+
+If $n,m\in\mathbb{N}$ and $A\in\mathbb{K}^{n\times m}$, then $-A$ shall denote
+the matrix $0_{n\times m}-A\in\mathbb{K}^{n\times m}$.
 
 The following rules hold for addition, subtraction, multiplication and scaling
 of matrices:
@@ -26993,7 +27011,15 @@ $, zero $0_{n\times n}$ and unity $I_{n}$) is a ring.
 \end{corollary}
 
 \begin{proof}
-Follows from Theorem \ref{thm.matrix.rules}.
+[Proof of Corollary \ref{cor.matrix.ring}.] This follows from Theorem
+\ref{thm.matrix.rules}. (For example, the \textquotedblleft
+Distributivity\textquotedblright\ axiom follows from Theorem
+\ref{thm.matrix.rules} \textbf{(g)}, whereas the \textquotedblleft Existence
+of additive inverses\textquotedblright\ follows from the fact that any
+$A\in\mathbb{K}^{n\times n}$ has additive inverse $-A$\ \ \ \ \footnote{This
+fact can be easily derived from Theorem \ref{thm.matrix.rules} \textbf{(p)}
+and Theorem \ref{thm.matrix.rules} \textbf{(k)}, for example (or just checked
+by hand).}.)
 \end{proof}
 
 \begin{definition}
@@ -27007,7 +27033,7 @@ ring} over $\mathbb{K}$.
 \end{center}
 
 So we know that $\mathbb{K}^{n\times n}$ is a ring whenever $n\in\mathbb{N}$.
-Hence, Proposition \ref{thm.rings.sum.wd} shows that can define finite sums
+Hence, Proposition \ref{thm.rings.sum.wd} shows that we can define finite sums
 and finite products in $\mathbb{K}^{n\times n}$ (but finite products need to
 have the order of their factors specified: i.e., we can make sense of
 \textquotedblleft$A_{1}A_{2}\cdots A_{k}$\textquotedblright\ but not of
@@ -37850,7 +37876,7 @@ Theorem \ref{thm.binom.vandermonde}. Hence, our proof of Theorem
 \ref{thm.binom.vandermonde} is now on solid ground.
 \end{proof}
 
-\subsubsection{Lagrange interpolation}
+\subsubsection{\label{subsect.pol.id.lagrange}Lagrange interpolation}
 
 Corollary \ref{cor.pol.id.n+1} shows that for any $n\in\mathbb{N}$, a
 polynomial of degree $\leq n$ over a field $\mathbb{K}$ is uniquely determined
@@ -38095,7 +38121,7 @@ elements $\left[  1\right]  _{p},\left[  2\right]  _{p},\ldots,\left[
 n\right]  _{p}$ would no longer necessarily be distinct and nonzero. Thus, we
 would have to use $n$ distinct nonzero elements of $\mathbb{F}$ instead.
 
-\subsubsection{Application: Reed--Solomon codes}
+\subsubsection{\label{subsect.pol.id.app-RS}Application: Reed--Solomon codes}
 
 Finally, here is a far more important application of Theorem
 \ref{thm.pol.id.lag}.
@@ -50264,9 +50290,9 @@ Thus, (\ref{eq.prop.rings.Zscal.rules.1a}) is proven.
 Next, let us prove (\ref{eq.prop.rings.Zscal.rules.-1a}). Indeed, each
 $a\in\mathbb{K}$ satisfies%
 \begin{align*}
-\left(  -1\right)  a &  =-\left(  \underbrace{a+a+\cdots+a}_{-\left(
+\left(  -1\right)  a  &  =-\left(  \underbrace{a+a+\cdots+a}_{-\left(
 -1\right)  \text{ times}}\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the
-definition of }\left(  -1\right)  a\text{, since }-1<0\right)  \\
+definition of }\left(  -1\right)  a\text{, since }-1<0\right) \\
 &  =-\underbrace{\left(  \underbrace{a+a+\cdots+a}_{1\text{ times}}\right)
 }_{=a}\ \ \ \ \ \ \ \ \ \ \left(  \text{since }-\left(  -1\right)  =1\right)
 \\
