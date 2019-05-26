@@ -17,7 +17,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Thursday, May 23, 2019 00:58:43}
+%TCIDATA{LastRevised=Sunday, May 26, 2019 19:29:42}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -26627,16 +26627,16 @@ order to get $\mathbb{X}$); for example, the correspondence between the
 $\operatorname*{XOR}$ operation on $\mathbb{X}$ and the addition on
 $\mathbb{Z}/2$ can be seen by comparing their results face to face:%
 \begin{align*}
-0\operatorname*{XOR}0 &  =0\ \ \ \ \ \ \ \ \ \ \text{and}%
+0\operatorname*{XOR}0  &  =0\ \ \ \ \ \ \ \ \ \ \text{and}%
 \ \ \ \ \ \ \ \ \ \ \left[  0\right]  _{2}+\left[  0\right]  _{2}=\left[
 0\right]  _{2},\\
-0\operatorname*{XOR}1 &  =1\ \ \ \ \ \ \ \ \ \ \text{and}%
+0\operatorname*{XOR}1  &  =1\ \ \ \ \ \ \ \ \ \ \text{and}%
 \ \ \ \ \ \ \ \ \ \ \left[  0\right]  _{2}+\left[  1\right]  _{2}=\left[
 1\right]  _{2},\\
-1\operatorname*{XOR}0 &  =1\ \ \ \ \ \ \ \ \ \ \text{and}%
+1\operatorname*{XOR}0  &  =1\ \ \ \ \ \ \ \ \ \ \text{and}%
 \ \ \ \ \ \ \ \ \ \ \left[  1\right]  _{2}+\left[  0\right]  _{2}=\left[
 1\right]  _{2},\\
-1\operatorname*{XOR}1 &  =0\ \ \ \ \ \ \ \ \ \ \text{and}%
+1\operatorname*{XOR}1  &  =0\ \ \ \ \ \ \ \ \ \ \text{and}%
 \ \ \ \ \ \ \ \ \ \ \left[  1\right]  _{2}+\left[  1\right]  _{2}=\left[
 0\right]  _{2}.
 \end{align*}
@@ -27011,7 +27011,7 @@ $, zero $0_{n\times n}$ and unity $I_{n}$) is a ring.
 \end{corollary}
 
 \begin{proof}
-[Proof of Corollary \ref{cor.matrix.ring}.] This follows from Theorem
+[Proof of Corollary \ref{cor.matrix.ring}.]This follows from Theorem
 \ref{thm.matrix.rules}. (For example, the \textquotedblleft
 Distributivity\textquotedblright\ axiom follows from Theorem
 \ref{thm.matrix.rules} \textbf{(g)}, whereas the \textquotedblleft Existence
@@ -37138,7 +37138,8 @@ u^{j}\right)  }_{\substack{=\sum\limits_{k\in\mathbb{N}}b_{k}u^{k}%
 \end{align*}
 (These manipulations with infinite sums are all kosher, because only finitely
 many pairs $\left(  i,j\right)  \in\mathbb{N}\times\mathbb{N}$ satisfy
-$a_{i}b_{j}\neq0$.) This completes our proof.
+$a_{i}b_{j}\neq0$.) This completes our proof of Theorem \ref{thm.pol.eval.a+b}
+\textbf{(a)}.
 \end{proof}
 
 \begin{corollary}
@@ -37665,7 +37666,7 @@ polynomials in $\mathbb{K}\left[  x\right]  $.
 \end{proposition}
 
 \begin{proof}
-Easy.
+[Proof of Proposition \ref{prop.pol.deg-compose}.]Easy.
 \end{proof}
 
 \begin{proposition}
@@ -37684,15 +37685,130 @@ u\right)  \right]  .
 $\mathbf{a}=x^{3}+2x+5$, then this is saying%
 \[
 f\left(  u^{3}+2u+5\right)  =\left(  f\left(  u\right)  \right)
-^{3}+2f\left(  u\right)  +5.
+^{3}+2f\left(  u\right)  +5
 \]
-But this is true, since $f$ preserves addition, multiplication, scaling, zero
-and unity (because $f$ is a $\mathbb{K}$-algebra homomorphism).
+(because $\mathbf{a}\left[  u\right]  =u^{3}+2u+5$ and $\mathbf{a}\left[
+f\left(  u\right)  \right]  =\left(  f\left(  u\right)  \right)
+^{3}+2f\left(  u\right)  +5$ in this case). But this equality is true, since
+$f$ preserves addition, multiplication, scaling, zero and unity (because $f$
+is a $\mathbb{K}$-algebra homomorphism).
 
 The proof of Proposition \ref{prop.pol.eval-funct} in the general case follows
-this example. (To see that $f\left(  u^{k}\right)  =\left(  f\left(  u\right)
-\right)  ^{k}$ for all $k\in\mathbb{N}$, it suffices to recall Proposition
-\ref{prop.riho.subtract} \textbf{(h)}, because $f$ is a ring homomorphism.)
+this example. Here are the details:
+
+\begin{fineprint}
+First we notice that $f$ is a ring homomorphism (since $f$ is a $\mathbb{K}%
+$-algebra homomorphism). Thus,
+\begin{equation}
+f\left(  u^{k}\right)  =\left(  f\left(  u\right)  \right)  ^{k}%
+\ \ \ \ \ \ \ \ \ \ \text{for all }k\in\mathbb{N}
+\label{pf.prop.pol.eval-funct.uk}%
+\end{equation}
+(by Proposition \ref{prop.riho.subtract} \textbf{(h)}, applied to $U$, $V$,
+$u$ and $k$ instead of $\mathbb{K}$, $\mathbb{L}$, $a$ and $n$). Now, write
+the polynomial $\mathbf{a}\in\mathbb{K}\left[  x\right]  $ in the form
+$\mathbf{a}=\left(  a_{0},a_{1},a_{2},\ldots\right)  $. Then, the definition
+of $\mathbf{a}\left[  u\right]  $ yields%
+\begin{equation}
+\mathbf{a}\left[  u\right]  =\sum_{k\in\mathbb{N}}a_{k}u^{k},
+\label{pf.prop.pol.eval-funct.au=}%
+\end{equation}
+whereas the definition of $\mathbf{a}\left[  f\left(  u\right)  \right]  $
+yields%
+\begin{equation}
+\mathbf{a}\left[  f\left(  u\right)  \right]  =\sum_{k\in\mathbb{N}}%
+a_{k}\left(  f\left(  u\right)  \right)  ^{k}.
+\label{pf.prop.pol.eval-funct.afu=}%
+\end{equation}
+
+
+Now, applying the map $f$ to both sides of the equality
+(\ref{pf.prop.pol.eval-funct.au=}), we find%
+\begin{equation}
+f\left(  \mathbf{a}\left[  u\right]  \right)  =f\left(  \sum_{k\in\mathbb{N}%
+}a_{k}u^{k}\right)  =\sum_{k\in\mathbb{N}}f\left(  a_{k}u^{k}\right)  .
+\label{pf.prop.pol.eval-funct.4}%
+\end{equation}
+Here, the last equality sign needs a bit of a justification. It is tempting to
+say that this equality sign follows from Proposition \ref{prop.riho.subtract}
+\textbf{(e)}, but this is not quite precise: The set $S$ in Proposition
+\ref{prop.riho.subtract} \textbf{(e)} is required to be finite, while the set
+$\mathbb{N}$, which the sums in (\ref{pf.prop.pol.eval-funct.4}) are ranging
+over, is infinite. However, $\mathbf{a}$ is a polynomial; in other words, all
+but finitely many $i\in\mathbb{N}$ satisfy $a_{i}=0$ (by the definition of a
+polynomial). In other words, there exists a finite subset $S$ of $\mathbb{Z}$
+such that%
+\begin{equation}
+\text{all }i\in\mathbb{N}\setminus S\text{ satisfy }a_{i}=0.
+\label{pf.prop.pol.eval-funct.4.pf.fin}%
+\end{equation}
+Consider this $S$. Now, each $k\in\mathbb{N}$ satisfies either $k\in S$ or
+$k\notin S$ (but not both at once); hence,%
+\begin{align*}
+\sum_{k\in\mathbb{N}}a_{k}u^{k}  &  =\underbrace{\sum_{\substack{k\in
+\mathbb{N};\\k\in S}}}_{\substack{=\sum_{k\in S}\\\text{(since }%
+S\subseteq\mathbb{N}\text{)}}}a_{k}u^{k}+\underbrace{\sum_{\substack{k\in
+\mathbb{N};\\k\notin S}}}_{=\sum_{k\in\mathbb{N}\setminus S}}a_{k}u^{k}%
+=\sum_{k\in S}a_{k}u^{k}+\sum_{k\in\mathbb{N}\setminus S}\underbrace{a_{k}%
+}_{\substack{=0\\\text{(by (\ref{pf.prop.pol.eval-funct.4.pf.fin}%
+),}\\\text{applied to }i=k\text{)}}}u^{k}\\
+&  =\sum_{k\in S}a_{k}u^{k}+\underbrace{\sum_{k\in\mathbb{N}\setminus S}%
+0u^{k}}_{=0}=\sum_{k\in S}a_{k}u^{k}.
+\end{align*}
+Applying the map $f$ to both sides of this equality, we find%
+\begin{equation}
+f\left(  \sum_{k\in\mathbb{N}}a_{k}u^{k}\right)  =f\left(  \sum_{k\in S}%
+a_{k}u^{k}\right)  =\sum_{k\in S}f\left(  a_{k}u^{k}\right)
+\label{pf.prop.pol.eval-funct.4.pf.6}%
+\end{equation}
+(by Proposition \ref{prop.riho.subtract} \textbf{(e)}, since the set $S$ is
+finite). But if $k\in\mathbb{N}\setminus S$, then $a_{k}=0$ (by
+(\ref{pf.prop.pol.eval-funct.4.pf.fin}), applied to $i=k$) and thus
+$\underbrace{a_{k}}_{=0}u^{k}=0$ and thus%
+\begin{equation}
+f\left(  \underbrace{a_{k}u^{k}}_{=0}\right)  =f\left(  0\right)  =0
+\label{pf.prop.pol.eval-funct.4.pf.finf}%
+\end{equation}
+(since $f$ is a $\mathbb{K}$-linear map\footnote{because $f$ is a $\mathbb{K}%
+$-algebra homomorphism}). Now, again, recall that each $k\in\mathbb{N}$
+satisfies either $k\in S$ or $k\notin S$ (but not both at once); hence,
+\begin{align*}
+\sum_{k\in\mathbb{N}}f\left(  a_{k}u^{k}\right)   &  =\underbrace{\sum
+_{\substack{k\in\mathbb{N};\\k\in S}}}_{\substack{=\sum_{k\in S}\\\text{(since
+}S\subseteq\mathbb{N}\text{)}}}f\left(  a_{k}u^{k}\right)  +\underbrace{\sum
+_{\substack{k\in\mathbb{N};\\k\notin S}}}_{=\sum_{k\in\mathbb{N}\setminus S}%
+}f\left(  a_{k}u^{k}\right)  =\sum_{k\in S}f\left(  a_{k}u^{k}\right)
++\sum_{k\in\mathbb{N}\setminus S}\underbrace{f\left(  a_{k}u^{k}\right)
+}_{\substack{=0\\\text{(by (\ref{pf.prop.pol.eval-funct.4.pf.finf}))}}}\\
+&  =\sum_{k\in S}f\left(  a_{k}u_{k}\right)  .
+\end{align*}
+Comparing this with (\ref{pf.prop.pol.eval-funct.4.pf.6}), we obtain $f\left(
+\sum_{k\in\mathbb{N}}a_{k}u^{k}\right)  =\sum_{k\in\mathbb{N}}f\left(
+a_{k}u^{k}\right)  $. Thus, the last equality sign in
+(\ref{pf.prop.pol.eval-funct.4}) has been justified. (This sort of
+straightforward argument is commonly left unsaid when working with
+polynomials, because it is almost completely automatic; the main idea is
+\textquotedblleft reduce the infinite sum to a finite sum by throwing out
+vanishing addends\textquotedblright.)
+
+Now that (\ref{pf.prop.pol.eval-funct.4}) is proven, we can move on. The map
+$f$ is $\mathbb{K}$-linear (since it is a $\mathbb{K}$-algebra homomorphism).
+Hence, for each $k\in\mathbb{N}$, we have%
+\[
+f\left(  a_{k}u^{k}\right)  =a_{k}\underbrace{f\left(  u^{k}\right)
+}_{\substack{=\left(  f\left(  u\right)  \right)  ^{k}\\\text{(by
+(\ref{pf.prop.pol.eval-funct.uk}))}}}=a_{k}\left(  f\left(  u\right)  \right)
+^{k}.
+\]
+Hence, (\ref{pf.prop.pol.eval-funct.4}) rewrites as%
+\[
+f\left(  \mathbf{a}\left[  u\right]  \right)  =\sum_{k\in\mathbb{N}}%
+a_{k}\left(  f\left(  u\right)  \right)  ^{k}.
+\]
+Comparing this with (\ref{pf.prop.pol.eval-funct.afu=}), we obtain $f\left(
+\mathbf{a}\left[  u\right]  \right)  =\mathbf{a}\left[  f\left(  u\right)
+\right]  $. Thus, Proposition \ref{prop.pol.eval-funct} is proven.
+\end{fineprint}
 \end{proof}
 
 \begin{proposition}
@@ -37706,8 +37822,24 @@ Let $\mathbf{a},\mathbf{b}\in\mathbb{K}\left[  x\right]  $. Then,%
 \end{proposition}
 
 \begin{proof}
-Exercise (using Proposition \ref{prop.pol.eval-funct} and the fact that
-$\operatorname*{ev}\nolimits_{u}$ is a $\mathbb{K}$-algebra homomorphism).
+[Proof of Proposition \ref{prop.pol.eval-assoc}.]The map $\operatorname*{ev}%
+\nolimits_{u}:\mathbb{K}\left[  x\right]  \rightarrow U$ is a $\mathbb{K}%
+$-algebra homomorphism (by Corollary \ref{cor.pol.eval.evu}). Hence,
+Proposition \ref{prop.pol.eval-funct} (applied to $\mathbb{K}\left[  x\right]
+$, $U$, $\operatorname*{ev}\nolimits_{u}$ and $\mathbf{b}$ instead of $U$,
+$V$, $f$ and $u$) yields $\operatorname*{ev}\nolimits_{u}\left(
+\mathbf{a}\left[  \mathbf{b}\right]  \right)  =\mathbf{a}\left[
+\operatorname*{ev}\nolimits_{u}\left(  \mathbf{b}\right)  \right]  $. But the
+definition of $\operatorname*{ev}\nolimits_{u}$ yields $\operatorname*{ev}%
+\nolimits_{u}\left(  \mathbf{b}\right)  =\mathbf{b}\left[  u\right]  $ and
+$\operatorname*{ev}\nolimits_{u}\left(  \mathbf{a}\left[  \mathbf{b}\right]
+\right)  =\left(  \mathbf{a}\left[  \mathbf{b}\right]  \right)  \left[
+u\right]  $. Hence, $\left(  \mathbf{a}\left[  \mathbf{b}\right]  \right)
+\left[  u\right]  =\operatorname*{ev}\nolimits_{u}\left(  \mathbf{a}\left[
+\mathbf{b}\right]  \right)  =\mathbf{a}\left[  \underbrace{\operatorname*{ev}%
+\nolimits_{u}\left(  \mathbf{b}\right)  }_{=\mathbf{b}\left[  u\right]
+}\right]  =\mathbf{a}\left[  \mathbf{b}\left[  u\right]  \right]  $. This
+proves Proposition \ref{prop.pol.eval-assoc}.
 \end{proof}
 
 One more notation is in order for the next section.
@@ -37733,10 +37865,11 @@ x-k+1\right)  }{k!}\ \ \ \ \ \ \ \ \ \ \text{when }k\in\mathbb{N}
 (and equals $0$ when $k\notin\mathbb{N}$). More generally, for each polynomial
 $\mathbf{a}\in\mathbb{Q}\left[  x\right]  $ and each $k\in\mathbb{N}$, we have
 a polynomial%
-\[
+\begin{equation}
 \dbinom{\mathbf{a}}{k}=\dfrac{\mathbf{a}\left(  \mathbf{a}-1\right)  \left(
 \mathbf{a}-2\right)  \cdots\left(  \mathbf{a}-k+1\right)  }{k!}.
-\]
+\label{eq.pol.bin-coeff.xk.ak}%
+\end{equation}
 The following is easy:
 
 \begin{corollary}
@@ -37744,34 +37877,65 @@ The following is easy:
 
 \textbf{(a)} Then, $\dbinom{x}{k}$ is a polynomial of degree $k$.
 
-\textbf{(b)} For each $u\in\mathbb{N}$, we have $\dbinom{x}{k}\left[
+\textbf{(b)} For each $u\in\mathbb{Q}$, we have $\dbinom{x}{k}\left[
 u\right]  =\dbinom{u}{k}$.
 
 \textbf{(c)} For each $\mathbf{a}\in\mathbb{Q}\left[  x\right]  $ and
-$u\in\mathbb{N}$, we have $\dbinom{\mathbf{a}}{k}\left[  u\right]
+$u\in\mathbb{Q}$, we have $\dbinom{\mathbf{a}}{k}\left[  u\right]
 =\dbinom{\mathbf{a}\left[  u\right]  }{k}$.
 \end{corollary}
 
 \begin{proof}
-[Proof of Corollary \ref{cor.pol.xchoosen}.]\textbf{(a)} Follows from the
-Proposition \ref{prop.pol.deg-prod-k}.
+[Proof of Corollary \ref{cor.pol.xchoosen}.]\textbf{(a)} This follows from
+(\ref{eq.pol.bin-coeff.xk.1}) and Proposition \ref{prop.pol.deg-prod-k}
+\textbf{(b)} (applied to $\mathbf{a}_{i}=x-i+1$).
 
-\textbf{(b)} Evaluating both sides of the equality
+\textbf{(b)} Let $u\in\mathbb{Q}$. Evaluating both sides of the equality
 (\ref{eq.pol.bin-coeff.xk.1}) at $u$ (that is, applying the evaluation
 homomorphism $\operatorname*{ev}\nolimits_{u}:\mathbb{Q}\left[  x\right]
-\rightarrow\mathbb{Q}$), we obtain%
+\rightarrow\mathbb{Q}$ to this equality), we obtain%
 \begin{align*}
 \dbinom{x}{k}\left[  u\right]   &  =\dfrac{x\left(  x-1\right)  \left(
 x-2\right)  \cdots\left(  x-k+1\right)  }{k!}\left[  u\right] \\
+&  =\dfrac{\left(  x\left[  u\right]  \right)  \left(  x\left[  u\right]
+-1\left[  u\right]  \right)  \left(  x\left[  u\right]  -2\left[  u\right]
+\right)  \cdots\left(  x\left[  u\right]  -\left(  k-1\right)  \left[
+u\right]  \right)  }{k!}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{since }\operatorname*{ev}\nolimits_{u}%
+\text{ is a }\mathbb{Q}\text{-algebra homomorphism}\right) \\
 &  =\dfrac{u\left(  u-1\right)  \left(  u-2\right)  \cdots\left(
-u-k+1\right)  }{k!}\ \ \ \ \ \ \ \ \ \ \left(  \text{since }\operatorname*{ev}%
-\nolimits_{u}\text{ is a }\mathbb{Q}\text{-algebra homomorphism}\right) \\
+u-k+1\right)  }{k!}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{since }x\left[  u\right]  =u\text{ and
+}i\left[  u\right]  =i\text{ for all integers }i\right) \\
 &  =\dbinom{u}{k}\ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of
 }\dbinom{u}{k}\right)  .
 \end{align*}
+This proves Corollary \ref{cor.pol.xchoosen} \textbf{(b)}.
 
-
-\textbf{(c)} Similar.
+\textbf{(c)} Let $\mathbf{a}\in\mathbb{Q}\left[  x\right]  $ and
+$u\in\mathbb{Q}$. Evaluating both sides of the equality
+(\ref{eq.pol.bin-coeff.xk.ak}) at $u$ (that is, applying the evaluation
+homomorphism $\operatorname*{ev}\nolimits_{u}:\mathbb{Q}\left[  x\right]
+\rightarrow\mathbb{Q}$ to this equality), we obtain%
+\begin{align*}
+\dbinom{\mathbf{a}}{k}\left[  u\right]   &  =\dfrac{\mathbf{a}\left(
+\mathbf{a}-1\right)  \left(  \mathbf{a}-2\right)  \cdots\left(  \mathbf{a}%
+-k+1\right)  }{k!}\left[  u\right] \\
+&  =\dfrac{\left(  \mathbf{a}\left[  u\right]  \right)  \left(  \mathbf{a}%
+\left[  u\right]  -1\left[  u\right]  \right)  \left(  \mathbf{a}\left[
+u\right]  -2\left[  u\right]  \right)  \cdots\left(  \mathbf{a}\left[
+u\right]  -\left(  k-1\right)  \left[  u\right]  \right)  }{k!}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{since }\operatorname*{ev}\nolimits_{u}%
+\text{ is a }\mathbb{Q}\text{-algebra homomorphism}\right) \\
+&  =\dfrac{\left(  \mathbf{a}\left[  u\right]  \right)  \left(  \mathbf{a}%
+\left[  u\right]  -1\right)  \left(  \mathbf{a}\left[  u\right]  -2\right)
+\cdots\left(  \mathbf{a}\left[  u\right]  -k+1\right)  }{k!}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{since }i\left[  u\right]  =i\text{ for
+all integers }i\right) \\
+&  =\dbinom{\mathbf{a}\left[  u\right]  }{k}\ \ \ \ \ \ \ \ \ \ \left(
+\text{by the definition of }\dbinom{\mathbf{a}\left[  u\right]  }{k}\right)  .
+\end{align*}
+This proves Corollary \ref{cor.pol.xchoosen} \textbf{(c)}.
 \end{proof}
 
 \subsection{\label{sect.pol.id}The polynomial identity trick}
@@ -38253,7 +38417,8 @@ two different ways.
 Among many properties of Pascal's triangle, one rather famous one is that the
 sum of all entries in the $n$-th row is $2^{n}$. That is,%
 \[
-\sum_{k=0}^{n}\dbinom{n}{k}=2^{n}.
+\sum_{k=0}^{n}\dbinom{n}{k}=2^{n}\ \ \ \ \ \ \ \ \ \ \text{for each }%
+n\in\mathbb{N}.
 \]
 This is, in fact, the direct result of applying Theorem \ref{thm.binom.binf}
 to $x=1$ and $y=1$. Likewise, we can apply Theorem \ref{thm.binom.binf} to
@@ -38262,8 +38427,9 @@ $x=-1$ and $y=1$, and conclude that%
 \sum_{k=0}^{n}\left(  -1\right)  ^{k}\dbinom{n}{k}=0^{n}=%
 \begin{cases}
 1, & \text{if }n=0;\\
-0, & \text{if }n\neq0.
+0, & \text{if }n\neq0
 \end{cases}
+\ \ \ \ \ \ \ \ \ \ \text{for each }n\in\mathbb{N}.
 \]
 In other words, the alternating sum of all entries in the $n$-th row of
 Pascal's triangle is $0$, unless $n=0$ (in which case it is $1$).
@@ -38388,12 +38554,14 @@ Hence,%
 
 Let us now compute the left hand side in a different way, using
 (\ref{eq.pol.fps-mul.1}). Namely,
-\[
-\left(  \underbrace{1-x}_{=1+\left(  -x\right)  }\right)  ^{u}=\left(
+\begin{align*}
+\left(  \underbrace{1-x}_{=1+\left(  -x\right)  }\right)  ^{u}  &  =\left(
 1+\left(  -x\right)  \right)  ^{u}=\sum_{k\in\mathbb{N}}\dbinom{u}%
-{k}\underbrace{\left(  -x\right)  ^{k}}_{=\left(  -1\right)  ^{k}x^{k}}%
-=\sum_{k\in\mathbb{N}}\left(  -1\right)  ^{k}\dbinom{u}{k}x^{k}.
-\]
+{k}\underbrace{\left(  -x\right)  ^{k}}_{=\left(  -1\right)  ^{k}x^{k}}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Lemma \ref{lem.binom.psgu}, applied to
+}a=-x\right) \\
+&  =\sum_{k\in\mathbb{N}}\left(  -1\right)  ^{k}\dbinom{u}{k}x^{k}.
+\end{align*}
 Hence, each $i\in\mathbb{N}$ satisfies%
 \begin{equation}
 \left[  x^{i}\right]  \left(  \left(  1-x\right)  ^{u}\right)  =\left[
@@ -38542,6 +38710,58 @@ _{=\dbinom{n}{k}\dbinom{n}{k}}  &  =\sum_{k=0}^{n}\left(  -1\right)
 \ref{lem.binom.altsum-squares-N}, applied to $u=n$). This proves Proposition
 \ref{prop.binom.altsum-squares}.
 \end{proof}
+
+\begin{fineprint}
+\begin{remark}
+We now know
+
+\begin{itemize}
+\item the sum of all entries of the $n$-th row of Pascal's triangle (it is
+$2^{n}$);
+
+\item the alternating sum of all entries of the $n$-th row of Pascal's
+triangle (it is $0$ if $n\neq0$, and $1$ otherwise);
+
+\item the sum of the squares of all entries of the $n$-th row of Pascal's
+triangle (it is $\dbinom{2n}{n}$);
+
+\item the alternating sum of the squares of all entries of the $n$-th row of
+Pascal's triangle (see Proposition \ref{prop.binom.altsum-squares}).
+\end{itemize}
+
+How does this pattern continue? We may ask for the sum $\sum_{k=0}^{n}%
+\dbinom{n}{k}^{3}$ of all cubes of all entries of the $n$-th row of Pascal's
+triangle, as well as their alternating sum.
+
+The numbers $\sum_{k=0}^{n}\dbinom{n}{k}^{3}$ are known as the \textit{Franel
+numbers} (\href{https://oeis.org/A000172}{OEIS sequence A000172}); no explicit
+(sum-less) formula for them is known (unlike for the sums of squares).
+
+As for the alternating sum, however, there is a nice formula:%
+\[
+\sum_{k=0}^{n}\left(  -1\right)  ^{k}\dbinom{n}{k}^{3}=%
+\begin{cases}
+\left(  -1\right)  ^{n/2}\dfrac{\left(  3n/2\right)  !}{\left(  n/2\right)
+!^{3}}, & \text{if }n\text{ is even};\\
+0, & \text{if }n\text{ is odd}%
+\end{cases}
+\ \ \ \ \ \ \ \ \ \ \text{for all }n\in\mathbb{N}\text{.}%
+\]
+In the case when $n$ is odd, this formula is easy to check (indeed, in the sum
+$\sum_{k=0}^{n}\left(  -1\right)  ^{k}\dbinom{n}{k}^{3}$, the addend for $k=u$
+cancels the addend for $k=n-u$). In the case when $n$ is even, it is a
+particular case of what is known as
+\textit{\href{https://en.wikipedia.org/wiki/Dixon's_identity}{\textit{Dixon's
+identity}}} (see, e.g., \cite{Ward91}). The sequence of these alternating sums
+is \href{https://oeis.org/A245086}{OEIS sequence A245086}.
+
+Higher powers are even more complicated. For example, as far as fourth powers
+are concerned, neither $\sum_{k=0}^{n}\dbinom{n}{k}^{4}$ nor $\sum_{k=0}%
+^{n}\left(  -1\right)  ^{k}\dbinom{n}{k}^{4}$ has a known explicit form (see
+OEIS sequences \href{https://oeis.org/A005260}{A005260} and
+\href{https://oeis.org/A228304}{A228304}).
+\end{remark}
+\end{fineprint}
 
 \subsubsection{Proving Lucas's congruence}
 
@@ -51148,6 +51368,9 @@ translated 7th edition, Springer 1991.
 
 \bibitem[Waerde91b]{Waerden2}B.L. van der Waerden, \textit{Algebra, Volume
 II}, translated 5th edition, Springer 1991.
+
+\bibitem[Ward91]{Ward91}James Ward, \textit{100 years of Dixon's identity},
+Irish Mathematical Society Bulletin \textbf{27} (1991), pp. 46--54.\newline\url{http://www.maths.tcd.ie/pub/ims/bull27/bull27_46-54.pdf}
 
 \bibitem[Wilf94]{Wilf94}Herbert S. Wilf, \textit{generatingfunctionology},
 1999.\newline\url{https://www.math.upenn.edu/~wilf/DownldGF.html}
