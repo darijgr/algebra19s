@@ -1503,11 +1503,694 @@ This solves part \textbf{(f)} of the exercise.
 
 \subsection{Problem}
 
-[...]
+Let $S$ be a set.
+A \textit{binary operation} on $S$ means a map from $S \times S$
+to $S$.
+(In other words, a binary operation on $S$ means a function that
+takes two elements of $S$ and outputs an element of $S$.
+For example, subtraction of integers is a binary operation on $\ZZ$,
+sending each pair $\tup{a, b} \in \ZZ \times \ZZ$ to $a-b \in \ZZ$.
+Other binary operations on $\ZZ$ are addition and multiplication,
+but not division\footnote{Division is not a binary operation on $\ZZ$,
+because $1 / 2 \notin \ZZ$ (and also because $1 / 0$ is not
+defined).}.)
+
+Fix a binary operation $*$ on $S$.
+In the following, we will write this operation $*$ in
+\textit{infix notation}. This means that if $a, b \in S$, then
+we write $a * b$ (rather than $* \tup{a, b}$) for
+the image of $\tup{a, b}$ under $*$.
+(This is how binary operations are commonly written: For example,
+addition, subtraction and multiplication are all written
+this way.
+For instance, you write $a + b$ for the sum of two numbers
+$a$ and $b$, not $+ \tup{a, b}$.)
+
+Now, assume that we have
+\begin{equation}
+a * \tup{b * c} = \tup{a * b} * c
+\qquad \text{for all $a, b, c \in S$ .}
+\label{eq.exe.gen-ass.ass}
+\end{equation}
+(This is often called the \textit{associativity law} for $*$;
+a binary operation $*$ satisfying this law is called
+\textit{associative}.\footnote{For
+example, the operation $+$ on integers is associative, since
+every three integers $a, b, c$ satisfy
+$a + \tup{b + c} = \tup{a + b} + c$.
+Similarly, the operation $\cdot$ (multiplication) on integers
+is associative.
+But the operation $-$ on integers is not associative, since
+not every three integers $a, b, c$ satisfy
+$a - \tup{b - c} = \tup{a - b} - c$
+(in fact, a specific counterexample is $a = 0$, $b = 0$ and
+$c = 1$).
+
+Here are five more examples of associative operations:
+
+\begin{itemize}
+
+\item The binary operation $\gcd$ on positive integers
+      (sending each $\tup{a, b} \in \set{1,2,3,\ldots}^2$
+      to the greatest common divisor $\gcd\tup{a, b}$
+      of $a$ and $b$) is associative.
+      (This will be proven later in class.)
+      Note that this operation is usually \textbf{not}
+      written infix: We write $\gcd\tup{a, b}$, not
+      $a \gcd b$.
+
+\item The binary operation $\min$ on integers
+      (sending each $\tup{a, b} \in \ZZ^2$ to
+      $\min\set{a, b}$, which is the smaller of the two
+      numbers $a$ and $b$) is associative.
+      (This is easy to check: If $a, b, c \in \ZZ$,
+      then both $\min\set{a, \min\set{b, c}}$ and
+      $\min\set{\min\set{a, b}, c}$ equal the smallest
+      of the three numbers $a, b, c$.)
+      
+\item If $n \in \NN$, then
+      multiplication of $n \times n$-matrices
+      (say, with real entries)
+      is associative.
+      (We will elaborate on this later in class.)
+
+\item The binary operation $\#$ on the open interval
+      $\tup{-1, 1} \subseteq \RR$ defined by
+      \[
+      a \# b = \dfrac{a + b}{1 + ab}
+      \]
+      is associative (check this!).
+      This operation $\#$ is sometimes known as
+      \textit{relativistic addition of velocities} (renormalized
+      so that the speed of light is $1$);
+      see
+      \href{https://kconrad.math.uconn.edu/blurbs/grouptheory/relativity.pdf}{Keith Conrad, \textit{Relativistic addition and group theory}}
+      for more about it.
+
+\item If $A$ is any set, and $A^A$ is the set of all
+      maps from $A$ to $A$, then the composition of
+      maps (i.e., the binary operation that sends
+      each $\tup{f, g} \in \tup{A^A}^2$ to
+      $f \circ g$) is associative.
+\end{itemize}
+})
+
+The equality \eqref{eq.exe.gen-ass.ass} entails that if
+$a, b, c \in S$ are three elements, then the ``triple product''%
+\footnote{The word ``product'' is meant in the wider sense.
+Of course, $*$ does not have to be multiplication of numbers.
+When it is, our ``products'' are products in the usual sense.}
+expression $a * b * c$ makes sense; indeed, the two reasonable
+ways to interpret this expression are $a * \tup{b * c}$ and
+$\tup{a * b} * c$ (corresponding to the two possible orders in
+which the $*$ operations can be performed), and the associativity
+law \eqref{eq.exe.gen-ass.ass} says precisely that these two
+ways lead to the same result.
+This result can therefore be called
+$a * b * c$ without risking ambiguity.
+
+Less obvious is the case of a ``quadruple product'' expression
+$a * b * c * d$ when $a, b, c, d \in S$ are four elements.
+There are not $2$ but $5$ different ways of interpreting this
+expression:
+\begin{align*}
+&
+a * \tup{b * \tup{c * d}}, \qquad
+a * \tup{\tup{b * c} * d}, \qquad
+\tup{a * b} * \tup{c * d}, \\
+&
+\tup{a * \tup{b * c}} * d, \qquad
+\tup{\tup{a * b} * c} * d.
+\end{align*}
+It can again be shown using \eqref{eq.exe.gen-ass.ass} that
+these $5$ ways produce one and the same result.
+(For example, the second and the fourth of these $5$ ways
+produce the same result, because applying
+\eqref{eq.exe.gen-ass.ass} to $a$, $b * c$ and $d$ instead
+of $a$, $b$ and $c$ yields
+$a * \tup{\tup{b * c} * d} = \tup{a * \tup{b * c}} * d$.)
+Thus, the ``quadruple product'' $a * b * c * d$ can, too,
+be given a non-ambiguous meaning:
+Just evaluate any of its $5$ possible interpretations;
+the result doesn't depend on which one you chose.
+
+In this exercise, we will generalize this to arbitrary
+``$k$-tuple product'' expressions $a_1 * a_2 * \cdots * a_k$
+(with $a_1, a_2, \ldots, a_k \in S$).
+The main claim is that all possible ways of interpreting
+such an expression yield the same result.
+Even formulating this claim rigorously is not easy!
+
+We will circumnavigate this difficulty as follows:
+Rather than try to explain what ``interpreting this
+expression'' means, we will first \textbf{define} the value
+of $a_1 * a_2 * \cdots * a_k$ in a specific way -- namely,
+by performing the $*$ operations ``from left to right''
+(i.e., we will define it to be
+$\tup{ \cdots \tup{\tup{a_1 * a_2} * a_3} * \cdots } * a_k$);
+we will actually denote this value by
+$P \tup{a_1, a_2, \ldots, a_k}$ (in order to avoid being
+tempted by the overly suggestive notation
+$a_1 * a_2 * \cdots * a_k$
+into believing something that needs to proven first!),
+and we will define it recursively (in order to avoid having
+``$\cdots$'' in our definition).
+Once this $P \tup{a_1, a_2, \ldots, a_k}$ is defined,
+we will prove\footnote{This is part \textbf{(a)} of the
+exercise.} that
+every positive integer $k$, every $a_1, a_2, \ldots, a_k \in S$
+and every $i \in \set{1, 2, \ldots, k-1}$ satisfy
+\[
+P \tup{a_1, a_2, \ldots, a_k}
+= \tup{P \tup{a_1, a_2, \ldots, a_i}}
+     * \tup{P \tup{a_{i+1}, a_{i+2}, \ldots, a_k}} ,
+\]
+and this will show that the value
+$P \tup{a_1, a_2, \ldots, a_k}$
+is also obtained if we interpret the expression
+$a_1 * a_2 * \cdots * a_k$ starting with any of the $*$
+signs.
+(By induction, this freedom to start with any of the $*$
+signs means that we can also continue with any of the
+remaining $*$ signs, and so on.)
+
+Here is the definition we promised:
+
+\begin{statement}
+\textbf{Definition.}
+
+For every positive integer $k$ and any $k$ elements
+$a_1, a_2, \ldots, a_k \in S$, we define an element
+$P \tup{a_1, a_2, \ldots, a_k} \in S$ by recursion on $k$,
+as follows:
+
+\begin{itemize}
+
+\item For $k = 1$, we simply set
+\begin{align}
+P \tup{a_1} = a_1 .
+\label{eq.exe.gen-ass.Pa1}
+\end{align}
+
+\item If $k > 1$, then we set
+\begin{align}
+P \tup{a_1, a_2, \ldots, a_k}
+= \tup{P \tup{a_1, a_2, \ldots, a_{k-1}}} * a_k .
+\label{eq.exe.gen-ass.Pa2}
+\end{align}
+
+\end{itemize}
+\end{statement}
+
+By unrolling this recursive definition, you can see what it
+means for each specific value of $k$: Namely,
+\begin{align*}
+P \tup{a_1} &= a_1 ; \\
+P \tup{a_1, a_2} &= a_1 * a_2 ; \\
+P \tup{a_1, a_2, a_3} &= \tup{a_1 * a_2} * a_3 ; \\
+P \tup{a_1, a_2, a_3, a_4} &= \tup{\tup{a_1 * a_2} * a_3} * a_4 ; \\
+\cdots \\
+P \tup{a_1, a_2, \ldots, a_k} &= \tup{ \cdots \tup{\tup{a_1 * a_2} * a_3} * \cdots } * a_k .
+\end{align*}
+So, as you see, $P \tup{a_1, a_2, \ldots, a_k}$ is just
+(a formal way to say) ``the expression
+$a_1 * a_2 * \cdots * a_k$ interpreted by performing
+the $*$ operations from left to right''.
+
+Now comes the actual exercise:
+
+\begin{enumerate}
+
+\item[\textbf{(a)}]
+Prove that
+every positive integer $k$, every elements
+$a_1, a_2, \ldots, a_k \in S$
+and every $i \in \set{1, 2, \ldots, k-1}$ satisfy
+\begin{equation}
+P \tup{a_1, a_2, \ldots, a_k}
+= \tup{P \tup{a_1, a_2, \ldots, a_i}}
+     * \tup{P \tup{a_{i+1}, a_{i+2}, \ldots, a_k}} .
+\label{eq.exe.gen-ass.a}
+\end{equation}
+
+\end{enumerate}
+
+Now, we define the value
+of the ``$k$-tuple product'' expression
+$a_1 * a_2 * \cdots * a_k$ (where $k$ is a positive
+integer and $a_1, a_2, \ldots, a_k \in S$ are $k$
+elements) to be $P \tup{a_1, a_2, \ldots, a_k}$.
+Then, the equality \eqref{eq.exe.gen-ass.a} rewrites as
+\[
+a_1 * a_2 * \cdots * a_k
+= \tup{a_1 * a_2 * \cdots * a_i}
+    * \tup{a_{i+1} * a_{i+2} * \cdots * a_k} ,
+\]
+which means precisely that you can start evaluating
+the expression $a_1 * a_2 * \cdots * a_k$ with any
+of the $*$ signs and you still get the same result.
+(Of course, the two smaller sub-expressions
+$a_1 * a_2 * \cdots * a_i$ and
+$a_{i+1} * a_{i+2} * \cdots * a_k$ can also be
+evaluated by starting with any of the $*$ signs,
+and so on.
+Thus, by induction, you can perform the $*$ operations
+in any order and still get the same result.)
+
+Note that this notation $a_1 * a_2 * \cdots * a_k$
+generalizes the sum $a_1 + a_2 + \cdots + a_k$ and the
+product $a_1 \cdot a_2 \cdot \cdots \cdot a_k$ of $k$
+numbers.
+
+So far we have only defined the value of ``$k$-tuple
+products'' $a_1 * a_2 * \cdots * a_k$ when $k > 0$;
+our next goal is to also give them a meaning in the
+case when $k = 0$.
+While this is a degenerate border case (we are defining
+a ``product'' with no factors!), it tends to be rather
+useful.
+
+Let $e$ be an element of $S$ such that
+\begin{align}
+a * e = e * a = a \qquad \text{for all $a \in S$.}
+\label{eq.exe.gen-ass.neu}
+\end{align}
+(Such an element $e$ is called \textit{neutral} for the
+operation $*$. For example, $0 \in \ZZ$ is neutral for
+the operation $+$, while $1 \in \ZZ$ is neutral for
+the operation $\cdot$. Not every binary operation has
+a neutral element.\footnote{However, it is easy to show
+that any binary operation has \textbf{at most one}
+neutral element. In other words, if $e_1$ and $e_2$
+are two elements of $S$ that are both neutral for $*$,
+then $e_1 = e_2$.})
+
+Now, using $e$, let us extend our definition of
+$P \tup{a_1, a_2, \ldots, a_k}$ (which, so far, only
+covered the case $k > 0$) to the case when $k = 0$.
+This is a very degenerate case: In this case,
+$\tup{a_1, a_2, \ldots, a_k}$ is the empty list $\tup{}$,
+so we just need to define $P \tup{}$.
+We define it by setting
+\[
+P \tup{} = e .
+\]
+
+Now we can extend the result of part \textbf{(a)}
+of the exercise somewhat, by allowing $k$ to be $0$
+and allowing $i$ to be $0$ or $k$:
+
+\begin{enumerate}
+
+\item[\textbf{(b)}]
+Prove that 
+every nonnegative integer $k$, every elements
+$a_1, a_2, \ldots, a_k \in S$
+and every $i \in \set{0, 1, \ldots, k}$ satisfy
+\[
+P \tup{a_1, a_2, \ldots, a_k}
+= \tup{P \tup{a_1, a_2, \ldots, a_i}}
+     * \tup{P \tup{a_{i+1}, a_{i+2}, \ldots, a_k}} .
+\]
+
+\end{enumerate}
+
+\subsection{Remark}
+
+Part \textbf{(a)} of this exercise (and, occasionally,
+part \textbf{(b)} as well) is known as the
+\textit{general associativity law}.
+Notice the power of this law:
+Once you check the associativity law
+\eqref{eq.exe.gen-ass.ass} for ``$*$-products'' of $3$ elements,
+it allows you to define
+``$k$-tuple products'' $a_1 * a_2 * \cdots * a_k$
+and gives you an associativity law for them
+for free.
+
+This is used tacitly in many places.
+For example, in linear algebra, one commonly defines
+the product $AB$ of two matrices $A$ and $B$, and then
+shows that this product satisfies the associativity law
+(that is, $A \tup{BC} = \tup{AB} C$).
+The general associativity law then shows that a product
+$A_1 A_2 \cdots A_k$ of $k$ matrices is well-defined
+(i.e., its value does not depend on the order in which
+you perform the multiplications).\footnote{Strictly
+speaking, this argument works only for square matrices,
+because multiplication of non-square matrices is not
+a binary operation.
+But a straightforward generalization of the general
+associativity law can be used to adapt this argument
+to the case of arbitrary rectangular matrices.}
+Chances are, you have been using this fact long before
+you realized it needs to be proven.
 
 \subsection{Solution}
 
-[...]
+\textbf{(a)}
+We will solve part \textbf{(a)} of the exercise by
+induction on $k$.
+
+\textit{Induction base:}
+Part \textbf{(a)} of the exercise holds for $k = 1$,
+for fairly stupid reasons\footnote{\textit{Proof.}
+If $k = 1$, then
+$\set{1, 2, \ldots, k-1} = \set{1, 2, \ldots, 1-1}
+= \set{1, 2, \ldots, 0} = \varnothing$.
+Hence, if $k = 1$, then there exists no
+$i \in \set{1, 2, \ldots, k-1}$.
+Thus, if $k = 1$, then part \textbf{(a)} of the
+exercise is
+\href{https://en.wikipedia.org/wiki/Vacuous_truth}{vacuously true}
+(because it makes a statement about ``every
+$i \in \set{1, 2, \ldots, k-1}$'', but no such $i$
+exists).
+And a vacuously true statement is true.}.
+This concludes the induction base.
+
+\textit{Induction step:} Fix a positive integer $n > 1$.
+Assume that part \textbf{(a)} of the exercise holds
+for $k = n-1$.
+We must now prove that part \textbf{(a)} of the exercise
+holds for $k = n$.
+
+We have assumed that part \textbf{(a)} of the exercise
+holds for $k = n-1$.
+In other words, the following claim holds:
+
+\begin{statement}
+\textit{Claim 1:}
+Every elements $a_1, a_2, \ldots, a_{n-1} \in S$
+and every $i \in \set{1, 2, \ldots, n-2}$ satisfy
+\[
+P \tup{a_1, a_2, \ldots, a_{n-1}}
+= \tup{P \tup{a_1, a_2, \ldots, a_i}}
+     * \tup{P \tup{a_{i+1}, a_{i+2}, \ldots, a_{n-1}}} .
+\]
+\end{statement}
+
+We must prove that part \textbf{(a)} of the exercise
+holds for $k = n$.
+In other words, we must prove the following claim:
+
+\begin{statement}
+\textit{Claim 2:}
+Every elements $a_1, a_2, \ldots, a_n \in S$
+and every $i \in \set{1, 2, \ldots, n-1}$ satisfy
+\begin{equation}
+P \tup{a_1, a_2, \ldots, a_n}
+= \tup{P \tup{a_1, a_2, \ldots, a_i}}
+     * \tup{P \tup{a_{i+1}, a_{i+2}, \ldots, a_n}} .
+\label{sol.gen-ass.a.IG}
+\end{equation}
+\end{statement}
+
+[\textit{Proof of Claim 2:}
+Let $a_1, a_2, \ldots, a_n \in S$ and
+$i \in \set{1, 2, \ldots, n-1}$.
+We must prove the equality \eqref{sol.gen-ass.a.IG}.
+
+From $i \in \set{1, 2, \ldots, n-1}$, we obtain
+$1 \leq i \leq n-1$. Hence, $n-1 \geq 1$, so that
+$n \geq 2$.
+
+We are in one of the following two cases:
+
+\textit{Case 1:} We have $i = n-1$.
+
+\textit{Case 2:} We have $i \neq n-1$.
+
+Let us first consider Case 1.
+In this case, we have $i = n-1$.
+Thus, $n-i = 1$;
+hence, the $\tup{n-i}$-tuple
+$\tup{a_{i+1}, a_{i+2}, \ldots, a_n}$
+is simply the $1$-tuple $\tup{a_n}$.
+Thus,
+\begin{align}
+P \tup{a_{i+1}, a_{i+2}, \ldots, a_n}
+= P \tup{a_n} = a_n
+\label{sol.gen-ass.a.case1.1}
+\end{align}
+(by \eqref{eq.exe.gen-ass.Pa1}, applied to $a_n$ instead
+of $a_1$).
+
+But $n \geq 2 > 1$.
+Thus, \eqref{eq.exe.gen-ass.Pa2} (applied to $k = n$)
+yields
+\begin{align*}
+P \tup{a_1, a_2, \ldots, a_n}
+&= \tup{P \tup{a_1, a_2, \ldots, a_{n-1}}} * a_n \\
+&= \tup{P \tup{a_1, a_2, \ldots, a_i}}
+     * \underbrack{a_n}{= P \tup{a_{i+1}, a_{i+2}, \ldots, a_n} \\
+                        \tup{\text{by \eqref{sol.gen-ass.a.case1.1}}}}
+   \qquad \tup{\text{since $n-1 = i$}} \\
+&= \tup{P \tup{a_1, a_2, \ldots, a_i}}
+     * \tup{P \tup{a_{i+1}, a_{i+2}, \ldots, a_n}} .
+\end{align*}
+Thus, \eqref{sol.gen-ass.a.IG} is proven in Case 1.
+
+Let us now consider Case 2.
+In this case, we have $i \neq n-1$.
+Thus, $i < n-1$ (since $i \leq n-1$).
+Hence, $n-i > 1$.
+Thus, \eqref{eq.exe.gen-ass.Pa2} (applied to $n-i$
+and $a_{i+1}, a_{i+2}, \ldots, a_n$ instead of $k$
+and $a_1, a_2, \ldots, a_k$)
+yields
+\begin{align*}
+P \tup{a_{i+1}, a_{i+2}, \ldots, a_n}
+&= \tup{P \tup{a_{i+1}, a_{i+2}, \ldots, a_{n-1}}} * a_n  .
+\end{align*}
+Hence,
+\begin{align}
+& \tup{P \tup{a_1, a_2, \ldots, a_i}}
+     * \underbrace{\tup{P \tup{a_{i+1}, a_{i+2}, \ldots, a_n}}}_{
+                    = \tup{P \tup{a_{i+1}, a_{i+2}, \ldots, a_{n-1}}} * a_n} \nnn
+& = \tup{P \tup{a_1, a_2, \ldots, a_i}}
+     * \tup{\tup{P \tup{a_{i+1}, a_{i+2}, \ldots, a_{n-1}}} * a_n} \nnn
+& = \tup{\tup{P \tup{a_1, a_2, \ldots, a_i}}
+     * \tup{P \tup{a_{i+1}, a_{i+2}, \ldots, a_{n-1}}}}
+    * a_n
+\label{sol.gen-ass.a.c2.pf.2}
+\end{align}
+(by \eqref{eq.exe.gen-ass.ass}, applied to
+$a = P \tup{a_1, a_2, \ldots, a_i}$,
+$b = P \tup{a_{i+1}, a_{i+2}, \ldots, a_{n-1}}$
+and $c = a_n$).
+
+Furthermore, $i < n-1$.
+Since $i$ and $n-1$ are integers, this entails
+$i \leq \tup{n-1} - 1 = n-2$.
+Thus, $i \in \set{1, 2, \ldots, n-2}$ (since $i \geq 1$).
+Hence, Claim 1 yields
+\begin{align}
+P \tup{a_1, a_2, \ldots, a_{n-1}}
+= \tup{P \tup{a_1, a_2, \ldots, a_i}}
+     * \tup{P \tup{a_{i+1}, a_{i+2}, \ldots, a_{n-1}}} .
+\label{sol.gen-ass.a.c2.pf.3}
+\end{align}
+
+On the other hand, $n \geq 2 > 1$.
+Thus, \eqref{eq.exe.gen-ass.Pa2} (applied to $k = n$)
+yields
+\begin{align*}
+P \tup{a_1, a_2, \ldots, a_n}
+&= \tup{P \tup{a_1, a_2, \ldots, a_{n-1}}} * a_n \\
+&= \tup{\tup{P \tup{a_1, a_2, \ldots, a_i}}
+     * \tup{P \tup{a_{i+1}, a_{i+2}, \ldots, a_{n-1}}}}
+    * a_n
+    \qquad
+    \tup{\text{by \eqref{sol.gen-ass.a.c2.pf.3}}} \\
+&= \tup{P \tup{a_1, a_2, \ldots, a_i}}
+     * \tup{P \tup{a_{i+1}, a_{i+2}, \ldots, a_n}}
+     \qquad \tup{\text{by \eqref{sol.gen-ass.a.c2.pf.2}}} .
+\end{align*}
+Thus, \eqref{sol.gen-ass.a.IG} is proven in Case 2.
+
+We have now proven \eqref{sol.gen-ass.a.IG} in both Cases
+1 and 2.
+Since these two Cases cover all possibilities, we thus
+conclude that \eqref{sol.gen-ass.a.IG} always holds.
+Thus, Claim 2 is proven.]
+
+By proving Claim 2, we have shown that
+part \textbf{(a)} of the exercise
+holds for $k = n$.
+This completes the induction step.
+Thus, part \textbf{(a)} of the exercise
+is proven by induction.
+
+\vspace{0.8pc}
+
+\textbf{(b)}
+Let $k$ be a nonnegative integer.
+Let $a_1, a_2, \ldots, a_k \in S$
+and $i \in \set{0, 1, \ldots, k}$.
+We must prove the equality
+\begin{align}
+P \tup{a_1, a_2, \ldots, a_k}
+= \tup{P \tup{a_1, a_2, \ldots, a_i}}
+     * \tup{P \tup{a_{i+1}, a_{i+2}, \ldots, a_k}} .
+\label{sol.exe.gen-ass.b.goal}
+\end{align}
+
+We are in one of the following three cases:
+
+\textit{Case 1:} We have $i = 0$.
+
+\textit{Case 2:} We have $i = k$.
+
+\textit{Case 3:} We have $i \neq 0$ and $i \neq k$.
+
+Let us first consider Case 1.
+In this case, we have $i = 0$.
+Hence, the $i$-tuple $\tup{a_1, a_2, \ldots, a_i}$
+is actually the $0$-tuple $\tup{}$.
+Therefore, $P \tup{a_1, a_2, \ldots, a_i} = P \tup{} = e$
+(by our definition of $P \tup{}$).
+But the equality \eqref{eq.exe.gen-ass.neu} yields that
+$e * a = a$ for each $a \in S$.
+Applying this to $a = P \tup{a_{i+1}, a_{i+2}, \ldots, a_k}$,
+we obtain
+\begin{align*}
+e * P \tup{a_{i+1}, a_{i+2}, \ldots, a_k}
+&= P \tup{a_{i+1}, a_{i+2}, \ldots, a_k}
+ = P \tup{a_1, a_2, \ldots, a_k}
+\end{align*}
+(since $i = 0$).
+Hence,
+\begin{align*}
+ \underbrace{\tup{P \tup{a_1, a_2, \ldots, a_i}}}_{= e}
+     * \tup{P \tup{a_{i+1}, a_{i+2}, \ldots, a_k}}
+ = e * P \tup{a_{i+1}, a_{i+2}, \ldots, a_k}
+ = P \tup{a_1, a_2, \ldots, a_k} .
+\end{align*}
+Thus, \eqref{sol.exe.gen-ass.b.goal} is proven in Case 1.
+
+Let us next consider Case 2.
+In this case, we have $i = k$.
+Hence, the $\tup{k-i}$-tuple $\tup{a_{i+1}, a_{i+2}, \ldots, a_k}$
+is actually the $0$-tuple $\tup{}$.
+Therefore, $P \tup{a_{i+1}, a_{i+2}, \ldots, a_k} = P \tup{} = e$
+(by our definition of $P \tup{}$).
+But the equality \eqref{eq.exe.gen-ass.neu} yields that
+$a * e = a$ for each $a \in S$.
+Applying this to $a = P \tup{a_1, a_2, \ldots, a_i}$,
+we obtain
+\begin{align*}
+P \tup{a_1, a_2, \ldots, a_i} * e
+&= P \tup{a_1, a_2, \ldots, a_i}
+ = P \tup{a_1, a_2, \ldots, a_k}
+\end{align*}
+(since $i = k$).
+Hence,
+\begin{align*}
+ \tup{P \tup{a_1, a_2, \ldots, a_i}}
+     * \underbrace{\tup{P \tup{a_{i+1}, a_{i+2}, \ldots, a_k}}}_{= e}
+ = P \tup{a_1, a_2, \ldots, a_i} * e
+ = P \tup{a_1, a_2, \ldots, a_k} .
+\end{align*}
+Thus, \eqref{sol.exe.gen-ass.b.goal} is proven in Case 2.
+
+Finally, let us consider Case 3.
+In this case, we have $i \neq 0$ and $i \neq k$.
+Hence, $i \notin \set{0, k}$.
+Combining $i \in \set{0, 1, \ldots, k}$ with
+$i \notin \set{0, k}$, we obtain
+$i \in \set{0, 1, \ldots, k} \setminus \set{0, k}
+= \set{1, 2, \ldots, k-1}$.
+Hence, part \textbf{(a)} of this exercise yields
+\[
+P \tup{a_1, a_2, \ldots, a_k}
+= \tup{P \tup{a_1, a_2, \ldots, a_i}}
+     * \tup{P \tup{a_{i+1}, a_{i+2}, \ldots, a_k}} .
+\]
+Thus, \eqref{sol.exe.gen-ass.b.goal} is proven in Case 3.
+
+We have now proven \eqref{sol.exe.gen-ass.b.goal} in each
+of the three Cases 1, 2 and 3.
+Since these three Cases cover all possibilities, we thus
+conclude that \eqref{sol.exe.gen-ass.b.goal} always holds.
+This solves part \textbf{(b)} of the exercise.
+
+\subsection{Remark}
+
+\textbf{1.}
+Assume that there exists an element $e \in S$
+that is neutral for the operation $*$ (that is,
+satisfies \eqref{eq.exe.gen-ass.neu}).
+Our definition of $P \tup{a_1, a_2, \ldots, a_k}$
+in the exercise treats the cases $k > 0$ and
+$k = 0$ separately: Namely, in the case $k > 0$,
+it proceeds recursively (starting with $k = 1$ as
+a base of the recursion), whereas in the case
+$k = 0$, it simply defines $P \tup{}$ to be $e$.
+There is an alternative definition of
+$P \tup{a_1, a_2, \ldots, a_k}$, which handles
+all nonnegative integers $k$ at the same time.
+Namely, we can define
+$P \tup{a_1, a_2, \ldots, a_k}$ recursively
+by starting with $k = 0$ as a base (which is
+handled by setting $P \tup{} = e$, as before),
+and then using \eqref{eq.exe.gen-ass.Pa2} as a
+recursion for all $k > 0$ (not only for $k > 1$).
+It is easy to see that this alternative definition
+is equivalent to the definition that we gave in
+the exercise\footnote{The proof is simple:
+You just need to show that the two definitions
+agree for $k = 0$ and for $k = 1$; then, an induction
+on $k$ will reveal that they also agree in all
+remaining cases.}.
+This definition has the advantage of needing fewer
+cases; but it has the disadvantage that it relies
+on the existence of a neutral element $e$ more
+heavily than the definition given in the
+exercise\footnote{Namely, the definition given in
+the exercise uses the neutral element $e$ only in
+the case $k = 0$; but the alternative definition
+depends on it entirely (if $e$ was not there, then
+the recursion would not have a base!).}.
+This is why we started with the definition given
+in the exercise.
+
+\vspace{1pc}
+
+\textbf{2.}
+The claim of this exercise is a cornerstone of abstract
+algebra, often used without mention (and, most likely,
+without awareness).
+Here is one obvious-sounding fact that actually relies on
+this claim:
+Consider a set $A$, and $n$ arbitrary maps
+$f_1, f_2, \ldots, f_n$ from $A$ to $A$.
+Then, the composition $f_1 \circ f_2 \circ \cdots \circ f_n$
+of all these $n$ maps is well-defined
+(i.e., it does not matter in which order you perform the
+$\circ$ operations; the result will always be the same map).
+This may look completely evident (isn't
+$f_1 \circ f_2 \circ \cdots \circ f_n$ simply the map
+that applies $f_n$ first, then $f_{n-1}$, then $f_{n-2}$,
+and so on, until all the $n$ maps have been
+applied?\footnote{Yes, it is, but the concept of
+applying several maps in order needs to be formally
+defined, too, if you want to be rigorous about it.}),
+but the rigorous proof proceeds by applying the exercise
+to $S = \set{\text{all maps from $A$ to $A$}}$ and to the
+binary operation $\circ$ on $S$.
+More generally, the same holds if
+$f_1, f_2, \ldots, f_n$ are maps between different sets
+(not just maps from $A$ to $A$), as long as they can be
+composed (i.e., the codomain of $f_{i+1}$ is the domain
+of $f_i$).
+The proof proceeds in the exact same way as the solution
+to the exercise above, with the only difference that there
+is no single $S$ any more in which all our maps lie
+(but rather different sets, depending on
+which of our maps we are composing).
+See also \cite[\S 2.13]{detnotes} for this proof, done
+in greater detail.
 
 \begin{thebibliography}{99999999}                                                                                         %
 

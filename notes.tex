@@ -17,7 +17,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Sunday, May 26, 2019 19:29:42}
+%TCIDATA{LastRevised=Tuesday, May 28, 2019 14:47:06}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -1003,7 +1003,9 @@ say that this expression is well-defined. This confirms Proposition
 \ref{prop.intro.xor.prodm} for $m=4$.
 
 Of course, proving Proposition \ref{prop.intro.xor.prodm} is less simple. Such
-a proof will appear in Exercise 4 on homework set \#0.
+a proof appears in Exercise 4 on
+\href{http://www.cip.ifi.lmu.de/~grinberg/t/19s/hw0s.pdf}{homework set \#0}
+(for more general binary operations than $\operatorname*{XOR}$).
 
 \subsubsection{The $k=n$ case: an answer}
 
@@ -24957,13 +24959,15 @@ straightforward to prove:
 -b\right)  $ (by the definition of $a-b$). Adding $b$ on both sides of this
 equation, we get%
 \begin{align*}
-c+b  &  =\left(  a+\left(  -b\right)  \right)  +b=a+\underbrace{\left(
-\left(  -b\right)  +b\right)  }_{\substack{=0\\\text{(since }-b\text{ is
+c+b &  =\left(  a+\left(  -b\right)  \right)  +b=a+\underbrace{\left(  \left(
+-b\right)  +b\right)  }_{\substack{=0\\\text{(since }-b\text{ is
 the}\\\text{additive inverse of }b\text{)}}}\ \ \ \ \ \ \ \ \ \ \left(
-\text{by associativity of addition}\right) \\
+\text{by associativity of addition}\right)  \\
 &  =a+0=a
 \end{align*}
-(by the neutrality of zero), so that $a=c+b=b+c$.
+(by the neutrality of zero), so that $a=c+b=b+c$. This proves the
+\textquotedblleft$\Longrightarrow$\textquotedblright\ direction of Proposition
+\ref{prop.rings.inv-add.rules} \textbf{(a)}.
 
 $\Longleftarrow:$ Assume $a=b+c$. Adding $-b$ to both sides of this equation,
 we get%
@@ -24973,11 +24977,13 @@ _{\substack{=c+b\\\text{(by commutativity}\\\text{of addition)}}}+\left(
 -b\right)  =\left(  c+b\right)  +\left(  -b\right)  =c+\underbrace{\left(
 b+\left(  -b\right)  \right)  }_{\substack{=0\\\text{(since }-b\text{ is
 the}\\\text{additive inverse of }b\text{)}}}\\
-&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by associativity of addition}\right) \\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by associativity of addition}\right)  \\
 &  =c+0=c
 \end{align*}
-(by the neutrality of zero), so that $c=a+\left(  -b\right)  =a-b$. Thus,
-Proposition \ref{prop.rings.inv-add.rules} \textbf{(a)} is proven.
+(by the neutrality of zero), so that $c=a+\left(  -b\right)  =a-b$. In other
+words, $a-b=c$. This proves the \textquotedblleft$\Longleftarrow
+$\textquotedblright\ direction of Proposition \ref{prop.rings.inv-add.rules}
+\textbf{(a)}. Thus, Proposition \ref{prop.rings.inv-add.rules} \textbf{(a)} is proven.
 
 \textbf{(b)} We need to prove that $\left(  -a\right)  +\left(  -b\right)
 =-\left(  a+b\right)  $. In other words, we need to prove that $\left(
@@ -25178,7 +25184,7 @@ a_{1}a_{2}\cdots a_{k}=\left(  a_{1}a_{2}\cdots a_{k-1}\right)  a_{k}.
 \]
 
 
-These products still satisfy reasonable rules, such as%
+These products still satisfy the rule%
 \[
 a_{1}a_{2}\cdots a_{k}=\left(  a_{1}a_{2}\cdots a_{i}\right)  \left(
 a_{i+1}a_{i+2}\cdots a_{k}\right)  \ \ \ \ \ \ \ \ \ \ \text{for all }%
@@ -25189,10 +25195,85 @@ i\in\left\{  0,1,\ldots,k\right\}  .
 
 \begin{proof}
 [Proof of Theorem \ref{thm.rings.prod.wd}.]\textbf{(a)} This is proven just as
-for numbers. (See \cite[\S 2.14 and \S 1.4]{detnotes} for how it is proven for numbers.)
+for numbers. (See \cite[\S 2.14 and \S 1.4]{detnotes} for how it is proven for
+numbers, and replace every appearance of $\mathbb{A}$ in that proof by
+$\mathbb{K}$.)
 
-\textbf{(b)} This will be proven on HW0. (For now, you can find proofs in
-various texts on algebra, or at
+\textbf{(b)} This follows from Exercise 4 \textbf{(b)} on
+\href{http://www.cip.ifi.lmu.de/~grinberg/t/19s/hw0s.pdf}{homework set \#0}
+(applied to the set $S=\mathbb{K}$, the binary operation $\cdot=\ast$, and the
+neutral element $e=1$).\ \ \ \ \footnote{To be fully honest, we are skipping
+over a little subtlety here. Exercise 4 \textbf{(b)} on
+\href{http://www.cip.ifi.lmu.de/~grinberg/t/19s/hw0s.pdf}{homework set \#0}
+(applied to $S=\mathbb{K}$, $\cdot=\ast$ and $e=1$) does indeed show that%
+\[
+a_{1}a_{2}\cdots a_{k}=\left(  a_{1}a_{2}\cdots a_{i}\right)  \left(
+a_{i+1}a_{i+2}\cdots a_{k}\right)  \ \ \ \ \ \ \ \ \ \ \text{for all }%
+i\in\left\{  0,1,\ldots,k\right\}  .
+\]
+However, this exercise assumes a slightly different definition of the
+\textquotedblleft$k$-tuple product\textquotedblright\ $a_{1}a_{2}\cdots a_{k}$
+(which is denoted by $P\left(  a_{1},a_{2},\ldots,a_{k}\right)  $ in this
+exercise); namely, it assumes the following recursive definition:
+\par
+\begin{itemize}
+\item For $k=0$, we set $a_{1}a_{2}\cdots a_{k}=1$. (This is written as
+\textquotedblleft$P\left(  {}\right)  =e$\textquotedblright\ in the exercise.)
+\par
+\item For $k=1$, we set $a_{1}a_{2}\cdots a_{k}=a_{1}$. (This is written as
+\textquotedblleft$P\left(  a_{1}\right)  =a_{1}$\textquotedblright\ in the
+exercise.)
+\par
+\item For $k>1$, we set $a_{1}a_{2}\cdots a_{k}=\left(  a_{1}a_{2}\cdots
+a_{k-1}\right)  a_{k}$. (This is written as \textquotedblleft$P\left(
+a_{1},a_{2},\ldots,a_{k}\right)  =\left(  P\left(  a_{1},a_{2},\ldots
+,a_{k-1}\right)  \right)  \ast a_{k}$\textquotedblright\ in the exercise.)
+\end{itemize}
+\par
+\noindent Comparing this definition to the one we gave in Theorem
+\ref{thm.rings.prod.wd} \textbf{(b)}, we realize that it is slightly
+different; to wit, it treats the cases $k=1$ and $k>1$ separately, while the
+definition in Theorem \ref{thm.rings.prod.wd} \textbf{(b)} uses the same
+recursive formula for all $k>0$.
+\par
+Fortunately, these two definitions are nevertheless equivalent, i.e., they
+yield the same value for $a_{1}a_{2}\cdots a_{k}$ whenever $k\in\mathbb{N}$
+and $a_{1},a_{2},\ldots,a_{k}\in\mathbb{K}$. To see this, you can argue by
+induction on $k$ as follows:
+\par
+\begin{itemize}
+\item When $k=0$, the two definitions clearly yield the same value for
+$a_{1}a_{2}\cdots a_{k}$ (namely, the value $1$).
+\par
+\item When $k=1$, the two definitions also yield the same value for
+$a_{1}a_{2}\cdots a_{k}$ (indeed, the definition from Exercise 4 \textbf{(b)}
+on \href{http://www.cip.ifi.lmu.de/~grinberg/t/19s/hw0s.pdf}{homework set \#0}
+defines $a_{1}a_{2}\cdots a_{k}$ to be $a_{1}$ in this case, whereas the
+definition we gave in Theorem \ref{thm.rings.prod.wd} \textbf{(b)} defines it
+to be%
+\begin{align*}
+\left(  a_{1}a_{2}\cdots a_{k-1}\right)  a_{k}  &  =\underbrace{\left(
+a_{1}a_{2}\cdots a_{0}\right)  }_{=1}a_{1}\ \ \ \ \ \ \ \ \ \ \left(
+\text{since }k=1\right) \\
+&  =1a_{1}=a_{1}\ \ \ \ \ \ \ \ \ \ \left(  \text{by the \textquotedblleft
+Neutrality of one\textquotedblright\ axiom}\right)  ,
+\end{align*}
+and obviously these two values are the same).
+\par
+\item When $k>1$, the two definitions yield the same value for $a_{1}%
+a_{2}\cdots a_{k}$, because they define $a_{1}a_{2}\cdots a_{k}$ by the same
+recursive formula (viz., $a_{1}a_{2}\cdots a_{k}=\left(  a_{1}a_{2}\cdots
+a_{k-1}\right)  a_{k}$) in this case. (Here, we need the inductive hypothesis
+to tell us that the two definitions yield the same value for $a_{1}a_{2}\cdots
+a_{k-1}$.)
+\end{itemize}
+\par
+Thus, Exercise 4 \textbf{(b)} on
+\href{http://www.cip.ifi.lmu.de/~grinberg/t/19s/hw0s.pdf}{homework set \#0}
+can indeed be applied to our definition of $a_{1}a_{2}\cdots a_{k}$, and as a
+result, Theorem \ref{thm.rings.prod.wd} \textbf{(b)} follows.}
+
+(Alternatively, you can find proofs in various texts on algebra, or at
 \url{https://groupprops.subwiki.org/wiki/Associative_implies_generalized_associative}
 .)
 \end{proof}
