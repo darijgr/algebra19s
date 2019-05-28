@@ -147,7 +147,7 @@ Status: finished up to Section 4.2.4.}
 \maketitle
 \tableofcontents
 
-\section{Introduction}
+\section{\label{chp.intro}Introduction}
 
 This file contains notes for the Math 4281 class (\textquotedblleft
 Introduction to Modern Algebra\textquotedblright) I have taught at the
@@ -1746,7 +1746,7 @@ words, $a_{1}b_{2}\equiv b_{1}b_{2}\operatorname{mod}n$ (by Definition
 From $a_{1}a_{2}\equiv a_{1}b_{2}\operatorname{mod}n$ and $a_{1}b_{2}\equiv
 b_{1}b_{2}\operatorname{mod}n$, we now conclude that $a_{1}a_{2}\equiv
 b_{1}b_{2}\operatorname{mod}n$ (by Proposition \ref{prop.ent.mod.basics}
-\textbf{(c)}, applied to $a=a_{1}a_{2}$, $b=a_{1}b_{2}$ and $c=b_{1}b_{2}$).
+\textbf{(b)}, applied to $a=a_{1}a_{2}$, $b=a_{1}b_{2}$ and $c=b_{1}b_{2}$).
 This completes the proof of Proposition \ref{prop.ent.mod.basics} \textbf{(d)}.
 
 \textbf{(e)} Let $a,b\in\mathbb{Z}$ satisfy $a\equiv b\operatorname{mod}n$.
@@ -3702,7 +3702,7 @@ divisor\textquotedblright). From $x\mid b$, we obtain $b\equiv
 0\operatorname{mod}x$. But from $x\mid a$ and $c\equiv b\operatorname{mod}a$,
 we obtain $c\equiv b\operatorname{mod}x$ (by Proposition
 \ref{prop.ent.mod.basics} \textbf{(e)}, applied to $a$, $x$, $c$ and $b$
-instead of $n$, $m$, $c$ and $b$). Thus, $c\equiv b\equiv0\operatorname{mod}%
+instead of $n$, $m$, $a$ and $b$). Thus, $c\equiv b\equiv0\operatorname{mod}%
 x$, so that $x\mid c$. Combining $x\mid a$ and $x\mid c$, we see that $x$ is a
 common divisor of $a$ and $c$ (by the definition of a \textquotedblleft common
 divisor\textquotedblright). In other words, $x\in\operatorname*{Div}\left(
@@ -24959,10 +24959,10 @@ straightforward to prove:
 -b\right)  $ (by the definition of $a-b$). Adding $b$ on both sides of this
 equation, we get%
 \begin{align*}
-c+b &  =\left(  a+\left(  -b\right)  \right)  +b=a+\underbrace{\left(  \left(
--b\right)  +b\right)  }_{\substack{=0\\\text{(since }-b\text{ is
+c+b  &  =\left(  a+\left(  -b\right)  \right)  +b=a+\underbrace{\left(
+\left(  -b\right)  +b\right)  }_{\substack{=0\\\text{(since }-b\text{ is
 the}\\\text{additive inverse of }b\text{)}}}\ \ \ \ \ \ \ \ \ \ \left(
-\text{by associativity of addition}\right)  \\
+\text{by associativity of addition}\right) \\
 &  =a+0=a
 \end{align*}
 (by the neutrality of zero), so that $a=c+b=b+c$. This proves the
@@ -24977,7 +24977,7 @@ _{\substack{=c+b\\\text{(by commutativity}\\\text{of addition)}}}+\left(
 -b\right)  =\left(  c+b\right)  +\left(  -b\right)  =c+\underbrace{\left(
 b+\left(  -b\right)  \right)  }_{\substack{=0\\\text{(since }-b\text{ is
 the}\\\text{additive inverse of }b\text{)}}}\\
-&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by associativity of addition}\right)  \\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by associativity of addition}\right) \\
 &  =c+0=c
 \end{align*}
 (by the neutrality of zero), so that $c=a+\left(  -b\right)  =a-b$. In other
@@ -25273,7 +25273,8 @@ Thus, Exercise 4 \textbf{(b)} on
 can indeed be applied to our definition of $a_{1}a_{2}\cdots a_{k}$, and as a
 result, Theorem \ref{thm.rings.prod.wd} \textbf{(b)} follows.}
 
-(Alternatively, you can find proofs in various texts on algebra, or at
+(Alternatively, you can find proofs in various texts on algebra, such as
+\cite[Proposition 2.1.4]{Artin}, or at
 \url{https://groupprops.subwiki.org/wiki/Associative_implies_generalized_associative}
 .)
 \end{proof}
@@ -31609,7 +31610,136 @@ $, is a $\mathbb{K}$-module.
 \end{proposition}
 
 \begin{proof}
-Straightforward and LTTR.
+[Proof of Proposition \ref{prop.module.Hom.wd}.] \textbf{(a)} Let
+$f,g\in\operatorname*{Hom}\left(  M,N\right)  $. We must prove that
+$f+g\in\operatorname*{Hom}\left(  M,N\right)  $. In other words, we must prove
+that $f+g$ is a $\mathbb{K}$-module homomorphism from $M$ to $N$ (by the
+definition of $\operatorname*{Hom}\left(  M,N\right)  $). In other words, we
+must prove that the map $f+g$ is $\mathbb{K}$-linear (because a $\mathbb{K}%
+$-module homomorphism is the same as a $\mathbb{K}$-linear map).
+
+We know two ways of proving that a given map (between two $\mathbb{K}%
+$-modules) is $\mathbb{K}$-linear: One way is by checking the three axioms in
+Definition \ref{def.module.moho}; the other is through Proposition
+\ref{prop.module.moho-alt}. Of course, these two ways boil down to the same
+thing, but the second one tends to give a shorter proof. So let us go with the
+second one.
+
+Fix $\lambda,\mu\in\mathbb{K}$ and $a,b\in M$. We shall prove that $\left(
+f+g\right)  \left(  \lambda a+\mu b\right)  =\lambda\left(  f+g\right)
+\left(  a\right)  +\mu\left(  f+g\right)  \left(  b\right)  $.
+
+We have $f\in\operatorname*{Hom}\left(  M,N\right)  $. In other words, $f$ is
+a $\mathbb{K}$-module homomorphism from $M$ to $N$ (by the definition of
+$\operatorname*{Hom}\left(  M,N\right)  $). In other words, the map
+$f:M\rightarrow N$ is $\mathbb{K}$-linear. Thus, Proposition
+\ref{prop.module.f-pres-lc} \textbf{(a)} yields $f\left(  \lambda a+\mu
+b\right)  =\lambda f\left(  a\right)  +\mu f\left(  b\right)  $. The same
+argument (applied to $g$ instead of $f$) yields $g\left(  \lambda a+\mu
+b\right)  =\lambda g\left(  a\right)  +\mu g\left(  b\right)  $. Now, the
+definition of $f+g$ yields $\left(  f+g\right)  \left(  a\right)  =f\left(
+a\right)  +g\left(  a\right)  $ and $\left(  f+g\right)  \left(  b\right)
+=f\left(  b\right)  +g\left(  b\right)  $ and $\left(  f+g\right)  \left(
+\lambda a+\mu b\right)  =f\left(  \lambda a+\mu b\right)  +g\left(  \lambda
+a+\mu b\right)  $. Hence,%
+\begin{align*}
+\left(  f+g\right)  \left(  \lambda a+\mu b\right)    & =\underbrace{f\left(
+\lambda a+\mu b\right)  }_{=\lambda f\left(  a\right)  +\mu f\left(  b\right)
+}+\underbrace{g\left(  \lambda a+\mu b\right)  }_{=\lambda g\left(  a\right)
++\mu g\left(  b\right)  }\\
+& =\lambda f\left(  a\right)  +\underbrace{\mu f\left(  b\right)  +\lambda
+g\left(  a\right)  }_{\substack{=\lambda g\left(  a\right)  +\mu f\left(
+b\right)  \\\text{(by axiom \textbf{(a)} in}\\\text{Definition
+\ref{def.module.module})}}}+\mu g\left(  b\right)  \\
+& =\lambda f\left(  a\right)  +\lambda g\left(  a\right)  +\mu f\left(
+b\right)  +\mu g\left(  b\right)  .
+\end{align*}
+Comparing this with%
+\begin{align*}
+\lambda\underbrace{\left(  f+g\right)  \left(  a\right)  }_{=f\left(
+a\right)  +g\left(  a\right)  }+\mu\underbrace{\left(  f+g\right)  \left(
+b\right)  }_{=f\left(  b\right)  +g\left(  b\right)  }  & =\underbrace{\lambda
+\left(  f\left(  a\right)  +g\left(  a\right)  \right)  }_{\substack{=\lambda
+f\left(  a\right)  +\lambda g\left(  a\right)  \\\text{(by axiom \textbf{(e)}
+in}\\\text{Definition \ref{def.module.module})}}}+\underbrace{\mu\left(
+f\left(  b\right)  +g\left(  b\right)  \right)  }_{\substack{=\mu f\left(
+b\right)  +\mu g\left(  b\right)  \\\text{(by axiom \textbf{(e)}
+in}\\\text{Definition \ref{def.module.module})}}}\\
+& =\lambda f\left(  a\right)  +\lambda g\left(  a\right)  +\mu f\left(
+b\right)  +\mu g\left(  b\right)  ,
+\end{align*}
+we obtain $\left(  f+g\right)  \left(  \lambda a+\mu b\right)  =\lambda\left(
+f+g\right)  \left(  a\right)  +\mu\left(  f+g\right)  \left(  b\right)  $.
+
+Now, forget that we fixed $\lambda,\mu$ and $a,b$. We thus have shown that%
+\[
+\left(  f+g\right)  \left(  \lambda a+\mu b\right)  =\lambda\left(
+f+g\right)  \left(  a\right)  +\mu\left(  f+g\right)  \left(  b\right)
+\ \ \ \ \ \ \ \ \ \ \text{for all }\lambda,\mu\in\mathbb{K}\text{ and }a,b\in
+M.
+\]
+Hence, Proposition \ref{prop.module.moho-alt} (applied to $f+g$ instead of
+$f$) shows that $f+g$ is $\mathbb{K}$-linear. As we know, this completes the
+proof of Proposition \ref{prop.module.Hom.wd} \textbf{(a)}.
+
+\textbf{(b)} The proof of Proposition \ref{prop.module.Hom.wd} \textbf{(b)} is
+analogous to the above proof of Proposition \ref{prop.module.Hom.wd}
+\textbf{(a)}. The details are left to the reader. (For notational reasons, I
+recommend renaming the variable $\lambda$ as $\nu$ in the statement
+\textquotedblleft$\lambda f\in\operatorname*{Hom}\left(  M,N\right)  $ for all
+$\lambda\in\mathbb{K}$ and $f\in\operatorname*{Hom}\left(  M,N\right)
+$\textquotedblright, since otherwise the letter \textquotedblleft$\lambda
+$\textquotedblright\ would stand for two different things.)
+
+\textbf{(c)} The proof of Proposition \ref{prop.module.Hom.wd} \textbf{(c)} is
+analogous to the above proof of Proposition \ref{prop.module.Hom.wd}
+\textbf{(a)}. Again, the reader can easily fill in the details.
+
+\textbf{(d)} This proof is a series of straightforward verifications: We have
+to prove that $\operatorname*{Hom}\left(  M,N\right)  $ satisfies all the ten
+module axioms from Definition \ref{def.module.module} (with $M$ replaced by
+$\operatorname*{Hom}\left(  M,N\right)  $). I will only show the proof of
+axiom \textbf{(e)}:
+
+[\textit{Proof of axiom \textbf{(e)}:} Let $\lambda\in\mathbb{K}$ and
+$a,b\in\operatorname*{Hom}\left(  M,N\right)  $. We need to prove that
+$\lambda\left(  a+b\right)  =\lambda a+\lambda b$.
+
+Fix $v\in M$. Then, the definition of the map $a+b$ yields $\left(
+a+b\right)  \left(  v\right)  =a\left(  v\right)  +b\left(  v\right)  $.
+Likewise, the definition of the map $\lambda a+\lambda b$ yields
+\[
+\left(  \lambda a+\lambda b\right)  \left(  v\right)  =\underbrace{\left(
+\lambda a\right)  \left(  v\right)  }_{\substack{=\lambda\cdot a\left(
+v\right)  \\\text{(by the definition}\\\text{of the map }\lambda a\text{)}%
+}}+\underbrace{\left(  \lambda b\right)  \left(  v\right)  }%
+_{\substack{=\lambda\cdot b\left(  v\right)  \\\text{(by the definition}%
+\\\text{of the map }\lambda b\text{)}}}=\lambda\cdot a\left(  v\right)
++\lambda\cdot b\left(  v\right)  .
+\]
+But the definition of the map $\lambda\left(  a+b\right)  $ yields%
+\[
+\left(  \lambda\left(  a+b\right)  \right)  \left(  v\right)  =\lambda
+\cdot\underbrace{\left(  a+b\right)  \left(  v\right)  }_{=a\left(  v\right)
++b\left(  v\right)  }=\lambda\cdot\left(  a\left(  v\right)  +b\left(
+v\right)  \right)  =\lambda\cdot a\left(  v\right)  +\lambda\cdot b\left(
+v\right)
+\]
+(because $N$ is a $\mathbb{K}$-module, and thus satisfies the ten module
+axioms, in particular axiom \textbf{(e)}). Comparing these two equalities, we
+obtain $\left(  \lambda\left(  a+b\right)  \right)  \left(  v\right)  =\left(
+\lambda a+\lambda b\right)  \left(  v\right)  $.
+
+Now, forget that we fixed $v$. We thus have proven that $\left(
+\lambda\left(  a+b\right)  \right)  \left(  v\right)  =\left(  \lambda
+a+\lambda b\right)  \left(  v\right)  $ for each $v\in M$. In other words, we
+have $\lambda\left(  a+b\right)  =\lambda a+\lambda b$. Thus, axiom
+\textbf{(e)} (with $M$ replaced by $\operatorname*{Hom}\left(  M,N\right)  $)
+is proven.]
+
+The remaining nine module axioms can be proven similarly (and the reader will
+have no trouble doing so). Thus, Proposition \ref{prop.module.Hom.wd}
+\textbf{(d)} follows.
 \end{proof}
 
 \begin{proposition}
@@ -31620,7 +31750,9 @@ also a $\mathbb{K}$-module homomorphism.
 \end{proposition}
 
 \begin{proof}
-Straightforward and LTTR.
+[Proof of Proposition \ref{prop.module.Hom.compose}.] This is straightforward
+(and very similar to the proof of Proposition \ref{prop.riho.compose}). We
+leave the details to the reader.
 \end{proof}
 
 Note the analogy between Proposition \ref{prop.module.Hom.compose} and
@@ -40495,9 +40627,11 @@ x\right]  /\mathbf{b}$ may fail to contain $\mathbb{K}$ as a subring (though
 it is always a $\mathbb{K}$-algebra), and may be smaller than $\mathbb{K}$ and
 even trivial.
 
-If $\mathbb{K}$ itself is a field, then the ring $\mathbb{K}\left[  x\right]
-/\mathbf{b}$ may and may not be a field. What must a polynomial $\mathbf{b}$
-satisfy in order for $\mathbb{K}\left[  x\right]  /\mathbf{b}$ to be a field?
+If $\mathbb{K}$ itself is a field, then $\mathbf{b}$ will always be
+\textquotedblleft nice\textquotedblright\ (unless $\mathbf{b}=0$), but the
+ring $\mathbb{K}\left[  x\right]  /\mathbf{b}$ may and may not be a field.
+What must a polynomial $\mathbf{b}$ satisfy in order for $\mathbb{K}\left[
+x\right]  /\mathbf{b}$ to be a field?
 
 \begin{definition}
 \label{def.pol.irreducible}Let $\mathbb{F}$ be a field.
