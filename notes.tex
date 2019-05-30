@@ -17,7 +17,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Thursday, May 30, 2019 17:13:03}
+%TCIDATA{LastRevised=Thursday, May 30, 2019 17:41:20}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -3798,14 +3798,10 @@ Let $a,b\in\mathbb{Z}$. Lemma \ref{lem.ent.Div.props1} \textbf{(b)} (applied
 to $-b$ instead of $b$) yields%
 \begin{align*}
 \operatorname*{Div}\left(  a,-b\right)   &  =\operatorname*{Div}\left(
--b,a\right)  =\operatorname*{Div}\left(  b,a\right)
-\ \ \ \ \ \ \ \ \ \ \left(
-\begin{array}
-[c]{c}%
-\text{by Lemma \ref{lem.ent.Div.props1} \textbf{(g),}}\\
-\text{applied to }b\text{ and }a\text{ instead of }a\text{ and }b
-\end{array}
-\right) \\
+-b,a\right)  =\operatorname*{Div}\left(  b,a\right) \\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Lemma \ref{lem.ent.Div.props1}
+\textbf{(g), }applied to }b\text{ and }a\text{ instead of }a\text{ and
+}b\right) \\
 &  =\operatorname*{Div}\left(  a,b\right)  \ \ \ \ \ \ \ \ \ \ \left(
 \text{by Lemma \ref{lem.ent.Div.props1} \textbf{(b)}}\right)  .
 \end{align*}
@@ -4786,8 +4782,10 @@ b_{1},b_{2},\ldots,b_{\ell-1}\right)  ,b_{\ell}\right)  .
 [\textit{Proof of Statement 2:} \textbf{(d)} Let us begin with part
 \textbf{(d)}. Assume that $\ell>0$ (though we already know that this is true).
 
+Let $c=\gcd\left(  b_{1},b_{2},\ldots,b_{\ell-1}\right)  $.
+
 Let $g=\gcd\left(  b_{1},b_{2},\ldots,b_{\ell}\right)  $ and $h=\gcd\left(
-\gcd\left(  b_{1},b_{2},\ldots,b_{\ell-1}\right)  ,b_{\ell}\right)  $.
+c,b_{\ell}\right)  $.
 
 If the integers $b_{1},b_{2},\ldots,b_{\ell}$ are all $0$, then Statement 2
 \textbf{(d)} holds\footnote{\textit{Proof.} Assume that $b_{1},b_{2}%
@@ -4810,27 +4808,23 @@ words, $g$ is the largest element of the set $\operatorname*{Div}\left(
 b_{1},b_{2},\ldots,b_{\ell}\right)  $ (since $g=\gcd\left(  b_{1},b_{2}%
 ,\ldots,b_{\ell}\right)  $).
 
-Furthermore, the two integers $\gcd\left(  b_{1},b_{2},\ldots,b_{\ell
--1}\right)  $ and $b_{\ell}$ are not all $0$\ \ \ \ \footnote{\textit{Proof.}
-Assume the contrary. Thus, both $\gcd\left(  b_{1},b_{2},\ldots,b_{\ell
--1}\right)  $ and $b_{\ell}$ are $0$. Thus, in particular, $b_{\ell}=0$. If
-the $\ell-1$ integers $b_{1},b_{2},\ldots,b_{\ell-1}$ were all $0$, then the
-$\ell$ integers $b_{1},b_{2},\ldots,b_{\ell}$ would be all $0$ (since
-$b_{\ell}=0$), which would contradict the fact that the integers $b_{1}%
-,b_{2},\ldots,b_{\ell}$ are not all $0$. Hence, the $\ell-1$ integers
-$b_{1},b_{2},\ldots,b_{\ell-1}$ are not all $0$. Thus, $\gcd\left(
-b_{1},b_{2},\ldots,b_{\ell-1}\right)  $ is a positive integer (by Definition
-\ref{def.ent.gcd.gcd}). Thus, $\gcd\left(  b_{1},b_{2},\ldots,b_{\ell
--1}\right)  >0$, which contradicts the fact that $\gcd\left(  b_{1}%
-,b_{2},\ldots,b_{\ell-1}\right)  $ is $0$. This contradiction shows that our
-assumption was false, qed.}. Hence, $\gcd\left(  \gcd\left(  b_{1}%
-,b_{2},\ldots,b_{\ell-1}\right)  ,b_{\ell}\right)  $ is the largest element of
-the set \newline$\operatorname*{Div}\left(  \gcd\left(  b_{1},b_{2}%
-,\ldots,b_{\ell-1}\right)  ,b_{\ell}\right)  $ (by Definition
+Furthermore, the two integers $c$ and $b_{\ell}$ are not all $0$%
+\ \ \ \ \footnote{\textit{Proof.} Assume the contrary. Thus, both $c$ and
+$b_{\ell}$ are $0$. Thus, in particular, $b_{\ell}=0$. If the $\ell-1$
+integers $b_{1},b_{2},\ldots,b_{\ell-1}$ were all $0$, then the $\ell$
+integers $b_{1},b_{2},\ldots,b_{\ell}$ would be all $0$ (since $b_{\ell}=0$),
+which would contradict the fact that the integers $b_{1},b_{2},\ldots,b_{\ell
+}$ are not all $0$. Hence, the $\ell-1$ integers $b_{1},b_{2},\ldots
+,b_{\ell-1}$ are not all $0$. Thus, $\gcd\left(  b_{1},b_{2},\ldots,b_{\ell
+-1}\right)  $ is a positive integer (by Definition \ref{def.ent.gcd.gcd}).
+Thus, $\gcd\left(  b_{1},b_{2},\ldots,b_{\ell-1}\right)  >0$, so that
+$c=\gcd\left(  b_{1},b_{2},\ldots,b_{\ell-1}\right)  >0$. But this contradicts
+the fact that $c$ is $0$. This contradiction shows that our assumption was
+false, qed.}. Hence, $\gcd\left(  c,b_{\ell}\right)  $ is the largest element
+of the set $\operatorname*{Div}\left(  c,b_{\ell}\right)  $ (by Definition
 \ref{def.ent.gcd.gcd}). In other words, $h$ is the largest element of the set
-$\operatorname*{Div}\left(  \gcd\left(  b_{1},b_{2},\ldots,b_{\ell-1}\right)
-,b_{\ell}\right)  $ (since $h=\gcd\left(  \gcd\left(  b_{1},b_{2}%
-,\ldots,b_{\ell-1}\right)  ,b_{\ell}\right)  $).
+$\operatorname*{Div}\left(  c,b_{\ell}\right)  $ (since $h=\gcd\left(
+c,b_{\ell}\right)  $).
 
 We intend to show that $g=h$. For that, it suffices to prove $g\leq h$ and
 $h\leq g$.
@@ -4850,27 +4844,23 @@ equivalence%
 \]
 Hence, we have $g\mid\gcd\left(  b_{1},b_{2},\ldots,b_{\ell-1}\right)  $
 (since we know that $g\mid b_{i}$ for all $i\in\left\{  1,2,\ldots
-,\ell-1\right\}  $). Combining this with $g\mid b_{\ell}$, we conclude that
-$g$ is a common divisor of $\gcd\left(  b_{1},b_{2},\ldots,b_{\ell-1}\right)
-$ and $b_{\ell}$. In other words, $g\in\operatorname*{Div}\left(  \gcd\left(
-b_{1},b_{2},\ldots,b_{\ell-1}\right)  ,b_{\ell}\right)  $. Therefore, $g\leq
+,\ell-1\right\}  $). In other words, $g\mid c$ (since $c=\gcd\left(
+b_{1},b_{2},\ldots,b_{\ell-1}\right)  $). Combining this with $g\mid b_{\ell}%
+$, we conclude that $g$ is a common divisor of $c$ and $b_{\ell}$. In other
+words, $g\in\operatorname*{Div}\left(  c,b_{\ell}\right)  $. Therefore, $g\leq
 h$ (since $h$ is the largest element of the set $\operatorname*{Div}\left(
-\gcd\left(  b_{1},b_{2},\ldots,b_{\ell-1}\right)  ,b_{\ell}\right)  $).
+c,b_{\ell}\right)  $).
 
-\textit{Proof of }$h\leq g$\textit{:} We have%
-\[
-h=\gcd\left(  \gcd\left(  b_{1},b_{2},\ldots,b_{\ell-1}\right)  ,b_{\ell
-}\right)  \mid\gcd\left(  b_{1},b_{2},\ldots,b_{\ell-1}\right)
-\]
-(by Proposition \ref{prop.ent.gcd.props1} \textbf{(f)}, applied to
-$a=\gcd\left(  b_{1},b_{2},\ldots,b_{\ell-1}\right)  $ and $b=b_{\ell}$).
-Also,%
-\[
-h=\gcd\left(  \gcd\left(  b_{1},b_{2},\ldots,b_{\ell-1}\right)  ,b_{\ell
-}\right)  \mid b_{\ell}%
-\]
-(by Proposition \ref{prop.ent.gcd.props1} \textbf{(f)}, applied to
-$a=\gcd\left(  b_{1},b_{2},\ldots,b_{\ell-1}\right)  $ and $b=b_{\ell}$).
+\textit{Proof of }$h\leq g$\textit{:} Proposition \ref{prop.ent.gcd.props1}
+\textbf{(f)} (applied to $a=c$ and $b=b_{\ell}$) shows that $\gcd\left(
+c,b_{\ell}\right)  \mid c$ and $\gcd\left(  c,b_{\ell}\right)  \mid b_{\ell}$.
+Thus,%
+\begin{align*}
+h  &  =\gcd\left(  c,b_{\ell}\right)  \mid c=\gcd\left(  b_{1},b_{2}%
+,\ldots,b_{\ell-1}\right)  \ \ \ \ \ \ \ \ \ \ \text{and}\\
+h  &  =\gcd\left(  c,b_{\ell}\right)  \mid b_{\ell}.
+\end{align*}
+
 
 But Statement 1 \textbf{(a)} (applied to $m=h$) shows that we have the
 equivalence%
@@ -4880,8 +4870,8 @@ equivalence%
 ,\ldots,b_{\ell-1}\right)  \right)  .
 \]
 Thus, we have $\left(  h\mid b_{i}\text{ for all }i\in\left\{  1,2,\ldots
-,\ell-1\right\}  \right)  $ (since we have $h\mid\gcd\left(  b_{1}%
-,b_{2},\ldots,b_{\ell-1}\right)  $).
+,\ell-1\right\}  \right)  $ (since we have \newline$h\mid\gcd\left(
+b_{1},b_{2},\ldots,b_{\ell-1}\right)  $).
 
 This divisibility $h\mid b_{i}$ holds not only for all $i\in\left\{
 1,2,\ldots,\ell-1\right\}  $, but also for $i=\ell$ (because $h\mid b_{\ell}%
@@ -4892,13 +4882,14 @@ b_{1},b_{2},\ldots,b_{\ell}\right)  $. Thus, $h\leq g$ (since $g$ is the
 largest element of the set $\operatorname*{Div}\left(  b_{1},b_{2}%
 ,\ldots,b_{\ell}\right)  $).
 
-Combining $h\leq g$ with $g\leq h$, we obtain $g=h$. In other words,
+Combining $h\leq g$ with $g\leq h$, we obtain $g=h$. Comparing this with
+$g=\gcd\left(  b_{1},b_{2},\ldots,b_{\ell}\right)  $, we obtain
 \[
-\gcd\left(  b_{1},b_{2},\ldots,b_{\ell}\right)  =\gcd\left(  \gcd\left(
-b_{1},b_{2},\ldots,b_{\ell-1}\right)  ,b_{\ell}\right)
+\gcd\left(  b_{1},b_{2},\ldots,b_{\ell}\right)  =h=\gcd\left(  c,b_{\ell
+}\right)  =\gcd\left(  \gcd\left(  b_{1},b_{2},\ldots,b_{\ell-1}\right)
+,b_{\ell}\right)
 \]
-(since $g=\gcd\left(  b_{1},b_{2},\ldots,b_{\ell}\right)  $ and $h=\gcd\left(
-\gcd\left(  b_{1},b_{2},\ldots,b_{\ell-1}\right)  ,b_{\ell}\right)  $). Hence,
+(since $c=\gcd\left(  b_{1},b_{2},\ldots,b_{\ell-1}\right)  $). Hence,
 Statement 2 \textbf{(d)} is proven.
 
 \textbf{(a)} Let $m\in\mathbb{Z}$. Then, we have the equivalence%
@@ -6041,7 +6032,7 @@ b_{1},b_{2},\ldots,b_{k}\right)  . \label{pf.prop.ent.Mul.exi.1}%
 \end{equation}
 
 
-\textit{Proof of (\ref{pf.prop.ent.Mul.exi.1}):} Let $i\in\left\{
+[\textit{Proof of (\ref{pf.prop.ent.Mul.exi.1}):} Let $i\in\left\{
 1,2,\ldots,k\right\}  $. Then, the product $b_{1}b_{2}\cdots b_{k}$ can be
 written as%
 \[
@@ -6059,8 +6050,9 @@ b_{1}b_{2}\cdots b_{k}\right\vert $ for all $i\in\left\{  1,2,\ldots
 ,k\right\}  $. In other words, $\left\vert b_{1}b_{2}\cdots b_{k}\right\vert $
 is a common multiple of $b_{1},b_{2},\ldots,b_{k}$ (by the definition of a
 \textquotedblleft common multiple\textquotedblright). In other words,
-$\left\vert b_{1}b_{2}\cdots b_{k}\right\vert \in\operatorname*{Mul}\left(
-b_{1},b_{2},\ldots,b_{k}\right)  $. This proves (\ref{pf.prop.ent.Mul.exi.1}).]
+\newline$\left\vert b_{1}b_{2}\cdots b_{k}\right\vert \in\operatorname*{Mul}%
+\left(  b_{1},b_{2},\ldots,b_{k}\right)  $. This proves
+(\ref{pf.prop.ent.Mul.exi.1}).]
 
 We know that $b_{1},b_{2},\ldots,b_{k}$ are nonzero integers. Hence, their
 product $b_{1}b_{2}\cdots b_{k}$ is a nonzero integer as well. Thus, its
@@ -9064,9 +9056,10 @@ for $k$ integers\footnote{Namely: Let $m\in\mathbb{Z}$ and let $b_{1}%
 ,b_{2},\ldots,b_{k}$ be integers such that $\left(  b_{i}\mid m\text{ for all
 }i\in\left\{  1,2,\ldots,k\right\}  \right)  $. Then, $\operatorname{lcm}%
 \left(  b_{1},b_{2},\ldots,b_{k}\right)  \mid m$.}. The latter claim follows
-from Theorem \ref{thm.ent.lcm.uniprop-mul} \textbf{(a)}. Alternatively,
-instead of applying this claim, we can argue as follows: Setting
-$g=\prod_{p\text{ prime}}p^{\max\left\{  v_{p}\left(  b_{1}\right)
+from Theorem \ref{thm.ent.lcm.uniprop-mul} \textbf{(a)}.
+
+Alternatively, instead of applying this claim, we can argue as follows:
+Setting $g=\prod_{p\text{ prime}}p^{\max\left\{  v_{p}\left(  b_{1}\right)
 ,v_{p}\left(  b_{2}\right)  ,\ldots,v_{p}\left(  b_{k}\right)  \right\}  }$
 and $h=\operatorname{lcm}\left(  b_{1},b_{2},\ldots,b_{k}\right)  $, we see
 that $\left(  b_{i}\mid g\text{ for all }i\in\left\{  1,2,\ldots,k\right\}
@@ -9252,33 +9245,37 @@ Corollary \ref{cor.ent.coprime.orthogonal} \textbf{(a)} follows easily.
 
 \textbf{(b)} A sum of nonnegative reals is $0$ if and only if each of its
 addends is $0$. Thus, the sum $\sum_{p\text{ prime}}v_{p}\left(  n\right)
-v_{p}\left(  m\right)  $ is $0$ if and only if we have $\left(  v_{p}\left(
-n\right)  v_{p}\left(  m\right)  =0\text{ for all primes }p\right)  $ (because
-all the addends $v_{p}\left(  n\right)  v_{p}\left(  m\right)  $ of our sum
-are nonnegative reals). Hence, we have the following chain of equivalences:%
+v_{p}\left(  m\right)  $ is $0$ if and only if we have
+\[
+\left(  v_{p}\left(  n\right)  v_{p}\left(  m\right)  =0\text{ for all primes
+}p\right)
+\]
+(because all the addends $v_{p}\left(  n\right)  v_{p}\left(  m\right)  $ of
+our sum are nonnegative reals). Hence, we have the following chain of
+equivalences:%
 \begin{align*}
 &  \left(  \sum_{p\text{ prime}}v_{p}\left(  n\right)  v_{p}\left(  m\right)
-=0\right) \\
+=0\right)  \\
 &  \Longleftrightarrow\ \left(  v_{p}\left(  n\right)  v_{p}\left(  m\right)
-=0\text{ for all primes }p\right) \\
+=0\text{ for all primes }p\right)  \\
 &  \Longleftrightarrow\ \left(  \left(  v_{p}\left(  n\right)  =0\text{ or
-}v_{p}\left(  m\right)  =0\right)  \text{ for all primes }p\right) \\
+}v_{p}\left(  m\right)  =0\right)  \text{ for all primes }p\right)  \\
 &  \Longleftrightarrow\ \left(  \left(  p\nmid n\text{ or }p\nmid m\right)
-\text{ for all primes }p\right) \\
+\text{ for all primes }p\right)  \\
 &  \ \ \ \ \ \ \ \ \ \ \left(
 \begin{array}
 [c]{c}%
 \text{since Corollary \ref{cor.ent.prime.vp-0} yields the}\\
 \text{equivalences }\left(  v_{p}\left(  n\right)  =0\right)
 \Longleftrightarrow\left(  p\nmid n\right)  \text{ and }\left(  v_{p}\left(
-m\right)  =0\right)  \Longleftrightarrow\left(  p\nmid m\right) \\
+m\right)  =0\right)  \Longleftrightarrow\left(  p\nmid m\right)  \\
 \text{for each prime }p
 \end{array}
-\right) \\
+\right)  \\
 &  \Longleftrightarrow\ \left(  \text{there exists no prime }p\text{ such that
-}\left(  p\mid n\text{ and }p\mid m\right)  \right) \\
+}\left(  p\mid n\text{ and }p\mid m\right)  \right)  \\
 &  \Longleftrightarrow\ \left(  \text{there exists no prime }p\text{ that
-divides both }n\text{ and }m\right) \\
+divides both }n\text{ and }m\right)  \\
 &  \Longleftrightarrow\ \left(  n\perp m\right)  \ \ \ \ \ \ \ \ \ \ \left(
 \text{by Proposition \ref{prop.ent.coprime.via-primes}}\right)  .
 \end{align*}
@@ -36311,7 +36308,7 @@ polynomials, and we have%
 _{=\deg\mathbf{a}},\underbrace{m}_{=\deg\mathbf{b}}\right\}  =\max\left\{
 \deg\mathbf{a},\deg\mathbf{b}\right\}  \ \ \ \ \ \ \ \ \ \ \text{and}\\
 \deg\left(  \mathbf{ab}\right)   &  \leq\underbrace{n}_{=\deg\mathbf{a}%
-}+\underbrace{m}_{=\deg\mathbf{b}}=\deg\mathbf{a}+\deg\mathbf{b.}%
+}+\underbrace{m}_{=\deg\mathbf{b}}=\deg\mathbf{a}+\deg\mathbf{b}.
 \end{align*}
 This completes the proof of Theorem \ref{thm.pol.deg-basics} \textbf{(e)}.
 
@@ -36875,28 +36872,29 @@ equal. In other words, it remains to prove the following:
 \begin{statement}
 \textit{Claim 1:} If $\left(  \mathbf{q}_{1},\mathbf{r}_{1}\right)  $ and
 $\left(  \mathbf{q}_{2},\mathbf{r}_{2}\right)  $ are two pairs $\left(
-\mathbf{q,r}\right)  $ of polynomials such that $\mathbf{a=qb+r}$ and
-$\mathbf{r}\in\mathbb{K}\left[  x\right]  _{\leq m-1}$, then $\left(
-\mathbf{q}_{1},\mathbf{r}_{1}\right)  =\left(  \mathbf{q}_{2},\mathbf{r}%
-_{2}\right)  $.
+\mathbf{q},\mathbf{r}\right)  $ of polynomials such that $\mathbf{a}%
+=\mathbf{qb}+\mathbf{r}$ and $\mathbf{r}\in\mathbb{K}\left[  x\right]  _{\leq
+m-1}$, then $\left(  \mathbf{q}_{1},\mathbf{r}_{1}\right)  =\left(
+\mathbf{q}_{2},\mathbf{r}_{2}\right)  $.
 \end{statement}
 
 [\textit{Proof of Claim 1:} Let $\left(  \mathbf{q}_{1},\mathbf{r}_{1}\right)
 $ and $\left(  \mathbf{q}_{2},\mathbf{r}_{2}\right)  $ be two pairs $\left(
-\mathbf{q,r}\right)  $ of polynomials such that $\mathbf{a=qb+r}$ and
-$\mathbf{r}\in\mathbb{K}\left[  x\right]  _{\leq m-1}$. We must prove that
-$\left(  \mathbf{q}_{1},\mathbf{r}_{1}\right)  =\left(  \mathbf{q}%
-_{2},\mathbf{r}_{2}\right)  $.
+\mathbf{q},\mathbf{r}\right)  $ of polynomials such that $\mathbf{a}%
+=\mathbf{qb}+\mathbf{r}$ and $\mathbf{r}\in\mathbb{K}\left[  x\right]  _{\leq
+m-1}$. We must prove that $\left(  \mathbf{q}_{1},\mathbf{r}_{1}\right)
+=\left(  \mathbf{q}_{2},\mathbf{r}_{2}\right)  $.
 
 We have assumed that $\left(  \mathbf{q}_{1},\mathbf{r}_{1}\right)  $ is a
-pair $\left(  \mathbf{q,r}\right)  $ of polynomials such that $\mathbf{a=qb+r}%
-$ and $\mathbf{r}\in\mathbb{K}\left[  x\right]  _{\leq m-1}$. In other words,
-$\left(  \mathbf{q}_{1},\mathbf{r}_{1}\right)  $ is a pair of polynomials
-satisfying $\mathbf{a}=\mathbf{q}_{1}\mathbf{b}+\mathbf{r}_{1}$ and
-$\mathbf{r}_{1}\in\mathbb{K}\left[  x\right]  _{\leq m-1}$. Similarly,
-$\left(  \mathbf{q}_{2},\mathbf{r}_{2}\right)  $ is a pair of polynomials
-satisfying $\mathbf{a}=\mathbf{q}_{2}\mathbf{b}+\mathbf{r}_{2}$ and
-$\mathbf{r}_{2}\in\mathbb{K}\left[  x\right]  _{\leq m-1}$.
+pair $\left(  \mathbf{q},\mathbf{r}\right)  $ of polynomials such that
+$\mathbf{a}=\mathbf{qb}+\mathbf{r}$ and $\mathbf{r}\in\mathbb{K}\left[
+x\right]  _{\leq m-1}$. In other words, $\left(  \mathbf{q}_{1},\mathbf{r}%
+_{1}\right)  $ is a pair of polynomials satisfying $\mathbf{a}=\mathbf{q}%
+_{1}\mathbf{b}+\mathbf{r}_{1}$ and $\mathbf{r}_{1}\in\mathbb{K}\left[
+x\right]  _{\leq m-1}$. Similarly, $\left(  \mathbf{q}_{2},\mathbf{r}%
+_{2}\right)  $ is a pair of polynomials satisfying $\mathbf{a}=\mathbf{q}%
+_{2}\mathbf{b}+\mathbf{r}_{2}$ and $\mathbf{r}_{2}\in\mathbb{K}\left[
+x\right]  _{\leq m-1}$.
 
 From $\mathbf{r}_{1}\in\mathbb{K}\left[  x\right]  _{\leq m-1}$ and
 $\mathbf{r}_{2}\in\mathbb{K}\left[  x\right]  _{\leq m-1}$, we easily obtain
@@ -36914,10 +36912,10 @@ $\mathbf{r}_{2}-\mathbf{r}_{1}=\mathbf{r}_{2}+\left(  -1\right)
 \mathbf{r}_{1}\in\mathbb{K}\left[  x\right]  _{\leq m-1}$.}.
 
 Comparing the equalities $\mathbf{a}=\mathbf{q}_{1}\mathbf{b}+\mathbf{r}_{1}$
-and $\mathbf{a=q}_{2}\mathbf{b+r}_{2}$, we obtain $\mathbf{q}_{1}%
-\mathbf{b}+\mathbf{r}_{1}=\mathbf{q}_{2}\mathbf{b+r}_{2}$. In other words,
-$\mathbf{q}_{1}\mathbf{b}-\mathbf{q}_{2}\mathbf{b}=\mathbf{r}_{2}%
--\mathbf{r}_{1}$. Hence,%
+and $\mathbf{a}=\mathbf{q}_{2}\mathbf{b}+\mathbf{r}_{2}$, we obtain
+$\mathbf{q}_{1}\mathbf{b}+\mathbf{r}_{1}=\mathbf{q}_{2}\mathbf{b}%
++\mathbf{r}_{2}$. In other words, $\mathbf{q}_{1}\mathbf{b}-\mathbf{q}%
+_{2}\mathbf{b}=\mathbf{r}_{2}-\mathbf{r}_{1}$. Hence,%
 \[
 \left(  \mathbf{q}_{1}-\mathbf{q}_{2}\right)  \mathbf{b}=\mathbf{q}%
 _{1}\mathbf{b}-\mathbf{q}_{2}\mathbf{b}=\mathbf{r}_{2}-\mathbf{r}_{1}%
@@ -36979,12 +36977,12 @@ Theorem \ref{thm.pol.quorem} \textbf{(a)}. We can apply this Claim to $\left(
 and $\left(  \mathbf{q}_{2},\mathbf{r}_{2}\right)  =\left(  \mathbf{q}%
 _{0},\mathbf{r}_{0}\right)  $ (since $\left(  \mathbf{u},\mathbf{v}\right)  $
 and $\left(  \mathbf{q}_{0},\mathbf{r}_{0}\right)  $ are two pairs $\left(
-\mathbf{q,r}\right)  $ of polynomials such that $\mathbf{a=qb+r}$ and
-$\mathbf{r}\in\mathbb{K}\left[  x\right]  _{\leq m-1}$). As a result, we
-obtain $\left(  \mathbf{u},\mathbf{v}\right)  =\left(  \mathbf{q}%
-_{0},\mathbf{r}_{0}\right)  $. In other words, $\mathbf{u}=\mathbf{q}_{0}$ and
-$\mathbf{v}=\mathbf{r}_{0}$. Thus, $\mathbf{u}=\mathbf{q}_{0}\in
-\mathbb{K}\left[  x\right]  _{\leq n-m}$.
+\mathbf{q},\mathbf{r}\right)  $ of polynomials such that $\mathbf{a}%
+=\mathbf{qb}+\mathbf{r}$ and $\mathbf{r}\in\mathbb{K}\left[  x\right]  _{\leq
+m-1}$). As a result, we obtain $\left(  \mathbf{u},\mathbf{v}\right)  =\left(
+\mathbf{q}_{0},\mathbf{r}_{0}\right)  $. In other words, $\mathbf{u}%
+=\mathbf{q}_{0}$ and $\mathbf{v}=\mathbf{r}_{0}$. Thus, $\mathbf{u}%
+=\mathbf{q}_{0}\in\mathbb{K}\left[  x\right]  _{\leq n-m}$.
 
 Now, forget that we introduced $\left(  \mathbf{u},\mathbf{v}\right)  $. We
 thus have shown that if $\left(  \mathbf{u},\mathbf{v}\right)  $ is the pair
@@ -37081,10 +37079,10 @@ x^{2}-1\right)  }_{=x-1}\right) \\
 }_{=0}\right)  =\gcd\left(  x-1,0\right) \\
 &  =\gcd\left(  x-1\right)  =x-1.
 \end{align*}
-Here, of course, the notation $\mathbf{a\%b}$ for a remainder is defined for
-polynomials in the same way as for integers (after all, the $\mathbf{q}$ and
-$\mathbf{r}$ in Theorem \ref{thm.pol.quorem-over-field} are unique, even if we
-didn't say so!).
+Here, of course, the notation $\mathbf{a}\%\mathbf{b}$ for a remainder is
+defined for polynomials in the same way as for integers (after all, the
+$\mathbf{q}$ and $\mathbf{r}$ in Theorem \ref{thm.pol.quorem-over-field} are
+unique, even if we didn't say so!).
 
 \subsection{\label{sect.pol.eval}Evaluating polynomials}
 
@@ -37280,8 +37278,8 @@ First, we need to prove some basic properties of values of polynomials:
 \textbf{(a)} Any $\mathbf{a},\mathbf{b}\in\mathbb{K}\left[  x\right]  $
 satisfy%
 \[
-\left(  \mathbf{a+b}\right)  \left[  u\right]  =\mathbf{a}\left[  u\right]
-+\mathbf{b}\left[  u\right]  \ \ \ \ \ \ \ \ \ \ \text{and}%
+\left(  \mathbf{a}+\mathbf{b}\right)  \left[  u\right]  =\mathbf{a}\left[
+u\right]  +\mathbf{b}\left[  u\right]  \ \ \ \ \ \ \ \ \ \ \text{and}%
 \ \ \ \ \ \ \ \ \ \ \left(  \mathbf{ab}\right)  \left[  u\right]
 =\mathbf{a}\left[  u\right]  \cdot\mathbf{b}\left[  u\right]  .
 \]
@@ -37398,7 +37396,7 @@ This proves Theorem \ref{thm.pol.eval.a+b} \textbf{(c)}.
 \textbf{(c)} This is easy and left to the reader.
 
 \textbf{(a)} Let $\mathbf{a},\mathbf{b}\in\mathbb{K}\left[  x\right]  $. It is
-easy to see that $\left(  \mathbf{a+b}\right)  \left[  u\right]
+easy to see that $\left(  \mathbf{a}+\mathbf{b}\right)  \left[  u\right]
 =\mathbf{a}\left[  u\right]  +\mathbf{b}\left[  u\right]  $.
 
 It remains to prove that $\left(  \mathbf{ab}\right)  \left[  u\right]
