@@ -17,7 +17,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Thursday, May 30, 2019 18:40:31}
+%TCIDATA{LastRevised=Thursday, May 30, 2019 20:49:54}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -2945,12 +2945,16 @@ At this point, as an application of division with remainder, it would be
 helpful to explain how nonnegative integers can be written in base $n>1$. Make
 sure to stress that the last digit of $u$ is $u//n$.
 
-Decimal fractions can then be handled later using Euler's totient theorem.
+Decimal fractions can then be handled later using Euler's totient function.
 Exercises can be added about mixed-radix number systems as well as
 alternating-sign ternary.
 
 \textquotedblleft Base $n$\textquotedblright\ works with polynomials as well,
-as long as $n$ is a monic polynomial of degree $>0$. Not sure how useful it is.
+as long as $n$ is a monic polynomial of degree $>0$. This can be restated as:
+If $\mathbf{b}\in\mathbb{K}\left[  x\right]  $ has leading term $ux^{m}$ with
+$u$ invertible and $m>0$, then $\mathbb{K}\left[  x\right]  $ is a finite free
+$\mathbb{K}\left[  y\right]  $-module with $y$ acting as $\mathbf{b}$. Not
+sure how useful it is.
 \end{teachingnote}
 
 \begin{teachingnote}
@@ -12490,6 +12494,16 @@ $a$ and $b$ renamed as $x$ and $y$.
 See \cite{GKP} and \cite{detnotes} for further identities involving binomial coefficients.
 \end{noncompile}
 
+\begin{exercise}
+\label{exe.binom.subsets-ctg}Let $a,b\in\mathbb{N}$ and $m\in\mathbb{Q}$. Let
+$A$ be an $a$-element set. Let $B$ be a $b$-element subset of $A$. Prove that%
+\[
+\left(  \text{the number of }m\text{-element subsets }S\text{ of }A\text{
+satisfying }B\subseteq S\right)  =\dbinom{a-b}{m-b}.
+\]
+
+\end{exercise}
+
 \subsubsection{Some divisibilities and congruences}
 
 So far we have been proving identities between binomial coefficients. Let us
@@ -12660,6 +12674,20 @@ by coloring all even numbers white and all odd numbers black}.
 
 See \cite{Mestro14} and \cite{Granvi05} for overviews of more complicated
 divisibilities and congruences for binomial coefficients.
+
+\begin{exercise}
+\label{exe.binom.p-for-EGZ}Let $p$ be a prime.
+
+\textbf{(a)} Prove that $\dbinom{2p}{p}\equiv2\operatorname{mod}p$.
+
+\textbf{(b)} Prove that $\dbinom{2p-1}{p}\equiv1\operatorname{mod}p$.
+
+\textbf{(c)} Prove that $\dbinom{p-1+k}{k}\equiv0\operatorname{mod}p$ for each
+$k\in\left\{  1,2,\ldots,p-1\right\}  $.
+
+[\textbf{Hint:} This is very easy using Lucas's congruence, but you can also
+solve it without it.]
+\end{exercise}
 
 \begin{teachingnote}
 \textbf{2019-02-20 lecture}
@@ -34095,7 +34123,7 @@ I^{\prime}\times J^{\prime}}}\underbrace{\left[  x^{n}\right]  \left(
 \text{or }\left(  i,j\right)  \notin I^{\prime}\times J^{\prime}\text{ (but
 never both at the same time)}%
 \end{array}
-\right)  \nonumber\\
+\right) \nonumber\\
 &  =\sum_{\left(  i,j\right)  \in I^{\prime}\times J^{\prime}}\left[
 x^{n}\right]  \left(  \mathbf{a}_{i,j}\right)  +\underbrace{\sum
 _{\substack{\left(  i,j\right)  \in I\times J;\\\left(  i,j\right)  \notin
@@ -34317,7 +34345,7 @@ $\mathbf{b}=\left(  a_{0},a_{1},a_{2},\ldots\right)  $, we obtain%
 \left[  x^{0}\right]  \left(  x\left(  a_{0},a_{1},a_{2},\ldots\right)
 \right)   &  =\sum_{i=0}^{0}\left(  \left[  x^{i}\right]  x\right)
 \cdot\left(  \left[  x^{0-i}\right]  \left(  a_{0},a_{1},a_{2},\ldots\right)
-\right)  \\
+\right) \\
 &  =\underbrace{\left(  \left[  x^{0}\right]  x\right)  }_{=0}\cdot\left(
 \left[  x^{0-0}\right]  \left(  a_{0},a_{1},a_{2},\ldots\right)  \right)  =0.
 \end{align*}
@@ -34327,7 +34355,7 @@ In other words, the first entry of the sequence $x\left(  a_{0},a_{1}%
 a_{0},a_{1},a_{2},\ldots\right)  $) yields%
 \begin{align*}
 &  \left[  x^{n}\right]  \left(  x\left(  a_{0},a_{1},a_{2},\ldots\right)
-\right)  \\
+\right) \\
 &  =\sum_{i=0}^{n}\left(  \left[  x^{i}\right]  x\right)  \cdot
 \underbrace{\left(  \left[  x^{n-i}\right]  \left(  a_{0},a_{1},a_{2}%
 ,\ldots\right)  \right)  }_{\substack{=a_{n-i}\\\text{(by the definition of
@@ -34346,7 +34374,7 @@ _{\substack{=0\\\text{(by (\ref{eq.pol.fps-x.0-2}) (applied}\\\text{to
 \text{here, we have split off the addend for }i=1\\
 \text{from the sum, since }1\in\left\{  0,1,\ldots,n\right\}
 \end{array}
-\right)  \\
+\right) \\
 &  =a_{n-1}+\underbrace{\sum_{\substack{i\in\left\{  0,1,\ldots,n\right\}
 ;\\i\neq1}}0\cdot a_{n-i}}_{=0}=a_{n-1}.
 \end{align*}
@@ -34413,11 +34441,11 @@ x^{k}=\left(  \underbrace{0,0,\ldots,0}_{k\text{ zeroes}}%
 \]
 and thus%
 \begin{align}
-a_{k}x^{k} &  =a_{k}\left(  \underbrace{0,0,\ldots,0}_{k\text{ zeroes}%
-},1,\underbrace{0,0,0,0,\ldots}_{\text{zeroes}}\right)  \nonumber\\
+a_{k}x^{k}  &  =a_{k}\left(  \underbrace{0,0,\ldots,0}_{k\text{ zeroes}%
+},1,\underbrace{0,0,0,0,\ldots}_{\text{zeroes}}\right) \nonumber\\
 &  =\left(  \underbrace{a_{k}\cdot0,a_{k}\cdot0,\ldots,a_{k}\cdot0}_{k\text{
 times}},a_{k}\cdot1,\underbrace{a_{k}\cdot0,a_{k}\cdot0,a_{k}\cdot0,a_{k}%
-\cdot0,\ldots}_{\infty\text{ times}}\right)  \nonumber\\
+\cdot0,\ldots}_{\infty\text{ times}}\right) \nonumber\\
 &  =\left(  \underbrace{0,0,\ldots,0}_{k\text{ zeroes}},a_{k}%
 ,\underbrace{0,0,0,0,\ldots}_{\text{zeroes}}\right)
 \label{pf.cor.pol.FPS-as-sum.akxk=}%
@@ -34436,14 +34464,14 @@ this sum:
 \underbrace{0,0,\ldots,0}_{k\text{ zeroes}},a_{k},\underbrace{0,0,0,0,\ldots
 }_{\text{zeroes}}\right)  \\\text{(by (\ref{pf.cor.pol.FPS-as-sum.akxk=}))}%
 }}\\
-= &  \sum_{k\in\mathbb{N}}\left(  \underbrace{0,0,\ldots,0}_{k\text{ zeroes}%
-},a_{k},\underbrace{0,0,0,0,\ldots}_{\text{zeroes}}\right)  \\
-= &  \left(  a_{0},0,0,0,0,\ldots\right)  \\
-+ &  \left(  0,a_{1},0,0,0,\ldots\right)  \\
-+ &  \left(  0,0,a_{2},0,0,\ldots\right)  \\
-+ &  \left(  0,0,0,a_{3},0,\ldots\right)  \\
-+ &  \cdots\\
-= &  \left(  a_{0},a_{1},a_{2},a_{3},\ldots\right)
+=  &  \sum_{k\in\mathbb{N}}\left(  \underbrace{0,0,\ldots,0}_{k\text{ zeroes}%
+},a_{k},\underbrace{0,0,0,0,\ldots}_{\text{zeroes}}\right) \\
+=  &  \left(  a_{0},0,0,0,0,\ldots\right) \\
++  &  \left(  0,a_{1},0,0,0,\ldots\right) \\
++  &  \left(  0,0,a_{2},0,0,\ldots\right) \\
++  &  \left(  0,0,0,a_{3},0,\ldots\right) \\
++  &  \cdots\\
+=  &  \left(  a_{0},a_{1},a_{2},a_{3},\ldots\right)
 \end{align*}
 (since addition of FPSs is entrywise). Therefore,%
 \begin{align*}
@@ -48031,6 +48059,352 @@ nonnegative integer (since we already know that $\dbinom{n}{k}$ is
 nonnegative). Hence, Corollary \ref{cor.binom.N->N} is proven again.
 
 Thus, Exercise \ref{exe.binom.legendre} \textbf{(d)} is solved.
+\end{proof}
+\end{fineprint}
+
+\subsection{Solution to Exercise \ref{exe.binom.subsets-ctg}}
+
+\begin{fineprint}
+\begin{proof}
+[Solution to Exercise \ref{exe.binom.subsets-ctg}.]Let me first informally
+present the idea of the solution, and afterwards make it into a rigorous proof.
+
+The idea is the following: If we want to choose an $m$-element subset $S$ of
+$A$ satisfying $B\subseteq S$, we cannot just arbitrarily pick $m$ elements of
+$A$; this would fail to ensure that $B\subseteq S$. Thus, a better method is
+to start by picking all the $b$ elements of $B$, and then supplement them with
+$m-b$ further elements from $A\setminus B$ (which can be picked at random).
+The only choice we have in this procedure is which $m-b$ elements of
+$A\setminus B$ we pick in the second step; this can be done in $\dbinom
+{a-b}{m-b}$ many ways (because it is tantamount to choosing an $\left(
+m-b\right)  $-element subset of the $\left(  a-b\right)  $-element set
+$A\setminus B$; but Theorem \ref{thm.binom.comb-int} tells us that
+$\dbinom{a-b}{m-b}$ is the number of such subsets). Hence, the number of
+$m$-element subsets $S$ of $A$ satisfying $B\subseteq S$ is $\dbinom{a-b}%
+{m-b}$.
+
+Here is a formal version of this argument: We have $\left\vert A\right\vert
+=a$ (since $A$ is an $a$-element set) and $\left\vert B\right\vert =b$ (since
+$B$ is a $b$-element set). But $B$ is a subset of $A$; thus, $\left\vert
+A\setminus B\right\vert =\underbrace{\left\vert A\right\vert }_{=a}%
+-\underbrace{\left\vert B\right\vert }_{=b}=a-b$. In other words, $A\setminus
+B$ is an $\left(  a-b\right)  $-element set. Thus, Theorem
+\ref{thm.binom.comb-int} (applied to $n=a-b$, $k=m-b$ and $N=A\setminus B$)
+yields that $\dbinom{a-b}{m-b}$ is the number of $\left(  m-b\right)
+$-element subsets of $A\setminus B$. In other words,%
+\begin{equation}
+\dbinom{a-b}{m-b}=\left(  \text{the number of }\left(  m-b\right)
+\text{-element subsets of }A\setminus B\right)  .
+\label{sol.binom.subsets-ctg.1}%
+\end{equation}
+
+
+Now, let $\mathbf{L}$ be the set of all $m$-element subsets $S$ of $A$
+satisfying $B\subseteq S$. Hence,%
+\begin{equation}
+\left\vert \mathbf{L}\right\vert =\left(  \text{the number of }m\text{-element
+subsets }S\text{ of }A\text{ satisfying }B\subseteq S\right)  .
+\label{sol.binom.subsets-ctg.sizeL=}%
+\end{equation}
+
+
+Furthermore, let $\mathbf{K}$ be the set of all $\left(  m-b\right)  $-element
+subsets of $A\setminus B$. Hence,%
+\begin{align}
+\left\vert \mathbf{K}\right\vert  &  =\left(  \text{the number of }\left(
+m-b\right)  \text{-element subsets of }A\setminus B\right) \nonumber\\
+&  =\dbinom{a-b}{m-b}\ \ \ \ \ \ \ \ \ \ \left(  \text{by
+(\ref{sol.binom.subsets-ctg.1})}\right)  .
+\label{sol.binom.subsets-ctg.sizeK=}%
+\end{align}
+
+
+Now, we shall construct a bijection between $\mathbf{K}$ and $\mathbf{L}$.
+
+For each $P\in\mathbf{L}$, we have $P\setminus B\in\mathbf{K}$%
+\ \ \ \ \footnote{\textit{Proof.} Let $P\in\mathbf{L}$. Thus, $P$ is an
+$m$-element subset $S$ of $A$ satisfying $B\subseteq S$ (by the definition of
+$\mathbf{L}$). In other words, $P$ is an $m$-element subset of $A$ and
+satisfies $B\subseteq P$.
+\par
+Now, $P$ is a subset of $A$; thus, $P\setminus B$ is a subset of $A\setminus
+B$. Moreover, $\left\vert P\right\vert =m$ (since $P$ is an $m$-element set).
+From $B\subseteq P$, we obtain $\left\vert P\setminus B\right\vert
+=\underbrace{\left\vert P\right\vert }_{=m}-\underbrace{\left\vert
+B\right\vert }_{=b}=m-b$. Hence, $P\setminus B$ is an $\left(  m-b\right)
+$-element set. Thus, $P\setminus B$ is an $\left(  m-b\right)  $-element
+subset of $A\setminus B$. In other words, $P\setminus B\in\mathbf{K}$ (by the
+definition of $\mathbf{K}$). Qed.}. Thus, we can define a map%
+\begin{align*}
+f:\mathbf{L}  &  \rightarrow\mathbf{K},\\
+P  &  \mapsto P\setminus B.
+\end{align*}
+Consider this map $f$.
+
+We intend to show that $f$ is a bijection; for that purpose, let us construct
+its inverse.
+
+For each $Q\in\mathbf{K}$, we have $Q\cup B\in\mathbf{L}$%
+\ \ \ \ \footnote{\textit{Proof.} Let $Q\in\mathbf{K}$. Thus, $Q$ is an
+$\left(  m-b\right)  $-element subset of $A\setminus B$ (by the definition of
+$\mathbf{K}$). Now, $Q$ is a subset of $A\setminus B$; hence, $Q$ is a subset
+of $A$ and is disjoint from $B$. (This follows from basic set theory.)
+\par
+Now we know that both sets $Q$ and $B$ are subsets of $A$. Hence, their union
+$Q\cup B$ is a subset of $A$ as well. Furthermore, $\left\vert Q\right\vert
+=m-b$ (since $Q$ is an $\left(  m-b\right)  $-element set). Since $Q$ is
+disjoint from $B$, we have $\left\vert Q\cup B\right\vert
+=\underbrace{\left\vert Q\right\vert }_{=m-b}+\underbrace{\left\vert
+B\right\vert }_{=b}=\left(  m-b\right)  +b=m$. Thus, $Q\cup B$ is an
+$m$-element set. Hence, $Q\cup B$ is an $m$-element subset of $A$ and
+satisfies $B\subseteq Q\cup B$ (obviously). In other words, $Q\cup B$ is an
+$m$-element subset $S$ of $A$ satisfying $B\subseteq S$. In other words,
+$Q\cup B\in\mathbf{L}$ (by the definition of $\mathbf{L}$). Qed.}. Thus, we
+can define a map%
+\begin{align*}
+g:\mathbf{K}  &  \rightarrow\mathbf{L},\\
+Q  &  \mapsto Q\cup B.
+\end{align*}
+Consider this map $g$.
+
+We have $f\circ g=\operatorname*{id}$\ \ \ \ \footnote{\textit{Proof.} Let
+$Q\in\mathbf{K}$. Then, $Q$ is an $\left(  m-b\right)  $-element subset of
+$A\setminus B$ (by the definition of $\mathbf{K}$). Now, $Q$ is a subset of
+$A\setminus B$; hence, $Q$ is a subset of $A$ and is disjoint from $B$. (This
+follows from basic set theory.)
+\par
+The definition of $g$ yields $g\left(  Q\right)  =Q\cup B$. But the definition
+of $f$ yields $f\left(  g\left(  Q\right)  \right)  =\underbrace{g\left(
+Q\right)  }_{=Q\cup B}\setminus B=\left(  Q\cup B\right)  \setminus
+B=Q\setminus B=Q$ (since $Q$ is disjoint from $B$). Hence, $\left(  f\circ
+g\right)  \left(  Q\right)  =f\left(  g\left(  Q\right)  \right)
+=Q=\operatorname*{id}\left(  Q\right)  $.
+\par
+Now, forget that we fixed $Q$. We thus have shown that each $Q\in\mathbf{K}$
+satisfies $\left(  f\circ g\right)  \left(  Q\right)  =\operatorname*{id}%
+\left(  Q\right)  $. In other words, $f\circ g=\operatorname*{id}$.} and
+$g\circ f=\operatorname*{id}$\ \ \ \ \footnote{\textit{Proof.} Let
+$P\in\mathbf{L}$. Thus, $P$ is an $m$-element subset $S$ of $A$ satisfying
+$B\subseteq S$ (by the definition of $\mathbf{L}$). In other words, $P$ is an
+$m$-element subset of $A$ and satisfies $B\subseteq P$.
+\par
+The definition of $f$ yields $f\left(  P\right)  =P\setminus B$. But the
+definition of $g$ yields $g\left(  f\left(  P\right)  \right)
+=\underbrace{f\left(  P\right)  }_{=P\setminus B}\cup B=\left(  P\setminus
+B\right)  \cup B=P$ (since $B\subseteq P$). Hence, $\left(  g\circ f\right)
+\left(  P\right)  =g\left(  f\left(  P\right)  \right)  =P=\operatorname*{id}%
+\left(  P\right)  $.
+\par
+Now, forget that we fixed $P$. We thus have shown that $\left(  g\circ
+f\right)  \left(  P\right)  =\operatorname*{id}\left(  P\right)  $ for each
+$P\in\mathbf{L}$. In other words, $g\circ f=\operatorname*{id}$.}. These two
+equalities show that the maps $f$ and $g$ are mutually inverse. Hence, the map
+$f$ is invertible, i.e., bijective. Thus, there exists a bijective map from
+$\mathbf{L}$ to $\mathbf{K}$ (namely, $f$). Hence, $\left\vert \mathbf{L}%
+\right\vert =\left\vert \mathbf{K}\right\vert $. Comparing this with
+(\ref{sol.binom.subsets-ctg.sizeL=}), we obtain%
+\[
+\left(  \text{the number of }m\text{-element subsets }S\text{ of }A\text{
+satisfying }B\subseteq S\right)  =\left\vert \mathbf{K}\right\vert
+=\dbinom{a-b}{m-b}%
+\]
+(by (\ref{sol.binom.subsets-ctg.sizeK=})). Thus, Exercise
+\ref{exe.binom.subsets-ctg} is rigorously solved.
+\end{proof}
+\end{fineprint}
+
+\subsection{Solution to Exercise \ref{exe.binom.p-for-EGZ}}
+
+\begin{fineprint}
+We shall give two solutions to Exercise \ref{exe.binom.p-for-EGZ}: one using
+Lucas's congruence (Theorem \ref{thm.binom.lucas}), and one using just basic
+properties of binomial coefficients. We start with the former:
+
+\begin{proof}
+[First solution to Exercise \ref{exe.binom.p-for-EGZ}.]We have $p>1$ (since
+$p$ is a prime). Thus, $0\in\left\{  0,1,\ldots,p-1\right\}  $.
+
+\textbf{(a)} Theorem \ref{thm.binom.lucas} (applied to $a=2$, $b=1$, $c=0$ and
+$d=0$) yields%
+\[
+\dbinom{p\cdot2+0}{p\cdot1+0}\equiv\underbrace{\dbinom{2}{1}}_{=2}%
+\underbrace{\dbinom{0}{0}}_{=1}=2\cdot1=2\operatorname{mod}p.
+\]
+In view of $p\cdot2+0=2p$ and $p\cdot1+0=p$, this rewrites as $\dbinom{2p}%
+{p}\equiv2\operatorname{mod}p$. This solves Exercise \ref{exe.binom.p-for-EGZ}
+\textbf{(a)}.
+
+\textbf{(b)} Theorem \ref{thm.binom.lucas} (applied to $a=1$, $b=1$, $c=p-1$
+and $d=0$) yields%
+\[
+\dbinom{p\cdot1+\left(  p-1\right)  }{p\cdot1+0}\equiv\underbrace{\dbinom
+{1}{1}}_{=1}\underbrace{\dbinom{p-1}{0}}_{=1}=1\cdot1=1\operatorname{mod}p.
+\]
+In view of $p\cdot1+\left(  p-1\right)  =2p-1$ and $p\cdot1+0=p$, this
+rewrites as $\dbinom{2p-1}{p}\equiv1\operatorname{mod}p$. This solves Exercise
+\ref{exe.binom.p-for-EGZ} \textbf{(b)}.
+
+\textbf{(c)} Let $k\in\left\{  1,2,\ldots,p-1\right\}  $. Thus, $k-1\in
+\left\{  0,1,\ldots,p-2\right\}  \subseteq\left\{  0,1,\ldots,p-1\right\}  $
+and $k\in\left\{  1,2,\ldots,p-1\right\}  \subseteq\left\{  0,1,\ldots
+,p-1\right\}  $. Hence, Theorem \ref{thm.binom.lucas} (applied to $a=1$,
+$b=0$, $c=k-1$ and $d=k$) yields%
+\[
+\dbinom{p\cdot1+\left(  k-1\right)  }{p\cdot0+k}\equiv\underbrace{\dbinom
+{1}{0}}_{=1}\dbinom{k-1}{k}=\dbinom{k-1}{k}\operatorname{mod}p.
+\]
+In view of $p\cdot1+\left(  k-1\right)  =p-1+k$ and $p\cdot0+k=k$, this
+rewrites as
+\begin{equation}
+\dbinom{p-1+k}{k}\equiv\dbinom{k-1}{k}\operatorname{mod}%
+p.\label{sol.binom.p-for-EGZ.1st.c.1}%
+\end{equation}
+But Theorem \ref{thm.binom.k>n0} (applied to $n=k-1$) yields $\dbinom{k-1}%
+{k}=0$ (since $k-1\in\left\{  0,1,\ldots,p-1\right\}  \subseteq\mathbb{N}$ and
+$k>k-1$). Hence, (\ref{sol.binom.p-for-EGZ.1st.c.1}) becomes%
+\[
+\dbinom{p-1+k}{k}\equiv\dbinom{k-1}{k}=0\operatorname{mod}p.
+\]
+This solves Exercise \ref{exe.binom.p-for-EGZ} \textbf{(c)}.
+\end{proof}
+
+\begin{proof}
+[Second solution to Exercise \ref{exe.binom.p-for-EGZ}.]We have $p>1$ (since
+$p$ is a prime). Thus, $0\in\left\{  0,1,\ldots,p-1\right\}  $.
+
+Furthermore, we have $\left(  p-1\right)  !\perp p$%
+\ \ \ \ \footnote{\textit{Proof.} It is easy to derive this from Wilson's
+theorem (Theorem \ref{thm.ent.wilson}), but let us give a more elementary
+proof:
+\par
+Each $i\in\left\{  1,2,\ldots,p-1\right\}  $ is coprime to $p$ (by Proposition
+\ref{prop.ent.prime.each-i-coprime}). In other words, each $i\in\left\{
+1,2,\ldots,p-1\right\}  $ satisfies $i\perp p$. Hence, Exercise
+\ref{exe.ent.coprime.ab-to-ck} (applied to $c=p$, $k=p-1$ and $a_{i}=i$) shows
+that $1\cdot2\cdot\cdots\cdot\left(  p-1\right)  \perp p$. This rewrites as
+$\left(  p-1\right)  !\perp p$ (since $\left(  p-1\right)  !=1\cdot
+2\cdot\cdots\cdot\left(  p-1\right)  $).}.
+
+\textbf{(a)} Theorem \ref{thm.binom.abs} (applied to $n=2p$ and $k=p$) yields%
+\[
+p\dbinom{2p}{p}=2p\dbinom{2p-1}{p-1}.
+\]
+We can cancel $p$ from this equality (since $p$ is nonzero); thus, we obtain%
+\begin{equation}
+\dbinom{2p}{p}=2\dbinom{2p-1}{p-1}. \label{sol.binom.p-for-EGZ.2nd.a.1}%
+\end{equation}
+
+
+Now, $p-1\in\mathbb{N}$ (since $p>1$). Thus, the definition of $\dbinom
+{2p-1}{p-1}$ yields%
+\[
+\dbinom{2p-1}{p-1}=\dfrac{\left(  2p-1\right)  \left(  \left(  2p-1\right)
+-1\right)  \left(  \left(  2p-1\right)  -2\right)  \cdots\left(  \left(
+2p-1\right)  -\left(  p-1\right)  +1\right)  }{\left(  p-1\right)  !}.
+\]
+Hence,%
+\begin{align*}
+&  \left(  p-1\right)  !\cdot\dbinom{2p-1}{p-1}\\
+&  =\left(  2p-1\right)  \left(  \left(  2p-1\right)  -1\right)  \left(
+\left(  2p-1\right)  -2\right)  \cdots\left(  \left(  2p-1\right)  -\left(
+p-1\right)  +1\right)  \\
+&  =\prod_{i=0}^{\left(  p-1\right)  -1}\left(  \left(  2p-1\right)
+-i\right)  =\prod_{s=1}^{p-1}\underbrace{\left(  \left(  2p-1\right)  -\left(
+p-1-s\right)  \right)  }_{=p+s}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{here, we have substituted }p-1-s\text{
+for }i\text{ in the product}\right)  \\
+&  =\prod_{s=1}^{p-1}\underbrace{\left(  p+s\right)  }_{\equiv
+s\operatorname{mod}p}\equiv\prod_{s=1}^{p-1}s\operatorname{mod}p
+\end{align*}
+\footnote{Here is a detailed justification of the last \textquotedblleft%
+$\equiv$\textquotedblright\ sign in this computation: We have $p+s\equiv
+s\operatorname{mod}p$ for each $s\in\left\{  1,2,\ldots,p-1\right\}  $. Hence,
+(\ref{eq.exe.ent.mod.k-sum.b}) (applied to $n=p$, $S=\left\{  1,2,\ldots
+,p-1\right\}  $, $a_{s}=p+s$ and $b_{s}=s$) yields%
+\[
+\prod_{s\in\left\{  1,2,\ldots,p-1\right\}  }\left(  p+s\right)  \equiv
+\prod_{s\in\left\{  1,2,\ldots,p-1\right\}  }s\operatorname{mod}p.
+\]
+This congruence rewrites as $\prod_{s=1}^{p-1}\left(  p+s\right)  \equiv
+\prod_{s=1}^{p-1}s\operatorname{mod}p$ (since the \textquotedblleft%
+$\prod_{s\in\left\{  1,2,\ldots,p-1\right\}  }$\textquotedblright\ sign is
+equivalent to \textquotedblleft$\prod_{s=1}^{p-1}$\textquotedblright). Qed.}.
+Thus,%
+\begin{align*}
+\left(  p-1\right)  !\cdot\dbinom{2p-1}{p-1} &  \equiv\prod_{s=1}%
+^{p-1}s=1\cdot2\cdot\cdots\cdot\left(  p-1\right)  =\left(  p-1\right)  !\\
+&  =\left(  p-1\right)  !\cdot1\operatorname{mod}p.
+\end{align*}
+Hence, Lemma \ref{lem.ent.coprime.cancel} (applied to $n=p$, $a=\left(
+p-1\right)  !$, $b=\dbinom{2p-1}{p-1}$ and $c=1$) shows that
+\begin{equation}
+\dbinom{2p-1}{p-1}\equiv1\operatorname{mod}%
+p\label{sol.binom.p-for-EGZ.2nd.b.1}%
+\end{equation}
+(since $\left(  p-1\right)  !\perp p$). Thus,
+(\ref{sol.binom.p-for-EGZ.2nd.a.1}) becomes%
+\[
+\dbinom{2p}{p}=2\underbrace{\dbinom{2p-1}{p-1}}_{\equiv1\operatorname{mod}%
+p}\equiv2\cdot1=2\operatorname{mod}p.
+\]
+This solves Exercise \ref{exe.binom.p-for-EGZ} \textbf{(a)}.
+
+\textbf{(b)} We have $2p-1\in\mathbb{N}$ (since $p>1$). Thus, Theorem
+\ref{thm.binom.symmetry} (applied to $n=2p-1$ and $k=p$) yields%
+\begin{align*}
+\dbinom{2p-1}{p}  & =\dbinom{2p-1}{\left(  2p-1\right)  -p}=\dbinom{2p-1}%
+{p-1}\ \ \ \ \ \ \ \ \ \ \left(  \text{since }\left(  2p-1\right)
+-p=p-1\right)  \\
+& \equiv1\operatorname{mod}p\ \ \ \ \ \ \ \ \ \ \left(  \text{by
+(\ref{sol.binom.p-for-EGZ.2nd.b.1})}\right)  .
+\end{align*}
+This solves Exercise \ref{exe.binom.p-for-EGZ} \textbf{(b)}.
+
+\textbf{(c)} Let $k\in\left\{  1,2,\ldots,p-1\right\}  $. Thus, $k-1\in
+\left\{  0,1,\ldots,p-2\right\}  \subseteq\mathbb{N}$, so that $k-1\in\left\{
+0,1,\ldots,k-1\right\}  $.
+
+We have $k\in\left\{  1,2,\ldots,p-1\right\}  $, so that $k\leq p-1$. Hence,
+$k!\perp p$\ \ \ \ \footnote{\textit{Proof.} Each $i\in\left\{  1,2,\ldots
+,k\right\}  $ satisfies $i\in\left\{  1,2,\ldots,p-1\right\}  $ (since $k\leq
+p-1$) and therefore is coprime to $p$ (by Proposition
+\ref{prop.ent.prime.each-i-coprime}). In other words, each $i\in\left\{
+1,2,\ldots,k\right\}  $ satisfies $i\perp p$. Hence, Exercise
+\ref{exe.ent.coprime.ab-to-ck} (applied to $c=p$ and $a_{i}=i$) shows that
+$1\cdot2\cdot\cdots\cdot k\perp p$. This rewrites as $k!\perp p$ (since
+$k!=1\cdot2\cdot\cdots\cdot k$).}. Thus, $p\perp k!$ (by Proposition
+\ref{prop.ent.coprime.perp-symm}).
+
+The definition of $\dbinom{p-1+k}{k}$ yields%
+\[
+\dbinom{p-1+k}{k}=\dfrac{\left(  p-1+k\right)  \left(  \left(  p-1+k\right)
+-1\right)  \left(  \left(  p-1+k\right)  -2\right)  \cdots\left(  \left(
+p-1+k\right)  -k+1\right)  }{k!}.
+\]
+Hence,%
+\begin{align*}
+&  k!\cdot\dbinom{p-1+k}{k}\\
+&  =\left(  p-1+k\right)  \left(  \left(  p-1+k\right)  -1\right)  \left(
+\left(  p-1+k\right)  -2\right)  \cdots\left(  \left(  p-1+k\right)
+-k+1\right)  \\
+&  =\prod_{i=0}^{k-1}\left(  \left(  p-1+k\right)  -i\right)
+=\underbrace{\left(  \left(  p-1+k\right)  -\left(  k-1\right)  \right)
+}_{=p}\cdot\prod_{i=0}^{k-2}\left(  \left(  p-1+k\right)  -i\right)  \\
+&  \ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{here, we have split off the factor for }i=k-1\\
+\text{from the product, since }k-1\in\left\{  0,1,\ldots,k-1\right\}
+\end{array}
+\right)  \\
+&  =p\cdot\prod_{i=0}^{k-2}\left(  \left(  p-1+k\right)  -i\right)  .
+\end{align*}
+This shows that $p\mid k!\cdot\dbinom{p-1+k}{k}$ (since $\prod_{i=0}%
+^{k-2}\left(  \left(  p-1+k\right)  -i\right)  $ is an integer). Thus, Theorem
+\ref{thm.ent.coprime.cancel} (applied to $a=p$, $b=k!$ and $c=\dbinom
+{p-1+k}{k}$) yields $p\mid\dbinom{p-1+k}{k}$ (since $p\perp k!$). In other
+words, $\dbinom{p-1+k}{k}\equiv0\operatorname{mod}p$. This solves Exercise
+\ref{exe.binom.p-for-EGZ} \textbf{(c)}.
 \end{proof}
 \end{fineprint}
 
