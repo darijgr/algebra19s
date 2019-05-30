@@ -17,7 +17,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Thursday, May 30, 2019 17:41:20}
+%TCIDATA{LastRevised=Thursday, May 30, 2019 18:40:31}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -9255,27 +9255,27 @@ our sum are nonnegative reals). Hence, we have the following chain of
 equivalences:%
 \begin{align*}
 &  \left(  \sum_{p\text{ prime}}v_{p}\left(  n\right)  v_{p}\left(  m\right)
-=0\right)  \\
+=0\right) \\
 &  \Longleftrightarrow\ \left(  v_{p}\left(  n\right)  v_{p}\left(  m\right)
-=0\text{ for all primes }p\right)  \\
+=0\text{ for all primes }p\right) \\
 &  \Longleftrightarrow\ \left(  \left(  v_{p}\left(  n\right)  =0\text{ or
-}v_{p}\left(  m\right)  =0\right)  \text{ for all primes }p\right)  \\
+}v_{p}\left(  m\right)  =0\right)  \text{ for all primes }p\right) \\
 &  \Longleftrightarrow\ \left(  \left(  p\nmid n\text{ or }p\nmid m\right)
-\text{ for all primes }p\right)  \\
+\text{ for all primes }p\right) \\
 &  \ \ \ \ \ \ \ \ \ \ \left(
 \begin{array}
 [c]{c}%
 \text{since Corollary \ref{cor.ent.prime.vp-0} yields the}\\
 \text{equivalences }\left(  v_{p}\left(  n\right)  =0\right)
 \Longleftrightarrow\left(  p\nmid n\right)  \text{ and }\left(  v_{p}\left(
-m\right)  =0\right)  \Longleftrightarrow\left(  p\nmid m\right)  \\
+m\right)  =0\right)  \Longleftrightarrow\left(  p\nmid m\right) \\
 \text{for each prime }p
 \end{array}
-\right)  \\
+\right) \\
 &  \Longleftrightarrow\ \left(  \text{there exists no prime }p\text{ such that
-}\left(  p\mid n\text{ and }p\mid m\right)  \right)  \\
+}\left(  p\mid n\text{ and }p\mid m\right)  \right) \\
 &  \Longleftrightarrow\ \left(  \text{there exists no prime }p\text{ that
-divides both }n\text{ and }m\right)  \\
+divides both }n\text{ and }m\right) \\
 &  \Longleftrightarrow\ \left(  n\perp m\right)  \ \ \ \ \ \ \ \ \ \ \left(
 \text{by Proposition \ref{prop.ent.coprime.via-primes}}\right)  .
 \end{align*}
@@ -17925,7 +17925,8 @@ precisely, the Solovay-Strassen test is an algorithm for checking (not with
 100\% surety, but with high probability, which suffices in practice) whether a
 given integer is prime. To make this into an algorithm for generating large
 primes, you can simply keep randomly picking large numbers until you hit one
-that is prime. This doesn't take \textbf{too} long, because
+that is prime (which you can check using the Solovay--Strassen test). This
+doesn't take \textbf{too} long, because
 \href{https://en.wikipedia.org/wiki/Prime_number_theorem}{the prime number
 theorem} says that (very roughly speaking!) the probability for a $k$-digit
 number to be prime is $\approx1/k$. (A precise statement of this result would
@@ -30469,10 +30470,10 @@ Instead of giving further examples, let us show a way of constructing new
 $\mathbb{K}$-modules from old (analogous to Definition \ref{def.ring.dirprod2}):
 
 \begin{definition}
-\label{def.module.dirprod1}Let $M_{1},M_{2},\ldots,M_{n}$ be $n$ many
-$\mathbb{K}$-modules. Consider the set $M_{1}\times M_{2}\times\cdots\times
-M_{n}$, whose elements are $n$-tuples $\left(  m_{1},m_{2},\ldots
-,m_{n}\right)  $ with $m_{i}\in M_{i}$.
+\label{def.module.dirprod1}Let $\mathbb{K}$ be a commutative ring. Let
+$M_{1},M_{2},\ldots,M_{n}$ be $n$ many $\mathbb{K}$-modules. Consider the set
+$M_{1}\times M_{2}\times\cdots\times M_{n}$, whose elements are $n$-tuples
+$\left(  m_{1},m_{2},\ldots,m_{n}\right)  $ with $m_{i}\in M_{i}$.
 
 We define a binary operation $+$ on $M_{1}\times M_{2}\times\cdots\times
 M_{n}$ by%
@@ -30491,10 +30492,11 @@ a_{1},\lambda a_{2},\ldots,\lambda a_{n}\right)  .
 \end{definition}
 
 \begin{proposition}
-\label{prop.module.dirprod.module}Let $M_{1},M_{2},\ldots,M_{n}$ be $n$ many
-$\mathbb{K}$-modules. The set $M_{1}\times M_{2}\times\cdots\times M_{n}$,
-endowed with the operation $+$ and the map $\cdot$ we just defined and with
-the zero vector $\left(  0,0,\ldots,0\right)  $, is a $\mathbb{K}$-module.
+\label{prop.module.dirprod.module}Let $\mathbb{K}$ be a commutative ring. Let
+$M_{1},M_{2},\ldots,M_{n}$ be $n$ many $\mathbb{K}$-modules. The set
+$M_{1}\times M_{2}\times\cdots\times M_{n}$, endowed with the operation $+$
+and the map $\cdot$ we just defined and with the zero vector $\left(
+0,0,\ldots,0\right)  $, is a $\mathbb{K}$-module.
 \end{proposition}
 
 \begin{proof}
@@ -30585,10 +30587,10 @@ axioms any more. (Indeed, our proof of axiom \textbf{(d)} relied on axiom
 What can you do when you have a $\mathbb{K}$-module?
 
 \begin{convention}
-For the rest of this section, we fix a $\mathbb{K}$-module $M$. We shall
-denote its zero vector $0_{M}$ by $0$. (More generally, it is common to denote
-the zero vector of any $\mathbb{K}$-module by $0$ as long as you are not
-afraid of confusion.)
+For the rest of this section, we fix a \textbf{commutative} ring $\mathbb{K}$,
+and we fix a $\mathbb{K}$-module $M$. We shall denote the zero vector $0_{M}$
+of $M$ by $0$. (More generally, it is common to denote the zero vector of any
+$\mathbb{K}$-module by $0$ as long as you are not afraid of confusion.)
 \end{convention}
 
 Just as in a ring, elements of a module have unique additive inverses:
@@ -30809,6 +30811,11 @@ integers.) In particular, these equalities show that certain expressions (like
 \textquotedblleft$nma$\textquotedblright\ and \textquotedblleft$n\lambda
 a$\textquotedblright) are unambiguous.
 \end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.module.na.rules}.]This is analogous to the
+proof of Proposition \ref{prop.rings.Zscal.rules}.
+\end{proof}
 
 \textbf{Upshot:} All the rules relating to addition that we know from rings
 are still true for $\mathbb{K}$-modules. Some basic rules relating to
@@ -32821,23 +32828,23 @@ We defined the kernel of a matrix; we can similarly define the kernel of a
 linear map, and a slightly more general notion:
 
 \begin{proposition}
-\label{prop.modhom.ker} Let $M$ and $N$ be two $\mathbb{K}$-modules. Let
-$f:M\rightarrow N$ be a $\mathbb{K}$-module homomorphism (i.e., a $\mathbb{K}%
-$-linear map).
+\label{prop.modhom.ker} Let $\mathbb{K}$ be a commutative ring. Let $M$ and
+$N$ be two $\mathbb{K}$-modules. Let $f:M\rightarrow N$ be a $\mathbb{K}%
+$-module homomorphism (i.e., a $\mathbb{K}$-linear map).
 
 \textbf{(a)} The set%
 \[
 \left\{  v\in M\ \mid\ f\left(  v\right)  =0\right\}
 \]
-is a $\mathbb{K}$-submodule of $M$. This is called the \textit{kernel} of $f$,
-and is written $\operatorname*{Ker}f$ (or $\ker f$).
+is a $\mathbb{K}$-submodule of $M$. This set is called the \textit{kernel} of
+$f$, and is written $\operatorname*{Ker}f$ (or $\ker f$).
 
 \textbf{(b)} Let $V$ be a $\mathbb{K}$-submodule of $N$. Then, the set%
 \[
 \left\{  v\in M\ \mid\ f\left(  v\right)  \in V\right\}
 \]
-is a $\mathbb{K}$-submodule of $M$. This is called the \textit{preimage of $V$
-under $f$}, and is written $f^{-1}\left(  V\right)  $.
+is a $\mathbb{K}$-submodule of $M$. This set is called the \textit{preimage of
+$V$ under $f$}, and is written $f^{-1}\left(  V\right)  $.
 \end{proposition}
 
 \begin{proof}
@@ -32880,25 +32887,27 @@ to Definition \ref{def.module.submod.as-subset}). This proves Proposition
 \ref{prop.modhom.ker} \textbf{(b)}.
 
 \textbf{(a)} It is easy to see that the one-element set $\left\{
-0_{N}\right\}  $ is a $\mathbb{K}$-submodule of $N$. Hence, Proposition
-\ref{prop.modhom.ker} \textbf{(b)} (applied to $V=\left\{  0_{N}\right\}  $)
-yields that the set $\left\{  v\in M\ \mid\ f\left(  v\right)  \in\left\{
-0_{N}\right\}  \right\}  $ is a $\mathbb{K}$-submodule of $M$. But this set is
-precisely $\left\{  v\in M\ \mid\ f\left(  v\right)  =0\right\}  $ (since the
-condition \textquotedblleft$f\left(  v\right)  \in\left\{  0_{N}\right\}
-$\textquotedblright\ on a vector $v\in M$ is equivalent to \textquotedblleft%
-$f\left(  v\right)  =0$\textquotedblright). Hence, we conclude that $\left\{
-v\in M\ \mid\ f\left(  v\right)  =0\right\}  $ is a $\mathbb{K}$-submodule of
-$M$. This proves Proposition \ref{prop.modhom.ker} \textbf{(a)}.
+0_{N}\right\}  $ is a $\mathbb{K}$-submodule of $N$ (since $0_{N}+0_{N}=0_{N}$
+and $\lambda\cdot0_{N}=0_{N}$ for each $\lambda\in\mathbb{K}$). Hence,
+Proposition \ref{prop.modhom.ker} \textbf{(b)} (applied to $V=\left\{
+0_{N}\right\}  $) yields that the set $\left\{  v\in M\ \mid\ f\left(
+v\right)  \in\left\{  0_{N}\right\}  \right\}  $ is a $\mathbb{K}$-submodule
+of $M$. But this set is precisely $\left\{  v\in M\ \mid\ f\left(  v\right)
+=0\right\}  $ (since the condition \textquotedblleft$f\left(  v\right)
+\in\left\{  0_{N}\right\}  $\textquotedblright\ on a vector $v\in M$ is
+equivalent to \textquotedblleft$f\left(  v\right)  =0$\textquotedblright).
+Hence, we conclude that $\left\{  v\in M\ \mid\ f\left(  v\right)  =0\right\}
+$ is a $\mathbb{K}$-submodule of $M$. This proves Proposition
+\ref{prop.modhom.ker} \textbf{(a)}.
 \end{proof}
 
 A second way to construct $\mathbb{K}$-submodules out of linear maps
 generalizes the column space of a matrix:
 
 \begin{proposition}
-\label{prop.modhom.im} Let $M$ and $N$ be two $\mathbb{K}$-modules. Let
-$f:M\rightarrow N$ be a $\mathbb{K}$-module homomorphism (i.e., a $\mathbb{K}%
-$-linear map).
+\label{prop.modhom.im} Let $\mathbb{K}$ be a commutative ring. Let $M$ and $N$
+be two $\mathbb{K}$-modules. Let $f:M\rightarrow N$ be a $\mathbb{K}$-module
+homomorphism (i.e., a $\mathbb{K}$-linear map).
 
 \textbf{(a)} The set $f\left(  M\right)  =\left\{  f\left(  v\right)
 \ \mid\ v\in M\right\}  $ is a $\mathbb{K}$-submodule of $N$. This is called
@@ -32920,9 +32929,10 @@ column space of a matrix? Again, this comes from the correspondence between
 matrices and linear maps:
 
 \begin{remark}
-\label{rmk.modhom.ker=ker}Let $n,m\in\mathbb{N}$. Let $A\in\mathbb{K}^{n\times
-m}$ be an $n\times m$-matrix. Consider the $\mathbb{K}$-linear map $L_{A}$
-defined in Theorem \ref{thm.module.LA}. Then:
+\label{rmk.modhom.ker=ker} Let $\mathbb{K}$ be a commutative ring. Let
+$n,m\in\mathbb{N}$. Let $A\in\mathbb{K}^{n\times m}$ be an $n\times m$-matrix.
+Consider the $\mathbb{K}$-linear map $L_{A}$ defined in Theorem
+\ref{thm.module.LA}. Then:
 
 \textbf{(a)} The kernel of the map $L_{A}$ is the kernel of the matrix $A$.
 
@@ -32967,9 +32977,72 @@ Proposition \ref{prop.modhom.im}.
 
 Next, we can define the kernel of a ring homomorphism by imitating Proposition
 \ref{prop.modhom.ker}; but this kernel will almost never be a subring (as it
-will almost never contain $1$). Instead, it will be a $\mathbb{K}$-submodule
-of $\mathbb{K}$ (remember that $\mathbb{K}$ itself is a $\mathbb{K}$-module!).
-So the analogue of Proposition \ref{prop.modhom.ker} is the following:
+will almost never contain $1$). Instead, it will be a special sort of subset
+of $\mathbb{K}$: a so-called \textit{ideal}. Let us define ideals:
+
+\begin{definition}
+\label{def.ring.ideal}Let $\mathbb{K}$ be a ring. An \textit{ideal} of
+$\mathbb{K}$ is defined to be a subset $I$ of $\mathbb{K}$ that satisfies the
+following four conditions:
+
+\begin{itemize}
+\item The subset $I$ is closed under addition (i.e., we have $a+b\in I$ for
+all $a\in I$ and $b\in I$).
+
+\item The subset $I$ contains $0_{\mathbb{K}}$.
+
+\item We have $\lambda a\in I$ for all $\lambda\in\mathbb{K}$ and $a\in I$.
+
+\item We have $a\lambda\in I$ for all $\lambda\in\mathbb{K}$ and $a\in I$.
+\end{itemize}
+\end{definition}
+
+It is easy to see that any ring $\mathbb{K}$ is an ideal of itself;
+furthermore, the $1$-element set $\left\{  0_{\mathbb{K}}\right\}  $ of
+$\mathbb{K}$ is an ideal of $\mathbb{K}$ as well. But there can be many
+further ideals:
+
+\begin{example}
+Let $\mathbb{K}$ be a commutative ring. Let $u\in\mathbb{K}$. Then, the subset%
+\[
+u\mathbb{K}:=\left\{  uz\ \mid\ z\in\mathbb{K}\right\}
+\]
+of $\mathbb{K}$ is an ideal of $\mathbb{K}$. Such an ideal is called a
+\textit{principal ideal}. Note that $\left\{  0_{\mathbb{K}}\right\}  $ is a
+principal ideal (since $\left\{  0_{\mathbb{K}}\right\}  =0\mathbb{K}$), and
+$\mathbb{K}$ itself is a principal ideal (since $\mathbb{K}=1\mathbb{K}$).
+
+For example, the principal ideals of the ring $\mathbb{Z}$ are the subsets
+$n\mathbb{Z}=\left\{  nz\ \mid\ z\in\mathbb{Z}\right\}  =\left\{  \text{all
+multiples of }n\right\}  $ with $n\in\mathbb{Z}$. For example, $2\mathbb{Z}%
+=\left\{  \text{all even numbers}\right\}  $ is an ideal of $\mathbb{Z}$. It
+is not hard to show that all ideals of $\mathbb{Z}$ are principal ideals.
+
+It can also be shown that all ideals of $\mathbb{Z}\left[  i\right]  $ are
+principal ideals. However, there exist some rings that have non-principal
+ideals as well. For example, if $\mathbb{K}$ is the ring $\mathbb{Z}\left[
+\sqrt{-3}\right]  $, then the subset $\left\{  a+b\sqrt{-3}\mid a,b\in
+\mathbb{Z}\text{ satisfying }a\equiv b\mod 2\right\}  $ of $\mathbb{K}$ is an
+ideal but not a principal ideal.
+\end{example}
+
+When $\mathbb{K}$ is a commutative ring, the third and fourth conditions in
+Definition \ref{def.ring.ideal} actually say the same thing (because $\lambda
+a=a\lambda$ for all $\lambda\in\mathbb{K}$ and $a\in\mathbb{K}$). From this,
+it is not hard to see the following:
+
+\begin{proposition}
+\label{prop.ring.ideal.commutative-submod}Let $\mathbb{K}$ be a commutative
+ring. Then, an ideal of $\mathbb{K}$ is the same thing as a $\mathbb{K}%
+$-submodule of $\mathbb{K}$. (Remember that $\mathbb{K}$ itself is a
+$\mathbb{K}$-module!).
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.ring.ideal.commutative-submod}.]LTTR.
+\end{proof}
+
+Now, we can state an analogue of Proposition \ref{prop.modhom.ker} is the following:
 
 \begin{proposition}
 \label{prop.rihom.ker} Let $\mathbb{K}$ and $\mathbb{L}$ be two rings. Let
@@ -32979,22 +33052,147 @@ $f:\mathbb{K}\rightarrow\mathbb{L}$ be a ring homomorphism.
 \[
 \left\{  v\in\mathbb{K}\ \mid\ f\left(  v\right)  =0\right\}
 \]
-is a $\mathbb{K}$-submodule of $\mathbb{K}$. This is called the
-\textit{kernel} of $f$, and is written $\operatorname*{Ker}f$ (or $\ker f$).
+is an ideal of $\mathbb{K}$. This set is called the \textit{kernel} of $f$,
+and is written $\operatorname*{Ker}f$ (or $\ker f$).
 
-\textbf{(b)} Let $V$ be an $\mathbb{L}$-submodule of $\mathbb{L}$. Then, the
-set%
+\textbf{(b)} Let $V$ be an ideal of $\mathbb{L}$. Then, the set%
 \[
 \left\{  v\in\mathbb{K}\ \mid\ f\left(  v\right)  \in V\right\}
 \]
-is a $\mathbb{K}$-submodule of $\mathbb{K}$. This is called the
-\textit{preimage of $V$ under $f$}, and is written $f^{-1}\left(  V\right)  $.
+is an ideal of $\mathbb{K}$. This set is called the \textit{preimage of $V$
+under $f$}, and is written $f^{-1}\left(  V\right)  $.
 \end{proposition}
 
-If $\mathbb{K}$ is a commutative ring, then the $\mathbb{K}$-submodules of
-$\mathbb{K}$ have a special name; they are called the \textit{ideals} of
-$\mathbb{K}$. So the kernel of a ring homomorphism is always an ideal. (And
-conversely, every ideal can be written as the kernel of a ring homomorphism.)
+\begin{proof}
+[Proof of Proposition \ref{prop.rihom.ker}.]LTTR.
+\end{proof}
+
+So the kernel of a ring homomorphism is always an ideal. (And conversely,
+every ideal can be written as the kernel of a ring homomorphism; but proving
+this would lead us somewhat afield at the moment.)
+
+Kernels can also help in checking whether a ring homomorphism or a module
+homomorphism is injective. To wit, for ring homomorphisms, the following
+criterion for injectivity holds:
+
+\begin{proposition}
+\label{prop.rihom.ker.inj} Let $\mathbb{K}$ and $\mathbb{L}$ be two rings. Let
+$f:\mathbb{K}\rightarrow\mathbb{L}$ be a ring homomorphism. Then, $f$ is
+injective if and only if $\operatorname*{Ker}f=\left\{  0_{\mathbb{K}%
+}\right\}  $.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.rihom.ker.inj}.]$\Longrightarrow:$ Assume that
+$f$ is injective. We must prove that $\operatorname*{Ker}f=\left\{
+0_{\mathbb{K}}\right\}  $.
+
+Recall that $f$ is a ring homomorphism. Thus, $f\left(  0\right)  =0$ (by the
+definition of a ring homomorphism).
+
+Let $a\in\operatorname*{Ker}f$. Then, $a\in\operatorname*{Ker}f=\left\{
+v\in\mathbb{K}\ \mid\ f\left(  v\right)  =0\right\}  $ (by the definition of
+$\operatorname*{Ker}f$). In other words, $a\in\mathbb{K}$ and $f\left(
+a\right)  =0$. Comparing this with $f\left(  0\right)  =0$, we obtain
+$f\left(  a\right)  =f\left(  0\right)  $. Since $f$ is injective, we can thus
+conclude that $a=0=0_{\mathbb{K}}\in\left\{  0_{\mathbb{K}}\right\}  $.
+
+Now, forget that we fixed $a$. We thus have proven that $a\in\left\{
+0_{\mathbb{K}}\right\}  $ for each $a\in\operatorname*{Ker}f$. In other words,
+$\operatorname*{Ker}f\subseteq\left\{  0_{\mathbb{K}}\right\}  $.
+
+On the other hand, $f\left(  0_{\mathbb{K}}\right)  =f\left(  0\right)  =0$,
+so that $0_{\mathbb{K}}\in\operatorname*{Ker}f$ (by the definition of
+$\operatorname*{Ker}f$), so that $\left\{  0_{\mathbb{K}}\right\}
+\subseteq\operatorname*{Ker}f$. Combining this with $\operatorname*{Ker}%
+f\subseteq\left\{  0_{\mathbb{K}}\right\}  $, we obtain $\operatorname*{Ker}%
+f=\left\{  0_{\mathbb{K}}\right\}  $. This proves the \textquotedblleft%
+$\Longrightarrow$\textquotedblright\ direction of Proposition
+\ref{prop.rihom.ker.inj}.
+
+$\Longleftarrow:$ Assume that $\operatorname*{Ker}f=\left\{  0_{\mathbb{K}%
+}\right\}  $. We must prove that $f$ is injective.
+
+Let $a$ and $b$ be two elements of $\mathbb{K}$ satisfying $f\left(  a\right)
+=f\left(  b\right)  $. Then, Proposition \ref{prop.riho.subtract} \textbf{(c)}
+yields $f\left(  a-b\right)  =f\left(  a\right)  -f\left(  b\right)  =0$
+(since $f\left(  a\right)  =f\left(  b\right)  $). Hence, $a-b\in\mathbb{K}$
+and $f\left(  a-b\right)  =0$. In other words, $a-b\in\operatorname*{Ker}f$
+(by the definition of $\operatorname*{Ker}f$). Thus, $a-b\in
+\operatorname*{Ker}f=\left\{  0_{\mathbb{K}}\right\}  $, so that
+$a-b=0_{\mathbb{K}}$ and thus $a=b$.
+
+Now, forget that we fixed $a$ and $b$. We thus have shown that if $a$ and $b$
+are two elements of $\mathbb{K}$ satisfying $f\left(  a\right)  =f\left(
+b\right)  $, then $a=b$. In other words, the map $f$ is injective. This proves
+the \textquotedblleft$\Longleftarrow$\textquotedblright\ direction of
+Proposition \ref{prop.rihom.ker.inj}.
+\end{proof}
+
+An analogous statement holds for $\mathbb{K}$-module homomorphisms:
+
+\begin{proposition}
+\label{prop.modhom.ker.inj} Let $M$ and $N$ be two $\mathbb{K}$-modules. Let
+$f:M\rightarrow N$ be a $\mathbb{K}$-module homomorphism (i.e., a $\mathbb{K}%
+$-linear map). Then, $f$ is injective if and only if $\operatorname*{Ker}%
+f=\left\{  0_{M}\right\}  $.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.modhom.ker.inj}.]This is proven analogously to
+Proposition \ref{prop.rihom.ker.inj}; the main difference is that instead of
+applying Proposition \ref{prop.riho.subtract} \textbf{(c)}, we have to apply
+the analogue of Proposition \ref{prop.riho.subtract} \textbf{(c)} for
+$\mathbb{K}$-module homomorphisms (which we have not stated, but is proven in
+the same way).
+\end{proof}
+
+A curious (and useful) consequence of Proposition \ref{prop.rihom.ker.inj} is
+the following property of fields:
+
+\begin{corollary}
+\label{cor.rihom.from-field-inj}Let $\mathbb{K}$ be a field, and let
+$\mathbb{L}$ be a ring such that $\mathbb{L}$ is not trivial (i.e., we have
+$\left\vert \mathbb{L}\right\vert >1$). Let $f:\mathbb{K}\rightarrow
+\mathbb{L}$ be a ring homomorphism. Then, $f$ is injective.
+\end{corollary}
+
+\begin{proof}
+[Proof of Corollary \ref{cor.rihom.from-field-inj}.]Due to Proposition
+\ref{prop.rihom.ker.inj}, it suffices to show that $\operatorname*{Ker}%
+f=\left\{  0_{\mathbb{K}}\right\}  $. So let us prove this.
+
+Let $a\in\operatorname*{Ker}f$. Thus, $a\in\mathbb{K}$ and $f\left(  a\right)
+=0$ (by the definition of $\operatorname*{Ker}f$). We are going to prove that
+$a=0_{\mathbb{K}}$.
+
+Indeed, assume the contrary. Thus, $a\neq0_{\mathbb{K}}$. Hence, the element
+$a$ of $\mathbb{K}$ is nonzero. But every nonzero element of $\mathbb{K}$ is
+invertible (since $\mathbb{K}$ is a field). Hence, $a$ is invertible (since
+$a$ is a nonzero element of $\mathbb{K}$). Thus, Proposition
+\ref{prop.riho.subtract} \textbf{(b)} shows that $f\left(  a\right)
+\in\mathbb{L}$ is also invertible, and that we have $f\left(  a^{-1}\right)
+=\left(  f\left(  a\right)  \right)  ^{-1}$.
+
+Thus, comparing $f\left(  a\right)  \cdot\left(  f\left(  a\right)  \right)
+^{-1}=1_{\mathbb{L}}$ with $\underbrace{f\left(  a\right)  }_{=0}\cdot\left(
+f\left(  a\right)  \right)  ^{-1}=0$, we obtain $1_{\mathbb{L}}=0$. Hence,
+each $b\in\mathbb{L}$ satisfies $b=b\cdot\underbrace{1_{\mathbb{L}}}_{=0}%
+=0\in\left\{  0\right\}  $. Thus, $\mathbb{L}\subseteq\left\{  0\right\}  $,
+so that $\left\vert \mathbb{L}\right\vert \leq1$. This contradicts $\left\vert
+\mathbb{L}\right\vert >1$. This contradiction shows that our assumption is
+wrong. Hence, $a=0_{\mathbb{K}}$ is proven. Therefore, $a\in\left\{
+0_{\mathbb{K}}\right\}  $.
+
+Now, forget that we fixed $a$. We thus have shown that $a\in\left\{
+0_{\mathbb{K}}\right\}  $ for each $a\in\operatorname*{Ker}f$. In other words,
+$\operatorname*{Ker}f\subseteq\left\{  0_{\mathbb{K}}\right\}  $. From this,
+we can easily deduce that $\operatorname*{Ker}f=\left\{  0_{\mathbb{K}%
+}\right\}  $ (by the same argument that we used in our proof of the
+\textquotedblleft$\Longrightarrow$\textquotedblright\ direction of Proposition
+\ref{prop.rihom.ker.inj}). Thus, Proposition \ref{prop.rihom.ker.inj} shows
+that $f$ is injective. This proves Corollary \ref{cor.rihom.from-field-inj}.
+\end{proof}
 
 \section{\label{chp.pol}Polynomials and formal power series}
 
