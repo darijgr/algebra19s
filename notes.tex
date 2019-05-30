@@ -34092,10 +34092,10 @@ I^{\prime}\times J^{\prime}}}\underbrace{\left[  x^{n}\right]  \left(
 [c]{c}%
 \text{since each }\left(  i,j\right)  \in I\times J\text{ satisfies either
 }\left(  i,j\right)  \in I^{\prime}\times J^{\prime}\\
-\text{but }\left(  i,j\right)  \notin I^{\prime}\times J^{\prime}\text{ (but
+\text{or }\left(  i,j\right)  \notin I^{\prime}\times J^{\prime}\text{ (but
 never both at the same time)}%
 \end{array}
-\right) \nonumber\\
+\right)  \nonumber\\
 &  =\sum_{\left(  i,j\right)  \in I^{\prime}\times J^{\prime}}\left[
 x^{n}\right]  \left(  \mathbf{a}_{i,j}\right)  +\underbrace{\sum
 _{\substack{\left(  i,j\right)  \in I\times J;\\\left(  i,j\right)  \notin
@@ -34317,7 +34317,7 @@ $\mathbf{b}=\left(  a_{0},a_{1},a_{2},\ldots\right)  $, we obtain%
 \left[  x^{0}\right]  \left(  x\left(  a_{0},a_{1},a_{2},\ldots\right)
 \right)   &  =\sum_{i=0}^{0}\left(  \left[  x^{i}\right]  x\right)
 \cdot\left(  \left[  x^{0-i}\right]  \left(  a_{0},a_{1},a_{2},\ldots\right)
-\right) \\
+\right)  \\
 &  =\underbrace{\left(  \left[  x^{0}\right]  x\right)  }_{=0}\cdot\left(
 \left[  x^{0-0}\right]  \left(  a_{0},a_{1},a_{2},\ldots\right)  \right)  =0.
 \end{align*}
@@ -34327,7 +34327,7 @@ In other words, the first entry of the sequence $x\left(  a_{0},a_{1}%
 a_{0},a_{1},a_{2},\ldots\right)  $) yields%
 \begin{align*}
 &  \left[  x^{n}\right]  \left(  x\left(  a_{0},a_{1},a_{2},\ldots\right)
-\right) \\
+\right)  \\
 &  =\sum_{i=0}^{n}\left(  \left[  x^{i}\right]  x\right)  \cdot
 \underbrace{\left(  \left[  x^{n-i}\right]  \left(  a_{0},a_{1},a_{2}%
 ,\ldots\right)  \right)  }_{\substack{=a_{n-i}\\\text{(by the definition of
@@ -34346,7 +34346,7 @@ _{\substack{=0\\\text{(by (\ref{eq.pol.fps-x.0-2}) (applied}\\\text{to
 \text{here, we have split off the addend for }i=1\\
 \text{from the sum, since }1\in\left\{  0,1,\ldots,n\right\}
 \end{array}
-\right) \\
+\right)  \\
 &  =a_{n-1}+\underbrace{\sum_{\substack{i\in\left\{  0,1,\ldots,n\right\}
 ;\\i\neq1}}0\cdot a_{n-i}}_{=0}=a_{n-1}.
 \end{align*}
@@ -34355,8 +34355,8 @@ In other words, the entries of the sequence $x\left(  a_{0},a_{1},a_{2}%
 we already know that the first entry of this sequence is $0$, we thus conclude
 that%
 \[
-\left(  x\left(  a_{0},a_{1},a_{2},\ldots\right)  \right)  =\left(
-0,a_{0},a_{1},a_{2},\ldots\right)  .
+x\left(  a_{0},a_{1},a_{2},\ldots\right)  =\left(  0,a_{0},a_{1},a_{2}%
+,\ldots\right)  .
 \]
 Thus, Lemma \ref{lem.pol.x-shift} is proven.
 \end{proof}
@@ -34375,7 +34375,8 @@ x^{k}=\left(  \underbrace{0,0,\ldots,0}_{k\text{ zeroes}}%
 follows by observing that $x^{0}=1_{\mathbb{K}\left[  \left[  x\right]
 \right]  }=\underline{1}=\left(  1,0,0,0,\ldots\right)  $.
 
-The induction step uses Lemma \ref{lem.pol.x-shift}.
+The induction step uses Lemma \ref{lem.pol.x-shift} and the equality
+$x^{k}=xx^{k-1}$ (which holds for all $k>0$).
 \end{proof}
 
 Proposition \ref{prop.pol.xk} can be restated as follows:%
@@ -34412,34 +34413,37 @@ x^{k}=\left(  \underbrace{0,0,\ldots,0}_{k\text{ zeroes}}%
 \]
 and thus%
 \begin{align}
-a_{k}x^{k}  &  =a_{k}\left(  \underbrace{0,0,\ldots,0}_{k\text{ zeroes}%
-},1,\underbrace{0,0,0,0,\ldots}_{\text{zeroes}}\right) \nonumber\\
+a_{k}x^{k} &  =a_{k}\left(  \underbrace{0,0,\ldots,0}_{k\text{ zeroes}%
+},1,\underbrace{0,0,0,0,\ldots}_{\text{zeroes}}\right)  \nonumber\\
+&  =\left(  \underbrace{a_{k}\cdot0,a_{k}\cdot0,\ldots,a_{k}\cdot0}_{k\text{
+times}},a_{k}\cdot1,\underbrace{a_{k}\cdot0,a_{k}\cdot0,a_{k}\cdot0,a_{k}%
+\cdot0,\ldots}_{\infty\text{ times}}\right)  \nonumber\\
 &  =\left(  \underbrace{0,0,\ldots,0}_{k\text{ zeroes}},a_{k}%
 ,\underbrace{0,0,0,0,\ldots}_{\text{zeroes}}\right)
 \label{pf.cor.pol.FPS-as-sum.akxk=}%
 \end{align}
-(since $a_{k}\cdot0=0$ and $a_{k}\cdot1$). Hence, for any $k\in\mathbb{N}$ and
-$n\in\mathbb{N}$, we have $\left[  x^{n}\right]  \left(  a_{k}x^{k}\right)
-=0$ unless $k=n$. Thus, for each $n\in\mathbb{N}$, only finitely many
-$k\in\mathbb{N}$ satisfy $\left[  x^{n}\right]  \left(  a_{k}x^{k}\right)
-\neq0$ (namely, only $k=n$ can satisfy this $\left[  x^{n}\right]  \left(
-a_{k}x^{k}\right)  \neq0$). In other words, the family $\left(  a_{k}%
-x^{k}\right)  _{k\in\mathbb{N}}$ is summable (by the definition of
-\textquotedblleft summable\textquotedblright). Hence, the sum $\sum
-_{k\in\mathbb{N}}a_{k}x^{k}$ is well-defined. Let us now compute this sum:
+(since $a_{k}\cdot0=0$ and $a_{k}\cdot1=a_{k}$). Hence, for any $k\in
+\mathbb{N}$ and $n\in\mathbb{N}$, we have $\left[  x^{n}\right]  \left(
+a_{k}x^{k}\right)  =0$ unless $k=n$. Thus, for each $n\in\mathbb{N}$, only
+finitely many $k\in\mathbb{N}$ satisfy $\left[  x^{n}\right]  \left(
+a_{k}x^{k}\right)  \neq0$ (namely, only $k=n$ can satisfy this). In other
+words, the family $\left(  a_{k}x^{k}\right)  _{k\in\mathbb{N}}$ is summable
+(by the definition of \textquotedblleft summable\textquotedblright). Hence,
+the sum $\sum_{k\in\mathbb{N}}a_{k}x^{k}$ is well-defined. Let us now compute
+this sum:
 \begin{align*}
 &  \sum_{k\in\mathbb{N}}\underbrace{a_{k}x^{k}}_{\substack{=\left(
 \underbrace{0,0,\ldots,0}_{k\text{ zeroes}},a_{k},\underbrace{0,0,0,0,\ldots
 }_{\text{zeroes}}\right)  \\\text{(by (\ref{pf.cor.pol.FPS-as-sum.akxk=}))}%
 }}\\
-=  &  \sum_{k\in\mathbb{N}}\left(  \underbrace{0,0,\ldots,0}_{k\text{ zeroes}%
-},a_{k},\underbrace{0,0,0,0,\ldots}_{\text{zeroes}}\right) \\
-=  &  \left(  a_{0},0,0,0,0,\ldots\right) \\
-+  &  \left(  0,a_{1},0,0,0,\ldots\right) \\
-+  &  \left(  0,0,a_{2},0,0,\ldots\right) \\
-+  &  \left(  0,0,0,a_{3},0,\ldots\right) \\
-+  &  \cdots\\
-=  &  \left(  a_{0},a_{1},a_{2},a_{3},\ldots\right)
+= &  \sum_{k\in\mathbb{N}}\left(  \underbrace{0,0,\ldots,0}_{k\text{ zeroes}%
+},a_{k},\underbrace{0,0,0,0,\ldots}_{\text{zeroes}}\right)  \\
+= &  \left(  a_{0},0,0,0,0,\ldots\right)  \\
++ &  \left(  0,a_{1},0,0,0,\ldots\right)  \\
++ &  \left(  0,0,a_{2},0,0,\ldots\right)  \\
++ &  \left(  0,0,0,a_{3},0,\ldots\right)  \\
++ &  \cdots\\
+= &  \left(  a_{0},a_{1},a_{2},a_{3},\ldots\right)
 \end{align*}
 (since addition of FPSs is entrywise). Therefore,%
 \begin{align*}
@@ -35536,10 +35540,10 @@ scaling (by Lemma \ref{lem.pol.addition} \textbf{(c)}). Hence, it is a
 $\mathbb{K}$-submodule of $\mathbb{K}\left[  \left[  x\right]  \right]  $.
 This proves Lemma \ref{lem.pol.addition} \textbf{(d)}.
 
-\textbf{(e)} This follows from part \textbf{(e)}. (A more down-to-earth way to
-prove this is to proceed by induction on the size of the sum; the induction
-base uses Lemma \ref{lem.pol.addition} \textbf{(a)}, while the induction step
-uses Lemma \ref{lem.pol.addition} \textbf{(b)}.)
+\textbf{(e)} This follows from Lemma \ref{lem.pol.addition} \textbf{(d)}. (A
+more down-to-earth way to prove this is to proceed by induction on the size of
+the sum; the induction base uses Lemma \ref{lem.pol.addition} \textbf{(a)},
+while the induction step uses Lemma \ref{lem.pol.addition} \textbf{(b)}.)
 
 \textbf{(f)} Let $i\in\mathbb{N}$ be such that $i\leq n$. We must prove that
 $x^{i}\in\mathbb{K}\left[  x\right]  _{\leq n}$.
