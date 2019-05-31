@@ -6511,7 +6511,7 @@ More precisely, there is a sizeable cloud of results that share this name;
 Theorem \ref{thm.ent.crt1} is one of the most elementary and basic of these
 results. A more general result is Theorem \ref{thm.ent.crt1k} further below.
 However, the strongest and most general \textquotedblleft Chinese remainder
-theorems\textquotedblright\ rely on concept from abstract algebra such as
+theorems\textquotedblright\ rely on concepts from abstract algebra such as
 rings and ideals; it will take us a while to get to them.
 
 Theorem \ref{thm.ent.crt1} has gotten its name from the fact that
@@ -7237,7 +7237,7 @@ e\right\vert =e$, so that $e=\left\vert e\right\vert \leq\left\vert
 d\right\vert =d$ (since $d$ is positive). This contradicts $e>d$. This
 contradiction shows that our assumption (that $e\notin\left\{  1,d\right\}  $)
 was false. Thus, we have proven that $e\in\left\{  1,d\right\}  $. In other
-worde, $e$ is either $1$ or $d$.
+words, $e$ is either $1$ or $d$.
 
 Now, forget that we fixed $e$. We thus have proven that if $e$ is any positive
 divisor of $d$, then $e\in\left\{  1,d\right\}  $. In other words, any
@@ -33516,7 +33516,8 @@ $\mathbb{K}$ is an ideal of $\mathbb{K}$ as well. But there can be many
 further ideals:
 
 \begin{example}
-Let $\mathbb{K}$ be a commutative ring. Let $u\in\mathbb{K}$. Then, the subset%
+\label{exa.ring.ideal.princ}Let $\mathbb{K}$ be a commutative ring. Let
+$u\in\mathbb{K}$. Then, the subset%
 \[
 u\mathbb{K}:=\left\{  uz\ \mid\ z\in\mathbb{K}\right\}
 \]
@@ -35833,14 +35834,13 @@ of a polynomial\textquotedblright\ is not well-behaved in constructive
 mathematics. It is also not well-behaved in other ways -- e.g., it is not
 preserved by ring homomorphisms, and leads to nuisances when $\mathbb{K}$ is a
 trivial ring, as witnessed in Theorem \ref{thm.pol.deg-basics} \textbf{(d)}
-below. Thus, I shall avoid this notion whereever I can help it, and instead
-use the notion of $\mathbb{K}\left[  x\right]  _{\leq n}$ (where
-$n\in\mathbb{Z}$). This is a bit less familiar but hopefully more
-\textquotedblleft philosophically right\textquotedblright\ (while being
-essentially equivalent to the notion of degree under classical logic, because
-of Lemma \ref{lem.pol.deg} \textbf{(b)}). (The notion of a degree does become
-useful again when $\mathbb{K}$ is a field, but I will first study a more
-general setup.)
+below. Thus, I shall avoid this notion wherever I can help it, and instead use
+the notion of $\mathbb{K}\left[  x\right]  _{\leq n}$ (where $n\in\mathbb{Z}%
+$). This is a bit less familiar but hopefully more \textquotedblleft
+philosophically right\textquotedblright\ (while being essentially equivalent
+to the notion of degree under classical logic, because of Lemma
+\ref{lem.pol.deg} \textbf{(b)}). (The notion of a degree does become useful
+again when $\mathbb{K}$ is a field, but I will first study a more general setup.)
 \end{remark}
 \end{fineprint}
 
@@ -40677,6 +40677,8 @@ homomorphism. This proves Theorem \ref{thm.pol.functorial} \textbf{(a)}.
 
 \subsection{Residue classes in commutative rings}
 
+\subsubsection{The general case}
+
 We have previously defined
 
 \begin{itemize}
@@ -40918,6 +40920,20 @@ $\textit{ quotiented by }$w$\textquotedblright. Whenever we speak of
 \textquotedblleft the $\mathbb{L}$-algebra $\mathbb{L}/w$\textquotedblright,
 we shall mean this precise $\mathbb{L}$-algebra.
 \end{definition}
+
+The reader can easily check the following:
+
+\begin{itemize}
+\item If we have $w=0$ in Theorem \ref{thm.quot.ring/w.wd}, then the map
+$\pi_{w}$ is an $\mathbb{L}$-algebra isomorphism, so that $\mathbb{L}%
+/0\cong\mathbb{L}$ as rings and as $\mathbb{L}$-modules.
+
+\item If we have $w=1$ in Theorem \ref{thm.quot.ring/w.wd}, then the ring
+$\mathbb{L}/w=\mathbb{L}/1$ is trivial. More generally, if $w\in\mathbb{L}$ is
+invertible, then the ring $\mathbb{L}/w$ is trivial.
+\end{itemize}
+
+\subsubsection{The case of a polynomial ring}
 
 The commutative $\mathbb{L}$-algebra $\mathbb{L}/w$ constructed in Theorem
 \ref{thm.quot.ring/w.wd} \textbf{(d)} generalizes not just the $\mathbb{Z}%
@@ -41292,8 +41308,8 @@ well enough at least in the case when the leading coefficient of $\mathbf{b}$
 is invertible. Let us use this to see some examples:
 
 \begin{example}
-We have $\mathbb{C}\cong\mathbb{R}\left[  x\right]  /\left(  x^{2}+1\right)  $
-(as rings).
+\label{exa.quot.ring.C=Rx/}We have $\mathbb{C}\cong\mathbb{R}\left[  x\right]
+/\left(  x^{2}+1\right)  $ (as rings).
 
 Indeed, the map%
 \begin{align*}
@@ -41506,18 +41522,426 @@ Applying this to $\mathbf{n}=\mathbf{a}$, we obtain Theorem
 $\deg\mathbf{a}\leq0$).
 \end{proof}
 
-\begin{noncompile}
-TODO:
+\subsection{Quotients modulo ideals}
+
+\subsubsection{Congruence and quotients modulo ideals}
+
+The notion of \textquotedblleft congruence modulo $w$\textquotedblright%
+\ introduced in Definition \ref{def.quot.ring-cong} was a generalization of
+\textquotedblleft congruence modulo $n$\textquotedblright\ from number theory;
+but it can be generalized further. Namely, we can replace $w$ by an ideal $I$
+of $\mathbb{L}$. (See Definition \ref{def.ring.ideal} for the definition of an
+ideal.) Here is how this general notion is defined:
+
+\begin{definition}
+\label{def.quot.mod-ideal}Let $\mathbb{L}$ be a ring. Let $I$ be an ideal of
+$\mathbb{L}$. Let $a,b\in\mathbb{L}$. We say that $a$ \textit{is congruent to
+}$b$ \textit{modulo }$I$ (\textit{in }$\mathbb{L}$\textit{)} if and only if
+$a-b\in I$. We shall use the notation \textquotedblleft$a\equiv
+b\operatorname{mod}I$\textquotedblright\ for \textquotedblleft$a$ is congruent
+to $b$ modulo $I$\textquotedblright.
+
+We furthermore shall use the notation \textquotedblleft$a\not \equiv
+b\operatorname{mod}I$\textquotedblright\ for \textquotedblleft$a$ is not
+congruent to $b$ modulo $I$\textquotedblright.
+\end{definition}
+
+Why is this a generalization of \textquotedblleft congruence modulo
+$w$\textquotedblright? Because congruence modulo $w$ is recovered if we take
+$I$ to be the principal ideal\footnote{See Example \ref{exa.ring.ideal.princ}
+for the definition of principal ideals.} $w\mathbb{L}$. More precisely, the
+following holds:
+
+\begin{proposition}
+\label{prop.quot.ring/ideal.principal}Let $\mathbb{L}$ be a commutative ring.
+Let $w\in\mathbb{L}$. Let $a,b\in\mathbb{L}$. Consider the principal ideal
+$w\mathbb{L}$ of $\mathbb{L}$, defined as in Example
+\ref{exa.ring.ideal.princ} (that is, by $w\mathbb{L}=\left\{  wz\ \mid
+\ z\in\mathbb{L}\right\}  $). Then, $a\equiv b\operatorname{mod}w$ holds if
+and only if $a\equiv b\operatorname{mod}w\mathbb{L}$.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.quot.ring/ideal.principal}.]The definition of
+$w\mathbb{L}$ yields $w\mathbb{L}=\left\{  wz\ \mid\ z\in\mathbb{L}\right\}
+$. Now, We have the following chain of equivalences:%
+\begin{align*}
+\left(  a\equiv b\operatorname{mod}w\right)  \  &  \Longleftrightarrow
+\ \left(  w\mid a-b\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Definition
+\ref{def.quot.ring-cong}}\right) \\
+&  \Longleftrightarrow\ \left(  a-b=wz\text{ for some }z\in\mathbb{L}\right)
+\\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Definition \ref{def.quot.ring-div}%
+}\right) \\
+&  \Longleftrightarrow\ \left(  a-b\in\underbrace{\left\{  wz\ \mid
+\ z\in\mathbb{L}\right\}  }_{=w\mathbb{L}}\right)  \ \Longleftrightarrow
+\ \left(  a-b\in w\mathbb{L}\right) \\
+&  \Longleftrightarrow\ \left(  a\equiv b\operatorname{mod}w\mathbb{L}\right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by Definition \ref{def.quot.mod-ideal}%
+}\right)  .
+\end{align*}
+Thus, Proposition \ref{prop.quot.ring/ideal.principal} is proven.
+\end{proof}
+
+Knowing that \textquotedblleft congruence modulo $I$\textquotedblright\ is a
+generalization of \textquotedblleft congruence modulo $w$\textquotedblright%
+\ and of \textquotedblleft congruence modulo $n$\textquotedblright, we can
+play the usual game in which we recall properties of the latter and check
+whether they still hold for the former. For example, the following
+generalization of Proposition \ref{prop.quot.ring-cong.nice} holds:
+
+\begin{proposition}
+\label{prop.quot.ring/ideal.nice}Let $\mathbb{L}$ be a ring. Let $I$ be an
+ideal of $\mathbb{L}$.
+
+\textbf{(a)} We have $a\equiv a\operatorname{mod}I$ for every $a\in\mathbb{L}$.
+
+\textbf{(b)} If $a,b,c\in\mathbb{L}$ satisfy $a\equiv b\operatorname{mod}I$
+and $b\equiv c\operatorname{mod}I$, then $a\equiv c\operatorname{mod}I$.
+
+\textbf{(c)} If $a,b\in\mathbb{L}$ satisfy $a\equiv b\operatorname{mod}I$,
+then $b\equiv a\operatorname{mod}I$.
+
+\textbf{(d)} If $a_{1},a_{2},b_{1},b_{2}\in\mathbb{L}$ satisfy $a_{1}\equiv
+b_{1}\operatorname{mod}I$ and $a_{2}\equiv b_{2}\operatorname{mod}I$, then%
+\begin{align}
+a_{1}+a_{2}  &  \equiv b_{1}+b_{2}\operatorname{mod}I;\\
+a_{1}-a_{2}  &  \equiv b_{1}-b_{2}\operatorname{mod}I;\\
+a_{1}a_{2}  &  \equiv b_{1}b_{2}\operatorname{mod}I.
+\end{align}
+
+
+\textbf{(e)} Let $J$ be an ideal of $\mathbb{L}$ such that $I\subseteq J$. If
+$a,b\in\mathbb{L}$ satisfy $a\equiv b\operatorname{mod}I$, then $a\equiv
+b\operatorname{mod}J$.
+\end{proposition}
+
+Note how the \textquotedblleft$I\subseteq J$\textquotedblright\ assumption in
+Proposition \ref{prop.quot.ring/ideal.nice} \textbf{(e)} is the correct
+generalization of the \textquotedblleft$m\mid w$\textquotedblright\ assumption
+in Proposition \ref{prop.quot.ring-cong.nice}, because of the following fact:
+
+\begin{proposition}
+\label{prop.ring.principal-ideals-contain}Let $\mathbb{L}$ be a commutative
+ring. Let $m,w\in\mathbb{L}$. Then, $w\mathbb{L}\subseteq m\mathbb{L}$ holds
+if and only if $m\mid w$. (Here, the principal ideals $w\mathbb{L}$ and
+$m\mathbb{L}$ are defined as in Example \ref{exa.ring.ideal.princ}).
+\end{proposition}
+
+This proposition is so easy it barely needs proof, but it illustrates a useful
+point of view: Divisibility of elements of $\mathbb{L}$ can be rewritten as
+containment of ideals of $\mathbb{L}$.
+
+\begin{proof}
+[Proof of Proposition \ref{prop.ring.principal-ideals-contain}.]%
+$\Longrightarrow:$ Assume that $w\mathbb{L}\subseteq m\mathbb{L}$. We must
+prove that $m\mid w$.
+
+The definition of $w\mathbb{L}$ yields $w\mathbb{L}=\left\{  wz\ \mid
+\ z\in\mathbb{L}\right\}  $. Now, $w=w\cdot1$; hence, the element $w$ has the
+form $wz$ for some $z\in\mathbb{L}$ (namely, for $z=1$). Thus,%
+\[
+w\in\left\{  wz\ \mid\ z\in\mathbb{L}\right\}  =w\mathbb{L}\subseteq
+m\mathbb{L}=\left\{  mz\ \mid\ z\in\mathbb{L}\right\}
+\]
+(by the definition of $m\mathbb{L}$). In other words, $w=mz$ for some
+$z\in\mathbb{L}$. In other words, $m\mid w$ (by Definition
+\ref{def.quot.ring-div}). Thus, the \textquotedblleft$\Longrightarrow
+$\textquotedblright\ part of Proposition
+\ref{prop.ring.principal-ideals-contain} is proven.
+
+$\Longleftarrow:$ Assume that $m\mid w$. We must prove that $w\mathbb{L}%
+\subseteq m\mathbb{L}$.
+
+We have assumed that $m\mid w$. In other words, $w=mc$ for some $c\in
+\mathbb{L}$. Consider this $c$.
+
+The definition of $m\mathbb{L}$ yields $m\mathbb{L}=\left\{  mz\ \mid
+\ z\in\mathbb{L}\right\}  =\left\{  ma\ \mid\ a\in\mathbb{L}\right\}  $ (here,
+we have renamed the index $z$ as $a$).
+
+Now, let $g\in w\mathbb{L}$. Hence, $g\in w\mathbb{L}=\left\{  wz\ \mid
+\ z\in\mathbb{L}\right\}  $ (by the definition of $w\mathbb{L}$). In other
+words, $g=wz$ for some $z\in\mathbb{L}$. Consider this $z$. Then,
+$g=\underbrace{w}_{=mc}z=mcz$. Hence, $g=ma$ for some $a\in\mathbb{L}$
+(namely, for $a=cz$). In other words, $g\in\left\{  ma\ \mid\ a\in
+\mathbb{L}\right\}  =m\mathbb{L}$.
+
+Forget that we fixed $g$. We thus have shown that $g\in m\mathbb{L}$ for some
+$g\in w\mathbb{L}$. In other words, $w\mathbb{L}\subseteq m\mathbb{L}$. Thus,
+the \textquotedblleft$\Longleftarrow$\textquotedblright\ part of Proposition
+\ref{prop.ring.principal-ideals-contain} is proven.
+\end{proof}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.quot.ring/ideal.nice}.]We know that $I$ is an
+ideal of $\mathbb{L}$. Thus, $I$ satisfies the four conditions in Definition
+\ref{def.ring.ideal} (applied to $\mathbb{L}$ instead of $\mathbb{K}$). In
+other words, the following holds:
 
 \begin{itemize}
-\item Polynomials over a field form a PID, so irreducible = prime.
+\item The subset $I$ is closed under addition (i.e., we have $a+b\in I$ for
+all $a\in I$ and $b\in I$).
 
-\item Thus, irreducible polynomials lead to field extensions.
+\item The subset $I$ contains $0_{\mathbb{L}}$.
 
-\item Hence, we may want an irred. poly of degree $d$ over any $\mathbb{Z}/p$.
+\item We have
+\begin{equation}
+\lambda a\in I\ \ \ \ \ \ \ \ \ \ \text{for all }\lambda\in\mathbb{K}\text{
+and }a\in I. \label{pf.prop.quot.ring/ideal.nice.la}%
+\end{equation}
+
+
+\item We have
+\begin{equation}
+a\lambda\in I\ \ \ \ \ \ \ \ \ \ \text{for all }\lambda\in\mathbb{K}\text{ and
+}a\in I. \label{pf.prop.quot.ring/ideal.nice.al}%
+\end{equation}
+
 \end{itemize}
 
-Quotients modulo submodules and ideals:
+\textbf{(a)} Let $a\in\mathbb{L}$. We know that $I$ contains $0_{\mathbb{L}}$.
+Thus, $0_{\mathbb{L}}\in I$. Now, $a-a=0_{\mathbb{L}}\in I$. This rewrites as
+$a\equiv a\operatorname{mod}I$ (by Definition \ref{def.quot.mod-ideal}). This
+proves Proposition \ref{prop.quot.ring/ideal.nice} \textbf{(a)}.
+
+\textbf{(b)} Let $a,b,c\in\mathbb{L}$ satisfy $a\equiv b\operatorname{mod}I$
+and $b\equiv c\operatorname{mod}I$. Then, $a\equiv b\operatorname{mod}I$, so
+that $a-b\in I$ (by Definition \ref{def.quot.mod-ideal}). Similarly, $b-c\in
+I$. But we know that $I$ is closed under addition. Hence, from $a-b\in I$ and
+$b-c\in I$, we obtain $\underbrace{\left(  a-b\right)  }_{\in I}%
++\underbrace{\left(  b-c\right)  }_{\in I}\in I$. Hence, $a-c=\left(
+a-b\right)  +\left(  b-c\right)  \in I$. In other words, $a\equiv
+c\operatorname{mod}I$ (by Definition \ref{def.quot.mod-ideal}). This proves
+Proposition \ref{prop.quot.ring/ideal.nice} \textbf{(b)}.
+
+\textbf{(c)} Let $a,b\in\mathbb{L}$ satisfy $a\equiv b\operatorname{mod}I$.
+Thus, $a-b\in I$ (by Definition \ref{def.quot.mod-ideal}). Hence,
+(\ref{pf.prop.quot.ring/ideal.nice.la}) (applied to $-1$ and $a-b$ instead of
+$\lambda$ and $a$) yields $\left(  -1\right)  \left(  a-b\right)  \in I$.
+Hence, $b-a=\left(  -1\right)  \left(  a-b\right)  \in I$. In other words,
+$b\equiv a\operatorname{mod}I$ (by Definition \ref{def.quot.mod-ideal}). This
+proves Proposition \ref{prop.quot.ring/ideal.nice} \textbf{(c)}.
+
+\textbf{(d)} Let $a_{1},a_{2},b_{1},b_{2}\in\mathbb{L}$ satisfy $a_{1}\equiv
+b_{1}\operatorname{mod}I$ and $a_{2}\equiv b_{2}\operatorname{mod}I$. We have
+$a_{1}\equiv b_{1}\operatorname{mod}I$ and thus $a_{1}-b_{1}\in I$ (by
+Definition \ref{def.quot.mod-ideal}). But we know that $I$ is closed under
+addition. Hence, from $a_{1}-b_{1}\in I$ and $a_{2}-b_{2}\in I$, we obtain
+$\underbrace{\left(  a_{1}-b_{1}\right)  }_{\in I}+\underbrace{\left(
+a_{2}-b_{2}\right)  }_{\in I}\in I$. Hence,
+\[
+\left(  a_{1}+a_{2}\right)  -\left(  b_{1}+b_{2}\right)  =\left(  a_{1}%
+-b_{1}\right)  +\left(  a_{2}-b_{2}\right)  \in I.
+\]
+In other words, $a_{1}+a_{2}\equiv b_{1}+b_{2}\operatorname{mod}I$ (by
+Definition \ref{def.quot.mod-ideal}).
+
+Recall that $a_{2}-b_{2}\in I$. Hence, (\ref{pf.prop.quot.ring/ideal.nice.la})
+(applied to $-1$ and $a_{2}-b_{2}$ instead of $\lambda$ and $a$) yields
+$\left(  -1\right)  \left(  a_{2}-b_{2}\right)  \in I$. Hence, $b_{2}%
+-a_{2}=\left(  -1\right)  \left(  a_{2}-b_{2}\right)  \in I$. Recall again
+that $I$ is closed under addition. Hence, from $a_{1}-b_{1}\in I$ and
+$b_{2}-a_{2}\in I$, we obtain $\underbrace{\left(  a_{1}-b_{1}\right)  }_{\in
+I}+\underbrace{\left(  b_{2}-a_{2}\right)  }_{\in I}\in I$. Hence,
+\[
+\left(  a_{1}-a_{2}\right)  -\left(  b_{1}-b_{2}\right)  =\left(  a_{1}%
+-b_{1}\right)  +\left(  b_{2}-a_{2}\right)  \in I.
+\]
+In other words, $a_{1}-a_{2}\equiv b_{1}-b_{2}\operatorname{mod}I$ (by
+Definition \ref{def.quot.mod-ideal}).
+
+It remains to prove that $a_{1}a_{2}\equiv b_{1}b_{2}\operatorname{mod}I$.
+
+Let us first show that $a_{1}a_{2}\equiv a_{1}b_{2}\operatorname{mod}I$.
+Indeed, $a_{1}a_{2}-a_{1}b_{2}=a_{1}\left(  a_{2}-b_{2}\right)  \in I$ (by
+(\ref{pf.prop.quot.ring/ideal.nice.la}), applied to $a_{1}$ and $a_{2}-b_{2}$
+instead of $\lambda$ and $a$), because $a_{2}-b_{2}\in I$. In other words,
+$a_{1}a_{2}\equiv a_{1}b_{2}\operatorname{mod}I$.
+
+Next, we shall show that $a_{1}b_{2}\equiv b_{1}b_{2}\operatorname{mod}I$.
+Indeed, $a_{1}b_{2}-b_{1}b_{2}=\left(  a_{1}-b_{1}\right)  b_{2}\in I$ (by
+(\ref{pf.prop.quot.ring/ideal.nice.al}), applied to $b_{2}$ and $a_{1}-b_{1}$
+instead of $\lambda$ and $a$), because $a_{1}-b_{1}\in I$. In other words,
+$a_{1}b_{2}\equiv b_{1}b_{2}\operatorname{mod}I$.
+
+Now, we have $a_{1}a_{2}\equiv a_{1}b_{2}\operatorname{mod}I$ and $a_{1}%
+b_{2}\equiv b_{1}b_{2}\operatorname{mod}I$. Hence, Proposition
+\ref{prop.quot.ring/ideal.nice} \textbf{(b)} (applied to $a=a_{1}a_{2}$,
+$b=a_{1}b_{2}$ and $c=b_{1}b_{2}$) yields $a_{1}a_{2}\equiv b_{1}%
+b_{2}\operatorname{mod}I$. This completes the proof of Proposition
+\ref{prop.quot.ring/ideal.nice} \textbf{(d)}.
+
+\textbf{(e)} Let $a,b\in\mathbb{L}$ satisfy $a\equiv b\operatorname{mod}I$.
+Thus, $a-b\in I$ (by Definition \ref{def.quot.mod-ideal}). Hence, $a-b\in
+I\subseteq J$. In other words, $a\equiv b\operatorname{mod}J$ (by Definition
+\ref{def.quot.mod-ideal}). This proves Proposition
+\ref{prop.quot.ring/ideal.nice} \textbf{(e)}.
+\end{proof}
+
+The following definition generalizes Definition \ref{def.quot.ring/w.defs}
+(and thus also generalizes our construction of $\mathbb{Z}/n$ for
+$n\in\mathbb{Z}$):
+
+\begin{definition}
+\label{def.quot.ring/ideal.defs}Fix a ring $\mathbb{L}$ and an ideal $I$ of
+$\mathbb{L}$.
+
+\textbf{(a)} Define a relation $\underset{I}{\equiv}$ on the set $\mathbb{L}$
+by
+\[
+\left(  a\underset{I}{\equiv}b\right)  \Longleftrightarrow\left(  a\equiv
+b\operatorname{mod}I\right)  .
+\]
+
+
+This $\underset{I}{\equiv}$ is an equivalence relation. (The proof of this is
+analogous to the proof of Example \ref{exa.eqrel.eqrel.eqrelmodn}.)
+
+\textbf{(b)} A \textit{residue class modulo}\textbf{ }$I$ means an equivalence
+class of the relation $\underset{I}{\equiv}$.
+
+\textbf{(c)} If $a\in\mathbb{L}$, then we denote the residue class $\left[
+a\right]  _{\underset{I}{\equiv}}$ by $\left[  a\right]  _{I}$.
+
+\textbf{(d)} The set $\mathbb{L}/\underset{I}{\equiv}$ of all residue classes
+modulo $I$ is called $\mathbb{L}/I$.
+
+\textbf{(e)} We define a binary operation $+$ on $\mathbb{L}/I$ (called
+\textit{addition}) by setting%
+\[
+\left[  a\right]  _{I}+\left[  b\right]  _{I}=\left[  a+b\right]
+_{I}\ \ \ \ \ \ \ \ \ \ \text{for all }a,b\in\mathbb{L}.
+\]
+This is well-defined, because of Theorem \ref{thm.quot.ring/ideal.wd}
+\textbf{(a)} below.
+
+\textbf{(f)} We define a binary operation $\cdot$ on $\mathbb{L}/I$ (called
+\textit{multiplication}) by setting%
+\[
+\left[  a\right]  _{I}\cdot\left[  b\right]  _{I}=\left[  a\cdot b\right]
+_{I}\ \ \ \ \ \ \ \ \ \ \text{for all }a,b\in\mathbb{L}.
+\]
+This is well-defined, because of Theorem \ref{thm.quot.ring/ideal.wd}
+\textbf{(a)} below.
+
+\textbf{(g)} Fix $r\in\mathbb{L}$. For any $\alpha\in\mathbb{L}/I$, we define
+a residue class $r\alpha\in\mathbb{L}/I$ by setting%
+\[
+\left(  r\left[  a\right]  _{I}=\left[  ra\right]  _{I}%
+\ \ \ \ \ \ \ \ \ \ \text{for any }a\in\mathbb{L}\right)  .
+\]
+(In other words, for any $\alpha\in\mathbb{L}/I$, we let $r\alpha=\left[
+ra\right]  _{I}$, where $a$ is an element of $\mathbb{L}$ satisfying
+$\alpha=\left[  a\right]  _{I}$.) This is well-defined, because of Theorem
+\ref{thm.quot.ring/ideal.wd} \textbf{(a)} below.
+
+We shall also write $r\cdot\alpha$ instead of $r\alpha$. The map
+$\mathbb{L}\times\left(  \mathbb{L}/I\right)  \rightarrow\mathbb{L}%
+/I,\ \left(  r,\alpha\right)  \mapsto r\alpha$ will be called \textit{scaling}.
+\end{definition}
+
+\begin{theorem}
+\label{thm.quot.ring/ideal.wd}Fix a ring $\mathbb{L}$ and an ideal $I$ of
+$\mathbb{L}$.
+
+\textbf{(a)} The operations $+$ and $\cdot$ and the \textquotedblleft scaling
+map\textquotedblright\ $\cdot$ in Definition \ref{def.quot.ring/ideal.defs}
+are well-defined.
+
+\textbf{(b)} The set $\mathbb{L}/I$, equipped with the addition $+$ (defined
+in Definition \ref{def.quot.ring/ideal.defs} \textbf{(e)}), the multiplication
+$\cdot$ (defined in Definition \ref{def.quot.ring/w.defs} \textbf{(f)}) and
+the zero $\left[  0\right]  _{I}$ and the unity $\left[  1\right]  _{I}$, is a
+commutative ring.
+
+\textbf{(c)} The set $\mathbb{L}/I$, equipped with the addition $+$ (defined
+in Definition \ref{def.quot.ring/ideal.defs} \textbf{(e)}), the scaling
+$\cdot$ (defined in Definition \ref{def.quot.ring/ideal.defs} \textbf{(g)})
+and the zero vector $\left[  0\right]  _{I}$, is an $\mathbb{L}$-module when
+$\mathbb{L}$ is commutative.
+
+\textbf{(d)} The set $\mathbb{L}/I$, equipped with all of these items, is an
+$\mathbb{L}$-algebra when $\mathbb{L}$ is commutative.
+
+\textbf{(e)} The map%
+\begin{align*}
+\pi_{I}:\mathbb{L}  &  \rightarrow\mathbb{L}/I,\\
+a  &  \mapsto\left[  a\right]  _{I}%
+\end{align*}
+is an $\mathbb{L}$-algebra homomorphism.
+
+\textbf{(f)} If the ring $\mathbb{L}$ is commutative, then the ring
+$\mathbb{L}/I$ is a commutative $\mathbb{L}$-algebra.
+\end{theorem}
+
+\begin{proof}
+[Proof of Theorem \ref{thm.quot.ring/ideal.wd}.]Parts \textbf{(a)},
+\textbf{(b)}, \textbf{(c)}, \textbf{(d)} and \textbf{(e)} of this theorem are
+proven in the same way as the corresponding parts of Theorem
+\ref{thm.quot.ring/w.wd}. Part \textbf{(f)} is easy.
+\end{proof}
+
+Proposition \ref{prop.quot.ring/ideal.principal} shows that Definition
+\ref{def.quot.ring/ideal.defs} generalizes Definition
+\ref{def.quot.ring/w.defs}: Namely, if $\mathbb{L}$ is a commutative ring, and
+if the ideal $I$ in Definition \ref{def.quot.ring/ideal.defs} is a principal
+ideal $w\mathbb{L}$ (for some $w\in\mathbb{L}$), then the relation
+$\underset{I}{\equiv}$ and the ring $\mathbb{L}/I$ are precisely the relation
+$\underset{w}{\equiv}$ and the ring $\mathbb{L}/w$ defined in Definition
+\ref{def.quot.ring/w.defs}. Thus, if $w$ is any element of a commutative ring
+$\mathbb{L}$, then%
+\[
+\mathbb{L}/w=\mathbb{L}/w\mathbb{L}.
+\]
+Thus, in particular, $\mathbb{Z}/n=\mathbb{Z}/n\mathbb{Z}$ for any
+$n\in\mathbb{Z}$. Most authors prefer the notation $\mathbb{Z}/n\mathbb{Z}$ to
+our notation $\mathbb{Z}/n$ (since it is an instance of the more general
+construction $\mathbb{L}/I$).
+
+\begin{noncompile}
+The universal property of the quotient
+
+Let us briefly mention an analogue of Theorem \ref{thm.eqrel.quot.uniprop.1}
+for quotients of rings, which helps construct ring homomorphisms out of them:
+
+\begin{theorem}
+\label{thm.quot.ring/ideal.uniprop.1}Let $\mathbb{L}$ and $\mathbb{M}$ be two
+rings, and let $I$ be an ideal of $\mathbb{L}$. Let $F:\mathbb{L}%
+\rightarrow\mathbb{M}$ be a ring homomorphism. Assume that $F\left(  i\right)
+=0$ for each $i\in I$.
+
+Then, there exists a unique ring homomorphism $f:\mathbb{L}/I\rightarrow
+\mathbb{M}$ such that every $s\in\mathbb{L}$ satisfies $f\left(  \left[
+s\right]  _{I}\right)  =F\left(  s\right)  $.
+\end{theorem}
+
+\begin{proof}
+[Proof of Theorem \ref{thm.quot.ring/ideal.uniprop.1}.]Omitted for now (LTTR).
+\end{proof}
+
+\begin{corollary}
+\label{cor.quot.ring/ideal.polring-uniprop}....
+\end{corollary}
+
+\begin{example}
+Let us use Theorem \ref{thm.quot.ring/ideal.uniprop.1} to give a somewhat
+different proof of Example \ref{exa.quot.ring.C=Rx/}.
+
+Indeed,
+\end{example}
+
+[To be continued!]
+
+TODO:
+
+Quotients modulo rings:
+
+\begin{itemize}
+\item Applying this to one of the isomorphism examples.
+\end{itemize}
+
+Quotients modulo submodules:
 
 \begin{itemize}
 \item Congruence $\underset{M}{\equiv}$ modulo a submodule $M$ of $N$.
@@ -41526,16 +41950,6 @@ Quotients modulo submodules and ideals:
 
 \item Over a field, $\dim\left(  N/M\right)  =\dim N-\dim M$.
 
-\item A submodule of $\mathbb{K}$ itself is called an \textit{ideal} of
-$\mathbb{K}$.
-
-\item The congruence $\underset{aK}{\equiv}$ is precisely $\underset{a}{\equiv
-}$. The quotient $\mathbb{K}/a\mathbb{K}$ is $\mathbb{K}/a$. For example,
-$\mathbb{Z}/n=\mathbb{Z}/n\mathbb{Z}$.
-
-\item More generally, $\underset{I}{\equiv}$ yields a ring when $I$ is an
-ideal of $\mathbb{K}$.
-
 \item Universal property of quotient module.
 
 \item If $f:U\rightarrow V$ a $\mathbb{K}$-module homomorphism, then iso
@@ -41543,10 +41957,6 @@ $U/\operatorname*{Ker}f\rightarrow f\left(  U\right)  ,\ \left[  u\right]
 _{\operatorname*{Ker}f}\mapsto f\left(  u\right)  $.
 
 \item Conclude the rank-nullity theorem.
-
-\item Universal property of quotient ring.
-
-\item Applying this to one of the isomorphism examples.
 \end{itemize}
 
 %\section{Groups and $G$-sets}
@@ -42073,7 +42483,7 @@ x\right]  /\mathbf{a}$ has size $q^{2}$ (since $\left\vert \mathbb{F}%
 
 A similar argument (using Lemma \ref{lem.epilogue-19f.finf-23} \textbf{(b)}
 instead of Lemma \ref{lem.epilogue-19f.finf-23} \textbf{(a)}) shows that there
-exists a finite field of size $q^{2}$. Thus, Corollary
+exists a finite field of size $q^{3}$. Thus, Corollary
 \ref{cor.epilogue-19f.finf-23} is proven.
 \end{proof}
 
