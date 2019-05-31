@@ -17,7 +17,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Friday, May 31, 2019 03:27:36}
+%TCIDATA{LastRevised=Friday, May 31, 2019 21:13:28}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -29327,12 +29327,16 @@ of $\mathbb{K}$ entails $ab=ba$).
 The axiom \textbf{(c)} boils down to $\left(  ab\right)  ^{p}=a^{p}b^{p}$,
 which follows from (\ref{eq.prop.rings.pow.rules.c.3}) (again because $ab=ba$).
 
-The axioms \textbf{(b)} and \textbf{(d)} are obviously satisfied. Thus,
-Corollary \ref{cor.ring.frobenius} is proven.
+The axioms \textbf{(b)} and \textbf{(d)} are obviously satisfied (since
+$0^{p}=0$ and $1^{p}=1$). Thus, Corollary \ref{cor.ring.frobenius} is proven.
 \end{proof}
 
 The ring homomorphism $F$ in Corollary \ref{cor.ring.frobenius} is called the
-\textit{Frobenius homomorphism} of $\mathbb{K}$.
+\textit{Frobenius endomorphism}\footnote{The word \textquotedblleft
+endomorphism\textquotedblright\ means \textquotedblleft homomorphism of some
+object (here, a ring) to itself\textquotedblright, i.e., \textquotedblleft
+homomorphism whose domain and codomain are the same\textquotedblright.} of
+$\mathbb{K}$.
 
 \section{\label{chp.la}Linear algebra over commutative rings}
 
@@ -29806,29 +29810,46 @@ unique solution.
 \textit{nonsingular}.)
 \end{theorem}
 
-\begin{noncompile}
 \begin{proof}
 [Proof of Theorem \ref{thm.field.LA-main} (sketched).]I shall give references
 to places where these facts are proven. Most of these places only consider
 matrices with real or complex entries, but the proofs still work for an
 arbitrary field $\mathbb{K}$.
 
-\textbf{(a)} See \cite[\S 6, proof of Theorem 6.2 (a)]{Strickland} for the
+\textbf{(a)} See \cite[\S 6, proof of Theorem 6.2 (a)]{Strickland} or
+\cite[Proposition 3.7]{Carrel17} or \cite[Proposition 7.14]{GalQua18} for the
 proof that any matrix has a RREF; see \cite[Section One.III, Theorem
-2.6]{Hefferon} for a proof that this RREF is unique.
+2.6]{Hefferon} or \cite[Proposition 3.18]{Carrel05} or \cite[Proposition
+3.12]{Carrel17} or \cite[Proposition 7.18]{GalQua18} for a proof that this
+RREF is unique.
 
 \textbf{(b)} The RREF $R$ of $A$ is obtained from $A$ by a sequence of row
 operations. Thus, it suffices to show that the row space, the kernel and the
 rank of a matrix are preserved under row operations. This is well-known and
-simple. (See, e.g., \cite[Lemma 9.15]{Strickland} for a proof that the row
-space is preserved under row operations.)
+simple. (See, e.g., \cite[Lemma 9.15]{Strickland} or \cite[Proposition
+7.13]{GalQua18} for a proof that the row space is preserved under row
+operations. The fact that the kernel and the rank are preserved under row
+operations is showed in \cite[proof of Proposition 7.13]{GalQua18} as well.)
 
 \textbf{(c)} See \cite[Method 6.9]{Strickland} or \cite[Example before
-Proposition 1.26]{Knapp1}.
+Proposition 1.26]{Knapp1} or \cite[\S 7.10]{GalQua18}.
 
-\textbf{TODO:} Finish this.
+\textbf{(d)} This is \cite[Proposition 1.26 \textbf{(d)}]{Knapp1}, and also
+appears in \cite[Remark 8.9]{Strickland} (because a relation $\lambda_{1}%
+v_{1}+\cdots+\lambda_{m}v_{m}=0$ between the columns $v_{1},v_{2},\ldots
+,v_{m}$ of $A$ means precisely that the vector $x=\left(  v_{1},v_{2}%
+,\ldots,v_{m}\right)  ^{T}\in\mathbb{K}^{m\times1}$ satisfies $Ax=0_{n\times
+1}$) and in \cite[Proposition 7.16]{GalQua18}.
+
+\textbf{(e)} The Wikipedia calls Theorem \ref{thm.field.LA-main} \textbf{(e)}
+(or similar results which have some more or fewer equivalent conditions) the
+\textquotedblleft%
+\href{https://en.wikipedia.org/wiki/Invertible_matrix#The_invertible_matrix_theorem}{invertible
+matrix theorem}\textquotedblright. Most of it is proven in \cite[Theorem
+11.5]{Strickland} (for $\mathbb{K}=\mathbb{R}$ only, but the general case
+works in the same way). Some parts are also proven in \cite[Theorem 1.30 and
+Corollary 1.32]{Knapp1} and in \cite[Proposition 7.17]{GalQua18}.
 \end{proof}
-\end{noncompile}
 
 \subsubsection{What if $\mathbb{K}$ is not a field?}
 
@@ -30239,7 +30260,8 @@ m}$ be a matrix. Then,%
 [Proof of Theorem \ref{thm.laf.rank-null} (sketched).]Most textbooks state
 Theorem \ref{thm.laf.rank-null} not in terms of matrices, but rather in the
 (equivalent) language of linear maps. For example, this is how it is stated in
-\cite[Chapter Three, Theorem II.2.14]{Hefferon}.
+\cite[Chapter Three, Theorem II.2.14]{Hefferon} or \cite[Theorem
+7.17]{Carrel05} or \cite[Corollary 2.15]{Knapp1}.
 \end{proof}
 
 Note that the number $\dim\operatorname*{Ker}A$ is known as the
@@ -42186,7 +42208,7 @@ formula. By plugging in $p=3$ and $q=-4$, we get the expression%
 +\sqrt[3]{2-\sqrt{5}}%
 \]
 for its roots. To find the real root, we take the usual (i.e., non-complex)
-cubic roots. So we have seen that $\sqrt[3]{2+\sqrt{5}}+\sqrt[3]{2-\sqrt{5}}$
+cubic roots. Thus we conclude that $\sqrt[3]{2+\sqrt{5}}+\sqrt[3]{2-\sqrt{5}}$
 is a root of the polynomial $x^{3}+3x-4$. But a bit of numerical computation
 suggests that this root is actually the number $1$. And this is indeed the
 case, as you can easily verify by evaluating the polynomial $x^{3}+3x-4$ at
@@ -42201,12 +42223,12 @@ identities?}
 Nevertheless, the discovery of the Cardano formula has proven highly useful,
 as it forced the introduction of complex numbers! While complex numbers
 already appear as solutions of \textbf{quadratic} equations, this has not
-motivated their definition, because people would content themselves with the
-answer \textquotedblleft no solutions\textquotedblright. But cubic equations
-like $x^{3}-x+1=0$ tease you with their $3$ real roots which can,
-nevertheless, not be expressed through $\sqrt[3]{}$ and $\sqrt{}$ signs until
-complex numbers are defined. Thus, it was the cubic equation that made complex
-numbers accepted.
+convinced anyone to define them, because everyone would content themselves
+with the answer \textquotedblleft no solutions\textquotedblright. But cubic
+equations like $x^{3}-x+1=0$ tease you with their $3$ real roots which,
+nevertheless, cannot be expressed through $\sqrt[3]{}$ and $\sqrt{}$ signs
+until complex numbers are defined. Thus, it was the cubic equation that made
+complex numbers accepted.\footnote{There may be a moral here as well.}
 
 Cardano went on and
 \href{https://en.wikipedia.org/wiki/Quartic_function#Solving_a_quartic_equation}{solved
@@ -53875,6 +53897,9 @@ lecture notes (in 2 versions).\newline\url{http://sporadic.stanford.edu/bump/mat
 \bibitem[Burton10]{Burton}David M. Burton, \textit{Elementary Number Theory},
 7th edition, McGraw-Hill 2010.
 
+\bibitem[Carrel05]{Carrel05}James B. Carrell, \textit{Fundamentals of Linear
+Algebra}, 31 October 2005.\newline\url{https://www.math.ubc.ca/~carrell/NB.pdf}
+
 \bibitem[Carrel17]{Carrel17}James B. Carrell, \textit{Groups, Matrices, and
 Vector Spaces: A Group Theoretic Approach}, Springer 2017.\newline\url{https://dx.doi.org/10.1007/978-0-387-79428-0}
 
@@ -53893,6 +53918,9 @@ Mathematics, 4th edition, Springer 2015.\newline\url{https://dx.doi.org/10.1007/
 space}.\newline\url{https://kconrad.math.uconn.edu/blurbs/linmultialg/dimension.pdf}
 
 \bibitem[ConradE]{Conrad-Euler}Keith Conrad, \textit{Euler's theorem}.\newline\url{https://kconrad.math.uconn.edu/blurbs/ugradnumthy/eulerthm.pdf}
+
+\bibitem[ConradF]{Conrad-FF}Keith Conrad, \textit{Finite fields}, 4 February
+2018.\newline\url{https://kconrad.math.uconn.edu/blurbs/galoistheory/finitefields.pdf}
 
 \bibitem[ConradG]{Conrad-Gauss}Keith Conrad, \textit{The Gaussian
 integers}.\newline\url{http://www.math.uconn.edu/~kconrad/blurbs/ugradnumthy/Zinotes.pdf}
@@ -53932,6 +53960,10 @@ Algebra}, 17 September 2018.\newline\url{https://www.math.ucla.edu/~rse/algebra_
 \bibitem[ErGiZi61]{ErGiZi61}P. Erd\H{o}s, A. Ginzburg, A. Ziv, \textit{Theorem
 in the additive number theory}, Bull. Research Council Israel 10F (1961), pp.
 41--43.\newline\url{https://pdfs.semanticscholar.org/2860/2b7734c115bbab7141a1942a2c974057ddc0.pdf}
+
+\bibitem[Escofi01]{Escofi01}%
+\href{https://dx.doi.org/10.1007/978-1-4613-0191-2}{Jean-Pierre Escofier,
+\textit{Galois Theory}, translated by Leila Schneps, Springer 2001}.
 
 \bibitem[Galvin17]{Galvin}David Galvin, \textit{Basic discrete mathematics},
 13 December 2017.\newline%
