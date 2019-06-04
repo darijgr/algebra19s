@@ -17,7 +17,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Friday, May 31, 2019 21:13:28}
+%TCIDATA{LastRevised=Tuesday, June 04, 2019 19:48:17}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -32554,6 +32554,24 @@ any $n\in\mathbb{N}$.
 
 \item The ring $\mathbb{R}$ is a $\mathbb{Q}$-algebra.
 
+\item More generally: If a commutative ring $\mathbb{K}$ is a subring of a
+commutative ring $\mathbb{L}$, then $\mathbb{L}$ becomes a $\mathbb{K}%
+$-algebra in a natural way\footnote{Namely:
+\par
+\begin{itemize}
+\item We define the scaling of the $\mathbb{K}$-module $\mathbb{L}$ to be the
+restriction of the multiplication of the ring $\mathbb{L}$ to $\mathbb{K}%
+\times\mathbb{L}$. (Thus, $\lambda\cdot a=\lambda\cdot a$ for all $\lambda
+\in\mathbb{K}$ and $a\in\mathbb{L}$, where the \textquotedblleft$\cdot
+$\textquotedblright\ sign on the left hand side stands for scaling and where
+the \textquotedblleft$\cdot$\textquotedblright\ sign on the right hand side
+stands for multiplication.)
+\par
+\item We define the zero vector of $\mathbb{L}$ to be the zero of the ring
+$\mathbb{L}$.
+\end{itemize}
+}.
+
 \item The polynomial ring $\mathbb{K}\left[  x\right]  $ (introduced in
 Definition \ref{def.pol.polyring}) is a $\mathbb{K}$-algebra.
 \end{itemize}
@@ -32641,11 +32659,11 @@ $a_{1},a_{2}\in A$);
 
 \item the zero of $A$ is the zero of $B$ (that is, we have $0_{A}=0_{B}$);
 
-\item the unity of $A$ is the unity of $B$ (that is, we have $1_{A}=1_{B}$).
+\item the unity of $A$ is the unity of $B$ (that is, we have $1_{A}=1_{B}$);
 
 \item the scaling of $A$ is a restriction of the scaling of $B$ (that is, we
 have $\lambda\cdot_{A}a=\lambda\cdot_{B}a$ for all $\lambda\in\mathbb{K}$ and
-$a\in A$);
+$a\in A$).
 \end{itemize}
 
 Equivalently, $A$ is a $\mathbb{K}$-subalgebra of $B$ if and only if $A$ is
@@ -32691,7 +32709,7 @@ a\right)  ^{k}=\lambda^{k}a^{k}$.
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.K-alg.prods-scal}.] \textbf{(a)} This can
+[Proof of Proposition \ref{prop.K-alg.prods-scal}.]\textbf{(a)} This can
 easily be proven by induction on $k$. (The induction base boils down to the
 obvious fact that $1_{A}=1_{\mathbb{K}}\cdot1_{A}$. The induction step uses
 the identity
@@ -42554,8 +42572,17 @@ field of size $\left(  p^{2}\right)  ^{2}=p^{4}$. However, this method fails
 at proving that there exists a finite field of size $p^{5}$.
 
 For a proper proof of the existence of a finite field of size $p^{n}$ (for any
-prime $p$ and integer $n\geq1$), see \cite[Theorem 2.5]{LidNie97} or
-\cite[Theorem 9.14]{Knapp1} or \cite[Exercise 12.126]{Loehr-BC}.
+prime $p$ and integer $n\geq1$), see \cite[Theorem 2.5]{LidNie97},
+\cite[Theorem 9.14]{Knapp1}, \cite[Exercise 12.126]{Loehr-BC}, \cite[Theorem
+2.2]{Conrad-FF}, \cite[Corollary 11.26]{Hungerford}, \cite[Chapter V,
+Proposition 5.6]{Hungerford-03}, \cite[Theorem 19.3]{Stewar15}, \cite[Theorem
+6.2.11]{Walker87} or \cite[14.5.1]{Escofi01}. Each of these proofs, however,
+uses at least something we have not seen so far.
+
+\begin{noncompile}
+or \cite{fpnexists}. Note that the proof in \cite{fpnexists} is somewhat long,
+but has the advantage of using only things that we have proven already.
+\end{noncompile}
 
 \bigskip
 
@@ -42563,8 +42590,6 @@ prime $p$ and integer $n\geq1$), see \cite[Theorem 2.5]{LidNie97} or
 TODO: Further sections:
 
 \begin{itemize}
-\item Possibly: an elementary proof of existence for all $p^{n}$.
-
 \item Sums of algebraic integers.
 
 Nonconstructive proof using linear algebra.
@@ -54048,9 +54073,12 @@ congruences}, 10 January 2019.\newline\url{http://www.cip.ifi.lmu.de/~grinberg/l
 \bibitem[Grinbe18]{lina}Darij Grinberg, \textit{Notes on linear algebra},
 version of 13 December 2016.\newline\url{https://github.com/darijgr/lina}
 
-\bibitem[Grinbe19]{regpol}Darij Grinberg, \textit{Regular elements of a ring,
+\bibitem[Grinbe19a]{regpol}Darij Grinberg, \textit{Regular elements of a ring,
 monic polynomials and \textquotedblleft lcm-coprimality\textquotedblright},
 2019.\newline\url{http://www.cip.ifi.lmu.de/~grinberg/algebra/regpol.pdf}
+
+\bibitem[Grinbe19b]{fpnexists}Darij Grinberg, \textit{The existence of finite
+fields, again}, 31 May 2019.\newline\url{http://www.cip.ifi.lmu.de/~grinberg/t/19s/fpnexists.pdf}
 
 \bibitem[GrKnPa94]{GKP}Ronald L. Graham, Donald E. Knuth, Oren Patashnik,
 \textit{Concrete Mathematics, Second Edition}, Addison-Wesley 1994.\newline
