@@ -17,7 +17,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Tuesday, June 04, 2019 23:11:09}
+%TCIDATA{LastRevised=Thursday, June 06, 2019 18:38:00}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -27832,7 +27832,7 @@ Let us use this occasion to define column vectors and row vectors:
 
 \textbf{(a)} A \textit{column vector of size }$n$ will mean an $n\times1$-matrix.
 
-\textbf{(b)} A row vector of size $n$ will mean a $1\times n$-matrix.
+\textbf{(b)} A \textit{row vector of size }$n$ will mean a $1\times n$-matrix.
 \end{definition}
 
 For example, $\left(
@@ -30124,15 +30124,38 @@ of $U$).
 \end{theorem}
 
 \begin{proof}
-[Proof sketch.]This all is proven just as in standard linear algebra. (For a
-specific reference: See \cite[Chapter Two, Theorem III.2.5]{Hefferon} for part
-\textbf{(b)}; \cite[Chapter Two, Corollary III.2.13]{Hefferon} for part
-\textbf{(d)}; \cite[Chapter Two, Corollary III.2.14]{Hefferon} for part
-\textbf{(e)}. Part \textbf{(a)} follows by applying part \textbf{(d)} to the
-empty list (with $k=0$). Part \textbf{(c)} follows from parts \textbf{(b)},
-\textbf{(d)} and \textbf{(e)} once you extend your list of $k$ linearly
-independent vectors in $U$ to a basis of $U$ and shrink your list of $\ell$
-vectors spanning $U$ to a basis of $U$.)
+[Proof of Theorem \ref{thm.laf.basis-of-subspace} (sketched).]This all is
+proven just as in standard linear algebra. Here are some specific references:
+
+Theorem \ref{thm.laf.basis-of-subspace} \textbf{(a)} is a particular case of
+\cite[Theorem 4]{Conrad-dim}\footnote{Note that in the (otherwise excellent)
+note \cite{Conrad-dim}, Conrad follows the inane convention that an empty list
+$\left(  {}\right)  $ cannot be a basis. This forces him to make the unnatural
+requirement \textquotedblleft$V\neq\left\{  0\right\}  $\textquotedblright\ in
+\cite[Theorem 1]{Conrad-dim} and in various other places throughout his note.
+You should ignore this special treatment (or, rather, non-treatment) of empty
+lists when you read the note.} (applied to $V=\mathbb{K}^{1\times n}$ and
+$W=U$).
+
+Theorem \ref{thm.laf.basis-of-subspace} \textbf{(b)} is proven in
+\cite[Chapter Two, Theorem III.2.5]{Hefferon}, in \cite[Corollary
+1]{Conrad-dim} and in \cite[Theorem 3.9, last sentence]{GalQua18}.
+
+Theorem \ref{thm.laf.basis-of-subspace} \textbf{(d)} is proven in
+\cite[Chapter Two, Corollary III.2.13]{Hefferon}, in \cite[Theorem
+3]{Conrad-dim} (since Theorem \ref{thm.laf.basis-of-subspace} \textbf{(a)}
+shows that $U$ has a basis).
+
+Theorem \ref{thm.laf.basis-of-subspace} \textbf{(e)} is proven in
+\cite[Chapter Two, Corollary III.2.14]{Hefferon}, in \cite[Theorem
+3]{Conrad-dim} and in \cite[Theorem 3.9, second sentence]{GalQua18}.
+
+Theorem \ref{thm.laf.basis-of-subspace} \textbf{(c)} follows from parts
+\textbf{(b)}, \textbf{(d)} and \textbf{(e)} once you extend your list of $k$
+linearly independent vectors in $U$ to a basis of $U$ and shrink your list of
+$\ell$ vectors spanning $U$ to a basis of $U$. Alternatively, Theorem
+\ref{thm.laf.basis-of-subspace} \textbf{(c)} follows from \cite[Proposition
+3.8, last sentence]{GalQua18}.
 \end{proof}
 
 Again, the same holds for column vectors.
@@ -30895,7 +30918,11 @@ a=\lambda\left(  \mu a\right)  $\textquotedblright\ is known as the
 \begin{definition}
 \label{def.module.vectors}If $\mathbb{K}$ is a commutative ring and $M$ is a
 $\mathbb{K}$-module, then the elements of $M$ are called \textit{vectors},
-while the elements of $\mathbb{K}$ are called \textit{scalars}.
+while the elements of $\mathbb{K}$ are called \textit{scalars}. If $\lambda
+\in\mathbb{K}$ and $a\in M$, then $\lambda a$ (that is, the image of $\left(
+\lambda,a\right)  $ under the scaling map $\cdot\ :\ \mathbb{K}\times
+M\rightarrow M$) will be called the result of \textit{scaling }the vector $a$
+by the scalar $\lambda$.
 \end{definition}
 
 \begin{definition}
@@ -50390,6 +50417,7 @@ The following facts have been proven in the proof of Proposition
 \begin{equation}
 v_{p}\left(  n\right)  =0. \label{sol.ent.count-divs-134.vpn=0}%
 \end{equation}
+
 
 \item We have $n=p_{1}^{a_{1}}p_{2}^{a_{2}}\cdots p_{u}^{a_{u}}$.
 \end{itemize}
