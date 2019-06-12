@@ -17,7 +17,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Wednesday, June 12, 2019 12:25:27}
+%TCIDATA{LastRevised=Wednesday, June 12, 2019 15:42:25}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -33634,7 +33634,7 @@ all $a\in I$ and $b\in I$).
 \end{definition}
 
 It is easy to see that any ring $\mathbb{K}$ is an ideal of itself;
-furthermore, the $1$-element set $\left\{  0_{\mathbb{K}}\right\}  $ of
+furthermore, the $1$-element subset $\left\{  0_{\mathbb{K}}\right\}  $ of
 $\mathbb{K}$ is an ideal of $\mathbb{K}$ as well. But there can be many
 further ideals:
 
@@ -33649,18 +33649,32 @@ of $\mathbb{K}$ is an ideal of $\mathbb{K}$. Such an ideal is called a
 principal ideal (since $\left\{  0_{\mathbb{K}}\right\}  =0\mathbb{K}$), and
 $\mathbb{K}$ itself is a principal ideal (since $\mathbb{K}=1\mathbb{K}$).
 
-For example, the principal ideals of the ring $\mathbb{Z}$ are the subsets
+Let us see what this results in for some specific rings $\mathbb{K}$:
+
+\begin{itemize}
+\item The principal ideals of the ring $\mathbb{Z}$ are the subsets
 $n\mathbb{Z}=\left\{  nz\ \mid\ z\in\mathbb{Z}\right\}  =\left\{  \text{all
 multiples of }n\right\}  $ with $n\in\mathbb{Z}$. For example, $2\mathbb{Z}%
 =\left\{  \text{all even numbers}\right\}  $ is an ideal of $\mathbb{Z}$. It
 is not hard to show that all ideals of $\mathbb{Z}$ are principal ideals.
 
-It can also be shown that all ideals of $\mathbb{Z}\left[  i\right]  $ are
-principal ideals. However, there exist some rings that have non-principal
-ideals as well. For example, if $\mathbb{K}$ is the ring $\mathbb{Z}\left[
-\sqrt{-3}\right]  $, then the subset $\left\{  a+b\sqrt{-3}\mid a,b\in
-\mathbb{Z}\text{ satisfying }a\equiv b\mod 2\right\}  $ of $\mathbb{K}$ is an
-ideal but not a principal ideal.
+\item It can also be shown that all ideals of $\mathbb{Z}\left[  i\right]  $
+are principal ideals. The same holds for $\mathbb{D}$ (the ring of dual
+numbers), for $\mathbb{Z}\left[  \sqrt{-2}\right]  $ (the ring of
+\textquotedblleft$2$-Gaussian integers\textquotedblright), and $\mathbb{Q}%
+\left[  x\right]  $ (the ring of polynomials with rational coefficients, to be
+formally defined in Definition \ref{def.pol.polyring} below).
+
+\item However, there exist some rings that have non-principal ideals as well.
+For example, if $\mathbb{K}$ is the ring $\mathbb{Z}\left[  \sqrt{-3}\right]
+$, then the subset $\left\{  a+b\sqrt{-3}\mid a,b\in\mathbb{Z}\text{
+satisfying }a\equiv b\mod 2\right\}  $ of $\mathbb{K}$ is an ideal but not a
+principal ideal. For another example, if $\mathbb{K}$ is the ring
+$\mathbb{Z}\left[  x\right]  $ (the ring of polynomials with integer
+coefficients, to be formally defined in Definition \ref{def.pol.polyring}
+below), then the subset of $\mathbb{K}$ consisting of all polynomials with
+even constant term is an ideal but not a principal ideal.
+\end{itemize}
 \end{example}
 
 When $\mathbb{K}$ is a commutative ring, the third and fourth conditions in
@@ -33705,8 +33719,8 @@ under $f$}, and is written $f^{-1}\left(  V\right)  $.
 \end{proof}
 
 So the kernel of a ring homomorphism is always an ideal. (And conversely,
-every ideal can be written as the kernel of a ring homomorphism; but proving
-this would lead us somewhat afield at the moment.)
+every ideal can be written as the kernel of a ring homomorphism; this will
+follow from Proposition \ref{thm.quot.ring/ideal.wd} \textbf{(g)} further below.)
 
 Kernels can also help in checking whether a ring homomorphism or a module
 homomorphism is injective. To wit, for ring homomorphisms, the following
@@ -33816,10 +33830,10 @@ Thus, comparing $f\left(  a\right)  \cdot\left(  f\left(  a\right)  \right)
 f\left(  a\right)  \right)  ^{-1}=0$, we obtain $1_{\mathbb{L}}=0$. Hence,
 each $b\in\mathbb{L}$ satisfies $b=b\cdot\underbrace{1_{\mathbb{L}}}_{=0}%
 =0\in\left\{  0\right\}  $. Thus, $\mathbb{L}\subseteq\left\{  0\right\}  $,
-so that $\left\vert \mathbb{L}\right\vert \leq1$. This contradicts $\left\vert
-\mathbb{L}\right\vert >1$. This contradiction shows that our assumption is
-wrong. Hence, $a=0_{\mathbb{K}}$ is proven. Therefore, $a\in\left\{
-0_{\mathbb{K}}\right\}  $.
+so that $\left\vert \mathbb{L}\right\vert \leq\left\vert \left\{  0\right\}
+\right\vert =1$. This contradicts $\left\vert \mathbb{L}\right\vert >1$. This
+contradiction shows that our assumption is wrong. Hence, $a=0_{\mathbb{K}}$ is
+proven. Therefore, $a\in\left\{  0_{\mathbb{K}}\right\}  $.
 
 Now, forget that we fixed $a$. We thus have shown that $a\in\left\{
 0_{\mathbb{K}}\right\}  $ for each $a\in\operatorname*{Ker}f$. In other words,
@@ -41810,14 +41824,14 @@ all $a\in I$ and $b\in I$).
 
 \item We have
 \begin{equation}
-\lambda a\in I\ \ \ \ \ \ \ \ \ \ \text{for all }\lambda\in\mathbb{K}\text{
+\lambda a\in I\ \ \ \ \ \ \ \ \ \ \text{for all }\lambda\in\mathbb{L}\text{
 and }a\in I. \label{pf.prop.quot.ring/ideal.nice.la}%
 \end{equation}
 
 
 \item We have
 \begin{equation}
-a\lambda\in I\ \ \ \ \ \ \ \ \ \ \text{for all }\lambda\in\mathbb{K}\text{ and
+a\lambda\in I\ \ \ \ \ \ \ \ \ \ \text{for all }\lambda\in\mathbb{L}\text{ and
 }a\in I. \label{pf.prop.quot.ring/ideal.nice.al}%
 \end{equation}
 
@@ -41996,6 +42010,10 @@ is an $\mathbb{L}$-algebra homomorphism.
 
 \textbf{(f)} If the ring $\mathbb{L}$ is commutative, then the ring
 $\mathbb{L}/I$ is a commutative $\mathbb{L}$-algebra.
+
+\textbf{(g)} The kernel of the $\mathbb{L}$-algebra homomorphism $\pi_{I}$ is
+$\operatorname*{Ker}\left(  \pi_{I}\right)  =I$. (See Proposition
+\ref{prop.rihom.ker} \textbf{(a)} for the definition of a kernel.)
 \end{theorem}
 
 \begin{proof}
@@ -42003,6 +42021,57 @@ $\mathbb{L}/I$ is a commutative $\mathbb{L}$-algebra.
 \textbf{(b)}, \textbf{(c)}, \textbf{(d)} and \textbf{(e)} of this theorem are
 proven in the same way as the corresponding parts of Theorem
 \ref{thm.quot.ring/w.wd}. Part \textbf{(f)} is easy.
+
+\textbf{(g)} The map $\pi_{I}$ is an $\mathbb{L}$-algebra homomorphism (by
+Theorem \ref{thm.quot.ring/ideal.wd} \textbf{(e)}), thus a ring homomorphism.
+
+For each $a\in\mathbb{L}$, we have the following chain of equivalences:%
+\begin{align*}
+& \ \left(  \pi_{I}\left(  a\right)  =0_{\mathbb{L}/I}\right)  \\
+& \Longleftrightarrow\ \left(  \left[  a\right]  _{I}=\left[  0\right]
+_{I}\right)  \\
+& \ \ \ \ \ \ \ \ \ \ \left(  \text{since }\pi_{I}\left(  a\right)  =\left[
+a\right]  _{I}\text{ (by the definition of }\pi_{I}\text{) and }%
+0_{\mathbb{L}/I}=\left[  0\right]  _{I}\right)  \\
+& \Longleftrightarrow\ \left(  \left[  a\right]  _{\underset{I}{\equiv}%
+}=\left[  0\right]  _{\underset{I}{\equiv}}\right)  \\
+& \ \ \ \ \ \ \ \ \ \ \left(  \text{since Definition
+\ref{def.quot.ring/ideal.defs} \textbf{(c)} yields }\left[  a\right]
+_{I}=\left[  a\right]  _{\underset{I}{\equiv}}\text{ and }\left[  0\right]
+_{I}=\left[  0\right]  _{\underset{I}{\equiv}}\right)  \\
+& \Longleftrightarrow\ \left(  a\underset{I}{\equiv}0\right)
+\ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{since Proposition \ref{thm.eqrel.eqcl.disj} \textbf{(e)} yields that}\\
+\text{we have }a\underset{I}{\equiv}0\text{ if and only if }\left[  a\right]
+_{\underset{I}{\equiv}}=\left[  0\right]  _{\underset{I}{\equiv}}%
+\end{array}
+\right)  \\
+& \Longleftrightarrow\ \left(  a\equiv0\operatorname{mod}I\right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by Definition \ref{def.quot.ring/ideal.defs}
+\textbf{(a)}}\right)  \\
+& \Longleftrightarrow\ \left(  a-0\in I\right)  \ \ \ \ \ \ \ \ \ \ \left(
+\text{by Definition \ref{def.quot.mod-ideal}}\right)  \\
+& \Longleftrightarrow\ \left(  a\in I\right)  \ \ \ \ \ \ \ \ \ \ \left(
+\text{since }a-0=a\right)  .
+\end{align*}
+Hence,%
+\[
+\left\{  a\in\mathbb{L}\ \mid\ \pi_{I}\left(  a\right)  =0_{\mathbb{L}%
+/I}\right\}  =\left\{  a\in\mathbb{L}\ \mid\ a\in I\right\}  =I
+\]
+(since $I\subseteq\mathbb{L}$). Now, the definition of $\operatorname*{Ker}%
+\left(  \pi_{I}\right)  $ yields%
+\begin{align*}
+\operatorname*{Ker}\left(  \pi_{I}\right)    & =\left\{  v\in\mathbb{L}%
+\ \mid\ \pi_{I}\left(  v\right)  =0_{\mathbb{L}/I}\right\}  =\left\{
+a\in\mathbb{L}\ \mid\ \pi_{I}\left(  a\right)  =0_{\mathbb{L}/I}\right\}  \\
+& \ \ \ \ \ \ \ \ \ \ \left(  \text{here, we have renamed the index }v\text{
+as }a\right)  \\
+& =I.
+\end{align*}
+This proves Theorem \ref{thm.quot.ring/ideal.wd} \textbf{(g)}.
 \end{proof}
 
 Proposition \ref{prop.quot.ring/ideal.principal} shows that Definition
