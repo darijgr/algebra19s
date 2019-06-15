@@ -17,7 +17,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Thursday, June 13, 2019 18:56:44}
+%TCIDATA{LastRevised=Saturday, June 15, 2019 07:13:53}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -18789,8 +18789,9 @@ integer $a$ modulo some integer $m>N$. Since $0\leq a<N<m$, we can thus
 recover $a$ itself (as the unique representative of the class $\left[
 a\right]  _{m}$ that lies in the set $\left\{  0,1,\ldots,m-1\right\}  $).
 
-This technique has been used a lot (for an example, see \cite[pp.
-1031--1033]{Vogan07}).
+This technique is known as \textit{Chinese Remaindering} (in its simplest
+form) and has been used a lot (for an example, see \cite[pp. 1031--1033]%
+{Vogan07}). See \cite[\S 4.3.2]{TAoCP2} for more details.
 
 \begin{noncompile}
 I think computer algebra software uses a slightly more complicated version of
@@ -38595,21 +38596,22 @@ of the polynomial $x\left(  x-1\right)  $ in a $\mathbb{K}$-algebra $U$ are
 the idempotent elements of $U$, because for any element $u\in U$, we have the
 following equivalence:%
 \begin{align*}
-&  \ \left(  u\text{ is a root of }x\left(  x-1\right)  \right) \\
+&  \ \left(  u\text{ is a root of }x\left(  x-1\right)  \right)  \\
 &  \Longleftrightarrow\ \left(  \underbrace{\left(  x\left(  x-1\right)
 \right)  \left[  u\right]  }_{=x\left[  u\right]  \cdot\left(  x-1\right)
 \left[  u\right]  }=0\right)  \ \Longleftrightarrow\ \left(
 \underbrace{x\left[  u\right]  }_{=u}\cdot\underbrace{\left(  x-1\right)
-\left[  u\right]  }_{=u-1}=0\right) \\
+\left[  u\right]  }_{=u-1}=0\right)  \\
 &  \Longleftrightarrow\ \left(  \underbrace{u\cdot\left(  u-1\right)
 }_{=u^{2}-u}=0\right)  \ \Longleftrightarrow\ \left(  u^{2}-u=0\right)
-\ \Longleftrightarrow\ \left(  u^{2}=u\right) \\
+\ \Longleftrightarrow\ \left(  u^{2}=u\right)  \\
 &  \Longleftrightarrow\ \left(  u\text{ is idempotent}\right)  .
 \end{align*}
 If $U$ is a field, then the only idempotent elements of $U$ are $0$ and $1$
 (because $u\cdot\left(  u-1\right)  =0$ implies that $u$ or $u-1$ is $0$).
 Otherwise, there can be more idempotent elements; for example, $\mathbb{Z}/6$
-has the four idempotent elements $0,1,3,4$.
+has the four idempotent elements $\left[  0\right]  _{6},\left[  1\right]
+_{6},\left[  3\right]  _{6},\left[  4\right]  _{6}$.
 
 We now define divisibility of polynomials in the same way as we defined
 divisibility of integers (Definition \ref{def.ent.div.div}) and divisibility
@@ -38675,13 +38677,13 @@ this $b$. Thus, $\mathbf{a}=\mathbf{q}\cdot\left(  x-u\right)
 We can substitute $u$ for $x$ in this equation (i.e., apply the $\mathbb{K}%
 $-algebra homomorphism $\operatorname*{ev}\nolimits_{u}$ to both sides of it),
 and obtain%
-\begin{align*}
-\mathbf{a}\left[  u\right]   &  =\left(  \mathbf{q}\cdot\left(  x-u\right)
+\[
+\mathbf{a}\left[  u\right]  =\left(  \mathbf{q}\cdot\left(  x-u\right)
 +\underline{b}\right)  \left[  u\right]  =\mathbf{q}\left[  u\right]
 \cdot\underbrace{\left(  x-u\right)  \left[  u\right]  }_{=u-u=0}%
-+\underbrace{\underline{b}\left[  u\right]  }_{=b}\\
-&  =\underbrace{\mathbf{q}\left[  u\right]  \cdot0}_{=0}+b=b.
-\end{align*}
++\underbrace{\underline{b}\left[  u\right]  }_{=b}=\underbrace{\mathbf{q}%
+\left[  u\right]  \cdot0}_{=0}+b=b.
+\]
 Thus, $b=\mathbf{a}\left[  u\right]  =0$ (since $u$ is a root of $\mathbf{a}%
 $). Thus,
 \[
@@ -38999,7 +39001,7 @@ u\right]  $. Hence, $\left(  \mathbf{a}\left[  \mathbf{b}\right]  \right)
 proves Proposition \ref{prop.pol.eval-assoc}.
 \end{proof}
 
-One more notation is in order for the next section.
+One more notation is needed for the next section.
 
 \begin{definition}
 Let $\mathbb{L}$ be a ring that contains $\mathbb{Q}$ as a subring. (For
@@ -49412,10 +49414,9 @@ Now, $p-1\in\mathbb{N}$ (since $p>1$). Thus, the definition of $\dbinom
 \]
 Hence,%
 \begin{align*}
-&  \left(  p-1\right)  !\cdot\dbinom{2p-1}{p-1}\\
-&  =\left(  2p-1\right)  \left(  \left(  2p-1\right)  -1\right)  \left(
-\left(  2p-1\right)  -2\right)  \cdots\left(  \left(  2p-1\right)  -\left(
-p-1\right)  +1\right) \\
+\left(  p-1\right)  !\cdot\dbinom{2p-1}{p-1}  &  =\left(  2p-1\right)  \left(
+\left(  2p-1\right)  -1\right)  \left(  \left(  2p-1\right)  -2\right)
+\cdots\left(  \left(  2p-1\right)  -\left(  p-1\right)  +1\right) \\
 &  =\prod_{i=0}^{\left(  p-1\right)  -1}\left(  \left(  2p-1\right)
 -i\right)  =\prod_{s=1}^{p-1}\underbrace{\left(  \left(  2p-1\right)  -\left(
 p-1-s\right)  \right)  }_{=p+s}\\
@@ -49438,11 +49439,11 @@ This congruence rewrites as $\prod_{s=1}^{p-1}\left(  p+s\right)  \equiv
 $\prod_{s\in\left\{  1,2,\ldots,p-1\right\}  }$\textquotedblright\ sign is
 equivalent to \textquotedblleft$\prod_{s=1}^{p-1}$\textquotedblright). Qed.}.
 Thus,%
-\begin{align*}
-\left(  p-1\right)  !\cdot\dbinom{2p-1}{p-1}  &  \equiv\prod_{s=1}%
-^{p-1}s=1\cdot2\cdot\cdots\cdot\left(  p-1\right)  =\left(  p-1\right)  !\\
-&  =\left(  p-1\right)  !\cdot1\operatorname{mod}p.
-\end{align*}
+\[
+\left(  p-1\right)  !\cdot\dbinom{2p-1}{p-1}\equiv\prod_{s=1}^{p-1}%
+s=1\cdot2\cdot\cdots\cdot\left(  p-1\right)  =\left(  p-1\right)  !=\left(
+p-1\right)  !\cdot1\operatorname{mod}p.
+\]
 Hence, Lemma \ref{lem.ent.coprime.cancel} (applied to $n=p$, $a=\left(
 p-1\right)  !$, $b=\dbinom{2p-1}{p-1}$ and $c=1$) shows that
 \begin{equation}
@@ -52210,7 +52211,8 @@ future I will simply use them wherever they can help.}%
 \underbrace{\left(  \alpha\beta\right)  ^{k}}_{=\alpha^{k}\beta^{k}}=\left(
 \alpha\beta\right)  \left(  \alpha^{k}\beta^{k}\right)  =\alpha
 \underbrace{\left(  \beta\left(  \alpha^{k}\beta^{k}\right)  \right)
-}_{=\left(  \beta\alpha^{k}\right)  \beta^{k}}\\
+}_{\substack{=\left(  \beta\alpha^{k}\right)  \beta^{k}\\\text{(by Theorem
+\ref{thm.CC.CC.rules} \textbf{(f)})}}}\\
 &  \ \ \ \ \ \ \ \ \ \ \left(  \text{since Theorem \ref{thm.CC.CC.rules}
 \textbf{(f) }yields }\alpha\left(  \beta\left(  \alpha^{k}\beta^{k}\right)
 \right)  =\left(  \alpha\beta\right)  \left(  \alpha^{k}\beta^{k}\right)
@@ -54240,6 +54242,9 @@ cube}, 19 August 2008.\newline%
 
 \bibitem[Knapp16b]{Knapp2}Anthony W. Knapp, \textit{Advanced Algebra}, digital
 2nd edition 2016. \newline\url{http://www.math.stonybrook.edu/~aknapp/download.html}
+
+\bibitem[Knuth98]{TAoCP2}Donald Ervin Knuth, \textit{The art of computer
+programming, volume 2}, Addison--Wesley 1998.
 
 \bibitem[LaNaSc16]{LaNaSc16}Isaiah Lankham, Bruno Nachtergaele, Anne
 Schilling, \textit{Linear Algebra As an Introduction to Abstract Mathematics},
