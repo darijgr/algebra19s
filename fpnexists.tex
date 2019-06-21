@@ -1,0 +1,2813 @@
+\documentclass[numbers=enddot,12pt,final,onecolumn,notitlepage]{scrartcl}%
+\usepackage[headsepline,footsepline,manualmark]{scrlayer-scrpage}
+\usepackage[all,cmtip]{xy}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{framed}
+\usepackage{comment}
+\usepackage{color}
+\usepackage{hyperref}
+\usepackage[sc]{mathpazo}
+\usepackage[T1]{fontenc}
+\usepackage{needspace}
+\usepackage{tabls}
+%TCIDATA{OutputFilter=latex2.dll}
+%TCIDATA{Version=5.50.0.2960}
+%TCIDATA{LastRevised=Thursday, June 27, 2019 15:43:56}
+%TCIDATA{SuppressPackageManagement}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{BibliographyScheme=Manual}
+%TCIDATA{Language=American English}
+%BeginMSIPreambleData
+\providecommand{\U}[1]{\protect\rule{.1in}{.1in}}
+%EndMSIPreambleData
+\newcounter{exer}
+\newcounter{exera}
+\theoremstyle{definition}
+\newtheorem{theo}{Theorem}[subsection]
+\newenvironment{theorem}[1][]
+{\begin{theo}[#1]\begin{leftbar}}
+{\end{leftbar}\end{theo}}
+\newtheorem{lem}[theo]{Lemma}
+\newenvironment{lemma}[1][]
+{\begin{lem}[#1]\begin{leftbar}}
+{\end{leftbar}\end{lem}}
+\newtheorem{prop}[theo]{Proposition}
+\newenvironment{proposition}[1][]
+{\begin{prop}[#1]\begin{leftbar}}
+{\end{leftbar}\end{prop}}
+\newtheorem{defi}[theo]{Definition}
+\newenvironment{definition}[1][]
+{\begin{defi}[#1]\begin{leftbar}}
+{\end{leftbar}\end{defi}}
+\newtheorem{remk}[theo]{Remark}
+\newenvironment{remark}[1][]
+{\begin{remk}[#1]\begin{leftbar}}
+{\end{leftbar}\end{remk}}
+\newtheorem{coro}[theo]{Corollary}
+\newenvironment{corollary}[1][]
+{\begin{coro}[#1]\begin{leftbar}}
+{\end{leftbar}\end{coro}}
+\newtheorem{conv}[theo]{Convention}
+\newenvironment{convention}[1][]
+{\begin{conv}[#1]\begin{leftbar}}
+{\end{leftbar}\end{conv}}
+\newtheorem{quest}[theo]{Question}
+\newenvironment{question}[1][]
+{\begin{quest}[#1]\begin{leftbar}}
+{\end{leftbar}\end{quest}}
+\newtheorem{warn}[theo]{Warning}
+\newenvironment{conclusion}[1][]
+{\begin{warn}[#1]\begin{leftbar}}
+{\end{leftbar}\end{warn}}
+\newtheorem{conj}[theo]{Conjecture}
+\newenvironment{conjecture}[1][]
+{\begin{conj}[#1]\begin{leftbar}}
+{\end{leftbar}\end{conj}}
+\newtheorem{exam}[theo]{Example}
+\newenvironment{example}[1][]
+{\begin{exam}[#1]\begin{leftbar}}
+{\end{leftbar}\end{exam}}
+\newtheorem{exmp}[exer]{Exercise}
+\newenvironment{exercise}[1][]
+{\begin{exmp}[#1]\begin{leftbar}}
+{\end{leftbar}\end{exmp}}
+\newenvironment{statement}{\begin{quote}}{\end{quote}}
+\newenvironment{fineprint}{\begin{small}}{\end{small}}
+\iffalse
+\newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\newenvironment{question}[1][Question]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\newenvironment{teachingnote}[1][Teaching note]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\fi
+\let\sumnonlimits\sum
+\let\prodnonlimits\prod
+\let\cupnonlimits\bigcup
+\let\capnonlimits\bigcap
+\renewcommand{\sum}{\sumnonlimits\limits}
+\renewcommand{\prod}{\prodnonlimits\limits}
+\renewcommand{\bigcup}{\cupnonlimits\limits}
+\renewcommand{\bigcap}{\capnonlimits\limits}
+\setlength\tablinesep{3pt}
+\setlength\arraylinesep{3pt}
+\setlength\extrarulesep{3pt}
+\voffset=0cm
+\hoffset=0cm
+\setlength\textheight{22.5cm}
+\setlength\textwidth{15.5cm}
+\newenvironment{verlong}{}{}
+\newenvironment{vershort}{}{}
+\newenvironment{noncompile}{}{}
+\newenvironment{teachingnote}{}{}
+\excludecomment{verlong}
+\includecomment{vershort}
+\excludecomment{noncompile}
+\excludecomment{teachingnote}
+\newcommand{\id}{\operatorname{id}}
+\ihead{The existence of finite fields, again}
+\ohead{page \thepage}
+\cfoot{}
+\begin{document}
+
+\title{The existence of finite fields, again}
+\author{Darij Grinberg}
+\date{
+%TCIMACRO{\TeXButton{today}{\today}}%
+%BeginExpansion
+\today
+%EndExpansion
+}
+\maketitle
+\tableofcontents
+
+\section{Finite fields exist: the theorem}
+
+Fix a prime $p$. We are going to prove the following classical fact from
+abstract algebra:
+
+\begin{theorem}
+\label{thm.fpnexists}Let $n$ be a positive integer. Then, there exists a
+finite field of size $p^{n}$.
+\end{theorem}
+
+Here, we are using standard notations from abstract algebra (see, e.g.,
+\cite{19s}). In particular, fields are always commutative.
+
+Theorem \ref{thm.fpnexists} is well-known; various proofs can be found in
+\cite[Theorem 2.5]{LidNie97}, \cite[Theorem 9.14]{Knapp1}, \cite[Exercise
+12.126]{Loehr-BC}, \cite[Theorem 2.2]{Conrad-FF}, \cite[Corollary
+11.26]{Hungerford}, \cite[Chapter V, Proposition 5.6]{Hungerford-03},
+\cite[Theorem 19.3]{Stewar15}, \cite[14.5.1]{Escofi01} and \cite[Theorem
+6.2.11]{Walker87}. Most of these proofs use either Galois theory or the
+M\"{o}bius function from number theory. In this note, we will give a proof
+that uses only relatively basic properties of rings and fields.
+
+We first strengthen Theorem \ref{thm.fpnexists} a little bit, for the
+convenience of our proof.
+
+We let $\mathbb{F}_{p}$ denote the ring of all residue classes of integers
+modulo $p$. This is also known as $\mathbb{Z}/p\mathbb{Z}$ (in most of the
+literature) or as $\mathbb{Z}/\left(  p\right)  $ or as $\mathbb{Z}/p$ (in
+\cite{19s}) or as $\mathbb{Z}_{p}$ (sometimes). It is well-known that
+$\mathbb{F}_{p}$ is a field\footnote{since $p$ is a prime} of size $p$.
+
+\begin{definition}
+An $\mathbb{F}_{p}$\textit{-field} will mean an $\mathbb{F}_{p}$-algebra that
+is a field (with the same addition, multiplication, zero and unity).
+\end{definition}
+
+It is not hard to see that an $\mathbb{F}_{p}$-field is the same as a field of
+characteristic $p$; but we will not need this in what follows.
+
+Now, we can strengthen Theorem \ref{thm.fpnexists} as follows:
+
+\begin{theorem}
+\label{thm.fpnexists2}Let $n$ be a positive integer. Then, there exists a
+finite $\mathbb{F}_{p}$-field of size $p^{n}$.
+\end{theorem}
+
+Of course, Theorem \ref{thm.fpnexists2} is not that much stronger than Theorem
+\ref{thm.fpnexists}. In fact, any finite field of size $p^{n}$ (for $n$ a
+positive integer) is an $\mathbb{F}_{p}$-field; this can easily be seen using
+some linear algebra or group theory. But since Theorem \ref{thm.fpnexists2}
+will fall into our hands in this exact form, we will have no need for such arguments.
+
+\section{Ingredients of the proof}
+
+Next we shall prepare for the proof of Theorem \ref{thm.fpnexists2} by stating
+several results that will end up useful.
+
+All polynomials that appear in this note are polynomials in a single variable
+$x$. If $\mathbb{K}$ is a commutative ring, and if $\mathbf{a}=\sum_{k=0}%
+^{n}a_{k}x^{k}\in\mathbb{K}\left[  x\right]  $ is a polynomial of degree
+$n\geq0$ (with $a_{k}\in\mathbb{K}$), then:
+
+\begin{itemize}
+\item the \textit{leading term} of $\mathbf{a}$ is defined to be the
+polynomial $a_{n}x^{n}\in\mathbb{K}\left[  x\right]  $;
+
+\item the \textit{leading coefficient} of $\mathbf{a}$ is defined to be the
+element $a_{n}\in\mathbb{K}$;
+
+\item the polynomial $\mathbf{a}$ is said to be \textit{monic} if $a_{n}=1$
+(that is, its leading term is $1$).
+\end{itemize}
+
+\subsection{Adjoining a root of a polynomial}
+
+We shall use quotients of commutative rings, but we will only need the
+simplest case of such quotients (namely, the case when we are quotienting by a
+principal ideal). Let us quickly introduce shorthand notations for this kind
+of quotients:
+
+\begin{convention}
+\label{conv.quotient}Let $\mathbb{K}$ be a commutative ring, and
+$a\in\mathbb{K}$ be any element.
+
+For each $u\in\mathbb{K}$, we let $\left[  u\right]  _{a}$ denote the residue
+class of $u$ modulo $a$. (This is commonly denoted by $u+a\mathbb{K}$.)
+
+We let $\mathbb{K}/a$ denote the set of all residue classes of elements of
+$\mathbb{K}$ modulo $a$. (This is commonly denoted by $\mathbb{K}/a\mathbb{K}$
+or by $\mathbb{K}/\left(  a\right)  $.) The set $\mathbb{K}/a$ is known to be
+a commutative $\mathbb{K}$-algebra (with addition defined by $\left[
+u\right]  _{a}+\left[  v\right]  _{a}=\left[  u+v\right]  _{a}$, and all other
+operations defined similarly).
+\end{convention}
+
+Thus, for example, $\mathbb{Z}/p$ is the field $\mathbb{F}_{p}$, and its
+elements are $\left[  0\right]  _{p},\left[  1\right]  _{p},\ldots,\left[
+p-1\right]  _{p}$.
+
+The following theorem is the only way by which we are going to extend our
+fields in this note:\footnote{We shall tend to denote polynomials with
+boldface letters, for the sake of readability.}
+
+\begin{theorem}
+\label{thm.field-ext}Let $\mathbb{F}$ be a field. Let $n\in\mathbb{N}$. Let
+$\mathbf{a}\in\mathbb{F}\left[  x\right]  $ be a polynomial of degree $n$.
+
+Consider the $\mathbb{F}$-algebra $\mathbb{F}\left[  x\right]  /\mathbf{a}$.
+
+\textbf{(a)} Each element of $\mathbb{F}\left[  x\right]  /\mathbf{a}$ can be
+uniquely written in the form%
+\[
+\lambda_{0}\left[  x^{0}\right]  _{\mathbf{a}}+\lambda_{1}\left[
+x^{1}\right]  _{\mathbf{a}}+\cdots+\lambda_{n-1}\left[  x^{n-1}\right]
+_{\mathbf{a}}\ \ \ \ \ \ \ \ \ \ \text{with }\lambda_{0},\lambda_{1}%
+,\ldots,\lambda_{n-1}\in\mathbb{F}.
+\]
+
+
+\textbf{(b)} If $\mathbb{F}$ is finite, then $\left\vert \mathbb{F}\left[
+x\right]  /\mathbf{a}\right\vert =\left\vert \mathbb{F}\right\vert ^{n}$.
+
+\textbf{(c)} If the polynomial $\mathbf{a}$ is irreducible, then
+$\mathbb{F}\left[  x\right]  /\mathbf{a}$ is a field.
+\end{theorem}
+
+\begin{proof}
+[Proof of Theorem \ref{thm.field-ext}.]\textbf{(a)} The polynomial
+$\mathbf{a}$ has degree $n$. Thus, the coefficient of $x^{n}$ in $\mathbf{a}$
+is nonzero, and therefore invertible (since every nonzero element of
+$\mathbb{F}$ is invertible\footnote{since $\mathbb{F}$ is a field}). Thus, the
+claim of Theorem \ref{thm.field-ext} \textbf{(a)} follows from \cite[Theorem
+8.1.9 \textbf{(a)}]{19s} (applied to $\mathbb{F}$, $n$ and $\mathbf{a}$
+instead of $\mathbb{K}$, $m$ and $\mathbf{b}$).
+
+Alternatively, it is easy to derive Theorem \ref{thm.field-ext} \textbf{(a)}
+from the familiar fact that division with remainder works for polynomials in
+$\mathbb{F}\left[  x\right]  $.
+
+\textbf{(b)} Assume that $\mathbb{F}$ is finite. Then, Theorem
+\ref{thm.field-ext} \textbf{(a)} shows that each element of $\mathbb{F}\left[
+x\right]  /\mathbf{a}$ can be uniquely written in the form%
+\[
+\lambda_{0}\left[  x^{0}\right]  _{\mathbf{a}}+\lambda_{1}\left[
+x^{1}\right]  _{\mathbf{a}}+\cdots+\lambda_{n-1}\left[  x^{n-1}\right]
+_{\mathbf{a}}\ \ \ \ \ \ \ \ \ \ \text{with }\lambda_{0},\lambda_{1}%
+,\ldots,\lambda_{n-1}\in\mathbb{F}.
+\]
+In other words, the map%
+\begin{align*}
+\mathbb{F}^{n}  &  \rightarrow\mathbb{F}\left[  x\right]  /\mathbf{a},\\
+\left(  \lambda_{0},\lambda_{1},\ldots,\lambda_{n-1}\right)   &
+\mapsto\lambda_{0}\left[  x^{0}\right]  _{\mathbf{a}}+\lambda_{1}\left[
+x^{1}\right]  _{\mathbf{a}}+\cdots+\lambda_{n-1}\left[  x^{n-1}\right]
+_{\mathbf{a}}%
+\end{align*}
+is a bijection. Hence, there exists a bijection from $\mathbb{F}^{n}$ to
+$\mathbb{F}\left[  x\right]  /\mathbf{a}$ (namely, this map). Thus,
+$\left\vert \mathbb{F}\left[  x\right]  /\mathbf{a}\right\vert =\left\vert
+\mathbb{F}^{n}\right\vert =\left\vert \mathbb{F}\right\vert ^{n}$. This proves
+Theorem \ref{thm.field-ext} \textbf{(b)}.
+
+\textbf{(c)} Theorem \ref{thm.field-ext} \textbf{(c)} follows from
+\cite[Theorem 8.1.17]{19s} or from \cite[4.7.2]{Escofi01} (applied to
+$K=\mathbb{F}$ and $P=\mathbf{a}$).
+
+Alternatively, it can be found in the literature under some fairly transparent
+guises. For instance, several sources (e.g., \cite[Theorem 17.2]{Stewar15} or
+\cite[proof of Theorem 9.10]{Knapp1} or \cite[1.25]{Milne-FT}) prove Theorem
+\ref{thm.field-ext} \textbf{(c)} in the case when the polynomial $\mathbf{a}$
+is monic. But the general case can easily be reduced to this case (because we
+can always make a nonzero polynomial $\mathbf{a}\in\mathbb{F}\left[  x\right]
+$ monic by scaling it with the multiplicative inverse of its leading coefficient).
+\end{proof}
+
+\subsection{Factoring polynomials into irreducibles}
+
+How do we find irreducible polynomials to apply Theorem \ref{thm.field-ext}
+\textbf{(c)} to? The following lemma shows a simple way:
+
+\begin{lemma}
+\label{lem.exist-irred-div}Let $\mathbb{F}$ be a field. Let $\mathbf{a}%
+\in\mathbb{F}\left[  x\right]  $ be a non-constant polynomial. Then, there
+exists a monic irreducible polynomial $\mathbf{u}$ such that $\mathbf{u}%
+\mid\mathbf{a}$.
+\end{lemma}
+
+\begin{proof}
+[Proof of Lemma \ref{lem.exist-irred-div}.]Clearly, there exists a
+non-constant polynomial $\mathbf{v}\in\mathbb{F}\left[  x\right]  $ that
+satisfies $\mathbf{v}\mid\mathbf{a}$ (for example, $\mathbf{a}$ itself is such
+a polynomial). Choose such a $\mathbf{v}$ of the smallest possible degree, and
+denote it by $\mathbf{b}$. Thus, $\mathbf{b}$ is a non-constant polynomial and
+satisfies $\mathbf{b}\mid\mathbf{a}$.
+
+Let $\kappa$ be the leading coefficient of $\mathbf{b}$ (that is, the
+coefficient of $x^{\deg\mathbf{b}}$ in $\mathbf{b}$). Then, $\kappa$ is a
+nonzero element of $\mathbb{F}$, and thus is invertible (since every nonzero
+element of $\mathbb{F}$ is invertible\footnote{because $\mathbb{F}$ is a
+field}). Therefore, $\kappa^{-1}\in\mathbb{F}$ is well-defined and nonzero.
+Thus, if we regard $\kappa^{-1}$ as a polynomial in $\mathbb{F}\left[
+x\right]  $, then $\kappa^{-1}$ is a nonzero constant; hence, $\deg\left(
+\kappa^{-1}\right)  =0$. Now,
+\[
+\deg\left(  \kappa^{-1}\mathbf{b}\right)  =\underbrace{\deg\left(  \kappa
+^{-1}\right)  }_{=0}+\deg\mathbf{b}=\deg\mathbf{b}>0
+\]
+(since $\mathbf{b}$ is non-constant); thus, the polynomial $\kappa
+^{-1}\mathbf{b}$ is non-constant. Moreover, the polynomial $\kappa
+^{-1}\mathbf{b}$ satisfies $\kappa^{-1}\mathbf{b}\mid\mathbf{b}$ (since
+$\mathbf{b}=\underbrace{1}_{=\kappa\kappa^{-1}}\mathbf{b}=\kappa\kappa
+^{-1}\mathbf{b}=\left(  \kappa^{-1}\mathbf{b}\right)  \cdot\kappa$).
+
+It is easy to see that the polynomial $\kappa^{-1}\mathbf{b}$ is irreducible.
+
+[\textit{Proof:} Assume the contrary. Then, we can write $\kappa
+^{-1}\mathbf{b}$ as $\kappa^{-1}\mathbf{b}=\mathbf{cd}$ with two polynomials
+$\mathbf{c},\mathbf{d}\in\mathbb{F}\left[  x\right]  $ satisfying
+$\deg\mathbf{c}>0$ and $\deg\mathbf{d}>0$ (since $\kappa^{-1}\mathbf{b}$ is
+non-constant but not irreducible). Consider these $\mathbf{c}$ and
+$\mathbf{d}$. The polynomial $\mathbf{c}$ is a non-constant
+polynomial\footnote{since $\deg\mathbf{c}>0$} and satisfies $\mathbf{c}%
+\mid\mathbf{a}$ (since $\mathbf{c}\mid\mathbf{cd}=\kappa^{-1}\mathbf{b}%
+\mid\mathbf{b}\mid\mathbf{a}$). In other words, $\mathbf{c}$ is a non-constant
+polynomial $\mathbf{v}\in\mathbb{F}\left[  x\right]  $ that satisfies
+$\mathbf{v}\mid\mathbf{a}$. Therefore, $\deg\mathbf{c}\geq\deg\mathbf{b}$
+(because we defined $\mathbf{b}$ to be such a $\mathbf{v}$ of the smallest
+possible degree). However, $\deg\underbrace{\left(  \kappa^{-1}\mathbf{b}%
+\right)  }_{=\mathbf{cd}}=\deg\left(  \mathbf{cd}\right)  =\deg\mathbf{c}%
++\underbrace{\deg\mathbf{d}}_{>0}>\deg\mathbf{c}$ and thus $\deg
+\mathbf{c}<\deg\left(  \kappa^{-1}\mathbf{b}\right)  =\deg\mathbf{b}$. This
+contradicts $\deg\mathbf{c}\geq\deg\mathbf{b}$. This contradiction shows that
+our assumption was false. Hence, we have shown that $\kappa^{-1}\mathbf{b}$ is irreducible.]
+
+The leading coefficient of the polynomial $\mathbf{b}$ is $\kappa$. Hence, the
+leading coefficient of the polynomial $\kappa^{-1}\mathbf{b}$ is $\kappa
+^{-1}\kappa=1$. In other words, the polynomial $\kappa^{-1}\mathbf{b}$ is
+monic. It further satisfies $\kappa^{-1}\mathbf{b}\mid\mathbf{a}$ (since
+$\kappa^{-1}\mathbf{b}\mid\mathbf{b}\mid\mathbf{a}$). Hence, there exists a
+monic irreducible polynomial $\mathbf{u}$ such that $\mathbf{u}\mid\mathbf{a}$
+(namely, $\mathbf{u}=\kappa^{-1}\mathbf{b}$). This proves Lemma
+\ref{lem.exist-irred-div}.
+\end{proof}
+
+\begin{corollary}
+\label{cor.irred-factor}Let $\mathbb{F}$ be a field. Let $\mathbf{a}%
+\in\mathbb{F}\left[  x\right]  $ be a nonzero polynomial. Then, $\mathbf{a}$
+can be written in the form $\mathbf{a}=\lambda\mathbf{u}_{1}\mathbf{u}%
+_{2}\cdots\mathbf{u}_{k}$, where $\lambda\in\mathbb{F}$ is a nonzero constant,
+and where $\mathbf{u}_{1},\mathbf{u}_{2},\ldots,\mathbf{u}_{k}\in
+\mathbb{F}\left[  x\right]  $ are monic irreducible polynomials.
+\end{corollary}
+
+\begin{proof}
+[Proof of Corollary \ref{cor.irred-factor} (sketched).]This is an analogue of
+the fact that every nonzero integer is a product of finitely many primes (up
+to sign). The proof is analogous, too: Proceed by strong induction on
+$\deg\mathbf{a}$, using Lemma \ref{lem.exist-irred-div} in the induction step.
+\end{proof}
+
+\begin{corollary}
+\label{cor.irred-factor-monic}Let $\mathbb{F}$ be a field. Let $\mathbf{a}%
+\in\mathbb{F}\left[  x\right]  $ be a monic polynomial. Then, $\mathbf{a}$ can
+be written in the form $\mathbf{a}=\mathbf{u}_{1}\mathbf{u}_{2}\cdots
+\mathbf{u}_{k}$, where $\mathbf{u}_{1},\mathbf{u}_{2},\ldots,\mathbf{u}_{k}%
+\in\mathbb{F}\left[  x\right]  $ are monic irreducible polynomials.
+\end{corollary}
+
+\begin{proof}
+[Proof of Corollary \ref{cor.irred-factor-monic}.]The polynomial $\mathbf{a}$
+is monic and thus nonzero. Hence, Corollary \ref{cor.irred-factor} shows that
+$\mathbf{a}$ can be written in the form $\mathbf{a}=\lambda\mathbf{u}%
+_{1}\mathbf{u}_{2}\cdots\mathbf{u}_{k}$, where $\lambda\in\mathbb{F}$ is a
+nonzero constant, and where $\mathbf{u}_{1},\mathbf{u}_{2},\ldots
+,\mathbf{u}_{k}\in\mathbb{F}\left[  x\right]  $ are monic irreducible
+polynomials. Consider this $\lambda$ and these $\mathbf{u}_{1},\mathbf{u}%
+_{2},\ldots,\mathbf{u}_{k}$.
+
+The polynomial $\mathbf{a}$ is monic, and thus has leading coefficient $1$.
+The polynomial $\mathbf{u}_{1}\mathbf{u}_{2}\cdots\mathbf{u}_{k}$ is monic
+(since it is the product of the monic polynomials $\mathbf{u}_{1}%
+,\mathbf{u}_{2},\ldots,\mathbf{u}_{k}$), and thus has leading coefficient $1$.
+Hence, the polynomial $\lambda\mathbf{u}_{1}\mathbf{u}_{2}\cdots\mathbf{u}%
+_{k}$ has leading coefficient $\lambda$ (since $\lambda$ is nonzero). Now,
+recall the equality $\mathbf{a}=\lambda\mathbf{u}_{1}\mathbf{u}_{2}%
+\cdots\mathbf{u}_{k}$. Comparing the leading coefficients on both sides of
+this equality, we obtain $1=\lambda$ (because the polynomial $\mathbf{a}$ has
+leading coefficient $1$, while the polynomial $\lambda\mathbf{u}_{1}%
+\mathbf{u}_{2}\cdots\mathbf{u}_{k}$ has leading coefficient $\lambda$). Hence,
+$\lambda=1$. Thus,%
+\[
+\mathbf{a}=\underbrace{\lambda}_{=1}\mathbf{u}_{1}\mathbf{u}_{2}%
+\cdots\mathbf{u}_{k}=\mathbf{u}_{1}\mathbf{u}_{2}\cdots\mathbf{u}_{k}.
+\]
+
+
+We thus have found monic irreducible polynomials $\mathbf{u}_{1}%
+,\mathbf{u}_{2},\ldots,\mathbf{u}_{k}\in\mathbb{F}\left[  x\right]  $ such
+that $\mathbf{a}=\mathbf{u}_{1}\mathbf{u}_{2}\cdots\mathbf{u}_{k}$. In other
+words, we have written $\mathbf{a}$ in the form $\mathbf{a}=\mathbf{u}%
+_{1}\mathbf{u}_{2}\cdots\mathbf{u}_{k}$, where $\mathbf{u}_{1},\mathbf{u}%
+_{2},\ldots,\mathbf{u}_{k}\in\mathbb{F}\left[  x\right]  $ are monic
+irreducible polynomials. Thus, $\mathbf{a}$ can be written in this form. This
+proves Corollary \ref{cor.irred-factor-monic}.
+\end{proof}
+
+\subsection{A lemma on maps}
+
+We shall furthermore use the following simple lemma about maps on a set:
+
+\begin{lemma}
+\label{lem.fgcd}Let $S$ be a set. Let $f:S\rightarrow S$ be a map. Let $a$ and
+$b$ be two positive integers such that $f^{a}=\operatorname*{id}$ and
+$f^{b}=\operatorname*{id}$. Then, $f^{\gcd\left(  a,b\right)  }%
+=\operatorname*{id}$.
+\end{lemma}
+
+Here, of course, $f^{n}$ (where $n\in\mathbb{N}$) stands for the map
+$\underbrace{f\circ f\circ\cdots\circ f}_{n\text{ times}}$.
+
+Lemma \ref{lem.fgcd} is almost obvious if you know a bit of group theory
+(specifically, the notion of the order of an element in a group). But in order
+to keep this note self-contained, I shall give an elementary proof:
+
+\begin{proof}
+[Proof of Lemma \ref{lem.fgcd}.]We have $f^{a}=f\circ f^{a-1}$, so that
+$f\circ f^{a-1}=f^{a}=\operatorname*{id}$. Also, $f^{a}=f^{a-1}\circ f$, so
+that $f^{a-1}\circ f=f^{a}=\operatorname*{id}$. The equalities $f\circ
+f^{a-1}=\operatorname*{id}$ and $f^{a-1}\circ f=\operatorname*{id}$ show that
+the maps $f$ and $f^{a-1}$ are mutually inverse. Hence, the map $f$ is
+invertible (with inverse $f^{a-1}$). Thus, the powers $f^{n}$ of this map $f$
+are well-defined not only for $n\in\mathbb{N}$, but also for $n\in\mathbb{Z}$.
+Furthermore, it is well-known that these powers satisfy the following
+\textquotedblleft laws of exponents\textquotedblright:
+
+\begin{itemize}
+\item We have%
+\begin{equation}
+f^{n+m}=f^{n}\circ f^{m}\ \ \ \ \ \ \ \ \ \ \text{for all }n,m\in\mathbb{Z}.
+\label{pf.lem.fgcd.fu+v}%
+\end{equation}
+(This can be proven similarly to the proof of \cite[Proposition 4.1.20
+\textbf{(h)}]{19s}.)
+
+\item We have%
+\begin{equation}
+f^{nm}=\left(  f^{n}\right)  ^{m}\ \ \ \ \ \ \ \ \ \ \text{for all }%
+n,m\in\mathbb{Z}. \label{pf.lem.fgcd.fuv}%
+\end{equation}
+(This can be proven similarly to the proof of \cite[Proposition 4.1.20
+\textbf{(l)}]{19s}.)
+\end{itemize}
+
+But Bezout's theorem (see, e.g., \cite[Theorem 2.9.12]{19s}) shows that there
+exist integers $x\in\mathbb{Z}$ and $y\in\mathbb{Z}$ such that $\gcd\left(
+a,b\right)  =xa+yb$. Consider these $x$ and $y$. From $\gcd\left(  a,b\right)
+=xa+yb=ax+by$, we obtain%
+\begin{align*}
+f^{\gcd\left(  a,b\right)  }  &  =f^{ax+by}=\underbrace{f^{ax}}%
+_{\substack{=\left(  f^{a}\right)  ^{x}\\\text{(by (\ref{pf.lem.fgcd.fuv}%
+),}\\\text{applied to }n=a\text{ and }m=x\text{)}}}\circ\underbrace{f^{by}%
+}_{\substack{=\left(  f^{b}\right)  ^{y}\\\text{(by (\ref{pf.lem.fgcd.fuv}%
+),}\\\text{applied to }n=b\text{ and }m=y\text{)}}}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.lem.fgcd.fu+v}), applied to
+}n=ax\text{ and }m=by\right) \\
+&  =\left(  \underbrace{f^{a}}_{=\operatorname*{id}}\right)  ^{x}\circ\left(
+\underbrace{f^{b}}_{=\operatorname*{id}}\right)  ^{y}%
+=\underbrace{\operatorname*{id}\nolimits^{x}}_{=\operatorname*{id}}%
+\circ\underbrace{\operatorname*{id}\nolimits^{y}}_{=\operatorname*{id}%
+}=\operatorname*{id}\circ\operatorname*{id}=\operatorname*{id}.
+\end{align*}
+This proves Lemma \ref{lem.fgcd}.
+\end{proof}
+
+\subsection{Restriction of modules and algebras}
+
+In linear algebra, you may have learned that each $\mathbb{C}$-vector space
+$V$ is (or, more precisely, becomes in a natural way) an $\mathbb{R}$-vector
+space: Just restrict its scaling map $\cdot:\mathbb{C}\times V\rightarrow V$
+to $\mathbb{R}\times V$, and you obtain a scaling map $\cdot:\mathbb{R}\times
+V\rightarrow V$ that makes it into an $\mathbb{R}$-vector space. (However, the
+dimension of this $\mathbb{R}$-vector space $V$ will be \textbf{double} the
+dimension of the original $\mathbb{C}$-vector space $V$.)
+
+The simple reason why this works is that $\mathbb{R}$ is a subring of
+$\mathbb{C}$. More generally, if $\mathbb{K}$ is a subring of a commutative
+ring $\mathbb{L}$, then any $\mathbb{L}$-module $V$ becomes a $\mathbb{K}%
+$-module in the same way (i.e., by restricting the scaling map to
+$\mathbb{K}\times V$).
+
+With a little tweak, the same construction works even more generally: We don't
+need $\mathbb{K}$ to be a subring of $\mathbb{L}$; we only need $\mathbb{L}$
+to be a commutative $\mathbb{K}$-algebra\footnote{This case is indeed more
+general, because if $\mathbb{K}$ is a subring of a commutative ring
+$\mathbb{L}$, then $\mathbb{L}$ is clearly a commutative $\mathbb{K}%
+$-algebra.}. The thing we need to do in order to turn an $\mathbb{L}$-module
+$V$ into a $\mathbb{K}$-module is no longer literally restricting the scaling
+map $\cdot:\mathbb{L}\times V\rightarrow V$ to $\mathbb{K}\times V$, but
+rather a simple tweak:
+
+\begin{proposition}
+\label{prop.restrict-mod}Let $\mathbb{K}$ be a commutative ring. Let
+$\mathbb{L}$ be a commutative $\mathbb{K}$-algebra. Let $V$ be an $\mathbb{L}%
+$-module. Consider its addition $+$, its scaling $\cdot:\mathbb{L}\times
+V\rightarrow V$ and its zero vector $0_{V}$.
+
+Define a scaling $\cdot:\mathbb{K}\times V\rightarrow V$ by setting%
+\begin{equation}
+\lambda\cdot v=\left(  \lambda\cdot1_{\mathbb{L}}\right)  \cdot
+v\ \ \ \ \ \ \ \ \ \ \text{for all }\lambda\in\mathbb{K}\text{ and }v\in V.
+\label{eq.prop.restrict-mod.fml}%
+\end{equation}
+Here:
+
+\begin{itemize}
+\item the \textquotedblleft$\cdot$\textquotedblright\ on the left hand side
+means the scaling $\cdot:\mathbb{K}\times V\rightarrow V$ that we are defining
+(written infix);
+
+\item the first \textquotedblleft$\cdot$\textquotedblright\ on the right hand
+side means the scaling $\cdot:\mathbb{K}\times\mathbb{L}\rightarrow\mathbb{L}$
+of the $\mathbb{K}$-algebra $\mathbb{L}$ (since $\mathbb{L}$ is a $\mathbb{K}%
+$-algebra and thus is a $\mathbb{K}$-module, which means that it has a scaling);
+
+\item the second \textquotedblleft$\cdot$\textquotedblright\ on the right hand
+side means the scaling $\cdot:\mathbb{L}\times V\rightarrow V$ of the
+$\mathbb{L}$-module $V$.
+\end{itemize}
+
+Then, the set $V$ (equipped with its addition $+$, its zero vector $0_{V}$ and
+the scaling $\cdot:\mathbb{K}\times V\rightarrow V$ we just defined) is a
+$\mathbb{K}$-module.
+\end{proposition}
+
+Roughly speaking, the definition of the scaling $\cdot:\mathbb{K}\times
+V\rightarrow V$ in Proposition \ref{prop.restrict-mod} can be restated as
+follows: In order to scale an element $v\in V$ by an element $\lambda
+\in\mathbb{K}$, we first scale $1_{\mathbb{L}}$ by $\lambda$, thus obtaining
+some sort of \textquotedblleft proxy element\textquotedblright\ of $\lambda$
+in $\mathbb{L}$, and then we scale $v$ by this \textquotedblleft proxy
+element\textquotedblright\ (which we know how to do, because $V$ is an
+$\mathbb{L}$-module).
+
+We shall prove Proposition \ref{prop.restrict-mod} in the Appendix (Section
+\ref{sect.app-restrict}).
+
+Next, let us state an analogue of Proposition \ref{prop.restrict-mod} for
+algebras instead of modules:
+
+\begin{proposition}
+\label{prop.restrict-alg}Let $\mathbb{K}$ be a commutative ring. Let
+$\mathbb{L}$ be a commutative $\mathbb{K}$-algebra. Let $V$ be an $\mathbb{L}%
+$-algebra. Thus, $V$ is a ring and an $\mathbb{L}$-module at the same time.
+Consider its addition $+$, its multiplication $\cdot$, its scaling $\cdot$,
+its zero $0_{V}$ and its unity $1_{V}$.
+
+Define a scaling $\cdot:\mathbb{K}\times V\rightarrow V$ as in Proposition
+\ref{prop.restrict-mod}.
+
+Then, the set $V$ (equipped with its addition $+$, its multiplication $\cdot$,
+its zero $0_{V}$, its unity $1_{V}$, and the scaling $\cdot:\mathbb{K}\times
+V\rightarrow V$ we just defined) is a $\mathbb{K}$-algebra.
+\end{proposition}
+
+Again, we refer to the Appendix (Section \ref{sect.app-restrict}) for a proof
+of Proposition \ref{prop.restrict-alg}.
+
+We can shorten Proposition \ref{prop.restrict-alg} significantly if we omit
+the precise definition of the scaling $\cdot:\mathbb{K}\times V\rightarrow V$
+and simply claim that such a scaling can be defined:
+
+\begin{proposition}
+\label{prop.restrict-alg-isol}Let $\mathbb{K}$ be a commutative ring. Let
+$\mathbb{L}$ be a commutative $\mathbb{K}$-algebra. Let $V$ be an $\mathbb{L}%
+$-algebra. Then, $V$ becomes a $\mathbb{K}$-algebra in a natural way.
+\end{proposition}
+
+Here, \textquotedblleft in a natural way\textquotedblright\ means
+\textquotedblleft by equipping it with a scaling map $\cdot:\mathbb{K}\times
+V\rightarrow V$ that is defined uniquely in terms of the existing
+structures\textquotedblright\ (specifically, in terms of the unity
+$1_{\mathbb{L}}$ of $\mathbb{L}$ and the scaling maps of the $\mathbb{K}%
+$-algebra $\mathbb{L}$ and of the $\mathbb{L}$-algebra $V$).
+
+\begin{proof}
+[Proof of Proposition \ref{prop.restrict-alg-isol}.]Define a scaling
+$\cdot:\mathbb{K}\times V\rightarrow V$ as in Proposition
+\ref{prop.restrict-alg}. Then, Proposition \ref{prop.restrict-alg} shows that
+the set $V$ (equipped with its addition $+$, its multiplication $\cdot$, its
+zero $0_{V}$, its unity $1_{V}$, and the scaling $\cdot:\mathbb{K}\times
+V\rightarrow V$ we just defined) is a $\mathbb{K}$-algebra. Thus, $V$ becomes
+a $\mathbb{K}$-algebra in a natural way. This proves Proposition
+\ref{prop.restrict-alg-isol}.
+\end{proof}
+
+\subsection{Fermat's little theorem for finite fields}
+
+Fermat's little theorem, in one of its forms (e.g., \cite[Theorem 2.15.2
+\textbf{(b)}]{19s}), says that $a^{p}\equiv a\operatorname{mod}p$ for every
+integer $a$. We can transform this congruence into an equality in
+$\mathbb{F}_{p}$; then, it becomes the statement that $\alpha^{p}=\alpha$ for
+each $\alpha\in\mathbb{F}_{p}$. This can be generalized to finite fields other
+than $\mathbb{F}_{p}$; namely, we have the following:
+
+\begin{theorem}
+\label{thm.field-FLT}Let $\mathbb{F}$ be a finite field. Then, $\alpha
+^{\left\vert \mathbb{F}\right\vert }=\alpha$ for each $\alpha\in\mathbb{F}$.
+\end{theorem}
+
+The following proof of Theorem \ref{thm.field-FLT} uses the same idea as
+\cite[proof of Theorem 2.15.3]{19s} (one of the standard proofs of Euler's theorem):
+
+\begin{proof}
+[Proof of Theorem \ref{thm.field-FLT}.]We know that $\mathbb{F}$ is a field.
+In other words, $\mathbb{F}$ is a commutative skew field.
+
+The field $\mathbb{F}$ contains at least $1$ element (since it contains
+$0_{\mathbb{F}}$). Thus, $\left\vert \mathbb{F}\right\vert \geq1$, so that
+$0^{\left\vert \mathbb{F}\right\vert }=0$. (Here and throughout this proof,
+\textquotedblleft$0$\textquotedblright\ means the zero of $\mathbb{F}$.)
+
+We know that $\mathbb{F}$ is skew a field. Thus, every nonzero element of
+$\mathbb{F}$ is invertible, and we have $1\neq0$ in $\mathbb{F}$.
+
+It is well-known that the product of any two invertible elements of
+$\mathbb{F}$ is invertible\footnote{\textit{Proof.} Let $\alpha$ and $\beta$
+be two invertible elements of $\mathbb{F}$. We must prove that $\alpha\beta$
+is invertible.
+\par
+The multiplicative inverses $\alpha^{-1}$ and $\beta^{-1}$ of $\alpha$ and
+$\beta$ are well-defined (since $\alpha$ and $\beta$ are invertible). Now, the
+two elements $\beta^{-1}\alpha^{-1}$ and $\alpha\beta$ of $\mathbb{F}$ satisfy%
+\begin{align*}
+\left(  \beta^{-1}\alpha^{-1}\right)  \cdot\left(  \alpha\beta\right)   &
+=\beta^{-1}\underbrace{\alpha^{-1}\alpha}_{=1}\beta=\beta^{-1}1\beta
+=\beta^{-1}\beta=1\ \ \ \ \ \ \ \ \ \ \text{and}\\
+\left(  \alpha\beta\right)  \cdot\left(  \beta^{-1}\alpha^{-1}\right)   &
+=\alpha\underbrace{\beta\beta^{-1}}_{=1}\alpha^{-1}=\alpha1\alpha^{-1}%
+=\alpha\alpha^{-1}=1.
+\end{align*}
+In other words, $\beta^{-1}\alpha^{-1}$ is a multiplicative inverse of
+$\alpha\beta$. Thus, $\alpha\beta$ has a multiplicative inverse. In other
+words, $\alpha\beta$ is invertible, qed.}. Thus, by induction, it is easy to
+see that any product of finitely many invertible elements of $\mathbb{F}$ is
+invertible\footnote{The induction base hinges on the fact that $1\in
+\mathbb{F}$ is invertible (since the empty product equals $1$).}.
+
+Each $\beta\in\mathbb{F}\setminus\left\{  0\right\}  $ is
+nonzero\footnote{since $\beta\in\mathbb{F}\setminus\left\{  0\right\}  $ and
+thus $\beta\neq0$} and thus invertible (since every nonzero element of
+$\mathbb{F}$ is invertible). Hence, $\prod_{\beta\in\mathbb{F}\setminus
+\left\{  0\right\}  }\beta$ is a product of finitely many invertible elements
+of $\mathbb{F}$, and thus is invertible (since any product of finitely many
+invertible elements of $\mathbb{F}$ is invertible).
+
+Fix $\alpha\in\mathbb{F}$. We must prove that $\alpha^{\left\vert
+\mathbb{F}\right\vert }=\alpha$. If $\alpha=0$, then this is true (since
+$0^{\left\vert \mathbb{F}\right\vert }=0$). Hence, we WLOG assume that
+$\alpha\neq0$ for the rest of this proof. Thus, the element $\alpha$ of
+$\mathbb{F}$ is nonzero, and thus is invertible (since every nonzero element
+of $\mathbb{F}$ is invertible). Hence, its multiplicative inverse $\alpha
+^{-1}$ is well-defined. Moreover, $\alpha^{-1}\neq0$\ \ \ \ \footnote{because
+otherwise, we would have $\alpha^{-1}=0$, and thus $1=\alpha\underbrace{\alpha
+^{-1}}_{=0}=\alpha0=0$, which would contradict the fact that $1\neq0$ in
+$\mathbb{F}$}.
+
+Now, each $\beta\in\mathbb{F}\setminus\left\{  0\right\}  $ satisfies
+$\alpha\beta\in\mathbb{F}\setminus\left\{  0\right\}  $%
+\ \ \ \footnote{\textit{Proof.} Let $\beta\in\mathbb{F}\setminus\left\{
+0\right\}  $. We must prove that $\alpha\beta\in\mathbb{F}\setminus\left\{
+0\right\}  $. In other words, we must prove that $\alpha\beta\neq0$ (since
+$\alpha\beta$ is clearly an element of $\mathbb{F}$).
+\par
+Assume the contrary. Thus, $\alpha\beta=0$. Hence, $\alpha^{-1}%
+\underbrace{\alpha\beta}_{=0}=\alpha^{-1}0=0$, so that $0=\underbrace{\alpha
+^{-1}\alpha}_{=1}\beta=\beta\in\mathbb{F}\setminus\left\{  0\right\}  $. But
+this entails $0\notin\left\{  0\right\}  $, which is absurd. Hence, we have
+obtained a contradiction. This contradiction shows that our assumption was
+wrong. Thus, we have shown that $\alpha\beta\neq0$. Hence, $\alpha\beta
+\in\mathbb{F}\setminus\left\{  0\right\}  $, qed.}. The same argument (applied
+to $\alpha^{-1}$ instead of $\alpha$) shows that each $\beta\in\mathbb{F}%
+\setminus\left\{  0\right\}  $ satisfies $\alpha^{-1}\beta\in\mathbb{F}%
+\setminus\left\{  0\right\}  $ (since $\alpha^{-1}\neq0$).
+
+Consider the map%
+\begin{align*}
+X:\mathbb{F}\setminus\left\{  0\right\}   &  \rightarrow\mathbb{F}%
+\setminus\left\{  0\right\}  ,\\
+\beta &  \mapsto\alpha\beta
+\end{align*}
+(this is well-defined, because each $\beta\in\mathbb{F}\setminus\left\{
+0\right\}  $ satisfies $\alpha\beta\in\mathbb{F}\setminus\left\{  0\right\}
+$) and the map%
+\begin{align*}
+Y:\mathbb{F}\setminus\left\{  0\right\}   &  \rightarrow\mathbb{F}%
+\setminus\left\{  0\right\}  ,\\
+\beta &  \mapsto\alpha^{-1}\beta
+\end{align*}
+(this is well-defined, because each $\beta\in\mathbb{F}\setminus\left\{
+0\right\}  $ satisfies $\alpha^{-1}\beta\in\mathbb{F}\setminus\left\{
+0\right\}  $).
+
+It is easy to see that these maps $X$ and $Y$ are mutually
+inverse\footnote{For example, $X\circ Y=\operatorname*{id}$ follows from the
+following computation: For each $\beta\in\mathbb{F}\setminus\left\{
+0\right\}  $, we have%
+\begin{align*}
+\left(  X\circ Y\right)  \left(  \beta\right)   &  =X\left(  Y\left(
+\beta\right)  \right)  =\alpha\cdot\underbrace{Y\left(  \beta\right)
+}_{\substack{=\alpha^{-1}\beta\\\text{(by the definition}\\\text{of }%
+Y\text{)}}}\ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of }X\right) \\
+&  =\underbrace{\alpha\cdot\alpha^{-1}}_{=1}\beta=1\beta=\beta
+=\operatorname*{id}\left(  \beta\right)  .
+\end{align*}
+}. Thus, the map $X:\mathbb{F}\setminus\left\{  0\right\}  \rightarrow
+\mathbb{F}\setminus\left\{  0\right\}  $ is invertible, i.e., is bijection.
+Hence, we can substitute $X\left(  \beta\right)  $ for $\beta$ in the product
+$\prod_{\beta\in\mathbb{F}\setminus\left\{  0\right\}  }\beta$. We thus find%
+\[
+\prod_{\beta\in\mathbb{F}\setminus\left\{  0\right\}  }\beta=\prod_{\beta
+\in\mathbb{F}\setminus\left\{  0\right\}  }\underbrace{X\left(  \beta\right)
+}_{\substack{=\alpha\beta\\\text{(by the definition}\\\text{of }X\text{)}%
+}}=\prod_{\beta\in\mathbb{F}\setminus\left\{  0\right\}  }\left(  \alpha
+\beta\right)  =\alpha^{\left\vert \mathbb{F}\setminus\left\{  0\right\}
+\right\vert }\prod_{\beta\in\mathbb{F}\setminus\left\{  0\right\}  }\beta
+\]
+(since $\mathbb{F}$ is commutative). We can divide both sides of this equality
+by $\prod_{\beta\in\mathbb{F}\setminus\left\{  0\right\}  }\beta$ (since
+$\prod_{\beta\in\mathbb{F}\setminus\left\{  0\right\}  }\beta$ is invertible).
+Thus we obtain%
+\[
+1=\alpha^{\left\vert \mathbb{F}\setminus\left\{  0\right\}  \right\vert
+}=\alpha^{\left\vert \mathbb{F}\right\vert -1}\ \ \ \ \ \ \ \ \ \ \left(
+\text{since }\left\vert \mathbb{F}\setminus\left\{  0\right\}  \right\vert
+=\left\vert \mathbb{F}\right\vert -1\right)  .
+\]
+Multiplying both sides of this equality by $\alpha$, we find $\alpha
+=\alpha^{\left\vert \mathbb{F}\right\vert -1}\alpha=\alpha^{\left\vert
+\mathbb{F}\right\vert }$. In other words, $\alpha^{\left\vert \mathbb{F}%
+\right\vert }=\alpha$. This proves Theorem \ref{thm.field-FLT}.
+\end{proof}
+
+\subsection{Frobenius endomorphisms}
+
+We now introduce a very special map defined on any commutative $\mathbb{F}%
+_{p}$-algebra:
+
+\begin{definition}
+\label{def.Frob}Let $\mathbb{K}$ be a commutative $\mathbb{F}_{p}$-algebra.
+The map%
+\[
+\mathbb{K}\rightarrow\mathbb{K},\ \ \ \ \ \ \ \ \ \ a\mapsto a^{p}%
+\]
+will be called the \textit{Frobenius endomorphism} of $\mathbb{K}$ and will be
+denoted by $F_{\mathbb{K}}$.
+\end{definition}
+
+For example, the Frobenius endomorphism of $\mathbb{F}_{p}$ is the identity
+map (since every $a\in\mathbb{F}_{p}$ satisfies $a^{p}=a$; this is a
+consequence of Fermat's Little Theorem). But $\mathbb{F}_{p}$-algebras can be
+larger than $\mathbb{F}_{p}$, and usually their Frobenius endomorphisms will
+not be the identity map.
+
+The word \textquotedblleft endomorphism\textquotedblright\ means
+\textquotedblleft homomorphism from an object (in this case, an $\mathbb{F}%
+_{p}$-algebra) to itself\textquotedblright. Thus, the name \textquotedblleft
+Frobenius endomorphism\textquotedblright\ suggests that $F_{\mathbb{K}}$ is an
+$\mathbb{F}_{p}$-algebra homomorphism from $\mathbb{K}$ to $\mathbb{K}$. And
+this is indeed the case:
+
+\begin{theorem}
+\label{thm.Frob.end}Let $\mathbb{K}$ be a commutative $\mathbb{F}_{p}%
+$-algebra. Then, its Frobenius endomorphism $F_{\mathbb{K}}$ is an
+$\mathbb{F}_{p}$-algebra homomorphism.
+\end{theorem}
+
+Before we prove this, let us show a simple proposition that will come useful
+here and later on as well:
+
+\begin{proposition}
+\label{prop.Fp-alg.p=0}Let $\mathbb{K}$ be an $\mathbb{F}_{p}$-algebra.
+
+\textbf{(a)} We have $pa=0$ for each $a\in\mathbb{K}$.
+
+\textbf{(b)} Assume that $\mathbb{K}$ is commutative. Then, $p\mathbf{a}=0$
+for each $\mathbf{a}\in\mathbb{K}\left[  x\right]  $.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.Fp-alg.p=0}.]\textbf{(a)} Let $a\in\mathbb{K}%
+$. Recall that $\mathbb{K}$ is an $\mathbb{F}_{p}$-algebra and thus satisfies
+the module axioms; hence, $1_{\mathbb{F}_{p}}a=a$ and $0_{\mathbb{F}_{p}}a=0$.
+
+The definition of $\mathbb{F}_{p}$ readily yields $p\cdot1_{\mathbb{F}_{p}%
+}=0_{\mathbb{F}_{p}}$\ \ \ \ \footnote{\textit{Proof.} Recall that
+$\mathbb{F}_{p}=\mathbb{Z}/p$ (where we are using the notations from
+Convention \ref{conv.quotient}). Thus, the elements of $\mathbb{F}_{p}$ are
+residue classes $\left[  u\right]  _{p}$ of integers $u$ modulo $p$. In
+particular, $1_{\mathbb{F}_{p}}=\left[  1\right]  _{p}$. Thus,
+\begin{align*}
+p\cdot\underbrace{1_{\mathbb{F}_{p}}}_{=\left[  1\right]  _{p}}  &
+=p\cdot\left[  1\right]  _{p}=\left[  p\cdot1\right]  _{p}=\left[  0\right]
+_{p}\ \ \ \ \ \ \ \ \ \ \left(  \text{since }p\cdot1=p\equiv
+0\operatorname{mod}p\right) \\
+&  =0_{\mathbb{F}_{p}},
+\end{align*}
+qed.}. Now, using $1_{\mathbb{F}_{p}}a=a$, we find%
+\[
+p\underbrace{a}_{=1_{\mathbb{F}_{p}}a}=\underbrace{p\cdot1_{\mathbb{F}_{p}}%
+}_{=0_{\mathbb{F}_{p}}}a=0_{\mathbb{F}_{p}}a=0.
+\]
+This proves Proposition \ref{prop.Fp-alg.p=0} \textbf{(a)}.
+
+\textbf{(b)} There are two ways of proving this. One is the \textquotedblleft
+right\textquotedblright\ way (in a philosophical sense), while another is the
+short way.
+
+Here is the \textquotedblleft right\textquotedblright\ way: We know that
+$\mathbb{K}$ is a commutative $\mathbb{F}_{p}$-algebra, and we know that
+$\mathbb{K}\left[  x\right]  $ is a $\mathbb{K}$-algebra. Hence, Proposition
+\ref{prop.restrict-alg-isol} (applied to $\mathbb{F}_{p}$, $\mathbb{K}$ and
+$\mathbb{K}\left[  x\right]  $ instead of $\mathbb{K}$, $\mathbb{L}$ and $V$)
+shows that $\mathbb{K}\left[  x\right]  $ becomes an $\mathbb{F}_{p}$-algebra
+in a natural way. Thus, Proposition \ref{prop.Fp-alg.p=0} \textbf{(a)}
+(applied to $\mathbb{K}\left[  x\right]  $ and $\mathbf{a}$ instead of
+$\mathbb{K}$ and $a$) shows that $p\mathbf{a}=0$ for each $\mathbf{a}%
+\in\mathbb{K}\left[  x\right]  $. This proves Proposition
+\ref{prop.Fp-alg.p=0} \textbf{(b)}.
+
+Here is the short way: Let $\mathbf{a}\in\mathbb{K}\left[  x\right]  $. Write
+the polynomial $\mathbf{a}$ in the form $\mathbf{a}=\sum_{i=0}^{n}a_{i}x^{i}$
+with $n\in\mathbb{N}$ and $a_{0},a_{1},\ldots,a_{n}\in\mathbb{K}$. Then,
+\[
+p\underbrace{\mathbf{a}}_{=\sum_{i=0}^{n}a_{i}x^{i}}=p\sum_{i=0}^{n}a_{i}%
+x^{i}=\sum_{i=0}^{n}\underbrace{pa_{i}}_{\substack{=0\\\text{(by Proposition
+\ref{prop.Fp-alg.p=0} \textbf{(a)},}\\\text{applied to }a=a_{i}\text{)}}%
+}x^{i}=\sum_{i=0}^{n}0x^{i}=0.
+\]
+This proves Proposition \ref{prop.Fp-alg.p=0} \textbf{(b)} again.
+\end{proof}
+
+\begin{proof}
+[Proof of Theorem \ref{thm.Frob.end}.]Proposition \ref{prop.Fp-alg.p=0}
+\textbf{(a)} (applied to $a=1_{\mathbb{K}}$) yields $p\cdot1_{\mathbb{K}}=0$.
+Hence, $\mathbb{K}$ is a commutative ring such that $p\cdot1_{\mathbb{K}}=0$.
+Also, $F_{\mathbb{K}}$ is the map
+\[
+\mathbb{K}\rightarrow\mathbb{K},\ \ \ \ \ \ \ \ \ \ a\mapsto a^{p}.
+\]
+Hence, \cite[Corollary 5.11.3]{19s} (applied to $F=F_{\mathbb{K}}$) shows that
+$F_{\mathbb{K}}$ is a ring homomorphism.\footnote{Don't be fooled by the
+reference to \cite{19s}; this is not a difficult result. Here is an outline of
+the proof: It clearly suffices to show that $F_{\mathbb{K}}\left(  0\right)
+=0$ and $F_{\mathbb{K}}\left(  1\right)  =1$ and $F_{\mathbb{K}}\left(
+a+b\right)  =F_{\mathbb{K}}\left(  a\right)  +F_{\mathbb{K}}\left(  b\right)
+$ and $F_{\mathbb{K}}\left(  ab\right)  =F_{\mathbb{K}}\left(  a\right)  \cdot
+F_{\mathbb{K}}\left(  b\right)  $ for all $a,b\in\mathbb{K}$. In other words,
+it suffices to show that $0^{p}=0$ and $1^{p}=1$ and $\left(  a+b\right)
+^{p}=a^{p}+b^{p}$ and $\left(  ab\right)  ^{p}=a^{p}b^{p}$ for all
+$a,b\in\mathbb{K}$ (because $F_{\mathbb{K}}\left(  u\right)  =u^{p}$ for each
+$u\in\mathbb{K}$). But the first two of these four equalities are obvious,
+whereas the fourth one follows from the commutativity of $\mathbb{K}$. It thus
+remains to prove the third equality, i.e., to prove that $\left(  a+b\right)
+^{p}=a^{p}+b^{p}$ for all $a,b\in\mathbb{K}$. But this is the famous
+\textquotedblleft Freshman's Dream\textquotedblright, and can be shown by
+expanding $\left(  a+b\right)  ^{p}$ using the binomial theorem and recalling
+that all binomial coefficients $\dbinom{p}{k}$ for $k\in\left\{
+1,2,\ldots,p-1\right\}  $ are divisible by $p$ (which means that they vanish
+when they are used to scale elements of $\mathbb{K}$, by Proposition
+\ref{prop.Fp-alg.p=0} \textbf{(a)}). Thus, all four equalities are proven, so
+that $F_{\mathbb{K}}$ is a ring homomorphism.} Hence, $F_{\mathbb{K}}$ sends
+$0$ to $0$ and respects addition. Furthermore, we have $F_{\mathbb{K}}\left(
+\lambda a\right)  =\lambda F_{\mathbb{K}}\left(  a\right)  $ for each
+$\lambda\in\mathbb{F}_{p}$ and $a\in\mathbb{K}$%
+\ \ \ \ \footnote{\textit{Proof.} Let $\lambda\in\mathbb{F}_{p}$ and
+$a\in\mathbb{K}$. Then, Theorem \ref{thm.field-FLT} (applied to $\mathbb{F}%
+=\mathbb{F}_{p}$ and $\alpha=\lambda$) yields $\lambda^{\left\vert
+\mathbb{F}_{p}\right\vert }=\lambda$. In view of $\left\vert \mathbb{F}%
+_{p}\right\vert =p$, this rewrites as $\lambda^{p}=\lambda$. But the
+definition of $F_{\mathbb{K}}$ yields $F_{\mathbb{K}}\left(  a\right)  =a^{p}$
+and $F_{\mathbb{K}}\left(  \lambda a\right)  =\left(  \lambda a\right)
+^{p}=\lambda^{p}a^{p}$ (by \cite[Proposition 6.9.7 \textbf{(b)}]{19s}, applied
+to $\mathbb{F}_{p}$, $\mathbb{K}$ and $p$ instead of $\mathbb{K}$, $A$ and
+$k$). Hence, $F_{\mathbb{K}}\left(  \lambda a\right)  =\underbrace{\lambda
+^{p}}_{=\lambda}\underbrace{a^{p}}_{=F_{\mathbb{K}}\left(  a\right)  }=\lambda
+F_{\mathbb{K}}\left(  a\right)  $, qed.}. Thus, $F_{\mathbb{K}}$ respects
+scaling (where we consider $\mathbb{K}$ as an $\mathbb{F}_{p}$-module). Hence,
+the map $F_{\mathbb{K}}$ is an $\mathbb{F}_{p}$-module homomorphism (since it
+sends $0$ to $0$ and respects addition and respects scaling). Thus, this map
+$F_{\mathbb{K}}$ is an $\mathbb{F}_{p}$-algebra homomorphism (since it is a
+ring homomorphism and an $\mathbb{F}_{p}$-module homomorphism). This proves
+Theorem \ref{thm.Frob.end}.
+\end{proof}
+
+Professional algebraists occasionally get really lazy and shorten
+\textquotedblleft the Frobenius endomorphism\textquotedblright\ to
+\textquotedblleft the Frobenius\textquotedblright.
+
+The following property of the Frobenius endomorphism is an easy induction exercise:
+
+\begin{proposition}
+\label{prop.Frob.power}Let $\mathbb{K}$ be a commutative $\mathbb{F}_{p}%
+$-algebra. Let $a\in\mathbb{K}$. Let $F$ be the map $F_{\mathbb{K}}%
+:\mathbb{K}\rightarrow\mathbb{K}$. Then,%
+\begin{equation}
+F^{i}\left(  a\right)  =a^{p^{i}}\ \ \ \ \ \ \ \ \ \ \text{for all }%
+i\in\mathbb{N}. \label{eq.prop.Frob.power.claim}%
+\end{equation}
+
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.Frob.power}.]We know that $F$ is the map
+$F_{\mathbb{K}}$. Thus, for each $u\in\mathbb{K}$, we have%
+\begin{equation}
+F\left(  u\right)  =F_{\mathbb{K}}\left(  u\right)  =u^{p}
+\label{pf.prop.Frob.power.Fu=}%
+\end{equation}
+(by the definition of $F_{\mathbb{K}}$).
+
+We shall prove (\ref{eq.prop.Frob.power.claim}) by induction on $i$:
+
+\textit{Induction base:} Comparing $\underbrace{F^{0}}_{=\operatorname*{id}%
+}\left(  a\right)  =\operatorname*{id}\left(  a\right)  =a$ with $a^{p^{0}%
+}=a^{1}=a$, we obtain $F^{0}\left(  a\right)  =a^{p^{0}}$. In other words,
+(\ref{eq.prop.Frob.power.claim}) holds for $i=0$. This completes the induction base.
+
+\textit{Induction step:} Fix $j\in\mathbb{N}$. Assume that
+(\ref{eq.prop.Frob.power.claim}) holds for $i=j$. We must prove that
+(\ref{eq.prop.Frob.power.claim}) holds for $i=j+1$.
+
+We have assumed that (\ref{eq.prop.Frob.power.claim}) holds for $i=j$. In
+other words, we have $F^{j}\left(  a\right)  =a^{p^{j}}$. Now,%
+\begin{align*}
+\underbrace{F^{j+1}}_{=F\circ F^{j}}\left(  a\right)   &  =\left(  F\circ
+F^{j}\right)  \left(  a\right)  =F\left(  \underbrace{F^{j}\left(  a\right)
+}_{=a^{p^{j}}}\right)  =F\left(  a^{p^{j}}\right) \\
+&  =\left(  a^{p^{j}}\right)  ^{p}\ \ \ \ \ \ \ \ \ \ \left(  \text{by
+(\ref{pf.prop.Frob.power.Fu=}), applied to }u=a^{p^{j}}\right) \\
+&  =a^{p^{j}p}=a^{p^{j+1}}\ \ \ \ \ \ \ \ \ \ \left(  \text{since }%
+p^{j}p=p^{j+1}\right)  .
+\end{align*}
+In other words, (\ref{eq.prop.Frob.power.claim}) holds for $i=j+1$. This
+completes the induction step. Hence, (\ref{eq.prop.Frob.power.claim}) is proven.
+
+Thus, the proof of Proposition \ref{prop.Frob.power} is done.
+\end{proof}
+
+Combining Proposition \ref{prop.Frob.power} with Theorem \ref{thm.field-FLT},
+we obtain the following:
+
+\begin{corollary}
+\label{cor.Frob.Fnid}Let $n\in\mathbb{N}$. Let $\mathbb{F}$ be a finite
+$\mathbb{F}_{p}$-field of size $p^{n}$. Let $F$ be the map $F_{\mathbb{F}%
+}:\mathbb{F}\rightarrow\mathbb{F}$. Then, $F^{n}=\operatorname*{id}$.
+\end{corollary}
+
+\begin{proof}
+[Proof of Corollary \ref{cor.Frob.Fnid}.]We have $\left\vert \mathbb{F}%
+\right\vert =p^{n}$ (since $\mathbb{F}$ has size $p^{n}$). Moreover,
+$\mathbb{F}$ is an $\mathbb{F}_{p}$-field; in other words, $\mathbb{F}$ is an
+$\mathbb{F}_{p}$-algebra that is a field. Hence, $\mathbb{F}$ is commutative
+(since $\mathbb{F}$ is a field).
+
+Let $a\in\mathbb{F}$. Then, Theorem \ref{thm.field-FLT} (applied to $\alpha
+=a$) yields $a^{\left\vert \mathbb{F}\right\vert }=a$. In view of $\left\vert
+\mathbb{F}\right\vert =p^{n}$, this rewrites as $a^{p^{n}}=a$. But Proposition
+\ref{prop.Frob.power} (applied to $\mathbb{K}=\mathbb{F}$ and $i=n$) yields
+$F^{n}\left(  a\right)  =a^{p^{n}}=a=\operatorname*{id}\left(  a\right)  $.
+
+Forget that we fixed $a$. We thus have shown that $F^{n}\left(  a\right)
+=\operatorname*{id}\left(  a\right)  $ for each $a\in\mathbb{F}$. In other
+words, $F^{n}=\operatorname*{id}$. This proves Corollary \ref{cor.Frob.Fnid}.
+\end{proof}
+
+\begin{corollary}
+\label{cor.Frob.Fnidr}Let $n$ be a positive integer. Let $\mathbb{F}$ be a
+finite $\mathbb{F}_{p}$-field of size $p^{n}$. Let $a\in\mathbb{F}$ and
+$r\in\mathbb{N}$. Then, $a^{p^{nr}}=a$.
+\end{corollary}
+
+\begin{proof}
+[Proof of Corollary \ref{cor.Frob.Fnidr}.]We know that $\mathbb{F}$ is an
+$\mathbb{F}_{p}$-field; in other words, $\mathbb{F}$ is an $\mathbb{F}_{p}%
+$-algebra that is a field. Hence, $\mathbb{F}$ is commutative (since
+$\mathbb{F}$ is a field).
+
+Let $F$ be the map $F_{\mathbb{F}}:\mathbb{F}\rightarrow\mathbb{F}$. Then,
+Corollary \ref{cor.Frob.Fnid} yields $F^{n}=\operatorname*{id}$. Now,
+$F^{nr}=\left(  \underbrace{F^{n}}_{=\operatorname*{id}}\right)
+^{r}=\operatorname*{id}\nolimits^{r}=\operatorname*{id}$. But Proposition
+\ref{prop.Frob.power} (applied to $\mathbb{K}=\mathbb{F}$ and $i=nr$) yields
+$F^{nr}\left(  a\right)  =a^{p^{nr}}$. Hence, $a^{p^{nr}}=\underbrace{F^{nr}%
+}_{=\operatorname*{id}}\left(  a\right)  =\operatorname*{id}\left(  a\right)
+=a$. This proves Corollary \ref{cor.Frob.Fnidr}.
+\end{proof}
+
+\subsection{Polynomials over fields have only so many roots}
+
+Our next ingredient is a basic property of polynomials over fields. First we
+define a slightly nonstandard notation:
+
+\begin{convention}
+Let $\mathbb{K}$ be a commutative ring. Let $\mathbf{f}\in\mathbb{K}\left[
+x\right]  $ be a polynomial. Let $U$ be a $\mathbb{K}$-algebra. Let $u\in U$.
+Then, $\mathbf{f}\left[  u\right]  $ will denote the value of the polynomial
+$\mathbf{f}$ at $u$. (See \cite[Definition 7.6.1]{19s} for the definition of
+this value. Roughly speaking, this value is obtained by substituting $u$ for
+$x$ in $\mathbf{f}$.)
+\end{convention}
+
+I am using this notation $\mathbf{f}\left[  u\right]  $ in lieu of the more
+usual notation $\mathbf{f}\left(  u\right)  $, since the latter can too easily
+be mistaken for a product.
+
+\begin{theorem}
+\label{thm.FTAeasy}Let $\mathbb{K}$ be a field. Let $n\in\mathbb{N}$. Then,
+any nonzero polynomial $\mathbf{a}\in\mathbb{K}\left[  x\right]  $ of degree
+$\leq n$ has at most $n$ roots in $\mathbb{K}$. (We are not counting the roots
+with multiplicity here.)
+\end{theorem}
+
+\begin{proof}
+[Proof of Theorem \ref{thm.FTAeasy}.]This is \cite[Theorem 7.6.11]{19s}.
+\end{proof}
+
+For us, the use of Theorem \ref{thm.FTAeasy} is through the following corollary:
+
+\begin{corollary}
+\label{cor.inverse-field-FLT}Let $u$ be an integer such that $u>1$. Let
+$\mathbb{F}$ be a field. Assume that all $a\in\mathbb{F}$ satisfy $a^{u}=a$.
+Then, $\left\vert \mathbb{F}\right\vert \leq u$. (This means, in particular,
+that the field $\mathbb{F}$ is finite.)
+\end{corollary}
+
+\begin{proof}
+[Proof of Corollary \ref{cor.inverse-field-FLT}.]Define a polynomial
+$\mathbf{a}\in\mathbb{F}\left[  x\right]  $ by $\mathbf{a}=x^{u}-x$. Then, the
+leading term of $\mathbf{a}$ is $x^{u}$ (since $u>1$). Thus, the polynomial
+$\mathbf{a}$ is monic of degree $u$; hence, $\mathbf{a}$ is nonzero. Hence,
+Theorem \ref{thm.FTAeasy} (applied to $\mathbb{K}=\mathbb{F}$ and $n=u$) shows
+that the polynomial $\mathbf{a}$ has at most $u$ roots in $\mathbb{F}$ (since
+$\mathbf{a}$ has degree $u$ and thus has degree $\leq u$). In other words, the
+number of roots of $\mathbf{a}$ in $\mathbb{F}$ is $\leq u$. In other words,
+$\left\vert \left\{  \text{roots of }\mathbf{a}\text{ in }\mathbb{F}\right\}
+\right\vert \leq u$.
+
+But\textit{ }$\mathbb{F}\subseteq\left\{  \text{roots of }\mathbf{a}\text{ in
+}\mathbb{F}\right\}  $\ \ \ \ \footnote{\textit{Proof.} Let $v\in\mathbb{F}$.
+Then, $\mathbf{a}\left[  v\right]  =v^{u}-v$ (since $\mathbf{a}=x^{u}-x$). But
+we assumed that all $a\in\mathbb{F}$ satisfy $a^{u}=a$. Applying this to
+$a=v$, we find $v^{u}=v$. Hence, $\mathbf{a}\left[  v\right]  =v^{u}-v=0$
+(since $v^{u}=v$). In other words, $v$ is a root of $\mathbf{a}$ in
+$\mathbb{F}$. In other words, $v\in\left\{  \text{roots of }\mathbf{a}\text{
+in }\mathbb{F}\right\}  $.
+\par
+Now, forget that we fixed $v$. We have thus shown that $v\in\left\{
+\text{roots of }\mathbf{a}\text{ in }\mathbb{F}\right\}  $ for each
+$v\in\mathbb{F}$. In other words, $\mathbb{F}\subseteq\left\{  \text{roots of
+}\mathbf{a}\text{ in }\mathbb{F}\right\}  $.}. Hence, $\left\vert
+\mathbb{F}\right\vert \leq\left\vert \left\{  \text{roots of }\mathbf{a}\text{
+in }\mathbb{F}\right\}  \right\vert \leq u$. This proves Corollary
+\ref{cor.inverse-field-FLT}.
+\end{proof}
+
+\subsection{Factorization into distinct factors and derivatives}
+
+Another piece of our puzzle is the notion of the derivative of a polynomial.
+We recall its definition:
+
+\begin{definition}
+\label{def.f'}Let $\mathbb{K}$ be a commutative ring.
+
+\textbf{(a)} For each polynomial
+\[
+\mathbf{f}=\sum_{k\in\mathbb{N}}a_{k}x^{k}=a_{0}x^{0}+a_{1}x^{1}+a_{2}%
+x^{2}+\cdots\in\mathbb{K}\left[  x\right]  \qquad\text{(where $a_{i}%
+\in\mathbb{K}$),}%
+\]
+we define the \textit{derivative} $\mathbf{f}^{\prime}$ of $\mathbf{f}$ to be
+the polynomial
+\[
+\sum_{k>0}ka_{k}x^{k-1}=1a_{1}x^{0}+2a_{2}x^{1}+3a_{3}x^{2}+\cdots
+\in\mathbb{K}\left[  x\right]  .
+\]
+
+
+\textbf{(b)} Let $D:\mathbb{K}\left[  x\right]  \rightarrow\mathbb{K}\left[
+x\right]  $ be the map sending each polynomial $\mathbf{f}$ to its derivative
+$\mathbf{f}^{\prime}$.
+\end{definition}
+
+Definition \ref{def.f'} \textbf{(a)} is a particular case of the definition of
+$\mathbf{f}^{\prime}$ in \cite[Exercise 5]{19s-mt3s}\footnote{Note that
+\cite[Exercise 5]{19s-mt3s} uses the letter "$f$" instead of our "$\mathbf{f}%
+$".}; more precisely, the latter definition defines $\mathbf{f}^{\prime}$ for
+every formal power series $\mathbf{f}$, whereas here we restrict ourselves to
+the case when $\mathbf{f}$ is a polynomial. It is almost obvious that
+Definition \ref{def.f'} \textbf{(a)} is well-defined (i.e., the infinite sum
+$\sum_{k>0}ka_{k}x^{k-1}$ in this definition actually is a polynomial); see
+\cite[Exercise 5 \textbf{(a)}]{19s-mt3s} for the detailed proof of this fact.
+
+The map $D$ in Definition \ref{def.f'} \textbf{(b)} is a restriction of the
+map $D$ in \cite[Exercise 5]{19s-mt3s}. (Indeed, the latter map is defined on
+formal power series, while the former map is defined on polynomials; but the
+two maps are defined by the same rule.) Thus, any formulas for values of $D$
+proven in \cite{19s-mt3s} are still valid for our map $D$, as long as they are
+being applied to polynomials.
+
+We shall need the following basic properties of derivatives:
+
+\begin{proposition}
+\label{prop.f'.leib}Let $\mathbb{K}$ be a commutative ring. Let $\mathbf{f}$
+and $\mathbf{g}$ be two polynomials in $\mathbb{K}\left[  x\right]  $.
+
+\textbf{(a)} We have $\left(  \mathbf{f}+\mathbf{g}\right)  ^{\prime
+}=\mathbf{f}^{\prime}+\mathbf{g}^{\prime}$.
+
+\textbf{(b)} We have $\left(  \mathbf{f}-\mathbf{g}\right)  ^{\prime
+}=\mathbf{f}^{\prime}-\mathbf{g}^{\prime}$.
+
+\textbf{(c)} We have $\left(  \mathbf{fg}\right)  ^{\prime}=\mathbf{f}%
+^{\prime}\mathbf{g}+\mathbf{fg}^{\prime}$.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.f'.leib}.]In \cite[Exercise 5 \textbf{(b)}%
+]{19s-mt3s}, it is shown that the map $D$ is $\mathbb{K}$-linear\footnote{More
+precisely: In \cite[Exercise 5 \textbf{(b)}]{19s-mt3s}, it is shown that the
+map $D$ from \cite[Exercise 5]{19s-mt3s} is $\mathbb{K}$-linear. This is not
+exactly our map $D$, but our map $D$ is a restriction of this map; thus, it
+follows that our map $D$ is $\mathbb{K}$-linear as well.}. This quickly yields
+parts \textbf{(a)} and \textbf{(b)} of Proposition \ref{prop.f'.leib}%
+\footnote{In more details: The map $D$ is $\mathbb{K}$-linear. Thus, $D\left(
+\mathbf{f}+\mathbf{g}\right)  =\underbrace{D\left(  \mathbf{f}\right)
+}_{\substack{=\mathbf{f}^{\prime}\\\text{(by the definition of }D\text{)}%
+}}+\underbrace{D\left(  \mathbf{g}\right)  }_{\substack{=\mathbf{g}^{\prime
+}\\\text{(by the definition of }D\text{)}}}=\mathbf{f}^{\prime}+\mathbf{g}%
+^{\prime}$. Comparing this with%
+\[
+D\left(  \mathbf{f}+\mathbf{g}\right)  =\left(  \mathbf{f}+\mathbf{g}\right)
+^{\prime}\ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of }D\right)  ,
+\]
+we obtain $\left(  \mathbf{f}+\mathbf{g}\right)  ^{\prime}=\mathbf{f}^{\prime
+}+\mathbf{g}^{\prime}$. This proves Proposition \ref{prop.f'.leib}
+\textbf{(a)}. A similar argument proves Proposition \ref{prop.f'.leib}
+\textbf{(b)}.}. Proposition \ref{prop.f'.leib} \textbf{(c)} follows from
+\cite[Exercise 5 \textbf{(c)}]{19s-mt3s} (applied to $f=\mathbf{f}$ and
+$g=\mathbf{g}$) or from \cite[Proposition 0.2 \textbf{(c)}]{Grinbe18}%
+\footnote{In \cite{Grinbe18}, I denote the indeterminate by $t$ rather than
+$x$, and I use the notation $\dfrac{d}{dt}\mathbf{h}$ for the derivative
+$\mathbf{h}^{\prime}$ of a polynomial $\mathbf{h}$.} (applied to
+$f=\mathbf{f}$ and $g=\mathbf{g}$).
+\end{proof}
+
+Proposition \ref{prop.f'.leib} \textbf{(c)} is known as the \textit{Leibniz
+law} (or \textit{Leibniz identity}) for derivatives of polynomials. We will
+need the following consequence of Proposition \ref{prop.f'.leib}:
+
+\begin{corollary}
+\label{cor.f'.leib2}Let $\mathbb{K}$ be a commutative ring. Let $\mathbf{f}$
+and $\mathbf{g}$ be two polynomials in $\mathbb{K}\left[  x\right]  $. Then,%
+\[
+\left(  \mathbf{f}^{2}\mathbf{g}\right)  ^{\prime}=\mathbf{f}\cdot\left(
+2\mathbf{f}^{\prime}\mathbf{g}+\mathbf{fg}^{\prime}\right)  .
+\]
+
+\end{corollary}
+
+\begin{proof}
+[Proof of Corollary \ref{cor.f'.leib2}.]Proposition \ref{prop.f'.leib}
+\textbf{(c)} (applied to $\mathbf{f}$ instead of $\mathbf{g}$) shows that%
+\[
+\left(  \mathbf{ff}\right)  ^{\prime}=\underbrace{\mathbf{f}^{\prime
+}\mathbf{f}}_{=\mathbf{ff}^{\prime}}+\mathbf{ff}^{\prime}=\mathbf{ff}^{\prime
+}+\mathbf{ff}^{\prime}=2\mathbf{ff}^{\prime}.
+\]
+In view of $\mathbf{ff}=\mathbf{f}^{2}$, this rewrites as $\left(
+\mathbf{f}^{2}\right)  ^{\prime}=2\mathbf{ff}^{\prime}$. Now, Proposition
+\ref{prop.f'.leib} \textbf{(c)} (applied to $\mathbf{f}^{2}$ instead of
+$\mathbf{f}$) shows that%
+\[
+\left(  \mathbf{f}^{2}\mathbf{g}\right)  ^{\prime}=\underbrace{\left(
+\mathbf{f}^{2}\right)  ^{\prime}}_{=2\mathbf{ff}^{\prime}}\mathbf{g}%
++\mathbf{f}^{2}\mathbf{g}^{\prime}=2\mathbf{ff}^{\prime}\mathbf{g}%
++\mathbf{f}^{2}\mathbf{g}^{\prime}=\mathbf{f}\cdot\left(  2\mathbf{f}^{\prime
+}\mathbf{g}+\mathbf{fg}^{\prime}\right)  .
+\]
+This proves Corollary \ref{cor.f'.leib2}.
+\end{proof}
+
+\begin{corollary}
+\label{cor.irred-factor-distinct}Let $\mathbb{K}$ be a field. Let
+$\mathbf{a}\in\mathbb{K}\left[  x\right]  $ be a monic polynomial such that
+$\deg\left(  \mathbf{a}^{\prime}\right)  =0$ (that is, the polynomial
+$\mathbf{a}^{\prime}$ is constant and nonzero). Then, $\mathbf{a}$ can be
+written in the form $\mathbf{a}=\mathbf{u}_{1}\mathbf{u}_{2}\cdots
+\mathbf{u}_{k}$, where $\mathbf{u}_{1},\mathbf{u}_{2},\ldots,\mathbf{u}_{k}%
+\in\mathbb{K}\left[  x\right]  $ are \textbf{distinct} monic irreducible polynomials.
+\end{corollary}
+
+\begin{proof}
+[Proof of Corollary \ref{cor.irred-factor-distinct}.]Corollary
+\ref{cor.irred-factor-monic} (applied to $\mathbb{F}=\mathbb{K}$) shows that
+$\mathbf{a}$ can be written in the form $\mathbf{a}=\mathbf{u}_{1}%
+\mathbf{u}_{2}\cdots\mathbf{u}_{k}$, where $\mathbf{u}_{1},\mathbf{u}%
+_{2},\ldots,\mathbf{u}_{k}\in\mathbb{K}\left[  x\right]  $ are monic
+irreducible polynomials. Consider these $\mathbf{u}_{1},\mathbf{u}_{2}%
+,\ldots,\mathbf{u}_{k}$.
+
+Next, we shall show that the polynomials $\mathbf{u}_{1},\mathbf{u}_{2}%
+,\ldots,\mathbf{u}_{k}$ are distinct.
+
+Indeed, assume the contrary. Thus, there exist two elements $i$ and $j$ of
+$\left\{  1,2,\ldots,k\right\}  $ such that $i<j$ and $\mathbf{u}%
+_{i}=\mathbf{u}_{j}$. Consider these $i$ and $j$. Let $\mathbf{g}$ denote the
+polynomial $\prod_{\substack{h\in\left\{  1,2,\ldots,k\right\}  ;\\h\neq
+i\text{ and }h\neq j}}\mathbf{u}_{h}\in\mathbb{K}\left[  x\right]  $. (This
+may be an empty product, i.e., the constant polynomial $1$.) Let
+$\mathbf{f}\in\mathbb{K}\left[  x\right]  $ be the polynomial $\mathbf{u}_{j}%
+$. Then, $\mathbf{f}=\mathbf{u}_{j}$, and thus $\mathbf{f}$ is irreducible
+(since $\mathbf{u}_{j}$ is irreducible). Hence, $\deg\mathbf{f}>0$.
+
+Now, $\mathbf{u}_{i}$ and $\mathbf{u}_{j}$ are two distinct factors of the
+product $\mathbf{u}_{1}\mathbf{u}_{2}\cdots\mathbf{u}_{k}$ (since $i<j$).
+Splitting off these two factors, we obtain%
+\[
+\mathbf{u}_{1}\mathbf{u}_{2}\cdots\mathbf{u}_{k}=\underbrace{\mathbf{u}_{i}%
+}_{=\mathbf{u}_{j}=\mathbf{f}}\underbrace{\mathbf{u}_{j}}_{=\mathbf{f}%
+}\underbrace{\prod_{\substack{h\in\left\{  1,2,\ldots,k\right\}  ;\\h\neq
+i\text{ and }h\neq j}}\mathbf{u}_{h}}_{\substack{=\mathbf{g}\\\text{(by the
+definition of }\mathbf{g}\text{)}}}=\mathbf{ffg}=\mathbf{f}^{2}\mathbf{g}.
+\]
+Therefore,%
+\[
+\mathbf{a}=\mathbf{u}_{1}\mathbf{u}_{2}\cdots\mathbf{u}_{k}=\mathbf{f}%
+^{2}\mathbf{g}.
+\]
+Taking derivatives on both sides of this equality, we find%
+\[
+\mathbf{a}^{\prime}=\left(  \mathbf{f}^{2}\mathbf{g}\right)  ^{\prime
+}=\mathbf{f}\cdot\left(  2\mathbf{f}^{\prime}\mathbf{g}+\mathbf{fg}^{\prime
+}\right)
+\]
+(by Corollary \ref{cor.f'.leib2}). Thus, $\mathbf{f}\cdot\left(
+2\mathbf{f}^{\prime}\mathbf{g}+\mathbf{fg}^{\prime}\right)  =\mathbf{a}%
+^{\prime}\neq0$ (since $\deg\left(  \mathbf{a}^{\prime}\right)  =0\neq-\infty
+$). Hence, both polynomials $\mathbf{f}$ and $2\mathbf{f}^{\prime}%
+\mathbf{g}+\mathbf{fg}^{\prime}$ are nonzero. Thus,%
+\[
+\deg\left(  \mathbf{f}\cdot\left(  2\mathbf{f}^{\prime}\mathbf{g}%
++\mathbf{fg}^{\prime}\right)  \right)  =\underbrace{\deg\mathbf{f}}%
+_{>0}+\underbrace{\deg\left(  2\mathbf{f}^{\prime}\mathbf{g}+\mathbf{fg}%
+^{\prime}\right)  }_{\substack{\geq0\\\text{(since }2\mathbf{f}^{\prime
+}\mathbf{g}+\mathbf{fg}^{\prime}\text{ is nonzero)}}}>0.
+\]
+This contradicts $\deg\underbrace{\left(  \mathbf{f}\cdot\left(
+2\mathbf{f}^{\prime}\mathbf{g}+\mathbf{fg}^{\prime}\right)  \right)
+}_{=\mathbf{a}^{\prime}}=\deg\left(  \mathbf{a}^{\prime}\right)  =0$. This
+contradiction shows that our assumption was false. Hence, we have proven that
+the polynomials $\mathbf{u}_{1},\mathbf{u}_{2},\ldots,\mathbf{u}_{k}$ are distinct.
+
+We thus have found distinct monic irreducible polynomials $\mathbf{u}%
+_{1},\mathbf{u}_{2},\ldots,\mathbf{u}_{k}\in\mathbb{K}\left[  x\right]  $ such
+that $\mathbf{a}=\mathbf{u}_{1}\mathbf{u}_{2}\cdots\mathbf{u}_{k}$. In other
+words, we have written $\mathbf{a}$ in the form $\mathbf{a}=\mathbf{u}%
+_{1}\mathbf{u}_{2}\cdots\mathbf{u}_{k}$, where $\mathbf{u}_{1},\mathbf{u}%
+_{2},\ldots,\mathbf{u}_{k}\in\mathbb{K}\left[  x\right]  $ are distinct monic
+irreducible polynomials. Thus, $\mathbf{a}$ can be written in this form. This
+proves Corollary \ref{cor.irred-factor-distinct}.
+\end{proof}
+
+We furthermore need a formula for derivatives of monomials:
+
+\begin{proposition}
+\label{prop.Dxm}Let $\mathbb{K}$ be a commutative ring. Let $m\in\mathbb{N}$.
+Then, in $\mathbb{K}\left[  x\right]  $, we have $D\left(  x^{m}\right)
+=mx^{m-1}$. (Here, the expression \textquotedblleft$mx^{m-1}$%
+\textquotedblright\ is to be understood as $0$ when $m=0$.)
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.Dxm}.]This is proven in \cite[Statement 8 in
+the solution to Exercise 5]{19s-mt3s}.
+\end{proof}
+
+We can restate Proposition \ref{prop.Dxm} as follows:
+
+\begin{proposition}
+\label{prop.xm'}Let $\mathbb{K}$ be a commutative ring. Let $m\in\mathbb{N}$.
+Then, in $\mathbb{K}\left[  x\right]  $, we have $\left(  x^{m}\right)
+^{\prime}=mx^{m-1}$. (Here, the expression \textquotedblleft$mx^{m-1}%
+$\textquotedblright\ is to be understood as $0$ when $m=0$.)
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.xm'}.]Proposition \ref{prop.Dxm} yields
+$D\left(  x^{m}\right)  =mx^{m-1}$. But the definition of $D$ yields $D\left(
+x^{m}\right)  =\left(  x^{m}\right)  ^{\prime}$. Comparing these two
+equalities, we find $\left(  x^{m}\right)  ^{\prime}=mx^{m-1}$. This proves
+Proposition \ref{prop.xm'}.
+\end{proof}
+
+\begin{corollary}
+\label{cor.pxm'}Let $\mathbb{K}$ be a commutative $\mathbb{F}_{p}$-algebra.
+Let $m$ be a positive integer satisfying $p\mid m$. Then, in $\mathbb{K}%
+\left[  x\right]  $, we have $\left(  x^{m}\right)  ^{\prime}=0$.
+\end{corollary}
+
+\begin{proof}
+[Proof of Corollary \ref{cor.pxm'}.]We have $p\mid m$. Thus, there exists some
+integer $c$ such that $m=pc$. Consider this $c$.
+
+Proposition \ref{prop.Fp-alg.p=0} \textbf{(b)} (applied to $\mathbf{a}%
+=cx^{m-1}$) shows that $pcx^{m-1}=0$. But Proposition \ref{prop.xm'} yields%
+\[
+\left(  x^{m}\right)  ^{\prime}=\underbrace{m}_{=pc}x^{m-1}=pcx^{m-1}=0.
+\]
+This proves Corollary \ref{cor.pxm'}.
+\end{proof}
+
+\subsection{Factoring $x^{p^{g}}-x$, part I}
+
+\begin{lemma}
+\label{lem.xpg-x.1}Let $g$ be a positive integer. Let $\mathbb{K}$ be an
+$\mathbb{F}_{p}$-field. Then, the polynomial $x^{p^{g}}-x\in\mathbb{K}\left[
+x\right]  $ can be written in the form $x^{p^{g}}-x=\mathbf{u}_{1}%
+\mathbf{u}_{2}\cdots\mathbf{u}_{k}$, where $\mathbf{u}_{1},\mathbf{u}%
+_{2},\ldots,\mathbf{u}_{k}\in\mathbb{K}\left[  x\right]  $ are
+\textbf{distinct} monic irreducible polynomials.
+\end{lemma}
+
+\begin{proof}
+[Proof of Lemma \ref{lem.xpg-x.1}.]We know that $\mathbb{K}$ is an
+$\mathbb{F}_{p}$-field. In other words, $\mathbb{K}$ is an $\mathbb{F}_{p}%
+$-algebra that is a field. Hence, $\mathbb{K}$ is commutative (since
+$\mathbb{K}$ is a field). Also, $\mathbb{K}$ is an $\mathbb{F}_{p}$-algebra;
+thus, $\mathbb{K}\left[  x\right]  $ is an $\mathbb{F}_{p}$-algebra as well.
+
+We have $g>0$ (since $g$ is a positive integer), hence $p^{g}>p^{0}=1$. Thus,
+the leading term of the polynomial $x^{p^{g}}-x$ is $x^{p^{g}}$. This shows
+that the polynomial $x^{p^{g}}-x$ is monic of degree $p^{g}$.
+
+Proposition \ref{prop.xm'} (applied to $m=1$) yields $\left(  x^{1}\right)
+^{\prime}=1\underbrace{x^{1-1}}_{=x^{0}=1}=1$. In view of $x^{1}=x$, this
+rewrites as $x^{\prime}=1$.
+
+Also, $g$ is a positive integer; hence, $g\geq1$, so that $g-1\in\mathbb{N}$.
+Hence, $p^{g-1}$ is an integer. Thus, $p\mid p^{g}$ (since $p^{g}=p\cdot
+p^{g-1}$). Hence, Corollary \ref{cor.pxm'} (applied to $m=p^{g}$) yields
+$\left(  x^{p^{g}}\right)  ^{\prime}=0$.
+
+Now, Proposition \ref{prop.f'.leib} \textbf{(b)} (applied to $x^{p^{g}}$ and
+$x$ instead of $\mathbf{f}$ and $\mathbf{g}$) shows that
+\[
+\left(  x^{p^{g}}-x\right)  ^{\prime}=\underbrace{\left(  x^{p^{g}}\right)
+^{\prime}}_{=0}-\underbrace{x^{\prime}}_{=1}=0-1=-1.
+\]
+Thus, $\deg\left(  \underbrace{\left(  x^{p^{g}}-x\right)  ^{\prime}}%
+_{=-1}\right)  =\deg\left(  -1\right)  =0$. So we know that $x^{p^{g}}-x$ is a
+monic polynomial such that $\deg\left(  \left(  x^{p^{g}}-x\right)  ^{\prime
+}\right)  =0$ (that is, the polynomial $\left(  x^{p^{g}}-x\right)  ^{\prime}$
+is constant and nonzero). Hence, Corollary \ref{cor.irred-factor-distinct}
+(applied to $\mathbf{a}=x^{p^{g}}-x$) shows that $x^{p^{g}}-x$ can be written
+in the form $x^{p^{g}}-x=\mathbf{u}_{1}\mathbf{u}_{2}\cdots\mathbf{u}_{k}$,
+where $\mathbf{u}_{1},\mathbf{u}_{2},\ldots,\mathbf{u}_{k}\in\mathbb{K}\left[
+x\right]  $ are \textbf{distinct} monic irreducible polynomials. This proves
+Lemma \ref{lem.xpg-x.1}.
+\end{proof}
+
+\begin{lemma}
+\label{lem.xpg-x.2}Let $r$ and $m$ be positive integers. Let $\mathbb{K}$ be a
+finite $\mathbb{F}_{p}$-field of size $p^{m}$. Let $\mathbf{a}\in
+\mathbb{K}\left[  x\right]  $ be an irreducible polynomial such that
+$\mathbf{a}\mid x^{p^{mr}}-x$ in $\mathbb{K}\left[  x\right]  $. Then,
+$\deg\mathbf{a}\mid r$ in $\mathbb{Z}$.
+\end{lemma}
+
+\begin{proof}
+[Proof of Lemma \ref{lem.xpg-x.2}.]The integers $m$ and $r$ are positive.
+Hence, their product $mr$ is positive as well.
+
+Let $n=\deg\mathbf{a}$. Thus, $\mathbf{a}$ is a polynomial of degree $n$. Note
+that $\mathbf{a}$ is irreducible; thus, $\deg\mathbf{a}>0$. Hence,
+$n=\deg\mathbf{a}>0$. Thus, $n$ is a positive integer. Hence, $mn$ is a
+positive integer (since $m$ is a positive integer).
+
+We know that $\mathbb{K}$ is an $\mathbb{F}_{p}$-field. In other words,
+$\mathbb{K}$ is an $\mathbb{F}_{p}$-algebra that is a field. Thus,
+$\mathbb{K}$ is a field, so that $\mathbb{K}$ is commutative. Moreover,
+$\mathbb{K}$ has size $p^{m}$; thus, $\left\vert \mathbb{K}\right\vert =p^{m}%
+$. Now, Theorem \ref{thm.field-ext} \textbf{(b)} (applied to $\mathbb{F}%
+=\mathbb{K}$) yields that
+\begin{align*}
+\left\vert \mathbb{K}\left[  x\right]  /\mathbf{a}\right\vert  &  =\left\vert
+\mathbb{K}\right\vert ^{n}=\left(  p^{m}\right)  ^{n}%
+\ \ \ \ \ \ \ \ \ \ \left(  \text{since }\left\vert \mathbb{K}\right\vert
+=p^{m}\right) \\
+&  =p^{mn}.
+\end{align*}
+Furthermore, Theorem \ref{thm.field-ext} \textbf{(c)} (applied to
+$\mathbb{F}=\mathbb{K}$) yields that $\mathbb{K}\left[  x\right]  /\mathbf{a}$
+is a field. Let $\mathbb{F}$ denote this field. Thus,
+\[
+\mathbb{F}=\mathbb{K}\left[  x\right]  /\mathbf{a}%
+,\ \ \ \ \ \ \ \ \ \ \text{so that}\ \ \ \ \ \ \ \ \ \ \left\vert
+\mathbb{F}\right\vert =\left\vert \mathbb{K}\left[  x\right]  /\mathbf{a}%
+\right\vert =p^{mn}.
+\]
+
+
+We know that $\mathbb{K}$ is a commutative $\mathbb{F}_{p}$-algebra. We also
+know that $\mathbb{K}\left[  x\right]  $ is a $\mathbb{K}$-algebra. Thus,
+Proposition \ref{prop.restrict-alg-isol} (applied to $\mathbb{F}_{p}$,
+$\mathbb{K}$ and $\mathbb{K}\left[  x\right]  $ instead of $\mathbb{K}$,
+$\mathbb{L}$ and $V$) shows that $\mathbb{K}\left[  x\right]  $ becomes an
+$\mathbb{F}_{p}$-algebra in a natural way.
+
+We thus know that $\mathbb{K}\left[  x\right]  $ is a commutative
+$\mathbb{F}_{p}$-algebra\footnote{since $\mathbb{K}\left[  x\right]  $ is
+commutative}. We also know that $\mathbb{F}$ is a $\mathbb{K}\left[  x\right]
+$-algebra (since $\mathbb{F}=\mathbb{K}\left[  x\right]  /\mathbf{a}$). Thus,
+Proposition \ref{prop.restrict-alg-isol} (applied to $\mathbb{F}_{p}$,
+$\mathbb{K}\left[  x\right]  $ and $\mathbb{F}$ instead of $\mathbb{K}$,
+$\mathbb{L}$ and $V$) shows that $\mathbb{F}$ becomes an $\mathbb{F}_{p}%
+$-algebra in a natural way. Thus, $\mathbb{F}$ is a commutative $\mathbb{F}%
+_{p}$-algebra (since $\mathbb{F}$ is commutative). Also, $\mathbb{F}$ is an
+$\mathbb{F}_{p}$-field (since $\mathbb{F}$ is an $\mathbb{F}_{p}$-algebra that
+is also a field). Recall that $\mathbb{F}$ has size $p^{mn}$ (since
+$\left\vert \mathbb{F}\right\vert =p^{mn}$).
+
+Let $F$ be the Frobenius endomorphism $F_{\mathbb{F}}:\mathbb{F}%
+\rightarrow\mathbb{F}$ of $\mathbb{F}$. (See Definition \ref{def.Frob} for the
+definition of a Frobenius endomorphism.)
+
+Recall Convention \ref{conv.quotient}. We have
+\begin{equation}
+\left(  \left[  f\right]  _{\mathbf{a}}\right)  ^{k}=\left[  f^{k}\right]
+_{\mathbf{a}}\ \ \ \ \ \ \ \ \ \ \text{for each }f\in\mathbb{K}\left[
+x\right]  \text{ and each }k\in\mathbb{N}. \label{pf.lem.xpg-x.2.fak}%
+\end{equation}
+(Indeed, this can be proven by a straightforward induction on $k$, using the
+definition of the multiplication on $\mathbb{K}\left[  x\right]  /\mathbf{a}$.)
+
+The elements $x$ and $x^{p^{mr}}$ of $\mathbb{K}\left[  x\right]  $ satisfy
+$\mathbf{a}\mid x^{p^{mr}}-x$. In other words, $x^{p^{mr}}\equiv
+x\operatorname{mod}\mathbf{a}$. In other words,
+\begin{equation}
+\left[  x^{p^{mr}}\right]  _{\mathbf{a}}=\left[  x\right]  _{\mathbf{a}}.
+\label{pf.lem.xpg-x.2.xpmr}%
+\end{equation}
+(Again, recall that we are using Convention \ref{conv.quotient}.)
+
+Proposition \ref{prop.Frob.power} (applied to $\mathbb{F}$, $\left[  x\right]
+_{\mathbf{a}}$ and $mr$ instead of $\mathbb{K}$, $a$ and $i$) yields that
+\begin{align}
+F^{mr}\left(  \left[  x\right]  _{\mathbf{a}}\right)   &  =\left(  \left[
+x\right]  _{\mathbf{a}}\right)  ^{p^{mr}}=\left[  x^{p^{mr}}\right]
+_{\mathbf{a}}\ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.lem.xpg-x.2.fak}),
+applied to }f=x\text{ and }k=p^{mr}\right) \nonumber\\
+&  =\left[  x\right]  _{\mathbf{a}}\ \ \ \ \ \ \ \ \ \ \left(  \text{by
+(\ref{pf.lem.xpg-x.2.xpmr})}\right)  . \label{pf.lem.xpg-x.2.5}%
+\end{align}
+Also, the Frobenius endomorphism $F_{\mathbb{F}}$ is an $\mathbb{F}_{p}%
+$-algebra homomorphism (by Theorem \ref{thm.Frob.end}, applied to $\mathbb{F}$
+instead of $\mathbb{K}$). In other words, $F$ is an $\mathbb{F}_{p}$-algebra
+homomorphism (since $F=F_{\mathbb{F}}$). Hence, $F^{mr}$ is an $\mathbb{F}%
+_{p}$-algebra homomorphism as well (since any composition of $\mathbb{F}_{p}%
+$-algebra homomorphisms is an $\mathbb{F}_{p}$-algebra homomorphism). In other
+words, the map $F^{mr}$ is an $\mathbb{F}_{p}$-module homomorphism and a ring
+homomorphism at the same time.
+
+Next, we shall show that
+\begin{equation}
+F^{mr}\left(  u\right)  =u\ \ \ \ \ \ \ \ \ \ \text{for each }u\in\mathbb{F}.
+\label{pf.lem.xpg-x.2.6}%
+\end{equation}
+
+
+[\textit{Proof of (\ref{pf.lem.xpg-x.2.6}):} Let $u\in\mathbb{F}$. Thus,
+$u\in\mathbb{F}=\mathbb{K}\left[  x\right]  /\mathbf{a}$. But Theorem
+\ref{thm.field-ext} \textbf{(a)} (applied to $\mathbb{K}$ instead of
+$\mathbb{F}$) yields that each element of $\mathbb{K}\left[  x\right]
+/\mathbf{a}$ can be uniquely written in the form%
+\[
+\lambda_{0}\left[  x^{0}\right]  _{\mathbf{a}}+\lambda_{1}\left[
+x^{1}\right]  _{\mathbf{a}}+\cdots+\lambda_{n-1}\left[  x^{n-1}\right]
+_{\mathbf{a}}\ \ \ \ \ \ \ \ \ \ \text{with }\lambda_{0},\lambda_{1}%
+,\ldots,\lambda_{n-1}\in\mathbb{K}.
+\]
+Thus, in particular, $u$ can be written uniquely in this form (since
+$u\in\mathbb{K}\left[  x\right]  /\mathbf{a}$). In other words, there exists a
+unique $n$-tuple $\left(  \lambda_{0},\lambda_{1},\ldots,\lambda_{n-1}\right)
+\in\mathbb{K}^{n}$ such that $u=\lambda_{0}\left[  x^{0}\right]  _{\mathbf{a}%
+}+\lambda_{1}\left[  x^{1}\right]  _{\mathbf{a}}+\cdots+\lambda_{n-1}\left[
+x^{n-1}\right]  _{\mathbf{a}}$. Consider this $n$-tuple. For each
+$i\in\left\{  0,1,\ldots,n-1\right\}  $, we have $\lambda_{i}\in\mathbb{K}$
+and therefore%
+\begin{equation}
+\left(  \lambda_{i}\right)  ^{p^{mr}}=\lambda_{i}
+\label{pf.lem.xpg-x.2.6.pf.coeff-pow}%
+\end{equation}
+(by Corollary \ref{cor.Frob.Fnidr}, applied to $\mathbb{K}$ and $m$ instead of
+$\mathbb{F}$ and $n$), since $\mathbb{K}$ is a finite $\mathbb{F}_{p}$-field
+of size $p^{m}$.
+
+But we have%
+\begin{equation}
+u=\lambda_{0}\left[  x^{0}\right]  _{\mathbf{a}}+\lambda_{1}\left[
+x^{1}\right]  _{\mathbf{a}}+\cdots+\lambda_{n-1}\left[  x^{n-1}\right]
+_{\mathbf{a}}=\sum_{i=0}^{n-1}\lambda_{i}\left[  x^{i}\right]  _{\mathbf{a}}.
+\label{pf.lem.xpg-x.2.6.pf.1}%
+\end{equation}
+Applying the map $F^{mr}$ to both sides of this equality, we obtain%
+\begin{align}
+F^{mr}\left(  u\right)   &  =F^{mr}\left(  \sum_{i=0}^{n-1}\lambda_{i}\left[
+x^{i}\right]  _{\mathbf{a}}\right)  =\sum_{i=0}^{n-1}\underbrace{F^{mr}\left(
+\lambda_{i}\left[  x^{i}\right]  _{\mathbf{a}}\right)  }_{\substack{=\left(
+\lambda_{i}\left[  x^{i}\right]  _{\mathbf{a}}\right)  ^{p^{mr}}\\\text{(by
+Proposition \ref{prop.Frob.power},}\\\text{applied to }\mathbb{F}\text{,
+$\lambda_{i}$}\left[  x^{i}\right]  _{\mathbf{a}}\text{ and }mr\\\text{instead
+of }\mathbb{K}\text{, }a\text{ and }i\text{)}}}\nonumber\\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{since }F^{mr}\text{ is an }\mathbb{F}%
+_{p}\text{-module homomorphism}\right) \nonumber\\
+&  =\sum_{i=0}^{n-1}\underbrace{\left(  \lambda_{i}\left[  x^{i}\right]
+_{\mathbf{a}}\right)  ^{p^{mr}}}_{\substack{=\left(  \lambda_{i}\right)
+^{p^{mr}}\left(  \left[  x^{i}\right]  _{\mathbf{a}}\right)  ^{p^{mr}%
+}\\\text{(since }\mathbb{F}\text{ is a }\mathbb{K}\text{-algebra)}}%
+}=\sum_{i=0}^{n-1}\underbrace{\left(  \lambda_{i}\right)  ^{p^{mr}}%
+}_{\substack{=\lambda_{i}\\\text{(by (\ref{pf.lem.xpg-x.2.6.pf.coeff-pow})) }%
+}}\left(  \left[  x^{i}\right]  _{\mathbf{a}}\right)  ^{p^{mr}}\nonumber\\
+&  =\sum_{i=0}^{n-1}\lambda_{i}\left(  \left[  x^{i}\right]  _{\mathbf{a}%
+}\right)  ^{p^{mr}}. \label{pf.lem.xpg-x.2.6.pf.2}%
+\end{align}
+But for each $i\in\left\{  0,1,\ldots,n-1\right\}  $, we have%
+\begin{align}
+\left(  \left[  x^{i}\right]  _{\mathbf{a}}\right)  ^{p^{mr}}  &  =\left[
+\left(  x^{i}\right)  ^{p^{mr}}\right]  _{\mathbf{a}}%
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.lem.xpg-x.2.fak}), applied to
+}f=x^{i}\text{ and }k=p^{mr}\right) \nonumber\\
+&  =\left[  \left(  x^{p^{mr}}\right)  ^{i}\right]  _{\mathbf{a}%
+}\ \ \ \ \ \ \ \ \ \ \left(  \text{since }\left(  x^{i}\right)  ^{p^{mr}%
+}=x^{ip^{mr}}=x^{p^{mr}i}=\left(  x^{p^{mr}}\right)  ^{i}\right) \nonumber\\
+&  =\left(  \left[  x^{p^{mr}}\right]  _{\mathbf{a}}\right)  ^{i}%
+\ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{since (\ref{pf.lem.xpg-x.2.fak}) (applied to }f=x^{p^{mr}}\text{ and
+}k=i\text{)}\\
+\text{yields }\left(  \left[  x^{p^{mr}}\right]  _{\mathbf{a}}\right)
+^{i}=\left[  \left(  x^{p^{mr}}\right)  ^{i}\right]  _{\mathbf{a}}%
+\end{array}
+\right) \nonumber\\
+&  =\left(  \left[  x\right]  _{\mathbf{a}}\right)  ^{i}%
+\ \ \ \ \ \ \ \ \ \ \left(  \text{since }\left[  x^{p^{mr}}\right]
+_{\mathbf{a}}=\left[  x\right]  _{\mathbf{a}}\right) \nonumber\\
+&  =\left[  x^{i}\right]  _{\mathbf{a}}\ \ \ \ \ \ \ \ \ \ \left(  \text{by
+(\ref{pf.lem.xpg-x.2.fak}), applied to }f=x\text{ and }k=i\right)  .
+\label{pf.lem.xpg-x.2.6.pf.3}%
+\end{align}
+Hence, (\ref{pf.lem.xpg-x.2.6.pf.2}) becomes%
+\[
+F^{mr}\left(  u\right)  =\sum_{i=0}^{n-1}\lambda_{i}\underbrace{\left(
+\left[  x^{i}\right]  _{\mathbf{a}}\right)  ^{p^{mr}}}_{\substack{=\left[
+x^{i}\right]  _{\mathbf{a}}\\\text{(by (\ref{pf.lem.xpg-x.2.6.pf.3}))}}%
+}=\sum_{i=0}^{n-1}\lambda_{i}\left[  x^{i}\right]  _{\mathbf{a}}=u
+\]
+(by (\ref{pf.lem.xpg-x.2.6.pf.1})). This proves (\ref{pf.lem.xpg-x.2.6}).]
+
+Thus, we have shown that all $u\in\mathbb{F}$ satisfy $F^{mr}\left(  u\right)
+=u$. Hence, all $u\in\mathbb{F}$ satisfy $F^{mr}\left(  u\right)
+=u=\operatorname*{id}\left(  u\right)  $. In other words, $F^{mr}%
+=\operatorname*{id}$.
+
+On the other hand, $\mathbb{F}$ is a finite $\mathbb{F}_{p}$-field of size
+$p^{mn}$ (since $\left\vert \mathbb{F}\right\vert =p^{mn}$). Thus, Corollary
+\ref{cor.Frob.Fnid} (applied to $mn$ instead of $n$) yields $F^{mn}%
+=\operatorname*{id}$.
+
+Now we know that $F^{mr}=\operatorname*{id}$ and $F^{mn}=\operatorname*{id}$.
+Hence, Lemma \ref{lem.fgcd} (applied to $\mathbb{F}$, $F$, $mr$ and $mn$
+instead of $S$, $f$, $a$ and $b$) yields that $F^{\gcd\left(  mr,mn\right)
+}=\operatorname*{id}$.
+
+Let $i=\gcd\left(  mr,mn\right)  $. Thus, $i$ is a positive integer (since
+$mr$ and $mn$ are positive integers), so that $p^{i}>1$. Furthermore, from
+$i=\gcd\left(  mr,mn\right)  $, we obtain%
+\[
+F^{i}=F^{\gcd\left(  mr,mn\right)  }=\operatorname*{id}.
+\]
+
+
+Now, for each $a\in\mathbb{F}$, we have%
+\[
+F^{i}\left(  a\right)  =a^{p^{i}}\ \ \ \ \ \ \ \ \ \ \left(  \text{by
+Proposition \ref{prop.Frob.power}, applied to }\mathbb{F}\text{ instead of
+}\mathbb{K}\right)
+\]
+and thus%
+\[
+a^{p^{i}}=\underbrace{F^{i}}_{=\operatorname*{id}}\left(  a\right)
+=\operatorname*{id}\left(  a\right)  =a.
+\]
+So we have shown that all $a\in\mathbb{F}$ satisfy $a^{p^{i}}=a$. Hence,
+Corollary \ref{cor.inverse-field-FLT} (applied to $u=p^{i}$) shows that
+$\left\vert \mathbb{F}\right\vert \leq p^{i}$ (since $p^{i}>1$). In view of
+$\left\vert \mathbb{F}\right\vert =p^{mn}$, this rewrites as $p^{mn}\leq
+p^{i}$. Hence, $mn\leq i$ (since $p>1$). But\footnote{From this place on, all
+divisibilities are understood to mean divisibilities in $\mathbb{Z}$.}
+$i=\gcd\left(  mr,mn\right)  \mid mn$ and thus $i\leq mn$ (since $i$ and $mn$
+both are positive integers). Combining this with $mn\leq i$, we find $mn=i$.
+Thus, $mn=i=\gcd\left(  mr,mn\right)  \mid mr$. We can cancel $m$ from this
+divisibility (since $m$ is a nonzero integer), and thus find $n\mid r$. In
+view of $n=\deg\mathbf{a}$, this rewrites as $\deg\mathbf{a}\mid r$. This
+proves Lemma \ref{lem.xpg-x.2}.
+\end{proof}
+
+We will say more about the factorization of the polynomial $x^{p^{g}}-x$ (that
+is, about the factors $\mathbf{a}_{1},\mathbf{a}_{2},\ldots,\mathbf{a}_{k}$ in
+Lemma \ref{lem.xpg-x.1}) in Theorem \ref{thm.xpg-x.full} further below, but
+for now let us draw the one consequence of Lemma \ref{lem.xpg-x.2} that we
+will actually need for our proof of Theorem \ref{thm.fpnexists2}:
+
+\begin{corollary}
+\label{cor.xpg-x.prime}Let $r$ and $m$ be positive integers such that $r$ is
+prime. Let $\mathbb{K}$ be a finite $\mathbb{F}_{p}$-field of size $p^{m}$.
+Then, there exists a monic irreducible polynomial $\mathbf{a}\in
+\mathbb{K}\left[  x\right]  $ of degree $r$.
+\end{corollary}
+
+\begin{proof}
+[Proof of Corollary \ref{cor.xpg-x.prime}.]Clearly, $mr$ is a positive integer
+(since $m$ and $r$ are positive integers). Thus, $p^{mr}>1$. Hence, the
+polynomial $x^{p^{mr}}-x$ is a monic polynomial of degree $p^{mr}$. Thus,
+$\deg\left(  x^{p^{mr}}-x\right)  =p^{mr}$.
+
+Also, $r$ is prime. Hence, $r>1$. We can multiply this inequality by $m$
+(since $m$ is positive), and thus $mr>m\cdot1=m$. Hence, $p^{mr}>p^{m}$.
+
+Lemma \ref{lem.xpg-x.1} (applied to $g=mr$) shows that the polynomial
+$x^{p^{mr}}-x\in\mathbb{K}\left[  x\right]  $ can be written in the form
+$x^{p^{mr}}-x=\mathbf{u}_{1}\mathbf{u}_{2}\cdots\mathbf{u}_{k}$, where
+$\mathbf{u}_{1},\mathbf{u}_{2},\ldots,\mathbf{u}_{k}\in\mathbb{K}\left[
+x\right]  $ are \textbf{distinct} monic irreducible polynomials. Consider
+these $\mathbf{u}_{1},\mathbf{u}_{2},\ldots,\mathbf{u}_{k}$.
+
+Assume (for the sake of contradiction) that
+\begin{equation}
+\deg\left(  \mathbf{u}_{i}\right)  =1\ \ \ \ \ \ \ \ \ \ \text{for each }%
+i\in\left\{  1,2,\ldots,k\right\}  . \label{pf.cor.xpg-x.prime.ass1}%
+\end{equation}
+
+
+Thus, the polynomials $\mathbf{u}_{1},\mathbf{u}_{2},\ldots,\mathbf{u}_{k}$
+all have degree $1$. Hence, $\mathbf{u}_{1},\mathbf{u}_{2},\ldots
+,\mathbf{u}_{k}$ are monic polynomials of degree $1$ (since we know that
+$\mathbf{u}_{1},\mathbf{u}_{2},\ldots,\mathbf{u}_{k}$ are monic polynomials).
+Furthermore, these $k$ monic polynomials of degree $1$ are distinct (as we
+know). Thus, we have found $k$ distinct monic polynomials of degree $1$
+(namely, $\mathbf{u}_{1},\mathbf{u}_{2},\ldots,\mathbf{u}_{k}$). Hence,%
+\[
+\left(  \text{the number of all monic polynomials of degree }1\text{ in
+}\mathbb{K}\left[  x\right]  \right)  \geq k.
+\]
+
+
+On the other hand, each monic polynomial of degree $1$ (in $\mathbb{K}\left[
+x\right]  $) has the form $x+c$ for some unique $c\in\mathbb{K}$. Hence,
+\begin{align*}
+&  \left(  \text{the number of all monic polynomials of degree }1\text{ in
+}\mathbb{K}\left[  x\right]  \right) \\
+&  =\left(  \text{the number of all }c\in\mathbb{K}\right)  =\left\vert
+\mathbb{K}\right\vert =p^{m}\ \ \ \ \ \ \ \ \ \ \left(  \text{since
+}\mathbb{K}\text{ has size }p^{m}\right)  .
+\end{align*}
+Thus,%
+\[
+p^{m}=\left(  \text{the number of all monic polynomials of degree }1\text{ in
+}\mathbb{K}\left[  x\right]  \right)  \geq k.
+\]
+
+
+Recall that the degree of a product of nonzero polynomials over a field always
+equals the sum of their degrees. We can apply this to the polynomials
+$\mathbf{u}_{1},\mathbf{u}_{2},\ldots,\mathbf{u}_{k}$ (which are nonzero
+because they are irreducible) and thus obtain%
+\begin{align*}
+\deg\left(  \mathbf{u}_{1}\mathbf{u}_{2}\cdots\mathbf{u}_{k}\right)   &
+=\deg\left(  \mathbf{u}_{1}\right)  +\deg\left(  \mathbf{u}_{2}\right)
++\cdots+\deg\left(  \mathbf{u}_{k}\right)  =\sum_{i=1}^{k}\underbrace{\deg
+\left(  \mathbf{u}_{i}\right)  }_{\substack{=1\\\text{(by
+(\ref{pf.cor.xpg-x.prime.ass1}))}}}\\
+&  =\sum_{i=1}^{k}1=k\cdot1=k.
+\end{align*}
+Hence,%
+\[
+k=\deg\underbrace{\left(  \mathbf{u}_{1}\mathbf{u}_{2}\cdots\mathbf{u}%
+_{k}\right)  }_{\substack{=x^{p^{mr}}-x\\\text{(since }x^{p^{mr}}%
+-x=\mathbf{u}_{1}\mathbf{u}_{2}\cdots\mathbf{u}_{k}\text{)}}}=\deg\left(
+x^{p^{mr}}-x\right)  =p^{mr}>p^{m}\geq k.
+\]
+This is clearly absurd. This contradiction shows that our assumption (that is,
+(\ref{pf.cor.xpg-x.prime.ass1})) is false. In other words, not every
+$i\in\left\{  1,2,\ldots,k\right\}  $ satisfies $\deg\left(  \mathbf{u}%
+_{i}\right)  =1$. In other words, there exists some $i\in\left\{
+1,2,\ldots,k\right\}  $ such that $\deg\left(  \mathbf{u}_{i}\right)  \neq1$.
+Consider this $i$. The polynomial $\mathbf{u}_{i}\in\mathbb{K}\left[
+x\right]  $ is irreducible (since $\mathbf{u}_{1},\mathbf{u}_{2}%
+,\ldots,\mathbf{u}_{k}$ are all irreducible). Thus, its degree $\deg\left(
+\mathbf{u}_{i}\right)  $ is a positive integer.
+
+We have $\mathbf{u}_{i}\mid\mathbf{u}_{1}\mathbf{u}_{2}\cdots\mathbf{u}_{k}$
+(since $\mathbf{u}_{i}$ is a factor of the product $\mathbf{u}_{1}%
+\mathbf{u}_{2}\cdots\mathbf{u}_{k}$). Hence, $\mathbf{u}_{i}\mid\mathbf{u}%
+_{1}\mathbf{u}_{2}\cdots\mathbf{u}_{k}=x^{p^{mr}}-x$. Thus, Lemma
+\ref{lem.xpg-x.2} (applied to $g=mr$ and $\mathbf{a}=\mathbf{u}_{i}$) shows
+that $\deg\left(  \mathbf{u}_{i}\right)  \mid r$ in $\mathbb{Z}$. Hence,
+$\deg\left(  \mathbf{u}_{i}\right)  $ is a divisor of $r$, and thus is a
+positive divisor of $r$ (since $\deg\left(  \mathbf{u}_{i}\right)  $ is
+positive). But the only positive divisors of $r$ are $1$ and $r$ (since $r$ is
+prime). Hence, $\deg\left(  \mathbf{u}_{i}\right)  $ equals either $1$ or $r$
+(since $\deg\left(  \mathbf{u}_{i}\right)  $ is a positive divisor of $r$).
+Therefore, $\deg\left(  \mathbf{u}_{i}\right)  =r$ (since $\deg\left(
+\mathbf{u}_{i}\right)  \neq1$). In other words, the polynomial $\mathbf{u}%
+_{i}$ has degree $r$. Thus, there exists a monic irreducible polynomial
+$\mathbf{a}\in\mathbb{K}\left[  x\right]  $ of degree $r$ (namely,
+$\mathbf{a}=\mathbf{u}_{i}$). This proves Corollary \ref{cor.xpg-x.prime}.
+\end{proof}
+
+\section{The proof}
+
+\subsection{The case of a prime exponent}
+
+We are getting close to proving Theorem \ref{thm.fpnexists2}. The following is
+one of our last steps:
+
+\begin{lemma}
+\label{lem.fpnexists-primestep}Let $r$ be a prime. Let $m$ be a positive
+integer. Let $\mathbb{F}$ be a finite $\mathbb{F}_{p}$-field of size $p^{m}$.
+Then, there exists a finite $\mathbb{F}_{p}$-field of size $p^{mr}$.
+\end{lemma}
+
+\begin{proof}
+[Proof of Lemma \ref{lem.fpnexists-primestep}.]We know that $\mathbb{F}$ is an
+$\mathbb{F}_{p}$-field. In other words, $\mathbb{F}$ is an $\mathbb{F}_{p}%
+$-algebra that is a field. Thus, $\mathbb{F}$ is commutative (since
+$\mathbb{F}$ is a field). Also, $\left\vert \mathbb{F}\right\vert =p^{m}$
+(because $\mathbb{F}$ has size $p^{m}$).
+
+Corollary \ref{cor.xpg-x.prime} (applied to $\mathbb{K}=\mathbb{F}$) shows
+that there exists a monic irreducible polynomial $\mathbf{a}\in\mathbb{F}%
+\left[  x\right]  $ of degree $r$. Consider this $\mathbf{a}$. Theorem
+\ref{thm.field-ext} \textbf{(c)} (applied to $n=r$) yields that $\mathbb{F}%
+\left[  x\right]  /\mathbf{a}$ is a field. Furthermore, Theorem
+\ref{thm.field-ext} \textbf{(b)} (applied to $n=r$) yields that
+\begin{align*}
+\left\vert \mathbb{F}\left[  x\right]  /\mathbf{a}\right\vert  &  =\left\vert
+\mathbb{F}\right\vert ^{r}=\left(  p^{m}\right)  ^{r}%
+\ \ \ \ \ \ \ \ \ \ \left(  \text{since }\left\vert \mathbb{F}\right\vert
+=p^{m}\right) \\
+&  =p^{mr}.
+\end{align*}
+Thus, the field $\mathbb{F}\left[  x\right]  /\mathbf{a}$ is finite.
+
+We know that $\mathbb{F}$ is a commutative $\mathbb{F}_{p}$-algebra. We also
+know that $\mathbb{F}\left[  x\right]  $ is an $\mathbb{F}$-algebra. Thus,
+Proposition \ref{prop.restrict-alg-isol} (applied to $\mathbb{F}_{p}$,
+$\mathbb{F}$ and $\mathbb{F}\left[  x\right]  $ instead of $\mathbb{K}$,
+$\mathbb{L}$ and $V$) shows that $\mathbb{F}\left[  x\right]  $ becomes an
+$\mathbb{F}_{p}$-algebra in a natural way. Clearly, this $\mathbb{F}\left[
+x\right]  $ is commutative (since $\mathbb{F}$ is commutative).
+
+We thus know that $\mathbb{F}\left[  x\right]  $ is a commutative
+$\mathbb{F}_{p}$-algebra. We also know that $\mathbb{F}\left[  x\right]
+/\mathbf{a}$ is an $\mathbb{F}\left[  x\right]  $-algebra. Thus, Proposition
+\ref{prop.restrict-alg-isol} (applied to $\mathbb{F}_{p}$, $\mathbb{F}\left[
+x\right]  $ and $\mathbb{F}\left[  x\right]  /\mathbf{a}$ instead of
+$\mathbb{K}$, $\mathbb{L}$ and $V$) shows that $\mathbb{F}\left[  x\right]
+/\mathbf{a}$ becomes an $\mathbb{F}_{p}$-algebra in a natural way. Thus,
+$\mathbb{F}\left[  x\right]  /\mathbf{a}$ is an $\mathbb{F}_{p}$-field (since
+$\mathbb{F}\left[  x\right]  /\mathbf{a}$ is an $\mathbb{F}_{p}$-algebra that
+is also a field).
+
+Thus we have shown that $\mathbb{F}\left[  x\right]  /\mathbf{a}$ is a finite
+$\mathbb{F}_{p}$-field of size $p^{mr}$ (since $\left\vert \mathbb{F}\left[
+x\right]  /\mathbf{a}\right\vert =p^{mr}$). Hence, there exists a finite
+$\mathbb{F}_{p}$-field of size $p^{mr}$ (namely, $\mathbb{F}\left[  x\right]
+/\mathbf{a}$). This proves Lemma \ref{lem.fpnexists-primestep}.
+\end{proof}
+
+\subsection{Proof of Theorem \ref{thm.fpnexists2}}
+
+Recall the following basic fact from number theory:
+
+\begin{lemma}
+\label{lem.prime-factor-exists}Let $N>1$ be an integer. Then, there exists at
+least one prime $r$ such that $r\mid N$.
+\end{lemma}
+
+Lemma \ref{lem.prime-factor-exists} is, for example, \cite[Proposition
+2.13.8]{19s} (with $n$ and $p$ renamed as $N$ and $r$).
+
+At last, we can prove Theorem \ref{thm.fpnexists2}:
+
+\begin{proof}
+[Proof of Theorem \ref{thm.fpnexists2}.]We shall prove Theorem
+\ref{thm.fpnexists2} by strong induction on $n$.
+
+\textit{Induction step:} Let $N$ be a positive integer. Assume (as the
+induction hypothesis) that Theorem \ref{thm.fpnexists2} holds for all $n<N$.
+We must now prove that Theorem \ref{thm.fpnexists2} holds for $n=N$. In other
+words, we must prove that there exists a finite $\mathbb{F}_{p}$-field of size
+$p^{N}$.
+
+If $N=1$, then this is obvious\footnote{\textit{Proof.} The finite field
+$\mathbb{F}_{p}$ is clearly an $\mathbb{F}_{p}$-algebra, and thus is an
+$\mathbb{F}_{p}$-field (by the definition of an $\mathbb{F}_{p}$-field).
+Moreover, it has size $p^{1}$ (since $\left\vert \mathbb{F}_{p}\right\vert
+=p=p^{1}$). Thus, $\mathbb{F}_{p}$ is a finite $\mathbb{F}_{p}$-field of size
+$p^{1}$. Hence, there exists a finite $\mathbb{F}_{p}$-field of size $p^{1}$
+(namely, $\mathbb{F}_{p}$). Hence, there exists a finite $\mathbb{F}_{p}%
+$-field of size $p^{N}$ when $N=1$. Qed.}. Thus, for the rest of this proof,
+we WLOG assume that $N\neq1$. Hence, $N>1$ (since $N$ is a positive integer).
+Thus, Lemma \ref{lem.prime-factor-exists} shows that there exists at least one
+prime $r$ such that $r\mid N$. Consider this $r$. We have $r>1$ (since $r$ is
+prime), so that $r>1>0$. Also, there exists an integer $m$ such that $N=rm$
+(since $r\mid N$). Consider this $m$. We have $N=rm$, thus $m=N/r>0$ (since
+$N>0$ and $r>0$). Hence, we can multiply the inequality $r>1$ by $m$. We thus
+find $rm>1m=m$, so that $m<rm=N$. Also, $m$ is a positive integer (since $m$
+is an integer and since $m>0$).
+
+Recall that Theorem \ref{thm.fpnexists2} holds for all $n<N$ (by our induction
+hypothesis). Hence, Theorem \ref{thm.fpnexists2} holds for $n=m$ (since $m$ is
+a positive integer satisfying $m<N$). In other words, there exists a finite
+$\mathbb{F}_{p}$-field of size $p^{m}$. Consider such an $\mathbb{F}_{p}%
+$-field, and denote it by $\mathbb{F}$. Thus, $\mathbb{F}$ is a finite
+$\mathbb{F}_{p}$-field of size $p^{m}$. Hence, Lemma
+\ref{lem.fpnexists-primestep} shows that there exists a finite $\mathbb{F}%
+_{p}$-field of size $p^{mr}$. In other words, there exists a finite
+$\mathbb{F}_{p}$-field of size $p^{N}$ (since $mr=rm=N$). In other words,
+Theorem \ref{thm.fpnexists2} holds for $n=N$. This completes the induction
+step. Thus, Theorem \ref{thm.fpnexists2} is proven by strong induction.
+\end{proof}
+
+\section{Appendices}
+
+\subsection{\label{sect.app-restrict}Appendix 1: Proofs of Proposition
+\ref{prop.restrict-mod} and Proposition \ref{prop.restrict-alg}}
+
+We still have to prove two propositions that we used: Proposition
+\ref{prop.restrict-mod} and Proposition \ref{prop.restrict-alg}. Both proofs
+are straightforward, but require us to recall precisely how modules and
+algebras were defined.
+
+First, let us recall the definition of a $\mathbb{K}$-module. Several
+equivalent definitions exist; we shall use the one from \cite[Definition
+6.3.1]{19s}:
+
+\begin{definition}
+\label{def.module.module}Let $\mathbb{K}$ be a commutative ring.
+
+A $\mathbb{K}$\textit{-module} means a set $M$ equipped with
+
+\begin{itemize}
+\item a binary operation $+$ on $M$ (called \textquotedblleft\textit{addition}%
+\textquotedblright, and not to be confused with the addition $+_{\mathbb{K}}$
+of $\mathbb{K}$),
+
+\item a map $\cdot\ :\ \mathbb{K}\times M\rightarrow M$ (called
+\textquotedblleft\textit{scaling\textquotedblright}, and not to be confused
+with the multiplication $\cdot_{\mathbb{K}}$ of $\mathbb{K}$), and
+
+\item an element $0_{M}\in M$ (called \textquotedblleft\textit{zero
+vector}\textquotedblright\ or \textquotedblleft zero\textquotedblright, and
+not to be confused with the zero of $\mathbb{K}$)
+\end{itemize}
+
+\noindent satisfying the following axioms:
+
+\begin{itemize}
+\item \textbf{(a)} We have $a+b=b+a$ for all $a,b\in M$.
+
+\item \textbf{(b)} We have $a+\left(  b+c\right)  =\left(  a+b\right)  +c$ for
+all $a,b,c\in M$.
+
+\item \textbf{(c)} We have $a+0_{M}=0_{M}+a=a$ for all $a\in M$.
+
+\item \textbf{(d)} Each $a\in M$ has an additive inverse (i.e., there is an
+$a^{\prime}\in M$ such that $a+a^{\prime}=a^{\prime}+a=0_{M}$).
+
+\item \textbf{(e)} We have $\lambda\left(  a+b\right)  =\lambda a+\lambda b$
+for all $\lambda\in\mathbb{K}$ and $a,b\in M$. Here and in the following, we
+use the notation \textquotedblleft$\lambda c$\textquotedblright\ (or,
+equivalently, \textquotedblleft$\lambda\cdot c$\textquotedblright) for the
+image of a pair $\left(  \lambda,c\right)  \in\mathbb{K}\times M$ under the
+\textquotedblleft scaling\textquotedblright\ map $\cdot$ (similarly to how we
+write $ab$ for the image of a pair $\left(  a,b\right)  \in\mathbb{K}%
+\times\mathbb{K}$ under the \textquotedblleft multiplication\textquotedblright%
+\ map $\cdot$).
+
+\item \textbf{(f)} We have $\left(  \lambda+\mu\right)  a=\lambda a+\mu a$ for
+all $\lambda,\mu\in\mathbb{K}$ and $a\in M$.
+
+\item \textbf{(g)} We have $0a=0_{M}$ for all $a\in M$.
+
+\item \textbf{(h)} We have $\left(  \lambda\mu\right)  a=\lambda\left(  \mu
+a\right)  $ for all $\lambda,\mu\in\mathbb{K}$ and $a\in M$.
+
+\item \textbf{(i)} We have $1a=a$ for all $a\in M$.
+
+\item \textbf{(j)} We have $\lambda\cdot0_{M}=0_{M}$ for all $\lambda
+\in\mathbb{K}$.
+\end{itemize}
+
+\noindent These ten axioms are called the \textit{module axioms}.
+\end{definition}
+
+Let us also recall the definition of a $\mathbb{K}$-algebra (\cite[Definition
+6.9.1]{19s}):
+
+\begin{definition}
+\label{def.K-alg.K-alg.short-def}Let $\mathbb{K}$ be a commutative ring. A
+$\mathbb{K}$\textit{-algebra} is a set $M$ endowed with two binary operations
+$+$ and $\cdot$ as well as a scaling map $\cdot:\mathbb{K}\times M\rightarrow
+M$ (not to be confused with the multiplication map, which is also denoted by
+$\cdot$) and two elements $0,1\in M$ that satisfy all the ring axioms (with
+$\mathbb{K}$ replaced by $M$) as well as all the module axioms (where the zero
+vector $0_{M}$ is taken to be the element $0\in M$) and also the following axiom:
+
+\begin{itemize}
+\item \textbf{Scale-invariance of multiplication:} We have $\lambda\left(
+ab\right)  =\left(  \lambda a\right)  \cdot b=a\cdot\left(  \lambda b\right)
+$ for all $\lambda\in\mathbb{K}$ and $a,b\in M$.
+\end{itemize}
+\end{definition}
+
+We can now prove Proposition \ref{prop.restrict-mod} by a fairly
+straightforward verification of the module axioms:
+
+\begin{fineprint}
+\begin{proof}
+[Proof of Proposition \ref{prop.restrict-mod}.]We have assumed that $V$ is an
+$\mathbb{L}$-module. Thus, it satisfies the module axioms. In other words, the
+following ten statements hold:\footnote{As usual, we let $0_{V}$ denote the
+zero vector of the $\mathbb{L}$-module $V$.}
+
+\begin{itemize}
+\item \textbf{(a}$_{1}$\textbf{)} We have $a+b=b+a$ for all $a,b\in V$.
+
+\item \textbf{(b}$_{1}$\textbf{)} We have $a+\left(  b+c\right)  =\left(
+a+b\right)  +c$ for all $a,b,c\in V$.
+
+\item \textbf{(c}$_{1}$\textbf{)} We have $a+0_{V}=0_{V}+a=a$ for all $a\in V$.
+
+\item \textbf{(d}$_{1}$\textbf{)} Each $a\in V$ has an additive inverse (i.e.,
+there is an $a^{\prime}\in V$ such that $a+a^{\prime}=a^{\prime}+a=0_{V}$).
+
+\item \textbf{(e}$_{1}$\textbf{)} We have $\lambda\left(  a+b\right)  =\lambda
+a+\lambda b$ for all $\lambda\in\mathbb{L}$ and $a,b\in V$.
+
+\item \textbf{(f}$_{1}$\textbf{)} We have $\left(  \lambda+\mu\right)
+a=\lambda a+\mu a$ for all $\lambda,\mu\in\mathbb{L}$ and $a\in V$.
+
+\item \textbf{(g}$_{1}$\textbf{)} We have $0_{\mathbb{L}}a=0_{V}$ for all
+$a\in V$.
+
+\item \textbf{(h}$_{1}$\textbf{)} We have $\left(  \lambda\mu\right)
+a=\lambda\left(  \mu a\right)  $ for all $\lambda,\mu\in\mathbb{L}$ and $a\in
+V$.
+
+\item \textbf{(i}$_{1}$\textbf{)} We have $1_{\mathbb{L}}a=a$ for all $a\in V$.
+
+\item \textbf{(j}$_{1}$\textbf{)} We have $\lambda\cdot0_{V}=0_{V}$ for all
+$\lambda\in\mathbb{L}$.
+\end{itemize}
+
+We have also assumed that $\mathbb{L}$ is a $\mathbb{K}$-algebra. Thus,
+$\mathbb{L}$ satisfies the ring axioms, the module axioms and the
+\textquotedblleft Scale-invariance of multiplication\textquotedblright\ axiom.
+In other words, the following 15 statements hold:
+
+\begin{itemize}
+\item \textbf{(a}$_{2}$\textbf{)} We have $a+b=b+a$ for all $a,b\in\mathbb{L}$.
+
+\item \textbf{(b}$_{2}$\textbf{)} We have $a+\left(  b+c\right)  =\left(
+a+b\right)  +c$ for all $a,b,c\in\mathbb{L}$.
+
+\item \textbf{(c}$_{2}$\textbf{)} We have $a+0_{\mathbb{L}}=0_{\mathbb{L}%
+}+a=a$ for all $a\in\mathbb{L}$.
+
+\item \textbf{(d}$_{2}$\textbf{)} Each $a\in\mathbb{L}$ has an additive
+inverse (i.e., there is an $a^{\prime}\in\mathbb{L}$ such that $a+a^{\prime
+}=a^{\prime}+a=0_{\mathbb{L}}$).
+
+\item \textbf{(e}$_{2}$\textbf{)} We have $\lambda\left(  a+b\right)  =\lambda
+a+\lambda b$ for all $\lambda\in\mathbb{K}$ and $a,b\in\mathbb{L}$.
+
+\item \textbf{(f}$_{2}$\textbf{)} We have $\left(  \lambda+\mu\right)
+a=\lambda a+\mu a$ for all $\lambda,\mu\in\mathbb{K}$ and $a\in\mathbb{L}$.
+
+\item \textbf{(g}$_{2}$\textbf{)} We have $0_{\mathbb{K}}a=0_{\mathbb{L}}$ for
+all $a\in\mathbb{L}$.
+
+\item \textbf{(h}$_{2}$\textbf{)} We have $\left(  \lambda\mu\right)
+a=\lambda\left(  \mu a\right)  $ for all $\lambda,\mu\in\mathbb{K}$ and
+$a\in\mathbb{L}$.
+
+\item \textbf{(i}$_{2}$\textbf{)} We have $1_{\mathbb{K}}a=a$ for all
+$a\in\mathbb{L}$.
+
+\item \textbf{(j}$_{2}$\textbf{)} We have $\lambda\cdot0_{\mathbb{L}%
+}=0_{\mathbb{L}}$ for all $\lambda\in\mathbb{L}$.
+
+\item \textbf{(k}$_{2}$\textbf{)} We have $a\left(  bc\right)  =\left(
+ab\right)  c$ for all $a,b,c\in\mathbb{L}$.
+
+\item \textbf{(l}$_{2}$\textbf{)} We have $a1_{\mathbb{L}}=1_{\mathbb{L}}a=a$
+for all $a\in\mathbb{L}$.
+
+\item \textbf{(m}$_{2}$\textbf{)} We have $a0_{\mathbb{L}}=0_{\mathbb{L}%
+}a=0_{\mathbb{L}}$ for all $a\in\mathbb{L}$.
+
+\item \textbf{(n}$_{2}$\textbf{)} We have $a\left(  b+c\right)  =ab+ac$ and
+$\left(  a+b\right)  c=ac+bc$ for all $a,b,c\in\mathbb{L}$.
+
+\item \textbf{(o}$_{2}$\textbf{)} We have $\lambda\left(  ab\right)  =\left(
+\lambda a\right)  \cdot b=a\cdot\left(  \lambda b\right)  $ for all
+$\lambda\in\mathbb{K}$ and $a,b\in\mathbb{L}$.
+\end{itemize}
+
+Now, our set $V$ is endowed with an addition $+$, a scaling map $\cdot
+:\mathbb{K}\times V\rightarrow V$ (defined by (\ref{eq.prop.restrict-mod.fml}%
+)) and a zero vector $0_{V}$. Our goal is to show that $V$ is a $\mathbb{K}%
+$-module (when equipped with this addition, this scaling map and this zero
+vector). In other words, our goal is to show that it satisfies the module
+axioms. In other words, our goal is to show that the following ten statements hold:
+
+\begin{itemize}
+\item \textbf{(a}$_{3}$\textbf{)} We have $a+b=b+a$ for all $a,b\in V$.
+
+\item \textbf{(b}$_{3}$\textbf{)} We have $a+\left(  b+c\right)  =\left(
+a+b\right)  +c$ for all $a,b,c\in V$.
+
+\item \textbf{(c}$_{3}$\textbf{)} We have $a+0_{V}=0_{V}+a=a$ for all $a\in V$.
+
+\item \textbf{(d}$_{3}$\textbf{)} Each $a\in V$ has an additive inverse (i.e.,
+there is an $a^{\prime}\in V$ such that $a+a^{\prime}=a^{\prime}+a=0_{V}$).
+
+\item \textbf{(e}$_{3}$\textbf{)} We have $\lambda\left(  a+b\right)  =\lambda
+a+\lambda b$ for all $\lambda\in\mathbb{K}$ and $a,b\in V$.
+
+\item \textbf{(f}$_{3}$\textbf{)} We have $\left(  \lambda+\mu\right)
+a=\lambda a+\mu a$ for all $\lambda,\mu\in\mathbb{K}$ and $a\in V$.
+
+\item \textbf{(g}$_{3}$\textbf{)} We have $0_{\mathbb{K}}a=0_{V}$ for all
+$a\in V$.
+
+\item \textbf{(h}$_{3}$\textbf{)} We have $\left(  \lambda\mu\right)
+a=\lambda\left(  \mu a\right)  $ for all $\lambda,\mu\in\mathbb{K}$ and $a\in
+V$.
+
+\item \textbf{(i}$_{3}$\textbf{)} We have $1_{\mathbb{K}}a=a$ for all $a\in V$.
+
+\item \textbf{(j}$_{3}$\textbf{)} We have $\lambda\cdot0_{V}=0_{V}$ for all
+$\lambda\in\mathbb{K}$.
+\end{itemize}
+
+So it remains to prove these ten statements \textbf{(a}$_{3}$\textbf{)},
+\textbf{(b}$_{3}$\textbf{)}, $\ldots$, \textbf{(j}$_{3}$\textbf{)}. Let us do
+so now.
+
+The four statements \textbf{(a}$_{3}$\textbf{)}, \textbf{(b}$_{3}$\textbf{)},
+\textbf{(c}$_{3}$\textbf{)} and \textbf{(d}$_{3}$\textbf{)} are literally
+identical with the four statements \textbf{(a}$_{1}$\textbf{)}, \textbf{(b}%
+$_{1}$\textbf{)}, \textbf{(c}$_{1}$\textbf{)} and \textbf{(d}$_{1}$\textbf{)},
+and therefore hold (since we know that the latter four statements hold).
+Hence, it remains to prove the other six statements.
+
+[\textit{Proof of statement \textbf{(e}}$_{3}$\textit{\textbf{)}:} Let
+$\lambda\in\mathbb{K}$ and $a,b\in V$. We must prove that $\lambda\left(
+a+b\right)  =\lambda a+\lambda b$.
+
+Applying (\ref{eq.prop.restrict-mod.fml}) to $v=a$, we obtain $\lambda\cdot
+a=\left(  \lambda\cdot1_{\mathbb{L}}\right)  \cdot a$. Applying
+(\ref{eq.prop.restrict-mod.fml}) to $v=b$, we obtain $\lambda\cdot b=\left(
+\lambda\cdot1_{\mathbb{L}}\right)  \cdot b$. Applying
+(\ref{eq.prop.restrict-mod.fml}) to $v=a+b$, we obtain
+\[
+\lambda\cdot\left(  a+b\right)  =\left(  \lambda\cdot1_{\mathbb{L}}\right)
+\cdot\left(  a+b\right)  =\left(  \lambda\cdot1_{\mathbb{L}}\right)  \cdot
+a+\left(  \lambda\cdot1_{\mathbb{L}}\right)  \cdot b
+\]
+(by statement \textbf{(e}$_{1}$\textbf{)}, applied to $\lambda\cdot
+1_{\mathbb{L}}$ instead of $\lambda$). Comparing this with%
+\[
+\underbrace{\lambda a}_{\substack{=\lambda\cdot a\\=\left(  \lambda
+\cdot1_{\mathbb{L}}\right)  \cdot a}}+\underbrace{\lambda b}%
+_{\substack{=\lambda\cdot b\\=\left(  \lambda\cdot1_{\mathbb{L}}\right)  \cdot
+b}}=\left(  \lambda\cdot1_{\mathbb{L}}\right)  \cdot a+\left(  \lambda
+\cdot1_{\mathbb{L}}\right)  \cdot b,
+\]
+we obtain $\lambda\cdot\left(  a+b\right)  =\lambda a+\lambda b$. Thus,
+$\lambda\left(  a+b\right)  =\lambda\cdot\left(  a+b\right)  =\lambda
+a+\lambda b$. This proves statement \textbf{(e}$_{3}$\textbf{)}.]
+
+[\textit{Proof of statement \textbf{(f}}$_{3}$\textit{\textbf{)}:} Let
+$\lambda,\mu\in\mathbb{K}$ and $a\in V$. We must prove that $\left(
+\lambda+\mu\right)  a=\lambda a+\mu a$.
+
+Applying (\ref{eq.prop.restrict-mod.fml}) to $v=a$, we obtain $\lambda\cdot
+a=\left(  \lambda\cdot1_{\mathbb{L}}\right)  \cdot a$. Applying
+(\ref{eq.prop.restrict-mod.fml}) to $\mu$ and $a$ instead of $\lambda$ and
+$v$, we obtain $\mu\cdot a=\left(  \mu\cdot1_{\mathbb{L}}\right)  \cdot a$.
+Applying (\ref{eq.prop.restrict-mod.fml}) to $\lambda+\mu$ and $a$ instead of
+$\lambda$ and $v$, we obtain $\left(  \lambda+\mu\right)  \cdot a=\left(
+\left(  \lambda+\mu\right)  \cdot1_{\mathbb{L}}\right)  \cdot a$. But
+statement \textbf{(f}$_{2}$\textbf{)} (applied to $1_{\mathbb{L}}$ instead of
+$a$) yields $\left(  \lambda+\mu\right)  \cdot1_{\mathbb{L}}=\lambda
+\cdot1_{\mathbb{L}}+\mu\cdot1_{\mathbb{L}}$. Hence,%
+\begin{align*}
+\left(  \lambda+\mu\right)  a  &  =\left(  \lambda+\mu\right)  \cdot
+a=\underbrace{\left(  \left(  \lambda+\mu\right)  \cdot1_{\mathbb{L}}\right)
+}_{=\lambda\cdot1_{\mathbb{L}}+\mu\cdot1_{\mathbb{L}}}\cdot a=\left(
+\lambda\cdot1_{\mathbb{L}}+\mu\cdot1_{\mathbb{L}}\right)  \cdot a\\
+&  =\left(  \lambda\cdot1_{\mathbb{L}}\right)  \cdot a+\left(  \mu
+\cdot1_{\mathbb{L}}\right)  \cdot a
+\end{align*}
+(by statement \textbf{(f}$_{1}$\textbf{)}, applied to $\lambda\cdot
+1_{\mathbb{L}}$ and $\mu\cdot1_{\mathbb{L}}$ instead of $\lambda$ and $\mu$).
+Comparing this with%
+\[
+\underbrace{\lambda a}_{\substack{=\lambda\cdot a\\=\left(  \lambda
+\cdot1_{\mathbb{L}}\right)  \cdot a}}+\underbrace{\mu a}_{\substack{=\mu\cdot
+a\\=\left(  \mu\cdot1_{\mathbb{L}}\right)  \cdot a}}=\left(  \lambda
+\cdot1_{\mathbb{L}}\right)  \cdot a+\left(  \mu\cdot1_{\mathbb{L}}\right)
+\cdot a,
+\]
+we obtain $\left(  \lambda+\mu\right)  a=\lambda a+\mu a$. This proves
+statement \textbf{(f}$_{3}$\textbf{)}.]
+
+[\textit{Proof of statement \textbf{(g}}$_{3}$\textit{\textbf{)}:} Let $a\in
+V$. We must prove that $0_{\mathbb{K}}a=0_{V}$.
+
+Statement \textbf{(g}$_{2}$\textbf{)} (applied to $1_{\mathbb{L}}$ instead of
+$a$) yields $0_{\mathbb{K}}\cdot1_{\mathbb{L}}=0_{\mathbb{L}}$. But
+(\ref{eq.prop.restrict-mod.fml}) (applied to $\lambda=0_{\mathbb{K}}$ and
+$v=a$) yields $0_{\mathbb{K}}\cdot a=\underbrace{\left(  0_{\mathbb{K}}%
+\cdot1_{\mathbb{L}}\right)  }_{=0_{\mathbb{L}}}\cdot a=0_{\mathbb{L}}\cdot
+a=0_{V}$ (by statement \textbf{(g}$_{1}$\textbf{)}). This proves statement
+\textbf{(g}$_{3}$\textbf{)}.]
+
+[\textit{Proof of statement \textbf{(h}}$_{3}$\textit{\textbf{)}:} Let
+$\lambda,\mu\in\mathbb{K}$ and $a\in V$. We must prove that $\left(
+\lambda\mu\right)  a=\lambda\left(  \mu a\right)  $.
+
+First, we shall show that
+\begin{equation}
+\left(  \lambda\mu\right)  \cdot1_{\mathbb{L}}=\left(  \lambda\cdot
+1_{\mathbb{L}}\right)  \cdot\left(  \mu\cdot1_{\mathbb{L}}\right)  .
+\label{pf.prop.restrict-mod.h.1}%
+\end{equation}
+Indeed, statement \textbf{(o}$_{2}$\textbf{)} (applied to $\mu$, $\lambda
+\cdot1_{\mathbb{L}}$ and $1_{\mathbb{L}}$ instead of $\lambda$, $a$ and $b$)
+yields $\mu\left(  \left(  \lambda\cdot1_{\mathbb{L}}\right)  1_{\mathbb{L}%
+}\right)  =\left(  \mu\left(  \lambda\cdot1_{\mathbb{L}}\right)  \right)
+\cdot1_{\mathbb{L}}=\left(  \lambda\cdot1_{\mathbb{L}}\right)  \cdot\left(
+\mu\cdot1_{\mathbb{L}}\right)  $. But statement \textbf{(l}$_{2}$\textbf{)}
+(applied to $\lambda\cdot1_{\mathbb{L}}$ instead of $a$) yields $\left(
+\lambda\cdot1_{\mathbb{L}}\right)  1_{\mathbb{L}}=1_{\mathbb{L}}\left(
+\lambda\cdot1_{\mathbb{L}}\right)  =\lambda\cdot1_{\mathbb{L}}$. Hence,
+$\mu\underbrace{\left(  \left(  \lambda\cdot1_{\mathbb{L}}\right)
+1_{\mathbb{L}}\right)  }_{=\lambda\cdot1_{\mathbb{L}}}=\mu\left(  \lambda
+\cdot1_{\mathbb{L}}\right)  $. Thus,%
+\[
+\mu\left(  \lambda\cdot1_{\mathbb{L}}\right)  =\mu\left(  \left(  \lambda
+\cdot1_{\mathbb{L}}\right)  1_{\mathbb{L}}\right)  =\left(  \lambda
+\cdot1_{\mathbb{L}}\right)  \cdot\left(  \mu\cdot1_{\mathbb{L}}\right)  .
+\]
+But statement \textbf{(h}$_{2}$\textbf{)} (applied to $\mu$, $\lambda$ and
+$1_{\mathbb{L}}$ instead of $\lambda$, $\mu$ and $a$) yields $\left(
+\mu\lambda\right)  \cdot1_{\mathbb{L}}=\mu\left(  \lambda\cdot1_{\mathbb{L}%
+}\right)  =\left(  \lambda\cdot1_{\mathbb{L}}\right)  \cdot\left(  \mu
+\cdot1_{\mathbb{L}}\right)  $. However, $\lambda\mu=\mu\lambda$ (since
+$\mathbb{L}$ is commutative). Thus,%
+\[
+\underbrace{\left(  \lambda\mu\right)  }_{=\mu\lambda}\cdot1_{\mathbb{L}%
+}=\left(  \mu\lambda\right)  \cdot1_{\mathbb{L}}=\left(  \lambda
+\cdot1_{\mathbb{L}}\right)  \cdot\left(  \mu\cdot1_{\mathbb{L}}\right)  .
+\]
+Thus, (\ref{pf.prop.restrict-mod.h.1}) is proven.
+
+Now, (\ref{eq.prop.restrict-mod.fml}) (applied to $\lambda\mu$ and $a$ instead
+of $\lambda$ and $v$) yields
+\begin{align}
+\left(  \lambda\mu\right)  \cdot a  &  =\underbrace{\left(  \left(  \lambda
+\mu\right)  \cdot1_{\mathbb{L}}\right)  }_{\substack{=\left(  \lambda
+\cdot1_{\mathbb{L}}\right)  \cdot\left(  \mu\cdot1_{\mathbb{L}}\right)
+\\\text{(by (\ref{pf.prop.restrict-mod.h.1}))}}}\cdot a=\left(  \left(
+\lambda\cdot1_{\mathbb{L}}\right)  \cdot\left(  \mu\cdot1_{\mathbb{L}}\right)
+\right)  \cdot a\nonumber\\
+&  =\left(  \lambda\cdot1_{\mathbb{L}}\right)  \cdot\left(  \left(  \mu
+\cdot1_{\mathbb{L}}\right)  \cdot a\right)  \label{pf.prop.restrict-mod.h.4}%
+\end{align}
+(by statement \textbf{(h}$_{1}$\textbf{)}, applied to $\lambda\cdot
+1_{\mathbb{L}}$ and $\mu\cdot1_{\mathbb{L}}$ instead of $\lambda$ and $\mu$).
+
+But (\ref{eq.prop.restrict-mod.fml}) (applied to $v=\mu a$) yields%
+\[
+\lambda\cdot\left(  \mu a\right)  =\left(  \lambda\cdot1_{\mathbb{L}}\right)
+\cdot\underbrace{\left(  \mu a\right)  }_{\substack{=\mu\cdot a\\=\left(
+\left(  \mu\cdot1_{\mathbb{L}}\right)  \cdot a\right)  \\\text{(by
+(\ref{eq.prop.restrict-mod.fml}), applied to }\mu\\\text{instead of }%
+\lambda\text{)}}}=\left(  \lambda\cdot1_{\mathbb{L}}\right)  \cdot\left(
+\left(  \mu\cdot1_{\mathbb{L}}\right)  \cdot a\right)  .
+\]
+Comparing this with (\ref{pf.prop.restrict-mod.h.4}), we obtain $\left(
+\lambda\mu\right)  \cdot a=\lambda\cdot\left(  \mu a\right)  =\lambda\left(
+\mu a\right)  $. Thus, $\left(  \lambda\mu\right)  a=\left(  \lambda
+\mu\right)  \cdot a=\lambda\left(  \mu a\right)  $. This proves statement
+\textbf{(h}$_{3}$\textbf{)}.]
+
+[\textit{Proof of statement \textbf{(i}}$_{3}$\textit{\textbf{)}:} Let $a\in
+V$. We must prove that $1_{\mathbb{K}}a=a$.
+
+Statement \textbf{(i}$_{2}$\textbf{)} (applied to $1_{\mathbb{L}}$ instead of
+$a$) yields $1_{\mathbb{K}}\cdot1_{\mathbb{L}}=1_{\mathbb{L}}$. But
+(\ref{eq.prop.restrict-mod.fml}) (applied to $\lambda=1_{\mathbb{K}}$) yields
+$1_{\mathbb{K}}\cdot a=\underbrace{\left(  1_{\mathbb{K}}\cdot1_{\mathbb{L}%
+}\right)  }_{=1_{\mathbb{L}}}\cdot a=1_{\mathbb{L}}\cdot a=a$ (by statement
+\textbf{(i}$_{1}$\textbf{)}). This proves statement \textbf{(i}$_{3}%
+$\textbf{)}.]
+
+[\textit{Proof of statement \textbf{(j}}$_{3}$\textit{\textbf{)}:} Let
+$\lambda\in\mathbb{K}$. We must prove that $\lambda\cdot0_{V}=0_{V}$.
+
+But (\ref{eq.prop.restrict-mod.fml}) (applied to $v=0_{V}$) yields
+$\lambda\cdot0_{V}=\left(  \lambda\cdot1_{\mathbb{L}}\right)  \cdot0_{V}%
+=0_{V}$ (by statement \textbf{(j}$_{1}$\textbf{)}, applied to $\lambda
+\cdot1_{\mathbb{L}}$ instead of $\lambda$). This proves statement
+\textbf{(j}$_{3}$\textbf{)}.]
+
+We thus have proven the ten statements \textbf{(a}$_{3}$\textbf{)},
+\textbf{(b}$_{3}$\textbf{)}, $\ldots$, \textbf{(j}$_{3}$\textbf{)}. These ten
+statements show that $V$ satisfies the module axioms that are required to
+ensure that $V$ is a $\mathbb{K}$-module. Hence, $V$ is a $\mathbb{K}$-module.
+This proves Proposition \ref{prop.restrict-mod}.
+\end{proof}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.restrict-alg}.]Proposition
+\ref{prop.restrict-mod} shows that the set $V$ (equipped with its addition
+$+$, its zero vector $0_{V}$ and the scaling $\cdot:\mathbb{K}\times
+V\rightarrow V$ defined by (\ref{eq.prop.restrict-mod.fml})) is a $\mathbb{K}%
+$-module. Furthermore, the set $V$ (equipped with its addition $+$, its
+multiplication $\cdot$, its zero $0_{V}$ and its unity $1_{V}$) is a ring.
+
+Now, our set $V$ is endowed with an addition $+$, a multiplication $\cdot$, a
+scaling map $\cdot:\mathbb{K}\times V\rightarrow V$ (defined by
+(\ref{eq.prop.restrict-mod.fml})), a zero $0_{V}$ and a unity $1_{V}$. Our
+goal is to show that $V$ is a $\mathbb{K}$-algebra (when equipped with this
+addition, this multiplication, this scaling map, this zero and this unity). In
+other words, our goal is to show that it satisfies the ring axioms, the module
+axioms and the \textquotedblleft Scale-invariance of
+multiplication\textquotedblright\ axiom (because this is precisely what is
+needed to ensure that $V$ is a $\mathbb{K}$-algebra, according to Definition
+\ref{def.K-alg.K-alg.short-def}). But it clearly satisfies the ring axioms
+(since $V$ is a ring) and the module axioms (since $V$ is a $\mathbb{K}%
+$-module). Hence, it suffices to prove that it satisfies the \textquotedblleft
+Scale-invariance of multiplication\textquotedblright\ axiom. In other words,
+we must prove the following statement:
+
+\begin{itemize}
+\item \textbf{(k}$_{3}$\textbf{)} We have $\lambda\left(  ab\right)  =\left(
+\lambda a\right)  \cdot b=a\cdot\left(  \lambda b\right)  $ for all
+$\lambda\in\mathbb{K}$ and $a,b\in V$.
+\end{itemize}
+
+Before we prove this statement, let us recall something: We know that $V$ is
+an $\mathbb{L}$-algebra, and therefore satisfies the \textquotedblleft
+Scale-invariance of multiplication\textquotedblright\ axiom. In other words,
+the following statement holds:
+
+\begin{itemize}
+\item \textbf{(k}$_{1}$\textbf{)} We have $\lambda\left(  ab\right)  =\left(
+\lambda a\right)  \cdot b=a\cdot\left(  \lambda b\right)  $ for all
+$\lambda\in\mathbb{L}$ and $a,b\in V$.
+\end{itemize}
+
+Now, we can prove the statement \textbf{(k}$_{3}$\textbf{)}:
+
+[\textit{Proof of statement \textbf{(k}}$_{3}$\textit{\textbf{)}:} Let
+$\lambda\in\mathbb{K}$ and $a,b\in V$. We must prove that $\lambda\left(
+ab\right)  =\left(  \lambda a\right)  \cdot b=a\cdot\left(  \lambda b\right)
+$.
+
+We have $\lambda\cdot1_{\mathbb{L}}\in\mathbb{L}$. Thus, statement
+\textbf{(k}$_{1}$\textbf{)} (applied to $\lambda\cdot1_{\mathbb{L}}$ instead
+of $\lambda$) yields $\left(  \lambda\cdot1_{\mathbb{L}}\right)  \left(
+ab\right)  =\left(  \left(  \lambda\cdot1_{\mathbb{L}}\right)  a\right)  \cdot
+b=a\cdot\left(  \left(  \lambda\cdot1_{\mathbb{L}}\right)  b\right)  $.
+
+Applying (\ref{eq.prop.restrict-mod.fml}) to $v=a$, we obtain $\lambda\cdot
+a=\left(  \lambda\cdot1_{\mathbb{L}}\right)  \cdot a=\left(  \lambda
+\cdot1_{\mathbb{L}}\right)  a$. Applying (\ref{eq.prop.restrict-mod.fml}) to
+$v=b$, we obtain $\lambda\cdot b=\left(  \lambda\cdot1_{\mathbb{L}}\right)
+\cdot b=\left(  \lambda\cdot1_{\mathbb{L}}\right)  b$. Applying
+(\ref{eq.prop.restrict-mod.fml}) to $v=ab$, we obtain
+\[
+\lambda\cdot\left(  ab\right)  =\left(  \lambda\cdot1_{\mathbb{L}}\right)
+\cdot\left(  ab\right)  =\underbrace{\left(  \left(  \lambda\cdot
+1_{\mathbb{L}}\right)  a\right)  }_{\substack{=\lambda a\\\text{(since
+}\lambda a=\lambda\cdot a=\left(  \lambda\cdot1_{\mathbb{L}}\right)
+a\text{)}}}\cdot b=\left(  \lambda a\right)  \cdot b.
+\]
+Also,%
+\[
+\lambda\cdot\left(  ab\right)  =\left(  \lambda\cdot1_{\mathbb{L}}\right)
+\cdot\left(  ab\right)  =a\cdot\underbrace{\left(  \left(  \lambda
+\cdot1_{\mathbb{L}}\right)  b\right)  }_{\substack{=\lambda b\\\text{(since
+}\lambda b=\lambda\cdot b=\left(  \lambda\cdot1_{\mathbb{L}}\right)
+b\text{)}}}=a\cdot\left(  \lambda b\right)  .
+\]
+Combining these two equalities, we find $\lambda\cdot\left(  ab\right)
+=\left(  \lambda a\right)  \cdot b=a\cdot\left(  \lambda b\right)  $. In other
+words, $\lambda\left(  ab\right)  =\left(  \lambda a\right)  \cdot
+b=a\cdot\left(  \lambda b\right)  $. This proves statement \textbf{(k}$_{3}%
+$\textbf{)}.]
+
+So we have proven that statement \textbf{(k}$_{3}$\textbf{)} holds. In other
+words, $V$ satisfies the \textquotedblleft Scale-invariance of
+multiplication\textquotedblright\ axiom. Thus, altogether, we have shown that
+$V$ satisfies all the ring axioms as well as all the module axioms and also
+the \textquotedblleft Scale-invariance of multiplication\textquotedblright%
+\ axiom. Thus, $V$ is a $\mathbb{K}$-algebra (by Definition
+\ref{def.K-alg.K-alg.short-def}). This proves Proposition
+\ref{prop.restrict-alg}.
+\end{proof}
+\end{fineprint}
+
+\subsection{Appendix 2: Factoring $x^{p^{g}}-x$, part II}
+
+If $r$, $m$ and $\mathbb{K}$ are as in Lemma \ref{lem.xpg-x.2}, then every
+irreducible divisor of the polynomial in $x^{p^{mr}}-x$ in $\mathbb{K}\left[
+x\right]  $ satisfies $\deg\mathbf{a}\mid r$ in $\mathbb{Z}$; this is what
+Lemma \ref{lem.xpg-x.2} stated. But a converse also holds:
+
+\begin{lemma}
+\label{lem.xpg-x.4}Let $r$ and $m$ be positive integers. Let $\mathbb{K}$ be a
+finite $\mathbb{F}_{p}$-field of size $p^{m}$. Let $\mathbf{a}\in
+\mathbb{K}\left[  x\right]  $ be an irreducible polynomial such that
+$\deg\mathbf{a}\mid r$ in $\mathbb{Z}$. Then, $\mathbf{a}\mid x^{p^{mr}}-x$ in
+$\mathbb{K}\left[  x\right]  $.
+\end{lemma}
+
+\begin{proof}
+[Proof of Lemma \ref{lem.xpg-x.4}.]Let $n=\deg\mathbf{a}$. Thus, $\mathbf{a}$
+is a polynomial of degree $n$. Theorem \ref{thm.field-ext} \textbf{(c)}
+(applied to $\mathbb{F}=\mathbb{K}$) yields that $\mathbb{K}\left[  x\right]
+/\mathbf{a}$ is a field. Let $\mathbb{F}$ denote this field.
+
+We have $n=\deg\mathbf{a}\mid r$ in $\mathbb{Z}$. Hence, there exists an
+integer $u$ such that $r=nu$. Consider this $u$. Thus, $nu=r$. Also, it is
+easy to see that $u\in\mathbb{N}$\ \ \ \ \footnote{\textit{Proof.} We have
+$n=\deg\mathbf{a}>0$ (since $\mathbf{a}$ is irreducible). But we have $nu=r>0$
+(since $r$ is positive). We can divide this inequality by $n$ (since $n>0$),
+and thus find $u>0$. Hence, $u\in\mathbb{N}$ (since $u$ is an integer).}.
+
+The following observations can be proven exactly as they were proven in our
+proof of Lemma \ref{lem.xpg-x.2} above:
+
+\begin{itemize}
+\item The number $mn$ is a positive integer.
+
+\item The ring $\mathbb{K}$ is a field and is commutative.
+
+\item We have
+\begin{equation}
+\left(  \left[  f\right]  _{\mathbf{a}}\right)  ^{k}=\left[  f^{k}\right]
+_{\mathbf{a}}\ \ \ \ \ \ \ \ \ \ \text{for each }f\in\mathbb{K}\left[
+x\right]  \text{ and each }k\in\mathbb{N}. \label{pf.lem.xpg-x.4.fak}%
+\end{equation}
+(Recall Convention \ref{conv.quotient} in order to make sense of this.)
+
+\item The ring $\mathbb{F}$ is an $\mathbb{F}_{p}$-field and has size $p^{mn}$.
+\end{itemize}
+
+Thus, $\mathbb{F}$ is finite. Now, $\left[  x\right]  _{\mathbf{a}}%
+\in\mathbb{K}\left[  x\right]  /\mathbf{a}=\mathbb{F}$. Hence, Corollary
+\ref{cor.Frob.Fnidr} (applied to $mn$, $\left[  x\right]  _{\mathbf{a}}$ and
+$u$ instead of $n$, $a$ and $r$) yields $\left(  \left[  x\right]
+_{\mathbf{a}}\right)  ^{p^{mnu}}=\left[  x\right]  _{\mathbf{a}}$. In view of
+$m\underbrace{nu}_{=r}=mr$, this rewrites as $\left(  \left[  x\right]
+_{\mathbf{a}}\right)  ^{p^{mr}}=\left[  x\right]  _{\mathbf{a}}$. Comparing
+this with%
+\[
+\left(  \left[  x\right]  _{\mathbf{a}}\right)  ^{p^{mr}}=\left[  x^{p^{mr}%
+}\right]  _{\mathbf{a}}\ \ \ \ \ \ \ \ \ \ \left(  \text{by
+(\ref{pf.lem.xpg-x.4.fak}), applied to }f=x\text{ and }k=p^{mr}\right)  ,
+\]
+we obtain $\left[  x^{p^{mr}}\right]  _{\mathbf{a}}=\left[  x\right]
+_{\mathbf{a}}$. In other words, $x^{p^{mr}}\equiv x\operatorname{mod}%
+\mathbf{a}$ in $\mathbb{K}\left[  x\right]  $. In other words, $\mathbf{a}\mid
+x^{p^{mr}}-x$ in $\mathbb{K}\left[  x\right]  $. This proves Lemma
+\ref{lem.xpg-x.4}.
+\end{proof}
+
+Lemma \ref{lem.xpg-x.2} with Lemma \ref{lem.xpg-x.4} can be merged into a
+single theorem, which gives an \textquotedblleft explicit\textquotedblright%
+\ factorization of $x^{p^{mr}}-x$ into irreducible
+polynomials\footnote{\textquotedblleft Explicit\textquotedblright\ only in the
+sense that the irreducible polynomials of any given degree over $\mathbb{K}$
+can be found.}:
+
+\begin{theorem}
+\label{thm.xpg-x.full}Let $r$ and $m$ be positive integers. Let $\mathbb{K}$
+be a finite $\mathbb{F}_{p}$-field of size $p^{m}$. Then,%
+\[
+x^{p^{mr}}-x=\prod_{\substack{\mathbf{a}\in\mathbb{K}\left[  x\right]  \text{
+is}\\\text{irreducible}\\\text{and monic;}\\\deg\mathbf{a}\mid r}}\mathbf{a}.
+\]
+
+\end{theorem}
+
+Our proof of Theorem \ref{thm.xpg-x.full} relies on the following fact about
+irreducible polynomials:
+
+\begin{proposition}
+\label{prop.irredpol.pabk}Let $\mathbb{K}$ be a field. Let $\mathbf{p}%
+\in\mathbb{K}\left[  x\right]  $ be an irreducible polynomial. Let
+$\mathbf{a}_{1},\mathbf{a}_{2},\ldots,\mathbf{a}_{k}\in\mathbb{K}\left[
+x\right]  $ be polynomials such that $\mathbf{p}\mid\mathbf{a}_{1}%
+\mathbf{a}_{2}\mathbf{\cdots a}_{k}$. Then, $\mathbf{p}\mid\mathbf{a}_{i}$ for
+some $i\in\left\{  1,2,\ldots,k\right\}  $.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.irredpol.pabk}.]Proposition
+\ref{prop.irredpol.pabk} is the analogue of \cite[Proposition 2.13.7]{19s} for
+polynomials (in $\mathbb{K}\left[  x\right]  $) instead of integers. It can be
+proven in the same way as the latter result was proven (but with the usual
+changes that are required to turn an argument about integers into the
+analogous argument about polynomials).
+
+\begin{fineprint}
+Alternatively, we can prove Proposition \ref{prop.irredpol.pabk} using Theorem
+\ref{thm.field-ext} as follows: Assume the contrary. Thus, we don't have
+$\left(  \mathbf{p}\mid\mathbf{a}_{i}\text{ for some }i\in\left\{
+1,2,\ldots,k\right\}  \right)  $. In other words, we have%
+\begin{equation}
+\mathbf{p}\nmid\mathbf{a}_{i}\ \ \ \ \ \ \ \ \ \ \text{for each }i\in\left\{
+1,2,\ldots,k\right\}  . \label{pf.prop.irredpol.pabk.atc}%
+\end{equation}
+
+
+The polynomial $\mathbf{p}$ is irreducible and thus non-constant. Hence,
+$\deg\mathbf{p}>0$.
+
+Let $n=\deg\mathbf{p}$. Thus, $\mathbf{p}$ is a polynomial of degree $n$.
+Theorem \ref{thm.field-ext} \textbf{(c)} (applied to $\mathbb{F}=\mathbb{K}$
+and $\mathbf{a}=\mathbf{p}$) shows that $\mathbb{K}\left[  x\right]
+/\mathbf{p}$ is a field. Recall Convention \ref{conv.quotient}. The definition
+of the multiplication on $\mathbb{K}\left[  x\right]  /\mathbf{p}$ shows that
+$\left[  \mathbf{u}\right]  _{\mathbf{p}}\left[  \mathbf{v}\right]
+_{\mathbf{p}}=\left[  \mathbf{uv}\right]  _{\mathbf{p}}$ for any
+$\mathbf{u},\mathbf{v}\in\mathbb{K}\left[  x\right]  $. Hence, a
+straightforward induction on $j$ shows that%
+\[
+\left[  \mathbf{u}_{1}\right]  _{\mathbf{p}}\left[  \mathbf{u}_{2}\right]
+_{\mathbf{p}}\cdots\left[  \mathbf{u}_{j}\right]  _{\mathbf{p}}=\left[
+\mathbf{u}_{1}\mathbf{u}_{2}\cdots\mathbf{u}_{j}\right]  _{\mathbf{p}}%
+\]
+for every $j\in\mathbb{N}$ and every $\mathbf{u}_{1},\mathbf{u}_{2}%
+,\ldots,\mathbf{u}_{j}\in\mathbb{K}\left[  x\right]  $. Applying this to $j=k$
+and $\mathbf{u}_{i}=\mathbf{a}_{i}$, we conclude that
+\[
+\left[  \mathbf{a}_{1}\right]  _{\mathbf{p}}\left[  \mathbf{a}_{2}\right]
+_{\mathbf{p}}\cdots\left[  \mathbf{a}_{k}\right]  _{\mathbf{p}}=\left[
+\mathbf{a}_{1}\mathbf{a}_{2}\cdots\mathbf{a}_{k}\right]  _{\mathbf{p}}=\left[
+0\right]  _{\mathbf{p}}%
+\]
+(since $\mathbf{a}_{1}\mathbf{a}_{2}\cdots\mathbf{a}_{k}\equiv
+0\operatorname{mod}\mathbf{p}$ (because $\mathbf{p}\mid\mathbf{a}%
+_{1}\mathbf{a}_{2}\cdots\mathbf{a}_{k}$)).
+
+But $\mathbb{K}\left[  x\right]  /\mathbf{p}$ is a field, and thus is a
+commutative skew field. Hence, every nonzero element of $\mathbb{K}\left[
+x\right]  /\mathbf{p}$ is invertible (since $\mathbb{K}\left[  x\right]
+/\mathbf{p}$ is a skew field).
+
+Now, let $i\in\left\{  1,2,\ldots,k\right\}  $. Then, $\mathbf{p}%
+\nmid\mathbf{a}_{i}$ (by (\ref{pf.prop.irredpol.pabk.atc})). In other words,
+$\mathbf{a}_{i}\not \equiv 0\operatorname{mod}\mathbf{p}$. In other words,
+$\left[  \mathbf{a}_{i}\right]  _{\mathbf{p}}\neq\left[  0\right]
+_{\mathbf{p}}$. The element $\left[  \mathbf{a}_{i}\right]  _{\mathbf{p}}$ of
+$\mathbb{K}\left[  x\right]  /\mathbf{p}$ is nonzero (since $\left[
+\mathbf{a}_{i}\right]  _{\mathbf{p}}\neq\left[  0\right]  _{\mathbf{p}%
+}=0_{\mathbb{K}\left[  x\right]  /\mathbf{p}}$) and thus invertible (since
+every nonzero element of $\mathbb{K}\left[  x\right]  /\mathbf{p}$ is
+invertible). In other words, there exists a multiplicative inverse of $\left[
+\mathbf{a}_{i}\right]  _{\mathbf{p}}$ in $\mathbb{K}\left[  x\right]
+/\mathbf{p}$. In other words, there exists some $\beta_{i}\in\mathbb{K}\left[
+x\right]  /\mathbf{p}$ such that $\left[  \mathbf{a}_{i}\right]  _{\mathbf{p}%
+}\beta_{i}=\beta_{i}\left[  \mathbf{a}_{i}\right]  _{\mathbf{p}}%
+=1_{\mathbb{K}\left[  x\right]  /\mathbf{p}}$. Consider this $\beta_{i}$.
+
+Forget that we fixed $i$. Thus, for each $i\in\left\{  1,2,\ldots,k\right\}
+$, we have constructed some $\beta_{i}\in\mathbb{K}\left[  x\right]
+/\mathbf{p}$ such that
+\begin{equation}
+\left[  \mathbf{a}_{i}\right]  _{\mathbf{p}}\beta_{i}=\beta_{i}\left[
+\mathbf{a}_{i}\right]  _{\mathbf{p}}=1_{\mathbb{K}\left[  x\right]
+/\mathbf{p}}. \label{pf.prop.irredpol.pabk.ab}%
+\end{equation}
+But the ring $\mathbb{K}\left[  x\right]  /\mathbf{p}$ is commutative (since
+$\mathbb{K}\left[  x\right]  $ is commutative). Thus,%
+\[
+\prod_{i=1}^{k}\left(  \left[  \mathbf{a}_{i}\right]  _{\mathbf{p}}\beta
+_{i}\right)  =\underbrace{\left(  \prod_{i=1}^{k}\left[  \mathbf{a}%
+_{i}\right]  _{\mathbf{p}}\right)  }_{\substack{=\left[  \mathbf{a}%
+_{1}\right]  _{\mathbf{p}}\left[  \mathbf{a}_{2}\right]  _{\mathbf{p}}%
+\cdots\left[  \mathbf{a}_{k}\right]  _{\mathbf{p}}\\=\left[  0\right]
+_{\mathbf{p}}=0_{\mathbb{K}\left[  x\right]  /\mathbf{p}}}}\left(  \prod
+_{i=1}^{k}\beta_{i}\right)  =0_{\mathbb{K}\left[  x\right]  /\mathbf{p}%
+}\left(  \prod_{i=1}^{k}\beta_{i}\right)  =0_{\mathbb{K}\left[  x\right]
+/\mathbf{p}}=\left[  0\right]  _{\mathbf{p}}.
+\]
+Hence,%
+\[
+\left[  0\right]  _{\mathbf{p}}=\prod_{i=1}^{k}\underbrace{\left(  \left[
+\mathbf{a}_{i}\right]  _{\mathbf{p}}\beta_{i}\right)  }%
+_{\substack{=1_{\mathbb{K}\left[  x\right]  /\mathbf{p}}\\\text{(by
+(\ref{pf.prop.irredpol.pabk.ab}))}}}=\prod_{i=1}^{k}1_{\mathbb{K}\left[
+x\right]  /\mathbf{p}}=1_{\mathbb{K}\left[  x\right]  /\mathbf{p}}=\left[
+1\right]  _{\mathbf{p}}.
+\]
+Thus, $\left[  1\right]  _{\mathbf{p}}=\left[  0\right]  _{\mathbf{p}}$. In
+other words, $1\equiv0\operatorname{mod}\mathbf{p}$. In other words,
+$\mathbf{p}\mid1$ in $\mathbb{K}\left[  x\right]  $. Hence, there exists some
+$\mathbf{c}\in\mathbb{K}\left[  x\right]  $ such that $1=\mathbf{pc}$.
+Consider this $\mathbf{c}$. We have $\mathbf{c}\neq0$ (since $\mathbf{pc}%
+=1\neq0$) and thus $\deg\mathbf{c}\geq0$. But $\deg1=0$, so that
+$0=\deg\underbrace{1}_{=\mathbf{pc}}=\deg\left(  \mathbf{pc}\right)
+=\underbrace{\deg\mathbf{p}}_{>0}+\underbrace{\deg\mathbf{c}}_{\geq0}>0$. This
+is absurd. This contradiction shows that our assumption was false. Hence,
+Proposition \ref{prop.irredpol.pabk} is proven.
+\end{fineprint}
+\end{proof}
+
+\begin{corollary}
+\label{cor.irredpol.pabk2}Let $\mathbb{K}$ be a field. Let $\mathbf{p}%
+\in\mathbb{K}\left[  x\right]  $ be a monic irreducible polynomial. Let
+$\mathbf{a}_{1},\mathbf{a}_{2},\ldots,\mathbf{a}_{k}\in\mathbb{K}\left[
+x\right]  $ be monic irreducible polynomials such that $\mathbf{p}%
+\mid\mathbf{a}_{1}\mathbf{a}_{2}\mathbf{\cdots a}_{k}$. Then, $\mathbf{p}%
+=\mathbf{a}_{i}$ for some $i\in\left\{  1,2,\ldots,k\right\}  $.
+\end{corollary}
+
+\begin{proof}
+[Proof of Corollary \ref{cor.irredpol.pabk2}.]Proposition
+\ref{prop.irredpol.pabk} shows that $\mathbf{p}\mid\mathbf{a}_{i}$ for some
+$i\in\left\{  1,2,\ldots,k\right\}  $. Consider this $i$, and denote it by
+$j$. Thus, $j$ is an element of $\left\{  1,2,\ldots,k\right\}  $ and
+satisfies $\mathbf{p}\mid\mathbf{a}_{j}$. From $\mathbf{p}\mid\mathbf{a}_{j}$,
+we conclude that there exists a polynomial $\mathbf{u}\in\mathbb{K}\left[
+x\right]  $ such that $\mathbf{a}_{j}=\mathbf{pu}$. Consider this $\mathbf{u}$.
+
+The polynomial $\mathbf{p}$ is irreducible and thus non-constant. In other
+words, $\deg\mathbf{p}>0$.
+
+The polynomial $\mathbf{a}_{j}$ is monic (since all $k$ polynomials
+$\mathbf{a}_{1},\mathbf{a}_{2},\ldots,\mathbf{a}_{k}$ are monic).
+
+The polynomial $\mathbf{a}_{j}$ is irreducible (since all $k$ polynomials
+$\mathbf{a}_{1},\mathbf{a}_{2},\ldots,\mathbf{a}_{k}$ are irreducible). In
+other words, $\deg\left(  \mathbf{a}_{j}\right)  >0$ and there exist no two
+polynomials $\mathbf{b},\mathbf{c}\in\mathbb{K}\left[  x\right]  $ with
+$\mathbf{a}_{j}=\mathbf{bc}$ and $\deg\mathbf{b}>0$ and $\deg\mathbf{c}>0$
+(because this is how \textquotedblleft irreducible\textquotedblright\ is defined).
+
+Assume (for the sake of contradiction) that $\deg\mathbf{u}>0$. Then, the
+polynomials $\mathbf{p},\mathbf{u}\in\mathbb{K}\left[  x\right]  $ satisfy
+$\mathbf{a}_{j}=\mathbf{pu}$ and $\deg\mathbf{p}>0$ and $\deg\mathbf{u}>0$.
+Hence, there exist two polynomials $\mathbf{b},\mathbf{c}\in\mathbb{K}\left[
+x\right]  $ with $\mathbf{a}_{j}=\mathbf{bc}$ and $\deg\mathbf{b}>0$ and
+$\deg\mathbf{c}>0$ (namely, $\mathbf{b}=\mathbf{p}$ and $\mathbf{c}%
+=\mathbf{u}$). This contradicts the fact that there exist no two polynomials
+$\mathbf{b},\mathbf{c}\in\mathbb{K}\left[  x\right]  $ with $\mathbf{a}%
+_{j}=\mathbf{bc}$ and $\deg\mathbf{b}>0$ and $\deg\mathbf{c}>0$.
+
+This contradiction shows that our assumption (that $\deg\mathbf{u}>0$) was
+false. Hence, $\deg\mathbf{u}\leq0$. Thus, the polynomial $\mathbf{u}$ is
+constant. In other words, $\mathbf{u}=\lambda$ for some $\lambda\in\mathbb{K}%
+$. Consider this $\lambda$. Now, $\mathbf{a}_{j}=\mathbf{p}%
+\underbrace{\mathbf{u}}_{=\lambda}=\mathbf{p}\lambda=\lambda\mathbf{p}$, so
+that $\lambda\mathbf{p}=\mathbf{a}_{j}\neq0$ (because $\mathbf{a}_{j}$ is
+irreducible) and thus $\lambda\neq0$.
+
+The leading coefficient of the polynomial $\mathbf{p}$ is $1$ (since
+$\mathbf{p}$ is monic). Hence, the leading coefficient of the polynomial
+$\lambda\mathbf{p}$ is $\lambda\cdot1=\lambda$. In other words, the leading
+coefficient of the polynomial $\mathbf{a}_{j}$ is $\lambda$ (since
+$\mathbf{a}_{j}=\lambda\mathbf{p}$). Thus,%
+\[
+\lambda=\left(  \text{the leading term of the polynomial }\mathbf{a}%
+_{j}\right)  =1
+\]
+(since the polynomial $\mathbf{a}_{j}$ is monic). Hence, $\mathbf{a}%
+_{j}=\underbrace{\lambda}_{=1}\mathbf{p}=\mathbf{p}$, so that $\mathbf{p}%
+=\mathbf{a}_{j}$. Thus, $\mathbf{p}=\mathbf{a}_{i}$ for some $i\in\left\{
+1,2,\ldots,k\right\}  $ (namely, for $i=j$). This proves Corollary
+\ref{cor.irredpol.pabk2}.
+\end{proof}
+
+\begin{proof}
+[Proof of Theorem \ref{thm.xpg-x.full}.]Recall that $m$ and $r$ are positive
+integers. Hence, their product $mr$ is a positive integer. Thus, Lemma
+\ref{lem.xpg-x.1} (applied to $g=mr$) shows that the polynomial $x^{p^{mr}%
+}-x\in\mathbb{K}\left[  x\right]  $ can be written in the form $x^{p^{mr}%
+}-x=\mathbf{u}_{1}\mathbf{u}_{2}\cdots\mathbf{u}_{k}$, where $\mathbf{u}%
+_{1},\mathbf{u}_{2},\ldots,\mathbf{u}_{k}\in\mathbb{K}\left[  x\right]  $ are
+\textbf{distinct} monic irreducible polynomials. Consider these $\mathbf{u}%
+_{1},\mathbf{u}_{2},\ldots,\mathbf{u}_{k}$.
+
+Let $D$ be the set of all monic irreducible polynomials $\mathbf{a}%
+\in\mathbb{K}\left[  x\right]  $ that satisfy $\deg\mathbf{a}\mid r$. For each
+$i\in\left\{  1,2,\ldots,k\right\}  $, we have%
+\begin{equation}
+\mathbf{u}_{i}\in D. \label{pf.thm.xpg-x.full.uiiD}%
+\end{equation}
+
+
+[\textit{Proof of (\ref{pf.thm.xpg-x.full.uiiD}):} Let $i\in\left\{
+1,2,\ldots,k\right\}  $. Then, $\mathbf{u}_{i}$ is a monic irreducible
+polynomial (since $\mathbf{u}_{1},\mathbf{u}_{2},\ldots,\mathbf{u}_{k}$ are
+monic irreducible polynomials). Moreover, $\mathbf{u}_{i}\mid\mathbf{u}%
+_{1}\mathbf{u}_{2}\cdots\mathbf{u}_{k}$ (since $\mathbf{u}_{i}$ is a factor in
+the product $\mathbf{u}_{1}\mathbf{u}_{2}\cdots\mathbf{u}_{k}$). This rewrites
+as $\mathbf{u}_{i}\mid x^{p^{mr}}-x$ (since $x^{p^{mr}}-x=\mathbf{u}%
+_{1}\mathbf{u}_{2}\cdots\mathbf{u}_{k}$). Hence, Lemma \ref{lem.xpg-x.2}
+(applied to $\mathbf{a}=\mathbf{u}_{i}$) shows that $\deg\left(
+\mathbf{u}_{i}\right)  \mid r$ in $\mathbb{Z}$. Thus, $\mathbf{u}_{i}$ is a
+monic irreducible polynomial in $\mathbb{K}\left[  x\right]  $ that satisfies
+$\deg\left(  \mathbf{u}_{i}\right)  \mid r$ in $\mathbb{Z}$. In other words,
+$\mathbf{u}_{i}$ is a monic irreducible polynomial $\mathbf{a}\in
+\mathbb{K}\left[  x\right]  $ that satisfies $\deg\mathbf{a}\mid r$. In other
+words, $\mathbf{u}_{i}\in D$ (since $D$ is the set of all monic irreducible
+polynomials $\mathbf{a}\in\mathbb{K}\left[  x\right]  $ that satisfy
+$\deg\mathbf{a}\mid r$). This proves (\ref{pf.thm.xpg-x.full.uiiD}).]
+
+Thus, we have shown that we have $\mathbf{u}_{i}\in D$ for each $i\in\left\{
+1,2,\ldots,k\right\}  $. Hence, the map%
+\begin{align*}
+\left\{  1,2,\ldots,k\right\}   &  \rightarrow D,\\
+i  &  \mapsto\mathbf{u}_{i}%
+\end{align*}
+is well-defined. Denote this map by $\alpha$. This map $\alpha$ is
+injective\footnote{\textit{Proof.} Let $i$ and $j$ be two elements of
+$\left\{  1,2,\ldots,k\right\}  $ such that $\alpha\left(  i\right)
+=\alpha\left(  j\right)  $. We shall prove that $i=j$.
+\par
+We have $\alpha\left(  j\right)  =\mathbf{u}_{j}$ (by the definition of
+$\alpha$) and $\alpha\left(  i\right)  =\mathbf{u}_{i}$ (similarly). Thus,
+$\mathbf{u}_{i}=\alpha\left(  i\right)  =\alpha\left(  j\right)
+=\mathbf{u}_{j}$. Hence, $i=j$ (since the polynomials $\mathbf{u}%
+_{1},\mathbf{u}_{2},\ldots,\mathbf{u}_{k}$ are distinct).
+\par
+Now, forget that we fixed $i$ and $j$. We thus have shown that if $i$ and $j$
+are two elements of $\left\{  1,2,\ldots,k\right\}  $ such that $\alpha\left(
+i\right)  =\alpha\left(  j\right)  $, then $i=j$. In other words, the map
+$\alpha$ is injective.} and surjective\footnote{\textit{Proof.} Let
+$\mathbf{d}\in D$. Thus, $\mathbf{d}$ is a monic irreducible polynomial
+$\mathbf{a}\in\mathbb{K}\left[  x\right]  $ that satisfies $\deg\mathbf{a}\mid
+r$ (since $D$ is the set of all monic irreducible polynomials $\mathbf{a}%
+\in\mathbb{K}\left[  x\right]  $ that satisfy $\deg\mathbf{a}\mid r$). In
+other words, $\mathbf{d}$ is a monic irreducible polynomial in $\mathbb{K}%
+\left[  x\right]  $ and satisfies $\deg\mathbf{d}\mid r$. Hence, Lemma
+\ref{lem.xpg-x.4} (applied to $\mathbf{a}=\mathbf{d}$) shows that
+$\mathbf{d}\mid x^{p^{mr}}-x$ in $\mathbb{K}\left[  x\right]  $. Thus,
+$\mathbf{d}\mid x^{p^{mr}}-x=\mathbf{u}_{1}\mathbf{u}_{2}\cdots\mathbf{u}_{k}%
+$. Hence, Corollary \ref{cor.irredpol.pabk2} (applied to $\mathbf{p}%
+=\mathbf{d}$ and $\mathbf{a}_{i}=\mathbf{u}_{i}$) shows that $\mathbf{d}%
+=\mathbf{u}_{i}$ for some $i\in\left\{  1,2,\ldots,k\right\}  $. Consider this
+$i$. The definition of $\alpha$ yields $\alpha\left(  i\right)  =\mathbf{u}%
+_{i}$. Comparing this with $\mathbf{d}=\mathbf{u}_{i}$, we find $\mathbf{d}%
+=\alpha\left(  \underbrace{i}_{\in\left\{  1,2,\ldots,k\right\}  }\right)
+\in\alpha\left(  \left\{  1,2,\ldots,k\right\}  \right)  $.
+\par
+Now, forget that we fixed $\mathbf{d}$. We thus have shown that $\mathbf{d}%
+\in\alpha\left(  \left\{  1,2,\ldots,k\right\}  \right)  $ for each
+$\mathbf{d}\in D$. In other words, $D\subseteq\alpha\left(  \left\{
+1,2,\ldots,k\right\}  \right)  $. In other words, the map $\alpha$ is
+surjective.}. Hence, this map $\alpha$ is bijective. Thus, $\alpha$ is a
+bijection from $\left\{  1,2,\ldots,k\right\}  $ to $D$.
+
+Now,%
+\begin{align*}
+x^{p^{mr}}-x  &  =\mathbf{u}_{1}\mathbf{u}_{2}\cdots\mathbf{u}_{k}=\prod
+_{i\in\left\{  1,2,\ldots,k\right\}  }\underbrace{\mathbf{u}_{i}%
+}_{\substack{=\alpha\left(  i\right)  \\\text{(since }\alpha\left(  i\right)
+=\mathbf{u}_{i}\\\text{(by the definition of }\alpha\text{))}}}=\prod
+_{i\in\left\{  1,2,\ldots,k\right\}  }\alpha\left(  i\right)  =\prod
+_{\mathbf{a}\in D}\mathbf{a}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{here, we have substituted }\mathbf{a}\text{ for }\alpha\left(  i\right)
+\text{ in the product,}\\
+\text{since the map }\alpha:\left\{  1,2,\ldots,k\right\}  \rightarrow D\text{
+is a bijection}%
+\end{array}
+\right) \\
+&  =\prod_{\substack{\mathbf{a}\text{ is a monic}\\\text{irreducible
+polynomial in }\mathbb{K}\left[  x\right]  \\\text{that satisfies }%
+\deg\mathbf{a}\mid r}}\mathbf{a}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{since }D\text{ is the set of all monic irreducible}\\
+\text{polynomials }\mathbf{a}\in\mathbb{K}\left[  x\right]  \text{ that
+satisfy }\deg\mathbf{a}\mid r
+\end{array}
+\right) \\
+&  =\prod_{\substack{\mathbf{a}\in\mathbb{K}\left[  x\right]  \text{
+is}\\\text{monic irreducible;}\\\deg\mathbf{a}\mid r}}\mathbf{a.}%
+\end{align*}
+This proves Theorem \ref{thm.xpg-x.full}.
+\end{proof}
+
+\begin{thebibliography}{999999999}                                                                                        %
+
+
+\bibitem[Bourba72]{Bourba72}Nicolas Bourbaki, \textit{Elements of Mathematics:
+Commutative Algebra}, Hermann 1972.
+
+\bibitem[Bourba74]{Bourba74}Nicolas Bourbaki, \textit{Algebra I, Chapters
+1-3}, Hermann 1974.\newline\url{https://archive.org/details/ElementsOfMathematics-AlgebraPart1/page/n0}
+
+\bibitem[ConradF]{Conrad-FF}Keith Conrad, \textit{Finite fields}, 4 February
+2018.\newline\url{https://kconrad.math.uconn.edu/blurbs/galoistheory/finitefields.pdf}
+
+\bibitem[Escofi01]{Escofi01}%
+\href{https://dx.doi.org/10.1007/978-1-4613-0191-2}{Jean-Pierre Escofier,
+\textit{Galois Theory}, translated by Leila Schneps, Springer 2001}.
+
+\bibitem[Goodma16]{Goodman}Frederick M. Goodman, \textit{Algebra: Abstract and
+Concrete}, edition 2.6, 12 October 2016.\newline\url{https://homepage.divms.uiowa.edu/~goodman/algebrabook.dir/algebrabook.html}
+
+\bibitem[Grinbe18]{Grinbe18}Darij Grinberg, \textit{Why the log and exp series
+are mutually inverse}, May 11, 2018.\newline\url{https://www.cip.ifi.lmu.de/~grinberg/t/17f/logexp.pdf}
+
+\bibitem[Grinbe19a]{19s}Darij Grinberg, \textit{Introduction to Modern Algebra
+(UMN Spring 2019 Math 4281 notes)}, 31 May 2019.\newline%
+\url{https://www.cip.ifi.lmu.de/~grinberg/t/19s/notes.pdf}\newline This
+document is still unfinished; numbering may change in the future. For a frozen
+version whose numbering matches the references used above, see\newline\url{https://github.com/darijgr/algebra19s/releases/tag/2019-05-31}
+
+\bibitem[Grinbe19b]{19s-mt3s}Darij Grinberg, \textit{UMN Spring 2019 Math 4281
+midterm \#3 solutions}.\newline\url{https://www.cip.ifi.lmu.de/~grinberg/t/19s/mt3s.pdf}
+
+\bibitem[Hunger03]{Hungerford-03}%
+\href{http://link.springer.com/book/10.1007/978-1-4612-6101-8}{Thomas W.
+Hungerford, \textit{Algebra}, 12th printing, Springer 2003.}
+
+\bibitem[Hunger14]{Hungerford}Thomas W. Hungerford, \textit{Abstract Algebra:
+An Introduction}, 3rd edition, Brooks/Cole 2014.
+
+\bibitem[Knapp16a]{Knapp1}Anthony W. Knapp, \textit{Basic Algebra}, digital
+2nd edition 2016. \newline\url{https://www.math.stonybrook.edu/~aknapp/download.html}
+
+\bibitem[LidNie97]{LidNie97}Rudolf Lidl, Harald Niederreiter, \textit{Finite
+fields}, 2nd edition, Cambridge University Press 1997.\newline\url{https://doi.org/10.1017/CBO9780511525926}
+
+\bibitem[Loehr11]{Loehr-BC}%
+\href{https://www.math.vt.edu/people/nloehr/bijbook.html}{Nicholas A. Loehr,
+\textit{Bijective Combinatorics}, Chapman \& Hall/CRC 2011.}
+
+\bibitem[Milne18]{Milne-FT}James S. Milne, \textit{Fields and Galois Theory},
+version 4.60, September 2018.\newline\url{https://www.jmilne.org/math/CourseNotes/}
+
+\bibitem[Stewar15]{Stewar15}Ian Stewart, \textit{Galois theory}, 4th edition,
+CRC Press 2015.\newline\url{http://matematicaeducativa.com/foro/download/file.php?id=1647}
+
+\bibitem[Walker87]{Walker87}%
+\href{https://web.archive.org/web/20170809055317/https://www.math.nmsu.edu/~elbert/AbsAlgeb.pdf}{Elbert
+A. Walker, \textit{Introduction to Abstract Algebra}, Random House/Birkhauser,
+New York, 1987.}
+\end{thebibliography}
+
+
+\end{document}
