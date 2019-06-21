@@ -17,7 +17,7 @@
 \usepackage{wasysym}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Saturday, June 15, 2019 07:13:53}
+%TCIDATA{LastRevised=Friday, June 21, 2019 08:24:39}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -28453,7 +28453,8 @@ $f^{-1}$ satisfies axiom \textbf{(d)}. Similarly, $f^{-1}$ satisfies axiom
 
 Thus, the map $f^{-1}:\mathbb{L}\rightarrow\mathbb{K}$ satisfies all four
 axioms for a ring homomorphism. Hence, $f^{-1}$ is a ring homomorphism. Thus,
-$f$ is a ring isomorphism (by the definition of a ring isomorphism).
+$f$ is a ring isomorphism (by the definition of a ring isomorphism). This
+proves Proposition \ref{prop.riiso.invertible}.
 \end{proof}
 
 \begin{example}
@@ -33077,7 +33078,7 @@ $n,m\in\mathbb{N}$. This means that $\mathbb{K}$\textbf{-linear maps between
 matrix\textquotedblright\ way of doing linear algebra can be embedded into the
 \textquotedblleft$\mathbb{K}$-module\textquotedblright\ way of doing linear algebra.
 
-Furthermore:
+Multiplication of matrices is directly connected to composition of linear maps:
 
 \begin{proposition}
 \label{prop.module.LAB}Let $n,m,p\in\mathbb{N}$. Let $A\in\mathbb{K}^{n\times
@@ -33103,6 +33104,25 @@ A  &  \mapsto L_{A}%
 (where $L_{A}$ is defined as in Theorem \ref{thm.module.LA} for $m=n$) is a
 ring isomorphism.
 \end{corollary}
+
+\begin{proof}
+[Proof of Corollary \ref{cor.modiso.mat-End}.]This map respects addition
+(since $L_{A+B}=L_{A}+L_{B}$ for all $A,B\in\mathbb{K}^{n\times n}$) and
+respects multiplication (by Proposition \ref{prop.module.LAB}); furthermore,
+it sends the zero matrix $0_{n\times n}$ to the zero map $0\in
+\operatorname*{End}\left(  \mathbb{K}^{n\times1}\right)  $ (this is easy to
+see) and sends the identity matrix $I_{n}$ to the identity endomorphism
+$\operatorname*{id}\in\operatorname*{End}\left(  \mathbb{K}^{n\times1}\right)
+$ (this follows from observing that $I_{n}C=C$ for each $C\in\mathbb{K}%
+^{n\times1}$). Hence, it is a ring homomorphism. Furthermore, it is
+invertible\footnote{The easiest way to see this is to notice that it is the
+same map as the map from Proposition \ref{prop.modiso.mat-Hom} (applied to
+$m=n$), because $\operatorname*{End}\left(  \mathbb{K}^{n\times1}\right)
+=\operatorname*{Hom}\left(  \mathbb{K}^{n\times1},\mathbb{K}^{n\times
+1}\right)  $ as sets. Hence, the invertibility of this map follows from
+Proposition \ref{prop.modiso.mat-Hom}.}. Thus, it is a ring isomorphism (by
+Proposition \ref{prop.riiso.invertible}).
+\end{proof}
 
 \begin{teachingnote}
 \textbf{2019-04-19 lecture}
@@ -33196,9 +33216,9 @@ $M$. In other words, the vectors $v_{1},v_{2},\ldots,v_{k}$ are linearly
 independent and their span is $M$ (by the definition of \textquotedblleft
 basis\textquotedblright).
 
-Now, let $v\in M$ be any vector. Then, $v$ lies in the span of the vectors
-$v_{1},v_{2},\ldots,v_{k}$ (since the span of these vectors $v_{1}%
-,v_{2},\ldots,v_{k}$ is $M$, but $v$ lies in $M$). In other words,%
+Now, let $v\in M$ be any vector. Then, $v$ lies in $M$. In other words, $v$
+lies in the span of the vectors $v_{1},v_{2},\ldots,v_{k}$ (since the span of
+these vectors $v_{1},v_{2},\ldots,v_{k}$ is $M$). In other words,%
 \[
 v\in\left\{  \lambda_{1}v_{1}+\lambda_{2}v_{2}+\cdots+\lambda_{k}v_{k}%
 \ \mid\ \lambda_{1},\lambda_{2},\ldots,\lambda_{k}\in\mathbb{K}\right\}
@@ -33228,12 +33248,13 @@ yield%
 &  \left(  \alpha_{1}-\beta_{1}\right)  v_{1}+\left(  \alpha_{2}-\beta
 _{2}\right)  v_{2}+\cdots+\left(  \alpha_{k}-\beta_{k}\right)  v_{k}%
 \nonumber\\
-&  =\left(  \alpha_{1}v-\beta_{1}v\right)  +\left(  \alpha_{2}v-\beta
-_{2}v\right)  +\cdots+\left(  \alpha_{k}v-\beta_{k}v\right) \nonumber\\
+&  =\left(  \alpha_{1}v_{1}-\beta_{1}v_{1}\right)  +\left(  \alpha_{2}%
+v_{2}-\beta_{2}v_{2}\right)  +\cdots+\left(  \alpha_{k}v_{k}-\beta_{k}%
+v_{k}\right)  \nonumber\\
 &  =\underbrace{\left(  \alpha_{1}v_{1}+\alpha_{2}v_{2}+\cdots+\alpha_{k}%
 v_{k}\right)  }_{=v}-\underbrace{\left(  \beta_{1}v_{1}+\beta_{2}v_{2}%
 +\cdots+\beta_{k}v_{k}\right)  }_{=v}\nonumber\\
-&  =v-v=0. \label{pf.prop.module.basis-unique.1}%
+&  =v-v=0.\label{pf.prop.module.basis-unique.1}%
 \end{align}
 But the only $k$-tuple $\left(  \lambda_{1},\lambda_{2},\ldots,\lambda
 _{k}\right)  \in\mathbb{K}^{k}$ satisfying $\lambda_{1}v_{1}+\lambda_{2}%
@@ -38596,15 +38617,15 @@ of the polynomial $x\left(  x-1\right)  $ in a $\mathbb{K}$-algebra $U$ are
 the idempotent elements of $U$, because for any element $u\in U$, we have the
 following equivalence:%
 \begin{align*}
-&  \ \left(  u\text{ is a root of }x\left(  x-1\right)  \right)  \\
+&  \ \left(  u\text{ is a root of }x\left(  x-1\right)  \right) \\
 &  \Longleftrightarrow\ \left(  \underbrace{\left(  x\left(  x-1\right)
 \right)  \left[  u\right]  }_{=x\left[  u\right]  \cdot\left(  x-1\right)
 \left[  u\right]  }=0\right)  \ \Longleftrightarrow\ \left(
 \underbrace{x\left[  u\right]  }_{=u}\cdot\underbrace{\left(  x-1\right)
-\left[  u\right]  }_{=u-1}=0\right)  \\
+\left[  u\right]  }_{=u-1}=0\right) \\
 &  \Longleftrightarrow\ \left(  \underbrace{u\cdot\left(  u-1\right)
 }_{=u^{2}-u}=0\right)  \ \Longleftrightarrow\ \left(  u^{2}-u=0\right)
-\ \Longleftrightarrow\ \left(  u^{2}=u\right)  \\
+\ \Longleftrightarrow\ \left(  u^{2}=u\right) \\
 &  \Longleftrightarrow\ \left(  u\text{ is idempotent}\right)  .
 \end{align*}
 If $U$ is a field, then the only idempotent elements of $U$ are $0$ and $1$
