@@ -213,7 +213,7 @@ Prove that the equalities
         %    parentheses -- say, a fraction or a summation sign --, then
         %    writing "\tup{...}" will automatically stretch the parentheses to
         %    the size of whatever you put inside them, while "(...)" will
-        %    just generate two normal-size parentheses. You don't have toß
+        %    just generate two normal-size parentheses. You don't have to
         %    follow my stylistic choice.
         % 3. The expression "b^2" means "b to the 2nd power".
         %    The expression "a^{n-2}" means "a to the (n-2)-nd power".
@@ -230,7 +230,7 @@ Prove that the equalities
         %    "eq.exe.geo-series.1", and you can refer to it using
         %    "\eqref{eq.exe.geo-series.1}". Note that the labels do *not* get
         %    printed in the compiled PDF; they just become "(1)", "(2)" etc.
-        % 5. "\nonumer" means that the first line of the "align" environment
+        % 5. "\nonumber" means that the first line of the "align" environment
         %    gets no label.
 and
 \begin{align}
@@ -256,7 +256,7 @@ $1 a^{n-1} + 2 a^{n-2} b + 3 a^{n-3} b^2 + \cdots + \tup{n-1} a b^{n-2} + n b^{n
 in the case when $n = 0$.)
         % LaTeX ignores single linebreaks in the sourcecode (or, rather,
         % treats them just as whitespaces). This is why the linebreak
-        % between "have no" and "&=" doesn't cause a linebreak in the
+        % between "have no" and "addends" doesn't cause a linebreak in the
         % PDF.
 
 \subsection{Remark}
@@ -1400,7 +1400,7 @@ The same argument (applied to $n-1$ instead of $n$) yields
 \end{align*}
 Adding \eqref{sol.binom.101.e.1} to this equality, we obtain
 \begin{align*}
-&  \dbinom{n-1}{k} + \dbinom{n-1}{k-1} \\
+   \dbinom{n-1}{k} + \dbinom{n-1}{k-1}
 &= \dfrac{1}{k!} \tup{n-k} \cdot \tup{\tup{n-1} \tup{n-2} \cdots \tup{n-k+1}} \\
 & \qquad \qquad + \dfrac{1}{k!} \cdot k \cdot \tup{ \tup{n-1} \tup{n-2} \cdots \tup{n-k+1} } \\
 &= \dfrac{1}{k!} \cdot \underbrack{\tup{\tup{n-k}+k}}{= n}
@@ -2101,6 +2101,8 @@ Combining $i \in \set{0, 1, \ldots, k}$ with
 $i \notin \set{0, k}$, we obtain
 $i \in \set{0, 1, \ldots, k} \setminus \set{0, k}
 = \set{1, 2, \ldots, k-1}$.
+Thus, $1 \leq i \leq k-1$, so that $k \geq 2$,
+and therefore $k$ is a positive integer.
 Hence, part \textbf{(a)} of this exercise yields
 \[
 P \tup{a_1, a_2, \ldots, a_k}
