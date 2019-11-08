@@ -130,6 +130,12 @@
 \newcommand{\horrule}[1]{\rule{\linewidth}{#1}}
 \newcommand{\nnn}{\nonumber\\}
 \newcommand{\sslash}{\mathbin{/\mkern-6mu/}}
+\newcommand{\relnever}{\mathrel{\fbox{$N$}}}
+\newcommand{\relalways}{\mathrel{\fbox{$A$}}}
+\iffalse
+\NOEXPAND{\relnever}{\mathrel{\fbox{$N$}}}
+\NOEXPAND{\relalways}{\mathrel{\fbox{$A$}}}
+\fi
 \ihead{Math 4281 notes as of \today\ at \currenttime}
 \ohead{page \thepage}
 \cfoot{}
@@ -543,7 +549,7 @@ this polynomial $f\left(  x \right)  $ has $4$ real roots ($-11.269\ldots,
 -0.960\ldots, 0.198\ldots, 0.697\ldots$), which can be written as complicated
 expressions with radicals (i.e., $\sqrt[k]{}$ signs), though complex numbers
 appear in these expressions (despite the roots being real!). All this does not
-matter to the fact that they are algebraic :)
+matter to the fact that they are algebraic $\overset{\cdot\cdot}{\smile}$
 
 \item All the roots of the polynomial $g\left(  x \right)  := x^{7} - x^{5} +
 1$ are algebraic. \newline This polynomial has only one real root. This root
@@ -14347,22 +14353,22 @@ b\operatorname{mod}n\right\} \\
 Note that the relation $\underset{0}{\equiv}$ is exactly the relation $=$ (by
 Example \ref{exa.ent.cong.triv} \textbf{(c)}).
 
-\textbf{(f)} Define a binary relation \fbox{$N$} on $S$ by%
+\textbf{(f)} Define a binary relation $\relnever$ on $S$ by%
 \[
-\left(  a\fbox{$N$}b\right)  \Longleftrightarrow\left(  \text{false}\right)
+\left(  a \relnever b\right)  \Longleftrightarrow\left(  \text{false}\right)
 \]
-(that is, $a\fbox{$N$}b$ never holds, no matter what $a$ and $b$ are). As a
-subset of $S\times S$, this relation \fbox{$N$} is just the empty subset of
+(that is, $a \relnever b$ never holds, no matter what $a$ and $b$ are). As a
+subset of $S\times S$, this relation $\relnever$ is just the empty subset of
 $S\times S$.
 
-\textbf{(g)} On the other extreme: Define a binary relation \fbox{$A$} on $S$
+\textbf{(g)} On the other extreme: Define a binary relation $\relalways$ on $S$
 by%
 \[
-\left(  a\fbox{$A$}b\right)  \Longleftrightarrow\left(  \text{true}\right)
+\left(  a \relalways b\right)  \Longleftrightarrow\left(  \text{true}\right)
 \]
-(that is, $a\fbox{$A$}b$ holds for all $a$ and $b$). As a subset of $S\times
-S$, this relation \fbox{$A$} is the whole set $S\times S$. Note that the
-relation \fbox{$A$} is exactly the relation $\underset{1}{\equiv}$ (by Example
+(that is, $a\relalways b$ holds for all $a$ and $b$). As a subset of $S\times
+S$, this relation $\relalways$ is the whole set $S\times S$. Note that the
+relation $\relalways$ is exactly the relation $\underset{1}{\equiv}$ (by Example
 \ref{exa.ent.cong.triv} \textbf{(d)}).
 
 \textbf{(h)} The relation $\mid$ (divisibility) is also a relation on
@@ -14372,7 +14378,7 @@ $S=\mathbb{Z}$.
 $S=\mathbb{Z}$.
 
 \textbf{(j)} We have defined several relations on the set $S=\mathbb{Z}$ now.
-The relations $=$, $\neq$, \fbox{$N$} and \fbox{$A$} (or, rather, relations
+The relations $=$, $\neq$, $\relnever$ and $\relalways$ (or, rather, relations
 analogous to them) can be defined on \textbf{any} set.
 \end{example}
 
@@ -14434,9 +14440,9 @@ relations on $\mathbb{Z}$ defined in Example \ref{exa.eqrel.rel.rels1}.
 \textbf{(e)} For each $n\in\mathbb{Z}$, the relation $\underset{n}{\equiv}$ is
 reflexive, symmetric and transitive.
 
-\textbf{(f)} The relation \fbox{$N$} is symmetric and transitive, but not reflexive.
+\textbf{(f)} The relation $\relnever$ is symmetric and transitive, but not reflexive.
 
-\textbf{(g)} The relation \fbox{$A$} is reflexive, symmetric and transitive.
+\textbf{(g)} The relation $\relalways$ is reflexive, symmetric and transitive.
 
 \textbf{(h)} The divisibility relation $\mid$ is reflexive and transitive, but
 not symmetric.
@@ -14532,17 +14538,17 @@ consequence of the concept of \textquotedblleft%
 \textquotedblright:
 
 \begin{itemize}
-\item Every $a,b\in S$ satisfying $a\fbox{$N$}b$ satisfy $b\fbox{$N$}a$
-(because there are no such $a,b$ to begin with -- since $a$\fbox{$N$}$b$ never
-holds). Thus, \fbox{$N$} is symmetric.
+\item Every $a,b\in S$ satisfying $a \relnever b$ satisfy $b \relnever a$
+(because there are no such $a,b$ to begin with -- since $a \relnever b$ never
+holds). Thus, $\relnever$ is symmetric.
 
-\item Similarly, \fbox{$N$} is transitive.
+\item Similarly, $\relnever$ is transitive.
 
-\item But \fbox{$N$} is not reflexive, since (for example) $1\fbox{$N$}1$ does
+\item But $\relnever$ is not reflexive, since (for example) $1 \relnever 1$ does
 not hold.
 \end{itemize}
 
-\textbf{(g)} All of this is trivial, because $a$\fbox{$A$}$b$ holds for all
+\textbf{(g)} All of this is trivial, because $a \relalways b$ holds for all
 $a,b\in S$.
 
 \textbf{(h)} The divisibility relation $\mid$ is reflexive (by Proposition
@@ -14567,7 +14573,7 @@ $S$ is an equivalence relation, because it is reflexive, symmetric and transitiv
 \end{example}
 
 \begin{example}
-\label{exa.eqrel.eqrel.eqrelmodn}Let $n\in\mathbb{Z}$. The relation relation
+\label{exa.eqrel.eqrel.eqrelmodn}Let $n\in\mathbb{Z}$. The relation
 $\underset{n}{\equiv}$ on $\mathbb{Z}$ (defined in Example
 \ref{exa.eqrel.rel.rels1} \textbf{(e)}) is an equivalence relation, because
 (as we saw in Example \ref{exa.eqrel.rel.rst1} \textbf{(e)}) it is reflexive,
