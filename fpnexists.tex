@@ -14,7 +14,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Thursday, June 27, 2019 15:43:56}
+%TCIDATA{LastRevised=Monday, October 05, 2020 20:06:44}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -180,8 +180,8 @@ several results that will end up useful.
 
 All polynomials that appear in this note are polynomials in a single variable
 $x$. If $\mathbb{K}$ is a commutative ring, and if $\mathbf{a}=\sum_{k=0}%
-^{n}a_{k}x^{k}\in\mathbb{K}\left[  x\right]  $ is a polynomial of degree
-$n\geq0$ (with $a_{k}\in\mathbb{K}$), then:
+^{n}a_{k}x^{k}\in\mathbb{K}\left[  x\right]  $ is a nonzero polynomial of
+degree $n\geq0$ (with $a_{k}\in\mathbb{K}$), then:
 
 \begin{itemize}
 \item the \textit{leading term} of $\mathbf{a}$ is defined to be the
@@ -191,8 +191,14 @@ polynomial $a_{n}x^{n}\in\mathbb{K}\left[  x\right]  $;
 element $a_{n}\in\mathbb{K}$;
 
 \item the polynomial $\mathbf{a}$ is said to be \textit{monic} if $a_{n}=1$
-(that is, its leading term is $1$).
+(that is, its leading coefficient is $1$).
 \end{itemize}
+
+\noindent Note that the leading coefficient of $\mathbf{a}$ is therefore
+nonzero (since $\deg\mathbf{a}=n$ and thus $a_{n}\neq0$).
+
+We use the convention that the degree of the zero polynomial $0$ is
+$\deg0=-\infty$.
 
 \subsection{Adjoining a root of a polynomial}
 
@@ -559,7 +565,7 @@ Roughly speaking, the definition of the scaling $\cdot:\mathbb{K}\times
 V\rightarrow V$ in Proposition \ref{prop.restrict-mod} can be restated as
 follows: In order to scale an element $v\in V$ by an element $\lambda
 \in\mathbb{K}$, we first scale $1_{\mathbb{L}}$ by $\lambda$, thus obtaining
-some sort of \textquotedblleft proxy element\textquotedblright\ of $\lambda$
+some sort of \textquotedblleft proxy element\textquotedblright\ for $\lambda$
 in $\mathbb{L}$, and then we scale $v$ by this \textquotedblleft proxy
 element\textquotedblright\ (which we know how to do, because $V$ is an
 $\mathbb{L}$-module).
@@ -642,7 +648,7 @@ $0_{\mathbb{F}}$). Thus, $\left\vert \mathbb{F}\right\vert \geq1$, so that
 $0^{\left\vert \mathbb{F}\right\vert }=0$. (Here and throughout this proof,
 \textquotedblleft$0$\textquotedblright\ means the zero of $\mathbb{F}$.)
 
-We know that $\mathbb{F}$ is skew a field. Thus, every nonzero element of
+We know that $\mathbb{F}$ is a skew field. Thus, every nonzero element of
 $\mathbb{F}$ is invertible, and we have $1\neq0$ in $\mathbb{F}$.
 
 It is well-known that the product of any two invertible elements of
@@ -1154,12 +1160,15 @@ map $D$ from \cite[Exercise 5]{19s-mt3s} is $\mathbb{K}$-linear. This is not
 exactly our map $D$, but our map $D$ is a restriction of this map; thus, it
 follows that our map $D$ is $\mathbb{K}$-linear as well.}. This quickly yields
 parts \textbf{(a)} and \textbf{(b)} of Proposition \ref{prop.f'.leib}%
-\footnote{In more details: The map $D$ is $\mathbb{K}$-linear. Thus, $D\left(
-\mathbf{f}+\mathbf{g}\right)  =\underbrace{D\left(  \mathbf{f}\right)
-}_{\substack{=\mathbf{f}^{\prime}\\\text{(by the definition of }D\text{)}%
-}}+\underbrace{D\left(  \mathbf{g}\right)  }_{\substack{=\mathbf{g}^{\prime
-}\\\text{(by the definition of }D\text{)}}}=\mathbf{f}^{\prime}+\mathbf{g}%
-^{\prime}$. Comparing this with%
+\footnote{In more details: The map $D$ is $\mathbb{K}$-linear. Thus,%
+\[
+D\left(  \mathbf{f}+\mathbf{g}\right)  =\underbrace{D\left(  \mathbf{f}%
+\right)  }_{\substack{=\mathbf{f}^{\prime}\\\text{(by the definition of
+}D\text{)}}}+\underbrace{D\left(  \mathbf{g}\right)  }_{\substack{=\mathbf{g}%
+^{\prime}\\\text{(by the definition of }D\text{)}}}=\mathbf{f}^{\prime
+}+\mathbf{g}^{\prime}.
+\]
+Comparing this with%
 \[
 D\left(  \mathbf{f}+\mathbf{g}\right)  =\left(  \mathbf{f}+\mathbf{g}\right)
 ^{\prime}\ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of }D\right)  ,
@@ -1357,8 +1366,12 @@ _{2},\ldots,\mathbf{u}_{k}\in\mathbb{K}\left[  x\right]  $ are
 [Proof of Lemma \ref{lem.xpg-x.1}.]We know that $\mathbb{K}$ is an
 $\mathbb{F}_{p}$-field. In other words, $\mathbb{K}$ is an $\mathbb{F}_{p}%
 $-algebra that is a field. Hence, $\mathbb{K}$ is commutative (since
-$\mathbb{K}$ is a field). Also, $\mathbb{K}$ is an $\mathbb{F}_{p}$-algebra;
-thus, $\mathbb{K}\left[  x\right]  $ is an $\mathbb{F}_{p}$-algebra as well.
+$\mathbb{K}$ is a field).
+
+\begin{noncompile}
+Also, $\mathbb{K}$ is an $\mathbb{F}_{p}$-algebra; thus, $\mathbb{K}\left[
+x\right]  $ is an $\mathbb{F}_{p}$-algebra as well.
+\end{noncompile}
 
 We have $g>0$ (since $g$ is a positive integer), hence $p^{g}>p^{0}=1$. Thus,
 the leading term of the polynomial $x^{p^{g}}-x$ is $x^{p^{g}}$. This shows
