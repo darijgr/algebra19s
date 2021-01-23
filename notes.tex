@@ -18,7 +18,7 @@
 \usepackage[type={CC}, modifier={zero}, version={1.0},]{doclicense}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Thursday, December 31, 2020 03:43:53}
+%TCIDATA{LastRevised=Saturday, January 23, 2021 18:01:10}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -5983,6 +5983,26 @@ a,b\right)  =\gcd\left(  a,b,c\right)  \cdot\gcd\left(  bc,ca,ab\right)  .
 
 \end{exercise}
 
+
+
+\begin{exercise}
+\label{exe.ent.sum1xy-eng}Let $n$ be a positive integer. Let $\left[
+n\right]  $ denote the set $\left\{  1,2,\ldots,n\right\}  $. Let $Z$ be the
+set of all pairs $\left(  x,y\right)  \in\left[  n\right]  ^{2}$ satisfying
+$x\perp y$ and $x+y>n$. (For example, if $n=5$, then%
+\[
+Z=\left\{  \left(  1,5\right)  ,\left(  2,5\right)  ,\left(  3,4\right)
+,\left(  3,5\right)  ,\left(  4,3\right)  ,\left(  4,5\right)  ,\left(
+5,1\right)  ,\left(  5,2\right)  ,\left(  5,3\right)  ,\left(  5,4\right)
+\right\}  \text{. )}%
+\]
+Prove that%
+\[
+\sum\limits_{\left(  x,y\right)  \in Z}\ \ \dfrac{1}{xy}=1.
+\]
+
+\end{exercise}
+
 \begin{teachingnote}
 \textbf{2019-02-08 lecture}
 \end{teachingnote}
@@ -8618,15 +8638,15 @@ product $\prod_{p\text{ prime}}p^{v_{p}\left(  m\right)  -v_{p}\left(
 n\right)  }$ is a product of integers, and thus itself an integer. Let us
 denote this product by $c$. Thus,%
 \begin{equation}
-c=\prod_{p\text{ prime}}p^{v_{p}\left(  m\right)  -v_{p}\left(  n\right)
-}.\label{pf.prop.ent.prime.n|m.c=}%
+c=\prod_{p\text{ prime}}p^{v_{p}\left(  m\right)  -v_{p}\left(  n\right)  }.
+\label{pf.prop.ent.prime.n|m.c=}%
 \end{equation}
 Thus, $c$ is an integer (since we have just shown that $\prod_{p\text{ prime}%
 }p^{v_{p}\left(  m\right)  -v_{p}\left(  n\right)  }$ is an integer).
 Multiplying the equalities (\ref{pf.prop.ent.prime.n|m.n=}) and
 (\ref{pf.prop.ent.prime.n|m.c=}), we obtain%
 \begin{align*}
-nc &  =\left(  \prod_{p\text{ prime}}p^{v_{p}\left(  n\right)  }\right)
+nc  &  =\left(  \prod_{p\text{ prime}}p^{v_{p}\left(  n\right)  }\right)
 \left(  \prod_{p\text{ prime}}p^{v_{p}\left(  m\right)  -v_{p}\left(
 n\right)  }\right)  =\prod_{p\text{ prime}}\underbrace{\left(  p^{v_{p}\left(
 n\right)  }p^{v_{p}\left(  m\right)  -v_{p}\left(  n\right)  }\right)
@@ -45642,7 +45662,7 @@ But comparing
 &  \left\{  \underbrace{bca}_{=abc},\underbrace{baa}_{=a^{2}b}%
 ,\underbrace{cca}_{=c^{2}a},\underbrace{caa}_{=a^{2}c},\underbrace{bcb}%
 _{=b^{2}c},\underbrace{bab}_{=b^{2}a},\underbrace{ccb}_{=c^{2}b}%
-,\underbrace{cab}_{=abc}\right\} \\
+,\underbrace{cab}_{=abc}\right\}  \\
 &  =\left\{  abc,a^{2}b,c^{2}a,a^{2}c,b^{2}c,b^{2}a,c^{2}b,abc\right\}
 =\left\{  abc,b^{2}c,c^{2}b,c^{2}a,a^{2}c,a^{2}b,b^{2}a\right\}
 \end{align*}
@@ -45651,7 +45671,7 @@ with%
 &  \left\{  abc,\underbrace{bbc}_{=b^{2}c},\underbrace{cbc}_{=c^{2}%
 b},\underbrace{aca}_{=a^{2}c},\underbrace{bca}_{=abc},\underbrace{cca}%
 _{=c^{2}a},\underbrace{aab}_{=a^{2}b},\underbrace{bab}_{=b^{2}a}%
-,\underbrace{cab}_{=abc}\right\} \\
+,\underbrace{cab}_{=abc}\right\}  \\
 &  =\left\{  abc,b^{2}c,c^{2}b,a^{2}c,abc,c^{2}a,a^{2}b,b^{2}a,abc\right\}
 =\left\{  abc,b^{2}c,c^{2}b,c^{2}a,a^{2}c,a^{2}b,b^{2}a\right\}  ,
 \end{align*}
@@ -45680,6 +45700,462 @@ Comparing this with (\ref{sol.ent.coprime.gcd-distrib1.3}), we obtain%
 a,b\right)  =\gcd\left(  a,b,c\right)  \cdot\gcd\left(  bc,ca,ab\right)  .
 \]
 This solves Exercise \ref{exe.ent.coprime.gcd-distrib1}.
+\end{proof}
+\end{fineprint}
+
+
+
+\subsection{Solution to Exercise \ref{exe.ent.sum1xy-eng}}
+
+\begin{fineprint}
+\begin{proof}
+[Solution to Exercise \ref{exe.ent.sum1xy-eng}.]Let $W$ be the set of all
+pairs $\left(  x,y\right)  \in\left[  n\right]  ^{2}$ satisfying $x\perp y$
+and $x+y\leq n$. Any pair $\left(  x,y\right)  \in\left[  n\right]  ^{2}$
+satisfying $x\perp y$ must satisfy either $x+y\leq n$ or $x+y>n$ (but not both
+at the same time). Hence, we can split the sum $\sum_{\substack{\left(
+x,y\right)  \in\left[  n\right]  ^{2};\\x\perp y}}\ \ \dfrac{1}{xy}$ as
+follows:%
+\begin{align}
+\sum_{\substack{\left(  x,y\right)  \in\left[  n\right]  ^{2};\\x\perp
+y}}\ \ \dfrac{1}{xy} &  =\underbrace{\sum_{\substack{\left(  x,y\right)
+\in\left[  n\right]  ^{2};\\x\perp y;\\x+y\leq n}}}_{\substack{=\sum_{\left(
+x,y\right)  \in W}\\\text{(since }W\text{ is the set of}\\\text{all pairs
+}\left(  x,y\right)  \in\left[  n\right]  ^{2}\\\text{satisfying }x\perp
+y\text{ and }x+y\leq n\text{)}}}\dfrac{1}{xy}+\underbrace{\sum
+_{\substack{\left(  x,y\right)  \in\left[  n\right]  ^{2};\\x\perp
+y;\\x+y>n}}}_{\substack{=\sum_{\left(  x,y\right)  \in Z}\\\text{(since
+}Z\text{ is the set of}\\\text{all pairs }\left(  x,y\right)  \in\left[
+n\right]  ^{2}\\\text{satisfying }x\perp y\text{ and }x+y>n\text{)}}}\dfrac
+{1}{xy}\nonumber\\
+&  =\sum_{\left(  x,y\right)  \in W}\ \ \dfrac{1}{xy}+\sum_{\left(
+x,y\right)  \in Z}\ \ \dfrac{1}{xy}.\label{sol.ent.sum1xy-eng.1st.1}%
+\end{align}
+
+
+On the other hand, let $A$ be the set of all pairs $\left(  x,y\right)
+\in\left[  n\right]  ^{2}$ satisfying $x\perp y$ and $x<y$. Let $B$ be the set
+of all pairs $\left(  x,y\right)  \in\left[  n\right]  ^{2}$ satisfying
+$x\perp y$ and $x=y$. Let $C$ be the set of all pairs $\left(  x,y\right)
+\in\left[  n\right]  ^{2}$ satisfying $x\perp y$ and $x>y$.
+
+Now, any pair $\left(  x,y\right)  \in\left[  n\right]  ^{2}$ satisfying
+$x\perp y$ must satisfy exactly one of the three relations $x<y$ and $x=y$ and
+$x>y$. Hence, we can split the sum $\sum_{\substack{\left(  x,y\right)
+\in\left[  n\right]  ^{2};\\x\perp y}}\ \ \dfrac{1}{xy}$ as follows:%
+\begin{align}
+\sum_{\substack{\left(  x,y\right)  \in\left[  n\right]  ^{2};\\x\perp
+y}}\ \ \dfrac{1}{xy} &  =\underbrace{\sum_{\substack{\left(  x,y\right)
+\in\left[  n\right]  ^{2};\\x\perp y;\\x<y}}}_{\substack{=\sum_{\left(
+x,y\right)  \in A}\\\text{(since }A\text{ is the set of}\\\text{all pairs
+}\left(  x,y\right)  \in\left[  n\right]  ^{2}\\\text{satisfying }x\perp
+y\text{ and }x<y\text{)}}}\dfrac{1}{xy}+\underbrace{\sum_{\substack{\left(
+x,y\right)  \in\left[  n\right]  ^{2};\\x\perp y;\\x=y}}}_{\substack{=\sum
+_{\left(  x,y\right)  \in B}\\\text{(since }B\text{ is the set of}\\\text{all
+pairs }\left(  x,y\right)  \in\left[  n\right]  ^{2}\\\text{satisfying }x\perp
+y\text{ and }x=y\text{)}}}\dfrac{1}{xy}+\underbrace{\sum_{\substack{\left(
+x,y\right)  \in\left[  n\right]  ^{2};\\x\perp y;\\x>y}}}_{\substack{=\sum
+_{\left(  x,y\right)  \in C}\\\text{(since }C\text{ is the set of}\\\text{all
+pairs }\left(  x,y\right)  \in\left[  n\right]  ^{2}\\\text{satisfying }x\perp
+y\text{ and }x>y\text{)}}}\dfrac{1}{xy}\nonumber\\
+&  =\sum_{\left(  x,y\right)  \in A}\ \ \dfrac{1}{xy}+\sum_{\left(
+x,y\right)  \in B}\ \ \dfrac{1}{xy}+\sum_{\left(  x,y\right)  \in C}%
+\ \ \dfrac{1}{xy}.\label{sol.ent.sum1xy-eng.1st.2}%
+\end{align}
+
+
+We shall now study the three sums on the right hand side of this equality. We
+begin with the first one: We claim that
+\begin{equation}
+\sum_{\left(  x,y\right)  \in A}\ \ \dfrac{1}{xy}=\sum_{\left(  x,y\right)
+\in W}\ \ \dfrac{1}{x\left(  x+y\right)  }.\label{sol.ent.sum1xy-eng.1st.sumA}%
+\end{equation}
+
+
+[\textit{Proof of (\ref{sol.ent.sum1xy-eng.1st.sumA}):} We shall establish a
+bijection between $A$ and $W$.
+
+Indeed, if $\left(  u,v\right)  \in W$, then $\left(  u,u+v\right)  \in
+A$\ \ \ \ \footnote{\textit{Proof.} Let $\left(  u,v\right)  \in W$. Thus,
+$\left(  u,v\right)  $ is a pair $\left(  x,y\right)  \in\left[  n\right]
+^{2}$ satisfying $x\perp y$ and $x+y\leq n$ (because $W$ is the set of all
+such pairs). In other words, $\left(  u,v\right)  $ belongs to $\left[
+n\right]  ^{2}$ and satisfies $u\perp v$ and $u+v\leq n$.
+\par
+We know that $\left(  u,v\right)  $ belongs to $\left[  n\right]  ^{2}$;
+hence, $u\in\left[  n\right]  $ and $v\in\left[  n\right]  $. From
+$u\in\left[  n\right]  =\left\{  1,2,\ldots,n\right\}  $, we obtain $1\leq
+u\leq n$. From $v\in\left[  n\right]  =\left\{  1,2,\ldots,n\right\}  $, we
+obtain $1\leq v\leq n$. Now, $1\leq v$, so that $v\geq1>0$ and therefore
+$u+v>u$, so that $u<u+v$. From $u+v>u$, we obtain $u+v\geq u\geq1$ (since
+$1\leq u$) and thus $1\leq u+v\leq n$. Hence, $u+v\in\left\{  1,2,\ldots
+,n\right\}  =\left[  n\right]  $.
+\par
+We have $u\perp v$. In other words, the numbers $u$ and $v$ are coprime (by
+Definition \ref{def.ent.coprime.perp}). In other words, $\gcd\left(
+u,v\right)  =1$ (by the definition of \textquotedblleft
+coprime\textquotedblright). But Proposition \ref{prop.ent.gcd.props1}
+\textbf{(c)} (applied to $u$, $v$ and $1$ instead of $a$, $b$ and $u$) yields
+$\gcd\left(  u,1u+v\right)  =\gcd\left(  u,v\right)  =1$. In other words,
+$\gcd\left(  u,u+v\right)  =1$ (since $1u=u$). In other words, $u$ and $u+v$
+are coprime (by the definition of \textquotedblleft coprime\textquotedblright%
+). In other words, $u\perp u+v$.
+\par
+Now, $\left(  u,u+v\right)  \in\left[  n\right]  ^{2}$ (since $u\in\left[
+n\right]  $ and $u+v\in\left[  n\right]  $) and $u\perp u+v$ and $u<u+v$. In
+other words, $\left(  u,u+v\right)  $ is a pair $\left(  x,y\right)
+\in\left[  n\right]  ^{2}$ satisfying $x\perp y$ and $x<y$. In other words,
+$\left(  u,u+v\right)  \in A$ (since $A$ is the set of all pairs $\left(
+x,y\right)  \in\left[  n\right]  ^{2}$ satisfying $x\perp y$ and $x<y$).
+Qed.}. Hence, we can define a map%
+\begin{align*}
+f:W  &  \rightarrow A,\\
+\left(  u,v\right)   &  \mapsto\left(  u,u+v\right)  .
+\end{align*}
+Consider this map $f$.
+
+On the other hand, if $\left(  u,v\right)  \in A$, then $\left(  u,v-u\right)
+\in W$\ \ \ \ \footnote{\textit{Proof.} Let $\left(  u,v\right)  \in A$. Thus,
+$\left(  u,v\right)  $ is a pair $\left(  x,y\right)  \in\left[  n\right]
+^{2}$ satisfying $x\perp y$ and $x<y$ (because $A$ is the set of all such
+pairs). In other words, $\left(  u,v\right)  $ belongs to $\left[  n\right]
+^{2}$ and satisfies $u\perp v$ and $u<v$.
+\par
+We know that $\left(  u,v\right)  $ belongs to $\left[  n\right]  ^{2}$;
+hence, $u\in\left[  n\right]  $ and $v\in\left[  n\right]  $. From
+$u\in\left[  n\right]  =\left\{  1,2,\ldots,n\right\}  $, we obtain $1\leq
+u\leq n$. From $v\in\left[  n\right]  =\left\{  1,2,\ldots,n\right\}  $, we
+obtain $1\leq v\leq n$. Now, $v-u>0$ (since $u<v$) and thus $v-u\geq1$ (since
+$v-u$ is an integer). Also, $0<1\leq u$ and thus $u>0$; hence, $v-u<v\leq n$
+and therefore $v-u\leq n$. From $v-u\geq1$ and $v-u\leq n$, we obtain
+$v-u\in\left\{  1,2,\ldots,n\right\}  =\left[  n\right]  $.
+\par
+We have $u\perp v$. In other words, the numbers $u$ and $v$ are coprime (by
+Definition \ref{def.ent.coprime.perp}). In other words, $\gcd\left(
+u,v\right)  =1$ (by the definition of \textquotedblleft
+coprime\textquotedblright). But Proposition \ref{prop.ent.gcd.props1}
+\textbf{(c)} (applied to $u$, $v$ and $-1$ instead of $a$, $b$ and $u$) yields
+$\gcd\left(  u,\left(  -1\right)  u+v\right)  =\gcd\left(  u,v\right)  =1$. In
+other words, $\gcd\left(  u,v-u\right)  =1$ (since $\left(  -1\right)
+u+v=v-u$). In other words, $u$ and $v-u$ are coprime (by the definition of
+\textquotedblleft coprime\textquotedblright). In other words, $u\perp v-u$.
+\par
+Now, $\left(  u,v-u\right)  \in\left[  n\right]  ^{2}$ (since $u\in\left[
+n\right]  $ and $v-u\in\left[  n\right]  $) and $u\perp v-u$ and $u+\left(
+v-u\right)  \leq n$ (since $u+\left(  v-u\right)  =v\leq n$). In other words,
+$\left(  u,v-u\right)  $ is a pair $\left(  x,y\right)  \in\left[  n\right]
+^{2}$ satisfying $x\perp y$ and $x+y\leq n$. In other words, $\left(
+u,v-u\right)  \in W$ (since $W$ is the set of all pairs $\left(  x,y\right)
+\in\left[  n\right]  ^{2}$ satisfying $x\perp y$ and $x+y\leq n$). Qed.}.
+Hence, we can define a map%
+\begin{align*}
+g:A  &  \rightarrow W,\\
+\left(  u,v\right)   &  \mapsto\left(  u,v-u\right)  .
+\end{align*}
+Consider this map $g$.
+
+We have $f\circ g=\operatorname*{id}$\ \ \ \ \footnote{\textit{Proof.} Let
+$p\in A$. Thus, $p$ is a pair $\left(  x,y\right)  \in\left[  n\right]  ^{2}$
+satisfying $x\perp y$ and $x<y$ (because $A$ is the set of all such pairs).
+Consider this pair $\left(  x,y\right)  $. Thus, $p=\left(  x,y\right)  $.
+\par
+Applying the map $g$ to both sides of this equality, we find $g\left(
+p\right)  =g\left(  \left(  x,y\right)  \right)  =\left(  x,y-x\right)  $ (by
+the definition of $g$). Applying the map $f$ to both sides of this equality,
+we find
+\begin{align*}
+f\left(  g\left(  p\right)  \right)   &  =f\left(  \left(  x,y-x\right)
+\right)  =\left(  x,\underbrace{x+\left(  y-x\right)  }_{=y}\right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of }f\right)  \\
+&  =\left(  x,y\right)  =p.
+\end{align*}
+Thus, $\left(  f\circ g\right)  \left(  p\right)  =f\left(  g\left(  p\right)
+\right)  =p=\operatorname*{id}\left(  p\right)  $.
+\par
+Forget that we fixed $p$. We thus have shown that $\left(  f\circ g\right)
+\left(  p\right)  =\operatorname*{id}\left(  p\right)  $ for each $p\in A$. In
+other words, $f\circ g=\operatorname*{id}$.} and $g\circ f=\operatorname*{id}%
+$\ \ \ \ \footnote{\textit{Proof.} Let $p\in W$. Thus, $p$ is a pair $\left(
+x,y\right)  \in\left[  n\right]  ^{2}$ satisfying $x\perp y$ and $x+y\leq n$
+(because $W$ is the set of all such pairs). Consider this pair $\left(
+x,y\right)  $. Thus, $p=\left(  x,y\right)  $.
+\par
+Applying the map $f$ to both sides of this equality, we find $f\left(
+p\right)  =f\left(  \left(  x,y\right)  \right)  =\left(  x,x+y\right)  $ (by
+the definition of $f$). Applying the map $g$ to both sides of this equality,
+we find
+\begin{align*}
+g\left(  f\left(  p\right)  \right)   &  =g\left(  \left(  x,x+y\right)
+\right)  =\left(  x,\underbrace{\left(  x+y\right)  -x}_{=y}\right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of }g\right)  \\
+&  =\left(  x,y\right)  =p.
+\end{align*}
+Thus, $\left(  g\circ f\right)  \left(  p\right)  =g\left(  f\left(  p\right)
+\right)  =p=\operatorname*{id}\left(  p\right)  $.
+\par
+Forget that we fixed $p$. We thus have shown that $\left(  g\circ f\right)
+\left(  p\right)  =\operatorname*{id}\left(  p\right)  $ for each $p\in W$. In
+other words, $g\circ f=\operatorname*{id}$.}. Hence, the maps $f$ and $g$ are
+mutually inverse, and thus are invertible. In other words, the maps $f$ and
+$g$ are bijections.
+
+In particular, the map $f$ is a bijection. In other words, the map%
+\begin{align*}
+W &  \rightarrow A,\\
+\left(  u,v\right)   &  \mapsto\left(  u,u+v\right)
+\end{align*}
+is a bijection (since this map is precisely the map $f$ (by the definition of
+$f$)). Hence, we can substitute $\left(  u,u+v\right)  $ for $\left(
+x,y\right)  $ in the sum $\sum_{\left(  x,y\right)  \in A}\ \ \dfrac{1}{xy}$.
+We thus obtain
+\[
+\sum_{\left(  x,y\right)  \in A}\ \ \dfrac{1}{xy}=\sum_{\left(  u,v\right)
+\in W}\ \ \dfrac{1}{u\left(  u+v\right)  }=\sum_{\left(  x,y\right)  \in
+W}\ \ \dfrac{1}{x\left(  x+y\right)  }%
+\]
+(here, we have renamed the summation index $\left(  u,v\right)  $ as $\left(
+x,y\right)  $). This proves (\ref{sol.ent.sum1xy-eng.1st.sumA}).]
+
+Next, we claim that
+\begin{equation}
+\sum_{\left(  x,y\right)  \in C}\ \ \dfrac{1}{xy}=\sum_{\left(  x,y\right)
+\in W}\ \ \dfrac{1}{y\left(  x+y\right)  }.\label{sol.ent.sum1xy-eng.1st.sumC}%
+\end{equation}
+
+
+[\textit{Proof of (\ref{sol.ent.sum1xy-eng.1st.sumC}):} We shall establish a
+bijection between $C$ and $W$.
+
+Indeed, if $\left(  u,v\right)  \in W$, then $\left(  u+v,v\right)  \in
+C$\ \ \ \ \footnote{\textit{Proof.} Let $\left(  u,v\right)  \in W$. Thus,
+$\left(  u,v\right)  $ is a pair $\left(  x,y\right)  \in\left[  n\right]
+^{2}$ satisfying $x\perp y$ and $x+y\leq n$ (because $W$ is the set of all
+such pairs). In other words, $\left(  u,v\right)  $ belongs to $\left[
+n\right]  ^{2}$ and satisfies $u\perp v$ and $u+v\leq n$.
+\par
+We know that $\left(  u,v\right)  $ belongs to $\left[  n\right]  ^{2}$;
+hence, $u\in\left[  n\right]  $ and $v\in\left[  n\right]  $. From
+$u\in\left[  n\right]  =\left\{  1,2,\ldots,n\right\}  $, we obtain $1\leq
+u\leq n$. From $v\in\left[  n\right]  =\left\{  1,2,\ldots,n\right\}  $, we
+obtain $1\leq v\leq n$. Now, $1\leq u$, so that $u\geq1>0$ and therefore
+$u+v>v$. Hence, $u+v\geq v\geq1$ (since $1\leq v$) and thus $1\leq u+v\leq n$.
+Hence, $u+v\in\left\{  1,2,\ldots,n\right\}  =\left[  n\right]  $.
+\par
+We have $u\perp v$. In other words, the numbers $u$ and $v$ are coprime (by
+Definition \ref{def.ent.coprime.perp}). In other words, $\gcd\left(
+u,v\right)  =1$ (by the definition of \textquotedblleft
+coprime\textquotedblright). Proposition \ref{prop.ent.gcd.props1} \textbf{(b)}
+(applied to $a=v$ and $b=u$) yields $\gcd\left(  v,u\right)  =\gcd\left(
+u,v\right)  =1$. But Proposition \ref{prop.ent.gcd.props1} \textbf{(c)}
+(applied to $v$, $u$ and $1$ instead of $a$, $b$ and $u$) yields $\gcd\left(
+v,1v+u\right)  =\gcd\left(  v,u\right)  =1$. In other words, $\gcd\left(
+v,u+v\right)  =1$ (since $1v+u=u+v$). Now, Proposition
+\ref{prop.ent.gcd.props1} \textbf{(b)} (applied to $a=u+v$ and $b=v$) yields
+$\gcd\left(  u+v,v\right)  =\gcd\left(  v,u+v\right)  =1$. In other words,
+$u+v$ and $v$ are coprime (by the definition of \textquotedblleft
+coprime\textquotedblright). In other words, $u+v\perp v$.
+\par
+Now, $\left(  u+v,v\right)  \in\left[  n\right]  ^{2}$ (since $u+v\in\left[
+n\right]  $ and $v\in\left[  n\right]  $) and $u+v\perp v$ and $u+v>v$. In
+other words, $\left(  u+v,v\right)  $ is a pair $\left(  x,y\right)
+\in\left[  n\right]  ^{2}$ satisfying $x\perp y$ and $x>y$. In other words,
+$\left(  u+v,v\right)  \in C$ (since $C$ is the set of all pairs $\left(
+x,y\right)  \in\left[  n\right]  ^{2}$ satisfying $x\perp y$ and $x>y$).
+Qed.}. Hence, we can define a map%
+\begin{align*}
+f:W  &  \rightarrow C,\\
+\left(  u,v\right)   &  \mapsto\left(  u+v,v\right)  .
+\end{align*}
+Consider this map $f$.
+
+On the other hand, if $\left(  u,v\right)  \in C$, then $\left(  u-v,v\right)
+\in W$\ \ \ \ \footnote{\textit{Proof.} Let $\left(  u,v\right)  \in C$. Thus,
+$\left(  u,v\right)  $ is a pair $\left(  x,y\right)  \in\left[  n\right]
+^{2}$ satisfying $x\perp y$ and $x>y$ (because $C$ is the set of all such
+pairs). In other words, $\left(  u,v\right)  $ belongs to $\left[  n\right]
+^{2}$ and satisfies $u\perp v$ and $u>v$.
+\par
+We know that $\left(  u,v\right)  $ belongs to $\left[  n\right]  ^{2}$;
+hence, $u\in\left[  n\right]  $ and $v\in\left[  n\right]  $. From
+$u\in\left[  n\right]  =\left\{  1,2,\ldots,n\right\}  $, we obtain $1\leq
+u\leq n$. From $v\in\left[  n\right]  =\left\{  1,2,\ldots,n\right\}  $, we
+obtain $1\leq v\leq n$. Now, $u-v>0$ (since $u>v$) and thus $u-v\geq1$ (since
+$u-v$ is an integer). Also, $0<1\leq v$ and thus $v>0$; hence, $u-v<u\leq n$
+and therefore $u-v\leq n$. From $u-v\geq1$ and $u-v\leq n$, we obtain
+$u-v\in\left\{  1,2,\ldots,n\right\}  =\left[  n\right]  $.
+\par
+We have $u\perp v$. In other words, the numbers $u$ and $v$ are coprime (by
+Definition \ref{def.ent.coprime.perp}). In other words, $\gcd\left(
+u,v\right)  =1$ (by the definition of \textquotedblleft
+coprime\textquotedblright). Proposition \ref{prop.ent.gcd.props1} \textbf{(b)}
+(applied to $a=v$ and $b=u$) yields $\gcd\left(  v,u\right)  =\gcd\left(
+u,v\right)  =1$. But Proposition \ref{prop.ent.gcd.props1} \textbf{(c)}
+(applied to $v$, $u$ and $-1$ instead of $a$, $b$ and $u$) yields $\gcd\left(
+v,\left(  -1\right)  v+u\right)  =\gcd\left(  v,u\right)  =1$. In other words,
+$\gcd\left(  v,u-v\right)  =1$ (since $\left(  -1\right)  v+u=u-v$).
+Furthermore, Proposition \ref{prop.ent.gcd.props1} \textbf{(b)} (applied to
+$a=u-v$ and $b=v$) yields $\gcd\left(  u-v,v\right)  =\gcd\left(
+v,u-v\right)  =1$. In other words, $u-v$ and $v$ are coprime (by the
+definition of \textquotedblleft coprime\textquotedblright). In other words,
+$u-v\perp v$.
+\par
+Now, $\left(  u-v,v\right)  \in\left[  n\right]  ^{2}$ (since $u-v\in\left[
+n\right]  $ and $v\in\left[  n\right]  $) and $u-v\perp v$ and $\left(
+u-v\right)  +v\leq n$ (since $\left(  u-v\right)  +v=u\leq n$). In other
+words, $\left(  u-v,v\right)  $ is a pair $\left(  x,y\right)  \in\left[
+n\right]  ^{2}$ satisfying $x\perp y$ and $x+y\leq n$. In other words,
+$\left(  u-v,v\right)  \in W$ (since $W$ is the set of all pairs $\left(
+x,y\right)  \in\left[  n\right]  ^{2}$ satisfying $x\perp y$ and $x+y\leq n$).
+Qed.}. Hence, we can define a map%
+\begin{align*}
+g:C  &  \rightarrow W,\\
+\left(  u,v\right)   &  \mapsto\left(  u-v,v\right)  .
+\end{align*}
+Consider this map $g$.
+
+We have $f\circ g=\operatorname*{id}$\ \ \ \ \footnote{\textit{Proof.} Let
+$p\in C$. Thus, $p$ is a pair $\left(  x,y\right)  \in\left[  n\right]  ^{2}$
+satisfying $x\perp y$ and $x>y$ (because $C$ is the set of all such pairs).
+Consider this pair $\left(  x,y\right)  $. Thus, $p=\left(  x,y\right)  $.
+\par
+Applying the map $g$ to both sides of this equality, we find $g\left(
+p\right)  =g\left(  \left(  x,y\right)  \right)  =\left(  x-y,y\right)  $ (by
+the definition of $g$). Applying the map $f$ to both sides of this equality,
+we find
+\begin{align*}
+f\left(  g\left(  p\right)  \right)   &  =f\left(  \left(  x-y,y\right)
+\right)  =\left(  \underbrace{\left(  x-y\right)  +y}_{=x},y\right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of }f\right)  \\
+&  =\left(  x,y\right)  =p.
+\end{align*}
+Thus, $\left(  f\circ g\right)  \left(  p\right)  =f\left(  g\left(  p\right)
+\right)  =p=\operatorname*{id}\left(  p\right)  $.
+\par
+Forget that we fixed $p$. We thus have shown that $\left(  f\circ g\right)
+\left(  p\right)  =\operatorname*{id}\left(  p\right)  $ for each $p\in C$. In
+other words, $f\circ g=\operatorname*{id}$.} and $g\circ f=\operatorname*{id}%
+$\ \ \ \ \footnote{\textit{Proof.} Let $p\in W$. Thus, $p$ is a pair $\left(
+x,y\right)  \in\left[  n\right]  ^{2}$ satisfying $x\perp y$ and $x+y\leq n$
+(because $W$ is the set of all such pairs). Consider this pair $\left(
+x,y\right)  $. Thus, $p=\left(  x,y\right)  $.
+\par
+Applying the map $f$ to both sides of this equality, we find $f\left(
+p\right)  =f\left(  \left(  x,y\right)  \right)  =\left(  x+y,y\right)  $ (by
+the definition of $f$). Applying the map $g$ to both sides of this equality,
+we find
+\begin{align*}
+g\left(  f\left(  p\right)  \right)   &  =g\left(  \left(  x+y,y\right)
+\right)  =\left(  \underbrace{\left(  x+y\right)  -y}_{=x},y\right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of }g\right)  \\
+&  =\left(  x,y\right)  =p.
+\end{align*}
+Thus, $\left(  g\circ f\right)  \left(  p\right)  =g\left(  f\left(  p\right)
+\right)  =p=\operatorname*{id}\left(  p\right)  $.
+\par
+Forget that we fixed $p$. We thus have shown that $\left(  g\circ f\right)
+\left(  p\right)  =\operatorname*{id}\left(  p\right)  $ for each $p\in W$. In
+other words, $g\circ f=\operatorname*{id}$.}. Hence, the maps $f$ and $g$ are
+mutually inverse, and thus are invertible. In other words, the maps $f$ and
+$g$ are bijections.
+
+In particular, the map $f$ is a bijection. In other words, the map%
+\begin{align*}
+W &  \rightarrow C,\\
+\left(  u,v\right)   &  \mapsto\left(  u+v,v\right)
+\end{align*}
+is a bijection (since this map is precisely the map $f$ (by the definition of
+$f$)). Hence, we can substitute $\left(  u+v,v\right)  $ for $\left(
+x,y\right)  $ in the sum $\sum_{\left(  x,y\right)  \in C}\ \ \dfrac{1}{xy}$.
+We thus obtain
+\[
+\sum_{\left(  x,y\right)  \in C}\ \ \dfrac{1}{xy}=\sum_{\left(  u,v\right)
+\in W}\ \ \underbrace{\dfrac{1}{\left(  u+v\right)  v}}_{=\dfrac{1}{v\left(
+u+v\right)  }}=\sum_{\left(  u,v\right)  \in W}\ \ \dfrac{1}{v\left(
+u+v\right)  }=\sum_{\left(  x,y\right)  \in W}\ \ \dfrac{1}{y\left(
+x+y\right)  }%
+\]
+(here, we have renamed the summation index $\left(  u,v\right)  $ as $\left(
+x,y\right)  $). This proves (\ref{sol.ent.sum1xy-eng.1st.sumC}).]
+
+Next, we claim that%
+\begin{equation}
+\sum_{\left(  x,y\right)  \in B}\ \ \dfrac{1}{xy}%
+=1.\label{sol.ent.sum1xy-eng.1st.sumB}%
+\end{equation}
+
+
+[\textit{Proof of (\ref{sol.ent.sum1xy-eng.1st.sumB}):} It is easy to see that
+$\left\{  \left(  1,1\right)  \right\}  \subseteq B$%
+\ \ \ \ \footnote{\textit{Proof.} We know that $n$ is a positive integer.
+Thus, $1\in\left\{  1,2,\ldots,n\right\}  =\left[  n\right]  $. Hence,
+$\left(  1,1\right)  \in\left[  n\right]  ^{2}$ (since $1\in\left[  n\right]
+$ and $1\in\left[  n\right]  $) and $1\perp1$ (by Exercise
+\ref{exe.ent.coprime.01} \textbf{(a)}, applied to $a=1$) and $1=1$. In other
+words, $\left(  1,1\right)  $ is a pair $\left(  x,y\right)  \in\left[
+n\right]  ^{2}$ satisfying $x\perp y$ and $x=y$. In other words, $\left(
+1,1\right)  \in B$ (since $B$ is the set of all pairs $\left(  x,y\right)
+\in\left[  n\right]  ^{2}$ satisfying $x\perp y$ and $x=y$). Hence, $\left\{
+\left(  1,1\right)  \right\}  \subseteq B$.} and $B\subseteq\left\{  \left(
+1,1\right)  \right\}  $\ \ \ \ \footnote{\textit{Proof.} Let $p\in B$. Thus,
+$p$ is a pair $\left(  x,y\right)  \in\left[  n\right]  ^{2}$ satisfying
+$x\perp y$ and $x=y$ (because $B$ is the set of all such pairs). Consider this
+pair $\left(  x,y\right)  $. Thus, $p=\left(  x,y\right)  $. From $\left(
+x,y\right)  \in\left[  n\right]  ^{2}$, we obtain $x\in\left[  n\right]  $ and
+$y\in\left[  n\right]  $. Hence, $x\in\left[  n\right]  =\left\{
+1,2,\ldots,n\right\}  $, so that $x$ is a positive integer. Now, we have
+$y\mid y$. In other words, $x\mid y$ (since $x=y$). Hence, Proposition
+\ref{prop.ent.gcd.props1} \textbf{(i)} (applied to $a=x$ and $b=y$) yields
+$\gcd\left(  x,y\right)  =\left\vert x\right\vert =x$ (since $x$ is positive).
+However, we have $x\perp y$. In other words, $x$ is coprime to $y$ (by the
+definition of the notation \textquotedblleft$x\perp y$\textquotedblright). In
+other words, $\gcd\left(  x,y\right)  =1$ (by the definition of
+\textquotedblleft coprime\textquotedblright). Comparing this with $\gcd\left(
+x,y\right)  =x$, we obtain $x=1$. From $x=y$, we now obtain $y=x=1$. Combining
+$x=1$ with $y=1$, we see that $\left(  x,y\right)  =\left(  1,1\right)  $.
+Hence, $p=\left(  x,y\right)  =\left(  1,1\right)  \in\left\{  \left(
+1,1\right)  \right\}  $.
+\par
+Forget that we fixed $p$. We thus have shown that $p\in\left\{  \left(
+1,1\right)  \right\}  $ for each $p\in B$. In other words, $B\subseteq\left\{
+\left(  1,1\right)  \right\}  $.}. Combining these two relations, we obtain
+$B=\left\{  \left(  1,1\right)  \right\}  $. Thus,%
+\[
+\sum_{\left(  x,y\right)  \in B}\ \ \dfrac{1}{xy}=\sum_{\left(  x,y\right)
+\in\left\{  \left(  1,1\right)  \right\}  }\ \ \dfrac{1}{xy}=\dfrac{1}%
+{1\cdot1}=1.
+\]
+This proves (\ref{sol.ent.sum1xy-eng.1st.sumB}).]
+
+Now, (\ref{sol.ent.sum1xy-eng.1st.2}) becomes%
+\begin{align*}
+\sum_{\substack{\left(  x,y\right)  \in\left[  n\right]  ^{2};\\x\perp
+y}}\ \ \dfrac{1}{xy}  & =\underbrace{\sum_{\left(  x,y\right)  \in
+A}\ \ \dfrac{1}{xy}}_{\substack{=\sum_{\left(  x,y\right)  \in W}\ \ \dfrac
+{1}{x\left(  x+y\right)  }\\\text{(by (\ref{sol.ent.sum1xy-eng.1st.sumA}))}%
+}}+\underbrace{\sum_{\left(  x,y\right)  \in B}\ \ \dfrac{1}{xy}%
+}_{\substack{=1\\\text{(by (\ref{sol.ent.sum1xy-eng.1st.sumB}))}%
+}}+\underbrace{\sum_{\left(  x,y\right)  \in C}\ \ \dfrac{1}{xy}%
+}_{\substack{=\sum_{\left(  x,y\right)  \in W}\ \ \dfrac{1}{y\left(
+x+y\right)  }\\\text{(by (\ref{sol.ent.sum1xy-eng.1st.sumC}))}}}\\
+& =\sum_{\left(  x,y\right)  \in W}\ \ \dfrac{1}{x\left(  x+y\right)  }%
++1+\sum_{\left(  x,y\right)  \in W}\ \ \dfrac{1}{y\left(  x+y\right)  }\\
+& =\underbrace{\sum_{\left(  x,y\right)  \in W}\ \ \dfrac{1}{x\left(
+x+y\right)  }+\sum_{\left(  x,y\right)  \in W}\ \ \dfrac{1}{y\left(
+x+y\right)  }}_{=\sum_{\left(  x,y\right)  \in W}\left(  \dfrac{1}{x\left(
+x+y\right)  }+\dfrac{1}{y\left(  x+y\right)  }\right)  }+1\\
+& =\sum_{\left(  x,y\right)  \in W}\underbrace{\left(  \dfrac{1}{x\left(
+x+y\right)  }+\dfrac{1}{y\left(  x+y\right)  }\right)  }_{=\dfrac
+{y+x}{xy\left(  x+y\right)  }=\dfrac{1}{xy}}+1=\sum_{\left(  x,y\right)  \in
+W}\ \ \dfrac{1}{xy}+1.
+\end{align*}
+Comparing this with (\ref{sol.ent.sum1xy-eng.1st.1}), we obtain%
+\[
+\sum_{\left(  x,y\right)  \in W}\ \ \dfrac{1}{xy}+\sum_{\left(  x,y\right)
+\in Z}\ \ \dfrac{1}{xy}=\sum_{\left(  x,y\right)  \in W}\ \ \dfrac{1}{xy}+1
+\]
+Subtracting $\sum_{\left(  x,y\right)  \in W}\ \ \dfrac{1}{xy}$ from both
+sides of this equality, we obtain $\sum_{\left(  x,y\right)  \in Z}%
+\ \ \dfrac{1}{xy}=1$. This solves Exercise \ref{exe.ent.sum1xy-eng}.
 \end{proof}
 \end{fineprint}
 
