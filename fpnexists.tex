@@ -14,7 +14,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, October 05, 2020 20:06:44}
+%TCIDATA{LastRevised=Friday, March 05, 2021 11:42:18}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -138,10 +138,13 @@ Theorem \ref{thm.fpnexists} is well-known; various proofs can be found in
 \cite[Theorem 2.5]{LidNie97}, \cite[Theorem 9.14]{Knapp1}, \cite[Exercise
 12.126]{Loehr-BC}, \cite[Theorem 2.2]{Conrad-FF}, \cite[Corollary
 11.26]{Hungerford}, \cite[Chapter V, Proposition 5.6]{Hungerford-03},
-\cite[Theorem 19.3]{Stewar15}, \cite[14.5.1]{Escofi01} and \cite[Theorem
-6.2.11]{Walker87}. Most of these proofs use either Galois theory or the
-M\"{o}bius function from number theory. In this note, we will give a proof
-that uses only relatively basic properties of rings and fields.
+\cite[Theorem 19.3]{Stewar15}, \cite[14.5.1]{Escofi01}, \cite[Corollary
+(4.5.3)]{ChaLoi21}, \cite[\S 13.5, Example after Proposition 37]{DumFoo04},
+\cite[Theorem 6.5]{HucNeu13}, \cite{MonAno14}, \cite[Theorem 32]{Lange18},
+\cite[Chapter 10, Theorem 9]{Murphy12} and \cite[Theorem 6.2.11]{Walker87}.
+Most of these proofs use either Galois theory or the M\"{o}bius function from
+number theory. In this note, we will give a proof that uses only relatively
+basic properties of rings and fields.
 
 We first strengthen Theorem \ref{thm.fpnexists} a little bit, for the
 convenience of our proof.
@@ -2045,7 +2048,7 @@ $a\in\mathbb{L}$.
 $a\in\mathbb{L}$.
 
 \item \textbf{(j}$_{2}$\textbf{)} We have $\lambda\cdot0_{\mathbb{L}%
-}=0_{\mathbb{L}}$ for all $\lambda\in\mathbb{L}$.
+}=0_{\mathbb{L}}$ for all $\lambda\in\mathbb{K}$.
 
 \item \textbf{(k}$_{2}$\textbf{)} We have $a\left(  bc\right)  =\left(
 ab\right)  c$ for all $a,b,c\in\mathbb{L}$.
@@ -2244,7 +2247,7 @@ But (\ref{eq.prop.restrict-mod.fml}) (applied to $v=\mu a$) yields%
 \[
 \lambda\cdot\left(  \mu a\right)  =\left(  \lambda\cdot1_{\mathbb{L}}\right)
 \cdot\underbrace{\left(  \mu a\right)  }_{\substack{=\mu\cdot a\\=\left(
-\left(  \mu\cdot1_{\mathbb{L}}\right)  \cdot a\right)  \\\text{(by
+\mu\cdot1_{\mathbb{L}}\right)  \cdot a\\\text{(by
 (\ref{eq.prop.restrict-mod.fml}), applied to }\mu\\\text{instead of }%
 \lambda\text{)}}}=\left(  \lambda\cdot1_{\mathbb{L}}\right)  \cdot\left(
 \left(  \mu\cdot1_{\mathbb{L}}\right)  \cdot a\right)  .
@@ -2376,9 +2379,9 @@ the \textquotedblleft Scale-invariance of multiplication\textquotedblright%
 \subsection{Appendix 2: Factoring $x^{p^{g}}-x$, part II}
 
 If $r$, $m$ and $\mathbb{K}$ are as in Lemma \ref{lem.xpg-x.2}, then every
-irreducible divisor of the polynomial in $x^{p^{mr}}-x$ in $\mathbb{K}\left[
-x\right]  $ satisfies $\deg\mathbf{a}\mid r$ in $\mathbb{Z}$; this is what
-Lemma \ref{lem.xpg-x.2} stated. But a converse also holds:
+irreducible divisor $\mathbf{a}$ of the polynomial in $x^{p^{mr}}-x$ in
+$\mathbb{K}\left[  x\right]  $ satisfies $\deg\mathbf{a}\mid r$ in
+$\mathbb{Z}$; this is what Lemma \ref{lem.xpg-x.2} stated. But a converse also holds:
 
 \begin{lemma}
 \label{lem.xpg-x.4}Let $r$ and $m$ be positive integers. Let $\mathbb{K}$ be a
@@ -2440,7 +2443,7 @@ x^{p^{mr}}-x$ in $\mathbb{K}\left[  x\right]  $. This proves Lemma
 \ref{lem.xpg-x.4}.
 \end{proof}
 
-Lemma \ref{lem.xpg-x.2} with Lemma \ref{lem.xpg-x.4} can be merged into a
+Lemma \ref{lem.xpg-x.2} and Lemma \ref{lem.xpg-x.4} can be merged into a
 single theorem, which gives an \textquotedblleft explicit\textquotedblright%
 \ factorization of $x^{p^{mr}}-x$ into irreducible
 polynomials\footnote{\textquotedblleft Explicit\textquotedblright\ only in the
@@ -2757,7 +2760,7 @@ satisfy }\deg\mathbf{a}\mid r
 \end{array}
 \right) \\
 &  =\prod_{\substack{\mathbf{a}\in\mathbb{K}\left[  x\right]  \text{
-is}\\\text{monic irreducible;}\\\deg\mathbf{a}\mid r}}\mathbf{a.}%
+is}\\\text{irreducible}\\\text{and monic;}\\\deg\mathbf{a}\mid r}}\mathbf{a.}%
 \end{align*}
 This proves Theorem \ref{thm.xpg-x.full}.
 \end{proof}
@@ -2771,8 +2774,14 @@ Commutative Algebra}, Hermann 1972.
 \bibitem[Bourba74]{Bourba74}Nicolas Bourbaki, \textit{Algebra I, Chapters
 1-3}, Hermann 1974.\newline\url{https://archive.org/details/ElementsOfMathematics-AlgebraPart1/page/n0}
 
+\bibitem[ChaLoi21]{ChaLoi21}Antoine Chambert-Loir, \textit{(Mostly)
+Commutative Algebra}, 27 January 2021.\newline\url{https://webusers.imj-prg.fr/~antoine.chambert-loir/publications/teach/sv-commalg.pdf}
+
 \bibitem[ConradF]{Conrad-FF}Keith Conrad, \textit{Finite fields}, 4 February
 2018.\newline\url{https://kconrad.math.uconn.edu/blurbs/galoistheory/finitefields.pdf}
+
+\bibitem[DumFoo04]{DumFoo04}David S. Dummit, Richard M. Foote,
+\textit{Abstract Algebra}, 3rd edition, Wiley 2004.
 
 \bibitem[Escofi01]{Escofi01}%
 \href{https://dx.doi.org/10.1007/978-1-4613-0191-2}{Jean-Pierre Escofier,
@@ -2793,6 +2802,9 @@ version whose numbering matches the references used above, see\newline\url{https
 \bibitem[Grinbe19b]{19s-mt3s}Darij Grinberg, \textit{UMN Spring 2019 Math 4281
 midterm \#3 solutions}.\newline\url{https://www.cip.ifi.lmu.de/~grinberg/t/19s/mt3s.pdf}
 
+\bibitem[HucNeu13]{HucNeu13}Sophie Huczynska, Max Neunhoffer, \textit{Finite
+Fields}, 25 January 2013.\newline\url{http://www.math.rwth-aachen.de/~Max.Neunhoeffer/Teaching/ff2013/ff2013.pdf}
+
 \bibitem[Hunger03]{Hungerford-03}%
 \href{http://link.springer.com/book/10.1007/978-1-4612-6101-8}{Thomas W.
 Hungerford, \textit{Algebra}, 12th printing, Springer 2003.}
@@ -2803,6 +2815,9 @@ An Introduction}, 3rd edition, Brooks/Cole 2014.
 \bibitem[Knapp16a]{Knapp1}Anthony W. Knapp, \textit{Basic Algebra}, digital
 2nd edition 2016. \newline\url{https://www.math.stonybrook.edu/~aknapp/download.html}
 
+\bibitem[Lange18]{Lange18}Tanja Lange, \textit{Finite Fields}, draft of a book
+chapter.\newline\url{https://www.hyperelliptic.org/tanja/teaching/CCI11/online-ff.pdf}
+
 \bibitem[LidNie97]{LidNie97}Rudolf Lidl, Harald Niederreiter, \textit{Finite
 fields}, 2nd edition, Cambridge University Press 1997.\newline\url{https://doi.org/10.1017/CBO9780511525926}
 
@@ -2812,6 +2827,13 @@ fields}, 2nd edition, Cambridge University Press 1997.\newline\url{https://doi.o
 
 \bibitem[Milne18]{Milne-FT}James S. Milne, \textit{Fields and Galois Theory},
 version 4.60, September 2018.\newline\url{https://www.jmilne.org/math/CourseNotes/}
+
+\bibitem[MonAno14]{MonAno14}Maria Monks, Anon1, \textit{A proof of the
+existence of finite fields of every possible order}, Mathematical Gemstones
+blog, 2014.\newline\url{https://www.mathematicalgemstones.com/gemstones/sapphire/a-proof-of-the-existence-of-finite-fields-of-every-possible-order/}
+
+\bibitem[Murphy12]{Murphy12}Timothy Murphy, \textit{Finite Fields (Course
+MA346D, Part I)}, 31 January 2012.\newline\url{https://www.maths.tcd.ie/pub/Maths/Courseware/FiniteFields/GF.pdf}
 
 \bibitem[Stewar15]{Stewar15}Ian Stewart, \textit{Galois theory}, 4th edition,
 CRC Press 2015.\newline\url{http://matematicaeducativa.com/foro/download/file.php?id=1647}
